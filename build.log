@@ -1,0 +1,789 @@
+Dependency Sdk: org.gnome.Sdk 47
+Installing org.gnome.Sdk/x86_64/47 from flathub
+Info: org.gnome.Sdk is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Info: org.gnome.Sdk.Locale is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Installing runtime/org.gnome.Sdk.Locale/x86_64/47
+Installing runtime/org.gnome.Sdk/x86_64/47
+Dependency Runtime: org.gnome.Platform 47
+Installing org.gnome.Platform/x86_64/47 from flathub
+Info: org.gnome.Platform is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Info: org.gnome.Platform.Locale is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Installing runtime/org.gnome.Platform.Locale/x86_64/47
+Installing runtime/org.gnome.Platform/x86_64/47
+Dependency Extension: org.freedesktop.Sdk.Extension.node20 24.08
+Updating org.freedesktop.Sdk.Extension.node20/x86_64/24.08
+
+Nothing to do.
+Dependency Extension: org.freedesktop.Sdk.Extension.rust-stable 24.08
+Updating org.freedesktop.Sdk.Extension.rust-stable/x86_64/24.08
+
+Nothing to do.
+Emptying app dir 'build-flatpak'
+Downloading sources
+Initializing build dir
+Committing stage init to cache
+Starting build of com.potatotomato.games
+========================================================================
+Building module potato-tomato in /var/home/ratrad/Projects/Other/Potatoe-tomatoe-games/potato-tomato-2/.flatpak-builder/build/potato-tomato-5
+========================================================================
+Running: npm install -g pnpm --prefix /run/build/potato-tomato/npm-global
+
+added 1 package in 2s
+
+1 package is looking for funding
+  run `npm fund` for details
+Running: export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm install --frozen-lockfile
+Recreating /run/build/potato-tomato/node_modules
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +458
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 458, reused 0, downloaded 59, added 31
+Progress: resolved 458, reused 0, downloaded 111, added 73
+Progress: resolved 458, reused 0, downloaded 193, added 129
+Progress: resolved 458, reused 0, downloaded 250, added 250
+Progress: resolved 458, reused 0, downloaded 297, added 277
+Progress: resolved 458, reused 0, downloaded 344, added 312
+Progress: resolved 458, reused 0, downloaded 415, added 364
+Progress: resolved 458, reused 0, downloaded 449, added 414
+Progress: resolved 458, reused 0, downloaded 454, added 454
+Progress: resolved 458, reused 0, downloaded 458, added 458, done
+.../esbuild@0.25.11/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.25.11/node_modules/esbuild postinstall: Done
+
+dependencies:
++ fuse.js 7.1.0
++ lucide-svelte 0.548.0
+
+devDependencies:
++ @chromatic-com/storybook 4.1.1
++ @eslint/compat 1.4.0
++ @eslint/js 9.38.0
++ @internationalized/date 3.10.0
++ @lucide/svelte 0.544.0
++ @storybook/addon-docs 9.1.15
++ @storybook/addon-svelte-csf 5.0.10
++ @storybook/addon-vitest 9.1.15
++ @storybook/sveltekit 9.1.15
++ @sveltejs/adapter-auto 6.1.1
++ @sveltejs/adapter-static 3.0.10
++ @sveltejs/kit 2.48.0
++ @sveltejs/vite-plugin-svelte 6.2.1
++ @tailwindcss/forms 0.5.10
++ @tailwindcss/typography 0.5.19
++ @tailwindcss/vite 4.1.16
++ @tanstack/table-core 8.21.3
++ @tauri-apps/api 2.9.1
++ @tauri-apps/cli 2.9.5
++ @types/node 22.18.12
++ @vitest/browser 3.2.4
++ bits-ui 2.14.1
++ clsx 2.1.1
++ embla-carousel-svelte 8.6.0
++ eslint 9.38.0
++ eslint-config-prettier 10.1.8
++ eslint-plugin-storybook 9.1.15
++ eslint-plugin-svelte 3.12.5
++ formsnap 2.0.1
++ globals 16.4.0
++ layerchart 2.0.0-next.27
++ mode-watcher 1.1.0
++ paneforge 1.0.2
++ playwright 1.56.1
++ prettier 3.6.2
++ prettier-plugin-svelte 3.4.0
++ prettier-plugin-tailwindcss 0.6.14
++ storybook 9.1.15
++ svelte 5.42.2
++ svelte-check 4.3.3
++ svelte-sonner 1.0.5
++ sveltekit-superforms 2.28.0
++ tailwind-merge 3.3.1
++ tailwind-variants 3.1.1
++ tailwindcss 4.1.16
++ tw-animate-css 1.4.0
++ typescript 5.9.3
++ typescript-eslint 8.46.2
++ vaul-svelte 1.0.0-next.7
++ vite 7.1.12
++ vite-plugin-devtools-json 1.0.0
++ vitest 3.2.4
++ vitest-browser-svelte 1.1.0
+
+. prepare$ svelte-kit sync || echo ''
+. prepare: > config.kit.paths.assets option must be an absolute path, if specified. See https://svelte.dev/docs/kit/configuration#paths
+. prepare: Done
+Done in 13.6s using pnpm v10.25.0
+Running: export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm tauri:build
+
+> project-potato-tomato@0.0.1 tauri:build /run/build/potato-tomato
+> node scripts/generate-games-list.js && tauri build --no-bundle
+
+✅ Generated games list with 518 games
+   Saved to: static/games/games-list.json
+✅ Generated consolidated metadata with 518 games
+   Saved to: static/games/games-metadata.json
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `pnpm build`
+
+> project-potato-tomato@0.0.1 build /run/build/potato-tomato
+> node scripts/generate-games-list.js && vite build
+
+✅ Generated games list with 518 games
+   Saved to: static/games/games-list.json
+✅ Generated consolidated metadata with 518 games
+   Saved to: static/games/games-metadata.json
+[36mvite v7.1.12 [32mbuilding SSR bundle for production...[36m[39m
+transforming...
+8:31:40 AM [vite-plugin-svelte] src/routes/games/[gameId]/+page.svelte:16:5 `iframeElement` is updated, but is not declared with `$state(...)`. Changing its value will not correctly trigger updates
+https://svelte.dev/e/non_reactive_update
+14:   let loading = $state(true);
+15:   let error = $state('');
+16:   let iframeElement: HTMLIFrameElement;
+                                          ^
+17:   let showFedoraBanner = $state(false);
+18:   let bannerDismissed = $state(false);
+[32m✓[39m 4440 modules transformed.
+rendering chunks...
+[36mvite v7.1.12 [32mbuilding for production...[36m[39m
+transforming...
+8:32:00 AM [vite-plugin-svelte] src/routes/games/[gameId]/+page.svelte:16:5 `iframeElement` is updated, but is not declared with `$state(...)`. Changing its value will not correctly trigger updates
+https://svelte.dev/e/non_reactive_update
+14:   let loading = $state(true);
+15:   let error = $state('');
+16:   let iframeElement: HTMLIFrameElement;
+                                          ^
+17:   let showFedoraBanner = $state(false);
+18:   let bannerDismissed = $state(false);
+[32m✓[39m 4424 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m.svelte-kit/output/client/[22m[32m_app/version.json                       [39m[1m[2m  0.03 kB[22m[1m[22m[2m │ gzip:  0.05 kB[22m
+[2m.svelte-kit/output/client/[22m[32m.vite/manifest.json                     [39m[1m[2m  5.08 kB[22m[1m[22m[2m │ gzip:  0.86 kB[22m
+[2m.svelte-kit/output/client/[22m[35m_app/immutable/assets/3.CV-KWLNP.css    [39m[1m[2m  0.29 kB[22m[1m[22m[2m │ gzip:  0.15 kB[22m
+[2m.svelte-kit/output/client/[22m[35m_app/immutable/assets/0.C6jZkVoH.css    [39m[1m[2m118.50 kB[22m[1m[22m[2m │ gzip: 18.36 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/DsnmJJEf.js       [39m[1m[2m  0.07 kB[22m[1m[22m[2m │ gzip:  0.08 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/entry/start.DMvIAMyF.js  [39m[1m[2m  0.08 kB[22m[1m[22m[2m │ gzip:  0.09 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/nodes/1.I_As4lpR.js      [39m[1m[2m  0.52 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/C3r2Qac7.js       [39m[1m[2m  0.53 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/BwmD-6ms.js       [39m[1m[2m  2.47 kB[22m[1m[22m[2m │ gzip:  0.83 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/nodes/2.BfnqfdkT.js      [39m[1m[2m  3.56 kB[22m[1m[22m[2m │ gzip:  1.76 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/BZ-6eePq.js       [39m[1m[2m  4.16 kB[22m[1m[22m[2m │ gzip:  1.71 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/D3ZKN-aa.js       [39m[1m[2m  4.43 kB[22m[1m[22m[2m │ gzip:  2.27 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/entry/app.CGoNjKDI.js    [39m[1m[2m  5.48 kB[22m[1m[22m[2m │ gzip:  2.56 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/D5lZI2T_.js       [39m[1m[2m 19.12 kB[22m[1m[22m[2m │ gzip:  6.82 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/nodes/4.BbUCmcps.js      [39m[1m[2m 20.98 kB[22m[1m[22m[2m │ gzip:  5.11 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/CmXRxe5m.js       [39m[1m[2m 25.85 kB[22m[1m[22m[2m │ gzip: 10.18 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/DMSFky65.js       [39m[1m[2m 35.12 kB[22m[1m[22m[2m │ gzip: 13.52 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/CzUMvj9Q.js       [39m[1m[2m 39.65 kB[22m[1m[22m[2m │ gzip: 13.78 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/chunks/Dv6O7BwI.js       [39m[1m[2m 43.82 kB[22m[1m[22m[2m │ gzip: 15.74 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/nodes/0.B2Z3W2iO.js      [39m[1m[2m 79.93 kB[22m[1m[22m[2m │ gzip: 21.07 kB[22m
+[2m.svelte-kit/output/client/[22m[36m_app/immutable/nodes/3.Dim18tVt.js      [39m[1m[2m 95.15 kB[22m[1m[22m[2m │ gzip: 26.30 kB[22m
+[32m✓ built in 15.89s[39m
+[2m.svelte-kit/output/server/[22m[32m.vite/manifest.json                                 [39m[1m[2m  5.63 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[35m_app/immutable/assets/_page.CV-KWLNP.css            [39m[1m[2m  0.29 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[35m_app/immutable/assets/_layout.C6jZkVoH.css          [39m[1m[2m118.50 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/false.js                                     [39m[1m[2m  0.05 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36minternal.js                                         [39m[1m[2m  0.33 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/state.svelte.js                              [39m[1m[2m  0.39 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/environment.js                               [39m[1m[2m  0.62 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/stores.js                                    [39m[1m[2m  0.69 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mentries/pages/games/_gameId_/_page.svelte.js        [39m[1m[2m  0.78 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mentries/fallbacks/error.svelte.js                   [39m[1m[2m  1.09 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/utils.js                                     [39m[1m[2m  1.15 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mentries/endpoints/api/games/metadata/_server.ts.js  [39m[1m[2m  1.24 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mentries/pages/_page.svelte.js                       [39m[1m[2m  1.28 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/index.js                                     [39m[1m[2m  1.43 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/button.js                                    [39m[1m[2m  3.05 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/context.js                                   [39m[1m[2m  3.35 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/events.js                                    [39m[1m[2m  3.93 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/exports.js                                   [39m[1m[2m  5.52 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/shared.js                                    [39m[1m[2m 16.57 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/internal.js                                  [39m[1m[2m 25.68 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mremote-entry.js                                     [39m[1m[2m 27.88 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/index2.js                                    [39m[1m[2m 77.14 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mchunks/Icon.js                                      [39m[1m[2m 82.35 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mentries/pages/_layout.svelte.js                     [39m[1m[2m134.58 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mindex.js                                            [39m[1m[2m145.34 kB[22m[1m[22m
+[2m.svelte-kit/output/server/[22m[36mentries/pages/games/_page.svelte.js                 [39m[1m[2m163.18 kB[22m[1m[22m
+[32m✓ built in 35.96s[39m
+
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-static
+  Wrote site to "build"
+  ✔ done
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded adler2 v2.0.1
+  Downloaded alloc-no-stdlib v2.0.4
+  Downloaded alloc-stdlib v0.2.2
+  Downloaded gobject-sys v0.18.0
+  Downloaded ahash v0.7.8
+  Downloaded darling_core v0.21.3
+  Downloaded atk-sys v0.18.2
+  Downloaded bitflags v1.3.2
+  Downloaded rustc_version v0.4.1
+  Downloaded rkyv_derive v0.7.45
+  Downloaded autocfg v1.5.0
+  Downloaded arrayvec v0.7.6
+  Downloaded same-file v1.0.6
+  Downloaded rend v0.4.2
+  Downloaded ref-cast-impl v1.0.25
+  Downloaded convert_case v0.4.0
+  Downloaded bytecheck_derive v0.6.12
+  Downloaded atk v0.18.2
+  Downloaded bitflags v2.10.0
+  Downloaded cfg_aliases v0.2.1
+  Downloaded cairo-sys-rs v0.18.2
+  Downloaded block-buffer v0.10.4
+  Downloaded anyhow v1.0.100
+  Downloaded dirs-sys v0.5.0
+  Downloaded ryu v1.0.20
+  Downloaded dlopen2_derive v0.4.3
+  Downloaded fxhash v0.2.1
+  Downloaded cssparser-macros v0.6.1
+  Downloaded dirs v6.0.0
+  Downloaded serialize-to-javascript-impl v0.1.2
+  Downloaded cfg-if v1.0.4
+  Downloaded funty v2.0.0
+  Downloaded futures-sink v0.3.31
+  Downloaded cpufeatures v0.2.17
+  Downloaded futures-task v0.3.31
+  Downloaded field-offset v0.3.6
+  Downloaded stable_deref_trait v1.2.1
+  Downloaded equivalent v1.0.2
+  Downloaded tinyvec_macros v0.1.1
+  Downloaded gdkx11-sys v0.18.2
+  Downloaded unic-ucd-version v0.9.0
+  Downloaded unic-char-range v0.9.0
+  Downloaded unic-common v0.9.0
+  Downloaded unic-char-property v0.9.0
+  Downloaded ref-cast v1.0.25
+  Downloaded futf v0.1.5
+  Downloaded cargo-platform v0.1.9
+  Downloaded scopeguard v1.2.0
+  Downloaded serialize-to-javascript v0.1.2
+  Downloaded digest v0.10.7
+  Downloaded fnv v1.0.7
+  Downloaded simd-adler32 v0.3.7
+  Downloaded version_check v0.9.5
+  Downloaded futures-executor v0.3.31
+  Downloaded hex v0.4.3
+  Downloaded soup3-sys v0.5.0
+  Downloaded serde-untagged v0.1.9
+  Downloaded rand_chacha v0.3.1
+  Downloaded futures-core v0.3.31
+  Downloaded dpi v0.1.2
+  Downloaded siphasher v1.0.1
+  Downloaded bytecheck v0.6.12
+  Downloaded siphasher v0.3.11
+  Downloaded ctor v0.2.9
+  Downloaded strsim v0.11.1
+  Downloaded deranged v0.5.5
+  Downloaded slab v0.4.11
+  Downloaded futures-macro v0.3.31
+  Downloaded shlex v1.3.0
+  Downloaded serde_spanned v1.0.3
+  Downloaded form_urlencoded v1.2.2
+  Downloaded darling_macro v0.21.3
+  Downloaded time-core v0.1.6
+  Downloaded serde_repr v0.1.20
+  Downloaded synstructure v0.13.2
+  Downloaded cargo_metadata v0.19.2
+  Downloaded borsh-derive v1.6.0
+  Downloaded futures-channel v0.3.31
+  Downloaded servo_arc v0.2.0
+  Downloaded version-compare v0.2.1
+  Downloaded string_cache v0.8.9
+  Downloaded base64 v0.22.1
+  Downloaded dlopen2 v0.8.2
+  Downloaded tap v1.0.1
+  Downloaded string_cache_codegen v0.5.4
+  Downloaded find-msvc-tools v0.1.5
+  Downloaded utf-8 v0.7.6
+  Downloaded toml_datetime v0.6.3
+  Downloaded gdk-pixbuf-sys v0.18.0
+  Downloaded futures-io v0.3.31
+  Downloaded toml_datetime v0.7.3
+  Downloaded serde_spanned v0.6.9
+  Downloaded dtoa-short v0.3.5
+  Downloaded crypto-common v0.1.7
+  Downloaded typeid v1.0.3
+  Downloaded thiserror-impl v2.0.17
+  Downloaded generic-array v0.14.7
+  Downloaded gdkx11 v0.18.2
+  Downloaded dunce v1.0.5
+  Downloaded gdk-pixbuf v0.18.5
+  Downloaded fdeflate v0.3.7
+  Downloaded unic-ucd-ident v0.9.0
+  Downloaded gdkwayland-sys v0.18.2
+  Downloaded seahash v4.1.0
+  Downloaded dtoa v1.0.10
+  Downloaded semver v1.0.27
+  Downloaded ident_case v1.0.1
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded radium v0.7.0
+  Downloaded proc-macro-crate v3.4.0
+  Downloaded toml_writer v1.0.4
+  Downloaded crc32fast v1.5.0
+  Downloaded byte-unit v5.2.0
+  Downloaded idna_adapter v1.2.1
+  Downloaded walkdir v2.5.0
+  Downloaded sha2 v0.10.9
+  Downloaded rand_core v0.5.1
+  Downloaded displaydoc v0.2.5
+  Downloaded cargo_toml v0.22.3
+  Downloaded simdutf8 v0.1.5
+  Downloaded byteorder v1.5.0
+  Downloaded proc-macro-error v1.0.4
+  Downloaded cfg-expr v0.15.8
+  Downloaded zerofrom-derive v0.1.6
+  Downloaded utf8-width v0.1.8
+  Downloaded phf_generator v0.8.0
+  Downloaded match_token v0.1.0
+  Downloaded serde_derive_internals v0.29.1
+  Downloaded phf v0.10.1
+  Downloaded schemars_derive v0.8.22
+  Downloaded num_threads v0.1.7
+  Downloaded zerovec-derive v0.11.2
+  Downloaded crossbeam-utils v0.8.21
+  Downloaded tauri-macros v2.5.2
+  Downloaded embed-resource v3.0.6
+  Downloaded getrandom v0.2.16
+  Downloaded erased-serde v0.4.9
+  Downloaded glob v0.3.3
+  Downloaded tauri-plugin v2.5.2
+  Downloaded getrandom v0.1.16
+  Downloaded pin-utils v0.1.0
+  Downloaded ptr_meta_derive v0.1.4
+  Downloaded ptr_meta v0.1.4
+  Downloaded tauri-codegen v2.5.2
+  Downloaded dyn-clone v1.0.20
+  Downloaded time-macros v0.2.24
+  Downloaded thiserror v1.0.69
+  Downloaded thiserror v2.0.17
+  Downloaded tendril v0.4.3
+  Downloaded tauri-build v2.5.3
+  Downloaded target-lexicon v0.12.16
+  Downloaded urlpattern v0.3.0
+  Downloaded tinystr v0.8.2
+  Downloaded derive_more v0.99.20
+  Downloaded percent-encoding v2.3.2
+  Downloaded mac v0.1.1
+  Downloaded cfb v0.7.3
+  Downloaded new_debug_unreachable v1.0.6
+  Downloaded phf_macros v0.11.3
+  Downloaded toml_parser v1.0.4
+  Downloaded powerfmt v0.2.0
+  Downloaded thiserror-impl v1.0.69
+  Downloaded tauri-winres v0.3.5
+  Downloaded potential_utf v0.1.4
+  Downloaded cairo-rs v0.18.5
+  Downloaded system-deps v6.2.2
+  Downloaded smallvec v1.15.1
+  Downloaded serde_with_macros v3.16.1
+  Downloaded getrandom v0.3.4
+  Downloaded precomputed-hash v0.1.1
+  Downloaded libappindicator-sys v0.9.0
+  Downloaded glib-macros v0.18.5
+  Downloaded phf_shared v0.10.0
+  Downloaded raw-window-handle v0.6.2
+  Downloaded phf_shared v0.11.3
+  Downloaded phf_shared v0.8.0
+  Downloaded phf_macros v0.10.0
+  Downloaded pkg-config v0.3.32
+  Downloaded darling v0.21.3
+  Downloaded flate2 v1.1.5
+  Downloaded kuchikiki v0.8.8-speedreader
+  Downloaded jsonptr v0.6.3
+  Downloaded bytes v1.11.0
+  Downloaded selectors v0.24.0
+  Downloaded cookie v0.18.1
+  Downloaded camino v1.2.1
+  Downloaded soup3 v0.5.0
+  Downloaded tauri-runtime v2.9.2
+  Downloaded zerofrom v0.1.6
+  Downloaded tinyvec v1.10.0
+  Downloaded yoke-derive v0.8.1
+  Downloaded toml v0.8.2
+  Downloaded matches v0.1.10
+  Downloaded heck v0.5.0
+  Downloaded itoa v1.0.15
+  Downloaded option-ext v0.2.0
+  Downloaded rand_core v0.6.4
+  Downloaded num-conv v0.1.0
+  Downloaded phf_generator v0.10.0
+  Downloaded gtk3-macros v0.18.2
+  Downloaded value-bag v1.12.0
+  Downloaded rand_pcg v0.2.1
+  Downloaded phf v0.8.0
+  Downloaded unicode-ident v1.0.22
+  Downloaded heck v0.4.1
+  Downloaded mime v0.3.17
+  Downloaded phf_codegen v0.8.0
+  Downloaded phf_generator v0.11.3
+  Downloaded glib-sys v0.18.1
+  Downloaded cssparser v0.29.6
+  Downloaded pin-project-lite v0.2.16
+  Downloaded memoffset v0.9.1
+  Downloaded javascriptcore-rs-sys v1.1.1
+  Downloaded once_cell v1.21.3
+  Downloaded nodrop v0.1.14
+  Downloaded toml v0.9.8
+  Downloaded rand_chacha v0.2.2
+  Downloaded libloading v0.7.4
+  Downloaded keyboard-types v0.7.0
+  Downloaded yoke v0.8.1
+  Downloaded borsh v1.6.0
+  Downloaded proc-macro-error-attr v1.0.4
+  Downloaded serde_core v1.0.228
+  Downloaded utf8_iter v1.0.4
+  Downloaded proc-macro-crate v2.0.2
+  Downloaded socket2 v0.6.1
+  Downloaded serde_derive v1.0.228
+  Downloaded proc-macro-hack v0.5.20+deprecated
+  Downloaded proc-macro-crate v1.3.1
+  Downloaded javascriptcore-rs v1.1.2
+  Downloaded tauri-runtime-wry v2.9.2
+  Downloaded parking_lot_core v0.9.12
+  Downloaded webkit2gtk-sys v2.0.1
+  Downloaded rkyv v0.7.45
+  Downloaded phf_codegen v0.11.3
+  Downloaded gdk-sys v0.18.2
+  Downloaded pango-sys v0.18.0
+  Downloaded phf v0.11.3
+  Downloaded json-patch v3.0.1
+  Downloaded writeable v0.6.2
+  Downloaded gio-sys v0.18.1
+  Downloaded toml_edit v0.23.9
+  Downloaded crossbeam-channel v0.5.15
+  Downloaded lazy_static v1.5.0
+  Downloaded icu_normalizer_data v2.1.1
+  Downloaded markup5ever v0.14.1
+  Downloaded gdk v0.18.2
+  Downloaded iana-time-zone v0.1.64
+  Downloaded wyz v0.5.1
+  Downloaded schemars v0.9.0
+  Downloaded infer v0.19.0
+  Downloaded miniz_oxide v0.8.9
+  Downloaded log v0.4.29
+  Downloaded typenum v1.19.0
+  Downloaded html5ever v0.29.1
+  Downloaded schemars v0.8.22
+  Downloaded x11 v2.21.0
+  Downloaded cc v1.2.49
+  Downloaded tray-icon v0.21.2
+  Downloaded parking_lot v0.12.5
+  Downloaded indexmap v1.9.3
+  Downloaded pango v0.18.3
+  Downloaded icu_provider v2.1.1
+  Downloaded proc-macro2 v1.0.103
+  Downloaded aho-corasick v1.1.4
+  Downloaded uuid v1.19.0
+  Downloaded webkit2gtk v2.0.1
+  Downloaded http v1.4.0
+  Downloaded indexmap v2.12.1
+  Downloaded memchr v2.7.6
+  Downloaded futures-util v0.3.31
+  Downloaded idna v1.1.0
+  Downloaded bitvec v1.0.1
+  Downloaded rand v0.8.5
+  Downloaded muda v0.17.1
+  Downloaded brotli-decompressor v5.0.0
+  Downloaded winnow v0.5.40
+  Downloaded icu_properties_data v2.1.1
+  Downloaded hashbrown v0.16.1
+  Downloaded gio v0.18.4
+  Downloaded chrono v0.4.42
+  Downloaded glib v0.18.5
+  Downloaded zerocopy v0.8.31
+  Downloaded fern v0.7.1
+  Downloaded brotli v8.0.2
+  Downloaded libc v0.2.178
+  Downloaded litemap v0.8.1
+  Downloaded serde v1.0.228
+  Downloaded num-traits v0.2.19
+  Downloaded quote v1.0.42
+  Downloaded schemars v1.1.0
+  Downloaded tauri-plugin-log v2.7.1
+  Downloaded toml_edit v0.20.2
+  Downloaded rust_decimal v1.39.0
+  Downloaded toml_edit v0.19.15
+  Downloaded icu_collections v2.1.1
+  Downloaded url v2.5.7
+  Downloaded ico v0.4.0
+  Downloaded icu_properties v2.1.1
+  Downloaded icu_normalizer v2.1.1
+  Downloaded lock_api v0.4.14
+  Downloaded hashbrown v0.12.3
+  Downloaded zerotrie v0.2.3
+  Downloaded unicode-segmentation v1.12.0
+  Downloaded icu_locale_core v2.1.1
+  Downloaded x11-dl v2.21.0
+  Downloaded libappindicator v0.9.0
+  Downloaded mio v1.1.1
+  Downloaded png v0.17.16
+  Downloaded serde_json v1.0.145
+  Downloaded time v0.3.44
+  Downloaded gtk-sys v0.18.2
+  Downloaded regex v1.12.2
+  Downloaded tauri-utils v2.8.1
+  Downloaded zerovec v0.11.5
+  Downloaded rand v0.7.3
+  Downloaded serde_with v3.16.1
+  Downloaded winnow v0.7.14
+  Downloaded wry v0.53.5
+  Downloaded syn v1.0.109
+  Downloaded tauri v2.9.4
+  Downloaded tao v0.34.5
+  Downloaded syn v2.0.111
+  Downloaded regex-syntax v0.8.8
+  Downloaded gtk v0.18.2
+  Downloaded regex-automata v0.4.13
+  Downloaded tokio v1.48.0
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling serde_core v1.0.228
+   Compiling libc v0.2.178
+   Compiling serde v1.0.228
+   Compiling smallvec v1.15.1
+   Compiling hashbrown v0.16.1
+   Compiling equivalent v1.0.2
+   Compiling pkg-config v0.3.32
+   Compiling heck v0.5.0
+   Compiling winnow v0.5.40
+   Compiling target-lexicon v0.12.16
+   Compiling version-compare v0.2.1
+   Compiling cfg-if v1.0.4
+   Compiling indexmap v2.12.1
+   Compiling zerocopy v0.8.31
+   Compiling cfg-expr v0.15.8
+   Compiling syn v2.0.111
+   Compiling syn v1.0.109
+   Compiling version_check v0.9.5
+   Compiling thiserror v1.0.69
+   Compiling getrandom v0.2.16
+   Compiling autocfg v1.5.0
+   Compiling icu_normalizer_data v2.1.1
+   Compiling rand_core v0.6.4
+   Compiling icu_properties_data v2.1.1
+   Compiling stable_deref_trait v1.2.1
+   Compiling siphasher v1.0.1
+   Compiling memchr v2.7.6
+   Compiling phf_shared v0.11.3
+   Compiling siphasher v0.3.11
+   Compiling semver v1.0.27
+   Compiling getrandom v0.1.16
+   Compiling ppv-lite86 v0.2.21
+   Compiling parking_lot_core v0.9.12
+   Compiling proc-macro-error-attr v1.0.4
+   Compiling fnv v1.0.7
+   Compiling typeid v1.0.3
+   Compiling rand_chacha v0.3.1
+   Compiling proc-macro-error v1.0.4
+   Compiling thiserror v2.0.17
+   Compiling rand v0.8.5
+   Compiling rand_core v0.5.1
+   Compiling strsim v0.11.1
+   Compiling litemap v0.8.1
+   Compiling futures-core v0.3.31
+   Compiling ident_case v1.0.1
+   Compiling erased-serde v0.4.9
+   Compiling pin-project-lite v0.2.16
+   Compiling itoa v1.0.15
+   Compiling writeable v0.6.2
+   Compiling pin-utils v0.1.0
+   Compiling once_cell v1.21.3
+   Compiling getrandom v0.3.4
+   Compiling phf_generator v0.11.3
+   Compiling futures-task v0.3.31
+   Compiling slab v0.4.11
+   Compiling bitflags v2.10.0
+   Compiling rand_pcg v0.2.1
+   Compiling rand_chacha v0.2.2
+   Compiling rustc_version v0.4.1
+   Compiling phf_shared v0.8.0
+   Compiling heck v0.4.1
+   Compiling proc-macro-hack v0.5.20+deprecated
+   Compiling anyhow v1.0.100
+   Compiling rand v0.7.3
+   Compiling synstructure v0.13.2
+   Compiling darling_core v0.21.3
+   Compiling futures-channel v0.3.31
+   Compiling phf_shared v0.10.0
+   Compiling byteorder v1.5.0
+   Compiling new_debug_unreachable v1.0.6
+   Compiling serde_json v1.0.145
+   Compiling scopeguard v1.2.0
+   Compiling phf_generator v0.10.0
+   Compiling lock_api v0.4.14
+   Compiling phf_generator v0.8.0
+   Compiling phf_codegen v0.11.3
+   Compiling string_cache_codegen v0.5.4
+   Compiling mac v0.1.1
+   Compiling precomputed-hash v0.1.1
+   Compiling winnow v0.7.14
+   Compiling ryu v1.0.20
+   Compiling futf v0.1.5
+   Compiling parking_lot v0.12.5
+   Compiling markup5ever v0.14.1
+   Compiling phf_codegen v0.8.0
+   Compiling toml_datetime v0.7.3
+   Compiling serde_spanned v1.0.3
+   Compiling bitflags v1.3.2
+   Compiling serde_derive v1.0.228
+   Compiling zerofrom-derive v0.1.6
+   Compiling yoke-derive v0.8.1
+   Compiling zerovec-derive v0.11.2
+   Compiling displaydoc v0.2.5
+   Compiling thiserror-impl v1.0.69
+   Compiling thiserror-impl v2.0.17
+   Compiling futures-macro v0.3.31
+   Compiling phf_macros v0.11.3
+   Compiling darling_macro v0.21.3
+   Compiling zerofrom v0.1.6
+   Compiling yoke v0.8.1
+   Compiling zerovec v0.11.5
+   Compiling zerotrie v0.2.3
+   Compiling darling v0.21.3
+   Compiling serde_with_macros v3.16.1
+   Compiling futures-util v0.3.31
+   Compiling toml_parser v1.0.4
+   Compiling cssparser v0.29.6
+   Compiling phf_macros v0.10.0
+   Compiling tinystr v0.8.2
+   Compiling icu_locale_core v2.1.1
+   Compiling potential_utf v0.1.4
+   Compiling utf8_iter v1.0.4
+   Compiling icu_collections v2.1.1
+   Compiling percent-encoding v2.3.2
+   Compiling dtoa v1.0.10
+   Compiling log v0.4.29
+   Compiling utf-8 v0.7.6
+   Compiling toml_writer v1.0.4
+   Compiling icu_provider v2.1.1
+   Compiling tendril v0.4.3
+   Compiling toml v0.9.8
+   Compiling dtoa-short v0.3.5
+   Compiling phf v0.10.1
+   Compiling icu_normalizer v2.1.1
+   Compiling icu_properties v2.1.1
+   Compiling form_urlencoded v1.2.2
+   Compiling phf v0.11.3
+   Compiling cssparser-macros v0.6.1
+   Compiling ctor v0.2.9
+   Compiling selectors v0.24.0
+   Compiling toml_datetime v0.6.3
+   Compiling serde_spanned v0.6.9
+   Compiling futures-executor v0.3.31
+   Compiling string_cache v0.8.9
+   Compiling uuid v1.19.0
+   Compiling toml_edit v0.20.2
+   Compiling aho-corasick v1.1.4
+   Compiling idna_adapter v1.2.1
+   Compiling idna v1.1.0
+   Compiling indexmap v1.9.3
+   Compiling nodrop v0.1.14
+   Compiling unic-common v0.9.0
+   Compiling camino v1.2.1
+   Compiling regex-syntax v0.8.8
+   Compiling gio v0.18.4
+   Compiling matches v0.1.10
+   Compiling convert_case v0.4.0
+   Compiling unic-char-range v0.9.0
+   Compiling alloc-no-stdlib v2.0.4
+   Compiling unic-char-property v0.9.0
+   Compiling alloc-stdlib v0.2.2
+   Compiling url v2.5.7
+   Compiling servo_arc v0.2.0
+   Compiling unic-ucd-version v0.9.0
+   Compiling derive_more v0.99.20
+   Compiling match_token v0.1.0
+   Compiling fxhash v0.2.1
+   Compiling serde_derive_internals v0.29.1
+   Compiling phf v0.8.0
+   Compiling toml v0.8.2
+   Compiling proc-macro-crate v2.0.2
+   Compiling futures-io v0.3.31
+   Compiling schemars v0.8.22
+   Compiling system-deps v6.2.2
+   Compiling regex-automata v0.4.13
+   Compiling hashbrown v0.12.3
+   Compiling html5ever v0.29.1
+   Compiling schemars_derive v0.8.22
+   Compiling unic-ucd-ident v0.9.0
+   Compiling brotli-decompressor v5.0.0
+   Compiling cfb v0.7.3
+   Compiling glib-sys v0.18.1
+   Compiling gobject-sys v0.18.0
+   Compiling gio-sys v0.18.1
+   Compiling gdk-sys v0.18.2
+   Compiling glib-macros v0.18.5
+   Compiling cairo-sys-rs v0.18.2
+   Compiling pango-sys v0.18.0
+   Compiling gdk-pixbuf-sys v0.18.0
+   Compiling atk-sys v0.18.2
+   Compiling gtk-sys v0.18.2
+   Compiling regex v1.12.2
+   Compiling jsonptr v0.6.3
+   Compiling cargo-platform v0.1.9
+   Compiling bytes v1.11.0
+   Compiling same-file v1.0.6
+   Compiling dunce v1.0.5
+   Compiling dyn-clone v1.0.20
+   Compiling kuchikiki v0.8.8-speedreader
+   Compiling walkdir v2.5.0
+   Compiling http v1.4.0
+   Compiling json-patch v3.0.1
+   Compiling cargo_metadata v0.19.2
+   Compiling urlpattern v0.3.0
+   Compiling brotli v8.0.2
+   Compiling infer v0.19.0
+   Compiling serde-untagged v0.1.9
+   Compiling serde_with v3.16.1
+   Compiling glib v0.18.5
+   Compiling glob v0.3.3
+   Compiling memoffset v0.9.1
+   Compiling toml_edit v0.19.15
+   Compiling field-offset v0.3.6
+   Compiling shlex v1.3.0
+   Compiling find-msvc-tools v0.1.5
+   Compiling typenum v1.19.0
+   Compiling cc v1.2.49
+   Compiling javascriptcore-rs-sys v1.1.1
+   Compiling tauri-utils v2.8.1
+   Compiling soup3-sys v0.5.0
+   Compiling proc-macro-crate v1.3.1
+   Compiling generic-array v0.14.7
+   Compiling gtk v0.18.2
+   Compiling option-ext v0.2.0
+   Compiling dirs-sys v0.5.0
+   Compiling embed-resource v3.0.6
+   Compiling webkit2gtk-sys v2.0.1
+   Compiling x11 v2.21.0
+   Compiling crc32fast v1.5.0
+   Compiling gtk3-macros v0.18.2
+   Compiling simd-adler32 v0.3.7
+   Compiling tauri-winres v0.3.5
+   Compiling dirs v6.0.0
+   Compiling gdkx11-sys v0.18.2
+   Compiling cargo_toml v0.22.3
+   Compiling time-core v0.1.6
+   Compiling adler2 v2.0.1
+   Compiling value-bag v1.12.0
+   Compiling num-conv v0.1.0
+   Compiling powerfmt v0.2.0
+   Compiling crossbeam-utils v0.8.21
+   Compiling cairo-rs v0.18.5
+   Compiling atk v0.18.2
+   Compiling tauri-build v2.5.3
+   Compiling deranged v0.5.5
+   Compiling time-macros v0.2.24
+   Compiling miniz_oxide v0.8.9
+   Compiling dpi v0.1.2
+   Compiling cookie v0.18.1
+   Compiling x11-dl v2.21.0
+   Compiling num_threads v0.1.7
+   Compiling time v0.3.44

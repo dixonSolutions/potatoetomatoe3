@@ -1,0 +1,27 @@
+[package]
+name = "potato-tomato"
+version = "0.0.1"
+description = "Your ultimate destination for unblocked games"
+authors = ["luohoa97", "radr40662@gmail.com"]
+license = "MIT"
+repository = ""
+edition = "2021"
+rust-version = "1.77.2"
+
+[[bin]]
+name = "potato-tomato"
+path = "src/main.rs"
+
+[lib]
+name = "potato_tomato_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.5.3", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.9.4", features = ["devtools"] }
+tauri-plugin-log = "2"

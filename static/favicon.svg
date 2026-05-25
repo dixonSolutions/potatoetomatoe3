@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Potato Tomato Games">
+	<title>Potato Tomato Games</title>
+	<!-- App tab icon (not the Svelte starter logo). -->
+	<circle cx="13" cy="17" r="11" fill="#c9a66b" />
+	<circle cx="21" cy="14" r="10" fill="#e11d48" />
+</svg>

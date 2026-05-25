@@ -1,0 +1,42 @@
+app-id: com.potatotomato.games
+runtime: org.gnome.Platform
+runtime-version: '47'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.gnome.Sdk.Extension.node20
+  - org.gnome.Sdk.Extension.rust-stable
+command: potato-tomato
+build-options:
+  build-args:
+    - --share=network
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --filesystem=home
+  - --talk-name=org.freedesktop.Notifications
+
+modules:
+  - name: potato-tomato
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/node20/bin:/usr/lib/sdk/rust-stable/bin
+      build-args:
+        - --share=network
+      env:
+        CARGO_HOME: /run/build/potato-tomato/cargo
+        npm_config_nodedir: /usr/lib/sdk/node20
+        NODE_ENV: production
+        CI: "true"
+    build-commands:
+      - npm install -g pnpm --prefix /run/build/potato-tomato/npm-global
+      - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm install --frozen-lockfile
+      - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm tauri:build
+      - install -Dm755 src-tauri/target/release/potato-tomato /app/bin/potato-tomato
+      - install -Dm644 flatpak/com.potatotomato.games.desktop /app/share/applications/com.potatotomato.games.desktop
+      - install -Dm644 buildResources/icons/potato-tomato-512.png /app/share/icons/hicolor/512x512/apps/com.potatotomato.games.png
+    sources:
+      - type: dir
+        path: ..

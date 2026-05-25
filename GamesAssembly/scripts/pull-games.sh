@@ -1,0 +1,1 @@
+huggingface-cli download-folder BorysTheBear/Potato-Tomato-Games ./static/games . --repo-type=dataset

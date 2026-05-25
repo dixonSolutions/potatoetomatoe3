@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Potato Tomato
+Comment=Browse and launch Potato Tomato games
+Exec=potato-tomato
+Icon=com.potatotomato.games
+Categories=Game;
+Terminal=false
+StartupNotify=true
+

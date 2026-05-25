@@ -1,0 +1,69 @@
+{
+  "comment": "Curated wget targets. Homepages use low maxDepth to avoid crawling entire portals; single game pages go deeper. Rights: only mirror what you may host.",
+  "entries": [
+    {
+      "url": "https://www.uptoplay.net/playonline/",
+      "id": "uptoplay-playonline",
+      "name": "UptoPlay — play online",
+      "maxDepth": 3,
+      "category": "arcade",
+      "author": "UptoPlay (mirror)"
+    },
+    {
+      "url": "https://poki.com/",
+      "id": "poki-home",
+      "name": "Poki (homepage snapshot)",
+      "maxDepth": 2,
+      "category": "arcade",
+      "author": "Poki (mirror)"
+    },
+    {
+      "url": "https://todikgames.com/all_games/earn-to-die-3/",
+      "id": "todik-earn-to-die-3",
+      "name": "Earn to Die 3 (Todik)",
+      "maxDepth": 8,
+      "category": "racing",
+      "author": "Todik (mirror)"
+    },
+    {
+      "url": "https://www.play-games.com/",
+      "id": "play-games-home",
+      "name": "Play-Games.com (homepage snapshot)",
+      "maxDepth": 3,
+      "category": "arcade",
+      "author": "Play-Games (mirror)"
+    },
+    {
+      "url": "https://www.play-games.com/game/4234/earn-to-die-1.html",
+      "id": "play-games-earn-to-die-1",
+      "name": "Earn to Die 1 (Play-Games)",
+      "maxDepth": 8,
+      "category": "racing",
+      "author": "Play-Games (mirror)"
+    },
+    {
+      "url": "https://www.play-games.com/game/30747/plants-vs-zombies.html",
+      "id": "play-games-plants-vs-zombies",
+      "name": "Plants vs Zombies (Play-Games)",
+      "maxDepth": 8,
+      "category": "strategy",
+      "author": "Play-Games (mirror)"
+    },
+    {
+      "url": "https://www.play-games.com/game/27085/drive-or-die.html",
+      "id": "play-games-drive-or-die",
+      "name": "Drive or Die (Play-Games)",
+      "maxDepth": 8,
+      "category": "racing",
+      "author": "Play-Games (mirror)"
+    },
+    {
+      "url": "https://www.play-games.com/game/4878/earn-to-die-2-exodus.html",
+      "id": "play-games-earn-to-die-2-exodus",
+      "name": "Earn to Die 2 Exodus (Play-Games)",
+      "maxDepth": 8,
+      "category": "racing",
+      "author": "Play-Games (mirror)"
+    }
+  ]
+}
