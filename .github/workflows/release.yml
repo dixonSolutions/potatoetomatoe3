@@ -93,7 +93,7 @@ jobs:
             build-flatpak flatpak/com.potatotomato.games.yml
           flatpak build-update-repo repo --generate-static-deltas
           flatpak build-bundle repo "com.potatotomato.games-${{ needs.version.outputs.version }}.flatpak" \
-            com.potatotomato.games --branch=stable
+            com.potatotomato.games stable
 
       - name: Upload Flatpak artifact
         uses: actions/upload-artifact@v4

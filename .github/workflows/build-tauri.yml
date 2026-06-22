@@ -57,7 +57,7 @@ jobs:
           flatpak-builder --force-clean --user --install-deps-from=flathub \
             --repo=repo --default-branch=stable \
             build-flatpak flatpak/com.potatotomato.games.yml
-          flatpak build-bundle repo potato-tomato.flatpak com.potatotomato.games --branch=stable
+          flatpak build-bundle repo potato-tomato.flatpak com.potatotomato.games stable
 
       - uses: actions/upload-artifact@v4
         with:
