@@ -1,0 +1,82 @@
+{
+  "productName": "Shrek Swamp Escape 2",
+  "productVersion": "0.1.0",
+  "pulledAt": "2026-06-22T04:48:41.470Z",
+  "cdnBase": "https://cdn.jsdelivr.net/gh/777kze777/shreh@main",
+  "embedPageUrl": "https://sites.google.com/classroom.center/view-1/shrek-escape-from-the-swamp",
+  "embedFileUrl": "https://cdn.jsdelivr.net/gh/777kze777/shreh@main/1.xml",
+  "externalAssetUrls": [
+    "https://justplaygames.ru/public/Paymant1.png",
+    "https://justplaygames.ru/public/Paymant2.png",
+    "https://justplaygames.ru/public/Paymant3.png",
+    "https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png"
+  ],
+  "assetRoutes": {
+    "https://justplaygames.ru/public/Paymant1.png": "assets/justplaygames.ru/public/Paymant1.png",
+    "https://justplaygames.ru/public/Paymant2.png": "assets/justplaygames.ru/public/Paymant2.png",
+    "https://justplaygames.ru/public/Paymant3.png": "assets/justplaygames.ru/public/Paymant3.png",
+    "https://yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png": "assets/yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png"
+  },
+  "placeholderAssets": [
+    "https://justplaygames.ru/public/Paymant1.png",
+    "https://justplaygames.ru/public/Paymant2.png",
+    "https://justplaygames.ru/public/Paymant3.png"
+  ],
+  "files": [
+    {
+      "path": "style.css",
+      "size": 1847,
+      "sha256": "121d63d33b02046f4a3a8ea8f69326dc0b060ace1bc8d6e939a30186fe4f0c5f"
+    },
+    {
+      "path": "logo.png",
+      "size": 4338,
+      "sha256": "0d3e0e98533836782cb54c37040d785c1dbb7cb3864913b7e599e942837e7316"
+    },
+    {
+      "path": "Build/Shrek2.loader.js",
+      "size": 20642,
+      "sha256": "86ea62283e54262ba471d7fccfd1af877ef7a09ec4d047afbd9ddbb6d315d169"
+    },
+    {
+      "path": "background.jpg",
+      "size": 296849,
+      "sha256": "5ecde9313a70c3519ff8ac5cb7c751f40e916b3c5f01078aeab8f04261e8b06a"
+    },
+    {
+      "path": "Build/Shrek2.framework.js",
+      "size": 416502,
+      "sha256": "148afd32a095af430afdd06274cdc7daf2168499b510cd077f8eadf67bb9b46e"
+    },
+    {
+      "path": "assets/justplaygames.ru/public/Paymant1.png",
+      "size": 70,
+      "sha256": "6b7fa434f92a8b80aab02d9bf1a12e49ffcae424e4013a1c4f68b67e3d2bbcd0"
+    },
+    {
+      "path": "assets/justplaygames.ru/public/Paymant2.png",
+      "size": 70,
+      "sha256": "6b7fa434f92a8b80aab02d9bf1a12e49ffcae424e4013a1c4f68b67e3d2bbcd0"
+    },
+    {
+      "path": "assets/justplaygames.ru/public/Paymant3.png",
+      "size": 70,
+      "sha256": "6b7fa434f92a8b80aab02d9bf1a12e49ffcae424e4013a1c4f68b67e3d2bbcd0"
+    },
+    {
+      "path": "assets/yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png",
+      "size": 1671,
+      "sha256": "7304c6408ac972bc62e4a87ae4e14c25634b43f12da356eb546267ce9f8734d6"
+    },
+    {
+      "path": "Build/Shrek2.data.br",
+      "size": 64009238,
+      "sha256": "df647279e32befe7fdee137cc41fe57ec1613ae0d7ab487e7c4918134d3486e7"
+    },
+    {
+      "path": "Build/Shrek2.wasm.br",
+      "size": 32576040,
+      "sha256": "02a04c2d8eae7498e9291884d962cbbb95baf0a33017c1472c353b0dcc0bab18"
+    }
+  ]
+}

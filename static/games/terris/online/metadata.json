@@ -1,0 +1,8 @@
+{
+  "id": "terris",
+  "name": "Terris",
+  "author": "Ported",
+  "description": "Classic Flash Tetris (Ruffle). The upstream “terris” page on abinbins was removed; this build mirrors their tetris-flash bundle.",
+  "thumbnail": "/games/terris/online/assets/thumbnail.png",
+  "category": "puzzle"
+}

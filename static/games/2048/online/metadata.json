@@ -1,0 +1,8 @@
+{
+  "id": "2048",
+  "name": "2048",
+  "author": "Poki",
+  "description": "2048 is a single-player mathematical puzzle game where you merge tiles with equal numbers. The goal of the game is to merge the tiles until you have 2048. With each merger of tiles the value doubles. You can slide tiles in any direction to make the identical tiles merge. The grid on which you play is 4x4 so you don't have a lot of space to maneuvre. Try keep some free spaces. How to play 2048? Use your arrow keys to slide the tiles in the direction you want. When tiles with equal numbers collide, they will merge into one tile and double in value. What is the best strategy to play 2048? The best strategy is to keep your highest value tile in one of the corners, and work the other tiles in that direction. Who created 2048? Poki features the original 2048 game created by Gabriele Cirulli. He created the game in 2014 and was initially inspired by Veewo Studios' 1024, which was inspired by the game Threes.",
+  "thumbnail": "/games/2048/online/assets/2048.png",
+  "category": "brain"
+}

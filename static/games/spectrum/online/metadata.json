@@ -1,0 +1,8 @@
+{
+  "id": "spectrum",
+  "name": "SPECTRUM",
+  "author": "Poki",
+  "description": "SPECTRUM is a puzzle platform game where you play as a white square which can be split into different colors by going through colored portals. You can split up into red, green or blue (RGB) and then you can split those colors into cyan, magenta and yellow! The aim of the game is to collect all the colored squares in each level by correctly splitting yourself into the right color. You do this by going through the colored portals which will remove a colour from the square, you then just need to grab the goal and you're good! Let's see how good your color theory is... SPECTRUM was a winner in the GDevelop Game Jam #3 with the theme of \"Separation\" and was made in around 9 days! How to play SPECTRUM? Move right: D or right arrow Move left: A or left arrow Jump: Spacebar or up arrow Restart: R Who created SPECTRUM? SPECTRUM is created by Calastrovsk. This is their first game on Poki! How can I play SPECTRUM for free? You can play SPECTRUM for free on Poki. Can I play SPECTRUM on mobile devices and desktop? SPECTRUM can be played on your computer and mobile devices like phones and tablets.",
+  "thumbnail": "/games/spectrum/online/assets/spectrum.png",
+  "category": "puzzle"
+}
