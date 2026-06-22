@@ -33,7 +33,7 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | Workflow | Failure | Fix |
 | -------- | ------- | --- |
 | Release | `ConfigureRemote not allowed for user` | Use `flatpak --user` for remotes and installs on GitHub-hosted runners |
-| Build Flatpak | `Unknown extension …/50` / `Nothing matches node22` | GNOME SDK 50 uses Freedesktop SDK **25.08** extensions — pin `node22//25.08` and `rust-stable//25.08` |
+| Build Flatpak | Malformed extension ref `…/50` | Use `version: '25.08'` under each sdk-extension in the manifest (not `//25.08` in the id) |
 | Remote install | `Missing group 'Flatpak Repo'` | Corrected `.flatpakrepo` INI section header |
 | GitHub Pages | `/flatpak/summary` 404 | Release workflow now copies the OSTree `repo/` into `build/flatpak/` before Pages deploy |
 

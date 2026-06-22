@@ -81,7 +81,8 @@ jobs:
 
       - name: Build Flatpak
         run: |
-          flatpak-builder --force-clean --user --repo=repo --default-branch=stable \
+          flatpak-builder --force-clean --user --install-deps-from=flathub \
+            --repo=repo --default-branch=stable \
             build-flatpak flatpak/com.potatotomato.games.yml
           flatpak build-update-repo repo --generate-static-deltas
           flatpak build-bundle repo "com.potatotomato.games-${{ needs.version.outputs.version }}.flatpak" \
