@@ -3,8 +3,8 @@ runtime: org.gnome.Platform
 runtime-version: '50'
 sdk: org.gnome.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node22
-  - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node22//50
+  - org.freedesktop.Sdk.Extension.rust-stable//50
 command: potato-tomato
 build-options:
   build-args:
