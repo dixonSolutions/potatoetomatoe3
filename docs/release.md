@@ -7,30 +7,49 @@ Workflow: `.github/workflows/release.yml`
 On every push to `main`:
 
 1. **Version bump** — `0.0.<run_number>` written to `package.json`, `tauri.conf.json`, `Cargo.toml`, `version.txt`
-2. **Flatpak build** — `flatpak-builder` using `flatpak/com.potatotomato.games.yml`
-3. **Puller sidecar** — `pnpm puller:bundle:linux` (optional; continues on failure)
+2. **Puller sidecar** — `pnpm puller:bundle:linux`
+3. **Flatpak build** — `flatpak-builder` using `flatpak/com.potatotomato.games.yml` (GNOME 50 + Freedesktop SDK extensions)
 4. **GitHub Release** — attaches `com.potatotomato.games-<version>.flatpak`
 5. **GitHub Pages** — deploys web build + OSTree repo at `/flatpak/` + `.flatpakrepo` file
 
+The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) is manual-only so it does not race with the release deploy.
+
 ## Public Flatpak remote
 
-After a successful release, users can add the remote:
+After a successful release:
 
 ```bash
-flatpak remote-add --if-not-exists potatotomato \
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists potatotomato \
   https://dixonsolutions.github.io/potatoetomatoe3/potatotomato.flatpakrepo
-flatpak install potatotomato com.potatotomato.games
+flatpak install --user potatotomato com.potatotomato.games
+flatpak run com.potatotomato.games
 ```
 
-The `.flatpakrepo` file is copied from `static/potatotomato.flatpakrepo` during CI.
+The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use the `[Flatpak Repo]` section header (not `[Flatpak]`).
+
+## Previous CI failures (fixed)
+
+| Workflow | Failure | Fix |
+| -------- | ------- | --- |
+| Release | `ConfigureRemote not allowed for user` | Use `flatpak --user` for remotes and installs on GitHub-hosted runners |
+| Build Flatpak | `Unknown extension org.gnome.Sdk.Extension.node20` | GNOME runtimes use **Freedesktop** SDK extensions; migrated to GNOME 50 + `org.freedesktop.Sdk.Extension.node22` |
+| Remote install | `Missing group 'Flatpak Repo'` | Corrected `.flatpakrepo` INI section header |
+| GitHub Pages | `/flatpak/summary` 404 | Release workflow now copies the OSTree `repo/` into `build/flatpak/` before Pages deploy |
 
 ## Manual web-only deploy
 
-Use `.github/workflows/deploy.yml` via **workflow_dispatch** for a GitHub Pages deploy without Flatpak/release steps.
+Use `.github/workflows/pages.yml` or `.github/workflows/deploy.yml` via **workflow_dispatch**.
 
 ## Local Flatpak build
 
+Requires Flathub and GNOME 50 runtimes:
+
 ```bash
+flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50 \
+  org.freedesktop.Sdk.Extension.node22//24.08 \
+  org.freedesktop.Sdk.Extension.rust-stable//24.08
+pnpm puller:bundle:linux
 pnpm flatpak:build    # build only
 pnpm flatpak:install  # build + install to user
 pnpm flatpak:run      # run installed app

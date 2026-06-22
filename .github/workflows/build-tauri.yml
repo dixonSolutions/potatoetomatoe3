@@ -15,11 +15,22 @@ jobs:
   build-flatpak:
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:freedesktop-24.08
+      image: bilelmoussaoui/flatpak-github-actions:gnome-47
       options: --privileged
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Build puller sidecar
+        run: |
+          corepack enable
+          corepack prepare pnpm@10 --activate
+          pnpm install --frozen-lockfile
+          cd puller && npx playwright install-deps chromium
+          cd ..
+          pnpm puller:bundle:linux
 
       - name: Build Flatpak
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
@@ -27,6 +38,7 @@ jobs:
           manifest-path: flatpak/com.potatotomato.games.yml
           bundle: potato-tomato.flatpak
           cache-key: flatpak-builder-${{ github.sha }}
+          branch: stable
 
       - name: Upload Flatpak
         uses: actions/upload-artifact@v4

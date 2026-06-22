@@ -38,23 +38,59 @@ pnpm tauri:build  # production binary in src-tauri/target/release/
 
 **Linux deps:** `libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf`
 
-## Flatpak
+## Flatpak (Linux desktop)
+
+App ID: `com.potatotomato.games`
+
+### Install from the public remote (recommended)
+
+Requires [Flatpak](https://flatpak.org/setup/) and the Flathub remote:
+
+```bash
+# One-time setup
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists potatotomato \
+  https://dixonsolutions.github.io/potatoetomatoe3/potatotomato.flatpakrepo
+
+# Install and run
+flatpak install --user potatotomato com.potatotomato.games
+flatpak run com.potatotomato.games
+```
+
+Updates:
+
+```bash
+flatpak update --user com.potatotomato.games
+```
+
+### Install from a GitHub Release bundle
+
+If the remote is unavailable, download `com.potatotomato.games-*.flatpak` from
+[GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases) and install:
+
+```bash
+flatpak install --user ~/Downloads/com.potatotomato.games-*.flatpak
+flatpak run com.potatotomato.games
+```
 
 ### Build locally
 
 ```bash
-pnpm flatpak:build
+git clone https://github.com/dixonSolutions/potatoetomatoe3.git
+cd potatoetomatoe3
+
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50 \
+  org.freedesktop.Sdk.Extension.node22//24.08 \
+  org.freedesktop.Sdk.Extension.rust-stable//24.08
+
+pnpm install --frozen-lockfile
+pnpm puller:bundle:linux
+pnpm flatpak:install   # build + install to ~/.local/share/flatpak
 pnpm flatpak:run
 ```
 
-### Install from public remote (after CI release)
-
-```bash
-flatpak remote-add --if-not-exists potatotomato \
-  https://dixonsolutions.github.io/potatoetomatoe3/potatotomato.flatpakrepo
-flatpak install potatotomato com.potatotomato.games
-flatpak run com.potatotomato.games
-```
+First build can take 30–60 minutes (Tauri/Rust compile inside the Flatpak sandbox).
 
 ## Puller service
 
@@ -92,8 +128,10 @@ PotatoeTomatoe3/
 Every push to `main` runs [`.github/workflows/release.yml`](.github/workflows/release.yml):
 
 1. Builds Flatpak + puller sidecar
-2. Publishes GitHub Release with `.flatpak` bundle
-3. Deploys web build + OSTree Flatpak repo to GitHub Pages
+2. Publishes a [GitHub Release](https://github.com/dixonSolutions/potatoetomatoe3/releases) with a `.flatpak` bundle
+3. Deploys the web app plus OSTree Flatpak repo to GitHub Pages (`/flatpak/` + `potatotomato.flatpakrepo`)
+
+See [docs/release.md](docs/release.md) for CI details and troubleshooting.
 
 ## Scripts
 

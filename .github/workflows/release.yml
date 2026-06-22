@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: release-${{ github.ref }}
@@ -34,10 +36,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y flatpak flatpak-builder
-          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          flatpak install -y flathub org.gnome.Platform//47 org.gnome.Sdk//47 \
-            org.gnome.Sdk.Extension.node20//24.08 \
-            org.gnome.Sdk.Extension.rust-stable//24.08
+          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak --user install -y flathub \
+            org.gnome.Platform//50 \
+            org.gnome.Sdk//50 \
+            org.freedesktop.Sdk.Extension.node22//24.08 \
+            org.freedesktop.Sdk.Extension.rust-stable//24.08
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -70,14 +74,18 @@ jobs:
           "
 
       - name: Build puller sidecar
-        run: pnpm puller:bundle:linux
-        continue-on-error: true
+        run: |
+          cd puller && npx playwright install-deps chromium
+          cd ..
+          pnpm puller:bundle:linux
 
       - name: Build Flatpak
         run: |
-          flatpak-builder --force-clean --repo=repo build-flatpak flatpak/com.potatotomato.games.yml
-          flatpak build-bundle repo com.potatotomato.games-${{ needs.version.outputs.version }}.flatpak \
-            com.potatotomato.games
+          flatpak-builder --force-clean --user --repo=repo --default-branch=stable \
+            build-flatpak flatpak/com.potatotomato.games.yml
+          flatpak build-update-repo repo --generate-static-deltas
+          flatpak build-bundle repo "com.potatotomato.games-${{ needs.version.outputs.version }}.flatpak" \
+            com.potatotomato.games --branch=stable
 
       - name: Upload Flatpak artifact
         uses: actions/upload-artifact@v4
@@ -86,7 +94,53 @@ jobs:
           path: |
             com.potatotomato.games-*.flatpak
             repo/
-          if-no-files-found: warn
+          if-no-files-found: error
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+    needs: [build-flatpak, version]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: flatpak-bundle
+          path: flatpak-artifacts
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build site for GitHub Pages
+        run: pnpm build
+        env:
+          NODE_ENV: production
+          PUBLIC_PAGES_BASE: /potatoetomatoe3
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Attach Flatpak OSTree repo
+        run: |
+          mkdir -p build/flatpak
+          cp -a flatpak-artifacts/repo/. build/flatpak/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
 
   publish-release:
     runs-on: ubuntu-latest

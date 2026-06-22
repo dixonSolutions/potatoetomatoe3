@@ -1,10 +1,10 @@
 app-id: com.potatotomato.games
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 sdk-extensions:
-  - org.gnome.Sdk.Extension.node20
-  - org.gnome.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node22
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: potato-tomato
 build-options:
   build-args:
@@ -22,12 +22,12 @@ modules:
   - name: potato-tomato
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node20/bin:/usr/lib/sdk/rust-stable/bin
+      append-path: /usr/lib/sdk/node22/bin:/usr/lib/sdk/rust-stable/bin
       build-args:
         - --share=network
       env:
         CARGO_HOME: /run/build/potato-tomato/cargo
-        npm_config_nodedir: /usr/lib/sdk/node20
+        npm_config_nodedir: /usr/lib/sdk/node22
         NODE_ENV: production
         CI: "true"
     build-commands:
