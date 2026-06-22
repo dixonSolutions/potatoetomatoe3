@@ -84,7 +84,7 @@ jobs:
           pnpm puller:bundle:linux
 
       - name: Build Tauri app
-        run: pnpm tauri:build
+        run: pnpm tauri:build:flatpak
 
       - name: Build Flatpak
         run: |

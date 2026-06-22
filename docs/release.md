@@ -48,7 +48,7 @@ Requires Flathub and GNOME 50 runtime/SDK for packaging:
 ```bash
 flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
 pnpm puller:bundle:linux
-pnpm tauri:build
+pnpm tauri:build:flatpak
 pnpm flatpak:build    # package only
 pnpm flatpak:install  # package + install to user
 pnpm flatpak:run      # run installed app

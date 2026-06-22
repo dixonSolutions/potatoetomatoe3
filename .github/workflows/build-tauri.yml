@@ -43,7 +43,7 @@ jobs:
           cd puller && npx playwright install-deps chromium
           cd ..
           pnpm puller:bundle:linux
-          pnpm tauri:build
+          pnpm tauri:build:flatpak
 
       - uses: actions/upload-artifact@v4
         with:

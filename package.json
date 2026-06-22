@@ -10,6 +10,7 @@
     "tauri": "tauri",
     "tauri:dev": "pnpm app",
     "tauri:build": "tauri build",
+    "tauri:build:flatpak": "tauri build --no-bundle",
     "tauri:build:debug": "node scripts/generate-games-list.js && tauri build --debug --no-bundle",
     "flatpak:build": "flatpak-builder --force-clean --user --install-deps-from=flathub build-flatpak flatpak/com.potatotomato.games.yml",
     "flatpak:install": "flatpak-builder --force-clean --user --install build-flatpak flatpak/com.potatotomato.games.yml",

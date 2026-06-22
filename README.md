@@ -89,7 +89,7 @@ sudo apt install libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev
 
 pnpm install --frozen-lockfile
 pnpm puller:bundle:linux
-pnpm tauri:build
+pnpm tauri:build:flatpak
 pnpm flatpak:install   # build + install to ~/.local/share/flatpak
 pnpm flatpak:run
 ```
