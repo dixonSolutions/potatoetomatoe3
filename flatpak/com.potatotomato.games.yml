@@ -32,8 +32,9 @@ modules:
         npm_config_nodedir: /usr/lib/sdk/node22
         NODE_ENV: production
         CI: "true"
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
     build-commands:
-      - npm install -g pnpm --prefix /run/build/potato-tomato/npm-global
+      - npm install -g pnpm@10 --prefix /run/build/potato-tomato/npm-global
       - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm install --frozen-lockfile
       - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm tauri:build
       - install -Dm755 src-tauri/target/release/potato-tomato /app/bin/potato-tomato

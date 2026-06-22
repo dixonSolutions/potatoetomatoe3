@@ -8,3 +8,9 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - esbuild
   - '@tailwindcss/oxide'
+  - core-js
+
+allowBuilds:
+  esbuild: true
+  '@tailwindcss/oxide': true
+  core-js: true
