@@ -9,11 +9,13 @@
 	}: {
 		results: SearchResultSection[];
 		accordionOpen?: string[];
-		onPickSubsection: (panel: 'privacy' | 'audio' | 'mode' | 'analytics', scrollTargetId: string) => void;
+		onPickSubsection: (panel: 'privacy' | 'audio' | 'analytics', scrollTargetId: string) => void;
 	} = $props();
 </script>
 
-<div class="max-h-[min(48vh,360px)] overflow-y-auto rounded-md border border-border/60 bg-muted/10 px-1">
+<div
+	class="max-h-[min(48vh,360px)] overflow-y-auto rounded-md border border-border/60 bg-muted/10 px-1"
+>
 	<Accordion.Root type="multiple" bind:value={accordionOpen}>
 		{#each results as sec (sec.id)}
 			<Accordion.Item value={sec.id} class="border-b border-border/50 last:border-b-0">

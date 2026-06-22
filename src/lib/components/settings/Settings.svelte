@@ -48,12 +48,6 @@
 	import PrivacyModeSection from '$lib/components/settings/sections/privacy-mode/PrivacyModeSection.svelte';
 	import AudioSection from '$lib/components/settings/sections/audio/AudioSection.svelte';
 	import AnalyticsSection from '$lib/components/settings/sections/analytics/AnalyticsSection.svelte';
-	import ModeSection from '$lib/components/settings/sections/mode/ModeSection.svelte';
-	import {
-		getGameHostMode,
-		saveGameHostMode,
-		type GameHostMode
-	} from '$lib/utils/game-host-mode';
 	import {
 		clearCategoryAffinities,
 		getCategoryAffinityMap,
@@ -62,7 +56,7 @@
 		setPlayLimits
 	} from '$lib/utils/play-recommendations';
 
-	type Panel = 'root' | 'privacy' | 'audio' | 'mode' | 'analytics';
+	type Panel = 'root' | 'privacy' | 'audio' | 'analytics';
 
 	let {
 		open = $bindable(false),
@@ -100,7 +94,6 @@
 	let analyticsLimitMinutes = $state(0);
 	let analyticsAffinity = $state<Record<string, number>>({});
 	let analyticsPanelKey = $state(0);
-	let gameHostMode = $state<GameHostMode>('offline');
 
 	type SettingsBaseline = {
 		disguise: PrivacyDisguiseMode;
@@ -113,7 +106,6 @@
 		analyticsLimitEnabled: boolean;
 		analyticsLimitMin: number;
 		analyticsAffinityJson: string;
-		gameHostMode: GameHostMode;
 	};
 
 	function stableAffinityJson(a: Record<string, number>): string {
@@ -134,8 +126,7 @@
 		volumePct: 100,
 		analyticsLimitEnabled: false,
 		analyticsLimitMin: 0,
-		analyticsAffinityJson: '[]',
-		gameHostMode: 'offline'
+		analyticsAffinityJson: '[]'
 	});
 
 	const globalSearchResults = $derived.by(() => computeGlobalSearchResults(settingsSearchQuery));
@@ -176,7 +167,7 @@
 	});
 
 	async function goToSearchSubsection(
-		targetPanel: 'privacy' | 'audio' | 'mode' | 'analytics',
+		targetPanel: 'privacy' | 'audio' | 'analytics',
 		scrollTargetId: string
 	) {
 		if (targetPanel === 'privacy' && !actualEnabled) {
@@ -190,15 +181,14 @@
 		await tick();
 		await tick();
 		requestAnimationFrame(() => {
-			document.getElementById(scrollTargetId)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+			document
+				.getElementById(scrollTargetId)
+				?.scrollIntoView({ block: 'center', behavior: 'smooth' });
 		});
 	}
 
 	const pendingChangesCount = $derived.by(() => {
 		if (panel === 'root') return 0;
-		if (panel === 'mode') {
-			return gameHostMode !== baseline.gameHostMode ? 1 : 0;
-		}
 		if (panel === 'analytics') {
 			let n = 0;
 			if (analyticsLimitEnabled !== baseline.analyticsLimitEnabled) n++;
@@ -229,27 +219,13 @@
 			volumePct: Number(volumeSliderPct),
 			analyticsLimitEnabled,
 			analyticsLimitMin: analyticsLimitMinutes,
-			analyticsAffinityJson: stableAffinityJson(analyticsAffinity),
-			gameHostMode
+			analyticsAffinityJson: stableAffinityJson(analyticsAffinity)
 		};
 	}
 
 	function saveAllSettings() {
 		error = '';
 		if (panel === 'root' || pendingChangesCount === 0) return;
-
-		if (panel === 'mode') {
-			if (gameHostMode !== baseline.gameHostMode) {
-				saveGameHostMode(gameHostMode);
-				if (typeof window !== 'undefined') {
-					window.dispatchEvent(new CustomEvent('potato-tomato-game-host-mode-changed'));
-				}
-			}
-			captureBaseline();
-			message = 'Settings saved.';
-			onApplied?.();
-			return;
-		}
 
 		if (panel === 'analytics') {
 			const limitChanged =
@@ -382,7 +358,6 @@
 		analyticsLimitMinutes =
 			limits.dailyGlobalLimitMs > 0 ? Math.round(limits.dailyGlobalLimitMs / 60000) : 0;
 		analyticsAffinity = { ...getCategoryAffinityMap() };
-		gameHostMode = getGameHostMode();
 		if (panel !== 'analytics') {
 			captureBaseline();
 		}
@@ -526,14 +501,14 @@
 	<div class="inline-flex shrink-0 items-stretch overflow-hidden rounded-md shadow-xs">
 		<Button
 			type="button"
-			class="rounded-r-none gap-1.5 pr-3"
+			class="gap-1.5 rounded-r-none pr-3"
 			disabled={busy || pendingChangesCount === 0}
 			onclick={saveAllSettings}
 		>
 			Save
 			{#if pendingChangesCount > 0}
 				<span
-					class="inline-flex min-h-[1.125rem] min-w-[1.125rem] items-center justify-center rounded-full bg-primary-foreground/25 px-1.5 text-[10px] font-semibold leading-none text-primary-foreground tabular-nums"
+					class="inline-flex min-h-[1.125rem] min-w-[1.125rem] items-center justify-center rounded-full bg-primary-foreground/25 px-1.5 text-[10px] leading-none font-semibold text-primary-foreground tabular-nums"
 					aria-label={`${pendingChangesCount} unsaved changes`}
 				>
 					{pendingChangesCount}
@@ -566,7 +541,7 @@
 <Dialog.Root bind:open>
 	<Dialog.Content class="flex max-h-[90vh] flex-col gap-0 overflow-hidden p-0 sm:max-w-md">
 		{#if panel === 'root'}
-			<div class="border-b px-6 pb-3 pt-6">
+			<div class="border-b px-6 pt-6 pb-3">
 				<Dialog.Title class="shrink-0">Settings</Dialog.Title>
 			</div>
 			<div class="flex flex-wrap items-center gap-2 border-b px-6 pb-3">
@@ -583,7 +558,9 @@
 			<div class="flex flex-col gap-1 px-2 py-3">
 				{#if settingsSearchQuery.trim()}
 					{#if globalSearchResults.length === 0}
-						<p class="px-4 py-6 text-center text-xs text-muted-foreground">No settings match your search.</p>
+						<p class="px-4 py-6 text-center text-xs text-muted-foreground">
+							No settings match your search.
+						</p>
 					{:else}
 						<SettingsSearchAccordion
 							results={globalSearchResults}
@@ -645,27 +622,6 @@
 					<div
 						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
 						role="group"
-						aria-label="Mode"
-					>
-						<button
-							type="button"
-							class="flex min-w-0 flex-1 items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-muted/40"
-							onclick={() => {
-								panel = 'mode';
-								syncLocal();
-							}}
-						>
-							<div class="min-w-0 flex-1">
-								<p class="text-sm font-medium">Mode</p>
-								<p class="text-xs text-muted-foreground">Offline local bundles vs online shell</p>
-							</div>
-							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
-						</button>
-					</div>
-
-					<div
-						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
-						role="group"
 						aria-label="Analytics"
 					>
 						<button
@@ -678,7 +634,9 @@
 						>
 							<div class="min-w-0 flex-1">
 								<p class="text-sm font-medium">Analytics</p>
-								<p class="text-xs text-muted-foreground">Playtime limits and recommendation taste</p>
+								<p class="text-xs text-muted-foreground">
+									Playtime limits and recommendation taste
+								</p>
 							</div>
 							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
 						</button>
@@ -696,14 +654,22 @@
 			</div>
 		{:else if panel === 'privacy'}
 			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
-				<Button variant="ghost" size="icon" class="shrink-0" onclick={goBack} aria-label="Back to settings">
+				<Button
+					variant="ghost"
+					size="icon"
+					class="shrink-0"
+					onclick={goBack}
+					aria-label="Back to settings"
+				>
 					<ChevronLeft class="size-5" />
 				</Button>
-				<div class="min-w-0 basis-full sm:basis-[min(100%,10rem)] sm:flex-1">
-					<h2 class="text-lg font-semibold leading-none tracking-tight">Privacy mode</h2>
+				<div class="min-w-0 basis-full sm:flex-1 sm:basis-[min(100%,10rem)]">
+					<h2 class="text-lg leading-none font-semibold tracking-tight">Privacy mode</h2>
 					<p class="sr-only">Configure privacy mode options</p>
 				</div>
-				<div class="flex min-w-0 w-full flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto">
+				<div
+					class="flex w-full min-w-0 flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto"
+				>
 					<input
 						type="search"
 						bind:value={settingsSearchQuery}
@@ -731,7 +697,7 @@
 					bind:changeConfirm
 					{message}
 					{error}
-					inputClass={inputClass}
+					{inputClass}
 					onStartRecordingShortcut={() => {
 						error = '';
 						recordingLockShortcut = true;
@@ -747,14 +713,22 @@
 			</div>
 		{:else if panel === 'audio'}
 			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
-				<Button variant="ghost" size="icon" class="shrink-0" onclick={goBack} aria-label="Back to settings">
+				<Button
+					variant="ghost"
+					size="icon"
+					class="shrink-0"
+					onclick={goBack}
+					aria-label="Back to settings"
+				>
 					<ChevronLeft class="size-5" />
 				</Button>
-				<div class="min-w-0 basis-full sm:basis-[min(100%,10rem)] sm:flex-1">
-					<h2 class="text-lg font-semibold leading-none tracking-tight">Audio</h2>
+				<div class="min-w-0 basis-full sm:flex-1 sm:basis-[min(100%,10rem)]">
+					<h2 class="text-lg leading-none font-semibold tracking-tight">Audio</h2>
 					<p class="sr-only">Audio and playback settings</p>
 				</div>
-				<div class="flex min-w-0 w-full flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto">
+				<div
+					class="flex w-full min-w-0 flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto"
+				>
 					<input
 						type="search"
 						bind:value={settingsSearchQuery}
@@ -777,47 +751,24 @@
 					{error}
 				/>
 			</div>
-		{:else if panel === 'mode'}
-			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
-				<Button variant="ghost" size="icon" class="shrink-0" onclick={goBack} aria-label="Back to settings">
-					<ChevronLeft class="size-5" />
-				</Button>
-				<div class="min-w-0 basis-full sm:basis-[min(100%,10rem)] sm:flex-1">
-					<h2 class="text-lg font-semibold leading-none tracking-tight">Mode</h2>
-					<p class="sr-only">Game hosting and offline or online playback</p>
-				</div>
-				<div class="flex min-w-0 w-full flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto">
-					<input
-						type="search"
-						bind:value={settingsSearchQuery}
-						placeholder="Search…"
-						class="{searchInputClass} min-w-0 flex-1"
-						aria-label="Search mode settings"
-						autocomplete="off"
-					/>
-					{@render saveSplitToolbar()}
-				</div>
-			</div>
-
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
-				<ModeSection
-					searchQuery={settingsSearchQuery}
-					{busy}
-					bind:gameHostMode
-					{message}
-					{error}
-				/>
-			</div>
 		{:else if panel === 'analytics'}
 			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
-				<Button variant="ghost" size="icon" class="shrink-0" onclick={goBack} aria-label="Back to settings">
+				<Button
+					variant="ghost"
+					size="icon"
+					class="shrink-0"
+					onclick={goBack}
+					aria-label="Back to settings"
+				>
 					<ChevronLeft class="size-5" />
 				</Button>
-				<div class="min-w-0 basis-full sm:basis-[min(100%,10rem)] sm:flex-1">
-					<h2 class="text-lg font-semibold leading-none tracking-tight">Analytics</h2>
+				<div class="min-w-0 basis-full sm:flex-1 sm:basis-[min(100%,10rem)]">
+					<h2 class="text-lg leading-none font-semibold tracking-tight">Analytics</h2>
 					<p class="sr-only">Playtime and recommendation settings</p>
 				</div>
-				<div class="flex min-w-0 w-full flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto">
+				<div
+					class="flex w-full min-w-0 flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto"
+				>
 					<input
 						type="search"
 						bind:value={settingsSearchQuery}
@@ -892,7 +843,9 @@
 			>
 				Cancel
 			</Button>
-			<Button type="button" onclick={() => void submitEnablePrivacy()} disabled={busy}>Enable</Button>
+			<Button type="button" onclick={() => void submitEnablePrivacy()} disabled={busy}
+				>Enable</Button
+			>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>

@@ -80,27 +80,6 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		]
 	},
 	{
-		id: 'search-sec-mode',
-		title: 'Mode',
-		panel: 'mode',
-		sectionKeywords:
-			'mode hosting offline online local bundle original shell iframe network cdn same origin',
-		subsections: [
-			{
-				id: 'sub-mode-host',
-				label: 'Game hosting',
-				scrollTargetId: 'settings-section-mode-host',
-				keywords: 'game hosting mode offline local bundle online shell iframe'
-			},
-			{
-				id: 'sub-mode-note',
-				label: 'Online mode note',
-				scrollTargetId: 'settings-section-mode-note',
-				keywords: 'wifi network remote assets cdn ensure local catalog'
-			}
-		]
-	},
-	{
 		id: 'search-sec-analytics',
 		title: 'Analytics',
 		panel: 'analytics',

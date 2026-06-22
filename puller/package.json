@@ -1,0 +1,22 @@
+{
+  "name": "@potatotomato/puller",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/index.js --packages=external",
+    "bundle:linux": "pnpm build && npx --yes @yao-pkg/pkg dist/index.js --targets node20-linux-x64 --output ../src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu",
+    "postinstall": "playwright install chromium || echo 'Playwright browser install skipped (run manually if needed)'"
+  },
+  "dependencies": {
+    "playwright": "^1.55.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.9.2"
+  }
+}

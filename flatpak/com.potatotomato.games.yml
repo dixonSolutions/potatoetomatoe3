@@ -35,6 +35,15 @@ modules:
       - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm install --frozen-lockfile
       - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm tauri:build
       - install -Dm755 src-tauri/target/release/potato-tomato /app/bin/potato-tomato
+      - |
+        SIDECAR=""
+        for candidate in \
+          src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu \
+          src-tauri/binaries/puller-sidecar; do
+          if [ -f "$candidate" ]; then SIDECAR="$candidate"; break; fi
+        done
+        if [ -z "$SIDECAR" ]; then echo "ERROR puller sidecar missing — run pnpm puller:bundle:linux" >&2; exit 1; fi
+        install -Dm755 "$SIDECAR" /app/bin/puller-sidecar
       - install -Dm644 flatpak/com.potatotomato.games.desktop /app/share/applications/com.potatotomato.games.desktop
       - install -Dm644 buildResources/icons/potato-tomato-512.png /app/share/icons/hicolor/512x512/apps/com.potatotomato.games.png
     sources:

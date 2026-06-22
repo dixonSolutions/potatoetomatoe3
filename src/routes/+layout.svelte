@@ -3,6 +3,8 @@
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
+	import { base } from '$app/paths';
+	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
 	/** `?url` keeps SSR and client `href` identical (plain URL); default SVG import becomes a data URL on the client only and triggers hydration warnings. */
 	import favicon from '$lib/assets/favicon.svg?url';
 	import googleDocsDecoyFavicon from '$lib/assets/Google_Docs_logo_(2014-2020).svg?url';
@@ -242,6 +244,12 @@
 		refreshPrivacyState();
 		syncPrivacyUnlockCookieWithSession();
 		refreshPlayLimitLock();
+
+		if (isBrowserStorageSupported()) {
+			void navigator.serviceWorker
+				.register(`${base}/offline-sw.js`, { scope: `${base}/` })
+				.catch((err) => console.warn('Offline service worker registration failed:', err));
+		}
 
 		const onPlayLimitsChanged = () => refreshPlayLimitLock();
 		window.addEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);

@@ -6,8 +6,8 @@
   "build": {
     "frontendDist": "../build",
     "devUrl": "http://127.0.0.1:5173/home",
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build"
+    "beforeDevCommand": "node scripts/generate-games-list.js && vite dev",
+    "beforeBuildCommand": "node scripts/generate-games-list.js && pnpm build && pnpm puller:bundle:linux"
   },
   "app": {
     "windows": [
@@ -26,7 +26,14 @@
   },
   "bundle": {
     "active": true,
-    "targets": [],
+    "targets": "all",
+    "externalBin": [
+      "binaries/puller-sidecar"
+    ],
+    "resources": {
+      "../build/games/": "catalog/games/",
+      "../puller/dist/index.js": "puller/index.js"
+    },
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",

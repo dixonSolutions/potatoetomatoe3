@@ -1,0 +1,2 @@
+*.br filter=lfs diff=lfs merge=lfs -text
+static/games/shrek-escape/offline/Build/*.part* filter=lfs diff=lfs merge=lfs -text

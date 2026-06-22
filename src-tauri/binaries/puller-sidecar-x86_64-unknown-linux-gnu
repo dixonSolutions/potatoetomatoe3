@@ -1,0 +1,4 @@
+#!/bin/sh
+# Placeholder — replaced by `pnpm puller:bundle:linux` before release builds.
+echo "puller sidecar not built; run pnpm puller:bundle:linux" >&2
+exit 1

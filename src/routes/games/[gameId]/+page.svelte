@@ -12,7 +12,13 @@
 		resolveGameThumbnailSrc,
 		type GameMetadata
 	} from '$lib/utils/games';
-	import { getPreferences, likeGame, dislikeGame, removePreference, getGamePreference } from '$lib/utils/preferences';
+	import {
+		getPreferences,
+		likeGame,
+		dislikeGame,
+		removePreference,
+		getGamePreference
+	} from '$lib/utils/preferences';
 	import {
 		recordGamePlay,
 		getRecommendationsForGamePage,
@@ -24,6 +30,8 @@
 	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown } from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
+	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
+	import { GAME_PLAY_MODE_CHANGED } from '$lib/utils/game-play-mode';
 
 	let gameMetadata: GameMetadata | null = $state(null);
 	let recommendedGames: GameMetadata[] = $state([]);
@@ -76,6 +84,12 @@
 		return resolveGameThumbnailSrc(game.thumbnail);
 	}
 
+	async function refreshPlayerUrl() {
+		const id = gameId;
+		if (!id) return;
+		gamePlayerUrl = await getGamePlayerUrl(id);
+	}
+
 	async function loadGamePage(id: string) {
 		if (!id) {
 			error = 'Game not found';
@@ -121,16 +135,14 @@
 		const onSettingsApplied = () => {
 			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
 		};
-		const onGameHostModeChanged = () => {
-			const id = gameId;
-			if (!id) return;
-			void getGamePlayerUrl(id).then((url) => {
-				gamePlayerUrl = url;
-			});
+		const onGamePlayModeChanged = (e: Event) => {
+			const d = (e as CustomEvent<{ gameId: string }>).detail;
+			if (d?.gameId !== gameId) return;
+			void refreshPlayerUrl();
 		};
 		window.addEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 		window.addEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
-		window.addEventListener('potato-tomato-game-host-mode-changed', onGameHostModeChanged);
+		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 
 		const isUbuntu = detectUbuntu();
 		const dismissed = localStorage.getItem('ubuntuBannerDismissed') === 'true';
@@ -139,13 +151,13 @@
 		return () => {
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
-			window.removeEventListener('potato-tomato-game-host-mode-changed', onGameHostModeChanged);
+			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 		};
 	});
 
 	function toggleFullscreen() {
 		if (!gameSurfaceStarted || !iframeElement) return;
-		
+
 		if (document.fullscreenElement) {
 			document.exitFullscreen();
 		} else {
@@ -188,13 +200,13 @@
 
 <div class="container mx-auto px-4 py-8">
 	{#if loading}
-		<div class="text-center py-12">
+		<div class="py-12 text-center">
 			<p class="text-muted-foreground">Loading game...</p>
 		</div>
 	{:else if error || !gameMetadata}
-		<div class="text-center py-12">
-			<h2 class="text-2xl font-bold mb-4">Game Not Found</h2>
-			<p class="text-muted-foreground mb-4">{error}</p>
+		<div class="py-12 text-center">
+			<h2 class="mb-4 text-2xl font-bold">Game Not Found</h2>
+			<p class="mb-4 text-muted-foreground">{error}</p>
 			<a href={resolve('/home')}>
 				<Button variant="outline">
 					<ArrowLeft class="mr-2 h-4 w-4" />
@@ -212,8 +224,8 @@
 			</a>
 			<div class="flex items-start justify-between">
 				<div class="flex-1">
-					<h1 class="text-3xl font-bold mb-2">{gameMetadata.name}</h1>
-					<p class="text-muted-foreground mb-3">By {gameMetadata.author}</p>
+					<h1 class="mb-2 text-3xl font-bold">{gameMetadata.name}</h1>
+					<p class="mb-3 text-muted-foreground">By {gameMetadata.author}</p>
 					<div class="flex gap-2">
 						{#if userPreference === 'liked'}
 							<Button variant="default" size="sm" onclick={handleRemovePreference}>
@@ -226,7 +238,7 @@
 								Favourite
 							</Button>
 						{/if}
-						
+
 						{#if userPreference === 'disliked'}
 							<Button variant="destructive" size="sm" onclick={handleRemovePreference}>
 								<ThumbsDown class="mr-2 h-4 w-4 fill-current" />
@@ -245,14 +257,19 @@
 					Fullscreen
 				</Button>
 			</div>
+			<OfflineControls {gameId} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
 
-		<div class="bg-card rounded-lg border shadow-lg overflow-hidden mb-8">
+		<div class="mb-8 overflow-hidden rounded-lg border bg-card shadow-lg">
 			{#if showUbuntuBanner && !bannerDismissed}
-				<div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 flex items-center justify-between">
+				<div
+					class="flex items-center justify-between bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-white"
+				>
 					<div class="flex items-center gap-3">
-						<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-							<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+						<svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+							<path
+								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+							/>
 						</svg>
 						<div>
 							<span class="font-semibold">Try Linux Ubuntu today!</span>
@@ -260,20 +277,20 @@
 						</div>
 					</div>
 					<div class="flex items-center gap-2">
-						<a 
-							href="https://ubuntu.com/download/desktop" 
-							target="_blank" 
+						<a
+							href="https://ubuntu.com/download/desktop"
+							target="_blank"
 							rel="noopener noreferrer"
-							class="px-4 py-1.5 bg-white text-blue-600 rounded-md font-medium hover:bg-gray-100 transition-colors"
+							class="rounded-md bg-white px-4 py-1.5 font-medium text-blue-600 transition-colors hover:bg-gray-100"
 						>
 							Learn More
 						</a>
-						<button 
+						<button
 							onclick={dismissBanner}
-							class="p-1 hover:bg-white/20 rounded transition-colors"
+							class="rounded p-1 transition-colors hover:bg-white/20"
 							aria-label="Dismiss banner"
 						>
-							<X class="w-5 h-5" />
+							<X class="h-5 w-5" />
 						</button>
 					</div>
 				</div>
@@ -295,20 +312,24 @@
 		</div>
 
 		<div class="mb-8">
-			<h2 class="text-xl font-semibold mb-2">About this game</h2>
+			<h2 class="mb-2 text-xl font-semibold">About this game</h2>
 			<p class="text-muted-foreground">{gameMetadata.description}</p>
 		</div>
 
 		{#if recommendedGames.length > 0}
 			<section class="py-8">
-				<h2 class="text-2xl font-bold mb-6">Recommended Games</h2>
-				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+				<h2 class="mb-6 text-2xl font-bold">Recommended Games</h2>
+				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
 					{#each recommendedGames as game (game.id)}
-						<a href={resolve(`/games/${game.id}`)} data-sveltekit-preload-data="tap" class="group block">
-							<Card.Root class="overflow-hidden transition-all hover:shadow-lg hover:scale-105">
+						<a
+							href={resolve(`/games/${game.id}`)}
+							data-sveltekit-preload-data="tap"
+							class="group block"
+						>
+							<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 								<div class="aspect-square overflow-hidden bg-muted">
-									<img 
-										src={resolveGameThumbnailSrc(game.thumbnail)} 
+									<img
+										src={resolveGameThumbnailSrc(game.thumbnail)}
 										alt={game.name}
 										loading="lazy"
 										decoding="async"
@@ -325,7 +346,9 @@
 								</Card.Header>
 								<Card.Footer class="flex justify-between text-xs text-muted-foreground">
 									<span>By {game.author}</span>
-									<span class="px-2 py-1 rounded-full bg-primary/10 text-primary">{game.category}</span>
+									<span class="rounded-full bg-primary/10 px-2 py-1 text-primary"
+										>{game.category}</span
+									>
 								</Card.Footer>
 							</Card.Root>
 						</a>

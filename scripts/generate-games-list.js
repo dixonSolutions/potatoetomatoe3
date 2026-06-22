@@ -8,6 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** Each catalog game lives under static/games/<id>/{shared,online,offline}/ */
 const GAMES_ROOT = join(__dirname, '..', 'static', 'games');
+const BUILD_GAMES_ROOT = join(__dirname, '..', 'build', 'games');
 
 function listGameIds() {
 	if (!existsSync(GAMES_ROOT)) {
@@ -43,25 +44,57 @@ function readMetadataForGame(gameId) {
 	return null;
 }
 
+/** Load prior catalog metadata so regeneration does not wipe thumbnails. */
+function loadMetadataCache() {
+	const cache = new Map();
+	const sources = [
+		join(GAMES_ROOT, 'games-metadata.json'),
+		join(BUILD_GAMES_ROOT, 'games-metadata.json')
+	];
+	for (const path of sources) {
+		if (!existsSync(path)) continue;
+		try {
+			const list = JSON.parse(readFileSync(path, 'utf-8'));
+			if (!Array.isArray(list)) continue;
+			for (const entry of list) {
+				if (entry?.id && !cache.has(entry.id)) {
+					cache.set(entry.id, entry);
+				}
+			}
+		} catch {
+			// try next source
+		}
+	}
+	return cache;
+}
+
 function generateGamesList() {
 	const gameIds = listGameIds();
+	const metadataCache = loadMetadataCache();
 
-	// Generate games list
-	const listOutputPath = join(__dirname, '..', 'static', 'games', 'games-list.json');
+	const listOutputPath = join(GAMES_ROOT, 'games-list.json');
 	writeFileSync(listOutputPath, JSON.stringify(gameIds, null, 2));
 
 	console.log(`✅ Generated games list with ${gameIds.length} games`);
 	console.log(`   Saved to: static/games/games-list.json`);
 
-	// Generate consolidated metadata (best-effort; synthesize when metadata files are absent)
 	const allMetadata = [];
 	let metadataFileCount = 0;
+	let cacheCount = 0;
 	let synthesizedCount = 0;
+
 	for (const gameId of gameIds) {
-		const metadata = readMetadataForGame(gameId);
-		if (metadata) {
+		const fromDisk = readMetadataForGame(gameId);
+		if (fromDisk) {
 			metadataFileCount += 1;
-			allMetadata.push(metadata);
+			allMetadata.push(fromDisk);
+			continue;
+		}
+
+		const cached = metadataCache.get(gameId);
+		if (cached) {
+			cacheCount += 1;
+			allMetadata.push(cached);
 			continue;
 		}
 
@@ -70,31 +103,26 @@ function generateGamesList() {
 			id: gameId,
 			name: toTitleCaseFromId(gameId),
 			author: 'Unknown',
-			description: `Play ${toTitleCaseFromId(gameId)} offline`,
+			description: `Play ${toTitleCaseFromId(gameId)}`,
 			thumbnail: '',
 			category: 'misc'
 		});
 	}
 
-	const metadataOutputPath = join(__dirname, '..', 'static', 'games', 'games-metadata.json');
+	const metadataOutputPath = join(GAMES_ROOT, 'games-metadata.json');
 	writeFileSync(metadataOutputPath, JSON.stringify(allMetadata, null, 2));
 
 	console.log(`✅ Generated consolidated metadata with ${allMetadata.length} games`);
-	console.log(`   Source metadata files: ${metadataFileCount}, synthesized: ${synthesizedCount}`);
+	console.log(
+		`   Source metadata files: ${metadataFileCount}, from cache: ${cacheCount}, synthesized: ${synthesizedCount}`
+	);
 	console.log(`   Saved to: static/games/games-metadata.json`);
 
-	/** Relative path under static/games/<id>/ for offline host mode (LazyGameFrame); online mode always uses online/index.html. */
-	const gameEntries = {};
-	for (const gameId of gameIds) {
-		const offlineEntry = join(GAMES_ROOT, gameId, 'offline', 'index.html');
-		gameEntries[gameId] = existsSync(offlineEntry) ? 'offline/index.html' : 'index.html';
+	if (synthesizedCount > metadataFileCount + cacheCount) {
+		console.warn(
+			`⚠️  ${synthesizedCount} games lack metadata/thumbnails. Run: node scripts/restore-games-from-build.mjs`
+		);
 	}
-	const entriesPath = join(__dirname, '..', 'static', 'games', 'game-entries.json');
-	writeFileSync(entriesPath, JSON.stringify(gameEntries, null, 2));
-	console.log(
-		`✅ Generated game entry paths (${Object.values(gameEntries).filter((p) => p.startsWith('offline/')).length} local offline mirrors)`
-	);
-	console.log(`   Saved to: static/games/game-entries.json`);
 }
 
 generateGamesList();
