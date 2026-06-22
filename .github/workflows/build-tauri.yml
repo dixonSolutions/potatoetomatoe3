@@ -12,12 +12,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-app:
+  build-flatpak:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           lfs: true
+
+      - name: Install Flatpak
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak --user install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
+
+      - name: Install Tauri build dependencies
+        run: |
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf \
+            pkg-config libssl-dev
+
+      - uses: dtolnay/rust-toolchain@stable
 
       - uses: pnpm/action-setup@v4
         with:
@@ -28,15 +43,6 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      - name: Install Tauri build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf \
-            pkg-config libssl-dev
-
-      - uses: dtolnay/rust-toolchain@stable
-
       - name: Build app binaries
         run: |
           pnpm install --frozen-lockfile
@@ -44,42 +50,16 @@ jobs:
           cd ..
           pnpm puller:bundle:linux
           pnpm tauri:build:flatpak
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: app-binaries
-          path: |
-            src-tauri/target/release/potato-tomato
-            src-tauri/binaries/
-          if-no-files-found: error
-
-  build-flatpak:
-    runs-on: ubuntu-latest
-    needs: build-app
-    container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-47
-      options: --privileged
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: app-binaries
-          path: .
+          test -x src-tauri/target/release/potato-tomato
 
       - name: Build Flatpak
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
-        with:
-          manifest-path: flatpak/com.potatotomato.games.yml
-          bundle: potato-tomato.flatpak
-          cache-key: flatpak-builder-${{ github.sha }}
-          branch: stable
+        run: |
+          flatpak-builder --force-clean --user --install-deps-from=flathub \
+            --repo=repo --default-branch=stable \
+            build-flatpak flatpak/com.potatotomato.games.yml
+          flatpak build-bundle repo potato-tomato.flatpak com.potatotomato.games --branch=stable
 
-      - name: Upload Flatpak
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: potato-tomato-flatpak
           path: potato-tomato.flatpak
