@@ -2,15 +2,7 @@ app-id: com.potatotomato.games
 runtime: org.gnome.Platform
 runtime-version: '50'
 sdk: org.gnome.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node22:
-      version: '25.08'
-  - org.freedesktop.Sdk.Extension.rust-stable:
-      version: '25.08'
 command: potato-tomato
-build-options:
-  build-args:
-    - --share=network
 finish-args:
   - --share=network
   - --share=ipc
@@ -23,20 +15,12 @@ finish-args:
 modules:
   - name: potato-tomato
     buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/node22/bin:/usr/lib/sdk/rust-stable/bin
-      build-args:
-        - --share=network
-      env:
-        CARGO_HOME: /run/build/potato-tomato/cargo
-        npm_config_nodedir: /usr/lib/sdk/node22
-        NODE_ENV: production
-        CI: "true"
-        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
     build-commands:
-      - npm install -g pnpm@10 --prefix /run/build/potato-tomato/npm-global
-      - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm install --frozen-lockfile
-      - export PATH="/run/build/potato-tomato/npm-global/bin:$PATH" && pnpm tauri:build
+      - |
+        test -x src-tauri/target/release/potato-tomato || {
+          echo "Missing Tauri binary. Run: pnpm puller:bundle:linux && pnpm tauri:build" >&2
+          exit 1
+        }
       - install -Dm755 src-tauri/target/release/potato-tomato /app/bin/potato-tomato
       - |
         SIDECAR=""

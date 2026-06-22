@@ -75,22 +75,24 @@ flatpak run com.potatotomato.games
 
 ### Build locally
 
+Build the Tauri app and puller sidecar on the host first, then package with Flatpak:
+
 ```bash
 git clone https://github.com/dixonSolutions/potatoetomatoe3.git
 cd potatoetomatoe3
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50 \
-  org.freedesktop.Sdk.Extension.node22//25.08 \
-  org.freedesktop.Sdk.Extension.rust-stable//25.08
+flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
+
+# Tauri build deps (Debian/Ubuntu)
+sudo apt install libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf
 
 pnpm install --frozen-lockfile
 pnpm puller:bundle:linux
+pnpm tauri:build
 pnpm flatpak:install   # build + install to ~/.local/share/flatpak
 pnpm flatpak:run
 ```
-
-First build can take 30–60 minutes (Tauri/Rust compile inside the Flatpak sandbox).
 
 ## Puller service
 
