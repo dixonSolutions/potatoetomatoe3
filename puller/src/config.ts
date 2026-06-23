@@ -20,7 +20,8 @@ export const GAMES_DATA_DIR =
 export const CATALOG_DIR = process.env.CATALOG_DIR ?? GAMES_DATA_DIR;
 
 /** HTTP listen port for the puller service. */
-export const PORT = Number.parseInt(process.env.PULLER_PORT ?? '8787', 10);
+/** Default avoids Cursor Voice MCP on 8787. Override with PULLER_PORT. */
+export const PORT = Number.parseInt(process.env.PULLER_PORT ?? '18787', 10);
 
 /** Allowed CORS origin for the SvelteKit dev server. */
 export const CORS_ORIGIN = process.env.PULLER_CORS_ORIGIN ?? '*';

@@ -106,5 +106,19 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				keywords: 'playtime statistics table per-game sessions full page algorithm preview'
 			}
 		]
+	},
+	{
+		id: 'search-sec-games',
+		title: 'Games',
+		panel: 'games',
+		sectionKeywords: 'games play online offline default version unity download bundled',
+		subsections: [
+			{
+				id: 'sub-games-default-mode',
+				label: 'Default play source',
+				scrollTargetId: 'settings-section-games-default-mode',
+				keywords: 'default online offline play source version bundled download'
+			}
+		]
 	}
 ];

@@ -6,7 +6,7 @@ use tauri::path::BaseDirectory;
 static PULLER_PORT: OnceLock<u16> = OnceLock::new();
 
 pub fn puller_port() -> u16 {
-  *PULLER_PORT.get_or_init(|| 8787)
+  *PULLER_PORT.get_or_init(|| 18787)
 }
 
 fn repo_root() -> PathBuf {

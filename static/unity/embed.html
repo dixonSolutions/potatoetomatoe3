@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <title>Unity game</title>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+    iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .error {
+      display: none;
+      place-items: center;
+      height: 100%;
+      padding: 1.5rem;
+      text-align: center;
+      font: 400 0.875rem/1.5 system-ui, sans-serif;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="game" title="Unity game" allow="fullscreen; autoplay" allowfullscreen></iframe>
+  <p id="error" class="error">Missing or invalid <code>?src=</code> URL.</p>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var src = params.get('src');
+      var frame = document.getElementById('game');
+      var err = document.getElementById('error');
+      if (!src) {
+        frame.style.display = 'none';
+        err.style.display = 'grid';
+        return;
+      }
+      try {
+        var url = new URL(src);
+        if (url.protocol !== 'https:' && url.protocol !== 'http:') throw new Error('bad protocol');
+        frame.src = url.href;
+      } catch (e) {
+        frame.style.display = 'none';
+        err.style.display = 'grid';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readdirSync, existsSync, writeFileSync, readFileSync } from 'fs';
+import { readdirSync, existsSync, writeFileSync, readFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -69,6 +69,10 @@ function loadMetadataCache() {
 }
 
 function generateGamesList() {
+	if (!existsSync(GAMES_ROOT)) {
+		mkdirSync(GAMES_ROOT, { recursive: true });
+	}
+
 	const gameIds = listGameIds();
 	const metadataCache = loadMetadataCache();
 

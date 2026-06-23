@@ -20,11 +20,28 @@ export {
 	isOfflineDownloadAvailable,
 	isBrowserStorageSupported,
 	isTauriApp,
+	isPublicSiteDeployment,
+	isLocalAppDeployment,
+	getAppDeployment,
+	describeOfflineBackend,
 	invalidateOfflineBackendCache,
-	type OfflineBackend
+	type OfflineBackend,
+	type AppDeployment
 } from './offline-runtime';
 
+export {
+	OFFLINE_STATUS_CHANGED,
+	dispatchOfflineStatusChanged,
+	invalidateOfflineStatusCache,
+	type OfflineStatusChangeReason,
+	type OfflineStatusChangedDetail
+} from './offline-status-events';
+
 export { browserOfflinePlayUrl, isBrowserGameDownloaded } from './browser-offline-download';
+
+export function isBundledOfflineGame(gameId: string): boolean {
+	return (BUNDLED_OFFLINE_GAME_IDS as readonly string[]).includes(gameId);
+}
 
 import {
 	deletePullerOfflineCopy,
@@ -45,7 +62,7 @@ import {
 	pollBrowserDownloadUntilDone,
 	startBrowserGameDownload
 } from './browser-offline-download';
-import { getOfflineBackend } from './offline-runtime';
+import { getOfflineBackend, invalidateOfflineBackendCache } from './offline-runtime';
 
 /** Games shipped with a pre-built offline copy in static/ (no downloader required). */
 export const BUNDLED_OFFLINE_GAME_IDS = ['shrek-escape'] as const;
@@ -75,19 +92,30 @@ export async function fetchAllOfflineStatuses(
 	return bundled;
 }
 
-export async function fetchGameOfflineStatus(gameId: string): Promise<GameOfflineStatus | null> {
-	const backend = await getOfflineBackend();
+export async function fetchGameOfflineStatus(
+	gameId: string,
+	force = false
+): Promise<GameOfflineStatus | null> {
+	const bundled = bundledOfflineStatus()[gameId];
+	const backend = await getOfflineBackend(force);
+
 	if (backend === 'puller') {
-		return fetchPullerGameOfflineStatus(gameId);
+		const status = await fetchPullerGameOfflineStatus(gameId, force);
+		return bundled ? { ...bundled, ...status, offline: true } : status;
 	}
 	if (backend === 'browser') {
-		return fetchBrowserGameOfflineStatus(gameId);
+		const status = await fetchBrowserGameOfflineStatus(gameId);
+		return bundled ? { ...status, online: true, offline: true, downloading: false } : status;
 	}
-	return null;
+	return bundled ?? null;
 }
 
-export function invalidateOfflineStatusCache(): void {
+export async function refreshGameOfflineState(
+	gameId: string
+): Promise<GameOfflineStatus | null> {
 	invalidatePullerOfflineStatusCache();
+	invalidateOfflineBackendCache();
+	return fetchGameOfflineStatus(gameId, true);
 }
 
 export async function startGameDownload(
@@ -139,7 +167,8 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 	const backend = await getOfflineBackend();
 	if (backend === 'puller') {
 		const { pullerOfflinePlayUrl } = await import('./offline-downloader-puller');
-		return pullerOfflinePlayUrl(gameId);
+		const { base } = await import('$app/paths');
+		return pullerOfflinePlayUrl(gameId, base);
 	}
 	if (backend === 'browser') {
 		const { browserOfflinePlayUrl, isBrowserGameDownloaded } = await import(

@@ -40,7 +40,11 @@ export type SiteSettingsV1 = {
 	muteAudioScope: MuteAudioScope;
 	/** Master output level for HTML audio/video when not forced mute (0–1). */
 	masterVolume: number;
+	/** Default play source when a game offers both online and offline copies. */
+	defaultGamePlayMode: GamePlayModePreference;
 };
+
+export type GamePlayModePreference = 'online' | 'offline';
 
 const DEFAULTS: SiteSettingsV1 = {
 	version: 1,
@@ -52,7 +56,8 @@ const DEFAULTS: SiteSettingsV1 = {
 	privacyPauseGameWhileLocked: false,
 	privacyLockShortcut: null,
 	muteAudioScope: 'off',
-	masterVolume: 1
+	masterVolume: 1,
+	defaultGamePlayMode: 'online'
 };
 
 type ParsedCookie = Partial<SiteSettingsV1> & { muteAllAudio?: boolean };
@@ -97,7 +102,18 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 	} else {
 		masterVolume = Math.max(0, Math.min(1, masterVolume));
 	}
-	return { ...merged, muteAudioScope, masterVolume, privacyPauseGameWhileLocked, privacyLockShortcut };
+	let defaultGamePlayMode = merged.defaultGamePlayMode;
+	if (defaultGamePlayMode !== 'online' && defaultGamePlayMode !== 'offline') {
+		defaultGamePlayMode = DEFAULTS.defaultGamePlayMode;
+	}
+	return {
+		...merged,
+		muteAudioScope,
+		masterVolume,
+		privacyPauseGameWhileLocked,
+		privacyLockShortcut,
+		defaultGamePlayMode
+	};
 }
 
 const LEGACY_KEYS = {

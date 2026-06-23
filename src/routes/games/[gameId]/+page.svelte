@@ -8,6 +8,7 @@
 		loadGameMetadata,
 		loadAllGames,
 		getGamePlayerUrl,
+		canPlayGameOffline,
 		fixMalformedGamePlayerUrl,
 		resolveGameThumbnailSrc,
 		type GameMetadata
@@ -31,7 +32,12 @@
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
+	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import { GAME_PLAY_MODE_CHANGED } from '$lib/utils/game-play-mode';
+	import { OFFLINE_STATUS_CHANGED, type OfflineStatusChangedDetail } from '$lib/utils/offline-downloader';
+	import { filterDownloadedGames } from '$lib/utils/game-availability';
+	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
+	import { iframeAllowForUrl } from '$lib/utils/games';
 
 	let gameMetadata: GameMetadata | null = $state(null);
 	let recommendedGames: GameMetadata[] = $state([]);
@@ -41,6 +47,7 @@
 	let showUbuntuBanner = $state(false);
 	let bannerDismissed = $state(false);
 	let userPreference = $state<'liked' | 'disliked' | null>(null);
+	let networkOnline = $state(true);
 
 	let gameId = $derived($page.params.gameId ?? '');
 
@@ -106,17 +113,33 @@
 			error = 'Game not found';
 		}
 
+		networkOnline = isNetworkOnline();
+		if (!networkOnline && gameMetadata && !(await canPlayGameOffline(id, gameMetadata))) {
+			error =
+				'This game is not available offline. Connect to the internet or download it for offline play first.';
+		}
+
 		userPreference = getGamePreference(id);
 
 		const allGames = await loadAllGames();
 		const prefs = getPreferences();
 
 		if (gameMetadata) {
-			recordGamePlay(id, gameMetadata.category, gameMetadata.author);
-			recommendedGames = getRecommendationsForGamePage(allGames, gameMetadata, id, prefs, 4);
+			if (networkOnline) {
+				recordGamePlay(id, gameMetadata.category, gameMetadata.author);
+			}
+			let rec = getRecommendationsForGamePage(allGames, gameMetadata, id, prefs, 4);
+			if (!networkOnline) {
+				const { fetchAllOfflineStatuses } = await import('$lib/utils/offline-downloader');
+				const statusMap = await fetchAllOfflineStatuses(true);
+				rec = filterDownloadedGames(rec, statusMap);
+			}
+			recommendedGames = rec;
 		}
 
-		gamePlayerUrl = await getGamePlayerUrl(id);
+		if (!error) {
+			gamePlayerUrl = await getGamePlayerUrl(id);
+		}
 		loading = false;
 	}
 
@@ -128,6 +151,12 @@
 	});
 
 	onMount(() => {
+		networkOnline = isNetworkOnline();
+		const detachNetwork = subscribeNetworkStatus((online) => {
+			networkOnline = online;
+			if (gameId) void loadGamePage(gameId);
+		});
+
 		const onPrivacyLocked = (e: Event) => {
 			const d = (e as CustomEvent<{ locked: boolean }>).detail;
 			applyPrivacyPauseToIframe(d?.locked ?? false);
@@ -140,18 +169,26 @@
 			if (d?.gameId !== gameId) return;
 			void refreshPlayerUrl();
 		};
+		const onOfflineStatusChanged = (e: Event) => {
+			const detail = (e as CustomEvent<OfflineStatusChangedDetail>).detail;
+			if (detail?.gameId && detail.gameId !== gameId) return;
+			void refreshPlayerUrl();
+		};
 		window.addEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 		window.addEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
+		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 
 		const isUbuntu = detectUbuntu();
 		const dismissed = localStorage.getItem('ubuntuBannerDismissed') === 'true';
 		showUbuntuBanner = !isUbuntu && !dismissed;
 
 		return () => {
+			detachNetwork();
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
+			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		};
 	});
 
@@ -257,6 +294,7 @@
 					Fullscreen
 				</Button>
 			</div>
+			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 			<OfflineControls {gameId} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
 
@@ -297,10 +335,12 @@
 			{/if}
 			{#key gamePlayerUrl}
 				<LazyGameFrame
+					{gameId}
 					gameUrl={fixMalformedGamePlayerUrl(
 						gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
 						gameId
 					)}
+					iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
 					posterUrl={posterUrlFor(gameMetadata)}
 					title={gameMetadata.name}
 					bind:started={gameSurfaceStarted}

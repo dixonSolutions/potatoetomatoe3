@@ -29,7 +29,7 @@ var init_config = __esm({
     REPO_ROOT = path.resolve(__dirname, "../..");
     GAMES_DATA_DIR = process.env.GAMES_DATA_DIR ?? path.join(REPO_ROOT, "static", "games");
     CATALOG_DIR = process.env.CATALOG_DIR ?? GAMES_DATA_DIR;
-    PORT = Number.parseInt(process.env.PULLER_PORT ?? "8787", 10);
+    PORT = Number.parseInt(process.env.PULLER_PORT ?? "18787", 10);
     CORS_ORIGIN = process.env.PULLER_CORS_ORIGIN ?? "*";
     MIN_OFFLINE_INDEX_BYTES = 64;
     EMBED_STRATEGY_GAME_IDS = new Set(
@@ -251,6 +251,7 @@ var init_extract = __esm({
 // src/server.ts
 init_config();
 import http from "node:http";
+import fs9 from "node:fs/promises";
 import { createReadStream, existsSync as existsSync2 } from "node:fs";
 import path9 from "node:path";
 
@@ -1334,6 +1335,7 @@ import { execFile as execFile2, spawn } from "node:child_process";
 import { promisify as promisify2 } from "node:util";
 var execFileAsync2 = promisify2(execFile2);
 var WGET_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+var ASSET_EXT = /(?:\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot))(?:[?#]|$)/i;
 function extractIframeSrc(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
   for (const re of patterns) {
@@ -1345,6 +1347,93 @@ function extractIframeSrc(html) {
   }
   return null;
 }
+function normalizeGameBaseUrl(iframeSrc) {
+  const parsed = new URL(iframeSrc);
+  if (!parsed.pathname.endsWith("/")) {
+    parsed.pathname = `${parsed.pathname}/`;
+  }
+  return parsed.href;
+}
+function mirroredIndexCandidates(out, iframeUrl) {
+  const parsed = new URL(iframeUrl);
+  const parts = parsed.pathname.split("/").filter(Boolean);
+  const hostDir = path8.join(out, parsed.hostname);
+  const candidates = [path8.join(out, "index.html"), path8.join(hostDir, "index.html")];
+  if (parts.length === 0) return candidates;
+  const last = parts[parts.length - 1];
+  candidates.push(path8.join(hostDir, ...parts, "index.html"));
+  candidates.push(path8.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
+  candidates.push(path8.join(hostDir, ...parts, `${last}.html`));
+  return candidates;
+}
+async function findIndexHtml(dir) {
+  const entries = await fs7.readdir(dir, { withFileTypes: true });
+  for (const e of entries) {
+    const full = path8.join(dir, e.name);
+    if (e.isFile() && /^index\.html?$/i.test(e.name)) return full;
+    if (e.isDirectory()) {
+      const found = await findIndexHtml(full);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+async function resolveMirroredIndex(out, iframeSrc) {
+  for (const candidate of mirroredIndexCandidates(out, iframeSrc)) {
+    if (!existsSync(candidate)) continue;
+    try {
+      const stat = await fs7.stat(candidate);
+      if (stat.isFile() && stat.size >= 64) return candidate;
+    } catch {
+    }
+  }
+  const hostDir = path8.join(out, new URL(iframeSrc).hostname);
+  if (existsSync(hostDir)) {
+    const found = await findIndexHtml(hostDir);
+    if (found) return found;
+  }
+  const fallback = await findIndexHtml(out);
+  if (fallback) return fallback;
+  throw new Error("Mirror completed but no playable HTML entry point found");
+}
+async function findGameContentRoot(mirrorDir) {
+  async function walk(dir) {
+    if (existsSync(path8.join(dir, "Build")) || existsSync(path8.join(dir, "TemplateData"))) {
+      return dir;
+    }
+    const entries = await fs7.readdir(dir, { withFileTypes: true });
+    for (const e of entries) {
+      if (!e.isDirectory()) continue;
+      const found = await walk(path8.join(dir, e.name));
+      if (found) return found;
+    }
+    return null;
+  }
+  return walk(mirrorDir);
+}
+async function promoteGameRootToOfflineDir(mirrorDir, iframeSrc) {
+  const indexPath = await resolveMirroredIndex(mirrorDir, iframeSrc);
+  const contentRoot = await findGameContentRoot(mirrorDir) ?? path8.dirname(indexPath);
+  const staging = path8.join(path8.dirname(mirrorDir), `${path8.basename(mirrorDir)}.__staging__`);
+  await fs7.rm(staging, { recursive: true, force: true });
+  await fs7.mkdir(staging, { recursive: true });
+  await fs7.cp(contentRoot, staging, { recursive: true });
+  const entryName = path8.basename(indexPath);
+  const stagedEntry = path8.join(staging, entryName);
+  const stagedIndex = path8.join(staging, "index.html");
+  if (entryName !== "index.html" && existsSync(stagedEntry)) {
+    await fs7.copyFile(stagedEntry, stagedIndex);
+  } else if (!existsSync(stagedIndex) && existsSync(path8.join(contentRoot, "index.html"))) {
+    await fs7.copyFile(path8.join(contentRoot, "index.html"), stagedIndex);
+  }
+  if (!existsSync(stagedIndex)) {
+    await fs7.rm(staging, { recursive: true, force: true });
+    throw new Error("Could not prepare offline index.html");
+  }
+  await fs7.rm(mirrorDir, { recursive: true, force: true });
+  await fs7.rename(staging, mirrorDir);
+  return normalizeGameBaseUrl(iframeSrc);
+}
 async function runWget(args) {
   return new Promise((resolve, reject) => {
     const child = spawn("wget", args, { stdio: "inherit" });
@@ -1352,63 +1441,155 @@ async function runWget(args) {
     child.on("close", (code) => resolve(code ?? 1));
   });
 }
-async function deepFetchAssets(targetDir, baseUrl, onProgress) {
-  onProgress(70, "Deep asset scan\u2026");
-  const assetPattern = /(?:href|src)=["']([^"']+\.(?:js|css|png|jpg|jpeg|gif|webp|wasm|json|br|mp3|ogg|wav))["']/gi;
+async function downloadFile2(url, destPath) {
+  if (existsSync(destPath)) {
+    try {
+      const stat = await fs7.stat(destPath);
+      if (stat.isFile() && stat.size > 0) return true;
+    } catch {
+    }
+  }
+  await fs7.mkdir(path8.dirname(destPath), { recursive: true });
+  try {
+    await execFileAsync2("wget", [
+      "-q",
+      "--tries=3",
+      "--timeout=120",
+      "-U",
+      WGET_UA,
+      "-O",
+      destPath,
+      url
+    ]);
+    const stat = await fs7.stat(destPath);
+    if (stat.size === 0) {
+      await fs7.rm(destPath, { force: true });
+      return false;
+    }
+    const head = (await fs7.readFile(destPath)).subarray(0, 32).toString("utf8");
+    if (head.startsWith("<!DOCTYPE") || head.startsWith("<html")) {
+      await fs7.rm(destPath, { force: true });
+      return false;
+    }
+    return true;
+  } catch {
+    try {
+      await fs7.rm(destPath, { force: true });
+    } catch {
+    }
+    return false;
+  }
+}
+function localPathForUrl(baseUrl, assetUrl, outDir) {
+  const base = new URL(baseUrl);
+  const abs = new URL(assetUrl, base);
+  if (abs.origin !== base.origin) {
+    return path8.join(
+      outDir,
+      "_external",
+      abs.hostname,
+      ...abs.pathname.split("/").filter(Boolean)
+    );
+  }
+  const baseParts = base.pathname.split("/").filter(Boolean);
+  const absParts = abs.pathname.split("/").filter(Boolean);
+  const relParts = absParts.slice(baseParts.length);
+  if (relParts.length === 0) return path8.join(outDir, "index.html");
+  return path8.join(outDir, ...relParts);
+}
+function collectAssetRefs(text, fileUrl, queue, seen) {
+  const patterns = [
+    /(?:href|src)=["']([^"']+)["']/gi,
+    /url\(\s*['"]?([^'")]+)['"]?\s*\)/gi,
+    /UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/gi,
+    /"(?:dataUrl|wasmCodeUrl|wasmFrameworkUrl|codeUrl|frameworkUrl|symbolsUrl|streamingAssetsUrl)"\s*:\s*"([^"]+)"/gi,
+    /["']([^"']+\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot)(?:\?[^"']*)?)["']/gi
+  ];
+  for (const pattern of patterns) {
+    pattern.lastIndex = 0;
+    let m;
+    while ((m = pattern.exec(text)) !== null) {
+      const ref = m[1]?.trim();
+      if (!ref || ref.startsWith("data:") || ref.startsWith("blob:") || ref.startsWith("#")) continue;
+      try {
+        const abs = new URL(ref, fileUrl).href;
+        if (!ASSET_EXT.test(abs)) continue;
+        if (seen.has(abs)) continue;
+        queue.add(abs);
+      } catch {
+      }
+    }
+  }
+}
+async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
+  const missing = [];
+  if (/UnityLoader/i.test(indexHtml)) {
+    const match = indexHtml.match(/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/i);
+    if (match?.[1]) {
+      const buildJsonUrl = new URL(match[1], baseUrl).href;
+      const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
+      if (!existsSync(buildJsonPath)) {
+        missing.push(buildJsonPath);
+      } else {
+        try {
+          const buildMeta = JSON.parse(await fs7.readFile(buildJsonPath, "utf-8"));
+          for (const key of [
+            "dataUrl",
+            "wasmCodeUrl",
+            "wasmFrameworkUrl",
+            "codeUrl",
+            "frameworkUrl"
+          ]) {
+            const rel = buildMeta[key];
+            if (!rel) continue;
+            const assetPath = localPathForUrl(buildJsonUrl, rel, outDir);
+            if (!existsSync(assetPath)) missing.push(assetPath);
+          }
+        } catch {
+          missing.push(buildJsonPath);
+        }
+      }
+    }
+    if (!existsSync(path8.join(outDir, "Build", "UnityLoader.js"))) {
+      missing.push(path8.join(outDir, "Build", "UnityLoader.js"));
+    }
+  }
+  if (missing.length > 0) {
+    throw new Error(`Missing required offline assets: ${missing.slice(0, 5).join(", ")}`);
+  }
+}
+async function fetchAllReferencedAssets(outDir, baseUrl, onProgress) {
+  onProgress(65, "Fetching all referenced assets\u2026");
+  const indexPath = path8.join(outDir, "index.html");
+  const indexHtml = await fs7.readFile(indexPath, "utf-8");
   const queue = /* @__PURE__ */ new Set();
   const seen = /* @__PURE__ */ new Set();
-  async function scanFile(filePath) {
-    try {
-      const content = await fs7.readFile(filePath, "utf-8");
-      let m;
-      assetPattern.lastIndex = 0;
-      while ((m = assetPattern.exec(content)) !== null) {
-        const ref = m[1];
-        if (!ref || ref.startsWith("data:") || ref.startsWith("blob:")) continue;
+  collectAssetRefs(indexHtml, baseUrl, queue, seen);
+  let fetched = 0;
+  for (let pass = 0; pass < 24 && queue.size > 0; pass++) {
+    const batch = [...queue];
+    queue.clear();
+    for (const url of batch) {
+      if (seen.has(url)) continue;
+      seen.add(url);
+      const dest = localPathForUrl(baseUrl, url, outDir);
+      const ok = await downloadFile2(url, dest);
+      if (!ok) continue;
+      fetched++;
+      if (fetched % 5 === 0) {
+        onProgress(70 + Math.min(20, Math.floor(fetched / 3)), `Downloaded ${fetched} asset(s)\u2026`);
+      }
+      if (/\.(html?|js|css|json)$/i.test(dest)) {
         try {
-          const abs = new URL(ref, baseUrl).href;
-          if (!seen.has(abs)) queue.add(abs);
+          const text = await fs7.readFile(dest, "utf-8");
+          collectAssetRefs(text, url, queue, seen);
         } catch {
         }
       }
-    } catch {
     }
   }
-  async function walk(dir) {
-    const entries = await fs7.readdir(dir, { withFileTypes: true });
-    for (const e of entries) {
-      const full = path8.join(dir, e.name);
-      if (e.isDirectory()) await walk(full);
-      else if (/\.(html?|js|css|json)$/i.test(e.name)) await scanFile(full);
-    }
-  }
-  await walk(targetDir);
-  let fetched = 0;
-  for (const url of queue) {
-    if (seen.has(url)) continue;
-    seen.add(url);
-    try {
-      const parsed = new URL(url);
-      const rel = path8.join(parsed.hostname, ...parsed.pathname.split("/").filter(Boolean));
-      const dest = path8.join(targetDir, rel);
-      await fs7.mkdir(path8.dirname(dest), { recursive: true });
-      if (!existsSync(dest)) {
-        await execFileAsync2("wget", [
-          "-q",
-          "--tries=3",
-          "--timeout=90",
-          "-U",
-          WGET_UA,
-          "-O",
-          dest,
-          url
-        ]);
-        fetched++;
-      }
-    } catch {
-    }
-  }
-  if (fetched > 0) onProgress(80, `Fetched ${fetched} additional asset(s)`);
+  onProgress(92, `Verifying required assets (${fetched} downloaded)\u2026`);
+  await validateRequiredAssets(outDir, baseUrl, indexHtml);
 }
 async function pullGenericGame(gameId, onProgress) {
   const onlineIndex = path8.join(catalogOnlineDir(gameId), "index.html");
@@ -1423,10 +1604,10 @@ async function pullGenericGame(gameId, onProgress) {
     onProgress(100, "Copied online shell");
     return;
   }
-  onProgress(15, `Mirroring ${iframeSrc}\u2026`);
+  const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
+  onProgress(15, `Mirroring ${mirrorUrl}\u2026`);
   await fs7.rm(out, { recursive: true, force: true });
   await fs7.mkdir(out, { recursive: true });
-  const parsed = new URL(iframeSrc);
   const wgetArgs = [
     "--mirror",
     "--convert-links",
@@ -1440,43 +1621,27 @@ async function pullGenericGame(gameId, onProgress) {
     "-U",
     WGET_UA,
     "--tries=3",
-    "--timeout=90",
-    iframeSrc
+    "--timeout=120",
+    mirrorUrl
   ];
   const code = await runWget(wgetArgs);
-  if (code !== 0) {
+  onProgress(50, "Preparing offline layout\u2026");
+  let baseUrl;
+  try {
+    baseUrl = await promoteGameRootToOfflineDir(out, iframeSrc);
+  } catch (error) {
+    if (code !== 0 && code !== 8) {
+      throw new Error(`wget mirror failed with exit code ${code}`);
+    }
+    throw error;
+  }
+  if (code !== 0 && code !== 8) {
     throw new Error(`wget mirror failed with exit code ${code}`);
   }
-  onProgress(55, "Locating mirrored index\u2026");
-  const hostDir = path8.join(out, parsed.hostname);
-  let indexPath = null;
-  async function findIndex(dir) {
-    const entries = await fs7.readdir(dir, { withFileTypes: true });
-    for (const e of entries) {
-      const full = path8.join(dir, e.name);
-      if (e.isFile() && /^index\.html?$/i.test(e.name)) return full;
-      if (e.isDirectory()) {
-        const found = await findIndex(full);
-        if (found) return found;
-      }
-    }
-    return null;
-  }
-  if (existsSync(hostDir)) {
-    indexPath = await findIndex(hostDir);
-  }
-  if (!indexPath) {
-    indexPath = await findIndex(out);
-  }
-  if (indexPath && indexPath !== path8.join(out, "index.html")) {
-    await fs7.copyFile(indexPath, path8.join(out, "index.html"));
-  }
-  const finalIndex = path8.join(out, "index.html");
-  if (!existsSync(finalIndex)) {
+  if (!existsSync(path8.join(out, "index.html"))) {
     throw new Error("Mirror completed but no index.html found");
   }
-  onProgress(65, "Fetching runtime assets\u2026");
-  await deepFetchAssets(out, iframeSrc, onProgress);
+  await fetchAllReferencedAssets(out, baseUrl, onProgress);
   onProgress(100, "Download complete");
 }
 
@@ -1563,6 +1728,22 @@ async function runDownloadJob(gameId, job) {
   }
 }
 
+// src/game-storage-bridge-script.ts
+function buildInlineGameStorageBridgeScript(gameId) {
+  const safeId = JSON.stringify(gameId);
+  return `<script>(function(){var GAME_ID=${safeId};var TYPE='potato-tomato-game-storage';function snap(){var d={},i,k;try{for(i=0;i<localStorage.length;i++){k=localStorage.key(i);if(k)d[k]=localStorage.getItem(k);}}catch(e){}return d;}function push(){if(window.parent===window)return;window.parent.postMessage({type:TYPE,action:'push',gameId:GAME_ID,data:{localStorage:snap()}},'*');}window.addEventListener('message',function(e){var m=e.data;if(!m||m.type!==TYPE||m.gameId!==GAME_ID||m.action!=='hydrate'||!m.data||!m.data.localStorage)return;var ls=m.data.localStorage,k;for(k in ls){if(Object.prototype.hasOwnProperty.call(ls,k)){try{localStorage.setItem(k,ls[k]);}catch(err){}}}});if(window.parent!==window){window.parent.postMessage({type:TYPE,action:'pull',gameId:GAME_ID},'*');setInterval(push,4000);window.addEventListener('pagehide',push);}})();</script>`;
+}
+function injectGameStorageBridge(html, gameId, childScriptSrc) {
+  const tag = childScriptSrc ? `<script src="${childScriptSrc}" defer></script>` : buildInlineGameStorageBridgeScript(gameId);
+  if (html.includes("</head>")) {
+    return html.replace("</head>", `${tag}</head>`);
+  }
+  if (html.includes("<body")) {
+    return html.replace(/<body([^>]*)>/i, `<body$1>${tag}`);
+  }
+  return tag + html;
+}
+
 // src/server.ts
 function sendJson(res, status, body) {
   const payload = JSON.stringify(body);
@@ -1630,11 +1811,17 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
+  const isHtml = /\.html?$/i.test(absPath);
   res.writeHead(200, {
     "Content-Type": mimeFor(absPath),
     "Access-Control-Allow-Origin": CORS_ORIGIN,
     "Cache-Control": "public, max-age=3600"
   });
+  if (isHtml) {
+    const raw = await fs9.readFile(absPath, "utf-8");
+    res.end(injectGameStorageBridge(raw, gameId));
+    return true;
+  }
   createReadStream(absPath).pipe(res);
   return true;
 }

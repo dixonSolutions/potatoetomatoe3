@@ -11,6 +11,9 @@ const execFileAsync = promisify(execFile);
 const WGET_UA =
 	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
+const ASSET_EXT =
+	/(?:\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot))(?:[?#]|$)/i;
+
 function extractIframeSrc(html: string): string | null {
 	const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
 	for (const re of patterns) {
@@ -23,6 +26,114 @@ function extractIframeSrc(html: string): string | null {
 	return null;
 }
 
+function normalizeGameBaseUrl(iframeSrc: string): string {
+	const parsed = new URL(iframeSrc);
+	if (!parsed.pathname.endsWith('/')) {
+		parsed.pathname = `${parsed.pathname}/`;
+	}
+	return parsed.href;
+}
+
+function mirroredIndexCandidates(out: string, iframeUrl: string): string[] {
+	const parsed = new URL(iframeUrl);
+	const parts = parsed.pathname.split('/').filter(Boolean);
+	const hostDir = path.join(out, parsed.hostname);
+	const candidates = [path.join(out, 'index.html'), path.join(hostDir, 'index.html')];
+
+	if (parts.length === 0) return candidates;
+
+	const last = parts[parts.length - 1];
+	candidates.push(path.join(hostDir, ...parts, 'index.html'));
+	candidates.push(path.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
+	candidates.push(path.join(hostDir, ...parts, `${last}.html`));
+
+	return candidates;
+}
+
+async function findIndexHtml(dir: string): Promise<string | null> {
+	const entries = await fs.readdir(dir, { withFileTypes: true });
+	for (const e of entries) {
+		const full = path.join(dir, e.name);
+		if (e.isFile() && /^index\.html?$/i.test(e.name)) return full;
+		if (e.isDirectory()) {
+			const found = await findIndexHtml(full);
+			if (found) return found;
+		}
+	}
+	return null;
+}
+
+async function resolveMirroredIndex(out: string, iframeSrc: string): Promise<string> {
+	for (const candidate of mirroredIndexCandidates(out, iframeSrc)) {
+		if (!existsSync(candidate)) continue;
+		try {
+			const stat = await fs.stat(candidate);
+			if (stat.isFile() && stat.size >= 64) return candidate;
+		} catch {
+			// try next candidate
+		}
+	}
+
+	const hostDir = path.join(out, new URL(iframeSrc).hostname);
+	if (existsSync(hostDir)) {
+		const found = await findIndexHtml(hostDir);
+		if (found) return found;
+	}
+
+	const fallback = await findIndexHtml(out);
+	if (fallback) return fallback;
+
+	throw new Error('Mirror completed but no playable HTML entry point found');
+}
+
+async function findGameContentRoot(mirrorDir: string): Promise<string | null> {
+	async function walk(dir: string): Promise<string | null> {
+		if (existsSync(path.join(dir, 'Build')) || existsSync(path.join(dir, 'TemplateData'))) {
+			return dir;
+		}
+		const entries = await fs.readdir(dir, { withFileTypes: true });
+		for (const e of entries) {
+			if (!e.isDirectory()) continue;
+			const found = await walk(path.join(dir, e.name));
+			if (found) return found;
+		}
+		return null;
+	}
+
+	return walk(mirrorDir);
+}
+
+/** Hoist mirrored game files so index.html, Build/, TemplateData/ sit directly under offline/. */
+async function promoteGameRootToOfflineDir(mirrorDir: string, iframeSrc: string): Promise<string> {
+	const indexPath = await resolveMirroredIndex(mirrorDir, iframeSrc);
+	const contentRoot = (await findGameContentRoot(mirrorDir)) ?? path.dirname(indexPath);
+	const staging = path.join(path.dirname(mirrorDir), `${path.basename(mirrorDir)}.__staging__`);
+
+	await fs.rm(staging, { recursive: true, force: true });
+	await fs.mkdir(staging, { recursive: true });
+	await fs.cp(contentRoot, staging, { recursive: true });
+
+	const entryName = path.basename(indexPath);
+	const stagedEntry = path.join(staging, entryName);
+	const stagedIndex = path.join(staging, 'index.html');
+
+	if (entryName !== 'index.html' && existsSync(stagedEntry)) {
+		await fs.copyFile(stagedEntry, stagedIndex);
+	} else if (!existsSync(stagedIndex) && existsSync(path.join(contentRoot, 'index.html'))) {
+		await fs.copyFile(path.join(contentRoot, 'index.html'), stagedIndex);
+	}
+
+	if (!existsSync(stagedIndex)) {
+		await fs.rm(staging, { recursive: true, force: true });
+		throw new Error('Could not prepare offline index.html');
+	}
+
+	await fs.rm(mirrorDir, { recursive: true, force: true });
+	await fs.rename(staging, mirrorDir);
+
+	return normalizeGameBaseUrl(iframeSrc);
+}
+
 async function runWget(args: string[]): Promise<number> {
 	return new Promise((resolve, reject) => {
 		const child = spawn('wget', args, { stdio: 'inherit' });
@@ -31,75 +142,188 @@ async function runWget(args: string[]): Promise<number> {
 	});
 }
 
-async function deepFetchAssets(
-	targetDir: string,
+async function downloadFile(url: string, destPath: string): Promise<boolean> {
+	if (existsSync(destPath)) {
+		try {
+			const stat = await fs.stat(destPath);
+			if (stat.isFile() && stat.size > 0) return true;
+		} catch {
+			// re-download
+		}
+	}
+
+	await fs.mkdir(path.dirname(destPath), { recursive: true });
+	try {
+		await execFileAsync('wget', [
+			'-q',
+			'--tries=3',
+			'--timeout=120',
+			'-U',
+			WGET_UA,
+			'-O',
+			destPath,
+			url
+		]);
+		const stat = await fs.stat(destPath);
+		if (stat.size === 0) {
+			await fs.rm(destPath, { force: true });
+			return false;
+		}
+		const head = (await fs.readFile(destPath)).subarray(0, 32).toString('utf8');
+		if (head.startsWith('<!DOCTYPE') || head.startsWith('<html')) {
+			await fs.rm(destPath, { force: true });
+			return false;
+		}
+		return true;
+	} catch {
+		try {
+			await fs.rm(destPath, { force: true });
+		} catch {
+			// ignore
+		}
+		return false;
+	}
+}
+
+function localPathForUrl(baseUrl: string, assetUrl: string, outDir: string): string {
+	const base = new URL(baseUrl);
+	const abs = new URL(assetUrl, base);
+	if (abs.origin !== base.origin) {
+		return path.join(
+			outDir,
+			'_external',
+			abs.hostname,
+			...abs.pathname.split('/').filter(Boolean)
+		);
+	}
+
+	const baseParts = base.pathname.split('/').filter(Boolean);
+	const absParts = abs.pathname.split('/').filter(Boolean);
+	const relParts = absParts.slice(baseParts.length);
+	if (relParts.length === 0) return path.join(outDir, 'index.html');
+	return path.join(outDir, ...relParts);
+}
+
+function collectAssetRefs(text: string, fileUrl: string, queue: Set<string>, seen: Set<string>): void {
+	const patterns = [
+		/(?:href|src)=["']([^"']+)["']/gi,
+		/url\(\s*['"]?([^'")]+)['"]?\s*\)/gi,
+		/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/gi,
+		/"(?:dataUrl|wasmCodeUrl|wasmFrameworkUrl|codeUrl|frameworkUrl|symbolsUrl|streamingAssetsUrl)"\s*:\s*"([^"]+)"/gi,
+		/["']([^"']+\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot)(?:\?[^"']*)?)["']/gi
+	];
+
+	for (const pattern of patterns) {
+		pattern.lastIndex = 0;
+		let m: RegExpExecArray | null;
+		while ((m = pattern.exec(text)) !== null) {
+			const ref = m[1]?.trim();
+			if (!ref || ref.startsWith('data:') || ref.startsWith('blob:') || ref.startsWith('#')) continue;
+			try {
+				const abs = new URL(ref, fileUrl).href;
+				if (!ASSET_EXT.test(abs)) continue;
+				if (seen.has(abs)) continue;
+				queue.add(abs);
+			} catch {
+				// skip invalid URL
+			}
+		}
+	}
+}
+
+async function validateRequiredAssets(
+	outDir: string,
+	baseUrl: string,
+	indexHtml: string
+): Promise<void> {
+	const missing: string[] = [];
+
+	if (/UnityLoader/i.test(indexHtml)) {
+		const match = indexHtml.match(/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/i);
+		if (match?.[1]) {
+			const buildJsonUrl = new URL(match[1], baseUrl).href;
+			const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
+			if (!existsSync(buildJsonPath)) {
+				missing.push(buildJsonPath);
+			} else {
+				try {
+					const buildMeta = JSON.parse(await fs.readFile(buildJsonPath, 'utf-8')) as Record<
+						string,
+						string
+					>;
+					for (const key of [
+						'dataUrl',
+						'wasmCodeUrl',
+						'wasmFrameworkUrl',
+						'codeUrl',
+						'frameworkUrl'
+					]) {
+						const rel = buildMeta[key];
+						if (!rel) continue;
+						const assetPath = localPathForUrl(buildJsonUrl, rel, outDir);
+						if (!existsSync(assetPath)) missing.push(assetPath);
+					}
+				} catch {
+					missing.push(buildJsonPath);
+				}
+			}
+		}
+
+		if (!existsSync(path.join(outDir, 'Build', 'UnityLoader.js'))) {
+			missing.push(path.join(outDir, 'Build', 'UnityLoader.js'));
+		}
+	}
+
+	if (missing.length > 0) {
+		throw new Error(`Missing required offline assets: ${missing.slice(0, 5).join(', ')}`);
+	}
+}
+
+async function fetchAllReferencedAssets(
+	outDir: string,
 	baseUrl: string,
 	onProgress: ProgressReporter
 ): Promise<void> {
-	onProgress(70, 'Deep asset scan…');
-	const assetPattern =
-		/(?:href|src)=["']([^"']+\.(?:js|css|png|jpg|jpeg|gif|webp|wasm|json|br|mp3|ogg|wav))["']/gi;
+	onProgress(65, 'Fetching all referenced assets…');
+
+	const indexPath = path.join(outDir, 'index.html');
+	const indexHtml = await fs.readFile(indexPath, 'utf-8');
 	const queue = new Set<string>();
 	const seen = new Set<string>();
 
-	async function scanFile(filePath: string): Promise<void> {
-		try {
-			const content = await fs.readFile(filePath, 'utf-8');
-			let m: RegExpExecArray | null;
-			assetPattern.lastIndex = 0;
-			while ((m = assetPattern.exec(content)) !== null) {
-				const ref = m[1];
-				if (!ref || ref.startsWith('data:') || ref.startsWith('blob:')) continue;
-				try {
-					const abs = new URL(ref, baseUrl).href;
-					if (!seen.has(abs)) queue.add(abs);
-				} catch {
-					// skip bad URLs
-				}
-			}
-		} catch {
-			// binary or unreadable
-		}
-	}
-
-	async function walk(dir: string): Promise<void> {
-		const entries = await fs.readdir(dir, { withFileTypes: true });
-		for (const e of entries) {
-			const full = path.join(dir, e.name);
-			if (e.isDirectory()) await walk(full);
-			else if (/\.(html?|js|css|json)$/i.test(e.name)) await scanFile(full);
-		}
-	}
-
-	await walk(targetDir);
+	collectAssetRefs(indexHtml, baseUrl, queue, seen);
 
 	let fetched = 0;
-	for (const url of queue) {
-		if (seen.has(url)) continue;
-		seen.add(url);
-		try {
-			const parsed = new URL(url);
-			const rel = path.join(parsed.hostname, ...parsed.pathname.split('/').filter(Boolean));
-			const dest = path.join(targetDir, rel);
-			await fs.mkdir(path.dirname(dest), { recursive: true });
-			if (!existsSync(dest)) {
-				await execFileAsync('wget', [
-					'-q',
-					'--tries=3',
-					'--timeout=90',
-					'-U',
-					WGET_UA,
-					'-O',
-					dest,
-					url
-				]);
-				fetched++;
+	for (let pass = 0; pass < 24 && queue.size > 0; pass++) {
+		const batch = [...queue];
+		queue.clear();
+
+		for (const url of batch) {
+			if (seen.has(url)) continue;
+			seen.add(url);
+
+			const dest = localPathForUrl(baseUrl, url, outDir);
+			const ok = await downloadFile(url, dest);
+			if (!ok) continue;
+
+			fetched++;
+			if (fetched % 5 === 0) {
+				onProgress(70 + Math.min(20, Math.floor(fetched / 3)), `Downloaded ${fetched} asset(s)…`);
 			}
-		} catch {
-			// skip failed assets
+
+			if (/\.(html?|js|css|json)$/i.test(dest)) {
+				try {
+					const text = await fs.readFile(dest, 'utf-8');
+					collectAssetRefs(text, url, queue, seen);
+				} catch {
+					// binary mislabeled
+				}
+			}
 		}
 	}
-	if (fetched > 0) onProgress(80, `Fetched ${fetched} additional asset(s)`);
+
+	onProgress(92, `Verifying required assets (${fetched} downloaded)…`);
+	await validateRequiredAssets(outDir, baseUrl, indexHtml);
 }
 
 export async function pullGenericGame(gameId: string, onProgress: ProgressReporter): Promise<void> {
@@ -118,11 +342,12 @@ export async function pullGenericGame(gameId: string, onProgress: ProgressReport
 		return;
 	}
 
-	onProgress(15, `Mirroring ${iframeSrc}…`);
+	const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
+
+	onProgress(15, `Mirroring ${mirrorUrl}…`);
 	await fs.rm(out, { recursive: true, force: true });
 	await fs.mkdir(out, { recursive: true });
 
-	const parsed = new URL(iframeSrc);
 	const wgetArgs = [
 		'--mirror',
 		'--convert-links',
@@ -136,50 +361,32 @@ export async function pullGenericGame(gameId: string, onProgress: ProgressReport
 		'-U',
 		WGET_UA,
 		'--tries=3',
-		'--timeout=90',
-		iframeSrc
+		'--timeout=120',
+		mirrorUrl
 	];
 
 	const code = await runWget(wgetArgs);
-	if (code !== 0) {
+
+	onProgress(50, 'Preparing offline layout…');
+	let baseUrl: string;
+	try {
+		baseUrl = await promoteGameRootToOfflineDir(out, iframeSrc);
+	} catch (error) {
+		if (code !== 0 && code !== 8) {
+			throw new Error(`wget mirror failed with exit code ${code}`);
+		}
+		throw error;
+	}
+
+	if (code !== 0 && code !== 8) {
 		throw new Error(`wget mirror failed with exit code ${code}`);
 	}
 
-	onProgress(55, 'Locating mirrored index…');
-	const hostDir = path.join(out, parsed.hostname);
-	let indexPath: string | null = null;
-
-	async function findIndex(dir: string): Promise<string | null> {
-		const entries = await fs.readdir(dir, { withFileTypes: true });
-		for (const e of entries) {
-			const full = path.join(dir, e.name);
-			if (e.isFile() && /^index\.html?$/i.test(e.name)) return full;
-			if (e.isDirectory()) {
-				const found = await findIndex(full);
-				if (found) return found;
-			}
-		}
-		return null;
-	}
-
-	if (existsSync(hostDir)) {
-		indexPath = await findIndex(hostDir);
-	}
-	if (!indexPath) {
-		indexPath = await findIndex(out);
-	}
-
-	if (indexPath && indexPath !== path.join(out, 'index.html')) {
-		await fs.copyFile(indexPath, path.join(out, 'index.html'));
-	}
-
-	const finalIndex = path.join(out, 'index.html');
-	if (!existsSync(finalIndex)) {
+	if (!existsSync(path.join(out, 'index.html'))) {
 		throw new Error('Mirror completed but no index.html found');
 	}
 
-	onProgress(65, 'Fetching runtime assets…');
-	await deepFetchAssets(out, iframeSrc, onProgress);
+	await fetchAllReferencedAssets(out, baseUrl, onProgress);
 
 	onProgress(100, 'Download complete');
 }

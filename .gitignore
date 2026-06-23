@@ -10,13 +10,18 @@ node_modules
 /build-flatpak
 /.flatpak-builder
 /src-tauri/target
-static/games/
-!static/games/shrek-escape/
-!static/games/shrek-escape/**
-# User-downloaded offline mirrors (never commit)
-static/games/*/offline/
-static/games/**/offline/
+# Games catalog: track online shells + index files; ignore puller downloads
+static/games/**
+!static/games/games-list.json
+!static/games/games-metadata.json
+!static/games/*/
+!static/games/*/online/
+!static/games/*/online/**
+!static/games/*/shared/
+!static/games/*/shared/**
+static/games/*/offline/**
 !static/games/shrek-escape/offline/
+!static/games/shrek-escape/offline/**
 
 # OS
 .DS_Store

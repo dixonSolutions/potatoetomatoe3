@@ -1,5 +1,4 @@
 import { base } from '$app/paths';
-import { dev } from '$app/environment';
 import { getGamePlayMode } from '$lib/utils/game-play-mode';
 import {
 	fetchGameOfflineStatus,
@@ -7,6 +6,9 @@ import {
 	getOfflinePlayUrl,
 	isBrowserGameDownloaded
 } from '$lib/utils/offline-downloader';
+import { isBundledOfflineGame } from '$lib/utils/game-availability';
+
+export type GameEngine = 'unity' | 'html5' | string;
 
 export interface GameMetadata {
 	id: string;
@@ -16,6 +18,12 @@ export interface GameMetadata {
 	/** Empty when no on-disk asset; use `resolveGameThumbnailSrc` for `<img src>`. */
 	thumbnail: string;
 	category: string;
+	/** Game engine — Unity titles may use an external embed for online play. */
+	engine?: GameEngine;
+	/** Direct URL for online play (Unity CDN, etc.). */
+	onlineEmbedUrl?: string;
+	/** Shipped with a pre-built offline copy under static/games/{id}/offline/. */
+	bundledOffline?: boolean;
 }
 
 /** Neutral inline SVG — avoids a network request when `thumbnail` is missing or blank. */
@@ -80,7 +88,24 @@ export function fixMalformedGamePlayerUrl(url: string, gameId: string): string {
 	return out;
 }
 
+function unityEmbedShellUrl(externalUrl: string): string {
+	const params = new URLSearchParams({ src: externalUrl });
+	return `${base}/unity/embed.html?${params.toString()}`;
+}
+
+function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): string {
+	const embed = metadata?.onlineEmbedUrl?.trim();
+	if (embed) {
+		if (metadata?.engine === 'unity') {
+			return unityEmbedShellUrl(embed);
+		}
+		return embed;
+	}
+	return `${base}/games/${gameId}/online/index.html`;
+}
+
 async function staticOfflineExists(gameId: string): Promise<boolean> {
+	if (isBundledOfflineGame(gameId)) return true;
 	try {
 		const res = await fetch(`${base}/games/${gameId}/offline/index.html`, { method: 'HEAD' });
 		return res.ok;
@@ -90,6 +115,7 @@ async function staticOfflineExists(gameId: string): Promise<boolean> {
 }
 
 async function offlineAvailable(gameId: string): Promise<boolean> {
+	if (isBundledOfflineGame(gameId)) return true;
 	const status = await fetchGameOfflineStatus(gameId);
 	if (status?.offline) return true;
 	if ((await getOfflineBackend()) === 'browser' && (await isBrowserGameDownloaded(gameId))) {
@@ -98,16 +124,25 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	return staticOfflineExists(gameId);
 }
 
-/**
- * Resolve the iframe src for playing a game.
- * Uses per-game online/offline preference and checks puller or static offline copies.
- */
+/** Resolve the iframe src for playing a game. */
 export async function getGamePlayerUrl(gameId: string): Promise<string> {
-	const onlineUrl = `${base}/games/${gameId}/online/index.html`;
+	const metadata = await loadGameMetadata(gameId);
+	const onlineUrl = resolveOnlinePlayUrl(metadata, gameId);
 	const staticOfflineUrl = `${base}/games/${gameId}/offline/index.html`;
 
-	const mode = getGamePlayMode(gameId);
 	const hasOffline = await offlineAvailable(gameId);
+	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;
+
+	if (!networkOnline) {
+		if (hasOffline) {
+			const offlineUrl = await getOfflinePlayUrl(gameId);
+			if (offlineUrl) return offlineUrl;
+			return staticOfflineUrl;
+		}
+		return onlineUrl;
+	}
+
+	const mode = getGamePlayMode(gameId);
 
 	if (mode === 'offline' && hasOffline) {
 		const offlineUrl = await getOfflinePlayUrl(gameId);
@@ -118,17 +153,31 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	return onlineUrl;
 }
 
+/** Whether the game can be played while the device has no network connection. */
+export async function canPlayGameOffline(
+	gameId: string,
+	metadata?: GameMetadata | null
+): Promise<boolean> {
+	const { getGameAvailability } = await import('$lib/utils/game-availability');
+	const availability = await getGameAvailability(gameId, metadata ?? (await loadGameMetadata(gameId)), true);
+	return availability.offline;
+}
+
 /** Whether both online and offline copies exist for a game. */
 export async function gameHasDualVersions(gameId: string): Promise<{
 	online: boolean;
 	offline: boolean;
 }> {
-	const status = await fetchGameOfflineStatus(gameId);
-	if (status) {
-		return { online: status.online, offline: status.offline };
+	const metadata = await loadGameMetadata(gameId);
+	const online = Boolean(metadata?.onlineEmbedUrl?.trim()) || true;
+	const offline = await offlineAvailable(gameId);
+	return { online, offline };
+}
+
+/** Iframe `allow` attribute for the resolved play URL. */
+export function iframeAllowForUrl(url: string): string | undefined {
+	if (url.includes('/unity/embed.html') || url.includes('jsdelivr.net')) {
+		return 'fullscreen; autoplay';
 	}
-	return {
-		online: true,
-		offline: await staticOfflineExists(gameId)
-	};
+	return undefined;
 }

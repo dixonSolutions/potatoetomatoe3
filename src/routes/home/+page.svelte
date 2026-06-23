@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { base, resolve } from '$app/paths';
 	import { loadAllGames, resolveGameThumbnailSrc, type GameMetadata } from '$lib/utils/games';
@@ -12,7 +13,10 @@
 		getPlaySessions
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { Heart, ThumbsUp, Users, ChevronRight } from 'lucide-svelte';
+	import { Heart, ThumbsUp, Users, ChevronRight, WifiOff } from 'lucide-svelte';
+	import { fetchAllOfflineStatuses, OFFLINE_STATUS_CHANGED } from '$lib/utils/offline-downloader';
+	import { filterDownloadedGames } from '$lib/utils/game-availability';
+	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 
 	let allGames: GameMetadata[] = $state([]);
 	let continueGames: GameMetadata[] = $state([]);
@@ -22,6 +26,8 @@
 	let libraryReady = $state(false);
 	let feedReady = $state(false);
 	let favouriteIds = $state<string[]>([]);
+	let networkOnline = $state(true);
+	let offlineStatusMap = $state<Record<string, { offline?: boolean }>>({});
 
 	const continueSkeletonCount = 12;
 	const recommendedSkeletonCount = 6;
@@ -52,16 +58,23 @@
 		}
 	}
 
+	function applyOfflineLibraryFilter(games: GameMetadata[]): GameMetadata[] {
+		if (networkOnline) return games;
+		return filterDownloadedGames(games, offlineStatusMap);
+	}
+
 	async function loadFeed() {
 		if (!browser) return;
 		libraryReady = false;
 		feedReady = false;
 		try {
+			networkOnline = isNetworkOnline();
 			allGames = await loadAllGames();
+			offlineStatusMap = await fetchAllOfflineStatuses(true);
 			const prefs = getPreferences();
 			favouriteIds = [...prefs.liked];
 
-			continueGames = getRecentlyPlayedGames(allGames, prefs, 28);
+			continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
 			libraryReady = true;
 
 			const continueIds = new Set(continueGames.map((g) => g.id));
@@ -74,15 +87,17 @@
 			if (rec.length === 0) {
 				rec = getHomeRecommendations(allGames, prefs, 14);
 			}
-			recommendedGames = rec;
+			recommendedGames = applyOfflineLibraryFilter(rec);
 
 			const used = new Set([...continueGames, ...recommendedGames].map((g) => g.id));
-			featuredGames = allGames
-				.filter((g) => !used.has(g.id))
-				.sort((a, b) => a.name.localeCompare(b.name))
-				.slice(0, 16);
+			featuredGames = applyOfflineLibraryFilter(
+				allGames
+					.filter((g) => !used.has(g.id))
+					.sort((a, b) => a.name.localeCompare(b.name))
+					.slice(0, 16)
+			);
 
-			if (featuredGames.length < 8) {
+			if (featuredGames.length < 8 && networkOnline) {
 				const need = 8 - featuredGames.length;
 				const extra = allGames.filter((g) => !featuredGames.some((f) => f.id === g.id)).slice(0, need);
 				featuredGames = [...featuredGames, ...extra].slice(0, 16);
@@ -94,16 +109,49 @@
 		}
 	}
 
+	onMount(() => {
+		networkOnline = isNetworkOnline();
+		const detachNetwork = subscribeNetworkStatus((online) => {
+			networkOnline = online;
+			void loadFeed();
+		});
+		const onOfflineStatusChanged = () => {
+			void loadFeed();
+		};
+		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+		return () => {
+			detachNetwork();
+			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+		};
+	});
+
 	$effect(() => {
 		if (!browser) return;
 		const path = $page.url.pathname;
 		if (path !== '/home' && !path.endsWith('/home')) return;
 		void loadFeed();
 	});
+	let downloadedCount = $derived(filterDownloadedGames(allGames, offlineStatusMap).length);
 </script>
 
 <div class="min-h-screen bg-background text-foreground">
 	<div class="container mx-auto px-3 sm:px-4 py-6 md:py-8 max-w-[1600px]">
+		{#if !networkOnline}
+			<div
+				class="mb-6 flex items-start gap-3 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm"
+				role="status"
+			>
+				<WifiOff class="mt-0.5 h-4 w-4 shrink-0 text-amber-700 dark:text-amber-300" />
+				<div>
+					<p class="font-medium text-foreground">You are offline</p>
+					<p class="text-muted-foreground">
+						Home rows show only your {downloadedCount} downloaded
+						{downloadedCount === 1 ? 'game' : 'games'}.
+					</p>
+				</div>
+			</div>
+		{/if}
+
 		<header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 md:mb-10">
 			<div>
 				<h1 class="text-2xl md:text-3xl font-bold tracking-tight">For you</h1>
