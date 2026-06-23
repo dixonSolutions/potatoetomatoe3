@@ -20,7 +20,8 @@ After a successful release:
 
 ```bash
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --user --if-not-exists potatotomato \
+flatpak remote-delete potatotomato 2>/dev/null || true
+flatpak remote-add --user --if-not-exists --no-gpg-verify potatotomato \
   https://dixonsolutions.github.io/potatoetomatoe3/potatotomato.flatpakrepo
 flatpak install --user potatotomato com.potatotomato.games
 flatpak run com.potatotomato.games
