@@ -2,25 +2,29 @@
 	import { tick } from 'svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Play } from 'lucide-svelte';
+	import { captureGameStorageFromIframe } from '$lib/utils/game-storage-bridge';
 
 	/**
-	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…` or `/online/…`).
-	 * That URL is always your static app — not a third-party embed. Offline mode points `src` at
-	 * `offline/index.html` when a mirror exists so gameplay uses the pulled copy.
+	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…`, `/puller-games/{id}/…`, or `/online/…`).
+	 * Same app origin keeps game localStorage aligned across online/offline; puller copies use `/puller-games/` (proxied in dev).
 	 * A separate document is required so the game keeps its own globals and relative asset paths;
 	 * rendering the bundle inline in Svelte would break typical builds.
 	 * `src` is attached only after Play so heavy assets are not loaded on navigation alone.
 	 */
 	let {
 		gameUrl,
+		gameId = '',
 		title,
 		posterUrl,
+		iframeAllow,
 		started = $bindable(false),
 		onIframeReady
 	}: {
 		gameUrl: string;
+		gameId?: string;
 		title: string;
 		posterUrl: string;
+		iframeAllow?: string;
 		started?: boolean;
 		onIframeReady?: (el: HTMLIFrameElement | null) => void;
 	} = $props();
@@ -34,6 +38,17 @@
 		} else {
 			onIframeReady?.(el);
 		}
+	});
+
+	$effect(() => {
+		const id = gameId;
+		const active = started;
+		const frame = iframeEl;
+		return () => {
+			if (active && frame && id) {
+				captureGameStorageFromIframe(frame, id);
+			}
+		};
 	});
 </script>
 
@@ -85,6 +100,7 @@
 			class="h-full w-full border-0 bg-black"
 			loading="lazy"
 			allowfullscreen
+			allow={iframeAllow}
 			referrerpolicy="no-referrer-when-downgrade"
 		></iframe>
 	{/if}

@@ -48,6 +48,7 @@
 	import PrivacyModeSection from '$lib/components/settings/sections/privacy-mode/PrivacyModeSection.svelte';
 	import AudioSection from '$lib/components/settings/sections/audio/AudioSection.svelte';
 	import AnalyticsSection from '$lib/components/settings/sections/analytics/AnalyticsSection.svelte';
+	import GamesSection from '$lib/components/settings/sections/games/GamesSection.svelte';
 	import {
 		clearCategoryAffinities,
 		getCategoryAffinityMap,
@@ -55,8 +56,9 @@
 		setCategoryAffinity,
 		setPlayLimits
 	} from '$lib/utils/play-recommendations';
+	import { getDefaultGamePlayMode, type GamePlayMode } from '$lib/utils/game-play-mode';
 
-	type Panel = 'root' | 'privacy' | 'audio' | 'analytics';
+	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games';
 
 	let {
 		open = $bindable(false),
@@ -94,6 +96,7 @@
 	let analyticsLimitMinutes = $state(0);
 	let analyticsAffinity = $state<Record<string, number>>({});
 	let analyticsPanelKey = $state(0);
+	let gamesDefaultPlayMode = $state<GamePlayMode>('online');
 
 	type SettingsBaseline = {
 		disguise: PrivacyDisguiseMode;
@@ -167,7 +170,7 @@
 	});
 
 	async function goToSearchSubsection(
-		targetPanel: 'privacy' | 'audio' | 'analytics',
+		targetPanel: 'privacy' | 'audio' | 'analytics' | 'games',
 		scrollTargetId: string
 	) {
 		if (targetPanel === 'privacy' && !actualEnabled) {
@@ -358,6 +361,7 @@
 		analyticsLimitMinutes =
 			limits.dailyGlobalLimitMs > 0 ? Math.round(limits.dailyGlobalLimitMs / 60000) : 0;
 		analyticsAffinity = { ...getCategoryAffinityMap() };
+		gamesDefaultPlayMode = getDefaultGamePlayMode();
 		if (panel !== 'analytics') {
 			captureBaseline();
 		}
@@ -622,6 +626,27 @@
 					<div
 						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
 						role="group"
+						aria-label="Games"
+					>
+						<button
+							type="button"
+							class="flex min-w-0 flex-1 items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+							onclick={() => {
+								panel = 'games';
+								syncLocal();
+							}}
+						>
+							<div class="min-w-0 flex-1">
+								<p class="text-sm font-medium">Games</p>
+								<p class="text-xs text-muted-foreground">Online vs offline defaults</p>
+							</div>
+							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+						</button>
+					</div>
+
+					<div
+						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
+						role="group"
 						aria-label="Analytics"
 					>
 						<button
@@ -794,6 +819,38 @@
 						onReady={() => captureBaseline()}
 					/>
 				{/key}
+			</div>
+		{:else if panel === 'games'}
+			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
+				<Button
+					variant="ghost"
+					size="icon"
+					class="shrink-0"
+					onclick={goBack}
+					aria-label="Back to settings"
+				>
+					<ChevronLeft class="size-5" />
+				</Button>
+				<div class="min-w-0 basis-full sm:flex-1 sm:basis-[min(100%,10rem)]">
+					<h2 class="text-lg leading-none font-semibold tracking-tight">Games</h2>
+					<p class="sr-only">Play source and offline defaults</p>
+				</div>
+				<div
+					class="flex w-full min-w-0 flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto"
+				>
+					<input
+						type="search"
+						bind:value={settingsSearchQuery}
+						placeholder="Search…"
+						class="{searchInputClass} min-w-0 flex-1"
+						aria-label="Search games settings"
+						autocomplete="off"
+					/>
+				</div>
+			</div>
+
+			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+				<GamesSection searchQuery={settingsSearchQuery} {busy} bind:defaultPlayMode={gamesDefaultPlayMode} />
 			</div>
 		{/if}
 	</Dialog.Content>

@@ -95,7 +95,21 @@ self.addEventListener('fetch', function (event) {
 				return new Response('Offline file not found', { status: 404 });
 			}
 			const mime = record.mimeType || guessMime(filePath);
-			return new Response(record.data, {
+			var body = record.data;
+			if (mime.indexOf('text/html') === 0) {
+				var html = new TextDecoder('utf-8').decode(record.data);
+				var appBase = url.pathname.replace(/\/browser-offline\/[^/]+.*$/, '') || '';
+				var bridgeSrc =
+					url.origin + appBase + '/game-storage-bridge.child.js';
+				var tag = '<script src="' + bridgeSrc + '" defer></script>';
+				if (html.indexOf('</head>') !== -1) {
+					html = html.replace('</head>', tag + '</head>');
+				} else {
+					html = tag + html;
+				}
+				body = new TextEncoder().encode(html);
+			}
+			return new Response(body, {
 				headers: {
 					'Content-Type': mime,
 					'Cache-Control': 'private, max-age=31536000'

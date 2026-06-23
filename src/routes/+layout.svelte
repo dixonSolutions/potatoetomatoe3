@@ -31,6 +31,7 @@
 	} from '$lib/utils/privacy-mode';
 	import type { PrivacyDisguiseMode } from '$lib/utils/site-settings';
 	import { attachGlobalMediaMute } from '$lib/utils/audio-mute';
+	import { attachGameStorageBridge } from '$lib/utils/game-storage-bridge';
 
 	let { data, children } = $props();
 
@@ -267,6 +268,7 @@
 		}
 
 		const detachMediaMute = attachGlobalMediaMute(document);
+		const detachGameStorageBridge = attachGameStorageBridge();
 
 		window.addEventListener('keydown', onPrivacyKeydown);
 		window.addEventListener('focus', onWindowFocusForPrivacy);
@@ -277,6 +279,7 @@
 			window.removeEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
 			clearInterval(poll);
 			detachMediaMute();
+			detachGameStorageBridge();
 			clearLockDelayTimer();
 			clearVisibilityHiddenDebounce();
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onPrivacySettingsAppliedForTimers);

@@ -3,6 +3,17 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 
+const pullerTarget = (process.env.PUBLIC_DOWNLOADER_URL ?? 'http://127.0.0.1:18787').replace(
+	/\/$/,
+	''
+);
+
+const pullerGameProxy = {
+	target: pullerTarget,
+	changeOrigin: true,
+	rewrite: (path: string) => path.replace(/^\/puller-games/, '/games')
+};
+
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit(), devtoolsJson()],
 	/** Pre-bundle UI libs so Vite does not intermittently fail dynamic imports (cascades into many “module load failed” errors). */
@@ -14,6 +25,9 @@ export default defineConfig({
 		port: 5173,
 		strictPort: true,
 		host: true, // Expose to network for container compatibility
+		proxy: {
+			'/puller-games': pullerGameProxy
+		},
 		watch: {
 			// Exclude build directories to prevent file watcher issues / inotify limits
 			ignored: [
@@ -31,6 +45,11 @@ export default defineConfig({
 	},
 	// Clear screen can cause issues with Tauri
 	clearScreen: false,
+	preview: {
+		proxy: {
+			'/puller-games': pullerGameProxy
+		}
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

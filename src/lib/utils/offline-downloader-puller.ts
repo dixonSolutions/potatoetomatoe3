@@ -1,5 +1,7 @@
 /** HTTP client for the local puller backend (Tauri / `pnpm dev`). */
 
+import { shouldProbePullerBackend } from './offline-deployment';
+
 export interface GameOfflineStatus {
 	online: boolean;
 	offline: boolean;
@@ -13,7 +15,7 @@ export interface DownloadProgress {
 	error?: string;
 }
 
-const DEFAULT_PULLER_URL = 'http://127.0.0.1:8787';
+const DEFAULT_PULLER_URL = 'http://127.0.0.1:18787';
 
 export function getPullerBaseUrl(): string {
 	const env = import.meta.env.PUBLIC_DOWNLOADER_URL;
@@ -26,6 +28,12 @@ let pullerAvailableCheckedAt = 0;
 const AVAILABILITY_TTL_MS = 5000;
 
 export async function isPullerAvailable(force = false): Promise<boolean> {
+	if (!shouldProbePullerBackend()) {
+		pullerAvailableCache = false;
+		pullerAvailableCheckedAt = Date.now();
+		return false;
+	}
+
 	const now = Date.now();
 	if (
 		!force &&
@@ -77,9 +85,10 @@ export async function fetchPullerOfflineStatuses(
 }
 
 export async function fetchPullerGameOfflineStatus(
-	gameId: string
+	gameId: string,
+	force = false
 ): Promise<GameOfflineStatus | null> {
-	if (!(await isPullerAvailable())) return null;
+	if (!(await isPullerAvailable(force))) return null;
 	try {
 		const res = await fetch(
 			`${getPullerBaseUrl()}/api/offline/status/${encodeURIComponent(gameId)}`
@@ -147,6 +156,25 @@ export async function pollPullerDownloadUntilDone(
 	}
 }
 
-export function pullerOfflinePlayUrl(gameId: string): string {
+/** Same-origin path segment proxied to the puller in dev (shared localStorage with /games/). */
+export const PULLER_GAME_PROXY_SEGMENT = 'puller-games';
+
+export function getPullerGameProxyPrefix(basePath = ''): string {
+	const base = basePath.replace(/\/$/, '');
+	return `${base}/${PULLER_GAME_PROXY_SEGMENT}`.replace(/\/{2,}/g, '/');
+}
+
+/** True when puller offline games should load through the app origin (storage continuity). */
+export function shouldUsePullerGameProxy(): boolean {
+	if (!shouldProbePullerBackend()) return false;
+	if (import.meta.env.DEV) return true;
+	if (typeof window === 'undefined') return true;
+	return window.location.protocol === 'http:' || window.location.protocol === 'https:';
+}
+
+export function pullerOfflinePlayUrl(gameId: string, basePath = ''): string {
+	if (shouldUsePullerGameProxy()) {
+		return `${getPullerGameProxyPrefix(basePath)}/${encodeURIComponent(gameId)}/offline/index.html`;
+	}
 	return `${getPullerBaseUrl()}/games/${encodeURIComponent(gameId)}/offline/index.html`;
 }

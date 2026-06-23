@@ -12,6 +12,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(__dirname, '..');
 const mainArgs = process.argv.slice(2);
 
+const PULLER_PORT = process.env.PULLER_PORT ?? '18787';
+const devEnv = {
+	...process.env,
+	PULLER_PORT,
+	PUBLIC_DOWNLOADER_URL:
+		process.env.PUBLIC_DOWNLOADER_URL ?? `http://127.0.0.1:${PULLER_PORT}`
+};
+
 if (mainArgs.length === 0) {
 	console.error('Usage: node scripts/dev-with-puller.mjs <command> [args...]');
 	process.exit(1);
@@ -20,7 +28,7 @@ if (mainArgs.length === 0) {
 const puller = spawn('pnpm', ['--filter', '@potatotomato/puller', 'start'], {
 	cwd: repoRoot,
 	stdio: 'inherit',
-	env: process.env
+	env: devEnv
 });
 
 puller.on('error', (err) => {
@@ -31,7 +39,7 @@ puller.on('error', (err) => {
 const main = spawn(mainArgs[0], mainArgs.slice(1), {
 	cwd: repoRoot,
 	stdio: 'inherit',
-	env: process.env,
+	env: devEnv,
 	shell: true
 });
 

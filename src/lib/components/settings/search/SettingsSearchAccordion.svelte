@@ -9,7 +9,7 @@
 	}: {
 		results: SearchResultSection[];
 		accordionOpen?: string[];
-		onPickSubsection: (panel: 'privacy' | 'audio' | 'analytics', scrollTargetId: string) => void;
+		onPickSubsection: (panel: 'privacy' | 'audio' | 'analytics' | 'games', scrollTargetId: string) => void;
 	} = $props();
 </script>
 

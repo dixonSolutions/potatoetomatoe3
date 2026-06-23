@@ -2,8 +2,11 @@
   "id": "shrek-escape",
   "name": "Shrek: Escape from the Swamp",
   "author": "Third-party / Unity WebGL",
-  "description": "Help Shrek escape the swamp in this Unity WebGL adventure. Download for fully offline, ad-free play.",
+  "description": "Help Shrek escape the swamp in this Unity WebGL adventure. Play online via CDN or use the bundled offline copy for ad-free play without network.",
   "thumbnail": "/games/shrek-escape/online/assets/thumbnail.png",
   "category": "action",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/dixonSolutions/shrek-swamp-escape-2@main/index.html",
+  "bundledOffline": true,
   "pullStrategy": "embed"
 }

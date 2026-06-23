@@ -1,5 +1,14 @@
 # Offline downloader service
 
+The app picks an offline backend automatically from where it is running:
+
+| Deployment | Detection | Download storage | Play path |
+|------------|-----------|------------------|-----------|
+| **Public site** (GitHub Pages) | Production host, not localhost/Tauri | Browser **IndexedDB** + service worker | `/browser-offline/{id}/…` |
+| **Local app** (`pnpm dev`, Tauri) | `import.meta.env.DEV`, Tauri, or localhost | **Puller** writes files to disk | `/puller-games/{id}/offline/…` (dev proxy) |
+
+Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or `local-app` in `.env` if needed.
+
 The puller is a standalone Node.js backend at `puller/` that mirrors games into `static/games/<id>/offline/` and serves them over HTTP.
 
 ## Running
@@ -13,7 +22,7 @@ Environment variables:
 
 | Variable               | Default               | Description                             |
 | ---------------------- | --------------------- | --------------------------------------- |
-| `PULLER_PORT`          | `8787`                | HTTP listen port                        |
+| `PULLER_PORT`          | `18787`               | HTTP listen port (8787 used by Cursor Voice) |
 | `GAMES_DATA_DIR`       | `<repo>/static/games` | Writable games root                     |
 | `PULLER_CORS_ORIGIN`   | `*`                   | CORS header                             |
 | `EMBED_STRATEGY_GAMES` | `shrek-escape`        | Comma-separated embed-strategy game IDs |
@@ -61,14 +70,29 @@ Downloaded `offline/` folders are **gitignored** under `static/games/` during de
 
 ## Frontend client
 
-The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. It picks a backend automatically:
+The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. Detection lives in `src/lib/utils/offline-deployment.ts`; routing in `offline-runtime.ts`:
 
 | Environment | Backend | Storage |
 |-------------|---------|---------|
-| Tauri desktop / `pnpm dev` | Puller HTTP service | Files on disk (`GAMES_DATA_DIR`) |
-| GitHub Pages / static web | Browser (IndexedDB + service worker) | Per-browser persistent storage |
+| Public site (GitHub Pages) | Browser only | IndexedDB + `offline-sw.js` |
+| Local app + puller running | Puller | Files on disk (`GAMES_DATA_DIR`) |
+| Local app, puller stopped | Browser fallback | IndexedDB (limited mirrors) |
+| Tauri desktop | Puller sidecar | App data directory |
 
-Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:8787`).
+Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:18787`).
+
+### Game save data (localStorage)
+
+Offline play reuses in-game browser storage where possible:
+
+| Play path | Storage behaviour |
+|-----------|-------------------|
+| `/games/{id}/online/` or `/offline/` | Same origin — shared `localStorage` |
+| `/puller-games/{id}/offline/` (dev proxy) | Same origin as the app — shared with static paths |
+| `/browser-offline/{id}/…` | Same origin; service worker injects `game-storage-bridge.child.js` |
+| Direct puller URL (`127.0.0.1:18787`) | Cross-origin; puller injects a bridge script and the shell syncs saves via `postMessage` |
+
+Snapshots are stored in the app shell under `potato-tomato-game-browser-data-{gameId}`. Games embedded in third-party iframes (Poki, etc.) keep saves on the embed origin and cannot be mirrored automatically.
 
 ### Browser offline (GitHub Pages)
 

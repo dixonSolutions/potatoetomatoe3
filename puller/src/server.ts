@@ -11,6 +11,7 @@ import {
 } from './download-manager.js';
 import { getActiveJobForGame } from './jobs.js';
 import { isValidGameId, loadGameIds, resolveOfflineFilePath } from './catalog.js';
+import { injectGameStorageBridge } from './game-storage-bridge-script.js';
 
 function sendJson(res: http.ServerResponse, status: number, body: unknown): void {
   const payload = JSON.stringify(body);
@@ -91,11 +92,20 @@ async function serveStaticGames(
     return true;
   }
 
+  const isHtml = /\.html?$/i.test(absPath);
+
   res.writeHead(200, {
     'Content-Type': mimeFor(absPath),
     'Access-Control-Allow-Origin': CORS_ORIGIN,
     'Cache-Control': 'public, max-age=3600'
   });
+
+  if (isHtml) {
+    const raw = await fs.readFile(absPath, 'utf-8');
+    res.end(injectGameStorageBridge(raw, gameId));
+    return true;
+  }
+
   createReadStream(absPath).pipe(res);
   return true;
 }

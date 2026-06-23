@@ -12,7 +12,13 @@
 	import { Heart, ArrowUpDown, HardDrive } from 'lucide-svelte';
 	import Fuse from 'fuse.js';
 	import { likeGame, removePreference } from '$lib/utils/preferences';
-	import { fetchAllOfflineStatuses } from '$lib/utils/offline-downloader';
+	import {
+		fetchAllOfflineStatuses,
+		OFFLINE_STATUS_CHANGED
+	} from '$lib/utils/offline-downloader';
+	import { filterDownloadedGames } from '$lib/utils/game-availability';
+	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
+	import { WifiOff } from 'lucide-svelte';
 
 	type SortKey = 'name' | 'author' | 'category' | 'random';
 	const BROWSE_SORT_LS = 'potato-tomato-games-browse-sort';
@@ -25,6 +31,7 @@
 	let sortReversed = $state(false);
 	let showFavouritesOnly = $state(false);
 	let showDownloadedOnly = $state(false);
+	let networkOnline = $state(true);
 	let offlineStatusMap = $state<Record<string, { offline?: boolean }>>({});
 	let fuse: Fuse<GameMetadata> | null = null;
 	let favouriteIds = $state<Set<string>>(new Set());
@@ -89,7 +96,21 @@
 		void goto(`${u.pathname}${u.search}`, { replaceState: true, keepFocus: true, noScroll: true });
 	}
 
+	async function refreshOfflineStatuses() {
+		offlineStatusMap = await fetchAllOfflineStatuses(true);
+	}
+
 	onMount(() => {
+		networkOnline = isNetworkOnline();
+		const detachNetwork = subscribeNetworkStatus((online) => {
+			networkOnline = online;
+		});
+
+		const onOfflineStatusChanged = () => {
+			void refreshOfflineStatuses();
+		};
+		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+
 		void (async () => {
 			const params = $page.url.searchParams;
 			searchQuery = params.get('q') || '';
@@ -109,7 +130,7 @@
 			sortReversed = params.get('reversed') === '1';
 
 			games = await loadAllGames();
-			offlineStatusMap = await fetchAllOfflineStatuses();
+			await refreshOfflineStatuses();
 
 			const prefs = getPreferences();
 			favouriteIds = new Set(prefs.liked);
@@ -124,7 +145,10 @@
 			loading = false;
 		})();
 
-		return () => {};
+		return () => {
+			detachNetwork();
+			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+		};
 	});
 
 	// Progressive loading: observe sentinel; re-subscribe when count advances so the closure stays correct
@@ -154,8 +178,11 @@
 		sortReversed;
 		showFavouritesOnly;
 		showDownloadedOnly;
+		networkOnline;
 		displayedCount = INITIAL_ROWS * GAMES_PER_ROW;
 	});
+
+	let restrictToDownloaded = $derived(!networkOnline || showDownloadedOnly);
 
 	let filteredGames = $derived.by(() => {
 		let results = games;
@@ -165,8 +192,8 @@
 			results = results.filter((game) => favouriteIds.has(game.id));
 		}
 
-		if (showDownloadedOnly) {
-			results = results.filter((game) => offlineStatusMap[game.id]?.offline === true);
+		if (restrictToDownloaded) {
+			results = filterDownloadedGames(results, offlineStatusMap);
 		}
 
 		// Apply fuzzy search if query exists
@@ -214,9 +241,28 @@
 
 	let displayedGames = $derived(filteredGames.slice(0, displayedCount));
 	let hasMore = $derived(displayedCount < filteredGames.length);
+	let downloadedCount = $derived(
+		filterDownloadedGames(games, offlineStatusMap).length
+	);
 </script>
 
 <div class="container mx-auto px-4 py-12">
+	{#if !networkOnline}
+		<div
+			class="mb-6 flex items-start gap-3 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm"
+			role="status"
+		>
+			<WifiOff class="mt-0.5 h-4 w-4 shrink-0 text-amber-700 dark:text-amber-300" />
+			<div>
+				<p class="font-medium text-foreground">You are offline</p>
+				<p class="text-muted-foreground">
+					Showing {downloadedCount} downloaded {downloadedCount === 1 ? 'game' : 'games'} you can
+					play without internet.
+				</p>
+			</div>
+		</div>
+	{/if}
+
 	<div class="mb-8">
 		<h1 class="mb-4 text-4xl font-bold">All games</h1>
 		<p class="max-w-2xl text-muted-foreground">
@@ -234,12 +280,17 @@
 		/>
 
 		<Button
-			variant={showDownloadedOnly ? 'default' : 'outline'}
-			onclick={() => (showDownloadedOnly = !showDownloadedOnly)}
+			variant={restrictToDownloaded ? 'default' : 'outline'}
+			onclick={() => {
+				if (!networkOnline) return;
+				showDownloadedOnly = !showDownloadedOnly;
+			}}
+			disabled={!networkOnline}
 			class="w-full sm:w-auto"
+			title={!networkOnline ? 'Downloaded filter is required while offline' : undefined}
 		>
 			<HardDrive class="mr-2 h-4 w-4" />
-			{showDownloadedOnly ? 'Downloaded' : 'Downloaded only'}
+			{restrictToDownloaded ? 'Downloaded' : 'Downloaded only'}
 		</Button>
 
 		<Button
@@ -314,9 +365,11 @@
 	{:else if filteredGames.length === 0}
 		<div class="py-12 text-center">
 			<p class="text-muted-foreground">
-				{searchQuery || selectedCategory !== 'all'
-					? 'No games match your filters'
-					: 'No games available yet'}
+				{!networkOnline
+					? 'No downloaded games available offline yet'
+					: searchQuery || selectedCategory !== 'all'
+						? 'No games match your filters'
+						: 'No games available yet'}
 			</p>
 		</div>
 	{:else}
@@ -352,6 +405,15 @@
 											: 'text-muted-foreground'}"
 									/>
 								</button>
+								{#if offlineStatusMap[game.id]?.offline}
+									<div
+										class="absolute top-2 left-2 z-10 flex items-center gap-1 rounded-full bg-background/80 px-2 py-1 text-[10px] font-medium backdrop-blur-sm"
+										title="Downloaded for offline play"
+									>
+										<HardDrive class="h-3 w-3" />
+										Offline
+									</div>
+								{/if}
 							</div>
 							<Card.Header>
 								<Card.Title>{game.name}</Card.Title>
