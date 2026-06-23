@@ -5,7 +5,6 @@ Comment=Unblocked games with offline download support
 Description=Browse and play HTML5 games. Download titles for offline play via the built-in puller service.
 Icon=com.potatotomato.games
 Url=https://dixonsolutions.github.io/potatoetomatoe3/flatpak
-GPGKey=
 RuntimeRepo=https://flathub.org/repo/flathub.flatpakrepo
 RuntimeBranch=stable
 

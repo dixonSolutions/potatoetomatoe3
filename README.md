@@ -49,10 +49,14 @@ Requires [Flatpak](https://flatpak.org/setup/) and the Flathub remote:
 ```bash
 # One-time setup
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --user --if-not-exists potatotomato \
+
+# Remove a broken remote from earlier attempts, if present
+flatpak remote-delete potatotomato 2>/dev/null || true
+
+flatpak remote-add --user --if-not-exists --no-gpg-verify potatotomato \
   https://dixonsolutions.github.io/potatoetomatoe3/potatotomato.flatpakrepo
 
-# Install and run
+# Install and run (branch is stable, not master)
 flatpak install --user potatotomato com.potatotomato.games
 flatpak run com.potatotomato.games
 ```
@@ -69,7 +73,7 @@ If the remote is unavailable, download `com.potatotomato.games-*.flatpak` from
 [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases) and install:
 
 ```bash
-flatpak install --user ~/Downloads/com.potatotomato.games-*.flatpak
+flatpak install --user ~/Downloads/com.potatotomato.games-0.0.12.flatpak
 flatpak run com.potatotomato.games
 ```
 

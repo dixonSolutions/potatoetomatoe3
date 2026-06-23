@@ -34,7 +34,7 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | -------- | ------- | --- |
 | Release | `ConfigureRemote not allowed for user` | Use `flatpak --user` for remotes and installs on GitHub-hosted runners |
 | Build Flatpak | `npm: command not found` in sandbox | Build Tauri on the host in CI; Flatpak manifest only packages prebuilt binaries |
-| Remote install | `Missing group 'Flatpak Repo'` | Corrected `.flatpakrepo` INI section header |
+| Remote install | `Invalid gpg key` | Remove empty `GPGKey=` from `.flatpakrepo`; add remote with `--no-gpg-verify` |
 | GitHub Pages | `/flatpak/summary` 404 | Release workflow now copies the OSTree `repo/` into `build/flatpak/` before Pages deploy |
 
 ## Manual web-only deploy
