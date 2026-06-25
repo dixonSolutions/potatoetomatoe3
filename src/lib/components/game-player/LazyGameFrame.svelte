@@ -46,7 +46,7 @@
 		const frame = iframeEl;
 		return () => {
 			if (active && frame && id) {
-				captureGameStorageFromIframe(frame, id);
+				void captureGameStorageFromIframe(frame, id);
 			}
 		};
 	});

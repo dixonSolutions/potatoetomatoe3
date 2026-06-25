@@ -31,7 +31,7 @@ Environment variables:
 
 - Game IDs are validated against `games-list.json` (allowlist)
 - Path traversal is rejected on static file serving
-- Writes are restricted to `<dataDir>/<gameId>/offline/`
+- Writes are restricted to `<dataDir>/<gameId>/offline/` and `<dataDir>/<gameId>/data/` (browser profiles)
 
 ## Strategies
 
@@ -81,18 +81,23 @@ The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. D
 
 Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:18787`).
 
-### Game save data (localStorage)
+### Game save data (browser profiles)
 
-Offline play reuses in-game browser storage where possible:
+Per-game saves (`localStorage`, `sessionStorage`, cookies, IndexedDB) are emulated and persisted so online and offline play share one profile. Full documentation: [game-browser-storage.md](./game-browser-storage.md).
 
-| Play path | Storage behaviour |
+| Play path | Bridge injection |
 |-----------|-------------------|
-| `/games/{id}/online/` or `/offline/` | Same origin — shared `localStorage` |
-| `/puller-games/{id}/offline/` (dev proxy) | Same origin as the app — shared with static paths |
-| `/browser-offline/{id}/…` | Same origin; service worker injects `game-storage-bridge.child.js` |
-| Direct puller URL (`127.0.0.1:18787`) | Cross-origin; puller injects a bridge script and the shell syncs saves via `postMessage` |
+| `/games/{id}/online/` or `/offline/` | Vite middleware (dev) or service worker (public site) |
+| `/puller-games/{id}/offline/` | Same as app origin + puller HTML injection |
+| `/browser-offline/{id}/…` | Service worker injects `game-storage-bridge.child.js` |
+| Direct puller URL (`127.0.0.1:18787`) | Inline bridge; shell syncs via `postMessage` |
 
-Snapshots are stored in the app shell under `potato-tomato-game-browser-data-{gameId}`. Games embedded in third-party iframes (Poki, etc.) keep saves on the embed origin and cannot be mirrored automatically.
+| Deployment | Profile storage |
+|------------|-----------------|
+| Local + puller | `static/games/{id}/data/` (gitignored) |
+| GitHub Pages | IndexedDB `potatotomato-browser-data-v1` |
+
+Games embedded in third-party iframes (Poki, etc.) keep saves on the embed origin and cannot be mirrored automatically.
 
 ### Browser offline (GitHub Pages)
 

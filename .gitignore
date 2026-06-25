@@ -22,6 +22,7 @@ static/games/**
 static/games/*/offline/**
 !static/games/shrek-escape/offline/
 !static/games/shrek-escape/offline/**
+static/games/*/data/**
 
 # OS
 .DS_Store
