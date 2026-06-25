@@ -2,6 +2,8 @@ import { json } from '@sveltejs/kit';
 import { readdirSync, existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
+export const prerender = false;
+
 interface GameMetadata {
     id: string;
     name: string;

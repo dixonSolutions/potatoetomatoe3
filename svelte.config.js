@@ -22,6 +22,9 @@ const config = {
 			fallback: 'index.html', // SPA mode
 			strict: false
 		}),
+		prerender: {
+			handleUnseenRoutes: 'ignore'
+		},
 		paths: {
 			base: isDev || isDesktop ? '' : pagesBase
 		}
