@@ -37,10 +37,19 @@
 
 	let { data, children } = $props();
 
+	const ssrPrivacyHead = $derived(
+		data.ssrPrivacyHead ?? {
+			privacyModeEnabled: false,
+			decoyTitle: null,
+			decoyFavicon: null,
+			privacySessionUnlocked: true
+		}
+	);
+
 	/** SSR uses settings + unlock cookie so the first document request matches privacy state (no flash of full UI while locked). */
-	let privacyEnabled = $state(!!data.ssrPrivacyHead.privacyModeEnabled);
+	let privacyEnabled = $state(!!ssrPrivacyHead.privacyModeEnabled);
 	let privacyUnlocked = $state(
-		!data.ssrPrivacyHead.privacyModeEnabled || !!data.ssrPrivacyHead.privacySessionUnlocked
+		!ssrPrivacyHead.privacyModeEnabled || !!ssrPrivacyHead.privacySessionUnlocked
 	);
 	let settingsOpen = $state(false);
 	let decoyTitle = $state('Google Docs');
@@ -71,15 +80,15 @@
 
 	const activeTitle = $derived.by(() => {
 		if (!browser) {
-			if (data.ssrPrivacyHead.decoyTitle) {
-				return data.ssrPrivacyHead.decoyTitle;
+			if (ssrPrivacyHead.decoyTitle) {
+				return ssrPrivacyHead.decoyTitle;
 			}
 			return REAL_APP_TITLE;
 		}
 		/* Match SSR until bootstrap runs — avoids title/favicon hydration mismatches. */
 		if (!privacyBootstrapReady) {
-			if (data.ssrPrivacyHead.decoyTitle) {
-				return data.ssrPrivacyHead.decoyTitle;
+			if (ssrPrivacyHead.decoyTitle) {
+				return ssrPrivacyHead.decoyTitle;
 			}
 			return REAL_APP_TITLE;
 		}
@@ -91,14 +100,14 @@
 
 	const activeFavicon = $derived.by(() => {
 		if (!browser) {
-			if (data.ssrPrivacyHead.decoyTitle) {
-				return data.ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
+			if (ssrPrivacyHead.decoyTitle) {
+				return ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
 			}
 			return favicon;
 		}
 		if (!privacyBootstrapReady) {
-			if (data.ssrPrivacyHead.decoyTitle) {
-				return data.ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
+			if (ssrPrivacyHead.decoyTitle) {
+				return ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
 			}
 			return favicon;
 		}
