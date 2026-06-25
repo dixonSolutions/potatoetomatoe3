@@ -1,6 +1,7 @@
 /**
  * Service worker for browser-hosted offline games (GitHub Pages).
  * Serves files from IndexedDB at /browser-offline/{gameId}/…
+ * Injects storage bridge into game HTML at /games/{id}/online|offline/…
  */
 const DB_NAME = 'potatotomato-offline-v1';
 const DB_VERSION = 1;
@@ -67,6 +68,23 @@ function guessMime(path) {
 	return 'application/octet-stream';
 }
 
+function injectBridge(html, bridgeSrc) {
+	if (html.indexOf('game-storage-bridge.child.js') !== -1) return html;
+	var tag = '<script src="' + bridgeSrc + '"></script>';
+	if (html.indexOf('</head>') !== -1) {
+		return html.replace('</head>', tag + '</head>');
+	}
+	return tag + html;
+}
+
+function appBaseFromPath(pathname) {
+	var offlineMatch = pathname.match(/^(.*)\/browser-offline\/[^/]+/);
+	if (offlineMatch) return offlineMatch[1] || '';
+	var gamesMatch = pathname.match(/^(.*)\/games\/[^/]+\/(?:online|offline)/);
+	if (gamesMatch) return gamesMatch[1] || '';
+	return '';
+}
+
 self.addEventListener('install', function (event) {
 	self.skipWaiting();
 });
@@ -77,44 +95,71 @@ self.addEventListener('activate', function (event) {
 
 self.addEventListener('fetch', function (event) {
 	const url = new URL(event.request.url);
-	const match = url.pathname.match(/\/browser-offline\/([^/]+)\/(.*)$/);
-	if (!match) return;
+	const pathname = url.pathname;
 
-	const gameId = decodeURIComponent(match[1]);
-	let filePath = decodeURIComponent(match[2]);
-	if (!filePath || filePath.endsWith('/')) {
-		filePath = (filePath || '') + 'online/index.html';
-	}
-	if (!filePath.startsWith('online/')) {
-		filePath = 'online/' + filePath.replace(/^\//, '');
+	const offlineMatch = pathname.match(/\/browser-offline\/([^/]+)\/(.*)$/);
+	if (offlineMatch) {
+		const gameId = decodeURIComponent(offlineMatch[1]);
+		let filePath = decodeURIComponent(offlineMatch[2]);
+		if (!filePath || filePath.endsWith('/')) {
+			filePath = (filePath || '') + 'online/index.html';
+		}
+		if (!filePath.startsWith('online/')) {
+			filePath = 'online/' + filePath.replace(/^\//, '');
+		}
+
+		event.respondWith(
+			getFile(gameId, filePath).then(function (record) {
+				if (!record || !record.data) {
+					return new Response('Offline file not found', { status: 404 });
+				}
+				const mime = record.mimeType || guessMime(filePath);
+				var body = record.data;
+				if (mime.indexOf('text/html') === 0) {
+					var html = new TextDecoder('utf-8').decode(record.data);
+					var appBase = appBaseFromPath(pathname);
+					var bridgeSrc = url.origin + appBase + '/game-storage-bridge.child.js';
+					html = injectBridge(html, bridgeSrc);
+					body = new TextEncoder().encode(html);
+				}
+				return new Response(body, {
+					headers: {
+						'Content-Type': mime,
+						'Cache-Control': 'private, max-age=31536000'
+					}
+				});
+			})
+		);
+		return;
 	}
 
-	event.respondWith(
-		getFile(gameId, filePath).then(function (record) {
-			if (!record || !record.data) {
-				return new Response('Offline file not found', { status: 404 });
-			}
-			const mime = record.mimeType || guessMime(filePath);
-			var body = record.data;
-			if (mime.indexOf('text/html') === 0) {
-				var html = new TextDecoder('utf-8').decode(record.data);
-				var appBase = url.pathname.replace(/\/browser-offline\/[^/]+.*$/, '') || '';
-				var bridgeSrc =
-					url.origin + appBase + '/game-storage-bridge.child.js';
-				var tag = '<script src="' + bridgeSrc + '" defer></script>';
-				if (html.indexOf('</head>') !== -1) {
-					html = html.replace('</head>', tag + '</head>');
-				} else {
-					html = tag + html;
+	const gamesMatch = pathname.match(/\/games\/([^/]+)\/(online|offline)\/(.*)$/);
+	if (gamesMatch && event.request.method === 'GET') {
+		let fileRel = decodeURIComponent(gamesMatch[3]);
+		if (!fileRel || fileRel.endsWith('/')) {
+			fileRel = fileRel + 'index.html';
+		}
+		if (!/\.html?$/i.test(fileRel)) {
+			return;
+		}
+
+		event.respondWith(
+			fetch(event.request).then(function (response) {
+				const mime = response.headers.get('Content-Type') || '';
+				if (!response.ok || mime.indexOf('text/html') === -1) {
+					return response;
 				}
-				body = new TextEncoder().encode(html);
-			}
-			return new Response(body, {
-				headers: {
-					'Content-Type': mime,
-					'Cache-Control': 'private, max-age=31536000'
-				}
-			});
-		})
-	);
+				return response.text().then(function (html) {
+					var appBase = appBaseFromPath(pathname);
+					var bridgeSrc = url.origin + appBase + '/game-storage-bridge.child.js';
+					html = injectBridge(html, bridgeSrc);
+					return new Response(html, {
+						status: response.status,
+						statusText: response.statusText,
+						headers: response.headers
+					});
+				});
+			})
+		);
+	}
 });

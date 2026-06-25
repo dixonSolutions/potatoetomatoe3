@@ -12,13 +12,19 @@ import {
 import { getActiveJobForGame } from './jobs.js';
 import { isValidGameId, loadGameIds, resolveOfflineFilePath } from './catalog.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
+import {
+	deleteGameBrowserProfile,
+	readGameBrowserProfile,
+	writeGameBrowserProfile
+} from './browser-data.js';
+import type { GameBrowserProfile } from './browser-data-profile.js';
 
 function sendJson(res: http.ServerResponse, status: number, body: unknown): void {
   const payload = JSON.stringify(body);
   res.writeHead(status, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': CORS_ORIGIN,
-    'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
   });
   res.end(payload);
@@ -118,7 +124,7 @@ export function createServer(): http.Server {
     if (req.method === 'OPTIONS') {
       res.writeHead(204, {
         'Access-Control-Allow-Origin': CORS_ORIGIN,
-        'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type'
       });
       res.end();
@@ -176,6 +182,67 @@ export function createServer(): http.Server {
       if (deleteMatch && req.method === 'DELETE') {
         const gameId = decodeURIComponent(deleteMatch[1]);
         await deleteOfflineGame(gameId);
+        sendJson(res, 200, { deleted: true });
+        return;
+      }
+
+      const browserDataGetMatch = pathname.match(/^\/api\/browser-data\/([^/]+)$/);
+      if (browserDataGetMatch && req.method === 'GET') {
+        const gameId = decodeURIComponent(browserDataGetMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: 'Game not in catalog' });
+          return;
+        }
+        const profile = await readGameBrowserProfile(gameId);
+        if (!profile) {
+          sendJson(res, 404, { error: 'No browser data' });
+          return;
+        }
+        sendJson(res, 200, profile);
+        return;
+      }
+
+      const browserDataPutMatch = pathname.match(/^\/api\/browser-data\/([^/]+)$/);
+      if (browserDataPutMatch && req.method === 'PUT') {
+        const gameId = decodeURIComponent(browserDataPutMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: 'Game not in catalog' });
+          return;
+        }
+        const chunks: Buffer[] = [];
+        for await (const chunk of req) {
+          chunks.push(chunk as Buffer);
+        }
+        const raw = Buffer.concat(chunks).toString('utf-8');
+        const parsed = JSON.parse(raw) as unknown;
+        await writeGameBrowserProfile(gameId, parsed as GameBrowserProfile);
+        sendJson(res, 200, { saved: true });
+        return;
+      }
+
+      const browserDataDeleteMatch = pathname.match(/^\/api\/browser-data\/([^/]+)$/);
+      if (browserDataDeleteMatch && req.method === 'DELETE') {
+        const gameId = decodeURIComponent(browserDataDeleteMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: 'Game not in catalog' });
+          return;
+        }
+        await deleteGameBrowserProfile(gameId);
         sendJson(res, 200, { deleted: true });
         return;
       }

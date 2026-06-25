@@ -1,57 +1,21 @@
 /**
- * Persists in-game browser storage (localStorage) in the app shell so offline copies
- * can hydrate the same save data as online / prior sessions.
+ * Persists in-game browser storage in per-game profiles (disk or IndexedDB)
+ * so offline and online play share the same save data.
  */
+
+import {
+	emptyGameBrowserProfile,
+	isGameBrowserProfile,
+	type GameBrowserProfile
+} from './game-browser-profile';
+import { loadGameBrowserProfile, saveGameBrowserProfile } from './game-browser-storage';
 
 export const GAME_STORAGE_MESSAGE_TYPE = 'potato-tomato-game-storage';
 
+/** @deprecated Use GameBrowserProfile via game-browser-storage */
 export interface GameBrowserData {
 	localStorage: Record<string, string>;
 	updatedAt: number;
-}
-
-const STORAGE_PREFIX = 'potato-tomato-game-browser-data-';
-
-export function gameBrowserDataKey(gameId: string): string {
-	return STORAGE_PREFIX + gameId;
-}
-
-export function loadGameBrowserData(gameId: string): GameBrowserData | null {
-	if (typeof localStorage === 'undefined') return null;
-	try {
-		const raw = localStorage.getItem(gameBrowserDataKey(gameId));
-		if (!raw) return null;
-		const parsed = JSON.parse(raw) as GameBrowserData;
-		if (!parsed || typeof parsed.localStorage !== 'object') return null;
-		return parsed;
-	} catch {
-		return null;
-	}
-}
-
-export function saveGameBrowserData(gameId: string, data: GameBrowserData): void {
-	if (typeof localStorage === 'undefined') return;
-	try {
-		localStorage.setItem(gameBrowserDataKey(gameId), JSON.stringify(data));
-	} catch {
-		// quota or private mode
-	}
-}
-
-/** Read same-origin iframe localStorage into the parent snapshot store. */
-export function captureGameStorageFromIframe(iframe: HTMLIFrameElement, gameId: string): void {
-	try {
-		const win = iframe.contentWindow;
-		if (!win || win === window) return;
-		const localStorageSnapshot: Record<string, string> = {};
-		for (let i = 0; i < win.localStorage.length; i++) {
-			const key = win.localStorage.key(i);
-			if (key) localStorageSnapshot[key] = win.localStorage.getItem(key) ?? '';
-		}
-		saveGameBrowserData(gameId, { localStorage: localStorageSnapshot, updatedAt: Date.now() });
-	} catch {
-		// cross-origin iframe — child bridge uses postMessage instead
-	}
 }
 
 export function attachGameStorageBridge(): () => void {
@@ -62,35 +26,66 @@ export function attachGameStorageBridge(): () => void {
 			type?: string;
 			action?: string;
 			gameId?: string;
-			data?: { localStorage?: Record<string, string> };
+			data?: GameBrowserProfile;
 		};
 		if (!msg || msg.type !== GAME_STORAGE_MESSAGE_TYPE || typeof msg.gameId !== 'string') return;
 
 		if (msg.action === 'pull') {
-			const stored = loadGameBrowserData(msg.gameId);
-			const source = event.source;
-			if (source && typeof (source as Window).postMessage === 'function' && stored) {
-				(source as Window).postMessage(
-					{
-						type: GAME_STORAGE_MESSAGE_TYPE,
-						action: 'hydrate',
-						gameId: msg.gameId,
-						data: stored
-					},
-					'*'
-				);
-			}
+			void loadGameBrowserProfile(msg.gameId).then((stored) => {
+				const source = event.source;
+				if (source && typeof (source as Window).postMessage === 'function' && stored) {
+					(source as Window).postMessage(
+						{
+							type: GAME_STORAGE_MESSAGE_TYPE,
+							action: 'hydrate',
+							gameId: msg.gameId,
+							data: stored
+						},
+						'*'
+					);
+				}
+			});
 			return;
 		}
 
-		if (msg.action === 'push' && msg.data?.localStorage) {
-			saveGameBrowserData(msg.gameId, {
-				localStorage: msg.data.localStorage,
-				updatedAt: Date.now()
-			});
+		if (msg.action === 'push' && msg.data && isGameBrowserProfile(msg.data)) {
+			void saveGameBrowserProfile(msg.gameId, msg.data);
 		}
 	};
 
 	window.addEventListener('message', onMessage);
 	return () => window.removeEventListener('message', onMessage);
+}
+
+/** Same-origin backup: snapshot iframe storage when the child bridge did not run. */
+export async function captureGameStorageFromIframe(
+	iframe: HTMLIFrameElement,
+	gameId: string
+): Promise<void> {
+	try {
+		const win = iframe.contentWindow;
+		if (!win || win === window) return;
+		const origin = win.location.origin;
+
+		const localStorageSnapshot: Record<string, string> = {};
+		for (let i = 0; i < win.localStorage.length; i++) {
+			const key = win.localStorage.key(i);
+			if (key) localStorageSnapshot[key] = win.localStorage.getItem(key) ?? '';
+		}
+
+		const sessionStorageSnapshot: Record<string, string> = {};
+		for (let i = 0; i < win.sessionStorage.length; i++) {
+			const key = win.sessionStorage.key(i);
+			if (key) sessionStorageSnapshot[key] = win.sessionStorage.getItem(key) ?? '';
+		}
+
+		const profile = emptyGameBrowserProfile();
+		profile.profile.Default.localStorage[origin] = localStorageSnapshot;
+		profile.profile.Default.sessionStorage[origin] = sessionStorageSnapshot;
+		profile.updatedAt = Date.now();
+
+		await saveGameBrowserProfile(gameId, profile);
+	} catch {
+		// cross-origin iframe — child bridge uses postMessage instead
+	}
 }
