@@ -76,9 +76,10 @@ export const PRIVACY_DISGUISE_PROVIDERS: {
 	id: PrivacyDisguiseProvider;
 	label: string;
 	defaultServiceId: string;
+	providerLogo: string;
 }[] = [
-	{ id: 'google', label: 'Google', defaultServiceId: 'docs' },
-	{ id: 'microsoft', label: 'Microsoft', defaultServiceId: 'word' }
+	{ id: 'google', label: 'Google', defaultServiceId: 'docs', providerLogo: googleG },
+	{ id: 'microsoft', label: 'Microsoft', defaultServiceId: 'word', providerLogo: microsoftLogo }
 ];
 
 export const GOOGLE_PROVIDER_THEME: DisguiseProviderTheme = {

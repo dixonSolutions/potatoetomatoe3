@@ -153,13 +153,7 @@
 		{/if}
 
 		<header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 md:mb-10">
-			<div>
-				<h1 class="text-2xl md:text-3xl font-bold tracking-tight">For you</h1>
-				<p class="text-sm text-muted-foreground mt-1 max-w-xl">
-					Personalized rows from your local play history and favourites — TensorFlow.js scoring runs
-					on-device (WebGPU when available). Nothing is sent to a server.
-				</p>
-			</div>
+			<h1 class="text-2xl md:text-3xl font-bold tracking-tight">For you</h1>
 			<div class="flex flex-wrap gap-2 shrink-0">
 				<a href={resolve('/play-analytics')} class="text-sm">
 					<Button variant="outline" class="gap-2">Playtime &amp; algorithm</Button>

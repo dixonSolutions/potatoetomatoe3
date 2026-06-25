@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label/label.svelte';
+	import * as Select from '$lib/components/ui/select';
 	import { sectionMatches } from '$lib/components/settings/search';
 	import {
 		getDefaultGamePlayMode,
@@ -30,7 +31,7 @@
 		}
 	];
 
-	function onDefaultChange(value: string) {
+	function onDefaultChange(value: string | undefined) {
 		if (value !== 'online' && value !== 'offline') return;
 		defaultPlayMode = value;
 		saveDefaultGamePlayMode(value);
@@ -44,22 +45,26 @@
 <div class="space-y-6">
 	{#if sectionMatches(searchQuery, 'games play online offline default version unity download')}
 		<div id="settings-section-games-default-mode" class="scroll-mt-32 space-y-2">
-			<Label for="default-game-play-mode">Default play source</Label>
+			<Label>Default play source</Label>
 			<p class="text-xs text-muted-foreground">
 				When a game offers both online and offline copies, which version loads first. You can still switch per
 				game on its detail page.
 			</p>
-			<select
-				id="default-game-play-mode"
+			<Select.Root
+				type="single"
 				value={defaultPlayMode}
-				onchange={(e) => onDefaultChange(e.currentTarget.value)}
-				class="border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+				onValueChange={onDefaultChange}
 				disabled={busy}
 			>
-				{#each OPTIONS as opt}
-					<option value={opt.value}>{opt.label}</option>
-				{/each}
-			</select>
+				<Select.Trigger class="w-full">
+					{OPTIONS.find((o) => o.value === defaultPlayMode)?.label ?? 'Choose…'}
+				</Select.Trigger>
+				<Select.Content>
+					{#each OPTIONS as opt}
+						<Select.Item value={opt.value}>{opt.label}</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
 			<p class="text-xs text-muted-foreground">
 				{OPTIONS.find((o) => o.value === defaultPlayMode)?.hint ?? ''}
 			</p>

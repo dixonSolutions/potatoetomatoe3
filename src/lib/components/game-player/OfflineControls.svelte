@@ -26,19 +26,24 @@
 		type GamePlayMode,
 		GAME_PLAY_MODE_CHANGED
 	} from '$lib/utils/game-play-mode';
+	import { getGameAvailability } from '$lib/utils/game-availability';
+	import type { GameMetadata } from '$lib/utils/games';
 	import { onMount } from 'svelte';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 
 	let {
 		gameId,
+		metadata = null,
 		onPlayUrlChange
 	}: {
 		gameId: string;
+		metadata?: GameMetadata | null;
 		onPlayUrlChange?: () => void;
 	} = $props();
 
 	let offlineBackend = $state<OfflineBackend>('none');
 	let status = $state<GameOfflineStatus | null>(null);
+	let onlineAvailable = $state(false);
 	let playMode = $state<GamePlayMode>('online');
 	let downloading = $state(false);
 	let progress = $state<DownloadProgress>({ state: 'idle', progress: 0, message: '' });
@@ -55,18 +60,23 @@
 			!bundled &&
 			!status?.offline &&
 			!downloading &&
-			Boolean(status?.online)
+			onlineAvailable
 	);
 	let canDelete = $derived(offlineReady && !bundled && Boolean(status?.offline));
 
 	async function refreshStatus() {
 		const backend = await getOfflineBackend(true);
 		offlineBackend = backend;
+		const availability = await getGameAvailability(gameId, metadata, true);
+		onlineAvailable = availability.online;
 		if (backend === 'none') {
 			status = null;
 			return;
 		}
 		status = await refreshGameOfflineState(gameId);
+		if (status && !status.online && availability.online) {
+			status = { ...status, online: true };
+		}
 	}
 
 	function shouldRefreshForEvent(detail: OfflineStatusChangedDetail | undefined): boolean {
@@ -104,6 +114,7 @@
 
 	$effect(() => {
 		gameId;
+		metadata;
 		playMode = getGamePlayMode(gameId);
 		void refreshStatus();
 	});
@@ -158,7 +169,7 @@
 	}
 
 	let showDownloadSection = $derived(
-		offlineReady && !bundled && (canDownload || canDelete || downloading)
+		offlineReady && !bundled && (onlineAvailable || Boolean(status?.offline) || downloading)
 	);
 </script>
 

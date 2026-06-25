@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label/label.svelte';
+	import * as Select from '$lib/components/ui/select';
 	import type { MuteAudioScope } from '$lib/utils/audio-mute';
 	import { sectionMatches } from '$lib/components/settings/search';
 
@@ -47,21 +48,28 @@
 <div class="space-y-6">
 	{#if sectionMatches(searchQuery, 'mute audio scope background focus tab video')}
 		<div id="settings-section-audio-mute" class="scroll-mt-32 space-y-2">
-			<Label for="mute-audio-scope">Mute audio</Label>
+			<Label>Mute audio</Label>
 			<p class="text-xs text-muted-foreground">
 				When to force mute on this page’s videos and games. Cross-origin embedded games may still play sound; use
 				browser or system controls for full silence.
 			</p>
-			<select
-				id="mute-audio-scope"
-				bind:value={muteScopeChoice}
-				class="border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+			<Select.Root
+				type="single"
+				value={muteScopeChoice}
+				onValueChange={(v) => {
+					if (v === 'off' || v === 'focus_loss' || v === 'always') muteScopeChoice = v;
+				}}
 				disabled={busy}
 			>
-				{#each MUTE_SCOPE_OPTIONS as opt}
-					<option value={opt.value}>{opt.label}</option>
-				{/each}
-			</select>
+				<Select.Trigger class="w-full">
+					{MUTE_SCOPE_OPTIONS.find((o) => o.value === muteScopeChoice)?.label ?? 'Choose…'}
+				</Select.Trigger>
+				<Select.Content>
+					{#each MUTE_SCOPE_OPTIONS as opt}
+						<Select.Item value={opt.value}>{opt.label}</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
 			<p class="text-xs text-muted-foreground">
 				{MUTE_SCOPE_OPTIONS.find((o) => o.value === muteScopeChoice)?.hint ?? ''}
 			</p>

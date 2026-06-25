@@ -51,6 +51,22 @@
 		favouriteIds = new Set(favouriteIds); // Trigger reactivity
 	}
 
+	/** Client navigate — avoids static /games/{id}/ asset folders hijacking link clicks on the browse page. */
+	function openGame(gameId: string, event: MouseEvent) {
+		if (
+			event.defaultPrevented ||
+			event.button !== 0 ||
+			event.metaKey ||
+			event.ctrlKey ||
+			event.shiftKey ||
+			event.altKey
+		) {
+			return;
+		}
+		event.preventDefault();
+		void goto(resolve(`/games/${gameId}`));
+	}
+
 	// Pagination - load one row at a time (4 games on desktop)
 	const GAMES_PER_ROW = 4;
 	const INITIAL_ROWS = 6; // Start with 6 rows (24 games)
@@ -130,8 +146,8 @@
 						: 'name';
 			sortReversed = params.get('reversed') === '1';
 
-			games = await loadAllGames();
-			await refreshOfflineStatuses();
+			const [loadedGames] = await Promise.all([loadAllGames(), refreshOfflineStatuses()]);
+			games = loadedGames;
 
 			const prefs = getPreferences();
 			favouriteIds = new Set(prefs.liked);
@@ -380,8 +396,12 @@
 
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{#each displayedGames as game (game.id)}
-				<div class="group relative block">
-					<a href={resolve(`/games/${game.id}`)} data-sveltekit-preload-data="hover" class="block">
+				<div class="group relative">
+					<a
+						href={resolve(`/games/${game.id}`)}
+						class="block"
+						onclick={(e) => openGame(game.id, e)}
+					>
 						<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 							<div class="relative aspect-square overflow-hidden bg-muted">
 								<img
@@ -395,17 +415,6 @@
 											'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23ddd" width="256" height="256"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
 									}}
 								/>
-								<button
-									onclick={(e) => toggleFavourite(game.id, e)}
-									class="absolute top-2 right-2 z-10 rounded-full bg-background/80 p-2 backdrop-blur-sm transition-colors hover:bg-background"
-									title={favouriteIds.has(game.id) ? 'Remove from favourites' : 'Add to favourites'}
-								>
-									<Heart
-										class="h-5 w-5 {favouriteIds.has(game.id)
-											? 'fill-red-500 text-red-500'
-											: 'text-muted-foreground'}"
-									/>
-								</button>
 								{#if offlineStatusMap[game.id]?.offline}
 									<div
 										class="absolute top-2 left-2 z-10 flex items-center gap-1 rounded-full bg-background/80 px-2 py-1 text-[10px] font-medium backdrop-blur-sm"
@@ -428,6 +437,18 @@
 							</Card.Footer>
 						</Card.Root>
 					</a>
+					<button
+						type="button"
+						onclick={(e) => toggleFavourite(game.id, e)}
+						class="absolute top-2 right-2 z-20 rounded-full bg-background/80 p-2 backdrop-blur-sm transition-colors hover:bg-background"
+						title={favouriteIds.has(game.id) ? 'Remove from favourites' : 'Add to favourites'}
+					>
+						<Heart
+							class="h-5 w-5 {favouriteIds.has(game.id)
+								? 'fill-red-500 text-red-500'
+								: 'text-muted-foreground'}"
+						/>
+					</button>
 				</div>
 			{/each}
 		</div>
