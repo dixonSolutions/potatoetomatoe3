@@ -39,6 +39,7 @@ jobs:
         env:
           NODE_ENV: production
           PUBLIC_PAGES_BASE: /potatoetomatoe3
+          PUBLIC_OFFLINE_DEPLOYMENT: public-site
           GITHUB_REPOSITORY: ${{ github.repository }}
 
       - uses: actions/upload-pages-artifact@v3

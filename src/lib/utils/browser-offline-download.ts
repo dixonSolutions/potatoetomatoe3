@@ -1,5 +1,6 @@
 /** Client-side mirror of same-origin online shells into IndexedDB (GitHub Pages). */
 
+import { base } from '$app/paths';
 import {
 	deleteStoredGame,
 	getGameMeta,
@@ -17,8 +18,9 @@ const ASSET_PATTERN =
 
 const progressByGame = new Map<string, DownloadProgress>();
 
+/** Use `$app/paths` base — `import.meta.env.BASE_URL` is `./` in static builds and breaks absolute URLs. */
 function appBase(): string {
-	return import.meta.env.BASE_URL.replace(/\/$/, '');
+	return base.replace(/\/$/, '');
 }
 
 function absoluteGameOnlineUrl(gameId: string, relativePath: string): string {

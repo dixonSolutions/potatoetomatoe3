@@ -3,6 +3,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
+	import * as Select from '$lib/components/ui/select';
 	import {
 		formatPrivacyLockShortcutLabel,
 		type PrivacyLockShortcut
@@ -57,21 +58,21 @@
 		onSubmitChangePassword?: (e: Event) => void;
 	} = $props();
 
-	const selectClass =
-		'border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
-
 	const LOCK_DELAY_OPTIONS = [
-		{ label: 'Immediately', value: 0 },
-		{ label: '3 seconds', value: 3 },
-		{ label: '5 seconds', value: 5 },
-		{ label: '10 seconds', value: 10 },
-		{ label: '30 seconds', value: 30 },
-		{ label: '1 minute', value: 60 },
-		{ label: '2 minutes', value: 120 }
+		{ label: 'Immediately', value: '0' },
+		{ label: '3 seconds', value: '3' },
+		{ label: '5 seconds', value: '5' },
+		{ label: '10 seconds', value: '10' },
+		{ label: '30 seconds', value: '30' },
+		{ label: '1 minute', value: '60' },
+		{ label: '2 minutes', value: '120' }
 	] as const;
 
 	const activeService = $derived(resolveDisguiseService(providerChoice, serviceChoice));
 	const serviceOptions = $derived(getServicesForProvider(providerChoice));
+	const activeProvider = $derived(
+		PRIVACY_DISGUISE_PROVIDERS.find((p) => p.id === providerChoice) ?? PRIVACY_DISGUISE_PROVIDERS[0]
+	);
 
 	const DISGUISE_OPTIONS: { label: string; value: PrivacyDisguiseMode; hint: string }[] = [
 		{
@@ -91,13 +92,18 @@
 		}
 	];
 
-	function onProviderChange(next: string) {
+	function onProviderChange(next: string | undefined) {
+		if (!next) return;
 		const provider = next === 'microsoft' ? 'microsoft' : 'google';
 		providerChoice = provider;
 		const services = getServicesForProvider(provider);
 		if (!services.some((s) => s.id === serviceChoice)) {
 			serviceChoice = services[0]?.id ?? 'docs';
 		}
+	}
+
+	function onServiceChange(next: string | undefined) {
+		if (next) serviceChoice = next;
 	}
 
 	function shouldShowMessage(m: string): boolean {
@@ -109,7 +115,7 @@
 
 <div class="space-y-6">
 	{#if sectionMatches(searchQuery, 'disguise provider google microsoft service docs word tab title icon background lock screen')}
-		<div id="settings-section-pm-disguise-settings" class="scroll-mt-32 space-y-4 rounded-md border p-4">
+		<div id="settings-section-pm-disguise-settings" class="scroll-mt-32 space-y-4">
 			<div class="space-y-1">
 				<p class="text-sm font-medium">Disguise settings</p>
 				<p class="text-xs text-muted-foreground">
@@ -119,33 +125,84 @@
 			</div>
 
 			<div class="space-y-2">
-				<Label for="pm-provider">Provider</Label>
-				<select
-					id="pm-provider"
+				<Label>Provider</Label>
+				<Select.Root
+					type="single"
 					value={providerChoice}
-					onchange={(e) => onProviderChange(e.currentTarget.value)}
-					class={selectClass}
+					onValueChange={onProviderChange}
 					disabled={busy}
 				>
-					{#each PRIVACY_DISGUISE_PROVIDERS as p}
-						<option value={p.id}>{p.label}</option>
-					{/each}
-				</select>
+					<Select.Trigger class="w-full">
+						<span class="flex items-center gap-2">
+							<img
+								src={activeProvider.providerLogo}
+								alt=""
+								class="size-4 shrink-0 object-contain"
+								width="16"
+								height="16"
+							/>
+							{activeProvider.label}
+						</span>
+					</Select.Trigger>
+					<Select.Content>
+						{#each PRIVACY_DISGUISE_PROVIDERS as p}
+							<Select.Item value={p.id}>
+								<span class="flex items-center gap-2">
+									<img
+										src={p.providerLogo}
+										alt=""
+										class="size-4 shrink-0 object-contain"
+										width="16"
+										height="16"
+									/>
+									{p.label}
+								</span>
+							</Select.Item>
+						{/each}
+					</Select.Content>
+				</Select.Root>
 			</div>
 
 			<div class="space-y-2">
-				<Label for="pm-service">Service</Label>
-				<select id="pm-service" bind:value={serviceChoice} class={selectClass} disabled={busy}>
-					{#each serviceOptions as svc}
-						<option value={svc.id}>{svc.label}</option>
-					{/each}
-				</select>
+				<Label>Service</Label>
+				<Select.Root
+					type="single"
+					value={serviceChoice}
+					onValueChange={onServiceChange}
+					disabled={busy}
+				>
+					<Select.Trigger class="w-full">
+						<span class="flex items-center gap-2">
+							<img
+								src={activeService.serviceIcon}
+								alt=""
+								class="size-4 shrink-0 object-contain"
+								width="16"
+								height="16"
+							/>
+							{activeService.label}
+						</span>
+					</Select.Trigger>
+					<Select.Content>
+						{#each serviceOptions as svc}
+							<Select.Item value={svc.id}>
+								<span class="flex items-center gap-2">
+									<img
+										src={svc.serviceIcon}
+										alt=""
+										class="size-4 shrink-0 object-contain"
+										width="16"
+										height="16"
+									/>
+									{svc.label}
+								</span>
+							</Select.Item>
+						{/each}
+					</Select.Content>
+				</Select.Root>
 			</div>
 
-			<div
-				class="flex items-center gap-3 rounded-md border bg-muted/30 px-3 py-2.5"
-				aria-hidden="true"
-			>
+			<div class="flex items-center gap-3 rounded-md bg-muted/40 px-3 py-2.5" aria-hidden="true">
 				<img
 					src={activeService.serviceIcon}
 					alt=""
@@ -163,21 +220,28 @@
 
 	{#if sectionMatches(searchQuery, 'disguise google docs tab title icon background lock screen when')}
 		<div id="settings-section-pm-disguise" class="scroll-mt-32 space-y-2">
-			<Label for="pm-disguise">When to disguise</Label>
+			<Label>When to disguise</Label>
 			<p class="text-xs text-muted-foreground">
 				When to show the disguised tab title and icon. Lock delay still controls when the passcode screen
 				appears.
 			</p>
-			<select
-				id="pm-disguise"
-				bind:value={disguiseChoice}
-				class={selectClass}
+			<Select.Root
+				type="single"
+				value={disguiseChoice}
+				onValueChange={(v) => {
+					if (v === 'off' || v === 'focus_loss' || v === 'always') disguiseChoice = v;
+				}}
 				disabled={busy}
 			>
-				{#each DISGUISE_OPTIONS as opt}
-					<option value={opt.value}>{opt.label}</option>
-				{/each}
-			</select>
+				<Select.Trigger class="w-full">
+					{DISGUISE_OPTIONS.find((o) => o.value === disguiseChoice)?.label ?? 'Choose…'}
+				</Select.Trigger>
+				<Select.Content>
+					{#each DISGUISE_OPTIONS as opt}
+						<Select.Item value={opt.value}>{opt.label}</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
 			<p class="text-xs text-muted-foreground">
 				{DISGUISE_OPTIONS.find((o) => o.value === disguiseChoice)?.hint ?? ''}
 			</p>
@@ -186,21 +250,28 @@
 
 	{#if sectionMatches(searchQuery, 'lock delay seconds away passcode immediately focus')}
 		<div id="settings-section-pm-lock-delay" class="scroll-mt-32 space-y-2">
-			<Label for="pm-lock-delay">Lock delay</Label>
+			<Label>Lock delay</Label>
 			<p class="text-xs text-muted-foreground">
 				How long you can be away before the passcode screen appears. “Immediately” locks as soon as you leave
 				the tab or window loses focus.
 			</p>
-			<select
-				id="pm-lock-delay"
-				bind:value={lockDelayStr}
-				class={selectClass}
+			<Select.Root
+				type="single"
+				value={lockDelayStr}
+				onValueChange={(v) => {
+					if (v) lockDelayStr = v;
+				}}
 				disabled={busy}
 			>
-				{#each LOCK_DELAY_OPTIONS as opt}
-					<option value={String(opt.value)}>{opt.label}</option>
-				{/each}
-			</select>
+				<Select.Trigger class="w-full">
+					{LOCK_DELAY_OPTIONS.find((o) => o.value === lockDelayStr)?.label ?? 'Choose…'}
+				</Select.Trigger>
+				<Select.Content>
+					{#each LOCK_DELAY_OPTIONS as opt}
+						<Select.Item value={opt.value}>{opt.label}</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
 		</div>
 	{/if}
 
@@ -254,7 +325,7 @@
 	{#if sectionMatches(searchQuery, 'pause game iframe overlay screen hide')}
 		<div
 			id="settings-section-pm-pause-game"
-			class="scroll-mt-32 flex items-start justify-between gap-4 rounded-md border p-4"
+			class="scroll-mt-32 flex items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
 		>
 			<div class="min-w-0 space-y-1">
 				<Label for="pm-pause-game" class="text-sm font-medium">Pause game while privacy screen is shown</Label>
@@ -273,10 +344,7 @@
 	{/if}
 
 	{#if sectionMatches(searchQuery, 'turn off disable privacy remove passcode protection')}
-		<div
-			id="settings-section-pm-turn-off"
-			class="scroll-mt-32 space-y-2 rounded-md border border-destructive/30 p-4"
-		>
+		<div id="settings-section-pm-turn-off" class="scroll-mt-32 space-y-2 rounded-md bg-destructive/5 p-4">
 			<p class="text-sm font-medium text-destructive">Turn off privacy mode</p>
 			<p class="text-xs text-muted-foreground">Removes passcode protection for this site.</p>
 			<Button type="button" variant="destructive" onclick={() => onRequestDisablePrivacy?.()} disabled={busy}>

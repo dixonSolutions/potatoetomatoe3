@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { base, resolve } from '$app/paths';
 	import { page } from '$app/stores';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
@@ -12,20 +12,20 @@
 
 	const settingsUi = getSettingsUiContext();
 
-	const categories = [
+	const categories = $derived([
 		{ title: 'Action Games', href: `${base}/games?category=action`, description: 'Fast-paced action and combat games' },
 		{ title: 'Sports Games', href: `${base}/games?category=sports`, description: 'Soccer, basketball, and more' },
 		{ title: 'Racing Games', href: `${base}/games?category=racing`, description: 'Cars, bikes, and high-speed thrills' },
 		{ title: 'Puzzle Games', href: `${base}/games?category=puzzle`, description: 'Brain teasers and logic challenges' },
 		{ title: 'Platformer Games', href: `${base}/games?category=platformer`, description: 'Jump, run, and explore' },
 		{ title: 'Shooter Games', href: `${base}/games?category=shooter`, description: 'FPS and shooting action' },
-	];
+	]);
 </script>
 
 <nav class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 	<div class="container mx-auto flex h-16 items-center px-4">
 		<!-- Logo -->
-		<a href="{base}/home" class="flex items-center space-x-2 flex-shrink-0">
+		<a href={resolve('/home')} class="flex items-center space-x-2 flex-shrink-0">
 			<span class="text-2xl">🥔🍅</span>
 			<span class="font-bold text-xl">Potato Tomato Games</span>
 		</a>
@@ -56,7 +56,7 @@
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Link
-							href="{base}/home"
+							href={resolve('/home')}
 							class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 {$page.url.pathname === '/home' || $page.url.pathname.endsWith('/home') ? 'text-primary' : ''}"
 						>
 							Home
@@ -65,7 +65,7 @@
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Link
-							href="{base}/play-analytics"
+							href={resolve('/play-analytics')}
 							class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 {$page.url.pathname.includes('play-analytics') ? 'text-primary' : ''}"
 						>
 							Analytics
@@ -74,7 +74,7 @@
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Link
-							href="{base}/games"
+							href={resolve('/games')}
 							class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 {$page.url.pathname === '/games' || $page.url.pathname.endsWith('/games') ? 'text-primary' : ''}"
 						>
 							All Games
@@ -102,7 +102,7 @@
 				<span class="sr-only">Toggle theme</span>
 			</Button>
 			<Button
-				href="{base}/games"
+				href={resolve('/games')}
 				variant={$page.url.pathname.includes('/games') ? 'default' : 'outline'}
 			>
 				Browse all
@@ -158,21 +158,21 @@
 
 							<div class="space-y-2">
 								<a
-									href="{base}/home"
+									href={resolve('/home')}
 									class="block text-sm transition-colors {$page.url.pathname === '/home' || $page.url.pathname.endsWith('/home') ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}"
 									onclick={() => (isOpen = false)}
 								>
 									Home
 								</a>
 								<a
-									href="{base}/play-analytics"
+									href={resolve('/play-analytics')}
 									class="block text-sm transition-colors {$page.url.pathname.includes('play-analytics') ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}"
 									onclick={() => (isOpen = false)}
 								>
 									Playtime &amp; algorithm
 								</a>
 								<a
-									href="{base}/games"
+									href={resolve('/games')}
 									class="block text-sm transition-colors {$page.url.pathname === '/games' || $page.url.pathname.endsWith('/games') ? 'text-primary font-medium' : 'text-foreground hover:text-primary'}"
 									onclick={() => (isOpen = false)}
 								>
@@ -196,7 +196,7 @@
 									Settings
 								</Button>
 							{/if}
-							<Button href="{base}/games" class="w-full" onclick={() => (isOpen = false)}>
+							<Button href={resolve('/games')} class="w-full" onclick={() => (isOpen = false)}>
 								Play Now
 							</Button>
 						</div>

@@ -19,6 +19,12 @@ const indexHtml = fs.readFileSync(indexPath, 'utf-8');
 fs.writeFileSync(path.join(buildDir, '404.html'), indexHtml);
 console.log('[prepare-github-pages] wrote build/404.html');
 
+const gamesBrowseIndex = path.join(buildDir, 'games', 'index.html');
+if (fs.existsSync(path.join(buildDir, 'games'))) {
+	fs.writeFileSync(gamesBrowseIndex, indexHtml);
+	console.log('[prepare-github-pages] wrote build/games/index.html (browse route)');
+}
+
 const listPath = path.join(buildDir, 'games', 'games-list.json');
 if (!fs.existsSync(listPath)) {
 	console.warn('[prepare-github-pages] games-list.json missing — skip game fallbacks');

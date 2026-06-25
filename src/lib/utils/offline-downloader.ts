@@ -55,6 +55,7 @@ import {
 	type GameOfflineStatus
 } from './offline-downloader-puller';
 import {
+	checkOnlineShellExists,
 	deleteBrowserOfflineCopy,
 	fetchBrowserGameOfflineStatus,
 	fetchBrowserOfflineStatuses,
@@ -101,7 +102,13 @@ export async function fetchGameOfflineStatus(
 
 	if (backend === 'puller') {
 		const status = await fetchPullerGameOfflineStatus(gameId, force);
-		return bundled ? { ...bundled, ...status, offline: true } : status;
+		if (bundled) return { ...bundled, ...status, offline: true };
+		if (status) return status;
+		return {
+			online: await checkOnlineShellExists(gameId),
+			offline: false,
+			downloading: false
+		};
 	}
 	if (backend === 'browser') {
 		const status = await fetchBrowserGameOfflineStatus(gameId);

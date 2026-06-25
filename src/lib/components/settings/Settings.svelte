@@ -6,7 +6,7 @@
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import { Switch } from '$lib/components/ui/switch';
-	import { ChevronRight, ChevronLeft, MoreVertical } from 'lucide-svelte';
+	import { ChevronRight, ChevronLeft, MoreVertical, Shield, Volume2, Gamepad2, BarChart3 } from 'lucide-svelte';
 	import {
 		Root as DropdownMenuRoot,
 		Trigger as DropdownMenuTrigger,
@@ -566,7 +566,7 @@
 				/>
 			</div>
 
-			<div class="flex flex-col gap-1 px-2 py-3">
+			<div class="px-2 py-3">
 				{#if settingsSearchQuery.trim()}
 					{#if globalSearchResults.length === 0}
 						<p class="px-4 py-6 text-center text-xs text-muted-foreground">
@@ -580,97 +580,81 @@
 						/>
 					{/if}
 				{:else}
-					<div
-						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
-						role="group"
-						aria-label="Privacy mode"
-					>
-						<button
-							type="button"
-							class="flex min-w-0 flex-1 items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-muted/40"
-							onclick={openPrivacyEntry}
-						>
-							<div class="min-w-0 flex-1">
-								<p class="text-sm font-medium">Privacy mode</p>
-								<p class="text-xs text-muted-foreground">Tab disguise, lock timing, passcode</p>
+					<div class="overflow-hidden rounded-lg border bg-card divide-y divide-border">
+						<div class="flex items-stretch" role="group" aria-label="Privacy mode">
+							<button
+								type="button"
+								class="flex min-w-0 flex-1 items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+								onclick={openPrivacyEntry}
+							>
+								<Shield class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+								<div class="min-w-0 flex-1">
+									<p class="text-sm font-medium">Privacy mode</p>
+									<p class="text-xs text-muted-foreground">Tab disguise, lock timing, passcode</p>
+								</div>
+								<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+							</button>
+							<div
+								class="flex shrink-0 items-center px-3"
+								role="presentation"
+								onclick={(e) => e.stopPropagation()}
+							>
+								<Switch
+									bind:checked={rootPrivacySwitch}
+									onCheckedChange={handleRootPrivacySwitch}
+									disabled={busy}
+									aria-label="Turn privacy mode on or off"
+								/>
 							</div>
-							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
-						</button>
-						<div
-							class="flex shrink-0 items-center border-l border-border px-3"
-							role="presentation"
-							onclick={(e) => e.stopPropagation()}
-						>
-							<Switch
-								bind:checked={rootPrivacySwitch}
-								onCheckedChange={handleRootPrivacySwitch}
-								disabled={busy}
-								aria-label="Turn privacy mode on or off"
-							/>
 						</div>
-					</div>
 
-					<div
-						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
-						role="group"
-						aria-label="Audio"
-					>
 						<button
 							type="button"
-							class="flex min-w-0 flex-1 items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
 							onclick={() => {
 								panel = 'audio';
 							}}
 						>
+							<Volume2 class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 							<div class="min-w-0 flex-1">
 								<p class="text-sm font-medium">Audio</p>
 								<p class="text-xs text-muted-foreground">Mute scope, volume, and playback</p>
 							</div>
-							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+							<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 						</button>
-					</div>
 
-					<div
-						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
-						role="group"
-						aria-label="Games"
-					>
 						<button
 							type="button"
-							class="flex min-w-0 flex-1 items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
 							onclick={() => {
 								panel = 'games';
 								syncLocal();
 							}}
 						>
+							<Gamepad2 class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 							<div class="min-w-0 flex-1">
 								<p class="text-sm font-medium">Games</p>
 								<p class="text-xs text-muted-foreground">Online vs offline defaults</p>
 							</div>
-							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+							<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 						</button>
-					</div>
 
-					<div
-						class="flex items-stretch overflow-hidden rounded-lg border bg-muted/20"
-						role="group"
-						aria-label="Analytics"
-					>
 						<button
 							type="button"
-							class="flex min-w-0 flex-1 items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
 							onclick={() => {
 								panel = 'analytics';
 								syncLocal();
 							}}
 						>
+							<BarChart3 class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 							<div class="min-w-0 flex-1">
 								<p class="text-sm font-medium">Analytics</p>
 								<p class="text-xs text-muted-foreground">
 									Playtime limits and recommendation taste
 								</p>
 							</div>
-							<ChevronRight class="size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+							<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 						</button>
 					</div>
 				{/if}

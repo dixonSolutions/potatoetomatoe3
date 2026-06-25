@@ -295,7 +295,7 @@
 				</Button>
 			</div>
 			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
-			<OfflineControls {gameId} onPlayUrlChange={refreshPlayerUrl} />
+			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
 
 		<div class="mb-8 overflow-hidden rounded-lg border bg-card shadow-lg">
