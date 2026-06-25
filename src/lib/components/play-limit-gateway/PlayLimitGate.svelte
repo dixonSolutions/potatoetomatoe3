@@ -1,12 +1,21 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
+	import { disableDailyPlayLimits } from '$lib/utils/play-recommendations';
 	import { Gauge } from 'lucide-svelte';
 
 	const settingsUi = getSettingsUiContext();
 
 	function openAnalyticsSettings() {
 		settingsUi?.openSettings();
+	}
+
+	function disableTimeLimit() {
+		disableDailyPlayLimits();
+		if (browser) {
+			window.dispatchEvent(new CustomEvent('potato-tomato-play-limits-changed'));
+		}
 	}
 </script>
 
@@ -28,11 +37,12 @@
 		</div>
 		<h2 id="play-limit-heading" class="text-xl font-semibold tracking-tight">Daily playtime limit reached</h2>
 		<p id="play-limit-desc" class="text-sm text-muted-foreground leading-relaxed">
-			You’ve reached your daily cap for this site. Limits reset on the next UTC day, or you can change them in
-			Settings → Analytics.
+			You’ve reached your daily cap for this site. Limits reset on the next UTC day, or you can turn the limit off
+			below.
 		</p>
 		<div class="flex flex-wrap items-center justify-center gap-2 pt-2">
-			<Button type="button" onclick={openAnalyticsSettings}>Open settings</Button>
+			<Button type="button" onclick={disableTimeLimit}>Disable time limit</Button>
+			<Button type="button" variant="outline" onclick={openAnalyticsSettings}>Open settings</Button>
 		</div>
 	</div>
 </div>

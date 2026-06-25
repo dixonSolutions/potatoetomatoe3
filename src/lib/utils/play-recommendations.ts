@@ -217,6 +217,14 @@ export function getPlayLimits(): { dailyGlobalLimitMs: number; dailyPerGameLimit
 	};
 }
 
+/** Turn off global and per-game daily caps (same as disabling the limit in Settings). */
+export function disableDailyPlayLimits(): void {
+	const data = loadPlayAnalytics();
+	data.dailyGlobalLimitMs = 0;
+	data.dailyPerGameLimitMs = {};
+	savePlayAnalytics(data);
+}
+
 /** True when a global daily cap is set and today’s total tracked play meets or exceeds it (UTC day). */
 export function isGlobalDailyLimitExceeded(): boolean {
 	const data = loadPlayAnalytics();

@@ -113,6 +113,8 @@ Per-game online/offline preference is stored in localStorage via `src/lib/utils/
 
 Production builds use base path `/potatoetomatoe3` (override with `PUBLIC_PAGES_BASE` in CI).
 
+**Public URL:** `https://dixonsolutions.github.io/potatoetomatoe3/` — game pages are `…/potatoetomatoe3/games/{id}` (not `…/games/{id}` at the domain root). The build copies SPA shells into each `games/{id}/` folder so GitHub Pages deep links work beside static game assets.
+
 Deploy workflow: `.github/workflows/pages.yml` (runs on push to `main`).
 
 Enable Pages in the repo: **Settings → Pages → Build and deployment → GitHub Actions**.
