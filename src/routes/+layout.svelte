@@ -7,7 +7,6 @@
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
 	/** `?url` keeps SSR and client `href` identical (plain URL); default SVG import becomes a data URL on the client only and triggers hydration warnings. */
 	import favicon from '$lib/assets/favicon.svg?url';
-	import googleDocsDecoyFavicon from '$lib/assets/Google_Docs_logo_(2014-2020).svg?url';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import PrivacyGate from '$lib/components/privacy-gateway/PrivacyGate.svelte';
 	import PlayLimitGate from '$lib/components/play-limit-gateway/PlayLimitGate.svelte';
@@ -25,10 +24,13 @@
 		getPrivacyLockDelayMs,
 		getPrivacyDisguiseMode,
 		getPrivacyLockShortcut,
+		getPrivacyDisguiseProvider,
+		getPrivacyDisguiseServiceId,
 		privacyLockShortcutMatches,
 		syncPrivacyUnlockCookieWithSession,
 		REAL_APP_TITLE
 	} from '$lib/utils/privacy-mode';
+	import { getDecoyFaviconUrl } from '$lib/utils/privacy-disguise-registry';
 	import type { PrivacyDisguiseMode } from '$lib/utils/site-settings';
 	import { attachGlobalMediaMute } from '$lib/utils/audio-mute';
 	import { attachGameStorageBridge } from '$lib/utils/game-storage-bridge';
@@ -42,6 +44,7 @@
 	);
 	let settingsOpen = $state(false);
 	let decoyTitle = $state('Google Docs');
+	let decoyFavicon = $state(favicon);
 	let privacyDisguiseMode = $state<PrivacyDisguiseMode>('focus_loss');
 	/** Tab in background — used when disguise mode is "focus loss" (Google Docs tab while away). */
 	/** Assume visible for first paint to match SSR; real state applied in onMount (tab hidden is client-only). */
@@ -54,7 +57,7 @@
 	 * Title/icon must come from reactive <svelte:head>. Imperative document.title / link.href
 	 * is overwritten when Svelte reconciles head, so the Google Docs decoy never persisted.
 	 */
-	function shouldShowGoogleDocsTab(
+	function shouldShowDecoyTab(
 		mode: PrivacyDisguiseMode,
 		enabled: boolean,
 		unlocked: boolean,
@@ -63,7 +66,6 @@
 		if (!enabled) return false;
 		if (mode === 'off') return false;
 		if (mode === 'always') return true;
-		// focus_loss: disguise when the tab is in the background or the session is locked
 		return hidden || !unlocked;
 	}
 
@@ -81,7 +83,7 @@
 			}
 			return REAL_APP_TITLE;
 		}
-		if (shouldShowGoogleDocsTab(privacyDisguiseMode, privacyEnabled, privacyUnlocked, tabHidden)) {
+		if (shouldShowDecoyTab(privacyDisguiseMode, privacyEnabled, privacyUnlocked, tabHidden)) {
 			return decoyTitle;
 		}
 		return REAL_APP_TITLE;
@@ -90,18 +92,18 @@
 	const activeFavicon = $derived.by(() => {
 		if (!browser) {
 			if (data.ssrPrivacyHead.decoyTitle) {
-				return googleDocsDecoyFavicon;
+				return data.ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
 			}
 			return favicon;
 		}
 		if (!privacyBootstrapReady) {
 			if (data.ssrPrivacyHead.decoyTitle) {
-				return googleDocsDecoyFavicon;
+				return data.ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
 			}
 			return favicon;
 		}
-		if (shouldShowGoogleDocsTab(privacyDisguiseMode, privacyEnabled, privacyUnlocked, tabHidden)) {
-			return googleDocsDecoyFavicon;
+		if (shouldShowDecoyTab(privacyDisguiseMode, privacyEnabled, privacyUnlocked, tabHidden)) {
+			return decoyFavicon;
 		}
 		return favicon;
 	});
@@ -111,6 +113,7 @@
 		privacyEnabled = enabled;
 		privacyUnlocked = !enabled || isPrivacySessionUnlocked();
 		decoyTitle = getDecoyTitleForSession();
+		decoyFavicon = getDecoyFaviconUrl(getPrivacyDisguiseProvider(), getPrivacyDisguiseServiceId());
 		privacyDisguiseMode = getPrivacyDisguiseMode();
 	}
 
@@ -132,6 +135,7 @@
 		privacyEnabled = enabled;
 		privacyUnlocked = !enabled || isPrivacySessionUnlocked();
 		decoyTitle = getDecoyTitleForSession();
+		decoyFavicon = getDecoyFaviconUrl(getPrivacyDisguiseProvider(), getPrivacyDisguiseServiceId());
 		privacyDisguiseMode = getPrivacyDisguiseMode();
 		privacyBootstrapReady = true;
 	}

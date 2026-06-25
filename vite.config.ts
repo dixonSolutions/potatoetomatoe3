@@ -2,6 +2,7 @@ import devtoolsJson from 'vite-plugin-devtools-json';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { pullerGamesProxyPlugin } from './vite-plugins/puller-games-proxy';
 
 const pullerTarget = (process.env.PUBLIC_DOWNLOADER_URL ?? 'http://127.0.0.1:18787').replace(
 	/\/$/,
@@ -15,7 +16,7 @@ const pullerGameProxy = {
 };
 
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit(), devtoolsJson()],
+	plugins: [pullerGamesProxyPlugin(pullerTarget), tailwindcss(), sveltekit(), devtoolsJson()],
 	/** Pre-bundle UI libs so Vite does not intermittently fail dynamic imports (cascades into many “module load failed” errors). */
 	optimizeDeps: {
 		include: ['bits-ui', 'mode-watcher', 'svelte-sonner']

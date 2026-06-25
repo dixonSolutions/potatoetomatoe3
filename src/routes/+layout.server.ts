@@ -1,15 +1,16 @@
 import type { LayoutServerLoad } from './$types';
+import { PRIVACY_UNLOCK_COOKIE_NAME } from '$lib/utils/privacy-mode';
 import {
-	DECOY_TITLES,
-	PRIVACY_UNLOCK_COOKIE_NAME,
-	isDocsDecoyTitleAllowed
-} from '$lib/utils/privacy-mode';
+	getDecoyFaviconUrl,
+	isDecoyTitleForService,
+	pickDecoyTitleForService,
+	resolveDisguiseService
+} from '$lib/utils/privacy-disguise-registry';
 import { SITE_SETTINGS_COOKIE, type PrivacyDisguiseMode } from '$lib/utils/site-settings';
 
 /**
  * Read settings cookie on the server so the first HTML paint can match tab branding.
- * When privacy is on and disguise is not "off", we SSR the Docs title so the bundled Google Docs SVG
- * favicon applies immediately (session unlock / tab focus is client-only, so the client may swap back).
+ * When privacy is on and disguise is not "off", we SSR the decoy title/favicon for the selected service.
  */
 export const load: LayoutServerLoad = async ({ cookies }) => {
 	const raw = cookies.get(SITE_SETTINGS_COOKIE);
@@ -17,12 +18,16 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 	let privacyModeEnabled = false;
 	let storedDecoyTitle: string | null = null;
 	let disguiseMode: PrivacyDisguiseMode = 'focus_loss';
+	let disguiseProvider: 'google' | 'microsoft' = 'google';
+	let disguiseService = 'docs';
 	if (raw) {
 		try {
 			const parsed = JSON.parse(decodeURIComponent(raw)) as {
 				privacyModeEnabled?: boolean;
 				privacyDecoyTitle?: string | null;
 				privacyDisguiseMode?: PrivacyDisguiseMode;
+				privacyDisguiseProvider?: 'google' | 'microsoft';
+				privacyDisguiseService?: string;
 			};
 			if (parsed && typeof parsed === 'object') {
 				privacyModeEnabled = parsed.privacyModeEnabled === true;
@@ -32,19 +37,30 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 				if (m === 'off' || m === 'focus_loss' || m === 'always') {
 					disguiseMode = m;
 				}
+				if (parsed.privacyDisguiseProvider === 'microsoft') {
+					disguiseProvider = 'microsoft';
+				}
+				if (typeof parsed.privacyDisguiseService === 'string' && parsed.privacyDisguiseService) {
+					disguiseService = parsed.privacyDisguiseService;
+				}
 			}
 		} catch {
 			/* ignore */
 		}
 	}
 
+	const service = resolveDisguiseService(disguiseProvider, disguiseService);
+
 	let decoyTitle: string | null = null;
+	let decoyFavicon: string | null = null;
 	if (privacyModeEnabled && disguiseMode !== 'off') {
 		const pickDecoy =
-			storedDecoyTitle && isDocsDecoyTitleAllowed(storedDecoyTitle) ? storedDecoyTitle : DECOY_TITLES[0];
-		/* focus_loss: real title while unlocked + tab assumed visible on first paint; always: always decoy */
+			storedDecoyTitle && isDecoyTitleForService(service, storedDecoyTitle)
+				? storedDecoyTitle
+				: pickDecoyTitleForService(service);
 		if (disguiseMode === 'always' || !privacySessionUnlocked) {
 			decoyTitle = pickDecoy;
+			decoyFavicon = getDecoyFaviconUrl(disguiseProvider, service.id);
 		}
 	}
 
@@ -52,6 +68,7 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 		ssrPrivacyHead: {
 			privacyModeEnabled,
 			decoyTitle,
+			decoyFavicon,
 			privacySessionUnlocked
 		}
 	};

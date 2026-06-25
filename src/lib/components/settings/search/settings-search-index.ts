@@ -7,19 +7,20 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		title: 'Privacy mode',
 		panel: 'privacy',
 		sectionKeywords:
-			'privacy mode tab disguise lock passcode timing google docs screen passcode protection keyboard shortcut hotkey',
+			'privacy mode tab disguise lock passcode timing google microsoft docs word excel powerpoint screen passcode protection keyboard shortcut hotkey',
 		subsections: [
 			{
-				id: 'sub-disguise',
-				label: 'Disguise',
-				scrollTargetId: 'settings-section-pm-disguise',
-				keywords: 'disguise google docs tab title icon background lock screen when'
+				id: 'sub-disguise-settings',
+				label: 'Disguise settings',
+				scrollTargetId: 'settings-section-pm-disguise-settings',
+				keywords:
+					'disguise provider google microsoft service docs sheets slides word excel powerpoint outlook onedrive tab title icon lock screen'
 			},
 			{
-				id: 'sub-tab-title',
-				label: 'Tab title when disguised',
-				scrollTargetId: 'settings-section-pm-tab-title',
-				keywords: 'tab title document untitled browser disguised'
+				id: 'sub-disguise',
+				label: 'When to disguise',
+				scrollTargetId: 'settings-section-pm-disguise',
+				keywords: 'disguise tab title icon background lock screen when background always off'
 			},
 			{
 				id: 'sub-lock-delay',

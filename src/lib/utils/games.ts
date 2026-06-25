@@ -7,6 +7,7 @@ import {
 	isBrowserGameDownloaded
 } from '$lib/utils/offline-downloader';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
+import { staticOfflineFileExists, staticOfflinePlayUrl } from '$lib/utils/offline-play-url';
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -104,16 +105,6 @@ function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): st
 	return `${base}/games/${gameId}/online/index.html`;
 }
 
-async function staticOfflineExists(gameId: string): Promise<boolean> {
-	if (isBundledOfflineGame(gameId)) return true;
-	try {
-		const res = await fetch(`${base}/games/${gameId}/offline/index.html`, { method: 'HEAD' });
-		return res.ok;
-	} catch {
-		return false;
-	}
-}
-
 async function offlineAvailable(gameId: string): Promise<boolean> {
 	if (isBundledOfflineGame(gameId)) return true;
 	const status = await fetchGameOfflineStatus(gameId);
@@ -121,14 +112,14 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	if ((await getOfflineBackend()) === 'browser' && (await isBrowserGameDownloaded(gameId))) {
 		return true;
 	}
-	return staticOfflineExists(gameId);
+	return staticOfflineFileExists(gameId, base);
 }
 
 /** Resolve the iframe src for playing a game. */
 export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	const metadata = await loadGameMetadata(gameId);
 	const onlineUrl = resolveOnlinePlayUrl(metadata, gameId);
-	const staticOfflineUrl = `${base}/games/${gameId}/offline/index.html`;
+	const staticOfflineUrl = staticOfflinePlayUrl(gameId, base);
 
 	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;

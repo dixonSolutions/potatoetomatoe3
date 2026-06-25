@@ -164,10 +164,17 @@ export async function pollDownloadUntilDone(
 
 /** Resolve play URL for an offline copy based on the active backend. */
 export async function getOfflinePlayUrl(gameId: string): Promise<string | null> {
+	const { base } = await import('$app/paths');
+	const { staticOfflineFileExists, staticOfflinePlayUrl } = await import('./offline-play-url');
+
+	// Puller writes mirrors to static/games/{id}/offline/ in dev — serve directly (Vite static).
+	if (await staticOfflineFileExists(gameId, base)) {
+		return staticOfflinePlayUrl(gameId, base);
+	}
+
 	const backend = await getOfflineBackend();
 	if (backend === 'puller') {
 		const { pullerOfflinePlayUrl } = await import('./offline-downloader-puller');
-		const { base } = await import('$app/paths');
 		return pullerOfflinePlayUrl(gameId, base);
 	}
 	if (backend === 'browser') {

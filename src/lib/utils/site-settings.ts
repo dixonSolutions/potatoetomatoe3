@@ -7,8 +7,11 @@ export const SITE_SETTINGS_COOKIE = 'potato-tomato-settings';
 const LOCAL_STORAGE_KEY = 'potato-tomato-site-settings-v1';
 const COOKIE_MAX_AGE_SEC = 60 * 60 * 24 * 400; // ~400 days
 
-/** When the tab uses the Google Docs title and favicon while privacy mode is on. */
+/** When the tab uses the decoy title and favicon while privacy mode is on. */
 export type PrivacyDisguiseMode = 'off' | 'focus_loss' | 'always';
+
+/** Product family for the privacy lock screen disguise. */
+export type PrivacyDisguiseProvider = 'google' | 'microsoft';
 
 /** When to force mute on audio/video elements (see audio-mute.ts). */
 export type MuteAudioScope = 'off' | 'focus_loss' | 'always';
@@ -27,7 +30,12 @@ export type SiteSettingsV1 = {
 	/** Privacy mode (decoy tab + passcode lock on blur) */
 	privacyModeEnabled: boolean;
 	privacyPasswordHash: string | null;
+	/** Stable decoy tab title variant for the selected service (not user-customizable). */
 	privacyDecoyTitle: string | null;
+	/** Provider for lock screen disguise (Google or Microsoft). */
+	privacyDisguiseProvider: PrivacyDisguiseProvider;
+	/** Service within the provider (e.g. docs, word). Tab icon/title derive from this. */
+	privacyDisguiseService: string;
 	/** 0 = lock as soon as you leave focus; otherwise delay in ms before locking */
 	privacyLockDelayMs: number;
 	/** Tab disguise: off | when background/locked | always (see privacy-mode + layout). */
@@ -51,6 +59,8 @@ const DEFAULTS: SiteSettingsV1 = {
 	privacyModeEnabled: false,
 	privacyPasswordHash: null,
 	privacyDecoyTitle: null,
+	privacyDisguiseProvider: 'google',
+	privacyDisguiseService: 'docs',
 	privacyLockDelayMs: 0,
 	privacyDisguiseMode: 'focus_loss',
 	privacyPauseGameWhileLocked: false,
@@ -106,13 +116,23 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 	if (defaultGamePlayMode !== 'online' && defaultGamePlayMode !== 'offline') {
 		defaultGamePlayMode = DEFAULTS.defaultGamePlayMode;
 	}
+	let privacyDisguiseProvider = merged.privacyDisguiseProvider;
+	if (privacyDisguiseProvider !== 'google' && privacyDisguiseProvider !== 'microsoft') {
+		privacyDisguiseProvider = DEFAULTS.privacyDisguiseProvider;
+	}
+	let privacyDisguiseService = merged.privacyDisguiseService;
+	if (typeof privacyDisguiseService !== 'string' || !privacyDisguiseService) {
+		privacyDisguiseService = DEFAULTS.privacyDisguiseService;
+	}
 	return {
 		...merged,
 		muteAudioScope,
 		masterVolume,
 		privacyPauseGameWhileLocked,
 		privacyLockShortcut,
-		defaultGamePlayMode
+		defaultGamePlayMode,
+		privacyDisguiseProvider,
+		privacyDisguiseService
 	};
 }
 

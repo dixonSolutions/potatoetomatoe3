@@ -3,6 +3,7 @@ import {
 	fetchGameOfflineStatus,
 	isBundledOfflineGame
 } from '$lib/utils/offline-downloader';
+import { staticOfflineFileExists } from '$lib/utils/offline-play-url';
 import type { GameMetadata } from '$lib/utils/games';
 
 export interface GameAvailability {
@@ -21,16 +22,6 @@ async function onlineShellExists(gameId: string): Promise<boolean> {
 	}
 }
 
-async function staticOfflineExists(gameId: string): Promise<boolean> {
-	if (isBundledOfflineGame(gameId)) return true;
-	try {
-		const res = await fetch(`${base}/games/${gameId}/offline/index.html`, { method: 'HEAD' });
-		return res.ok;
-	} catch {
-		return false;
-	}
-}
-
 /** Whether online and/or offline copies exist for a game. */
 export async function getGameAvailability(
 	gameId: string,
@@ -41,7 +32,7 @@ export async function getGameAvailability(
 
 	let offline = isBundledOfflineGame(gameId) || Boolean(metadata?.bundledOffline);
 	if (!offline) {
-		offline = await staticOfflineExists(gameId);
+		offline = await staticOfflineFileExists(gameId, base);
 	}
 	if (!offline) {
 		const status = await fetchGameOfflineStatus(gameId, force);

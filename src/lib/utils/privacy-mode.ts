@@ -7,11 +7,19 @@ import {
 	loadSiteSettings,
 	patchSiteSettings,
 	type PrivacyDisguiseMode,
+	type PrivacyDisguiseProvider,
 	type PrivacyLockShortcut,
 	type SiteSettingsV1
 } from '$lib/utils/site-settings';
+import {
+	getDefaultServiceId,
+	isDecoyTitleForService,
+	isValidDisguiseService,
+	pickDecoyTitleForService,
+	resolveDisguiseService
+} from '$lib/utils/privacy-disguise-registry';
 
-export type { PrivacyDisguiseMode, PrivacyLockShortcut };
+export type { PrivacyDisguiseMode, PrivacyDisguiseProvider, PrivacyLockShortcut };
 
 const SESSION_UNLOCK = 'potato-tomato-privacy-session-ok';
 
@@ -51,12 +59,55 @@ export interface PrivacyVault {
 	passwordHash: string;
 }
 
-/** Only Google Docs–style titles (never Sheets or other products) so the tab matches the Docs favicon. */
+/** @deprecated Use privacy-disguise-registry tab titles per service. */
 export const DECOY_TITLES = ['Google Docs', 'Untitled document - Google Docs'] as const;
 
-/** Used by client + server so stored/cookie decoy titles stay in sync with the Docs favicon. */
+export function getPrivacyDisguiseProvider(): PrivacyDisguiseProvider {
+	const p = loadSiteSettings().privacyDisguiseProvider;
+	return p === 'microsoft' ? 'microsoft' : 'google';
+}
+
+export function getPrivacyDisguiseServiceId(): string {
+	const s = loadSiteSettings();
+	const provider = getPrivacyDisguiseProvider();
+	const id = s.privacyDisguiseService;
+	if (typeof id === 'string' && isValidDisguiseService(provider, id)) return id;
+	return getDefaultServiceId(provider);
+}
+
+export function getActiveDisguiseService() {
+	const provider = getPrivacyDisguiseProvider();
+	return resolveDisguiseService(provider, getPrivacyDisguiseServiceId());
+}
+
+export function savePrivacyDisguiseProvider(provider: PrivacyDisguiseProvider): void {
+	savePrivacyDisguiseSelection(provider, getDefaultServiceId(provider));
+}
+
+export function savePrivacyDisguiseService(serviceId: string): boolean {
+	const provider = getPrivacyDisguiseProvider();
+	return savePrivacyDisguiseSelection(provider, serviceId);
+}
+
+export function savePrivacyDisguiseSelection(
+	provider: PrivacyDisguiseProvider,
+	serviceId: string
+): boolean {
+	const validService = isValidDisguiseService(provider, serviceId)
+		? serviceId
+		: getDefaultServiceId(provider);
+	patchSiteSettings({
+		privacyDisguiseProvider: provider,
+		privacyDisguiseService: validService,
+		privacyDecoyTitle: null
+	});
+	return isValidDisguiseService(provider, serviceId);
+}
+
+/** Used by client + server so stored decoy titles stay in sync with the selected service. */
 export function isDocsDecoyTitleAllowed(t: string): boolean {
-	return (DECOY_TITLES as readonly string[]).includes(t);
+	const service = getActiveDisguiseService();
+	return isDecoyTitleForService(service, t);
 }
 
 function getSessionStorage(): Storage | null {
@@ -174,7 +225,8 @@ export function savePrivacyLockDelayMs(ms: number): void {
 }
 
 export function savePrivacyDecoyTitle(title: string): boolean {
-	if (!isDocsDecoyTitleAllowed(title)) return false;
+	const service = getActiveDisguiseService();
+	if (!isDecoyTitleForService(service, title)) return false;
 	patchSiteSettings({ privacyDecoyTitle: title });
 	return true;
 }
@@ -257,13 +309,13 @@ export async function changePrivacyPassword(currentPassword: string, newPassword
 	return true;
 }
 
-/** Stable decoy tab title for this browser profile (stored in settings cookie). */
+/** Stable decoy tab title for this browser profile (derived from selected service). */
 export function getDecoyTitleForSession(): string {
 	const s = loadSiteSettings();
+	const service = resolveDisguiseService(s.privacyDisguiseProvider, s.privacyDisguiseService);
 	let t = s.privacyDecoyTitle ?? '';
-	// Drop legacy values (e.g. "Google Sheets") so the tab always matches the Docs icon.
-	if (!t || !isDocsDecoyTitleAllowed(t)) {
-		t = DECOY_TITLES[Math.floor(Math.random() * DECOY_TITLES.length)]!;
+	if (!t || !isDecoyTitleForService(service, t)) {
+		t = pickDecoyTitleForService(service);
 		patchSiteSettings({ privacyDecoyTitle: t });
 	}
 	return t;

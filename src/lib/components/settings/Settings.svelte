@@ -18,12 +18,13 @@
 		enablePrivacyMode,
 		disablePrivacyMode,
 		changePrivacyPassword,
-		DECOY_TITLES,
 		getPrivacyLockDelayMs,
 		getPrivacyDisguiseMode,
+		getPrivacyDisguiseProvider,
+		getPrivacyDisguiseServiceId,
 		savePrivacyDisguiseMode,
+		savePrivacyDisguiseSelection,
 		savePrivacyLockDelayMs,
-		savePrivacyDecoyTitle,
 		MAX_PRIVACY_LOCK_DELAY_MS,
 		getPrivacyPauseGameWhileLocked,
 		savePrivacyPauseGameWhileLocked,
@@ -33,7 +34,7 @@
 		isModifierOnlyKeyboardCode,
 		type PrivacyLockShortcut
 	} from '$lib/utils/privacy-mode';
-	import { loadSiteSettings, type PrivacyDisguiseMode } from '$lib/utils/site-settings';
+	import type { PrivacyDisguiseMode, PrivacyDisguiseProvider } from '$lib/utils/site-settings';
 	import {
 		getMuteAudioScope,
 		getMasterVolume,
@@ -82,7 +83,8 @@
 	let error = $state('');
 	let busy = $state(false);
 
-	let tabTitleChoice = $state<string>(DECOY_TITLES[0]);
+	let providerChoice = $state<PrivacyDisguiseProvider>('google');
+	let serviceChoice = $state('docs');
 	let disguiseChoice = $state<PrivacyDisguiseMode>('focus_loss');
 	let lockDelayStr = $state('0');
 	let rootPrivacySwitch = $state(false);
@@ -100,7 +102,8 @@
 
 	type SettingsBaseline = {
 		disguise: PrivacyDisguiseMode;
-		tabTitle: string;
+		provider: PrivacyDisguiseProvider;
+		service: string;
 		lockDelayStr: string;
 		pauseGame: boolean;
 		lockShortcut: PrivacyLockShortcut | null;
@@ -121,7 +124,8 @@
 
 	let baseline = $state<SettingsBaseline>({
 		disguise: 'focus_loss',
-		tabTitle: DECOY_TITLES[0],
+		provider: 'google',
+		service: 'docs',
 		lockDelayStr: '0',
 		pauseGame: false,
 		lockShortcut: null,
@@ -202,7 +206,8 @@
 		const vol = Number(volumeSliderPct);
 		let n = 0;
 		if (disguiseChoice !== baseline.disguise) n++;
-		if (tabTitleChoice !== baseline.tabTitle) n++;
+		if (providerChoice !== baseline.provider) n++;
+		if (serviceChoice !== baseline.service) n++;
 		if (lockDelayStr !== baseline.lockDelayStr) n++;
 		if (pauseGameWhileLocked !== baseline.pauseGame) n++;
 		if (JSON.stringify(lockShortcutDraft) !== JSON.stringify(baseline.lockShortcut)) n++;
@@ -214,7 +219,8 @@
 	function captureBaseline() {
 		baseline = {
 			disguise: disguiseChoice,
-			tabTitle: tabTitleChoice,
+			provider: providerChoice,
+			service: serviceChoice,
 			lockDelayStr: lockDelayStr,
 			pauseGame: pauseGameWhileLocked,
 			lockShortcut: lockShortcutDraft ? { ...lockShortcutDraft } : null,
@@ -271,9 +277,12 @@
 		if (disguiseChoice !== baseline.disguise) {
 			savePrivacyDisguiseMode(disguiseChoice);
 		}
-		if (tabTitleChoice !== baseline.tabTitle) {
-			if (!savePrivacyDecoyTitle(tabTitleChoice)) {
-				error = 'Choose a valid tab title.';
+		if (
+			providerChoice !== baseline.provider ||
+			serviceChoice !== baseline.service
+		) {
+			if (!savePrivacyDisguiseSelection(providerChoice, serviceChoice)) {
+				error = 'Choose a valid service.';
 				return;
 			}
 		}
@@ -345,12 +354,10 @@
 		const enabled = isPrivacyEnabled();
 		actualEnabled = enabled;
 		rootPrivacySwitch = enabled;
-		const s = loadSiteSettings();
 		const ms = getPrivacyLockDelayMs();
 		lockDelayStr = nearestLockDelaySec(Math.round(ms / 1000));
-		const title = s.privacyDecoyTitle;
-		tabTitleChoice =
-			title && (DECOY_TITLES as readonly string[]).includes(title) ? title : DECOY_TITLES[0];
+		providerChoice = getPrivacyDisguiseProvider();
+		serviceChoice = getPrivacyDisguiseServiceId();
 		disguiseChoice = getPrivacyDisguiseMode();
 		muteScopeChoice = getMuteAudioScope();
 		volumeSliderPct = Math.round(getMasterVolume() * 100);
@@ -454,7 +461,7 @@
 			await enablePrivacyMode(newPassword);
 			actualEnabled = true;
 			rootPrivacySwitch = true;
-			savePrivacyDecoyTitle(tabTitleChoice);
+			savePrivacyDisguiseSelection(providerChoice, serviceChoice);
 			savePrivacyLockDelayMs((parseInt(lockDelayStr, 10) || 0) * 1000);
 			savePrivacyDisguiseMode(disguiseChoice);
 			savePrivacyLockShortcut(lockShortcutDraft);
@@ -712,7 +719,8 @@
 					searchQuery={settingsSearchQuery}
 					{busy}
 					bind:disguiseChoice
-					bind:tabTitleChoice
+					bind:providerChoice
+					bind:serviceChoice
 					bind:lockDelayStr
 					bind:pauseGameWhileLocked
 					bind:lockShortcutDraft

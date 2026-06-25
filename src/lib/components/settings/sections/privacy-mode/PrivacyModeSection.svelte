@@ -4,18 +4,23 @@
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import {
-		DECOY_TITLES,
 		formatPrivacyLockShortcutLabel,
 		type PrivacyLockShortcut
 	} from '$lib/utils/privacy-mode';
-	import type { PrivacyDisguiseMode } from '$lib/utils/site-settings';
+	import {
+		PRIVACY_DISGUISE_PROVIDERS,
+		getServicesForProvider,
+		resolveDisguiseService
+	} from '$lib/utils/privacy-disguise-registry';
+	import type { PrivacyDisguiseMode, PrivacyDisguiseProvider } from '$lib/utils/site-settings';
 	import { sectionMatches } from '$lib/components/settings/search';
 
 	let {
 		searchQuery,
 		busy = false,
 		disguiseChoice = $bindable<PrivacyDisguiseMode>('focus_loss'),
-		tabTitleChoice = $bindable<string>(DECOY_TITLES[0]),
+		providerChoice = $bindable<PrivacyDisguiseProvider>('google'),
+		serviceChoice = $bindable('docs'),
 		lockDelayStr = $bindable('0'),
 		pauseGameWhileLocked = $bindable(false),
 		lockShortcutDraft = $bindable<PrivacyLockShortcut | null>(null),
@@ -34,7 +39,8 @@
 		searchQuery: string;
 		busy?: boolean;
 		disguiseChoice?: PrivacyDisguiseMode;
-		tabTitleChoice?: string;
+		providerChoice?: PrivacyDisguiseProvider;
+		serviceChoice?: string;
 		lockDelayStr?: string;
 		pauseGameWhileLocked?: boolean;
 		lockShortcutDraft?: PrivacyLockShortcut | null;
@@ -51,6 +57,9 @@
 		onSubmitChangePassword?: (e: Event) => void;
 	} = $props();
 
+	const selectClass =
+		'border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
+
 	const LOCK_DELAY_OPTIONS = [
 		{ label: 'Immediately', value: 0 },
 		{ label: '3 seconds', value: 3 },
@@ -61,6 +70,9 @@
 		{ label: '2 minutes', value: 120 }
 	] as const;
 
+	const activeService = $derived(resolveDisguiseService(providerChoice, serviceChoice));
+	const serviceOptions = $derived(getServicesForProvider(providerChoice));
+
 	const DISGUISE_OPTIONS: { label: string; value: PrivacyDisguiseMode; hint: string }[] = [
 		{
 			label: 'Off',
@@ -70,14 +82,23 @@
 		{
 			label: 'When tab is in the background',
 			value: 'focus_loss',
-			hint: 'Use the Google Docs tab title and icon when you switch away, and while the session is locked.'
+			hint: `Use the ${activeService.label} tab title and icon when you switch away, and while the session is locked.`
 		},
 		{
 			label: 'Always',
 			value: 'always',
-			hint: 'Always show the Google Docs tab title and icon whenever privacy mode is on.'
+			hint: `Always show the ${activeService.label} tab title and icon whenever privacy mode is on.`
 		}
 	];
+
+	function onProviderChange(next: string) {
+		const provider = next === 'microsoft' ? 'microsoft' : 'google';
+		providerChoice = provider;
+		const services = getServicesForProvider(provider);
+		if (!services.some((s) => s.id === serviceChoice)) {
+			serviceChoice = services[0]?.id ?? 'docs';
+		}
+	}
 
 	function shouldShowMessage(m: string): boolean {
 		const t = m.trim().toLowerCase();
@@ -87,17 +108,70 @@
 </script>
 
 <div class="space-y-6">
-	{#if sectionMatches(searchQuery, 'disguise google docs tab title icon background lock screen')}
+	{#if sectionMatches(searchQuery, 'disguise provider google microsoft service docs word tab title icon background lock screen')}
+		<div id="settings-section-pm-disguise-settings" class="scroll-mt-32 space-y-4 rounded-md border p-4">
+			<div class="space-y-1">
+				<p class="text-sm font-medium">Disguise settings</p>
+				<p class="text-xs text-muted-foreground">
+					Choose which product the lock screen and browser tab mimic. Tab title and icon are set automatically
+					for the selected service.
+				</p>
+			</div>
+
+			<div class="space-y-2">
+				<Label for="pm-provider">Provider</Label>
+				<select
+					id="pm-provider"
+					value={providerChoice}
+					onchange={(e) => onProviderChange(e.currentTarget.value)}
+					class={selectClass}
+					disabled={busy}
+				>
+					{#each PRIVACY_DISGUISE_PROVIDERS as p}
+						<option value={p.id}>{p.label}</option>
+					{/each}
+				</select>
+			</div>
+
+			<div class="space-y-2">
+				<Label for="pm-service">Service</Label>
+				<select id="pm-service" bind:value={serviceChoice} class={selectClass} disabled={busy}>
+					{#each serviceOptions as svc}
+						<option value={svc.id}>{svc.label}</option>
+					{/each}
+				</select>
+			</div>
+
+			<div
+				class="flex items-center gap-3 rounded-md border bg-muted/30 px-3 py-2.5"
+				aria-hidden="true"
+			>
+				<img
+					src={activeService.serviceIcon}
+					alt=""
+					class="h-8 w-8 shrink-0 object-contain"
+					width="32"
+					height="32"
+				/>
+				<div class="min-w-0">
+					<p class="truncate text-sm font-medium">{activeService.label}</p>
+					<p class="truncate text-xs text-muted-foreground">Tab: {activeService.tabTitles[0]}</p>
+				</div>
+			</div>
+		</div>
+	{/if}
+
+	{#if sectionMatches(searchQuery, 'disguise google docs tab title icon background lock screen when')}
 		<div id="settings-section-pm-disguise" class="scroll-mt-32 space-y-2">
-			<Label for="pm-disguise">Disguise</Label>
+			<Label for="pm-disguise">When to disguise</Label>
 			<p class="text-xs text-muted-foreground">
-				When to show the Google Docs tab title and icon. Lock delay still controls when the passcode screen
+				When to show the disguised tab title and icon. Lock delay still controls when the passcode screen
 				appears.
 			</p>
 			<select
 				id="pm-disguise"
 				bind:value={disguiseChoice}
-				class="border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+				class={selectClass}
 				disabled={busy}
 			>
 				{#each DISGUISE_OPTIONS as opt}
@@ -107,23 +181,6 @@
 			<p class="text-xs text-muted-foreground">
 				{DISGUISE_OPTIONS.find((o) => o.value === disguiseChoice)?.hint ?? ''}
 			</p>
-		</div>
-	{/if}
-
-	{#if sectionMatches(searchQuery, 'tab title document untitled disguised browser')}
-		<div id="settings-section-pm-tab-title" class="scroll-mt-32 space-y-2">
-			<Label for="pm-tab-title">Tab title when disguised</Label>
-			<p class="text-xs text-muted-foreground">Shown in the browser tab when disguise is active.</p>
-			<select
-				id="pm-tab-title"
-				bind:value={tabTitleChoice}
-				class="border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-				disabled={busy}
-			>
-				{#each DECOY_TITLES as t}
-					<option value={t}>{t}</option>
-				{/each}
-			</select>
 		</div>
 	{/if}
 
@@ -137,7 +194,7 @@
 			<select
 				id="pm-lock-delay"
 				bind:value={lockDelayStr}
-				class="border-input bg-background ring-offset-background focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+				class={selectClass}
 				disabled={busy}
 			>
 				{#each LOCK_DELAY_OPTIONS as opt}
@@ -263,7 +320,7 @@
 		</form>
 	{/if}
 
-	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'disguise google docs tab title icon background lock screen') && !sectionMatches(searchQuery, 'tab title document untitled disguised browser') && !sectionMatches(searchQuery, 'lock delay seconds away passcode immediately focus') && !sectionMatches(searchQuery, 'keyboard shortcut hotkey lock privacy') && !sectionMatches(searchQuery, 'pause game iframe overlay screen hide') && !sectionMatches(searchQuery, 'turn off disable privacy remove passcode protection') && !sectionMatches(searchQuery, 'change password current new update')}
+	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'disguise provider google microsoft service docs word tab title icon background lock screen') && !sectionMatches(searchQuery, 'disguise google docs tab title icon background lock screen when') && !sectionMatches(searchQuery, 'lock delay seconds away passcode immediately focus') && !sectionMatches(searchQuery, 'keyboard shortcut hotkey lock privacy') && !sectionMatches(searchQuery, 'pause game iframe overlay screen hide') && !sectionMatches(searchQuery, 'turn off disable privacy remove passcode protection') && !sectionMatches(searchQuery, 'change password current new update')}
 		<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
 	{/if}
 
