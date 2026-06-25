@@ -26,9 +26,18 @@ if (fs.existsSync(path.join(buildDir, 'games'))) {
 }
 
 const listPath = path.join(buildDir, 'games', 'games-list.json');
+const layoutDataPath = path.join(buildDir, 'games', '__data.json');
+const layoutData = fs.existsSync(layoutDataPath)
+	? fs.readFileSync(layoutDataPath, 'utf-8')
+	: null;
+
 if (!fs.existsSync(listPath)) {
 	console.warn('[prepare-github-pages] games-list.json missing — skip game fallbacks');
 	process.exit(0);
+}
+
+if (!layoutData) {
+	console.warn('[prepare-github-pages] games/__data.json missing — game deep links may 404 on cold load');
 }
 
 const ids = JSON.parse(fs.readFileSync(listPath, 'utf-8'));
@@ -39,6 +48,9 @@ for (const id of ids) {
 	if (!fs.existsSync(gameDir)) continue;
 	fs.writeFileSync(path.join(gameDir, 'index.html'), indexHtml);
 	fs.writeFileSync(path.join(buildDir, 'games', `${id}.html`), indexHtml);
+	if (layoutData) {
+		fs.writeFileSync(path.join(gameDir, '__data.json'), layoutData);
+	}
 	count++;
 }
 console.log(`[prepare-github-pages] wrote SPA fallbacks for ${count} game routes`);
