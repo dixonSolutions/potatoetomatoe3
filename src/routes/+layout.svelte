@@ -244,7 +244,7 @@
 			if (!playLimitToastIssued) {
 				playLimitToastIssued = true;
 				toast.error('Daily playtime limit reached', {
-					description: 'The site is locked until the next UTC day or you change the limit in Settings → Analytics.'
+					description: 'Use “Disable time limit” on the overlay or change the cap in Settings → Analytics.'
 				});
 			}
 		} else if (!exceeded) {

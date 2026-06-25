@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { loadAllGames, resolveGameThumbnailSrc, type GameMetadata } from '$lib/utils/games';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
@@ -380,7 +381,7 @@
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{#each displayedGames as game (game.id)}
 				<div class="group relative block">
-					<a href="/games/{game.id}" data-sveltekit-preload-data="hover" class="block">
+					<a href={resolve(`/games/${game.id}`)} data-sveltekit-preload-data="hover" class="block">
 						<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 							<div class="relative aspect-square overflow-hidden bg-muted">
 								<img
