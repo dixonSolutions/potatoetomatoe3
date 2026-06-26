@@ -10,7 +10,7 @@ import {
   startDownload,
   cancelDownload
 } from './download-manager.js';
-import { getActiveJobForGame } from './jobs.js';
+import { getProgressJobForGame } from './jobs.js';
 import { isValidGameId, loadGameIds, resolveOfflineFilePath } from './catalog.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
 import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
@@ -198,7 +198,7 @@ export function createServer(): http.Server {
       const progressMatch = pathname.match(/^\/api\/offline\/([^/]+)\/progress$/);
       if (progressMatch && req.method === 'GET') {
         const gameId = decodeURIComponent(progressMatch[1]);
-        const job = getActiveJobForGame(gameId);
+        const job = getProgressJobForGame(gameId);
         if (!job) {
           sendJson(res, 200, { state: 'idle', progress: 0, message: 'No active job' });
           return;

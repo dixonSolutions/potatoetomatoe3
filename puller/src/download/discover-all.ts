@@ -16,6 +16,8 @@ const TEXT_EXT = /\.(html?|js|css|json|xml|txt)$/i;
 export interface DiscoverOptions {
 	outDir: string;
 	baseUrl: string;
+	/** HTML entry relative to outDir (from offline-manifest.json). */
+	entryRel?: string;
 	/** Max BFS passes when expanding refs from fetched text. */
 	maxPasses?: number;
 	/** Prefer Unity-specific parsers when shell looks like WebGL. */
@@ -51,14 +53,15 @@ export async function discoverAllAssetUrls(
 	options: DiscoverOptions,
 	localPathForUrl: (base: string, asset: string, out: string) => string
 ): Promise<Set<string>> {
-	const { outDir, baseUrl, maxPasses = 32, unityOptimized = true } = options;
+	const { outDir, baseUrl, entryRel = 'index.html', maxPasses = 32, unityOptimized = true } =
+		options;
 	const discovered = new Set<string>();
 	const seen = new Set<string>();
 	const scanQueue = new Set<string>();
 
-	const indexPath = path.join(outDir, 'index.html');
-	const indexHtml = await fs.readFile(indexPath, 'utf-8');
-	const unityMode = unityOptimized && isUnityShell(indexHtml);
+	const entryPath = path.join(outDir, entryRel);
+	const entryHtml = await fs.readFile(entryPath, 'utf-8');
+	const unityMode = unityOptimized && isUnityShell(entryHtml);
 
 	const addRefs = (text: string, fileUrl: string) => {
 		if (unityMode) {
@@ -68,7 +71,7 @@ export async function discoverAllAssetUrls(
 		}
 	};
 
-	addRefs(indexHtml, baseUrl);
+	addRefs(entryHtml, baseUrl);
 
 	for (let pass = 0; pass < maxPasses && scanQueue.size > 0; pass++) {
 		const batch = [...scanQueue];

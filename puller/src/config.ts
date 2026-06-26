@@ -33,6 +33,22 @@ export const MIN_OFFLINE_INDEX_BYTES = 64;
 export const WGET_USER_AGENT =
 	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
+/**
+ * Legacy game hosts often ship expired or self-signed TLS certs.
+ * wget exit code 5 = SSL verification failure without this flag.
+ */
+export const WGET_INSECURE_SSL =
+	process.env.PULLER_WGET_STRICT_SSL === '1' || process.env.PULLER_WGET_STRICT_SSL === 'true'
+		? false
+		: true;
+
+/** Shared wget flags for mirror + asset fetches. */
+export function wgetCommonArgs(): string[] {
+	const args = ['-U', WGET_USER_AGENT];
+	if (WGET_INSECURE_SSL) args.push('--no-check-certificate');
+	return args;
+}
+
 /** Parallel download worker count (override with PULLER_DOWNLOAD_CONCURRENCY). */
 export const DOWNLOAD_CONCURRENCY = Number.parseInt(
 	process.env.PULLER_DOWNLOAD_CONCURRENCY ?? '12',

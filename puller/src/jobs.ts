@@ -12,6 +12,9 @@ export interface DownloadJob {
 
 const jobs = new Map<string, DownloadJob>();
 const activeByGame = new Map<string, string>();
+/** Terminal job kept briefly so progress polling can read done/error after activeByGame clears. */
+const lastFinishedByGame = new Map<string, DownloadJob>();
+const FINISHED_JOB_TTL_MS = 120_000;
 
 export function getJob(jobId: string): DownloadJob | undefined {
   return jobs.get(jobId);
@@ -20,6 +23,27 @@ export function getJob(jobId: string): DownloadJob | undefined {
 export function getActiveJobForGame(gameId: string): DownloadJob | undefined {
   const jobId = activeByGame.get(gameId);
   return jobId ? jobs.get(jobId) : undefined;
+}
+
+/** Active job, or the most recent terminal job (for progress polling after completion). */
+export function getProgressJobForGame(gameId: string): DownloadJob | undefined {
+  const active = getActiveJobForGame(gameId);
+  if (active) return active;
+
+  const finished = lastFinishedByGame.get(gameId);
+  if (!finished) return undefined;
+
+  const age = Date.now() - (finished.finishedAt ?? finished.startedAt);
+  if (age > FINISHED_JOB_TTL_MS) {
+    lastFinishedByGame.delete(gameId);
+    return undefined;
+  }
+
+  return finished;
+}
+
+export function clearFinishedJobForGame(gameId: string): void {
+  lastFinishedByGame.delete(gameId);
 }
 
 export function createJob(gameId: string): DownloadJob {
@@ -54,6 +78,7 @@ export function updateJob(
 	if (!job) return;
 	Object.assign(job, patch);
 	if (patch.state === 'done' || patch.state === 'error' || patch.state === 'cancelled') {
+		lastFinishedByGame.set(gameId, { ...job });
 		activeByGame.delete(gameId);
 	}
 }

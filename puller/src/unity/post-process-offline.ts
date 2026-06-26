@@ -55,16 +55,17 @@ export async function discoverExternalUnityAssets(
  */
 export async function postProcessUnityOfflineMirror(
 	outDir: string,
-	baseUrl: string
+	baseUrl: string,
+	entryRel = 'index.html'
 ): Promise<{ assetRoutes: Record<string, string>; externalCount: number }> {
-	const indexPath = path.join(outDir, 'index.html');
-	const indexHtml = await fs.readFile(indexPath, 'utf-8');
+	const entryPath = path.join(outDir, entryRel);
+	const entryHtml = await fs.readFile(entryPath, 'utf-8');
 
-	if (!isUnityGameHtml(indexHtml)) {
+	if (!isUnityGameHtml(entryHtml)) {
 		return { assetRoutes: {}, externalCount: 0 };
 	}
 
-	const externalUrls = await discoverExternalUnityAssets(outDir, indexHtml);
+	const externalUrls = await discoverExternalUnityAssets(outDir, entryHtml);
 	const assetRoutes = buildAssetRouteMap(externalUrls);
 
 	if (externalUrls.length > 0) {
@@ -74,11 +75,11 @@ export async function postProcessUnityOfflineMirror(
 		);
 	}
 
-	const patched = injectUnityPatches(indexHtml, assetRoutes);
-	await fs.writeFile(indexPath, patched);
+	const patched = injectUnityPatches(entryHtml, assetRoutes);
+	await fs.writeFile(entryPath, patched);
 
 	console.log(
-		`[unity] Post-processed ${path.basename(outDir)} — ${externalUrls.length} external route(s), product=${inferBuildProductName(indexHtml) ?? 'unknown'}`
+		`[unity] Post-processed ${path.basename(outDir)} — ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? 'unknown'}`
 	);
 
 	return { assetRoutes, externalCount: externalUrls.length };

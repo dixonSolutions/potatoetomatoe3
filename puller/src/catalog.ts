@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { CATALOG_DIR, GAMES_DATA_DIR, MIN_OFFLINE_INDEX_BYTES } from './config.js';
+import { resolveOfflineEntryRel, resolveOfflineEntryRelForDir } from './offline-manifest.js';
 
 const GAME_ID_PATTERN = /^[a-z0-9][a-z0-9-]*$/i;
 
@@ -91,16 +92,21 @@ export async function hasOnlineShell(gameId: string): Promise<boolean> {
 }
 
 export async function hasOfflineMirror(gameId: string): Promise<boolean> {
-  for (const indexPath of [offlineIndexPath(gameId), catalogOfflineIndexPath(gameId)]) {
-    try {
-      const stat = await fs.stat(indexPath);
-      if (stat.size >= MIN_OFFLINE_INDEX_BYTES) return true;
-    } catch {
-      // try next
-    }
-  }
-  return false;
+	const entryRel = await resolveOfflineEntryRel(gameId);
+	if (!entryRel) return false;
+
+	for (const root of [offlineDir(gameId), path.join(catalogGameRoot(gameId), 'offline')]) {
+		try {
+			const stat = await fs.stat(path.join(root, entryRel));
+			if (stat.isFile() && stat.size >= MIN_OFFLINE_INDEX_BYTES) return true;
+		} catch {
+			// try next root
+		}
+	}
+	return false;
 }
+
+export { resolveOfflineEntryRel, resolveOfflineEntryRelForDir };
 
 /** Resolve offline file for static serving (user data first, then bundled catalog). */
 export function resolveOfflineFilePath(gameId: string, fileRel: string): string | null {
@@ -166,17 +172,15 @@ export async function seedBundledOfflineFromCatalog(): Promise<void> {
 
   const ids = await loadGameIds();
   for (const gameId of ids) {
-    try {
-      await fs.access(catalogOfflineIndexPath(gameId));
-    } catch {
-      continue;
-    }
+    const catalogOffline = path.join(catalogGameRoot(gameId), 'offline');
+    const entry = await resolveOfflineEntryRelForDir(catalogOffline);
+    if (!entry) continue;
     try {
       await fs.access(offlineIndexPath(gameId));
       continue;
     } catch {
       await fs.mkdir(offlineDir(gameId), { recursive: true });
-      await fs.cp(path.join(catalogGameRoot(gameId), 'offline'), offlineDir(gameId), {
+      await fs.cp(catalogOffline, offlineDir(gameId), {
         recursive: true
       });
       console.log(`[puller] Seeded bundled offline copy: ${gameId}`);

@@ -19,11 +19,18 @@ __export(config_exports, {
   MIN_OFFLINE_INDEX_BYTES: () => MIN_OFFLINE_INDEX_BYTES,
   PORT: () => PORT,
   REPO_ROOT: () => REPO_ROOT,
-  WGET_USER_AGENT: () => WGET_USER_AGENT
+  WGET_INSECURE_SSL: () => WGET_INSECURE_SSL,
+  WGET_USER_AGENT: () => WGET_USER_AGENT,
+  wgetCommonArgs: () => wgetCommonArgs
 });
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-var __dirname, REPO_ROOT, GAMES_DATA_DIR, CATALOG_DIR, PORT, CORS_ORIGIN, MIN_OFFLINE_INDEX_BYTES, WGET_USER_AGENT, DOWNLOAD_CONCURRENCY, EMBED_STRATEGY_GAME_IDS;
+function wgetCommonArgs() {
+  const args = ["-U", WGET_USER_AGENT];
+  if (WGET_INSECURE_SSL) args.push("--no-check-certificate");
+  return args;
+}
+var __dirname, REPO_ROOT, GAMES_DATA_DIR, CATALOG_DIR, PORT, CORS_ORIGIN, MIN_OFFLINE_INDEX_BYTES, WGET_USER_AGENT, WGET_INSECURE_SSL, DOWNLOAD_CONCURRENCY, EMBED_STRATEGY_GAME_IDS;
 var init_config = __esm({
   "src/config.ts"() {
     "use strict";
@@ -35,6 +42,7 @@ var init_config = __esm({
     CORS_ORIGIN = process.env.PULLER_CORS_ORIGIN ?? "*";
     MIN_OFFLINE_INDEX_BYTES = 64;
     WGET_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+    WGET_INSECURE_SSL = process.env.PULLER_WGET_STRICT_SSL === "1" || process.env.PULLER_WGET_STRICT_SSL === "true" ? false : true;
     DOWNLOAD_CONCURRENCY = Number.parseInt(
       process.env.PULLER_DOWNLOAD_CONCURRENCY ?? "12",
       10
@@ -90,8 +98,8 @@ var init_cancel_registry = __esm({
 });
 
 // src/unity-embed/scan-assets.ts
-import fs3 from "node:fs/promises";
-import path5 from "node:path";
+import fs4 from "node:fs/promises";
+import path6 from "node:path";
 function scanContentForMediaUrls(content) {
   const found = /* @__PURE__ */ new Set();
   for (const part of content.split(/https?:\/\//)) {
@@ -133,7 +141,7 @@ function isDownloadableMediaUrl(url) {
 function externalUrlToRelativePath(url) {
   const parsed = new URL(url);
   const cleanPath = parsed.pathname.replace(/^\/+/, "");
-  return path5.posix.join("assets", parsed.hostname, cleanPath);
+  return path6.posix.join("assets", parsed.hostname, cleanPath);
 }
 async function scanGameDirectory(outDir, gameHtml) {
   const urls = new Set(scanContentForMediaUrls(gameHtml));
@@ -144,9 +152,9 @@ async function scanGameDirectory(outDir, gameHtml) {
     "Build/Shrek2.wasm.br"
   ];
   for (const rel of filesToScan) {
-    const filePath = path5.join(outDir, rel);
+    const filePath = path6.join(outDir, rel);
     try {
-      const buf = await fs3.readFile(filePath);
+      const buf = await fs4.readFile(filePath);
       const text = buf.toString("latin1");
       for (const url of scanContentForMediaUrls(text)) {
         urls.add(url);
@@ -302,17 +310,85 @@ var init_extract = __esm({
 // src/server.ts
 init_config();
 import http from "node:http";
-import fs15 from "node:fs/promises";
-import { createReadStream, existsSync as existsSync8 } from "node:fs";
-import path17 from "node:path";
+import fs18 from "node:fs/promises";
+import { createReadStream, existsSync as existsSync10 } from "node:fs";
+import path20 from "node:path";
 
 // src/download-manager.ts
-import fs12 from "node:fs/promises";
+import fs15 from "node:fs/promises";
 
 // src/catalog.ts
 init_config();
+import fs2 from "node:fs/promises";
+import path3 from "node:path";
+
+// src/offline-manifest.ts
 import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path2 from "node:path";
+init_config();
+var OFFLINE_MANIFEST_FILENAME = "offline-manifest.json";
+function normalizeOfflineEntryRel(entry) {
+  const normalized = path2.normalize(entry).replace(/^(\.\.(\/|\\|$))+/, "");
+  if (normalized.includes("..") || path2.isAbsolute(normalized)) {
+    throw new Error("Invalid offline entry path");
+  }
+  return normalized.split(path2.sep).join("/");
+}
+function offlineManifestPathForDir(offlineRoot) {
+  return path2.join(offlineRoot, OFFLINE_MANIFEST_FILENAME);
+}
+async function readOfflineManifestFromDir(offlineRoot) {
+  try {
+    const raw = await fs.readFile(offlineManifestPathForDir(offlineRoot), "utf-8");
+    const parsed = JSON.parse(raw);
+    if (typeof parsed?.entry !== "string" || !parsed.entry.trim()) return null;
+    return { ...parsed, entry: normalizeOfflineEntryRel(parsed.entry) };
+  } catch {
+    return null;
+  }
+}
+async function writeOfflineManifest(offlineRoot, manifest) {
+  const payload = {
+    ...manifest,
+    entry: normalizeOfflineEntryRel(manifest.entry),
+    savedAt: manifest.savedAt ?? (/* @__PURE__ */ new Date()).toISOString()
+  };
+  await fs.writeFile(
+    offlineManifestPathForDir(offlineRoot),
+    `${JSON.stringify(payload, null, 2)}
+`,
+    "utf-8"
+  );
+}
+async function entryFileValid(offlineRoot, entryRel) {
+  try {
+    const stat = await fs.stat(path2.join(offlineRoot, entryRel));
+    return stat.isFile() && stat.size >= MIN_OFFLINE_INDEX_BYTES;
+  } catch {
+    return false;
+  }
+}
+async function resolveOfflineEntryRelForDir(offlineRoot) {
+  if (!existsSync(offlineRoot)) return null;
+  const manifest = await readOfflineManifestFromDir(offlineRoot);
+  if (manifest && await entryFileValid(offlineRoot, manifest.entry)) {
+    return manifest.entry;
+  }
+  if (await entryFileValid(offlineRoot, "index.html")) {
+    return "index.html";
+  }
+  return null;
+}
+async function resolveOfflineEntryRel(gameId) {
+  for (const root of [offlineDir(gameId), path2.join(catalogGameRoot(gameId), "offline")]) {
+    const entry = await resolveOfflineEntryRelForDir(root);
+    if (entry) return entry;
+  }
+  return null;
+}
+
+// src/catalog.ts
 var GAME_ID_PATTERN = /^[a-z0-9][a-z0-9-]*$/i;
 var cachedGameIds = null;
 function isValidGameId(gameId) {
@@ -322,9 +398,9 @@ function isValidGameId(gameId) {
 }
 async function loadGameIds() {
   if (cachedGameIds) return cachedGameIds;
-  const listPath = path2.join(CATALOG_DIR, "games-list.json");
+  const listPath = path3.join(CATALOG_DIR, "games-list.json");
   try {
-    const raw = await fs.readFile(listPath, "utf-8");
+    const raw = await fs2.readFile(listPath, "utf-8");
     const parsed = JSON.parse(raw);
     cachedGameIds = Array.isArray(parsed) ? parsed.filter((id) => typeof id === "string" && isValidGameId(id)) : [];
   } catch {
@@ -337,37 +413,34 @@ function invalidateCatalogCache() {
 }
 async function listGameIdsFromDisk(root) {
   try {
-    const entries = await fs.readdir(root, { withFileTypes: true });
+    const entries = await fs2.readdir(root, { withFileTypes: true });
     return entries.filter((e) => e.isDirectory() && !e.name.startsWith("_") && isValidGameId(e.name)).map((e) => e.name);
   } catch {
     return [];
   }
 }
 function gameDataRoot(gameId) {
-  return path2.join(GAMES_DATA_DIR, gameId);
+  return path3.join(GAMES_DATA_DIR, gameId);
 }
 function catalogGameRoot(gameId) {
-  return path2.join(CATALOG_DIR, gameId);
+  return path3.join(CATALOG_DIR, gameId);
 }
 function catalogOnlineDir(gameId) {
-  return path2.join(catalogGameRoot(gameId), "online");
+  return path3.join(catalogGameRoot(gameId), "online");
 }
 function offlineDir(gameId) {
-  return path2.join(gameDataRoot(gameId), "offline");
+  return path3.join(gameDataRoot(gameId), "offline");
 }
 function offlineIndexPath(gameId) {
-  return path2.join(offlineDir(gameId), "index.html");
-}
-function catalogOfflineIndexPath(gameId) {
-  return path2.join(catalogGameRoot(gameId), "offline", "index.html");
+  return path3.join(offlineDir(gameId), "index.html");
 }
 async function hasOnlineShell(gameId) {
   for (const indexPath of [
-    path2.join(catalogOnlineDir(gameId), "index.html"),
-    path2.join(gameDataRoot(gameId), "online", "index.html")
+    path3.join(catalogOnlineDir(gameId), "index.html"),
+    path3.join(gameDataRoot(gameId), "online", "index.html")
   ]) {
     try {
-      const stat = await fs.stat(indexPath);
+      const stat = await fs2.stat(indexPath);
       if (stat.size >= MIN_OFFLINE_INDEX_BYTES) return true;
     } catch {
     }
@@ -375,29 +448,31 @@ async function hasOnlineShell(gameId) {
   return false;
 }
 async function hasOfflineMirror(gameId) {
-  for (const indexPath of [offlineIndexPath(gameId), catalogOfflineIndexPath(gameId)]) {
+  const entryRel = await resolveOfflineEntryRel(gameId);
+  if (!entryRel) return false;
+  for (const root of [offlineDir(gameId), path3.join(catalogGameRoot(gameId), "offline")]) {
     try {
-      const stat = await fs.stat(indexPath);
-      if (stat.size >= MIN_OFFLINE_INDEX_BYTES) return true;
+      const stat = await fs2.stat(path3.join(root, entryRel));
+      if (stat.isFile() && stat.size >= MIN_OFFLINE_INDEX_BYTES) return true;
     } catch {
     }
   }
   return false;
 }
 function resolveOfflineFilePath(gameId, fileRel) {
-  const normalized = path2.normalize(fileRel).replace(/^(\.\.(\/|\\|$))+/, "");
+  const normalized = path3.normalize(fileRel).replace(/^(\.\.(\/|\\|$))+/, "");
   const candidates = [
-    path2.join(offlineDir(gameId), normalized),
-    path2.join(catalogGameRoot(gameId), "offline", normalized)
+    path3.join(offlineDir(gameId), normalized),
+    path3.join(catalogGameRoot(gameId), "offline", normalized)
   ];
   for (const candidate of candidates) {
-    const dataRoot = path2.resolve(path2.dirname(candidate));
+    const dataRoot = path3.resolve(path3.dirname(candidate));
     const allowedRoots = [
-      path2.resolve(GAMES_DATA_DIR),
-      path2.resolve(CATALOG_DIR)
+      path3.resolve(GAMES_DATA_DIR),
+      path3.resolve(CATALOG_DIR)
     ];
     const ok = allowedRoots.some(
-      (root) => dataRoot.startsWith(root + path2.sep) || dataRoot === root
+      (root) => dataRoot.startsWith(root + path3.sep) || dataRoot === root
     );
     if (ok) return candidate;
   }
@@ -405,14 +480,14 @@ function resolveOfflineFilePath(gameId, fileRel) {
 }
 async function readGameMetadata(gameId) {
   const candidates = [
-    path2.join(catalogOnlineDir(gameId), "metadata.json"),
-    path2.join(catalogGameRoot(gameId), "shared", "metadata.json"),
-    path2.join(catalogGameRoot(gameId), "metadata.json"),
-    path2.join(gameDataRoot(gameId), "online", "metadata.json")
+    path3.join(catalogOnlineDir(gameId), "metadata.json"),
+    path3.join(catalogGameRoot(gameId), "shared", "metadata.json"),
+    path3.join(catalogGameRoot(gameId), "metadata.json"),
+    path3.join(gameDataRoot(gameId), "online", "metadata.json")
   ];
   for (const p of candidates) {
     try {
-      return JSON.parse(await fs.readFile(p, "utf-8"));
+      return JSON.parse(await fs2.readFile(p, "utf-8"));
     } catch {
     }
   }
@@ -427,20 +502,18 @@ async function getPullStrategy(gameId) {
   return "generic";
 }
 async function seedBundledOfflineFromCatalog() {
-  if (path2.resolve(CATALOG_DIR) === path2.resolve(GAMES_DATA_DIR)) return;
+  if (path3.resolve(CATALOG_DIR) === path3.resolve(GAMES_DATA_DIR)) return;
   const ids = await loadGameIds();
   for (const gameId of ids) {
+    const catalogOffline = path3.join(catalogGameRoot(gameId), "offline");
+    const entry = await resolveOfflineEntryRelForDir(catalogOffline);
+    if (!entry) continue;
     try {
-      await fs.access(catalogOfflineIndexPath(gameId));
-    } catch {
-      continue;
-    }
-    try {
-      await fs.access(offlineIndexPath(gameId));
+      await fs2.access(offlineIndexPath(gameId));
       continue;
     } catch {
-      await fs.mkdir(offlineDir(gameId), { recursive: true });
-      await fs.cp(path2.join(catalogGameRoot(gameId), "offline"), offlineDir(gameId), {
+      await fs2.mkdir(offlineDir(gameId), { recursive: true });
+      await fs2.cp(catalogOffline, offlineDir(gameId), {
         recursive: true
       });
       console.log(`[puller] Seeded bundled offline copy: ${gameId}`);
@@ -452,41 +525,41 @@ async function seedBundledOfflineFromCatalog() {
 init_cancel_registry();
 
 // src/download-cache.ts
-import fs2 from "node:fs/promises";
-import { existsSync } from "node:fs";
-import path3 from "node:path";
+import fs3 from "node:fs/promises";
+import { existsSync as existsSync2 } from "node:fs";
+import path4 from "node:path";
 var CACHE_FILENAME = ".download-cache.json";
 function downloadCachePath(gameId) {
-  return path3.join(offlineDir(gameId), CACHE_FILENAME);
+  return path4.join(offlineDir(gameId), CACHE_FILENAME);
 }
 async function writeDownloadCache(gameId, meta) {
   const dir = offlineDir(gameId);
-  await fs2.mkdir(dir, { recursive: true });
-  await fs2.writeFile(downloadCachePath(gameId), JSON.stringify(meta, null, 2), "utf-8");
+  await fs3.mkdir(dir, { recursive: true });
+  await fs3.writeFile(downloadCachePath(gameId), JSON.stringify(meta, null, 2), "utf-8");
 }
 async function readDownloadCache(gameId) {
   const p = downloadCachePath(gameId);
-  if (!existsSync(p)) return null;
+  if (!existsSync2(p)) return null;
   try {
-    return JSON.parse(await fs2.readFile(p, "utf-8"));
+    return JSON.parse(await fs3.readFile(p, "utf-8"));
   } catch {
     return null;
   }
 }
 async function clearDownloadCache(gameId) {
   try {
-    await fs2.rm(downloadCachePath(gameId), { force: true });
+    await fs3.rm(downloadCachePath(gameId), { force: true });
   } catch {
   }
 }
 async function countOfflineFiles(gameId) {
   const dir = offlineDir(gameId);
-  if (!existsSync(dir)) return 0;
+  if (!existsSync2(dir)) return 0;
   let count = 0;
   async function walk(current) {
-    const entries = await fs2.readdir(current, { withFileTypes: true });
+    const entries = await fs3.readdir(current, { withFileTypes: true });
     for (const entry of entries) {
-      const full = path3.join(current, entry.name);
+      const full = path4.join(current, entry.name);
       if (entry.isDirectory()) {
         await walk(full);
       } else if (entry.name !== CACHE_FILENAME && entry.isFile()) {
@@ -510,9 +583,23 @@ async function hasPartialDownloadCache(gameId) {
 // src/jobs.ts
 var jobs = /* @__PURE__ */ new Map();
 var activeByGame = /* @__PURE__ */ new Map();
+var lastFinishedByGame = /* @__PURE__ */ new Map();
+var FINISHED_JOB_TTL_MS = 12e4;
 function getActiveJobForGame(gameId) {
   const jobId = activeByGame.get(gameId);
   return jobId ? jobs.get(jobId) : void 0;
+}
+function getProgressJobForGame(gameId) {
+  const active = getActiveJobForGame(gameId);
+  if (active) return active;
+  const finished = lastFinishedByGame.get(gameId);
+  if (!finished) return void 0;
+  const age = Date.now() - (finished.finishedAt ?? finished.startedAt);
+  if (age > FINISHED_JOB_TTL_MS) {
+    lastFinishedByGame.delete(gameId);
+    return void 0;
+  }
+  return finished;
 }
 function createJob(gameId) {
   const existing = getActiveJobForGame(gameId);
@@ -538,6 +625,7 @@ function updateJob(gameId, patch) {
   if (!job) return;
   Object.assign(job, patch);
   if (patch.state === "done" || patch.state === "error" || patch.state === "cancelled") {
+    lastFinishedByGame.set(gameId, { ...job });
     activeByGame.delete(gameId);
   }
 }
@@ -559,16 +647,16 @@ function listDownloadingGameIds() {
 // src/strategies/embed.ts
 init_cancel_registry();
 init_config();
-import fs8 from "node:fs/promises";
+import fs9 from "node:fs/promises";
 import { chromium as chromium2 } from "playwright";
 
 // src/unity-embed/config.ts
 init_config();
-import path4 from "node:path";
+import path5 from "node:path";
 var DEFAULT_CDN_BASE = "https://cdn.jsdelivr.net/gh/777kze777/shreh@main";
 var PAGE_TIMEOUT_MS = 6e4;
 function outDirForGame(gamesDataDir, gameId) {
-  return path4.join(gamesDataDir, gameId, "offline");
+  return path5.join(gamesDataDir, gameId, "offline");
 }
 
 // src/unity-embed/discover.ts
@@ -723,8 +811,8 @@ function deriveCdnBase(fileUrl) {
 
 // src/unity-embed/download.ts
 import { createHash } from "node:crypto";
-import fs5 from "node:fs/promises";
-import path7 from "node:path";
+import fs6 from "node:fs/promises";
+import path8 from "node:path";
 import { execFile as execFile2 } from "node:child_process";
 import { promisify as promisify2 } from "node:util";
 init_extract();
@@ -732,48 +820,47 @@ init_scan_assets();
 
 // src/download/parallel-wget.ts
 init_config();
-import { existsSync as existsSync2 } from "node:fs";
-import fs4 from "node:fs/promises";
-import path6 from "node:path";
+import { existsSync as existsSync3 } from "node:fs";
+import fs5 from "node:fs/promises";
+import path7 from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 var execFileAsync = promisify(execFile);
 async function downloadOne(url, destPath) {
-  if (existsSync2(destPath)) {
+  if (existsSync3(destPath)) {
     try {
-      const stat = await fs4.stat(destPath);
+      const stat = await fs5.stat(destPath);
       if (stat.isFile() && stat.size > 0) {
         return { url, destPath, ok: true, skipped: true };
       }
     } catch {
     }
   }
-  await fs4.mkdir(path6.dirname(destPath), { recursive: true });
+  await fs5.mkdir(path7.dirname(destPath), { recursive: true });
   try {
     await execFileAsync("wget", [
       "-q",
       "--tries=2",
       "--timeout=90",
-      "-U",
-      WGET_USER_AGENT,
+      ...wgetCommonArgs(),
       "-O",
       destPath,
       url
     ]);
-    const stat = await fs4.stat(destPath);
+    const stat = await fs5.stat(destPath);
     if (stat.size === 0) {
-      await fs4.rm(destPath, { force: true });
+      await fs5.rm(destPath, { force: true });
       return { url, destPath, ok: false };
     }
-    const head = (await fs4.readFile(destPath)).subarray(0, 32).toString("utf8");
+    const head = (await fs5.readFile(destPath)).subarray(0, 32).toString("utf8");
     if (head.startsWith("<!DOCTYPE") || head.startsWith("<html")) {
-      await fs4.rm(destPath, { force: true });
+      await fs5.rm(destPath, { force: true });
       return { url, destPath, ok: false };
     }
     return { url, destPath, ok: true };
   } catch {
     try {
-      await fs4.rm(destPath, { force: true });
+      await fs5.rm(destPath, { force: true });
     } catch {
     }
     return { url, destPath, ok: false };
@@ -810,8 +897,7 @@ async function fetchTextForDiscovery(url) {
       "-qO-",
       "--tries=2",
       "--timeout=45",
-      "-U",
-      WGET_USER_AGENT,
+      ...wgetCommonArgs(),
       url
     ]);
     return stdout;
@@ -1040,7 +1126,7 @@ async function downloadViaCurl(url, destPath) {
     destPath,
     url
   ]);
-  return fs5.readFile(destPath);
+  return fs6.readFile(destPath);
 }
 async function downloadViaBrowser(page, url) {
   try {
@@ -1053,10 +1139,10 @@ async function downloadViaBrowser(page, url) {
   }
 }
 async function writePlaceholder(relativePath, destPath) {
-  const ext = path7.extname(relativePath).toLowerCase();
+  const ext = path8.extname(relativePath).toLowerCase();
   const buffer = ext === ".png" ? PLACEHOLDER_PNG : PLACEHOLDER_PNG;
-  await fs5.mkdir(path7.dirname(destPath), { recursive: true });
-  await fs5.writeFile(destPath, buffer);
+  await fs6.mkdir(path8.dirname(destPath), { recursive: true });
+  await fs6.writeFile(destPath, buffer);
   return buffer;
 }
 async function downloadFile(request, url, outDir, cdnBase, browserPage, allowPlaceholder = false) {
@@ -1064,8 +1150,8 @@ async function downloadFile(request, url, outDir, cdnBase, browserPage, allowPla
   if (!relativePath) {
     throw new Error(`Could not resolve relative path for: ${url}`);
   }
-  const destPath = path7.join(outDir, relativePath);
-  await fs5.mkdir(path7.dirname(destPath), { recursive: true });
+  const destPath = path8.join(outDir, relativePath);
+  await fs6.mkdir(path8.dirname(destPath), { recursive: true });
   let buffer = null;
   let placeholder = false;
   try {
@@ -1098,7 +1184,7 @@ async function downloadFile(request, url, outDir, cdnBase, browserPage, allowPla
     throw new Error(`Download failed ${url}: all methods exhausted`);
   }
   if (!placeholder) {
-    await fs5.writeFile(destPath, buffer);
+    await fs6.writeFile(destPath, buffer);
   }
   const sha256 = createHash("sha256").update(buffer).digest("hex");
   const tag = placeholder ? " (placeholder)" : "";
@@ -1154,8 +1240,8 @@ async function downloadAssets(request, info, outDir, signal) {
 
 // src/unity-embed/host.ts
 import { createHash as createHash2 } from "node:crypto";
-import fs6 from "node:fs/promises";
-import path9 from "node:path";
+import fs7 from "node:fs/promises";
+import path10 from "node:path";
 
 // src/unity-embed/adfree-host.ts
 function buildAdFreeHostHtml() {
@@ -1531,7 +1617,7 @@ window.YaGames = { init: function() {
 
 // src/unity/inject-html.ts
 import { readFileSync } from "node:fs";
-import path8 from "node:path";
+import path9 from "node:path";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
 // src/unity-embed/asset-redirect.ts
@@ -1562,8 +1648,8 @@ function buildAssetRedirectScript(routeMap) {
 }
 
 // src/unity/inject-html.ts
-var INJECT_PATH = path8.resolve(
-  path8.dirname(fileURLToPath2(import.meta.url)),
+var INJECT_PATH = path9.resolve(
+  path9.dirname(fileURLToPath2(import.meta.url)),
   "../../../static/unity/inject.js"
 );
 var cachedInjectSource = null;
@@ -1625,8 +1711,8 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
     files.push({ path: dl.relativePath, size: dl.size, sha256: dl.sha256 });
   }
   for (const merge of merges) {
-    const mergedPath = path9.join(outDir, merge.relativePath);
-    const buffer = await fs6.readFile(mergedPath);
+    const mergedPath = path10.join(outDir, merge.relativePath);
+    const buffer = await fs7.readFile(mergedPath);
     files.push({
       path: merge.relativePath,
       size: merge.size,
@@ -1646,9 +1732,9 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
     ...placeholderAssets.length > 0 ? { placeholderAssets } : {},
     files
   };
-  await fs6.writeFile(path9.join(outDir, "manifest.json"), JSON.stringify(manifest, null, 2));
-  await fs6.writeFile(path9.join(outDir, "asset-map.json"), JSON.stringify(assetRoutes, null, 2));
-  await fs6.writeFile(path9.join(outDir, "index.html"), buildOfflineHtml(assetRoutes));
+  await fs7.writeFile(path10.join(outDir, "manifest.json"), JSON.stringify(manifest, null, 2));
+  await fs7.writeFile(path10.join(outDir, "asset-map.json"), JSON.stringify(assetRoutes, null, 2));
+  await fs7.writeFile(path10.join(outDir, "index.html"), buildOfflineHtml(assetRoutes));
   console.log(`[host] Wrote manifest.json (${files.length} files)`);
   console.log(`[host] Wrote asset-map.json (${Object.keys(assetRoutes).length} routes)`);
   console.log("[host] Wrote index.html (standalone offline host)");
@@ -1656,16 +1742,16 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
 }
 
 // src/unity-embed/merge.ts
-import fs7 from "node:fs/promises";
-import path10 from "node:path";
+import fs8 from "node:fs/promises";
+import path11 from "node:path";
 function formatBytes2(bytes) {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 var PART_CHUNK_BYTES = 8 * 1024 * 1024;
 async function mergeParts(outDir, baseName) {
-  const buildDir = path10.join(outDir, "Build");
-  const entries = await fs7.readdir(buildDir);
+  const buildDir = path11.join(outDir, "Build");
+  const entries = await fs8.readdir(buildDir);
   const partPattern = new RegExp(`^${baseName}\\.part(\\d+)$`);
   const parts = entries.map((name) => {
     const match = name.match(partPattern);
@@ -1674,11 +1760,11 @@ async function mergeParts(outDir, baseName) {
   if (parts.length === 0) return null;
   const buffers = [];
   for (const part of parts) {
-    buffers.push(await fs7.readFile(path10.join(buildDir, part.name)));
+    buffers.push(await fs8.readFile(path11.join(buildDir, part.name)));
   }
   const merged = Buffer.concat(buffers);
-  const mergedPath = path10.join(buildDir, baseName);
-  await fs7.writeFile(mergedPath, merged);
+  const mergedPath = path11.join(buildDir, baseName);
+  await fs8.writeFile(mergedPath, merged);
   console.log(
     `[merge] ${baseName}: ${parts.length} parts -> ${formatBytes2(merged.length)} (parts kept for WebKit)`
   );
@@ -1690,21 +1776,21 @@ async function mergeParts(outDir, baseName) {
 }
 async function ensureServeParts(outDir) {
   for (const baseName of ["Shrek2.data.br", "Shrek2.wasm.br"]) {
-    const buildDir = path10.join(outDir, "Build");
-    const mergedPath = path10.join(buildDir, baseName);
+    const buildDir = path11.join(outDir, "Build");
+    const mergedPath = path11.join(buildDir, baseName);
     const partPattern = new RegExp(`^${baseName.replace(".", "\\.")}\\.part\\d+$`);
     try {
-      await fs7.access(mergedPath);
+      await fs8.access(mergedPath);
     } catch {
       continue;
     }
-    const entries = await fs7.readdir(buildDir);
+    const entries = await fs8.readdir(buildDir);
     if (entries.some((name) => partPattern.test(name))) continue;
-    const merged = await fs7.readFile(mergedPath);
+    const merged = await fs8.readFile(mergedPath);
     let partIndex = 0;
     for (let offset = 0; offset < merged.length; offset += PART_CHUNK_BYTES) {
       const chunk = merged.subarray(offset, offset + PART_CHUNK_BYTES);
-      await fs7.writeFile(path10.join(buildDir, `${baseName}.part${partIndex}`), chunk);
+      await fs8.writeFile(path11.join(buildDir, `${baseName}.part${partIndex}`), chunk);
       partIndex++;
     }
     console.log(`[merge] split ${baseName} -> ${partIndex} serve part(s)`);
@@ -1729,15 +1815,15 @@ async function mergeSplitFiles(outDir) {
 }
 async function linkBrotliAlias(outDir, merged) {
   if (!merged.relativePath.endsWith(".br")) return null;
-  const brPath = path10.join(outDir, merged.relativePath);
+  const brPath = path11.join(outDir, merged.relativePath);
   const aliasRelative = merged.relativePath.replace(/\.br$/, "");
-  const aliasPath = path10.join(outDir, aliasRelative);
-  await fs7.unlink(aliasPath).catch(() => {
+  const aliasPath = path11.join(outDir, aliasRelative);
+  await fs8.unlink(aliasPath).catch(() => {
   });
   try {
-    await fs7.link(brPath, aliasPath);
+    await fs8.link(brPath, aliasPath);
   } catch {
-    await fs7.copyFile(brPath, aliasPath);
+    await fs8.copyFile(brPath, aliasPath);
   }
   console.log(`[merge] alias ${aliasRelative} -> ${merged.relativePath}`);
   return {
@@ -1751,7 +1837,7 @@ async function linkBrotliAlias(outDir, merged) {
 init_scan_assets();
 async function pullEmbedGame(gameId, onProgress, signal) {
   const outDir = outDirForGame(GAMES_DATA_DIR, gameId);
-  await fs8.mkdir(outDir, { recursive: true });
+  await fs9.mkdir(outDir, { recursive: true });
   throwIfCancelled(signal);
   onProgress(5, "Discovering game source\u2026");
   const info = await discoverGameInfo(gameId);
@@ -1791,23 +1877,23 @@ async function pullEmbedGame(gameId, onProgress, signal) {
 }
 
 // src/strategies/generic.ts
-import fs11 from "node:fs/promises";
-import { existsSync as existsSync5 } from "node:fs";
-import path13 from "node:path";
+import fs14 from "node:fs/promises";
+import { existsSync as existsSync7 } from "node:fs";
+import path16 from "node:path";
 import { spawn } from "node:child_process";
 init_cancel_registry();
 init_config();
 
 // src/download/discover-all.ts
-import { existsSync as existsSync3 } from "node:fs";
-import fs9 from "node:fs/promises";
-import path11 from "node:path";
+import { existsSync as existsSync4 } from "node:fs";
+import fs10 from "node:fs/promises";
+import path12 from "node:path";
 var TEXT_EXT = /\.(html?|js|css|json|xml|txt)$/i;
 async function readTextSource(url, outDir, baseUrl, localPathForUrl2) {
   const localPath = localPathForUrl2(baseUrl, url, outDir);
-  if (existsSync3(localPath)) {
+  if (existsSync4(localPath)) {
     try {
-      const buf = await fs9.readFile(localPath);
+      const buf = await fs10.readFile(localPath);
       if (buf.length > 8 * 1024 * 1024) return null;
       return buf.toString("utf-8");
     } catch {
@@ -1818,13 +1904,13 @@ async function readTextSource(url, outDir, baseUrl, localPathForUrl2) {
   return fetchTextForDiscovery(url);
 }
 async function discoverAllAssetUrls(options, localPathForUrl2) {
-  const { outDir, baseUrl, maxPasses = 32, unityOptimized = true } = options;
+  const { outDir, baseUrl, entryRel = "index.html", maxPasses = 32, unityOptimized = true } = options;
   const discovered = /* @__PURE__ */ new Set();
   const seen = /* @__PURE__ */ new Set();
   const scanQueue = /* @__PURE__ */ new Set();
-  const indexPath = path11.join(outDir, "index.html");
-  const indexHtml = await fs9.readFile(indexPath, "utf-8");
-  const unityMode = unityOptimized && isUnityShell(indexHtml);
+  const entryPath = path12.join(outDir, entryRel);
+  const entryHtml = await fs10.readFile(entryPath, "utf-8");
+  const unityMode = unityOptimized && isUnityShell(entryHtml);
   const addRefs = (text, fileUrl) => {
     if (unityMode) {
       discoverUnityAssetRefs(text, fileUrl, scanQueue, seen);
@@ -1832,7 +1918,7 @@ async function discoverAllAssetUrls(options, localPathForUrl2) {
       collectGenericAssetRefs(text, fileUrl, scanQueue, seen);
     }
   };
-  addRefs(indexHtml, baseUrl);
+  addRefs(entryHtml, baseUrl);
   for (let pass = 0; pass < maxPasses && scanQueue.size > 0; pass++) {
     const batch = [...scanQueue];
     scanQueue.clear();
@@ -1879,16 +1965,165 @@ async function discoverAllAssetUrls(options, localPathForUrl2) {
   return discovered;
 }
 
+// src/generic/entry-html.ts
+import fs11 from "node:fs/promises";
+import { existsSync as existsSync5 } from "node:fs";
+import path13 from "node:path";
+var GAME_SHELL_MARKERS = /c2runtime|cr_createRuntime|lime\.embed|UnityLoader|createUnityInstance|openfl-content|Construct 2|openfl-content/i;
+function mirroredIndexCandidates(out, iframeUrl) {
+  const parsed = new URL(iframeUrl);
+  const parts = parsed.pathname.split("/").filter(Boolean);
+  const hostDir = path13.join(out, parsed.hostname);
+  const candidates = [path13.join(out, "index.html"), path13.join(hostDir, "index.html")];
+  if (parts.length === 0) return candidates;
+  const last = parts[parts.length - 1];
+  candidates.push(path13.join(hostDir, ...parts, "index.html"));
+  candidates.push(path13.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
+  candidates.push(path13.join(hostDir, ...parts, `${last}.html`));
+  return candidates;
+}
+async function collectHtmlFiles(dir, acc = []) {
+  const entries = await fs11.readdir(dir, { withFileTypes: true });
+  for (const e of entries) {
+    const full = path13.join(dir, e.name);
+    if (e.isFile() && /\.html?$/i.test(e.name)) acc.push(full);
+    else if (e.isDirectory() && !e.name.startsWith(".") && e.name !== "_external") {
+      await collectHtmlFiles(full, acc);
+    }
+  }
+  return acc;
+}
+function scoreEntryHtml(filePath, content, iframeSrc) {
+  let score = 0;
+  const name = path13.basename(filePath).toLowerCase();
+  const urlParts = new URL(iframeSrc).pathname.split("/").filter(Boolean);
+  const last = urlParts[urlParts.length - 1]?.toLowerCase();
+  if (name === "index.html") score += 100;
+  else if (name === "index.htm") score += 90;
+  if (last && name === `${last}.html`) score += 85;
+  if (last && name.replace(/\.html?$/, "") === last) score += 70;
+  if (GAME_SHELL_MARKERS.test(content)) score += 60;
+  if (/<script\b/i.test(content)) score += 15;
+  if (content.length >= 500) score += 10;
+  if (content.length >= 2e3) score += 5;
+  return score;
+}
+async function resolveMirroredEntryHtml(out, iframeSrc) {
+  for (const candidate of mirroredIndexCandidates(out, iframeSrc)) {
+    if (!existsSync5(candidate)) continue;
+    try {
+      const stat = await fs11.stat(candidate);
+      if (stat.isFile() && stat.size >= 64) return candidate;
+    } catch {
+    }
+  }
+  const htmlFiles = await collectHtmlFiles(out);
+  if (htmlFiles.length === 0) {
+    throw new Error("Mirror completed but no playable HTML entry point found");
+  }
+  let best = htmlFiles[0];
+  let bestScore = -1;
+  for (const filePath of htmlFiles) {
+    try {
+      const stat = await fs11.stat(filePath);
+      if (!stat.isFile() || stat.size < 64) continue;
+      const content = await fs11.readFile(filePath, "utf-8");
+      const score = scoreEntryHtml(filePath, content, iframeSrc);
+      if (score > bestScore) {
+        bestScore = score;
+        best = filePath;
+      }
+    } catch {
+    }
+  }
+  if (bestScore < 0) {
+    throw new Error("Mirror completed but no playable HTML entry point found");
+  }
+  return best;
+}
+
+// src/generic/post-process-offline.ts
+import fs12 from "node:fs/promises";
+import path14 from "node:path";
+
+// src/generic/poki-offline-stub.ts
+function buildPokiOfflineStubScript() {
+  return `(function(){
+  var resolved = function(v){ return Promise.resolve(v); };
+  var noop = function(){};
+  window.PokiSDK = {
+    init: function(){ return resolved(); },
+    gameLoadingStart: noop,
+    gameLoadingProgress: noop,
+    gameLoadingFinished: noop,
+    gameplayStart: noop,
+    gameplayStop: noop,
+    happyTime: noop,
+    commercialBreak: function(){ return resolved(); },
+    rewardedBreak: function(){ return resolved(false); },
+    isAdBlocked: function(){ return false; }
+  };
+})();`;
+}
+function indexHtmlReferencesPokiSdk(html) {
+  return /poki-sdk/i.test(html);
+}
+function patchPokiSdkScriptTags(html) {
+  return html.replace(
+    /<script\b[^>]*\bsrc=["'][^"']*poki-sdk[^"']*["'][^>]*>\s*<\/script>/gi,
+    '<script src="poki-sdk.js"></script>'
+  );
+}
+
+// src/generic/post-process-offline.ts
+var SITE_ROOT_SCRIPT = /\bsrc=["'](?:\.\.\/)+([^"']+)["']/gi;
+var PORTAL_SCRIPT_STUBS = {
+  "cloak.js": "// offline noop\n",
+  "poki-sdk.js": ""
+  // filled via buildPokiOfflineStubScript when referenced
+};
+async function patchSiteRootScriptTags(outDir, html) {
+  const needed = /* @__PURE__ */ new Set();
+  let out = html;
+  out = out.replace(SITE_ROOT_SCRIPT, (tag, fileName) => {
+    if (typeof fileName !== "string" || !fileName.trim()) return tag;
+    needed.add(fileName);
+    return tag.replace(/(?:\.\.\/)+[^"']+/, fileName);
+  });
+  for (const fileName of needed) {
+    const dest = path14.join(outDir, fileName);
+    if (fileName === "poki-sdk.js") continue;
+    try {
+      const stat = await fs12.stat(dest);
+      if (stat.isFile() && stat.size > 0) continue;
+    } catch {
+    }
+    const stub = PORTAL_SCRIPT_STUBS[fileName] ?? "// offline noop\n";
+    await fs12.writeFile(dest, stub, "utf-8");
+  }
+  return out;
+}
+async function postProcessGenericOfflineMirror(outDir, entryRel = "index.html") {
+  const entryPath = path14.join(outDir, entryRel);
+  let html = await fs12.readFile(entryPath, "utf-8");
+  html = await patchSiteRootScriptTags(outDir, html);
+  if (indexHtmlReferencesPokiSdk(html)) {
+    await fs12.writeFile(path14.join(outDir, "poki-sdk.js"), buildPokiOfflineStubScript(), "utf-8");
+    html = patchPokiSdkScriptTags(html);
+  }
+  await fs12.writeFile(entryPath, html, "utf-8");
+}
+
 // src/unity/post-process-offline.ts
 init_scan_assets();
-import fs10 from "node:fs/promises";
-import { existsSync as existsSync4 } from "node:fs";
-import path12 from "node:path";
+import fs13 from "node:fs/promises";
+import { existsSync as existsSync6 } from "node:fs";
+import path15 from "node:path";
 async function listBuildFiles(outDir) {
-  const buildDir = path12.join(outDir, "Build");
-  if (!existsSync4(buildDir)) return [];
-  const entries = await fs10.readdir(buildDir);
-  return entries.map((f) => path12.posix.join("Build", f));
+  const buildDir = path15.join(outDir, "Build");
+  if (!existsSync6(buildDir)) return [];
+  const entries = await fs13.readdir(buildDir);
+  return entries.map((f) => path15.posix.join("Build", f));
 }
 async function discoverExternalUnityAssets(outDir, indexHtml) {
   const urls = new Set(scanContentForMediaUrls(indexHtml));
@@ -1896,14 +2131,14 @@ async function discoverExternalUnityAssets(outDir, indexHtml) {
   const toScan = await listBuildFiles(outDir);
   if (product) {
     for (const suffix of [".framework.js", ".loader.js", ".data", ".wasm", ".data.br", ".wasm.br"]) {
-      toScan.push(path12.posix.join("Build", `${product}${suffix}`));
+      toScan.push(path15.posix.join("Build", `${product}${suffix}`));
     }
   }
   for (const rel of toScan) {
-    const filePath = path12.join(outDir, rel);
-    if (!existsSync4(filePath)) continue;
+    const filePath = path15.join(outDir, rel);
+    if (!existsSync6(filePath)) continue;
     try {
-      const buf = await fs10.readFile(filePath);
+      const buf = await fs13.readFile(filePath);
       if (buf.length > 16 * 1024 * 1024) continue;
       for (const url of scanContentForMediaUrls(buf.toString("latin1"))) {
         urls.add(url);
@@ -1913,24 +2148,24 @@ async function discoverExternalUnityAssets(outDir, indexHtml) {
   }
   return [...urls].sort();
 }
-async function postProcessUnityOfflineMirror(outDir, baseUrl) {
-  const indexPath = path12.join(outDir, "index.html");
-  const indexHtml = await fs10.readFile(indexPath, "utf-8");
-  if (!isUnityGameHtml(indexHtml)) {
+async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.html") {
+  const entryPath = path15.join(outDir, entryRel);
+  const entryHtml = await fs13.readFile(entryPath, "utf-8");
+  if (!isUnityGameHtml(entryHtml)) {
     return { assetRoutes: {}, externalCount: 0 };
   }
-  const externalUrls = await discoverExternalUnityAssets(outDir, indexHtml);
+  const externalUrls = await discoverExternalUnityAssets(outDir, entryHtml);
   const assetRoutes = buildAssetRouteMap(externalUrls);
   if (externalUrls.length > 0) {
-    await fs10.writeFile(
-      path12.join(outDir, "asset-map.json"),
+    await fs13.writeFile(
+      path15.join(outDir, "asset-map.json"),
       JSON.stringify(assetRoutes, null, 2)
     );
   }
-  const patched = injectUnityPatches(indexHtml, assetRoutes);
-  await fs10.writeFile(indexPath, patched);
+  const patched = injectUnityPatches(entryHtml, assetRoutes);
+  await fs13.writeFile(entryPath, patched);
   console.log(
-    `[unity] Post-processed ${path12.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(indexHtml) ?? "unknown"}`
+    `[unity] Post-processed ${path15.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? "unknown"}`
   );
   return { assetRoutes, externalCount: externalUrls.length };
 }
@@ -1954,57 +2189,15 @@ function normalizeGameBaseUrl(iframeSrc) {
   }
   return parsed.href;
 }
-function mirroredIndexCandidates(out, iframeUrl) {
-  const parsed = new URL(iframeUrl);
-  const parts = parsed.pathname.split("/").filter(Boolean);
-  const hostDir = path13.join(out, parsed.hostname);
-  const candidates = [path13.join(out, "index.html"), path13.join(hostDir, "index.html")];
-  if (parts.length === 0) return candidates;
-  const last = parts[parts.length - 1];
-  candidates.push(path13.join(hostDir, ...parts, "index.html"));
-  candidates.push(path13.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
-  candidates.push(path13.join(hostDir, ...parts, `${last}.html`));
-  return candidates;
-}
-async function findIndexHtml(dir) {
-  const entries = await fs11.readdir(dir, { withFileTypes: true });
-  for (const e of entries) {
-    const full = path13.join(dir, e.name);
-    if (e.isFile() && /^index\.html?$/i.test(e.name)) return full;
-    if (e.isDirectory()) {
-      const found = await findIndexHtml(full);
-      if (found) return found;
-    }
-  }
-  return null;
-}
-async function resolveMirroredIndex(out, iframeSrc) {
-  for (const candidate of mirroredIndexCandidates(out, iframeSrc)) {
-    if (!existsSync5(candidate)) continue;
-    try {
-      const stat = await fs11.stat(candidate);
-      if (stat.isFile() && stat.size >= 64) return candidate;
-    } catch {
-    }
-  }
-  const hostDir = path13.join(out, new URL(iframeSrc).hostname);
-  if (existsSync5(hostDir)) {
-    const found = await findIndexHtml(hostDir);
-    if (found) return found;
-  }
-  const fallback = await findIndexHtml(out);
-  if (fallback) return fallback;
-  throw new Error("Mirror completed but no playable HTML entry point found");
-}
 async function findGameContentRoot(mirrorDir) {
   async function walk(dir) {
-    if (existsSync5(path13.join(dir, "Build")) || existsSync5(path13.join(dir, "TemplateData"))) {
+    if (existsSync7(path16.join(dir, "Build")) || existsSync7(path16.join(dir, "TemplateData"))) {
       return dir;
     }
-    const entries = await fs11.readdir(dir, { withFileTypes: true });
+    const entries = await fs14.readdir(dir, { withFileTypes: true });
     for (const e of entries) {
       if (!e.isDirectory()) continue;
-      const found = await walk(path13.join(dir, e.name));
+      const found = await walk(path16.join(dir, e.name));
       if (found) return found;
     }
     return null;
@@ -2012,27 +2205,36 @@ async function findGameContentRoot(mirrorDir) {
   return walk(mirrorDir);
 }
 async function promoteGameRootToOfflineDir(mirrorDir, iframeSrc) {
-  const indexPath = await resolveMirroredIndex(mirrorDir, iframeSrc);
-  const contentRoot = await findGameContentRoot(mirrorDir) ?? path13.dirname(indexPath);
-  const staging = path13.join(path13.dirname(mirrorDir), `${path13.basename(mirrorDir)}.__staging__`);
-  await fs11.rm(staging, { recursive: true, force: true });
-  await fs11.mkdir(staging, { recursive: true });
-  await fs11.cp(contentRoot, staging, { recursive: true });
-  const entryName = path13.basename(indexPath);
-  const stagedEntry = path13.join(staging, entryName);
-  const stagedIndex = path13.join(staging, "index.html");
-  if (entryName !== "index.html" && existsSync5(stagedEntry)) {
-    await fs11.copyFile(stagedEntry, stagedIndex);
-  } else if (!existsSync5(stagedIndex) && existsSync5(path13.join(contentRoot, "index.html"))) {
-    await fs11.copyFile(path13.join(contentRoot, "index.html"), stagedIndex);
+  const entryPath = await resolveMirroredEntryHtml(mirrorDir, iframeSrc);
+  const contentRoot = await findGameContentRoot(mirrorDir) ?? path16.dirname(entryPath);
+  const staging = path16.join(path16.dirname(mirrorDir), `${path16.basename(mirrorDir)}.__staging__`);
+  await fs14.rm(staging, { recursive: true, force: true });
+  await fs14.mkdir(staging, { recursive: true });
+  await fs14.cp(contentRoot, staging, { recursive: true });
+  const entryName = path16.basename(entryPath);
+  const stagedEntry = path16.join(staging, entryName);
+  if (!existsSync7(stagedEntry)) {
+    await fs14.rm(staging, { recursive: true, force: true });
+    throw new Error(`Could not prepare offline entry (${entryName})`);
   }
-  if (!existsSync5(stagedIndex)) {
-    await fs11.rm(staging, { recursive: true, force: true });
-    throw new Error("Could not prepare offline index.html");
+  const entryRel = path16.relative(staging, stagedEntry).split(path16.sep).join("/");
+  await fs14.rm(mirrorDir, { recursive: true, force: true });
+  await fs14.rename(staging, mirrorDir);
+  const baseUrl = normalizeGameBaseUrl(iframeSrc);
+  await writeOfflineManifest(mirrorDir, { entry: entryRel, mirroredFrom: iframeSrc });
+  return { baseUrl, entryRel };
+}
+function wgetExitMessage(code) {
+  if (code === 5) {
+    return "wget mirror failed: SSL certificate could not be verified (exit 5). The game host uses an invalid or expired certificate.";
   }
-  await fs11.rm(mirrorDir, { recursive: true, force: true });
-  await fs11.rename(staging, mirrorDir);
-  return normalizeGameBaseUrl(iframeSrc);
+  if (code === 4) {
+    return "wget mirror failed: network failure (exit 4). Check your connection and try again.";
+  }
+  return `wget mirror failed with exit code ${code}`;
+}
+function isWgetFailure(code) {
+  return code !== 0 && code !== 8;
 }
 async function runWget(args) {
   return new Promise((resolve, reject) => {
@@ -2044,19 +2246,18 @@ async function runWget(args) {
 function localPathForUrl(baseUrl, assetUrl, outDir) {
   const base = new URL(baseUrl);
   const abs = new URL(assetUrl, base);
+  const absPathParts = abs.pathname.split("/").filter(Boolean);
   if (abs.origin !== base.origin) {
-    return path13.join(
-      outDir,
-      "_external",
-      abs.hostname,
-      ...abs.pathname.split("/").filter(Boolean)
-    );
+    return path16.join(outDir, "_external", abs.hostname, ...absPathParts);
+  }
+  const basePath = base.pathname.endsWith("/") ? base.pathname : `${base.pathname}/`;
+  if (!abs.pathname.startsWith(basePath)) {
+    return path16.join(outDir, ...absPathParts);
   }
   const baseParts = base.pathname.split("/").filter(Boolean);
-  const absParts = abs.pathname.split("/").filter(Boolean);
-  const relParts = absParts.slice(baseParts.length);
-  if (relParts.length === 0) return path13.join(outDir, "index.html");
-  return path13.join(outDir, ...relParts);
+  const relParts = absPathParts.slice(baseParts.length);
+  if (relParts.length === 0) return path16.join(outDir, "index.html");
+  return path16.join(outDir, ...relParts);
 }
 async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
   const missing = [];
@@ -2065,33 +2266,33 @@ async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
     if (buildJsonRel) {
       const buildJsonUrl = new URL(buildJsonRel, baseUrl).href;
       const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
-      if (!existsSync5(buildJsonPath)) {
+      if (!existsSync7(buildJsonPath)) {
         missing.push(buildJsonPath);
       } else {
         try {
-          const buildMeta = JSON.parse(await fs11.readFile(buildJsonPath, "utf-8"));
+          const buildMeta = JSON.parse(await fs14.readFile(buildJsonPath, "utf-8"));
           for (const assetUrl of expandBuildManifest(buildMeta, buildJsonUrl)) {
             const assetPath = localPathForUrl(baseUrl, assetUrl, outDir);
-            if (!existsSync5(assetPath)) missing.push(assetPath);
+            if (!existsSync7(assetPath)) missing.push(assetPath);
           }
         } catch {
           missing.push(buildJsonPath);
         }
       }
     }
-    if (/UnityLoader/i.test(indexHtml) && !existsSync5(path13.join(outDir, "Build", "UnityLoader.js")) && !existsSync5(path13.join(outDir, "UnityLoader.js"))) {
-      missing.push(path13.join(outDir, "Build/UnityLoader.js"));
+    if (/UnityLoader/i.test(indexHtml) && !existsSync7(path16.join(outDir, "Build", "UnityLoader.js")) && !existsSync7(path16.join(outDir, "UnityLoader.js"))) {
+      missing.push(path16.join(outDir, "Build/UnityLoader.js"));
     }
   }
   if (missing.length > 0) {
     throw new Error(`Missing required offline assets: ${missing.slice(0, 5).join(", ")}`);
   }
 }
-async function discoverAndDownloadAssets(outDir, baseUrl, onProgress, signal) {
+async function discoverAndDownloadAssets(outDir, baseUrl, entryRel, onProgress, signal) {
   throwIfCancelled(signal);
   onProgress(55, "Discovering all asset URLs\u2026");
   const urls = await discoverAllAssetUrls(
-    { outDir, baseUrl, unityOptimized: true },
+    { outDir, baseUrl, entryRel, unityOptimized: true },
     localPathForUrl
   );
   throwIfCancelled(signal);
@@ -2113,20 +2314,21 @@ async function discoverAndDownloadAssets(outDir, baseUrl, onProgress, signal) {
   });
   throwIfCancelled(signal);
   onProgress(92, "Verifying Unity / required assets\u2026");
-  const indexHtml = await fs11.readFile(path13.join(outDir, "index.html"), "utf-8");
-  await validateRequiredAssets(outDir, baseUrl, indexHtml);
+  const entryHtml = await fs14.readFile(path16.join(outDir, entryRel), "utf-8");
+  await validateRequiredAssets(outDir, baseUrl, entryHtml);
 }
 async function pullGenericGame(gameId, onProgress, signal) {
-  const onlineIndex = path13.join(catalogOnlineDir(gameId), "index.html");
+  const onlineIndex = path16.join(catalogOnlineDir(gameId), "index.html");
   const out = offlineDir(gameId);
   throwIfCancelled(signal);
   onProgress(5, "Reading online shell\u2026");
-  const html = await fs11.readFile(onlineIndex, "utf-8");
+  const html = await fs14.readFile(onlineIndex, "utf-8");
   const iframeSrc = extractIframeSrc(html);
   if (!iframeSrc) {
     onProgress(20, "No iframe \u2014 copying online shell to offline\u2026");
-    await fs11.rm(out, { recursive: true, force: true });
-    await fs11.cp(catalogOnlineDir(gameId), out, { recursive: true });
+    await fs14.rm(out, { recursive: true, force: true });
+    await fs14.cp(catalogOnlineDir(gameId), out, { recursive: true });
+    await writeOfflineManifest(out, { entry: "index.html" });
     onProgress(100, "Copied online shell");
     return;
   }
@@ -2134,9 +2336,9 @@ async function pullGenericGame(gameId, onProgress, signal) {
   onProgress(15, `Mirroring ${mirrorUrl}\u2026`);
   const existingCache = await readDownloadCache(gameId);
   if (!existingCache) {
-    await fs11.rm(out, { recursive: true, force: true });
+    await fs14.rm(out, { recursive: true, force: true });
   }
-  await fs11.mkdir(out, { recursive: true });
+  await fs14.mkdir(out, { recursive: true });
   const wgetArgs = [
     "--mirror",
     "--convert-links",
@@ -2147,8 +2349,7 @@ async function pullGenericGame(gameId, onProgress, signal) {
     out,
     "-e",
     "robots=off",
-    "-U",
-    WGET_USER_AGENT,
+    ...wgetCommonArgs(),
     "--tries=3",
     "--timeout=120",
     mirrorUrl
@@ -2157,26 +2358,32 @@ async function pullGenericGame(gameId, onProgress, signal) {
   throwIfCancelled(signal);
   onProgress(50, "Preparing offline layout\u2026");
   let baseUrl;
+  let entryRel;
   try {
-    baseUrl = await promoteGameRootToOfflineDir(out, iframeSrc);
+    ({ baseUrl, entryRel } = await promoteGameRootToOfflineDir(out, iframeSrc));
   } catch (error) {
-    if (code !== 0 && code !== 8) {
-      throw new Error(`wget mirror failed with exit code ${code}`);
+    if (isWgetFailure(code)) {
+      throw new Error(wgetExitMessage(code));
     }
     throw error;
   }
-  if (code !== 0 && code !== 8) {
-    throw new Error(`wget mirror failed with exit code ${code}`);
+  if (isWgetFailure(code)) {
+    throw new Error(wgetExitMessage(code));
   }
-  if (!existsSync5(path13.join(out, "index.html"))) {
-    throw new Error("Mirror completed but no index.html found");
+  const entryPath = path16.join(out, entryRel);
+  if (!existsSync7(entryPath)) {
+    throw new Error(`Mirror completed but entry HTML missing: ${entryRel}`);
   }
-  await discoverAndDownloadAssets(out, baseUrl, onProgress, signal);
-  const indexHtml = await fs11.readFile(path13.join(out, "index.html"), "utf-8");
-  if (isUnityShell(indexHtml)) {
+  await discoverAndDownloadAssets(out, baseUrl, entryRel, onProgress, signal);
+  const entryHtml = await fs14.readFile(entryPath, "utf-8");
+  if (isUnityShell(entryHtml)) {
     throwIfCancelled(signal);
     onProgress(95, "Injecting Unity patches & asset routes\u2026");
-    await postProcessUnityOfflineMirror(out, baseUrl);
+    await postProcessUnityOfflineMirror(out, baseUrl, entryRel);
+  } else {
+    throwIfCancelled(signal);
+    onProgress(95, "Patching offline SDK & links\u2026");
+    await postProcessGenericOfflineMirror(out, entryRel);
   }
   onProgress(100, "Download complete");
 }
@@ -2221,7 +2428,7 @@ async function deleteOfflineGame(gameId) {
   if (isGameDownloading(gameId)) {
     throw new Error("Cannot delete while download is in progress");
   }
-  await fs12.rm(offlineDir(gameId), { recursive: true, force: true });
+  await fs15.rm(offlineDir(gameId), { recursive: true, force: true });
   invalidateCatalogCache();
 }
 async function startDownload(gameId) {
@@ -2279,7 +2486,7 @@ async function runDownloadJob(gameId, job, signal) {
       const fileCount = await countOfflineFiles(gameId);
       if (discardCache) {
         try {
-          await fs12.rm(offlineDir(gameId), { recursive: true, force: true });
+          await fs15.rm(offlineDir(gameId), { recursive: true, force: true });
         } catch {
         }
       } else if (fileCount > 0) {
@@ -2307,7 +2514,7 @@ async function runDownloadJob(gameId, job, signal) {
       finishedAt: Date.now()
     });
     try {
-      await fs12.rm(offlineDir(gameId), { recursive: true, force: true });
+      await fs15.rm(offlineDir(gameId), { recursive: true, force: true });
     } catch {
     }
   } finally {
@@ -2317,10 +2524,10 @@ async function runDownloadJob(gameId, job, signal) {
 
 // src/game-storage-bridge-script.ts
 import { readFileSync as readFileSync2 } from "node:fs";
-import path14 from "node:path";
+import path17 from "node:path";
 import { fileURLToPath as fileURLToPath3 } from "node:url";
-var BRIDGE_PATH = path14.resolve(
-  path14.dirname(fileURLToPath3(import.meta.url)),
+var BRIDGE_PATH = path17.resolve(
+  path17.dirname(fileURLToPath3(import.meta.url)),
   "../../static/game-storage-bridge.child.js"
 );
 var cachedBridge = null;
@@ -2345,9 +2552,9 @@ function injectGameStorageBridge(html, _gameId, childScriptSrc) {
 }
 
 // src/unity/proxy-play.ts
-import fs13 from "node:fs/promises";
-import { existsSync as existsSync6 } from "node:fs";
-import path15 from "node:path";
+import fs16 from "node:fs/promises";
+import { existsSync as existsSync8 } from "node:fs";
+import path18 from "node:path";
 init_config();
 function extractIframeSrc2(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i];
@@ -2364,9 +2571,9 @@ async function resolveUnityPlayUrl(gameId) {
   const meta = await readGameMetadata(gameId);
   const embed = typeof meta?.onlineEmbedUrl === "string" ? meta.onlineEmbedUrl.trim() : "";
   if (embed) return embed;
-  const indexPath = path15.join(catalogOnlineDir(gameId), "index.html");
-  if (!existsSync6(indexPath)) return null;
-  const html = await fs13.readFile(indexPath, "utf-8");
+  const indexPath = path18.join(catalogOnlineDir(gameId), "index.html");
+  if (!existsSync8(indexPath)) return null;
+  const html = await fs16.readFile(indexPath, "utf-8");
   return extractIframeSrc2(html);
 }
 async function fetchProxiedUnityHtml(gameId) {
@@ -2391,9 +2598,9 @@ async function fetchProxiedUnityHtml(gameId) {
 }
 
 // src/browser-data.ts
-import fs14 from "node:fs/promises";
-import path16 from "node:path";
-import { existsSync as existsSync7 } from "node:fs";
+import fs17 from "node:fs/promises";
+import path19 from "node:path";
+import { existsSync as existsSync9 } from "node:fs";
 
 // src/browser-data-profile.ts
 var BROWSER_PROFILE_SCHEMA_VERSION = 1;
@@ -2426,43 +2633,43 @@ var PROFILE_DISK_PATHS = {
 
 // src/browser-data.ts
 function browserDataDir(gameId) {
-  return path16.join(gameDataRoot(gameId), "data");
+  return path19.join(gameDataRoot(gameId), "data");
 }
 function dataFilePath(gameId, rel) {
-  return path16.join(browserDataDir(gameId), rel);
+  return path19.join(browserDataDir(gameId), rel);
 }
 function assertDataPath(gameId, absPath) {
-  const root = path16.resolve(browserDataDir(gameId));
-  const resolved = path16.resolve(absPath);
-  if (!resolved.startsWith(root + path16.sep) && resolved !== root) {
+  const root = path19.resolve(browserDataDir(gameId));
+  const resolved = path19.resolve(absPath);
+  if (!resolved.startsWith(root + path19.sep) && resolved !== root) {
     throw new Error("Path traversal rejected");
   }
 }
 async function readJsonFile(filePath, fallback) {
   try {
-    const raw = await fs14.readFile(filePath, "utf-8");
+    const raw = await fs17.readFile(filePath, "utf-8");
     return JSON.parse(raw);
   } catch {
     return fallback;
   }
 }
 async function writeJsonAtomic(filePath, data) {
-  const dir = path16.dirname(filePath);
-  await fs14.mkdir(dir, { recursive: true });
+  const dir = path19.dirname(filePath);
+  await fs17.mkdir(dir, { recursive: true });
   const tmp = filePath + ".tmp";
-  await fs14.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
-  await fs14.rename(tmp, filePath);
+  await fs17.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
+  await fs17.rename(tmp, filePath);
 }
 async function loadIndexedDbProfiles(gameId) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  if (!existsSync7(idbRoot)) return [];
-  const entries = await fs14.readdir(idbRoot, { withFileTypes: true });
+  if (!existsSync9(idbRoot)) return [];
+  const entries = await fs17.readdir(idbRoot, { withFileTypes: true });
   const profiles = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const dbDir = path16.join(idbRoot, entry.name);
-    const metaPath = path16.join(dbDir, "meta.json");
-    const recordsPath = path16.join(dbDir, "records.json");
+    const dbDir = path19.join(idbRoot, entry.name);
+    const metaPath = path19.join(dbDir, "meta.json");
+    const recordsPath = path19.join(dbDir, "records.json");
     try {
       const meta = await readJsonFile(
         metaPath,
@@ -2482,30 +2689,30 @@ async function loadIndexedDbProfiles(gameId) {
 }
 async function saveIndexedDbProfiles(gameId, databases) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  await fs14.mkdir(idbRoot, { recursive: true });
-  const existing = existsSync7(idbRoot) ? await fs14.readdir(idbRoot, { withFileTypes: true }) : [];
+  await fs17.mkdir(idbRoot, { recursive: true });
+  const existing = existsSync9(idbRoot) ? await fs17.readdir(idbRoot, { withFileTypes: true }) : [];
   for (const entry of existing) {
     if (entry.isDirectory()) {
-      await fs14.rm(path16.join(idbRoot, entry.name), { recursive: true, force: true });
+      await fs17.rm(path19.join(idbRoot, entry.name), { recursive: true, force: true });
     }
   }
   for (const db of databases) {
     const safeName = db.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const dbDir = path16.join(idbRoot, safeName);
+    const dbDir = path19.join(idbRoot, safeName);
     assertDataPath(gameId, dbDir);
-    await fs14.mkdir(dbDir, { recursive: true });
-    await writeJsonAtomic(path16.join(dbDir, "meta.json"), {
+    await fs17.mkdir(dbDir, { recursive: true });
+    await writeJsonAtomic(path19.join(dbDir, "meta.json"), {
       name: db.name,
       version: db.version,
       objectStores: db.objectStores
     });
-    await writeJsonAtomic(path16.join(dbDir, "records.json"), db.records);
+    await writeJsonAtomic(path19.join(dbDir, "records.json"), db.records);
   }
 }
 async function readGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
   const metaPath = dataFilePath(gameId, PROFILE_DISK_PATHS.meta);
-  if (!existsSync7(root) && !existsSync7(metaPath)) {
+  if (!existsSync9(root) && !existsSync9(metaPath)) {
     return null;
   }
   const profile = emptyGameBrowserProfile();
@@ -2539,7 +2746,7 @@ async function writeGameBrowserProfile(gameId, input) {
   }
   const root = browserDataDir(gameId);
   assertDataPath(gameId, root);
-  await fs14.mkdir(root, { recursive: true });
+  await fs17.mkdir(root, { recursive: true });
   const updatedAt = Date.now();
   const profile = {
     ...input,
@@ -2563,9 +2770,9 @@ async function writeGameBrowserProfile(gameId, input) {
 }
 async function deleteGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
-  if (!existsSync7(root)) return;
+  if (!existsSync9(root)) return;
   assertDataPath(gameId, root);
-  await fs14.rm(root, { recursive: true, force: true });
+  await fs17.rm(root, { recursive: true, force: true });
 }
 
 // src/server.ts
@@ -2580,7 +2787,7 @@ function sendJson(res, status, body) {
   res.end(payload);
 }
 function mimeFor(filePath) {
-  const ext = path17.extname(filePath).toLowerCase();
+  const ext = path20.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
     ".js": "application/javascript",
@@ -2631,7 +2838,7 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 403, { error: "Forbidden" });
     return true;
   }
-  if (!existsSync8(absPath)) {
+  if (!existsSync10(absPath)) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
@@ -2642,7 +2849,7 @@ async function serveStaticGames(req, res, urlPath) {
     "Cache-Control": "public, max-age=3600"
   });
   if (isHtml) {
-    let raw = await fs15.readFile(absPath, "utf-8");
+    let raw = await fs18.readFile(absPath, "utf-8");
     if (isUnityGameHtml(raw)) {
       raw = injectUnityPatches(raw);
     }
@@ -2718,7 +2925,7 @@ function createServer() {
       const progressMatch = pathname.match(/^\/api\/offline\/([^/]+)\/progress$/);
       if (progressMatch && req.method === "GET") {
         const gameId = decodeURIComponent(progressMatch[1]);
-        const job = getActiveJobForGame(gameId);
+        const job = getProgressJobForGame(gameId);
         if (!job) {
           sendJson(res, 200, { state: "idle", progress: 0, message: "No active job" });
           return;
