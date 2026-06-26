@@ -8,7 +8,11 @@ import {
 } from '$lib/utils/offline-downloader';
 import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
-import { staticOfflineFileExists, staticOfflinePlayUrl } from '$lib/utils/offline-play-url';
+import {
+	resolveStaticOfflinePlayUrl,
+	staticOfflineFileExists,
+	staticOfflinePlayUrl
+} from '$lib/utils/offline-play-url';
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -133,7 +137,7 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 /** Resolve the iframe src for playing a game. */
 export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	const metadata = await loadGameMetadata(gameId);
-	const staticOfflineUrl = staticOfflinePlayUrl(gameId, base);
+	const staticOfflineUrl = await resolveStaticOfflinePlayUrl(gameId, base);
 
 	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;

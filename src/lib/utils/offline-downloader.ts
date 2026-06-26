@@ -192,10 +192,11 @@ export async function cancelGameDownload(
 /** Resolve play URL for an offline copy based on the active backend. */
 export async function getOfflinePlayUrl(gameId: string): Promise<string | null> {
 	const { base } = await import('$app/paths');
-	const { staticOfflineFileExists, staticOfflinePlayUrl } = await import('./offline-play-url');
+	const { resolveStaticOfflineEntry, resolveStaticOfflinePlayUrl, staticOfflineFileExists } =
+		await import('./offline-play-url');
 
 	if (isBundledOfflineGame(gameId)) {
-		return staticOfflinePlayUrl(gameId, base);
+		return resolveStaticOfflinePlayUrl(gameId, base);
 	}
 
 	const backend = await getOfflineBackend();
@@ -211,12 +212,13 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 
 	if (backend === 'puller') {
 		if (await staticOfflineFileExists(gameId, base)) {
-			return staticOfflinePlayUrl(gameId, base);
+			return resolveStaticOfflinePlayUrl(gameId, base);
 		}
 		const status = await fetchPullerGameOfflineStatus(gameId);
 		if (status?.offline) {
 			const { pullerOfflinePlayUrl } = await import('./offline-downloader-puller');
-			return pullerOfflinePlayUrl(gameId, base);
+			const entry = await resolveStaticOfflineEntry(gameId, base);
+			return pullerOfflinePlayUrl(gameId, base, entry);
 		}
 		return null;
 	}

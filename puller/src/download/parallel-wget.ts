@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { DOWNLOAD_CONCURRENCY, WGET_USER_AGENT } from '../config.js';
+import { DOWNLOAD_CONCURRENCY, wgetCommonArgs } from '../config.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -37,8 +37,7 @@ async function downloadOne(url: string, destPath: string): Promise<ParallelDownl
 			'-q',
 			'--tries=2',
 			'--timeout=90',
-			'-U',
-			WGET_USER_AGENT,
+			...wgetCommonArgs(),
 			'-O',
 			destPath,
 			url
@@ -109,8 +108,7 @@ export async function fetchTextForDiscovery(url: string): Promise<string | null>
 			'-qO-',
 			'--tries=2',
 			'--timeout=45',
-			'-U',
-			WGET_USER_AGENT,
+			...wgetCommonArgs(),
 			url
 		]);
 		return stdout;

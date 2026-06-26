@@ -167,10 +167,18 @@ export async function pollPullerDownloadUntilDone(
 	onProgress: (p: DownloadProgress) => void,
 	intervalMs = 800
 ): Promise<DownloadProgress> {
+	let sawActive = false;
 	for (;;) {
 		const p = await fetchPullerDownloadProgress(gameId);
 		onProgress(p);
-		if (p.state === 'done' || p.state === 'error' || p.state === 'cancelled' || p.state === 'idle') {
+		if (p.state === 'pending' || p.state === 'running') {
+			sawActive = true;
+		}
+		if (p.state === 'done' || p.state === 'error' || p.state === 'cancelled') {
+			invalidatePullerOfflineStatusCache();
+			return p;
+		}
+		if (p.state === 'idle' && !sawActive) {
 			invalidatePullerOfflineStatusCache();
 			return p;
 		}
@@ -194,11 +202,16 @@ export function shouldUsePullerGameProxy(): boolean {
 	return window.location.protocol === 'http:' || window.location.protocol === 'https:';
 }
 
-export function pullerOfflinePlayUrl(gameId: string, basePath = ''): string {
+export function pullerOfflinePlayUrl(
+	gameId: string,
+	basePath = '',
+	entry = 'index.html'
+): string {
+	const safeEntry = entry.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
 	if (shouldUsePullerGameProxy()) {
-		return `${getPullerGameProxyPrefix(basePath)}/${encodeURIComponent(gameId)}/offline/index.html`;
+		return `${getPullerGameProxyPrefix(basePath)}/${encodeURIComponent(gameId)}/offline/${safeEntry}`;
 	}
-	return `${getPullerBaseUrl()}/games/${encodeURIComponent(gameId)}/offline/index.html`;
+	return `${getPullerBaseUrl()}/games/${encodeURIComponent(gameId)}/offline/${safeEntry}`;
 }
 
 /** Same-origin proxied Unity build (splash stripped) when puller is running. */
