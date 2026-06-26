@@ -1,4 +1,4 @@
-export type JobState = 'pending' | 'running' | 'done' | 'error';
+export type JobState = 'pending' | 'running' | 'done' | 'error' | 'cancelled';
 
 export interface DownloadJob {
   gameId: string;
@@ -40,15 +40,22 @@ export function createJob(gameId: string): DownloadJob {
   return job;
 }
 
+export function clearActiveJob(gameId: string): void {
+	activeByGame.delete(gameId);
+}
+
 export function updateJob(
-  gameId: string,
-  patch: Partial<Pick<DownloadJob, 'state' | 'progress' | 'message' | 'error' | 'finishedAt'>>
+	gameId: string,
+	patch: Partial<Pick<DownloadJob, 'state' | 'progress' | 'message' | 'error' | 'finishedAt'>>
 ): void {
-  const jobId = activeByGame.get(gameId);
-  if (!jobId) return;
-  const job = jobs.get(jobId);
-  if (!job) return;
-  Object.assign(job, patch);
+	const jobId = activeByGame.get(gameId);
+	if (!jobId) return;
+	const job = jobs.get(jobId);
+	if (!job) return;
+	Object.assign(job, patch);
+	if (patch.state === 'done' || patch.state === 'error' || patch.state === 'cancelled') {
+		activeByGame.delete(gameId);
+	}
 }
 
 export function isGameDownloading(gameId: string): boolean {

@@ -6,8 +6,7 @@ export const DEFAULT_CDN_BASE = 'https://cdn.jsdelivr.net/gh/777kze777/shreh@mai
 /** Timeout for page navigation (ms). */
 export const PAGE_TIMEOUT_MS = 60_000;
 
-/** Concurrent download limit. */
-export const DOWNLOAD_CONCURRENCY = 4;
+export { DOWNLOAD_CONCURRENCY } from '../config.js';
 
 /** Resolve output directory for a given game id. */
 export function outDirForGame(gamesDataDir: string, gameId: string): string {

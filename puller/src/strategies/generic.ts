@@ -1,18 +1,19 @@
 import fs from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { execFile, spawn } from 'node:child_process';
-import { promisify } from 'node:util';
+import { spawn } from 'node:child_process';
+import { readDownloadCache } from '../download-cache.js';
+import { throwIfCancelled } from '../cancel-registry.js';
 import { catalogOnlineDir, offlineDir } from '../catalog.js';
+import { WGET_USER_AGENT } from '../config.js';
+import { discoverAllAssetUrls } from '../download/discover-all.js';
+import { downloadFilesParallel } from '../download/parallel-wget.js';
+import {
+	expandBuildManifest,
+	findUnityLoaderBuildJson,
+	isUnityShell
+} from '../unity/discover-assets.js';
 import type { ProgressReporter } from './types.js';
-
-const execFileAsync = promisify(execFile);
-
-const WGET_UA =
-	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-
-const ASSET_EXT =
-	/(?:\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot))(?:[?#]|$)/i;
 
 function extractIframeSrc(html: string): string | null {
 	const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
@@ -142,49 +143,6 @@ async function runWget(args: string[]): Promise<number> {
 	});
 }
 
-async function downloadFile(url: string, destPath: string): Promise<boolean> {
-	if (existsSync(destPath)) {
-		try {
-			const stat = await fs.stat(destPath);
-			if (stat.isFile() && stat.size > 0) return true;
-		} catch {
-			// re-download
-		}
-	}
-
-	await fs.mkdir(path.dirname(destPath), { recursive: true });
-	try {
-		await execFileAsync('wget', [
-			'-q',
-			'--tries=3',
-			'--timeout=120',
-			'-U',
-			WGET_UA,
-			'-O',
-			destPath,
-			url
-		]);
-		const stat = await fs.stat(destPath);
-		if (stat.size === 0) {
-			await fs.rm(destPath, { force: true });
-			return false;
-		}
-		const head = (await fs.readFile(destPath)).subarray(0, 32).toString('utf8');
-		if (head.startsWith('<!DOCTYPE') || head.startsWith('<html')) {
-			await fs.rm(destPath, { force: true });
-			return false;
-		}
-		return true;
-	} catch {
-		try {
-			await fs.rm(destPath, { force: true });
-		} catch {
-			// ignore
-		}
-		return false;
-	}
-}
-
 function localPathForUrl(baseUrl: string, assetUrl: string, outDir: string): string {
 	const base = new URL(baseUrl);
 	const abs = new URL(assetUrl, base);
@@ -204,33 +162,6 @@ function localPathForUrl(baseUrl: string, assetUrl: string, outDir: string): str
 	return path.join(outDir, ...relParts);
 }
 
-function collectAssetRefs(text: string, fileUrl: string, queue: Set<string>, seen: Set<string>): void {
-	const patterns = [
-		/(?:href|src)=["']([^"']+)["']/gi,
-		/url\(\s*['"]?([^'")]+)['"]?\s*\)/gi,
-		/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/gi,
-		/"(?:dataUrl|wasmCodeUrl|wasmFrameworkUrl|codeUrl|frameworkUrl|symbolsUrl|streamingAssetsUrl)"\s*:\s*"([^"]+)"/gi,
-		/["']([^"']+\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot)(?:\?[^"']*)?)["']/gi
-	];
-
-	for (const pattern of patterns) {
-		pattern.lastIndex = 0;
-		let m: RegExpExecArray | null;
-		while ((m = pattern.exec(text)) !== null) {
-			const ref = m[1]?.trim();
-			if (!ref || ref.startsWith('data:') || ref.startsWith('blob:') || ref.startsWith('#')) continue;
-			try {
-				const abs = new URL(ref, fileUrl).href;
-				if (!ASSET_EXT.test(abs)) continue;
-				if (seen.has(abs)) continue;
-				queue.add(abs);
-			} catch {
-				// skip invalid URL
-			}
-		}
-	}
-}
-
 async function validateRequiredAssets(
 	outDir: string,
 	baseUrl: string,
@@ -238,10 +169,10 @@ async function validateRequiredAssets(
 ): Promise<void> {
 	const missing: string[] = [];
 
-	if (/UnityLoader/i.test(indexHtml)) {
-		const match = indexHtml.match(/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/i);
-		if (match?.[1]) {
-			const buildJsonUrl = new URL(match[1], baseUrl).href;
+	if (isUnityShell(indexHtml)) {
+		const buildJsonRel = findUnityLoaderBuildJson(indexHtml);
+		if (buildJsonRel) {
+			const buildJsonUrl = new URL(buildJsonRel, baseUrl).href;
 			const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
 			if (!existsSync(buildJsonPath)) {
 				missing.push(buildJsonPath);
@@ -251,16 +182,8 @@ async function validateRequiredAssets(
 						string,
 						string
 					>;
-					for (const key of [
-						'dataUrl',
-						'wasmCodeUrl',
-						'wasmFrameworkUrl',
-						'codeUrl',
-						'frameworkUrl'
-					]) {
-						const rel = buildMeta[key];
-						if (!rel) continue;
-						const assetPath = localPathForUrl(buildJsonUrl, rel, outDir);
+					for (const assetUrl of expandBuildManifest(buildMeta, buildJsonUrl)) {
+						const assetPath = localPathForUrl(baseUrl, assetUrl, outDir);
 						if (!existsSync(assetPath)) missing.push(assetPath);
 					}
 				} catch {
@@ -269,8 +192,12 @@ async function validateRequiredAssets(
 			}
 		}
 
-		if (!existsSync(path.join(outDir, 'Build', 'UnityLoader.js'))) {
-			missing.push(path.join(outDir, 'Build', 'UnityLoader.js'));
+		if (
+			/UnityLoader/i.test(indexHtml) &&
+			!existsSync(path.join(outDir, 'Build', 'UnityLoader.js')) &&
+			!existsSync(path.join(outDir, 'UnityLoader.js'))
+		) {
+			missing.push(path.join(outDir, 'Build/UnityLoader.js'));
 		}
 	}
 
@@ -279,57 +206,55 @@ async function validateRequiredAssets(
 	}
 }
 
-async function fetchAllReferencedAssets(
+async function discoverAndDownloadAssets(
 	outDir: string,
 	baseUrl: string,
-	onProgress: ProgressReporter
+	onProgress: ProgressReporter,
+	signal?: AbortSignal
 ): Promise<void> {
-	onProgress(65, 'Fetching all referenced assets…');
+	throwIfCancelled(signal);
+	onProgress(55, 'Discovering all asset URLs…');
 
-	const indexPath = path.join(outDir, 'index.html');
-	const indexHtml = await fs.readFile(indexPath, 'utf-8');
-	const queue = new Set<string>();
-	const seen = new Set<string>();
+	const urls = await discoverAllAssetUrls(
+		{ outDir, baseUrl, unityOptimized: true },
+		localPathForUrl
+	);
+	throwIfCancelled(signal);
 
-	collectAssetRefs(indexHtml, baseUrl, queue, seen);
+	const tasks = [...urls].map((url) => ({
+		url,
+		destPath: localPathForUrl(baseUrl, url, outDir)
+	}));
 
-	let fetched = 0;
-	for (let pass = 0; pass < 24 && queue.size > 0; pass++) {
-		const batch = [...queue];
-		queue.clear();
+	onProgress(65, `Downloading ${tasks.length} asset(s) in parallel…`);
 
-		for (const url of batch) {
-			if (seen.has(url)) continue;
-			seen.add(url);
-
-			const dest = localPathForUrl(baseUrl, url, outDir);
-			const ok = await downloadFile(url, dest);
-			if (!ok) continue;
-
-			fetched++;
-			if (fetched % 5 === 0) {
-				onProgress(70 + Math.min(20, Math.floor(fetched / 3)), `Downloaded ${fetched} asset(s)…`);
-			}
-
-			if (/\.(html?|js|css|json)$/i.test(dest)) {
-				try {
-					const text = await fs.readFile(dest, 'utf-8');
-					collectAssetRefs(text, url, queue, seen);
-				} catch {
-					// binary mislabeled
-				}
+	let lastPct = 65;
+	await downloadFilesParallel(tasks, {
+		signal,
+		onProgress: (done, total) => {
+			const pct = 65 + Math.min(25, Math.floor((done / Math.max(total, 1)) * 25));
+			if (pct > lastPct) {
+				lastPct = pct;
+				onProgress(pct, `Downloaded ${done}/${total} asset(s)…`);
 			}
 		}
-	}
+	});
 
-	onProgress(92, `Verifying required assets (${fetched} downloaded)…`);
+	throwIfCancelled(signal);
+	onProgress(92, 'Verifying Unity / required assets…');
+	const indexHtml = await fs.readFile(path.join(outDir, 'index.html'), 'utf-8');
 	await validateRequiredAssets(outDir, baseUrl, indexHtml);
 }
 
-export async function pullGenericGame(gameId: string, onProgress: ProgressReporter): Promise<void> {
-	const onlineIndex = path.join(catalogOnlineDir(gameId), 'index.html');
+export async function pullGenericGame(
+	gameId: string,
+	onProgress: ProgressReporter,
+	signal?: AbortSignal
+): Promise<void> {
+	const onlineIndex = path.join(catalogOnlineDir(gameId), 'online/index.html');
 	const out = offlineDir(gameId);
 
+	throwIfCancelled(signal);
 	onProgress(5, 'Reading online shell…');
 	const html = await fs.readFile(onlineIndex, 'utf-8');
 	const iframeSrc = extractIframeSrc(html);
@@ -345,7 +270,10 @@ export async function pullGenericGame(gameId: string, onProgress: ProgressReport
 	const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
 
 	onProgress(15, `Mirroring ${mirrorUrl}…`);
-	await fs.rm(out, { recursive: true, force: true });
+	const existingCache = await readDownloadCache(gameId);
+	if (!existingCache) {
+		await fs.rm(out, { recursive: true, force: true });
+	}
 	await fs.mkdir(out, { recursive: true });
 
 	const wgetArgs = [
@@ -359,13 +287,14 @@ export async function pullGenericGame(gameId: string, onProgress: ProgressReport
 		'-e',
 		'robots=off',
 		'-U',
-		WGET_UA,
+		WGET_USER_AGENT,
 		'--tries=3',
 		'--timeout=120',
 		mirrorUrl
 	];
 
 	const code = await runWget(wgetArgs);
+	throwIfCancelled(signal);
 
 	onProgress(50, 'Preparing offline layout…');
 	let baseUrl: string;
@@ -386,7 +315,7 @@ export async function pullGenericGame(gameId: string, onProgress: ProgressReport
 		throw new Error('Mirror completed but no index.html found');
 	}
 
-	await fetchAllReferencedAssets(out, baseUrl, onProgress);
+	await discoverAndDownloadAssets(out, baseUrl, onProgress, signal);
 
 	onProgress(100, 'Download complete');
 }

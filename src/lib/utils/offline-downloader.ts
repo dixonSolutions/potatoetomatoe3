@@ -45,6 +45,7 @@ export function isBundledOfflineGame(gameId: string): boolean {
 
 import {
 	deletePullerOfflineCopy,
+	cancelPullerGameDownload,
 	fetchPullerDownloadProgress,
 	fetchPullerGameOfflineStatus,
 	fetchPullerOfflineStatuses,
@@ -56,6 +57,7 @@ import {
 } from './offline-downloader-puller';
 import {
 	checkOnlineShellExists,
+	cancelBrowserGameDownload,
 	deleteBrowserOfflineCopy,
 	fetchBrowserGameOfflineStatus,
 	fetchBrowserOfflineStatuses,
@@ -167,6 +169,23 @@ export async function pollDownloadUntilDone(
 		return pollBrowserDownloadUntilDone(gameId, onProgress, Math.min(intervalMs, 400));
 	}
 	return { state: 'error', progress: 0, message: 'Unavailable', error: 'No offline backend' };
+}
+
+/** Cancel an in-progress download. When discardCache is false, partial files are kept for resume. */
+export async function cancelGameDownload(
+	gameId: string,
+	discardCache: boolean
+): Promise<void> {
+	const backend = await getOfflineBackend(true);
+	if (backend === 'puller') {
+		await cancelPullerGameDownload(gameId, discardCache);
+		return;
+	}
+	if (backend === 'browser') {
+		await cancelBrowserGameDownload(gameId, discardCache);
+		return;
+	}
+	throw new Error('Offline downloads are not available in this environment');
 }
 
 /** Resolve play URL for an offline copy based on the active backend. */

@@ -6,10 +6,12 @@ export interface GameOfflineStatus {
 	online: boolean;
 	offline: boolean;
 	downloading: boolean;
+	partialCache?: boolean;
+	cacheFileCount?: number;
 }
 
 export interface DownloadProgress {
-	state: 'idle' | 'pending' | 'running' | 'done' | 'error';
+	state: 'idle' | 'pending' | 'running' | 'done' | 'error' | 'cancelled';
 	progress: number;
 	message: string;
 	error?: string;
@@ -140,6 +142,26 @@ export async function deletePullerOfflineCopy(gameId: string): Promise<void> {
 	invalidatePullerOfflineStatusCache();
 }
 
+export async function cancelPullerGameDownload(
+	gameId: string,
+	discardCache: boolean
+): Promise<{ cancelled: boolean; message: string }> {
+	const res = await fetch(
+		`${getPullerBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/cancel`,
+		{
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ discardCache })
+		}
+	);
+	if (!res.ok) {
+		const body = (await res.json().catch(() => ({}))) as { error?: string };
+		throw new Error(body.error ?? `Cancel failed (${res.status})`);
+	}
+	invalidatePullerOfflineStatusCache();
+	return (await res.json()) as { cancelled: boolean; message: string };
+}
+
 export async function pollPullerDownloadUntilDone(
 	gameId: string,
 	onProgress: (p: DownloadProgress) => void,
@@ -148,7 +170,7 @@ export async function pollPullerDownloadUntilDone(
 	for (;;) {
 		const p = await fetchPullerDownloadProgress(gameId);
 		onProgress(p);
-		if (p.state === 'done' || p.state === 'error' || p.state === 'idle') {
+		if (p.state === 'done' || p.state === 'error' || p.state === 'cancelled' || p.state === 'idle') {
 			invalidatePullerOfflineStatusCache();
 			return p;
 		}

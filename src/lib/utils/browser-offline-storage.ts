@@ -15,6 +15,10 @@ export interface StoredGameMeta {
 	fileCount: number;
 	downloading: boolean;
 	externalIframe?: boolean;
+	/** Incomplete download kept for resume. */
+	partialCache?: boolean;
+	cachedFileCount?: number;
+	totalFileCount?: number;
 }
 
 function fileKey(gameId: string, relativePath: string): string {
@@ -119,7 +123,29 @@ export async function deleteStoredGame(gameId: string): Promise<void> {
 
 export async function isBrowserGameDownloaded(gameId: string): Promise<boolean> {
 	const meta = await getGameMeta(gameId);
-	return Boolean(meta?.downloadedAt && meta.fileCount > 0);
+	return Boolean(meta?.downloadedAt && meta.fileCount > 0 && !meta.partialCache);
+}
+
+export async function countStoredGameFiles(gameId: string): Promise<number> {
+	const db = await openDb();
+	return new Promise((resolve, reject) => {
+		const tx = db.transaction(FILES_STORE, 'readonly');
+		tx.onerror = () => reject(tx.error ?? new Error('IndexedDB count failed'));
+		const prefix = `${gameId}::`;
+		const req = tx.objectStore(FILES_STORE).getAllKeys();
+		req.onsuccess = () => {
+			const keys = (req.result as string[]) ?? [];
+			resolve(keys.filter((k) => k.startsWith(prefix)).length);
+		};
+		req.onerror = () => reject(req.error ?? new Error('IndexedDB count failed'));
+	});
+}
+
+export async function hasBrowserPartialCache(gameId: string): Promise<boolean> {
+	const meta = await getGameMeta(gameId);
+	if (meta?.partialCache && (meta.cachedFileCount ?? meta.fileCount) > 0) return true;
+	const count = await countStoredGameFiles(gameId);
+	return count > 0 && !meta?.downloadedAt;
 }
 
 export function guessMimeType(relativePath: string): string {

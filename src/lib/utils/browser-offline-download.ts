@@ -3,9 +3,12 @@
 import { base } from '$app/paths';
 import {
 	deleteStoredGame,
+	getGameFile,
 	getGameMeta,
 	guessMimeType,
 	isBrowserGameDownloaded,
+	hasBrowserPartialCache,
+	countStoredGameFiles,
 	listStoredGameIds,
 	putGameFile,
 	setGameMeta,
@@ -17,6 +20,19 @@ const ASSET_PATTERN =
 	/(?:href|src)=["']([^"']+\.(?:js|css|png|jpg|jpeg|gif|webp|wasm|json|br|mp3|ogg|wav|svg|ico|html?))["']/gi;
 
 const progressByGame = new Map<string, DownloadProgress>();
+const abortByGame = new Map<string, AbortController>();
+const discardOnCancel = new Map<string, boolean>();
+
+export class BrowserDownloadCancelledError extends Error {
+	constructor(message = 'Download cancelled') {
+		super(message);
+		this.name = 'BrowserDownloadCancelledError';
+	}
+}
+
+function throwIfAborted(signal?: AbortSignal): void {
+	if (signal?.aborted) throw new BrowserDownloadCancelledError();
+}
 
 /** Use `$app/paths` base — `import.meta.env.BASE_URL` is `./` in static builds and breaks absolute URLs. */
 function appBase(): string {
@@ -93,7 +109,10 @@ function scanTextForAssets(
 	}
 }
 
-async function collectSameOriginFiles(gameId: string): Promise<{
+async function collectSameOriginFiles(
+	gameId: string,
+	signal?: AbortSignal
+): Promise<{
 	files: Map<string, ArrayBuffer>;
 	externalIframe: boolean;
 }> {
@@ -103,25 +122,31 @@ async function collectSameOriginFiles(gameId: string): Promise<{
 	let externalIframe = false;
 
 	while (queue.size > 0) {
+		throwIfAborted(signal);
 		const rel = queue.values().next().value as string;
 		queue.delete(rel);
 		if (seen.has(rel)) continue;
 		seen.add(rel);
 
+		const storedPath = toStoredPath(rel);
+		const cached = await getGameFile(gameId, storedPath);
+		let buffer: ArrayBuffer;
 		const url = absoluteGameOnlineUrl(gameId, rel);
-		const res = await fetch(url);
-		if (!res.ok) continue;
 
-		let buffer = await res.arrayBuffer();
+		if (cached?.data) {
+			buffer = cached.data;
+		} else {
+			const res = await fetch(url, { signal });
+			if (!res.ok) continue;
+			buffer = await res.arrayBuffer();
+		}
 
-		const mime = res.headers.get('content-type') ?? guessMimeType(rel);
+		const mime = guessMimeType(rel);
 		if (/html/i.test(mime) || rel.endsWith('.html') || rel.endsWith('.htm')) {
 			let html = new TextDecoder().decode(buffer);
 			if (rel === 'index.html') {
 				html = patchShellHtml(html);
 				buffer = new TextEncoder().encode(html).buffer;
-			}
-			if (rel === 'index.html') {
 				const iframeSrc = extractIframeSrc(html);
 				if (iframeSrc) {
 					try {
@@ -133,13 +158,13 @@ async function collectSameOriginFiles(gameId: string): Promise<{
 				}
 			}
 			scanTextForAssets(gameId, html, url, queue);
-			files.set(toStoredPath(rel), buffer);
+			files.set(storedPath, buffer);
 			continue;
 		} else if (/javascript|json|css/i.test(mime) || /\.(js|css|json)$/i.test(rel)) {
 			const text = new TextDecoder().decode(buffer);
 			scanTextForAssets(gameId, text, url, queue);
 		}
-		files.set(toStoredPath(rel), buffer);
+		files.set(storedPath, buffer);
 	}
 
 	return { files, externalIframe };
@@ -165,11 +190,15 @@ export async function checkOnlineShellExists(gameId: string): Promise<boolean> {
 export async function fetchBrowserGameOfflineStatus(gameId: string): Promise<GameOfflineStatus> {
 	const online = await checkOnlineShellExists(gameId);
 	const meta = await getGameMeta(gameId);
-	const offline = Boolean(meta?.downloadedAt && meta.fileCount > 0);
+	const partialCache = Boolean(meta?.partialCache) || (await hasBrowserPartialCache(gameId));
+	const offline = Boolean(meta?.downloadedAt && meta.fileCount > 0 && !meta?.partialCache);
+	const cacheFileCount = meta?.cachedFileCount ?? (partialCache ? await countStoredGameFiles(gameId) : 0);
 	return {
 		online,
 		offline,
-		downloading: Boolean(meta?.downloading)
+		downloading: Boolean(meta?.downloading),
+		partialCache: partialCache && !offline,
+		cacheFileCount: cacheFileCount > 0 ? cacheFileCount : undefined
 	};
 }
 
@@ -192,41 +221,77 @@ export async function startBrowserGameDownload(
 		return { started: false, message: 'Download already in progress' };
 	}
 
+	const controller = new AbortController();
+	abortByGame.set(gameId, controller);
+	discardOnCancel.delete(gameId);
+
 	setBrowserProgress(gameId, { state: 'pending', progress: 0, message: 'Starting…' });
+	const prior = await getGameMeta(gameId);
 	await setGameMeta(gameId, {
-		downloadedAt: 0,
-		fileCount: 0,
-		downloading: true
+		downloadedAt: prior?.partialCache ? 0 : (prior?.downloadedAt ?? 0),
+		fileCount: prior?.cachedFileCount ?? prior?.fileCount ?? 0,
+		downloading: true,
+		partialCache: prior?.partialCache,
+		cachedFileCount: prior?.cachedFileCount,
+		totalFileCount: prior?.totalFileCount,
+		externalIframe: prior?.externalIframe
 	});
 
-	void runBrowserDownload(gameId);
+	void runBrowserDownload(gameId, controller.signal);
 	return { started: true, message: 'Download started' };
 }
 
-async function runBrowserDownload(gameId: string): Promise<void> {
+export async function cancelBrowserGameDownload(
+	gameId: string,
+	discardCache: boolean
+): Promise<void> {
+	discardOnCancel.set(gameId, discardCache);
+	abortByGame.get(gameId)?.abort();
+	if (discardCache) {
+		await deleteStoredGame(gameId);
+		progressByGame.delete(gameId);
+	}
+	abortByGame.delete(gameId);
+}
+
+async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<void> {
 	try {
 		setBrowserProgress(gameId, { state: 'running', progress: 5, message: 'Scanning online shell…' });
-		const { files, externalIframe } = await collectSameOriginFiles(gameId);
+		const { files, externalIframe } = await collectSameOriginFiles(gameId, signal);
 		if (files.size === 0) {
 			throw new Error('No same-origin files found for this game');
 		}
 
 		let written = 0;
+		const total = files.size;
 		for (const [path, data] of files) {
+			throwIfAborted(signal);
 			written++;
-			const pct = Math.min(95, Math.round((written / files.size) * 90) + 5);
+			const pct = Math.min(95, Math.round((written / total) * 90) + 5);
 			setBrowserProgress(gameId, {
 				state: 'running',
 				progress: pct,
-				message: `Saving ${written}/${files.size}…`
+				message: `Saving ${written}/${total}…`
 			});
 			await putGameFile(gameId, path, guessMimeType(path), data);
+			await setGameMeta(gameId, {
+				downloadedAt: 0,
+				fileCount: written,
+				downloading: true,
+				partialCache: true,
+				cachedFileCount: written,
+				totalFileCount: total,
+				externalIframe
+			});
 		}
 
 		const meta: StoredGameMeta = {
 			downloadedAt: Date.now(),
 			fileCount: files.size,
 			downloading: false,
+			partialCache: false,
+			cachedFileCount: files.size,
+			totalFileCount: files.size,
 			externalIframe
 		};
 		await setGameMeta(gameId, meta);
@@ -236,10 +301,41 @@ async function runBrowserDownload(gameId: string): Promise<void> {
 			: 'Download complete';
 		setBrowserProgress(gameId, { state: 'done', progress: 100, message });
 	} catch (error) {
+		const discard = discardOnCancel.get(gameId) ?? false;
+		discardOnCancel.delete(gameId);
+		abortByGame.delete(gameId);
+
+		if (error instanceof BrowserDownloadCancelledError || signal.aborted) {
+			if (discard) {
+				await deleteStoredGame(gameId);
+				setBrowserProgress(gameId, {
+					state: 'cancelled',
+					progress: 0,
+					message: 'Cancelled — cache discarded'
+				});
+			} else {
+				const cachedFileCount = await countStoredGameFiles(gameId);
+				await setGameMeta(gameId, {
+					downloadedAt: 0,
+					fileCount: cachedFileCount,
+					downloading: false,
+					partialCache: cachedFileCount > 0,
+					cachedFileCount
+				});
+				setBrowserProgress(gameId, {
+					state: 'cancelled',
+					progress: 0,
+					message: 'Cancelled — partial cache kept for next time'
+				});
+			}
+			return;
+		}
+
 		await setGameMeta(gameId, {
 			downloadedAt: 0,
 			fileCount: 0,
-			downloading: false
+			downloading: false,
+			partialCache: false
 		});
 		setBrowserProgress(gameId, {
 			state: 'error',
@@ -247,6 +343,8 @@ async function runBrowserDownload(gameId: string): Promise<void> {
 			message: 'Download failed',
 			error: error instanceof Error ? error.message : 'Download failed'
 		});
+	} finally {
+		abortByGame.delete(gameId);
 	}
 }
 
@@ -258,7 +356,12 @@ export async function pollBrowserDownloadUntilDone(
 	for (;;) {
 		const p = getBrowserDownloadProgress(gameId);
 		onProgress(p);
-		if (p.state === 'done' || p.state === 'error' || p.state === 'idle') {
+		if (
+			p.state === 'done' ||
+			p.state === 'error' ||
+			p.state === 'cancelled' ||
+			p.state === 'idle'
+		) {
 			return p;
 		}
 		await new Promise((r) => setTimeout(r, intervalMs));
@@ -266,6 +369,8 @@ export async function pollBrowserDownloadUntilDone(
 }
 
 export async function deleteBrowserOfflineCopy(gameId: string): Promise<void> {
+	abortByGame.get(gameId)?.abort();
+	abortByGame.delete(gameId);
 	await deleteStoredGame(gameId);
 	progressByGame.delete(gameId);
 }

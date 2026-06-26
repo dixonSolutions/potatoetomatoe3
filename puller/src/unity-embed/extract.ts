@@ -128,7 +128,7 @@ export function urlToRelativePath(url: string, cdnBase: string): string | null {
 /**
  * Build download URL list from parsed metadata + network capture.
  */
-export function buildAssetUrls(info: ExtractedGameInfo): string[] {
+export function buildAssetUrls(info: ExtractedGameInfo, productName = 'Shrek2'): string[] {
 	const urls = new Set<string>();
 
 	for (const url of info.networkAssetUrls) {
@@ -142,14 +142,14 @@ export function buildAssetUrls(info: ExtractedGameInfo): string[] {
 	}
 
 	const buildBase = `${info.cdnBase}/Build`;
-	urls.add(`${buildBase}/Shrek2.framework.js`);
-	urls.add(`${buildBase}/Shrek2.loader.js`);
+	urls.add(`${buildBase}/${productName}.framework.js`);
+	urls.add(`${buildBase}/${productName}.loader.js`);
 
 	for (let i = 0; i < info.dataParts; i++) {
-		urls.add(`${buildBase}/Shrek2.data.br.part${i}`);
+		urls.add(`${buildBase}/${productName}.data.br.part${i}`);
 	}
 	for (let i = 0; i < info.wasmParts; i++) {
-		urls.add(`${buildBase}/Shrek2.wasm.br.part${i}`);
+		urls.add(`${buildBase}/${productName}.wasm.br.part${i}`);
 	}
 
 	for (const media of info.mediaUrls) {

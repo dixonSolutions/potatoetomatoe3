@@ -8,6 +8,8 @@ export interface GameStatus {
   online: boolean;
   offline: boolean;
   downloading: boolean;
+  partialCache?: boolean;
+  cacheFileCount?: number;
 }
 
 let cachedGameIds: string[] | null = null;

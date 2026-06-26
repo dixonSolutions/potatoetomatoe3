@@ -7,6 +7,9 @@ import type { APIRequestContext, Page } from 'playwright';
 import { DOWNLOAD_CONCURRENCY } from './config.js';
 import { buildAssetUrls, urlToRelativePath, type ExtractedGameInfo } from './extract.js';
 import { isDownloadableMediaUrl } from './scan-assets.js';
+import { detectPartCountParallel } from '../download/parallel-wget.js';
+import { throwIfCancelled, DownloadCancelledError } from '../cancel-registry.js';
+import { inferBuildProductName } from '../unity/discover-assets.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -26,24 +29,21 @@ export interface DownloadResult {
 }
 
 /**
- * Auto-detect part count by probing until 404.
+ * Auto-detect part count by probing until 404 (parallel HEAD requests).
  */
 export async function detectPartCount(
 	request: APIRequestContext,
 	baseUrl: string,
 	hint: number
 ): Promise<number> {
-	let count = 0;
-	const maxProbe = Math.max(hint + 2, 16);
-
-	for (let i = 0; i < maxProbe; i++) {
-		const url = `${baseUrl}.part${i}`;
-		const response = await request.head(url);
-		if (!response.ok()) break;
-		count = i + 1;
-	}
-
-	return count || hint;
+	return detectPartCountParallel(
+		async (url) => {
+			const response = await request.head(url);
+			return response.ok();
+		},
+		baseUrl,
+		hint
+	);
 }
 
 function formatBytes(bytes: number): string {
@@ -173,20 +173,34 @@ async function downloadFile(
 }
 
 /**
- * Download only the given URL list (used for external media pass).
+ * Download only the given URL list (used for external media pass) — parallel workers.
  */
 export async function downloadUrlList(
 	request: APIRequestContext,
 	urls: string[],
 	outDir: string,
 	cdnBase: string,
-	browserPage?: Page
+	browserPage?: Page,
+	signal?: AbortSignal
 ): Promise<DownloadResult[]> {
-	console.log(`[download] Fetching ${urls.length} external file(s)...`);
+	console.log(`[download] Fetching ${urls.length} external file(s) in parallel…`);
 	const results: DownloadResult[] = [];
-	for (const url of urls) {
-		results.push(await downloadFile(request, url, outDir, cdnBase, browserPage, true));
+	const queue = [...urls];
+
+	async function worker(): Promise<void> {
+		while (queue.length > 0) {
+			throwIfCancelled(signal);
+			const url = queue.shift();
+			if (!url) break;
+			results.push(await downloadFile(request, url, outDir, cdnBase, browserPage, true));
+		}
 	}
+
+	const workers = Array.from({ length: Math.min(DOWNLOAD_CONCURRENCY, urls.length || 1) }, () =>
+		worker()
+	);
+	await Promise.all(workers);
+	throwIfCancelled(signal);
 	return results;
 }
 
@@ -196,14 +210,20 @@ export async function downloadUrlList(
 export async function downloadAssets(
 	request: APIRequestContext,
 	info: ExtractedGameInfo,
-	outDir: string
+	outDir: string,
+	signal?: AbortSignal
 ): Promise<DownloadResult[]> {
 	const buildBase = `${info.cdnBase}/Build`;
+	const product =
+		inferBuildProductName(info.gameHtml) ??
+		inferBuildProductName(info.networkAssetUrls.join('\n')) ??
+		'Shrek2';
 
-	info.dataParts = await detectPartCount(request, `${buildBase}/Shrek2.data.br`, info.dataParts);
-	info.wasmParts = await detectPartCount(request, `${buildBase}/Shrek2.wasm.br`, info.wasmParts);
+	throwIfCancelled(signal);
+	info.dataParts = await detectPartCount(request, `${buildBase}/${product}.data.br`, info.dataParts);
+	info.wasmParts = await detectPartCount(request, `${buildBase}/${product}.wasm.br`, info.wasmParts);
 
-	const urls = buildAssetUrls(info);
+	const urls = buildAssetUrls(info, product);
 	console.log(`[download] Fetching ${urls.length} files from embedded game source …`);
 
 	const results: DownloadResult[] = [];
@@ -211,6 +231,7 @@ export async function downloadAssets(
 
 	async function worker(): Promise<void> {
 		while (queue.length > 0) {
+			throwIfCancelled(signal);
 			const url = queue.shift();
 			if (!url) break;
 			results.push(await downloadFile(request, url, outDir, info.cdnBase));
@@ -221,6 +242,7 @@ export async function downloadAssets(
 		worker()
 	);
 	await Promise.all(workers);
+	if (signal?.aborted) throw new DownloadCancelledError();
 
 	return results;
 }

@@ -29,6 +29,16 @@ export const CORS_ORIGIN = process.env.PULLER_CORS_ORIGIN ?? '*';
 /** Minimum bytes for a valid offline index.html. */
 export const MIN_OFFLINE_INDEX_BYTES = 64;
 
+/** wget user agent for mirrors and asset fetches. */
+export const WGET_USER_AGENT =
+	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
+/** Parallel download worker count (override with PULLER_DOWNLOAD_CONCURRENCY). */
+export const DOWNLOAD_CONCURRENCY = Number.parseInt(
+	process.env.PULLER_DOWNLOAD_CONCURRENCY ?? '12',
+	10
+);
+
 /** Games that use the Unity/Google Sites embed pull strategy (see pullStrategy in metadata). */
 export const EMBED_STRATEGY_GAME_IDS = new Set(
   (process.env.EMBED_STRATEGY_GAMES ?? 'shrek-escape').split(',').filter(Boolean)
