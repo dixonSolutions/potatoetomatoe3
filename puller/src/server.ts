@@ -7,7 +7,8 @@ import {
   getAllGameStatuses,
   getGameStatus,
   deleteOfflineGame,
-  startDownload
+  startDownload,
+  cancelDownload
 } from './download-manager.js';
 import { getActiveJobForGame } from './jobs.js';
 import { isValidGameId, loadGameIds, resolveOfflineFilePath } from './catalog.js';
@@ -163,6 +164,29 @@ export function createServer(): http.Server {
         const gameId = decodeURIComponent(downloadMatch[1]);
         const result = await startDownload(gameId);
         sendJson(res, 202, result);
+        return;
+      }
+
+      const cancelMatch = pathname.match(/^\/api\/offline\/([^/]+)\/cancel$/);
+      if (cancelMatch && req.method === 'POST') {
+        const gameId = decodeURIComponent(cancelMatch[1]);
+        const chunks: Buffer[] = [];
+        for await (const chunk of req) {
+          chunks.push(chunk as Buffer);
+        }
+        let discardCache = true;
+        if (chunks.length > 0) {
+          try {
+            const body = JSON.parse(Buffer.concat(chunks).toString('utf-8')) as {
+              discardCache?: boolean;
+            };
+            discardCache = body.discardCache !== false;
+          } catch {
+            // default discard
+          }
+        }
+        const result = await cancelDownload(gameId, discardCache);
+        sendJson(res, 200, result);
         return;
       }
 

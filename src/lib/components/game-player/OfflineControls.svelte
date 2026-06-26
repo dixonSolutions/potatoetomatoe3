@@ -2,7 +2,10 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import Progress from '$lib/components/ui/progress/progress.svelte';
-	import { Download, Trash2, HardDrive, Loader2 } from 'lucide-svelte';
+	import * as AlertDialog from '$lib/components/ui/alert-dialog';
+	import { buttonVariants } from '$lib/components/ui/button/button.svelte';
+	import { cn } from '$lib/utils';
+	import { Download, Trash2, HardDrive, Loader2, X } from 'lucide-svelte';
 	import { toast } from 'svelte-sonner';
 	import {
 		type GameOfflineStatus,
@@ -14,6 +17,7 @@
 		isLocalAppDeployment,
 		refreshGameOfflineState,
 		startGameDownload,
+		cancelGameDownload,
 		deleteOfflineCopy,
 		pollDownloadUntilDone,
 		dispatchOfflineStatusChanged,
@@ -51,6 +55,9 @@
 	let deleting = $state(false);
 	let networkOnline = $state(true);
 	let externalEmbedOnly = $state(false);
+	let cancelDialogOpen = $state(false);
+	let cancelling = $state(false);
+	let pollGeneration = $state(0);
 
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
@@ -64,7 +71,11 @@
 			!downloading &&
 			onlineAvailable
 	);
-	let canDelete = $derived(offlineReady && !bundled && Boolean(status?.offline));
+	let hasPartialCache = $derived(Boolean(status?.partialCache && (status.cacheFileCount ?? 0) > 0));
+	let canCancel = $derived(downloading || Boolean(status?.downloading));
+	let canDelete = $derived(
+		offlineReady && !bundled && (Boolean(status?.offline) || hasPartialCache)
+	);
 
 	async function refreshStatus() {
 		const backend = await getOfflineBackend(true);
@@ -130,29 +141,62 @@
 	async function handleDownload() {
 		if (!canDownload || downloading) return;
 		downloading = true;
+		const generation = ++pollGeneration;
 		progress = { state: 'pending', progress: 0, message: 'Starting…' };
 		dispatchOfflineStatusChanged(gameId, 'download-start');
 		try {
 			await startGameDownload(gameId);
 			const final = await pollDownloadUntilDone(gameId, (p) => {
-				progress = p;
+				if (generation === pollGeneration) progress = p;
 			});
+			if (generation !== pollGeneration) return;
 			if (final.state === 'done') {
 				toast.success('Game downloaded for offline play');
 				status = await refreshGameOfflineState(gameId);
 				dispatchOfflineStatusChanged(gameId, 'download-done');
 				onPlayUrlChange?.();
+			} else if (final.state === 'cancelled') {
+				toast.message(final.message || 'Download cancelled');
+				status = await refreshGameOfflineState(gameId);
+				dispatchOfflineStatusChanged(gameId, 'download-cancel');
 			} else if (final.state === 'error') {
 				toast.error(final.error ?? 'Download failed');
 				dispatchOfflineStatusChanged(gameId, 'download-error');
 				await refreshStatus();
 			}
 		} catch (e) {
+			if (generation !== pollGeneration) return;
 			toast.error(e instanceof Error ? e.message : 'Download failed');
 			dispatchOfflineStatusChanged(gameId, 'download-error');
 			await refreshStatus();
 		} finally {
+			if (generation === pollGeneration) downloading = false;
+		}
+	}
+
+	async function confirmCancelDownload(discardCache: boolean) {
+		cancelDialogOpen = false;
+		cancelling = true;
+		pollGeneration++;
+		try {
+			await cancelGameDownload(gameId, discardCache);
+			progress = {
+				state: 'cancelled',
+				progress: 0,
+				message: discardCache ? 'Cancelled — cache discarded' : 'Cancelled — partial cache kept'
+			};
+			toast.message(
+				discardCache
+					? 'Download cancelled and partial files removed'
+					: 'Download cancelled — saved progress kept for next time'
+			);
+			status = await refreshGameOfflineState(gameId);
+			dispatchOfflineStatusChanged(gameId, 'download-cancel');
+		} catch (e) {
+			toast.error(e instanceof Error ? e.message : 'Cancel failed');
+		} finally {
 			downloading = false;
+			cancelling = false;
 		}
 	}
 
@@ -177,7 +221,9 @@
 	}
 
 	let showDownloadSection = $derived(
-		offlineReady && !bundled && (onlineAvailable || Boolean(status?.offline) || downloading)
+		offlineReady &&
+			!bundled &&
+			(onlineAvailable || Boolean(status?.offline) || downloading || hasPartialCache)
 	);
 </script>
 
@@ -203,14 +249,32 @@
 					<Loader2 class="h-3 w-3 animate-spin" />
 					Downloading
 				</Badge>
+			{:else if hasPartialCache}
+				<Badge variant="secondary" class="gap-1">
+					<HardDrive class="h-3 w-3" />
+					Partial cache ({status?.cacheFileCount ?? 0} files)
+				</Badge>
 			{/if}
 		</div>
 
 		<div class="flex flex-wrap gap-2">
 			{#if canDownload}
-				<Button size="sm" onclick={handleDownload} disabled={downloading}>
+				<Button size="sm" onclick={handleDownload} disabled={downloading || cancelling}>
 					<Download class="mr-2 h-4 w-4" />
-					Download for offline
+					{hasPartialCache ? 'Resume download' : 'Download for offline'}
+				</Button>
+			{/if}
+			{#if canCancel}
+				<Button
+					size="sm"
+					variant="outline"
+					onclick={() => {
+						cancelDialogOpen = true;
+					}}
+					disabled={cancelling}
+				>
+					<X class="mr-2 h-4 w-4" />
+					Cancel download
 				</Button>
 			{/if}
 			{#if canDelete}
@@ -221,7 +285,7 @@
 					disabled={deleting || downloading}
 				>
 					<Trash2 class="mr-2 h-4 w-4" />
-					Delete offline copy
+					{hasPartialCache && !status?.offline ? 'Discard partial cache' : 'Delete offline copy'}
 				</Button>
 			{/if}
 		</div>
@@ -231,6 +295,13 @@
 				<Progress value={progress.progress} max={100} />
 				<p class="text-xs text-muted-foreground">{progress.message}</p>
 			</div>
+		{/if}
+
+		{#if hasPartialCache && !downloading}
+			<p class="text-xs text-muted-foreground">
+				Partial download saved in this browser. Resume to continue where you left off, or delete the
+				offline copy to start fresh.
+			</p>
 		{/if}
 
 		{#if pullerMissingHint}
@@ -255,3 +326,30 @@
 		{/if}
 	</div>
 {/if}
+
+<AlertDialog.Root bind:open={cancelDialogOpen}>
+	<AlertDialog.Content>
+		<AlertDialog.Header>
+			<AlertDialog.Title>Cancel download?</AlertDialog.Title>
+			<AlertDialog.Description>
+				You can discard everything downloaded so far, or keep the partial cache in this browser so the
+				next download can resume from saved files.
+			</AlertDialog.Description>
+		</AlertDialog.Header>
+		<AlertDialog.Footer class="flex-col gap-2 sm:flex-row sm:justify-end">
+			<AlertDialog.Cancel>Keep downloading</AlertDialog.Cancel>
+			<AlertDialog.Action
+				class={cn(buttonVariants({ variant: 'secondary' }))}
+				onclick={() => void confirmCancelDownload(false)}
+			>
+				Keep partial cache
+			</AlertDialog.Action>
+			<AlertDialog.Action
+				class={cn(buttonVariants({ variant: 'destructive' }))}
+				onclick={() => void confirmCancelDownload(true)}
+			>
+				Discard partial cache
+			</AlertDialog.Action>
+		</AlertDialog.Footer>
+	</AlertDialog.Content>
+</AlertDialog.Root>

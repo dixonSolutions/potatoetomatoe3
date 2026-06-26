@@ -3,7 +3,12 @@ import { invalidateOfflineBackendCache } from './offline-runtime';
 
 export const OFFLINE_STATUS_CHANGED = 'potato-tomato-offline-status-changed';
 
-export type OfflineStatusChangeReason = 'download-start' | 'download-done' | 'download-error' | 'delete';
+export type OfflineStatusChangeReason =
+	| 'download-start'
+	| 'download-done'
+	| 'download-error'
+	| 'download-cancel'
+	| 'delete';
 
 export interface OfflineStatusChangedDetail {
 	gameId?: string;

@@ -13,15 +13,17 @@ var config_exports = {};
 __export(config_exports, {
   CATALOG_DIR: () => CATALOG_DIR,
   CORS_ORIGIN: () => CORS_ORIGIN,
+  DOWNLOAD_CONCURRENCY: () => DOWNLOAD_CONCURRENCY,
   EMBED_STRATEGY_GAME_IDS: () => EMBED_STRATEGY_GAME_IDS,
   GAMES_DATA_DIR: () => GAMES_DATA_DIR,
   MIN_OFFLINE_INDEX_BYTES: () => MIN_OFFLINE_INDEX_BYTES,
   PORT: () => PORT,
-  REPO_ROOT: () => REPO_ROOT
+  REPO_ROOT: () => REPO_ROOT,
+  WGET_USER_AGENT: () => WGET_USER_AGENT
 });
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-var __dirname, REPO_ROOT, GAMES_DATA_DIR, CATALOG_DIR, PORT, CORS_ORIGIN, MIN_OFFLINE_INDEX_BYTES, EMBED_STRATEGY_GAME_IDS;
+var __dirname, REPO_ROOT, GAMES_DATA_DIR, CATALOG_DIR, PORT, CORS_ORIGIN, MIN_OFFLINE_INDEX_BYTES, WGET_USER_AGENT, DOWNLOAD_CONCURRENCY, EMBED_STRATEGY_GAME_IDS;
 var init_config = __esm({
   "src/config.ts"() {
     "use strict";
@@ -32,15 +34,64 @@ var init_config = __esm({
     PORT = Number.parseInt(process.env.PULLER_PORT ?? "18787", 10);
     CORS_ORIGIN = process.env.PULLER_CORS_ORIGIN ?? "*";
     MIN_OFFLINE_INDEX_BYTES = 64;
+    WGET_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+    DOWNLOAD_CONCURRENCY = Number.parseInt(
+      process.env.PULLER_DOWNLOAD_CONCURRENCY ?? "12",
+      10
+    );
     EMBED_STRATEGY_GAME_IDS = new Set(
       (process.env.EMBED_STRATEGY_GAMES ?? "shrek-escape").split(",").filter(Boolean)
     );
   }
 });
 
+// src/cancel-registry.ts
+var cancel_registry_exports = {};
+__export(cancel_registry_exports, {
+  DownloadCancelledError: () => DownloadCancelledError,
+  beginDownloadAbort: () => beginDownloadAbort,
+  cancelDownloadAbort: () => cancelDownloadAbort,
+  clearDownloadAbort: () => clearDownloadAbort,
+  getDownloadAbortSignal: () => getDownloadAbortSignal,
+  throwIfCancelled: () => throwIfCancelled
+});
+function beginDownloadAbort(gameId) {
+  cancelDownloadAbort(gameId);
+  const controller = new AbortController();
+  controllers.set(gameId, controller);
+  return controller.signal;
+}
+function cancelDownloadAbort(gameId) {
+  controllers.get(gameId)?.abort();
+}
+function clearDownloadAbort(gameId) {
+  controllers.delete(gameId);
+}
+function getDownloadAbortSignal(gameId) {
+  return controllers.get(gameId)?.signal;
+}
+function throwIfCancelled(signal) {
+  if (signal?.aborted) {
+    throw new DownloadCancelledError();
+  }
+}
+var controllers, DownloadCancelledError;
+var init_cancel_registry = __esm({
+  "src/cancel-registry.ts"() {
+    "use strict";
+    controllers = /* @__PURE__ */ new Map();
+    DownloadCancelledError = class extends Error {
+      constructor(message = "Download cancelled") {
+        super(message);
+        this.name = "DownloadCancelledError";
+      }
+    };
+  }
+});
+
 // src/unity-embed/scan-assets.ts
-import fs2 from "node:fs/promises";
-import path4 from "node:path";
+import fs3 from "node:fs/promises";
+import path5 from "node:path";
 function scanContentForMediaUrls(content) {
   const found = /* @__PURE__ */ new Set();
   for (const part of content.split(/https?:\/\//)) {
@@ -82,7 +133,7 @@ function isDownloadableMediaUrl(url) {
 function externalUrlToRelativePath(url) {
   const parsed = new URL(url);
   const cleanPath = parsed.pathname.replace(/^\/+/, "");
-  return path4.posix.join("assets", parsed.hostname, cleanPath);
+  return path5.posix.join("assets", parsed.hostname, cleanPath);
 }
 async function scanGameDirectory(outDir, gameHtml) {
   const urls = new Set(scanContentForMediaUrls(gameHtml));
@@ -93,9 +144,9 @@ async function scanGameDirectory(outDir, gameHtml) {
     "Build/Shrek2.wasm.br"
   ];
   for (const rel of filesToScan) {
-    const filePath = path4.join(outDir, rel);
+    const filePath = path5.join(outDir, rel);
     try {
-      const buf = await fs2.readFile(filePath);
+      const buf = await fs3.readFile(filePath);
       const text = buf.toString("latin1");
       for (const url of scanContentForMediaUrls(text)) {
         urls.add(url);
@@ -210,7 +261,7 @@ function urlToRelativePath(url, cdnBase) {
   }
   return null;
 }
-function buildAssetUrls(info) {
+function buildAssetUrls(info, productName = "Shrek2") {
   const urls = /* @__PURE__ */ new Set();
   for (const url of info.networkAssetUrls) {
     if (urlToRelativePath(url, info.cdnBase)) {
@@ -221,13 +272,13 @@ function buildAssetUrls(info) {
     urls.add(url);
   }
   const buildBase = `${info.cdnBase}/Build`;
-  urls.add(`${buildBase}/Shrek2.framework.js`);
-  urls.add(`${buildBase}/Shrek2.loader.js`);
+  urls.add(`${buildBase}/${productName}.framework.js`);
+  urls.add(`${buildBase}/${productName}.loader.js`);
   for (let i = 0; i < info.dataParts; i++) {
-    urls.add(`${buildBase}/Shrek2.data.br.part${i}`);
+    urls.add(`${buildBase}/${productName}.data.br.part${i}`);
   }
   for (let i = 0; i < info.wasmParts; i++) {
-    urls.add(`${buildBase}/Shrek2.wasm.br.part${i}`);
+    urls.add(`${buildBase}/${productName}.wasm.br.part${i}`);
   }
   for (const media of info.mediaUrls) {
     urls.add(media);
@@ -251,12 +302,12 @@ var init_extract = __esm({
 // src/server.ts
 init_config();
 import http from "node:http";
-import fs10 from "node:fs/promises";
-import { createReadStream, existsSync as existsSync3 } from "node:fs";
-import path11 from "node:path";
+import fs13 from "node:fs/promises";
+import { createReadStream, existsSync as existsSync6 } from "node:fs";
+import path14 from "node:path";
 
 // src/download-manager.ts
-import fs8 from "node:fs/promises";
+import fs11 from "node:fs/promises";
 
 // src/catalog.ts
 init_config();
@@ -397,6 +448,65 @@ async function seedBundledOfflineFromCatalog() {
   }
 }
 
+// src/download-manager.ts
+init_cancel_registry();
+
+// src/download-cache.ts
+import fs2 from "node:fs/promises";
+import { existsSync } from "node:fs";
+import path3 from "node:path";
+var CACHE_FILENAME = ".download-cache.json";
+function downloadCachePath(gameId) {
+  return path3.join(offlineDir(gameId), CACHE_FILENAME);
+}
+async function writeDownloadCache(gameId, meta) {
+  const dir = offlineDir(gameId);
+  await fs2.mkdir(dir, { recursive: true });
+  await fs2.writeFile(downloadCachePath(gameId), JSON.stringify(meta, null, 2), "utf-8");
+}
+async function readDownloadCache(gameId) {
+  const p = downloadCachePath(gameId);
+  if (!existsSync(p)) return null;
+  try {
+    return JSON.parse(await fs2.readFile(p, "utf-8"));
+  } catch {
+    return null;
+  }
+}
+async function clearDownloadCache(gameId) {
+  try {
+    await fs2.rm(downloadCachePath(gameId), { force: true });
+  } catch {
+  }
+}
+async function countOfflineFiles(gameId) {
+  const dir = offlineDir(gameId);
+  if (!existsSync(dir)) return 0;
+  let count = 0;
+  async function walk(current) {
+    const entries = await fs2.readdir(current, { withFileTypes: true });
+    for (const entry of entries) {
+      const full = path3.join(current, entry.name);
+      if (entry.isDirectory()) {
+        await walk(full);
+      } else if (entry.name !== CACHE_FILENAME && entry.isFile()) {
+        count++;
+      }
+    }
+  }
+  try {
+    await walk(dir);
+  } catch {
+    return 0;
+  }
+  return count;
+}
+async function hasPartialDownloadCache(gameId) {
+  const cache = await readDownloadCache(gameId);
+  if (cache && cache.fileCount > 0) return true;
+  return await countOfflineFiles(gameId) > 0;
+}
+
 // src/jobs.ts
 var jobs = /* @__PURE__ */ new Map();
 var activeByGame = /* @__PURE__ */ new Map();
@@ -427,6 +537,9 @@ function updateJob(gameId, patch) {
   const job = jobs.get(jobId);
   if (!job) return;
   Object.assign(job, patch);
+  if (patch.state === "done" || patch.state === "error" || patch.state === "cancelled") {
+    activeByGame.delete(gameId);
+  }
 }
 function isGameDownloading(gameId) {
   const job = getActiveJobForGame(gameId);
@@ -444,17 +557,18 @@ function listDownloadingGameIds() {
 }
 
 // src/strategies/embed.ts
+init_cancel_registry();
 init_config();
-import fs6 from "node:fs/promises";
+import fs8 from "node:fs/promises";
 import { chromium as chromium2 } from "playwright";
 
 // src/unity-embed/config.ts
-import path3 from "node:path";
+init_config();
+import path4 from "node:path";
 var DEFAULT_CDN_BASE = "https://cdn.jsdelivr.net/gh/777kze777/shreh@main";
 var PAGE_TIMEOUT_MS = 6e4;
-var DOWNLOAD_CONCURRENCY = 4;
 function outDirForGame(gamesDataDir, gameId) {
-  return path3.join(gamesDataDir, gameId, "offline");
+  return path4.join(gamesDataDir, gameId, "offline");
 }
 
 // src/unity-embed/discover.ts
@@ -609,27 +723,294 @@ function deriveCdnBase(fileUrl) {
 
 // src/unity-embed/download.ts
 import { createHash } from "node:crypto";
-import fs3 from "node:fs/promises";
-import path5 from "node:path";
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
+import fs5 from "node:fs/promises";
+import path7 from "node:path";
+import { execFile as execFile2 } from "node:child_process";
+import { promisify as promisify2 } from "node:util";
 init_extract();
 init_scan_assets();
+
+// src/download/parallel-wget.ts
+init_config();
+import { existsSync as existsSync2 } from "node:fs";
+import fs4 from "node:fs/promises";
+import path6 from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 var execFileAsync = promisify(execFile);
+async function downloadOne(url, destPath) {
+  if (existsSync2(destPath)) {
+    try {
+      const stat = await fs4.stat(destPath);
+      if (stat.isFile() && stat.size > 0) {
+        return { url, destPath, ok: true, skipped: true };
+      }
+    } catch {
+    }
+  }
+  await fs4.mkdir(path6.dirname(destPath), { recursive: true });
+  try {
+    await execFileAsync("wget", [
+      "-q",
+      "--tries=2",
+      "--timeout=90",
+      "-U",
+      WGET_USER_AGENT,
+      "-O",
+      destPath,
+      url
+    ]);
+    const stat = await fs4.stat(destPath);
+    if (stat.size === 0) {
+      await fs4.rm(destPath, { force: true });
+      return { url, destPath, ok: false };
+    }
+    const head = (await fs4.readFile(destPath)).subarray(0, 32).toString("utf8");
+    if (head.startsWith("<!DOCTYPE") || head.startsWith("<html")) {
+      await fs4.rm(destPath, { force: true });
+      return { url, destPath, ok: false };
+    }
+    return { url, destPath, ok: true };
+  } catch {
+    try {
+      await fs4.rm(destPath, { force: true });
+    } catch {
+    }
+    return { url, destPath, ok: false };
+  }
+}
+async function downloadFilesParallel(tasks, options = {}) {
+  const concurrency = Math.max(1, options.concurrency ?? DOWNLOAD_CONCURRENCY);
+  const results = [];
+  const queue = [...tasks];
+  let done = 0;
+  const total = tasks.length;
+  async function worker() {
+    while (queue.length > 0) {
+      if (options.signal?.aborted) return;
+      const task = queue.shift();
+      if (!task) break;
+      const result = await downloadOne(task.url, task.destPath);
+      results.push(result);
+      done++;
+      options.onProgress?.(done, total, task);
+    }
+  }
+  const workers = Array.from({ length: Math.min(concurrency, tasks.length || 1) }, () => worker());
+  await Promise.all(workers);
+  if (options.signal?.aborted) {
+    const { DownloadCancelledError: DownloadCancelledError2 } = await Promise.resolve().then(() => (init_cancel_registry(), cancel_registry_exports));
+    throw new DownloadCancelledError2();
+  }
+  return results;
+}
+async function fetchTextForDiscovery(url) {
+  try {
+    const { stdout } = await execFileAsync("wget", [
+      "-qO-",
+      "--tries=2",
+      "--timeout=45",
+      "-U",
+      WGET_USER_AGENT,
+      url
+    ]);
+    return stdout;
+  } catch {
+    return null;
+  }
+}
+async function detectPartCountParallel(probe, baseUrl, hint, maxProbe = 32) {
+  const limit = Math.max(hint + 2, maxProbe);
+  const checks = Array.from({ length: limit }, (_, i) => `${baseUrl}.part${i}`);
+  const results = await Promise.all(
+    checks.map(async (url, i) => ({ i, ok: await probe(url) }))
+  );
+  let count = 0;
+  for (const { i, ok } of results.sort((a, b) => a.i - b.i)) {
+    if (!ok) break;
+    count = i + 1;
+  }
+  return count || hint;
+}
+
+// src/unity-embed/download.ts
+init_cancel_registry();
+
+// src/unity/discover-assets.ts
+var UNITY_ASSET_EXT = /(?:\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot))(?:[?#]|$)/i;
+var MANIFEST_KEYS = [
+  "dataUrl",
+  "wasmCodeUrl",
+  "wasmFrameworkUrl",
+  "codeUrl",
+  "frameworkUrl",
+  "symbolsUrl",
+  "streamingAssetsUrl",
+  "loaderUrl"
+];
+function collectGenericAssetRefs(text, baseUrl, queue, seen) {
+  const patterns = [
+    /(?:href|src)=["']([^"']+)["']/gi,
+    /url\(\s*['"]?([^'")]+)['"]?\s*\)/gi,
+    /UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/gi,
+    /"(?:dataUrl|wasmCodeUrl|wasmFrameworkUrl|codeUrl|frameworkUrl|symbolsUrl|streamingAssetsUrl|loaderUrl)"\s*:\s*"([^"]+)"/gi,
+    /['"]([^'"]+\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot)(?:\?[^'"]*)?)['"]/gi
+  ];
+  for (const pattern of patterns) {
+    pattern.lastIndex = 0;
+    let m;
+    while ((m = pattern.exec(text)) !== null) {
+      addResolvedUrl(m[1]?.trim(), baseUrl, queue, seen);
+    }
+  }
+}
+function addResolvedUrl(ref, baseUrl, queue, seen) {
+  if (!ref || ref.startsWith("data:") || ref.startsWith("blob:") || ref.startsWith("#")) return;
+  try {
+    const abs = new URL(ref, baseUrl).href;
+    if (!UNITY_ASSET_EXT.test(abs)) return;
+    if (seen.has(abs)) return;
+    queue.add(abs);
+  } catch {
+  }
+}
+function parseCreateUnityInstanceConfig(text) {
+  const out = {};
+  const blockMatch = text.match(/createUnityInstance\s*\(\s*[^,]+,\s*(\{[\s\S]*?\})\s*,/);
+  if (!blockMatch?.[1]) return out;
+  const block = blockMatch[1];
+  for (const key of MANIFEST_KEYS) {
+    const re = new RegExp(`${key}\\s*:\\s*["']([^"']+)["']`, "i");
+    const m = block.match(re);
+    if (m?.[1]) out[key] = m[1];
+  }
+  return out;
+}
+function expandBuildManifest(manifest, manifestUrl) {
+  const urls = [];
+  for (const key of MANIFEST_KEYS) {
+    const val = manifest[key];
+    if (typeof val === "string" && val.trim()) {
+      try {
+        urls.push(new URL(val, manifestUrl).href);
+      } catch {
+      }
+    }
+  }
+  return urls;
+}
+function findUnityLoaderBuildJson(text) {
+  const match = text.match(/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/i);
+  return match?.[1] ?? null;
+}
+function scanUnityLoaderBundle(text, baseUrl) {
+  const urls = /* @__PURE__ */ new Set();
+  const patterns = [
+    /Build\/[A-Za-z0-9_.-]+\.(?:loader|framework|data|wasm|symbols)\.(?:js|unityweb|br(?:\.part\d+)?)/gi,
+    /[A-Za-z0-9_.-]+\.(?:data|wasm)\.br(?:\.part\d+)?/gi,
+    /(?:dataUrl|frameworkUrl|codeUrl|loaderUrl|wasmCodeUrl|wasmFrameworkUrl)["']?\s*[:=]\s*["']([^"']+)["']/gi
+  ];
+  for (const pattern of patterns) {
+    pattern.lastIndex = 0;
+    let m;
+    while ((m = pattern.exec(text)) !== null) {
+      const ref = m[1] ?? m[0];
+      addResolvedUrl(ref, baseUrl, urls, /* @__PURE__ */ new Set());
+    }
+  }
+  return [...urls];
+}
+function discoverPokiRootAssets(text, iframeOrigin) {
+  if (!/master-loader\.js|poki-sdk|unityWebglLoaderUrl|UnityLoader/i.test(text)) {
+    return [];
+  }
+  const root = `${iframeOrigin.replace(/\/$/, "")}/`;
+  const candidates = [
+    "master-loader.js",
+    "poki-sdk.js",
+    "unity.js",
+    "unity-2020.js",
+    "UnityLoader.js",
+    "UnityLoader.2019.2.js",
+    "UnityLoader.2020.3.js"
+  ];
+  return candidates.map((f) => root + f);
+}
+function isUnityShell(text) {
+  return /UnityLoader|createUnityInstance|master-loader\.js|unityWebglLoaderUrl|Build\/.*\.json/i.test(
+    text
+  );
+}
+function buildSplitPartUrls(basePartUrl, partCount) {
+  const urls = [];
+  for (let i = 0; i < partCount; i++) {
+    urls.push(`${basePartUrl}.part${i}`);
+  }
+  return urls;
+}
+function parseSplitPartCounts(text) {
+  const dataMatch = text.match(/var\s+DATA_PARTS\s*=\s*(\d+)/);
+  const wasmMatch = text.match(/var\s+WASM_PARTS\s*=\s*(\d+)/);
+  return {
+    dataParts: dataMatch ? Number.parseInt(dataMatch[1], 10) : 0,
+    wasmParts: wasmMatch ? Number.parseInt(wasmMatch[1], 10) : 0
+  };
+}
+function inferBuildProductName(text) {
+  const m = text.match(/Build\/([A-Za-z0-9_.-]+)\.(?:loader|framework|data|wasm)/i);
+  return m?.[1] ?? null;
+}
+function discoverUnityAssetRefs(text, baseUrl, queue, seen) {
+  collectGenericAssetRefs(text, baseUrl, queue, seen);
+  const inlineConfig = parseCreateUnityInstanceConfig(text);
+  for (const val of Object.values(inlineConfig)) {
+    addResolvedUrl(val, baseUrl, queue, seen);
+  }
+  for (const url of scanUnityLoaderBundle(text, baseUrl)) {
+    addResolvedUrl(url, baseUrl, queue, seen);
+  }
+  const buildJson = findUnityLoaderBuildJson(text);
+  if (buildJson) {
+    addResolvedUrl(buildJson, baseUrl, queue, seen);
+  }
+  try {
+    const origin = new URL(baseUrl).origin;
+    for (const url of discoverPokiRootAssets(text, origin)) {
+      addResolvedUrl(url, baseUrl, queue, seen);
+    }
+  } catch {
+  }
+  const { dataParts, wasmParts } = parseSplitPartCounts(text);
+  const product = inferBuildProductName(text);
+  if (product && dataParts > 0) {
+    const dataBase = new URL(`Build/${product}.data.br`, baseUrl).href;
+    for (const u of buildSplitPartUrls(dataBase, dataParts)) {
+      addResolvedUrl(u, baseUrl, queue, seen);
+    }
+  }
+  if (product && wasmParts > 0) {
+    const wasmBase = new URL(`Build/${product}.wasm.br`, baseUrl).href;
+    for (const u of buildSplitPartUrls(wasmBase, wasmParts)) {
+      addResolvedUrl(u, baseUrl, queue, seen);
+    }
+  }
+}
+
+// src/unity-embed/download.ts
+var execFileAsync2 = promisify2(execFile2);
 var PLACEHOLDER_PNG = Buffer.from(
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
   "base64"
 );
 async function detectPartCount(request, baseUrl, hint) {
-  let count = 0;
-  const maxProbe = Math.max(hint + 2, 16);
-  for (let i = 0; i < maxProbe; i++) {
-    const url = `${baseUrl}.part${i}`;
-    const response = await request.head(url);
-    if (!response.ok()) break;
-    count = i + 1;
-  }
-  return count || hint;
+  return detectPartCountParallel(
+    async (url) => {
+      const response = await request.head(url);
+      return response.ok();
+    },
+    baseUrl,
+    hint
+  );
 }
 function formatBytes(bytes) {
   if (bytes < 1024) return `${bytes} B`;
@@ -649,7 +1030,7 @@ function isLikelyBinaryMedia(buffer, url) {
   return buffer.length > 32;
 }
 async function downloadViaCurl(url, destPath) {
-  await execFileAsync("curl", [
+  await execFileAsync2("curl", [
     "-fsSLk",
     "--retry",
     "3",
@@ -659,7 +1040,7 @@ async function downloadViaCurl(url, destPath) {
     destPath,
     url
   ]);
-  return fs3.readFile(destPath);
+  return fs5.readFile(destPath);
 }
 async function downloadViaBrowser(page, url) {
   try {
@@ -672,10 +1053,10 @@ async function downloadViaBrowser(page, url) {
   }
 }
 async function writePlaceholder(relativePath, destPath) {
-  const ext = path5.extname(relativePath).toLowerCase();
+  const ext = path7.extname(relativePath).toLowerCase();
   const buffer = ext === ".png" ? PLACEHOLDER_PNG : PLACEHOLDER_PNG;
-  await fs3.mkdir(path5.dirname(destPath), { recursive: true });
-  await fs3.writeFile(destPath, buffer);
+  await fs5.mkdir(path7.dirname(destPath), { recursive: true });
+  await fs5.writeFile(destPath, buffer);
   return buffer;
 }
 async function downloadFile(request, url, outDir, cdnBase, browserPage, allowPlaceholder = false) {
@@ -683,8 +1064,8 @@ async function downloadFile(request, url, outDir, cdnBase, browserPage, allowPla
   if (!relativePath) {
     throw new Error(`Could not resolve relative path for: ${url}`);
   }
-  const destPath = path5.join(outDir, relativePath);
-  await fs3.mkdir(path5.dirname(destPath), { recursive: true });
+  const destPath = path7.join(outDir, relativePath);
+  await fs5.mkdir(path7.dirname(destPath), { recursive: true });
   let buffer = null;
   let placeholder = false;
   try {
@@ -717,31 +1098,46 @@ async function downloadFile(request, url, outDir, cdnBase, browserPage, allowPla
     throw new Error(`Download failed ${url}: all methods exhausted`);
   }
   if (!placeholder) {
-    await fs3.writeFile(destPath, buffer);
+    await fs5.writeFile(destPath, buffer);
   }
   const sha256 = createHash("sha256").update(buffer).digest("hex");
   const tag = placeholder ? " (placeholder)" : "";
   console.log(`  \u2713 ${relativePath} (${formatBytes(buffer.length)})${tag}`);
   return { url, relativePath, size: buffer.length, sha256, placeholder: placeholder || void 0 };
 }
-async function downloadUrlList(request, urls, outDir, cdnBase, browserPage) {
-  console.log(`[download] Fetching ${urls.length} external file(s)...`);
+async function downloadUrlList(request, urls, outDir, cdnBase, browserPage, signal) {
+  console.log(`[download] Fetching ${urls.length} external file(s) in parallel\u2026`);
   const results = [];
-  for (const url of urls) {
-    results.push(await downloadFile(request, url, outDir, cdnBase, browserPage, true));
+  const queue = [...urls];
+  async function worker() {
+    while (queue.length > 0) {
+      throwIfCancelled(signal);
+      const url = queue.shift();
+      if (!url) break;
+      results.push(await downloadFile(request, url, outDir, cdnBase, browserPage, true));
+    }
   }
+  const workers = Array.from(
+    { length: Math.min(DOWNLOAD_CONCURRENCY, urls.length || 1) },
+    () => worker()
+  );
+  await Promise.all(workers);
+  throwIfCancelled(signal);
   return results;
 }
-async function downloadAssets(request, info, outDir) {
+async function downloadAssets(request, info, outDir, signal) {
   const buildBase = `${info.cdnBase}/Build`;
-  info.dataParts = await detectPartCount(request, `${buildBase}/Shrek2.data.br`, info.dataParts);
-  info.wasmParts = await detectPartCount(request, `${buildBase}/Shrek2.wasm.br`, info.wasmParts);
-  const urls = buildAssetUrls(info);
+  const product = inferBuildProductName(info.gameHtml) ?? inferBuildProductName(info.networkAssetUrls.join("\n")) ?? "Shrek2";
+  throwIfCancelled(signal);
+  info.dataParts = await detectPartCount(request, `${buildBase}/${product}.data.br`, info.dataParts);
+  info.wasmParts = await detectPartCount(request, `${buildBase}/${product}.wasm.br`, info.wasmParts);
+  const urls = buildAssetUrls(info, product);
   console.log(`[download] Fetching ${urls.length} files from embedded game source \u2026`);
   const results = [];
   const queue = [...urls];
   async function worker() {
     while (queue.length > 0) {
+      throwIfCancelled(signal);
       const url = queue.shift();
       if (!url) break;
       results.push(await downloadFile(request, url, outDir, info.cdnBase));
@@ -752,13 +1148,14 @@ async function downloadAssets(request, info, outDir) {
     () => worker()
   );
   await Promise.all(workers);
+  if (signal?.aborted) throw new DownloadCancelledError();
   return results;
 }
 
 // src/unity-embed/host.ts
 import { createHash as createHash2 } from "node:crypto";
-import fs4 from "node:fs/promises";
-import path6 from "node:path";
+import fs6 from "node:fs/promises";
+import path8 from "node:path";
 
 // src/unity-embed/adfree-host.ts
 function buildAdFreeHostHtml() {
@@ -1172,8 +1569,8 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
     files.push({ path: dl.relativePath, size: dl.size, sha256: dl.sha256 });
   }
   for (const merge of merges) {
-    const mergedPath = path6.join(outDir, merge.relativePath);
-    const buffer = await fs4.readFile(mergedPath);
+    const mergedPath = path8.join(outDir, merge.relativePath);
+    const buffer = await fs6.readFile(mergedPath);
     files.push({
       path: merge.relativePath,
       size: merge.size,
@@ -1193,9 +1590,9 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
     ...placeholderAssets.length > 0 ? { placeholderAssets } : {},
     files
   };
-  await fs4.writeFile(path6.join(outDir, "manifest.json"), JSON.stringify(manifest, null, 2));
-  await fs4.writeFile(path6.join(outDir, "asset-map.json"), JSON.stringify(assetRoutes, null, 2));
-  await fs4.writeFile(path6.join(outDir, "index.html"), buildOfflineHtml(assetRoutes));
+  await fs6.writeFile(path8.join(outDir, "manifest.json"), JSON.stringify(manifest, null, 2));
+  await fs6.writeFile(path8.join(outDir, "asset-map.json"), JSON.stringify(assetRoutes, null, 2));
+  await fs6.writeFile(path8.join(outDir, "index.html"), buildOfflineHtml(assetRoutes));
   console.log(`[host] Wrote manifest.json (${files.length} files)`);
   console.log(`[host] Wrote asset-map.json (${Object.keys(assetRoutes).length} routes)`);
   console.log("[host] Wrote index.html (standalone offline host)");
@@ -1203,16 +1600,16 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
 }
 
 // src/unity-embed/merge.ts
-import fs5 from "node:fs/promises";
-import path7 from "node:path";
+import fs7 from "node:fs/promises";
+import path9 from "node:path";
 function formatBytes2(bytes) {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 var PART_CHUNK_BYTES = 8 * 1024 * 1024;
 async function mergeParts(outDir, baseName) {
-  const buildDir = path7.join(outDir, "Build");
-  const entries = await fs5.readdir(buildDir);
+  const buildDir = path9.join(outDir, "Build");
+  const entries = await fs7.readdir(buildDir);
   const partPattern = new RegExp(`^${baseName}\\.part(\\d+)$`);
   const parts = entries.map((name) => {
     const match = name.match(partPattern);
@@ -1221,11 +1618,11 @@ async function mergeParts(outDir, baseName) {
   if (parts.length === 0) return null;
   const buffers = [];
   for (const part of parts) {
-    buffers.push(await fs5.readFile(path7.join(buildDir, part.name)));
+    buffers.push(await fs7.readFile(path9.join(buildDir, part.name)));
   }
   const merged = Buffer.concat(buffers);
-  const mergedPath = path7.join(buildDir, baseName);
-  await fs5.writeFile(mergedPath, merged);
+  const mergedPath = path9.join(buildDir, baseName);
+  await fs7.writeFile(mergedPath, merged);
   console.log(
     `[merge] ${baseName}: ${parts.length} parts -> ${formatBytes2(merged.length)} (parts kept for WebKit)`
   );
@@ -1237,21 +1634,21 @@ async function mergeParts(outDir, baseName) {
 }
 async function ensureServeParts(outDir) {
   for (const baseName of ["Shrek2.data.br", "Shrek2.wasm.br"]) {
-    const buildDir = path7.join(outDir, "Build");
-    const mergedPath = path7.join(buildDir, baseName);
+    const buildDir = path9.join(outDir, "Build");
+    const mergedPath = path9.join(buildDir, baseName);
     const partPattern = new RegExp(`^${baseName.replace(".", "\\.")}\\.part\\d+$`);
     try {
-      await fs5.access(mergedPath);
+      await fs7.access(mergedPath);
     } catch {
       continue;
     }
-    const entries = await fs5.readdir(buildDir);
+    const entries = await fs7.readdir(buildDir);
     if (entries.some((name) => partPattern.test(name))) continue;
-    const merged = await fs5.readFile(mergedPath);
+    const merged = await fs7.readFile(mergedPath);
     let partIndex = 0;
     for (let offset = 0; offset < merged.length; offset += PART_CHUNK_BYTES) {
       const chunk = merged.subarray(offset, offset + PART_CHUNK_BYTES);
-      await fs5.writeFile(path7.join(buildDir, `${baseName}.part${partIndex}`), chunk);
+      await fs7.writeFile(path9.join(buildDir, `${baseName}.part${partIndex}`), chunk);
       partIndex++;
     }
     console.log(`[merge] split ${baseName} -> ${partIndex} serve part(s)`);
@@ -1276,15 +1673,15 @@ async function mergeSplitFiles(outDir) {
 }
 async function linkBrotliAlias(outDir, merged) {
   if (!merged.relativePath.endsWith(".br")) return null;
-  const brPath = path7.join(outDir, merged.relativePath);
+  const brPath = path9.join(outDir, merged.relativePath);
   const aliasRelative = merged.relativePath.replace(/\.br$/, "");
-  const aliasPath = path7.join(outDir, aliasRelative);
-  await fs5.unlink(aliasPath).catch(() => {
+  const aliasPath = path9.join(outDir, aliasRelative);
+  await fs7.unlink(aliasPath).catch(() => {
   });
   try {
-    await fs5.link(brPath, aliasPath);
+    await fs7.link(brPath, aliasPath);
   } catch {
-    await fs5.copyFile(brPath, aliasPath);
+    await fs7.copyFile(brPath, aliasPath);
   }
   console.log(`[merge] alias ${aliasRelative} -> ${merged.relativePath}`);
   return {
@@ -1296,9 +1693,10 @@ async function linkBrotliAlias(outDir, merged) {
 
 // src/strategies/embed.ts
 init_scan_assets();
-async function pullEmbedGame(gameId, onProgress) {
+async function pullEmbedGame(gameId, onProgress, signal) {
   const outDir = outDirForGame(GAMES_DATA_DIR, gameId);
-  await fs6.mkdir(outDir, { recursive: true });
+  await fs8.mkdir(outDir, { recursive: true });
+  throwIfCancelled(signal);
   onProgress(5, "Discovering game source\u2026");
   const info = await discoverGameInfo(gameId);
   const browser = await chromium2.launch({ headless: true });
@@ -1306,8 +1704,10 @@ async function pullEmbedGame(gameId, onProgress) {
   const request = context.request;
   const browserPage = await context.newPage();
   try {
+    throwIfCancelled(signal);
     onProgress(15, "Downloading core Unity assets\u2026");
-    let downloads = await downloadAssets(request, info, outDir);
+    let downloads = await downloadAssets(request, info, outDir, signal);
+    throwIfCancelled(signal);
     const merges = await mergeSplitFiles(outDir);
     onProgress(45, "Scanning for external media\u2026");
     info.externalAssetUrls = await scanGameDirectory(outDir, info.gameHtml);
@@ -1318,10 +1718,12 @@ async function pullEmbedGame(gameId, onProgress) {
         info.externalAssetUrls,
         outDir,
         info.cdnBase,
-        browserPage
+        browserPage,
+        signal
       );
       downloads = [...downloads, ...externalDownloads];
     }
+    throwIfCancelled(signal);
     onProgress(85, "Writing offline host files\u2026");
     const assetRoutes = buildAssetRouteMap(info.externalAssetUrls);
     await writeHostFiles(outDir, info, downloads, merges, assetRoutes);
@@ -1333,14 +1735,95 @@ async function pullEmbedGame(gameId, onProgress) {
 }
 
 // src/strategies/generic.ts
-import fs7 from "node:fs/promises";
-import { existsSync } from "node:fs";
-import path8 from "node:path";
-import { execFile as execFile2, spawn } from "node:child_process";
-import { promisify as promisify2 } from "node:util";
-var execFileAsync2 = promisify2(execFile2);
-var WGET_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
-var ASSET_EXT = /(?:\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot))(?:[?#]|$)/i;
+import fs10 from "node:fs/promises";
+import { existsSync as existsSync4 } from "node:fs";
+import path11 from "node:path";
+import { spawn } from "node:child_process";
+init_cancel_registry();
+init_config();
+
+// src/download/discover-all.ts
+import { existsSync as existsSync3 } from "node:fs";
+import fs9 from "node:fs/promises";
+import path10 from "node:path";
+var TEXT_EXT = /\.(html?|js|css|json|xml|txt)$/i;
+async function readTextSource(url, outDir, baseUrl, localPathForUrl2) {
+  const localPath = localPathForUrl2(baseUrl, url, outDir);
+  if (existsSync3(localPath)) {
+    try {
+      const buf = await fs9.readFile(localPath);
+      if (buf.length > 8 * 1024 * 1024) return null;
+      return buf.toString("utf-8");
+    } catch {
+      return null;
+    }
+  }
+  if (!TEXT_EXT.test(url)) return null;
+  return fetchTextForDiscovery(url);
+}
+async function discoverAllAssetUrls(options, localPathForUrl2) {
+  const { outDir, baseUrl, maxPasses = 32, unityOptimized = true } = options;
+  const discovered = /* @__PURE__ */ new Set();
+  const seen = /* @__PURE__ */ new Set();
+  const scanQueue = /* @__PURE__ */ new Set();
+  const indexPath = path10.join(outDir, "index.html");
+  const indexHtml = await fs9.readFile(indexPath, "utf-8");
+  const unityMode = unityOptimized && isUnityShell(indexHtml);
+  const addRefs = (text, fileUrl) => {
+    if (unityMode) {
+      discoverUnityAssetRefs(text, fileUrl, scanQueue, seen);
+    } else {
+      collectGenericAssetRefs(text, fileUrl, scanQueue, seen);
+    }
+  };
+  addRefs(indexHtml, baseUrl);
+  for (let pass = 0; pass < maxPasses && scanQueue.size > 0; pass++) {
+    const batch = [...scanQueue];
+    scanQueue.clear();
+    const DISCOVERY_CONCURRENCY = 16;
+    for (let i = 0; i < batch.length; i += DISCOVERY_CONCURRENCY) {
+      const chunk = batch.slice(i, i + DISCOVERY_CONCURRENCY);
+      await Promise.all(
+        chunk.map(async (url) => {
+          if (seen.has(url)) return;
+          seen.add(url);
+          discovered.add(url);
+          const text = await readTextSource(url, outDir, baseUrl, localPathForUrl2);
+          if (!text) return;
+          addRefs(text, url);
+          if (unityMode && /\.json$/i.test(url)) {
+            try {
+              const manifest = JSON.parse(text);
+              for (const assetUrl of expandBuildManifest(manifest, url)) {
+                if (!seen.has(assetUrl)) scanQueue.add(assetUrl);
+                discovered.add(assetUrl);
+              }
+            } catch {
+            }
+          }
+          if (unityMode && /\.(loader|framework)\.js$/i.test(url)) {
+            for (const assetUrl of scanUnityLoaderBundle(text, url)) {
+              if (!seen.has(assetUrl)) scanQueue.add(assetUrl);
+              discovered.add(assetUrl);
+            }
+            const inline = parseCreateUnityInstanceConfig(text);
+            for (const val of Object.values(inline)) {
+              try {
+                const abs = new URL(val, url).href;
+                if (!seen.has(abs)) scanQueue.add(abs);
+                discovered.add(abs);
+              } catch {
+              }
+            }
+          }
+        })
+      );
+    }
+  }
+  return discovered;
+}
+
+// src/strategies/generic.ts
 function extractIframeSrc(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
   for (const re of patterns) {
@@ -1362,19 +1845,19 @@ function normalizeGameBaseUrl(iframeSrc) {
 function mirroredIndexCandidates(out, iframeUrl) {
   const parsed = new URL(iframeUrl);
   const parts = parsed.pathname.split("/").filter(Boolean);
-  const hostDir = path8.join(out, parsed.hostname);
-  const candidates = [path8.join(out, "index.html"), path8.join(hostDir, "index.html")];
+  const hostDir = path11.join(out, parsed.hostname);
+  const candidates = [path11.join(out, "index.html"), path11.join(hostDir, "index.html")];
   if (parts.length === 0) return candidates;
   const last = parts[parts.length - 1];
-  candidates.push(path8.join(hostDir, ...parts, "index.html"));
-  candidates.push(path8.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
-  candidates.push(path8.join(hostDir, ...parts, `${last}.html`));
+  candidates.push(path11.join(hostDir, ...parts, "index.html"));
+  candidates.push(path11.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
+  candidates.push(path11.join(hostDir, ...parts, `${last}.html`));
   return candidates;
 }
 async function findIndexHtml(dir) {
-  const entries = await fs7.readdir(dir, { withFileTypes: true });
+  const entries = await fs10.readdir(dir, { withFileTypes: true });
   for (const e of entries) {
-    const full = path8.join(dir, e.name);
+    const full = path11.join(dir, e.name);
     if (e.isFile() && /^index\.html?$/i.test(e.name)) return full;
     if (e.isDirectory()) {
       const found = await findIndexHtml(full);
@@ -1385,15 +1868,15 @@ async function findIndexHtml(dir) {
 }
 async function resolveMirroredIndex(out, iframeSrc) {
   for (const candidate of mirroredIndexCandidates(out, iframeSrc)) {
-    if (!existsSync(candidate)) continue;
+    if (!existsSync4(candidate)) continue;
     try {
-      const stat = await fs7.stat(candidate);
+      const stat = await fs10.stat(candidate);
       if (stat.isFile() && stat.size >= 64) return candidate;
     } catch {
     }
   }
-  const hostDir = path8.join(out, new URL(iframeSrc).hostname);
-  if (existsSync(hostDir)) {
+  const hostDir = path11.join(out, new URL(iframeSrc).hostname);
+  if (existsSync4(hostDir)) {
     const found = await findIndexHtml(hostDir);
     if (found) return found;
   }
@@ -1403,13 +1886,13 @@ async function resolveMirroredIndex(out, iframeSrc) {
 }
 async function findGameContentRoot(mirrorDir) {
   async function walk(dir) {
-    if (existsSync(path8.join(dir, "Build")) || existsSync(path8.join(dir, "TemplateData"))) {
+    if (existsSync4(path11.join(dir, "Build")) || existsSync4(path11.join(dir, "TemplateData"))) {
       return dir;
     }
-    const entries = await fs7.readdir(dir, { withFileTypes: true });
+    const entries = await fs10.readdir(dir, { withFileTypes: true });
     for (const e of entries) {
       if (!e.isDirectory()) continue;
-      const found = await walk(path8.join(dir, e.name));
+      const found = await walk(path11.join(dir, e.name));
       if (found) return found;
     }
     return null;
@@ -1418,25 +1901,25 @@ async function findGameContentRoot(mirrorDir) {
 }
 async function promoteGameRootToOfflineDir(mirrorDir, iframeSrc) {
   const indexPath = await resolveMirroredIndex(mirrorDir, iframeSrc);
-  const contentRoot = await findGameContentRoot(mirrorDir) ?? path8.dirname(indexPath);
-  const staging = path8.join(path8.dirname(mirrorDir), `${path8.basename(mirrorDir)}.__staging__`);
-  await fs7.rm(staging, { recursive: true, force: true });
-  await fs7.mkdir(staging, { recursive: true });
-  await fs7.cp(contentRoot, staging, { recursive: true });
-  const entryName = path8.basename(indexPath);
-  const stagedEntry = path8.join(staging, entryName);
-  const stagedIndex = path8.join(staging, "index.html");
-  if (entryName !== "index.html" && existsSync(stagedEntry)) {
-    await fs7.copyFile(stagedEntry, stagedIndex);
-  } else if (!existsSync(stagedIndex) && existsSync(path8.join(contentRoot, "index.html"))) {
-    await fs7.copyFile(path8.join(contentRoot, "index.html"), stagedIndex);
+  const contentRoot = await findGameContentRoot(mirrorDir) ?? path11.dirname(indexPath);
+  const staging = path11.join(path11.dirname(mirrorDir), `${path11.basename(mirrorDir)}.__staging__`);
+  await fs10.rm(staging, { recursive: true, force: true });
+  await fs10.mkdir(staging, { recursive: true });
+  await fs10.cp(contentRoot, staging, { recursive: true });
+  const entryName = path11.basename(indexPath);
+  const stagedEntry = path11.join(staging, entryName);
+  const stagedIndex = path11.join(staging, "index.html");
+  if (entryName !== "index.html" && existsSync4(stagedEntry)) {
+    await fs10.copyFile(stagedEntry, stagedIndex);
+  } else if (!existsSync4(stagedIndex) && existsSync4(path11.join(contentRoot, "index.html"))) {
+    await fs10.copyFile(path11.join(contentRoot, "index.html"), stagedIndex);
   }
-  if (!existsSync(stagedIndex)) {
-    await fs7.rm(staging, { recursive: true, force: true });
+  if (!existsSync4(stagedIndex)) {
+    await fs10.rm(staging, { recursive: true, force: true });
     throw new Error("Could not prepare offline index.html");
   }
-  await fs7.rm(mirrorDir, { recursive: true, force: true });
-  await fs7.rename(staging, mirrorDir);
+  await fs10.rm(mirrorDir, { recursive: true, force: true });
+  await fs10.rename(staging, mirrorDir);
   return normalizeGameBaseUrl(iframeSrc);
 }
 async function runWget(args) {
@@ -1446,50 +1929,11 @@ async function runWget(args) {
     child.on("close", (code) => resolve(code ?? 1));
   });
 }
-async function downloadFile2(url, destPath) {
-  if (existsSync(destPath)) {
-    try {
-      const stat = await fs7.stat(destPath);
-      if (stat.isFile() && stat.size > 0) return true;
-    } catch {
-    }
-  }
-  await fs7.mkdir(path8.dirname(destPath), { recursive: true });
-  try {
-    await execFileAsync2("wget", [
-      "-q",
-      "--tries=3",
-      "--timeout=120",
-      "-U",
-      WGET_UA,
-      "-O",
-      destPath,
-      url
-    ]);
-    const stat = await fs7.stat(destPath);
-    if (stat.size === 0) {
-      await fs7.rm(destPath, { force: true });
-      return false;
-    }
-    const head = (await fs7.readFile(destPath)).subarray(0, 32).toString("utf8");
-    if (head.startsWith("<!DOCTYPE") || head.startsWith("<html")) {
-      await fs7.rm(destPath, { force: true });
-      return false;
-    }
-    return true;
-  } catch {
-    try {
-      await fs7.rm(destPath, { force: true });
-    } catch {
-    }
-    return false;
-  }
-}
 function localPathForUrl(baseUrl, assetUrl, outDir) {
   const base = new URL(baseUrl);
   const abs = new URL(assetUrl, base);
   if (abs.origin !== base.origin) {
-    return path8.join(
+    return path11.join(
       outDir,
       "_external",
       abs.hostname,
@@ -1499,120 +1943,88 @@ function localPathForUrl(baseUrl, assetUrl, outDir) {
   const baseParts = base.pathname.split("/").filter(Boolean);
   const absParts = abs.pathname.split("/").filter(Boolean);
   const relParts = absParts.slice(baseParts.length);
-  if (relParts.length === 0) return path8.join(outDir, "index.html");
-  return path8.join(outDir, ...relParts);
-}
-function collectAssetRefs(text, fileUrl, queue, seen) {
-  const patterns = [
-    /(?:href|src)=["']([^"']+)["']/gi,
-    /url\(\s*['"]?([^'")]+)['"]?\s*\)/gi,
-    /UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/gi,
-    /"(?:dataUrl|wasmCodeUrl|wasmFrameworkUrl|codeUrl|frameworkUrl|symbolsUrl|streamingAssetsUrl)"\s*:\s*"([^"]+)"/gi,
-    /["']([^"']+\.(?:unityweb|wasm|data|js|json|css|png|jpe?g|gif|webp|svg|ico|br|mp3|ogg|wav|woff2?|ttf|eot)(?:\?[^"']*)?)["']/gi
-  ];
-  for (const pattern of patterns) {
-    pattern.lastIndex = 0;
-    let m;
-    while ((m = pattern.exec(text)) !== null) {
-      const ref = m[1]?.trim();
-      if (!ref || ref.startsWith("data:") || ref.startsWith("blob:") || ref.startsWith("#")) continue;
-      try {
-        const abs = new URL(ref, fileUrl).href;
-        if (!ASSET_EXT.test(abs)) continue;
-        if (seen.has(abs)) continue;
-        queue.add(abs);
-      } catch {
-      }
-    }
-  }
+  if (relParts.length === 0) return path11.join(outDir, "index.html");
+  return path11.join(outDir, ...relParts);
 }
 async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
   const missing = [];
-  if (/UnityLoader/i.test(indexHtml)) {
-    const match = indexHtml.match(/UnityLoader\.instantiate\s*\(\s*[^,]+,\s*["']([^"']+)["']/i);
-    if (match?.[1]) {
-      const buildJsonUrl = new URL(match[1], baseUrl).href;
+  if (isUnityShell(indexHtml)) {
+    const buildJsonRel = findUnityLoaderBuildJson(indexHtml);
+    if (buildJsonRel) {
+      const buildJsonUrl = new URL(buildJsonRel, baseUrl).href;
       const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
-      if (!existsSync(buildJsonPath)) {
+      if (!existsSync4(buildJsonPath)) {
         missing.push(buildJsonPath);
       } else {
         try {
-          const buildMeta = JSON.parse(await fs7.readFile(buildJsonPath, "utf-8"));
-          for (const key of [
-            "dataUrl",
-            "wasmCodeUrl",
-            "wasmFrameworkUrl",
-            "codeUrl",
-            "frameworkUrl"
-          ]) {
-            const rel = buildMeta[key];
-            if (!rel) continue;
-            const assetPath = localPathForUrl(buildJsonUrl, rel, outDir);
-            if (!existsSync(assetPath)) missing.push(assetPath);
+          const buildMeta = JSON.parse(await fs10.readFile(buildJsonPath, "utf-8"));
+          for (const assetUrl of expandBuildManifest(buildMeta, buildJsonUrl)) {
+            const assetPath = localPathForUrl(baseUrl, assetUrl, outDir);
+            if (!existsSync4(assetPath)) missing.push(assetPath);
           }
         } catch {
           missing.push(buildJsonPath);
         }
       }
     }
-    if (!existsSync(path8.join(outDir, "Build", "UnityLoader.js"))) {
-      missing.push(path8.join(outDir, "Build", "UnityLoader.js"));
+    if (/UnityLoader/i.test(indexHtml) && !existsSync4(path11.join(outDir, "Build", "UnityLoader.js")) && !existsSync4(path11.join(outDir, "UnityLoader.js"))) {
+      missing.push(path11.join(outDir, "Build/UnityLoader.js"));
     }
   }
   if (missing.length > 0) {
     throw new Error(`Missing required offline assets: ${missing.slice(0, 5).join(", ")}`);
   }
 }
-async function fetchAllReferencedAssets(outDir, baseUrl, onProgress) {
-  onProgress(65, "Fetching all referenced assets\u2026");
-  const indexPath = path8.join(outDir, "index.html");
-  const indexHtml = await fs7.readFile(indexPath, "utf-8");
-  const queue = /* @__PURE__ */ new Set();
-  const seen = /* @__PURE__ */ new Set();
-  collectAssetRefs(indexHtml, baseUrl, queue, seen);
-  let fetched = 0;
-  for (let pass = 0; pass < 24 && queue.size > 0; pass++) {
-    const batch = [...queue];
-    queue.clear();
-    for (const url of batch) {
-      if (seen.has(url)) continue;
-      seen.add(url);
-      const dest = localPathForUrl(baseUrl, url, outDir);
-      const ok = await downloadFile2(url, dest);
-      if (!ok) continue;
-      fetched++;
-      if (fetched % 5 === 0) {
-        onProgress(70 + Math.min(20, Math.floor(fetched / 3)), `Downloaded ${fetched} asset(s)\u2026`);
-      }
-      if (/\.(html?|js|css|json)$/i.test(dest)) {
-        try {
-          const text = await fs7.readFile(dest, "utf-8");
-          collectAssetRefs(text, url, queue, seen);
-        } catch {
-        }
+async function discoverAndDownloadAssets(outDir, baseUrl, onProgress, signal) {
+  throwIfCancelled(signal);
+  onProgress(55, "Discovering all asset URLs\u2026");
+  const urls = await discoverAllAssetUrls(
+    { outDir, baseUrl, unityOptimized: true },
+    localPathForUrl
+  );
+  throwIfCancelled(signal);
+  const tasks = [...urls].map((url) => ({
+    url,
+    destPath: localPathForUrl(baseUrl, url, outDir)
+  }));
+  onProgress(65, `Downloading ${tasks.length} asset(s) in parallel\u2026`);
+  let lastPct = 65;
+  await downloadFilesParallel(tasks, {
+    signal,
+    onProgress: (done, total) => {
+      const pct = 65 + Math.min(25, Math.floor(done / Math.max(total, 1) * 25));
+      if (pct > lastPct) {
+        lastPct = pct;
+        onProgress(pct, `Downloaded ${done}/${total} asset(s)\u2026`);
       }
     }
-  }
-  onProgress(92, `Verifying required assets (${fetched} downloaded)\u2026`);
+  });
+  throwIfCancelled(signal);
+  onProgress(92, "Verifying Unity / required assets\u2026");
+  const indexHtml = await fs10.readFile(path11.join(outDir, "index.html"), "utf-8");
   await validateRequiredAssets(outDir, baseUrl, indexHtml);
 }
-async function pullGenericGame(gameId, onProgress) {
-  const onlineIndex = path8.join(catalogOnlineDir(gameId), "index.html");
+async function pullGenericGame(gameId, onProgress, signal) {
+  const onlineIndex = path11.join(catalogOnlineDir(gameId), "online/index.html");
   const out = offlineDir(gameId);
+  throwIfCancelled(signal);
   onProgress(5, "Reading online shell\u2026");
-  const html = await fs7.readFile(onlineIndex, "utf-8");
+  const html = await fs10.readFile(onlineIndex, "utf-8");
   const iframeSrc = extractIframeSrc(html);
   if (!iframeSrc) {
     onProgress(20, "No iframe \u2014 copying online shell to offline\u2026");
-    await fs7.rm(out, { recursive: true, force: true });
-    await fs7.cp(catalogOnlineDir(gameId), out, { recursive: true });
+    await fs10.rm(out, { recursive: true, force: true });
+    await fs10.cp(catalogOnlineDir(gameId), out, { recursive: true });
     onProgress(100, "Copied online shell");
     return;
   }
   const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
   onProgress(15, `Mirroring ${mirrorUrl}\u2026`);
-  await fs7.rm(out, { recursive: true, force: true });
-  await fs7.mkdir(out, { recursive: true });
+  const existingCache = await readDownloadCache(gameId);
+  if (!existingCache) {
+    await fs10.rm(out, { recursive: true, force: true });
+  }
+  await fs10.mkdir(out, { recursive: true });
   const wgetArgs = [
     "--mirror",
     "--convert-links",
@@ -1624,12 +2036,13 @@ async function pullGenericGame(gameId, onProgress) {
     "-e",
     "robots=off",
     "-U",
-    WGET_UA,
+    WGET_USER_AGENT,
     "--tries=3",
     "--timeout=120",
     mirrorUrl
   ];
   const code = await runWget(wgetArgs);
+  throwIfCancelled(signal);
   onProgress(50, "Preparing offline layout\u2026");
   let baseUrl;
   try {
@@ -1643,19 +2056,24 @@ async function pullGenericGame(gameId, onProgress) {
   if (code !== 0 && code !== 8) {
     throw new Error(`wget mirror failed with exit code ${code}`);
   }
-  if (!existsSync(path8.join(out, "index.html"))) {
+  if (!existsSync4(path11.join(out, "index.html"))) {
     throw new Error("Mirror completed but no index.html found");
   }
-  await fetchAllReferencedAssets(out, baseUrl, onProgress);
+  await discoverAndDownloadAssets(out, baseUrl, onProgress, signal);
   onProgress(100, "Download complete");
 }
 
 // src/download-manager.ts
+var cancelDiscardCache = /* @__PURE__ */ new Map();
 async function getGameStatus(gameId) {
+  const partialCache = await hasPartialDownloadCache(gameId);
+  const cache = partialCache ? await countOfflineFiles(gameId) : 0;
   return {
     online: await hasOnlineShell(gameId),
     offline: await hasOfflineMirror(gameId),
-    downloading: isGameDownloading(gameId)
+    downloading: isGameDownloading(gameId),
+    partialCache: partialCache && !await hasOfflineMirror(gameId),
+    cacheFileCount: cache > 0 ? cache : void 0
   };
 }
 async function getAllGameStatuses() {
@@ -1664,10 +2082,15 @@ async function getAllGameStatuses() {
   const result = {};
   await Promise.all(
     ids.map(async (id) => {
+      const partialCache = await hasPartialDownloadCache(id);
+      const offline = await hasOfflineMirror(id);
+      const cacheFileCount = partialCache ? await countOfflineFiles(id) : 0;
       result[id] = {
         online: await hasOnlineShell(id),
-        offline: await hasOfflineMirror(id),
-        downloading: downloading.has(id)
+        offline,
+        downloading: downloading.has(id),
+        partialCache: partialCache && !offline,
+        cacheFileCount: cacheFileCount > 0 ? cacheFileCount : void 0
       };
     })
   );
@@ -1680,7 +2103,7 @@ async function deleteOfflineGame(gameId) {
   if (isGameDownloading(gameId)) {
     throw new Error("Cannot delete while download is in progress");
   }
-  await fs8.rm(offlineDir(gameId), { recursive: true, force: true });
+  await fs11.rm(offlineDir(gameId), { recursive: true, force: true });
   invalidateCatalogCache();
 }
 async function startDownload(gameId) {
@@ -1694,22 +2117,36 @@ async function startDownload(gameId) {
   if (existing && (existing.state === "pending" || existing.state === "running")) {
     return { started: false, message: "Download already in progress" };
   }
+  cancelDiscardCache.delete(gameId);
   const job = createJob(gameId);
-  void runDownloadJob(gameId, job);
+  const signal = beginDownloadAbort(gameId);
+  void runDownloadJob(gameId, job, signal);
   return { started: true, message: "Download started" };
 }
-async function runDownloadJob(gameId, job) {
+async function cancelDownload(gameId, discardCache) {
+  if (!isValidGameId(gameId)) throw new Error("Invalid game id");
+  const job = getActiveJobForGame(gameId);
+  if (!job || job.state !== "pending" && job.state !== "running") {
+    return { cancelled: false, message: "No active download" };
+  }
+  cancelDiscardCache.set(gameId, discardCache);
+  cancelDownloadAbort(gameId);
+  return { cancelled: true, message: discardCache ? "Cancelling and discarding\u2026" : "Cancelling\u2026" };
+}
+async function runDownloadJob(gameId, job, signal) {
   const reporter = (progress, message) => {
+    if (signal.aborted) return;
     updateJob(gameId, { state: "running", progress, message });
   };
   updateJob(gameId, { state: "running", progress: 0, message: "Starting\u2026" });
   try {
     const strategy = await getPullStrategy(gameId);
     if (strategy === "embed") {
-      await pullEmbedGame(gameId, reporter);
+      await pullEmbedGame(gameId, reporter, signal);
     } else {
-      await pullGenericGame(gameId, reporter);
+      await pullGenericGame(gameId, reporter, signal);
     }
+    await clearDownloadCache(gameId);
     updateJob(gameId, {
       state: "done",
       progress: 100,
@@ -1718,6 +2155,31 @@ async function runDownloadJob(gameId, job) {
     });
     invalidateCatalogCache();
   } catch (error) {
+    const discardCache = cancelDiscardCache.get(gameId) ?? true;
+    cancelDiscardCache.delete(gameId);
+    if (error instanceof DownloadCancelledError || signal.aborted) {
+      const fileCount = await countOfflineFiles(gameId);
+      if (discardCache) {
+        try {
+          await fs11.rm(offlineDir(gameId), { recursive: true, force: true });
+        } catch {
+        }
+      } else if (fileCount > 0) {
+        await writeDownloadCache(gameId, {
+          cachedAt: Date.now(),
+          fileCount,
+          message: "Partial download saved for resume"
+        });
+      }
+      updateJob(gameId, {
+        state: "cancelled",
+        progress: 0,
+        message: discardCache ? "Cancelled \u2014 cache discarded" : "Cancelled \u2014 partial cache kept",
+        finishedAt: Date.now()
+      });
+      invalidateCatalogCache();
+      return;
+    }
     const message = error instanceof Error ? error.message : String(error);
     updateJob(gameId, {
       state: "error",
@@ -1727,18 +2189,20 @@ async function runDownloadJob(gameId, job) {
       finishedAt: Date.now()
     });
     try {
-      await fs8.rm(offlineDir(gameId), { recursive: true, force: true });
+      await fs11.rm(offlineDir(gameId), { recursive: true, force: true });
     } catch {
     }
+  } finally {
+    clearDownloadAbort(gameId);
   }
 }
 
 // src/game-storage-bridge-script.ts
 import { readFileSync } from "node:fs";
-import path9 from "node:path";
+import path12 from "node:path";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
-var BRIDGE_PATH = path9.resolve(
-  path9.dirname(fileURLToPath2(import.meta.url)),
+var BRIDGE_PATH = path12.resolve(
+  path12.dirname(fileURLToPath2(import.meta.url)),
   "../../static/game-storage-bridge.child.js"
 );
 var cachedBridge = null;
@@ -1763,9 +2227,9 @@ function injectGameStorageBridge(html, _gameId, childScriptSrc) {
 }
 
 // src/browser-data.ts
-import fs9 from "node:fs/promises";
-import path10 from "node:path";
-import { existsSync as existsSync2 } from "node:fs";
+import fs12 from "node:fs/promises";
+import path13 from "node:path";
+import { existsSync as existsSync5 } from "node:fs";
 
 // src/browser-data-profile.ts
 var BROWSER_PROFILE_SCHEMA_VERSION = 1;
@@ -1798,43 +2262,43 @@ var PROFILE_DISK_PATHS = {
 
 // src/browser-data.ts
 function browserDataDir(gameId) {
-  return path10.join(gameDataRoot(gameId), "data");
+  return path13.join(gameDataRoot(gameId), "data");
 }
 function dataFilePath(gameId, rel) {
-  return path10.join(browserDataDir(gameId), rel);
+  return path13.join(browserDataDir(gameId), rel);
 }
 function assertDataPath(gameId, absPath) {
-  const root = path10.resolve(browserDataDir(gameId));
-  const resolved = path10.resolve(absPath);
-  if (!resolved.startsWith(root + path10.sep) && resolved !== root) {
+  const root = path13.resolve(browserDataDir(gameId));
+  const resolved = path13.resolve(absPath);
+  if (!resolved.startsWith(root + path13.sep) && resolved !== root) {
     throw new Error("Path traversal rejected");
   }
 }
 async function readJsonFile(filePath, fallback) {
   try {
-    const raw = await fs9.readFile(filePath, "utf-8");
+    const raw = await fs12.readFile(filePath, "utf-8");
     return JSON.parse(raw);
   } catch {
     return fallback;
   }
 }
 async function writeJsonAtomic(filePath, data) {
-  const dir = path10.dirname(filePath);
-  await fs9.mkdir(dir, { recursive: true });
+  const dir = path13.dirname(filePath);
+  await fs12.mkdir(dir, { recursive: true });
   const tmp = filePath + ".tmp";
-  await fs9.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
-  await fs9.rename(tmp, filePath);
+  await fs12.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
+  await fs12.rename(tmp, filePath);
 }
 async function loadIndexedDbProfiles(gameId) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  if (!existsSync2(idbRoot)) return [];
-  const entries = await fs9.readdir(idbRoot, { withFileTypes: true });
+  if (!existsSync5(idbRoot)) return [];
+  const entries = await fs12.readdir(idbRoot, { withFileTypes: true });
   const profiles = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const dbDir = path10.join(idbRoot, entry.name);
-    const metaPath = path10.join(dbDir, "meta.json");
-    const recordsPath = path10.join(dbDir, "records.json");
+    const dbDir = path13.join(idbRoot, entry.name);
+    const metaPath = path13.join(dbDir, "meta.json");
+    const recordsPath = path13.join(dbDir, "records.json");
     try {
       const meta = await readJsonFile(
         metaPath,
@@ -1854,30 +2318,30 @@ async function loadIndexedDbProfiles(gameId) {
 }
 async function saveIndexedDbProfiles(gameId, databases) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  await fs9.mkdir(idbRoot, { recursive: true });
-  const existing = existsSync2(idbRoot) ? await fs9.readdir(idbRoot, { withFileTypes: true }) : [];
+  await fs12.mkdir(idbRoot, { recursive: true });
+  const existing = existsSync5(idbRoot) ? await fs12.readdir(idbRoot, { withFileTypes: true }) : [];
   for (const entry of existing) {
     if (entry.isDirectory()) {
-      await fs9.rm(path10.join(idbRoot, entry.name), { recursive: true, force: true });
+      await fs12.rm(path13.join(idbRoot, entry.name), { recursive: true, force: true });
     }
   }
   for (const db of databases) {
     const safeName = db.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const dbDir = path10.join(idbRoot, safeName);
+    const dbDir = path13.join(idbRoot, safeName);
     assertDataPath(gameId, dbDir);
-    await fs9.mkdir(dbDir, { recursive: true });
-    await writeJsonAtomic(path10.join(dbDir, "meta.json"), {
+    await fs12.mkdir(dbDir, { recursive: true });
+    await writeJsonAtomic(path13.join(dbDir, "meta.json"), {
       name: db.name,
       version: db.version,
       objectStores: db.objectStores
     });
-    await writeJsonAtomic(path10.join(dbDir, "records.json"), db.records);
+    await writeJsonAtomic(path13.join(dbDir, "records.json"), db.records);
   }
 }
 async function readGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
   const metaPath = dataFilePath(gameId, PROFILE_DISK_PATHS.meta);
-  if (!existsSync2(root) && !existsSync2(metaPath)) {
+  if (!existsSync5(root) && !existsSync5(metaPath)) {
     return null;
   }
   const profile = emptyGameBrowserProfile();
@@ -1911,7 +2375,7 @@ async function writeGameBrowserProfile(gameId, input) {
   }
   const root = browserDataDir(gameId);
   assertDataPath(gameId, root);
-  await fs9.mkdir(root, { recursive: true });
+  await fs12.mkdir(root, { recursive: true });
   const updatedAt = Date.now();
   const profile = {
     ...input,
@@ -1935,9 +2399,9 @@ async function writeGameBrowserProfile(gameId, input) {
 }
 async function deleteGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
-  if (!existsSync2(root)) return;
+  if (!existsSync5(root)) return;
   assertDataPath(gameId, root);
-  await fs9.rm(root, { recursive: true, force: true });
+  await fs12.rm(root, { recursive: true, force: true });
 }
 
 // src/server.ts
@@ -1952,7 +2416,7 @@ function sendJson(res, status, body) {
   res.end(payload);
 }
 function mimeFor(filePath) {
-  const ext = path11.extname(filePath).toLowerCase();
+  const ext = path14.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
     ".js": "application/javascript",
@@ -2003,7 +2467,7 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 403, { error: "Forbidden" });
     return true;
   }
-  if (!existsSync3(absPath)) {
+  if (!existsSync6(absPath)) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
@@ -2014,7 +2478,7 @@ async function serveStaticGames(req, res, urlPath) {
     "Cache-Control": "public, max-age=3600"
   });
   if (isHtml) {
-    const raw = await fs10.readFile(absPath, "utf-8");
+    const raw = await fs13.readFile(absPath, "utf-8");
     res.end(injectGameStorageBridge(raw, gameId));
     return true;
   }
@@ -2063,6 +2527,25 @@ function createServer() {
         const gameId = decodeURIComponent(downloadMatch[1]);
         const result = await startDownload(gameId);
         sendJson(res, 202, result);
+        return;
+      }
+      const cancelMatch = pathname.match(/^\/api\/offline\/([^/]+)\/cancel$/);
+      if (cancelMatch && req.method === "POST") {
+        const gameId = decodeURIComponent(cancelMatch[1]);
+        const chunks = [];
+        for await (const chunk of req) {
+          chunks.push(chunk);
+        }
+        let discardCache = true;
+        if (chunks.length > 0) {
+          try {
+            const body = JSON.parse(Buffer.concat(chunks).toString("utf-8"));
+            discardCache = body.discardCache !== false;
+          } catch {
+          }
+        }
+        const result = await cancelDownload(gameId, discardCache);
+        sendJson(res, 200, result);
         return;
       }
       const progressMatch = pathname.match(/^\/api\/offline\/([^/]+)\/progress$/);
