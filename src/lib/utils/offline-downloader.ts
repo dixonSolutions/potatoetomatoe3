@@ -200,11 +200,10 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 	const backend = await getOfflineBackend();
 
 	if (backend === 'browser') {
-		const { browserOfflinePlayUrl, isBrowserGameDownloaded, ensureBrowserOfflineReady } =
+		const { isBrowserGameDownloaded, resolveBrowserOfflinePlayUrl } =
 			await import('./browser-offline-download');
 		if (await isBrowserGameDownloaded(gameId)) {
-			await ensureBrowserOfflineReady();
-			return browserOfflinePlayUrl(gameId);
+			return resolveBrowserOfflinePlayUrl(gameId);
 		}
 		return null;
 	}

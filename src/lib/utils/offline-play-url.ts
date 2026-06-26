@@ -9,7 +9,7 @@ export function staticOfflinePlayUrl(gameId: string, basePath = ''): string {
 }
 
 /** GitHub Pages serves the SPA shell for missing paths — must not treat that as a real offline mirror. */
-function looksLikeAppShell(html: string): boolean {
+export function looksLikeAppShell(html: string): boolean {
 	return (
 		html.includes('__sveltekit') ||
 		html.includes('data-sveltekit') ||
