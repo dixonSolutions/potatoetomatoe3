@@ -14,6 +14,7 @@ import {
 	setGameMeta,
 	type StoredGameMeta
 } from './browser-offline-storage';
+import { looksLikeAppShell } from './offline-play-url';
 import type { DownloadProgress, GameOfflineStatus } from './offline-downloader-puller';
 
 const ASSET_PATTERN =
@@ -49,15 +50,87 @@ function toStoredPath(relativePath: string): string {
 	return clean.startsWith('online/') ? clean : `online/${clean}`;
 }
 
-/** Wait until the offline service worker can intercept /browser-offline/ requests. */
-export async function ensureBrowserOfflineReady(): Promise<void> {
-	if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
-	const scope = `${appBase()}/`;
-	let reg = await navigator.serviceWorker.getRegistration(scope);
-	if (!reg) {
-		await navigator.serviceWorker.register(`${appBase()}/offline-sw.js`, { scope });
+const blobUrlByGame = new Map<string, string>();
+
+function revokeBlobUrl(gameId: string): void {
+	const existing = blobUrlByGame.get(gameId);
+	if (existing) {
+		URL.revokeObjectURL(existing);
+		blobUrlByGame.delete(gameId);
 	}
-	await navigator.serviceWorker.ready;
+}
+
+function injectStorageBridge(html: string): string {
+	const bridgeSrc = `${window.location.origin}${appBase()}/game-storage-bridge.child.js`;
+	if (html.includes('game-storage-bridge.child.js')) return html;
+	const tag = `<script src="${bridgeSrc}"></script>`;
+	if (html.includes('</head>')) return html.replace('</head>', `${tag}</head>`);
+	return `${tag}${html}`;
+}
+
+/** Create a blob URL for the saved online shell (works without service worker control). */
+export async function createBrowserOfflineBlobUrl(gameId: string): Promise<string | null> {
+	const record = await getGameFile(gameId, 'online/index.html');
+	if (!record?.data) return null;
+	let html = new TextDecoder().decode(record.data);
+	html = injectStorageBridge(html);
+	revokeBlobUrl(gameId);
+	const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
+	blobUrlByGame.set(gameId, url);
+	return url;
+}
+
+async function swServesOfflineShell(playUrl: string): Promise<boolean> {
+	try {
+		const res = await fetch(playUrl, { cache: 'no-store', credentials: 'same-origin' });
+		if (!res.ok) return false;
+		const snippet = (await res.text()).slice(0, 8192);
+		if (looksLikeAppShell(snippet)) return false;
+		return snippet.includes('<html') || snippet.includes('<iframe');
+	} catch {
+		return false;
+	}
+}
+
+/** Wait until the offline service worker can intercept /browser-offline/ requests. */
+export async function ensureBrowserOfflineReady(maxWaitMs = 8000): Promise<boolean> {
+	if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return false;
+	const scope = `${appBase()}/`;
+	try {
+		let reg = await navigator.serviceWorker.getRegistration(scope);
+		if (!reg) {
+			reg = await navigator.serviceWorker.register(`${appBase()}/offline-sw.js`, { scope });
+		}
+		await navigator.serviceWorker.ready;
+
+		const deadline = Date.now() + maxWaitMs;
+		while (Date.now() < deadline) {
+			if (reg.active?.state === 'activated') return true;
+			await new Promise((r) => setTimeout(r, 50));
+			reg = (await navigator.serviceWorker.getRegistration(scope)) ?? reg;
+		}
+		return Boolean(reg.active?.state === 'activated');
+	} catch {
+		return false;
+	}
+}
+
+/** Resolve a playable URL for a browser-stored offline copy (SW route or blob fallback). */
+export async function resolveBrowserOfflinePlayUrl(gameId: string): Promise<string | null> {
+	if (!(await isBrowserGameDownloaded(gameId))) return null;
+
+	await ensureBrowserOfflineReady();
+	const swUrl = browserOfflinePlayUrl(gameId);
+	if (await swServesOfflineShell(swUrl)) return swUrl;
+
+	const meta = await getGameMeta(gameId);
+	const blobUrl = await createBrowserOfflineBlobUrl(gameId);
+	if (blobUrl && (meta?.externalIframe || (meta?.fileCount ?? 0) <= 1)) {
+		return blobUrl;
+	}
+	if (blobUrl) return blobUrl;
+
+	return swUrl;
 }
 
 function patchShellHtml(html: string): string {
@@ -371,6 +444,7 @@ export async function pollBrowserDownloadUntilDone(
 export async function deleteBrowserOfflineCopy(gameId: string): Promise<void> {
 	abortByGame.get(gameId)?.abort();
 	abortByGame.delete(gameId);
+	revokeBlobUrl(gameId);
 	await deleteStoredGame(gameId);
 	progressByGame.delete(gameId);
 }

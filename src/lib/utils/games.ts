@@ -132,7 +132,9 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 		if (hasOffline) {
 			const offlineUrl = await getOfflinePlayUrl(gameId);
 			if (offlineUrl) return offlineUrl;
-			return staticOfflineUrl;
+			if (!isPublicSiteDeployment()) {
+				return staticOfflineUrl;
+			}
 		}
 		return onlineUrl;
 	}
@@ -179,6 +181,7 @@ export function iframeAllowForUrl(url: string): string | undefined {
 		url.includes('/unity/embed.html') ||
 		url.includes('jsdelivr.net') ||
 		url.includes('/browser-offline/') ||
+		url.startsWith('blob:') ||
 		(url.includes('/games/') && (url.includes('/online/') || url.includes('/offline/')))
 	) {
 		return 'fullscreen; autoplay; gamepad; microphone; camera';

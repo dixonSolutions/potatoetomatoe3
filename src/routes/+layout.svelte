@@ -5,6 +5,7 @@
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
+	import { ensureBrowserOfflineReady } from '$lib/utils/browser-offline-download';
 	/** `?url` keeps SSR and client `href` identical (plain URL); default SVG import becomes a data URL on the client only and triggers hydration warnings. */
 	import favicon from '$lib/assets/favicon.svg?url';
 	import TopBar from '$lib/components/TopBar.svelte';
@@ -260,9 +261,9 @@
 		refreshPlayLimitLock();
 
 		if (isBrowserStorageSupported()) {
-			void navigator.serviceWorker
-				.register(`${base}/offline-sw.js`, { scope: `${base}/` })
-				.catch((err) => console.warn('Offline service worker registration failed:', err));
+			void ensureBrowserOfflineReady().catch((err) =>
+				console.warn('Offline service worker registration failed:', err)
+			);
 		}
 
 		const onPlayLimitsChanged = () => refreshPlayLimitLock();
