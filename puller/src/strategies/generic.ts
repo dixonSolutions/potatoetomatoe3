@@ -13,6 +13,7 @@ import {
 	findUnityLoaderBuildJson,
 	isUnityShell
 } from '../unity/discover-assets.js';
+import { postProcessUnityOfflineMirror } from '../unity/post-process-offline.js';
 import type { ProgressReporter } from './types.js';
 
 function extractIframeSrc(html: string): string | null {
@@ -251,7 +252,7 @@ export async function pullGenericGame(
 	onProgress: ProgressReporter,
 	signal?: AbortSignal
 ): Promise<void> {
-	const onlineIndex = path.join(catalogOnlineDir(gameId), 'online/index.html');
+	const onlineIndex = path.join(catalogOnlineDir(gameId), 'index.html');
 	const out = offlineDir(gameId);
 
 	throwIfCancelled(signal);
@@ -316,6 +317,13 @@ export async function pullGenericGame(
 	}
 
 	await discoverAndDownloadAssets(out, baseUrl, onProgress, signal);
+
+	const indexHtml = await fs.readFile(path.join(out, 'index.html'), 'utf-8');
+	if (isUnityShell(indexHtml)) {
+		throwIfCancelled(signal);
+		onProgress(95, 'Injecting Unity patches & asset routes…');
+		await postProcessUnityOfflineMirror(out, baseUrl);
+	}
 
 	onProgress(100, 'Download complete');
 }

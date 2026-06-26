@@ -12,7 +12,8 @@ export {
 	getPullerBaseUrl,
 	isPullerAvailable,
 	invalidatePullerAvailabilityCache,
-	pullerOfflinePlayUrl
+	pullerOfflinePlayUrl,
+	pullerUnityPlayUrl
 } from './offline-downloader-puller';
 
 export {
@@ -212,8 +213,12 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 		if (await staticOfflineFileExists(gameId, base)) {
 			return staticOfflinePlayUrl(gameId, base);
 		}
-		const { pullerOfflinePlayUrl } = await import('./offline-downloader-puller');
-		return pullerOfflinePlayUrl(gameId, base);
+		const status = await fetchPullerGameOfflineStatus(gameId);
+		if (status?.offline) {
+			const { pullerOfflinePlayUrl } = await import('./offline-downloader-puller');
+			return pullerOfflinePlayUrl(gameId, base);
+		}
+		return null;
 	}
 
 	return null;

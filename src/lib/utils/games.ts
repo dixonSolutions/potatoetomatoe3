@@ -90,20 +90,31 @@ export function fixMalformedGamePlayerUrl(url: string, gameId: string): string {
 	return out;
 }
 
-function unityEmbedShellUrl(externalUrl: string): string {
-	const params = new URLSearchParams({ src: externalUrl });
-	return `${base}/unity/embed.html?${params.toString()}`;
+/** Unity WebGL player shell — inject.js strips splash / portal loading bloat. */
+function unityPlayerShellUrl(externalUrl: string, gameId: string, assetsBase?: string): string {
+	const params = new URLSearchParams({ src: externalUrl, game: gameId });
+	if (assetsBase) params.set('assets', assetsBase);
+	return `${base}/unity/player.html?${params.toString()}`;
+}
+
+function unityOfflineAssetsBase(gameId: string): string {
+	return `${base}/games/${encodeURIComponent(gameId)}/offline/`.replace(/\/{2,}/g, '/');
 }
 
 function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): string {
 	const embed = metadata?.onlineEmbedUrl?.trim();
 	if (embed) {
 		if (metadata?.engine === 'unity') {
-			return unityEmbedShellUrl(embed);
+			return unityPlayerShellUrl(embed, gameId);
 		}
 		return embed;
 	}
-	return `${base}/games/${gameId}/online/index.html`;
+
+	const onlineShell = `${base}/games/${gameId}/online/index.html`;
+	if (metadata?.engine === 'unity') {
+		return unityPlayerShellUrl(onlineShell, gameId);
+	}
+	return onlineShell;
 }
 
 async function offlineAvailable(gameId: string): Promise<boolean> {
@@ -122,7 +133,6 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 /** Resolve the iframe src for playing a game. */
 export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	const metadata = await loadGameMetadata(gameId);
-	const onlineUrl = resolveOnlinePlayUrl(metadata, gameId);
 	const staticOfflineUrl = staticOfflinePlayUrl(gameId, base);
 
 	const hasOffline = await offlineAvailable(gameId);
@@ -131,27 +141,50 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	if (!networkOnline) {
 		if (hasOffline) {
 			const offlineUrl = await getOfflinePlayUrl(gameId);
-			if (offlineUrl) return offlineUrl;
+			if (offlineUrl) {
+				if (metadata?.engine === 'unity') {
+					return unityPlayerShellUrl(offlineUrl, gameId, unityOfflineAssetsBase(gameId));
+				}
+				return offlineUrl;
+			}
 			if (!isPublicSiteDeployment()) {
+				if (metadata?.engine === 'unity') {
+					return unityPlayerShellUrl(staticOfflineUrl, gameId, unityOfflineAssetsBase(gameId));
+				}
 				return staticOfflineUrl;
 			}
 		}
-		return onlineUrl;
+		return resolveOnlinePlayUrl(metadata, gameId);
 	}
 
 	const mode = getGamePlayMode(gameId);
 
 	if (mode === 'offline' && hasOffline) {
 		const offlineUrl = await getOfflinePlayUrl(gameId);
-		if (offlineUrl) return offlineUrl;
-		// Avoid loading the SPA 404 shell into the iframe on GitHub Pages.
+		if (offlineUrl) {
+			if (metadata?.engine === 'unity') {
+				return unityPlayerShellUrl(offlineUrl, gameId, unityOfflineAssetsBase(gameId));
+			}
+			return offlineUrl;
+		}
 		if (!isPublicSiteDeployment()) {
+			if (metadata?.engine === 'unity') {
+				return unityPlayerShellUrl(staticOfflineUrl, gameId, unityOfflineAssetsBase(gameId));
+			}
 			return staticOfflineUrl;
 		}
-		return onlineUrl;
+		return resolveOnlinePlayUrl(metadata, gameId);
 	}
 
-	return onlineUrl;
+	/* Unity online: puller proxy injects splash removal same-origin when available */
+	if (metadata?.engine === 'unity') {
+		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
+		if (await isPullerAvailable()) {
+			return pullerUnityPlayUrl(gameId, base);
+		}
+	}
+
+	return resolveOnlinePlayUrl(metadata, gameId);
 }
 
 /** Whether the game can be played while the device has no network connection. */
@@ -178,6 +211,8 @@ export async function gameHasDualVersions(gameId: string): Promise<{
 /** Iframe `allow` attribute for the resolved play URL. */
 export function iframeAllowForUrl(url: string): string | undefined {
 	if (
+		url.includes('/api/unity-play/') ||
+		url.includes('/unity/player.html') ||
 		url.includes('/unity/embed.html') ||
 		url.includes('jsdelivr.net') ||
 		url.includes('/browser-offline/') ||

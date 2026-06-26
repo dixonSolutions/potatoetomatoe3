@@ -16,6 +16,11 @@ const pullerGameProxy = {
 	rewrite: (path: string) => path.replace(/^\/puller-games/, '/games')
 };
 
+const pullerApiProxy = {
+	target: pullerTarget,
+	changeOrigin: true
+};
+
 export default defineConfig({
 	plugins: [
 		pullerGamesProxyPlugin(pullerTarget),
@@ -34,7 +39,8 @@ export default defineConfig({
 		strictPort: true,
 		host: true, // Expose to network for container compatibility
 		proxy: {
-			'/puller-games': pullerGameProxy
+			'/puller-games': pullerGameProxy,
+			'/api/unity-play': pullerApiProxy
 		},
 		watch: {
 			// Exclude build directories to prevent file watcher issues / inotify limits
@@ -55,7 +61,8 @@ export default defineConfig({
 	clearScreen: false,
 	preview: {
 		proxy: {
-			'/puller-games': pullerGameProxy
+			'/puller-games': pullerGameProxy,
+			'/api/unity-play': pullerApiProxy
 		}
 	},
 	test: {

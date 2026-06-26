@@ -72,13 +72,25 @@ Port games from the 3kh0 unblocked games repository.
 node scripts/port-3kh0-games.js
 ```
 
-### 7. Poki Games (`port-poki-games.js`)
+### 7. Poki Games (`port-poki-games.js`) — legacy
 
-Port games from Poki platform by game slug.
+Port games from Poki platform by game slug. **Prefer Y8 for new imports** (see below).
 
 ```bash
 node scripts/port-poki-games.js subway-surfers stickman-hook
 ```
+
+### 8. Y8 catalog (`import-y8-catalog.mjs`) — recommended
+
+Discover games from Y8 RSS feeds, extract `storage-direct.y8.com` embed URLs, tag Unity WebGL builds, and write `static/games/<id>/online/` shells.
+
+```bash
+pnpm run games:import-y8
+pnpm run games:import-y8 -- --limit 50 --skip-existing --discover-only
+node scripts/generate-games-list.js
+```
+
+Unity games play through `/unity/player.html` (splash + portal loading stripped). Use the puller to mirror offline copies with `asset-map.json`.
 
 ---
 

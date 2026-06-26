@@ -5,7 +5,7 @@ import type { DownloadResult } from './download.js';
 import type { ExtractedGameInfo } from './extract.js';
 import type { MergeResult } from './merge.js';
 import { buildAdFreeHostHtml } from './adfree-host.js';
-import { buildAssetRedirectScript } from './asset-redirect.js';
+import { injectUnityPatches } from '../unity/inject-html.js';
 
 export interface ManifestFile {
 	path: string;
@@ -27,8 +27,7 @@ export interface GameManifest {
 }
 
 function buildOfflineHtml(assetRoutes: Record<string, string>): string {
-	const redirect = Object.keys(assetRoutes).length > 0 ? buildAssetRedirectScript(assetRoutes) : '';
-	return buildAdFreeHostHtml().replace('</head>', `${redirect}\n</head>`);
+	return injectUnityPatches(buildAdFreeHostHtml(), assetRoutes);
 }
 
 /**

@@ -200,3 +200,11 @@ export function pullerOfflinePlayUrl(gameId: string, basePath = ''): string {
 	}
 	return `${getPullerBaseUrl()}/games/${encodeURIComponent(gameId)}/offline/index.html`;
 }
+
+/** Same-origin proxied Unity build (splash stripped) when puller is running. */
+export function pullerUnityPlayUrl(gameId: string, basePath = ''): string {
+	if (shouldUsePullerGameProxy()) {
+		return `${getPullerGameProxyPrefix(basePath).replace(/\/puller-games$/, '')}/api/unity-play/${encodeURIComponent(gameId)}`;
+	}
+	return `${getPullerBaseUrl()}/api/unity-play/${encodeURIComponent(gameId)}`;
+}
