@@ -20,6 +20,7 @@
 		OFFLINE_STATUS_CHANGED,
 		isBundledOfflineGame
 	} from '$lib/utils/offline-downloader';
+	import { getGameMeta } from '$lib/utils/browser-offline-storage';
 	import {
 		getGamePlayMode,
 		saveGamePlayMode,
@@ -49,6 +50,7 @@
 	let progress = $state<DownloadProgress>({ state: 'idle', progress: 0, message: '' });
 	let deleting = $state(false);
 	let networkOnline = $state(true);
+	let externalEmbedOnly = $state(false);
 
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
@@ -76,6 +78,12 @@
 		status = await refreshGameOfflineState(gameId);
 		if (status && !status.online && availability.online) {
 			status = { ...status, online: true };
+		}
+		if (backend === 'browser') {
+			const meta = await getGameMeta(gameId);
+			externalEmbedOnly = Boolean(meta?.externalIframe);
+		} else {
+			externalEmbedOnly = false;
 		}
 	}
 
@@ -234,6 +242,12 @@
 			<p class="text-xs text-muted-foreground">
 				Downloads are saved in this browser via IndexedDB. Same-origin game files work offline.
 			</p>
+			{#if externalEmbedOnly && status?.offline}
+				<p class="text-xs text-amber-600 dark:text-amber-400">
+					This game embeds a third-party host. Offline mode saves the local shell only — the game
+					still needs internet to load from the external host.
+				</p>
+			{/if}
 		{:else if offlineBackend === 'puller'}
 			<p class="text-xs text-muted-foreground">
 				Downloads are saved as game files on disk via the local puller service.

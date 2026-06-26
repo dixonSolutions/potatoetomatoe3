@@ -38,7 +38,7 @@ var init_config = __esm({
   }
 });
 
-// src/shrek/scan-assets.ts
+// src/unity-embed/scan-assets.ts
 import fs2 from "node:fs/promises";
 import path4 from "node:path";
 function scanContentForMediaUrls(content) {
@@ -115,7 +115,7 @@ function buildAssetRouteMap(urls) {
 }
 var MEDIA_EXT, BLOCKED_HOSTS;
 var init_scan_assets = __esm({
-  "src/shrek/scan-assets.ts"() {
+  "src/unity-embed/scan-assets.ts"() {
     "use strict";
     MEDIA_EXT = /\.(png|jpe?g|gif|webp|svg|mp3|ogg|wav|webm|bmp|ico|ttf|woff2?)(@2x|@3x)?$/i;
     BLOCKED_HOSTS = /* @__PURE__ */ new Set([
@@ -134,7 +134,7 @@ var init_scan_assets = __esm({
   }
 });
 
-// src/shrek/extract.ts
+// src/unity-embed/extract.ts
 var extract_exports = {};
 __export(extract_exports, {
   buildAssetUrls: () => buildAssetUrls,
@@ -236,7 +236,7 @@ function buildAssetUrls(info) {
 }
 var CDN_REGEX, DATA_PARTS_REGEX, WASM_PARTS_REGEX, ABSOLUTE_URL_REGEX, ASSET_FILENAME, parseGameXml;
 var init_extract = __esm({
-  "src/shrek/extract.ts"() {
+  "src/unity-embed/extract.ts"() {
     "use strict";
     init_scan_assets();
     CDN_REGEX = /var\s+CDN\s*=\s*["']([^"']+)["']/;
@@ -251,9 +251,9 @@ var init_extract = __esm({
 // src/server.ts
 init_config();
 import http from "node:http";
-import fs9 from "node:fs/promises";
-import { createReadStream, existsSync as existsSync2 } from "node:fs";
-import path9 from "node:path";
+import fs10 from "node:fs/promises";
+import { createReadStream, existsSync as existsSync3 } from "node:fs";
+import path11 from "node:path";
 
 // src/download-manager.ts
 import fs8 from "node:fs/promises";
@@ -448,22 +448,19 @@ init_config();
 import fs6 from "node:fs/promises";
 import { chromium as chromium2 } from "playwright";
 
-// src/shrek/config.ts
+// src/unity-embed/config.ts
 import path3 from "node:path";
-import { fileURLToPath as fileURLToPath2 } from "node:url";
-var __dirname2 = path3.dirname(fileURLToPath2(import.meta.url));
-var GAME_PAGE_URL = "https://sites.google.com/classroom.center/view-1/shrek-escape-from-the-swamp";
-var CDN_BASE = "https://cdn.jsdelivr.net/gh/777kze777/shreh@main";
+var DEFAULT_CDN_BASE = "https://cdn.jsdelivr.net/gh/777kze777/shreh@main";
 var PAGE_TIMEOUT_MS = 6e4;
 var DOWNLOAD_CONCURRENCY = 4;
 function outDirForGame(gamesDataDir, gameId) {
   return path3.join(gamesDataDir, gameId, "offline");
 }
 
-// src/shrek/discover.ts
+// src/unity-embed/discover.ts
 import { chromium } from "playwright";
 
-// src/shrek/embed.ts
+// src/unity-embed/embed.ts
 init_scan_assets();
 var FILE_URL_REGEX = /const\s+FILE_URL\s*=\s*['"]([^'"]+)['"]/;
 var GAME_ASSET_PATTERN = /(?:Shrek2|background\.jpg|logo\.png|style\.css|\.data\.br|\.wasm\.br|framework\.js|loader\.js)/i;
@@ -524,12 +521,12 @@ async function bootstrapGameLikeEmbed(page, gameHtml, networkAssetUrls) {
   );
   await page.waitForTimeout(8e3);
 }
-async function discoverFromEmbeddedGame(browser) {
+async function discoverFromEmbeddedGame(browser, embedPageUrl) {
   const networkAssetUrls = /* @__PURE__ */ new Set();
   const embedContext = await browser.newContext();
   const embedPage = await embedContext.newPage();
-  console.log(`[embed] Loading ${GAME_PAGE_URL}`);
-  await embedPage.goto(GAME_PAGE_URL, {
+  console.log(`[embed] Loading ${embedPageUrl}`);
+  await embedPage.goto(embedPageUrl, {
     waitUntil: "domcontentloaded",
     timeout: PAGE_TIMEOUT_MS
   });
@@ -561,21 +558,29 @@ async function discoverFromEmbeddedGame(browser) {
   await bootContext.close();
   console.log(`[embed] Captured ${networkAssetUrls.size} asset URL(s) during game bootstrap`);
   return {
-    embedPageUrl: GAME_PAGE_URL,
+    embedPageUrl,
     fileUrl,
     gameHtml,
     networkAssetUrls: [...networkAssetUrls]
   };
 }
 
-// src/shrek/discover.ts
+// src/unity-embed/discover.ts
 init_extract();
-async function discoverGameInfo() {
+async function discoverGameInfo(gameId) {
+  const meta = await readGameMetadata(gameId);
+  const embedPageUrl = typeof meta?.embedPageUrl === "string" && meta.embedPageUrl.trim() || typeof meta?.embedDiscoveryUrl === "string" && meta.embedDiscoveryUrl.trim() || "";
+  if (!embedPageUrl) {
+    throw new Error(
+      `Game "${gameId}" uses embed pull strategy but has no embedPageUrl in metadata. Add embedPageUrl to online/metadata.json or set pullStrategy to generic.`
+    );
+  }
   const browser = await chromium.launch({ headless: true });
   try {
-    const embed = await discoverFromEmbeddedGame(browser);
+    const embed = await discoverFromEmbeddedGame(browser, embedPageUrl);
     const parsed = parseGameHtml(embed.gameHtml);
     const cdnBase = parsed.cdnBase || deriveCdnBase(embed.fileUrl);
+    console.log(`[discover] Game: ${gameId}`);
     console.log(`[discover] Embed page: ${embed.embedPageUrl}`);
     console.log(`[discover] Embed FILE_URL: ${embed.fileUrl}`);
     console.log(`[discover] CDN base: ${cdnBase}`);
@@ -598,11 +603,11 @@ function deriveCdnBase(fileUrl) {
   try {
     return new URL(fileUrl).href.replace(/\/1\.xml$/, "");
   } catch {
-    return CDN_BASE;
+    return DEFAULT_CDN_BASE;
   }
 }
 
-// src/shrek/download.ts
+// src/unity-embed/download.ts
 import { createHash } from "node:crypto";
 import fs3 from "node:fs/promises";
 import path5 from "node:path";
@@ -750,12 +755,12 @@ async function downloadAssets(request, info, outDir) {
   return results;
 }
 
-// src/shrek/host.ts
+// src/unity-embed/host.ts
 import { createHash as createHash2 } from "node:crypto";
 import fs4 from "node:fs/promises";
 import path6 from "node:path";
 
-// src/shrek/adfree-host.ts
+// src/unity-embed/adfree-host.ts
 function buildAdFreeHostHtml() {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -1127,7 +1132,7 @@ window.YaGames = { init: function() {
 </html>`;
 }
 
-// src/shrek/asset-redirect.ts
+// src/unity-embed/asset-redirect.ts
 function buildAssetRedirectScript(routeMap) {
   const mapJson = JSON.stringify(routeMap);
   return `<script>
@@ -1154,7 +1159,7 @@ function buildAssetRedirectScript(routeMap) {
 </script>`;
 }
 
-// src/shrek/host.ts
+// src/unity-embed/host.ts
 function buildOfflineHtml(assetRoutes) {
   const redirect = Object.keys(assetRoutes).length > 0 ? buildAssetRedirectScript(assetRoutes) : "";
   return buildAdFreeHostHtml().replace("</head>", `${redirect}
@@ -1197,7 +1202,7 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
   return manifest;
 }
 
-// src/shrek/merge.ts
+// src/unity-embed/merge.ts
 import fs5 from "node:fs/promises";
 import path7 from "node:path";
 function formatBytes2(bytes) {
@@ -1295,7 +1300,7 @@ async function pullEmbedGame(gameId, onProgress) {
   const outDir = outDirForGame(GAMES_DATA_DIR, gameId);
   await fs6.mkdir(outDir, { recursive: true });
   onProgress(5, "Discovering game source\u2026");
-  const info = await discoverGameInfo();
+  const info = await discoverGameInfo(gameId);
   const browser = await chromium2.launch({ headless: true });
   const context = await browser.newContext({ ignoreHTTPSErrors: true });
   const request = context.request;
@@ -1729,19 +1734,210 @@ async function runDownloadJob(gameId, job) {
 }
 
 // src/game-storage-bridge-script.ts
-function buildInlineGameStorageBridgeScript(gameId) {
-  const safeId = JSON.stringify(gameId);
-  return `<script>(function(){var GAME_ID=${safeId};var TYPE='potato-tomato-game-storage';function snap(){var d={},i,k;try{for(i=0;i<localStorage.length;i++){k=localStorage.key(i);if(k)d[k]=localStorage.getItem(k);}}catch(e){}return d;}function push(){if(window.parent===window)return;window.parent.postMessage({type:TYPE,action:'push',gameId:GAME_ID,data:{localStorage:snap()}},'*');}window.addEventListener('message',function(e){var m=e.data;if(!m||m.type!==TYPE||m.gameId!==GAME_ID||m.action!=='hydrate'||!m.data||!m.data.localStorage)return;var ls=m.data.localStorage,k;for(k in ls){if(Object.prototype.hasOwnProperty.call(ls,k)){try{localStorage.setItem(k,ls[k]);}catch(err){}}}});if(window.parent!==window){window.parent.postMessage({type:TYPE,action:'pull',gameId:GAME_ID},'*');setInterval(push,4000);window.addEventListener('pagehide',push);}})();</script>`;
+import { readFileSync } from "node:fs";
+import path9 from "node:path";
+import { fileURLToPath as fileURLToPath2 } from "node:url";
+var BRIDGE_PATH = path9.resolve(
+  path9.dirname(fileURLToPath2(import.meta.url)),
+  "../../static/game-storage-bridge.child.js"
+);
+var cachedBridge = null;
+function loadBridgeSource() {
+  if (cachedBridge) return cachedBridge;
+  cachedBridge = readFileSync(BRIDGE_PATH, "utf-8");
+  return cachedBridge;
 }
-function injectGameStorageBridge(html, gameId, childScriptSrc) {
-  const tag = childScriptSrc ? `<script src="${childScriptSrc}" defer></script>` : buildInlineGameStorageBridgeScript(gameId);
+function buildInlineGameStorageBridgeScript() {
+  const source = loadBridgeSource();
+  return `<script>${source}</script>`;
+}
+function injectGameStorageBridge(html, _gameId, childScriptSrc) {
+  const tag = childScriptSrc ? `<script src="${childScriptSrc}"></script>` : buildInlineGameStorageBridgeScript();
   if (html.includes("</head>")) {
-    return html.replace("</head>", `${tag}</head>`);
+    return html.replace("</head>", tag + "</head>");
   }
   if (html.includes("<body")) {
     return html.replace(/<body([^>]*)>/i, `<body$1>${tag}`);
   }
   return tag + html;
+}
+
+// src/browser-data.ts
+import fs9 from "node:fs/promises";
+import path10 from "node:path";
+import { existsSync as existsSync2 } from "node:fs";
+
+// src/browser-data-profile.ts
+var BROWSER_PROFILE_SCHEMA_VERSION = 1;
+function emptyGameBrowserProfile() {
+  return {
+    schemaVersion: BROWSER_PROFILE_SCHEMA_VERSION,
+    updatedAt: 0,
+    profile: {
+      Default: {
+        localStorage: {},
+        sessionStorage: {},
+        cookies: [],
+        indexedDB: []
+      }
+    }
+  };
+}
+function isGameBrowserProfile(value) {
+  if (!value || typeof value !== "object") return false;
+  const v = value;
+  return typeof v.schemaVersion === "number" && typeof v.updatedAt === "number" && v.profile?.Default != null && typeof v.profile.Default.localStorage === "object" && typeof v.profile.Default.sessionStorage === "object" && Array.isArray(v.profile.Default.cookies) && Array.isArray(v.profile.Default.indexedDB);
+}
+var PROFILE_DISK_PATHS = {
+  meta: "meta.json",
+  localStorage: "profile/Default/localStorage.json",
+  sessionStorage: "profile/Default/sessionStorage.json",
+  cookies: "profile/Default/cookies.json",
+  indexedDbDir: "profile/Default/indexeddb"
+};
+
+// src/browser-data.ts
+function browserDataDir(gameId) {
+  return path10.join(gameDataRoot(gameId), "data");
+}
+function dataFilePath(gameId, rel) {
+  return path10.join(browserDataDir(gameId), rel);
+}
+function assertDataPath(gameId, absPath) {
+  const root = path10.resolve(browserDataDir(gameId));
+  const resolved = path10.resolve(absPath);
+  if (!resolved.startsWith(root + path10.sep) && resolved !== root) {
+    throw new Error("Path traversal rejected");
+  }
+}
+async function readJsonFile(filePath, fallback) {
+  try {
+    const raw = await fs9.readFile(filePath, "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return fallback;
+  }
+}
+async function writeJsonAtomic(filePath, data) {
+  const dir = path10.dirname(filePath);
+  await fs9.mkdir(dir, { recursive: true });
+  const tmp = filePath + ".tmp";
+  await fs9.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
+  await fs9.rename(tmp, filePath);
+}
+async function loadIndexedDbProfiles(gameId) {
+  const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
+  if (!existsSync2(idbRoot)) return [];
+  const entries = await fs9.readdir(idbRoot, { withFileTypes: true });
+  const profiles = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const dbDir = path10.join(idbRoot, entry.name);
+    const metaPath = path10.join(dbDir, "meta.json");
+    const recordsPath = path10.join(dbDir, "records.json");
+    try {
+      const meta = await readJsonFile(
+        metaPath,
+        { name: entry.name, version: 1, objectStores: [] }
+      );
+      const records = await readJsonFile(recordsPath, []);
+      profiles.push({
+        name: meta.name ?? entry.name,
+        version: meta.version ?? 1,
+        objectStores: meta.objectStores ?? [],
+        records: Array.isArray(records) ? records : []
+      });
+    } catch {
+    }
+  }
+  return profiles;
+}
+async function saveIndexedDbProfiles(gameId, databases) {
+  const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
+  await fs9.mkdir(idbRoot, { recursive: true });
+  const existing = existsSync2(idbRoot) ? await fs9.readdir(idbRoot, { withFileTypes: true }) : [];
+  for (const entry of existing) {
+    if (entry.isDirectory()) {
+      await fs9.rm(path10.join(idbRoot, entry.name), { recursive: true, force: true });
+    }
+  }
+  for (const db of databases) {
+    const safeName = db.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+    const dbDir = path10.join(idbRoot, safeName);
+    assertDataPath(gameId, dbDir);
+    await fs9.mkdir(dbDir, { recursive: true });
+    await writeJsonAtomic(path10.join(dbDir, "meta.json"), {
+      name: db.name,
+      version: db.version,
+      objectStores: db.objectStores
+    });
+    await writeJsonAtomic(path10.join(dbDir, "records.json"), db.records);
+  }
+}
+async function readGameBrowserProfile(gameId) {
+  const root = browserDataDir(gameId);
+  const metaPath = dataFilePath(gameId, PROFILE_DISK_PATHS.meta);
+  if (!existsSync2(root) && !existsSync2(metaPath)) {
+    return null;
+  }
+  const profile = emptyGameBrowserProfile();
+  const meta = await readJsonFile(
+    metaPath,
+    null
+  );
+  if (meta) {
+    profile.schemaVersion = meta.schemaVersion ?? BROWSER_PROFILE_SCHEMA_VERSION;
+    profile.updatedAt = meta.updatedAt ?? 0;
+  }
+  profile.profile.Default.localStorage = await readJsonFile(
+    dataFilePath(gameId, PROFILE_DISK_PATHS.localStorage),
+    {}
+  );
+  profile.profile.Default.sessionStorage = await readJsonFile(
+    dataFilePath(gameId, PROFILE_DISK_PATHS.sessionStorage),
+    {}
+  );
+  profile.profile.Default.cookies = await readJsonFile(
+    dataFilePath(gameId, PROFILE_DISK_PATHS.cookies),
+    []
+  );
+  profile.profile.Default.indexedDB = await loadIndexedDbProfiles(gameId);
+  const hasData = profile.updatedAt > 0 || Object.keys(profile.profile.Default.localStorage).length > 0 || Object.keys(profile.profile.Default.sessionStorage).length > 0 || profile.profile.Default.cookies.length > 0 || profile.profile.Default.indexedDB.length > 0;
+  return hasData ? profile : null;
+}
+async function writeGameBrowserProfile(gameId, input) {
+  if (!isGameBrowserProfile(input)) {
+    throw new Error("Invalid browser profile payload");
+  }
+  const root = browserDataDir(gameId);
+  assertDataPath(gameId, root);
+  await fs9.mkdir(root, { recursive: true });
+  const updatedAt = Date.now();
+  const profile = {
+    ...input,
+    schemaVersion: BROWSER_PROFILE_SCHEMA_VERSION,
+    updatedAt
+  };
+  await writeJsonAtomic(dataFilePath(gameId, PROFILE_DISK_PATHS.meta), {
+    schemaVersion: profile.schemaVersion,
+    updatedAt: profile.updatedAt
+  });
+  await writeJsonAtomic(
+    dataFilePath(gameId, PROFILE_DISK_PATHS.localStorage),
+    profile.profile.Default.localStorage
+  );
+  await writeJsonAtomic(
+    dataFilePath(gameId, PROFILE_DISK_PATHS.sessionStorage),
+    profile.profile.Default.sessionStorage
+  );
+  await writeJsonAtomic(dataFilePath(gameId, PROFILE_DISK_PATHS.cookies), profile.profile.Default.cookies);
+  await saveIndexedDbProfiles(gameId, profile.profile.Default.indexedDB);
+}
+async function deleteGameBrowserProfile(gameId) {
+  const root = browserDataDir(gameId);
+  if (!existsSync2(root)) return;
+  assertDataPath(gameId, root);
+  await fs9.rm(root, { recursive: true, force: true });
 }
 
 // src/server.ts
@@ -1750,13 +1946,13 @@ function sendJson(res, status, body) {
   res.writeHead(status, {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": CORS_ORIGIN,
-    "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type"
   });
   res.end(payload);
 }
 function mimeFor(filePath) {
-  const ext = path9.extname(filePath).toLowerCase();
+  const ext = path11.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
     ".js": "application/javascript",
@@ -1807,7 +2003,7 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 403, { error: "Forbidden" });
     return true;
   }
-  if (!existsSync2(absPath)) {
+  if (!existsSync3(absPath)) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
@@ -1818,7 +2014,7 @@ async function serveStaticGames(req, res, urlPath) {
     "Cache-Control": "public, max-age=3600"
   });
   if (isHtml) {
-    const raw = await fs9.readFile(absPath, "utf-8");
+    const raw = await fs10.readFile(absPath, "utf-8");
     res.end(injectGameStorageBridge(raw, gameId));
     return true;
   }
@@ -1832,7 +2028,7 @@ function createServer() {
     if (req.method === "OPTIONS") {
       res.writeHead(204, {
         "Access-Control-Allow-Origin": CORS_ORIGIN,
-        "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type"
       });
       res.end();
@@ -1884,6 +2080,64 @@ function createServer() {
       if (deleteMatch && req.method === "DELETE") {
         const gameId = decodeURIComponent(deleteMatch[1]);
         await deleteOfflineGame(gameId);
+        sendJson(res, 200, { deleted: true });
+        return;
+      }
+      const browserDataGetMatch = pathname.match(/^\/api\/browser-data\/([^/]+)$/);
+      if (browserDataGetMatch && req.method === "GET") {
+        const gameId = decodeURIComponent(browserDataGetMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: "Invalid game id" });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: "Game not in catalog" });
+          return;
+        }
+        const profile = await readGameBrowserProfile(gameId);
+        if (!profile) {
+          sendJson(res, 404, { error: "No browser data" });
+          return;
+        }
+        sendJson(res, 200, profile);
+        return;
+      }
+      const browserDataPutMatch = pathname.match(/^\/api\/browser-data\/([^/]+)$/);
+      if (browserDataPutMatch && req.method === "PUT") {
+        const gameId = decodeURIComponent(browserDataPutMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: "Invalid game id" });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: "Game not in catalog" });
+          return;
+        }
+        const chunks = [];
+        for await (const chunk of req) {
+          chunks.push(chunk);
+        }
+        const raw = Buffer.concat(chunks).toString("utf-8");
+        const parsed = JSON.parse(raw);
+        await writeGameBrowserProfile(gameId, parsed);
+        sendJson(res, 200, { saved: true });
+        return;
+      }
+      const browserDataDeleteMatch = pathname.match(/^\/api\/browser-data\/([^/]+)$/);
+      if (browserDataDeleteMatch && req.method === "DELETE") {
+        const gameId = decodeURIComponent(browserDataDeleteMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: "Invalid game id" });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: "Game not in catalog" });
+          return;
+        }
+        await deleteGameBrowserProfile(gameId);
         sendJson(res, 200, { deleted: true });
         return;
       }

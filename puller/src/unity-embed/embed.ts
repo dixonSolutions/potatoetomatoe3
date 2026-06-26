@@ -1,5 +1,5 @@
 import type { Browser, BrowserContext, Page } from 'playwright';
-import { GAME_PAGE_URL, PAGE_TIMEOUT_MS } from './config.js';
+import { PAGE_TIMEOUT_MS } from './config.js';
 import { isDownloadableMediaUrl } from './scan-assets.js';
 
 export interface EmbedDiscovery {
@@ -107,13 +107,16 @@ async function bootstrapGameLikeEmbed(
  * 2. Fetch the game wrapper (1.xml) via that URL — same as PlayTo()
  * 3. Bootstrap the game in a clean page and capture network assets
  */
-export async function discoverFromEmbeddedGame(browser: Browser): Promise<EmbedDiscovery> {
+export async function discoverFromEmbeddedGame(
+	browser: Browser,
+	embedPageUrl: string
+): Promise<EmbedDiscovery> {
 	const networkAssetUrls = new Set<string>();
 	const embedContext = await browser.newContext();
 	const embedPage = await embedContext.newPage();
 
-	console.log(`[embed] Loading ${GAME_PAGE_URL}`);
-	await embedPage.goto(GAME_PAGE_URL, {
+	console.log(`[embed] Loading ${embedPageUrl}`);
+	await embedPage.goto(embedPageUrl, {
 		waitUntil: 'domcontentloaded',
 		timeout: PAGE_TIMEOUT_MS
 	});
@@ -157,7 +160,7 @@ export async function discoverFromEmbeddedGame(browser: Browser): Promise<EmbedD
 	console.log(`[embed] Captured ${networkAssetUrls.size} asset URL(s) during game bootstrap`);
 
 	return {
-		embedPageUrl: GAME_PAGE_URL,
+		embedPageUrl,
 		fileUrl,
 		gameHtml,
 		networkAssetUrls: [...networkAssetUrls]

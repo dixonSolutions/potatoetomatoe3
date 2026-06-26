@@ -33,6 +33,25 @@ function toStoredPath(relativePath: string): string {
 	return clean.startsWith('online/') ? clean : `online/${clean}`;
 }
 
+/** Wait until the offline service worker can intercept /browser-offline/ requests. */
+export async function ensureBrowserOfflineReady(): Promise<void> {
+	if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
+	const scope = `${appBase()}/`;
+	let reg = await navigator.serviceWorker.getRegistration(scope);
+	if (!reg) {
+		await navigator.serviceWorker.register(`${appBase()}/offline-sw.js`, { scope });
+	}
+	await navigator.serviceWorker.ready;
+}
+
+function patchShellHtml(html: string): string {
+	if (!/<iframe/i.test(html)) return html;
+	return html.replace(/<iframe([^>]*?)>/gi, (tag) => {
+		if (/allow=/i.test(tag)) return tag;
+		return tag.replace('<iframe', '<iframe allow="fullscreen; autoplay; gamepad"');
+	});
+}
+
 function extractIframeSrc(html: string): string | null {
 	const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
 	for (const re of patterns) {
@@ -93,12 +112,15 @@ async function collectSameOriginFiles(gameId: string): Promise<{
 		const res = await fetch(url);
 		if (!res.ok) continue;
 
-		const buffer = await res.arrayBuffer();
-		files.set(toStoredPath(rel), buffer);
+		let buffer = await res.arrayBuffer();
 
 		const mime = res.headers.get('content-type') ?? guessMimeType(rel);
 		if (/html/i.test(mime) || rel.endsWith('.html') || rel.endsWith('.htm')) {
-			const html = new TextDecoder().decode(buffer);
+			let html = new TextDecoder().decode(buffer);
+			if (rel === 'index.html') {
+				html = patchShellHtml(html);
+				buffer = new TextEncoder().encode(html).buffer;
+			}
 			if (rel === 'index.html') {
 				const iframeSrc = extractIframeSrc(html);
 				if (iframeSrc) {
@@ -111,10 +133,13 @@ async function collectSameOriginFiles(gameId: string): Promise<{
 				}
 			}
 			scanTextForAssets(gameId, html, url, queue);
+			files.set(toStoredPath(rel), buffer);
+			continue;
 		} else if (/javascript|json|css/i.test(mime) || /\.(js|css|json)$/i.test(rel)) {
 			const text = new TextDecoder().decode(buffer);
 			scanTextForAssets(gameId, text, url, queue);
 		}
+		files.set(toStoredPath(rel), buffer);
 	}
 
 	return { files, externalIframe };

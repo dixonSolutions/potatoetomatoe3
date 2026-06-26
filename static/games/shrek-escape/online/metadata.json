@@ -7,6 +7,7 @@
   "category": "action",
   "engine": "unity",
   "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/dixonSolutions/shrek-swamp-escape-2@main/index.html",
+  "embedPageUrl": "https://sites.google.com/classroom.center/view-1/shrek-escape-from-the-swamp",
   "bundledOffline": true,
   "pullStrategy": "embed"
 }

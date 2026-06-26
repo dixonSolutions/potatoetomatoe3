@@ -6,6 +6,7 @@ import {
 	getOfflinePlayUrl,
 	isBrowserGameDownloaded
 } from '$lib/utils/offline-downloader';
+import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
 import { staticOfflineFileExists, staticOfflinePlayUrl } from '$lib/utils/offline-play-url';
 
@@ -112,7 +113,10 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	if ((await getOfflineBackend()) === 'browser' && (await isBrowserGameDownloaded(gameId))) {
 		return true;
 	}
-	return staticOfflineFileExists(gameId, base);
+	if (!isPublicSiteDeployment()) {
+		return staticOfflineFileExists(gameId, base);
+	}
+	return false;
 }
 
 /** Resolve the iframe src for playing a game. */
@@ -138,7 +142,11 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	if (mode === 'offline' && hasOffline) {
 		const offlineUrl = await getOfflinePlayUrl(gameId);
 		if (offlineUrl) return offlineUrl;
-		return staticOfflineUrl;
+		// Avoid loading the SPA 404 shell into the iframe on GitHub Pages.
+		if (!isPublicSiteDeployment()) {
+			return staticOfflineUrl;
+		}
+		return onlineUrl;
 	}
 
 	return onlineUrl;
@@ -167,8 +175,13 @@ export async function gameHasDualVersions(gameId: string): Promise<{
 
 /** Iframe `allow` attribute for the resolved play URL. */
 export function iframeAllowForUrl(url: string): string | undefined {
-	if (url.includes('/unity/embed.html') || url.includes('jsdelivr.net')) {
-		return 'fullscreen; autoplay';
+	if (
+		url.includes('/unity/embed.html') ||
+		url.includes('jsdelivr.net') ||
+		url.includes('/browser-offline/') ||
+		(url.includes('/games/') && (url.includes('/online/') || url.includes('/offline/')))
+	) {
+		return 'fullscreen; autoplay; gamepad; microphone; camera';
 	}
 	return undefined;
 }

@@ -174,21 +174,29 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 	const { base } = await import('$app/paths');
 	const { staticOfflineFileExists, staticOfflinePlayUrl } = await import('./offline-play-url');
 
-	// Puller writes mirrors to static/games/{id}/offline/ in dev — serve directly (Vite static).
-	if (await staticOfflineFileExists(gameId, base)) {
+	if (isBundledOfflineGame(gameId)) {
 		return staticOfflinePlayUrl(gameId, base);
 	}
 
 	const backend = await getOfflineBackend();
+
+	if (backend === 'browser') {
+		const { browserOfflinePlayUrl, isBrowserGameDownloaded, ensureBrowserOfflineReady } =
+			await import('./browser-offline-download');
+		if (await isBrowserGameDownloaded(gameId)) {
+			await ensureBrowserOfflineReady();
+			return browserOfflinePlayUrl(gameId);
+		}
+		return null;
+	}
+
 	if (backend === 'puller') {
+		if (await staticOfflineFileExists(gameId, base)) {
+			return staticOfflinePlayUrl(gameId, base);
+		}
 		const { pullerOfflinePlayUrl } = await import('./offline-downloader-puller');
 		return pullerOfflinePlayUrl(gameId, base);
 	}
-	if (backend === 'browser') {
-		const { browserOfflinePlayUrl, isBrowserGameDownloaded } = await import(
-			'./browser-offline-download'
-		);
-		if (await isBrowserGameDownloaded(gameId)) return browserOfflinePlayUrl(gameId);
-	}
+
 	return null;
 }

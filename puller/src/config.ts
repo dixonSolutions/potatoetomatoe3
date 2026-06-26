@@ -29,7 +29,7 @@ export const CORS_ORIGIN = process.env.PULLER_CORS_ORIGIN ?? '*';
 /** Minimum bytes for a valid offline index.html. */
 export const MIN_OFFLINE_INDEX_BYTES = 64;
 
-/** Games that use the embed (Unity/Google Sites) pull strategy. */
+/** Games that use the Unity/Google Sites embed pull strategy (see pullStrategy in metadata). */
 export const EMBED_STRATEGY_GAME_IDS = new Set(
   (process.env.EMBED_STRATEGY_GAMES ?? 'shrek-escape').split(',').filter(Boolean)
 );

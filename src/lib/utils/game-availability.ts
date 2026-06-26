@@ -3,6 +3,7 @@ import {
 	fetchGameOfflineStatus,
 	isBundledOfflineGame
 } from '$lib/utils/offline-downloader';
+import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 import { staticOfflineFileExists } from '$lib/utils/offline-play-url';
 import type { GameMetadata } from '$lib/utils/games';
 
@@ -31,7 +32,7 @@ export async function getGameAvailability(
 	const online = Boolean(metadata?.onlineEmbedUrl?.trim()) || (await onlineShellExists(gameId));
 
 	let offline = isBundledOfflineGame(gameId) || Boolean(metadata?.bundledOffline);
-	if (!offline) {
+	if (!offline && !isPublicSiteDeployment()) {
 		offline = await staticOfflineFileExists(gameId, base);
 	}
 	if (!offline) {
