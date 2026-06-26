@@ -13,6 +13,8 @@ import {
 import { getActiveJobForGame } from './jobs.js';
 import { isValidGameId, loadGameIds, resolveOfflineFilePath } from './catalog.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
+import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
+import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
 import {
 	deleteGameBrowserProfile,
 	readGameBrowserProfile,
@@ -108,7 +110,10 @@ async function serveStaticGames(
   });
 
   if (isHtml) {
-    const raw = await fs.readFile(absPath, 'utf-8');
+    let raw = await fs.readFile(absPath, 'utf-8');
+    if (isUnityGameHtml(raw)) {
+      raw = injectUnityPatches(raw);
+    }
     res.end(injectGameStorageBridge(raw, gameId));
     return true;
   }
@@ -199,6 +204,32 @@ export function createServer(): http.Server {
           return;
         }
         sendJson(res, 200, job);
+        return;
+      }
+
+      const unityPlayMatch = pathname.match(/^\/api\/unity-play\/([^/]+)$/);
+      if (unityPlayMatch && req.method === 'GET') {
+        const gameId = decodeURIComponent(unityPlayMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        const ids = await loadGameIds();
+        if (!ids.includes(gameId)) {
+          sendJson(res, 404, { error: 'Game not in catalog' });
+          return;
+        }
+        const html = await fetchProxiedUnityHtml(gameId);
+        if (!html) {
+          sendJson(res, 502, { error: 'Could not fetch Unity build' });
+          return;
+        }
+        res.writeHead(200, {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Access-Control-Allow-Origin': CORS_ORIGIN,
+          'Cache-Control': 'public, max-age=300'
+        });
+        res.end(injectGameStorageBridge(html, gameId));
         return;
       }
 

@@ -51,7 +51,20 @@ Default for catalog games:
 
 1. Read `online/index.html` iframe URL
 2. Mirror with `wget --mirror`
-3. Deep-fetch referenced assets
+3. Deep-fetch referenced assets (Unity-aware discovery in `puller/src/unity/discover-assets.ts`)
+4. For Unity WebGL builds: strip portal bloat, inject splash removal (`static/unity/inject.js`), write `asset-map.json` for local asset routing
+
+### Y8 catalog import
+
+New games are imported from Y8 (not Poki):
+
+```bash
+pnpm run games:import-y8
+pnpm run games:import-y8 -- --limit 50 --skip-existing
+node scripts/generate-games-list.js
+```
+
+Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. Online play routes through `/unity/player.html` which loads `inject.js` (no splash, no portal loading screens). Offline pulls use the same inject + `asset-map.json` under `offline/`.
 
 ## Tauri integration
 

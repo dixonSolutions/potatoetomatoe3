@@ -3,6 +3,13 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 
 const BRIDGE_TAG = '<script src="/game-storage-bridge.child.js"></script>';
+const UNITY_INJECT_TAG = '<script src="/unity/inject.js"></script>';
+
+function isUnityShellHtml(html: string): boolean {
+	return /UnityLoader|createUnityInstance|master-loader\.js|unityWebglLoaderUrl|Build\/.*\.json/i.test(
+		html
+	);
+}
 
 function injectBridgeIntoHtml(html: string): string {
 	if (html.includes('game-storage-bridge.child.js')) return html;
@@ -13,6 +20,18 @@ function injectBridgeIntoHtml(html: string): string {
 		return html.replace(/<body([^>]*)>/i, `<body$1>${BRIDGE_TAG}`);
 	}
 	return BRIDGE_TAG + html;
+}
+
+function injectUnityIntoHtml(html: string): string {
+	if (!isUnityShellHtml(html)) return html;
+	if (html.includes('/unity/inject.js') || html.includes('__ptUnityInjectInstalled')) return html;
+	if (html.includes('</head>')) {
+		return html.replace('</head>', UNITY_INJECT_TAG + '</head>');
+	}
+	if (html.includes('<body')) {
+		return html.replace(/<body([^>]*)>/i, `<body$1>${UNITY_INJECT_TAG}`);
+	}
+	return UNITY_INJECT_TAG + html;
 }
 
 /** Inject game storage bridge into same-origin game HTML shells in dev/preview. */
@@ -43,7 +62,8 @@ export function gamesHtmlBridgeInjectPlugin(): Plugin {
 				const absPath = path.join(gamesRoot, match[1], match[2], fileRel);
 				try {
 					const raw = readFileSync(absPath, 'utf-8');
-					const html = injectBridgeIntoHtml(raw);
+					let html = injectUnityIntoHtml(raw);
+					html = injectBridgeIntoHtml(html);
 					res.statusCode = 200;
 					res.setHeader('Content-Type', 'text/html; charset=utf-8');
 					res.end(html);
@@ -73,7 +93,8 @@ export function gamesHtmlBridgeInjectPlugin(): Plugin {
 				const absPath = path.join(gamesRoot, match[1], match[2], fileRel);
 				try {
 					const raw = readFileSync(absPath, 'utf-8');
-					const html = injectBridgeIntoHtml(raw);
+					let html = injectUnityIntoHtml(raw);
+					html = injectBridgeIntoHtml(html);
 					res.statusCode = 200;
 					res.setHeader('Content-Type', 'text/html; charset=utf-8');
 					res.end(html);

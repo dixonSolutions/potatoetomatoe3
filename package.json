@@ -31,7 +31,8 @@
     "puller:start": "pnpm --filter @potatotomato/puller start",
     "puller:dev": "pnpm --filter @potatotomato/puller dev",
     "puller:build": "pnpm --filter @potatotomato/puller build",
-    "puller:bundle:linux": "pnpm --filter @potatotomato/puller bundle:linux"
+    "puller:bundle:linux": "pnpm --filter @potatotomato/puller bundle:linux",
+    "games:import-y8": "node scripts/import-y8-catalog.mjs"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
