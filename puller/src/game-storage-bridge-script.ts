@@ -1,17 +1,10 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const BRIDGE_PATH = path.resolve(
-	path.dirname(fileURLToPath(import.meta.url)),
-	'../../static/game-storage-bridge.child.js'
-);
+import { GAME_STORAGE_BRIDGE_SOURCE } from './embedded/assets.generated.js';
 
 let cachedBridge: string | null = null;
 
 function loadBridgeSource(): string {
 	if (cachedBridge) return cachedBridge;
-	cachedBridge = readFileSync(BRIDGE_PATH, 'utf-8');
+	cachedBridge = GAME_STORAGE_BRIDGE_SOURCE;
 	return cachedBridge;
 }
 

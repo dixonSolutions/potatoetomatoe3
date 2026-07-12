@@ -15,6 +15,7 @@
     "core:event:allow-emit",
     "core:event:allow-listen",
     "allow-sync-tray-recent",
+    "allow-get-puller-base-url",
     "shell:default",
     {
       "identifier": "shell:allow-execute",

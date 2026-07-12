@@ -302,6 +302,9 @@
 
 		let detachTray: (() => void) | undefined;
 		if (isTauriApp()) {
+			void import('$lib/utils/offline-downloader-puller').then(({ syncPullerBaseUrlFromTauri }) => {
+				void syncPullerBaseUrlFromTauri();
+			});
 			void attachDesktopTrayListeners().then((unlisten) => {
 				detachTray = unlisten;
 			});

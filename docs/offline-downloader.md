@@ -86,9 +86,9 @@ Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbed
 
 In debug builds, Tauri spawns `pnpm exec tsx puller/src/index.ts` on startup.
 
-In release builds, the puller is bundled as a sidecar binary (`src-tauri/binaries/puller-sidecar`) built via `pnpm puller:bundle:linux`.
+In release builds, the puller is bundled as a sidecar binary (`src-tauri/binaries/puller-sidecar`) built via `pnpm puller:bundle:linux`. Unity inject + game-storage bridge scripts are **inlined at build time** (`puller/scripts/embed-assets.mjs`) so the pkg sidecar does not need to read `static/` from disk (required for Flatpak).
 
-The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads persist outside the read-only bundle.
+The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads persist outside the read-only bundle. Tauri reserves a free loopback port (default `18787`, next free if busy) and exposes it to the UI via `get_puller_base_url` so Flatpak does not accidentally talk to a host `pnpm dev` puller.
 
 | Variable | Dev | Packaged app |
 |----------|-----|--------------|

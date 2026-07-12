@@ -1,18 +1,11 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { buildAssetRedirectScript } from '../unity-embed/asset-redirect.js';
-
-const INJECT_PATH = path.resolve(
-	path.dirname(fileURLToPath(import.meta.url)),
-	'../../../static/unity/inject.js'
-);
+import { UNITY_INJECT_SOURCE } from '../embedded/assets.generated.js';
 
 let cachedInjectSource: string | null = null;
 
 export function loadUnityInjectSource(): string {
 	if (cachedInjectSource) return cachedInjectSource;
-	cachedInjectSource = readFileSync(INJECT_PATH, 'utf-8');
+	cachedInjectSource = UNITY_INJECT_SOURCE;
 	return cachedInjectSource;
 }
 

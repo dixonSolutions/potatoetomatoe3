@@ -41,6 +41,8 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | Flatpak runtime | `Game not in catalog` / `puller catalog is empty` | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`. |
 | Flatpak run | `Failed to load ayatana-appindicator3` panic | Bundle `shared-modules/libappindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak. |
 | Flatpak build | `Package 'libayatana-ido3-0.4' not found` | Ayatana cmake installs to `/app/lib64`; use classic `libappindicator-gtk3-12.10.json` instead. |
+| Flatpak Unity download | `File '/**/static/unity/inject.js' was not included into executable` | Puller sidecar must inline inject/bridge via `pnpm embed-assets` before `pkg` (see `puller/scripts/embed-assets.mjs`). |
+| Flatpak Unity download | Error path under repo `static/games/…` | Host puller on `:18787` stole traffic. Stop `pnpm dev` / local puller, or use a build with `get_puller_base_url` port isolation. |
 
 ## Manual web-only deploy
 

@@ -1,5 +1,6 @@
 mod tray;
 
+use std::net::TcpListener;
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
 use tauri::Manager;
@@ -7,8 +8,27 @@ use tauri::path::BaseDirectory;
 
 static PULLER_PORT: OnceLock<u16> = OnceLock::new();
 
+const DEFAULT_PULLER_PORT: u16 = 18787;
+
+/// Prefer 18787; if occupied (e.g. host `pnpm dev` while Flatpak runs), pick the next free port.
+fn reserve_puller_port() -> u16 {
+  *PULLER_PORT.get_or_init(|| {
+    for port in DEFAULT_PULLER_PORT..DEFAULT_PULLER_PORT + 32 {
+      if TcpListener::bind(("127.0.0.1", port)).is_ok() {
+        return port;
+      }
+    }
+    DEFAULT_PULLER_PORT
+  })
+}
+
 pub fn puller_port() -> u16 {
-  *PULLER_PORT.get_or_init(|| 18787)
+  reserve_puller_port()
+}
+
+#[tauri::command]
+fn get_puller_base_url() -> String {
+  format!("http://127.0.0.1:{}", puller_port())
 }
 
 fn repo_root() -> PathBuf {
@@ -199,7 +219,10 @@ fn spawn_puller(app: &tauri::AppHandle) {
 pub fn run() {
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
-    .invoke_handler(tauri::generate_handler![tray::sync_tray_recent])
+    .invoke_handler(tauri::generate_handler![
+      tray::sync_tray_recent,
+      get_puller_base_url
+    ])
     .setup(|app| {
       if cfg!(debug_assertions) {
         app.handle().plugin(
@@ -208,6 +231,8 @@ pub fn run() {
             .build(),
         )?;
       }
+      // Reserve port before spawn so get_puller_base_url matches the sidecar.
+      let _ = puller_port();
       spawn_puller(app.handle());
       // libappindicator-sys panics (does not return Err) when the .so is missing
       // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.

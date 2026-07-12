@@ -312,7 +312,7 @@ init_config();
 import http from "node:http";
 import fs19 from "node:fs/promises";
 import { createReadStream, existsSync as existsSync11 } from "node:fs";
-import path21 from "node:path";
+import path19 from "node:path";
 
 // src/download-manager.ts
 import fs16 from "node:fs/promises";
@@ -1070,7 +1070,7 @@ function scanUnityLoaderBundle(text, baseUrl) {
   return [...urls];
 }
 function discoverPokiRootAssets(text, iframeOrigin) {
-  if (!/master-loader\.js|poki-sdk|unityWebglLoaderUrl|UnityLoader/i.test(text)) {
+  if (!/master-loader\.js|poki-sdk|unityWebglLoaderUrl/i.test(text)) {
     return [];
   }
   const root = `${iframeOrigin.replace(/\/$/, "")}/`;
@@ -1307,7 +1307,7 @@ async function downloadAssets(request, info, outDir, signal) {
 // src/unity-embed/host.ts
 import { createHash as createHash2 } from "node:crypto";
 import fs7 from "node:fs/promises";
-import path10 from "node:path";
+import path9 from "node:path";
 
 // src/unity-embed/adfree-host.ts
 function buildAdFreeHostHtml() {
@@ -1681,11 +1681,6 @@ window.YaGames = { init: function() {
 </html>`;
 }
 
-// src/unity/inject-html.ts
-import { readFileSync } from "node:fs";
-import path9 from "node:path";
-import { fileURLToPath as fileURLToPath2 } from "node:url";
-
 // src/unity-embed/asset-redirect.ts
 function buildAssetRedirectScript(routeMap) {
   const mapJson = JSON.stringify(routeMap);
@@ -1713,15 +1708,168 @@ function buildAssetRedirectScript(routeMap) {
 </script>`;
 }
 
+// src/embedded/assets.generated.ts
+var UNITY_INJECT_SOURCE = `/**
+ * Injected into Unity WebGL shells before the loader runs.
+ * Removes splash banners, portal loading screens, and ad SDK noise.
+ */
+(function () {
+	if (window.__ptUnityInjectInstalled) return;
+	window.__ptUnityInjectInstalled = true;
+
+	/* Unity "Made with Unity" banner \u2014 no-op */
+	window.unityShowBanner = function () {};
+
+	/* Hide splash, progress bars, portal play gates, ad containers */
+	var hideCss =
+		'#unity-logo,#unity-footer,#unity-loading-bar,#unity-progress-bar-empty,#unity-progress-bar-full,' +
+		'.webgl-content .logo,.webgl-content .progress,#splash,#splash-screen,#loading-cover,#play-cover,' +
+		'.loading-cover,.poki-sdk-container,.y8-lifecycle-ad,.y8-preloader,.idnet-preloader,' +
+		'[class*="splash"],[id*="splash"],[class*="loading-screen"],[id*="loading-screen"]' +
+		'{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}';
+	var style = document.createElement('style');
+	style.id = 'pt-unity-inject-style';
+	style.textContent = hideCss;
+	(document.head || document.documentElement).appendChild(style);
+
+	function hideLoadingDom() {
+		var selectors = [
+			'#unity-loading-bar',
+			'#unity-logo',
+			'#unity-footer',
+			'#play-cover',
+			'#loading-cover',
+			'.loading-cover',
+			'.poki-sdk-container'
+		];
+		for (var i = 0; i < selectors.length; i++) {
+			var nodes = document.querySelectorAll(selectors[i]);
+			for (var j = 0; j < nodes.length; j++) {
+				nodes[j].style.display = 'none';
+			}
+		}
+	}
+
+	/* Wrap createUnityInstance once the loader defines it */
+	var _cui = window.createUnityInstance;
+	Object.defineProperty(window, 'createUnityInstance', {
+		configurable: true,
+		enumerable: true,
+		get: function () {
+			return _cui;
+		},
+		set: function (fn) {
+			if (typeof fn !== 'function') {
+				_cui = fn;
+				return;
+			}
+			_cui = function (canvas, config, onProgress) {
+				config = config || {};
+				if ('showBanner' in config) config.showBanner = false;
+				hideLoadingDom();
+				return fn(canvas, config, function (progress) {
+					hideLoadingDom();
+					if (typeof onProgress === 'function') onProgress(progress);
+				}).then(function (instance) {
+					hideLoadingDom();
+					return instance;
+				});
+			};
+		}
+	});
+
+	/* Legacy UnityLoader.instantiate \u2014 skip TemplateData splash delay */
+	if (window.UnityLoader && typeof window.UnityLoader.instantiate === 'function') {
+		var origInstantiate = window.UnityLoader.instantiate.bind(window.UnityLoader);
+		window.UnityLoader.instantiate = function (container, url, opts) {
+			hideLoadingDom();
+			opts = opts || {};
+			if (opts.onProgress) {
+				var origProgress = opts.onProgress;
+				opts.onProgress = function (gameInstance, progress) {
+					hideLoadingDom();
+					return origProgress(gameInstance, progress);
+				};
+			}
+			return origInstantiate(container, url, opts);
+		};
+	}
+
+	/* Stub portal SDKs so games do not pause on ads / login */
+	window.PokiSDK =
+		window.PokiSDK ||
+		{
+			init: function () {
+				return Promise.resolve();
+			},
+			gameLoadingFinished: function () {},
+			gameplayStart: function () {},
+			commercialBreak: function () {
+				return Promise.resolve();
+			},
+			rewardedBreak: function () {
+				return Promise.resolve();
+			}
+		};
+
+	window.y8 =
+		window.y8 ||
+		{
+			ready: function (cb) {
+				if (typeof cb === 'function') cb();
+			},
+			sdk: function () {
+				return {
+					init: function () {},
+					showAd: function () {},
+					showRewardAd: function () {}
+				};
+			},
+			emitReadyEvent: function () {}
+		};
+
+	window.YaGames =
+		window.YaGames ||
+		{
+			init: function () {
+				return Promise.resolve({
+					adv: {
+						showFullscreenAdv: function (o) {
+							if (o && o.callbacks && o.callbacks.onClose) o.callbacks.onClose(false);
+						},
+						showRewardedVideo: function (o) {
+							if (o && o.callbacks) {
+								if (o.callbacks.onRewarded) o.callbacks.onRewarded();
+								if (o.callbacks.onClose) o.callbacks.onClose();
+							}
+						}
+					},
+					features: { LoadingAPI: { ready: function () {} } },
+					getPlayer: function () {
+						return Promise.resolve({
+							setData: function () {
+								return Promise.resolve();
+							},
+							getData: function () {
+								return Promise.resolve({});
+							}
+						});
+					}
+				});
+			}
+		};
+
+	document.addEventListener('DOMContentLoaded', hideLoadingDom);
+	setInterval(hideLoadingDom, 500);
+})();
+`;
+var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
+
 // src/unity/inject-html.ts
-var INJECT_PATH = path9.resolve(
-  path9.dirname(fileURLToPath2(import.meta.url)),
-  "../../../static/unity/inject.js"
-);
 var cachedInjectSource = null;
 function loadUnityInjectSource() {
   if (cachedInjectSource) return cachedInjectSource;
-  cachedInjectSource = readFileSync(INJECT_PATH, "utf-8");
+  cachedInjectSource = UNITY_INJECT_SOURCE;
   return cachedInjectSource;
 }
 function buildUnityInjectScriptTag() {
@@ -1777,7 +1925,7 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
     files.push({ path: dl.relativePath, size: dl.size, sha256: dl.sha256 });
   }
   for (const merge of merges) {
-    const mergedPath = path10.join(outDir, merge.relativePath);
+    const mergedPath = path9.join(outDir, merge.relativePath);
     const buffer = await fs7.readFile(mergedPath);
     files.push({
       path: merge.relativePath,
@@ -1798,9 +1946,9 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
     ...placeholderAssets.length > 0 ? { placeholderAssets } : {},
     files
   };
-  await fs7.writeFile(path10.join(outDir, "manifest.json"), JSON.stringify(manifest, null, 2));
-  await fs7.writeFile(path10.join(outDir, "asset-map.json"), JSON.stringify(assetRoutes, null, 2));
-  await fs7.writeFile(path10.join(outDir, "index.html"), buildOfflineHtml(assetRoutes));
+  await fs7.writeFile(path9.join(outDir, "manifest.json"), JSON.stringify(manifest, null, 2));
+  await fs7.writeFile(path9.join(outDir, "asset-map.json"), JSON.stringify(assetRoutes, null, 2));
+  await fs7.writeFile(path9.join(outDir, "index.html"), buildOfflineHtml(assetRoutes));
   console.log(`[host] Wrote manifest.json (${files.length} files)`);
   console.log(`[host] Wrote asset-map.json (${Object.keys(assetRoutes).length} routes)`);
   console.log("[host] Wrote index.html (standalone offline host)");
@@ -1809,14 +1957,14 @@ async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
 
 // src/unity-embed/merge.ts
 import fs8 from "node:fs/promises";
-import path11 from "node:path";
+import path10 from "node:path";
 function formatBytes2(bytes) {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 var PART_CHUNK_BYTES = 8 * 1024 * 1024;
 async function mergeParts(outDir, baseName) {
-  const buildDir = path11.join(outDir, "Build");
+  const buildDir = path10.join(outDir, "Build");
   const entries = await fs8.readdir(buildDir);
   const partPattern = new RegExp(`^${baseName}\\.part(\\d+)$`);
   const parts = entries.map((name) => {
@@ -1826,10 +1974,10 @@ async function mergeParts(outDir, baseName) {
   if (parts.length === 0) return null;
   const buffers = [];
   for (const part of parts) {
-    buffers.push(await fs8.readFile(path11.join(buildDir, part.name)));
+    buffers.push(await fs8.readFile(path10.join(buildDir, part.name)));
   }
   const merged = Buffer.concat(buffers);
-  const mergedPath = path11.join(buildDir, baseName);
+  const mergedPath = path10.join(buildDir, baseName);
   await fs8.writeFile(mergedPath, merged);
   console.log(
     `[merge] ${baseName}: ${parts.length} parts -> ${formatBytes2(merged.length)} (parts kept for WebKit)`
@@ -1842,8 +1990,8 @@ async function mergeParts(outDir, baseName) {
 }
 async function ensureServeParts(outDir) {
   for (const baseName of ["Shrek2.data.br", "Shrek2.wasm.br"]) {
-    const buildDir = path11.join(outDir, "Build");
-    const mergedPath = path11.join(buildDir, baseName);
+    const buildDir = path10.join(outDir, "Build");
+    const mergedPath = path10.join(buildDir, baseName);
     const partPattern = new RegExp(`^${baseName.replace(".", "\\.")}\\.part\\d+$`);
     try {
       await fs8.access(mergedPath);
@@ -1856,7 +2004,7 @@ async function ensureServeParts(outDir) {
     let partIndex = 0;
     for (let offset = 0; offset < merged.length; offset += PART_CHUNK_BYTES) {
       const chunk = merged.subarray(offset, offset + PART_CHUNK_BYTES);
-      await fs8.writeFile(path11.join(buildDir, `${baseName}.part${partIndex}`), chunk);
+      await fs8.writeFile(path10.join(buildDir, `${baseName}.part${partIndex}`), chunk);
       partIndex++;
     }
     console.log(`[merge] split ${baseName} -> ${partIndex} serve part(s)`);
@@ -1881,9 +2029,9 @@ async function mergeSplitFiles(outDir) {
 }
 async function linkBrotliAlias(outDir, merged) {
   if (!merged.relativePath.endsWith(".br")) return null;
-  const brPath = path11.join(outDir, merged.relativePath);
+  const brPath = path10.join(outDir, merged.relativePath);
   const aliasRelative = merged.relativePath.replace(/\.br$/, "");
-  const aliasPath = path11.join(outDir, aliasRelative);
+  const aliasPath = path10.join(outDir, aliasRelative);
   await fs8.unlink(aliasPath).catch(() => {
   });
   try {
@@ -1945,7 +2093,7 @@ async function pullEmbedGame(gameId, onProgress, signal) {
 // src/strategies/generic.ts
 import fs14 from "node:fs/promises";
 import { existsSync as existsSync7 } from "node:fs";
-import path16 from "node:path";
+import path15 from "node:path";
 import { spawn } from "node:child_process";
 init_cancel_registry();
 init_config();
@@ -1953,7 +2101,7 @@ init_config();
 // src/download/discover-all.ts
 import { existsSync as existsSync4 } from "node:fs";
 import fs10 from "node:fs/promises";
-import path12 from "node:path";
+import path11 from "node:path";
 var TEXT_EXT = /\.(html?|js|css|json|xml|txt)$/i;
 async function readTextSource(url, outDir, baseUrl, localPathForUrl2) {
   const localPath = localPathForUrl2(baseUrl, url, outDir);
@@ -1974,7 +2122,7 @@ async function discoverAllAssetUrls(options, localPathForUrl2) {
   const discovered = /* @__PURE__ */ new Set();
   const seen = /* @__PURE__ */ new Set();
   const scanQueue = /* @__PURE__ */ new Set();
-  const entryPath = path12.join(outDir, entryRel);
+  const entryPath = path11.join(outDir, entryRel);
   const entryHtml = await fs10.readFile(entryPath, "utf-8");
   const unityMode = unityOptimized && isUnityShell(entryHtml);
   const addRefs = (text, fileUrl) => {
@@ -2034,24 +2182,24 @@ async function discoverAllAssetUrls(options, localPathForUrl2) {
 // src/generic/entry-html.ts
 import fs11 from "node:fs/promises";
 import { existsSync as existsSync5 } from "node:fs";
-import path13 from "node:path";
+import path12 from "node:path";
 var GAME_SHELL_MARKERS = /c2runtime|cr_createRuntime|lime\.embed|UnityLoader|createUnityInstance|openfl-content|Construct 2|openfl-content/i;
 function mirroredIndexCandidates(out, iframeUrl) {
   const parsed = new URL(iframeUrl);
   const parts = parsed.pathname.split("/").filter(Boolean);
-  const hostDir = path13.join(out, parsed.hostname);
-  const candidates = [path13.join(out, "index.html"), path13.join(hostDir, "index.html")];
+  const hostDir = path12.join(out, parsed.hostname);
+  const candidates = [path12.join(out, "index.html"), path12.join(hostDir, "index.html")];
   if (parts.length === 0) return candidates;
   const last = parts[parts.length - 1];
-  candidates.push(path13.join(hostDir, ...parts, "index.html"));
-  candidates.push(path13.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
-  candidates.push(path13.join(hostDir, ...parts, `${last}.html`));
+  candidates.push(path12.join(hostDir, ...parts, "index.html"));
+  candidates.push(path12.join(hostDir, ...parts.slice(0, -1), `${last}.html`));
+  candidates.push(path12.join(hostDir, ...parts, `${last}.html`));
   return candidates;
 }
 async function collectHtmlFiles(dir, acc = []) {
   const entries = await fs11.readdir(dir, { withFileTypes: true });
   for (const e of entries) {
-    const full = path13.join(dir, e.name);
+    const full = path12.join(dir, e.name);
     if (e.isFile() && /\.html?$/i.test(e.name)) acc.push(full);
     else if (e.isDirectory() && !e.name.startsWith(".") && e.name !== "_external") {
       await collectHtmlFiles(full, acc);
@@ -2061,7 +2209,7 @@ async function collectHtmlFiles(dir, acc = []) {
 }
 function scoreEntryHtml(filePath, content, iframeSrc) {
   let score = 0;
-  const name = path13.basename(filePath).toLowerCase();
+  const name = path12.basename(filePath).toLowerCase();
   const urlParts = new URL(iframeSrc).pathname.split("/").filter(Boolean);
   const last = urlParts[urlParts.length - 1]?.toLowerCase();
   if (name === "index.html") score += 100;
@@ -2110,7 +2258,7 @@ async function resolveMirroredEntryHtml(out, iframeSrc) {
 
 // src/generic/post-process-offline.ts
 import fs12 from "node:fs/promises";
-import path14 from "node:path";
+import path13 from "node:path";
 
 // src/generic/poki-offline-stub.ts
 function buildPokiOfflineStubScript() {
@@ -2157,7 +2305,7 @@ async function patchSiteRootScriptTags(outDir, html) {
     return tag.replace(/(?:\.\.\/)+[^"']+/, fileName);
   });
   for (const fileName of needed) {
-    const dest = path14.join(outDir, fileName);
+    const dest = path13.join(outDir, fileName);
     if (fileName === "poki-sdk.js") continue;
     try {
       const stat = await fs12.stat(dest);
@@ -2170,11 +2318,11 @@ async function patchSiteRootScriptTags(outDir, html) {
   return out;
 }
 async function postProcessGenericOfflineMirror(outDir, entryRel = "index.html") {
-  const entryPath = path14.join(outDir, entryRel);
+  const entryPath = path13.join(outDir, entryRel);
   let html = await fs12.readFile(entryPath, "utf-8");
   html = await patchSiteRootScriptTags(outDir, html);
   if (indexHtmlReferencesPokiSdk(html)) {
-    await fs12.writeFile(path14.join(outDir, "poki-sdk.js"), buildPokiOfflineStubScript(), "utf-8");
+    await fs12.writeFile(path13.join(outDir, "poki-sdk.js"), buildPokiOfflineStubScript(), "utf-8");
     html = patchPokiSdkScriptTags(html);
   }
   await fs12.writeFile(entryPath, html, "utf-8");
@@ -2184,12 +2332,12 @@ async function postProcessGenericOfflineMirror(outDir, entryRel = "index.html") 
 init_scan_assets();
 import fs13 from "node:fs/promises";
 import { existsSync as existsSync6 } from "node:fs";
-import path15 from "node:path";
+import path14 from "node:path";
 async function listBuildFiles(outDir) {
-  const buildDir = path15.join(outDir, "Build");
+  const buildDir = path14.join(outDir, "Build");
   if (!existsSync6(buildDir)) return [];
   const entries = await fs13.readdir(buildDir);
-  return entries.map((f) => path15.posix.join("Build", f));
+  return entries.map((f) => path14.posix.join("Build", f));
 }
 async function discoverExternalUnityAssets(outDir, indexHtml) {
   const urls = new Set(scanContentForMediaUrls(indexHtml));
@@ -2197,11 +2345,11 @@ async function discoverExternalUnityAssets(outDir, indexHtml) {
   const toScan = await listBuildFiles(outDir);
   if (product) {
     for (const suffix of [".framework.js", ".loader.js", ".data", ".wasm", ".data.br", ".wasm.br"]) {
-      toScan.push(path15.posix.join("Build", `${product}${suffix}`));
+      toScan.push(path14.posix.join("Build", `${product}${suffix}`));
     }
   }
   for (const rel of toScan) {
-    const filePath = path15.join(outDir, rel);
+    const filePath = path14.join(outDir, rel);
     if (!existsSync6(filePath)) continue;
     try {
       const buf = await fs13.readFile(filePath);
@@ -2215,7 +2363,7 @@ async function discoverExternalUnityAssets(outDir, indexHtml) {
   return [...urls].sort();
 }
 async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.html") {
-  const entryPath = path15.join(outDir, entryRel);
+  const entryPath = path14.join(outDir, entryRel);
   const entryHtml = await fs13.readFile(entryPath, "utf-8");
   if (!isUnityGameHtml(entryHtml)) {
     return { assetRoutes: {}, externalCount: 0 };
@@ -2224,14 +2372,14 @@ async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.
   const assetRoutes = buildAssetRouteMap(externalUrls);
   if (externalUrls.length > 0) {
     await fs13.writeFile(
-      path15.join(outDir, "asset-map.json"),
+      path14.join(outDir, "asset-map.json"),
       JSON.stringify(assetRoutes, null, 2)
     );
   }
   const patched = injectUnityPatches(entryHtml, assetRoutes);
   await fs13.writeFile(entryPath, patched);
   console.log(
-    `[unity] Post-processed ${path15.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? "unknown"}`
+    `[unity] Post-processed ${path14.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? "unknown"}`
   );
   return { assetRoutes, externalCount: externalUrls.length };
 }
@@ -2257,13 +2405,13 @@ function normalizeGameBaseUrl(iframeSrc) {
 }
 async function findGameContentRoot(mirrorDir) {
   async function walk(dir) {
-    if (existsSync7(path16.join(dir, "Build")) || existsSync7(path16.join(dir, "TemplateData"))) {
+    if (existsSync7(path15.join(dir, "Build")) || existsSync7(path15.join(dir, "TemplateData"))) {
       return dir;
     }
     const entries = await fs14.readdir(dir, { withFileTypes: true });
     for (const e of entries) {
       if (!e.isDirectory()) continue;
-      const found = await walk(path16.join(dir, e.name));
+      const found = await walk(path15.join(dir, e.name));
       if (found) return found;
     }
     return null;
@@ -2272,18 +2420,18 @@ async function findGameContentRoot(mirrorDir) {
 }
 async function promoteGameRootToOfflineDir(mirrorDir, iframeSrc) {
   const entryPath = await resolveMirroredEntryHtml(mirrorDir, iframeSrc);
-  const contentRoot = await findGameContentRoot(mirrorDir) ?? path16.dirname(entryPath);
-  const staging = path16.join(path16.dirname(mirrorDir), `${path16.basename(mirrorDir)}.__staging__`);
+  const contentRoot = await findGameContentRoot(mirrorDir) ?? path15.dirname(entryPath);
+  const staging = path15.join(path15.dirname(mirrorDir), `${path15.basename(mirrorDir)}.__staging__`);
   await fs14.rm(staging, { recursive: true, force: true });
   await fs14.mkdir(staging, { recursive: true });
   await fs14.cp(contentRoot, staging, { recursive: true });
-  const entryName = path16.basename(entryPath);
-  const stagedEntry = path16.join(staging, entryName);
+  const entryName = path15.basename(entryPath);
+  const stagedEntry = path15.join(staging, entryName);
   if (!existsSync7(stagedEntry)) {
     await fs14.rm(staging, { recursive: true, force: true });
     throw new Error(`Could not prepare offline entry (${entryName})`);
   }
-  const entryRel = path16.relative(staging, stagedEntry).split(path16.sep).join("/");
+  const entryRel = path15.relative(staging, stagedEntry).split(path15.sep).join("/");
   await fs14.rm(mirrorDir, { recursive: true, force: true });
   await fs14.rename(staging, mirrorDir);
   const baseUrl = normalizeGameBaseUrl(iframeSrc);
@@ -2314,19 +2462,19 @@ function localPathForUrl(baseUrl, assetUrl, outDir) {
   const abs = new URL(assetUrl, base);
   const absPathParts = abs.pathname.split("/").filter(Boolean);
   if (abs.origin !== base.origin) {
-    return path16.join(outDir, "_external", abs.hostname, ...absPathParts);
+    return path15.join(outDir, "_external", abs.hostname, ...absPathParts);
   }
   const basePath = base.pathname.endsWith("/") ? base.pathname : `${base.pathname}/`;
   if (!abs.pathname.startsWith(basePath)) {
-    return path16.join(outDir, ...absPathParts);
+    return path15.join(outDir, ...absPathParts);
   }
   const baseParts = base.pathname.split("/").filter(Boolean);
   const relParts = absPathParts.slice(baseParts.length);
-  if (relParts.length === 0) return path16.join(outDir, "index.html");
-  return path16.join(outDir, ...relParts);
+  if (relParts.length === 0) return path15.join(outDir, "index.html");
+  return path15.join(outDir, ...relParts);
 }
 async function hasUnityLoaderOnDisk(outDir) {
-  const roots = [outDir, path16.join(outDir, "Build")];
+  const roots = [outDir, path15.join(outDir, "Build")];
   for (const root of roots) {
     if (!existsSync7(root)) continue;
     try {
@@ -2372,7 +2520,7 @@ async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
       }
     }
     if (requiresLegacyUnityLoaderFile(indexHtml) && !await hasUnityLoaderOnDisk(outDir)) {
-      missing.push(path16.join(outDir, "Build/UnityLoader.js"));
+      missing.push(path15.join(outDir, "Build/UnityLoader.js"));
     }
   }
   if (missing.length > 0) {
@@ -2405,14 +2553,14 @@ async function discoverAndDownloadAssets(outDir, baseUrl, entryRel, onProgress, 
   });
   throwIfCancelled(signal);
   onProgress(90, "Ensuring Unity loader assets\u2026");
-  const entryHtml = await fs14.readFile(path16.join(outDir, entryRel), "utf-8");
+  const entryHtml = await fs14.readFile(path15.join(outDir, entryRel), "utf-8");
   await ensureLegacyUnityLoader(outDir, baseUrl, entryHtml, signal);
   throwIfCancelled(signal);
   onProgress(92, "Verifying Unity / required assets\u2026");
   await validateRequiredAssets(outDir, baseUrl, entryHtml);
 }
 async function pullGenericGame(gameId, onProgress, signal) {
-  const onlineIndex = path16.join(catalogOnlineDir(gameId), "index.html");
+  const onlineIndex = path15.join(catalogOnlineDir(gameId), "index.html");
   const out = offlineDir(gameId);
   throwIfCancelled(signal);
   onProgress(5, "Reading online shell\u2026");
@@ -2464,7 +2612,7 @@ async function pullGenericGame(gameId, onProgress, signal) {
   if (isWgetFailure(code)) {
     throw new Error(wgetExitMessage(code));
   }
-  const entryPath = path16.join(out, entryRel);
+  const entryPath = path15.join(out, entryRel);
   if (!existsSync7(entryPath)) {
     throw new Error(`Mirror completed but entry HTML missing: ${entryRel}`);
   }
@@ -2486,7 +2634,7 @@ async function pullGenericGame(gameId, onProgress, signal) {
 init_config();
 import fs15 from "node:fs/promises";
 import { createWriteStream, existsSync as existsSync8 } from "node:fs";
-import path17 from "node:path";
+import path16 from "node:path";
 import { pipeline } from "node:stream/promises";
 import { Readable } from "node:stream";
 var UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
@@ -2521,23 +2669,23 @@ async function ensureOfflineThumbnail(gameId) {
   await fs15.mkdir(outRoot, { recursive: true });
   const existing = await readOfflineManifestFromDir(outRoot);
   if (existing?.thumbnail) {
-    const abs = path17.join(outRoot, existing.thumbnail);
+    const abs = path16.join(outRoot, existing.thumbnail);
     if (existsSync8(abs)) return existing.thumbnail;
   }
   if (thumb.startsWith("/")) {
     const relFromGames = thumb.replace(/^\/games\//, "");
     const candidates = [
-      path17.join(CATALOG_DIR, relFromGames),
-      path17.join(outRoot, "..", "online", "assets", path17.basename(thumb))
+      path16.join(CATALOG_DIR, relFromGames),
+      path16.join(outRoot, "..", "online", "assets", path16.basename(thumb))
     ];
     for (const src of candidates) {
       try {
         const st = await fs15.stat(src);
         if (!st.isFile() || st.size < 32) continue;
-        const ext = path17.extname(src) || ".png";
+        const ext = path16.extname(src) || ".png";
         const rel = `assets/thumbnail${ext}`;
-        const dest = path17.join(outRoot, rel);
-        await fs15.mkdir(path17.dirname(dest), { recursive: true });
+        const dest = path16.join(outRoot, rel);
+        await fs15.mkdir(path16.dirname(dest), { recursive: true });
         await fs15.copyFile(src, dest);
         await patchManifestThumbnail(outRoot, rel, existing?.entry ?? "index.html");
         return rel;
@@ -2556,8 +2704,8 @@ async function ensureOfflineThumbnail(gameId) {
     if (!res.ok || !res.body) return null;
     const ext = extensionFromUrlOrType(thumb, res.headers.get("content-type"));
     const rel = `assets/thumbnail${ext}`;
-    const dest = path17.join(outRoot, rel);
-    await fs15.mkdir(path17.dirname(dest), { recursive: true });
+    const dest = path16.join(outRoot, rel);
+    await fs15.mkdir(path16.dirname(dest), { recursive: true });
     await pipeline(Readable.fromWeb(res.body), createWriteStream(dest));
     await patchManifestThumbnail(outRoot, rel, existing?.entry ?? "index.html");
     return rel;
@@ -2569,7 +2717,7 @@ async function readOfflineThumbnailRel(gameId) {
   const outRoot = offlineDir(gameId);
   const manifest = await readOfflineManifestFromDir(outRoot);
   if (manifest?.thumbnail) {
-    const abs = path17.join(outRoot, manifest.thumbnail);
+    const abs = path16.join(outRoot, manifest.thumbnail);
     if (existsSync8(abs)) return manifest.thumbnail;
   }
   for (const name of [
@@ -2579,7 +2727,7 @@ async function readOfflineThumbnailRel(gameId) {
     "assets/thumbnail.webp",
     "assets/thumbnail.gif"
   ]) {
-    if (existsSync8(path17.join(outRoot, name))) return name;
+    if (existsSync8(path16.join(outRoot, name))) return name;
   }
   return null;
 }
@@ -2725,17 +2873,10 @@ async function runDownloadJob(gameId, job, signal) {
 }
 
 // src/game-storage-bridge-script.ts
-import { readFileSync as readFileSync2 } from "node:fs";
-import path18 from "node:path";
-import { fileURLToPath as fileURLToPath3 } from "node:url";
-var BRIDGE_PATH = path18.resolve(
-  path18.dirname(fileURLToPath3(import.meta.url)),
-  "../../static/game-storage-bridge.child.js"
-);
 var cachedBridge = null;
 function loadBridgeSource() {
   if (cachedBridge) return cachedBridge;
-  cachedBridge = readFileSync2(BRIDGE_PATH, "utf-8");
+  cachedBridge = GAME_STORAGE_BRIDGE_SOURCE;
   return cachedBridge;
 }
 function buildInlineGameStorageBridgeScript() {
@@ -2756,7 +2897,7 @@ function injectGameStorageBridge(html, _gameId, childScriptSrc) {
 // src/unity/proxy-play.ts
 import fs17 from "node:fs/promises";
 import { existsSync as existsSync9 } from "node:fs";
-import path19 from "node:path";
+import path17 from "node:path";
 init_config();
 function extractIframeSrc2(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i];
@@ -2773,7 +2914,7 @@ async function resolveUnityPlayUrl(gameId) {
   const meta = await readGameMetadata(gameId);
   const embed = typeof meta?.onlineEmbedUrl === "string" ? meta.onlineEmbedUrl.trim() : "";
   if (embed) return embed;
-  const indexPath = path19.join(catalogOnlineDir(gameId), "index.html");
+  const indexPath = path17.join(catalogOnlineDir(gameId), "index.html");
   if (!existsSync9(indexPath)) return null;
   const html = await fs17.readFile(indexPath, "utf-8");
   return extractIframeSrc2(html);
@@ -2801,7 +2942,7 @@ async function fetchProxiedUnityHtml(gameId) {
 
 // src/browser-data.ts
 import fs18 from "node:fs/promises";
-import path20 from "node:path";
+import path18 from "node:path";
 import { existsSync as existsSync10 } from "node:fs";
 
 // src/browser-data-profile.ts
@@ -2835,15 +2976,15 @@ var PROFILE_DISK_PATHS = {
 
 // src/browser-data.ts
 function browserDataDir(gameId) {
-  return path20.join(gameDataRoot(gameId), "data");
+  return path18.join(gameDataRoot(gameId), "data");
 }
 function dataFilePath(gameId, rel) {
-  return path20.join(browserDataDir(gameId), rel);
+  return path18.join(browserDataDir(gameId), rel);
 }
 function assertDataPath(gameId, absPath) {
-  const root = path20.resolve(browserDataDir(gameId));
-  const resolved = path20.resolve(absPath);
-  if (!resolved.startsWith(root + path20.sep) && resolved !== root) {
+  const root = path18.resolve(browserDataDir(gameId));
+  const resolved = path18.resolve(absPath);
+  if (!resolved.startsWith(root + path18.sep) && resolved !== root) {
     throw new Error("Path traversal rejected");
   }
 }
@@ -2856,7 +2997,7 @@ async function readJsonFile(filePath, fallback) {
   }
 }
 async function writeJsonAtomic(filePath, data) {
-  const dir = path20.dirname(filePath);
+  const dir = path18.dirname(filePath);
   await fs18.mkdir(dir, { recursive: true });
   const tmp = filePath + ".tmp";
   await fs18.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
@@ -2869,9 +3010,9 @@ async function loadIndexedDbProfiles(gameId) {
   const profiles = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const dbDir = path20.join(idbRoot, entry.name);
-    const metaPath = path20.join(dbDir, "meta.json");
-    const recordsPath = path20.join(dbDir, "records.json");
+    const dbDir = path18.join(idbRoot, entry.name);
+    const metaPath = path18.join(dbDir, "meta.json");
+    const recordsPath = path18.join(dbDir, "records.json");
     try {
       const meta = await readJsonFile(
         metaPath,
@@ -2895,20 +3036,20 @@ async function saveIndexedDbProfiles(gameId, databases) {
   const existing = existsSync10(idbRoot) ? await fs18.readdir(idbRoot, { withFileTypes: true }) : [];
   for (const entry of existing) {
     if (entry.isDirectory()) {
-      await fs18.rm(path20.join(idbRoot, entry.name), { recursive: true, force: true });
+      await fs18.rm(path18.join(idbRoot, entry.name), { recursive: true, force: true });
     }
   }
   for (const db of databases) {
     const safeName = db.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const dbDir = path20.join(idbRoot, safeName);
+    const dbDir = path18.join(idbRoot, safeName);
     assertDataPath(gameId, dbDir);
     await fs18.mkdir(dbDir, { recursive: true });
-    await writeJsonAtomic(path20.join(dbDir, "meta.json"), {
+    await writeJsonAtomic(path18.join(dbDir, "meta.json"), {
       name: db.name,
       version: db.version,
       objectStores: db.objectStores
     });
-    await writeJsonAtomic(path20.join(dbDir, "records.json"), db.records);
+    await writeJsonAtomic(path18.join(dbDir, "records.json"), db.records);
   }
 }
 async function readGameBrowserProfile(gameId) {
@@ -2989,7 +3130,7 @@ function sendJson(res, status, body) {
   res.end(payload);
 }
 function mimeFor(filePath) {
-  const ext = path21.extname(filePath).toLowerCase();
+  const ext = path19.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
     ".js": "application/javascript",

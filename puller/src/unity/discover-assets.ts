@@ -181,7 +181,8 @@ export function scanUnityLoaderBundle(text: string, baseUrl: string): string[] {
 
 /** Poki / abinbins master-loader shells reference site-root Unity scripts. */
 export function discoverPokiRootAssets(text: string, iframeOrigin: string): string[] {
-	if (!/master-loader\.js|poki-sdk|unityWebglLoaderUrl|UnityLoader/i.test(text)) {
+	/* Do not match bare "UnityLoader" — Unity Play frames use that name but load CDN loader.js. */
+	if (!/master-loader\.js|poki-sdk|unityWebglLoaderUrl/i.test(text)) {
 		return [];
 	}
 

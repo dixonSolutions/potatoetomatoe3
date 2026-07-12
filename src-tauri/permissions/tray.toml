@@ -2,3 +2,8 @@
 identifier = "allow-sync-tray-recent"
 description = "Allow the frontend to update the system tray recent-games menu"
 commands.allow = ["sync_tray_recent"]
+
+[[permission]]
+identifier = "allow-get-puller-base-url"
+description = "Allow the frontend to read the local puller HTTP base URL"
+commands.allow = ["get_puller_base_url"]

@@ -21,10 +21,38 @@ export interface DownloadProgress {
 
 const DEFAULT_PULLER_URL = 'http://127.0.0.1:18787';
 
+/** Set by Tauri on startup when the sidecar uses a non-default port. */
+let pullerBaseUrlOverride: string | null = null;
+
+export function setPullerBaseUrlOverride(url: string | null): void {
+	pullerBaseUrlOverride = url ? url.replace(/\/$/, '') : null;
+	pullerAvailableCache = null;
+	pullerAvailableCheckedAt = 0;
+}
+
 export function getPullerBaseUrl(): string {
+	if (pullerBaseUrlOverride) return pullerBaseUrlOverride;
 	const env = import.meta.env.PUBLIC_DOWNLOADER_URL;
 	if (typeof env === 'string' && env.trim()) return env.replace(/\/$/, '');
 	return DEFAULT_PULLER_URL;
+}
+
+/** Resolve puller URL from Tauri (handles port conflicts with host pullers). */
+export async function syncPullerBaseUrlFromTauri(): Promise<string | null> {
+	if (!shouldProbePullerBackend()) return null;
+	try {
+		const { isTauriApp } = await import('./offline-deployment');
+		if (!isTauriApp()) return null;
+		const { invoke } = await import('@tauri-apps/api/core');
+		const url = await invoke<string>('get_puller_base_url');
+		if (typeof url === 'string' && url.trim()) {
+			setPullerBaseUrlOverride(url.trim());
+			return getPullerBaseUrl();
+		}
+	} catch {
+		/* not Tauri or command unavailable */
+	}
+	return null;
 }
 
 let pullerAvailableCache: boolean | null = null;
