@@ -67,7 +67,7 @@ pnpm run games:import-y8 -- --limit 50 --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. Online play routes through `/unity/player.html` which loads `inject.js` (no splash, no portal loading screens). Offline pulls use the same inject + `asset-map.json` under `offline/`.
+Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. Online play routes through `/unity/player.html` which loads `inject.js` (no splash, no portal loading screens). Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
 
 ### Unity Play catalog import
 
@@ -137,6 +137,8 @@ When the puller is unavailable but IndexedDB and service workers are supported:
 3. Games that load entirely from external iframes may still need network access after download.
 
 Per-game online/offline preference is stored in localStorage via `src/lib/utils/game-play-mode.ts`.
+
+On the game page, **View logs** opens a diagnostics dialog (play URL resolution, download events). **Relaunch** resets the player surface and remounts the iframe so you can start fresh after a bad offline load.
 
 ## GitHub Pages
 

@@ -30,18 +30,29 @@
       var frame = document.getElementById('game');
       var err = document.getElementById('error');
 
-      if (!src) {
+      function showError(reason) {
         frame.style.display = 'none';
         err.style.display = 'grid';
+        err.innerHTML =
+          'Missing or invalid <code>?src=</code> URL.' +
+          (reason ? '<br/><span style="opacity:.75;font-size:.8rem">' + reason + '</span>' : '');
+      }
+
+      if (!src) {
+        showError('Parameter is empty.');
         return;
       }
 
       try {
         var url = new URL(src, location.href);
-        if (url.protocol !== 'https:' && url.protocol !== 'http:') throw new Error('bad protocol');
+        var protocol = url.protocol;
+        /* Offline browser copies may use blob:; local hosts use http(s). */
+        if (protocol !== 'https:' && protocol !== 'http:' && protocol !== 'blob:') {
+          throw new Error('Unsupported protocol: ' + protocol);
+        }
 
         /* Same-origin offline copies: load asset-map.json from assets base and patch fetch */
-        if (assetsBase) {
+        if (assetsBase && (protocol === 'http:' || protocol === 'https:')) {
           var mapUrl = assetsBase.replace(/\/?$/, '/') + 'asset-map.json';
           fetch(mapUrl)
             .then(function (r) { return r.ok ? r.json() : {}; })
@@ -59,8 +70,7 @@
 
         frame.src = url.href;
       } catch (e) {
-        frame.style.display = 'none';
-        err.style.display = 'grid';
+        showError((e && e.message) || String(e));
       }
     })();
   </script>

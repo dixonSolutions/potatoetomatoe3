@@ -10,9 +10,9 @@ import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
 import {
 	resolveStaticOfflinePlayUrl,
-	staticOfflineFileExists,
-	staticOfflinePlayUrl
+	staticOfflineFileExists
 } from '$lib/utils/offline-play-url';
+import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -147,6 +147,34 @@ function unityOfflineAssetsBase(gameId: string): string {
 	return `${base}/games/${encodeURIComponent(gameId)}/offline/`.replace(/\/{2,}/g, '/');
 }
 
+/**
+ * Offline Unity hosts are already post-processed (inject + asset-map) or are
+ * browser blob / SW shells. Wrapping them in `/unity/player.html` rejects `blob:`
+ * and double-wraps puller offline entry HTML — load them directly instead.
+ */
+export function isLocalOfflinePlayUrl(url: string): boolean {
+	const trimmed = url.trim();
+	if (!trimmed) return false;
+	if (trimmed.startsWith('blob:')) return true;
+	if (trimmed.includes('/browser-offline/')) return true;
+	if (trimmed.includes('/puller-games/')) return true;
+	if (trimmed.includes('/games/') && trimmed.includes('/offline/')) return true;
+	try {
+		const absolute = new URL(trimmed, 'http://local.invalid');
+		if (absolute.protocol === 'blob:') return true;
+	} catch {
+		/* ignore */
+	}
+	return false;
+}
+
+function resolveOfflineUnityPlayUrl(offlineUrl: string, gameId: string): string {
+	if (isLocalOfflinePlayUrl(offlineUrl)) {
+		return offlineUrl;
+	}
+	return unityPlayerShellUrl(offlineUrl, gameId, unityOfflineAssetsBase(gameId));
+}
+
 function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): string {
 	const embed = metadata?.onlineEmbedUrl?.trim();
 	if (embed) {
@@ -188,45 +216,86 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 
 	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;
+	const mode = networkOnline ? getGamePlayMode(gameId) : 'offline';
 
 	if (!networkOnline) {
 		if (hasOffline) {
 			const offlineUrl = await getOfflinePlayUrl(gameId);
 			if (offlineUrl) {
-				if (metadata?.engine === 'unity') {
-					return unityPlayerShellUrl(offlineUrl, gameId, unityOfflineAssetsBase(gameId));
-				}
-				return offlineUrl;
+				const url =
+					metadata?.engine === 'unity'
+						? resolveOfflineUnityPlayUrl(offlineUrl, gameId)
+						: offlineUrl;
+				appendPlayLog(
+					'info',
+					'play-url',
+					`Resolved offline play URL (device offline)`,
+					`game=${gameId} engine=${metadata?.engine ?? 'unknown'} mode=${mode} url=${url}`
+				);
+				return url;
 			}
 			if (!isPublicSiteDeployment()) {
 				const staticOfflineUrl = await staticOfflinePlayUrlIfNeeded(gameId);
-				if (metadata?.engine === 'unity') {
-					return unityPlayerShellUrl(staticOfflineUrl, gameId, unityOfflineAssetsBase(gameId));
-				}
-				return staticOfflineUrl;
+				const url =
+					metadata?.engine === 'unity'
+						? resolveOfflineUnityPlayUrl(staticOfflineUrl, gameId)
+						: staticOfflineUrl;
+				appendPlayLog(
+					'info',
+					'play-url',
+					`Resolved static offline play URL (device offline)`,
+					`game=${gameId} url=${url}`
+				);
+				return url;
 			}
 		}
-		return resolveOnlinePlayUrl(metadata, gameId);
+		const fallback = resolveOnlinePlayUrl(metadata, gameId);
+		appendPlayLog(
+			'warn',
+			'play-url',
+			`No offline copy — falling back while device offline`,
+			`game=${gameId} url=${fallback}`
+		);
+		return fallback;
 	}
-
-	const mode = getGamePlayMode(gameId);
 
 	if (mode === 'offline' && hasOffline) {
 		const offlineUrl = await getOfflinePlayUrl(gameId);
 		if (offlineUrl) {
-			if (metadata?.engine === 'unity') {
-				return unityPlayerShellUrl(offlineUrl, gameId, unityOfflineAssetsBase(gameId));
-			}
-			return offlineUrl;
+			const url =
+				metadata?.engine === 'unity'
+					? resolveOfflineUnityPlayUrl(offlineUrl, gameId)
+					: offlineUrl;
+			appendPlayLog(
+				'info',
+				'play-url',
+				`Resolved offline play URL (offline mode)`,
+				`game=${gameId} engine=${metadata?.engine ?? 'unknown'} url=${url}`
+			);
+			return url;
 		}
 		if (!isPublicSiteDeployment()) {
 			const staticOfflineUrl = await staticOfflinePlayUrlIfNeeded(gameId);
-			if (metadata?.engine === 'unity') {
-				return unityPlayerShellUrl(staticOfflineUrl, gameId, unityOfflineAssetsBase(gameId));
-			}
-			return staticOfflineUrl;
+			const url =
+				metadata?.engine === 'unity'
+					? resolveOfflineUnityPlayUrl(staticOfflineUrl, gameId)
+					: staticOfflineUrl;
+			appendPlayLog(
+				'info',
+				'play-url',
+				`Resolved static offline play URL (offline mode)`,
+				`game=${gameId} url=${url}`
+			);
+			return url;
 		}
-		return resolveOnlinePlayUrl(metadata, gameId);
+		const fallback = resolveOnlinePlayUrl(metadata, gameId);
+		appendPlayLog(
+			'warn',
+			'play-url',
+			`Offline mode selected but no offline URL — using online`,
+			`game=${gameId} url=${fallback}`
+		);
+		return fallback;
 	}
 
 	/*
@@ -237,11 +306,20 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	if (metadata?.engine === 'unity' && import.meta.env.DEV) {
 		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
 		if (await isPullerAvailable()) {
-			return pullerUnityPlayUrl(gameId, base);
+			const url = pullerUnityPlayUrl(gameId, base);
+			appendPlayLog('info', 'play-url', `Resolved Unity play via puller proxy`, `game=${gameId} url=${url}`);
+			return url;
 		}
 	}
 
-	return resolveOnlinePlayUrl(metadata, gameId);
+	const onlineUrl = resolveOnlinePlayUrl(metadata, gameId);
+	appendPlayLog(
+		'info',
+		'play-url',
+		`Resolved online play URL`,
+		`game=${gameId} engine=${metadata?.engine ?? 'unknown'} url=${onlineUrl}`
+	);
+	return onlineUrl;
 }
 
 /** Whether the game can be played while the device has no network connection. */

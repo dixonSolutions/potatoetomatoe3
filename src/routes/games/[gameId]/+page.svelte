@@ -28,13 +28,19 @@
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown } from 'lucide-svelte';
+	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown, RotateCcw, ScrollText } from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
-	import { GAME_PLAY_MODE_CHANGED } from '$lib/utils/game-play-mode';
+	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
+	import { GAME_PLAY_MODE_CHANGED, getGamePlayMode } from '$lib/utils/game-play-mode';
 	import { OFFLINE_STATUS_CHANGED, type OfflineStatusChangedDetail } from '$lib/utils/offline-downloader';
+	import {
+		describeOfflineBackend,
+		getOfflineBackend
+	} from '$lib/utils/offline-runtime';
+	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
@@ -44,6 +50,7 @@
 		isFullscreenElement
 	} from '$lib/utils/fullscreen';
 	import { setGameImmersive } from '$lib/utils/game-immersive';
+	import { toast } from 'svelte-sonner';
 
 	let gameMetadata: GameMetadata | null = $state(null);
 	let recommendedGames: GameMetadata[] = $state([]);
@@ -94,6 +101,11 @@
 	/** True after the user clicks Play — avoids loading the game bundle until then. */
 	let gameSurfaceStarted = $state(false);
 	let gamePlayerUrl = $state('');
+	/** Bumps on full relaunch so the iframe remounts even when the URL is unchanged. */
+	let playerRemountKey = $state(0);
+	let logsOpen = $state(false);
+	let logSnapshot = $state<string[]>([]);
+	let offlineBackendLabel = $state('…');
 
 	const playerLayout = new GamePlayerLayout();
 
@@ -110,6 +122,41 @@
 		const id = gameId;
 		if (!id) return;
 		gamePlayerUrl = await getGamePlayerUrl(id);
+	}
+
+	async function refreshOfflineBackendLabel() {
+		try {
+			const backend = await getOfflineBackend();
+			offlineBackendLabel = describeOfflineBackend(backend);
+		} catch {
+			offlineBackendLabel = 'unknown';
+		}
+	}
+
+	async function openPlayLogs() {
+		await refreshOfflineBackendLabel();
+		const mode = gameId ? getGamePlayMode(gameId) : '—';
+		logSnapshot = [
+			`gameId=${gameId || '—'}`,
+			`network=${networkOnline ? 'online' : 'offline'}`,
+			`playMode=${mode}`,
+			`backend=${offlineBackendLabel}`,
+			`started=${gameSurfaceStarted}`,
+			`playerUrl=${gamePlayerUrl || '(empty)'}`,
+			`engine=${gameMetadata?.engine ?? '—'}`
+		];
+		appendPlayLog('info', 'ui', 'Opened play diagnostics');
+		logsOpen = true;
+	}
+
+	async function relaunchGameCompletely() {
+		if (!gameId) return;
+		appendPlayLog('info', 'ui', 'Relaunch game completely', `game=${gameId}`);
+		gameSurfaceStarted = false;
+		iframeElement = undefined;
+		await refreshPlayerUrl();
+		playerRemountKey += 1;
+		toast.message('Game relaunched — press Play to start again');
 	}
 
 	async function loadGamePage(id: string) {
@@ -339,20 +386,42 @@
 						{/if}
 					</div>
 				</div>
-				<Button
-					onclick={toggleFullscreen}
-					variant="outline"
-					size="sm"
-					class="w-full shrink-0 sm:w-auto"
-					aria-pressed={isGameFullscreen}
-				>
-					<Maximize class="mr-2 h-4 w-4" />
-					{isGameFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
-				</Button>
+				<div class="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row">
+					<Button
+						onclick={() => void openPlayLogs()}
+						variant="outline"
+						size="sm"
+						class="w-full sm:w-auto"
+					>
+						<ScrollText class="mr-2 h-4 w-4" />
+						View logs
+					</Button>
+					<Button
+						onclick={() => void relaunchGameCompletely()}
+						variant="outline"
+						size="sm"
+						class="w-full sm:w-auto"
+					>
+						<RotateCcw class="mr-2 h-4 w-4" />
+						Relaunch
+					</Button>
+					<Button
+						onclick={toggleFullscreen}
+						variant="outline"
+						size="sm"
+						class="w-full sm:w-auto"
+						aria-pressed={isGameFullscreen}
+					>
+						<Maximize class="mr-2 h-4 w-4" />
+						{isGameFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+					</Button>
+				</div>
 			</div>
 			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
+
+		<PlayLogsDialog bind:open={logsOpen} snapshotLines={logSnapshot} />
 
 		<div
 			bind:this={gameSurfaceEl}
@@ -360,7 +429,27 @@
 			style={!isGameFullscreen && playerLayout.isCompact ? playerLayout.surfaceStyle : undefined}
 		>
 			{#if isGameFullscreen}
-				<div class="absolute top-2 right-2 z-20 flex gap-1 sm:top-3 sm:right-3">
+				<div class="absolute top-2 right-2 z-20 flex flex-wrap justify-end gap-1 sm:top-3 sm:right-3">
+					<Button
+						variant="secondary"
+						size="sm"
+						class="shadow-md backdrop-blur-sm"
+						onclick={() => void openPlayLogs()}
+						aria-label="View logs"
+					>
+						<ScrollText class="mr-2 h-4 w-4" />
+						Logs
+					</Button>
+					<Button
+						variant="secondary"
+						size="sm"
+						class="shadow-md backdrop-blur-sm"
+						onclick={() => void relaunchGameCompletely()}
+						aria-label="Relaunch game"
+					>
+						<RotateCcw class="mr-2 h-4 w-4" />
+						Relaunch
+					</Button>
 					<Button
 						variant="secondary"
 						size="sm"
@@ -410,7 +499,7 @@
 				</div>
 			{/if}
 			<div class="game-player-surface__frame relative min-h-0 w-full flex-1">
-				{#key gamePlayerUrl}
+				{#key `${gamePlayerUrl}::${playerRemountKey}`}
 					<LazyGameFrame
 						{gameId}
 						gameUrl={fixMalformedGamePlayerUrl(

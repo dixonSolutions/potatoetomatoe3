@@ -36,6 +36,7 @@
 	import type { GameMetadata } from '$lib/utils/games';
 	import { onMount } from 'svelte';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
+	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 
 	let {
 		gameId,
@@ -144,6 +145,7 @@
 		downloading = true;
 		const generation = ++pollGeneration;
 		progress = { state: 'pending', progress: 0, message: 'Starting…' };
+		appendPlayLog('info', 'download', `Starting offline download`, `game=${gameId} backend=${offlineBackend}`);
 		dispatchOfflineStatusChanged(gameId, 'download-start');
 		try {
 			await startGameDownload(gameId);
@@ -152,16 +154,19 @@
 			});
 			if (generation !== pollGeneration) return;
 			if (final.state === 'done') {
+				appendPlayLog('info', 'download', 'Download finished', `game=${gameId}`);
 				toast.success('Game downloaded for offline play');
 				status = await refreshGameOfflineState(gameId);
 				dispatchOfflineStatusChanged(gameId, 'download-done');
 				onPlayUrlChange?.();
 			} else if (final.state === 'cancelled') {
+				appendPlayLog('warn', 'download', 'Download cancelled', final.message || `game=${gameId}`);
 				toast.message(final.message || 'Download cancelled');
 				status = await refreshGameOfflineState(gameId);
 				dispatchOfflineStatusChanged(gameId, 'download-cancel');
 			} else if (final.state === 'error') {
 				const msg = await describePullerDownloadError(final.error);
+				appendPlayLog('error', 'download', 'Download failed', msg);
 				toast.error(msg);
 				dispatchOfflineStatusChanged(gameId, 'download-error');
 				await refreshStatus();
@@ -169,7 +174,9 @@
 		} catch (e) {
 			if (generation !== pollGeneration) return;
 			const raw = e instanceof Error ? e.message : 'Download failed';
-			toast.error(await describePullerDownloadError(raw));
+			const msg = await describePullerDownloadError(raw);
+			appendPlayLog('error', 'download', 'Download threw', msg);
+			toast.error(msg);
 			dispatchOfflineStatusChanged(gameId, 'download-error');
 			await refreshStatus();
 		} finally {
