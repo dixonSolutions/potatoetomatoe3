@@ -110,6 +110,15 @@ function normalizeSlug(slug, fallbackId) {
 	return cleaned || `unity-${String(fallbackId).slice(0, 8)}`;
 }
 
+/** Block Unity Play SEO spam / adult listings that slip into public discovery. */
+const ADULT_OR_SPAM_RE =
+	/\b(xnxx|xvideos|pornhub|onlyfans|xxx[-_]?porn|porn[-_]?xxx|xxx[-_]?sex|sex[-_]?video|nsfw|hentai[-_]?porn)\b/i;
+
+function isBlockedCatalogEntry(slug, name = '', description = '') {
+	const haystack = `${slug}\n${name}\n${description}`;
+	return ADULT_OR_SPAM_RE.test(haystack);
+}
+
 function normalizeTitleKey(name) {
 	return String(name || '')
 		.toLowerCase()
@@ -152,12 +161,15 @@ function mapGame(raw, categoryHint) {
 	if (raw.visibility && raw.visibility !== 'public') return null;
 	if (raw.hasPassword) return null;
 	const slug = normalizeSlug(raw.slug || raw.legacySlug, raw.id);
+	const name = (raw.name || slug).trim();
+	const description = String(raw.description || '').trim();
+	if (isBlockedCatalogEntry(slug, name, description)) return null;
 	const embedUrl = frameEmbedUrl(raw.id);
 	return {
 		id: raw.id,
 		slug,
-		name: (raw.name || slug).trim(),
-		description: String(raw.description || '').trim(),
+		name,
+		description,
 		authorUsername: raw.authorUsername || null,
 		thumbnailUrl: raw.thumbnailUrl || null,
 		gameUrl: raw.gameUrl || `https://play.unity.com/en/games/${raw.id}/${slug}`,
