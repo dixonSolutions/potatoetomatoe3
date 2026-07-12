@@ -98,7 +98,12 @@
 	const playerLayout = new GamePlayerLayout();
 
 	function posterUrlFor(game: GameMetadata) {
-		return resolveGameThumbnailSrc(game.thumbnail);
+		const preferOffline = !networkOnline;
+		return resolveGameThumbnailSrc(game.thumbnail, {
+			gameId: game.id,
+			preferOffline
+			/* Detail page can still use catalog thumb when online; offline needs puller status — optional follow-up */
+		});
 	}
 
 	async function refreshPlayerUrl() {
@@ -226,14 +231,37 @@
 
 	function applyPrivacyPauseToIframe(locked: boolean) {
 		if (!iframeElement) return;
-		const pause = getPrivacyPauseGameWhileLocked();
-		if (locked && pause) {
-			iframeElement.style.visibility = 'hidden';
-			iframeElement.setAttribute('aria-hidden', 'true');
-		} else {
-			iframeElement.style.visibility = '';
-			iframeElement.removeAttribute('aria-hidden');
+		const pauseVisual = getPrivacyPauseGameWhileLocked();
+
+		/*
+		 * Always silence output on the privacy lock screen so cross-origin Unity/WebGL
+		 * audio cannot leak through the disguise. Blanking is the only reliable parent-side
+		 * control for cross-origin iframes; restore src on unlock to resume play.
+		 */
+		if (locked) {
+			if (!iframeElement.dataset.privacySrc) {
+				const current = iframeElement.getAttribute('src') || iframeElement.src || '';
+				if (current && current !== 'about:blank') {
+					iframeElement.dataset.privacySrc = current;
+				}
+			}
+			if (iframeElement.getAttribute('src') !== 'about:blank') {
+				iframeElement.setAttribute('src', 'about:blank');
+			}
+			if (pauseVisual) {
+				iframeElement.style.visibility = 'hidden';
+				iframeElement.setAttribute('aria-hidden', 'true');
+			}
+			return;
 		}
+
+		const restore = iframeElement.dataset.privacySrc;
+		if (restore) {
+			iframeElement.setAttribute('src', restore);
+			delete iframeElement.dataset.privacySrc;
+		}
+		iframeElement.style.visibility = '';
+		iframeElement.removeAttribute('aria-hidden');
 	}
 
 	$effect(() => {
@@ -420,7 +448,7 @@
 							<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 								<div class="aspect-square overflow-hidden bg-muted">
 									<img
-										src={resolveGameThumbnailSrc(game.thumbnail)}
+										src={posterUrlFor(game)}
 										alt={game.name}
 										loading="lazy"
 										decoding="async"

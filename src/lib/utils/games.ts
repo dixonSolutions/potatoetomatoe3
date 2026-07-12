@@ -36,8 +36,50 @@ export interface GameMetadata {
 const MISSING_THUMB_DATA_URI =
 	'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23e5e5e5" width="256" height="256"/%3E%3C/svg%3E';
 
+export type ThumbnailResolveOptions = {
+	/**
+	 * Prefer a locally cached offline cover when the device is offline or the user is in
+	 * offline play mode with a downloaded copy.
+	 */
+	preferOffline?: boolean;
+	/** Relative path under offline/ from puller status (e.g. assets/thumbnail.jpg). */
+	offlineThumbnailRel?: string | null;
+	/** Absolute/blob URL for browser-offline covers. */
+	offlineThumbnailUrl?: string | null;
+};
+
+function offlineAssetUrl(gameId: string, relPath: string): string {
+	const safe = relPath.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
+	const b = base.replace(/\/$/, '');
+	/* Dev / Tauri webview: puller offline files are proxied under /puller-games */
+	if (typeof window !== 'undefined' && (import.meta.env.DEV || shouldUsePullerProxyHeuristic())) {
+		return `${b}/puller-games/${encodeURIComponent(gameId)}/offline/${safe}`.replace(/\/{2,}/g, '/');
+	}
+	return `${b}/games/${encodeURIComponent(gameId)}/offline/${safe}`.replace(/\/{2,}/g, '/');
+}
+
+function shouldUsePullerProxyHeuristic(): boolean {
+	try {
+		return window.location.protocol === 'http:' || window.location.protocol === 'https:';
+	} catch {
+		return false;
+	}
+}
+
 /** Safe `src` for game cards: blank `thumbnail` does not hit `/games/.../404`. */
-export function resolveGameThumbnailSrc(thumbnail: string | undefined | null): string {
+export function resolveGameThumbnailSrc(
+	thumbnail: string | undefined | null,
+	options?: ThumbnailResolveOptions & { gameId?: string }
+): string {
+	if (options?.preferOffline) {
+		if (options.offlineThumbnailUrl?.trim()) return options.offlineThumbnailUrl.trim();
+		const rel = options.offlineThumbnailRel?.trim();
+		if (rel) {
+			/* Browser backend may stash a blob:/https: URL in offlineThumbnail */
+			if (/^(blob:|https?:)/i.test(rel)) return rel;
+			if (options.gameId) return offlineAssetUrl(options.gameId, rel);
+		}
+	}
 	const t = thumbnail?.trim();
 	if (!t) return MISSING_THUMB_DATA_URI;
 	if (t.startsWith('/')) return `${base}${t}`;

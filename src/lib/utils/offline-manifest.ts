@@ -6,6 +6,8 @@ export interface OfflineManifest {
 	entry: string;
 	mirroredFrom?: string;
 	savedAt?: string;
+	/** Cover image relative to offline/ for offline UI cards. */
+	thumbnail?: string;
 }
 
 const GAME_SHELL_MARKERS =

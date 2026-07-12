@@ -1,11 +1,13 @@
 /**
  * Global mute + master volume for HTML media on this origin.
- * Cross-origin iframes cannot be controlled from the parent page.
+ * Cross-origin iframes cannot be controlled from the parent page — blank them on privacy lock.
  */
 
 import { loadSiteSettings, patchSiteSettings, type MuteAudioScope } from '$lib/utils/site-settings';
 
 export type { MuteAudioScope };
+
+export const PRIVACY_LOCKED_EVENT = 'potato-tomato-privacy-locked';
 
 export function getMuteAudioScope(): MuteAudioScope {
 	const s = loadSiteSettings().muteAudioScope;
@@ -27,10 +29,16 @@ export function saveMasterVolume(volume: number): void {
 	patchSiteSettings({ masterVolume: Math.max(0, Math.min(1, volume)) });
 }
 
+export function isPrivacyOutputLocked(): boolean {
+	if (typeof document === 'undefined') return false;
+	return document.documentElement.hasAttribute('data-privacy-locked');
+}
+
 /**
  * Whether HTML media should be muted right now from mute-scope rules (not counting master volume).
  */
 export function shouldForceMuteFromScope(): boolean {
+	if (isPrivacyOutputLocked()) return true;
 	const scope = getMuteAudioScope();
 	if (scope === 'off') return false;
 	if (scope === 'always') return true;
@@ -39,8 +47,12 @@ export function shouldForceMuteFromScope(): boolean {
 
 /** Combined mute flag + volume level to apply to each HTMLMediaElement. */
 export function getMediaOutputState(): { muted: boolean; volume: number } {
-	const scope = getMuteAudioScope();
 	const master = getMasterVolume();
+	/* Privacy lock screen must never leak game/app audio (disguise). */
+	if (isPrivacyOutputLocked()) {
+		return { muted: true, volume: 0 };
+	}
+	const scope = getMuteAudioScope();
 	if (scope === 'off') {
 		return { muted: false, volume: master };
 	}
@@ -54,11 +66,19 @@ export function getMediaOutputState(): { muted: boolean; volume: number } {
 function applyToMediaElement(el: HTMLMediaElement, muted: boolean, volume: number): void {
 	el.volume = volume;
 	el.muted = muted;
+	if (muted) {
+		try {
+			el.pause();
+		} catch {
+			/* ignore */
+		}
+	}
 }
 
 /**
  * Keeps `muted` + `volume` in sync for all current and future media nodes in `root` (and same-origin iframe documents).
  * Re-reads settings when `potato-tomato-privacy-settings-applied` fires.
+ * Always silences on privacy lock (`data-privacy-locked` / privacy-locked event).
  */
 export function attachGlobalMediaMute(root: Document): () => void {
 	const wiredIframes = new WeakSet<HTMLIFrameElement>();
@@ -111,6 +131,7 @@ export function attachGlobalMediaMute(root: Document): () => void {
 	document.addEventListener('visibilitychange', onFocusVisibility);
 	window.addEventListener('focus', onFocusVisibility);
 	window.addEventListener('blur', onFocusVisibility);
+	window.addEventListener(PRIVACY_LOCKED_EVENT, onFocusVisibility);
 
 	return () => {
 		observer.disconnect();
@@ -118,5 +139,6 @@ export function attachGlobalMediaMute(root: Document): () => void {
 		document.removeEventListener('visibilitychange', onFocusVisibility);
 		window.removeEventListener('focus', onFocusVisibility);
 		window.removeEventListener('blur', onFocusVisibility);
+		window.removeEventListener(PRIVACY_LOCKED_EVENT, onFocusVisibility);
 	};
 }

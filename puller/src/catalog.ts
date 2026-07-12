@@ -11,6 +11,8 @@ export interface GameStatus {
   downloading: boolean;
   partialCache?: boolean;
   cacheFileCount?: number;
+  /** Relative path under offline/ for a cached cover image. */
+  offlineThumbnail?: string;
 }
 
 let cachedGameIds: string[] | null = null;

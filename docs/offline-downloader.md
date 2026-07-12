@@ -34,6 +34,10 @@ Environment variables:
 - Path traversal is rejected on static file serving
 - Writes are restricted to `<dataDir>/<gameId>/offline/` and `<dataDir>/<gameId>/data/` (browser profiles)
 
+## Offline covers
+
+After a successful offline download, the puller also caches the catalog `thumbnail` (remote Unity CDN or local asset) as `offline/assets/thumbnail.*` and records it in `offline-manifest.json`. The UI prefers that local cover when the device is offline or the game is marked downloaded, so cards do not depend on the network for covers.
+
 ## Strategies
 
 ### `embed`

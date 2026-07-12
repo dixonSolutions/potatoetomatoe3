@@ -19,6 +19,8 @@ export interface StoredGameMeta {
 	partialCache?: boolean;
 	cachedFileCount?: number;
 	totalFileCount?: number;
+	/** Relative path of cached cover image inside IndexedDB files store. */
+	thumbnailPath?: string;
 }
 
 function fileKey(gameId: string, relativePath: string): string {

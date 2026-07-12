@@ -11,6 +11,8 @@ export interface OfflineManifest {
 	entry: string;
 	mirroredFrom?: string;
 	savedAt?: string;
+	/** Cover image relative to offline/ (e.g. assets/thumbnail.jpg) for offline UI cards. */
+	thumbnail?: string;
 }
 
 export function normalizeOfflineEntryRel(entry: string): string {
