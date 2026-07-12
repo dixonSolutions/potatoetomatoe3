@@ -1,9 +1,8 @@
 name: Deploy GitHub Pages
 
+# Manual only — auto deploy on main races with release.yml and wipes /flatpak/
+# (OSTree summary). Prefer release.yml for Pages; use this for web-only hotfixes.
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:

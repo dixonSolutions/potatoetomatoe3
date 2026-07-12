@@ -12,7 +12,7 @@ On every push to `main`:
 4. **GitHub Release** — attaches `com.potatotomato.games-<version>.flatpak`
 5. **GitHub Pages** — deploys web build + OSTree repo at `/flatpak/` + `.flatpakrepo` file
 
-The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) is manual-only so it does not race with the release deploy.
+The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) is **workflow_dispatch only**. It must not run on `push` to `main`: a web-only Pages deploy overwrites the site and drops `/flatpak/`, which breaks remote Flatpak installs (`server has no summary file`).
 
 ## Public Flatpak remote
 
@@ -36,7 +36,8 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | Release | `ConfigureRemote not allowed for user` | Use `flatpak --user` for remotes and installs on GitHub-hosted runners |
 | Build Flatpak | `npm: command not found` in sandbox | Build Tauri on the host in CI; Flatpak manifest only packages prebuilt binaries |
 | Remote install | `Invalid gpg key` | Remove empty `GPGKey=` from `.flatpakrepo`; add remote with `--no-gpg-verify` |
-| GitHub Pages | `/flatpak/summary` 404 | Release workflow now copies the OSTree `repo/` into `build/flatpak/` before Pages deploy |
+| GitHub Pages | `/flatpak/summary` 404 | Usually a web-only `pages.yml` deploy wiped the OSTree tree, or release deploy had not finished yet. Prefer `release.yml` for Pages; keep `pages.yml` manual-only. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
+| Remote install | Prefer one-file bundle | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken |
 
 ## Manual web-only deploy
 

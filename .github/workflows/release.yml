@@ -154,7 +154,18 @@ jobs:
       - name: Attach Flatpak OSTree repo
         run: |
           mkdir -p build/flatpak
+          if [ ! -d flatpak-artifacts/repo ]; then
+            echo "ERROR: flatpak-artifacts/repo missing after artifact download" >&2
+            ls -la flatpak-artifacts >&2 || true
+            exit 1
+          fi
           cp -a flatpak-artifacts/repo/. build/flatpak/
+          if [ ! -f build/flatpak/summary ]; then
+            echo "ERROR: build/flatpak/summary missing — remote installs will fail" >&2
+            ls -la build/flatpak >&2 || true
+            exit 1
+          fi
+          echo "OK: OSTree summary ($(wc -c < build/flatpak/summary) bytes)"
 
       - uses: actions/upload-pages-artifact@v3
         with:

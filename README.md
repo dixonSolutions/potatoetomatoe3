@@ -69,11 +69,17 @@ flatpak update --user com.potatotomato.games
 
 ### Install from a GitHub Release bundle
 
-If the remote is unavailable, download `com.potatotomato.games-*.flatpak` from
-[GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases) and install:
+If the remote is unavailable (e.g. `server has no summary file`), install the
+`.flatpak` asset from
+[GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest):
 
 ```bash
-flatpak install --user ~/Downloads/com.potatotomato.games-0.0.12.flatpak
+# With GitHub CLI:
+gh release download -R dixonSolutions/potatoetomatoe3 -p '*.flatpak' -D /tmp
+
+# Or download com.potatotomato.games-<version>.flatpak from the Releases page, then:
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install --user /tmp/com.potatotomato.games-*.flatpak
 flatpak run com.potatotomato.games
 ```
 
