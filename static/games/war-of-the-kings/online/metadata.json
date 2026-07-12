@@ -1,0 +1,14 @@
+{
+	"id": "war-of-the-kings",
+	"name": "War of the Kings",
+	"author": "aevrard",
+	"description": "Here is my game for the personal project at the end of the course \"Create With Code\". \n\nWar of the Kings is a turn based game where you need to defeat the enemy king by either killing him or bringing your king behind the enemy lines.\n\nThe only available mode at the moment is the Pass&Play for 2 players.\n\nChoose the size of your army for a fast or slow game and then Baaaaatttleeeeeee !\n\nUpdate 1:\n\nFix:\n- Camera is now correctly lock around the board and cannot wander or go below the map.\n- If 2 Knight protect each other, prevent the endless loop of protection",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/07761065-f85a-439d-bc9a-b664090136a5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/656dd721-6b70-4354-9b45-6f08adb62b56/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "656dd721-6b70-4354-9b45-6f08adb62b56",
+	"unityPlayUrl": "https://play.unity.com/en/games/656dd721-6b70-4354-9b45-6f08adb62b56/war-of-the-kings"
+}

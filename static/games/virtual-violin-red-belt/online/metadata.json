@@ -1,0 +1,14 @@
+{
+	"id": "virtual-violin-red-belt",
+	"name": "Virtual Violin - Red Belt",
+	"author": "jonashy",
+	"description": "You can \"play\" your virtual violin with your red belt music found at yoderstudio.com (click on songs w/ etudes, check violin and red belt). This is a desperate attempt to help my students have a meaningful musical experience if they happened to leave their instrument at home when covid happened.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e06cf3ff-6bed-45e1-a669-dbbb4e3d0cc5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ab9e17c-3d1f-4f36-aeb9-012632eda475/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ab9e17c-3d1f-4f36-aeb9-012632eda475",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ab9e17c-3d1f-4f36-aeb9-012632eda475/virtual-violin-red-belt"
+}

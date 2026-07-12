@@ -1,0 +1,14 @@
+{
+	"id": "webgl2",
+	"name": "webgl2",
+	"author": "zachstew13",
+	"description": "Play webgl2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fb827092-c1cf-49c5-bde1-e5944ad38dea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10f14c26-78f8-45a3-90c9-2a4f2b655f42/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10f14c26-78f8-45a3-90c9-2a4f2b655f42",
+	"unityPlayUrl": "https://play.unity.com/en/games/10f14c26-78f8-45a3-90c9-2a4f2b655f42/webgl2"
+}

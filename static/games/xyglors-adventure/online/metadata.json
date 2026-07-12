@@ -1,0 +1,14 @@
+{
+	"id": "xyglors-adventure",
+	"name": "Xyglor's Adventure",
+	"author": "BertieBot",
+	"description": "Play Xyglor's Adventure on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d2b22a8c-336f-46f8-8fc7-f56fb6a34423/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19b3a6df-d893-40f4-9d65-9353c1369632/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19b3a6df-d893-40f4-9d65-9353c1369632",
+	"unityPlayUrl": "https://play.unity.com/en/games/19b3a6df-d893-40f4-9d65-9353c1369632/xyglors-adventure"
+}

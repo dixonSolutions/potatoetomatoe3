@@ -1,0 +1,14 @@
+{
+	"id": "uw",
+	"name": "UW",
+	"author": "jennieabraham123",
+	"description": "Underwater world",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/069358d4-10c7-4235-8fbf-c50bc54703a1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "069358d4-10c7-4235-8fbf-c50bc54703a1",
+	"unityPlayUrl": "https://play.unity.com/en/games/069358d4-10c7-4235-8fbf-c50bc54703a1/uw"
+}

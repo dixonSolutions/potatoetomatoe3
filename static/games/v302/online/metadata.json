@@ -1,0 +1,14 @@
+{
+	"id": "v302",
+	"name": "V3.0.2",
+	"author": "VinceGunday",
+	"description": "Play V3.0.2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ae36a27-e0cb-4bca-b807-da8d8778e33e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68c0925b-f334-413f-b509-6077986dacce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68c0925b-f334-413f-b509-6077986dacce",
+	"unityPlayUrl": "https://play.unity.com/en/games/68c0925b-f334-413f-b509-6077986dacce/v302"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "watch-them-spikes",
+	"name": "Watch Them Spikes",
+	"author": "intedgar",
+	"description": "Watch Them Spikes is a 3D Skill-Avoid Game in which you only have indirect control over the player through rotating the platform it's on. I never made it over Stage 7 myself. :D Can you beat my High Score?\nIt's my first own Project after finishing Unit 5 from the Programming Simple Functionality Mission in the Junior Programmer Pathway on Unity Learn.\n\nHave fun playing! I'm happy to receive your feedback! You can also find a downloadable version for MS at https://intedgar.itch.io/watch-them-spikes",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8bda4e43-e9b3-4a78-9762-4e36e430b735/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/082cba35-47b4-491b-98e7-d8b01109b134/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "082cba35-47b4-491b-98e7-d8b01109b134",
+	"unityPlayUrl": "https://play.unity.com/en/games/082cba35-47b4-491b-98e7-d8b01109b134/watch-them-spikes"
+}

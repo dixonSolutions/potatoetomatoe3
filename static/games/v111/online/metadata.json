@@ -1,0 +1,14 @@
+{
+	"id": "v111",
+	"name": "V111",
+	"author": "DLADAO",
+	"description": "Play V111 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/44eee5d4-5005-4f87-be83-9e8e0ed2c1b0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01d6a7c6-995b-40cc-9541-9fd8ee370b35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01d6a7c6-995b-40cc-9541-9fd8ee370b35",
+	"unityPlayUrl": "https://play.unity.com/en/games/01d6a7c6-995b-40cc-9541-9fd8ee370b35/v111"
+}

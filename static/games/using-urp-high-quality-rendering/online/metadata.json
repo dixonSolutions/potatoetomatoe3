@@ -1,0 +1,14 @@
+{
+	"id": "using-urp-high-quality-rendering",
+	"name": "using URP, high quality rendering",
+	"author": "MatthiasEducation",
+	"description": "game to test high quality  rendering, using  lights system. some drop on fps .Move with arrows keys, wasd, middle mouse button to zoom in out, left mouse button to attack. You can also use a gamepad.  https://devlab.itch.io/dark-lord",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3e2acd3b-6809-4ebe-82ff-cb69d5a3293c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05f0a4a0-d5c1-4258-8269-2defdfa73847/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05f0a4a0-d5c1-4258-8269-2defdfa73847",
+	"unityPlayUrl": "https://play.unity.com/en/games/05f0a4a0-d5c1-4258-8269-2defdfa73847/using-urp-high-quality-rendering"
+}

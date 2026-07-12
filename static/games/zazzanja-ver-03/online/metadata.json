@@ -1,0 +1,14 @@
+{
+	"id": "zazzanja-ver-03",
+	"name": "Zazzanja ver. 0.3",
+	"author": "Zazzatore",
+	"description": "Release 0.2, aggiunte: musica, swipe, regolazione volume musica, vite extra e pausa.                                                                                                                      Release 0.3 aggiunte: Timer di 45 sec, Nuovi materiali con normal map & Metal, fix bug minori.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/be0aeae5-09d8-42dc-bc11-b6ac8b51efb7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/036f08cd-81a6-42c8-9702-25706e9ca6b9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "036f08cd-81a6-42c8-9702-25706e9ca6b9",
+	"unityPlayUrl": "https://play.unity.com/en/games/036f08cd-81a6-42c8-9702-25706e9ca6b9/zazzanja-ver-03"
+}

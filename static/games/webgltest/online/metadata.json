@@ -1,0 +1,14 @@
+{
+	"id": "webgltest",
+	"name": "webgltest",
+	"author": "meowljane",
+	"description": "802",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23134968-6808-4b89-8729-28c41db06fd0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "23134968-6808-4b89-8729-28c41db06fd0",
+	"unityPlayUrl": "https://play.unity.com/en/games/23134968-6808-4b89-8729-28c41db06fd0/webgltest"
+}

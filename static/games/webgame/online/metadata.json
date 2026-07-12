@@ -1,0 +1,14 @@
+{
+	"id": "webgame",
+	"name": "webGame",
+	"author": "msHui520",
+	"description": "\u8fd9\u662f\u7c7b\u4f3c\u8282\u594f\u5927\u5e08\u6e38\u620f\u9879\u76ee",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d2d5fea-d117-4760-b164-082a88def915/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d2d5fea-d117-4760-b164-082a88def915",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d2d5fea-d117-4760-b164-082a88def915/webgame"
+}

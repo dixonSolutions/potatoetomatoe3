@@ -1,0 +1,14 @@
+{
+	"id": "tripleaaa-battleship",
+	"name": "TripleAAA BattleShip",
+	"author": "TripleAAA33",
+	"description": "Online BattleShip Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ebd10c86-e65c-4801-a4cf-8bd5f44f9f59/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f493e89-57b5-4a4a-8900-4a0b4295e2d3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f493e89-57b5-4a4a-8900-4a0b4295e2d3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f493e89-57b5-4a4a-8900-4a0b4295e2d3/tripleaaa-battleship"
+}

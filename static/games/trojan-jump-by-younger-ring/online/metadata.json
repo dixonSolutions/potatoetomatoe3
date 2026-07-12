@@ -1,0 +1,14 @@
+{
+	"id": "trojan-jump-by-younger-ring",
+	"name": "Trojan Jump by Younger Ring",
+	"author": "Jrggwsy",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d6ea688-e766-47bf-a82a-832a73db23c6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d6ea688-e766-47bf-a82a-832a73db23c6",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d6ea688-e766-47bf-a82a-832a73db23c6/trojan-jump-by-younger-ring"
+}

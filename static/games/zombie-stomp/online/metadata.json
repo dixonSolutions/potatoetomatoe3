@@ -1,0 +1,14 @@
+{
+	"id": "zombie-stomp",
+	"name": "Zombie Stomp",
+	"author": "escapeonealgarve",
+	"description": "Another tutorial game build. Strangely addictive this one....",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/695b6e60-e5ff-40fe-bbca-2c99e8d66214/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "695b6e60-e5ff-40fe-bbca-2c99e8d66214",
+	"unityPlayUrl": "https://play.unity.com/en/games/695b6e60-e5ff-40fe-bbca-2c99e8d66214/zombie-stomp"
+}

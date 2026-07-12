@@ -1,0 +1,14 @@
+{
+	"id": "warkey",
+	"name": "WarKey",
+	"author": "GIANTenemySPIDER",
+	"description": "A Web-Based 2D Arcade Typing Game made for requirements on completion of IT - Capstone Project.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7cca06f-749c-47ae-91b3-47d8479bddc6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a8d9dd97-9c50-491f-a3c4-cc4b47fd7d9b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a8d9dd97-9c50-491f-a3c4-cc4b47fd7d9b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a8d9dd97-9c50-491f-a3c4-cc4b47fd7d9b/warkey"
+}

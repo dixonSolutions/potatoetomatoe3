@@ -1,0 +1,14 @@
+{
+	"id": "vibe-check",
+	"name": "Vibe Check",
+	"author": "gawhite92",
+	"description": "Vibration Training Simulator\nReleased 07/04/2026\nVersion 1.01\nhttps://www.linkedin.com/in/1graemewhite/\n\nIntended for post VCAT1 as practical training in data collection.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/810abb07-2ff4-41f7-b6d0-d1c45d15f626/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "810abb07-2ff4-41f7-b6d0-d1c45d15f626",
+	"unityPlayUrl": "https://play.unity.com/en/games/810abb07-2ff4-41f7-b6d0-d1c45d15f626/vibe-check"
+}

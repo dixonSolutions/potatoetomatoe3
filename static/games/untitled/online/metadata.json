@@ -1,0 +1,14 @@
+{
+	"id": "untitled",
+	"name": "Untitled",
+	"author": "Olivia-Mambo",
+	"description": "Play Untitled on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fdb8a65a-424d-4d45-88f8-7d9af83b6fb0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fdb8a65a-424d-4d45-88f8-7d9af83b6fb0",
+	"unityPlayUrl": "https://play.unity.com/en/games/fdb8a65a-424d-4d45-88f8-7d9af83b6fb0/untitled"
+}

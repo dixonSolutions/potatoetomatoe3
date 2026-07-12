@@ -1,0 +1,14 @@
+{
+	"id": "webgl-bulids",
+	"name": "WebGL Bulids",
+	"author": "danyunwa",
+	"description": "Play WebGL Bulids on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6dcbcf98-f8ba-4295-953b-0b4951fddf50/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f180ce1-699a-4125-a1aa-239db3f435f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5f180ce1-699a-4125-a1aa-239db3f435f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/5f180ce1-699a-4125-a1aa-239db3f435f1/webgl-bulids"
+}

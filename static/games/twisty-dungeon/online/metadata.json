@@ -1,0 +1,14 @@
+{
+	"id": "twisty-dungeon",
+	"name": "Twisty Dungeon",
+	"author": "Unity Play",
+	"description": "Twisty Dungeons is a puzzle game where you twist and turn the level to find the exit.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2a935c2d-2bff-40b8-9885-6d6c2b89fd0d/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8ee5e0a5-7ea1-4e0d-a9e6-f1784ce6bd8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8ee5e0a5-7ea1-4e0d-a9e6-f1784ce6bd8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/8ee5e0a5-7ea1-4e0d-a9e6-f1784ce6bd8c/twisty-dungeon"
+}

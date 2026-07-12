@@ -1,0 +1,14 @@
+{
+	"id": "walmart-mario-kart",
+	"name": "Walmart Mario Kart",
+	"author": "ipuert2797",
+	"description": "A Greenville, South Carolina Mario Kart",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/63c2fdf5-5709-4013-9d26-248f9df908f1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59dc2bbd-86f0-49d8-8dc0-c8b988c24b93/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59dc2bbd-86f0-49d8-8dc0-c8b988c24b93",
+	"unityPlayUrl": "https://play.unity.com/en/games/59dc2bbd-86f0-49d8-8dc0-c8b988c24b93/walmart-mario-kart"
+}

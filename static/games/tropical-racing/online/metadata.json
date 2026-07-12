@@ -1,0 +1,14 @@
+{
+	"id": "tropical-racing",
+	"name": "Tropical Racing",
+	"author": "Krisppyy",
+	"description": "WASD on PC",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d47c9dab-fdab-46f2-9734-96426ff38f61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0163547d-5e6c-4b40-90b8-a9566b9c4189/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0163547d-5e6c-4b40-90b8-a9566b9c4189",
+	"unityPlayUrl": "https://play.unity.com/en/games/0163547d-5e6c-4b40-90b8-a9566b9c4189/tropical-racing"
+}

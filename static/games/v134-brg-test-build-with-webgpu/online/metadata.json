@@ -1,0 +1,14 @@
+{
+	"id": "v134-brg-test-build-with-webgpu",
+	"name": "v1.3.4 - BRG Test build with WebGPU",
+	"author": "mrgreendotone",
+	"description": "A test using the next update for my asset using my BRG way and unity's WebGPU\n\n1 object = 112 bytes of GPU memory\n\nWebGPU won't work on some Firefox versions and some browsers have limited support",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/91ddf759-cc33-4bc9-9327-475aaa9c45f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "91ddf759-cc33-4bc9-9327-475aaa9c45f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/91ddf759-cc33-4bc9-9327-475aaa9c45f1/v134-brg-test-build-with-webgpu"
+}

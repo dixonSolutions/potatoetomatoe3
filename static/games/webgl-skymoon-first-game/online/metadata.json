@@ -1,0 +1,14 @@
+{
+	"id": "webgl-skymoon-first-game",
+	"name": "WebGL Skymoon First Game",
+	"author": "ontctl",
+	"description": "WebGL Skymoon First Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/031e0b3b-9945-4da3-af6c-abea630bc48d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "031e0b3b-9945-4da3-af6c-abea630bc48d",
+	"unityPlayUrl": "https://play.unity.com/en/games/031e0b3b-9945-4da3-af6c-abea630bc48d/webgl-skymoon-first-game"
+}

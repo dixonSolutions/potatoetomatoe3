@@ -1,0 +1,14 @@
+{
+	"id": "you-lost-in-champion-select",
+	"name": "You lost in champion select",
+	"author": "Uusitalo",
+	"description": "Learn to dodge games.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3ce725cb-8e6f-4f1c-9e89-cf255853727a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6df594a8-3b24-4f56-b866-1939e9176bc3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6df594a8-3b24-4f56-b866-1939e9176bc3",
+	"unityPlayUrl": "https://play.unity.com/en/games/6df594a8-3b24-4f56-b866-1939e9176bc3/you-lost-in-champion-select"
+}

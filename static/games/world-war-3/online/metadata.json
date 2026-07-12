@@ -1,0 +1,14 @@
+{
+	"id": "world-war-3",
+	"name": "world war 3",
+	"author": "DRUMMER04",
+	"description": "Play world war 3 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/387e9743-eee8-4569-94a0-bd2edf338f95/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56e0f8fd-b3c4-402b-9f9c-172b04aa71eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56e0f8fd-b3c4-402b-9f9c-172b04aa71eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/56e0f8fd-b3c4-402b-9f9c-172b04aa71eb/world-war-3"
+}

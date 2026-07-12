@@ -1,0 +1,14 @@
+{
+	"id": "vice-city",
+	"name": "vice city",
+	"author": "bastouine",
+	"description": "Play vice city on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fe44c184-164a-4d34-8fbf-d23ea62f388a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/060f6527-153f-4ea8-8dd4-aef9db17bc94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "060f6527-153f-4ea8-8dd4-aef9db17bc94",
+	"unityPlayUrl": "https://play.unity.com/en/games/060f6527-153f-4ea8-8dd4-aef9db17bc94/vice-city"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "volta",
+	"name": "Volta",
+	"author": "AnneTheBlob",
+	"description": "A platform puzzle game that makes you search for the meanings of untranslatable words.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cd3c87d9-d636-40af-b0e6-3cedb4802d9b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a17dbe19-23b4-4368-90c4-7468a6a9fdef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a17dbe19-23b4-4368-90c4-7468a6a9fdef",
+	"unityPlayUrl": "https://play.unity.com/en/games/a17dbe19-23b4-4368-90c4-7468a6a9fdef/volta"
+}

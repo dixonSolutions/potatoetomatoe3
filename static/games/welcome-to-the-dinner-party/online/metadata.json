@@ -1,0 +1,14 @@
+{
+	"id": "welcome-to-the-dinner-party",
+	"name": "Welcome to the dinner party",
+	"author": "blue_baron",
+	"description": "Play Welcome to the dinner party on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/38fc64c5-7adf-442f-9e90-bf54c056e19e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/014d635d-b2ed-4360-a131-5a3d175cd9b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "014d635d-b2ed-4360-a131-5a3d175cd9b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/014d635d-b2ed-4360-a131-5a3d175cd9b7/welcome-to-the-dinner-party"
+}

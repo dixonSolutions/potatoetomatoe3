@@ -1,0 +1,14 @@
+{
+	"id": "updated-fps-game",
+	"name": "Updated FPS Game",
+	"author": "trfpoeb",
+	"description": "Play Updated FPS Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ed6f9074-21e2-446d-af82-aaf31d62bbd5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/16d497ab-ca76-40cf-9601-1353a6cde235/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "16d497ab-ca76-40cf-9601-1353a6cde235",
+	"unityPlayUrl": "https://play.unity.com/en/games/16d497ab-ca76-40cf-9601-1353a6cde235/updated-fps-game"
+}

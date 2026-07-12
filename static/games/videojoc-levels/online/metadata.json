@@ -1,0 +1,14 @@
+{
+	"id": "videojoc-levels",
+	"name": "VIDEOJOC (LEVELS)",
+	"author": "fulin_unity",
+	"description": "PRIMER NIVELL: amb les tecles \"A\", \"D\", \"W\" mou el cotxe i intenta aconseguir 200 punts.                                                                                                      \n SEGOND JOC: Troba la contrasenya per obrir la caixa forta, utilitza la \"X\", \"F\", \"R\" i \"Q\" per realitzar accions determinades.              \n TERCER JOC: Sobreviu 5 minuts,pots atacar i matar als monstres amb el boto esquerra  del ratol\u00ed.                                                              \n QUART JOC: Aconsegueix arribar a casa agafant tots les monedes i els diamants.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e441e31b-f295-4185-b03a-65cfaee60d76/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d159dfe6-c0c1-4443-8428-ec5a69172a3c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d159dfe6-c0c1-4443-8428-ec5a69172a3c",
+	"unityPlayUrl": "https://play.unity.com/en/games/d159dfe6-c0c1-4443-8428-ec5a69172a3c/videojoc-levels"
+}

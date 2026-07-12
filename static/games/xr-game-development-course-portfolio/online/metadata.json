@@ -1,0 +1,14 @@
+{
+	"id": "xr-game-development-course-portfolio",
+	"name": "XR Game Development Course Portfolio",
+	"author": "Ben_Roisen",
+	"description": "Portfolio version of the XR Game Development Course assignments. This version contains the final version of each module, and features an updated level select menu.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/966918d6-486f-4ed3-9f7c-8f15fd673084/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "966918d6-486f-4ed3-9f7c-8f15fd673084",
+	"unityPlayUrl": "https://play.unity.com/en/games/966918d6-486f-4ed3-9f7c-8f15fd673084/xr-game-development-course-portfolio"
+}

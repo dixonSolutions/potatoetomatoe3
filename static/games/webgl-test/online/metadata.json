@@ -1,0 +1,14 @@
+{
+	"id": "webgl-test",
+	"name": "webgl test",
+	"author": "steadyflightcircle",
+	"description": "Play webgl test on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81484f57-237b-4d30-81c1-9cca8ebe9ee0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81484f57-237b-4d30-81c1-9cca8ebe9ee0",
+	"unityPlayUrl": "https://play.unity.com/en/games/81484f57-237b-4d30-81c1-9cca8ebe9ee0/webgl-test"
+}

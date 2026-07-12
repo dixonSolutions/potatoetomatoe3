@@ -1,0 +1,14 @@
+{
+	"id": "tutorial-bonus-features-2-of-the-create-with-code-course-mod",
+	"name": "Tutorial Bonus Features 2 of the Create with Code course MOD",
+	"author": "mailfromstefanie",
+	"description": "Bonus features included are:\n- Horizontal + Vertical player movement\n- animals also spawn from the left and right,  If one of them hits you, \u201cGame Over\u201d is logged to the console at random TimeRange.\n- At the start of the game, display in the console that the player\u2019s Lives = 3 and Score = 0. If the player feeds an animal, increase and display the Score. If the player misses an animal or is hit by one, decrease and display the Lives. When the number of Lives reaches 0, log \u201cGame Over\u201d in the console.\n- a \u201chunger bar\u201d on top of each of the animals. Then, each time you feed one of them, the hunger bar fills up a little. Each animal requires different amounts of food to successfully \u201cfeed\u201d them. They only disappear after their hunger bars are full.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b32dcfa8-9e64-4886-9c3c-e5fa9639cb77/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e616c8c-2fba-4834-a67c-3431b33c9bbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e616c8c-2fba-4834-a67c-3431b33c9bbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e616c8c-2fba-4834-a67c-3431b33c9bbf/tutorial-bonus-features-2-of-the-create-with-code-course-mod"
+}

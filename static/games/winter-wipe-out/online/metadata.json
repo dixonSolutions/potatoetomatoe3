@@ -1,0 +1,14 @@
+{
+	"id": "winter-wipe-out",
+	"name": "Winter Wipe Out!",
+	"author": "mwisner",
+	"description": "This Christmas themed ninja obstacle course was inspired by a miniature course designed and built by Ethan N and George K in their GTT class. The goal of this game is to reach the end in one piece. To play use the arrow keys to move and spacebar to jump. Double jump is available as well. Enjoy and Merry Christmas!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/87342f13-d911-4df0-89c4-ca9319ee760d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c259fdc-e501-4b8c-9b4d-113436aef094/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c259fdc-e501-4b8c-9b4d-113436aef094",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c259fdc-e501-4b8c-9b4d-113436aef094/winter-wipe-out"
+}

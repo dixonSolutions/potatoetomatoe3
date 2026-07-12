@@ -1,0 +1,14 @@
+{
+	"id": "tug-of-words-playtest",
+	"name": "Tug of Words [Playtest]",
+	"author": "solelan",
+	"description": "How to play:\n- Summon Gold Miners to kick off your economy.\n- Unlock Units/Boosts/Spells from the TechTree (Top left)\n- Use your units and spells to push the lane until you defeat the enemy base.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/09d9c812-047f-4be9-8d57-0a15f3c2fed1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f23d57a5-24de-4ac9-b596-af1f1f1ca6bb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f23d57a5-24de-4ac9-b596-af1f1f1ca6bb",
+	"unityPlayUrl": "https://play.unity.com/en/games/f23d57a5-24de-4ac9-b596-af1f1f1ca6bb/tug-of-words-playtest"
+}

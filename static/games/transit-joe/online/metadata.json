@@ -1,0 +1,14 @@
+{
+	"id": "transit-joe",
+	"name": "Transit Joe",
+	"author": "fjshomeplate",
+	"description": "Drive a train through the west. Avoid the rocks!\n\n===How to Play===\nTo move, swipe or use the arrow keys in the direction you want to go  \n\nFeedback Welcome!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8dd59acf-7056-4f52-b44a-d3b385caae3d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15b58923-8d00-43ef-bb31-5948a3988ede/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15b58923-8d00-43ef-bb31-5948a3988ede",
+	"unityPlayUrl": "https://play.unity.com/en/games/15b58923-8d00-43ef-bb31-5948a3988ede/transit-joe"
+}

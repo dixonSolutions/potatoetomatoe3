@@ -1,0 +1,14 @@
+{
+	"id": "wordwolf",
+	"name": "WordWolf",
+	"author": "Gamu_I0317",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5351fd76-f67c-4560-b9a0-a0f7e892821a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe4b1cb8-bfe7-46a7-bb48-7d1f35226f3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe4b1cb8-bfe7-46a7-bb48-7d1f35226f3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe4b1cb8-bfe7-46a7-bb48-7d1f35226f3d/wordwolf"
+}

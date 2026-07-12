@@ -1,0 +1,14 @@
+{
+	"id": "track-changes",
+	"name": "Track Changes",
+	"author": "kearneybg",
+	"description": "Use the arrow keys to follow the tracks!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/169e992d-ab9c-43cd-bea0-b82f017f2356/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "169e992d-ab9c-43cd-bea0-b82f017f2356",
+	"unityPlayUrl": "https://play.unity.com/en/games/169e992d-ab9c-43cd-bea0-b82f017f2356/track-changes"
+}

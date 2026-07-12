@@ -1,0 +1,14 @@
+{
+	"id": "vetturavolante",
+	"name": "VetturaVolante",
+	"author": "pitoneprogrammatore",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f68f270-8a75-4188-ad86-87572beadccf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb4921cd-13b4-4879-a350-911b00dd0e63/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb4921cd-13b4-4879-a350-911b00dd0e63",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb4921cd-13b4-4879-a350-911b00dd0e63/vetturavolante"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "turbokart",
+	"name": "TurboKart",
+	"author": "TurbooGamer",
+	"description": "1.01",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05145d98-5a6e-4b40-b248-822a166e71ca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05145d98-5a6e-4b40-b248-822a166e71ca",
+	"unityPlayUrl": "https://play.unity.com/en/games/05145d98-5a6e-4b40-b248-822a166e71ca/turbokart"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wayfinders",
+	"name": "WayFinders",
+	"author": "vauservonshepherd",
+	"description": "WayFinders",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59a8b5be-7c9e-44da-8ece-c1d8e4866531/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59a8b5be-7c9e-44da-8ece-c1d8e4866531",
+	"unityPlayUrl": "https://play.unity.com/en/games/59a8b5be-7c9e-44da-8ece-c1d8e4866531/wayfinders"
+}

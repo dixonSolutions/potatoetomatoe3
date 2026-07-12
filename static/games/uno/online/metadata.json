@@ -1,0 +1,14 @@
+{
+	"id": "uno",
+	"name": "Uno",
+	"author": "Negidnyk",
+	"description": "Online Uno to play with friends!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/006a3361-6a37-46c4-8316-7c592a70eeae/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "006a3361-6a37-46c4-8316-7c592a70eeae",
+	"unityPlayUrl": "https://play.unity.com/en/games/006a3361-6a37-46c4-8316-7c592a70eeae/uno"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "zaxxon-game-deim02",
+	"name": "Zaxxon Game (DEIM02)",
+	"author": "Deen0X",
+	"description": "Global Rankings:\nBest Score\nBest TakeOff\nMax Combo\nRisky Pilots (Lowest Flights)\nFastest Pilots (Average Speed)\nNote:You need keyboard for enter your name using WebGL.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6dfafd4e-c5d7-4925-ba20-0afc30be83c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6582e664-739f-4aca-a0d2-4d4fe2c0b4b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6582e664-739f-4aca-a0d2-4d4fe2c0b4b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/6582e664-739f-4aca-a0d2-4d4fe2c0b4b3/zaxxon-game-deim02"
+}

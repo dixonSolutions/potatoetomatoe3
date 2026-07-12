@@ -1,0 +1,14 @@
+{
+	"id": "turbo",
+	"name": "Turbo",
+	"author": "Devaz",
+	"description": "Un juego arcade de conducci\u00f3n donde esquivas veh\u00edculos y obst\u00e1culos mientras intentas recorrer la mayor distancia posible sin chocar.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/373118b0-e5ca-4355-a535-c5ce39d020f8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/db59fa9f-39b4-4312-ac03-3a5184376b87/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "db59fa9f-39b4-4312-ac03-3a5184376b87",
+	"unityPlayUrl": "https://play.unity.com/en/games/db59fa9f-39b4-4312-ac03-3a5184376b87/turbo"
+}

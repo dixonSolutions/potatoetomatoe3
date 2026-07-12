@@ -1,0 +1,14 @@
+{
+	"id": "workshop2",
+	"name": "Workshop2",
+	"author": "PAAI8",
+	"description": "Workshop2",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0494abd0-7e6d-4564-bbce-37e07e8e4f9f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0494abd0-7e6d-4564-bbce-37e07e8e4f9f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0494abd0-7e6d-4564-bbce-37e07e8e4f9f/workshop2"
+}

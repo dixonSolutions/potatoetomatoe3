@@ -1,0 +1,14 @@
+{
+	"id": "uninyan-game",
+	"name": "UNINYAN GAME",
+	"author": "darkpop-chan",
+	"description": "UNINYAN GAME is a puzzle game that combines two of the same uninyans. The goal is to make a watermelon(suika) uninyan.\n\nArts reference: Suika Game(Watermelon Game)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fcb8641b-a44d-4672-8421-9165319ee779/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/532eca00-07ca-406d-b60f-a85fa4f4353f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "532eca00-07ca-406d-b60f-a85fa4f4353f",
+	"unityPlayUrl": "https://play.unity.com/en/games/532eca00-07ca-406d-b60f-a85fa4f4353f/uninyan-game"
+}

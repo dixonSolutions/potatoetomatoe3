@@ -1,0 +1,14 @@
+{
+	"id": "zombiecrusher-update",
+	"name": "ZombieCrusher Update",
+	"author": "Drukoonson",
+	"description": "Latest Update includes Sound and Terrain.  This is my second game I have made since starting Unity in May of 2022. Normal controls use mouse to look, AWSD to move and Shift to run.  Run over the Zombies to crush them.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/46e1723a-c839-4355-8429-3b6a76d169da/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/937d6f39-7485-4eb3-bcea-04fe7b9b3376/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "937d6f39-7485-4eb3-bcea-04fe7b9b3376",
+	"unityPlayUrl": "https://play.unity.com/en/games/937d6f39-7485-4eb3-bcea-04fe7b9b3376/zombiecrusher-update"
+}

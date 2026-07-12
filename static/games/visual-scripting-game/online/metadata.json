@@ -1,0 +1,14 @@
+{
+	"id": "visual-scripting-game",
+	"name": "Visual Scripting game",
+	"author": "jmorenolievano",
+	"description": "This its a test for Visual Scripting in Unity whit a simplegame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c0ec58b9-07c3-46a9-b879-c55a65a5c52d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/33d3e0b4-660b-479e-941e-810d9c1cd438/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "33d3e0b4-660b-479e-941e-810d9c1cd438",
+	"unityPlayUrl": "https://play.unity.com/en/games/33d3e0b4-660b-479e-941e-810d9c1cd438/visual-scripting-game"
+}

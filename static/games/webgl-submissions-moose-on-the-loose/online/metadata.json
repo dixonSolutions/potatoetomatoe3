@@ -1,0 +1,14 @@
+{
+	"id": "webgl-submissions-moose-on-the-loose",
+	"name": "WebGL Submissions - Moose on the Loose",
+	"author": "ChinLiang",
+	"description": "Homework submission for \"Create your first Action-RPG with C#\" Learn Live. Initially, I just wanted to follow along and make something simple, but I kinda got distracted and ended up making some weird things in the game... At first, I wanted to make potions that gave random stats, but then... I think I ended up playing too much around in Unity Editor rather than coding though. Well, I just hope you guys will have a good time with this! Anyway, I encountered some issues while following the tutorial; some stats just wouldn't show. However, with the help of the API Documentation, it really helped me to understand what went wrong and what was missing, and that eventually led me to resolve some issues within the game. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3bbf69ec-fb82-496b-b0ae-b7de99bca500/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5dada799-6358-47c0-bb8f-e363ad2b29f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5dada799-6358-47c0-bb8f-e363ad2b29f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/5dada799-6358-47c0-bb8f-e363ad2b29f3/webgl-submissions-moose-on-the-loose"
+}

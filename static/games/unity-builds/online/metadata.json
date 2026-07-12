@@ -1,0 +1,14 @@
+{
+	"id": "unity-builds",
+	"name": "Unity builds",
+	"author": "TheMandoLando",
+	"description": "Play Unity builds on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/afbc573a-27c9-4e27-baf1-ce3b8b002d86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25f30e2c-d536-4abb-9e6e-f5f7dcfa5ad7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25f30e2c-d536-4abb-9e6e-f5f7dcfa5ad7",
+	"unityPlayUrl": "https://play.unity.com/en/games/25f30e2c-d536-4abb-9e6e-f5f7dcfa5ad7/unity-builds"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "underground-adventure",
+	"name": "UNDERGROUND ADVENTURE",
+	"author": "rebeliaGam3r",
+	"description": "Try to escape from the underground. You will need a mouse, a space bar, and WSAD. Click on the screen to start. Use Esc to exit. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/42f68dfa-5e51-4355-8779-702a036b3a54/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3283ac4d-5a9b-4e0d-9063-41196f79fc58/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3283ac4d-5a9b-4e0d-9063-41196f79fc58",
+	"unityPlayUrl": "https://play.unity.com/en/games/3283ac4d-5a9b-4e0d-9063-41196f79fc58/underground-adventure"
+}

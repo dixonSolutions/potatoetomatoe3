@@ -1,0 +1,14 @@
+{
+	"id": "wardens",
+	"name": "Wardens",
+	"author": "WardensGame",
+	"description": "Wardens 1.10.4\n\nWe just completed our web build after a massive migration project! Expect some minor bugs, anything major please post to our discord!\n\nOur web build supports Mobile and PC!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8cc0c9f0-d069-40e3-929d-806ec77f2558/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/290d7e36-3077-4c82-bfcd-cd8a96b7a435/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "290d7e36-3077-4c82-bfcd-cd8a96b7a435",
+	"unityPlayUrl": "https://play.unity.com/en/games/290d7e36-3077-4c82-bfcd-cd8a96b7a435/wardens"
+}

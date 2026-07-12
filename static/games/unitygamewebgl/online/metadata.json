@@ -1,0 +1,14 @@
+{
+	"id": "unitygamewebgl",
+	"name": "UnityGameWEBGL",
+	"author": "whittyboy",
+	"description": "Play UnityGameWEBGL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/54b004ed-6bcb-43f9-a86e-24760e847339/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/87610215-73da-4d7b-94b0-6daa79ef0831/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "87610215-73da-4d7b-94b0-6daa79ef0831",
+	"unityPlayUrl": "https://play.unity.com/en/games/87610215-73da-4d7b-94b0-6daa79ef0831/unitygamewebgl"
+}

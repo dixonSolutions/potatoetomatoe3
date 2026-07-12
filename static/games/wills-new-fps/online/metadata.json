@@ -1,0 +1,14 @@
+{
+	"id": "wills-new-fps",
+	"name": "WIlls new FPS",
+	"author": "Elvenair",
+	"description": "Play WIlls new FPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/07854185-0898-4f7f-86ba-379077e05bda/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9251fd1e-9138-4af0-ac20-05b00839c18a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9251fd1e-9138-4af0-ac20-05b00839c18a",
+	"unityPlayUrl": "https://play.unity.com/en/games/9251fd1e-9138-4af0-ac20-05b00839c18a/wills-new-fps"
+}

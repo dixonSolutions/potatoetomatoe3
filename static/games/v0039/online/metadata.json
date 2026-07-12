@@ -1,0 +1,14 @@
+{
+	"id": "v0039",
+	"name": "v0.0.39",
+	"author": "manname",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c7ba73f-9f0c-4bf7-bf0f-8950880a2c92/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3f17aec3-6839-4f13-9acb-65c7e2c54f3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3f17aec3-6839-4f13-9acb-65c7e2c54f3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3f17aec3-6839-4f13-9acb-65c7e2c54f3f/v0039"
+}

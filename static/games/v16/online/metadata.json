@@ -1,0 +1,14 @@
+{
+	"id": "v16",
+	"name": "v1.6",
+	"author": "AlexSchneiderFHGR",
+	"description": "Play v1.6 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1f10e825-ee6a-48d5-8dfc-1dffbd7182b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1f10e825-ee6a-48d5-8dfc-1dffbd7182b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/1f10e825-ee6a-48d5-8dfc-1dffbd7182b4/v16"
+}

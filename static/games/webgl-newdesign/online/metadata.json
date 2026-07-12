@@ -1,0 +1,14 @@
+{
+	"id": "webgl-newdesign",
+	"name": "WebGL newDesign",
+	"author": "sjm-tech",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fbcd8128-ba73-406c-9edc-51d4f15089af/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b509679-bbaf-4643-8536-aaa029d884c4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b509679-bbaf-4643-8536-aaa029d884c4",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b509679-bbaf-4643-8536-aaa029d884c4/webgl-newdesign"
+}

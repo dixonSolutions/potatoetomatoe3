@@ -1,0 +1,14 @@
+{
+	"id": "treasure-hunter",
+	"name": "Treasure Hunter",
+	"author": "lachie1023",
+	"description": "Find all pickups and treasure chests to win! Definitely watch out for that evil panda!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e6baff0a-3f3b-4c43-ba3b-83b0e1535c6e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3126bd31-701e-423b-aeef-651943dbe318/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3126bd31-701e-423b-aeef-651943dbe318",
+	"unityPlayUrl": "https://play.unity.com/en/games/3126bd31-701e-423b-aeef-651943dbe318/treasure-hunter"
+}

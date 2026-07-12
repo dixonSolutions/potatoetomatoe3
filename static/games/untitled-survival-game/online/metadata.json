@@ -1,0 +1,14 @@
+{
+	"id": "untitled-survival-game",
+	"name": "Untitled Survival Game",
+	"author": "AvsStudios",
+	"description": "By: Ansel | v1.1 alpha\n\nWASD to move, click to harvest, right-click to eat/place/sleep, 1\u20139 to select items. Build a shelter by night. Not mobile-ready. Works on all screens.\nEnjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f1de9678-966c-4ffe-8901-6b01ec126f8c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0788a461-21ad-4d8e-899e-463b864286fd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0788a461-21ad-4d8e-899e-463b864286fd",
+	"unityPlayUrl": "https://play.unity.com/en/games/0788a461-21ad-4d8e-899e-463b864286fd/untitled-survival-game"
+}

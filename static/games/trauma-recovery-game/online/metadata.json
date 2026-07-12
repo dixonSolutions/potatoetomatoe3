@@ -1,0 +1,14 @@
+{
+	"id": "trauma-recovery-game",
+	"name": "Trauma recovery game",
+	"author": "LexaSwan",
+	"description": "Played around with Creation Kit and added some extra rooms I made in Blender. \nPurpose of the game is finding your way through healing.\nYou will find some extra obstacles on your way. Don't let them discourage you. \n   \nHave Fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/323907c1-bc3e-48be-9376-80f2f110cc7b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c268d2e-2baf-4ad6-9de9-20cc4b31a34e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c268d2e-2baf-4ad6-9de9-20cc4b31a34e",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c268d2e-2baf-4ad6-9de9-20cc4b31a34e/trauma-recovery-game"
+}

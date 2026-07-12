@@ -1,0 +1,14 @@
+{
+	"id": "zombie-mania",
+	"name": "Zombie Mania",
+	"author": "cyt0",
+	"description": "The updated black belt version",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d9db21e-8776-4e42-a114-641cf04c67bb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d9db21e-8776-4e42-a114-641cf04c67bb",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d9db21e-8776-4e42-a114-641cf04c67bb/zombie-mania"
+}

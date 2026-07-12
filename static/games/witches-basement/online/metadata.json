@@ -1,0 +1,14 @@
+{
+	"id": "witches-basement",
+	"name": "Witches' Basement",
+	"author": "kdomhartz",
+	"description": "A cooperative game where you and up to three of your friends will take on the role of modern witches (and a cat demon) brewing potions under pressure.\n\nControllers recommended!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6386d0b4-3fc2-430a-bb0f-0110f55a3af2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43711b4a-753a-4a21-884f-d5e5b247e93e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43711b4a-753a-4a21-884f-d5e5b247e93e",
+	"unityPlayUrl": "https://play.unity.com/en/games/43711b4a-753a-4a21-884f-d5e5b247e93e/witches-basement"
+}

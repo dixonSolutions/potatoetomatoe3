@@ -1,0 +1,14 @@
+{
+	"id": "walk-in-the-dark",
+	"name": "Walk in the dark",
+	"author": "Joerideman",
+	"description": "It's not a horror game, but you need to listen.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ce64efdf-4c76-4c0a-a178-2bbec7d21c47/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b8de31c4-90a7-4d9b-adb9-44b3abc65a86/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b8de31c4-90a7-4d9b-adb9-44b3abc65a86",
+	"unityPlayUrl": "https://play.unity.com/en/games/b8de31c4-90a7-4d9b-adb9-44b3abc65a86/walk-in-the-dark"
+}

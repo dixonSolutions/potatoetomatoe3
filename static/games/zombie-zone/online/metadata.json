@@ -1,0 +1,14 @@
+{
+	"id": "zombie-zone",
+	"name": "Zombie Zone",
+	"author": "tafadzwa_emmanuel",
+	"description": "Zombies are randomly spawned into the scene, see how many rounds you can survive. Can you get to 50 Kills?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/12d7d78f-9fd1-4bba-a5e5-d3db9e56922d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48dbc618-6f72-4012-8d4b-7248c4cd5991/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48dbc618-6f72-4012-8d4b-7248c4cd5991",
+	"unityPlayUrl": "https://play.unity.com/en/games/48dbc618-6f72-4012-8d4b-7248c4cd5991/zombie-zone"
+}

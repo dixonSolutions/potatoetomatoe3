@@ -1,0 +1,14 @@
+{
+	"id": "treasure-driver",
+	"name": "Treasure Driver",
+	"author": "muhammedahmetsekerci",
+	"description": "***How To Play***                                                                         \nThere is 1 car we control in the game, at level 1 we need to buy 4 gold and put them all in the treasure chest. You can increase your speed by going over the diamonds on the map, and increase your health by going over the hearts on the map. When you hit any object other than walls, your speed and health will decrease. If your health drops to 0, you lose the game. It will update to 20 when your speed drops to 0. If you pass certain areas of the game your speed will be 20. Controller WASD or arrow keys                                                                         \nThere is 1 section for the first stage in the game, I can add new sections according to the feedback. my first game don't be harsh when criticizing :)\n\ngood games",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f862c397-4b46-4f0f-89d5-46510bd27bef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b2258a7-f426-4d56-b0cb-61e7decd04b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b2258a7-f426-4d56-b0cb-61e7decd04b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b2258a7-f426-4d56-b0cb-61e7decd04b3/treasure-driver"
+}

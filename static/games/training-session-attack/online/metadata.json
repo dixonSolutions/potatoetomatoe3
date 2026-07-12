@@ -1,0 +1,14 @@
+{
+	"id": "training-session-attack",
+	"name": "Training Session Attack",
+	"author": "CptPilot",
+	"description": "Begin your day like every other, with a simple training session with Sensei Wu, but things escalate quickly.\n\nBuild as part of the Lego Microgame one-button contest. Timing is everything, press spacebar to shoot and hit your targets at the right time to get the perfect score and rank.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c46765d8-2747-41e6-8beb-8b601a772cb9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/325b6568-3941-42a5-b299-a01fc45ad57e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "325b6568-3941-42a5-b299-a01fc45ad57e",
+	"unityPlayUrl": "https://play.unity.com/en/games/325b6568-3941-42a5-b299-a01fc45ad57e/training-session-attack"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "uber-karts",
+	"name": "Uber Kart's",
+	"author": "AndrewDoroshkov",
+	"description": "Play Uber Kart's on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f8cc0181-fe37-47cb-aeea-f9bc935e4b94/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7b784a70-2d28-47ab-8592-6ebdf0ccc6b1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7b784a70-2d28-47ab-8592-6ebdf0ccc6b1",
+	"unityPlayUrl": "https://play.unity.com/en/games/7b784a70-2d28-47ab-8592-6ebdf0ccc6b1/uber-karts"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "vide-game",
+	"name": "Vide Game",
+	"author": "darthedit180",
+	"description": "Play Vide Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8750e1ba-0a3b-4cc1-b5a7-60700d5f2305/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/83637d1a-8b99-402d-910f-3befcc53009d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "83637d1a-8b99-402d-910f-3befcc53009d",
+	"unityPlayUrl": "https://play.unity.com/en/games/83637d1a-8b99-402d-910f-3befcc53009d/vide-game"
+}

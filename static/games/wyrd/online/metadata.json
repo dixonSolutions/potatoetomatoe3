@@ -1,0 +1,14 @@
+{
+	"id": "wyrd",
+	"name": "Wyrd",
+	"author": "marcusmagurean",
+	"description": "i cooked up this for the 400th episode",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3487e4d5-c80d-4bb3-958e-6bd76f904db4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3487e4d5-c80d-4bb3-958e-6bd76f904db4",
+	"unityPlayUrl": "https://play.unity.com/en/games/3487e4d5-c80d-4bb3-958e-6bd76f904db4/wyrd"
+}

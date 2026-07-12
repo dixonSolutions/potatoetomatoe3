@@ -1,0 +1,14 @@
+{
+	"id": "visual-scripting-tutorial",
+	"name": "Visual Scripting Tutorial",
+	"author": "SpockBauru",
+	"description": "Followed the Visual Scripting Tutorial with basic animations control in Unity 2021.1. Use wasd to control the fox.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72debae7-bcf2-41df-bd9f-e818f663e68a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "72debae7-bcf2-41df-bd9f-e818f663e68a",
+	"unityPlayUrl": "https://play.unity.com/en/games/72debae7-bcf2-41df-bd9f-e818f663e68a/visual-scripting-tutorial"
+}

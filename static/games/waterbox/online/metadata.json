@@ -1,0 +1,14 @@
+{
+	"id": "waterbox",
+	"name": "WaterBox",
+	"author": "Pricker_1",
+	"description": "Ett spel d\u00e4r man flyttar l\u00e5dor",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/987bd2ad-08d2-4c19-bcd7-b32008364663/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "987bd2ad-08d2-4c19-bcd7-b32008364663",
+	"unityPlayUrl": "https://play.unity.com/en/games/987bd2ad-08d2-4c19-bcd7-b32008364663/waterbox"
+}

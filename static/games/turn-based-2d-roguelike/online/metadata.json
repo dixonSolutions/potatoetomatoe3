@@ -1,0 +1,14 @@
+{
+	"id": "turn-based-2d-roguelike",
+	"name": "Turn-Based 2D Roguelike",
+	"author": "feanorW",
+	"description": "Turn-Based 2D Roguelike game based on unity learn course\n\nAlso the game playeble with mobile controls",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a3a1ba9-34e2-472e-8f8f-a0b3a87c3633/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a3a1ba9-34e2-472e-8f8f-a0b3a87c3633",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a3a1ba9-34e2-472e-8f8f-a0b3a87c3633/turn-based-2d-roguelike"
+}

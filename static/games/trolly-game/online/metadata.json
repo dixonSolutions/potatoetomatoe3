@@ -1,0 +1,14 @@
+{
+	"id": "trolly-game",
+	"name": "trolly game",
+	"author": "ApolloF",
+	"description": "its like worse subway surfers",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34c40c3e-47ee-4ea9-84fa-5f3cd5954d60/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34c40c3e-47ee-4ea9-84fa-5f3cd5954d60",
+	"unityPlayUrl": "https://play.unity.com/en/games/34c40c3e-47ee-4ea9-84fa-5f3cd5954d60/trolly-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "web-build-003",
+	"name": "Web Build 0.03",
+	"author": "ICNCdev",
+	"description": "Play Web Build 0.03 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e8a38be6-024f-4a9d-8c03-fb1c70a9b077/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c6295ac-0fdf-4fbe-b680-b564e542acbd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c6295ac-0fdf-4fbe-b680-b564e542acbd",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c6295ac-0fdf-4fbe-b680-b564e542acbd/web-build-003"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "yellowrace",
+	"name": "YellowRace",
+	"author": "gabrielevanozika",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71569f3b-5d72-42a9-b738-0b319f085d23/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71569f3b-5d72-42a9-b738-0b319f085d23",
+	"unityPlayUrl": "https://play.unity.com/en/games/71569f3b-5d72-42a9-b738-0b319f085d23/yellowrace"
+}

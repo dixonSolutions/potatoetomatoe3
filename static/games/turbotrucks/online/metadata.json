@@ -1,0 +1,14 @@
+{
+	"id": "turbotrucks",
+	"name": "TurboTrucks",
+	"author": "dreek16designer",
+	"description": "Play TurboTrucks on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e86e3b6a-9218-425b-8953-8807420f76bc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10cd93ce-26c1-4e0c-b258-b6dcbef3fbca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10cd93ce-26c1-4e0c-b258-b6dcbef3fbca",
+	"unityPlayUrl": "https://play.unity.com/en/games/10cd93ce-26c1-4e0c-b258-b6dcbef3fbca/turbotrucks"
+}

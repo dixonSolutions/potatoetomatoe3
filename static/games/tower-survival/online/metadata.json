@@ -1,0 +1,14 @@
+{
+	"id": "tower-survival",
+	"name": "Tower Survival",
+	"author": "dolmatovnick",
+	"description": "Simple tower survival game. Control with arrows and space key.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e7f6c91-ae88-4a55-8dc1-202e293511eb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/76fa3440-47c5-4fa8-b5a2-a7d28567e3e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "76fa3440-47c5-4fa8-b5a2-a7d28567e3e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/76fa3440-47c5-4fa8-b5a2-a7d28567e3e3/tower-survival"
+}

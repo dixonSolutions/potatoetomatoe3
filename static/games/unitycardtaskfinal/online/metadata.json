@@ -1,0 +1,14 @@
+{
+	"id": "unitycardtaskfinal",
+	"name": "UnityCardTaskFINAL",
+	"author": "bartugenccan",
+	"description": "Play UnityCardTaskFINAL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eed689f8-c816-426d-975b-ae22cf1d7b58/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eed689f8-c816-426d-975b-ae22cf1d7b58",
+	"unityPlayUrl": "https://play.unity.com/en/games/eed689f8-c816-426d-975b-ae22cf1d7b58/unitycardtaskfinal"
+}

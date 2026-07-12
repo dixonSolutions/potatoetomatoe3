@@ -1,0 +1,14 @@
+{
+	"id": "unityplay",
+	"name": "unityplay",
+	"author": "macchamaccha",
+	"description": "Play unityplay on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8d77bf17-83fd-4313-b7e0-96f7f8d889a0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f0550903-f151-4c7e-af55-b2abcfae2041/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f0550903-f151-4c7e-af55-b2abcfae2041",
+	"unityPlayUrl": "https://play.unity.com/en/games/f0550903-f151-4c7e-af55-b2abcfae2041/unityplay"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "unity2dtestwebgl",
+	"name": "Unity2DTestWebGL",
+	"author": "oxst",
+	"description": "Play Unity2DTestWebGL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b7a44c5-fd1f-491c-8fa0-7c517623edec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/492cfb2a-f7c5-4dbd-8aea-22d4afbd5b5e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "492cfb2a-f7c5-4dbd-8aea-22d4afbd5b5e",
+	"unityPlayUrl": "https://play.unity.com/en/games/492cfb2a-f7c5-4dbd-8aea-22d4afbd5b5e/unity2dtestwebgl"
+}

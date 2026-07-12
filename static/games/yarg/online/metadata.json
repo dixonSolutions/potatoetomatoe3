@@ -1,0 +1,14 @@
+{
+	"id": "yarg",
+	"name": "YARG",
+	"author": "Sky2000",
+	"description": "Yet Another Racing Game... It's a mini racing game (WIP) in Time Attack mode where you have to beat the clock to finish the two laps of the circuit.\nYou can choose from three vehicles each with different features and handling. Arrows to Drive, R to restore car",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fa2f67d3-787e-48af-a614-5ed08651087f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/050924de-917e-4e74-9cc5-667a7a6c449c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "050924de-917e-4e74-9cc5-667a7a6c449c",
+	"unityPlayUrl": "https://play.unity.com/en/games/050924de-917e-4e74-9cc5-667a7a6c449c/yarg"
+}

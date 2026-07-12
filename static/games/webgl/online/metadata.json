@@ -1,0 +1,14 @@
+{
+	"id": "webgl",
+	"name": "WebGL",
+	"author": "Mikabarrett",
+	"description": "Play WebGL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b1471f6a-3457-47c4-bf3f-9653662c427c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b1471f6a-3457-47c4-bf3f-9653662c427c",
+	"unityPlayUrl": "https://play.unity.com/en/games/b1471f6a-3457-47c4-bf3f-9653662c427c/webgl"
+}

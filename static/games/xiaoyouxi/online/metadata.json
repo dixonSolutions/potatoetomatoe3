@@ -1,0 +1,14 @@
+{
+	"id": "xiaoyouxi",
+	"name": "XIAOYOUXI",
+	"author": "wechat_os_Qy03ZE5VHvS7G0bnPBVr7v2sY",
+	"description": "Play XIAOYOUXI on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49fccc43-e73b-4fff-b37e-a4d2984ec168/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49fccc43-e73b-4fff-b37e-a4d2984ec168",
+	"unityPlayUrl": "https://play.unity.com/en/games/49fccc43-e73b-4fff-b37e-a4d2984ec168/xiaoyouxi"
+}

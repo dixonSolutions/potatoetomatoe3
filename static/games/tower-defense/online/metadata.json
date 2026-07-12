@@ -1,0 +1,14 @@
+{
+	"id": "tower-defense",
+	"name": "Tower defense",
+	"author": "Arex786",
+	"description": "test",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13df760e-a5be-4545-8df0-0a9c7e1bf5a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13df760e-a5be-4545-8df0-0a9c7e1bf5a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/13df760e-a5be-4545-8df0-0a9c7e1bf5a3/tower-defense"
+}

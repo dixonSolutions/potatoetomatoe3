@@ -1,0 +1,14 @@
+{
+	"id": "wasteland",
+	"name": "Wasteland",
+	"author": "Eden_Lzh",
+	"description": "This is a 2D Roguelike game. Player can use Arrow keys to control the character's movement. The walls and enemies in the wasteland can be destroyed by multiple moving to them. Food can be collected.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/66233865-258e-42ec-b763-e737a51bc9eb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6ade411b-2897-4a14-8cb8-5dd7390b7570/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6ade411b-2897-4a14-8cb8-5dd7390b7570",
+	"unityPlayUrl": "https://play.unity.com/en/games/6ade411b-2897-4a14-8cb8-5dd7390b7570/wasteland"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wondrous-souls",
+	"name": "Wondrous Souls",
+	"author": "Hawkoo",
+	"description": "Welcome to the Phantom Forest. This game is a 2d topdown survival shooter, with all the assets made by me, except the A*pathfinding. I'd also like to thank MrHamDev for working with me and giving me some excellent advice.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e05ca9b5-ca27-4570-95d1-2816053e44bf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7202b144-b156-45c5-b917-8cbeab5930c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7202b144-b156-45c5-b917-8cbeab5930c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/7202b144-b156-45c5-b917-8cbeab5930c3/wondrous-souls"
+}

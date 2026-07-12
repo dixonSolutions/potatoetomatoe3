@@ -1,0 +1,14 @@
+{
+	"id": "two-player-movement",
+	"name": "Two Player Movement",
+	"author": "smi01868",
+	"description": "Small microgame involving two player movement",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cce1c820-3d72-486d-8d35-e7328a3c0844/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a9e71c1-9313-4eed-9cdc-f9d07d65d880/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a9e71c1-9313-4eed-9cdc-f9d07d65d880",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a9e71c1-9313-4eed-9cdc-f9d07d65d880/two-player-movement"
+}

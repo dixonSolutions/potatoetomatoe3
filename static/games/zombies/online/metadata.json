@@ -1,0 +1,14 @@
+{
+	"id": "zombies",
+	"name": "Zombies!",
+	"author": "xiaocai618",
+	"description": "Revenge Time! Try to infect all humans. Press \"T\" to scratch, press \"G\" to throw claws!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/816cb1c7-95db-46e3-9acf-00f96863d9aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "816cb1c7-95db-46e3-9acf-00f96863d9aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/816cb1c7-95db-46e3-9acf-00f96863d9aa/zombies"
+}

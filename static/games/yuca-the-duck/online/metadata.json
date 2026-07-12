@@ -1,0 +1,14 @@
+{
+	"id": "yuca-the-duck",
+	"name": "yuca the duck",
+	"author": "draindog",
+	"description": "Play yuca the duck on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11eab57c-2915-4b8d-be33-c6138fdf442a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11eab57c-2915-4b8d-be33-c6138fdf442a",
+	"unityPlayUrl": "https://play.unity.com/en/games/11eab57c-2915-4b8d-be33-c6138fdf442a/yuca-the-duck"
+}

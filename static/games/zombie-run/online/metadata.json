@@ -1,0 +1,14 @@
+{
+	"id": "zombie-run",
+	"name": "Zombie Run",
+	"author": "dkobrien",
+	"description": "Help Bob the Businessman navigate a maze of rocks and zombies \n(There is no end just try to get the highest score you can)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/42d5694c-f227-4a1d-bd9a-02c3db2d12d4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7769817c-d128-46be-9776-ae80cf20a0fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7769817c-d128-46be-9776-ae80cf20a0fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/7769817c-d128-46be-9776-ae80cf20a0fb/zombie-run"
+}

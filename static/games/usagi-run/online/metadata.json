@@ -1,0 +1,14 @@
+{
+	"id": "usagi-run",
+	"name": "Usagi run",
+	"author": "yamsuwu",
+	"description": "Personal Project",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0481283c-c8bf-4ccf-b062-a9b8db591d76/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0481283c-c8bf-4ccf-b062-a9b8db591d76",
+	"unityPlayUrl": "https://play.unity.com/en/games/0481283c-c8bf-4ccf-b062-a9b8db591d76/usagi-run"
+}

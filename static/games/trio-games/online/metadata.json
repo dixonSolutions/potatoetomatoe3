@@ -1,0 +1,14 @@
+{
+	"id": "trio-games",
+	"name": "Trio Games",
+	"author": "cemor",
+	"description": "Top-Down Racing Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/070f8c03-2426-4672-b336-6534f8304bfc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "070f8c03-2426-4672-b336-6534f8304bfc",
+	"unityPlayUrl": "https://play.unity.com/en/games/070f8c03-2426-4672-b336-6534f8304bfc/trio-games"
+}

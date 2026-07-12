@@ -1,0 +1,14 @@
+{
+	"id": "zero-waste",
+	"name": "Zero Waste",
+	"author": "sarthakchatur0",
+	"description": "zero waste game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e3df7c11-a6a1-448d-a3a2-95d1f8f3b63d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e3df7c11-a6a1-448d-a3a2-95d1f8f3b63d",
+	"unityPlayUrl": "https://play.unity.com/en/games/e3df7c11-a6a1-448d-a3a2-95d1f8f3b63d/zero-waste"
+}

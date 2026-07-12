@@ -1,0 +1,14 @@
+{
+	"id": "zombie-game",
+	"name": "Zombie game",
+	"author": "CubeDev_cyberyamn",
+	"description": "in this game you fight against zombies. Don't let the zombies break the wall and hit the red barrier. use the mouse wheel to aim the weapon control the player using the \"w,a,s,d\" keys",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3975fdc6-9cbe-4aee-8a10-2d12126a8264/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e244d4b-366d-4b36-93d1-73a84c5be8b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e244d4b-366d-4b36-93d1-73a84c5be8b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e244d4b-366d-4b36-93d1-73a84c5be8b7/zombie-game"
+}

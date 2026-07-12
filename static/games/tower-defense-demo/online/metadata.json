@@ -1,0 +1,14 @@
+{
+	"id": "tower-defense-demo",
+	"name": "Tower Defense Demo",
+	"author": "mhfalken",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6fe21ba8-ab37-4810-8d01-048a47a723cf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4abcc1c8-b116-476a-a810-2b997ded3bd1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4abcc1c8-b116-476a-a810-2b997ded3bd1",
+	"unityPlayUrl": "https://play.unity.com/en/games/4abcc1c8-b116-476a-a810-2b997ded3bd1/tower-defense-demo"
+}

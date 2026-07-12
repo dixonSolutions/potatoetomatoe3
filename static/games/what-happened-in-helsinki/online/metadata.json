@@ -1,0 +1,14 @@
+{
+	"id": "what-happened-in-helsinki",
+	"name": "What Happened In Helsinki",
+	"author": "turbo_errin",
+	"description": "3-month challenge game. This is a simple demo platformer about raccoon. I made code, art, and music. Sept 2020 - nov 2020\n\nA 2D platformer pixel game with puzzle elements. Move right and up, where you can climb. Collect tomatoes as bullets. Beware of the hedgehogs. At the end of the level, you will face the final battle with your new nemesis, the giant seagull. Destroy what you can destroy just for fun.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b0a9740-31d4-4a7d-9766-296474e5a17b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2363a207-1f2c-43c0-94b8-d0f8f7cbf002/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2363a207-1f2c-43c0-94b8-d0f8f7cbf002",
+	"unityPlayUrl": "https://play.unity.com/en/games/2363a207-1f2c-43c0-94b8-d0f8f7cbf002/what-happened-in-helsinki"
+}

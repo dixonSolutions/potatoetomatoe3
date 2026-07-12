@@ -1,0 +1,14 @@
+{
+	"id": "truck-slider",
+	"name": "Truck Slider",
+	"author": "Motionapex_sachin",
+	"description": "\"Truck Slide\" is an upgrade version of the famous Unity \"cube\" tutorial That published by \"Brackeys\" or \"Smart Penguins - GameDev\". Here I use the \"Smart Penguins\" tutorial series. It's just a 3 minutes gameplay with 5 levels. Hope you like it. Thank you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e40293cd-31b6-4812-8d27-6f2ff1debf69/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/837c9762-4d1d-4509-8b00-05775eb770d3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "837c9762-4d1d-4509-8b00-05775eb770d3",
+	"unityPlayUrl": "https://play.unity.com/en/games/837c9762-4d1d-4509-8b00-05775eb770d3/truck-slider"
+}

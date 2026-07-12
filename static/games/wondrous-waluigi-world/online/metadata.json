@@ -1,0 +1,14 @@
+{
+	"id": "wondrous-waluigi-world",
+	"name": "Wondrous Waluigi World",
+	"author": "SaucyBoy",
+	"description": "Play Wondrous Waluigi World on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/711ed2e1-7b2f-44ac-a3b6-0db066ba7aaf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ddd647b0-4722-4976-a9fd-d92a1dba7353/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ddd647b0-4722-4976-a9fd-d92a1dba7353",
+	"unityPlayUrl": "https://play.unity.com/en/games/ddd647b0-4722-4976-a9fd-d92a1dba7353/wondrous-waluigi-world"
+}

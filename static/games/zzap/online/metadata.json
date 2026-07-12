@@ -1,0 +1,14 @@
+{
+	"id": "zzap",
+	"name": "Zzap!",
+	"author": "simonjordan557",
+	"description": "My personal project from Create With Code. It's a frenetic twin-stick shooter. inspired by 80's arcade, Llamasoft and Atari 2600 games. Use a joypad! Fight aggressively to increase your score multiplier and spawn more power-ups. Watch out for rockets, bombs, bullets, and weird aggressive alien things. I made all the assets myself. It's been a long week.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ea4b4ea6-e652-4639-a3b0-b8745231bde3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05d1a592-b87b-423b-9ac4-60dca5acc1d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05d1a592-b87b-423b-9ac4-60dca5acc1d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/05d1a592-b87b-423b-9ac4-60dca5acc1d2/zzap"
+}

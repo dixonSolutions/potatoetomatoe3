@@ -1,0 +1,14 @@
+{
+	"id": "ufo-combat",
+	"name": "UFO Combat",
+	"author": "iamracer",
+	"description": "Survive the Battle Ground as much as you can!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/240f5b5d-5d95-47fb-bcfd-570b34db282f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/461aaffa-63f9-4ef3-9090-c2e1c70b49b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "461aaffa-63f9-4ef3-9090-c2e1c70b49b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/461aaffa-63f9-4ef3-9090-c2e1c70b49b4/ufo-combat"
+}

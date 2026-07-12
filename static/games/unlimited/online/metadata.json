@@ -1,0 +1,14 @@
+{
+	"id": "unlimited",
+	"name": "\u306d\u308b\u306d\u308b\u30fcUnlimited\uff0d",
+	"author": "fuyankm",
+	"description": "\u306d\u308b\u306d\u308b\u30fcUnlimited\uff0d",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5a698d82-48fc-4298-ab7c-c9cf475ce683/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5a698d82-48fc-4298-ab7c-c9cf475ce683",
+	"unityPlayUrl": "https://play.unity.com/en/games/5a698d82-48fc-4298-ab7c-c9cf475ce683/unlimited"
+}

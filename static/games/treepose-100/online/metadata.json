@@ -1,0 +1,14 @@
+{
+	"id": "treepose-100",
+	"name": "TreePose 1.0.0",
+	"author": "satbot",
+	"description": "Testing before release",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/80497067-c7d7-4e77-bea4-4688f9fece65/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21327730-cdb7-4c1f-b68e-da69555efb7b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21327730-cdb7-4c1f-b68e-da69555efb7b",
+	"unityPlayUrl": "https://play.unity.com/en/games/21327730-cdb7-4c1f-b68e-da69555efb7b/treepose-100"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "trashbandit",
+	"name": "TrashBandit",
+	"author": "zedted",
+	"description": "Collect the garbage to gain points and knock out the new enemies for some multipliers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fb5aa531-cbeb-498c-9b38-744591b4fe65/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f2f5384-66a1-44f5-a467-1c221300c142/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f2f5384-66a1-44f5-a467-1c221300c142",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f2f5384-66a1-44f5-a467-1c221300c142/trashbandit"
+}

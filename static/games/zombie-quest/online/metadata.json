@@ -1,0 +1,14 @@
+{
+	"id": "zombie-quest",
+	"name": "Zombie Quest",
+	"author": "airbusbunnag",
+	"description": "My 2D Zombie Platformer for Game Dev class in MUIC, v0.1.6.6",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef198846-3169-46f4-be3c-93e002ad863f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a4e8f08-a7d0-42a1-b055-487f7e583d80/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a4e8f08-a7d0-42a1-b055-487f7e583d80",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a4e8f08-a7d0-42a1-b055-487f7e583d80/zombie-quest"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wrif-final-build",
+	"name": "Wrif Final Build",
+	"author": "Will-Marceau",
+	"description": "Wrif Final Build 6.0",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19131026-8f14-4274-b7f0-741ab6120227/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19131026-8f14-4274-b7f0-741ab6120227",
+	"unityPlayUrl": "https://play.unity.com/en/games/19131026-8f14-4274-b7f0-741ab6120227/wrif-final-build"
+}

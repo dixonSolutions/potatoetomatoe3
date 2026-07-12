@@ -1,0 +1,14 @@
+{
+	"id": "usp-odyssey",
+	"name": "USP Odyssey",
+	"author": "CaioGama",
+	"description": "USP Odyssey is a 2D pixel-art top-down game designed to help students explore and learn about the University of S\u00e3o Paulo\u2019s campus through gamification.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3576ab87-8db6-47f9-9ce9-19b1a4ab3ebb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6fc66bd2-77e5-45d3-8fba-a317a2e76357/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6fc66bd2-77e5-45d3-8fba-a317a2e76357",
+	"unityPlayUrl": "https://play.unity.com/en/games/6fc66bd2-77e5-45d3-8fba-a317a2e76357/usp-odyssey"
+}

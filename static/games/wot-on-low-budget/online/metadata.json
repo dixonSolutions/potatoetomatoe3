@@ -1,0 +1,14 @@
+{
+	"id": "wot-on-low-budget",
+	"name": "Wot on low budget",
+	"author": "minecrafterdima",
+	"description": "wasd - you know what those buttons do, spacebar - brakes",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/52184c80-5359-49e5-88f0-5a8eaa70a14a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dd53181-c14f-426b-9243-3cc272897c22/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0dd53181-c14f-426b-9243-3cc272897c22",
+	"unityPlayUrl": "https://play.unity.com/en/games/0dd53181-c14f-426b-9243-3cc272897c22/wot-on-low-budget"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "voonseneatkhee",
+	"name": "VoonsenEatKhee",
+	"author": "Tawatnewt",
+	"description": "Send Voonsen the Khees\n\nUpdate v.1.2\n- Combo system reworked and rebalanced.\n- Added a \"Time Bonus\" for hitting Voonsen 4 or more times in a row.\n- Improved game logic and performance.\n- etc.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d0b9ab65-2806-492b-b12f-d39229493b08/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3349bc96-936a-4be8-9cab-1b2f9754594b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3349bc96-936a-4be8-9cab-1b2f9754594b",
+	"unityPlayUrl": "https://play.unity.com/en/games/3349bc96-936a-4be8-9cab-1b2f9754594b/voonseneatkhee"
+}

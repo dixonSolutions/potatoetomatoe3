@@ -1,0 +1,14 @@
+{
+	"id": "trojan-maze",
+	"name": "Trojan Maze",
+	"author": "Ventues",
+	"description": "Developed by Trojan Fight.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a0475de1-4502-4f10-ae3e-20100f9dbd85/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a0475de1-4502-4f10-ae3e-20100f9dbd85",
+	"unityPlayUrl": "https://play.unity.com/en/games/a0475de1-4502-4f10-ae3e-20100f9dbd85/trojan-maze"
+}

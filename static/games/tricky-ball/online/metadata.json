@@ -1,0 +1,14 @@
+{
+	"id": "tricky-ball",
+	"name": "Tricky Ball",
+	"author": "SabrinaBP",
+	"description": "Team : Sabrina P, OBG21, ChristianAndersson\nTools : Unity 2020.3.8f1, Blender 2.92\n\nWe chose to modernize a classic toy by Tomi called Tricky Ball. In this game you had to move a ball across the board by pressing big yellow buttons, each one activating an obstacle. We thought reviving this fond memory was a fun way to experiment with the Unity physics engine and test different animation scripts. And also, who doesn\u2019t like to press a big yellow button ?\nDiversifier : language independent. Just press the buttons!\nMade for Create with Code Game Jam. Theme: \"Modernizing a classic\".",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e7692137-603d-4265-9879-21d3a3c98789/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b093535d-e46f-4e46-805c-57ce534b50cc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b093535d-e46f-4e46-805c-57ce534b50cc",
+	"unityPlayUrl": "https://play.unity.com/en/games/b093535d-e46f-4e46-805c-57ce534b50cc/tricky-ball"
+}

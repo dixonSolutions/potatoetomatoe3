@@ -1,0 +1,14 @@
+{
+	"id": "tower-defense-3d-v10",
+	"name": "Tower Defense 3D. V10",
+	"author": "DATS-games",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c69fc3af-30fc-4a7a-bc67-181b0581b360/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c69fc3af-30fc-4a7a-bc67-181b0581b360",
+	"unityPlayUrl": "https://play.unity.com/en/games/c69fc3af-30fc-4a7a-bc67-181b0581b360/tower-defense-3d-v10"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wordoza",
+	"name": "Wordoza",
+	"author": "Hasherone",
+	"description": "Wordoza - Wordle",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72ba70f0-4051-488b-8f8d-d71b71d96270/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "72ba70f0-4051-488b-8f8d-d71b71d96270",
+	"unityPlayUrl": "https://play.unity.com/en/games/72ba70f0-4051-488b-8f8d-d71b71d96270/wordoza"
+}

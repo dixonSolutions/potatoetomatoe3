@@ -1,0 +1,14 @@
+{
+	"id": "warehouse-invasion-100",
+	"name": "Warehouse Invasion 1.0.0",
+	"author": "lucasctnh",
+	"description": "This is a FPS game where you have to kill waves of enemies. This game was made to apply the skills learned in the Create with Code course.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/addf9d27-5032-4823-b263-f905bc33cf19/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/441d23e6-6896-4637-a614-fc7a25a0df3e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "441d23e6-6896-4637-a614-fc7a25a0df3e",
+	"unityPlayUrl": "https://play.unity.com/en/games/441d23e6-6896-4637-a614-fc7a25a0df3e/warehouse-invasion-100"
+}

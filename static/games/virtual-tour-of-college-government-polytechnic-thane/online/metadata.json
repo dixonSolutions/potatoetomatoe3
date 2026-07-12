@@ -1,0 +1,14 @@
+{
+	"id": "virtual-tour-of-college-government-polytechnic-thane",
+	"name": "Virtual Tour of College (Government Polytechnic Thane)",
+	"author": "Rohit764",
+	"description": "The Project gives an Immersive look of Government Polytechnic Thane.\ufeff\n\nThe 3D model of the college in virtual reality allows users to explore and interact with the environment as if they were physically present. Users can move around the college using controllers or their own movements and can interact with objects and elements in the environment. The 3D model can also be used for virtual tours or educational purposes, allowing users to learn about the college in an immersive and engaging way.\nIn summary, creating a 3D model of a college involves conceptualizing the \ndesign, gathering reference material, creating the model, texturing and lighting, adding interactivity, testing and refinement, and deployment. The 3D model allows users to explore and Interact with the environment in an immersive and engaging way and can be used for virtual tours or educational purposes.\n\nControls For Controlling the movement of Player: -\n\nKeyboard Controls:\n\tW key/Up Arrow key: Front Movement.\n\tA key/Left Arrow key: Left Movement.\n\tS key/Down Arrow key: Back Movement.\n\tD key/Right Arrow key: Right Movement.\n\tF key: Switch to Fly mode.\n\tSpace: Jump.\n\tLeft Shift: Sprint.\n\nMouse Controls: \n\tMove Mouse left, Right, Up, Down respectively to Navigate view.\n\nXbox Controller Controls:\n  \tLeft Stick: Movement.\n\tRight Stick: View Navigation.\n\tLeft Stick press: Sprint.\n\tA key: Jump.\n\tX key: Fly.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2255adbd-fd06-4a36-a76b-cb7208789c0e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/046bd9f7-c637-4301-9e9b-885a245b46ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "046bd9f7-c637-4301-9e9b-885a245b46ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/046bd9f7-c637-4301-9e9b-885a245b46ad/virtual-tour-of-college-government-polytechnic-thane"
+}

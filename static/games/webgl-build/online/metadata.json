@@ -1,0 +1,14 @@
+{
+	"id": "webgl-build",
+	"name": "WebGL build",
+	"author": "parthgoe",
+	"description": "Play WebGL build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/28a4118c-93ac-44e8-9c44-c1ea3a55b106/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81b7f061-6276-4234-8382-a96db4a769e4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81b7f061-6276-4234-8382-a96db4a769e4",
+	"unityPlayUrl": "https://play.unity.com/en/games/81b7f061-6276-4234-8382-a96db4a769e4/webgl-build"
+}

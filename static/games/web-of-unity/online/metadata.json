@@ -1,0 +1,14 @@
+{
+	"id": "web-of-unity",
+	"name": "Web of Unity",
+	"author": "mexhal",
+	"description": "WASD for movement, space to jump, left click to web sling",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/094ebef2-d631-4cf3-9833-a54d7629ad40/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "094ebef2-d631-4cf3-9833-a54d7629ad40",
+	"unityPlayUrl": "https://play.unity.com/en/games/094ebef2-d631-4cf3-9833-a54d7629ad40/web-of-unity"
+}

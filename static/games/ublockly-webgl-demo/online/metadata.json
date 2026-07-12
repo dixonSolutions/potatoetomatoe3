@@ -1,0 +1,14 @@
+{
+	"id": "ublockly-webgl-demo",
+	"name": "Ublockly - WebGL Demo",
+	"author": "kevinknights29",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/601cf32b-2c2d-4bf9-92b0-768f8a30dd00/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bb28374d-5156-4a24-bd94-3f805f596611/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bb28374d-5156-4a24-bd94-3f805f596611",
+	"unityPlayUrl": "https://play.unity.com/en/games/bb28374d-5156-4a24-bd94-3f805f596611/ublockly-webgl-demo"
+}

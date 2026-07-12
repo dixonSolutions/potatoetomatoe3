@@ -1,0 +1,14 @@
+{
+	"id": "two-player-pong",
+	"name": "Two Player Pong.",
+	"author": "Lavos0516",
+	"description": "Use the \"W\" and \"S\" keys for P1. Use the up and down arrows for P2. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ed71a4b0-8731-4a9c-aece-479dba446737/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4609e74e-1c90-4c16-8f75-51abe13a9f44/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4609e74e-1c90-4c16-8f75-51abe13a9f44",
+	"unityPlayUrl": "https://play.unity.com/en/games/4609e74e-1c90-4c16-8f75-51abe13a9f44/two-player-pong"
+}

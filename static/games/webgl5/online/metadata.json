@@ -1,0 +1,14 @@
+{
+	"id": "webgl5",
+	"name": "webgl5",
+	"author": "nanooyun11",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e97a2c7f-521d-462a-9def-9999fbaafc76/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29792871-0a11-4ba1-9223-9bf5a7075d5e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29792871-0a11-4ba1-9223-9bf5a7075d5e",
+	"unityPlayUrl": "https://play.unity.com/en/games/29792871-0a11-4ba1-9223-9bf5a7075d5e/webgl5"
+}

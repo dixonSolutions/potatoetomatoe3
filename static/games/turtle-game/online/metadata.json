@@ -1,0 +1,14 @@
+{
+	"id": "turtle-game",
+	"name": "turtle game",
+	"author": "Localhosed3000",
+	"description": "use W to move up and S to move down. Just try to dodge the trash. This was made for my school project to promote eco friendliness.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9623e046-ee34-4593-8a54-35cd704f3ea0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/47e7a147-0715-45a2-8be1-83834670c37a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "47e7a147-0715-45a2-8be1-83834670c37a",
+	"unityPlayUrl": "https://play.unity.com/en/games/47e7a147-0715-45a2-8be1-83834670c37a/turtle-game"
+}

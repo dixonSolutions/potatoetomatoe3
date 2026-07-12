@@ -1,0 +1,14 @@
+{
+	"id": "zombie-rush-20",
+	"name": "Zombie Rush 2.0",
+	"author": "IceColdCoffee",
+	"description": "WASD to move and left click to shoot",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c7085ccd-6167-48ce-ad12-73e9a8880bd5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42e9da5a-a536-44c0-93a9-c2f9b2432382/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42e9da5a-a536-44c0-93a9-c2f9b2432382",
+	"unityPlayUrl": "https://play.unity.com/en/games/42e9da5a-a536-44c0-93a9-c2f9b2432382/zombie-rush-20"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "where-is-my-minifig",
+	"name": "Where is my minifig?",
+	"author": "PacoLabs",
+	"description": "You have one spare minifig in your collection.\nCan you find it before the timer runs out ?\n\nThis game is presented to the #LEGOgamejam (lego id Paco_777)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ba3caf3c-aab5-404c-ae1b-71fc4c1f4e24/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a056e0ef-7008-4d32-ac08-c864ebfba436/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a056e0ef-7008-4d32-ac08-c864ebfba436",
+	"unityPlayUrl": "https://play.unity.com/en/games/a056e0ef-7008-4d32-ac08-c864ebfba436/where-is-my-minifig"
+}
