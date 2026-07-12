@@ -1,0 +1,14 @@
+{
+	"id": "im-late",
+	"name": "I'm Late!",
+	"author": "KadeOleksiak",
+	"description": "Small game made with Unity, in this game you have to jump over obstacles to win!! Controls: Space = Jump\nFor desktop:\nhttps://pandamedicstudios.itch.io/im-late\n\nOther Newgrounds games:\nhttps://www.newgrounds.com/portal/view/840976",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/65133846-9abe-4322-b9bd-dbef78693cd6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ed7906e-9726-4462-8489-2e7c1706f3b1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ed7906e-9726-4462-8489-2e7c1706f3b1",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ed7906e-9726-4462-8489-2e7c1706f3b1/im-late"
+}

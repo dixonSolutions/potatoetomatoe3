@@ -1,0 +1,14 @@
+{
+	"id": "alien-video-game-store",
+	"name": "Alien Video Game Store",
+	"author": "ProdigiousMike",
+	"description": "Explore the alien video game store! Toggle between 10 cameras with the \"c\" key, or use a numbered key 0-9. Alternatively, and for mobile users, you can use the on-screen GUI for camera & sound control. My contributions include: Shaders: The alien box on the counter uses a custom-scripted shader that dynamically moves, glows, & changes opacity. Lighting: Neon lights decorate the walls & shelves, brightening the scene & attracting attention to various wares. Animation: Upon entering the store, you are greeted by the cashier, who waves & bows, while alien customers wander & examine different games. VFX: Make a wish! Peek out the window to see shooting stars, but watch your head, as steam may come out of pipes & vents. Cameras: The scene contains 10 views to appreciate the entire scene. Post-processing: Colorful, bright, vibrant filter. Audio: Muzak blares from the speakers as machines droll & aliens communicate in squeaky speech. UI: A fun, futuristic UI panel to control camera & sound.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6d1fad4a-d48f-455f-860e-6edf34ab9995/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8cb0a1ac-4428-4b58-ae83-81d2f1a0d4cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8cb0a1ac-4428-4b58-ae83-81d2f1a0d4cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/8cb0a1ac-4428-4b58-ae83-81d2f1a0d4cf/alien-video-game-store"
+}

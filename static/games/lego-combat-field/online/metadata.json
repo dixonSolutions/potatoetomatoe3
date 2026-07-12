@@ -1,0 +1,14 @@
+{
+	"id": "lego-combat-field",
+	"name": "LEGO Combat Field",
+	"author": "moses97",
+	"description": "3rd person shooter survival game made with LEGO Microgame!! Right Click: Shoot / Left Click: Zoom / F: Change weapon / Left Ctrl: Crawl / Space: Jump",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b4024df4-fbdc-45b3-8d91-efb2d8bb385f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ee48b4c1-b29f-43ca-8b91-88213cad851b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ee48b4c1-b29f-43ca-8b91-88213cad851b",
+	"unityPlayUrl": "https://play.unity.com/en/games/ee48b4c1-b29f-43ca-8b91-88213cad851b/lego-combat-field"
+}

@@ -38,12 +38,20 @@
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
+	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
+	import {
+		toggleFullscreen as toggleElementFullscreen,
+		isFullscreenElement
+	} from '$lib/utils/fullscreen';
+	import { setGameImmersive } from '$lib/utils/game-immersive';
 
 	let gameMetadata: GameMetadata | null = $state(null);
 	let recommendedGames: GameMetadata[] = $state([]);
 	let loading = $state(true);
 	let error = $state('');
 	let iframeElement = $state<HTMLIFrameElement | undefined>(undefined);
+	let gameSurfaceEl = $state<HTMLDivElement | undefined>(undefined);
+	let isGameFullscreen = $state(false);
 	let showUbuntuBanner = $state(false);
 	let bannerDismissed = $state(false);
 	let userPreference = $state<'liked' | 'disliked' | null>(null);
@@ -86,6 +94,8 @@
 	/** True after the user clicks Play — avoids loading the game bundle until then. */
 	let gameSurfaceStarted = $state(false);
 	let gamePlayerUrl = $state('');
+
+	const playerLayout = new GamePlayerLayout();
 
 	function posterUrlFor(game: GameMetadata) {
 		return resolveGameThumbnailSrc(game.thumbnail);
@@ -178,6 +188,8 @@
 		window.addEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+		document.addEventListener('fullscreenchange', syncGameFullscreenState);
+		document.addEventListener('webkitfullscreenchange', syncGameFullscreenState);
 
 		const isUbuntu = detectUbuntu();
 		const dismissed = localStorage.getItem('ubuntuBannerDismissed') === 'true';
@@ -189,16 +201,26 @@
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+			document.removeEventListener('fullscreenchange', syncGameFullscreenState);
+			document.removeEventListener('webkitfullscreenchange', syncGameFullscreenState);
+			playerLayout.destroy();
+			setGameImmersive(false);
 		};
 	});
 
-	function toggleFullscreen() {
-		if (!gameSurfaceStarted || !iframeElement) return;
+	function syncGameFullscreenState() {
+		const immersive = isFullscreenElement(gameSurfaceEl ?? null);
+		isGameFullscreen = immersive;
+		setGameImmersive(immersive);
+	}
 
-		if (document.fullscreenElement) {
-			document.exitFullscreen();
-		} else {
-			iframeElement.requestFullscreen();
+	async function toggleFullscreen() {
+		if (!gameSurfaceEl) return;
+		try {
+			await toggleElementFullscreen(gameSurfaceEl);
+			syncGameFullscreenState();
+		} catch {
+			/* Fullscreen denied or unsupported — ignore */
 		}
 	}
 
@@ -235,7 +257,7 @@
 	});
 </script>
 
-<div class="container mx-auto px-4 py-8">
+<div class="container mx-auto px-3 py-4 sm:px-4 sm:py-8">
 	{#if loading}
 		<div class="py-12 text-center">
 			<p class="text-muted-foreground">Loading game...</p>
@@ -252,18 +274,18 @@
 			</a>
 		</div>
 	{:else}
-		<div class="mb-6">
+		<div class="mb-4 sm:mb-6">
 			<a href={resolve('/home')}>
-				<Button variant="ghost" class="mb-4">
+				<Button variant="ghost" class="mb-3 sm:mb-4" size="sm">
 					<ArrowLeft class="mr-2 h-4 w-4" />
 					Back to home
 				</Button>
 			</a>
-			<div class="flex items-start justify-between">
-				<div class="flex-1">
-					<h1 class="mb-2 text-3xl font-bold">{gameMetadata.name}</h1>
-					<p class="mb-3 text-muted-foreground">By {gameMetadata.author}</p>
-					<div class="flex gap-2">
+			<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+				<div class="min-w-0 flex-1">
+					<h1 class="mb-1 text-2xl font-bold sm:mb-2 sm:text-3xl">{gameMetadata.name}</h1>
+					<p class="mb-3 text-sm text-muted-foreground sm:text-base">By {gameMetadata.author}</p>
+					<div class="flex flex-wrap gap-2">
 						{#if userPreference === 'liked'}
 							<Button variant="default" size="sm" onclick={handleRemovePreference}>
 								<ThumbsUp class="mr-2 h-4 w-4 fill-current" />
@@ -289,37 +311,63 @@
 						{/if}
 					</div>
 				</div>
-				<Button onclick={toggleFullscreen} variant="outline" disabled={!gameSurfaceStarted}>
+				<Button
+					onclick={toggleFullscreen}
+					variant="outline"
+					size="sm"
+					class="w-full shrink-0 sm:w-auto"
+					aria-pressed={isGameFullscreen}
+				>
 					<Maximize class="mr-2 h-4 w-4" />
-					Fullscreen
+					{isGameFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
 				</Button>
 			</div>
 			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
 
-		<div class="mb-8 overflow-hidden rounded-lg border bg-card shadow-lg">
+		<div
+			bind:this={gameSurfaceEl}
+			class="game-player-surface relative mb-6 flex flex-col overflow-hidden rounded-lg border bg-card shadow-lg sm:mb-8"
+			style={!isGameFullscreen && playerLayout.isCompact ? playerLayout.surfaceStyle : undefined}
+		>
+			{#if isGameFullscreen}
+				<div class="absolute top-2 right-2 z-20 flex gap-1 sm:top-3 sm:right-3">
+					<Button
+						variant="secondary"
+						size="sm"
+						class="shadow-md backdrop-blur-sm"
+						onclick={toggleFullscreen}
+						aria-label="Exit fullscreen"
+					>
+						<Maximize class="mr-2 h-4 w-4" />
+						Exit
+					</Button>
+				</div>
+			{/if}
 			{#if showUbuntuBanner && !bannerDismissed}
 				<div
-					class="flex items-center justify-between bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-white"
+					class="flex flex-col gap-3 bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-3 text-white sm:flex-row sm:items-center sm:justify-between sm:px-6"
 				>
-					<div class="flex items-center gap-3">
-						<svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+					<div class="flex items-start gap-3 sm:items-center">
+						<svg class="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="currentColor">
 							<path
 								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
 							/>
 						</svg>
-						<div>
+						<div class="min-w-0 text-sm sm:text-base">
 							<span class="font-semibold">Try Linux Ubuntu today!</span>
-							<span class="ml-2">Speed up your gaming performance with Linux</span>
+							<span class="mt-0.5 block sm:ml-2 sm:mt-0 sm:inline"
+								>Speed up your gaming performance with Linux</span
+							>
 						</div>
 					</div>
-					<div class="flex items-center gap-2">
+					<div class="flex shrink-0 items-center gap-2 self-end sm:self-auto">
 						<a
 							href="https://ubuntu.com/download/desktop"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="rounded-md bg-white px-4 py-1.5 font-medium text-blue-600 transition-colors hover:bg-gray-100"
+							class="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-blue-600 transition-colors hover:bg-gray-100 sm:px-4"
 						>
 							Learn More
 						</a>
@@ -333,22 +381,25 @@
 					</div>
 				</div>
 			{/if}
-			{#key gamePlayerUrl}
-				<LazyGameFrame
-					{gameId}
-					gameUrl={fixMalformedGamePlayerUrl(
-						gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
-						gameId
-					)}
-					iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
-					posterUrl={posterUrlFor(gameMetadata)}
-					title={gameMetadata.name}
-					bind:started={gameSurfaceStarted}
-					onIframeReady={(el) => {
-						iframeElement = el ?? undefined;
-					}}
-				/>
-			{/key}
+			<div class="game-player-surface__frame relative min-h-0 w-full flex-1">
+				{#key gamePlayerUrl}
+					<LazyGameFrame
+						{gameId}
+						gameUrl={fixMalformedGamePlayerUrl(
+							gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
+							gameId
+						)}
+						iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
+						posterUrl={posterUrlFor(gameMetadata)}
+						title={gameMetadata.name}
+						fillContainer={isGameFullscreen || playerLayout.isCompact}
+						bind:started={gameSurfaceStarted}
+						onIframeReady={(el) => {
+							iframeElement = el ?? undefined;
+						}}
+					/>
+				{/key}
+			</div>
 		</div>
 
 		<div class="mb-8">

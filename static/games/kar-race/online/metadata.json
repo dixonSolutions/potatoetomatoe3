@@ -1,0 +1,14 @@
+{
+	"id": "kar-race",
+	"name": "kar race",
+	"author": "k342",
+	"description": "Play kar race on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9214d17c-2660-42a8-8663-13a75e786a86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c0fa7fa-5483-425d-9def-91e10b6575e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c0fa7fa-5483-425d-9def-91e10b6575e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c0fa7fa-5483-425d-9def-91e10b6575e3/kar-race"
+}

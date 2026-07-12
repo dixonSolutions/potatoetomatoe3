@@ -1,0 +1,14 @@
+{
+	"id": "webglbuildtesteight",
+	"name": "webglbuildtesteight",
+	"author": "jcwanggtd",
+	"description": "Play webglbuildtesteight on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d55b0a53-203c-495d-aded-f3ff26f46abf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e488cb8-2201-4b09-b01d-2d280ba8c263/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e488cb8-2201-4b09-b01d-2d280ba8c263",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e488cb8-2201-4b09-b01d-2d280ba8c263/webglbuildtesteight"
+}

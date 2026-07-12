@@ -1,0 +1,14 @@
+{
+	"id": "armor-up",
+	"name": "Armor Up",
+	"author": "ProfMoto",
+	"description": "Play Armor Up on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/64ea01fd-01bd-4802-9ee0-aecada9055b9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68388703-8627-45da-acbe-58c14ee0e035/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68388703-8627-45da-acbe-58c14ee0e035",
+	"unityPlayUrl": "https://play.unity.com/en/games/68388703-8627-45da-acbe-58c14ee0e035/armor-up"
+}

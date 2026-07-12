@@ -1,0 +1,14 @@
+{
+	"id": "kurama",
+	"name": "Kurama",
+	"author": "ahmadrifal",
+	"description": "Kurama adalah game endless running 2D yang dapat dimainkan melalui browser web. Dengan mengambil latar di sungai, dimana seekor rubah bernama Kurama harus berlari dan melompat agar tidak jatuh ke air, kemudian melewati rintangan untuk mengumpulkan diamond sebanyak-banyaknya",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a5d7fcde-5395-4ce4-ad80-bae48e3a5add/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7524f4c4-40c7-47a4-a423-0422df56bb60/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7524f4c4-40c7-47a4-a423-0422df56bb60",
+	"unityPlayUrl": "https://play.unity.com/en/games/7524f4c4-40c7-47a4-a423-0422df56bb60/kurama"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fnapdemo",
+	"name": "FNAP_Demo",
+	"author": "krawieckarol9",
+	"description": "Goal of the game: collect all shimmering collectibles in order to collect the key to escape the pizza plex. \nAnd be careful! There are monsters in this haunted restaurant that are desperate to scare you in order for you to lose the game. \nUse the mask so that the monsters don't chase you down and use the flashlight for better clarity and view. But be careful! The battery of the flashlight goes down after a while of using it so collect batteries to prevent this issue. \nHave a FNAPtastic experience! \nControls: WASD - Movement, SHIFT - Sprint, Left MB - Flashlight on/off, Q - Mask 0n/off, SPACE - Jump. \nCopyrights: \u00a9Five Nights At Freddys, \u00a9Fortnite.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df3ca593-4d87-49dd-8a1f-e76cecb7ae71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b78eec7b-6eca-436a-ba3e-01e0ecd9be93/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b78eec7b-6eca-436a-ba3e-01e0ecd9be93",
+	"unityPlayUrl": "https://play.unity.com/en/games/b78eec7b-6eca-436a-ba3e-01e0ecd9be93/fnapdemo"
+}

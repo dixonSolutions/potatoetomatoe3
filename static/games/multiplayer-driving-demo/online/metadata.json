@@ -1,0 +1,14 @@
+{
+	"id": "multiplayer-driving-demo",
+	"name": "Multiplayer Driving Demo",
+	"author": "Steffylicious",
+	"description": "A small multiplayer driving game demo I've made for the Create With Code course. Features split screen multiplayer with multiple camera angles to switch between for each player, using separate sets of Cinemachine virtual cameras.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/89cd4059-ffe4-47b8-bd48-270c1725d01d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/511de36c-6f90-4449-a782-a7677c472cfe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "511de36c-6f90-4449-a782-a7677c472cfe",
+	"unityPlayUrl": "https://play.unity.com/en/games/511de36c-6f90-4449-a782-a7677c472cfe/multiplayer-driving-demo"
+}

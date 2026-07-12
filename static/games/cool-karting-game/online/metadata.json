@@ -1,0 +1,14 @@
+{
+	"id": "cool-karting-game",
+	"name": "Cool Karting Game!",
+	"author": "kenr74078",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e06ff42-81b6-42ff-b31b-fccc976063d1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e06ff42-81b6-42ff-b31b-fccc976063d1",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e06ff42-81b6-42ff-b31b-fccc976063d1/cool-karting-game"
+}

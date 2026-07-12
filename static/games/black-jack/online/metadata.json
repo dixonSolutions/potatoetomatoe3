@@ -1,0 +1,14 @@
+{
+	"id": "black-jack",
+	"name": "Black Jack",
+	"author": "sickness71",
+	"description": "Simple 2D Black Jack game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a6f369d-51ab-47bf-a913-aac4c68129f5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c08a3e13-cb84-426b-8b2d-2fd6d15493cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c08a3e13-cb84-426b-8b2d-2fd6d15493cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/c08a3e13-cb84-426b-8b2d-2fd6d15493cf/black-jack"
+}

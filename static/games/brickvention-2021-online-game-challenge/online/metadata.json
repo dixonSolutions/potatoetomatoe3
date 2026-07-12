@@ -1,0 +1,14 @@
+{
+	"id": "brickvention-2021-online-game-challenge",
+	"name": "Brickvention 2021 Online Game Challenge",
+	"author": "Batwing",
+	"description": "A LEGO Micro-game to celebrate Brickvention 2021 Online.  Can you find and collect all of the trophies?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc9f6bc3-941e-472b-8a9e-ff0f07412757/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fdb3f2ec-47fc-4cf0-8c91-f3366bb7c160/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fdb3f2ec-47fc-4cf0-8c91-f3366bb7c160",
+	"unityPlayUrl": "https://play.unity.com/en/games/fdb3f2ec-47fc-4cf0-8c91-f3366bb7c160/brickvention-2021-online-game-challenge"
+}

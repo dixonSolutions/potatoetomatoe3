@@ -1,0 +1,14 @@
+{
+	"id": "mca2williamsstephen",
+	"name": "MCA2_WilliamsStephen",
+	"author": "CursedLuck",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03a4cf2e-228b-4de4-a15a-207f20e1143f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03a4cf2e-228b-4de4-a15a-207f20e1143f",
+	"unityPlayUrl": "https://play.unity.com/en/games/03a4cf2e-228b-4de4-a15a-207f20e1143f/mca2williamsstephen"
+}

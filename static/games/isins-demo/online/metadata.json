@@ -1,0 +1,14 @@
+{
+	"id": "isins-demo",
+	"name": "iSins Demo",
+	"author": "lordshadowist",
+	"description": "Controls:\nMove - WASD\nTurn - Mouse Left/Right\nAim Vertical - Mouse Up/Down\nShoot - Mouse Left Button\n\nStart/Restart Buttons can be pressed with the Enter/Return Key\n\nMade with War FX, Simple Healthbars, and Mixamo\n\nSpecial Thanks to TheKiwiCoder (https://www.youtube.com/channel/UCjszZMwnOW4fO5VIDU_Wh1Q) for taking the time to help me out",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/78748fbf-165f-4a96-a778-c2ab436c0380/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01a96e8f-33a7-4756-8c68-47fc4f70ee8a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01a96e8f-33a7-4756-8c68-47fc4f70ee8a",
+	"unityPlayUrl": "https://play.unity.com/en/games/01a96e8f-33a7-4756-8c68-47fc4f70ee8a/isins-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-epic",
+	"name": "Roll-A-Ball Epic",
+	"author": "Unity Play",
+	"description": "Tour a spacey world in my Roll-A-Ball minigame! \n \nMade with the Beginner Scripting course.  This was a fun tutorial. I even tried to bake the lighting (from the Creative Core lessons) but I'm still learning. It gave strange results, especially on the lower section.    \n\nMove around with the arrow keys.\nCollect treasure and explore.\n\n\nFree assets from the Unity store:\n\nYughues - Pillars\nYughues - Pavement and Concrete Materials \nAurynsky - Gems\nLaxer - Modular Wooden Bridges\nVis Games - Books\nL2S Arts - Stylized Hand Painted Dungeon\nDinv Studio - Dynamic Space Background\nUnity Technologies - 3D Game Kit Environment Pack",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5035c0f1-4eb9-407e-8baf-bf5452ab75a3/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b11d4ab-3911-4032-addd-450f0180c66e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b11d4ab-3911-4032-addd-450f0180c66e",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b11d4ab-3911-4032-addd-450f0180c66e/roll-a-ball-epic"
+}

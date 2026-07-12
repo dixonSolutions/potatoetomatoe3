@@ -1,0 +1,14 @@
+{
+	"id": "two-peas-in-a-pod",
+	"name": "Two Peas In a Pod",
+	"author": "bennyk88",
+	"description": "A two-player co-op game I made for the coder school 2024 two-player game competition. Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/95c12083-7bf6-4d6d-8b94-a6a43b099b73/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c5e9d62-94a6-40f4-8c0a-8938c648dbd5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c5e9d62-94a6-40f4-8c0a-8938c648dbd5",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c5e9d62-94a6-40f4-8c0a-8938c648dbd5/two-peas-in-a-pod"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "level-23",
+	"name": "LEVEL 23",
+	"author": "Hellweger",
+	"description": "My latest microgame. This is from the Creator Kit FPS - Unity Learn course.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6d0a206f-db67-46f5-bc8a-494040499e58/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/92838fe6-16ce-45cc-8a1b-d58bd52ffe72/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "92838fe6-16ce-45cc-8a1b-d58bd52ffe72",
+	"unityPlayUrl": "https://play.unity.com/en/games/92838fe6-16ce-45cc-8a1b-d58bd52ffe72/level-23"
+}

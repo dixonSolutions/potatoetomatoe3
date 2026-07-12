@@ -1,0 +1,14 @@
+{
+	"id": "first-person-shooter",
+	"name": "First Person Shooter",
+	"author": "sk216192",
+	"description": "Play First Person Shooter on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/57ae1acd-a331-42d2-aca7-bf3e3b8e6419/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1275b0e4-1cae-4223-8ffa-728913ca0b89/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1275b0e4-1cae-4223-8ffa-728913ca0b89",
+	"unityPlayUrl": "https://play.unity.com/en/games/1275b0e4-1cae-4223-8ffa-728913ca0b89/first-person-shooter"
+}

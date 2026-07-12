@@ -1,0 +1,14 @@
+{
+	"id": "papy-karting-version-21",
+	"name": "Papy Karting version 2.1",
+	"author": "papydenis",
+	"description": "Select your driving level, the number of laps, and have fun ! You can play with a Xbox gamepad",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aab5991f-1043-4969-b9b3-7917261be5cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19a31103-c058-4ad0-bd90-d04729c0754d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19a31103-c058-4ad0-bd90-d04729c0754d",
+	"unityPlayUrl": "https://play.unity.com/en/games/19a31103-c058-4ad0-bd90-d04729c0754d/papy-karting-version-21"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "puberts-paradox",
+	"name": "Pubert's Paradox",
+	"author": "ShankaranSrivatsa",
+	"description": "A survival game. Battle through waves of zombies while collecting experience points to upgrade your weapons. W/A/S/D to move and Left Mouse Button to shoot. Use FULLSCREEN.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1306a59c-b0fd-40ae-a0f3-71d23db872ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1306a59c-b0fd-40ae-a0f3-71d23db872ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/1306a59c-b0fd-40ae-a0f3-71d23db872ab/puberts-paradox"
+}

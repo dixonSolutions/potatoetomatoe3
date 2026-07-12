@@ -1,0 +1,14 @@
+{
+	"id": "doomfistescape",
+	"name": "Doomfist_Escape",
+	"author": "BigGProductions",
+	"description": "Play Doomfist_Escape on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c860566-e116-4ed2-9ef4-05d1f845cf72/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c860566-e116-4ed2-9ef4-05d1f845cf72",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c860566-e116-4ed2-9ef4-05d1f845cf72/doomfistescape"
+}

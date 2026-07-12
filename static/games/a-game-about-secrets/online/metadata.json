@@ -1,0 +1,14 @@
+{
+	"id": "a-game-about-secrets",
+	"name": "A Game About Secrets",
+	"author": "JFBerto12",
+	"description": "This indie game aims to find all hidden items.\n\nHope you like it!\n\nPS: This is my first game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/984be52b-fa6c-45d0-8638-cdbb0cc16b37/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a9444ed-30cd-4d4a-8434-618689ca784b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a9444ed-30cd-4d4a-8434-618689ca784b",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a9444ed-30cd-4d4a-8434-618689ca784b/a-game-about-secrets"
+}

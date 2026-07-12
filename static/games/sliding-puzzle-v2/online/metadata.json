@@ -1,0 +1,14 @@
+{
+	"id": "sliding-puzzle-v2",
+	"name": "sliding puzzle v2",
+	"author": "MatthiasEducation",
+	"description": "slide the blocks and follow the model on top. //made most of the UI logic, good graphics, ...still needs to spice the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b87087c4-3022-4770-b0b6-272499aaa069/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49b15205-f55f-414b-8cc6-14047a0cf03e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49b15205-f55f-414b-8cc6-14047a0cf03e",
+	"unityPlayUrl": "https://play.unity.com/en/games/49b15205-f55f-414b-8cc6-14047a0cf03e/sliding-puzzle-v2"
+}

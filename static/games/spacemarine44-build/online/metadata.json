@@ -1,0 +1,14 @@
+{
+	"id": "spacemarine44-build",
+	"name": "SpaceMarine44 Build",
+	"author": "jor4291",
+	"description": "Play SpaceMarine44 Build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ae82bcdc-35c9-410f-b020-8cda605eb5d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ac7e03d3-c24e-4622-b328-3fec1292f89e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ac7e03d3-c24e-4622-b328-3fec1292f89e",
+	"unityPlayUrl": "https://play.unity.com/en/games/ac7e03d3-c24e-4622-b328-3fec1292f89e/spacemarine44-build"
+}

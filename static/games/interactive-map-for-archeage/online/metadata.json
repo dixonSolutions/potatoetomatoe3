@@ -1,0 +1,14 @@
+{
+	"id": "interactive-map-for-archeage",
+	"name": "Interactive map for ArcheAge",
+	"author": "goblin_technology",
+	"description": "Scroll to zoom. Middle mouse to drag.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d7204542-b1d2-4888-b522-4c45c1292e9b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d294a044-7b86-44f6-a187-a97c3b181c15/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d294a044-7b86-44f6-a187-a97c3b181c15",
+	"unityPlayUrl": "https://play.unity.com/en/games/d294a044-7b86-44f6-a187-a97c3b181c15/interactive-map-for-archeage"
+}

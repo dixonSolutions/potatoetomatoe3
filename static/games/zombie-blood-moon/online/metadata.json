@@ -1,0 +1,14 @@
+{
+	"id": "zombie-blood-moon",
+	"name": "Zombie Blood Moon",
+	"author": "Mebius-Wei",
+	"description": "Move : W A S D \nJump : Space\nSwitch Gun : Mouse Scroll\nAttack : Left Mouse\nAim : Right Mouse",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/efacaa9f-a66a-4e53-95c6-2baa0b1f704c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df4e62a0-344b-4e9b-8e7b-048a58f55621/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df4e62a0-344b-4e9b-8e7b-048a58f55621",
+	"unityPlayUrl": "https://play.unity.com/en/games/df4e62a0-344b-4e9b-8e7b-048a58f55621/zombie-blood-moon"
+}

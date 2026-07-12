@@ -1,0 +1,14 @@
+{
+	"id": "f1-xtreme",
+	"name": "F1 Xtreme",
+	"author": "JUDAH2CRAZY",
+	"description": "An exhilarating, high paced F1 style race.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0a13439e-7d82-4ff9-b8f6-7f18b71699e5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/265b5b86-ac97-41ff-85d1-9a9f87c91ab9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "265b5b86-ac97-41ff-85d1-9a9f87c91ab9",
+	"unityPlayUrl": "https://play.unity.com/en/games/265b5b86-ac97-41ff-85d1-9a9f87c91ab9/f1-xtreme"
+}

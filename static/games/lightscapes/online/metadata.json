@@ -1,0 +1,14 @@
+{
+	"id": "lightscapes",
+	"name": "Lightscapes",
+	"author": "arguillesjade18",
+	"description": "Light pollution simulator of group3 STEM-21.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dd296339-f0a7-4792-ab05-d8d61e77eab3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dd296339-f0a7-4792-ab05-d8d61e77eab3",
+	"unityPlayUrl": "https://play.unity.com/en/games/dd296339-f0a7-4792-ab05-d8d61e77eab3/lightscapes"
+}

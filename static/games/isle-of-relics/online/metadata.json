@@ -1,0 +1,14 @@
+{
+	"id": "isle-of-relics",
+	"name": "Isle of Relics",
+	"author": "unity_100030482",
+	"description": "use arrow keys to jump between vines and climb walls. have fun adventurers!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e458c92-cde3-41fa-ac98-e32c2707c564/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e458c92-cde3-41fa-ac98-e32c2707c564",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e458c92-cde3-41fa-ac98-e32c2707c564/isle-of-relics"
+}

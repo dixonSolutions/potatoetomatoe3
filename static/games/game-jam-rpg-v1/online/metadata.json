@@ -1,0 +1,14 @@
+{
+	"id": "game-jam-rpg-v1",
+	"name": "Game Jam RPG v.1",
+	"author": "MatthiasEducation",
+	"description": "RPG game. most of the game logic is done. easy to play.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5fe45743-22d5-4003-bb60-28636ad15fb5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/636f4d09-1946-4676-9a1e-d242792033c0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "636f4d09-1946-4676-9a1e-d242792033c0",
+	"unityPlayUrl": "https://play.unity.com/en/games/636f4d09-1946-4676-9a1e-d242792033c0/game-jam-rpg-v1"
+}

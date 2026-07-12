@@ -1,0 +1,14 @@
+{
+	"id": "jumpy-game",
+	"name": "Jumpy Game",
+	"author": "Astreosen",
+	"description": "This is a game where you jump to get to the end. The game is not finished but it\u2019s still very fun. !!!READ HOW TO PLAY AT THE MAIN MENU BEFORE PLAYING!!! This game is very buggy btw.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4d4c54b3-88e7-40d1-95ac-0a3d64c0d5ca/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75ff3815-561d-44e6-89c8-9d802412205b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75ff3815-561d-44e6-89c8-9d802412205b",
+	"unityPlayUrl": "https://play.unity.com/en/games/75ff3815-561d-44e6-89c8-9d802412205b/jumpy-game"
+}

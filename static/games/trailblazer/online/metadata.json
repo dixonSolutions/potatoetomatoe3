@@ -1,0 +1,14 @@
+{
+	"id": "trailblazer",
+	"name": "Trailblazer",
+	"author": "Snowplou",
+	"description": "A parkour game where you try to get the highest score possible. Your score is determined by how many points you have, the time it took you to complete the course, and the number of lives you lost.\n\nControls:\nUse WASD to move around. You can look around by using the mouse. Tap or hold down Q to buy a jump upgrade or use E to upgrade speed. Each upgrade costs 1 point.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d1bcbb5e-b650-4094-a1ce-a7f106deb6ca/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f39d6ef-bbc5-4308-b98a-d1f073f5a494/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f39d6ef-bbc5-4308-b98a-d1f073f5a494",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f39d6ef-bbc5-4308-b98a-d1f073f5a494/trailblazer"
+}

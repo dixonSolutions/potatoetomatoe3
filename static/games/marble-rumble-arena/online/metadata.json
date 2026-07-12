@@ -1,0 +1,14 @@
+{
+	"id": "marble-rumble-arena",
+	"name": "Marble Rumble Arena",
+	"author": "mrhacwer",
+	"description": "I created this small game using Unity Learn Program assets of the Junior Programmer pathway and decided to share it because I added more things to it than the course required. It turned out quite well, and I\u2019m really proud of it. I hope everyone enjoys it too.\n\nMove - WASD\nEscape - Main Menu\nHoldSpace - When you have PowerUp (\u26a1) special Effect.\nPressSpace - When you have PowerUp (\ud83c\udf1f) special Effect.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ce05d93-0741-4679-8cf9-f178f7ce2761/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4502613-3afe-4ce0-80b1-41f9ce818b61/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4502613-3afe-4ce0-80b1-41f9ce818b61",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4502613-3afe-4ce0-80b1-41f9ce818b61/marble-rumble-arena"
+}

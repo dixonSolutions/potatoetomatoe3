@@ -1,0 +1,14 @@
+{
+	"id": "platformer-dashv111",
+	"name": "Platformer Dash(v1.1.1)",
+	"author": "FierceMiner55",
+	"description": "A platformer game with two levels and an endless runner",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99c750f0-12c0-4c43-83fc-612c3a513afe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a6e6d033-2c65-454f-9d4e-f9b27d8e04d3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a6e6d033-2c65-454f-9d4e-f9b27d8e04d3",
+	"unityPlayUrl": "https://play.unity.com/en/games/a6e6d033-2c65-454f-9d4e-f9b27d8e04d3/platformer-dashv111"
+}

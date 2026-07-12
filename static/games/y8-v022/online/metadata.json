@@ -1,0 +1,14 @@
+{
+	"id": "y8-v022",
+	"name": "Y8 v0.2.2",
+	"author": "NathanDane",
+	"description": "Play Y8 v0.2.2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/76c5ebc8-fa7a-44b0-b16b-53d8a65e6f38/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9f90f103-cf26-413b-9e78-fdf95457a103/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9f90f103-cf26-413b-9e78-fdf95457a103",
+	"unityPlayUrl": "https://play.unity.com/en/games/9f90f103-cf26-413b-9e78-fdf95457a103/y8-v022"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-complete-project",
+	"name": "Roll A Ball - Complete Project",
+	"author": "JoseLuisAL",
+	"description": "Modification of the Roll A Ball tutorial with some additions:\n1. Longest level, with obstacles, bridges and ramps.\n2. Changes to player movement to make it more responsive.\n3. Menu that indicates how many pickups you have, controls, credits and more.\n4. Sound effects and music.\n5. Visual improvements.\n6.Speed Boost Powerup.\n\nChallenge: Complete the level without collecting pickups, just the Speed Boost needed for some parts and have fun.\n\nPlease turn on the audio.\n\nBecause the project is very big and has many files I couldn't upload it to github, feel free to ask me anything about the game in the comments, I'll be happy to share my experience of making the project.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b96614fc-df73-429a-891f-f807b7ccd762/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e378fd42-e656-4579-ba72-242e8226b3c0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e378fd42-e656-4579-ba72-242e8226b3c0",
+	"unityPlayUrl": "https://play.unity.com/en/games/e378fd42-e656-4579-ba72-242e8226b3c0/roll-a-ball-complete-project"
+}

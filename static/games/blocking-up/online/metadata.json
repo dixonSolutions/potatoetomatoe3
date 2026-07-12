@@ -1,0 +1,14 @@
+{
+	"id": "blocking-up",
+	"name": "Blocking Up",
+	"author": "Gepstein",
+	"description": "Blocking Up is a single-player logic game in which the player tries to beat levels by splitting, jumping, and dodging.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dba6ee26-0283-480f-be22-30af02c71deb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/de3090bf-acc1-487c-9acd-a8a66547cfc3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "de3090bf-acc1-487c-9acd-a8a66547cfc3",
+	"unityPlayUrl": "https://play.unity.com/en/games/de3090bf-acc1-487c-9acd-a8a66547cfc3/blocking-up"
+}

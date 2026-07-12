@@ -1,0 +1,14 @@
+{
+	"id": "guess-box-count",
+	"name": "Guess Box Count",
+	"author": "marciosouzajunior",
+	"description": "Test your perception in this fun guessing game! Boxes are tossed on the screen \u2014 can you guess how many? Challenge yourself, improve your accuracy, and see how sharp your eyes really are!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c72d476e-d974-4fb0-85d4-f3b67a06f86e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a928d3cb-c6af-4374-a72f-df4f6533b542/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a928d3cb-c6af-4374-a72f-df4f6533b542",
+	"unityPlayUrl": "https://play.unity.com/en/games/a928d3cb-c6af-4374-a72f-df4f6533b542/guess-box-count"
+}

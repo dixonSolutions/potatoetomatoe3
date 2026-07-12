@@ -1,0 +1,14 @@
+{
+	"id": "racing-minigame",
+	"name": "Racing Minigame",
+	"author": "Dudemanem",
+	"description": "My remake of the Unity tutorial.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3110c63f-bbd4-4faf-a238-c196db08da70/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e752cc2-0e3c-4c84-9a2e-34658a62f36b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e752cc2-0e3c-4c84-9a2e-34658a62f36b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e752cc2-0e3c-4c84-9a2e-34658a62f36b/racing-minigame"
+}

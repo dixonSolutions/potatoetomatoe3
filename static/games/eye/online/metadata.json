@@ -1,0 +1,14 @@
+{
+	"id": "eye",
+	"name": "EYE",
+	"author": "Fhlic",
+	"description": "Escape from rising lava",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05216b2c-0e2b-4a94-acd9-a57c969d5ecf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05216b2c-0e2b-4a94-acd9-a57c969d5ecf",
+	"unityPlayUrl": "https://play.unity.com/en/games/05216b2c-0e2b-4a94-acd9-a57c969d5ecf/eye"
+}

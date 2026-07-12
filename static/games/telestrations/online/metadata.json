@@ -1,0 +1,14 @@
+{
+	"id": "telestrations",
+	"name": "Telestrations",
+	"author": "SumoSimo",
+	"description": "Play Telestrations on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f902baab-1955-49ce-a0ab-d15bc8b698ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c4542c6-a3cd-427c-9ee7-27c031d03cd1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7c4542c6-a3cd-427c-9ee7-27c031d03cd1",
+	"unityPlayUrl": "https://play.unity.com/en/games/7c4542c6-a3cd-427c-9ee7-27c031d03cd1/telestrations"
+}

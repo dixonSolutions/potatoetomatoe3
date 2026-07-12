@@ -1,0 +1,14 @@
+{
+	"id": "zero-carts",
+	"name": "Zero Carts!",
+	"author": "Olitrax777",
+	"description": "Complete two laps! Increase your time by knocking over the bowling pins. AI is a little stupid, the ML agents mod did not work (this is the pre-trained AI).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37158972-e899-4dba-9f28-b0df7357ca14/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07e09fd2-aeeb-4bfa-b9b5-f223ba92ef65/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07e09fd2-aeeb-4bfa-b9b5-f223ba92ef65",
+	"unityPlayUrl": "https://play.unity.com/en/games/07e09fd2-aeeb-4bfa-b9b5-f223ba92ef65/zero-carts"
+}

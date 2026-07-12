@@ -1,0 +1,14 @@
+{
+	"id": "kart-park",
+	"name": "Kart Park!",
+	"author": "marco-colonna",
+	"description": "Enjoy a fun, exciting ride through a park inspired by Brooklyn's Prospect Park. TIP: You can press the \"R\" key to restart! Ground materials: https://assetstore.unity.com/packages/2d/textures-materials/floors/yughues-free-ground-materials-13001 Minimap inspired by: https://learn.unity.com/tutorial/5c5151b9edbc2a0020694df6?uv=5.x",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/85a6b22f-af78-446c-907a-9722be7a82bf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44d9aef9-7a76-4f03-9551-ce550f0f042e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "44d9aef9-7a76-4f03-9551-ce550f0f042e",
+	"unityPlayUrl": "https://play.unity.com/en/games/44d9aef9-7a76-4f03-9551-ce550f0f042e/kart-park"
+}

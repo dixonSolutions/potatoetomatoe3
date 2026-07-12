@@ -1,0 +1,14 @@
+{
+	"id": "the-deadly-quest",
+	"name": "The Deadly Quest",
+	"author": "awesomecodingfiles",
+	"description": "An epic first-person shooter game! Defeat the enemies, get upgrades, and play through different levels! Can you beat the game?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5a051d1b-7cff-4ad5-9026-1e15364d92d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/60ce706c-e9f3-4fe8-be8c-e0f65b85e53f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "60ce706c-e9f3-4fe8-be8c-e0f65b85e53f",
+	"unityPlayUrl": "https://play.unity.com/en/games/60ce706c-e9f3-4fe8-be8c-e0f65b85e53f/the-deadly-quest"
+}

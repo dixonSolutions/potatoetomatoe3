@@ -1,0 +1,14 @@
+{
+	"id": "vehicle-game",
+	"name": "Vehicle Game",
+	"author": "flyingmadpakke",
+	"description": "I focused on developing the driving model. It's quite rough, but turned out surprisingly well, I think. The vehicle feels heavy to drive, and the wheels behave kinda like I'd expect.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05d764ed-0655-4bf8-ab42-3d0e4572a6e5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8836c251-fb2b-4e49-a508-e73a66bc9649/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8836c251-fb2b-4e49-a508-e73a66bc9649",
+	"unityPlayUrl": "https://play.unity.com/en/games/8836c251-fb2b-4e49-a508-e73a66bc9649/vehicle-game"
+}

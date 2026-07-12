@@ -1,0 +1,14 @@
+{
+	"id": "pinball-counting-prototype",
+	"name": "Pinball - Counting Prototype",
+	"author": "Xypess",
+	"description": "But you have to collect balls. Left arrow for left flipper and right arrow for right flipper. I made this for Jr Programmer: Create With Code 2 counting mission.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/023f5545-28bc-46db-842c-23ef03b2a9dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fed001a3-8cbd-4162-9c0e-b3e2f0a0870b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fed001a3-8cbd-4162-9c0e-b3e2f0a0870b",
+	"unityPlayUrl": "https://play.unity.com/en/games/fed001a3-8cbd-4162-9c0e-b3e2f0a0870b/pinball-counting-prototype"
+}

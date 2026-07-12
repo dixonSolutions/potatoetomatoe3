@@ -1,0 +1,14 @@
+{
+	"id": "gioco-online",
+	"name": "gioco online",
+	"author": "PGAsuperlore10",
+	"description": "Play gioco online on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2445f35a-963b-46b2-95fc-d5c8bc420acd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2445f35a-963b-46b2-95fc-d5c8bc420acd",
+	"unityPlayUrl": "https://play.unity.com/en/games/2445f35a-963b-46b2-95fc-d5c8bc420acd/gioco-online"
+}

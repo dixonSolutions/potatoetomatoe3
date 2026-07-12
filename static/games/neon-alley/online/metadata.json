@@ -1,0 +1,14 @@
+{
+	"id": "neon-alley",
+	"name": "Neon Alley",
+	"author": "vonbixler",
+	"description": "Inspired by the OG arcade classic, Skee-Ball\u2122!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/674970c0-51b6-416e-b7d5-bf9f75778afc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c94b7b54-aa94-4748-95d1-6c67b5751d6b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c94b7b54-aa94-4748-95d1-6c67b5751d6b",
+	"unityPlayUrl": "https://play.unity.com/en/games/c94b7b54-aa94-4748-95d1-6c67b5751d6b/neon-alley"
+}

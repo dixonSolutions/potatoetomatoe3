@@ -1,0 +1,14 @@
+{
+	"id": "covid-conquest",
+	"name": "COVID Conquest",
+	"author": "Phoenix_Firebird",
+	"description": "This is my first game, more or less. Some code is copied from the Brackeys YouTube channel, and the idea was taken from another YouTube video, though I changed and modified it to make it my own. Nevertheless, I started this game from a blank Unity project.                                                             \nTo play, use WASD to move. Background music is audible if you enable sound.                                                                                                                \nAny constructive feedback is welcome!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c10998d-5dd2-4d13-ae46-802b6d47ba9a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01d5c0e2-407c-4eaa-8a25-2c061ada17bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01d5c0e2-407c-4eaa-8a25-2c061ada17bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/01d5c0e2-407c-4eaa-8a25-2c061ada17bc/covid-conquest"
+}

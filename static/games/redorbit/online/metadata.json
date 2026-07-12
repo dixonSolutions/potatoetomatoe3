@@ -1,0 +1,14 @@
+{
+	"id": "redorbit",
+	"name": "RedOrbit",
+	"author": "lehoangan02",
+	"description": "Redorbit",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3255d517-da16-4388-8711-4949a8b52151/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b0a5636-3f32-470f-bab0-f407323a7bdc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b0a5636-3f32-470f-bab0-f407323a7bdc",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b0a5636-3f32-470f-bab0-f407323a7bdc/redorbit"
+}

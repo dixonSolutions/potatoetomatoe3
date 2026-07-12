@@ -1,0 +1,14 @@
+{
+	"id": "mogus-adventure-v0002",
+	"name": "Mogus adventure V0.002",
+	"author": "Ayumu687",
+	"description": "Controls: Jump: Space bar; Move: Directional keys.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f298c6ac-ca00-4ff5-9a2d-e2a1d825b3ed/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07f88cf1-8bac-47fc-85cb-f4522034216c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07f88cf1-8bac-47fc-85cb-f4522034216c",
+	"unityPlayUrl": "https://play.unity.com/en/games/07f88cf1-8bac-47fc-85cb-f4522034216c/mogus-adventure-v0002"
+}

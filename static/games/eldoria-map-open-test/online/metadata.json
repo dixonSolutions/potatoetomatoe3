@@ -1,0 +1,14 @@
+{
+	"id": "eldoria-map-open-test",
+	"name": "Eldoria Map Open-Test",
+	"author": "gabo_21g7",
+	"description": "This Map application is to be used for RP travel within the Legends of Eldoria, Travel system. Please do consider this is all a test. Keep in mind the insturctions to move the map you can either drag with the mouse left click or press W,A,S,D and Q and R to rotate.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e524bfd4-6374-4aae-96f8-15f4e0134295/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08fbd472-37ac-4b35-a5fb-76b9d48ea3f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08fbd472-37ac-4b35-a5fb-76b9d48ea3f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/08fbd472-37ac-4b35-a5fb-76b9d48ea3f7/eldoria-map-open-test"
+}

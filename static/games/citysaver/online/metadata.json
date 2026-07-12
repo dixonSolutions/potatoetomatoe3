@@ -1,0 +1,14 @@
+{
+	"id": "citysaver",
+	"name": "CitySaver",
+	"author": "AryaVaidya",
+	"description": "Arya Vaidya's lastest submission for the 2022 Games4Change competition.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/334904a2-8757-455a-9040-d5072506b4c9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f6a82042-fb6e-43e2-af2b-77cc466523fe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f6a82042-fb6e-43e2-af2b-77cc466523fe",
+	"unityPlayUrl": "https://play.unity.com/en/games/f6a82042-fb6e-43e2-af2b-77cc466523fe/citysaver"
+}

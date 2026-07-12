@@ -1,0 +1,14 @@
+{
+	"id": "doom-10",
+	"name": "Doom 1.0",
+	"author": "ViciousTNT",
+	"description": "Play Doom 1.0 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3572324e-12c4-449f-ae23-f871bd57ebdc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0532fdd9-f918-4b45-8c1d-0b8e60664a4c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0532fdd9-f918-4b45-8c1d-0b8e60664a4c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0532fdd9-f918-4b45-8c1d-0b8e60664a4c/doom-10"
+}

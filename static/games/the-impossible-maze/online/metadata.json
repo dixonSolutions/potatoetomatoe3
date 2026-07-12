@@ -1,0 +1,14 @@
+{
+	"id": "the-impossible-maze",
+	"name": "The Impossible Maze",
+	"author": "natedagreat0826",
+	"description": "Find the treasure chest. Solve the Impossible Maze. WASD/arrow keys to move, mouse to change view. Hint: if you get stuck, reload the page to restart the game and reorient yourself.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f5849676-798a-4b49-a43d-c3317e1b36ed/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c96c5542-274d-4602-a548-8bda1a256d20/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c96c5542-274d-4602-a548-8bda1a256d20",
+	"unityPlayUrl": "https://play.unity.com/en/games/c96c5542-274d-4602-a548-8bda1a256d20/the-impossible-maze"
+}

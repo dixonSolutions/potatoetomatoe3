@@ -1,0 +1,14 @@
+{
+	"id": "mini-miltia-clone",
+	"name": "Mini Miltia clone",
+	"author": "Unity Play",
+	"description": "This is a build test",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/227165b2-6338-4ca6-991b-bb97a819002d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "227165b2-6338-4ca6-991b-bb97a819002d",
+	"unityPlayUrl": "https://play.unity.com/en/games/227165b2-6338-4ca6-991b-bb97a819002d/mini-miltia-clone"
+}

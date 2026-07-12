@@ -1,0 +1,14 @@
+{
+	"id": "capsule-wars",
+	"name": "Capsule Wars",
+	"author": "Micherman",
+	"description": "Simple fps with infinite respawning enemies. Controls: WSAD (move), Shift (run), R (reload), Space (jump), LMB (shoot), RMB (grenade), Scroll Wheel (change weapon). Project on github: https://github.com/MichalSlawin/MyFPS",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/000daa27-8acd-4461-904a-bb95e4369112/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/74d41105-4f89-4a41-a578-ca1171115ebc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "74d41105-4f89-4a41-a578-ca1171115ebc",
+	"unityPlayUrl": "https://play.unity.com/en/games/74d41105-4f89-4a41-a578-ca1171115ebc/capsule-wars"
+}

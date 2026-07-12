@@ -1,0 +1,14 @@
+{
+	"id": "rock-paper-scissors",
+	"name": "Rock-Paper-Scissors",
+	"author": "thehighestend",
+	"description": "A simple rock-paper-scissors game made with Unity LEGO\u00ae Microgame template.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e881459-1996-47bb-9b70-1286d6dad722/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/abf2c5dc-de78-4933-8e83-02ec5486fc7d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "abf2c5dc-de78-4933-8e83-02ec5486fc7d",
+	"unityPlayUrl": "https://play.unity.com/en/games/abf2c5dc-de78-4933-8e83-02ec5486fc7d/rock-paper-scissors"
+}

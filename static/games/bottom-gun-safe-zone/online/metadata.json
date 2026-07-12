@@ -1,0 +1,14 @@
+{
+	"id": "bottom-gun-safe-zone",
+	"name": "Bottom Gun: Safe Zone",
+	"author": "marthenheal",
+	"description": "Fly and destroy, Bottom Gun! WASD-keys to move, SPACE to shoot.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/880c2f5f-31c1-4587-9e90-999b6b6584d8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c3df2a92-2ca8-4bf7-8c78-12c4fc119f3a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c3df2a92-2ca8-4bf7-8c78-12c4fc119f3a",
+	"unityPlayUrl": "https://play.unity.com/en/games/c3df2a92-2ca8-4bf7-8c78-12c4fc119f3a/bottom-gun-safe-zone"
+}

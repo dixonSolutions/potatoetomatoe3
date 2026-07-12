@@ -1,0 +1,14 @@
+{
+	"id": "snowball-strike",
+	"name": "Snowball Strike",
+	"author": "mrk231",
+	"description": "Snowball Strike is a strategic puzzle & party game about building and defending a snow fort from waves of attackers. Players collect resources, like snow and wood, to upgrade their fort in preparation for the next attack. As the game progresses, the waves become increasingly difficult. Because of the short amount of time you have to prepare for the next wave, the key to success is having effective puzzle-solving skills to get yourself out of a pinch! Snowball Strike is best enjoyed in a party setting, where players can compete to see who can hold out the longest and achieve the highest score!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4061c1bf-420c-41c8-83be-e812eb83d0ec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4061c1bf-420c-41c8-83be-e812eb83d0ec",
+	"unityPlayUrl": "https://play.unity.com/en/games/4061c1bf-420c-41c8-83be-e812eb83d0ec/snowball-strike"
+}

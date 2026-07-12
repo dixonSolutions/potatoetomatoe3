@@ -1,0 +1,14 @@
+{
+	"id": "lego-legends",
+	"name": "Lego Legends",
+	"author": "TheWolfNL",
+	"description": "Collect 20 Crystals, Stop the robot revolution and reach the Altar on the highest island to win the game. Extended with extra gameplay compared to the tutorials, don't forget to double jump and look for consoles when you're stuck. Please leave a comment with feedback on the difficulty / whether you thought it was fun.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7951058b-9ffe-4e6c-a694-84c0791499d3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8e4a0d6c-28a7-4a9d-bf92-b2ef75a8372f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8e4a0d6c-28a7-4a9d-bf92-b2ef75a8372f",
+	"unityPlayUrl": "https://play.unity.com/en/games/8e4a0d6c-28a7-4a9d-bf92-b2ef75a8372f/lego-legends"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "space-shooter",
+	"name": "Space shooter",
+	"author": "mnguyen9797",
+	"description": "Play now!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/18ab2a31-bf9f-4cd1-82ea-e45779bb48f0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39393fc1-ea6d-4644-8210-0f316d8b320d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39393fc1-ea6d-4644-8210-0f316d8b320d",
+	"unityPlayUrl": "https://play.unity.com/en/games/39393fc1-ea6d-4644-8210-0f316d8b320d/space-shooter"
+}

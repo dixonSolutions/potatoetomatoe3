@@ -1,0 +1,14 @@
+{
+	"id": "when-my-sheep-comes-in",
+	"name": "When my sheep comes in",
+	"author": "LeBanc",
+	"description": "Your 3 sheep are missing, you must find them!\nNo rush, no pressure but maybe a few deaths :)\n\nI hope it will not lag that much... I already changed some things to remove some load on the game (like removing rotating plateforms) but there is still many things that can reduce the frame rate (it is pretty good in Windows build, but here in WebGL it is messier).\n\nThe game is compatible with XBox Controller (press X button, when X key is needed).\n\nIf you are interested in the modifications I made in the scripts, a ChangeLog is available here: http://benld.games.free.fr/sources/LEGOMicrogame_ChangeLog.txt",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4dcad168-eba0-4c0b-81c4-77eb4da711ad/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/965a5e63-73ef-4dae-91d8-1c4bce1031fc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "965a5e63-73ef-4dae-91d8-1c4bce1031fc",
+	"unityPlayUrl": "https://play.unity.com/en/games/965a5e63-73ef-4dae-91d8-1c4bce1031fc/when-my-sheep-comes-in"
+}

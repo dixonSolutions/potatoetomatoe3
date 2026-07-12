@@ -1,0 +1,14 @@
+{
+	"id": "justice-scale-demo",
+	"name": "Justice Scale Demo",
+	"author": "TuXimo",
+	"description": "The JusticeScale Asset provides a realistic and interactive scale system for Unity, designed for applications in simulations, mini-games, or any interactive scene that requires precise weight measurem",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0c155a15-cabc-4e91-83ed-2cd002630ee0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d027f202-e3ac-4ec6-ad40-563a829c179e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d027f202-e3ac-4ec6-ad40-563a829c179e",
+	"unityPlayUrl": "https://play.unity.com/en/games/d027f202-e3ac-4ec6-ad40-563a829c179e/justice-scale-demo"
+}

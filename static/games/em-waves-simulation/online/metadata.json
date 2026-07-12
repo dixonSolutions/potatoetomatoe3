@@ -1,0 +1,14 @@
+{
+	"id": "em-waves-simulation",
+	"name": "EM Waves Simulation",
+	"author": "suryashmalviya",
+	"description": "3D simulation illustrating electromagnetic nature of waves. \n\nBuild Date: December 1, 2025\nv.1.1\n\nNotes:\n> Enhanced arrow textures\n> Fixed the \"white arrow\" bug",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1e44bab4-c04d-4c0d-818b-dd2eff341b2f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d552eb5-c7de-4c89-ad43-9ec3bec1d0a4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d552eb5-c7de-4c89-ad43-9ec3bec1d0a4",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d552eb5-c7de-4c89-ad43-9ec3bec1d0a4/em-waves-simulation"
+}

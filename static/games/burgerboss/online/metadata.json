@@ -1,0 +1,14 @@
+{
+	"id": "burgerboss",
+	"name": "Burgerboss",
+	"author": "OminousEntertainment",
+	"description": "A game based on the Bob's Burgers episode Burgerboss [Season 2, Episode 4]",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d3691e7b-da77-4788-9447-8653b6069027/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d3691e7b-da77-4788-9447-8653b6069027",
+	"unityPlayUrl": "https://play.unity.com/en/games/d3691e7b-da77-4788-9447-8653b6069027/burgerboss"
+}

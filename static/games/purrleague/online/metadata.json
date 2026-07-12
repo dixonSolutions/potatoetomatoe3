@@ -1,0 +1,14 @@
+{
+	"id": "purrleague",
+	"name": "PurrLeague",
+	"author": "_BlenMiner_",
+	"description": "PurrLeague",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fe63730-3aad-449c-b53d-ed772c751340/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fe63730-3aad-449c-b53d-ed772c751340",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fe63730-3aad-449c-b53d-ed772c751340/purrleague"
+}

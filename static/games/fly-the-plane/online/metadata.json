@@ -1,0 +1,14 @@
+{
+	"id": "fly-the-plane",
+	"name": "Fly the Plane",
+	"author": "unity_4Sbj93Buo2bn6Q",
+	"description": "Use the arrow keys the move the plane up and down, and fly through obstacles, reset to try again",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/acdebf0e-706e-4b6e-8fdb-7677093e520d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e3018b3-5dfe-4ab8-8b58-7e294a0d0525/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e3018b3-5dfe-4ab8-8b58-7e294a0d0525",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e3018b3-5dfe-4ab8-8b58-7e294a0d0525/fly-the-plane"
+}

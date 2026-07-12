@@ -1,0 +1,14 @@
+{
+	"id": "dash-n-smash-prototype-3",
+	"name": "Dash 'n' Smash (Prototype 3)",
+	"author": "Maxeaman",
+	"description": "Side scrolling runner. Added my own music and sound effects from zapsplat.com. Score ticks up by 1 for every second you're alive. When \"Dashing\" score ticks are multiplied by 10. You get 15 points for jumping over an obstacle (30 for the tall barrier, must double jump) and 5 points for \"Smashing\" through a barrier (Must be on ground to Smash), which requires Stamina. Stamina recovers over time but you can get more faster by eating the food you find in the level (different amounts of Stamina and Score for each different food item). Your only opponent is yourself. What's your high score?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4c972347-b64f-4fc2-ab60-658d7be10c85/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aec52d12-9d35-411f-b8c2-4014a2be5fe0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aec52d12-9d35-411f-b8c2-4014a2be5fe0",
+	"unityPlayUrl": "https://play.unity.com/en/games/aec52d12-9d35-411f-b8c2-4014a2be5fe0/dash-n-smash-prototype-3"
+}

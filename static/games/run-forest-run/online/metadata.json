@@ -1,0 +1,14 @@
+{
+	"id": "run-forest-run",
+	"name": "Run Forest Run!",
+	"author": "PageO",
+	"description": "Here we go! Prototype 3!\nI have built terrain from the \"Introduction to Terrain Editor\" tutorial.\nBackground music: Me playing Guitar in background\nJump sounds made with mic. and Audacity 2.4.2\n\nJump: Space, 2x Double Jump\nCamera: C\nSprint: Left Shift",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aca1ebff-1541-452b-85ed-e2932478b266/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/860705bc-8b87-4c4e-b987-890f3b1c0811/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "860705bc-8b87-4c4e-b987-890f3b1c0811",
+	"unityPlayUrl": "https://play.unity.com/en/games/860705bc-8b87-4c4e-b987-890f3b1c0811/run-forest-run"
+}

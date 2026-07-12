@@ -1,0 +1,14 @@
+{
+	"id": "block-game",
+	"name": "Block Game",
+	"author": "charlieFMJ",
+	"description": "This is the first game I have made on unity hope you like it. Controls: a= move left   d= move right",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2f959701-348d-4b23-8b63-f5de85838579/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2280bcbb-e5d8-410f-a320-3f6076169474/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2280bcbb-e5d8-410f-a320-3f6076169474",
+	"unityPlayUrl": "https://play.unity.com/en/games/2280bcbb-e5d8-410f-a320-3f6076169474/block-game"
+}

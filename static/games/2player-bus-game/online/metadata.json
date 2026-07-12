@@ -1,0 +1,14 @@
+{
+	"id": "2player-bus-game",
+	"name": "2player bus game",
+	"author": "Shirouto411",
+	"description": "1P wasd and left shift 2P arrow keys and right shift",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/96ca2bd4-be1a-41d4-8cd7-0912e505fc71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/184c2e9c-efda-4790-aba4-e066bf764f0c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "184c2e9c-efda-4790-aba4-e066bf764f0c",
+	"unityPlayUrl": "https://play.unity.com/en/games/184c2e9c-efda-4790-aba4-e066bf764f0c/2player-bus-game"
+}

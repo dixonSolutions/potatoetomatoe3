@@ -1,0 +1,14 @@
+{
+	"id": "jimmy-vegas-racing",
+	"name": "Jimmy Vegas Racing",
+	"author": "Play_Ben",
+	"description": "Built this racing game with the help of the Jimmy Vegas Racing Game tutorial: https://www.youtube.com/playlist?list=PLZ1b66Z1KFKgkE9ji0tF2iDO0LGxmlwIm You steer with arrows and you can change your view using \"c\". Let me know what you think!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/111c70bb-f198-4a52-9198-b428e53a457e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1aceaa83-a69d-4eaa-8579-18e4684b7027/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1aceaa83-a69d-4eaa-8579-18e4684b7027",
+	"unityPlayUrl": "https://play.unity.com/en/games/1aceaa83-a69d-4eaa-8579-18e4684b7027/jimmy-vegas-racing"
+}

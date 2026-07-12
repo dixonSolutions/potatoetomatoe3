@@ -1,0 +1,14 @@
+{
+	"id": "legoo-win",
+	"name": "Legoo-Win",
+	"author": "iamracer",
+	"description": "About:\nThis is my entry submission for the Unity x Lego Microgame. Play and tell me what you think about my mod, cheers!\n\nDescription:\nYour mission is to reach a final checkpoint, along the line you have obstacles to avoid in other to complete the mission.\n\nControls:\n[Space] to jump.\n[WASD/Arrow] for movement.\n[ESC] to pause game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6fa8320e-65c8-4a23-b7f6-162a436249f5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a4100c9-7e31-4d87-a7e8-fc06c99d6027/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a4100c9-7e31-4d87-a7e8-fc06c99d6027",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a4100c9-7e31-4d87-a7e8-fc06c99d6027/legoo-win"
+}

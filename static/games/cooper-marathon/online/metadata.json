@@ -1,0 +1,14 @@
+{
+	"id": "cooper-marathon",
+	"name": "Cooper Marathon",
+	"author": "unity_1dhawank",
+	"description": "My latest minigame. By Krish Dhawan",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/147935ba-e48e-465a-9d7e-e729af3c9fff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80b5a8cc-29ea-4eac-9cea-76c9a6382184/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80b5a8cc-29ea-4eac-9cea-76c9a6382184",
+	"unityPlayUrl": "https://play.unity.com/en/games/80b5a8cc-29ea-4eac-9cea-76c9a6382184/cooper-marathon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "takayanagi-memorial-hall-walk",
+	"name": "Takayanagi Memorial Hall Walk",
+	"author": "hkase92",
+	"description": "You can walk around the Takayanagi Memorial Hall.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b1cea7b4-f32e-4cfd-a552-b07edae4e75e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d7d61db9-6896-44ed-a01f-5db75d527394/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d7d61db9-6896-44ed-a01f-5db75d527394",
+	"unityPlayUrl": "https://play.unity.com/en/games/d7d61db9-6896-44ed-a01f-5db75d527394/takayanagi-memorial-hall-walk"
+}

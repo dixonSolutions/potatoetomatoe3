@@ -1,0 +1,14 @@
+{
+	"id": "guinea-pig-jump",
+	"name": "Guinea Pig Jump",
+	"author": "Shurik_1606",
+	"description": "AWSD and space to move.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb76d347-46a3-4294-b111-9bda5358efd1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/599e7bcd-2031-4ccb-a37d-04a30bae14bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "599e7bcd-2031-4ccb-a37d-04a30bae14bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/599e7bcd-2031-4ccb-a37d-04a30bae14bc/guinea-pig-jump"
+}

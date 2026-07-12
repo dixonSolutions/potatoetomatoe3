@@ -1,0 +1,14 @@
+{
+	"id": "shooty-shoot",
+	"name": "SHOOTY SHOOT",
+	"author": "Tofu554",
+	"description": "My first ever microgame made on unity.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/84fa93c7-faa7-4459-affd-abfb248333d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fb3039a1-3513-4332-9570-bf8c56970632/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fb3039a1-3513-4332-9570-bf8c56970632",
+	"unityPlayUrl": "https://play.unity.com/en/games/fb3039a1-3513-4332-9570-bf8c56970632/shooty-shoot"
+}

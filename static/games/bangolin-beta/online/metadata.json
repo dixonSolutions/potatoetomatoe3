@@ -1,0 +1,14 @@
+{
+	"id": "bangolin-beta",
+	"name": "Bangolin Beta",
+	"author": "ninjalemur",
+	"description": "https://github.com/DonnchadM/Bangolin\ngameplay instructions:\nwasd or directional keys = move\nspacebar = jump\nshift = roll, stop rolling\nz,x,c use power ups\n'nother shell gives another hit",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0723f021-10cc-442b-88cd-3484a2586904/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0723f021-10cc-442b-88cd-3484a2586904",
+	"unityPlayUrl": "https://play.unity.com/en/games/0723f021-10cc-442b-88cd-3484a2586904/bangolin-beta"
+}

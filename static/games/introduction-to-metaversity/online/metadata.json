@@ -1,0 +1,14 @@
+{
+	"id": "introduction-to-metaversity",
+	"name": "Introduction to Metaversity",
+	"author": "unity_APaIqtgiepoSdA",
+	"description": "This is a downgraded version of the game, as Unity LEGO Microgame has been deprecated.\n\nClick \"Play\", [TAB]. \"Volume on\" and \"Fullscreen\" buttons at the lower right.\nHide mouse point: click on screen\nShow mouse point: [ESC].\nMove: Arrow keys or [W][A][S][D]\nHigh jump [space] * 2",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d6d6b704-c0a4-4bce-9373-8516af265a3d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9abe7057-7033-4b63-8630-f07510bbcd4c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9abe7057-7033-4b63-8630-f07510bbcd4c",
+	"unityPlayUrl": "https://play.unity.com/en/games/9abe7057-7033-4b63-8630-f07510bbcd4c/introduction-to-metaversity"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hycamfps",
+	"name": "HYCAMFPS",
+	"author": "Xihan118",
+	"description": "Play HYCAMFPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a2c6ccb-88bb-4cf2-8d61-5c60a2a1406e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a7da0cb9-40fc-46de-af49-3747b7a5151c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a7da0cb9-40fc-46de-af49-3747b7a5151c",
+	"unityPlayUrl": "https://play.unity.com/en/games/a7da0cb9-40fc-46de-af49-3747b7a5151c/hycamfps"
+}

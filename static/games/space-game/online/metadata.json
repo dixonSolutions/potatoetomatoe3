@@ -1,0 +1,14 @@
+{
+	"id": "space-game",
+	"name": "Space Game",
+	"author": "VerseSwitcher",
+	"description": "Test",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fcb394d5-ebc1-495f-9b6d-a7bf963e8308/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9ace08bc-61cc-488c-828f-7aab13a753dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9ace08bc-61cc-488c-828f-7aab13a753dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/9ace08bc-61cc-488c-828f-7aab13a753dc/space-game"
+}

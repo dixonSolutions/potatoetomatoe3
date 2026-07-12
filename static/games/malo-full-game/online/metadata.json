@@ -1,0 +1,14 @@
+{
+	"id": "malo-full-game",
+	"name": "MALO: FULL GAME",
+	"author": "NertoUltimate",
+	"description": "You are diablo. You woke up late and hell is a mess.  Defeat the bosses that took your place and recover the respect that you lost. Use WASD or arrows to move, use SPACE to attack, use E to impose respect and turn enemies to your side (each kind of enemy will only respect you if you find and defeat a specific boss). Press \"T\" to turn enemies back against you. This game is in Spanish but you will be able to play as long as you know the controls. THIS GAME HAS SOUND, activate the sound before playing. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/228f6ad3-2eba-468c-a6d4-501e248a5978/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4b86049-ed30-4719-b967-7dbfbb2351a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4b86049-ed30-4719-b967-7dbfbb2351a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4b86049-ed30-4719-b967-7dbfbb2351a3/malo-full-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hypercube",
+	"name": "HYPERCUBE",
+	"author": "brasssoap1",
+	"description": "Hypercube Hackingtons project",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6c9c31b5-bda4-412f-ae96-6afb2510479d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8bdf6689-5ab8-4b68-9a06-ee5d3b744815/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8bdf6689-5ab8-4b68-9a06-ee5d3b744815",
+	"unityPlayUrl": "https://play.unity.com/en/games/8bdf6689-5ab8-4b68-9a06-ee5d3b744815/hypercube"
+}

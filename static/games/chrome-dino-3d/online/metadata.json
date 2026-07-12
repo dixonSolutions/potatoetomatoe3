@@ -1,0 +1,14 @@
+{
+	"id": "chrome-dino-3d",
+	"name": "Chrome-Dino-3D",
+	"author": "shristy22",
+	"description": "Chrome Dino game made in 3D",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9ce547f6-4703-4d05-b6f5-64182fcc6234/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9ce547f6-4703-4d05-b6f5-64182fcc6234",
+	"unityPlayUrl": "https://play.unity.com/en/games/9ce547f6-4703-4d05-b6f5-64182fcc6234/chrome-dino-3d"
+}

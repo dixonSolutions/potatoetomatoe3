@@ -1,0 +1,14 @@
+{
+	"id": "the-game-of-ane",
+	"name": "The Game of Ane",
+	"author": "yhnujm632",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b772b14a-0e47-46e0-a74f-4637ba52322d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7f6b99e3-cdc2-436b-b762-c6378300d172/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7f6b99e3-cdc2-436b-b762-c6378300d172",
+	"unityPlayUrl": "https://play.unity.com/en/games/7f6b99e3-cdc2-436b-b762-c6378300d172/the-game-of-ane"
+}

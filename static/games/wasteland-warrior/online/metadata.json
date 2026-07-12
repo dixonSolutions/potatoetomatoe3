@@ -1,0 +1,14 @@
+{
+	"id": "wasteland-warrior",
+	"name": "Wasteland Warrior",
+	"author": "commander_crispicus",
+	"description": "My first ever 100% self made game. Thanks for playing!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dd31a254-8532-4ba2-8283-6da334b85848/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1264ab5b-3fbf-4df6-b0c2-caf03c9d12f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1264ab5b-3fbf-4df6-b0c2-caf03c9d12f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/1264ab5b-3fbf-4df6-b0c2-caf03c9d12f3/wasteland-warrior"
+}

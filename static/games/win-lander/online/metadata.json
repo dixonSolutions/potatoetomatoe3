@@ -1,0 +1,14 @@
+{
+	"id": "win-lander",
+	"name": "WIN Lander",
+	"author": "gigabyte_games",
+	"description": "Welcome to WIN Lander. In this educational and interactive game you can help a lander make a safe landing on the moon. After that you can explore the lunar terrain. Instructions: To land the lander use the arrow keys to maneuver over the rocky surface. When exploring use WASD/Arrow Keys to move, use your mouse to look around and Spacebar to jump. Also you can collect samples of the lunar soil by pressing A. Thank You.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c76af9b-3723-4512-9961-036dc26617b9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d2871c8-7a09-4c89-a929-557f21ee651c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d2871c8-7a09-4c89-a929-557f21ee651c",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d2871c8-7a09-4c89-a929-557f21ee651c/win-lander"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "testing",
+	"name": "Testing",
+	"author": "gabusart19",
+	"description": "My HorseGame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/843401e1-beb5-4eb6-8608-efebdf926a90/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/47824533-7c7f-4dee-b52d-868fea9efd3b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "47824533-7c7f-4dee-b52d-868fea9efd3b",
+	"unityPlayUrl": "https://play.unity.com/en/games/47824533-7c7f-4dee-b52d-868fea9efd3b/testing"
+}

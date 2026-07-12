@@ -1,0 +1,14 @@
+{
+	"id": "floppy-fish",
+	"name": "Floppy Fish",
+	"author": "dilloncotter1",
+	"description": "Another original game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1663990e-2e0b-4720-a9cf-a6511b91e67f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1663990e-2e0b-4720-a9cf-a6511b91e67f",
+	"unityPlayUrl": "https://play.unity.com/en/games/1663990e-2e0b-4720-a9cf-a6511b91e67f/floppy-fish"
+}

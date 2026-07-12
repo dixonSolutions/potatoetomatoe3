@@ -1,0 +1,14 @@
+{
+	"id": "arcade-asteroids",
+	"name": "Arcade Asteroids",
+	"author": "monstropato",
+	"description": "It's time to prove that you are indeed the best pilot of this part of the galaxy. Some say that they can go through this asteroid field in n less than 12 parsecs, but you, YOU can be way better as I heard. Try to survive the longer you can and destroy the asteroids to increase your score, but be careful! We can't repair your ship mid flight. Good luck and show to those asteroids who is the best! Play with sound!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4cd7217d-4aa3-48c8-a70d-8f178e84d69f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c896cb8-944e-46e6-9961-307cbdf19ea1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c896cb8-944e-46e6-9961-307cbdf19ea1",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c896cb8-944e-46e6-9961-307cbdf19ea1/arcade-asteroids"
+}

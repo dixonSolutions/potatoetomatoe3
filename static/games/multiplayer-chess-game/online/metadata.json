@@ -1,0 +1,14 @@
+{
+	"id": "multiplayer-chess-game",
+	"name": "Multiplayer Chess Game",
+	"author": "Unity Play",
+	"description": "This is the multiplayer chess game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b6bec543-e85e-4bdc-a83e-cef95157c1c9/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe12f1b6-ec4f-48b3-93c5-b3a8f4f89650/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe12f1b6-ec4f-48b3-93c5-b3a8f4f89650",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe12f1b6-ec4f-48b3-93c5-b3a8f4f89650/multiplayer-chess-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ocean-bowl-webgl-game",
+	"name": "Ocean Bowl Webgl Game",
+	"author": "bscs20075",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8a1e60d2-0287-4f34-9467-ef817690d1f6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/76d52173-4f65-4e4f-ab23-e2e4b4961a4e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "76d52173-4f65-4e4f-ab23-e2e4b4961a4e",
+	"unityPlayUrl": "https://play.unity.com/en/games/76d52173-4f65-4e4f-ab23-e2e4b4961a4e/ocean-bowl-webgl-game"
+}

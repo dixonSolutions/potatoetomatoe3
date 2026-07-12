@@ -1,0 +1,14 @@
+{
+	"id": "racer",
+	"name": "Racer",
+	"author": "RamazanErgezer",
+	"description": "My First Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d43e4ebe-3278-42eb-84d0-039e495521ee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b30240c-7009-4e11-b072-f7dbd996b0fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b30240c-7009-4e11-b072-f7dbd996b0fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b30240c-7009-4e11-b072-f7dbd996b0fa/racer"
+}

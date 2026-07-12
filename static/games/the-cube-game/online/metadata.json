@@ -1,0 +1,14 @@
+{
+	"id": "the-cube-game",
+	"name": "The Cube Game",
+	"author": "Ritesh-K",
+	"description": "Play The Cube Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c530cf7-6404-4198-a8f1-986e1e0af003/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fe0b8de-4e64-4d60-8709-2f62c6070131/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fe0b8de-4e64-4d60-8709-2f62c6070131",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fe0b8de-4e64-4d60-8709-2f62c6070131/the-cube-game"
+}

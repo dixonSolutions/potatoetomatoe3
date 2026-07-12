@@ -1,0 +1,14 @@
+{
+	"id": "hazard-spotting-unity-demo",
+	"name": "Hazard Spotting \u2013 Unity Demo",
+	"author": "TrophaigleUnity",
+	"description": "A short serious game prototype where players identify potential hazards in a 3D environment. The score rewards correct detections and penalizes false alerts to encourage careful analysis.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/66f866c6-b793-4c67-a84c-ba0a679279a4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1827c35f-1c75-4c38-8ae1-94567c9d0776/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1827c35f-1c75-4c38-8ae1-94567c9d0776",
+	"unityPlayUrl": "https://play.unity.com/en/games/1827c35f-1c75-4c38-8ae1-94567c9d0776/hazard-spotting-unity-demo"
+}

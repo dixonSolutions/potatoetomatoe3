@@ -1,0 +1,14 @@
+{
+	"id": "super-hexagon",
+	"name": "Super Hexagon",
+	"author": "ULTIMATE306",
+	"description": "PC Game, you can't play this game in a mobile device. If you liked the game, drop a like and don't forget to share the game with your friends!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b027b3e3-2deb-47cf-9967-ff08d9765ade/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/288e96e2-208f-4497-8d7a-95744e237dea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "288e96e2-208f-4497-8d7a-95744e237dea",
+	"unityPlayUrl": "https://play.unity.com/en/games/288e96e2-208f-4497-8d7a-95744e237dea/super-hexagon"
+}

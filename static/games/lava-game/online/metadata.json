@@ -1,0 +1,14 @@
+{
+	"id": "lava-game",
+	"name": "Lava Game",
+	"author": "big_L32",
+	"description": "Ball roll.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f312e4cf-6a9e-47bc-b34b-a68b36fde6e8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/046045db-1d7d-4fa6-bb35-0d9978732528/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "046045db-1d7d-4fa6-bb35-0d9978732528",
+	"unityPlayUrl": "https://play.unity.com/en/games/046045db-1d7d-4fa6-bb35-0d9978732528/lava-game"
+}

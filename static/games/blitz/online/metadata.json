@@ -1,0 +1,14 @@
+{
+	"id": "blitz",
+	"name": "Blitz",
+	"author": "blasson42",
+	"description": "A fast-paced, local multiplayer platformer where players fight to be the last man standing. Pickup blasters with unique abilities, collect rounds from off the ground, and blast your way to victory.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5e33f069-3130-4fd9-9260-f5234e070976/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f33260f-0946-4ab4-96ad-805a2df8d05e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5f33260f-0946-4ab4-96ad-805a2df8d05e",
+	"unityPlayUrl": "https://play.unity.com/en/games/5f33260f-0946-4ab4-96ad-805a2df8d05e/blitz"
+}

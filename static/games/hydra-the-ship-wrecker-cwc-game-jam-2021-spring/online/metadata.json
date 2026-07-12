@@ -1,0 +1,14 @@
+{
+	"id": "hydra-the-ship-wrecker-cwc-game-jam-2021-spring",
+	"name": "Hydra: The Ship Wrecker - CWC Game Jam 2021 - Spring",
+	"author": "AfroDog",
+	"description": "CWC Game Jam 2021 - Spring Submission! Mary Walley, Kei Yanagida, Bogdan D. Gheorghiu. Hydra: The Ship Wrecker, an iteration of the classic fun and feeding frenzy board game Hungry Hippos.  The game stage is surrounded by four Hydra, a gigantic water-snake-like monster.  Each Hydra has its unique color and personality.  When the game starts ships are quickly and randomly sailing across the scene, the players repeatedly press designated keyboard keys assigned to their Hydra in order to eat the ships.  Players earn one point for each ship eaten,  but watch out, players can lose 5 points if they eat a toxic ship and gain 5 bonus points if they eat a gold ship. The player with the highest score wins the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/27376ded-9fee-40d7-aa5d-6db6c43a0e1d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5155ce55-dce8-40ce-a910-0d0719999ded/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5155ce55-dce8-40ce-a910-0d0719999ded",
+	"unityPlayUrl": "https://play.unity.com/en/games/5155ce55-dce8-40ce-a910-0d0719999ded/hydra-the-ship-wrecker-cwc-game-jam-2021-spring"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "world-one-one",
+	"name": "World One - One",
+	"author": "myibookmoe",
+	"description": "Hi everyone, myibookmoe here. This game is a tribute to Super Mario Bros. I wanted to finish it by March 10 but life got in the way. It's not very good but perhaps it will bring back some fond memories of playing the original. Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df21e291-a254-488e-8bdd-0ce1bea55667/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68b79c62-daab-4ec9-a49e-c9a4a7617b3e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68b79c62-daab-4ec9-a49e-c9a4a7617b3e",
+	"unityPlayUrl": "https://play.unity.com/en/games/68b79c62-daab-4ec9-a49e-c9a4a7617b3e/world-one-one"
+}

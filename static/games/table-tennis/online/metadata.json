@@ -1,0 +1,14 @@
+{
+	"id": "table-tennis",
+	"name": "Table Tennis",
+	"author": "No13Koval",
+	"description": "Sound available.\nMovement with mouse.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e1f96e45-e4f9-4e2c-adcb-6f40150bdc4d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/888a02d7-4f22-4186-b197-d1b40638933b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "888a02d7-4f22-4186-b197-d1b40638933b",
+	"unityPlayUrl": "https://play.unity.com/en/games/888a02d7-4f22-4186-b197-d1b40638933b/table-tennis"
+}

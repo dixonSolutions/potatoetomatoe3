@@ -1,0 +1,14 @@
+{
+	"id": "guardian-of-two-souls",
+	"name": "Guardian of Two Souls",
+	"author": "Wirto",
+	"description": "Wyrusz na wypraw\u0119 z kocim obro\u0144c\u0105 krainy. Pom\u00f3\u017c w uratowaniu krainy przed ciemno\u015bci\u0105 ogarniaj\u0105c\u0105 \u015bwiat. Przemierzaj lokacje i rozwi\u0105zuj zagadki lecz pami\u0119taj \u017ce nie wsz\u0119dzie mo\u017cesz po prostu wej\u015b\u0107.\n\nInstrukcja:\n\nCel gry: Zbierz klucz by otworzy\u0107 drzwi i dotrzyj do nich by uko\u0144czy\u0107 poziom.\n\nKot mo\u017ce przej\u015b\u0107 na stref\u0119 danego koloru je\u015bli z jej strony swojego cia\u0142a, ma jej kolor. Np. Je\u015bli chcemy p\u00f3j\u015b\u0107 w prawo na jasn\u0105 stref\u0119 to po prawej stronie swojego cia\u0142a musimy mie\u0107 jasn\u0105 sier\u015b\u0107. Kolory na ciele mo\u017cna zamienia\u0107 miejscami staj\u0105c na specjalnym przycisku.\n\nA - ruch w lewo\nD - ruch w prawo\nSPACJA - skok\nENTER - oddalenie kamery\nR - Reset planszy",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c3899b2e-89f2-4d0f-aec6-8b17d7563e1e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b392c20-ffcb-4ba1-8a95-654665fe551a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b392c20-ffcb-4ba1-8a95-654665fe551a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b392c20-ffcb-4ba1-8a95-654665fe551a/guardian-of-two-souls"
+}

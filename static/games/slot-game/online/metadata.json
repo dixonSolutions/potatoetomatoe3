@@ -1,0 +1,14 @@
+{
+	"id": "slot-game",
+	"name": "Slot Game",
+	"author": "Goutham06",
+	"description": "Game Overview: In this classic 3-slot game, the simple yet thrilling mechanics bring you back to the golden age of slot machines. With three reels and a single payline, this game is perfect for both beginners and seasoned players who appreciate straightforward gameplay and nostalgic charm.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a141f5f7-1a6b-443b-a152-06b7c9e958f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a141f5f7-1a6b-443b-a152-06b7c9e958f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/a141f5f7-1a6b-443b-a152-06b7c9e958f0/slot-game"
+}

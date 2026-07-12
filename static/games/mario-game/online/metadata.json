@@ -1,0 +1,14 @@
+{
+	"id": "mario-game",
+	"name": "Mario game",
+	"author": "Asoka501",
+	"description": "\u30de\u30ea\u30aa\u306e\u3088\u3046\u306a\u30b2\u30fc\u30e0\u3092\u4f5c\u308a\u307e\u3057\u305f\u3002",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7ae95cc1-e03b-4056-9e74-4084fa820d09/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a3073277-9f36-4b54-ac2d-8db58fb5fedc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a3073277-9f36-4b54-ac2d-8db58fb5fedc",
+	"unityPlayUrl": "https://play.unity.com/en/games/a3073277-9f36-4b54-ac2d-8db58fb5fedc/mario-game"
+}

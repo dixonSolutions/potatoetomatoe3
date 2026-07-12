@@ -1,0 +1,14 @@
+{
+	"id": "jump-game",
+	"name": "jump game",
+	"author": "Noob_11",
+	"description": "Updated the previous game. Added score, fast running when player holds \"R\", added double jump in mid air to jump over crates. You must use double jump to get over crates. Use spacebar to jump. Also added start animation where player walks in game window.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/52e38073-7caf-4a4a-8c96-6002aa8a62ba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "52e38073-7caf-4a4a-8c96-6002aa8a62ba",
+	"unityPlayUrl": "https://play.unity.com/en/games/52e38073-7caf-4a4a-8c96-6002aa8a62ba/jump-game"
+}

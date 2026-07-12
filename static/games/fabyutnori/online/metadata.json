@@ -1,0 +1,14 @@
+{
+	"id": "fabyutnori",
+	"name": "FabYutNori",
+	"author": "greenstorm2669",
+	"description": "Traditional Korean Wood Game is now released and visible on https://play.unity.com/mg/other/webgl-builds-382488. In the latest update, the last bug has been fixed, and a new rule has been added. Now, you can hold Yut results when it's 4 or 5, and those results can be combined as you wish. Yut Nori, also known as Yunnori, is a traditional Korean board game that is particularly popular during the Korean Lunar New Year. The game involves a board, usually made of cloth or wood, and is played with four wooden sticks, called yut sticks, which serve as dice. Each side of the sticks has a different value, dictating the movement of the players' pieces on the board.\n\nThe objective of Yut Nori is to move all of one's pieces, or \"mal,\" around the board and back to the starting point. The game can be played by two to four players or teams, and it encourages strategic thinking and cooperation, especially in team play. The unique aspect of Yut Nori is the possibility of getting extra turns or movements based on the outcome of the stick throws, making the game unpredictable and exciting.\n\nYut Nori is not only a game of luck but also of strategy, as players decide the best way to move their pieces in response to the throws, and how to best utilize the special moves allowed by certain combinations of the yut sticks. It's a game that brings families and friends together, fostering a sense of community and celebration during festive occasions.\n\n7 Feb 2024 Major update to integrate the use of a rule that was communicated to me only at the end of January - the rule of making all throws when a 4 or a 5 is rolled and storing them to choose the most strategic combination later. Indeed, beyond creating a dropdown list and subsequent choice buttons, the computer was not able to click on them and wait for updates. Now, with the addition of a few variables and timers, it can click the last created button when necessary. As for the strategy, I have my ideas, but it will require more development.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb8274aa-0984-481d-835e-e76629591b09/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f7ab238a-cec3-44ad-a517-7a3c1e00faa3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f7ab238a-cec3-44ad-a517-7a3c1e00faa3",
+	"unityPlayUrl": "https://play.unity.com/en/games/f7ab238a-cec3-44ad-a517-7a3c1e00faa3/fabyutnori"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pauls-cube-roll",
+	"name": "Paul's Cube Roll",
+	"author": "Unity Play",
+	"description": "- Controls -\nMove : WASD / Arrows\nUndo : [Z]\nReset : [R]\nCamera : [Mouse Drag]\nNavigate levels : Numpad [+] / [-] and [P] / [O]\n\nYou must finish every level for the ending :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/837f6f6d-0409-47ef-a405-85e34dd21692/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80a98060-1bb2-411c-8539-f36d37a60136/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80a98060-1bb2-411c-8539-f36d37a60136",
+	"unityPlayUrl": "https://play.unity.com/en/games/80a98060-1bb2-411c-8539-f36d37a60136/pauls-cube-roll"
+}

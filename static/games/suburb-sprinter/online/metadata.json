@@ -1,0 +1,14 @@
+{
+	"id": "suburb-sprinter",
+	"name": "Suburb Sprinter",
+	"author": "FourteenSetsOfIngrownMolars",
+	"description": "Prototype 3, but with 3 lanes! I let our eponymous protagonist move into the final frontier: the third dimension. I also added ever-increasing difficulty and a slide move (trust me the hitbox becomes shorter than the animation will have you believe) to convert the prototype into something that hopefully has better player retention.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1441b6c1-2d2a-4ab0-8bf4-344a57a2c1c0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/459ef9b2-9032-4ab5-bdbd-e4888e738192/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "459ef9b2-9032-4ab5-bdbd-e4888e738192",
+	"unityPlayUrl": "https://play.unity.com/en/games/459ef9b2-9032-4ab5-bdbd-e4888e738192/suburb-sprinter"
+}

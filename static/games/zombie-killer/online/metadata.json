@@ -1,8 +1,14 @@
 {
-  "id": "zombie-killer",
-  "name": "Zombie Killer",
-  "author": "Poki",
-  "description": "Zombie Killer is a cool HTML5 game that is playable both on your desktop and on your mobile phone!",
-  "thumbnail": "/games/zombie-killer/online/assets/zombie-killer.png",
-  "category": "action"
+	"id": "zombie-killer",
+	"name": "Zombie Killer",
+	"author": "Patrichello",
+	"description": "Kill all zombies!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a2faf7ee-2dcb-4574-b101-f8bc995d6fbf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f431e95-ced4-450d-8052-e77571f9b2ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f431e95-ced4-450d-8052-e77571f9b2ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f431e95-ced4-450d-8052-e77571f9b2ce/zombie-killer"
 }

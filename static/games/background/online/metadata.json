@@ -1,0 +1,14 @@
+{
+	"id": "background",
+	"name": "Background",
+	"author": "aerapa12",
+	"description": "Background for a website.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/90ba39a8-515b-47e9-8afa-6d123b27a04f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "90ba39a8-515b-47e9-8afa-6d123b27a04f",
+	"unityPlayUrl": "https://play.unity.com/en/games/90ba39a8-515b-47e9-8afa-6d123b27a04f/background"
+}

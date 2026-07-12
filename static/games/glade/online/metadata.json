@@ -1,0 +1,14 @@
+{
+	"id": "glade",
+	"name": "Glade",
+	"author": "manassalian",
+	"description": "Race your Knight to infinity",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/623e365a-becb-4779-9903-6859befd7a44/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2555d170-ac6e-432b-b4d6-4ed6622f0bba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2555d170-ac6e-432b-b4d6-4ed6622f0bba",
+	"unityPlayUrl": "https://play.unity.com/en/games/2555d170-ac6e-432b-b4d6-4ed6622f0bba/glade"
+}

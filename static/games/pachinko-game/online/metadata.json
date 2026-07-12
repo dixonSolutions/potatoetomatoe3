@@ -1,0 +1,14 @@
+{
+	"id": "pachinko-game",
+	"name": "Pachinko Game",
+	"author": "raltzzz",
+	"description": "My attempt at a Pachinko type game.\n\nComments and constructive feedback is appreciated!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2635aace-949a-45d2-bfe9-e9577fbea534/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f42c03f0-3763-4104-9246-b2a1410b1511/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f42c03f0-3763-4104-9246-b2a1410b1511",
+	"unityPlayUrl": "https://play.unity.com/en/games/f42c03f0-3763-4104-9246-b2a1410b1511/pachinko-game"
+}

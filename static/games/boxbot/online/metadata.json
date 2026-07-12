@@ -1,0 +1,14 @@
+{
+	"id": "boxbot",
+	"name": "BoxBot",
+	"author": "AutoFrenzy",
+	"description": "Controls: z to pickup, arrow keys to move/adjust throw, Hold up arrow to throw up, space to jump. R to reset                                                                     music by okiomo",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dc1b5ac0-78b5-4c7e-89a5-b4d540d3a169/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/056a4ba2-1f9e-400c-821c-ec7d3e0246b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "056a4ba2-1f9e-400c-821c-ec7d3e0246b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/056a4ba2-1f9e-400c-821c-ec7d3e0246b2/boxbot"
+}

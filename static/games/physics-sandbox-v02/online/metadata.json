@@ -1,0 +1,14 @@
+{
+	"id": "physics-sandbox-v02",
+	"name": "Physics Sandbox v0.2",
+	"author": "Kalo2021",
+	"description": "Physics Sandbox v0.2 go to https://trello.com/b/ycadNVKJ/physics-sandbox to follow my progress on the game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5db4f06-9f40-4165-96c2-d27b0a789ed6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b28ae531-5340-4eea-a83f-371d7d7b28fc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b28ae531-5340-4eea-a83f-371d7d7b28fc",
+	"unityPlayUrl": "https://play.unity.com/en/games/b28ae531-5340-4eea-a83f-371d7d7b28fc/physics-sandbox-v02"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ball-wars",
+	"name": "Ball Wars",
+	"author": "ATAnderson",
+	"description": "You are a ball. You must annihilate all other balls. Good luck.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b0cc072b-2af1-4f75-9b24-302519252b63/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00d0a3ef-864c-4249-a316-475a82fe744c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00d0a3ef-864c-4249-a316-475a82fe744c",
+	"unityPlayUrl": "https://play.unity.com/en/games/00d0a3ef-864c-4249-a316-475a82fe744c/ball-wars"
+}

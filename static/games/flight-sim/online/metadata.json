@@ -1,0 +1,14 @@
+{
+	"id": "flight-sim",
+	"name": "Flight Sim",
+	"author": "J_akub",
+	"description": "A flying sim with plane controlled by arrow keys and the speed in constant.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7826a436-d569-4d1d-abb9-3b6ff7c8c1a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06eeaa3a-0147-4b37-8fe1-8889e2045160/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06eeaa3a-0147-4b37-8fe1-8889e2045160",
+	"unityPlayUrl": "https://play.unity.com/en/games/06eeaa3a-0147-4b37-8fe1-8889e2045160/flight-sim"
+}

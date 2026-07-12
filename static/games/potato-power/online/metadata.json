@@ -1,0 +1,14 @@
+{
+	"id": "potato-power",
+	"name": "Potato Power",
+	"author": "jacobsallquist",
+	"description": "Potato Power will test your skills of attention shifting and speed as you slice potatoes to make french fries. Continue playing for the length of your choosing to earn points to spend in the shop and even test your mastery skills with the Chef Challenge.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ada4bf9a-a881-4e64-a4d1-36f75c447051/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c79232a-ea31-417a-adbb-4b87fcb4fc9d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c79232a-ea31-417a-adbb-4b87fcb4fc9d",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c79232a-ea31-417a-adbb-4b87fcb4fc9d/potato-power"
+}

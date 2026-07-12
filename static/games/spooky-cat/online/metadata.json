@@ -1,0 +1,14 @@
+{
+	"id": "spooky-cat",
+	"name": "Spooky Cat",
+	"author": "NazaninFayazmanesh",
+	"description": "Spooky Cat On the Beat!\n\nRun, dodge, and survive as long as you can!\nThis is a fast-paced arcade-style game where your goal is to stay alive and earn the highest score possible.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f8e786f8-7dc9-4eda-8fd2-653edb7a2996/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/013a0836-6e8f-4743-b802-7d7e12393b80/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "013a0836-6e8f-4743-b802-7d7e12393b80",
+	"unityPlayUrl": "https://play.unity.com/en/games/013a0836-6e8f-4743-b802-7d7e12393b80/spooky-cat"
+}

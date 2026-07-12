@@ -1,0 +1,14 @@
+{
+	"id": "terminate-v3",
+	"name": "Terminate V3",
+	"author": "OPJake900",
+	"description": "Play Terminate V3 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/188cb966-bc88-4a33-a834-cbc0c88f5a49/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/400ffe5f-bfa1-4433-a06a-76fc796a7255/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "400ffe5f-bfa1-4433-a06a-76fc796a7255",
+	"unityPlayUrl": "https://play.unity.com/en/games/400ffe5f-bfa1-4433-a06a-76fc796a7255/terminate-v3"
+}

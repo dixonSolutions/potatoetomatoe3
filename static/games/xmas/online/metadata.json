@@ -1,0 +1,14 @@
+{
+	"id": "xmas",
+	"name": "xmas",
+	"author": "lewilewi81",
+	"description": "Play xmas on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/525ebef0-97b5-4e39-b664-698d70e2d2dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "525ebef0-97b5-4e39-b664-698d70e2d2dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/525ebef0-97b5-4e39-b664-698d70e2d2dd/xmas"
+}

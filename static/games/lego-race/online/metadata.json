@@ -1,0 +1,14 @@
+{
+	"id": "lego-race",
+	"name": "LEGO Race",
+	"author": "Mathematik42",
+	"description": "LEGO Ideas username: Speckhofer Enterprises\n\nIn this racing game, you can choose one out of twelve different racing cars and try to overtake the AI-controlled opponents! The track is located in a landscape with hills, mountains and ... sheep!\n\nI built the LEGO models in BrickLink Studio. After importing them into the Unity LEGO Microgame, I implemented the controls and car physics, including air resistance, rolling resistance and lateral friction forces. In order to increase performance, I created my own material resembling LEGO 2x2 tiles for the road. The blue and red items (which give you a speed boost or slow you down) as well as the sheep were created using Behaviour Bricks.\n\nControls:\nWASD - control car\nMouse - rotate camera\nR - reset car\n\nDownload the game: https://drive.google.com/file/d/1RdphcrvvWYZOAjTx7M0B2xVEwV4aVJbX/view?usp=sharing\n\n[The standalone version has better performance and graphics. In the online version, try using non-fullscreen mode for better frame rate.]",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6c772e3d-4518-461a-a946-91b6871c67e3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21b94625-8250-4912-9e1d-e8d964e15046/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21b94625-8250-4912-9e1d-e8d964e15046",
+	"unityPlayUrl": "https://play.unity.com/en/games/21b94625-8250-4912-9e1d-e8d964e15046/lego-race"
+}

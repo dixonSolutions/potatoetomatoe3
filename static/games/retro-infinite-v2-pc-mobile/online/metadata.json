@@ -1,0 +1,14 @@
+{
+	"id": "retro-infinite-v2-pc-mobile",
+	"name": "Retro Infinite V2 (PC & MOBILE)",
+	"author": "ChadSquares",
+	"description": "infinite game where you dodge  falling obstacles. NEW: mobile support, pause button, new points counter color and position NOTE: to play on mobile, press the left and right sides of the screen. it also works on pc if you really want to use your mouse for some reason ALSO NOTE: if the pints and pause button isn't showing, go full screen!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0eaca93f-4eb8-41c7-b0fc-ca8411443acf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ac7adfe0-0769-4247-9c5d-e3ffdf7cfe94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ac7adfe0-0769-4247-9c5d-e3ffdf7cfe94",
+	"unityPlayUrl": "https://play.unity.com/en/games/ac7adfe0-0769-4247-9c5d-e3ffdf7cfe94/retro-infinite-v2-pc-mobile"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cat-clicker",
+	"name": "Cat Clicker",
+	"author": "jamieachatz",
+	"description": "The Official Game Cat Clicker from Freetime Maker",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/49448c70-3f73-40a4-91cc-49a826fbb6ec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/52732493-e90e-4805-81e9-01cbaa582885/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "52732493-e90e-4805-81e9-01cbaa582885",
+	"unityPlayUrl": "https://play.unity.com/en/games/52732493-e90e-4805-81e9-01cbaa582885/cat-clicker"
+}

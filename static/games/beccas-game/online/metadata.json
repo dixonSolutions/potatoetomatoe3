@@ -1,0 +1,14 @@
+{
+	"id": "beccas-game",
+	"name": "Becca's Game",
+	"author": "mystafer",
+	"description": "Find your way home! :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4720e80a-9fed-449a-80dc-460fa8c601ea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39a4b5ef-5b9a-42e1-9dd7-1cb86547ccc2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39a4b5ef-5b9a-42e1-9dd7-1cb86547ccc2",
+	"unityPlayUrl": "https://play.unity.com/en/games/39a4b5ef-5b9a-42e1-9dd7-1cb86547ccc2/beccas-game"
+}

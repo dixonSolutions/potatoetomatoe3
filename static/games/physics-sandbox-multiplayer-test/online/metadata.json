@@ -1,0 +1,14 @@
+{
+	"id": "physics-sandbox-multiplayer-test",
+	"name": "Physics Sandbox Multiplayer Test",
+	"author": "Kalo2021",
+	"description": "Physics Sandbox Multiplayer Test",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99bb9bdd-c57e-405b-b27d-6a2111152117/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "99bb9bdd-c57e-405b-b27d-6a2111152117",
+	"unityPlayUrl": "https://play.unity.com/en/games/99bb9bdd-c57e-405b-b27d-6a2111152117/physics-sandbox-multiplayer-test"
+}

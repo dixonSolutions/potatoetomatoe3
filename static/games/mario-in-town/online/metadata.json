@@ -1,0 +1,14 @@
+{
+	"id": "mario-in-town",
+	"name": "Mario In Town",
+	"author": "Schroeker",
+	"description": "Changed Player Perspective/ Mario Theme Music/ Random Obstacles    FYI You have to unmute first then click on the main game window to make the space key work again.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/33e8938f-25b8-48c5-add3-b864eaa5e8ba/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cbe97f48-0592-4e30-a700-eefabc3669f5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cbe97f48-0592-4e30-a700-eefabc3669f5",
+	"unityPlayUrl": "https://play.unity.com/en/games/cbe97f48-0592-4e30-a700-eefabc3669f5/mario-in-town"
+}

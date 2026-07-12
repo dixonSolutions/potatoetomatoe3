@@ -1,0 +1,14 @@
+{
+	"id": "new-unity-project",
+	"name": "New Unity Project",
+	"author": "cool2code",
+	"description": "Play New Unity Project on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/959b163b-cf6b-4efe-906c-4af22d0d9a90/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f898191-e64a-44d7-aa04-ac3e7605a30e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f898191-e64a-44d7-aa04-ac3e7605a30e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f898191-e64a-44d7-aa04-ac3e7605a30e/new-unity-project"
+}

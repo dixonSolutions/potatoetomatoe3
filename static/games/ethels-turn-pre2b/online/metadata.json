@@ -1,0 +1,14 @@
+{
+	"id": "ethels-turn-pre2b",
+	"name": "Ethels Turn Pre2B",
+	"author": "RolandoGarroMena",
+	"description": "My latest microgame. I wrote it to test my first reusable unity3d component written as an OOP LIb. The SimpleGauge class extends monobehavior but triggers a warning. Any rate can be comprised into a range pointing the steps like in a zimmerman sum. It produces the same result from a trigonometry point of view, since you have to divide it into the gauges sides lenghts to produce a tangent that decreases the needle angle multiplied by the tork. I tried to sell it on Unity3d asset store but they didnt approved it. Some day it will have a banner server to display adds dynamically , multiplayer support and more. Like my Gauge Component? For a bag of canadian kush or Jamaican Cannabis I will email it to you ....",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/23de05e1-5ef8-419a-bafc-74d2aa7d02a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e39e5659-18d3-4f52-a5ff-8542f6ec8cfb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e39e5659-18d3-4f52-a5ff-8542f6ec8cfb",
+	"unityPlayUrl": "https://play.unity.com/en/games/e39e5659-18d3-4f52-a5ff-8542f6ec8cfb/ethels-turn-pre2b"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mud-match",
+	"name": "M.U.D.-Match",
+	"author": "Unitiblis",
+	"description": "Are you ready for a Multi-User-Dungeon-Crawl?\nBatlle wacky Monsters with up to 6 players and be the first to collect 6 power gems.\nMatches are automatically created/joined via Match-Name",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d1c304c7-8614-43d1-9d76-fffba721dfa2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e1f43fc2-265a-4569-bf05-221b049ba7f8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e1f43fc2-265a-4569-bf05-221b049ba7f8",
+	"unityPlayUrl": "https://play.unity.com/en/games/e1f43fc2-265a-4569-bf05-221b049ba7f8/mud-match"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "midnight-in-rundle-mall",
+	"name": "Midnight in Rundle Mall",
+	"author": "lee1761",
+	"description": "<Control>\nMove:  W(up), A(left), S(down), D(right)\nJump: Space Bar\nDodge: Move(W,A,S,D) + Space Bar\n\n<Shopping>\nEnter the Shop: Press \u201cE\u201d on the circle\nBuy Item/Weapon: Left Mouse Button\nGet the Item: Just to go to Item\nGet the Weapon: Go to Weapon and Press \u201cE\u201d\n\n<Attack>\nSwap Weapon: 1(Hammer) / 2(Hand Gun) / 3(Sub-Machine Gun)\nSwing Hammer: Left mouse Button\nShoot the Gun: Left mouse Button\nThrow Grenade: Right mouse Button (Maximum 4)\nReload: R (2 seconds)\n\nIf you are ready, go to the \u201cNEXT STAGE\u201d circle zone.\n\nEnemies will be spawned at four enemy zones (North, West, South, East). \n\nAt each stage, number of enemies = stage number.\nThere will be Boss on \u201cmultiple of 10\u201d stage (stage 10, 20, 30, \u2026).\n\nIf you kill all of enemies on each stage, you will be default position after 4 seconds. \n\n\u2014Additional Information\u2014\n\n<Type of Item>\nHeart: recover HP(+20)\nAmmo(Bullet): add number of bullet(+30)\nGrenade (Player can equip Grenade up to 4)\n\n<Type of Weapon>\nHammer(Yellow): Melee Attack / Damage: 100\nHand Gun(Green): Low Rate  / maximum bullets : 7 / Damage: 25\nSub-Machine Gun(Blue) : High Rate/ maximum bullets : 30 / Damage: 15\n\n<Type of enemies>\nEnemy A (Green): Melee Attack / HP: 50\nEnemy B (Violet): Melee Attack / HP: 80\nEnemy C (Yellow): Long Range Attack / HP: 200\nBoss (Red): Melee & Long Range Attack / HP: 450\n\n<Type of Coin>\nBronze: 500\nSilver: 1000\nGold: 3000",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2c461e3d-9345-43ab-8d61-bdb8d3eea8e8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ff865c2-ebdb-466f-bd7d-68bd54ee2285/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ff865c2-ebdb-466f-bd7d-68bd54ee2285",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ff865c2-ebdb-466f-bd7d-68bd54ee2285/midnight-in-rundle-mall"
+}

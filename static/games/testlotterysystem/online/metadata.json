@@ -1,0 +1,14 @@
+{
+	"id": "testlotterysystem",
+	"name": "[Test]LotterySystem",
+	"author": "JunLunWang",
+	"description": "\u5be6\u8e10\u5927\u5b78\u9ad8\u96c4\u6821\u5340 \u8cc7\u8a0a\u6a21\u64ec\u8207\u8a2d\u8a08\u5b78\u7cfb 109 \u7d1a \u7562\u696d\u5c55",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59ac3ed3-1a8e-4b0a-aa03-fa9cdca31c73/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59ac3ed3-1a8e-4b0a-aa03-fa9cdca31c73",
+	"unityPlayUrl": "https://play.unity.com/en/games/59ac3ed3-1a8e-4b0a-aa03-fa9cdca31c73/testlotterysystem"
+}

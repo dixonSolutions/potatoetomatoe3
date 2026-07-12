@@ -1,0 +1,14 @@
+{
+	"id": "race",
+	"name": "Race",
+	"author": "ViciousTNT",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f0caf461-469d-4116-a350-edb341f8fb29/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04ae6724-2c71-41ce-97e0-f2f9ebac7638/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04ae6724-2c71-41ce-97e0-f2f9ebac7638",
+	"unityPlayUrl": "https://play.unity.com/en/games/04ae6724-2c71-41ce-97e0-f2f9ebac7638/race"
+}

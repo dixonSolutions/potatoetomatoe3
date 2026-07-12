@@ -1,0 +1,14 @@
+{
+	"id": "bomberman",
+	"name": "BOMBERMAN",
+	"author": "nguyenquyvinh03062000",
+	"description": "PRU212_GROUP11_SE1745\n+Chu Tran Duc Tung\n+Nguyen Khac Long\n+Vu Thi Bich Ngoc\n+Nguyen Quy Vinh",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/af20d188-3e67-4264-ac56-6a893e471720/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "af20d188-3e67-4264-ac56-6a893e471720",
+	"unityPlayUrl": "https://play.unity.com/en/games/af20d188-3e67-4264-ac56-6a893e471720/bomberman"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "city-grand-prix-v700",
+	"name": "City Grand Prix V7.00",
+	"author": "Helle",
+	"description": "Play City Grand Prix V7.00 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/71195b55-4636-46a5-95fb-a58d4a54f962/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13d21257-3d80-4aa8-83a6-4e00d515211d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13d21257-3d80-4aa8-83a6-4e00d515211d",
+	"unityPlayUrl": "https://play.unity.com/en/games/13d21257-3d80-4aa8-83a6-4e00d515211d/city-grand-prix-v700"
+}

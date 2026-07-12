@@ -1,0 +1,14 @@
+{
+	"id": "disco-tomb",
+	"name": "Disco Tomb",
+	"author": "Unity Play",
+	"description": "The droids have invaded your tomb party. Time to take a stand!                                                                                                             You can DOWNLOAD the NEWEST VERSION from: https://discotomb.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6eb3ce50-01eb-4061-8557-5dd4a85df359/content",
+	"category": "first-person-shooter",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f16cab6a-a1d7-46c7-b92f-d00730b54559/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f16cab6a-a1d7-46c7-b92f-d00730b54559",
+	"unityPlayUrl": "https://play.unity.com/en/games/f16cab6a-a1d7-46c7-b92f-d00730b54559/disco-tomb"
+}

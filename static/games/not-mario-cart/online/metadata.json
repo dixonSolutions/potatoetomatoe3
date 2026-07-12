@@ -1,0 +1,14 @@
+{
+	"id": "not-mario-cart",
+	"name": "Not Mario Cart",
+	"author": "SamDogantimur",
+	"description": "Play Not Mario Cart on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ddb0aa42-621c-4090-9f86-66f7fa9109b1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c1ab773-4566-4199-bc5d-e3a2c9f6944c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c1ab773-4566-4199-bc5d-e3a2c9f6944c",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c1ab773-4566-4199-bc5d-e3a2c9f6944c/not-mario-cart"
+}

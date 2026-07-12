@@ -1,0 +1,14 @@
+{
+	"id": "knight-adventure",
+	"name": "Knight Adventure",
+	"author": "kiranguyen1407",
+	"description": "My first game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0256a842-c76b-4f17-9ef7-8e7eaf17dabf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/919ef60b-8ca1-40a5-841b-a461d1e4ddb8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "919ef60b-8ca1-40a5-841b-a461d1e4ddb8",
+	"unityPlayUrl": "https://play.unity.com/en/games/919ef60b-8ca1-40a5-841b-a461d1e4ddb8/knight-adventure"
+}

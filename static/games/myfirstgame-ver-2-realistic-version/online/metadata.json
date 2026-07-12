@@ -1,0 +1,14 @@
+{
+	"id": "myfirstgame-ver-2-realistic-version",
+	"name": "MyFirstGame ver 2 realistic version",
+	"author": "sudyutdas07",
+	"description": "Play MyFirstGame ver 2 realistic version on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c4e6e5c4-e07c-478f-ae60-0a33d622c36a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36e8eb2a-6074-43fd-8d3b-0314c2df3327/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36e8eb2a-6074-43fd-8d3b-0314c2df3327",
+	"unityPlayUrl": "https://play.unity.com/en/games/36e8eb2a-6074-43fd-8d3b-0314c2df3327/myfirstgame-ver-2-realistic-version"
+}

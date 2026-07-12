@@ -1,0 +1,14 @@
+{
+	"id": "mx-mobile-sim-early-access",
+	"name": "MX Mobile Sim (EARLY ACCESS)",
+	"author": "JimBisenius",
+	"description": "Motocross / Supercross Simulator Game designed for iPhone + Android (EARLY ACCESS BETA)\n\nTo join our community or get support, visit our website at www.mxmobilesim.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf50d42f-ee59-4fe4-b9a4-cdd61622ce4d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7e902ce5-7842-4cda-8e1e-4371cf52c3a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7e902ce5-7842-4cda-8e1e-4371cf52c3a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/7e902ce5-7842-4cda-8e1e-4371cf52c3a8/mx-mobile-sim-early-access"
+}

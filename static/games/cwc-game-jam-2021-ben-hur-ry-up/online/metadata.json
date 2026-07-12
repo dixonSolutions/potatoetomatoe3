@@ -1,0 +1,14 @@
+{
+	"id": "cwc-game-jam-2021-ben-hur-ry-up",
+	"name": "CWC Game Jam 2021 - Ben-Hur-Ry Up!",
+	"author": "Zhiu_1234",
+	"description": "TLDR:\nW: Boost (has cooldown)\nSPACE: Combat trick against green cubes (has cooldown)\nMOUSE: Camera\nA+D: Move sideways (the chariot moves forward on its own)\nPlease read carefully, as the MVP project doesn't hold your hand when it comes to accessibility.\nYou are Ben, one of the brave chariot racers and you want to be the first one finishing two laps without dying. Dying?! Oh yes,... This race is not for the meek. You can tackle and boost your way to glory! Use the \"w\" key to get a small boost and hit that \"space\" button to get a super force field to attack the enemies. The enemies are those green thingies riding the chariots, by the way...\nOh yeah, and because your engine-horses are so super smart, they will drive the chariot for you automatically. So lean back and kick those opponents out of the race. You have full 360\u00b0 view with your mouse so keep it wisely to keep track of both what's happening in front of you and behind you. If you wish, you can override the auto-pilot and use \"A\" and \"D\" to steer.\nThis game jam was fun, but also super intense. I tried to squeeze in as much free time as I could, while still having my 9-to-5 job and the everyday chaos happening around me. At least I could dig up around 10-12 hours and invested it in learning some stuff about racing car AI and fighting against physics.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c983145a-04d3-4065-a650-daaa8d5429b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf858a52-d829-42d8-b632-98b99a41d589/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bf858a52-d829-42d8-b632-98b99a41d589",
+	"unityPlayUrl": "https://play.unity.com/en/games/bf858a52-d829-42d8-b632-98b99a41d589/cwc-game-jam-2021-ben-hur-ry-up"
+}

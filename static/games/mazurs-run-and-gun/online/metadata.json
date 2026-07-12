@@ -1,0 +1,14 @@
+{
+	"id": "mazurs-run-and-gun",
+	"name": "Mazur's Run and Gun",
+	"author": "TimsTech",
+	"description": "Faster than a Christmas cracker pull and deadlier than a stray mince pie. Outrun, outgun, outwit and outshine your rivals to rule the rails and rise to leader board greatness.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44db6740-30a5-4e21-ace3-cf86538a1327/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "44db6740-30a5-4e21-ace3-cf86538a1327",
+	"unityPlayUrl": "https://play.unity.com/en/games/44db6740-30a5-4e21-ace3-cf86538a1327/mazurs-run-and-gun"
+}

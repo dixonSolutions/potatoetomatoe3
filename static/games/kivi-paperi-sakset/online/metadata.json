@@ -1,0 +1,14 @@
+{
+	"id": "kivi-paperi-sakset",
+	"name": "Kivi Paperi Sakset",
+	"author": "atheris0",
+	"description": "The final project of Sampo's Karhu team.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8ac18cb4-404a-4c69-8b4b-4afcdd0b73b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8ac18cb4-404a-4c69-8b4b-4afcdd0b73b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/8ac18cb4-404a-4c69-8b4b-4afcdd0b73b2/kivi-paperi-sakset"
+}

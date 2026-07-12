@@ -1,0 +1,14 @@
+{
+	"id": "thinmintsgame",
+	"name": "ThinMintsGame",
+	"author": "collie-shades",
+	"description": "Welcome to the beginning of your journey where you get to experience the world as a thin mint. You arrive in a world that mirrors you and appears to be your own. However, the further you explore this flawless world you discover that you are not alone. It is inhibited by others that try to stop you from further exploring what could be your home.\u200b\n\nControls:\nWASD Keys for directional movement.\nM key to decelerate.\nP key to pause the game. \nSpace key to jump. \nMouse to control the camera and direct the ball.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8468cf1f-102a-4115-b65f-447b7096dcd1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/009a1fda-af41-464b-a588-0164ea94eb47/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "009a1fda-af41-464b-a588-0164ea94eb47",
+	"unityPlayUrl": "https://play.unity.com/en/games/009a1fda-af41-464b-a588-0164ea94eb47/thinmintsgame"
+}

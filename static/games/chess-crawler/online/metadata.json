@@ -1,0 +1,14 @@
+{
+	"id": "chess-crawler",
+	"name": "Chess Crawler",
+	"author": "Micherman",
+	"description": "Logical chess-like game where player has to move a white piece to the end of each level. Avoid or destroy enemies but do not take too much time - chessboard is gradually falling apart. Buy Chess Crawler for Android: https://play.google.com/store/apps/details?id=com.MichermanStudios.ChessCrawler ; See gameplay video: https://youtu.be/t7GGHP-ZYOI",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4ab549ca-e3e5-4dc4-a269-39c29471e1c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb0d5640-cd45-46c8-9bd8-30e10a2a0c1a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb0d5640-cd45-46c8-9bd8-30e10a2a0c1a",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb0d5640-cd45-46c8-9bd8-30e10a2a0c1a/chess-crawler"
+}

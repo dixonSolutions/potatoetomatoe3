@@ -1,0 +1,14 @@
+{
+	"id": "infinite-bad-guys",
+	"name": "Infinite Bad Guys",
+	"author": "ranjansikand",
+	"description": "A quick prototype of a top down shooter concept. I plan to turn this concept into a FPS dungeon crawler, so stay tuned for updates.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c417e94-e645-4b31-87f3-c6769a09f9c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0e73ba4-e388-473d-99a7-4ec8e88fedfb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b0e73ba4-e388-473d-99a7-4ec8e88fedfb",
+	"unityPlayUrl": "https://play.unity.com/en/games/b0e73ba4-e388-473d-99a7-4ec8e88fedfb/infinite-bad-guys"
+}

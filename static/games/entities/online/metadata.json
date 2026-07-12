@@ -1,0 +1,14 @@
+{
+	"id": "entities",
+	"name": "entities",
+	"author": "olivermichaelbailey",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4921eb91-56b8-4dca-b93b-9cdecba5e438/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/515d68c7-e20a-4004-b5e8-77ff36d07ad2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "515d68c7-e20a-4004-b5e8-77ff36d07ad2",
+	"unityPlayUrl": "https://play.unity.com/en/games/515d68c7-e20a-4004-b5e8-77ff36d07ad2/entities"
+}

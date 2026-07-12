@@ -1,0 +1,14 @@
+{
+	"id": "mars-rover",
+	"name": "Mars Rover",
+	"author": "ahnmur",
+	"description": "Haven't you always wanted to be a NASA rover op? Well today is your day. The controls are all yours. \n\nHow to: \n\u2b06\ufe0f Keyboard up arrow for acceleration\n\u2b07\ufe0f Keyboard back arrow braking and reverse\n\u2b05\ufe0f Keyboard left/right arrows for turning\n\u2620\ufe0f If you fall off the path, you just re-spawn at the start!\n\nSpecial thanks: \n\ud83d\ude4f NASA for the cover image\n\ud83d\ude4f To clgreene86 on Sketchfab for the Rover model \n\ud83d\ude4f To The Whole Other for the music: \"Ether Oar\"\n\ud83d\ude4f Unity's Create With Code course (Unit 1 - Player Control).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b2fcaeb2-a472-45bd-a862-d4cbe7c4a14b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/993aa745-f5ab-476a-b327-a466d00146f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "993aa745-f5ab-476a-b327-a466d00146f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/993aa745-f5ab-476a-b327-a466d00146f0/mars-rover"
+}

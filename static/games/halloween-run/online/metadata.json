@@ -1,0 +1,14 @@
+{
+	"id": "halloween-run",
+	"name": "Halloween Run",
+	"author": "kalmantas",
+	"description": "Change your running route hitting one button. As long you push the button, the skeleton guy turns first to right, then to left, again right, again left, and so on. Please wait until it starts, it takes time to load.\n\nThis is my entry for the LEGO Ideas One Button Game Challenge.\nLEGO Ideas username: kurimiki2@gmail.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a5796dd-886d-4d23-9e77-c436c3c23d8d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0eef7997-69fd-4914-9782-73e76dba006b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0eef7997-69fd-4914-9782-73e76dba006b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0eef7997-69fd-4914-9782-73e76dba006b/halloween-run"
+}

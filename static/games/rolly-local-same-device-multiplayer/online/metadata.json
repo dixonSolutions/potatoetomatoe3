@@ -1,0 +1,14 @@
+{
+	"id": "rolly-local-same-device-multiplayer",
+	"name": "Rolly (Local Same Device) Multiplayer",
+	"author": "Kalo2021",
+	"description": "2 player (Same device) Game where the objective of the game is to nock the other player off the map. there are 3 maps and going to be different skins that you can use.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c62386af-f65c-4388-8abf-213b62ee27c7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b3c0499-34a8-4855-afea-1f2d7e178c7b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b3c0499-34a8-4855-afea-1f2d7e178c7b",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b3c0499-34a8-4855-afea-1f2d7e178c7b/rolly-local-same-device-multiplayer"
+}

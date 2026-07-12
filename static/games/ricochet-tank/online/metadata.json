@@ -1,0 +1,14 @@
+{
+	"id": "ricochet-tank",
+	"name": "Ricochet Tank",
+	"author": "Hagi42",
+	"description": "A short tank game.\n\nA tank lands on a planet inhabited by mysterious sharks.  \nTank fire is banned by space law. Use ricochets to destroy Shark Obelisks.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/31a11cf3-b37a-4afb-89c6-867ab3f53b5f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/030ae79a-289c-4864-9d8c-686db41d0490/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "030ae79a-289c-4864-9d8c-686db41d0490",
+	"unityPlayUrl": "https://play.unity.com/en/games/030ae79a-289c-4864-9d8c-686db41d0490/ricochet-tank"
+}

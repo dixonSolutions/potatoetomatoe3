@@ -1,0 +1,14 @@
+{
+	"id": "test-safari-web-request",
+	"name": "[Test] Safari Web Request",
+	"author": "Walkure",
+	"description": "Testing Web Request from 2019.3.0f6",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/033d0ce9-f358-4994-9fc2-881ba723aecd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "033d0ce9-f358-4994-9fc2-881ba723aecd",
+	"unityPlayUrl": "https://play.unity.com/en/games/033d0ce9-f358-4994-9fc2-881ba723aecd/test-safari-web-request"
+}

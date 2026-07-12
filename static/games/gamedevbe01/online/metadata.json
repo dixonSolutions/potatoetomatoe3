@@ -1,0 +1,14 @@
+{
+	"id": "gamedevbe01",
+	"name": "GameDev_BE01",
+	"author": "MxHuda1",
+	"description": "WASD to Move\n\nSpace to Jump",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/575d1dc9-4910-484d-85a6-ae36de5943b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "575d1dc9-4910-484d-85a6-ae36de5943b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/575d1dc9-4910-484d-85a6-ae36de5943b4/gamedevbe01"
+}

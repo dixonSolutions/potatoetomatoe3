@@ -1,0 +1,14 @@
+{
+	"id": "topdownshooter",
+	"name": "TopDownShooter",
+	"author": "Bai0119",
+	"description": "aa",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e87c0bf-cabe-4f4b-b72f-61e3f92a1f70/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e87c0bf-cabe-4f4b-b72f-61e3f92a1f70",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e87c0bf-cabe-4f4b-b72f-61e3f92a1f70/topdownshooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-parking-lot-problem",
+	"name": "The Parking Lot Problem",
+	"author": "EricMan10",
+	"description": "Some trucks are parked in parking bays in A. Unfortunately, they have to be moved to lane C. Trucks can only move to a parking space of their own color. You can only move one truck at a time. Use arrow keys and enter to select and move the trucks. Press R to restart. \n\nRobertson, S. I. (2017). Problem Solving: Perspectives From Cognition and Neuroscience. https://eds.p.ebscohost.com/eds/ebookviewer/ebook/bmxlYmtfXzE0MTc0NTRfX0FO0?sid=d2c78202-03b5-43b4-a71d-7fe4f2e99083@redis&vid=6&format=EB",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8019ff23-9993-402f-8763-1c06cc1ce2de/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99d1c21e-ff24-4b13-a324-33d6d46f9732/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "99d1c21e-ff24-4b13-a324-33d6d46f9732",
+	"unityPlayUrl": "https://play.unity.com/en/games/99d1c21e-ff24-4b13-a324-33d6d46f9732/the-parking-lot-problem"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ao-wind-turbine-demo",
+	"name": "AO Wind Turbine Demo",
+	"author": "billcrowther",
+	"description": "A simple wind turbine made from three Aerodynamic Object blades and tail fin with Lift and Drag components. The rotor and tail fin\u00a0assembly is free to rotate\u00a0around the mast so that it naturally points into the wind. The user can vary the aspect ratio of the blades and blade pitch angle as well as the wind speed and direction. The turbine has a simple generator model that outputs power proportional to aerodynamic torque and rotation rate. The brightness of the\u00a0light is proportional to the power generated. How much green energy can you make?\u00a0\u00a0www.aerodynamicobjects.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de665b9f-cb0d-45cd-b6f0-13562a89643c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1c550f4f-e489-4730-96d8-952acf74e032/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1c550f4f-e489-4730-96d8-952acf74e032",
+	"unityPlayUrl": "https://play.unity.com/en/games/1c550f4f-e489-4730-96d8-952acf74e032/ao-wind-turbine-demo"
+}

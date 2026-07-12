@@ -1,0 +1,14 @@
+{
+	"id": "farfightindev-082-v2",
+	"name": "FarFight(indev 0.8.2. V2)",
+	"author": "destinyand378",
+	"description": "Play FarFight(indev 0.8.2. V2) on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b2bf7bc6-26a7-4e21-a5f6-30edafeef9d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cfc86c92-97ae-41fa-8c12-184c85705ddc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cfc86c92-97ae-41fa-8c12-184c85705ddc",
+	"unityPlayUrl": "https://play.unity.com/en/games/cfc86c92-97ae-41fa-8c12-184c85705ddc/farfightindev-082-v2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lab-project-webgl-build",
+	"name": "Lab Project webGL build",
+	"author": "benedictsapezinskas",
+	"description": "Play Lab Project webGL build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d3501ed9-5d3a-4c4d-9880-f3651e8e04a2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/87b0eb01-e800-4612-8510-b68a03ae6ff7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "87b0eb01-e800-4612-8510-b68a03ae6ff7",
+	"unityPlayUrl": "https://play.unity.com/en/games/87b0eb01-e800-4612-8510-b68a03ae6ff7/lab-project-webgl-build"
+}

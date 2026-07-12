@@ -1,0 +1,14 @@
+{
+	"id": "game-jam-submit-asteroid-pool",
+	"name": "Game Jam Submit: Asteroid Pool",
+	"author": "tbongio27",
+	"description": "Welcome to Asteroid Pool! \nThe goal of the game is to sink the colored balls into their respective matching colored pockets before Time runs out, your Fuel is empty, or you are struck by Space traffic!\n\nHave fun! :)\n\nby Bongy's Creations (Tony B.)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8c8bce5b-276c-49bc-847b-4110969e3fa8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18cbc060-e638-414c-ba08-b563816755a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18cbc060-e638-414c-ba08-b563816755a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/18cbc060-e638-414c-ba08-b563816755a0/game-jam-submit-asteroid-pool"
+}

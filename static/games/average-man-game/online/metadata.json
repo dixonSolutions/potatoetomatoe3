@@ -1,0 +1,14 @@
+{
+	"id": "average-man-game",
+	"name": "Average Man Game",
+	"author": "The_Ladle",
+	"description": "Press space",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b1f0a3b6-9ea0-4306-b9af-2ec15e67fc13/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/86602c05-4c37-4dcb-ad79-f61ce7cd37b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "86602c05-4c37-4dcb-ad79-f61ce7cd37b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/86602c05-4c37-4dcb-ad79-f61ce7cd37b2/average-man-game"
+}

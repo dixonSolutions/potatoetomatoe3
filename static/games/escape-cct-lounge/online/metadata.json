@@ -1,0 +1,14 @@
+{
+	"id": "escape-cct-lounge",
+	"name": "Escape CCT Lounge",
+	"author": "shirleyzc",
+	"description": "This is a first-person escape room game set to find the key to get out the CCT Lounge. It is really simple and easy, but in case you get confused, here is a walk-through link: https://docs.google.com/document/d/1yHhDddL9zZlWj2rcvjyqthT_aYRxB6h7g_MJu7KMBaU/edit?usp=sharing",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ba1c9a5f-32b7-4992-8f49-b3d8e0ed54dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/024018bc-285f-436b-a7b6-d8277871dbcc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "024018bc-285f-436b-a7b6-d8277871dbcc",
+	"unityPlayUrl": "https://play.unity.com/en/games/024018bc-285f-436b-a7b6-d8277871dbcc/escape-cct-lounge"
+}

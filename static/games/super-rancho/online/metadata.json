@@ -1,0 +1,14 @@
+{
+	"id": "super-rancho",
+	"name": "Super Rancho",
+	"author": "Skull_Dev",
+	"description": "My latest microgame of super rancho.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47bf49b7-746e-4ddd-a758-20d4dbc83ec3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/41db3c11-8800-4468-bd34-8ecb4e16124a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "41db3c11-8800-4468-bd34-8ecb4e16124a",
+	"unityPlayUrl": "https://play.unity.com/en/games/41db3c11-8800-4468-bd34-8ecb4e16124a/super-rancho"
+}

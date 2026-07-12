@@ -1,0 +1,14 @@
+{
+	"id": "lego-microgame-revamp",
+	"name": "LEGO Microgame Revamp",
+	"author": "reevthechameleon",
+	"description": "It's been some time since I started learning Unity, and in response to a challenge from a fellow learner, I decided to revamp this microgame!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de5cf2d0-8fa7-45dc-8b0c-dff65c0e9f5e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/797052cb-2894-4581-a10b-e0c8f459fc20/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "797052cb-2894-4581-a10b-e0c8f459fc20",
+	"unityPlayUrl": "https://play.unity.com/en/games/797052cb-2894-4581-a10b-e0c8f459fc20/lego-microgame-revamp"
+}

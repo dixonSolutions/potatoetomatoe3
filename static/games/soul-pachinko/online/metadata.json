@@ -1,0 +1,14 @@
+{
+	"id": "soul-pachinko",
+	"name": "Soul Pachinko",
+	"author": "zolh",
+	"description": "Save 3 lost souls with your hard-earned gold coins..",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0257ad6f-8357-4038-bf9a-d2effe629c16/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51963b51-6c79-4333-bd9e-e95f1827f9d0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51963b51-6c79-4333-bd9e-e95f1827f9d0",
+	"unityPlayUrl": "https://play.unity.com/en/games/51963b51-6c79-4333-bd9e-e95f1827f9d0/soul-pachinko"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "gun-time",
+	"name": "Gun Time",
+	"author": "CarterJMoore",
+	"description": "Gun Time is a first-person platformer game with shooter and puzzler aspects. The story follows an unnamed protagonist who breaks into a facility to steal the Time Gun, which was the ability to slow down or speed up time for whatever it shoots. The player must use the gun's power to escape the facility alive. Contributors: Carter Moore, Samuel Bain, Brilliant Nguyen",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16136a72-7e9e-4911-83ee-2782d2474659/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/41f3e48c-2e51-4a4d-a9e3-3154876bc18a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "41f3e48c-2e51-4a4d-a9e3-3154876bc18a",
+	"unityPlayUrl": "https://play.unity.com/en/games/41f3e48c-2e51-4a4d-a9e3-3154876bc18a/gun-time"
+}

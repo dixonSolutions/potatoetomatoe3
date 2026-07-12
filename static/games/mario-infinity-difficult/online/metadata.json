@@ -1,0 +1,14 @@
+{
+	"id": "mario-infinity-difficult",
+	"name": "Mario Infinity Difficult",
+	"author": "xmliszt_unity",
+	"description": "A more difficult version of Mario Infinity. \"Firewall\" coming from the left much earlier and faster! \"Firepipe\" will appear once you reach 50 points. In this game, the green pipe is no longer a friendly tunnel :D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1928d9f8-52ca-4859-86e8-7b877abee164/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/63e0bb3b-5643-4a8a-9ed5-bd08effadcf3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "63e0bb3b-5643-4a8a-9ed5-bd08effadcf3",
+	"unityPlayUrl": "https://play.unity.com/en/games/63e0bb3b-5643-4a8a-9ed5-bd08effadcf3/mario-infinity-difficult"
+}

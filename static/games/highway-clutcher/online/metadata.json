@@ -1,0 +1,14 @@
+{
+	"id": "highway-clutcher",
+	"name": "Highway Clutcher",
+	"author": "steve_works",
+	"description": "Highway Clutcher: A game where you race on the highway and try to stay alive!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fb4337b8-0b9c-4a91-9667-0bf56f429548/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08a7d2d7-d0f7-4090-b505-65249b878b35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08a7d2d7-d0f7-4090-b505-65249b878b35",
+	"unityPlayUrl": "https://play.unity.com/en/games/08a7d2d7-d0f7-4090-b505-65249b878b35/highway-clutcher"
+}

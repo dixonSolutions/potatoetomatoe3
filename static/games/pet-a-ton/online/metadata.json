@@ -1,0 +1,14 @@
+{
+	"id": "pet-a-ton",
+	"name": "Pet-a-ton",
+	"author": "petur",
+	"description": "Pet him in the right places, at the right direction and the right speed!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/38c873f9-01c1-40a7-b645-dd1e1d639393/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d64f1aa-20f7-4f6c-96fc-4670209bfdf1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d64f1aa-20f7-4f6c-96fc-4670209bfdf1",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d64f1aa-20f7-4f6c-96fc-4670209bfdf1/pet-a-ton"
+}

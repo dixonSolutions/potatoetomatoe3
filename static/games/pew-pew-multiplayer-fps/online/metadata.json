@@ -1,0 +1,14 @@
+{
+	"id": "pew-pew-multiplayer-fps",
+	"name": "PEW PEW Multiplayer FPS",
+	"author": "FarjadBinShahid",
+	"description": "Multiplayer FPS Prototype usual controls w,a,s,d for movement space for jump and TAB for score",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b50898a-2b7d-4ab8-aa08-08fa4d56d6de/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b50898a-2b7d-4ab8-aa08-08fa4d56d6de",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b50898a-2b7d-4ab8-aa08-08fa4d56d6de/pew-pew-multiplayer-fps"
+}

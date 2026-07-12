@@ -1,0 +1,14 @@
+{
+	"id": "parkour-games",
+	"name": "Parkour Games",
+	"author": "zachattack87",
+	"description": "The latest version of the exhilarating Parkour Games - an educational biomes game geared towards 5 and 6 year olds! \nFullscreen is recommended for the best experience.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e80848d-435e-4a44-968f-0b8e76956034/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21fa00f7-fe9d-4779-90fd-fa79c3c68ecc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21fa00f7-fe9d-4779-90fd-fa79c3c68ecc",
+	"unityPlayUrl": "https://play.unity.com/en/games/21fa00f7-fe9d-4779-90fd-fa79c3c68ecc/parkour-games"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dot",
+	"name": "DOT",
+	"author": "ValinyLovan",
+	"description": "Connect the Dot, Connect Community",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0c19cbba-373a-4e51-8887-cc8268b6d5f6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80685d80-5d7f-4129-97ff-95749c017554/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80685d80-5d7f-4129-97ff-95749c017554",
+	"unityPlayUrl": "https://play.unity.com/en/games/80685d80-5d7f-4129-97ff-95749c017554/dot"
+}

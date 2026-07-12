@@ -1,0 +1,14 @@
+{
+	"id": "bowling-game",
+	"name": "Bowling Game",
+	"author": "AiXen",
+	"description": "My first game made on my own in Unity. I hope this is playable \ud83d\ude09",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a0a60805-895c-4ec3-99bb-c2e34f3fb057/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/730a9086-a420-40ca-8bfc-ec4a72e56269/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "730a9086-a420-40ca-8bfc-ec4a72e56269",
+	"unityPlayUrl": "https://play.unity.com/en/games/730a9086-a420-40ca-8bfc-ec4a72e56269/bowling-game"
+}

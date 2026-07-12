@@ -1,0 +1,14 @@
+{
+	"id": "testfps",
+	"name": "TestFPS",
+	"author": "sunbasse",
+	"description": "Play TestFPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d2f7da9-a18e-4be6-9daa-0f51b144116a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d2f7da9-a18e-4be6-9daa-0f51b144116a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d2f7da9-a18e-4be6-9daa-0f51b144116a/testfps"
+}

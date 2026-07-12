@@ -1,0 +1,14 @@
+{
+	"id": "station-saturn",
+	"name": "Station Saturn",
+	"author": "Unity Play",
+	"description": "A Fast-Paced Endless First Person Shooter where you go from room to room battling evil robots.\n\nPlease comment if you liked the game or have any feedback! \n\nYou can also download a standalone Windows (which features enchanced graphics) and Android versions at https://booleet.itch.io/station-saturn\n\nDefault keyboard & mouse controls:\n\n[WASD] - Movement;\n[Space] - Jump;\n[Shift] - Sprint / Dash;\n[C] - Slide;\n\n[Left Mouse Button] - Fire;\n[Right Mouse Button] - Melee;\n\n[R] - Reload;\n[Q] - Weapon Wheel;\n[I] - Inspect weapon;\n\n[Esc / Tab] - Pause Menu.\n\nDefault Xbox Gamepad controls:\n\n[Left Stick] - Movement;\n[Left Stick Button] - Sprint;\n\n[A] - Jump;\n[B] - Slide / Dash;\n[X] - Reload;\n[Y] - Inspect weapon;\n\n[Right Trigger] - Fire;\n[Left Trigger] - Melee;\n\n[Right Bumper] - Weapon Wheel;\n\n[Start] - Pause Menu.\n\nMusic used:\n\nSport Racing Car | DRIVE\nAggressive Computer Gaming | ENIGMA\nAggressive Gaming Sport | Gaming\nEpic Cyberpunk | Glory\nAggressive Electro Cyberpunk | Hidden\nRacing Sport Gaming | RACING\n\nby Alex-Productions | https://onsound.eu/\nMusic promoted by https://www.chosic.com/free-music/all/\nCreative Commons CC BY 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/745d1850-5965-4bbb-82fb-99f3e55bafcf/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1797942a-d436-4284-a084-e6f9f88fd7b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1797942a-d436-4284-a084-e6f9f88fd7b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/1797942a-d436-4284-a084-e6f9f88fd7b7/station-saturn"
+}

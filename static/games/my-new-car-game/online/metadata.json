@@ -1,0 +1,14 @@
+{
+	"id": "my-new-car-game",
+	"name": "My new car game",
+	"author": "kmoser1389",
+	"description": "It is a very simple game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/53c0cef6-d4bc-4f2e-8cc2-4cd23e718fc5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "53c0cef6-d4bc-4f2e-8cc2-4cd23e718fc5",
+	"unityPlayUrl": "https://play.unity.com/en/games/53c0cef6-d4bc-4f2e-8cc2-4cd23e718fc5/my-new-car-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "a-time-for-space",
+	"name": "A Time For Space",
+	"author": "takedadesmullier",
+	"description": "Press Space at the right moment to launch the rocket. The closer you are to the 0 time, the more points you will score. Music: \"Also sprach Zarathustra\", Richard Strauss",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2996edaa-a848-46ad-bef4-2227f6f4933d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d9e202d-4671-4c2f-9c65-be008065e9da/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d9e202d-4671-4c2f-9c65-be008065e9da",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d9e202d-4671-4c2f-9c65-be008065e9da/a-time-for-space"
+}

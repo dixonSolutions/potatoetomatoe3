@@ -1,0 +1,14 @@
+{
+	"id": "sharktornado",
+	"name": "SharkTornado",
+	"author": "IshinoseDev",
+	"description": "a",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/518bcc47-206d-423c-bcf3-625dcebff649/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "518bcc47-206d-423c-bcf3-625dcebff649",
+	"unityPlayUrl": "https://play.unity.com/en/games/518bcc47-206d-423c-bcf3-625dcebff649/sharktornado"
+}

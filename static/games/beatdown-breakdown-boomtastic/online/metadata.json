@@ -1,0 +1,14 @@
+{
+	"id": "beatdown-breakdown-boomtastic",
+	"name": "Beatdown Breakdown Boomtastic",
+	"author": "johnnyjacques",
+	"description": "Originally created for a game jam by a team of 4, \u201cBeatdown Breakdown Boomtastic\u201d is a 2.5D experience that combines classic beat-em-up gameplay with rhythm game mechanics. All graphics were created from scratch, 2D images were animated using Unity's skeletal animation. 3D assets were made using ProBuilder. There are slight audio issues in the webGL build, you can also download the game here :\n\nhttps://davidflyr.itch.io/beatdown-breakdown-boomtastic\n\nSummary :\n\nHit those beats HARD! You've been hired as a security guard at a concert, and it's your job to protect the DJ from unruly fans rushing the stage to drag him away. Finish the song to win; fail to protect the DJ and you'll get booed offstage.\n\nPower up your punches by lining them up with the beat of the DJ's music. You help him, he helps you back-- stronger together!\n\nControls:\n\nKeyboard: \"WASD\" to move, \"Space\" to jump, \"Left-click\" to attack, \"Esc\" to quit.\nController: D-pad/L-stick to move, \"A\" to attack, \"B\" to jump.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb64258c-1b0a-4efd-b342-8a790e32ef9f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b9657db-3a80-4c8f-be05-90f4fcf74f75/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b9657db-3a80-4c8f-be05-90f4fcf74f75",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b9657db-3a80-4c8f-be05-90f4fcf74f75/beatdown-breakdown-boomtastic"
+}

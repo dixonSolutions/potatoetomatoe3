@@ -1,0 +1,14 @@
+{
+	"id": "blazing-fury-demo",
+	"name": "Blazing Fury Demo",
+	"author": "RTArt",
+	"description": "Made in one month. All graphics and animations done by myself ! \n\nControls : \nMain Menu : W/S/Up/Down (move cursor) - Enter (select option)\nIn Game : WASD (move) - double input (Dash) / K (Attack) / L (Jump) / Esc (Pause Menu)\n\nFor those who can't play the game here, you can download the demo (PC) at https://yodaxy.itch.io/blazing-fury\n\nThanks for the feedback !",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2ed7aac1-fb35-4446-bc22-c7f3bbbeb1c5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d4b6959c-88f6-4ca2-8ae1-7c50543e7e01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d4b6959c-88f6-4ca2-8ae1-7c50543e7e01",
+	"unityPlayUrl": "https://play.unity.com/en/games/d4b6959c-88f6-4ca2-8ae1-7c50543e7e01/blazing-fury-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pachinko",
+	"name": "Pachinko",
+	"author": "tomm1st",
+	"description": "Considered a win when the ball rests on the white platform. Just to be watched; no user interaction.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07a01767-bb46-4297-aa80-1c5a3aee24cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07a01767-bb46-4297-aa80-1c5a3aee24cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/07a01767-bb46-4297-aa80-1c5a3aee24cf/pachinko"
+}

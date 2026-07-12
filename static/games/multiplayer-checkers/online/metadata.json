@@ -1,0 +1,14 @@
+{
+	"id": "multiplayer-checkers",
+	"name": "Multiplayer Checkers",
+	"author": "ioanstefan2020",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a88d319-259d-4cb4-8a03-629bb1c79e41/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a70c8b51-78ba-4e75-94a5-e929b4bcf2a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a70c8b51-78ba-4e75-94a5-e929b4bcf2a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/a70c8b51-78ba-4e75-94a5-e929b4bcf2a3/multiplayer-checkers"
+}

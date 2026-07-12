@@ -1,0 +1,14 @@
+{
+	"id": "factory-training",
+	"name": "Factory Training",
+	"author": "unity_7A05CF178176E4B7E2C6",
+	"description": "Factory Training is a high-fidelity URP demo showcasing scalable factory environments with GPU instancing, mixed lighting, custom shaders, and an interactive, step-by-step assembly workflow.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/288cff1c-5e8f-4dbf-ba0a-aa8127b58697/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a84e4b38-721b-4e90-b2ba-0502ea8fac64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a84e4b38-721b-4e90-b2ba-0502ea8fac64",
+	"unityPlayUrl": "https://play.unity.com/en/games/a84e4b38-721b-4e90-b2ba-0502ea8fac64/factory-training"
+}

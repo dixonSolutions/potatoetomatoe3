@@ -1,0 +1,14 @@
+{
+	"id": "arvr-portfolio",
+	"name": "AR/VR portfolio",
+	"author": "E1encia",
+	"description": "Coin collecting, VR target shooting, and AR ghost hunting mini game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/508cf87f-e62c-4502-991e-9092c109c235/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59e5690c-b223-4181-85ed-3c606393eafd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59e5690c-b223-4181-85ed-3c606393eafd",
+	"unityPlayUrl": "https://play.unity.com/en/games/59e5690c-b223-4181-85ed-3c606393eafd/arvr-portfolio"
+}

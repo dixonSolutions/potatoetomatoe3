@@ -1,0 +1,14 @@
+{
+	"id": "mca1-solar-system-simulation",
+	"name": "MCA1: Solar System Simulation",
+	"author": "xrlabresearch",
+	"description": "Press Space to see some action",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f0ce43b-551c-4adc-960d-bdd8789cec5b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f0ce43b-551c-4adc-960d-bdd8789cec5b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f0ce43b-551c-4adc-960d-bdd8789cec5b/mca1-solar-system-simulation"
+}

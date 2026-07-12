@@ -1,0 +1,14 @@
+{
+	"id": "bffbuild",
+	"name": "bff_build",
+	"author": "unity_auA8GH3-6-cXdw",
+	"description": "1-20-23",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cca33c4-2583-4b7a-ac14-0fbe05cf8210/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cca33c4-2583-4b7a-ac14-0fbe05cf8210",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cca33c4-2583-4b7a-ac14-0fbe05cf8210/bffbuild"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "legotris",
+	"name": "LEGOTRIS",
+	"author": "UnionKim",
+	"description": "@@ Break the Lego blocks! @@\n[Move: Arrow keys] [Laser: Z] [Arrow: X]\n// Shoot Laser at Yellow blocks! // \ub178\ub780 \ube14\ub7ed\uc740 \ub808\uc774\uc800\ub85c \uacf5\uaca9\ud558\uc138\uc694! //\n// Shoot Arrow at Blue blocks! // \ud30c\ub780 \ube14\ub7ed\uc740 \ud654\uc0b4\ub85c \uacf5\uaca9\ud558\uc138\uc694! //\n// Avoid Red blocks! // \ube68\uac04 \ube14\ub7ed\uc740 \ud53c\ud558\uc138\uc694! //\n// Speed up After 1min! // 1\ubd84\uc774 \uc9c0\ub098\uba74 \uc18d\ub3c4\uac00 \ube68\ub77c\uc9d1\ub2c8\ub2e4! //",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9ee2aaf1-246e-4e25-881b-957d5100a3fa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/596cb059-bf44-4a77-b4e8-d39fcfac5408/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "596cb059-bf44-4a77-b4e8-d39fcfac5408",
+	"unityPlayUrl": "https://play.unity.com/en/games/596cb059-bf44-4a77-b4e8-d39fcfac5408/legotris"
+}

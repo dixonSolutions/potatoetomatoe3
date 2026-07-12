@@ -1,0 +1,14 @@
+{
+	"id": "week14build",
+	"name": "Week14Build",
+	"author": "mbiyani",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/54682d35-4e39-4af1-aa45-a664f6cbe38a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "54682d35-4e39-4af1-aa45-a664f6cbe38a",
+	"unityPlayUrl": "https://play.unity.com/en/games/54682d35-4e39-4af1-aa45-a664f6cbe38a/week14build"
+}

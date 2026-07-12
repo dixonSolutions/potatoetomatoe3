@@ -1,0 +1,14 @@
+{
+	"id": "click-o-skull",
+	"name": "Click-O-Skull",
+	"author": "GameCoder135",
+	"description": "Follow Tutorial!Support horizontally mobile and tablets.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/30b83db6-cbf9-4d00-80a8-525e8843afbb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00d6c811-ccab-4140-8157-33005c76a782/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00d6c811-ccab-4140-8157-33005c76a782",
+	"unityPlayUrl": "https://play.unity.com/en/games/00d6c811-ccab-4140-8157-33005c76a782/click-o-skull"
+}

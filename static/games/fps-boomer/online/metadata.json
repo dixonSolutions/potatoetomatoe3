@@ -1,0 +1,14 @@
+{
+	"id": "fps-boomer",
+	"name": "FPS BOOMER",
+	"author": "NotCozmic",
+	"description": "Play FPS BOOMER on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/15f19423-16f6-4788-96d2-69ef1f59422c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4a62a249-a108-435c-a4dd-8c1185b48ef4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4a62a249-a108-435c-a4dd-8c1185b48ef4",
+	"unityPlayUrl": "https://play.unity.com/en/games/4a62a249-a108-435c-a4dd-8c1185b48ef4/fps-boomer"
+}

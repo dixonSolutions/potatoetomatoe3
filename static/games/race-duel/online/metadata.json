@@ -1,0 +1,14 @@
+{
+	"id": "race-duel",
+	"name": "Race Duel",
+	"author": "udayjdv",
+	"description": "Multiplayer Car Racer Game. \nHas - local multiplayer, view switching with 'r' key, obstacles, and a simple menu!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dd51389b-2f3d-4d72-9b75-2999acc0d75c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b3a362a-ccef-4f95-90c2-4db8a03db50d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2b3a362a-ccef-4f95-90c2-4db8a03db50d",
+	"unityPlayUrl": "https://play.unity.com/en/games/2b3a362a-ccef-4f95-90c2-4db8a03db50d/race-duel"
+}

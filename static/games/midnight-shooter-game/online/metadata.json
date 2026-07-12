@@ -1,0 +1,14 @@
+{
+	"id": "midnight-shooter-game",
+	"name": "Midnight Shooter game",
+	"author": "vishalkothari32",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f78f115e-50ee-4efb-8d1e-ba8700d58ca4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e62b5bad-45bb-4758-87ee-16f856c063f5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e62b5bad-45bb-4758-87ee-16f856c063f5",
+	"unityPlayUrl": "https://play.unity.com/en/games/e62b5bad-45bb-4758-87ee-16f856c063f5/midnight-shooter-game"
+}

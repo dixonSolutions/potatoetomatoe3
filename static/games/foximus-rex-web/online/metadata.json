@@ -1,0 +1,14 @@
+{
+	"id": "foximus-rex-web",
+	"name": "Foximus Rex Web",
+	"author": "JokerInATardis",
+	"description": "Foximus Rex is a platformer with a twist - the more gems you have, the more FOX POWER you get, and who doesn't want FOX POWER. However, your ammo is also your gems, so if you fire a gem an at enemy you also become weaker.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df35e3ec-0e92-4227-99bc-53667b0db3a6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9714e39e-2d1d-41fc-b5f3-48907e37eb38/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9714e39e-2d1d-41fc-b5f3-48907e37eb38",
+	"unityPlayUrl": "https://play.unity.com/en/games/9714e39e-2d1d-41fc-b5f3-48907e37eb38/foximus-rex-web"
+}

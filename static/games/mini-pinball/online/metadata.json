@@ -1,0 +1,14 @@
+{
+	"id": "mini-pinball",
+	"name": "Mini Pinball",
+	"author": "PriyanshuSol",
+	"description": "Control the flippers with the left/right or A/D Keys and drop the ball in the box to score a point in 100 seconds. Enjoy the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/be2b2193-ff4f-444d-8e59-8b2ad311d769/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07e0495c-ddb4-498e-a265-b5f5980a5980/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07e0495c-ddb4-498e-a265-b5f5980a5980",
+	"unityPlayUrl": "https://play.unity.com/en/games/07e0495c-ddb4-498e-a265-b5f5980a5980/mini-pinball"
+}

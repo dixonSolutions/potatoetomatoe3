@@ -1,0 +1,14 @@
+{
+	"id": "music-warrior",
+	"name": "Music Warrior",
+	"author": "shiqiw86",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d0f4fbfb-062e-4aea-a838-a411063c8726/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ae7db07-06ee-4312-87c5-31af0e5af6d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ae7db07-06ee-4312-87c5-31af0e5af6d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ae7db07-06ee-4312-87c5-31af0e5af6d8/music-warrior"
+}

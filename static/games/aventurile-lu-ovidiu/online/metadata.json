@@ -1,0 +1,14 @@
+{
+	"id": "aventurile-lu-ovidiu",
+	"name": "Aventurile lu' Ovidiu",
+	"author": "xNanoByte",
+	"description": "My first game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/81f9f885-02be-457b-a565-bf912ac728df/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3da4c4d4-47cb-494c-8e87-4903a5ae9349/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3da4c4d4-47cb-494c-8e87-4903a5ae9349",
+	"unityPlayUrl": "https://play.unity.com/en/games/3da4c4d4-47cb-494c-8e87-4903a5ae9349/aventurile-lu-ovidiu"
+}

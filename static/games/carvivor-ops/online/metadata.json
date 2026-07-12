@@ -1,0 +1,14 @@
+{
+	"id": "carvivor-ops",
+	"name": "Carvivor Ops",
+	"author": "Eys_",
+	"description": "Carvivor Ops is a car-based action game that challenges you to survive increasingly intense waves of police within a limited time.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c7e1a897-2fd2-4958-9744-24210425ca23/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c7e1a897-2fd2-4958-9744-24210425ca23",
+	"unityPlayUrl": "https://play.unity.com/en/games/c7e1a897-2fd2-4958-9744-24210425ca23/carvivor-ops"
+}

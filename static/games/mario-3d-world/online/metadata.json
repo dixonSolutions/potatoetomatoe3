@@ -1,0 +1,14 @@
+{
+	"id": "mario-3d-world",
+	"name": "Mario 3D World",
+	"author": "Jorin_Liesse",
+	"description": "Welcome to Unity World Adventure, an exciting platformer game crafted by me a student of Howest's DAE program, specifically as part of the Platform Development 2 course. This project is a faithful clone of the beloved Mario 3D World first level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d7e7f933-0f23-4af1-827a-7481561e0069/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e26bc3b-4571-4c90-9bae-22f50d977581/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e26bc3b-4571-4c90-9bae-22f50d977581",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e26bc3b-4571-4c90-9bae-22f50d977581/mario-3d-world"
+}

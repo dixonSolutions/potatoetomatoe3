@@ -1,0 +1,14 @@
+{
+	"id": "slaughterfestv0-2",
+	"name": "slaughterfest_v0-2",
+	"author": "Unity Play",
+	"description": "Imported some other assets to understand how animation and attack trigger work etc. \n\nFor enemy placement I wrote a RNG script based on the item spawner that can spawn any prefab n times with random radius and angle into the world and attached it to one enemy. That one then serves as the spawning center => more enemies, less manual work for me :)\n\nI did not figure out in time how to build an end trigger so instead I added a \"hidden\" final area to hack and slash around. \n\nFinally to get below 100MB to be able to upload, I also learned how to reduce texture size => 512x512px for many textures. I overshot my target and am around 58 MB now.\n\nYou may have to kite a few enemies to stay alive and the boss is a bit harder to hit. Try to taunt him around!\n\nFeedback is very welcome!\n\nFeatures:\n- quick intro by in-game books\n- more enemy types (various skeletons,Arthur)\n- full equipment slots with prefabs\n- color coded paths\n- additional easter egg weapon\n- SlaughterFarm unlock after endboss",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5cc2eba4-bf59-4ed4-b797-3ed925b2b12c/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f30a56d7-aeae-496c-9bdc-3077556ef8fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f30a56d7-aeae-496c-9bdc-3077556ef8fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/f30a56d7-aeae-496c-9bdc-3077556ef8fb/slaughterfestv0-2"
+}

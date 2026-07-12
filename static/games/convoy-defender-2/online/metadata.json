@@ -1,0 +1,14 @@
+{
+	"id": "convoy-defender-2",
+	"name": "Convoy Defender 2",
+	"author": "ZDTTUTA",
+	"description": "CONTROLS: WASD - Sharp Turns, ARROWS - Wide Turns, LEFT CLICK - shoot missiles, SPACE BAR - Boost. Destroy all three of the trucks in the convoy- The hit boxes get smaller on each truck, the back one is hard to kill.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/510c445d-8d23-4f83-9966-e1d506c09168/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/edfaf160-b4f1-4fe0-b7e6-8b44c608b3a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "edfaf160-b4f1-4fe0-b7e6-8b44c608b3a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/edfaf160-b4f1-4fe0-b7e6-8b44c608b3a8/convoy-defender-2"
+}

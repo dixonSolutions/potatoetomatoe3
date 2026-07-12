@@ -1,0 +1,14 @@
+{
+	"id": "retrowave-racing",
+	"name": "RETROWAVE RACING",
+	"author": "ANesterov",
+	"description": "Screen controller only.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/74767103-1d5b-4d48-8c77-a89a1c7215b6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/513bdfd2-2593-4a3b-a5c8-d14a2f63f80a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "513bdfd2-2593-4a3b-a5c8-d14a2f63f80a",
+	"unityPlayUrl": "https://play.unity.com/en/games/513bdfd2-2593-4a3b-a5c8-d14a2f63f80a/retrowave-racing"
+}

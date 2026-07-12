@@ -1,0 +1,14 @@
+{
+	"id": "lego-sky-parkour",
+	"name": "LEGO Sky Parkour",
+	"author": "JUMPAB_Jie",
+	"description": "Can you make it through 8 levels without dying?\n\nThis game was suppose release on 22 April 2022. But I ran into issue so that why.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37ed0f42-fb73-42dc-8002-c09a597daa19/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d826daa-b705-400c-806d-da5dd12e20ff/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d826daa-b705-400c-806d-da5dd12e20ff",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d826daa-b705-400c-806d-da5dd12e20ff/lego-sky-parkour"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "racing-01",
+	"name": "Racing 01",
+	"author": "osbaldoj",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/21ad3290-4ad6-41fb-ad2a-5b0f436c7ebd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c7a4ad3-f887-4737-b094-e7270bdcba6e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c7a4ad3-f887-4737-b094-e7270bdcba6e",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c7a4ad3-f887-4737-b094-e7270bdcba6e/racing-01"
+}

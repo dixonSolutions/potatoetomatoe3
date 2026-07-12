@@ -1,0 +1,14 @@
+{
+	"id": "farm-fantasy",
+	"name": "Farm Fantasy",
+	"author": "Sea_Leaf",
+	"description": "[https://play.unity.com/mg/lego/farm-fantasy-webgl] I fixed the issue in this separate build. -------------------------------------------------------------Warning: The game worked on my own computer but the WebGL version has a runtime error that I couldn't figure out: \"An abnormal situation has occurred: the PlayerLoop internal function has been called recursively. Please contact Customer Support with a sample project so that we can reproduce the problem and troubleshoot it. RuntimeError: Out of bounds memory access (evaluating 'Module[\"asm\"][\"dynCall_iiiii\"].apply(null,arguments)')\" Sorry the game isn't playable :(.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2dc0e31c-9118-45f9-a4b1-5fcda6427ff5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a2c9d6e4-f421-4867-9500-72fce62b4bb5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a2c9d6e4-f421-4867-9500-72fce62b4bb5",
+	"unityPlayUrl": "https://play.unity.com/en/games/a2c9d6e4-f421-4867-9500-72fce62b4bb5/farm-fantasy"
+}

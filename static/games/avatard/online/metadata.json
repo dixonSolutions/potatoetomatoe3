@@ -1,0 +1,14 @@
+{
+	"id": "avatard",
+	"name": "Avatard",
+	"author": "rlin178",
+	"description": "In the world of bending, there are four elements: earth, water, fire and air. Only the Avatar can master all four elements. With the beginning of the new generation, a new Avatar has appeared and is ready to begin their training. Learn from masters of each element and defeat them in one-on-one battles to gain mastery of all four elements. (CS3540 Spring2023 Group3 FP5)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99581a9c-fe72-4f4c-abc8-ac5db9e8406c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/94618926-3ae1-4048-9518-b304851924e0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "94618926-3ae1-4048-9518-b304851924e0",
+	"unityPlayUrl": "https://play.unity.com/en/games/94618926-3ae1-4048-9518-b304851924e0/avatard"
+}

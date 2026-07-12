@@ -1,0 +1,14 @@
+{
+	"id": "rogue-kingdoms",
+	"name": "Rogue Kingdoms",
+	"author": "Unity Play",
+	"description": "Classic tower defense meets roguelike adventure where you control the hero! Dive into procedurally generated levels filled with unique waves of enemies. Create powerful synergies with a variety of gam",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f0acd407-70e7-468a-b287-91e3814e2908/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fc6a19dd-c7fe-4f83-9aae-b4626c8ccad9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fc6a19dd-c7fe-4f83-9aae-b4626c8ccad9",
+	"unityPlayUrl": "https://play.unity.com/en/games/fc6a19dd-c7fe-4f83-9aae-b4626c8ccad9/rogue-kingdoms"
+}

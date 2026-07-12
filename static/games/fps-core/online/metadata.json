@@ -1,0 +1,14 @@
+{
+	"id": "fps-core",
+	"name": "FPS CORE",
+	"author": "superior_dragon4",
+	"description": "PLAY THIS OR BE DESTROYED",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6eaf002c-089b-41b7-a35c-39eed8e120a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5202d0b7-2be1-4343-a8f6-ff7a5ef67a98/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5202d0b7-2be1-4343-a8f6-ff7a5ef67a98",
+	"unityPlayUrl": "https://play.unity.com/en/games/5202d0b7-2be1-4343-a8f6-ff7a5ef67a98/fps-core"
+}

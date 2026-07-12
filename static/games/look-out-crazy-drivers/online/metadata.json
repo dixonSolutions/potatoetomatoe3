@@ -1,0 +1,14 @@
+{
+	"id": "look-out-crazy-drivers",
+	"name": "Look out! Crazy drivers.",
+	"author": "CookieDoughDev",
+	"description": "Challenge a friend with a race to the end of the road, but keep an eye out for the crazy drivers!\n\nHere is my spin on the first prototype project from the Create with Code series! I added camera switching, a bunch of stacked obstacles, some oncoming cars that can steer left and right to make it harder to dodge, and lastly local multiplayer for that competitive goodness!\n\nHope you enjoy it!\n\n\nThe Controls:\n    Player 1:\n\tWASD - To drive forward, backwards, steer left and right.\n\tLeft control or E - To toggle the camera to the driver seat.\n    Player 2:\n\tArrow keys - To drive forward, backwards, steer left and right.\n\tRight control - To toggle the camera to the driver seat.\n\nPrimitive objects used, are from the Create with Code series - https://learn.unity.com/tutorial/set-up-your-first-project-in-unity?uv=2020.3&courseId=5cf96c41edbc2a2ca6e8810f&projectId=5caccdfbedbc2a3cef0efe63",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff1b8eee-e34f-4219-a547-5ad09523d184/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0969f3df-eb30-46d5-aab5-17343a9a9e95/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0969f3df-eb30-46d5-aab5-17343a9a9e95",
+	"unityPlayUrl": "https://play.unity.com/en/games/0969f3df-eb30-46d5-aab5-17343a9a9e95/look-out-crazy-drivers"
+}

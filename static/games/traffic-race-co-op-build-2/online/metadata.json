@@ -1,0 +1,14 @@
+{
+	"id": "traffic-race-co-op-build-2",
+	"name": "Traffic race co-op (build 2)",
+	"author": "shahariar07",
+	"description": "Have some update on this build. Now The game has winner condition. Any player touch first the winner obsticle win. Also now if a player get his way out of border GameOver pop out. Also now the traffic is random spawn from different position and distroy when out of the game area. Its a lcoal co-op game.Player can individualy control different vichele. Player 1 can be controlled with w,a,s,d keys and player 2 can be controlled with arrow keys. Also there is different camera view for different player. Player 1 can be toggle between his camera view with \"C\" button press and Player 2 also can with \"V\" button press. Thank you",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3e965fa2-8ac7-4f6a-936d-f286ab057a00/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d19bae6-5187-4f9b-89c6-ffd3fbf2732c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d19bae6-5187-4f9b-89c6-ffd3fbf2732c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d19bae6-5187-4f9b-89c6-ffd3fbf2732c/traffic-race-co-op-build-2"
+}

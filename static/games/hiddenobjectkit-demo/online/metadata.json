@@ -1,0 +1,14 @@
+{
+	"id": "hiddenobjectkit-demo",
+	"name": "HiddenObjectKit Demo",
+	"author": "Allebi",
+	"description": "Demo for \"Hidden Objects Game Starter Kit\"",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf2df310-6975-4614-b060-f534976ecbb9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b2d93a23-afdf-4f5f-9347-a43fe39a74bd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b2d93a23-afdf-4f5f-9347-a43fe39a74bd",
+	"unityPlayUrl": "https://play.unity.com/en/games/b2d93a23-afdf-4f5f-9347-a43fe39a74bd/hiddenobjectkit-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "micro-death-gun",
+	"name": "Micro Death Gun",
+	"author": "mc1219999",
+	"description": "Play Micro Death Gun on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7151902-0d6c-49b8-8bf4-db5ce4e69c24/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a98a05a-bf6e-4283-b22a-7b0e255d37cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a98a05a-bf6e-4283-b22a-7b0e255d37cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a98a05a-bf6e-4283-b22a-7b0e255d37cd/micro-death-gun"
+}

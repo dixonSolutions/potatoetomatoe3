@@ -1,0 +1,14 @@
+{
+	"id": "unity-challenge-sprite-pachinko",
+	"name": "Unity Challenge: Sprite Pachinko",
+	"author": "koenfranken",
+	"description": "Used Brackeys 2D Mega Pack assets. Used three objects - two with polygon collider - that drop. Used a random position script to put in and move a lot of barriers... so the objects will eventually always reacht the floor \ud83d\ude0a",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/877b4812-3b03-4fb6-bc4c-bd16df84995f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05aa1ab4-9b5e-458e-a2ca-06a80856fea4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05aa1ab4-9b5e-458e-a2ca-06a80856fea4",
+	"unityPlayUrl": "https://play.unity.com/en/games/05aa1ab4-9b5e-458e-a2ca-06a80856fea4/unity-challenge-sprite-pachinko"
+}

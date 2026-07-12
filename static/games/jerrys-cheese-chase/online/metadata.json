@@ -1,0 +1,14 @@
+{
+	"id": "jerrys-cheese-chase",
+	"name": "Jerry's Cheese Chase",
+	"author": "xeichu",
+	"description": "HW 4: One-level interactive game for Intro to Game Design (COAR 463/CMSC 391)\nControls: Hold space for higher jumps and hit space twice for double jumps; shift to dash\nAll artwork drawn by me\nAudio: https://youtu.be/pBJFNARozMc",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d628ae26-2a6f-40e0-ac60-fc3f91bd96ee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b978b12-0384-49ce-88de-62ef71ea623f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b978b12-0384-49ce-88de-62ef71ea623f",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b978b12-0384-49ce-88de-62ef71ea623f/jerrys-cheese-chase"
+}

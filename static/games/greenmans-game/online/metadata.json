@@ -1,0 +1,14 @@
+{
+	"id": "greenmans-game",
+	"name": "GreenMan's Game",
+	"author": "Away101",
+	"description": "My latest microgame. 2D Platformer Tutorial",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df209f04-a701-49ed-a017-8cc363350dfd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04878fdb-0a8a-4d92-852e-1ca65a5e23e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04878fdb-0a8a-4d92-852e-1ca65a5e23e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/04878fdb-0a8a-4d92-852e-1ca65a5e23e3/greenmans-game"
+}

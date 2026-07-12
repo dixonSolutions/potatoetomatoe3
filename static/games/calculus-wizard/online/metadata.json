@@ -1,0 +1,14 @@
+{
+	"id": "calculus-wizard",
+	"name": "Calculus Wizard",
+	"author": "OhItsRetro",
+	"description": "A Mathematics game about calculus! This game was developed as part of the scholarship project # 23E-ISAU-MS-01 sponsored by the Centre for Scholarship and Innovation in Science, Technology, Engineering and Maths (eSTEeM), the Open University, UK.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5914cd45-c3b5-4981-b78c-83f92c21677d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9a9bfc12-cc08-46fe-910c-9b3815864b88/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9a9bfc12-cc08-46fe-910c-9b3815864b88",
+	"unityPlayUrl": "https://play.unity.com/en/games/9a9bfc12-cc08-46fe-910c-9b3815864b88/calculus-wizard"
+}

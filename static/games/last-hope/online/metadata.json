@@ -1,0 +1,14 @@
+{
+	"id": "last-hope",
+	"name": "Last Hope",
+	"author": "sfwn_bsheer",
+	"description": "\"Last Hope\" is action, survival game. This game is fast-paced running and shooting mechanics with a zombies.\nWhere player only running forward. Also avoid from catching random zombies.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9b3615ff-034f-48a9-969d-1844327ef611/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f3b15927-b968-4db5-83f4-82ddcc5d3760/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f3b15927-b968-4db5-83f4-82ddcc5d3760",
+	"unityPlayUrl": "https://play.unity.com/en/games/f3b15927-b968-4db5-83f4-82ddcc5d3760/last-hope"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "jump-sumo-ball-old-v1",
+	"name": "Jump sumo ball (Old v1)",
+	"author": "brunobiluca",
+	"description": "Sumo game with powers and jump.\n\nTo someone interest in how the game was made, check it out the source code below:\n\nhttps://github.com/BrunoBiluca/UnityFoundationTest",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5dc99d59-cafc-4aa2-9a91-a34f8012b475/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22ee4621-0fd5-40ba-9271-8aaae67c8cdb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "22ee4621-0fd5-40ba-9271-8aaae67c8cdb",
+	"unityPlayUrl": "https://play.unity.com/en/games/22ee4621-0fd5-40ba-9271-8aaae67c8cdb/jump-sumo-ball-old-v1"
+}

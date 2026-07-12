@@ -1,0 +1,14 @@
+{
+	"id": "wip-fps",
+	"name": "WIP FPS",
+	"author": "Unity-noobs",
+	"description": "a wip fps",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03012414-52cc-4103-8514-e8fee7996f68/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03012414-52cc-4103-8514-e8fee7996f68",
+	"unityPlayUrl": "https://play.unity.com/en/games/03012414-52cc-4103-8514-e8fee7996f68/wip-fps"
+}

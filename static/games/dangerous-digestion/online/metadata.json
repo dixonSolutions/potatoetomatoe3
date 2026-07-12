@@ -1,0 +1,14 @@
+{
+	"id": "dangerous-digestion",
+	"name": "Dangerous Digestion",
+	"author": "Karottenkopf1",
+	"description": "Dangerous Digestion is a video game\nwhere you play as a character\nwhich has been eaten by a human.\nYou have to survive every digestion organ in the body,\nand you have to answer some questions about those\nor you will die.\n\nGood luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7ce0e4c8-ee89-4e88-b41d-f8c66c3fd730/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27d0bd66-6990-490a-ab0b-38f1580bc1aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "27d0bd66-6990-490a-ab0b-38f1580bc1aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/27d0bd66-6990-490a-ab0b-38f1580bc1aa/dangerous-digestion"
+}

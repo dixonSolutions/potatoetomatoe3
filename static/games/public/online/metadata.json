@@ -1,0 +1,14 @@
+{
+	"id": "public",
+	"name": "public",
+	"author": "The_maxinater",
+	"description": "Play public on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7cc085e1-cb54-498a-aa04-becad8c0548c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cac4a519-bb12-4289-8505-05a79b271e8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cac4a519-bb12-4289-8505-05a79b271e8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/cac4a519-bb12-4289-8505-05a79b271e8c/public"
+}

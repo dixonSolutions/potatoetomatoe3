@@ -1,0 +1,14 @@
+{
+	"id": "squid-game-red-light-green-light",
+	"name": "Squid Game - Red Light Green Light",
+	"author": "CloudLin",
+	"description": "W, S, A, D to move. Mouse to look around.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a86c6038-8cad-4ed4-8ca1-c1cceb95e7e1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50152d78-173b-4c60-8254-03e057c518ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50152d78-173b-4c60-8254-03e057c518ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/50152d78-173b-4c60-8254-03e057c518ce/squid-game-red-light-green-light"
+}

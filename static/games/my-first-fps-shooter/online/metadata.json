@@ -1,0 +1,14 @@
+{
+	"id": "my-first-fps-shooter",
+	"name": "My first FPS shooter",
+	"author": "Zekken45",
+	"description": "OK this is the real game i made the one before was a mistake enjoy.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/617a7700-24df-491e-ae96-cb289534c697/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f88b1a77-cefc-43cc-bbc9-c254971fcfe4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f88b1a77-cefc-43cc-bbc9-c254971fcfe4",
+	"unityPlayUrl": "https://play.unity.com/en/games/f88b1a77-cefc-43cc-bbc9-c254971fcfe4/my-first-fps-shooter"
+}

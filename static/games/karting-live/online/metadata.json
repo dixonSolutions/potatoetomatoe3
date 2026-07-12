@@ -1,0 +1,14 @@
+{
+	"id": "karting-live",
+	"name": "Karting Live",
+	"author": "DCTechnologies",
+	"description": "Play Karting Live on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a7a8bc2e-293e-4c63-b9ff-04befbfaa640/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02b615a1-1d1b-48a6-9093-0012e4054b24/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02b615a1-1d1b-48a6-9093-0012e4054b24",
+	"unityPlayUrl": "https://play.unity.com/en/games/02b615a1-1d1b-48a6-9093-0012e4054b24/karting-live"
+}

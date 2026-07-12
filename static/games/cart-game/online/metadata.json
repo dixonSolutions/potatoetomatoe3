@@ -1,0 +1,14 @@
+{
+	"id": "cart-game",
+	"name": "Cart Game",
+	"author": "sanket9006",
+	"description": "Play Cart Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/31d1d43d-504b-480b-b774-adf7b09004ac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50b6ab3e-1c35-4410-ac52-4bc1962e194e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50b6ab3e-1c35-4410-ac52-4bc1962e194e",
+	"unityPlayUrl": "https://play.unity.com/en/games/50b6ab3e-1c35-4410-ac52-4bc1962e194e/cart-game"
+}

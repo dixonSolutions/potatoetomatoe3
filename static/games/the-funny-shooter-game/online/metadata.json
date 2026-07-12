@@ -1,0 +1,14 @@
+{
+	"id": "the-funny-shooter-game",
+	"name": "The Funny Shooter game",
+	"author": "anuragkrishna",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4c94275-f1bf-4a29-abf0-f1af9dc0f612/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4c94275-f1bf-4a29-abf0-f1af9dc0f612",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4c94275-f1bf-4a29-abf0-f1af9dc0f612/the-funny-shooter-game"
+}

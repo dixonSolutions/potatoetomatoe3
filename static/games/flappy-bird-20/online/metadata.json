@@ -1,0 +1,14 @@
+{
+	"id": "flappy-bird-20",
+	"name": "Flappy Bird 2.0",
+	"author": "Yan2506",
+	"description": "Press J or right click to activate power",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/03b6638d-4555-493d-93b0-98e0af88ec1b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e1f7963-a8a4-466a-b147-93e52cfccadc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e1f7963-a8a4-466a-b147-93e52cfccadc",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e1f7963-a8a4-466a-b147-93e52cfccadc/flappy-bird-20"
+}

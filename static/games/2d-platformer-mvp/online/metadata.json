@@ -1,0 +1,14 @@
+{
+	"id": "2d-platformer-mvp",
+	"name": "2D-Platformer-MVP",
+	"author": "Unity Play",
+	"description": "Collect gems for points. WASD and arrow keys to move, space bar to jump. Kill monsters by jumping on their heads. Created for the Unity Junior Programmer pathway.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3be88841-6fb7-4269-98e0-3eddfdb8acac/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/edd7b343-289f-41f1-99d8-e840df0300f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "edd7b343-289f-41f1-99d8-e840df0300f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/edd7b343-289f-41f1-99d8-e840df0300f3/2d-platformer-mvp"
+}

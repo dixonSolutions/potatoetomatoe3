@@ -1,0 +1,14 @@
+{
+	"id": "vicious-circles",
+	"name": "Vicious Circles",
+	"author": "SergejKu",
+	"description": "Prototype for a Mental Wellbeing Game\nA collaboration between S\u00f6dert\u00f6rn University and Region Stockholm, BUP.\n\nProduction: Sergej Kuzmin\nDesign brief and testing: Lars Klintwall\n\nlars.klintwall@ki.se",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1942be3b-d00e-4536-92d2-bf81f5f14f52/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1942be3b-d00e-4536-92d2-bf81f5f14f52",
+	"unityPlayUrl": "https://play.unity.com/en/games/1942be3b-d00e-4536-92d2-bf81f5f14f52/vicious-circles"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-racing-game",
+	"name": "The Racing Game",
+	"author": "Noah_hallows",
+	"description": "My latest microgame. This is the karting template from unity that I have changed a bit. for more info look at https://www.teamduckcomputers.com/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e0a6d9d8-b556-4a26-bcda-1ab537d7d68b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18819568-efac-4f35-8532-0ef993f0024a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18819568-efac-4f35-8532-0ef993f0024a",
+	"unityPlayUrl": "https://play.unity.com/en/games/18819568-efac-4f35-8532-0ef993f0024a/the-racing-game"
+}

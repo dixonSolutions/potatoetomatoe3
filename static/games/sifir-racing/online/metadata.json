@@ -1,0 +1,14 @@
+{
+	"id": "sifir-racing",
+	"name": "Sifir Racing",
+	"author": "Apyqe",
+	"description": "Sifir Racing is a fun and exciting racing game that combines fast-paced car dodging with mathematics practice! Learn math while playing!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/317d6b07-795d-459a-ad47-36af2e9ec359/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5cf436b1-c93d-4fec-8c37-2c2cd0e6e2f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5cf436b1-c93d-4fec-8c37-2c2cd0e6e2f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/5cf436b1-c93d-4fec-8c37-2c2cd0e6e2f7/sifir-racing"
+}

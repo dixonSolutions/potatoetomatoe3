@@ -1,0 +1,14 @@
+{
+	"id": "ahorcado-game",
+	"name": "Ahorcado Game",
+	"author": "camilov1927",
+	"description": "Mini juego de ahorcado",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/708b83de-cbc3-4381-b4f5-372ba192c903/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "708b83de-cbc3-4381-b4f5-372ba192c903",
+	"unityPlayUrl": "https://play.unity.com/en/games/708b83de-cbc3-4381-b4f5-372ba192c903/ahorcado-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mca3-defeat-the-dementors",
+	"name": "MCA3 - Defeat the Dementors",
+	"author": "xrlabresearch",
+	"description": "Play in Full Screen\n\nFind the Quidditch Chest and open it asap\nBeware of Dementors",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44953221-245f-488c-86d2-81d64b300a62/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "44953221-245f-488c-86d2-81d64b300a62",
+	"unityPlayUrl": "https://play.unity.com/en/games/44953221-245f-488c-86d2-81d64b300a62/mca3-defeat-the-dementors"
+}

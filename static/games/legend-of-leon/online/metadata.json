@@ -1,0 +1,14 @@
+{
+	"id": "legend-of-leon",
+	"name": "Legend of Leon",
+	"author": "ChillBird",
+	"description": "Savvy Sword fighting platformer\n\nCredits:\nChillBird - All the coding/UI\nLucian - Animation/Art\nKevin - Level design\nAngel - Music",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/13ed516a-a8e8-49b3-a4b8-8813a5cc66c6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08618395-f2e3-4d3f-9e29-a4e172e1acd7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08618395-f2e3-4d3f-9e29-a4e172e1acd7",
+	"unityPlayUrl": "https://play.unity.com/en/games/08618395-f2e3-4d3f-9e29-a4e172e1acd7/legend-of-leon"
+}

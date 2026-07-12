@@ -1,0 +1,14 @@
+{
+	"id": "winter-fox",
+	"name": "Winter Fox",
+	"author": "uCringe",
+	"description": "Winter Fox is a classic platformer. To save your abducted brother you must brave many challenges that test your reflexes. Squash monsters, collect coins and power-ups, and avoid nefarious traps! The game supports keyboard and controller (PS/XBOX). Controls are listed in the main menu. All artwork and characters are created by my son Tue (6) and this is our first game, made from scratch to learn Unity.\n\nNOTE: Running the game in a browser can make the game lag on some computers, making it difficult to control. This is although the game has very low system requirements, locally. It may help to close other tabs, restart browser or not run it full screen.\n\nTIPS: Jump on top of monsters to defeat them. Use snowballs to freeze them temporarily. Collect coins to gain extra lives. Use ice bridges to extend your jumps. Shields protect once against monsters, traps or flames.\n\nGameplay preview: https://youtu.be/DLetxUvjX4U",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/584f5dbf-c017-401b-9324-b8644d2f7443/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/98a8a65f-981c-4810-bc94-d7fe96aa6de7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "98a8a65f-981c-4810-bc94-d7fe96aa6de7",
+	"unityPlayUrl": "https://play.unity.com/en/games/98a8a65f-981c-4810-bc94-d7fe96aa6de7/winter-fox"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "president-tech-award",
+	"name": "President Tech Award",
+	"author": "naillio",
+	"description": "Try to score the maximum number of points",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cb685d02-e581-4ea4-92dc-683df17be2e9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/346b714f-6786-4f58-9af7-91ad614a32ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "346b714f-6786-4f58-9af7-91ad614a32ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/346b714f-6786-4f58-9af7-91ad614a32ad/president-tech-award"
+}

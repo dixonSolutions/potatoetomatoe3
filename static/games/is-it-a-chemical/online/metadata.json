@@ -1,0 +1,14 @@
+{
+	"id": "is-it-a-chemical",
+	"name": "Is it a Chemical?",
+	"author": "chemguy65",
+	"description": "In this sort game, students need to classify something as a pure chemical, a chemical mixture or NOT a chemical.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/62989269-eb75-4221-bda2-77e27f170f20/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e4b56d3-2afe-458e-b87e-c3fad4025fc1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e4b56d3-2afe-458e-b87e-c3fad4025fc1",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e4b56d3-2afe-458e-b87e-c3fad4025fc1/is-it-a-chemical"
+}

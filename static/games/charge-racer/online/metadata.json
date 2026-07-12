@@ -1,0 +1,14 @@
+{
+	"id": "charge-racer",
+	"name": "Charge Racer",
+	"author": "SapphireHD6970",
+	"description": "In Charge Racer, you control the pit stop of your race car. The longer you charge, the more power you will have to complete multiple laps. But take care, if your opponent releases his car earlier, he might finish the race ahead of you.\n\nOutsmart your opponent and release your car directly infront of his, to block him, or time your release to catch a shortcut on the track.\n\nThe first car to complete 20 laps wins!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6e9e128c-38f8-443d-b51e-7dd58d736a21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b2b31aec-a334-4bac-8399-a14507d26b94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b2b31aec-a334-4bac-8399-a14507d26b94",
+	"unityPlayUrl": "https://play.unity.com/en/games/b2b31aec-a334-4bac-8399-a14507d26b94/charge-racer"
+}

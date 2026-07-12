@@ -1,0 +1,14 @@
+{
+	"id": "cattle-prod",
+	"name": "Cattle Prod",
+	"author": "DougTheCat",
+	"description": "Someone left their trampoline in the field again, and the cows are taking advantage...\n\nBest played in vertical fullscreen.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06789de9-a4f5-44ee-9aa0-594081805003/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06789de9-a4f5-44ee-9aa0-594081805003",
+	"unityPlayUrl": "https://play.unity.com/en/games/06789de9-a4f5-44ee-9aa0-594081805003/cattle-prod"
+}

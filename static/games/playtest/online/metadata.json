@@ -1,0 +1,14 @@
+{
+	"id": "playtest",
+	"name": "playtest",
+	"author": "ayushkothari27",
+	"description": "Play playtest on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e5220b6a-3c03-4b27-9afb-35aab70fd9c5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e5220b6a-3c03-4b27-9afb-35aab70fd9c5",
+	"unityPlayUrl": "https://play.unity.com/en/games/e5220b6a-3c03-4b27-9afb-35aab70fd9c5/playtest"
+}

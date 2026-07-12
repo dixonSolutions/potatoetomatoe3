@@ -1,0 +1,14 @@
+{
+	"id": "dragracer",
+	"name": "DragRacer!",
+	"author": "Crevlorne",
+	"description": "This is the somewhat finished product of the Create with Code Prototype 1 project. I had to create all the terrain from scratch and use different assets because the ones provided in the course did not work on my version. Went back and added  all the \"Bonus Features\" challenges after completing the entire course. Music is original, and was made using Tracktion Waveform.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d157e96e-f349-4d5d-99e4-cd58f9abb888/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48cd65b7-a74d-4aa1-8bb0-4d2ed06cfd8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48cd65b7-a74d-4aa1-8bb0-4d2ed06cfd8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/48cd65b7-a74d-4aa1-8bb0-4d2ed06cfd8c/dragracer"
+}

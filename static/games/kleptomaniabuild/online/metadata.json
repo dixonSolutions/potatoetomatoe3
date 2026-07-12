@@ -1,0 +1,14 @@
+{
+	"id": "kleptomaniabuild",
+	"name": "KleptomaniaBuild",
+	"author": "willplymire",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b72449e9-0c22-4263-b288-b8838acf304b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/124e3d0f-ac8d-44ce-b482-4ba18653233c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "124e3d0f-ac8d-44ce-b482-4ba18653233c",
+	"unityPlayUrl": "https://play.unity.com/en/games/124e3d0f-ac8d-44ce-b482-4ba18653233c/kleptomaniabuild"
+}

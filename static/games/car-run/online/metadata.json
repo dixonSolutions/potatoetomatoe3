@@ -1,0 +1,14 @@
+{
+	"id": "car-run",
+	"name": "Car Run",
+	"author": "bkyzsombor",
+	"description": "Will you reach the end of the road? This is not an easy task because you have to overcome difficult obstacles.\nGood luck! :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4ceae857-b661-4930-b99e-9f7ee0d9c6ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/be5ca448-5e81-4f3d-a1d3-0e9bb300e7cc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "be5ca448-5e81-4f3d-a1d3-0e9bb300e7cc",
+	"unityPlayUrl": "https://play.unity.com/en/games/be5ca448-5e81-4f3d-a1d3-0e9bb300e7cc/car-run"
+}

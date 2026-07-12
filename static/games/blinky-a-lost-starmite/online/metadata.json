@@ -1,0 +1,14 @@
+{
+	"id": "blinky-a-lost-starmite",
+	"name": "Blinky - A Lost Starmite",
+	"author": "bluersand",
+	"description": "Enable sound.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d1c710d0-593d-4769-bc8f-ba2727a90f40/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06e3cfd3-6fcc-4a8d-8ebe-a796bbb36ae5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06e3cfd3-6fcc-4a8d-8ebe-a796bbb36ae5",
+	"unityPlayUrl": "https://play.unity.com/en/games/06e3cfd3-6fcc-4a8d-8ebe-a796bbb36ae5/blinky-a-lost-starmite"
+}

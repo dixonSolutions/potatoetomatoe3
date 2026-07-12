@@ -1,0 +1,14 @@
+{
+	"id": "my-first-bletexam",
+	"name": "My First BletExam",
+	"author": "WaleedEcho",
+	"description": "The first game I made after three weeks of learning Unity, it's taken from me roughly about 5 hours, move with W A S D buttons, and find a way to win,  actually, you can win without collect coins.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00ab14bf-b827-460c-9918-2b3f4eed1a06/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00ab14bf-b827-460c-9918-2b3f4eed1a06",
+	"unityPlayUrl": "https://play.unity.com/en/games/00ab14bf-b827-460c-9918-2b3f4eed1a06/my-first-bletexam"
+}

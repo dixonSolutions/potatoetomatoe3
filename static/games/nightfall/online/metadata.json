@@ -1,0 +1,14 @@
+{
+	"id": "nightfall",
+	"name": "Nightfall",
+	"author": "Unity Play",
+	"description": "Coursework for GameDev module",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/da96d188-82bc-4ec3-910f-11f1052477bf/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4de4c7e0-5144-47ac-ab79-8b2b7588f564/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4de4c7e0-5144-47ac-ab79-8b2b7588f564",
+	"unityPlayUrl": "https://play.unity.com/en/games/4de4c7e0-5144-47ac-ab79-8b2b7588f564/nightfall"
+}

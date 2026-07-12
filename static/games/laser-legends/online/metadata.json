@@ -1,0 +1,14 @@
+{
+	"id": "laser-legends",
+	"name": "Laser Legends",
+	"author": "RRZstudios",
+	"description": "Deafeat all enemies To win",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/906caae0-33fc-4fd4-87c2-2897ac3f8ade/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/021af53a-408c-4d11-8def-5019e27c8e48/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "021af53a-408c-4d11-8def-5019e27c8e48",
+	"unityPlayUrl": "https://play.unity.com/en/games/021af53a-408c-4d11-8def-5019e27c8e48/laser-legends"
+}

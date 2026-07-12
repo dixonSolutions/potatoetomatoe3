@@ -1,0 +1,14 @@
+{
+	"id": "the-cookie-clicker",
+	"name": "The Cookie Clicker",
+	"author": "hasanhamad2233",
+	"description": "My latest Clicker game that can be played on mobile",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/854c3aad-88e8-4004-af1c-37e87182d86d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e4f2062-216f-40dc-baf3-a3b7f4d779b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e4f2062-216f-40dc-baf3-a3b7f4d779b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e4f2062-216f-40dc-baf3-a3b7f4d779b5/the-cookie-clicker"
+}

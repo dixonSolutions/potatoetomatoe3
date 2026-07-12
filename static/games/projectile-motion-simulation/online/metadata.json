@@ -1,0 +1,14 @@
+{
+	"id": "projectile-motion-simulation",
+	"name": "Projectile Motion Simulation",
+	"author": "dhruvchadha1997",
+	"description": "Unity Simulation for Youtube.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0842cc42-2e1f-459b-a8fa-c4c58cb8e980/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0842cc42-2e1f-459b-a8fa-c4c58cb8e980",
+	"unityPlayUrl": "https://play.unity.com/en/games/0842cc42-2e1f-459b-a8fa-c4c58cb8e980/projectile-motion-simulation"
+}

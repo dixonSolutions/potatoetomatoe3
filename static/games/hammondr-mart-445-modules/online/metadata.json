@@ -1,0 +1,14 @@
+{
+	"id": "hammondr-mart-445-modules",
+	"name": "HammondR MART 445 Modules",
+	"author": "HammondR",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4db6c66b-d145-46cf-98f5-e8053a9f7d79/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4db6c66b-d145-46cf-98f5-e8053a9f7d79",
+	"unityPlayUrl": "https://play.unity.com/en/games/4db6c66b-d145-46cf-98f5-e8053a9f7d79/hammondr-mart-445-modules"
+}

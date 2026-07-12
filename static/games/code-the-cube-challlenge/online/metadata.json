@@ -1,0 +1,14 @@
+{
+	"id": "code-the-cube-challlenge",
+	"name": "Code the Cube Challlenge",
+	"author": "ZaWarudoDev",
+	"description": "My game features a cube that gradually changes color and scale over time, and you can manipulate the cube's rotation using your mouse.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c40daf53-1f8b-42fb-ba2b-16c96a305f77/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d4809dc-740a-4196-8b67-af8ff97c7ee9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d4809dc-740a-4196-8b67-af8ff97c7ee9",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d4809dc-740a-4196-8b67-af8ff97c7ee9/code-the-cube-challlenge"
+}

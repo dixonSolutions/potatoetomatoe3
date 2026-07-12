@@ -1,0 +1,14 @@
+{
+	"id": "car-soccer",
+	"name": "Car Soccer",
+	"author": "Unity Play",
+	"description": "It is a Unity-based game where players can play soccer by driving cars.\nAlmost all game mechanics and all assets are created by me.\nThe game currently includes a single-player mode with AI-controlled cars, offering various match setups such as 1v1, 2v2 (with an AI teammate), or uneven matches like 2v1 and 1v2.\nThe creation of the game is documented in a YouTube video series, where you can see almost the entire process of building the game from scratch.\nThrough the video series, I prepare game models, textures, scripts, and the integration of sound and music, as well as the implementation of single-player capabilities.\nI am planning to create a multiplayer mode in the future.\nFor now, have fun playing against AI players.\n\nGame Engine: Unity 2021.3.10f1 (URP - Universal Render Pipeline)\nModels: Created by author\nMusic: Composed by author\nSFX: Created by author\n\nGame trailer: https://www.youtube.com/watch?v=Y7XOpJctwVQ\n\nhttps://x.com/maximus_173\nhttps://www.youtube.com/@MaximusDev173\nhttps://github.com/maximus0173/Car-Soccer",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/486c2333-1ddf-48d9-9f62-a08c1f1d52fd/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/703b7a88-d159-4c72-80cb-ca3142401a70/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "703b7a88-d159-4c72-80cb-ca3142401a70",
+	"unityPlayUrl": "https://play.unity.com/en/games/703b7a88-d159-4c72-80cb-ca3142401a70/car-soccer"
+}

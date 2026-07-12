@@ -14,6 +14,8 @@ export interface GameStatus {
 }
 
 let cachedGameIds: string[] | null = null;
+/** mtime of games-list.json when cachedGameIds was loaded; null if loaded from disk scan. */
+let cachedListMtimeMs: number | null = null;
 
 export function isValidGameId(gameId: string): boolean {
   if (!GAME_ID_PATTERN.test(gameId)) return false;
@@ -21,23 +23,52 @@ export function isValidGameId(gameId: string): boolean {
   return !gameId.includes('..') && !gameId.includes('/');
 }
 
+async function gamesListMtimeMs(): Promise<number | null> {
+  try {
+    const st = await fs.stat(path.join(CATALOG_DIR, 'games-list.json'));
+    return st.mtimeMs;
+  } catch {
+    return null;
+  }
+}
+
 export async function loadGameIds(): Promise<string[]> {
-  if (cachedGameIds) return cachedGameIds;
   const listPath = path.join(CATALOG_DIR, 'games-list.json');
+  const mtime = await gamesListMtimeMs();
+  if (
+    cachedGameIds &&
+    ((mtime != null && mtime === cachedListMtimeMs) ||
+      (mtime == null && cachedListMtimeMs == null))
+  ) {
+    return cachedGameIds;
+  }
+
   try {
     const raw = await fs.readFile(listPath, 'utf-8');
     const parsed = JSON.parse(raw) as unknown;
     cachedGameIds = Array.isArray(parsed)
       ? parsed.filter((id): id is string => typeof id === 'string' && isValidGameId(id))
       : [];
+    cachedListMtimeMs = mtime;
   } catch {
     cachedGameIds = await listGameIdsFromDisk(CATALOG_DIR);
+    cachedListMtimeMs = null;
   }
   return cachedGameIds;
 }
 
+/** True if gameId is in catalog; reloads once on miss in case the list was just rewritten. */
+export async function isGameInCatalog(gameId: string): Promise<boolean> {
+  const ids = await loadGameIds();
+  if (ids.includes(gameId)) return true;
+  invalidateCatalogCache();
+  const refreshed = await loadGameIds();
+  return refreshed.includes(gameId);
+}
+
 export function invalidateCatalogCache(): void {
   cachedGameIds = null;
+  cachedListMtimeMs = null;
 }
 
 async function listGameIdsFromDisk(root: string): Promise<string[]> {

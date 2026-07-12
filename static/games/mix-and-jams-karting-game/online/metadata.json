@@ -1,0 +1,14 @@
+{
+	"id": "mix-and-jams-karting-game",
+	"name": "Mix and Jam's Karting Game",
+	"author": "itsKristin",
+	"description": "Play Mix and Jam's Karting Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a7f4f89c-948e-48ad-8618-5bf4de0457a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/af1edef1-3bde-434c-b531-029ee333ff07/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "af1edef1-3bde-434c-b531-029ee333ff07",
+	"unityPlayUrl": "https://play.unity.com/en/games/af1edef1-3bde-434c-b531-029ee333ff07/mix-and-jams-karting-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "best-platformer-ever",
+	"name": "Best Platformer Ever",
+	"author": "mjboyles",
+	"description": "Example test game built for T22 Studios (DePauw Tenzer WT 2022 course)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0db13743-d329-45c2-8ae7-6c16c0ac9a7c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0db13743-d329-45c2-8ae7-6c16c0ac9a7c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0db13743-d329-45c2-8ae7-6c16c0ac9a7c/best-platformer-ever"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dragon-quest-level-2",
+	"name": "Dragon Quest level 2",
+	"author": "Spider74pizza",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00723cc7-9ed8-45a2-8474-846b47a25d4d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5c13f300-2006-42c4-9df3-32765fe3aeb4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5c13f300-2006-42c4-9df3-32765fe3aeb4",
+	"unityPlayUrl": "https://play.unity.com/en/games/5c13f300-2006-42c4-9df3-32765fe3aeb4/dragon-quest-level-2"
+}

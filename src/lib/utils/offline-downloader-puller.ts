@@ -56,6 +56,38 @@ export async function isPullerAvailable(force = false): Promise<boolean> {
 	return pullerAvailableCache;
 }
 
+export interface PullerHealth {
+	ok: boolean;
+	dataDir?: string;
+	catalogDir?: string;
+	catalogGameCount?: number;
+}
+
+export async function fetchPullerHealth(): Promise<PullerHealth | null> {
+	if (!shouldProbePullerBackend()) return null;
+	try {
+		const res = await fetch(`${getPullerBaseUrl()}/api/offline/health`, {
+			signal: AbortSignal.timeout(2500)
+		});
+		if (!res.ok) return null;
+		return (await res.json()) as PullerHealth;
+	} catch {
+		return null;
+	}
+}
+
+/** Enrich "Game not in catalog" errors with puller catalog size when available. */
+export async function describePullerDownloadError(error: string | undefined): Promise<string> {
+	const base = error?.trim() || 'Download failed';
+	if (!/not in catalog/i.test(base)) return base;
+	const health = await fetchPullerHealth();
+	if (!health || typeof health.catalogGameCount !== 'number') return base;
+	if (health.catalogGameCount === 0) {
+		return `${base} — puller catalog is empty (packaging issue)`;
+	}
+	return `${base} (puller catalog has ${health.catalogGameCount} games)`;
+}
+
 export function invalidatePullerAvailabilityCache(): void {
 	pullerAvailableCache = null;
 }

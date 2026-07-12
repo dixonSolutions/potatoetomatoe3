@@ -1,0 +1,14 @@
+{
+	"id": "mayan-doom",
+	"name": "Mayan Doom",
+	"author": "tomasmacias",
+	"description": "Procedural LEGO Platformer\n\nA 3d platformer where level are procedural generated with increasing difficulty as it level up. It's my first \"serious\" game in Unity so I hope you enjoyed it. Please leave me any feedback on the comments :)\n\nSynopsis\n\nA recently discovered mayan temple has reveal that the actual End of the World will occur in December 2022 and not in 2012 as interpreted before. Luckily, this temple also shows that the old mayan gods (probably aliens) hided a secret high-tech weapon to be deployed at the time. But only if humanity proofs to be worthy in a series of randomly generated set of platforms, which will test both dexterity and cunning.\n\nWhy procedural?\n\n- It makes the game more durable as you can replay it many times and it has, theoretically, infinite levels (Actually not, because of graphics and performance problems at very high levels)\n\n- It enhance to learn how to play and get skills to avoid any unforeseen situation, rather than memorizing the timing of the level with repetition.\n\n- It makes testing more funny (egoist thought of developer)\n\n- The algorithm creates very interesting levels and situations that I, as essentially programmer, could not find out so easily. \n\nWebGL Performance\n\nThe game was developed on Windows Platform and it has much much better performance there. I tried to optimized it a little bit for WebGL but got out of time. I think I should remove some objects since the temple is very heavy for WebGL and also all the vegetation. If you have any tips please leave a comment.\n\nYou should be able to play some levels and get the concept of the game: like a demo. But I recommend you to get the Windows version if you have enjoyed it. (https://thebretonnian.itch.io/mayan-doom)\n\nOne workaround is to play with the  free look camera to make a kind of 2.5D View or placed it as cenital view in order to reduce the amount of objects in the Screen. Also reduce the look sensibility may help.\n\nCredits\n\nGame Design, Code and LEGO Models (and ",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ced28ba8-328a-4468-8214-482801ef77a5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fbe6e97a-d263-4e43-9a74-112b2656bc25/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fbe6e97a-d263-4e43-9a74-112b2656bc25",
+	"unityPlayUrl": "https://play.unity.com/en/games/fbe6e97a-d263-4e43-9a74-112b2656bc25/mayan-doom"
+}

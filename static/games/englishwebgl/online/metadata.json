@@ -1,0 +1,14 @@
+{
+	"id": "englishwebgl",
+	"name": "EnglishWebGl",
+	"author": "GDMtutor",
+	"description": "english game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0fc1371d-f503-46c5-8b88-d3fe21d3f2c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0fc1371d-f503-46c5-8b88-d3fe21d3f2c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/0fc1371d-f503-46c5-8b88-d3fe21d3f2c2/englishwebgl"
+}

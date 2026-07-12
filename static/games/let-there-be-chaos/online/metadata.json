@@ -1,0 +1,14 @@
+{
+	"id": "let-there-be-chaos",
+	"name": "Let there be chaos",
+	"author": "Zhiu_1234",
+	"description": "This is my entry of Brackeys Game Jam 2021.2. The theme was \"Let there be chaos\". I always envied my cat destroying my furniture and throwing around all sorts of things that are laying around, so I decided to make a game to live the dream of breaking havoc as a cat! Controls are simple:\n\nWASD or arrow keys move the cat\nMouse controls the camera\n'h' will open/close the help\n'q' will quit the game after reaching the story goal\nI hope you enjoy it. :)\n\nI used paid and free assets in this project. I show deep gratitude for the creators to make such cool assets available:\n\nCat: https://assetstore.unity.com/packages/3d/characters/animals/mammals/free-chibi-cat-165490 \nNPC (Mary K): https://assetstore.unity.com/packages/3d/characters/humanoids/humans/sporty-girl-29666  \nFences for the garden: https://assetstore.unity.com/packages/3d/props/exterior/free-stylized-garden-asset-145896 \nHouse and interior assets: https://assetstore.unity.com/packages/3d/props/interior/low-poly-cartoon-house-interiors-167425  \nGarden assets: https://assetstore.unity.com/packages/3d/environments/industrial/low-poly-farm-pack-lite-188100  \nSwing: https://assetstore.unity.com/packages/3d/props/exterior/swing-19032\nSoccer ball: https://assetstore.unity.com/packages/3d/low-polygon-soccer-ball-84382\nGame jam theme art and background: DevLever (https://itch.io/jam/brackeys-6)\nBGM: https://assetstore.unity.com/packages/audio/music/absolutely-free-music-4883\u200b\nSFX (touch object, Mary K spots cat, level complete, mission complete, jump):\nhttps://assetstore.unity.com/packages/audio/sound-fx/free-casual-soundfx-pack-16...\n\u200bhttps://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-5...\nhttps://assetstore.unity.com/packages/audio/sound-fx/epic-game-hits-sfx-36617\u200b\nDoor sfx: https://mixkit.co/free-sound-effects/doors/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df8d9fdc-6a57-4fd3-b3b5-8e12626870dd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/91564a3d-c22b-4ad0-8522-3945a76b43db/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "91564a3d-c22b-4ad0-8522-3945a76b43db",
+	"unityPlayUrl": "https://play.unity.com/en/games/91564a3d-c22b-4ad0-8522-3945a76b43db/let-there-be-chaos"
+}

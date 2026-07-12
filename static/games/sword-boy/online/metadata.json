@@ -1,0 +1,14 @@
+{
+	"id": "sword-boy",
+	"name": "Sword Boy",
+	"author": "dr_roctopus",
+	"description": "An RPG micro-adventure starring Darren and a log that he has apparently befriended. Created for the Udemy course \"Learn to Create an RPG Game in Unity\", from included assets and some custom additions. Three possible endings.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/173c13b2-99ac-426b-a70a-e96a8fbfd2e0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4fee3f97-764e-4c32-b8f5-55d6d8bd027f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4fee3f97-764e-4c32-b8f5-55d6d8bd027f",
+	"unityPlayUrl": "https://play.unity.com/en/games/4fee3f97-764e-4c32-b8f5-55d6d8bd027f/sword-boy"
+}

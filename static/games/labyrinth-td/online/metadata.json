@@ -1,0 +1,14 @@
+{
+	"id": "labyrinth-td",
+	"name": "Labyrinth TD",
+	"author": "smoelby",
+	"description": "Tower defence based on building a labyrinth.\n\nNew level",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d7356bb1-d17c-4499-81c6-d1dfab701ea1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ca2aeafc-5397-444b-bef1-e65b0c1df2d1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ca2aeafc-5397-444b-bef1-e65b0c1df2d1",
+	"unityPlayUrl": "https://play.unity.com/en/games/ca2aeafc-5397-444b-bef1-e65b0c1df2d1/labyrinth-td"
+}

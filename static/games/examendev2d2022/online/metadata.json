@@ -1,0 +1,14 @@
+{
+	"id": "examendev2d2022",
+	"name": "Examen_Dev2d_2022",
+	"author": "Lasse-Loepfe",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7d4baa81-ab46-497e-bf77-62546dcc4a6c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7d4baa81-ab46-497e-bf77-62546dcc4a6c",
+	"unityPlayUrl": "https://play.unity.com/en/games/7d4baa81-ab46-497e-bf77-62546dcc4a6c/examendev2d2022"
+}

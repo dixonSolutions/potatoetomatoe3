@@ -1,0 +1,14 @@
+{
+	"id": "redwoods",
+	"name": "Redwoods",
+	"author": "culpia",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c74113f-3f22-4d2a-a396-3bcdb0732b56/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0386d91c-3e7a-4b96-9528-134b6ee35f9b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0386d91c-3e7a-4b96-9528-134b6ee35f9b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0386d91c-3e7a-4b96-9528-134b6ee35f9b/redwoods"
+}

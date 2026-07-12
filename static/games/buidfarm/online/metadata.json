@@ -1,0 +1,14 @@
+{
+	"id": "buidfarm",
+	"name": "buid_farm",
+	"author": "Greenear",
+	"description": "123",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fecce05d-6c00-4b7f-9712-fccb4030dfda/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fecce05d-6c00-4b7f-9712-fccb4030dfda",
+	"unityPlayUrl": "https://play.unity.com/en/games/fecce05d-6c00-4b7f-9712-fccb4030dfda/buidfarm"
+}

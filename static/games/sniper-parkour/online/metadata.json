@@ -1,0 +1,14 @@
+{
+	"id": "sniper-parkour",
+	"name": "sniper parkour",
+	"author": "tonyDucogen",
+	"description": "Play sniper parkour on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22f4c75a-b970-41e8-8166-d7cf245b54ec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "22f4c75a-b970-41e8-8166-d7cf245b54ec",
+	"unityPlayUrl": "https://play.unity.com/en/games/22f4c75a-b970-41e8-8166-d7cf245b54ec/sniper-parkour"
+}

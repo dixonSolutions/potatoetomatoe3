@@ -1,0 +1,14 @@
+{
+	"id": "smbz",
+	"name": "smbz",
+	"author": "Unwanted_Unknown",
+	"description": "super Mario bros z:the game made by zethross",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3092397a-9bcf-4ae5-beee-3464a755c0db/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3092397a-9bcf-4ae5-beee-3464a755c0db",
+	"unityPlayUrl": "https://play.unity.com/en/games/3092397a-9bcf-4ae5-beee-3464a755c0db/smbz"
+}

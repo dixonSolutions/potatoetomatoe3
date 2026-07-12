@@ -1,0 +1,14 @@
+{
+	"id": "speed-run-game-v12",
+	"name": "Speed Run Game V1.2",
+	"author": "praveen180490",
+	"description": "Local multiplayer game -  Player 1 - Use \"W/A/S/D\" keys for movement and \"C\" key for Camera Switch. Player 2 - Use \"Left/Right/Up/Down\" Arrow keys for movement and \"M\" key for Camera Switch",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6111a1bf-931c-48ba-bd0d-9019787429a8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/30f444c0-8ccc-4b31-9598-bdf0bd3453ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "30f444c0-8ccc-4b31-9598-bdf0bd3453ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/30f444c0-8ccc-4b31-9598-bdf0bd3453ab/speed-run-game-v12"
+}

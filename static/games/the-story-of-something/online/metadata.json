@@ -1,0 +1,14 @@
+{
+	"id": "the-story-of-something",
+	"name": "The Story of Something",
+	"author": "Unity Play",
+	"description": "This game was developed in one week for Brackeys Game Jam 2025.1 by a team of 5. The theme was \"Nothing can go wrong...\" This is the story of how \"nothing\" and \"everything\" created \"something\".",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16025c4b-12d6-4b42-89ef-77f432483b3d/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c02ac024-d48c-4f42-8db8-ea113343a06a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c02ac024-d48c-4f42-8db8-ea113343a06a",
+	"unityPlayUrl": "https://play.unity.com/en/games/c02ac024-d48c-4f42-8db8-ea113343a06a/the-story-of-something"
+}

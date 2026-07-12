@@ -1,0 +1,14 @@
+{
+	"id": "sails-to-sales",
+	"name": "Sails to Sales!",
+	"author": "Chinnychinster",
+	"description": "How long can you survive the life of a 9-to-5 on the seven seas?\nPlease play in FULLSCREEN as you may miss crucial UI elements.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/42b5f3e5-fc7c-48cf-a4b5-4f34522a6b3c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0db00968-35db-4b1d-8b12-3595f25b7baf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0db00968-35db-4b1d-8b12-3595f25b7baf",
+	"unityPlayUrl": "https://play.unity.com/en/games/0db00968-35db-4b1d-8b12-3595f25b7baf/sails-to-sales"
+}

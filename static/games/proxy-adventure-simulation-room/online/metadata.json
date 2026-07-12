@@ -1,0 +1,14 @@
+{
+	"id": "proxy-adventure-simulation-room",
+	"name": "Proxy Adventure: Simulation Room",
+	"author": "Unity Play",
+	"description": "Simulation Room is a fast-paced 2D auto-battler with deck-building mechanics. Every move counts\u2014strategize and dominate!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/78a4d5f3-268b-416a-a05b-a470ce9bfe34/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f6bbb538-4e91-4437-9f37-6757bff49881/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f6bbb538-4e91-4437-9f37-6757bff49881",
+	"unityPlayUrl": "https://play.unity.com/en/games/f6bbb538-4e91-4437-9f37-6757bff49881/proxy-adventure-simulation-room"
+}

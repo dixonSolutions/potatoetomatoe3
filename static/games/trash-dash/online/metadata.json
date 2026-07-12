@@ -1,0 +1,14 @@
+{
+	"id": "trash-dash",
+	"name": "Trash Dash",
+	"author": "enchiridion",
+	"description": "WebGL Siya test.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/399853fe-2f0b-498b-8960-8780677efd78/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "399853fe-2f0b-498b-8960-8780677efd78",
+	"unityPlayUrl": "https://play.unity.com/en/games/399853fe-2f0b-498b-8960-8780677efd78/trash-dash"
+}

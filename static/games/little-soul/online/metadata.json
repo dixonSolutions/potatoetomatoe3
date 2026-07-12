@@ -1,0 +1,14 @@
+{
+	"id": "little-soul",
+	"name": "Little Soul",
+	"author": "arhnt",
+	"description": "My first microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/42fc7190-4a75-4d7f-bd66-7f830a1441fa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55ec1684-0f63-4dc3-b377-1be776eac7a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55ec1684-0f63-4dc3-b377-1be776eac7a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/55ec1684-0f63-4dc3-b377-1be776eac7a8/little-soul"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wins-adventure",
+	"name": "Win's Adventure",
+	"author": "KidsSTOP_Little_Footprints",
+	"description": "Little Footprints Travelling with Win",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/195e7779-b39c-46bf-b267-31c62e5765dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "195e7779-b39c-46bf-b267-31c62e5765dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/195e7779-b39c-46bf-b267-31c62e5765dc/wins-adventure"
+}

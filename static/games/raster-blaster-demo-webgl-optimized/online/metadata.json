@@ -1,0 +1,14 @@
+{
+	"id": "raster-blaster-demo-webgl-optimized",
+	"name": "Raster Blaster Demo (WebGL Optimized)",
+	"author": "Mikhailzrick",
+	"description": "I hope you enjoy my first game! Raster Blaster is an arcade style wave shooter with heavy synthwave / 80's vibes! This is a demo of the first level. \n\nShoot opposite color projectiles to damage enemies!  There's also a hidden secret item if you can find it. :)\n\nLets see those high scores!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ea44e080-36db-4150-a2ca-bb5fa330f33a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fe957e9-1dfb-43a8-9ba1-4fdeca01593f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fe957e9-1dfb-43a8-9ba1-4fdeca01593f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fe957e9-1dfb-43a8-9ba1-4fdeca01593f/raster-blaster-demo-webgl-optimized"
+}

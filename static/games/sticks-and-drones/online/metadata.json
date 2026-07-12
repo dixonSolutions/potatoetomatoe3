@@ -1,0 +1,14 @@
+{
+	"id": "sticks-and-drones",
+	"name": "Sticks and Drones",
+	"author": "lewissp",
+	"description": "You are Gerald, a repair bird. It's your job to repair the local nests by shooting sticks at them. Unfortunately, the local no good kids have decided that this is the perfect day to fly their drones everywhere, so you'll have to watch out for those. Space to fire sticks, arrow keys/WASD to move. The orange diamond will give you armour that will let you withstand hits from drones for a short period. The lightning will give you Super Sticks that let you destroy drones and complete trees with one stick. The spanner will bring your lives back up to three. This game was made with assets strung together from various places. This was my personal project for the Unity Learn Create With Code course.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0127b786-bdf1-4882-b5fa-bac1e2171a89/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/076b3bee-060a-41d5-83c6-9ad53d58eaad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "076b3bee-060a-41d5-83c6-9ad53d58eaad",
+	"unityPlayUrl": "https://play.unity.com/en/games/076b3bee-060a-41d5-83c6-9ad53d58eaad/sticks-and-drones"
+}

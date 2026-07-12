@@ -1,0 +1,14 @@
+{
+	"id": "edgebug",
+	"name": "edgebug",
+	"author": "Liamstrahan",
+	"description": "pink is floor,\npurple is disappear,\nyou are yellow,\nplease bug out on edges.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f7b7aef3-06d1-44e3-9fcd-58bf0899cb00/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07dab1fe-ba72-4df6-afd3-cb161269575a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07dab1fe-ba72-4df6-afd3-cb161269575a",
+	"unityPlayUrl": "https://play.unity.com/en/games/07dab1fe-ba72-4df6-afd3-cb161269575a/edgebug"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "coronageddon",
+	"name": "CORONAGEDDON",
+	"author": "DeKay99",
+	"description": "Coronageddon - grocery shopping reimagined in time of COVID-19!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44f28554-f8a7-44ca-9af3-1586a9ab564a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "44f28554-f8a7-44ca-9af3-1586a9ab564a",
+	"unityPlayUrl": "https://play.unity.com/en/games/44f28554-f8a7-44ca-9af3-1586a9ab564a/coronageddon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "astrosapo",
+	"name": "ASTROSAPO",
+	"author": "TiOliveira",
+	"description": "The great intergalactic hero ASTROSAPO embarks on an adventure to discover his origins.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2f45b449-b2f8-43a2-a0eb-ba864b8ca879/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e6009a2-2c00-40b4-a100-7df6de5e9655/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e6009a2-2c00-40b4-a100-7df6de5e9655",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e6009a2-2c00-40b4-a100-7df6de5e9655/astrosapo"
+}

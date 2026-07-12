@@ -1,0 +1,14 @@
+{
+	"id": "cubertworking",
+	"name": "CubertWorking",
+	"author": "Svoper",
+	"description": "Play CubertWorking on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/726e3ff9-8df7-4c36-a939-4bd917cd7826/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f5a3aaf7-3137-4990-bf29-5f00ca8fb644/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f5a3aaf7-3137-4990-bf29-5f00ca8fb644",
+	"unityPlayUrl": "https://play.unity.com/en/games/f5a3aaf7-3137-4990-bf29-5f00ca8fb644/cubertworking"
+}

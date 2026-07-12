@@ -1,0 +1,14 @@
+{
+	"id": "roguelike-sogok",
+	"name": "Roguelike Sogok",
+	"author": "MohdNazir",
+	"description": "Roguelike Sogok from Roguelike 2D tutorial",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03c80dee-9a54-4fa5-953c-235c1b607e19/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03c80dee-9a54-4fa5-953c-235c1b607e19",
+	"unityPlayUrl": "https://play.unity.com/en/games/03c80dee-9a54-4fa5-953c-235c1b607e19/roguelike-sogok"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cac-attack",
+	"name": "Cac Attack",
+	"author": "AdamKNedman",
+	"description": "This is an old version of the game; the newer version has shopkeepers and talking NPCs -- but unfortunately I keep getting an Internal Server Error trying to publish it.  But I uploaded it elsewhere; you can play it at aknedman.com/Games/CacAttack",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/910bde36-d64d-4070-b9cc-9bbfa955478a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4180d65-ead0-4246-8a15-4a1db4cbcd2b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4180d65-ead0-4246-8a15-4a1db4cbcd2b",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4180d65-ead0-4246-8a15-4a1db4cbcd2b/cac-attack"
+}

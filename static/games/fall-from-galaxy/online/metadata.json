@@ -1,0 +1,14 @@
+{
+	"id": "fall-from-galaxy",
+	"name": "Fall From Galaxy",
+	"author": "wuwan9699",
+	"description": "Hi",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/477bec82-8d7e-4d5c-8c6e-01dfddae67cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "477bec82-8d7e-4d5c-8c6e-01dfddae67cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/477bec82-8d7e-4d5c-8c6e-01dfddae67cf/fall-from-galaxy"
+}

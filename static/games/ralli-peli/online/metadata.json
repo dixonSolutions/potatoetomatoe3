@@ -1,0 +1,14 @@
+{
+	"id": "ralli-peli",
+	"name": "ralli peli",
+	"author": "vovworld10",
+	"description": "ralli peli robottia vastaan",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c3a90268-e023-4e9e-9af6-855478686eb4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51b38eda-8a81-4da7-984b-f6f4e9146056/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51b38eda-8a81-4da7-984b-f6f4e9146056",
+	"unityPlayUrl": "https://play.unity.com/en/games/51b38eda-8a81-4da7-984b-f6f4e9146056/ralli-peli"
+}

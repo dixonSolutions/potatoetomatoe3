@@ -1,0 +1,14 @@
+{
+	"id": "wyvern-warrior-for-cwc-game-jam",
+	"name": "Wyvern Warrior - for CWC Game Jam",
+	"author": "PolygonPros",
+	"description": "Play the latest WebGL version here on Unity Play: https://play.unity.com/mg/other/wyvern-warrior-create-with-code-game-jam                                                      Download and Play the update version on itch.io!   https://polygonpros.itch.io/totally-not-dragon-warrior/download/CzZR3zrx41DeBt3J3oxYy_jcd3zA8TbDylabYNrw                                                For my CWC Game Jam entry, I chose to modernize the battle systems found in classic JRPGs like Dragon Warrior and Final Fantasy. The player faces off in combat against a dangerous dragon! Use your melee and magical attacks to whittle down your foe to 0 health points and win the day! \nI didn't get as far with this project as I wanted to, there's still lots more features and polish I planned to add. But for my very first game jam game, it was a fun start! I'm going to keep working on this game to get it closer to my original vision.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb78a045-1ee6-47aa-8860-50f77049a1a6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7aa0d3cf-9eec-41ef-b1e1-ca3d917caf5a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7aa0d3cf-9eec-41ef-b1e1-ca3d917caf5a",
+	"unityPlayUrl": "https://play.unity.com/en/games/7aa0d3cf-9eec-41ef-b1e1-ca3d917caf5a/wyvern-warrior-for-cwc-game-jam"
+}

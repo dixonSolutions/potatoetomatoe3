@@ -1,0 +1,14 @@
+{
+	"id": "aegis-v10",
+	"name": "AeGIS v1.0",
+	"author": "yush723",
+	"description": "AeGIS is an Aeroelastic Graphical Interface Simulator for finding the divergence velocity of custom rocket fin shapes. It also includes an integrated fin design tool for easy iteration / optimisation.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/002f311c-2229-4264-b9f2-83c15ef0bb10/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "002f311c-2229-4264-b9f2-83c15ef0bb10",
+	"unityPlayUrl": "https://play.unity.com/en/games/002f311c-2229-4264-b9f2-83c15ef0bb10/aegis-v10"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "junior-programmer-game",
+	"name": "Junior Programmer Game",
+	"author": "rammelS9",
+	"description": "JuniorProgrammer\u3067\u4f5c\u3063\u305f\u30df\u30cb\u30b2\u30fc\u30e0\u3067\u3059\n\n<\u8eca\u4e21\u306e\u64cd\u7e26>\n\u9752\u8eca\u4e21\u2192WASD\u3067\u64cd\u4f5c\u3001F\u3067\u30ab\u30e1\u30e9\u5207\u308a\u66ff\u3048\n\u8d64\u8eca\u4e21\u2192Arrow\u3067\u64cd\u4f5c\u3001\u53f3control\u3067\u30ab\u30e1\u30e9\u5207\u308a\u66ff\u3048\n\n<\u8d64\u8eca\u4e21NPC>\n\u8d64\u8eca\u4e21\u9650\u5b9a\u3067NPC\u3078\u306e\u5207\u308a\u66ff\u3048\u304c\u3067\u304d\u307e\u3059\u3002\nEnter\u30ad\u30fc\u3067\u53ef\u80fd\u3067\u3059\u3002",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0126455b-9c08-4f0a-b375-118dc55a5262/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0126455b-9c08-4f0a-b375-118dc55a5262",
+	"unityPlayUrl": "https://play.unity.com/en/games/0126455b-9c08-4f0a-b375-118dc55a5262/junior-programmer-game"
+}

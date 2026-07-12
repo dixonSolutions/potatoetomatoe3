@@ -1,0 +1,14 @@
+{
+	"id": "dark-and-thunder",
+	"name": "Dark and Thunder",
+	"author": "Daitli",
+	"description": "Kill as many dark minions as you can, avoid being touched or you'll be consumed by Dormammu and be forever lost in the Dark Dimension.\n\nInstructions on how to play are on the main menu. \n\nThanks to Microsoft and Lanalux for hosting the game jam.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/98a79c13-e3c5-4f7a-82d8-d04601bc462e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71aad752-9d9f-461d-b9a8-24f0e5c3b313/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71aad752-9d9f-461d-b9a8-24f0e5c3b313",
+	"unityPlayUrl": "https://play.unity.com/en/games/71aad752-9d9f-461d-b9a8-24f0e5c3b313/dark-and-thunder"
+}

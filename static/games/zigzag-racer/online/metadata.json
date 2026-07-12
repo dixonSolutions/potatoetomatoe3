@@ -1,0 +1,14 @@
+{
+	"id": "zigzag-racer",
+	"name": "ZigZag Racer",
+	"author": "smd1234",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b8944c0-db0f-4d6e-92ef-dd85ffc4a4b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b8944c0-db0f-4d6e-92ef-dd85ffc4a4b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b8944c0-db0f-4d6e-92ef-dd85ffc4a4b6/zigzag-racer"
+}

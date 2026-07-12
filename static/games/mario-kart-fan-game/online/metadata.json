@@ -1,0 +1,14 @@
+{
+	"id": "mario-kart-fan-game",
+	"name": "Mario kart fan game",
+	"author": "swifterplayz2",
+	"description": "Play Mario kart fan game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/879098c0-87f5-491f-86a2-ccdb8c6b45d8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3eb07327-8ed7-4c40-a162-645185c12fe8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3eb07327-8ed7-4c40-a162-645185c12fe8",
+	"unityPlayUrl": "https://play.unity.com/en/games/3eb07327-8ed7-4c40-a162-645185c12fe8/mario-kart-fan-game"
+}

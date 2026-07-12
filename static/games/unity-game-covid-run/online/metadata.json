@@ -1,0 +1,14 @@
+{
+	"id": "unity-game-covid-run",
+	"name": "Unity Game - Covid Run",
+	"author": "SuxGaming",
+	"description": "Welcome to Covid Run! We hope you have fun playing this game. Enjoy :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7d20a19-f503-4e91-91e9-ba48012cf11b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19a55db4-1bab-427c-9262-99d4f5d7d999/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19a55db4-1bab-427c-9262-99d4f5d7d999",
+	"unityPlayUrl": "https://play.unity.com/en/games/19a55db4-1bab-427c-9262-99d4f5d7d999/unity-game-covid-run"
+}

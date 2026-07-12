@@ -1,0 +1,14 @@
+{
+	"id": "kart-crashing",
+	"name": "KART CRASHING",
+	"author": "ravianand",
+	"description": "Play KART CRASHING on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2bedd56d-2eb8-466a-b7d1-5d41851cae4b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fd6e260e-ad22-4e8e-b933-f90cf24eb28e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fd6e260e-ad22-4e8e-b933-f90cf24eb28e",
+	"unityPlayUrl": "https://play.unity.com/en/games/fd6e260e-ad22-4e8e-b933-f90cf24eb28e/kart-crashing"
+}

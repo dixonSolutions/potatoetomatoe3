@@ -1,0 +1,14 @@
+{
+	"id": "horde-fps",
+	"name": "Horde FPS",
+	"author": "TomoTT",
+	"description": "You have to be really bored and in ultimate procrastination mode in order to attempt this wee game. \n\nHorde FPS is a simple zombie shooter. Select your area (Down Town currently available) and try to survive the horde.\n\nHighscore is currently only available in DL version available here. https://tomott.itch.io/horde-fps",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1635db83-412f-459f-9aef-5ac4bf611296/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cbb61c9-b98e-4f18-a177-8742095cb6aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cbb61c9-b98e-4f18-a177-8742095cb6aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cbb61c9-b98e-4f18-a177-8742095cb6aa/horde-fps"
+}

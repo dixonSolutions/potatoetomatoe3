@@ -1,0 +1,14 @@
+{
+	"id": "physics-sandbox-v03",
+	"name": "Physics Sandbox V0.3",
+	"author": "Kalo2021",
+	"description": "A game where you are free to do whatever you want. you place blocks and experiment with the physics and try to make stuff. Just a heads up this is a very early version of the game. Feel free to add suggestions in the comments. if you want to track progress on the game go to https://trello.com/b/ycadNVKJ/physics-sandbox.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c3fe02b3-fbbd-4354-a62a-aeab44d57aa8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d294144-af10-480b-a0cb-9b96304d2e29/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d294144-af10-480b-a0cb-9b96304d2e29",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d294144-af10-480b-a0cb-9b96304d2e29/physics-sandbox-v03"
+}

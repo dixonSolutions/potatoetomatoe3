@@ -1,0 +1,14 @@
+{
+	"id": "free-fire-v01",
+	"name": "Free Fire v0.1",
+	"author": "Dynamic733",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5137707d-648f-48d1-a3b9-98a5d3fc3a2e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d0475e4-5be5-4cb6-a6dc-8e550d9da10a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d0475e4-5be5-4cb6-a6dc-8e550d9da10a",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d0475e4-5be5-4cb6-a6dc-8e550d9da10a/free-fire-v01"
+}

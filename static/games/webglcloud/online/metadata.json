@@ -1,0 +1,14 @@
+{
+	"id": "webglcloud",
+	"name": "WEBGLCLOUD",
+	"author": "btonurr",
+	"description": "FizikSim6",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/74f4ce32-77bb-44f2-83f1-24452a41914d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "74f4ce32-77bb-44f2-83f1-24452a41914d",
+	"unityPlayUrl": "https://play.unity.com/en/games/74f4ce32-77bb-44f2-83f1-24452a41914d/webglcloud"
+}

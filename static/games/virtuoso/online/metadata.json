@@ -1,0 +1,14 @@
+{
+	"id": "virtuoso",
+	"name": "Virtuoso",
+	"author": "DarkDwagon",
+	"description": "Video Game Design - TSA 2023",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/80f7c3c6-5c80-4940-b92a-f8da3e68d59e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8747b1ea-c5aa-4d99-8b5f-213fd7d000b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8747b1ea-c5aa-4d99-8b5f-213fd7d000b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/8747b1ea-c5aa-4d99-8b5f-213fd7d000b7/virtuoso"
+}

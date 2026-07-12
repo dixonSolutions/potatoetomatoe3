@@ -1,0 +1,14 @@
+{
+	"id": "shooter-game",
+	"name": "shooter game",
+	"author": "osullivan82",
+	"description": "Play shooter game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/418dfdd0-9a22-417c-806d-c54ec76ddf24/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/97c2c39e-d8d3-43d8-9170-0123cc781311/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "97c2c39e-d8d3-43d8-9170-0123cc781311",
+	"unityPlayUrl": "https://play.unity.com/en/games/97c2c39e-d8d3-43d8-9170-0123cc781311/shooter-game"
+}

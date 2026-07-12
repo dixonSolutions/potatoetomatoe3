@@ -1,0 +1,14 @@
+{
+	"id": "moderated",
+	"name": "<moderated>",
+	"author": "killiam10",
+	"description": "Play <moderated> on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/94e47382-8f67-4971-919f-ce466e560ad0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "94e47382-8f67-4971-919f-ce466e560ad0",
+	"unityPlayUrl": "https://play.unity.com/en/games/94e47382-8f67-4971-919f-ce466e560ad0/moderated"
+}

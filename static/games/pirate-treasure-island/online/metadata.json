@@ -1,0 +1,14 @@
+{
+	"id": "pirate-treasure-island",
+	"name": "Pirate Treasure Island",
+	"author": "darkfish19",
+	"description": "My latest VR microgame. Created by Robert Tavenner for CMST 330 at UMGC.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9ea823aa-965a-4da9-8cc0-230a5741be29/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e7f5f2bf-be59-4fc6-a43c-0236b1387e18/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e7f5f2bf-be59-4fc6-a43c-0236b1387e18",
+	"unityPlayUrl": "https://play.unity.com/en/games/e7f5f2bf-be59-4fc6-a43c-0236b1387e18/pirate-treasure-island"
+}

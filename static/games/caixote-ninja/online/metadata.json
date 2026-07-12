@@ -1,0 +1,14 @@
+{
+	"id": "caixote-ninja",
+	"name": "Caixote Ninja",
+	"author": "fhbaroni",
+	"description": "Made as part of Unity Junior programmer pathway - use mouse click/drag todestroy de boxes. press Space to pause.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c06579d6-a84b-4a1d-81cc-4237a1ce050d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/027a1a0e-1dd5-4f42-8549-422739dce5f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "027a1a0e-1dd5-4f42-8549-422739dce5f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/027a1a0e-1dd5-4f42-8549-422739dce5f7/caixote-ninja"
+}

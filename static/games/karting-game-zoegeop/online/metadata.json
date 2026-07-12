@@ -1,0 +1,14 @@
+{
+	"id": "karting-game-zoegeop",
+	"name": "Karting Game ZoeGeop",
+	"author": "zoegeop",
+	"description": "Play from your browser this fun arcade game in the style of Mario Kart.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cb99f4a1-5fe0-4699-984c-3b98b0f1eb1f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a6afe2a-f220-4058-b390-002744571222/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a6afe2a-f220-4058-b390-002744571222",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a6afe2a-f220-4058-b390-002744571222/karting-game-zoegeop"
+}

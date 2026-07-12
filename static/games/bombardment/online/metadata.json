@@ -1,0 +1,14 @@
+{
+	"id": "bombardment",
+	"name": "Bombardment",
+	"author": "RafaSKB",
+	"description": "Clone of the Bombardment level from Stumble Guys for educational purposes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2818749c-806e-4a95-9d4d-351112500dd3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03e69ed2-e5a0-47ca-bee6-ba4d607b3f34/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03e69ed2-e5a0-47ca-bee6-ba4d607b3f34",
+	"unityPlayUrl": "https://play.unity.com/en/games/03e69ed2-e5a0-47ca-bee6-ba4d607b3f34/bombardment"
+}

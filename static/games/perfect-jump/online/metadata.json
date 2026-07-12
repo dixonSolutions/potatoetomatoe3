@@ -1,0 +1,14 @@
+{
+	"id": "perfect-jump",
+	"name": "Perfect Jump",
+	"author": "jkai63858",
+	"description": "My first Micro Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5a464007-68ad-40e5-8e71-817815b167bd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4bc9aacf-b6c5-40a4-a21f-1f49e5a36ff1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4bc9aacf-b6c5-40a4-a21f-1f49e5a36ff1",
+	"unityPlayUrl": "https://play.unity.com/en/games/4bc9aacf-b6c5-40a4-a21f-1f49e5a36ff1/perfect-jump"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "my-new-game",
+	"name": "My new game",
+	"author": "dhivagarp45",
+	"description": "I am beginner.  controls W and D.\npls send a replay of my game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0b44a0c9-704b-4e64-9e9e-252c68418b54/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d42c2fa8-b30c-403b-ac96-2b62286adfef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d42c2fa8-b30c-403b-ac96-2b62286adfef",
+	"unityPlayUrl": "https://play.unity.com/en/games/d42c2fa8-b30c-403b-ac96-2b62286adfef/my-new-game"
+}

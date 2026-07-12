@@ -1,0 +1,14 @@
+{
+	"id": "shootout",
+	"name": "Shootout",
+	"author": "Divit007",
+	"description": "An FPS Microgame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bfa650aa-38f3-477a-95c6-63eebd556a69/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fd0c2165-1457-405d-a7c7-8eea426adb1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fd0c2165-1457-405d-a7c7-8eea426adb1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/fd0c2165-1457-405d-a7c7-8eea426adb1c/shootout"
+}

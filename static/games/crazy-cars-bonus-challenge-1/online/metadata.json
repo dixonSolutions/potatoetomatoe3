@@ -1,0 +1,14 @@
+{
+	"id": "crazy-cars-bonus-challenge-1",
+	"name": "Crazy Cars - Bonus Challenge 1",
+	"author": "JakeMailes",
+	"description": "I have done the four steps: (buggy as they may be)\n\n- there is stacks and pyramids of boxes\n- there are (more than) two on-coming crazy cars \n- you can change the camera with space/left shift/left alt (single player only \n   for now, I hope)\n- you have two screen multiplayer\n\nI have also attempted these extra's:\n\n- there is a functional menu\n- there is different background music for menu and gameplay \n- there is respawn points for player's and enemies (still very buggy)\n- there is option to return to menu from gameplay                                                                     \nI hope to fix the bugs as I get better at coding :D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/23d833b4-388c-4e8e-b6e9-e8f526da2df8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/516f24a9-c50d-4669-ae54-948064b6b897/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "516f24a9-c50d-4669-ae54-948064b6b897",
+	"unityPlayUrl": "https://play.unity.com/en/games/516f24a9-c50d-4669-ae54-948064b6b897/crazy-cars-bonus-challenge-1"
+}

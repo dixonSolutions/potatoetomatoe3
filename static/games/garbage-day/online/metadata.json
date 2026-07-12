@@ -1,0 +1,14 @@
+{
+	"id": "garbage-day",
+	"name": "Garbage Day",
+	"author": "michaelhiggins285",
+	"description": "Extended cycle time to 15 seconds.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8caf1a81-4d05-48da-9e1c-3e09e25c3d6e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b035e963-c631-4573-8dd3-d61d439ebe13/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b035e963-c631-4573-8dd3-d61d439ebe13",
+	"unityPlayUrl": "https://play.unity.com/en/games/b035e963-c631-4573-8dd3-d61d439ebe13/garbage-day"
+}

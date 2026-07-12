@@ -1,0 +1,14 @@
+{
+	"id": "bouncey-basketball-speedrun",
+	"name": "Bouncey Basketball Speedrun",
+	"author": "ShaunTQ",
+	"description": "Collect all the cubes as fast as you can, and watch out for the bouncy bollards!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/42cd95ba-25cf-4923-a60e-4fd0b156348e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/135d2eed-e672-4c88-8cbc-def029c0b36b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "135d2eed-e672-4c88-8cbc-def029c0b36b",
+	"unityPlayUrl": "https://play.unity.com/en/games/135d2eed-e672-4c88-8cbc-def029c0b36b/bouncey-basketball-speedrun"
+}

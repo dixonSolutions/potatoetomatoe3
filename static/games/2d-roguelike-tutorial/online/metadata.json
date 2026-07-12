@@ -1,0 +1,14 @@
+{
+	"id": "2d-roguelike-tutorial",
+	"name": "2D Roguelike Tutorial",
+	"author": "jrad1",
+	"description": "Unity 2D Roguelike Tutorial, plus:\n- Menus: main, pause, game over, how to play\n- Supports: Keyboard/Mouse, Gamepad, Touch\n- Smooth movement\n- Difficulty jump every 2 levels\n- Save (if downloaded)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bbff92c0-e463-4a8c-b185-a826cfc028ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/520d503e-5403-4bab-b4c5-02becc961884/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "520d503e-5403-4bab-b4c5-02becc961884",
+	"unityPlayUrl": "https://play.unity.com/en/games/520d503e-5403-4bab-b4c5-02becc961884/2d-roguelike-tutorial"
+}

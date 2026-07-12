@@ -1,0 +1,14 @@
+{
+	"id": "dogebreadio",
+	"name": "dogebread.io",
+	"author": "Qhuhuit",
+	"description": "much bread wow",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/506f1b97-e1eb-4e55-beac-abf584e9c865/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8e2fa6ed-c069-4178-bbee-be86b6975b07/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8e2fa6ed-c069-4178-bbee-be86b6975b07",
+	"unityPlayUrl": "https://play.unity.com/en/games/8e2fa6ed-c069-4178-bbee-be86b6975b07/dogebreadio"
+}

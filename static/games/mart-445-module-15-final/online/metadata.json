@@ -1,0 +1,14 @@
+{
+	"id": "mart-445-module-15-final",
+	"name": "MART 445 - Module 15 [FINAL]",
+	"author": "Kuzco_Llama",
+	"description": "MART 445 - Module 15 - Shooting Game FINAL!\n\nChangelog:\n1. You can now sprint with Left Shift, Right Shift, or Left Mouse Button!\n2. Moved and reduced the enemies, so they are less likely to catch you around the corner.\n3. Fixed the Bug with enemies freezing your controls when you shoot at the same time as getting caught.\u00a0\n4. Fixed the Bug with the escape button not working.\u00a0\n5. Moved the Power Up to the Enemy corner!\u00a0\n6. Added more Sounds!!!\n7. Possibly stuff I forgot.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b978a361-261d-42e5-9650-4480a5d1036c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ff0d3cf-6e91-4c07-a03d-20436e5eeb48/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ff0d3cf-6e91-4c07-a03d-20436e5eeb48",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ff0d3cf-6e91-4c07-a03d-20436e5eeb48/mart-445-module-15-final"
+}

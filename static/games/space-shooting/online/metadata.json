@@ -1,0 +1,14 @@
+{
+	"id": "space-shooting",
+	"name": "Space Shooting",
+	"author": "MarcWu531_WPL",
+	"description": "Version 0.0.8.3",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3b237cb9-9cfd-42ad-ad84-b46c53bf44ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b2f9234-c1d7-4462-be92-7dbc51be6d32/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b2f9234-c1d7-4462-be92-7dbc51be6d32",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b2f9234-c1d7-4462-be92-7dbc51be6d32/space-shooting"
+}

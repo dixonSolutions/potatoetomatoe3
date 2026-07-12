@@ -1,0 +1,14 @@
+{
+	"id": "2-player-split-screen",
+	"name": "2 Player Split Screen",
+	"author": "MiladZarour",
+	"description": "To Play the game: for player 1 : use the arrow keys(left,right,up,down) , and for player 2 use (W,A,S,D) , ENJOY !",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f9d2a859-fe33-43d1-ba16-400dae3c5bd6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f952c265-0a27-4486-890a-bb834cec9ac2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f952c265-0a27-4486-890a-bb834cec9ac2",
+	"unityPlayUrl": "https://play.unity.com/en/games/f952c265-0a27-4486-890a-bb834cec9ac2/2-player-split-screen"
+}

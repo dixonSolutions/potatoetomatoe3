@@ -1,0 +1,14 @@
+{
+	"id": "blackjack",
+	"name": "Blackjack",
+	"author": "LZimm7",
+	"description": "Everyone loves blackjack, the classic luck/strategy casino game., and whether you're a seasoned pro or a blackjack newbie, this immersive online blackjack experience serves as a free training ground to gamble without any real risk.\n\nA leaderboard for the highest amount of money earned by players is included in the main menu. Keep in mind that the leaderboard only accounts for money that you had when you cashed out, not your peak amount of money, so try to time your cash-out effectively. \n\n6 Decks are used in this game, and they are reshuffled about halfway through the shoe.\n\nPlease leave any feedback in the comments.\n\nHouse Rules:\n\nBlackjack pays 3-2: This is standard, but still needs to be specified.\n\nDealer must stand any 17: This is standard but still needs to be specified.\n\nInsurance is unavailable: Insurance is a weird thing in blackjack, when to use insurance is widely debated and even unknown to many. Many people never use insurance, so I decided not to include it.\n\nSplitting is not allowed: The application of a split is rare, as the player is unlikely to be dealt a pair. If a player is dealt a pair, it is still rare that they would split any cards besides aces or eights. On top of its sparse application, splitting is an unnecessary advantage given to the player. This game moves very quickly, and when the player loses, they can simply just play again, so I found that the dealer needed another slight advantage, which I achieved by not including splitting.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ebaa62b2-0f75-405a-8701-0430b05237b3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fd68a38e-c94e-4619-9582-d137efb66b7d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fd68a38e-c94e-4619-9582-d137efb66b7d",
+	"unityPlayUrl": "https://play.unity.com/en/games/fd68a38e-c94e-4619-9582-d137efb66b7d/blackjack"
+}

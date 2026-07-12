@@ -1,0 +1,14 @@
+{
+	"id": "gnome-engineer",
+	"name": "Gnome Engineer",
+	"author": "SirMinty",
+	"description": "Submission for TSA Nationals 2024. Team #: VGDHS~21004-1 Works best in full screen.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/121dc087-b940-4c02-b2d4-509dffba8143/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "121dc087-b940-4c02-b2d4-509dffba8143",
+	"unityPlayUrl": "https://play.unity.com/en/games/121dc087-b940-4c02-b2d4-509dffba8143/gnome-engineer"
+}

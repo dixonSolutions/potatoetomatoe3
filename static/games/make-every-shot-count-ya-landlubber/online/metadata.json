@@ -1,0 +1,14 @@
+{
+	"id": "make-every-shot-count-ya-landlubber",
+	"name": "Make every shot count, ya landlubber!",
+	"author": "SpaceCat8000",
+	"description": "My take on the CountingPrototype. Features: The ship will sail back and forth as you pelt it with cannon balls; The cannon rotates around the y axis, the barrel rotates around the x axis; zoom in the camera with right-click; sound effects will play when you hit the ship; and, most importantly, the counter in the bottom left updates each time you hit the ship.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3ec182f7-86c9-483f-9064-72b8c8b47db7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6eef344b-c0cd-486d-a092-f64c809b9372/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6eef344b-c0cd-486d-a092-f64c809b9372",
+	"unityPlayUrl": "https://play.unity.com/en/games/6eef344b-c0cd-486d-a092-f64c809b9372/make-every-shot-count-ya-landlubber"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "forceattack",
+	"name": "ForceAttack",
+	"author": "RF_Gamer",
+	"description": "Force Attack is an indie game. Simple rule to the game, kill your enemy before they kill you. I have designed and developed level 1 for the game and will be starting with level 2 very soon. If anyone is interested in collaborating then please let me know.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/205f2afd-75d8-4df2-b4e4-c6e2def80d18/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43e87dbc-62e3-49f9-aed3-28ef5f1f3fdf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43e87dbc-62e3-49f9-aed3-28ef5f1f3fdf",
+	"unityPlayUrl": "https://play.unity.com/en/games/43e87dbc-62e3-49f9-aed3-28ef5f1f3fdf/forceattack"
+}

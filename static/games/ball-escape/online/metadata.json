@@ -1,0 +1,14 @@
+{
+	"id": "ball-escape",
+	"name": "Ball Escape",
+	"author": "Stooky89",
+	"description": "You need to get the ball to  exit,  by painting obstacles",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a592923b-436f-4f4f-9e36-22008d6d3570/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c250fcd-e94b-44df-9db7-477cbeaba5e5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c250fcd-e94b-44df-9db7-477cbeaba5e5",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c250fcd-e94b-44df-9db7-477cbeaba5e5/ball-escape"
+}

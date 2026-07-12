@@ -1,0 +1,14 @@
+{
+	"id": "prototype-1-car-chase-dodging",
+	"name": "Prototype 1: Car Chase & Dodging",
+	"author": "Revaliz",
+	"description": "The scene switching was a bit of a challenge, since it would switch and play right from the start. So I added in a Time.timeScale = 0 and solved it with a timer using Time.realtimeSinceStartup. Took a lot of time researching to figure this out. Hope it helps!\n\nPS: I don't know if this is the most effective way of scene switching, but it works for now :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f4c8e3d0-c26c-4256-85a4-0d4c30942b8f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7ac6fb0c-f8c1-4d69-b0e4-5909f3109dcf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7ac6fb0c-f8c1-4d69-b0e4-5909f3109dcf",
+	"unityPlayUrl": "https://play.unity.com/en/games/7ac6fb0c-f8c1-4d69-b0e4-5909f3109dcf/prototype-1-car-chase-dodging"
+}

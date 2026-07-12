@@ -1,0 +1,14 @@
+{
+	"id": "binus-virtual-booth",
+	"name": "BINUS VIRTUAL BOOTH",
+	"author": "BanyanGroveTree",
+	"description": "Albo, singkatan dari virtuAL BOoth, merupakan aplikasi VR yang menjelajahi berbagai macam booth jurusan dan mengenal jurusan yang ada di universitas. Aplikasi VR ini juga mempunyai game yang berhubungan dengan jurusan yang ingin dijelajahi.\n\nKarena kondisi pandemi, percobaan aplikasi VR kami secara langsung menjadi tidak memungkinkan. Oleh karena itu, kami membuat preview aplikasi melalui web ini. Sedangkan game yang kami kembangkan dapat dilihat dalam playlist youtube berikut https://www.youtube.com/watch?v=EenWb4XV6CE&list=PLA89ttlQGg8LbFkdX5VnvSrROz0tj4uVu\n\nSetelah me-review aplikasi VR Albo, kami mohon bantuannya untuk mengevaluasi game kami dengan menjawab pertanyaan-pertanyaan didalam survey berikut. https://forms.gle/vzAuZjE6nzmd1WgQ6\n\nTerima kasih.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/070a3f04-b4e2-4dca-b2d5-e48634b9546a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "070a3f04-b4e2-4dca-b2d5-e48634b9546a",
+	"unityPlayUrl": "https://play.unity.com/en/games/070a3f04-b4e2-4dca-b2d5-e48634b9546a/binus-virtual-booth"
+}

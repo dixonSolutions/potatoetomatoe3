@@ -1,0 +1,14 @@
+{
+	"id": "first-game",
+	"name": "First Game",
+	"author": "smallow8569",
+	"description": "My first steps",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f3c6b73-5a22-4f32-adbd-97b531ed53fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f3c6b73-5a22-4f32-adbd-97b531ed53fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f3c6b73-5a22-4f32-adbd-97b531ed53fa/first-game"
+}

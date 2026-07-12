@@ -1,0 +1,14 @@
+{
+	"id": "rollaball-v01",
+	"name": "Roll'a'Ball v0.1",
+	"author": "Palankar7",
+	"description": "My first learning project, made with own additionals",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f844c6f-d006-4acf-9659-37875e32206c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f844c6f-d006-4acf-9659-37875e32206c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f844c6f-d006-4acf-9659-37875e32206c/rollaball-v01"
+}

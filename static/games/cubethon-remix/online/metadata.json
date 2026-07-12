@@ -1,0 +1,14 @@
+{
+	"id": "cubethon-remix",
+	"name": "Cubethon Remix",
+	"author": "coder_58",
+	"description": "This is a remix of the game Cubethon. The rules: Dodge the black obstacles using the 'a' and 'd' keys. Thanks to Brackeys for the Youtube tutorial on the game structure.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6121c136-5fc4-4057-aab8-2a9ea7330d8c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48535d2c-7afa-47f9-a4d9-6a22da248c63/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48535d2c-7afa-47f9-a4d9-6a22da248c63",
+	"unityPlayUrl": "https://play.unity.com/en/games/48535d2c-7afa-47f9-a4d9-6a22da248c63/cubethon-remix"
+}

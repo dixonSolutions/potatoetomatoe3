@@ -1,0 +1,14 @@
+{
+	"id": "unseen",
+	"name": "UNSEEN",
+	"author": "brookehxle",
+	"description": "A Horror game maze. Find your way to the checkpoint without getting caught.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd74fafb-be0f-439b-9d82-91c0dd76d57a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22b58899-8598-4c3b-a98c-f74a30e7393f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "22b58899-8598-4c3b-a98c-f74a30e7393f",
+	"unityPlayUrl": "https://play.unity.com/en/games/22b58899-8598-4c3b-a98c-f74a30e7393f/unseen"
+}

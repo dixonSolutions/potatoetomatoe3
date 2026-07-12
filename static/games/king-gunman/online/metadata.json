@@ -1,0 +1,14 @@
+{
+	"id": "king-gunman",
+	"name": "King Gunman",
+	"author": "Unity Play",
+	"description": "July twitch https://youtu.be/uVrmrAKqBbI",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9028e96d-2253-4b17-a1bb-7c8832a9fcfd/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13f01baa-8852-4f29-b024-ba6ca64aa4ae/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13f01baa-8852-4f29-b024-ba6ca64aa4ae",
+	"unityPlayUrl": "https://play.unity.com/en/games/13f01baa-8852-4f29-b024-ba6ca64aa4ae/king-gunman"
+}

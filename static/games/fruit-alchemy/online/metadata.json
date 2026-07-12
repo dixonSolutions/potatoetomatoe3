@@ -1,0 +1,14 @@
+{
+	"id": "fruit-alchemy",
+	"name": "Fruit Alchemy",
+	"author": "anmcmill",
+	"description": "A prototype of a new unity lesson at Hackingtons Code School for Kids.\nhttps://www.hackingtons.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5670f641-b1d8-4ccd-a3f2-57b2142a70b0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e14f5e40-dcbf-49aa-82e7-8cac21dedc58/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e14f5e40-dcbf-49aa-82e7-8cac21dedc58",
+	"unityPlayUrl": "https://play.unity.com/en/games/e14f5e40-dcbf-49aa-82e7-8cac21dedc58/fruit-alchemy"
+}

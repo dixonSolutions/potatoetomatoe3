@@ -1,0 +1,14 @@
+{
+	"id": "car-20",
+	"name": "Car 2.0",
+	"author": "horgeloh",
+	"description": "Control Manual : ASWD to control left car's movement, UpDownLeftRight to control right car's movement. Spacebar for changing game view for left car while Number pad 0 for right car.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ee075bd-4b46-4b66-a36b-259e767390dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ee075bd-4b46-4b66-a36b-259e767390dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ee075bd-4b46-4b66-a36b-259e767390dc/car-20"
+}

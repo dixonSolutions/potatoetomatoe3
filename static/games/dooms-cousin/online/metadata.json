@@ -1,0 +1,14 @@
+{
+	"id": "dooms-cousin",
+	"name": "Doom's Cousin",
+	"author": "ViciousTNT",
+	"description": "Play Doom's Cousin on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/89f5baa0-6f2f-4527-b425-ad72adf7b73c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/036ba6e4-5381-4b53-81e3-335b7f92bc4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "036ba6e4-5381-4b53-81e3-335b7f92bc4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/036ba6e4-5381-4b53-81e3-335b7f92bc4a/dooms-cousin"
+}

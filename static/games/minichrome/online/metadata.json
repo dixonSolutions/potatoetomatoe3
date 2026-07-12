@@ -1,0 +1,14 @@
+{
+	"id": "minichrome",
+	"name": "Minichrome",
+	"author": "ExeSandbox",
+	"description": "Journey as a luminescent minifigure though fragments of a monochrome world and collect colors to restore the tree to a former state in a time again. \n\nFeaturing 8 levels each with a unique challenge and theme. \n(To skip past levels, press the letter \"O\" 7 times on the keyboard.)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5311a5ed-065a-44fb-9137-53e79e4ba002/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/244de5dd-ceb0-4528-b7f1-0c8f04358f70/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "244de5dd-ceb0-4528-b7f1-0c8f04358f70",
+	"unityPlayUrl": "https://play.unity.com/en/games/244de5dd-ceb0-4528-b7f1-0c8f04358f70/minichrome"
+}

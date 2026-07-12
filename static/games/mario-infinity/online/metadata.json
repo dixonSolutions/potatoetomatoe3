@@ -1,0 +1,14 @@
+{
+	"id": "mario-infinity",
+	"name": "Mario Infinity",
+	"author": "xmliszt_unity",
+	"description": "Control Mr. Mario to collect plenty of coins, squash Gomba and eat golden mushroom to become stronger. Firewall approaching from the left so Mario has to keep going! It was first a sample package from 50.033 Game Design Lab assignment, I developed it further to make it a complete game. All obstacles, enemies, background and items are randomly generated through codes. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8aee2007-23b9-41cf-bb69-b1c846375042/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf844e27-479f-4cff-b5ce-42ca07c73fba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cf844e27-479f-4cff-b5ce-42ca07c73fba",
+	"unityPlayUrl": "https://play.unity.com/en/games/cf844e27-479f-4cff-b5ce-42ca07c73fba/mario-infinity"
+}

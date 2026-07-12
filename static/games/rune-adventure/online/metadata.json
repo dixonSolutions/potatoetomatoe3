@@ -1,0 +1,14 @@
+{
+	"id": "rune-adventure",
+	"name": "rune adventure",
+	"author": "kingx123",
+	"description": "retro",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d6846991-00ef-4466-8700-0be82f0d428e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25d2c608-65da-46f7-a452-53f69bb408c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25d2c608-65da-46f7-a452-53f69bb408c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/25d2c608-65da-46f7-a452-53f69bb408c1/rune-adventure"
+}

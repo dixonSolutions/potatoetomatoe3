@@ -1,0 +1,14 @@
+{
+	"id": "bounce-blitz",
+	"name": "Bounce Blitz",
+	"author": "Trix3shie",
+	"description": "Bounce Blitz is an adrenaline-pumping obstacle course game where players navigate through a vibrant, high-energy world filled with challenging traps, moving platforms, and unexpected twists. With a variety of environments, from dense jungles to futuristic cities, each level tests your reflexes and timing. Dodge swinging hammers, leap across collapsing platforms, and race against time to reach the finish line. Can you master the Blitz and claim victory, or will you fall to the relentless pace of the course?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fe9e3520-fffb-4e13-a6ae-0b818e902672/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c2e6c74a-69eb-4dff-947b-9694b29bedd5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c2e6c74a-69eb-4dff-947b-9694b29bedd5",
+	"unityPlayUrl": "https://play.unity.com/en/games/c2e6c74a-69eb-4dff-947b-9694b29bedd5/bounce-blitz"
+}

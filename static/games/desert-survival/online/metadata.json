@@ -1,0 +1,14 @@
+{
+	"id": "desert-survival",
+	"name": "Desert Survival",
+	"author": "ibrahimsemab",
+	"description": "Survive as long as possible.\n\nYou are challenged to survive 30 Days!\n\nGood Luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40a5c95d-4ba5-4ce2-aec1-541ffe621134/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/651cc5d9-64c7-4779-966e-cfbc0cef8a73/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "651cc5d9-64c7-4779-966e-cfbc0cef8a73",
+	"unityPlayUrl": "https://play.unity.com/en/games/651cc5d9-64c7-4779-966e-cfbc0cef8a73/desert-survival"
+}

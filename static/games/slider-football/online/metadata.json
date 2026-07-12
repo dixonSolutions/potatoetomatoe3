@@ -1,0 +1,14 @@
+{
+	"id": "slider-football",
+	"name": "Slider football",
+	"author": "Kuraviso",
+	"description": "My latest microgame made for the counting prototype course. Just playing with sliders and buttons.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7adbfa85-2e4e-4228-a2bf-7dab45e3b40f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/82608a2c-c4be-4de7-ab3e-2b100dee6e04/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "82608a2c-c4be-4de7-ab3e-2b100dee6e04",
+	"unityPlayUrl": "https://play.unity.com/en/games/82608a2c-c4be-4de7-ab3e-2b100dee6e04/slider-football"
+}

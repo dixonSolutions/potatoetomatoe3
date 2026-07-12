@@ -1,0 +1,14 @@
+{
+	"id": "ci-class-game-1",
+	"name": "CI Class Game 1",
+	"author": "Sunggu_Lee",
+	"description": "Game 1 of the Computational Intelligence, Fall 2024, class. Play this game and then enter the final correct answer found in the Game 1 assignment page in PLMS.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf1a3099-76c7-418b-b191-b83d78cf220f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b6f160b-eec0-41a2-9ff6-13ffe522ab20/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2b6f160b-eec0-41a2-9ff6-13ffe522ab20",
+	"unityPlayUrl": "https://play.unity.com/en/games/2b6f160b-eec0-41a2-9ff6-13ffe522ab20/ci-class-game-1"
+}

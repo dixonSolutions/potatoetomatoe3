@@ -1,0 +1,14 @@
+{
+	"id": "batbox",
+	"name": "BatBox",
+	"author": "yashmehrotra",
+	"description": "Play BatBox on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cbf10faf-bf73-49b5-9047-6da72d7343aa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/63750397-df15-435f-a746-423c123b0c72/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "63750397-df15-435f-a746-423c123b0c72",
+	"unityPlayUrl": "https://play.unity.com/en/games/63750397-df15-435f-a746-423c123b0c72/batbox"
+}

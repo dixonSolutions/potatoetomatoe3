@@ -1,0 +1,14 @@
+{
+	"id": "arnie",
+	"name": "ARnie",
+	"author": "BraindanceDev",
+	"description": "Play ARnie on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0fc32e16-e3e3-4d0f-be57-dc5f7145781b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c27eba4-ee68-4864-998c-95d458365c16/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c27eba4-ee68-4864-998c-95d458365c16",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c27eba4-ee68-4864-998c-95d458365c16/arnie"
+}

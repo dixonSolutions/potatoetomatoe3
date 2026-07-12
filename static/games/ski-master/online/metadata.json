@@ -1,0 +1,14 @@
+{
+	"id": "ski-master",
+	"name": "Ski Master!",
+	"author": "EduFunApps",
+	"description": "You are the Ski Master! To move forward faster, press the up arrow key. Use the left and right arrow keys to move left and right. Your goal is to get to the finish line as fast as possible without crashing or bypassing the gates.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd3a56bd-13d3-43c8-811c-51a1437293ec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28c5bf36-7b89-4349-ba8f-9bd1ea6e1d96/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28c5bf36-7b89-4349-ba8f-9bd1ea6e1d96",
+	"unityPlayUrl": "https://play.unity.com/en/games/28c5bf36-7b89-4349-ba8f-9bd1ea6e1d96/ski-master"
+}

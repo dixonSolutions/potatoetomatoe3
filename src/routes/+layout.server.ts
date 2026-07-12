@@ -9,7 +9,9 @@ import {
 import { SITE_SETTINGS_COOKIE, type PrivacyDisguiseMode } from '$lib/utils/site-settings';
 
 /**
- * Read settings cookie on the server so the first HTML paint can match tab branding.
+ * Read settings cookie on the server so the first HTML paint can match tab branding when SSR runs
+ * (e.g. `vite dev`). Static/SPA prerenders bake a non-privacy shell; `app.html` early script + client
+ * bootstrap apply the selected disguise from cookie/localStorage on startup.
  * When privacy is on and disguise is not "off", we SSR the decoy title/favicon for the selected service.
  */
 export const load: LayoutServerLoad = async ({ cookies }) => {

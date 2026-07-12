@@ -1,0 +1,14 @@
+{
+	"id": "kaboom",
+	"name": "Kaboom!",
+	"author": "paragmurali",
+	"description": "Play Kaboom! on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b5304f3c-9c2a-4f53-b6b2-7c8e9ed9f186/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0504d8cc-aa38-4eaa-907b-7574c272d023/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0504d8cc-aa38-4eaa-907b-7574c272d023",
+	"unityPlayUrl": "https://play.unity.com/en/games/0504d8cc-aa38-4eaa-907b-7574c272d023/kaboom"
+}

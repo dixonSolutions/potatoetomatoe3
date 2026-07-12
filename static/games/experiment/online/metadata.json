@@ -1,0 +1,14 @@
+{
+	"id": "experiment",
+	"name": "Experiment",
+	"author": "Rhogarj",
+	"description": "An experiment for a thesis project",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5827b56f-17e4-4ea1-889b-4e615c6e4957/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5827b56f-17e4-4ea1-889b-4e615c6e4957",
+	"unityPlayUrl": "https://play.unity.com/en/games/5827b56f-17e4-4ea1-889b-4e615c6e4957/experiment"
+}

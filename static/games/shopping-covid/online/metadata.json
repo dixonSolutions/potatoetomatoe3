@@ -1,0 +1,14 @@
+{
+	"id": "shopping-covid",
+	"name": "Shopping COVID",
+	"author": "gigamochi",
+	"description": "A game about going shopping in the middle of a pandemic.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2afcacdd-236b-4c70-8924-5d9144884719/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/86918e70-7b94-48ac-869c-1918081d8251/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "86918e70-7b94-48ac-869c-1918081d8251",
+	"unityPlayUrl": "https://play.unity.com/en/games/86918e70-7b94-48ac-869c-1918081d8251/shopping-covid"
+}

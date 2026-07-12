@@ -1,0 +1,14 @@
+{
+	"id": "stony-brook-3000-demo-build",
+	"name": "Stony Brook 3000 Demo Build",
+	"author": "wolfnoir",
+	"description": "What's a Seawolf?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e3e1cdfa-be14-4849-8453-81df6abc1c50/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42746f66-e91f-4fa1-966d-a706c2691800/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42746f66-e91f-4fa1-966d-a706c2691800",
+	"unityPlayUrl": "https://play.unity.com/en/games/42746f66-e91f-4fa1-966d-a706c2691800/stony-brook-3000-demo-build"
+}

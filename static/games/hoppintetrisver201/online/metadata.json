@@ -1,0 +1,14 @@
+{
+	"id": "hoppintetrisver201",
+	"name": "HoppinTetris_Ver2.01",
+	"author": "narizou",
+	"description": "Super Bound and Physical Tetris Ver:2.01 How to operate \nA\u2192Move left\nD \u2192 Move right \nS \u2192 Swoop down blocks  \nLeft-click/K \u2192 Rotate Left \nRight-click/; \u2192 Rotate Right \npush mouse wheel/L \u2192 Stop the block from disappearing",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/181c6c77-c16e-476c-8db7-382493bcec1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "181c6c77-c16e-476c-8db7-382493bcec1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/181c6c77-c16e-476c-8db7-382493bcec1c/hoppintetrisver201"
+}

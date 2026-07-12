@@ -1,0 +1,14 @@
+{
+	"id": "car-driving-simulator-multiplayer",
+	"name": "Car Driving Simulator (Multiplayer)",
+	"author": "ikitai200",
+	"description": "My second try making a game.\nControls:\nPlayer 1 => arrows, v(change view)\nPlayer 2 => wasd, f(change view)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2c27abcd-50b7-4632-a360-921263f63c1a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02572ebb-e43e-4205-acaf-fe61aa022317/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02572ebb-e43e-4205-acaf-fe61aa022317",
+	"unityPlayUrl": "https://play.unity.com/en/games/02572ebb-e43e-4205-acaf-fe61aa022317/car-driving-simulator-multiplayer"
+}

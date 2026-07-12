@@ -1,0 +1,14 @@
+{
+	"id": "steal-the-steel",
+	"name": "Steal the Steel!",
+	"author": "pocketlint60",
+	"description": "Play as a crafty goblin and sneak around an army of surly dwarves to snatch their painstakingly crafted weapons for yourself! \n\nControls:\nArrows - Movement\nSpace - Fire\nShift (Hold) - Walk\nControl (Hold) - Aiming Mode (while standing still)\n\nThis is my first completely playable game and was made as my project for Unity's Junior Programmer Learning Path. \n\nI recommend the downloadable EXE version from itch.io: https://pocketlint60.itch.io/steeal",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/85311bd1-85c3-4b67-95d0-3d833ef36bfd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/98131952-88b0-4bab-ac91-da96802029c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "98131952-88b0-4bab-ac91-da96802029c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/98131952-88b0-4bab-ac91-da96802029c2/steal-the-steel"
+}

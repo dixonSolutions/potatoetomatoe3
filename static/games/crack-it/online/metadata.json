@@ -1,0 +1,14 @@
+{
+	"id": "crack-it",
+	"name": "Crack it",
+	"author": "Uuzerno",
+	"description": "links \nhttps://play.unity.com/mg/other/webgl-builds-300188",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/da5693c0-ca77-44da-8e5d-47e70a0d8664/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80b2d941-a799-4f81-aa19-917006795a55/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80b2d941-a799-4f81-aa19-917006795a55",
+	"unityPlayUrl": "https://play.unity.com/en/games/80b2d941-a799-4f81-aa19-917006795a55/crack-it"
+}

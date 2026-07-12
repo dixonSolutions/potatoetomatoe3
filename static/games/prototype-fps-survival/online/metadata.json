@@ -1,0 +1,14 @@
+{
+	"id": "prototype-fps-survival",
+	"name": "Prototype FPS survival",
+	"author": "blue_baron",
+	"description": "Play Prototype FPS survival on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3c036d7d-ffc4-4c68-acde-b81cc0d7fa7a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49e60dd6-1eb3-44fe-b977-cac77e00c3eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49e60dd6-1eb3-44fe-b977-cac77e00c3eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/49e60dd6-1eb3-44fe-b977-cac77e00c3eb/prototype-fps-survival"
+}

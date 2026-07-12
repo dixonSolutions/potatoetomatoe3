@@ -1,0 +1,14 @@
+{
+	"id": "alpie-world",
+	"name": "Alpie world",
+	"author": "Gredes",
+	"description": "Help Alpie to calm down the other animals. Move with A, D | Jump with space | spit with CTRL or left mouseclick",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05d4d096-fc39-40cb-aa22-73832a5dfa66/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05d4d096-fc39-40cb-aa22-73832a5dfa66",
+	"unityPlayUrl": "https://play.unity.com/en/games/05d4d096-fc39-40cb-aa22-73832a5dfa66/alpie-world"
+}

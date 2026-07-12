@@ -1,0 +1,14 @@
+{
+	"id": "kamanimapp",
+	"name": "KamanimApp",
+	"author": "TairGalili",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8bc48a13-ca7b-4047-ae7d-774f6d074a4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8bc48a13-ca7b-4047-ae7d-774f6d074a4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/8bc48a13-ca7b-4047-ae7d-774f6d074a4a/kamanimapp"
+}

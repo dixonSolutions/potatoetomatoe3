@@ -1,0 +1,14 @@
+{
+	"id": "shooting-demo",
+	"name": "Shooting Demo",
+	"author": "momodream",
+	"description": "Play Shooting Demo on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a27250a-d57a-4c89-b5a2-bffbcc86ca09/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b1adcc07-9a7f-42f8-a1f1-464ac1f12819/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b1adcc07-9a7f-42f8-a1f1-464ac1f12819",
+	"unityPlayUrl": "https://play.unity.com/en/games/b1adcc07-9a7f-42f8-a1f1-464ac1f12819/shooting-demo"
+}

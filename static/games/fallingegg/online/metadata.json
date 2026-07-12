@@ -1,0 +1,14 @@
+{
+	"id": "fallingegg",
+	"name": "FallingEgg",
+	"author": "berengiezgi",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/50f5f966-15e2-4dda-8c3f-1786e513f2fa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b6b9f6e-cef3-4dad-8d6e-4606917d3e7b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b6b9f6e-cef3-4dad-8d6e-4606917d3e7b",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b6b9f6e-cef3-4dad-8d6e-4606917d3e7b/fallingegg"
+}

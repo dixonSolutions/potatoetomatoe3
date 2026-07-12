@@ -1,0 +1,14 @@
+{
+	"id": "stbfps",
+	"name": "STBfps",
+	"author": "nagapi_games",
+	"description": "\u958b\u767a\u4e2dDAZE",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f8e18cb-23b9-4720-bd0e-dbf3386e3871/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f8e18cb-23b9-4720-bd0e-dbf3386e3871",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f8e18cb-23b9-4720-bd0e-dbf3386e3871/stbfps"
+}

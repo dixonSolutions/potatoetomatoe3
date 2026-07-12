@@ -1,0 +1,14 @@
+{
+	"id": "pain",
+	"name": "PAIN",
+	"author": "suspiciousisit",
+	"description": "Skeleton of a game because ive ben sick for weeks and unable to work on it",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/51a028a8-2352-4084-aea7-b0ee82e1fb60/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b8ecb2d-4c35-4e60-94e2-551c845408c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b8ecb2d-4c35-4e60-94e2-551c845408c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b8ecb2d-4c35-4e60-94e2-551c845408c3/pain"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "small-plane-game-prototype",
+	"name": "Small Plane Game Prototype",
+	"author": "flyingmadpakke",
+	"description": "Control with AD(roll), WS(pitch) and QE(yaw). Tip: use yaw or die :D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b96638b2-e07b-4370-aa33-56d980f03a3a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/47440170-a787-4ed1-8fe9-d44a3a68bbf5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "47440170-a787-4ed1-8fe9-d44a3a68bbf5",
+	"unityPlayUrl": "https://play.unity.com/en/games/47440170-a787-4ed1-8fe9-d44a3a68bbf5/small-plane-game-prototype"
+}

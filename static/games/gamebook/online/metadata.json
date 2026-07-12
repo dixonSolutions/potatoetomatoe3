@@ -1,0 +1,14 @@
+{
+	"id": "gamebook",
+	"name": "gamebook",
+	"author": "ekkk1",
+	"description": "\uc0c8\ub098\ub77c \uc5b4\ub9b0\uc774 \uac8c\uc784",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11163c0f-b4f7-4ced-b7e9-62b1e3e4b1f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11163c0f-b4f7-4ced-b7e9-62b1e3e4b1f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/11163c0f-b4f7-4ced-b7e9-62b1e3e4b1f3/gamebook"
+}

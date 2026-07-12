@@ -1,0 +1,14 @@
+{
+	"id": "farmland",
+	"name": "Farmland",
+	"author": "RS232",
+	"description": "Plant seeds, water them, raise sheep, and grow your farm in this LEGO microgame! Entry for the LEGO Ideas contest by RS232X\n\nYou start with a small shack and a few seeds. Plant the seeds, water them, and watch them grow and you'll soon be reaping the rewards! Plant three types of seeds, build a barn, shear sheep, and upgrade your house to expand your farm!\n\nTo play this game, move with the WASD keys (or arrow keys), select the item you want to use with F, and use that item with E. To plant a seed, select the seed type with F and then press E to plant it in an open field. To water it, press F until your Water Pail is selected and then press E. Sleep overnight at your house and watered plants will continue to grow! More seeds, house upgrades, and more can be found in the nearby village.\n\nGrow your farm at your own pace, and enjoy the peaceful life!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/effe319a-df17-4ca9-b995-f7549e229f12/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06385c43-b289-4ac8-8763-4a3f7f9ec473/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06385c43-b289-4ac8-8763-4a3f7f9ec473",
+	"unityPlayUrl": "https://play.unity.com/en/games/06385c43-b289-4ac8-8763-4a3f7f9ec473/farmland"
+}

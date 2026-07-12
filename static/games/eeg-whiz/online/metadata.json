@@ -1,0 +1,14 @@
+{
+	"id": "eeg-whiz",
+	"name": "EEG Whiz",
+	"author": "Coltuxumab",
+	"description": "Early alpha. Request desktop version (via your browser) to view on mobile.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7b6286f6-57d9-48c4-b06d-6dd0157de9f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7b6286f6-57d9-48c4-b06d-6dd0157de9f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/7b6286f6-57d9-48c4-b06d-6dd0157de9f0/eeg-whiz"
+}

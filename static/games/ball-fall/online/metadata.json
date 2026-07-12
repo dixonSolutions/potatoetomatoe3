@@ -1,0 +1,14 @@
+{
+	"id": "ball-fall",
+	"name": "Ball Fall",
+	"author": "CameronElliott",
+	"description": "Ball Fall is an idle-clicker where you collect super unique balls. Can you get them all?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6a7da7d7-c49b-42d3-8afb-851b01431845/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c0a0c4f-4f8d-4f69-aabe-0a6c6edd73e0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c0a0c4f-4f8d-4f69-aabe-0a6c6edd73e0",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c0a0c4f-4f8d-4f69-aabe-0a6c6edd73e0/ball-fall"
+}

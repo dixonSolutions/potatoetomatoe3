@@ -1,0 +1,14 @@
+{
+	"id": "anyway-were-good",
+	"name": "Anyway, We're Good",
+	"author": "Scaryama_",
+	"description": "1. Manage traffic lights to prevent accidents\n2. press the police button for speeding cars\n[Controls: Mouse or Arrow keys \u2190, \u2192]\n\nInspired by a six-lane road for the Unity 6 Game Jam with the theme '6'",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/359b836e-ffaf-42e8-b3a8-85cd790dba61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99c411a0-d26f-4810-aa3b-0fc8981ded31/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "99c411a0-d26f-4810-aa3b-0fc8981ded31",
+	"unityPlayUrl": "https://play.unity.com/en/games/99c411a0-d26f-4810-aa3b-0fc8981ded31/anyway-were-good"
+}

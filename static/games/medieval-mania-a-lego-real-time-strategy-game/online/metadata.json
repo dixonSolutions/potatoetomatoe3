@@ -1,0 +1,14 @@
+{
+	"id": "medieval-mania-a-lego-real-time-strategy-game",
+	"name": "Medieval Mania: A LEGO Real-Time Strategy Game",
+	"author": "ProfessorBrickkeeper",
+	"description": "The kingdom has been destroyed and it's up to you to fix it! Guide your brave band of knights through multiple stages of resource gathering and building as you race against the clock to restore peace to that land.\n\nThis proof-of-concept was created over the course of several weeks using the LEGO Microgame as a base, with the addition of original code and artwork.\n\nMy LEGO Ideas username is ProfessorBrickkeeper.\n\nWhile this game has been tested on multiple hardware configurations, some users may still encounter issues running the game on lower-end devices. A standalone version of the game will be made available in the comments shortly.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9e14282f-7f66-4c34-a1ee-2ce027b4e255/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06ccc7e2-9ef4-478f-92ad-a58a923ed50c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06ccc7e2-9ef4-478f-92ad-a58a923ed50c",
+	"unityPlayUrl": "https://play.unity.com/en/games/06ccc7e2-9ef4-478f-92ad-a58a923ed50c/medieval-mania-a-lego-real-time-strategy-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "uff-final-build",
+	"name": "UFF Final Build",
+	"author": "apselanimator",
+	"description": "Mossy Hollow semester final",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01fc39e6-b06f-41d6-88b0-d076532ee705/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01fc39e6-b06f-41d6-88b0-d076532ee705",
+	"unityPlayUrl": "https://play.unity.com/en/games/01fc39e6-b06f-41d6-88b0-d076532ee705/uff-final-build"
+}

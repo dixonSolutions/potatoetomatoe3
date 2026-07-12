@@ -1,0 +1,14 @@
+{
+	"id": "cycle",
+	"name": "Cycle",
+	"author": "mkarib",
+	"description": "Cycle made my team Peekaboo",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/20444e6e-0251-4cdb-b42f-24238d572e68/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "20444e6e-0251-4cdb-b42f-24238d572e68",
+	"unityPlayUrl": "https://play.unity.com/en/games/20444e6e-0251-4cdb-b42f-24238d572e68/cycle"
+}

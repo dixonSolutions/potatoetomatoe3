@@ -1,0 +1,14 @@
+{
+	"id": "gamification",
+	"name": "Gamification",
+	"author": "frod2793",
+	"description": "\uc5c5\ub370\uc774\ud2b8 \ud328\uce58 \ub178\ud2b8 (v0.002)\n\uc774\ubc88 \ud328\uce58\uc5d0\uc11c\ub294 \ub80c\ub354\ub9c1 \ucd5c\uc801\ud654, \uac8c\uc784 \uc7ac\uc2dc\uc791 \ud750\ub984 \uac1c\uc120 \ubc0f \ubc84\uadf8 \uc218\uc815\uc744 \uc9c4\ud589\ud558\uc600\uc2b5\ub2c8\ub2e4.\n\n1. \uc131\ub2a5 \ubc0f \ub80c\ub354\ub9c1 \ucd5c\uc801\ud654\n\uc2a4\ud504\ub77c\uc774\ud2b8 \uc544\ud2c0\ub77c\uc2a4 \uaddc\uaca9\ud654: \ubbf8\uc0ac\uc6a9 \uc5d0\uc14b \uc815\ub9ac \ubc0f WebGL \ud658\uacbd\uc5d0 \ub9de\ucd98 DXT5 Crunched \uc544\ud2c0\ub77c\uc2a4 \uc555\ucd95 \ud3ec\ub9f7\uc744 \uc801\uc6a9\ud558\uc5ec \ub4dc\ub85c\uc6b0\ucf5c(Batches) \ubc0f \uba54\ubaa8\ub9ac \ubd80\ud558\ub97c \uc904\uc600\uc2b5\ub2c8\ub2e4.\n\uc774\ud399\ud2b8 \ub204\ub77d \ubcf4\uc644:",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c8cf3b5-3f17-42cf-bbdd-65ad1e15d10b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c8cf3b5-3f17-42cf-bbdd-65ad1e15d10b",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c8cf3b5-3f17-42cf-bbdd-65ad1e15d10b/gamification"
+}

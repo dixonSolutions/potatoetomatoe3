@@ -1,0 +1,14 @@
+{
+	"id": "pickem-up",
+	"name": "Pick'em Up!",
+	"author": "greyzonedglenn",
+	"description": "Have you ever sat down to build a Lego set, open out the bags of lego on your table and just wished that the bricks for the step you're on could be magically delivered by a tiny Lego forklift truck? Me too!\n\nNow you get to drive that forklift! Play Pick'em Up and drive a Lego forklift around the table top and search for the next brick. But hurry, you have a limited time until that brick expires. Once you have picked up the brick by ways of telekinesis, you have to deliver the brick back the the Lego instruction booklet.\n\nYour goal is to deliver as many correct pieces in 3 minutes and get the highest score. You are awarded more points if you deliver quickly.\n\nLEGO Ideas username: Flywolf",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f41aa0a7-8407-4791-8cb6-81b461f251c5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ff40504d-a45f-4ede-bbff-09ab88196d5a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ff40504d-a45f-4ede-bbff-09ab88196d5a",
+	"unityPlayUrl": "https://play.unity.com/en/games/ff40504d-a45f-4ede-bbff-09ab88196d5a/pickem-up"
+}

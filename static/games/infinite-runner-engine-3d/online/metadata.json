@@ -1,0 +1,14 @@
+{
+	"id": "infinite-runner-engine-3d",
+	"name": "Infinite Runner Engine 3D",
+	"author": "Denvzla",
+	"description": "\ud83d\udc96 Infinite Runner Engine 3D is a complete mobile game kit for an endless runner game written in C#.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c39cc837-40c4-4b9e-acee-255844fe6939/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e9cd2a2-3192-4993-b5aa-fb6c898ac847/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e9cd2a2-3192-4993-b5aa-fb6c898ac847",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e9cd2a2-3192-4993-b5aa-fb6c898ac847/infinite-runner-engine-3d"
+}

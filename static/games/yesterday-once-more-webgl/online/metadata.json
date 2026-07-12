@@ -1,0 +1,14 @@
+{
+	"id": "yesterday-once-more-webgl",
+	"name": "Yesterday Once More (WebGL)",
+	"author": "Unity Play",
+	"description": "Presented by Fireboy & Watergirl, CGDD Spring 2023. The original game isn't built for WebGl, so some assets might display wierdly. Press P to switch between keyboard and controller.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5b81538-9eff-488b-8a95-a40a1a3bc76e/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7dcb8556-9855-4140-a27b-c761c22c4f4c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7dcb8556-9855-4140-a27b-c761c22c4f4c",
+	"unityPlayUrl": "https://play.unity.com/en/games/7dcb8556-9855-4140-a27b-c761c22c4f4c/yesterday-once-more-webgl"
+}

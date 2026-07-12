@@ -1,0 +1,14 @@
+{
+	"id": "silent-night",
+	"name": "Silent Night",
+	"author": "milopadma",
+	"description": "Welcome to Silent Night, a game that aims to teach players about the experiences that happens uniquely in the island of Bali at night during \"Nyepi\". In this game, you will take on the role of a tourist who finds themselves lost. Your objective is to reach home, by using your stealth and cunning to avoid being caught by the Pecalang, as they will not hesitate to take you out if they catch you.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6a84aaad-623d-423b-baf3-19dd01c09a0d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6a84aaad-623d-423b-baf3-19dd01c09a0d",
+	"unityPlayUrl": "https://play.unity.com/en/games/6a84aaad-623d-423b-baf3-19dd01c09a0d/silent-night"
+}

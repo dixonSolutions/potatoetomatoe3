@@ -1,0 +1,14 @@
+{
+	"id": "falling-simulator",
+	"name": "Falling Simulator",
+	"author": "ranjansikand",
+	"description": "Game made in front of class.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/66c410b0-d590-4966-9898-92b4580a7fea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "66c410b0-d590-4966-9898-92b4580a7fea",
+	"unityPlayUrl": "https://play.unity.com/en/games/66c410b0-d590-4966-9898-92b4580a7fea/falling-simulator"
+}

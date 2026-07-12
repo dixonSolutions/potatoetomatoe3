@@ -1,0 +1,14 @@
+{
+	"id": "space",
+	"name": "Space",
+	"author": "Mebius-Wei",
+	"description": "Move : W A S D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9717944d-b4f1-4741-b1d8-8dd2390da14e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c581b43-4296-40e2-87dc-9f080df9aebf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c581b43-4296-40e2-87dc-9f080df9aebf",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c581b43-4296-40e2-87dc-9f080df9aebf/space"
+}

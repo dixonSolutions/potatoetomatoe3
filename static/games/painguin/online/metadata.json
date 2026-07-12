@@ -1,0 +1,14 @@
+{
+	"id": "painguin",
+	"name": "Painguin",
+	"author": "adamantius12",
+	"description": "The Darwinian bullet-heck rogue-lite nobody asked for. Breed a colony of painguins and test their chicks in the Vault. May the fittest painguin survive!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e6b563a-7c48-468f-b66c-6654c3feb070/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/384b5ef9-90a3-49f7-bd8a-d84c2051def0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "384b5ef9-90a3-49f7-bd8a-d84c2051def0",
+	"unityPlayUrl": "https://play.unity.com/en/games/384b5ef9-90a3-49f7-bd8a-d84c2051def0/painguin"
+}

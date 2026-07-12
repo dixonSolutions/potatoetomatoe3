@@ -1,0 +1,14 @@
+{
+	"id": "hiking-simulator",
+	"name": "Hiking Simulator",
+	"author": "Sp8cescience",
+	"description": "My latest microgame. You can hike around and attempt to climb the mountains. There is a trail through the woods, and some of the hills may be climable. Good luck!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ff77945-ab5d-41c4-a1cc-61a856e5ca06/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ff77945-ab5d-41c4-a1cc-61a856e5ca06",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ff77945-ab5d-41c4-a1cc-61a856e5ca06/hiking-simulator"
+}

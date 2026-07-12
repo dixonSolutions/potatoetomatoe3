@@ -1,0 +1,14 @@
+{
+	"id": "snowballgame",
+	"name": "SnowballGame",
+	"author": "levipass",
+	"description": "Dodge obstacles as a snowball while rolling down a steep hill! \n\nControls: A, D and Space (Jump)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c8ee036f-aa95-46d3-8aec-cd929c6e75dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c8ee036f-aa95-46d3-8aec-cd929c6e75dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/c8ee036f-aa95-46d3-8aec-cd929c6e75dd/snowballgame"
+}

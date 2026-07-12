@@ -1,0 +1,14 @@
+{
+	"id": "floppy-kart",
+	"name": "Floppy Kart",
+	"author": "Floris7",
+	"description": "Play Floppy Kart on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d89699f9-888e-4641-a3ba-74c577a41807/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d30e57a-60be-4701-88c8-efaba572e6dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d30e57a-60be-4701-88c8-efaba572e6dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d30e57a-60be-4701-88c8-efaba572e6dc/floppy-kart"
+}

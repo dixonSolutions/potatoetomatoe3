@@ -1,0 +1,14 @@
+{
+	"id": "notfruitninja",
+	"name": "NotFruitNinja",
+	"author": "MaeLog",
+	"description": "By Mael Dabard",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07196476-30dc-4111-854d-3cf1376b380a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07196476-30dc-4111-854d-3cf1376b380a",
+	"unityPlayUrl": "https://play.unity.com/en/games/07196476-30dc-4111-854d-3cf1376b380a/notfruitninja"
+}

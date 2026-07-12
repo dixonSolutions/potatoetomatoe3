@@ -1,0 +1,14 @@
+{
+	"id": "build",
+	"name": "Build",
+	"author": "Spergy",
+	"description": "Play Build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a84647d-14eb-46b3-846c-fabfbbf4dfcf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a84647d-14eb-46b3-846c-fabfbbf4dfcf",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a84647d-14eb-46b3-846c-fabfbbf4dfcf/build"
+}

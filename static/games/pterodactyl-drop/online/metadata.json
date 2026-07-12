@@ -1,0 +1,14 @@
+{
+	"id": "pterodactyl-drop",
+	"name": "Pterodactyl Drop",
+	"author": "msboone",
+	"description": "Game for my granddaughter Cece!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/622ab5f2-d030-4c0b-ab84-a0a386b5753f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/062bae94-f27f-4e6d-9bdc-40f25ea85020/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "062bae94-f27f-4e6d-9bdc-40f25ea85020",
+	"unityPlayUrl": "https://play.unity.com/en/games/062bae94-f27f-4e6d-9bdc-40f25ea85020/pterodactyl-drop"
+}

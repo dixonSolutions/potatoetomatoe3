@@ -1,0 +1,14 @@
+{
+	"id": "my-new-racing-chase-game",
+	"name": "My new racing chase game.",
+	"author": "felipebrunet",
+	"description": "My latest microgame. Yesssss!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1cf399e1-561b-456e-bbd7-9b2ef482919e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21f72719-7974-4cff-a320-a7eb2238b2df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21f72719-7974-4cff-a320-a7eb2238b2df",
+	"unityPlayUrl": "https://play.unity.com/en/games/21f72719-7974-4cff-a320-a7eb2238b2df/my-new-racing-chase-game"
+}

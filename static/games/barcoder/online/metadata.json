@@ -1,0 +1,14 @@
+{
+	"id": "barcoder",
+	"name": "Barcoder",
+	"author": "Algebraic_Topology",
+	"description": "Play with point clouds and persistent homology",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8050a8be-3c6e-4e29-b544-e219cba222d5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13e6d2dd-ec41-47d3-ab49-c9e8d19dd66c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13e6d2dd-ec41-47d3-ab49-c9e8d19dd66c",
+	"unityPlayUrl": "https://play.unity.com/en/games/13e6d2dd-ec41-47d3-ab49-c9e8d19dd66c/barcoder"
+}

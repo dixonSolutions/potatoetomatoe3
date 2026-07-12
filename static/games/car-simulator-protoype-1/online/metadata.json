@@ -1,0 +1,14 @@
+{
+	"id": "car-simulator-protoype-1",
+	"name": "Car Simulator Protoype 1",
+	"author": "nyx318",
+	"description": "Controls:\n     - Player 1 - WASD to move\n     - Player 2 - Arrow keys to move\n     - Toggle camera views - Press V\n\nHey there! This is my 1st prototype project of the car simulator which was made as part of Create with Code. It illustrates the basics of programming with various scripts which allow the user to control the player and allow the camera to follow the vehicle.\n\nI have incorporated all of the bonus challenges (obstacle pyramids, oncoming vehicles, camera switcher and local multiplayer). Feel free to leave any kind of feedback in the comments :D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5e78377e-32dc-4979-88b3-f26ad1eece46/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d17bd2ee-7b04-436f-abed-d6e4eb3fd8c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d17bd2ee-7b04-436f-abed-d6e4eb3fd8c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/d17bd2ee-7b04-436f-abed-d6e4eb3fd8c3/car-simulator-protoype-1"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "funky-bob",
+	"name": "Funky Bob",
+	"author": "GenevieveHP",
+	"description": "In this game, you can kill the enemies and gather gems. Run with the arrow keys and jump with the spacebar. If you run into an enemy, you have to start over from the beginning. Enemies do no respawn.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb49c04d-7fe4-4673-b97d-93b8a2398d2e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2afc3de4-595b-486a-a1ca-969e3a31fcc1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2afc3de4-595b-486a-a1ca-969e3a31fcc1",
+	"unityPlayUrl": "https://play.unity.com/en/games/2afc3de4-595b-486a-a1ca-969e3a31fcc1/funky-bob"
+}

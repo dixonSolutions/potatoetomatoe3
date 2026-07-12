@@ -1,0 +1,14 @@
+{
+	"id": "hacknslash",
+	"name": "HackNSlash",
+	"author": "unity_31gilmar",
+	"description": "Play HackNSlash on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/92cc8862-b720-41ab-98ae-1cfefca2eb34/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0188d801-9ed9-4598-8998-67e688fc65a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0188d801-9ed9-4598-8998-67e688fc65a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0188d801-9ed9-4598-8998-67e688fc65a3/hacknslash"
+}

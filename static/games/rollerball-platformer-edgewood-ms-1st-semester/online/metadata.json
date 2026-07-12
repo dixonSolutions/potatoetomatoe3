@@ -1,0 +1,14 @@
+{
+	"id": "rollerball-platformer-edgewood-ms-1st-semester",
+	"name": "Rollerball Platformer - Edgewood MS, 1st semester",
+	"author": "KdogGames",
+	"description": "This Rollerball Platformer includes levels created by several students who participated in our Young Game Developer course.  Students were introduced to programming with Scratch, transitioned to JavaScript, and then graduated to C# and Unity.  Use the ARROW KEYS to move, the SPACE bar to jump, and the ESC key to return to the lobby. \nwww.CodingwithKdog.com.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5489e937-2c5f-45aa-8f39-cf6084424c2f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb7474b2-bbaf-4a9d-b8e4-2fd2ad9a8acb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb7474b2-bbaf-4a9d-b8e4-2fd2ad9a8acb",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb7474b2-bbaf-4a9d-b8e4-2fd2ad9a8acb/rollerball-platformer-edgewood-ms-1st-semester"
+}

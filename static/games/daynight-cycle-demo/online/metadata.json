@@ -1,0 +1,14 @@
+{
+	"id": "daynight-cycle-demo",
+	"name": "Day/Night Cycle Demo",
+	"author": "unity_LXteFVtUD2dWiA",
+	"description": "This is a Day/Night cycle demo where the position of the sun/moon changes throughout the time of day. The actual length of the day and starting time are all adjustable through the editor directly.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c75cd432-bd51-4263-9856-660bf571c799/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0582b89b-f386-4999-a3ae-aaaa9c05445b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0582b89b-f386-4999-a3ae-aaaa9c05445b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0582b89b-f386-4999-a3ae-aaaa9c05445b/daynight-cycle-demo"
+}

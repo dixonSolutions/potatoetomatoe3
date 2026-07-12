@@ -1,0 +1,14 @@
+{
+	"id": "bruh-game",
+	"name": "Bruh Game",
+	"author": "JustOverFR",
+	"description": "Play Bruh Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c4ff0856-175d-460f-9c91-3445b7bd7052/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c4ff0856-175d-460f-9c91-3445b7bd7052",
+	"unityPlayUrl": "https://play.unity.com/en/games/c4ff0856-175d-460f-9c91-3445b7bd7052/bruh-game"
+}

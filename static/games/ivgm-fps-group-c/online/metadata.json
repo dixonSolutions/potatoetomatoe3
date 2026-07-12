@@ -1,0 +1,14 @@
+{
+	"id": "ivgm-fps-group-c",
+	"name": "IVGM FPS - Group C",
+	"author": "Arth666",
+	"description": "Group C's submission for the first assignment of the Introduction to Video Game Making course from 2020 at Leiden University.\nBackground music source: https://www.youtube.com/watch?v=oMJj8SxzUoo",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c932d616-e6a7-4b2b-9018-c29b70f64f67/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c932d616-e6a7-4b2b-9018-c29b70f64f67",
+	"unityPlayUrl": "https://play.unity.com/en/games/c932d616-e6a7-4b2b-9018-c29b70f64f67/ivgm-fps-group-c"
+}

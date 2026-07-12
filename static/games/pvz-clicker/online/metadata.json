@@ -1,0 +1,14 @@
+{
+	"id": "pvz-clicker",
+	"name": "PVZ clicker",
+	"author": "unity_831DA68E238126EAAAA5",
+	"description": "Clicker PVZ",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cb37a42-e94f-45e8-9f90-17b9db445595/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cb37a42-e94f-45e8-9f90-17b9db445595",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cb37a42-e94f-45e8-9f90-17b9db445595/pvz-clicker"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "super-mario",
+	"name": "super mario",
+	"author": "benson12916",
+	"description": "thanks Zigurous.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9a64afe5-56d7-4194-a35f-190848533b85/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40715617-dcf6-4081-8a7a-57dd1167a309/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40715617-dcf6-4081-8a7a-57dd1167a309",
+	"unityPlayUrl": "https://play.unity.com/en/games/40715617-dcf6-4081-8a7a-57dd1167a309/super-mario"
+}

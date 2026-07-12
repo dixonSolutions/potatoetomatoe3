@@ -1,0 +1,14 @@
+{
+	"id": "3d-rpg",
+	"name": "3D RPG",
+	"author": "SpideyCoding25",
+	"description": "Click on a point on map to move there. Click to collect objects, fight enemies and break things. To use objects go to inventory and double click on object. Sheriff Rancho Rododora is ready for cleansing his city of evil cacti.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f407276d-5df5-49c7-9308-202b1882124e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f4afd93d-6481-474e-aec2-9680c536579e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f4afd93d-6481-474e-aec2-9680c536579e",
+	"unityPlayUrl": "https://play.unity.com/en/games/f4afd93d-6481-474e-aec2-9680c536579e/3d-rpg"
+}

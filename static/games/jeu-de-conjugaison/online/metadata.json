@@ -1,0 +1,14 @@
+{
+	"id": "jeu-de-conjugaison",
+	"name": "Jeu de conjugaison",
+	"author": "xyvan",
+	"description": "Jeu de conjugaison",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a9ce08ba-add8-4c7d-924e-5cdae25780af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a9ce08ba-add8-4c7d-924e-5cdae25780af",
+	"unityPlayUrl": "https://play.unity.com/en/games/a9ce08ba-add8-4c7d-924e-5cdae25780af/jeu-de-conjugaison"
+}

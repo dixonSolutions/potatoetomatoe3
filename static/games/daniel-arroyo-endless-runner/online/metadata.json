@@ -1,0 +1,14 @@
+{
+	"id": "daniel-arroyo-endless-runner",
+	"name": "Daniel Arroyo Endless Runner",
+	"author": "N3RVA",
+	"description": "Daniel Arroyo",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c0e74e33-3b58-488c-8e8e-ae77173678de/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c0e74e33-3b58-488c-8e8e-ae77173678de",
+	"unityPlayUrl": "https://play.unity.com/en/games/c0e74e33-3b58-488c-8e8e-ae77173678de/daniel-arroyo-endless-runner"
+}

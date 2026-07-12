@@ -1,0 +1,14 @@
+{
+	"id": "dice-and-daydream",
+	"name": "Dice and Daydream",
+	"author": "Unity Play",
+	"description": "A turn-based card game meets Yahtzee!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ac6ee3ea-edd0-45ff-a224-e3c11ac37861/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c23f326d-b3e2-4b0b-9632-2d9e40285651/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c23f326d-b3e2-4b0b-9632-2d9e40285651",
+	"unityPlayUrl": "https://play.unity.com/en/games/c23f326d-b3e2-4b0b-9632-2d9e40285651/dice-and-daydream"
+}

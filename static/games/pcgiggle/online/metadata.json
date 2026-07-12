@@ -1,0 +1,14 @@
+{
+	"id": "pcgiggle",
+	"name": "pcGiggle",
+	"author": "CupidMeh",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b45b92a5-51fa-460e-90ff-a8f26e5a26f7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28c5ac8b-d0eb-4d95-88d2-74f142a0a1af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28c5ac8b-d0eb-4d95-88d2-74f142a0a1af",
+	"unityPlayUrl": "https://play.unity.com/en/games/28c5ac8b-d0eb-4d95-88d2-74f142a0a1af/pcgiggle"
+}

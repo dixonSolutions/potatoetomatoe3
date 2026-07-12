@@ -32,12 +32,13 @@ export async function getGameAvailability(
 	const online = Boolean(metadata?.onlineEmbedUrl?.trim()) || (await onlineShellExists(gameId));
 
 	let offline = isBundledOfflineGame(gameId) || Boolean(metadata?.bundledOffline);
-	if (!offline && !isPublicSiteDeployment()) {
-		offline = await staticOfflineFileExists(gameId, base);
-	}
 	if (!offline) {
 		const status = await fetchGameOfflineStatus(gameId, force);
 		if (status?.offline) offline = true;
+		// When puller/browser status is known, skip static /offline/ probes (avoids 404 spam on online play).
+		else if (!status && !isPublicSiteDeployment()) {
+			offline = await staticOfflineFileExists(gameId, base);
+		}
 	}
 
 	return { online, offline };

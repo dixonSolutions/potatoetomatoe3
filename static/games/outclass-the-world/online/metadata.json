@@ -1,0 +1,14 @@
+{
+	"id": "outclass-the-world",
+	"name": "Outclass The World",
+	"author": "FishoftheGame",
+	"description": "Dieses Spiel ist Teil einer Bachelorthesis im Fachbereich Informatik. Es befindet sich in Beta und Bugs sind zu erwarten.\n\nBitte auch Feedback geben durch den Link\nhttps://forms.gle/KxiwqbcuXHh8WFSM7",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ada67f65-1802-4b85-a256-b9a1c7d75436/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ada67f65-1802-4b85-a256-b9a1c7d75436",
+	"unityPlayUrl": "https://play.unity.com/en/games/ada67f65-1802-4b85-a256-b9a1c7d75436/outclass-the-world"
+}

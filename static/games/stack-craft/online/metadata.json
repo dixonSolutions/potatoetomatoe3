@@ -1,0 +1,14 @@
+{
+	"id": "stack-craft",
+	"name": "Stack Craft",
+	"author": "Albertpi2269",
+	"description": "Stack Craft is a relaxing web-based puzzle game built in Unity for mobile. Use touch controls to drag and drop blocks, clear rows, columns, or sections. Playable on mobile browsers only.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8236b1cb-c087-446f-a88b-500ca8b7e8cf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01c93d79-be8f-4340-af68-3a4a16cfd4c9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01c93d79-be8f-4340-af68-3a4a16cfd4c9",
+	"unityPlayUrl": "https://play.unity.com/en/games/01c93d79-be8f-4340-af68-3a4a16cfd4c9/stack-craft"
+}

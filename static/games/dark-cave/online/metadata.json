@@ -1,0 +1,14 @@
+{
+	"id": "dark-cave",
+	"name": "Dark Cave",
+	"author": "talhabas2003",
+	"description": "Darksouls-like Platform game\nMovements are A and D\nJump - Space\nTo win game you have to get all the diamonds!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4dd3c5a4-c42f-4c35-99c1-76329c78ee6a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4dd3c5a4-c42f-4c35-99c1-76329c78ee6a",
+	"unityPlayUrl": "https://play.unity.com/en/games/4dd3c5a4-c42f-4c35-99c1-76329c78ee6a/dark-cave"
+}

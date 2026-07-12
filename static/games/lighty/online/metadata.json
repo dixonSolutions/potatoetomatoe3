@@ -1,0 +1,14 @@
+{
+	"id": "lighty",
+	"name": "Lighty",
+	"author": "bharatym7",
+	"description": "My latest microgame that I created within 2 weeks time as my first 2D game in my life.\nIt is a 2D platform where as time goes by you have few effects that makes the game more difficult. Jump over dwells, catch as many candles on the wind to prevent it and have fun trying to go as far as possible. \nTry to beat your own score if you are not afraid of darkness!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b6529bd3-7684-429c-b249-33e64bf5afe1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bb57cdb5-70f1-4695-9d20-319ab7fbb69c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bb57cdb5-70f1-4695-9d20-319ab7fbb69c",
+	"unityPlayUrl": "https://play.unity.com/en/games/bb57cdb5-70f1-4695-9d20-319ab7fbb69c/lighty"
+}

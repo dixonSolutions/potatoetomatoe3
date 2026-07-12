@@ -1,0 +1,14 @@
+{
+	"id": "3d-cannon-shooter",
+	"name": "3D Cannon Shooter",
+	"author": "nbmx99",
+	"description": "This game consists of a cannon and targets. Whenever a cannon ball hits a target, the player's score increases by 1, and when the player misses the target, the player's score decreases by 1.\n\n- To move the cannon use the keys \"A\" and \"D\".\n- To launch/fire cannon balls, use the left mouse button.\n\nThis is my first Unity game ever. Feel free to give feedback on my game and i hope you enjoy it!. :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70ce05b3-8d0e-4fc0-9f5e-d2856a6e9372/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bd07f0d-d941-451e-aa00-d2a533daa1ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bd07f0d-d941-451e-aa00-d2a533daa1ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bd07f0d-d941-451e-aa00-d2a533daa1ce/3d-cannon-shooter"
+}

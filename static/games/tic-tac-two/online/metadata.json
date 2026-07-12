@@ -1,0 +1,14 @@
+{
+	"id": "tic-tac-two",
+	"name": "Tic Tac Two",
+	"author": "vijitender",
+	"description": "Tic Tac Two",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/047ff921-d1ca-4b73-b30d-5d29399a6fa2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "047ff921-d1ca-4b73-b30d-5d29399a6fa2",
+	"unityPlayUrl": "https://play.unity.com/en/games/047ff921-d1ca-4b73-b30d-5d29399a6fa2/tic-tac-two"
+}

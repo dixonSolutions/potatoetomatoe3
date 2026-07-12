@@ -1,0 +1,14 @@
+{
+	"id": "hospital-horror",
+	"name": "\u75c5\u9662\u61fc\u308c(Hospital Horror)",
+	"author": "Cyanvestige",
+	"description": "A horror game...that's it.\nWASD ---- Move\nhold SHIFT ---- Run\nCtrl/C ---- Crouch\nSpace ---- Jump\nF ---- Flash light ps:Ctrl+W will close the window, so you can also press C to crouch.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1d0ff754-1a01-4dfb-bf9e-64f21b239bfa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5dfffb0d-c8c4-4e9a-8230-3ae3c921bbc0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5dfffb0d-c8c4-4e9a-8230-3ae3c921bbc0",
+	"unityPlayUrl": "https://play.unity.com/en/games/5dfffb0d-c8c4-4e9a-8230-3ae3c921bbc0/hospital-horror"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "karels-lab",
+	"name": "Karel's Lab",
+	"author": "lizm28",
+	"description": "sci/fi lab set in forest where robot Karel (the player) has to collect a certain amount of collectibles to escape the lab and get to the yellow portal before the timer runs out.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/11474eac-53d0-4bcd-b3fa-90a1ad6bed86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d714095-55c0-4068-b995-55e305cd4f60/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d714095-55c0-4068-b995-55e305cd4f60",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d714095-55c0-4068-b995-55e305cd4f60/karels-lab"
+}

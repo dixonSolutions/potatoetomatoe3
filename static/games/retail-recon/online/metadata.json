@@ -1,0 +1,14 @@
+{
+	"id": "retail-recon",
+	"name": "Retail Recon",
+	"author": "Unity Play",
+	"description": "3540 Game Dev Course ~ Retail Recon (Group 4)\n\nSENSITIVITY: CAN BE CHANGED IN \"CONTROLS\" SETTING\n\nBUGS (due to unity play build):\n- AI may freeze at checkout\n   - FIX: Just pick them up",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/90e94db2-3cfd-4be2-bbdf-1b93109dd4bc/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d07f578e-a46b-487b-8d5a-3af9152bb85d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d07f578e-a46b-487b-8d5a-3af9152bb85d",
+	"unityPlayUrl": "https://play.unity.com/en/games/d07f578e-a46b-487b-8d5a-3af9152bb85d/retail-recon"
+}

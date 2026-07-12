@@ -1,0 +1,14 @@
+{
+	"id": "shooting-billy",
+	"name": "Shooting Billy",
+	"author": "diogohnicolau",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ecd874bd-65a8-41ee-bdb0-d35ad3e8d044/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/586abf51-52f1-4b20-854c-fa63388a3944/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "586abf51-52f1-4b20-854c-fa63388a3944",
+	"unityPlayUrl": "https://play.unity.com/en/games/586abf51-52f1-4b20-854c-fa63388a3944/shooting-billy"
+}

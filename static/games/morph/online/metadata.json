@@ -1,0 +1,14 @@
+{
+	"id": "morph",
+	"name": "Morph",
+	"author": "saiddilite",
+	"description": "The core objective of the game is for the player to successfully match the shape of the incoming obstacles, and try to reach a high score using what ever is available to them.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eff69634-83a6-4ea1-ac75-5ace021157e2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d7879f88-25a9-40f1-aebe-cac7bbec64bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d7879f88-25a9-40f1-aebe-cac7bbec64bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/d7879f88-25a9-40f1-aebe-cac7bbec64bc/morph"
+}

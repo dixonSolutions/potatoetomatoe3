@@ -1,0 +1,14 @@
+{
+	"id": "ratstd",
+	"name": "RatsTD",
+	"author": "Daltonyx",
+	"description": "Play RatsTD on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef7c6109-386e-4fb9-aafe-38ee70059f1d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0398a47b-5f16-42c3-b3dd-ee2b0cd3ebf8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0398a47b-5f16-42c3-b3dd-ee2b0cd3ebf8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0398a47b-5f16-42c3-b3dd-ee2b0cd3ebf8/ratstd"
+}

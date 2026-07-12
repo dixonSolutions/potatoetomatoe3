@@ -1,0 +1,14 @@
+{
+	"id": "bubblegum-cat",
+	"name": "Bubblegum Cat",
+	"author": "NoahTH",
+	"description": "Play as a bubblegum chewing cat and a cat shaped gum clone to find your kittens! WASD/Arrow keys to move, Q to swap and space to use each cat's ability. The gum clone is very weak, and will pop on spiky surfaces, contact with water, or animal control. If the gum clone ever gets stuck, you can also press R (while playing as) to manually reset it. There are six kittens to find and several obstacles that require you to make the most of both character's strengths to overcome their weaknesses.                                                                 Game was made alongside Austin Lee, you can see his page here: https://play.unity.com/mg/other/bubble-gum-cat",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e4f75ab9-b190-44ef-be53-7fca9972c5b4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b3714e61-8c26-4b4e-96bd-402bb2828115/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b3714e61-8c26-4b4e-96bd-402bb2828115",
+	"unityPlayUrl": "https://play.unity.com/en/games/b3714e61-8c26-4b4e-96bd-402bb2828115/bubblegum-cat"
+}

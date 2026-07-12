@@ -1,0 +1,14 @@
+{
+	"id": "my-2nd-game",
+	"name": "my 2nd game",
+	"author": "wechat_os_Qy08ouPrTFIooeSXUuEAwqf_4",
+	"description": "Play my 2nd game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1a52c629-ef38-4b7a-8518-2b58c4e9c5a6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/452b157d-372f-4a87-8b85-0b34b8927435/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "452b157d-372f-4a87-8b85-0b34b8927435",
+	"unityPlayUrl": "https://play.unity.com/en/games/452b157d-372f-4a87-8b85-0b34b8927435/my-2nd-game"
+}

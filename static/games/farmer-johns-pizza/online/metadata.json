@@ -1,0 +1,14 @@
+{
+	"id": "farmer-johns-pizza",
+	"name": "Farmer John's Pizza",
+	"author": "zolh",
+	"description": "Former CEO of a pizza chain, Farmer John spends his days throwing surplus sixteen-inch pizzas at forest animals.\n\nUpdate 2022/02/14\n- Added a pause menu with some volume controls\n- Late-game performance optimisations\n- Lighting tweaks\n- Game over screen tweaks\n- Secrets tweak\n\nAsset Packs:\n- Prototype2: https://learn.unity.com/tutorial/lesson-2-1-control-player-bounds-with-if-then-statements?\n- Low Poly Crates: https://assetstore.unity.com/packages/3d/props/low-poly-crates-80037\n- Party Pack: https://assetstore.unity.com/packages/3d/props/interior/party-pack-196474\n- Fence 4 Pack Wood: https://assetstore.unity.com/packages/3d/environments/fence-4-pack-wood-181987\n- Free Casual Game SFX Pack: https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game\n\nFonts:\n- Bell and Lamb: https://www.dafont.com/bell-and-lamb.font\n- Rio Grande: https://www.dafont.com/rio-grande.font\n- Pan Pizza: https://www.dafont.com/pan-pizza.font\n- Carnivalee Freakshow: https://www.dafont.com/carnivalee-freakshow.font\n\nMusic:\n- Still Pickin by Kevin MacLeod\nLink: https://incompetech.filmmusic.io/song/5707-still-pickin\nLicense: https://filmmusic.io/standard-license",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/def4734b-b18d-4dbd-9271-31f68de71702/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7e7bd90a-94bd-462f-a2ac-a2da0cf80fb2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7e7bd90a-94bd-462f-a2ac-a2da0cf80fb2",
+	"unityPlayUrl": "https://play.unity.com/en/games/7e7bd90a-94bd-462f-a2ac-a2da0cf80fb2/farmer-johns-pizza"
+}

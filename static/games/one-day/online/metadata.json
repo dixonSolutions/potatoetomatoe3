@@ -1,0 +1,14 @@
+{
+	"id": "one-day",
+	"name": "One Day",
+	"author": "teel1ng",
+	"description": "Survive for One Day (5 minutes), where elementals want to kill you. Cast fireballs, avoid water and travel between islands. Best experience in full screen and with sound!\n\n2021.10.23 update:\n- Added fancy appearance and death for enemies\n- Bug fixes\n\n2021.10.16 update:\n- Added a well and a path from the well to the player house\n\n2021.10.15 update:\n- Added player house\n- Improved visual day-night cycle\n- Improved game performance by downgrading trees and grass\n- Reduced fireball's lifetime from 10 to 4 seconds\n- Changed player start position\n- Bug fixes\n\n2021.10.10 update:\n- Added background music\n\n2021.10.06 update:\n- Improved game performance\n\n2021.10.03 update:\n- Removed limit of 63 elementals max in game\n- Fixed issue of counter overflow for enemies killed",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e6ca2128-1b94-4f2a-bb84-5269e8554433/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13b4b615-e387-4178-8366-dda383babc3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13b4b615-e387-4178-8366-dda383babc3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/13b4b615-e387-4178-8366-dda383babc3f/one-day"
+}

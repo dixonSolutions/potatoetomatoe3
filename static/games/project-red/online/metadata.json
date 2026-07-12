@@ -1,0 +1,14 @@
+{
+	"id": "project-red",
+	"name": "Project Red",
+	"author": "Richunicorn",
+	"description": "0.1.1 Pre Beta (Working On Level 2)  also Tab for menu",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6e70beec-a8f6-4254-b34c-648386c1b7ac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55632d19-c94a-425f-a48a-98b24efb10a5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55632d19-c94a-425f-a48a-98b24efb10a5",
+	"unityPlayUrl": "https://play.unity.com/en/games/55632d19-c94a-425f-a48a-98b24efb10a5/project-red"
+}

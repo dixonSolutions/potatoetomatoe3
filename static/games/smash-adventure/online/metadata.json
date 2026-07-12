@@ -1,0 +1,14 @@
+{
+	"id": "smash-adventure",
+	"name": "Smash adventure",
+	"author": "phuc2642003",
+	"description": "Smash adventure",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/897ca874-a976-45aa-9029-2463c0ab7d26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "897ca874-a976-45aa-9029-2463c0ab7d26",
+	"unityPlayUrl": "https://play.unity.com/en/games/897ca874-a976-45aa-9029-2463c0ab7d26/smash-adventure"
+}

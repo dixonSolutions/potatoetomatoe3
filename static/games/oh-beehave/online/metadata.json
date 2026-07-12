@@ -1,0 +1,14 @@
+{
+	"id": "oh-beehave",
+	"name": "Oh, Beehave!",
+	"author": "Its_A_MrE",
+	"description": "I made this game with my daughters when they were two and four. The game was fully playable with LEGO bricks and paper first. They both made the models, and my oldest even understood the concept of behaviour bricks and helped design the mechanics. All functionality was originally done with behaviour bricks, although the enemy movement was eventually replaced for optimization. Move over Virtual Disaster, there's a new game I'm the most proud of in town!\n\nNo bees were harmed in the making of this game. Hopefully the opposite: https://thebeeconservancy.org/10-ways-to-save-the-bees/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8ddc621b-2c16-4470-8726-713dc486dd70/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e1e6471-2660-42b7-a8c2-e97e96567dc0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e1e6471-2660-42b7-a8c2-e97e96567dc0",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e1e6471-2660-42b7-a8c2-e97e96567dc0/oh-beehave"
+}

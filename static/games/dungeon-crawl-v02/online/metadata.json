@@ -1,0 +1,14 @@
+{
+	"id": "dungeon-crawl-v02",
+	"name": "Dungeon Crawl v0.2",
+	"author": "SergiuX7",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc853566-58c0-4efa-a7db-ed5c43c17132/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bee30e7-7561-4ae2-bbf3-65bf0fe76c1b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bee30e7-7561-4ae2-bbf3-65bf0fe76c1b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bee30e7-7561-4ae2-bbf3-65bf0fe76c1b/dungeon-crawl-v02"
+}

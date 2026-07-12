@@ -1,0 +1,14 @@
+{
+	"id": "minion-mob-v13",
+	"name": "Minion Mob V13",
+	"author": "bootbadger04",
+	"description": "Play Minion Mob V13 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aa7c31e7-b936-49d7-bece-db174e53f6ee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fd671f04-583a-48de-b8ce-fe203a117673/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fd671f04-583a-48de-b8ce-fe203a117673",
+	"unityPlayUrl": "https://play.unity.com/en/games/fd671f04-583a-48de-b8ce-fe203a117673/minion-mob-v13"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fixed-fps",
+	"name": "Fixed FPS",
+	"author": "yoyodiscoparent",
+	"description": "Play Fixed FPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1c5447c3-9afc-4155-9c3b-03d4c226ebc5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c64157ba-d2d8-4a0a-8870-b55f45a2af3b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c64157ba-d2d8-4a0a-8870-b55f45a2af3b",
+	"unityPlayUrl": "https://play.unity.com/en/games/c64157ba-d2d8-4a0a-8870-b55f45a2af3b/fixed-fps"
+}

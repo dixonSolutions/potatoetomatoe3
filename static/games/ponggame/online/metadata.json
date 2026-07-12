@@ -1,0 +1,14 @@
+{
+	"id": "ponggame",
+	"name": "PongGame",
+	"author": "jigstot28",
+	"description": "Sample Pong Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/290fd8f5-9118-4791-8ae9-1a20fe5d3ebd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/033954a6-24ee-42e3-b711-d55e38de415d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "033954a6-24ee-42e3-b711-d55e38de415d",
+	"unityPlayUrl": "https://play.unity.com/en/games/033954a6-24ee-42e3-b711-d55e38de415d/ponggame"
+}

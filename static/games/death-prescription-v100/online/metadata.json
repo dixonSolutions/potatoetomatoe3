@@ -1,0 +1,14 @@
+{
+	"id": "death-prescription-v100",
+	"name": "Death Prescription v1.0.0",
+	"author": "casillasenrique2019",
+	"description": "Play as either a mad doctor or a confused patient in a heart-pumping chase! Can you catch the patient or escape the hospital? Are you ready for the Death Prescription?\n\nIn order to play this game, you will need glasses with red and blue-filtering lenses.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/35e5836f-dd2e-4319-90aa-65283e87077d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8dbee403-4826-448f-84eb-2ee81e5bec9a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8dbee403-4826-448f-84eb-2ee81e5bec9a",
+	"unityPlayUrl": "https://play.unity.com/en/games/8dbee403-4826-448f-84eb-2ee81e5bec9a/death-prescription-v100"
+}

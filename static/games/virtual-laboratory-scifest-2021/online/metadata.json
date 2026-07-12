@@ -1,0 +1,14 @@
+{
+	"id": "virtual-laboratory-scifest-2021",
+	"name": "Virtual Laboratory (SciFest 2021)",
+	"author": "akabedev",
+	"description": "Turn on sound first (bottom right corner), choose the language in the menu and hit \"Play\".  You can use A-S-W-D or arrow keys to move around. You can always leave the game by pressing \"Esc\" button several times. Don't forget to write down the results for both powders. Good luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/66aa298e-dc84-44a3-b090-299c4ab2f643/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7dca73f0-768f-4f4e-b726-709bbdbf572e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7dca73f0-768f-4f4e-b726-709bbdbf572e",
+	"unityPlayUrl": "https://play.unity.com/en/games/7dca73f0-768f-4f4e-b726-709bbdbf572e/virtual-laboratory-scifest-2021"
+}

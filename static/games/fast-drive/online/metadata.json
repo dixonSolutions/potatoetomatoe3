@@ -1,0 +1,14 @@
+{
+	"id": "fast-drive",
+	"name": "Fast drive",
+	"author": "dabossyo",
+	"description": "Best microgame around with demonstration on the course.  Note: the demonstration may not work (that means falling in the void or going the wrong way) . If that is the case, restart the game and select demonstration. If it still does not work properly, restart the demonstration until it finishes the laps.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ae01bb0e-ffa8-45a6-9cfd-2dbd7b0074a4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8ab8af5e-a7a5-4a97-9b14-9528b6488857/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8ab8af5e-a7a5-4a97-9b14-9528b6488857",
+	"unityPlayUrl": "https://play.unity.com/en/games/8ab8af5e-a7a5-4a97-9b14-9528b6488857/fast-drive"
+}

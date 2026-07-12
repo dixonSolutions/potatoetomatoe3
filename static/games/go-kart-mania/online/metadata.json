@@ -1,0 +1,14 @@
+{
+	"id": "go-kart-mania",
+	"name": "go kart mania",
+	"author": "lstern4170",
+	"description": "this is my first game you are driving on a eye piercing rainbow road with a red sun looking over the land signaling matrices is coming more on that in future games your goal is to pass all check points before times run out you have 15 seconds to pass a checkpoint it will add more time to the countdown",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0efac5a8-12f3-48db-bea5-90c808315b3b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ba017f9e-96ab-4c11-a006-a3ded1b96b31/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ba017f9e-96ab-4c11-a006-a3ded1b96b31",
+	"unityPlayUrl": "https://play.unity.com/en/games/ba017f9e-96ab-4c11-a006-a3ded1b96b31/go-kart-mania"
+}

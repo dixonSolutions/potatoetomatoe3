@@ -1,0 +1,14 @@
+{
+	"id": "mpv2",
+	"name": "MP_v2",
+	"author": "eminsehic",
+	"description": "Play MP_v2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05063920-8f9f-4160-89e7-a8c3d83851c7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/207dd2f6-9981-4a59-8a7a-9e7584cbc868/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "207dd2f6-9981-4a59-8a7a-9e7584cbc868",
+	"unityPlayUrl": "https://play.unity.com/en/games/207dd2f6-9981-4a59-8a7a-9e7584cbc868/mpv2"
+}

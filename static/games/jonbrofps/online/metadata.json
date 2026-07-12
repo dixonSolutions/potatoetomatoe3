@@ -1,0 +1,14 @@
+{
+	"id": "jonbrofps",
+	"name": "JonBroFPS",
+	"author": "Knuxec",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df5740d5-22a5-4b8e-b4de-362fa32211ca/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b6d3990-c91e-40f2-8416-60f8a3e24cb5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b6d3990-c91e-40f2-8416-60f8a3e24cb5",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b6d3990-c91e-40f2-8416-60f8a3e24cb5/jonbrofps"
+}

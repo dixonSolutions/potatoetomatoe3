@@ -1,0 +1,14 @@
+{
+	"id": "space-escape",
+	"name": "Space Escape",
+	"author": "jlhuertas",
+	"description": "Run and jump as fast as you can to escape from this disintegrating planet",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f174561-1ac9-44a9-876c-627cfa84e5b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15448aa2-26a6-4b4a-984f-51b338ac0d34/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15448aa2-26a6-4b4a-984f-51b338ac0d34",
+	"unityPlayUrl": "https://play.unity.com/en/games/15448aa2-26a6-4b4a-984f-51b338ac0d34/space-escape"
+}

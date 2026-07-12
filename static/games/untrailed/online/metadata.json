@@ -1,0 +1,14 @@
+{
+	"id": "untrailed",
+	"name": "Untrailed",
+	"author": "bakuchi",
+	"description": "My entry for Ludum Dare 49: https://ldjam.com/events/ludum-dare/49/untrailed",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/74ad0dfb-63e3-4c2d-ad44-cc8f243230c6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f8d321b5-9322-4a2e-85e1-2443f46e14fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f8d321b5-9322-4a2e-85e1-2443f46e14fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/f8d321b5-9322-4a2e-85e1-2443f46e14fb/untrailed"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wakeupweb",
+	"name": "WakeUpWeb",
+	"author": "b10902207",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a755171-5b29-45b0-a310-83513d904427/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/14e74946-b561-4971-a926-19e73663e8e8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "14e74946-b561-4971-a926-19e73663e8e8",
+	"unityPlayUrl": "https://play.unity.com/en/games/14e74946-b561-4971-a926-19e73663e8e8/wakeupweb"
+}

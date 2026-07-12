@@ -1,0 +1,14 @@
+{
+	"id": "unity-essentials",
+	"name": "Unity Essentials",
+	"author": "aditya-21",
+	"description": "Aditya Ramachandran\nMission 2, 4 and 5",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/031a01fb-0323-4d3a-8b23-09b7527f36d3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "031a01fb-0323-4d3a-8b23-09b7527f36d3",
+	"unityPlayUrl": "https://play.unity.com/en/games/031a01fb-0323-4d3a-8b23-09b7527f36d3/unity-essentials"
+}

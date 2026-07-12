@@ -1,0 +1,14 @@
+{
+	"id": "race-and-run",
+	"name": "Race and Run",
+	"author": "victorvillacis99",
+	"description": "This is prototype 1 of Create with Code live summer 2020. I added power ups to make you go faster. Also when you reach the end you start over and it gets harder to control.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f22dc1b9-652c-4cc5-8be7-ed3ab8384efa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b5429a6f-36a3-4e55-8ca2-c0fbe8f07dcf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b5429a6f-36a3-4e55-8ca2-c0fbe8f07dcf",
+	"unityPlayUrl": "https://play.unity.com/en/games/b5429a6f-36a3-4e55-8ca2-c0fbe8f07dcf/race-and-run"
+}

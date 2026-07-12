@@ -1,0 +1,14 @@
+{
+	"id": "simple-a-3d-dodge-game",
+	"name": "~Simple~: a 3D Dodge Game",
+	"author": "C0der_Tang",
+	"description": "A and D or arrow keys to move. This was made with a Brackeys tutorial, but i added: Ramps, Movable Obstacles, and Better Level Design. My first game, so feedback would be appreciated.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b4ccbb1-c21a-4574-959e-51a53ebbaeab/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b4fd3f1c-3cf5-480b-ac1a-d7300e73e586/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b4fd3f1c-3cf5-480b-ac1a-d7300e73e586",
+	"unityPlayUrl": "https://play.unity.com/en/games/b4fd3f1c-3cf5-480b-ac1a-d7300e73e586/simple-a-3d-dodge-game"
+}

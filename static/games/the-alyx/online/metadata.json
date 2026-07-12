@@ -1,0 +1,14 @@
+{
+	"id": "the-alyx",
+	"name": "The Alyx",
+	"author": "kendallcodd",
+	"description": "Games4Change student challenge \"resilience through games.\"",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b780ac50-a618-4df0-bad4-462d2d165858/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9f868010-0f64-415c-97d9-d21ee56395be/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9f868010-0f64-415c-97d9-d21ee56395be",
+	"unityPlayUrl": "https://play.unity.com/en/games/9f868010-0f64-415c-97d9-d21ee56395be/the-alyx"
+}

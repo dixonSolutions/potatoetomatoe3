@@ -1,0 +1,14 @@
+{
+	"id": "rainbow-road-racer",
+	"name": "Rainbow Road Racer",
+	"author": "jonizen",
+	"description": "Use arrow keys to move and space to drift.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8c54f84c-6257-407b-bbf9-8c9922f2f71d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a8fb7922-fb1f-415d-a7c3-942c7b3bc172/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a8fb7922-fb1f-415d-a7c3-942c7b3bc172",
+	"unityPlayUrl": "https://play.unity.com/en/games/a8fb7922-fb1f-415d-a7c3-942c7b3bc172/rainbow-road-racer"
+}

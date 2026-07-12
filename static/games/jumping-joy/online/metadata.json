@@ -1,0 +1,14 @@
+{
+	"id": "jumping-joy",
+	"name": "Jumping Joy",
+	"author": "WilliamHumphris",
+	"description": "See if you can make that last jump.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a19037f9-20b6-4655-b6f4-0add67b5a7ef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68c53b92-7abf-469b-9863-3a7a19ded123/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68c53b92-7abf-469b-9863-3a7a19ded123",
+	"unityPlayUrl": "https://play.unity.com/en/games/68c53b92-7abf-469b-9863-3a7a19ded123/jumping-joy"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mindrifters",
+	"name": "Mindrifters",
+	"author": "Unity Play",
+	"description": "Join two blobs on a journey and drift through various dimensions of the minds.   \n                                                                                                                                      Controls: WASD for Player 1 (Blue), Arrow Keys for Player 2 (Red)  \n\n(Game still under development, Intro stage and stage 1 complete)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f6c321b6-4297-4158-8665-ef109fafbadc/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/89157b5b-5773-4861-86d3-c4c7478e1f8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "89157b5b-5773-4861-86d3-c4c7478e1f8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/89157b5b-5773-4861-86d3-c4c7478e1f8c/mindrifters"
+}

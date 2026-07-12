@@ -125,6 +125,8 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	if (isBundledOfflineGame(gameId)) return true;
 	const status = await fetchGameOfflineStatus(gameId);
 	if (status?.offline) return true;
+	// Puller answered — trust it; do not probe static /offline/ (noisy 404s while playing online).
+	if (status) return false;
 	if ((await getOfflineBackend()) === 'browser' && (await isBrowserGameDownloaded(gameId))) {
 		return true;
 	}
@@ -134,10 +136,13 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	return false;
 }
 
+async function staticOfflinePlayUrlIfNeeded(gameId: string): Promise<string> {
+	return resolveStaticOfflinePlayUrl(gameId, base);
+}
+
 /** Resolve the iframe src for playing a game. */
 export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	const metadata = await loadGameMetadata(gameId);
-	const staticOfflineUrl = await resolveStaticOfflinePlayUrl(gameId, base);
 
 	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;
@@ -152,6 +157,7 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 				return offlineUrl;
 			}
 			if (!isPublicSiteDeployment()) {
+				const staticOfflineUrl = await staticOfflinePlayUrlIfNeeded(gameId);
 				if (metadata?.engine === 'unity') {
 					return unityPlayerShellUrl(staticOfflineUrl, gameId, unityOfflineAssetsBase(gameId));
 				}
@@ -172,6 +178,7 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 			return offlineUrl;
 		}
 		if (!isPublicSiteDeployment()) {
+			const staticOfflineUrl = await staticOfflinePlayUrlIfNeeded(gameId);
 			if (metadata?.engine === 'unity') {
 				return unityPlayerShellUrl(staticOfflineUrl, gameId, unityOfflineAssetsBase(gameId));
 			}

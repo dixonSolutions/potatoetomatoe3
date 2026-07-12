@@ -1,0 +1,14 @@
+{
+	"id": "ascension-prototype",
+	"name": "Ascension (Prototype)",
+	"author": "Dhs5",
+	"description": "1v1 board game with simple rules. (size 11, 3 moves per turn is the best option)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c861605c-f829-4ec6-bd04-5fdbb2e0e4a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/505339f5-64af-425b-9c95-c8b033fb5bac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "505339f5-64af-425b-9c95-c8b033fb5bac",
+	"unityPlayUrl": "https://play.unity.com/en/games/505339f5-64af-425b-9c95-c8b033fb5bac/ascension-prototype"
+}

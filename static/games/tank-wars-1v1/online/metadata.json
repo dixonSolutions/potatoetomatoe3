@@ -1,0 +1,14 @@
+{
+	"id": "tank-wars-1v1",
+	"name": "Tank Wars 1v1",
+	"author": "oisin-mac-sweeney",
+	"description": "A maze that regenerates each round as 2 tanks battle it out!\n\n\nControls\n\nPlayer 1: W,A,S,D to move and SPACE to shoot\n\nPlayer 2: Arrow Keys to move and P to shoot\n\n\nTry to Collect Power Ups and shoot your opponent before they shoot you.\n\nEach round generates a new map.\n\n\n\n\n\nPOWER UPS\n\n________________________\n\n//Normal Crates give you 20 bullets;\n\n//Missile Crates give you a missile;\n\n//Lazer Crates give you a Lazer;\n\n//GattlingGun Crates give you a Gattling Gun;",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0df90f9e-4410-4c21-a378-8e883e4f560f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0df90f9e-4410-4c21-a378-8e883e4f560f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0df90f9e-4410-4c21-a378-8e883e4f560f/tank-wars-1v1"
+}

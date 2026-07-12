@@ -1,0 +1,14 @@
+{
+	"id": "habitathero2d",
+	"name": "HabitatHero2D",
+	"author": "Estremera_Jose",
+	"description": "PLAY IN FULLSCREEN MODE                                                                 \n                                                                                                                  Spacebar = Jump  Move = Arrow keys  Hold spacebar = Long jump                                                                                     \n                                                                                                                           \nPlay as Dino an Animal Medic who goes around saving endangered animals due to habitat loss! by collecting there favortie foods you can save them from being captured! We trust in you HabitatHero!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6da49285-57ff-4d9d-aa81-3297ee4f33bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6da49285-57ff-4d9d-aa81-3297ee4f33bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/6da49285-57ff-4d9d-aa81-3297ee4f33bc/habitathero2d"
+}

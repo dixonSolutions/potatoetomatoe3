@@ -1,0 +1,14 @@
+{
+	"id": "bullet-hell",
+	"name": "Bullet Hell",
+	"author": "Unity Play",
+	"description": "A cool bullet hell game I made",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d5e5d76-3fad-40cf-b4a1-bf11448e0071/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d5e5d76-3fad-40cf-b4a1-bf11448e0071",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d5e5d76-3fad-40cf-b4a1-bf11448e0071/bullet-hell"
+}

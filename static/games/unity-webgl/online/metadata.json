@@ -1,0 +1,14 @@
+{
+	"id": "unity-webgl",
+	"name": "Unity WEBGL",
+	"author": "iturabelidze7",
+	"description": ".",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13653ee1-75c7-4af5-83ec-139cab6fd819/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13653ee1-75c7-4af5-83ec-139cab6fd819",
+	"unityPlayUrl": "https://play.unity.com/en/games/13653ee1-75c7-4af5-83ec-139cab6fd819/unity-webgl"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "soulfire",
+	"name": "SoulFire",
+	"author": "Paecon2",
+	"description": "Play SoulFire on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9929520f-e9df-4563-820d-862596f80800/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80a17730-782f-4035-ab27-b3f685678a51/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80a17730-782f-4035-ab27-b3f685678a51",
+	"unityPlayUrl": "https://play.unity.com/en/games/80a17730-782f-4035-ab27-b3f685678a51/soulfire"
+}

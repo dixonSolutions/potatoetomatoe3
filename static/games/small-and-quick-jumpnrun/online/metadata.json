@@ -1,0 +1,14 @@
+{
+	"id": "small-and-quick-jumpnrun",
+	"name": "Small and Quick Jump'n'Run",
+	"author": "Waffel",
+	"description": "For my students as an example",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ca06bd95-6342-48ae-9312-3706a51b9bb5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/af314157-d4b2-4327-9f9d-1b58af393de1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "af314157-d4b2-4327-9f9d-1b58af393de1",
+	"unityPlayUrl": "https://play.unity.com/en/games/af314157-d4b2-4327-9f9d-1b58af393de1/small-and-quick-jumpnrun"
+}

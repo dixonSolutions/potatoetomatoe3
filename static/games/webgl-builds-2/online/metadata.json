@@ -1,0 +1,14 @@
+{
+	"id": "webgl-builds-2",
+	"name": "WebGL Builds - 2",
+	"author": "Tong_Xu",
+	"description": "Play WebGL Builds - 2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e7449423-0997-4a82-81bd-b51bffe6a49d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23b905e3-7381-49c2-853b-f9ad50c553bb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "23b905e3-7381-49c2-853b-f9ad50c553bb",
+	"unityPlayUrl": "https://play.unity.com/en/games/23b905e3-7381-49c2-853b-f9ad50c553bb/webgl-builds-2"
+}

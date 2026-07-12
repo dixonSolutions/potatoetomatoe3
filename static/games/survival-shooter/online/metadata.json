@@ -1,0 +1,14 @@
+{
+	"id": "survival-shooter",
+	"name": "survival shooter",
+	"author": "haddonparks",
+	"description": "My seventh microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1515ee7f-1ab6-433e-869c-b28d0a75ddd8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c8a8b1d1-c2b5-4edb-bf69-0aeb934350d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c8a8b1d1-c2b5-4edb-bf69-0aeb934350d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/c8a8b1d1-c2b5-4edb-bf69-0aeb934350d2/survival-shooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "better-mario",
+	"name": "better mario",
+	"author": "unity_7FC44A19CC035134BAB7",
+	"description": "Play better mario on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7aa80ea1-0dbe-4aaa-9979-f8e20f07d71f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/32ff1cf9-0743-43ab-b3d7-d3b5596a2b35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "32ff1cf9-0743-43ab-b3d7-d3b5596a2b35",
+	"unityPlayUrl": "https://play.unity.com/en/games/32ff1cf9-0743-43ab-b3d7-d3b5596a2b35/better-mario"
+}

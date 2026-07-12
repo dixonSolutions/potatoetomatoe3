@@ -1,0 +1,14 @@
+{
+	"id": "yuppie",
+	"name": "Yuppie",
+	"author": "TDGVR",
+	"description": "A few new fixes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1c4b321a-78be-49ae-a1f8-8e8bb9baf892/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21fb1ac1-f0f5-4474-896b-b255f7632e69/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21fb1ac1-f0f5-4474-896b-b255f7632e69",
+	"unityPlayUrl": "https://play.unity.com/en/games/21fb1ac1-f0f5-4474-896b-b255f7632e69/yuppie"
+}

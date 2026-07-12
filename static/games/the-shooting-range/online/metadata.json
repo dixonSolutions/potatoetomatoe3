@@ -1,0 +1,14 @@
+{
+	"id": "the-shooting-range",
+	"name": "The Shooting Range",
+	"author": "Steve019",
+	"description": "AK47",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c32272e6-1aa1-4c90-a168-86e47fa5cf41/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f3b4fa4c-f43c-4bd0-9d1e-d01e94e0b1a9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f3b4fa4c-f43c-4bd0-9d1e-d01e94e0b1a9",
+	"unityPlayUrl": "https://play.unity.com/en/games/f3b4fa4c-f43c-4bd0-9d1e-d01e94e0b1a9/the-shooting-range"
+}

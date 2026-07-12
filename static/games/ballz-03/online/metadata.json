@@ -1,0 +1,14 @@
+{
+	"id": "ballz-03",
+	"name": "Ballz 0.3",
+	"author": "Brenzle",
+	"description": "Play Ballz 0.3 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a6238941-68e0-4ca6-89c5-de355998be86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/474eb3c0-31a4-4f89-ae81-1d204bbf3ac5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "474eb3c0-31a4-4f89-ae81-1d204bbf3ac5",
+	"unityPlayUrl": "https://play.unity.com/en/games/474eb3c0-31a4-4f89-ae81-1d204bbf3ac5/ballz-03"
+}

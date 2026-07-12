@@ -1,0 +1,14 @@
+{
+	"id": "bald-jhon-demo",
+	"name": "Bald Jhon Demo",
+	"author": "Danilock",
+	"description": "Bald jhon is a 2D platformer where in some levels you will need to touch all platforms and in others just need to reach the goal. Sprites are from ITCH.IO maded by GrafxKid.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8497b2dd-25d4-41e8-8fd2-7b4a0b50eb1d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ba676e6e-7f7c-4537-8c27-8ca89c6a2cb0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ba676e6e-7f7c-4537-8c27-8ca89c6a2cb0",
+	"unityPlayUrl": "https://play.unity.com/en/games/ba676e6e-7f7c-4537-8c27-8ca89c6a2cb0/bald-jhon-demo"
+}

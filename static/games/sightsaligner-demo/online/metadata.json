@@ -1,0 +1,14 @@
+{
+	"id": "sightsaligner-demo",
+	"name": "SightsAligner Demo",
+	"author": "samson96",
+	"description": "R - Play reloading animation, V - change sights",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/983e9e03-2e96-4eec-813c-93de7c33a43d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/37ce596e-77f8-4d6c-89f4-9705505cef7b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "37ce596e-77f8-4d6c-89f4-9705505cef7b",
+	"unityPlayUrl": "https://play.unity.com/en/games/37ce596e-77f8-4d6c-89f4-9705505cef7b/sightsaligner-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "avengers-fps",
+	"name": "Avengers FPS",
+	"author": "vihaanreddykadari_unity",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ea516b6-0e60-48b9-9332-5de47e576b06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06cfa39c-fd53-4359-ac41-c6fdb018531a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06cfa39c-fd53-4359-ac41-c6fdb018531a",
+	"unityPlayUrl": "https://play.unity.com/en/games/06cfa39c-fd53-4359-ac41-c6fdb018531a/avengers-fps"
+}

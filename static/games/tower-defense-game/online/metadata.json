@@ -1,0 +1,14 @@
+{
+	"id": "tower-defense-game",
+	"name": "Tower Defense Game",
+	"author": "ioanstefan2020",
+	"description": "This is tower defense game.You need to defense the tower from enemies.Press 'a','w','s','d' to move the camera and the scroll to apropiate.You also can move the camera by moving the cursor out the screen.Press escape or 'p' for pause and 'c' to lock the camera.Choose the turret or the power in the menu to select and place on a node to build a turret.Press on the turret to open the menu and upgrade or sell it.Good luck and have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/959dc2e4-1757-4069-a454-b932000959a0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0731a276-7baa-4b6b-8fc9-b08142674c2d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0731a276-7baa-4b6b-8fc9-b08142674c2d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0731a276-7baa-4b6b-8fc9-b08142674c2d/tower-defense-game"
+}

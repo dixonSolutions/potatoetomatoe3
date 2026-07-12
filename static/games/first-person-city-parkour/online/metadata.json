@@ -1,0 +1,14 @@
+{
+	"id": "first-person-city-parkour",
+	"name": "First Person City Parkour",
+	"author": "ParkerXChen",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bc3f5397-f3ec-4d88-bd22-fcebb7320595/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f2f645a-31d9-49bc-b749-73d362944b81/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f2f645a-31d9-49bc-b749-73d362944b81",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f2f645a-31d9-49bc-b749-73d362944b81/first-person-city-parkour"
+}

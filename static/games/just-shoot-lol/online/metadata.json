@@ -1,0 +1,14 @@
+{
+	"id": "just-shoot-lol",
+	"name": "just shoot lol",
+	"author": "TrikzterYT",
+	"description": "Play just shoot lol on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f4b022e2-807a-48a4-a625-9ca70ca8a107/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ee3bbba-5971-4dc0-9991-c96687696693/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ee3bbba-5971-4dc0-9991-c96687696693",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ee3bbba-5971-4dc0-9991-c96687696693/just-shoot-lol"
+}

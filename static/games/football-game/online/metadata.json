@@ -1,0 +1,14 @@
+{
+	"id": "football-game",
+	"name": "Football game",
+	"author": "werfycool",
+	"description": "Challenge 4",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bf06276-e5b0-4065-b70c-a2307abb5d3b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bf06276-e5b0-4065-b70c-a2307abb5d3b",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bf06276-e5b0-4065-b70c-a2307abb5d3b/football-game"
+}

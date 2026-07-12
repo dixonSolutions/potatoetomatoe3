@@ -1,0 +1,14 @@
+{
+	"id": "retro-vision-pro-demo",
+	"name": "Retro Vision Pro DEMO",
+	"author": "debrice",
+	"description": "Retro Vision Pro delivers studio-quality emulation of 80s/90s video: color bleed, tape distortion, interlacing, jitter, scanlines, NTSC codec, dot crawl, aperture masks, lens warp, and more. Built for",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/32069110-63e0-44f2-80fa-cf7d095e5785/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5207f7d8-f459-4a2b-8b32-65c54a00ffe1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5207f7d8-f459-4a2b-8b32-65c54a00ffe1",
+	"unityPlayUrl": "https://play.unity.com/en/games/5207f7d8-f459-4a2b-8b32-65c54a00ffe1/retro-vision-pro-demo"
+}

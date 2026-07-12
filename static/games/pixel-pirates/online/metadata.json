@@ -1,0 +1,14 @@
+{
+	"id": "pixel-pirates",
+	"name": "Pixel Pirates",
+	"author": "J0tah47",
+	"description": "Conquer the seas! In this sidescroller microgame you discover the adventurous world of pirates. Collect treasures, shoot cannons at your enemies and finally free your loyal companion, Pixie the parrot.\n\nProject as part of the lecture Serious Games at TU Darmstadt 2022.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1957bf3f-af9a-47a5-b846-f50e0bc57e4d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8537d9ef-6a07-4287-aa6a-28d3e6e80d02/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8537d9ef-6a07-4287-aa6a-28d3e6e80d02",
+	"unityPlayUrl": "https://play.unity.com/en/games/8537d9ef-6a07-4287-aa6a-28d3e6e80d02/pixel-pirates"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tetris-3d",
+	"name": "Tetris 3D",
+	"author": "ArthurJVNB",
+	"description": "Here is my Tetris. It was part of a challenge that I needed to do it in 5 days, and here it is! It's a 3D game and has sound effects. I hope you enjoy it! Any improvement sugestion and bug reports will be appreciated :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/57d197d9-47ae-45f5-9742-bf39b7cb1146/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6a92426f-e84a-43c1-b646-72c5b5392b6c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6a92426f-e84a-43c1-b646-72c5b5392b6c",
+	"unityPlayUrl": "https://play.unity.com/en/games/6a92426f-e84a-43c1-b646-72c5b5392b6c/tetris-3d"
+}

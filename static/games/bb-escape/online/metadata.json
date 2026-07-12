@@ -1,0 +1,14 @@
+{
+	"id": "bb-escape",
+	"name": "BB Escape",
+	"author": "chickenvirus24",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b02a91a8-5fc5-48d9-987b-4dbc9fd45556/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11a6c9a4-e565-4e29-8a36-841ab7d818da/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11a6c9a4-e565-4e29-8a36-841ab7d818da",
+	"unityPlayUrl": "https://play.unity.com/en/games/11a6c9a4-e565-4e29-8a36-841ab7d818da/bb-escape"
+}

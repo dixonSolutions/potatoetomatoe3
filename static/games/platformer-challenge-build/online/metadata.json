@@ -1,0 +1,14 @@
+{
+	"id": "platformer-challenge-build",
+	"name": "Platformer Challenge Build",
+	"author": "fauna18877",
+	"description": "Collect the coins, avoid the UFOs. Use A/D to run and W to jump. Tap W when touching the edge of a platform to double-jump.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4cc6a72b-7e02-4603-95fe-a7a0d62a16a5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4cc6a72b-7e02-4603-95fe-a7a0d62a16a5",
+	"unityPlayUrl": "https://play.unity.com/en/games/4cc6a72b-7e02-4603-95fe-a7a0d62a16a5/platformer-challenge-build"
+}

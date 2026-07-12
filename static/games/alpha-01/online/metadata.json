@@ -1,0 +1,14 @@
+{
+	"id": "alpha-01",
+	"name": "(ALPHA 0.1)",
+	"author": "TheGameMaster_",
+	"description": "(ALPHA 0.1)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cf7cf54-bd79-430d-be37-d7588b9d3314/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cf7cf54-bd79-430d-be37-d7588b9d3314",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cf7cf54-bd79-430d-be37-d7588b9d3314/alpha-01"
+}

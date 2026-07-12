@@ -1,0 +1,14 @@
+{
+	"id": "pepes-car",
+	"name": "PePe`s car",
+	"author": "Benggxd",
+	"description": "Play PePe`s car on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1f561f4b-2717-40a3-9544-ef7f059defb6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6d2cc9d4-e60f-4853-adc6-e0ab9c44b721/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6d2cc9d4-e60f-4853-adc6-e0ab9c44b721",
+	"unityPlayUrl": "https://play.unity.com/en/games/6d2cc9d4-e60f-4853-adc6-e0ab9c44b721/pepes-car"
+}

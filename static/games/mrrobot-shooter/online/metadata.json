@@ -1,0 +1,14 @@
+{
+	"id": "mrrobot-shooter",
+	"name": "Mr.Robot Shooter",
+	"author": "AnayV",
+	"description": "Play Mr.Robot Shooter on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f93dc00e-5e1b-4323-ace7-87d0af841d83/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ded8d99-fa96-43c0-81f1-4145b3d0059f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3ded8d99-fa96-43c0-81f1-4145b3d0059f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3ded8d99-fa96-43c0-81f1-4145b3d0059f/mrrobot-shooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "delivery-challenge",
+	"name": "Delivery Challenge",
+	"author": "tkuhn_unity",
+	"description": "Game Design Class 2022/23 S1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18364ca1-0114-426d-9844-95aad871976d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18364ca1-0114-426d-9844-95aad871976d",
+	"unityPlayUrl": "https://play.unity.com/en/games/18364ca1-0114-426d-9844-95aad871976d/delivery-challenge"
+}

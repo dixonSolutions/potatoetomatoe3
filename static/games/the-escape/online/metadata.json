@@ -1,0 +1,14 @@
+{
+	"id": "the-escape",
+	"name": "The Escape",
+	"author": "notme_rpg_games",
+	"description": "A Roguelike with increasing dungeon size and different enemies. \nThree different Powerups can help you in addition to collecting food to survive.\nMove with the arrow keys or use Space to wait.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/76192962-aab3-4c01-886b-75d10a0924ba/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a785d04f-0c29-4dfc-be5b-fc2ddf678ef9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a785d04f-0c29-4dfc-be5b-fc2ddf678ef9",
+	"unityPlayUrl": "https://play.unity.com/en/games/a785d04f-0c29-4dfc-be5b-fc2ddf678ef9/the-escape"
+}

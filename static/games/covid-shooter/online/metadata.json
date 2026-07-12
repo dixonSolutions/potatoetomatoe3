@@ -1,0 +1,14 @@
+{
+	"id": "covid-shooter",
+	"name": "COVID Shooter",
+	"author": "DrDinkle",
+	"description": "Can you eradicate COVID-19 and collect the RNA?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a4eb782e-3570-41f0-843b-3fc057c170f6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/760f5fb6-cd92-4a34-87e8-a267eacf09e1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "760f5fb6-cd92-4a34-87e8-a267eacf09e1",
+	"unityPlayUrl": "https://play.unity.com/en/games/760f5fb6-cd92-4a34-87e8-a267eacf09e1/covid-shooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "paradigm",
+	"name": "Paradigm",
+	"author": "Unity Play",
+	"description": "Paradigm is an educational game that features three different experimental behaviour paradigms within each of its levels. It was created as part of the SOFTENG 761 course.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/81169f0e-5f1d-40a4-aadf-c53d14172ba5/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f66ebabd-50ef-4da0-8b0d-f7d1276890da/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f66ebabd-50ef-4da0-8b0d-f7d1276890da",
+	"unityPlayUrl": "https://play.unity.com/en/games/f66ebabd-50ef-4da0-8b0d-f7d1276890da/paradigm"
+}

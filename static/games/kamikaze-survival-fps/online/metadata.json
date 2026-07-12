@@ -1,0 +1,14 @@
+{
+	"id": "kamikaze-survival-fps",
+	"name": "Kamikaze Survival FPS",
+	"author": "coderKazaf",
+	"description": "Kill all the enemies, and complete missions of the game to win",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f1608c19-efea-4dd5-9b5b-a8af3cdf76d8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01a21ba5-57ba-4665-893b-60e4f04ce570/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01a21ba5-57ba-4665-893b-60e4f04ce570",
+	"unityPlayUrl": "https://play.unity.com/en/games/01a21ba5-57ba-4665-893b-60e4f04ce570/kamikaze-survival-fps"
+}

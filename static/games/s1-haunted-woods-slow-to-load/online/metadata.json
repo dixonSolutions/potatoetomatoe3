@@ -1,0 +1,14 @@
+{
+	"id": "s1-haunted-woods-slow-to-load",
+	"name": "S1 Haunted Woods (Slow to Load)",
+	"author": "tkuhn_unity",
+	"description": "S1 Game Design Class 2021/22",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7e49dbcd-3c7e-45d6-b680-56d859230908/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7e49dbcd-3c7e-45d6-b680-56d859230908",
+	"unityPlayUrl": "https://play.unity.com/en/games/7e49dbcd-3c7e-45d6-b680-56d859230908/s1-haunted-woods-slow-to-load"
+}

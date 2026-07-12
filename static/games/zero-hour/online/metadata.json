@@ -1,0 +1,14 @@
+{
+	"id": "zero-hour",
+	"name": "Zero Hour",
+	"author": "hanouvf",
+	"description": "A 3D survival exploration game set in an industrial city during a chemical leak emergency. Survive hazards, low visibility, and reach the evacuation point before time runs out.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f7847d3e-b34a-4af2-baf1-aabc45c11f07/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46c0b50d-8ddb-49db-ac5f-b1d411f508c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46c0b50d-8ddb-49db-ac5f-b1d411f508c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/46c0b50d-8ddb-49db-ac5f-b1d411f508c2/zero-hour"
+}

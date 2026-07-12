@@ -1,0 +1,14 @@
+{
+	"id": "calculus-time",
+	"name": "Calculus Time",
+	"author": "LaughingFox",
+	"description": "A time travelling deckbuilder to practice basic calculus skills. \n\nDevelopment info:\n\nThis game was developed as part of the scholarship project # 23E-ISAU-MS-01 sponsored by the Centre for Scholarship and Innovation in Science, Technology, Engineering and Maths (eSTEeM), the Open University, UK. \n\nLicensing info:\n\nThe following pieces of art are licensed under creative commons 3.0\nhttps://creativecommons.org/licenses/by/3.0/\nThe images were modified (size and colour changed)\n\nThe origins were created by the following artists:\nDeck icon - Faithtoken (https://www.faithtoken.com/)\nDiscard icon - Faithtoken (https://www.faithtoken.com/)\nEnd Turn icon - Delapouite (https://delapouite.com/)\nGem icon - Lorc (https://lorcblog.blogspot.com/)\nHint icon - Lorc (https://lorcblog.blogspot.com/)\n\nThe following pieces of art are licensed under a creative commons 0 license\nhttps://pixabay.com/service/terms/\n\nBackground image - ArtTower (https://pixabay.com/users/arttower-5337/)\nBrain circuit image - GDJ (https://pixabay.com/users/gdj-1086657/)\n\nThe following pieces of art are subject to the unsplash free use license https://unsplash.com/license\n\nPaper Texture (Used on various things)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3be0950e-2e6d-4653-a0d3-e1ac7cfeae15/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5cd58083-3d82-4e9b-a519-358b4e1a52b1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5cd58083-3d82-4e9b-a519-358b4e1a52b1",
+	"unityPlayUrl": "https://play.unity.com/en/games/5cd58083-3d82-4e9b-a519-358b4e1a52b1/calculus-time"
+}

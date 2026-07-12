@@ -1,0 +1,14 @@
+{
+	"id": "lets-try-challenge",
+	"name": "Let's Try Challenge",
+	"author": "ZenryokuStudio",
+	"description": "0",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0be03118-bf40-4bdc-b917-31feb229a8de/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0be03118-bf40-4bdc-b917-31feb229a8de",
+	"unityPlayUrl": "https://play.unity.com/en/games/0be03118-bf40-4bdc-b917-31feb229a8de/lets-try-challenge"
+}

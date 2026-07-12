@@ -1,0 +1,14 @@
+{
+	"id": "champion-shooter",
+	"name": "Champion Shooter",
+	"author": "CodingCoder12345",
+	"description": "This is Champion Shooter v1.1.0. Added new Burst Rifle without crosshair(Work in progress).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b8b7c03c-3c5b-4260-a4bb-afcc5588c2de/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a1f49e5-3a5a-4ab7-b8a6-6b3ec362002e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a1f49e5-3a5a-4ab7-b8a6-6b3ec362002e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a1f49e5-3a5a-4ab7-b8a6-6b3ec362002e/champion-shooter"
+}

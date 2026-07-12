@@ -1,0 +1,14 @@
+{
+	"id": "webgl-mobile-sensor-tests",
+	"name": "WebGL Mobile Sensor Tests",
+	"author": "EdenARG",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0465a950-6461-4a21-ac71-00b1f0c3e1d1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0465a950-6461-4a21-ac71-00b1f0c3e1d1",
+	"unityPlayUrl": "https://play.unity.com/en/games/0465a950-6461-4a21-ac71-00b1f0c3e1d1/webgl-mobile-sensor-tests"
+}

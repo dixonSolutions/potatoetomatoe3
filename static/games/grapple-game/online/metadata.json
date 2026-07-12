@@ -1,0 +1,14 @@
+{
+	"id": "grapple-game",
+	"name": "Grapple Game",
+	"author": "Bubunski",
+	"description": "SplitScreen and Singleplayer Grapple Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f616f79a-26d4-4d08-9a94-ff773ec7fa1f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15043f12-5105-4915-8dd3-063131c9b65f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15043f12-5105-4915-8dd3-063131c9b65f",
+	"unityPlayUrl": "https://play.unity.com/en/games/15043f12-5105-4915-8dd3-063131c9b65f/grapple-game"
+}

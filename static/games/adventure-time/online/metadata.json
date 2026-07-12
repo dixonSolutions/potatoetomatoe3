@@ -1,0 +1,14 @@
+{
+	"id": "adventure-time",
+	"name": "Adventure Time",
+	"author": "Dragonmad6",
+	"description": "Juego de Plataformas2D",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/83bb780b-7e4a-4a9b-a2c1-108dd966fbd2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "83bb780b-7e4a-4a9b-a2c1-108dd966fbd2",
+	"unityPlayUrl": "https://play.unity.com/en/games/83bb780b-7e4a-4a9b-a2c1-108dd966fbd2/adventure-time"
+}

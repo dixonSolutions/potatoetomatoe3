@@ -1,0 +1,14 @@
+{
+	"id": "blackstone",
+	"name": "BLACKSTONE",
+	"author": "MilkyLemon",
+	"description": "My First ever game! I might make a sequel idk. Controls: wsad to move qe to switch guns left click to shoot right click to aim down sights tab to pause",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6dc8edf2-d30a-4757-8087-80d5004319f3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/423bc861-3ce5-456f-b78c-6fd224dc366c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "423bc861-3ce5-456f-b78c-6fd224dc366c",
+	"unityPlayUrl": "https://play.unity.com/en/games/423bc861-3ce5-456f-b78c-6fd224dc366c/blackstone"
+}

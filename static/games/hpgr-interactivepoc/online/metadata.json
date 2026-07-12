@@ -1,0 +1,14 @@
+{
+	"id": "hpgr-interactivepoc",
+	"name": "HPGR-Interactive_POC",
+	"author": "Akhilalakshmi_Weir",
+	"description": "HPGR-Interactive_POC",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5ea32ecc-6846-4eae-842a-73b3bb108c91/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5ea32ecc-6846-4eae-842a-73b3bb108c91",
+	"unityPlayUrl": "https://play.unity.com/en/games/5ea32ecc-6846-4eae-842a-73b3bb108c91/hpgr-interactivepoc"
+}

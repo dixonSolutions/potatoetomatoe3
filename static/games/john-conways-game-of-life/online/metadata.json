@@ -1,0 +1,14 @@
+{
+	"id": "john-conways-game-of-life",
+	"name": "John Conway's Game Of Life",
+	"author": "AfroDog",
+	"description": "John Conway, a British Mathematician, created the Game of Life in 1970. It is a zero-player game simulating cellular multiplication.\n\nThis project was interesting to code and presented the challenge of neighbor awareness on a 2D grid.\n\nThe rules are as follows:\n1. If a cell has less than two neighbors, it dies by underpopulation.\n2. If a cell has exactly two or three neighbors, it survives to the next generation.\n3. If a cell has more than three neighbors, it dies by overpopulation.\n4. If an empty tile has three live neighbors, a new cell is born.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c7b1be0c-3f86-40b6-9841-7ee160ad96c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/93d42f5c-73dd-4232-9332-4df97a0c2d9a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "93d42f5c-73dd-4232-9332-4df97a0c2d9a",
+	"unityPlayUrl": "https://play.unity.com/en/games/93d42f5c-73dd-4232-9332-4df97a0c2d9a/john-conways-game-of-life"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "posio-23-peli",
+	"name": "PoSIO-23 Peli",
+	"author": "JussiLesonen",
+	"description": "PoSIO-p\u00e4ivien 2023 edustuspeli. T\u00e4m\u00e4 versio on tarkoitettu pelattavaksi tietokoneella. Katso pelin info-n\u00e4kym\u00e4 kuinka peli\u00e4 pelataan. Ladattava versio: https://mega.nz/file/0c9EhArC#hiv2GdRaPP3OE2l95Yx126r8GTGmenb9UiDzUU4BsP8",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/017a1318-146a-4202-b5f2-94b169ff76b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/328124ed-34b0-4f06-92aa-2c834388479e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "328124ed-34b0-4f06-92aa-2c834388479e",
+	"unityPlayUrl": "https://play.unity.com/en/games/328124ed-34b0-4f06-92aa-2c834388479e/posio-23-peli"
+}

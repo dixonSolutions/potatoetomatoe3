@@ -1,0 +1,14 @@
+{
+	"id": "2d-adventure",
+	"name": "2D Adventure",
+	"author": "Satish-FoxCoding",
+	"description": "A 2D Adventure Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5378640d-618e-44fb-8127-3c6400ca7198/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43f32505-5c64-4f3a-a793-4f51c10bd311/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43f32505-5c64-4f3a-a793-4f51c10bd311",
+	"unityPlayUrl": "https://play.unity.com/en/games/43f32505-5c64-4f3a-a793-4f51c10bd311/2d-adventure"
+}

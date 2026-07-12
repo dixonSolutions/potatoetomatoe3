@@ -1,0 +1,14 @@
+{
+	"id": "slalom-speeder",
+	"name": "Slalom Speeder",
+	"author": "PeterRaeder",
+	"description": "Select difficulties and shapes for your player, and see how far you can get in this game with multiple different sections!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/634e0554-ee42-4232-82b3-26094adca68d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "634e0554-ee42-4232-82b3-26094adca68d",
+	"unityPlayUrl": "https://play.unity.com/en/games/634e0554-ee42-4232-82b3-26094adca68d/slalom-speeder"
+}

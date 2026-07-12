@@ -1,0 +1,14 @@
+{
+	"id": "runnerio",
+	"name": "Runner.io",
+	"author": "tobymgx",
+	"description": "Run with FUN! For computers, not mobile devices.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/766bc403-f65a-4f58-97d8-357ab30fd49b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe63ed15-b48b-4eb1-953b-a5fe3bdd544f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe63ed15-b48b-4eb1-953b-a5fe3bdd544f",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe63ed15-b48b-4eb1-953b-a5fe3bdd544f/runnerio"
+}

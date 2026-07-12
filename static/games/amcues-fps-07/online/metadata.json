@@ -1,0 +1,14 @@
+{
+	"id": "amcues-fps-07",
+	"name": "Amcue's FPS 0.7",
+	"author": "Amcue",
+	"description": "Play Amcue's FPS 0.7 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ebc18231-55e1-4270-8efe-d9b9d69137a0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ee40e859-b242-4559-a7a7-9bae5f460fc9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ee40e859-b242-4559-a7a7-9bae5f460fc9",
+	"unityPlayUrl": "https://play.unity.com/en/games/ee40e859-b242-4559-a7a7-9bae5f460fc9/amcues-fps-07"
+}

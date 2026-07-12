@@ -1,0 +1,14 @@
+{
+	"id": "hover-man-30",
+	"name": "hover man 3.0",
+	"author": "Matoreth",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d082f9d-d651-441a-b019-1f03149dd413/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d082f9d-d651-441a-b019-1f03149dd413",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d082f9d-d651-441a-b019-1f03149dd413/hover-man-30"
+}

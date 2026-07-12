@@ -1,0 +1,14 @@
+{
+	"id": "defense-clicker",
+	"name": "Defense Clicker",
+	"author": "JeaNiX",
+	"description": "This is a little personal project I've been working on for some months. On January 2021 i began to learn unity and C# from scratch, and this is the progress so far.\n\nCan you defend your ground by clicking on the evil monsters? Massive waves of enemies just waiting to get on the other side, and only YOU are there to stop them.\n\n\nCurrently there are 3 levels with only one boss, but each level is unique because it offers a new type of enemy. See them all ;))\n\nThere is already implemented different enemy behavior, different attack skills, critical chance, acid damage, magic resist and armor values are different for each enemy, fire damage over time, slowing (used by the Wiz skill) and many more is already written.\n\nThis project is in development, so I've added the core functionality, but in the future I plan to add more enemies (they are already present), bosses (also hidden), characters and their new abilities.\nAll 2d and audio resources were taken from itch.io, and I thank the authors for the permission to use them in my project. This is my first project and I'm very happy to introduce it.\nPlease feel free to test and comment.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/696e7952-9748-4fe1-83eb-84f9136f0a6f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34b10cc1-497e-4e97-9cd4-562796f58e2d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34b10cc1-497e-4e97-9cd4-562796f58e2d",
+	"unityPlayUrl": "https://play.unity.com/en/games/34b10cc1-497e-4e97-9cd4-562796f58e2d/defense-clicker"
+}

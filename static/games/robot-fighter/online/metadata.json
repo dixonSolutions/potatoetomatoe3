@@ -1,0 +1,14 @@
+{
+	"id": "robot-fighter",
+	"name": "Robot Fighter",
+	"author": "WassamAhmed",
+	"description": "my first game plz try",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5bbd194b-50c6-4256-9dac-17c9cc3026d3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e57461c-5e03-423e-8121-5ce2715ae3a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e57461c-5e03-423e-8121-5ce2715ae3a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e57461c-5e03-423e-8121-5ce2715ae3a2/robot-fighter"
+}

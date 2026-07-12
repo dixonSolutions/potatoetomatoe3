@@ -1,0 +1,14 @@
+{
+	"id": "asterax-space-shooter",
+	"name": "AsteraX - Space Shooter",
+	"author": "Unity Play",
+	"description": "Survive against endless asteroids and get the highest score. Can you get all 10 hidden achievements? WASD to move, mouse to shoot.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3e3eb220-f233-4f1e-916f-2d1d076853d3/content",
+	"category": "action",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d21471a5-af14-4d8f-b4bc-8453efa7b22f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d21471a5-af14-4d8f-b4bc-8453efa7b22f",
+	"unityPlayUrl": "https://play.unity.com/en/games/d21471a5-af14-4d8f-b4bc-8453efa7b22f/asterax-space-shooter"
+}

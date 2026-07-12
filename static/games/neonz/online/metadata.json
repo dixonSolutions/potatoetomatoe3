@@ -1,0 +1,14 @@
+{
+	"id": "neonz",
+	"name": "NeonZ",
+	"author": "Eternalx_fright",
+	"description": "Roll through several rooms collecting tokens while dodging obstacles. This is my first ever game in unity i have worked on.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c1880fe1-e17c-4a70-8c59-24a20936a450/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/846cad9f-039b-4eb0-9c42-e565f77698a6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "846cad9f-039b-4eb0-9c42-e565f77698a6",
+	"unityPlayUrl": "https://play.unity.com/en/games/846cad9f-039b-4eb0-9c42-e565f77698a6/neonz"
+}

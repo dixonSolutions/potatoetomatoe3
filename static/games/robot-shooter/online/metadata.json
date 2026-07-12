@@ -1,0 +1,14 @@
+{
+	"id": "robot-shooter",
+	"name": "Robot Shooter",
+	"author": "mikeking11152004",
+	"description": "Play Robot Shooter on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1a176c15-86a6-4845-80d4-f9bbe4b4a792/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58289f24-8a38-4598-a2fc-280e82cd7590/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58289f24-8a38-4598-a2fc-280e82cd7590",
+	"unityPlayUrl": "https://play.unity.com/en/games/58289f24-8a38-4598-a2fc-280e82cd7590/robot-shooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "watchcollection-adventure",
+	"name": "Watchcollection Adventure",
+	"author": "ihmelsmax",
+	"description": "Space key to fly. Stay close to the watch collection curves for maximum points. Enable sound in the bottom right corner. Enjoy! Max. :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d7cd7376-5507-4d19-bdfa-c28f766673be/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01f9a7ab-218e-42c1-bd3d-16def04a60a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01f9a7ab-218e-42c1-bd3d-16def04a60a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/01f9a7ab-218e-42c1-bd3d-16def04a60a8/watchcollection-adventure"
+}

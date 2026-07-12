@@ -1,0 +1,14 @@
+{
+	"id": "quantum-clash-3d",
+	"name": "QUANTUM CLASH 3D",
+	"author": "FranklinKelly",
+	"description": "destroy as many ships as possible",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14270326-4d90-405c-b28a-3ccfbc5a818d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e7660af5-6585-4ae0-bfdf-9accbeb74bb8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e7660af5-6585-4ae0-bfdf-9accbeb74bb8",
+	"unityPlayUrl": "https://play.unity.com/en/games/e7660af5-6585-4ae0-bfdf-9accbeb74bb8/quantum-clash-3d"
+}

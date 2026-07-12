@@ -1,0 +1,14 @@
+{
+	"id": "tetsim29",
+	"name": "TetSim_29",
+	"author": "unity_saksod",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/56999bbf-869f-4c0d-b104-b8f34340cced/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10c46f34-2069-410a-a76a-6d4a5ab78e03/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10c46f34-2069-410a-a76a-6d4a5ab78e03",
+	"unityPlayUrl": "https://play.unity.com/en/games/10c46f34-2069-410a-a76a-6d4a5ab78e03/tetsim29"
+}

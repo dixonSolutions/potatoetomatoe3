@@ -1,0 +1,14 @@
+{
+	"id": "indigos-quest",
+	"name": "Indigo's Quest",
+	"author": "Spacepilot_2000",
+	"description": "An educational game by Jade Toivonen and Matt Allan. Play in fullscreen for the best experience. \n\nControls:\nWASD or Arrow keys to move, SPACE to Jump, Mouse for quiz",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9eecc9d9-97fe-41cc-9536-aad777336a61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7f297211-7991-4c09-a1b3-0e46588d3ddf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7f297211-7991-4c09-a1b3-0e46588d3ddf",
+	"unityPlayUrl": "https://play.unity.com/en/games/7f297211-7991-4c09-a1b3-0e46588d3ddf/indigos-quest"
+}

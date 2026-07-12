@@ -1,0 +1,14 @@
+{
+	"id": "dc3-firstfight",
+	"name": "DC3 FirstFight",
+	"author": "biotakio",
+	"description": "My first game by philippe leblanc in unity",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b2e03665-2648-4e45-ad89-1e722406b1ee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d34629b-bcb9-4e6d-a8c7-59f2e1118ed6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d34629b-bcb9-4e6d-a8c7-59f2e1118ed6",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d34629b-bcb9-4e6d-a8c7-59f2e1118ed6/dc3-firstfight"
+}

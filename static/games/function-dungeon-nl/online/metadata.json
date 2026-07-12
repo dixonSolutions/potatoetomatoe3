@@ -1,0 +1,14 @@
+{
+	"id": "function-dungeon-nl",
+	"name": "Function-Dungeon-NL",
+	"author": "andersbouwer",
+	"description": "Function Dungeon: een educatief digitaal spel over functies (met vragen en dialogen vertaald in het Nederlands). Game Development: Kevin Hooijschuur. Wiskundige inhoud en Question design: Sonia Palha en Daan van Smaalen. Muziek gecomponeerd, gespeeld en geproduceerd door Anders Bouwer. Nederlandse vertalingen: Daan van Smaalen, Sonia Palha en Anders Bouwer. Game Design Team: Kevin Hooijschuur, Sonia Palha en Anders Bouwer, Hogeschool van Amsterdam, Amsterdam. Ontwikkeld in de context van het Europese Erasmus+ project GAMMA (GAMe-based Learning in MAthematics). Project website: http://www.project-gamma.eu/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ab306720-f4b7-45ad-9276-80bc1d69f836/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/98f5801e-8933-4351-a46b-1ac7e12e1986/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "98f5801e-8933-4351-a46b-1ac7e12e1986",
+	"unityPlayUrl": "https://play.unity.com/en/games/98f5801e-8933-4351-a46b-1ac7e12e1986/function-dungeon-nl"
+}

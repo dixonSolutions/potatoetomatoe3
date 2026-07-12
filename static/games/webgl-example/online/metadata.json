@@ -1,0 +1,14 @@
+{
+	"id": "webgl-example",
+	"name": "webgl example",
+	"author": "denisdolgih",
+	"description": "Play webgl example on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0aecbb5d-3896-4785-ba80-647df7161e7c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d28b513-5a8f-41e0-a3d7-ec42face8550/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d28b513-5a8f-41e0-a3d7-ec42face8550",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d28b513-5a8f-41e0-a3d7-ec42face8550/webgl-example"
+}

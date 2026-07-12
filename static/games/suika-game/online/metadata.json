@@ -1,0 +1,14 @@
+{
+	"id": "suika-game",
+	"name": "Suika Game",
+	"author": "Unity Play",
+	"description": "Suika Game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f358bac2-c4e6-4bff-bb25-8dcf2383c5ee/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d5b38e5-9fc7-4402-9745-ec84dfd3b1a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d5b38e5-9fc7-4402-9745-ec84dfd3b1a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d5b38e5-9fc7-4402-9745-ec84dfd3b1a2/suika-game"
+}

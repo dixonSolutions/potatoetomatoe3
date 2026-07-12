@@ -1,0 +1,14 @@
+{
+	"id": "island-adventure",
+	"name": "Island Adventure",
+	"author": "SuperNerdCal",
+	"description": "An edutainment-filled, free-roam Microgame celebrating the 25 years of LEGO video game history! Wander around a nostalgia-laden island, full of familiar LEGO video game oddities.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0c3f1db0-8003-4a92-a2fc-c58547e3f5f3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8d21f55c-4038-4a66-b9b6-1b67f3570afe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8d21f55c-4038-4a66-b9b6-1b67f3570afe",
+	"unityPlayUrl": "https://play.unity.com/en/games/8d21f55c-4038-4a66-b9b6-1b67f3570afe/island-adventure"
+}

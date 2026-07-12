@@ -1,0 +1,14 @@
+{
+	"id": "mwaks-2",
+	"name": "MWAKS 2",
+	"author": "SloMoGunFight",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3aaf7c17-0471-401b-8ec9-d9696c1045e1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3aaf7c17-0471-401b-8ec9-d9696c1045e1",
+	"unityPlayUrl": "https://play.unity.com/en/games/3aaf7c17-0471-401b-8ec9-d9696c1045e1/mwaks-2"
+}

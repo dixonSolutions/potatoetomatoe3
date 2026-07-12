@@ -1,0 +1,14 @@
+{
+	"id": "gta-vi",
+	"name": "Gta VI",
+	"author": "joe_vandenberg",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf2ff68f-c44b-4b45-bce6-94aaf8c25ae7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a59f6c7-f04e-49bb-8310-7a2dd607106d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a59f6c7-f04e-49bb-8310-7a2dd607106d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a59f6c7-f04e-49bb-8310-7a2dd607106d/gta-vi"
+}

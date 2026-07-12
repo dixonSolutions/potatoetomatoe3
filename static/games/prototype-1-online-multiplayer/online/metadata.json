@@ -1,0 +1,14 @@
+{
+	"id": "prototype-1-online-multiplayer",
+	"name": "Prototype 1 ONLINE MULTIPLAYER",
+	"author": "vendaar",
+	"description": "Prototype 1 of the Create with Code courses with incoming traffic, obstacles and online multiplayer. players can create lobby to play with friends or play on their own. If you fall down the course, you just respawn at the beginning.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f1076f29-33ce-42ec-aac8-77c3c46e0070/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09fe2072-e2dd-43a8-895d-f7c0cdae0553/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09fe2072-e2dd-43a8-895d-f7c0cdae0553",
+	"unityPlayUrl": "https://play.unity.com/en/games/09fe2072-e2dd-43a8-895d-f7c0cdae0553/prototype-1-online-multiplayer"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "top-down",
+	"name": "Top Down",
+	"author": "pixelagent",
+	"description": "Bolt Kit - Top Down",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0854ab55-c5ea-48f0-bd32-3c0ed0d67168/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28cda632-6365-46c1-a2f2-a95a795813b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28cda632-6365-46c1-a2f2-a95a795813b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/28cda632-6365-46c1-a2f2-a95a795813b8/top-down"
+}

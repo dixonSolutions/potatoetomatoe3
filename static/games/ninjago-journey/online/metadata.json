@@ -1,0 +1,14 @@
+{
+	"id": "ninjago-journey",
+	"name": "NINJAGO: Journey",
+	"author": "mmhouston6",
+	"description": "Journey through the valley defeating evil forces to be the master of spinjitzu in this endless runner. Press the button to jump and press again, while in the air, to double jump. LEGO IDEA name: MMSix",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/89a0c45d-5e76-4288-a229-613b9455d116/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3684d447-f669-43d1-99f1-9d1b4b277428/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3684d447-f669-43d1-99f1-9d1b4b277428",
+	"unityPlayUrl": "https://play.unity.com/en/games/3684d447-f669-43d1-99f1-9d1b4b277428/ninjago-journey"
+}

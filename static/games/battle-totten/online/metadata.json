@@ -1,0 +1,14 @@
+{
+	"id": "battle-totten",
+	"name": "Battle Totten",
+	"author": "manu5games",
+	"description": "Two-player card game against a (very) strong AI. It demonstrates how reinforcement learning can create strong, human-like digital opponents. Fan-made demo, not an official product.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/02f81af0-c42e-4510-834c-ecb092e2c762/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a589f446-5696-4b62-bd70-21d3233577e9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a589f446-5696-4b62-bd70-21d3233577e9",
+	"unityPlayUrl": "https://play.unity.com/en/games/a589f446-5696-4b62-bd70-21d3233577e9/battle-totten"
+}

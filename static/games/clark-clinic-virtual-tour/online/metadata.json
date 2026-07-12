@@ -1,0 +1,14 @@
+{
+	"id": "clark-clinic-virtual-tour",
+	"name": "Clark Clinic Virtual Tour",
+	"author": "DarraghLydon",
+	"description": "This is a virtual tour of Clark Clinic in the Royal Belfast Hospital for Sick Children, created in partnership with the Children's Heartbeat Trust.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e830c444-d8c6-45de-ae3b-0b7541ede41f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50f3a51c-5624-4e37-9717-02efe1127f01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50f3a51c-5624-4e37-9717-02efe1127f01",
+	"unityPlayUrl": "https://play.unity.com/en/games/50f3a51c-5624-4e37-9717-02efe1127f01/clark-clinic-virtual-tour"
+}

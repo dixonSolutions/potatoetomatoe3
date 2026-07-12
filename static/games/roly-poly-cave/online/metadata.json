@@ -1,0 +1,14 @@
+{
+	"id": "roly-poly-cave",
+	"name": "ROLY POLY CAVE",
+	"author": "Themainju",
+	"description": "My latest microgame. Enjoy and feel free to comment on the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5e75ccd9-005d-46f5-96ff-3e1255ff66e3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f18c37c4-8304-430d-a4b8-f729c0afd618/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f18c37c4-8304-430d-a4b8-f729c0afd618",
+	"unityPlayUrl": "https://play.unity.com/en/games/f18c37c4-8304-430d-a4b8-f729c0afd618/roly-poly-cave"
+}

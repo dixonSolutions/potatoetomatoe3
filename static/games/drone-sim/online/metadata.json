@@ -1,0 +1,14 @@
+{
+	"id": "drone-sim",
+	"name": "Drone sim",
+	"author": "R0B0DEV",
+	"description": "The worlds best game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2c806420-3391-4e95-ab4d-a16b2e9e0833/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d1010cc2-00a7-481d-91b5-9ea647f98f5e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d1010cc2-00a7-481d-91b5-9ea647f98f5e",
+	"unityPlayUrl": "https://play.unity.com/en/games/d1010cc2-00a7-481d-91b5-9ea647f98f5e/drone-sim"
+}

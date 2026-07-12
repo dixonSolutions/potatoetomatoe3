@@ -1,0 +1,14 @@
+{
+	"id": "roborage",
+	"name": "RoboRage",
+	"author": "oliverirvine",
+	"description": "Our latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f7e97bec-265d-48ea-84d7-1ba9f29f72ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05d24d78-e266-4448-b672-5d924fe8a9a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05d24d78-e266-4448-b672-5d924fe8a9a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/05d24d78-e266-4448-b672-5d924fe8a9a8/roborage"
+}

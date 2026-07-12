@@ -1,0 +1,14 @@
+{
+	"id": "dog-creator",
+	"name": "Dog Creator",
+	"author": "zachattack87",
+	"description": "Press space to spawn dogs. Time it right so they catch the balls or else the dogs will be sad.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0738134e-89dc-420a-b81e-abdbbc36f5cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0738134e-89dc-420a-b81e-abdbbc36f5cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/0738134e-89dc-420a-b81e-abdbbc36f5cf/dog-creator"
+}

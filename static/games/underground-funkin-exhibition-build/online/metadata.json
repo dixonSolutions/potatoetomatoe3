@@ -1,0 +1,14 @@
+{
+	"id": "underground-funkin-exhibition-build",
+	"name": "Underground Funkin (Exhibition Build)",
+	"author": "Ep8s",
+	"description": "This is the culmination of 2 years of work. Although the project is cancelled, I have learned from the experience and have gained a lot of knowledge on the engine. This is from when I was just starting out in game development, and I'm proud of it. Keep that in mind when playing, as the game may be buggy/janky.\n\nControls: D=Left F=Down J=Up K=Right",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e80b97cc-0e01-4a63-bfb9-6f0deb5e54df/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f56184bb-63af-491b-91fa-e0d128aee80d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f56184bb-63af-491b-91fa-e0d128aee80d",
+	"unityPlayUrl": "https://play.unity.com/en/games/f56184bb-63af-491b-91fa-e0d128aee80d/underground-funkin-exhibition-build"
+}

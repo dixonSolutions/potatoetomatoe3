@@ -1,0 +1,14 @@
+{
+	"id": "ninja-frog",
+	"name": "Ninja Frog",
+	"author": "tkuhn_unity",
+	"description": "Game Design Class 2022/23 S1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81b4fa5c-87cd-4abb-a24b-6acbb3cccdeb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81b4fa5c-87cd-4abb-a24b-6acbb3cccdeb",
+	"unityPlayUrl": "https://play.unity.com/en/games/81b4fa5c-87cd-4abb-a24b-6acbb3cccdeb/ninja-frog"
+}

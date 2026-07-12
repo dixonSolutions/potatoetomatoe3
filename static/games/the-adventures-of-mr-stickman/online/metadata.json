@@ -1,0 +1,14 @@
+{
+	"id": "the-adventures-of-mr-stickman",
+	"name": "The Adventures of Mr. Stickman",
+	"author": "AppDeveloper33",
+	"description": "2D Platform game with embedded math problems.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/490985db-47bc-4adb-822f-f0c681432295/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f192c929-177e-4484-b35f-7990c64b5577/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f192c929-177e-4484-b35f-7990c64b5577",
+	"unityPlayUrl": "https://play.unity.com/en/games/f192c929-177e-4484-b35f-7990c64b5577/the-adventures-of-mr-stickman"
+}

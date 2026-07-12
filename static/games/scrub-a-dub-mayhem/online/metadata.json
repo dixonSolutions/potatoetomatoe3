@@ -1,0 +1,14 @@
+{
+	"id": "scrub-a-dub-mayhem",
+	"name": "Scrub-A-Dub Mayhem",
+	"author": "MidnightHourGames",
+	"description": "A silly arcade FPS-style cleaning game. Clean as many items in the house as fast as you can while trying not to make a mess of the place!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00c48180-a1f3-40d8-91fe-239f02655e83/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ce018b74-6f94-48d7-ab12-1dee81ea1114/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ce018b74-6f94-48d7-ab12-1dee81ea1114",
+	"unityPlayUrl": "https://play.unity.com/en/games/ce018b74-6f94-48d7-ab12-1dee81ea1114/scrub-a-dub-mayhem"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-ninja-game-2",
+	"name": "Lego Ninja Game 2",
+	"author": "TimDaTurdle",
+	"description": "This game is my second installment in this series. I made this using a few prefabs. This game broke during the finishing steps, right before I could add a win brick. So, as a replacement, I will give you a quest.                                               Cross the parkour challenge using Master Wu and get to the skull island at the end. And, as an added challenge, find the Destiny's Bounty airship as a collectible. Have fun!                                                                                                         Controls: Space: Jump        Space midair: Air jump up to 2 times.                                WASD: Move         TAB: Pause/options             Consider commenting future ideas!                                                                                                                                      Thank you,                                                                                                                      TimDaTurdleGames",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e1e1ef83-663a-4293-8037-a89f87e77241/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/200f7f53-6b8f-41dc-876d-7a01aa322ef0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "200f7f53-6b8f-41dc-876d-7a01aa322ef0",
+	"unityPlayUrl": "https://play.unity.com/en/games/200f7f53-6b8f-41dc-876d-7a01aa322ef0/lego-ninja-game-2"
+}

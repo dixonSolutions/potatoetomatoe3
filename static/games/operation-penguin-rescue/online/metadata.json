@@ -1,0 +1,14 @@
+{
+	"id": "operation-penguin-rescue",
+	"name": "Operation Penguin Rescue",
+	"author": "jonshoeck",
+	"description": "Latest Update: 4/21/22 - updated asset resolution",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/684b034b-b226-4b8e-a678-fa348d194dc2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f3f7568a-bc23-4f5f-be7b-26bc2a0bd909/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f3f7568a-bc23-4f5f-be7b-26bc2a0bd909",
+	"unityPlayUrl": "https://play.unity.com/en/games/f3f7568a-bc23-4f5f-be7b-26bc2a0bd909/operation-penguin-rescue"
+}

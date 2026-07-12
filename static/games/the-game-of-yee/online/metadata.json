@@ -1,0 +1,14 @@
+{
+	"id": "the-game-of-yee",
+	"name": "The Game Of Yee",
+	"author": "YeeTeam",
+	"description": "My latest yeeteam game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ad4c2162-ae5e-4557-8052-8d190b9d05bb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/262da1f1-2a67-44cb-8f4f-25bc7cb7219b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "262da1f1-2a67-44cb-8f4f-25bc7cb7219b",
+	"unityPlayUrl": "https://play.unity.com/en/games/262da1f1-2a67-44cb-8f4f-25bc7cb7219b/the-game-of-yee"
+}

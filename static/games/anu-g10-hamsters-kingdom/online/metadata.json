@@ -1,0 +1,14 @@
+{
+	"id": "anu-g10-hamsters-kingdom",
+	"name": "ANU G10 Hamster's Kingdom!",
+	"author": "SuperJudoon",
+	"description": "Hamster's Kingdom! \nIn Hamster's Kingdom, you will play as a determined hamster on a mission to indulge in the joy of hoarding. The essence of the game is to experience the happiness of a hamster\u2019s collecting obsession. Your task is to roam the map, find automatically generated items, and bring them back to your castle (but beware\u2014items will disappear if not collected in time!). \nYou'll choose one upgrade from three options once you meet exp requirement: reducing enemy attack power, auto-collecting items, or unleashing a shockwave! Meanwhile, enemies will also spawn on the map, relentlessly attacking your castle. As the waves of enemies grow stronger and more numerous, your castle will also become more powerful, standing resilient against the increasing threats.\n\nWASD to move\nHold Q to show nearest Ememy\nHold E to show nearest Item\nSPACE to jump",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bf512760-da8e-4e89-8c92-b83a3c0b2a17/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68873f1d-e7fb-46e9-96c3-a294fb3f0abb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68873f1d-e7fb-46e9-96c3-a294fb3f0abb",
+	"unityPlayUrl": "https://play.unity.com/en/games/68873f1d-e7fb-46e9-96c3-a294fb3f0abb/anu-g10-hamsters-kingdom"
+}

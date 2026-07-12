@@ -1,0 +1,14 @@
+{
+	"id": "waddle-down",
+	"name": "Waddle Down",
+	"author": "ywlai",
+	"description": "My very first micro game!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04b4784e-74e4-4ec0-94e7-773b98314fad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04b4784e-74e4-4ec0-94e7-773b98314fad",
+	"unityPlayUrl": "https://play.unity.com/en/games/04b4784e-74e4-4ec0-94e7-773b98314fad/waddle-down"
+}

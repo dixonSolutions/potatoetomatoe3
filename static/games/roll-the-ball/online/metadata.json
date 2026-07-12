@@ -1,0 +1,14 @@
+{
+	"id": "roll-the-ball",
+	"name": "Roll the ball",
+	"author": "Pandanti",
+	"description": "Can you collect all the cubes before time is up? Roll the ball is a game based on the Unity \"Roll-a-Ball\" project that you can find it in learn.unity.com.\nIf you want to, you can download Roll the Ball for Windows with better resolution, see the process from how I created Roll the Ball and what problems had each version. All this, you will find it in: \nhttps://pandanti.itch.io/roll-the-ball\nSee you there ;).\nPandanti",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1d5122cd-d2cc-4db1-9aef-8ef359a86edb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e94f3fe-9b95-43ac-83ea-7c67accbf8a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e94f3fe-9b95-43ac-83ea-7c67accbf8a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e94f3fe-9b95-43ac-83ea-7c67accbf8a7/roll-the-ball"
+}

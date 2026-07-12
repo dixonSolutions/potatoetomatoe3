@@ -1,0 +1,14 @@
+{
+	"id": "island-survivor",
+	"name": "Island Survivor",
+	"author": "Purling",
+	"description": "Try to survive until the end!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3075d3a1-114e-4f99-8231-b6e6f6062ba6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3075d3a1-114e-4f99-8231-b6e6f6062ba6",
+	"unityPlayUrl": "https://play.unity.com/en/games/3075d3a1-114e-4f99-8231-b6e6f6062ba6/island-survivor"
+}

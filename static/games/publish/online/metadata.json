@@ -1,0 +1,14 @@
+{
+	"id": "publish",
+	"name": "publish",
+	"author": "QualityPrime",
+	"description": "Play publish on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ea95693e-6146-4aeb-a17a-52f10b5e25cd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55065265-267d-447b-b531-717b0d65bdb0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55065265-267d-447b-b531-717b0d65bdb0",
+	"unityPlayUrl": "https://play.unity.com/en/games/55065265-267d-447b-b531-717b0d65bdb0/publish"
+}

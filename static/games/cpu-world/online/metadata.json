@@ -1,0 +1,14 @@
+{
+	"id": "cpu-world",
+	"name": "CPU World",
+	"author": "alvintan022suss",
+	"description": "A serious game for Computer Architecture. \"Fetching & Executing Instruction\", \"Interrupt Handling\", and \"Interrupt-Driven I/O\".",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14badd81-c010-4ed5-97dc-8579919f030b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/497b9c01-f23d-4ffc-9765-0ab3330ca442/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "497b9c01-f23d-4ffc-9765-0ab3330ca442",
+	"unityPlayUrl": "https://play.unity.com/en/games/497b9c01-f23d-4ffc-9765-0ab3330ca442/cpu-world"
+}

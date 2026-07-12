@@ -1,0 +1,14 @@
+{
+	"id": "buildgl",
+	"name": "BuildGL",
+	"author": "nik5140",
+	"description": "Play BuildGL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/942d907c-00c0-41e0-930a-83be70b8088f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9c16f055-bd07-4a4c-8ebc-cee58e13d06f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9c16f055-bd07-4a4c-8ebc-cee58e13d06f",
+	"unityPlayUrl": "https://play.unity.com/en/games/9c16f055-bd07-4a4c-8ebc-cee58e13d06f/buildgl"
+}

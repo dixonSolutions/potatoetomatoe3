@@ -1,0 +1,14 @@
+{
+	"id": "porco-dio-game",
+	"name": "Porco dio game",
+	"author": "amerac",
+	"description": "Play Porco dio game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0fb23f4e-1065-40e8-94f0-7068ed132430/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b1dd066b-c434-4c28-bad0-ba4cc26fac59/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b1dd066b-c434-4c28-bad0-ba4cc26fac59",
+	"unityPlayUrl": "https://play.unity.com/en/games/b1dd066b-c434-4c28-bad0-ba4cc26fac59/porco-dio-game"
+}

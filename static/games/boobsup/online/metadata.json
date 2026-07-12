@@ -1,0 +1,14 @@
+{
+	"id": "boobsup",
+	"name": "BoobsUp!",
+	"author": "DezmontDeXa",
+	"description": "Simple tech-demo for jelly2d",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3aa867bf-c966-40c2-a3b0-8085aae6c496/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/011f2c23-92e6-4653-a397-961e50c93d64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "011f2c23-92e6-4653-a397-961e50c93d64",
+	"unityPlayUrl": "https://play.unity.com/en/games/011f2c23-92e6-4653-a397-961e50c93d64/boobsup"
+}

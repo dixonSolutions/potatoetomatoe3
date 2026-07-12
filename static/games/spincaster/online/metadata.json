@@ -1,0 +1,14 @@
+{
+	"id": "spincaster",
+	"name": "Spincaster",
+	"author": "Unity Play",
+	"description": "Spincaster is a turn-based RPG where you defeat enemies by perfecting your timing. Use your mouse to click and lock in a sequence of actions. Hitting the Sweet Spot makes it Powerful!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bf32e7ba-c7a6-44d0-beb6-3a7bd2c3020c/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e36e42df-8b77-4b7e-9b24-bfb43e46d659/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e36e42df-8b77-4b7e-9b24-bfb43e46d659",
+	"unityPlayUrl": "https://play.unity.com/en/games/e36e42df-8b77-4b7e-9b24-bfb43e46d659/spincaster"
+}

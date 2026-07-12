@@ -1,0 +1,14 @@
+{
+	"id": "yellow-cart",
+	"name": "Yellow Cart",
+	"author": "Liana1",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c87628fe-281d-4d5f-af86-5687c0932b92/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f794d7-f73e-4e5c-a405-c2b9414efd05/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00f794d7-f73e-4e5c-a405-c2b9414efd05",
+	"unityPlayUrl": "https://play.unity.com/en/games/00f794d7-f73e-4e5c-a405-c2b9414efd05/yellow-cart"
+}

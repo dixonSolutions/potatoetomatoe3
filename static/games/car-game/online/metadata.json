@@ -1,0 +1,14 @@
+{
+	"id": "car-game",
+	"name": "Car Game",
+	"author": "JokkeNimbus",
+	"description": "Play Car Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ebd2c1fe-67d7-4cd2-94b9-48685ddb1d69/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0176d815-007a-45e9-8ed1-db0c7eb35057/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0176d815-007a-45e9-8ed1-db0c7eb35057",
+	"unityPlayUrl": "https://play.unity.com/en/games/0176d815-007a-45e9-8ed1-db0c7eb35057/car-game"
+}

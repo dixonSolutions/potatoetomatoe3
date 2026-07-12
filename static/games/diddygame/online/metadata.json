@@ -1,0 +1,14 @@
+{
+	"id": "diddygame",
+	"name": "diddygame",
+	"author": "hello156765xc",
+	"description": "a fps game diddy",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e475d564-fc27-467c-8324-79462fb6fb64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e475d564-fc27-467c-8324-79462fb6fb64",
+	"unityPlayUrl": "https://play.unity.com/en/games/e475d564-fc27-467c-8324-79462fb6fb64/diddygame"
+}

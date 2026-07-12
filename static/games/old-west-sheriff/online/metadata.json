@@ -1,0 +1,14 @@
+{
+	"id": "old-west-sheriff",
+	"name": "Old West Sheriff",
+	"author": "smd1234",
+	"description": "My latest Old West themed RPG micorgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2742f6da-32e6-4ada-9298-475daaa47b9d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2742f6da-32e6-4ada-9298-475daaa47b9d",
+	"unityPlayUrl": "https://play.unity.com/en/games/2742f6da-32e6-4ada-9298-475daaa47b9d/old-west-sheriff"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "drive-to-the-other-sky",
+	"name": "Drive to the Other Sky",
+	"author": "hug0cr",
+	"description": "Game Prototype 1 from Junior Programmer Pathway. Press spacebar to switch camera. I've added sounds, background music and a trigger at the end.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/36fdb7f6-95fc-4fdc-a0b4-0ad0eebfc2e1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7edba715-67e1-47d3-b429-a8b06687aa3a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7edba715-67e1-47d3-b429-a8b06687aa3a",
+	"unityPlayUrl": "https://play.unity.com/en/games/7edba715-67e1-47d3-b429-a8b06687aa3a/drive-to-the-other-sky"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "multiplayer-fps",
+	"name": "Multiplayer FPS",
+	"author": "Zacharytan",
+	"description": "A super robot game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cadfe61a-ff28-460e-9bd9-00b727f189e4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2187dfce-842b-431f-87de-f0451c2e5ac7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2187dfce-842b-431f-87de-f0451c2e5ac7",
+	"unityPlayUrl": "https://play.unity.com/en/games/2187dfce-842b-431f-87de-f0451c2e5ac7/multiplayer-fps"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "project-creative-core",
+	"name": "Project Creative Core.",
+	"author": "lrich",
+	"description": "Shaders, Lighting, Animation, VFX, Audio, and UI.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d66bc0c7-9678-4a06-ac9b-f1c1cea12d70/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/193c4dbd-eab5-4565-a149-64982bbefb6d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "193c4dbd-eab5-4565-a149-64982bbefb6d",
+	"unityPlayUrl": "https://play.unity.com/en/games/193c4dbd-eab5-4565-a149-64982bbefb6d/project-creative-core"
+}

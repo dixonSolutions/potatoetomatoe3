@@ -1,0 +1,14 @@
+{
+	"id": "slope-rip-off",
+	"name": "Slope rip-off",
+	"author": "dsierr01",
+	"description": "Game where you control a ball to get to a hole. Navigate through obstacles or you will have to start the game over. There will be a total of 5 levels. As you playthrough the game you will notice that some levels will be harder than others. Try to finish the game without getting destroyed.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2596569c-fd19-43e3-b58e-aa867e4daa74/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c40a6a75-d147-4002-aac6-eb4a7a0709de/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c40a6a75-d147-4002-aac6-eb4a7a0709de",
+	"unityPlayUrl": "https://play.unity.com/en/games/c40a6a75-d147-4002-aac6-eb4a7a0709de/slope-rip-off"
+}

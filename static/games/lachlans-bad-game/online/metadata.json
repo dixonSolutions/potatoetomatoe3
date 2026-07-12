@@ -1,0 +1,14 @@
+{
+	"id": "lachlans-bad-game",
+	"name": "Lachlan's Bad Game",
+	"author": "hankthedanktank",
+	"description": "WASD to move, Space to jump, X to lower sensitivity, C to increase sensitivity, and Z to reset to default. Move the mouse left and right to move the camera. Get the Key to open the door and win.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34838218-c32b-4ef6-b041-c38a97b6e9b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34838218-c32b-4ef6-b041-c38a97b6e9b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/34838218-c32b-4ef6-b041-c38a97b6e9b7/lachlans-bad-game"
+}

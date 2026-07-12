@@ -1,0 +1,14 @@
+{
+	"id": "targeater",
+	"name": "TargEater",
+	"author": "Azorus",
+	"description": "Get all targets as fast as possible. Hit Enter to pause the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9378dc77-2f28-490b-9fd5-971190589ca1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9fa4f124-0384-4fba-afdf-8442c02ff288/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9fa4f124-0384-4fba-afdf-8442c02ff288",
+	"unityPlayUrl": "https://play.unity.com/en/games/9fa4f124-0384-4fba-afdf-8442c02ff288/targeater"
+}

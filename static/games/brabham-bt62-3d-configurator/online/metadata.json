@@ -1,0 +1,14 @@
+{
+	"id": "brabham-bt62-3d-configurator",
+	"name": "Brabham BT62 3D Configurator",
+	"author": "vive_creative",
+	"description": "Play Brabham BT62 3D Configurator on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/be9cc5de-945d-430f-8e63-da91498fcacd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23a1abae-fc3f-41c8-9a43-b44e26db0bf7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "23a1abae-fc3f-41c8-9a43-b44e26db0bf7",
+	"unityPlayUrl": "https://play.unity.com/en/games/23a1abae-fc3f-41c8-9a43-b44e26db0bf7/brabham-bt62-3d-configurator"
+}

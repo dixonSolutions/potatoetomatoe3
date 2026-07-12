@@ -1,0 +1,14 @@
+{
+	"id": "last-chip-build",
+	"name": "Last chip build",
+	"author": "gulayaz001",
+	"description": "Play Last chip build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/46faef73-b96a-4301-a1c1-a8284938d7ad/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49aebe12-55a8-49c9-9b23-05f4b40bac3b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49aebe12-55a8-49c9-9b23-05f4b40bac3b",
+	"unityPlayUrl": "https://play.unity.com/en/games/49aebe12-55a8-49c9-9b23-05f4b40bac3b/last-chip-build"
+}

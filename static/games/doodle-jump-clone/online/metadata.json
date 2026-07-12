@@ -1,0 +1,14 @@
+{
+	"id": "doodle-jump-clone",
+	"name": "Doodle Jump Clone",
+	"author": "Kregai",
+	"description": "A clone of a game called Doodle Jump. Controls are A and D for horizontal movement thats all, Enjoy !",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/56de9409-7b0b-465b-b322-43a9d702bf55/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/edff8613-1e59-4217-b5d5-b58453551f91/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "edff8613-1e59-4217-b5d5-b58453551f91",
+	"unityPlayUrl": "https://play.unity.com/en/games/edff8613-1e59-4217-b5d5-b58453551f91/doodle-jump-clone"
+}

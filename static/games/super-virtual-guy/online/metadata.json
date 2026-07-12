@@ -1,0 +1,14 @@
+{
+	"id": "super-virtual-guy",
+	"name": "Super Virtual Guy",
+	"author": "Gabriel_Da_Silva",
+	"description": "* Inspired by Super Meat Boy * \n* Connect a controller. *",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1883feb5-204d-44e8-94e5-34dee629c74c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f2b9af82-6558-45a7-b21b-428becaed5c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f2b9af82-6558-45a7-b21b-428becaed5c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/f2b9af82-6558-45a7-b21b-428becaed5c1/super-virtual-guy"
+}

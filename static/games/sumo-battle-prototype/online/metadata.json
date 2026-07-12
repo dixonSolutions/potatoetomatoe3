@@ -1,0 +1,14 @@
+{
+	"id": "sumo-battle-prototype",
+	"name": "Sumo Battle Prototype",
+	"author": "john3rd73_unity",
+	"description": "This is the Sumo Battle Prototype from Unit 4 - Gameplay Mechanics of the Unity Jr. Programmer Pathway. \n\nUse the up and down arrows to move the checkered sphere; right and left arrows to rotate the plane. Use the PowerUps to repel the enemies..but not for long. Before you know it, another wave of enemies and PowerUps appear!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9b958998-722d-4ae5-8f32-4a359b6fc984/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3a05c923-6e1a-4b0f-9862-fe43bda6b3bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3a05c923-6e1a-4b0f-9862-fe43bda6b3bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/3a05c923-6e1a-4b0f-9862-fe43bda6b3bc/sumo-battle-prototype"
+}

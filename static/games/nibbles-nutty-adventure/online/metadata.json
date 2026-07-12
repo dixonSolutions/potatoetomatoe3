@@ -1,0 +1,14 @@
+{
+	"id": "nibbles-nutty-adventure",
+	"name": "Nibbles Nutty Adventure",
+	"author": "TwentyVentti",
+	"description": "Nibbles is a young squirrel on a mission to collect enough resources (nuts) before winter hits. \n\nWSAD or Arrow Keys for movement, Space for jump. \n\nEnjoy :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2201db95-832d-41f4-943e-5bddf3ad7937/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9f7ef130-157d-42fb-a976-8469c9857908/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9f7ef130-157d-42fb-a976-8469c9857908",
+	"unityPlayUrl": "https://play.unity.com/en/games/9f7ef130-157d-42fb-a976-8469c9857908/nibbles-nutty-adventure"
+}

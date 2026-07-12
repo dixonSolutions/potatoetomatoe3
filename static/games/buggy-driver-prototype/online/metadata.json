@@ -1,0 +1,14 @@
+{
+	"id": "buggy-driver-prototype",
+	"name": "Buggy Driver Prototype",
+	"author": "ricePak",
+	"description": "Mixed all bugs",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/228a3ad3-a962-4baa-bf9b-dafa2744da12/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "228a3ad3-a962-4baa-bf9b-dafa2744da12",
+	"unityPlayUrl": "https://play.unity.com/en/games/228a3ad3-a962-4baa-bf9b-dafa2744da12/buggy-driver-prototype"
+}

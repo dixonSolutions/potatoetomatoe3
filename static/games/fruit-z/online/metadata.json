@@ -1,0 +1,14 @@
+{
+	"id": "fruit-z",
+	"name": "Fruit-Z",
+	"author": "jjjdragons",
+	"description": "A simple 2D game I made to teach myself Unity.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/95ba1220-c302-4a62-878b-973cff296412/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05541e6c-8e0e-4e90-acdc-07446033b127/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05541e6c-8e0e-4e90-acdc-07446033b127",
+	"unityPlayUrl": "https://play.unity.com/en/games/05541e6c-8e0e-4e90-acdc-07446033b127/fruit-z"
+}

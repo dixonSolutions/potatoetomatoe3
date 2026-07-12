@@ -1,0 +1,14 @@
+{
+	"id": "sg4sg",
+	"name": "SG4SG",
+	"author": "Unity Play",
+	"description": "Testing",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3607c963-52de-46a2-9724-ce284a49d582/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3607c963-52de-46a2-9724-ce284a49d582",
+	"unityPlayUrl": "https://play.unity.com/en/games/3607c963-52de-46a2-9724-ce284a49d582/sg4sg"
+}

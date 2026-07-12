@@ -1,0 +1,14 @@
+{
+	"id": "animal-picker",
+	"name": "Animal Picker",
+	"author": "fsgs90",
+	"description": "Demonstration of OOP with different animals. Kept the project simple as suggested by Unity Learn. Git: https://github.com/fsgs90/JrProgrammerProyect  Theres a bug on this project because I had 2 event systems. Fixed it here:",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3d0cde73-ebed-4d0a-9cf1-2379a22d4c87/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01e45a21-ffe9-484a-bcb1-b968170462f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01e45a21-ffe9-484a-bcb1-b968170462f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/01e45a21-ffe9-484a-bcb1-b968170462f3/animal-picker"
+}

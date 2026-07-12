@@ -1,0 +1,14 @@
+{
+	"id": "battle-tanks",
+	"name": "Battle Tanks",
+	"author": "Soumik_Sarkar",
+	"description": "Introducing an exhilarating multiplayer tank battle game! Gather your friends for heart-pounding action where victory is within reach. Engage in epic battles with a minimum of 2 players and a maximum of 4, and strive to emerge as the ultimate champion by winning 5 rounds.\n\nTeam up with a friend and control Player 1 and 2 using one keyboard, while Player 3 and 4 can wield their game controllers for precise maneuvers and strategic gameplay. Maneuver through the battlefield, strategically positioning yourselves to outsmart and outgun your opponents.\n\nBut beware, the battleground is fraught with danger. Take advantage of repair points strategically scattered across the map to replenish your tank's health and stay in the fight.\n\nAre you ready to unleash chaos and claim victory in the ultimate tank showdown? Gather your squad, strategize your moves, and dominate the battlefield to become the undisputed champion!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70b9ff2a-f464-4277-b7c2-d05bc3bc3992/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e62b1fe0-123d-4926-a5fc-9886b972ade6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e62b1fe0-123d-4926-a5fc-9886b972ade6",
+	"unityPlayUrl": "https://play.unity.com/en/games/e62b1fe0-123d-4926-a5fc-9886b972ade6/battle-tanks"
+}

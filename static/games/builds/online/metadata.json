@@ -1,0 +1,14 @@
+{
+	"id": "builds",
+	"name": "Builds",
+	"author": "unity_5B15F0FCA8AD22C8741B",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cdfec0d2-d87f-4e7f-b8e9-02d8e79f46c1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c4ef9ba3-cacb-4276-ba2e-cd6e73c31ab3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c4ef9ba3-cacb-4276-ba2e-cd6e73c31ab3",
+	"unityPlayUrl": "https://play.unity.com/en/games/c4ef9ba3-cacb-4276-ba2e-cd6e73c31ab3/builds"
+}

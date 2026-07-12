@@ -1,0 +1,14 @@
+{
+	"id": "scp-project-d",
+	"name": "SCP Project D",
+	"author": "Koalamos",
+	"description": "Play SCP Project D on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/266beba5-d2b3-4d50-ab69-46545b9d600c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d23a4562-de5b-4437-943c-f3eca84cbaa1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d23a4562-de5b-4437-943c-f3eca84cbaa1",
+	"unityPlayUrl": "https://play.unity.com/en/games/d23a4562-de5b-4437-943c-f3eca84cbaa1/scp-project-d"
+}

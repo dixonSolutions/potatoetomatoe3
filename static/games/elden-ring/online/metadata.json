@@ -1,0 +1,14 @@
+{
+	"id": "elden-ring",
+	"name": "Elden Ring",
+	"author": "IronPalmSittingBull",
+	"description": "Latest demo gameplay from Elden ring, to be revealed at E3 2093.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7dcc4c2c-d07a-4058-b55d-e820b9e3f94f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6bd2c752-1d53-4f44-95ea-b8d05c8626ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6bd2c752-1d53-4f44-95ea-b8d05c8626ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/6bd2c752-1d53-4f44-95ea-b8d05c8626ad/elden-ring"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "markkuralli",
+	"name": "markkuralli",
+	"author": "Vannismake",
+	"description": "Play markkuralli on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c0c1d000-7581-41a6-8f0e-b1032e66c9c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0804ae0f-2107-4eb7-9cce-8325d0cbb3bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0804ae0f-2107-4eb7-9cce-8325d0cbb3bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/0804ae0f-2107-4eb7-9cce-8325d0cbb3bc/markkuralli"
+}

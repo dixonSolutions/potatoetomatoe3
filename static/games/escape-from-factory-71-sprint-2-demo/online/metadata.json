@@ -1,0 +1,14 @@
+{
+	"id": "escape-from-factory-71-sprint-2-demo",
+	"name": "Escape From Factory 71 Sprint #2 Demo",
+	"author": "jtdouty",
+	"description": "You are a spherical robot, fighting to survive in your quest to escape a maze-like factory, where vicious enemies lurk at every corner. Upgrade your character, hone your skills, and try to beat your highest score in this exciting game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/096a2eb1-e177-4089-802b-2c1dd8c7fa84/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71911eea-3348-46fb-af0e-b887ea6f89ed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71911eea-3348-46fb-af0e-b887ea6f89ed",
+	"unityPlayUrl": "https://play.unity.com/en/games/71911eea-3348-46fb-af0e-b887ea6f89ed/escape-from-factory-71-sprint-2-demo"
+}

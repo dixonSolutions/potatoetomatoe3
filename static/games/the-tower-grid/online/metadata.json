@@ -1,0 +1,14 @@
+{
+	"id": "the-tower-grid",
+	"name": "The tower grid",
+	"author": "mksrt",
+	"description": "This is a simple project where you help a human colony survive.\nYou can construct buildings, destroy blocks, upgrade weapons, armor, characters, and gather resources.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/56b90aae-4fb2-4460-aa7c-48dd03475cbf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e734a9c-879e-4772-9461-e1d22de5f603/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e734a9c-879e-4772-9461-e1d22de5f603",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e734a9c-879e-4772-9461-e1d22de5f603/the-tower-grid"
+}

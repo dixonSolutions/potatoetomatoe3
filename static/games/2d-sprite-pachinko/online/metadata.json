@@ -1,0 +1,14 @@
+{
+	"id": "2d-sprite-pachinko",
+	"name": "2D Sprite Pachinko",
+	"author": "nyx318",
+	"description": "This is a 2D minigame involving the use of 2D assets from the store, 2D physics and scripts. Feel free to leave any kind of feedback!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34b6099c-caca-4f9e-9003-2762c3a69e9e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34b6099c-caca-4f9e-9003-2762c3a69e9e",
+	"unityPlayUrl": "https://play.unity.com/en/games/34b6099c-caca-4f9e-9003-2762c3a69e9e/2d-sprite-pachinko"
+}

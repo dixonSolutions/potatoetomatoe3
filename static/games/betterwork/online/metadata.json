@@ -1,0 +1,14 @@
+{
+	"id": "betterwork",
+	"name": "BetterWork",
+	"author": "SorenGerlach",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b1def72-c55f-4a56-abba-a6204315b7dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b1def72-c55f-4a56-abba-a6204315b7dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b1def72-c55f-4a56-abba-a6204315b7dd/betterwork"
+}

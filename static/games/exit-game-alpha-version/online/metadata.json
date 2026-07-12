@@ -1,0 +1,14 @@
+{
+	"id": "exit-game-alpha-version",
+	"name": "Exit Game - Alpha Version",
+	"author": "Supertil",
+	"description": ".",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b51de99-f65e-4188-819f-a50f917b8af7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b51de99-f65e-4188-819f-a50f917b8af7",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b51de99-f65e-4188-819f-a50f917b8af7/exit-game-alpha-version"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-online-multiplayer-template-advanced",
+	"name": "The Online Multiplayer Template (Advanced)",
+	"author": "Konstantin100",
+	"description": "This is a demo for the asset: https://assetstore.unity.com/packages/slug/226745",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ea8b813a-4923-4401-9301-43cd55e3a7c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9d0f781b-f991-4e6f-8029-8ffe0470a84b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9d0f781b-f991-4e6f-8029-8ffe0470a84b",
+	"unityPlayUrl": "https://play.unity.com/en/games/9d0f781b-f991-4e6f-8029-8ffe0470a84b/the-online-multiplayer-template-advanced"
+}

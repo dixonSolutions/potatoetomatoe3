@@ -1,0 +1,14 @@
+{
+	"id": "phantom-princess",
+	"name": "Phantom Princess",
+	"author": "reemramadan",
+	"description": "A cursed Princess tries to escape a castle.\n\nI made this game in 2 days. \nProgramming by Reem Ramadan. \nArt by Reem Ramadan.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b352fe5-e8bb-476f-921b-a1a29b64a44b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c672c64-af65-454b-ae0f-295c4226ed09/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c672c64-af65-454b-ae0f-295c4226ed09",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c672c64-af65-454b-ae0f-295c4226ed09/phantom-princess"
+}

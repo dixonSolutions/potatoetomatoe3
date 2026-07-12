@@ -1,0 +1,14 @@
+{
+	"id": "ball-roll",
+	"name": "BALL ROLL",
+	"author": "akhileshdua33",
+	"description": "Controls are WASD and you are the black ball, you just have to kick the other color balls off the island. I CHALLENGE YOU TO KICK OFF 10 BALLS(THAT IS CONSIDERED LEVEL 10), I BET YOU WONT BE ABLE TO DO IT UNDER 60 TRIES.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06da9630-a289-4e8a-8711-659344069282/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06da9630-a289-4e8a-8711-659344069282",
+	"unityPlayUrl": "https://play.unity.com/en/games/06da9630-a289-4e8a-8711-659344069282/ball-roll"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lurking-below",
+	"name": "Lurking Below",
+	"author": "nguyend35",
+	"description": "Beta",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e802309-eb5c-4b4f-9642-42a0ed3d273b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e802309-eb5c-4b4f-9642-42a0ed3d273b",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e802309-eb5c-4b4f-9642-42a0ed3d273b/lurking-below"
+}

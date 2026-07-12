@@ -1,0 +1,14 @@
+{
+	"id": "marvin-grinn-lego",
+	"name": "Marvin Grinn Lego",
+	"author": "pubblicitagames",
+	"description": "Jogue a vers\u00e3o de lego do Marvin Grinn.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/29858637-9ce5-474a-9e40-21297073c019/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cfc6be1-e596-49d2-a885-67c51eaed7d6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cfc6be1-e596-49d2-a885-67c51eaed7d6",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cfc6be1-e596-49d2-a885-67c51eaed7d6/marvin-grinn-lego"
+}

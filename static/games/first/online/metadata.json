@@ -1,0 +1,14 @@
+{
+	"id": "first",
+	"name": "First",
+	"author": "egeulascalayir",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/97b56758-8967-4f72-b4b3-6982435b2aa6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01f4ef33-9bce-467f-90d4-915d775699cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01f4ef33-9bce-467f-90d4-915d775699cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/01f4ef33-9bce-467f-90d4-915d775699cd/first"
+}

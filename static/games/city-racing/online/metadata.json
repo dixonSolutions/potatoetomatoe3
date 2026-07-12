@@ -1,0 +1,14 @@
+{
+	"id": "city-racing",
+	"name": "CITY RACING",
+	"author": "DimitrisMarc",
+	"description": "Can you pass all the checkpoints before time runs out ? My latest Kart Microgame.   ..Turn up the volume..  (2nd Game)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/72e5b9be-9a6b-4c5a-b6a1-45ba8327346b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e8979f4a-6b52-4d82-89d1-25db0b8cc167/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e8979f4a-6b52-4d82-89d1-25db0b8cc167",
+	"unityPlayUrl": "https://play.unity.com/en/games/e8979f4a-6b52-4d82-89d1-25db0b8cc167/city-racing"
+}

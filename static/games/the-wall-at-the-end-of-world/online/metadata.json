@@ -1,0 +1,14 @@
+{
+	"id": "the-wall-at-the-end-of-world",
+	"name": "The Wall at the End of World",
+	"author": "schereralf",
+	"description": "The introduction music, the footsteps, the mangled screams and the arrow sounds are free audio assets from the Unity Asset Store (check out Footsteps Essentials, Mangled Screams and Medieval Music Themes). The trees are also from the Unity Asset Store (Conifers and Beech Trees packages by the amazing Forst). The wall and towers, as well as the members of the Advancing Barbarian Host, are available as 3D printable files at my MyMiniFactory store (link https://www.myminifactory.com/object/3d-print-roman-style-wall-and-gate-96602 ). Note that the versions used here have considerably reduced poly counts. The wall textures that I used here are from https://polyhaven.com/ . This will not be the last version of The Wall. Barbarians should survive most arrows in the next version and just run away/back off for a while. Barbarians advancing on horses would also be nice. The ones that die should become real dead barbarians and not placeholder red blobs either.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e1d440e5-b9d0-4f06-8da3-539fe66e8511/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e8ab162f-885a-430d-b9dd-22c7238319a4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e8ab162f-885a-430d-b9dd-22c7238319a4",
+	"unityPlayUrl": "https://play.unity.com/en/games/e8ab162f-885a-430d-b9dd-22c7238319a4/the-wall-at-the-end-of-world"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "call-duty",
+	"name": "call duty",
+	"author": "barneymilk",
+	"description": "FPS",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/10619586-0e89-4578-831d-febdf54f5353/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/711b0f40-41fe-4b38-a521-2924fece783e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "711b0f40-41fe-4b38-a521-2924fece783e",
+	"unityPlayUrl": "https://play.unity.com/en/games/711b0f40-41fe-4b38-a521-2924fece783e/call-duty"
+}

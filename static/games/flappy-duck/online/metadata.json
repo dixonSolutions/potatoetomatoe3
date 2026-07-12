@@ -1,0 +1,14 @@
+{
+	"id": "flappy-duck",
+	"name": "Flappy Duck",
+	"author": "altaf-creator",
+	"description": "Welcome to Flappy Duck! Flappy Duck is just Flappy Bird, but with DUCKS. To flap, click the screen, press space, or joystick button 0. Thank you for checking it out.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8ce102b0-76f5-4b85-a4e8-7ea094e61e80/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34bb3b1e-d740-43cf-8ad8-f7df29abcf16/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34bb3b1e-d740-43cf-8ad8-f7df29abcf16",
+	"unityPlayUrl": "https://play.unity.com/en/games/34bb3b1e-d740-43cf-8ad8-f7df29abcf16/flappy-duck"
+}

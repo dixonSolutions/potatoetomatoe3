@@ -1,0 +1,14 @@
+{
+	"id": "color-selector",
+	"name": "Color selector",
+	"author": "GrizlikD",
+	"description": "Allows you to select colors in RGB, CMYK, or HSV formats and see how different color formats are calculated from each other",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/231673cd-b384-45b9-ba10-88bd5ed5d00d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5a248288-c63c-4631-83b4-6f4d2af2365d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5a248288-c63c-4631-83b4-6f4d2af2365d",
+	"unityPlayUrl": "https://play.unity.com/en/games/5a248288-c63c-4631-83b4-6f4d2af2365d/color-selector"
+}

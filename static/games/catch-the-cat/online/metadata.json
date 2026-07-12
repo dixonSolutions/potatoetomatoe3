@@ -1,0 +1,14 @@
+{
+	"id": "catch-the-cat",
+	"name": "Catch the cat",
+	"author": "annvee",
+	"description": "The game starts off with 3 points, 50 are required to win.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/966f454f-9fc2-49d2-a7cd-d5fceeb9c47a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b89f77d-ddd4-4f8c-b88a-ecade7624e83/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b89f77d-ddd4-4f8c-b88a-ecade7624e83",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b89f77d-ddd4-4f8c-b88a-ecade7624e83/catch-the-cat"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "life-simulator",
+	"name": "Life Simulator!",
+	"author": "fcbetancourt",
+	"description": "Play through the ultimate simulation of the game that is life.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/80025613-aad9-471b-8286-99eef77c0d8c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b10e23c2-bc58-482a-854d-3a7048e399d7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b10e23c2-bc58-482a-854d-3a7048e399d7",
+	"unityPlayUrl": "https://play.unity.com/en/games/b10e23c2-bc58-482a-854d-3a7048e399d7/life-simulator"
+}

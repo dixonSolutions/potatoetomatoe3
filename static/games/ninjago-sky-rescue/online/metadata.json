@@ -1,0 +1,14 @@
+{
+	"id": "ninjago-sky-rescue",
+	"name": "ninjago sky rescue",
+	"author": "ghjyykiuhi",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef4bcc6f-08af-4f16-9bfd-649f3a2fc355/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4fa3ef5a-2149-48b3-8d40-b1ceef2c58ff/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4fa3ef5a-2149-48b3-8d40-b1ceef2c58ff",
+	"unityPlayUrl": "https://play.unity.com/en/games/4fa3ef5a-2149-48b3-8d40-b1ceef2c58ff/ninjago-sky-rescue"
+}

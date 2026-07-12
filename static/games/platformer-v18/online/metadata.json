@@ -1,0 +1,14 @@
+{
+	"id": "platformer-v18",
+	"name": "Platformer v1.8",
+	"author": "SeanBoat15",
+	"description": "1.8 devlog - Added Dash Test Level - Added Dashing - Added Dashing Orbs - Added Dashing Animation (i worked very hard and you will apreciate it dammit)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ccefffb5-53cd-41b6-84fa-5d10f64177f6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ccefffb5-53cd-41b6-84fa-5d10f64177f6",
+	"unityPlayUrl": "https://play.unity.com/en/games/ccefffb5-53cd-41b6-84fa-5d10f64177f6/platformer-v18"
+}

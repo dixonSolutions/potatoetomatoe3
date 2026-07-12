@@ -1,0 +1,14 @@
+{
+	"id": "kitchen-chaos",
+	"name": "Kitchen Chaos",
+	"author": "Smartin2025",
+	"description": "Fast-paced multiplayer cooking game.\nSpecial thanks to Code Monkey for the excellent tutorials:\nhttps://www.youtube.com/watch?v=AmGSEH7QcDg\nhttps://www.youtube.com/watch?v=7glCsF9fv3s",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6138646f-8c74-4956-8ea3-245816a4ad31/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/409de772-fd37-486e-bc2c-5f40b0a5a4ea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "409de772-fd37-486e-bc2c-5f40b0a5a4ea",
+	"unityPlayUrl": "https://play.unity.com/en/games/409de772-fd37-486e-bc2c-5f40b0a5a4ea/kitchen-chaos"
+}

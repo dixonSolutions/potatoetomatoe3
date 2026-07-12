@@ -1,0 +1,14 @@
+{
+	"id": "red-prince-studio",
+	"name": "Red Prince Studio",
+	"author": "akincemtutal",
+	"description": "Platform Survive Competitive Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f1509262-58b7-4637-bf2a-c982f028aa94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f1509262-58b7-4637-bf2a-c982f028aa94",
+	"unityPlayUrl": "https://play.unity.com/en/games/f1509262-58b7-4637-bf2a-c982f028aa94/red-prince-studio"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "3d-math-shooter",
+	"name": "3D Math Shooter",
+	"author": "DarwishDev",
+	"description": "Game untuk pelajar sekolah",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/074de7cf-ac21-42b8-9cfd-63d6a4c414ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "074de7cf-ac21-42b8-9cfd-63d6a4c414ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/074de7cf-ac21-42b8-9cfd-63d6a4c414ac/3d-math-shooter"
+}

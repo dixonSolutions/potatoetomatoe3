@@ -1,0 +1,14 @@
+{
+	"id": "foxs-tile",
+	"name": "Fox's Tile",
+	"author": "paofan25",
+	"description": "The little fox saves the forest.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01c568f6-6e82-4b8c-847b-c01219684110/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f188a85c-f857-4dbf-bef7-0935a194642d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f188a85c-f857-4dbf-bef7-0935a194642d",
+	"unityPlayUrl": "https://play.unity.com/en/games/f188a85c-f857-4dbf-bef7-0935a194642d/foxs-tile"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "highway-runner",
+	"name": "Highway Runner",
+	"author": "Shankar2008",
+	"description": "Run endlessly, collect diamonds, and avoid accidents.                                                       To know the controls click on the \"Controls and Information button\".  Turn on the audio button to experience the Sound Effects.                             Comment your high scores, compare with friends.                     ENJOY PLAYING!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4f96a685-6c5f-4d47-ba72-8bf8b7d18be4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ec3b9413-87fe-4146-8b5e-b6663e522f57/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ec3b9413-87fe-4146-8b5e-b6663e522f57",
+	"unityPlayUrl": "https://play.unity.com/en/games/ec3b9413-87fe-4146-8b5e-b6663e522f57/highway-runner"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "spaceshooter3d",
+	"name": "SpaceShooter3D",
+	"author": "unity_6E1978F31A1581C6EF36",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13ddc75a-9310-4425-a55b-5b0051f3fced/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13ddc75a-9310-4425-a55b-5b0051f3fced",
+	"unityPlayUrl": "https://play.unity.com/en/games/13ddc75a-9310-4425-a55b-5b0051f3fced/spaceshooter3d"
+}

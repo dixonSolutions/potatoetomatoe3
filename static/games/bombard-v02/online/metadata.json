@@ -1,0 +1,14 @@
+{
+	"id": "bombard-v02",
+	"name": "BomBard V0.2",
+	"author": "elmahdi1962",
+	"description": "Play BomBard V0.2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9ebd5ef1-31d1-437b-a582-56bcaece05ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5cf1a1f5-a1d6-4fdb-8a99-741084ca39c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5cf1a1f5-a1d6-4fdb-8a99-741084ca39c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/5cf1a1f5-a1d6-4fdb-8a99-741084ca39c7/bombard-v02"
+}

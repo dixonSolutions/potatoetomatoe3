@@ -1,0 +1,14 @@
+{
+	"id": "bootleg-fruit-ninja",
+	"name": "Bootleg Fruit Ninja",
+	"author": "Avatar-Vick",
+	"description": "Left-click and swipe to slash the fruits, but be careful - there's danger everywhere!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d1aa7d85-35bc-43e5-9dd3-d5ab04c247cf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/914dd040-a4d0-4b37-bc77-4294c90205d1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "914dd040-a4d0-4b37-bc77-4294c90205d1",
+	"unityPlayUrl": "https://play.unity.com/en/games/914dd040-a4d0-4b37-bc77-4294c90205d1/bootleg-fruit-ninja"
+}

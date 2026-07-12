@@ -1,0 +1,14 @@
+{
+	"id": "race-game",
+	"name": "Race Game",
+	"author": "Zubzii",
+	"description": "Try to make it around the course without touching the walls. Pick up green balls for boost.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/77d42206-3c92-4ba2-b9d1-7868081ada84/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ccf0e342-cf28-4ec1-9d14-3b5a1285d9b9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ccf0e342-cf28-4ec1-9d14-3b5a1285d9b9",
+	"unityPlayUrl": "https://play.unity.com/en/games/ccf0e342-cf28-4ec1-9d14-3b5a1285d9b9/race-game"
+}

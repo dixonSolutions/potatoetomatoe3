@@ -1,0 +1,14 @@
+{
+	"id": "quest-for-the-missing-piece",
+	"name": "Quest for the Missing Piece",
+	"author": "CP-Dimensions",
+	"description": "Made for the LEGO Ideas \"BUILD YOUR OWN GAME!\" contest. \n\nMy name on LEGO Ideas is \u201cCP-BrickMaster\u201d\n\nThis is my first game made with Unity.\n\nPLEASE NOTE: \nIf the game lags too much, try turning off shadows in the options.\n\nThere is a bug that sometimes happens due to lag where the puzzle becomes unsolvable. If you think you have the right answer, but the gate isn\u2019t opening, try restarting the level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ed12c1c-73ab-4aae-b181-1e3d10f81248/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62312f90-64e6-48a3-b0a0-212c597d7de1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62312f90-64e6-48a3-b0a0-212c597d7de1",
+	"unityPlayUrl": "https://play.unity.com/en/games/62312f90-64e6-48a3-b0a0-212c597d7de1/quest-for-the-missing-piece"
+}

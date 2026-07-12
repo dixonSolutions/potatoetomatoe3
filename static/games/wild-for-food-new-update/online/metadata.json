@@ -1,0 +1,14 @@
+{
+	"id": "wild-for-food-new-update",
+	"name": "Wild for Food + NEW UPDATE",
+	"author": "HlexNC",
+	"description": "Controls: A <-> D\nThis project is a low-poly indie game I'm creating for February Showcase. This game is a representation of my skill and what I have learned on Unity Learn so far. The is only one mission in this game: Not to let wild animals eat your cookies! \nCode available on my GitHub: https://github.com/HlexNC/WildForFood",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/da276e17-4687-48cb-9737-59bd03bccf22/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10f14e78-4ab2-43ae-a4d5-0103bf6af6b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10f14e78-4ab2-43ae-a4d5-0103bf6af6b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/10f14e78-4ab2-43ae-a4d5-0103bf6af6b5/wild-for-food-new-update"
+}

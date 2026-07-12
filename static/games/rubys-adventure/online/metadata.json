@@ -1,0 +1,14 @@
+{
+	"id": "rubys-adventure",
+	"name": "Ruby's Adventure",
+	"author": "SpideyCoding25",
+	"description": "It's a 2D game. Ruby has to fix the broken robots. Use WASD to move, C to shoot robots and X to interact with the frog. Good Luck on restoring peace to the town!!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71ece8dd-9566-4ab4-b01d-00703f1ea03e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71ece8dd-9566-4ab4-b01d-00703f1ea03e",
+	"unityPlayUrl": "https://play.unity.com/en/games/71ece8dd-9566-4ab4-b01d-00703f1ea03e/rubys-adventure"
+}

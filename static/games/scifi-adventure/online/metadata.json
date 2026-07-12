@@ -1,0 +1,14 @@
+{
+	"id": "scifi-adventure",
+	"name": "Scifi-Adventure",
+	"author": "jmmy95",
+	"description": "My latest fps shooting microgame. I have added some levels on entertaining a player, on each level the objective is to kill all enemies and advanced to new level and enemies on each the level have different capabilities",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fd10b209-8656-4881-8b88-6e46b5a897bd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03fbbd21-6ffc-4888-9751-30ec31e74a23/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03fbbd21-6ffc-4888-9751-30ec31e74a23",
+	"unityPlayUrl": "https://play.unity.com/en/games/03fbbd21-6ffc-4888-9751-30ec31e74a23/scifi-adventure"
+}

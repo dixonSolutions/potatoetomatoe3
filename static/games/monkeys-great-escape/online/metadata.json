@@ -1,0 +1,14 @@
+{
+	"id": "monkeys-great-escape",
+	"name": "Monkey's Great Escape",
+	"author": "odrrey",
+	"description": "by Audrey Gracia Djohari\nThis is my school project\n\nThe monkey is tired of being cooped up in his cage, and he\u2019s planning a great escape. As a monkey, the player must navigate through the different parts of the zoo and overcome various obstacles to reach the outside world. But be careful - the zookeepers are on high alert, and they'll do everything in their power to stop the monkey from escaping.\n\nKeyboard Key:\nWalk = Left & Right\nJump = Space bar\nThrow Trash = Left Mouse Click (Fire1)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e1ae293c-97d1-4ba1-b301-1e324946be9a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1eccc479-dd56-4cbf-b5e4-93239c428292/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1eccc479-dd56-4cbf-b5e4-93239c428292",
+	"unityPlayUrl": "https://play.unity.com/en/games/1eccc479-dd56-4cbf-b5e4-93239c428292/monkeys-great-escape"
+}

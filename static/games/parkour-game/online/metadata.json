@@ -1,0 +1,14 @@
+{
+	"id": "parkour-game",
+	"name": "parkour game",
+	"author": "Luke09",
+	"description": "Play parkour game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81b2c877-92f1-45f4-a5bd-df043fc3a1af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81b2c877-92f1-45f4-a5bd-df043fc3a1af",
+	"unityPlayUrl": "https://play.unity.com/en/games/81b2c877-92f1-45f4-a5bd-df043fc3a1af/parkour-game"
+}

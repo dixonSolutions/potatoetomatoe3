@@ -1,0 +1,14 @@
+{
+	"id": "pirateparrot-peril",
+	"name": "Pirate\u2013Parrot Peril",
+	"author": "unity_100028132",
+	"description": "Controls:\nD/-> for moving right\nW/up for moving up\nA/<- for moving left\nS/down for moving down\nSPACE to fly or leave boat\n\nT to interact with NPCs\nE is used for some things\nR to enter/leave a boat",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0760a9ce-f432-4aa3-b1ed-0cd81328cec3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a800656-d732-4fab-aa66-e6bcc42c8591/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a800656-d732-4fab-aa66-e6bcc42c8591",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a800656-d732-4fab-aa66-e6bcc42c8591/pirateparrot-peril"
+}

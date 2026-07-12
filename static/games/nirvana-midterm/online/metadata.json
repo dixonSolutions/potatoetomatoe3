@@ -1,0 +1,14 @@
+{
+	"id": "nirvana-midterm",
+	"name": "Nirvana Midterm",
+	"author": "xjdkcsq3",
+	"description": "This is a 2-player game, find a friend to play with you! Use AD keys to control the left player move, Enter to jump. Use left arrow and right arrow keys to control the right player move, and space to jump. Passing through the portal would change the gravity direction of the character, white monsters are killable, while black monsters can kill you! Try to kill all the monsters and save your friend.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b39a265b-790b-4b03-8433-7aed0ed94a40/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b39a265b-790b-4b03-8433-7aed0ed94a40",
+	"unityPlayUrl": "https://play.unity.com/en/games/b39a265b-790b-4b03-8433-7aed0ed94a40/nirvana-midterm"
+}

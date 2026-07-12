@@ -1,0 +1,14 @@
+{
+	"id": "solar-system-explorer-overscaled-wip",
+	"name": "Solar System Explorer - Overscaled (W.I.P.)",
+	"author": "InfernalNarwhal",
+	"description": "A space simulator where you explore our solar system. This is an early version, more coming soon :)                                                                  Controls:\nWASD or Arrow Keys = Rotate ship\nSpace = Thrusters\nO = Increase Speed\nI = Decrease Speed\nHave fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/956f7df9-7a7b-490d-84e6-793084693224/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1444101e-4b84-48b6-b7e8-33a1ab1d698a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1444101e-4b84-48b6-b7e8-33a1ab1d698a",
+	"unityPlayUrl": "https://play.unity.com/en/games/1444101e-4b84-48b6-b7e8-33a1ab1d698a/solar-system-explorer-overscaled-wip"
+}

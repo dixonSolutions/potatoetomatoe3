@@ -1,0 +1,14 @@
+{
+	"id": "my-first-incremental-clicker-microgame",
+	"name": "My first incremental clicker microgame",
+	"author": "mamendozamiranda",
+	"description": "Click the little sphere to gain points (stars) and buy upgrades. The more stars you have, the cooler the sphere will look. The final stage is at 1 million stars, can you reach it? **Disclaimer: I did not add any sound (sorry).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/90c43129-f9ee-4358-8274-e4ad4add5809/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/85b8b608-94d6-4fc6-9368-0fc344d5c453/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "85b8b608-94d6-4fc6-9368-0fc344d5c453",
+	"unityPlayUrl": "https://play.unity.com/en/games/85b8b608-94d6-4fc6-9368-0fc344d5c453/my-first-incremental-clicker-microgame"
+}

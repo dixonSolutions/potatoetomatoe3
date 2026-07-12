@@ -30,21 +30,36 @@ fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
     return repo_root().join("static/games");
   }
 
+  // Prefer the bundled Resource tree (catalog/games from tauri.conf.json).
   if let Ok(path) = app.path().resolve("catalog/games", BaseDirectory::Resource) {
     if path.exists() {
       return path;
     }
+    log::error!(
+      "bundled catalog missing at {} — offline downloads will fail",
+      path.display()
+    );
+    // Still return the expected resource path so CATALOG_DIR is not a
+    // build-machine repo path that only exists where the binary was compiled.
+    return path;
   }
 
-  // Fallback: bundled frontend dist (same catalog as the webview)
+  // Secondary: older list-style resource layout under _up_/build/games.
   if let Ok(resource) = app.path().resource_dir() {
     let build_games = resource.join("_up_").join("build").join("games");
     if build_games.exists() {
       return build_games;
     }
+    let expected = resource.join("catalog").join("games");
+    log::error!(
+      "could not resolve catalog/games under resource dir {} — offline downloads will fail",
+      resource.display()
+    );
+    return expected;
   }
 
-  repo_root().join("static/games")
+  log::error!("resource_dir unavailable — cannot resolve catalog for offline puller");
+  PathBuf::from("/nonexistent/potato-tomato-catalog")
 }
 
 fn puller_env(app: &tauri::AppHandle) -> (PathBuf, PathBuf, u16) {

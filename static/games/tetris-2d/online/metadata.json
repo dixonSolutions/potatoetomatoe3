@@ -1,0 +1,14 @@
+{
+	"id": "tetris-2d",
+	"name": "Tetris 2D",
+	"author": "ajithkumaran000",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d9fe8b3e-01d8-4f41-94c0-97d723661383/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/060607fc-c53c-45a2-9477-e75a2eb5dc5a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "060607fc-c53c-45a2-9477-e75a2eb5dc5a",
+	"unityPlayUrl": "https://play.unity.com/en/games/060607fc-c53c-45a2-9477-e75a2eb5dc5a/tetris-2d"
+}

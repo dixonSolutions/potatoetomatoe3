@@ -1,0 +1,14 @@
+{
+	"id": "seekarweb",
+	"name": "SeekARWeb",
+	"author": "PanderaStudios",
+	"description": "Seek WebGL",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/51b525f6-7bb0-4c41-80b0-58b282c19ed0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c7336b4-a5a0-4e5d-91cc-def0a3fed7a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c7336b4-a5a0-4e5d-91cc-def0a3fed7a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c7336b4-a5a0-4e5d-91cc-def0a3fed7a0/seekarweb"
+}

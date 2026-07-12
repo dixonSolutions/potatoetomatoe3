@@ -1,0 +1,14 @@
+{
+	"id": "waluigi-pinball",
+	"name": "Waluigi Pinball",
+	"author": "EpicalGamer",
+	"description": "Play on a miniature version of Waluig Pinball, a famous track from Mario Kart DS! Controls are in the game. Try to get a high score! Be careful not to get too much speed, or else your ball will fall right off the board!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3b762dc7-df8a-4191-b064-3126b2b4a4aa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ac0ac95-cd47-4704-aea0-f0b3b6beaa74/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ac0ac95-cd47-4704-aea0-f0b3b6beaa74",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ac0ac95-cd47-4704-aea0-f0b3b6beaa74/waluigi-pinball"
+}

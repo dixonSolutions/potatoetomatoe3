@@ -1,0 +1,14 @@
+{
+	"id": "legogo",
+	"name": "LEGOGO",
+	"author": "Goldmetal",
+	"description": "Lego Only One Button Jump Game. Good Luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d12dafcc-ed63-4f29-a5fb-bb2d30bcdf28/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72d64d37-f1cb-4f9b-a56e-dbc2ea8a6eba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "72d64d37-f1cb-4f9b-a56e-dbc2ea8a6eba",
+	"unityPlayUrl": "https://play.unity.com/en/games/72d64d37-f1cb-4f9b-a56e-dbc2ea8a6eba/legogo"
+}

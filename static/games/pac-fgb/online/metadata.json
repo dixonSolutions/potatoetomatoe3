@@ -1,0 +1,14 @@
+{
+	"id": "pac-fgb",
+	"name": "Pac-fgb",
+	"author": "Mon3x",
+	"description": "WASD, arrow keys, esc pause",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8e3cb31f-367f-478d-b138-850c8df366dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/de0663b0-5fd6-481c-8aa4-28b3c58ee7e5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "de0663b0-5fd6-481c-8aa4-28b3c58ee7e5",
+	"unityPlayUrl": "https://play.unity.com/en/games/de0663b0-5fd6-481c-8aa4-28b3c58ee7e5/pac-fgb"
+}

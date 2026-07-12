@@ -1,0 +1,14 @@
+{
+	"id": "blendin",
+	"name": "BlendIn",
+	"author": "kakarrot97",
+	"description": "General Description\n\nThe player is assigned a color that initially matches the platform it starts on. There will be different color shifters and different color platforms on the way. When a player walks/jumps through a color shifter, the character\u2019s color changes to that specific color enabling it to \u201cblend in\u201d. The player needs to avoid mismatching its character\u2019s color to the platform's color while steering clear of other obstacles and making it to the endpoint to move on to the next level.\n\nGoal\n\nThe goal is to match the player's color with the platform (and at the same time avoid other obstacles) and reach the endpoint. Mechanics (How to play) Player moves: Keyboard keys \u2018A/Left\u2019 and \u2018D/Right\u2019 to move left and right; \u2018W/Spacebar\u2019 to jump. Color change: Change character color when it walks/jumps through a color shifter. Color match: Match the character color to the platform. If it matches, the game continues; else the player loses.\n\nInspiration\n\nPlatformer: Mario, Vector, Mr. Jump Color Change/Match: Color Ball Run, Color Switch",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/480b6af8-51b4-44f1-83a7-a73d95e692ab/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0731e406-68c6-47b1-8849-db1a26f99018/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0731e406-68c6-47b1-8849-db1a26f99018",
+	"unityPlayUrl": "https://play.unity.com/en/games/0731e406-68c6-47b1-8849-db1a26f99018/blendin"
+}

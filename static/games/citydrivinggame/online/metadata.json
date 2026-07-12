@@ -1,0 +1,14 @@
+{
+	"id": "citydrivinggame",
+	"name": "CityDrivingGame",
+	"author": "AugisII",
+	"description": "Controls: WASD",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3fd6b861-ec10-41d2-a37d-cd1d8ecd0978/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81f1fa7b-ca76-48d4-a346-9b765d4eb9f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81f1fa7b-ca76-48d4-a346-9b765d4eb9f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/81f1fa7b-ca76-48d4-a346-9b765d4eb9f0/citydrivinggame"
+}

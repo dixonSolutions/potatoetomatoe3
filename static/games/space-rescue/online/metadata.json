@@ -1,0 +1,14 @@
+{
+	"id": "space-rescue",
+	"name": "Space Rescue",
+	"author": "wonderrick",
+	"description": "OMG, the space station's terminal is down! The gravity system has also failed! The only control panel capable of communicating with Space Center is rapidly losing power!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a5c9f28b-56c2-4e61-9bef-176c632aa754/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/714617fb-d620-4933-851c-5936299260b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "714617fb-d620-4933-851c-5936299260b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/714617fb-d620-4933-851c-5936299260b5/space-rescue"
+}

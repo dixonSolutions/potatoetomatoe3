@@ -1,0 +1,14 @@
+{
+	"id": "sokobanplus",
+	"name": "SokobanPlus",
+	"author": "Yoshi396",
+	"description": "\u3053\u306e\u30b2\u30fc\u30e0\u306f\u5009\u5eab\u756a\u30b2\u30fc\u30e0\u306b\u3044\u304f\u3064\u304b\u306e\u30ae\u30df\u30c3\u30af\u3092\u8ffd\u52a0\u3057\u305f\u3082\u306e\u3067\u3001\u516840\u30b9\u30c6\u30fc\u30b8\u3067\u69cb\u6210\u3055\u308c\u3066\u3044\u307e\u3059\u3002\nThis game is based on \"Sokoban\" and several gimmicks are added. It is composed of 40 stages.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/69c1f1fa-0f1c-4de3-bd1e-774b1ab21b94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "69c1f1fa-0f1c-4de3-bd1e-774b1ab21b94",
+	"unityPlayUrl": "https://play.unity.com/en/games/69c1f1fa-0f1c-4de3-bd1e-774b1ab21b94/sokobanplus"
+}

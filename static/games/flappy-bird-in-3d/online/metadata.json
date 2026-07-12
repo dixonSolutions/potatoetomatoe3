@@ -1,0 +1,14 @@
+{
+	"id": "flappy-bird-in-3d",
+	"name": "Flappy Bird in 3D!",
+	"author": "lynn08",
+	"description": "This is a 3D flappy-bird-style game implemented in Unity. Simply my very first game in Unity and not much fluff.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c0c17cbf-5c44-42ae-8aab-9aa73034788b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/646b38ca-257b-4a97-a532-82e46a1ec544/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "646b38ca-257b-4a97-a532-82e46a1ec544",
+	"unityPlayUrl": "https://play.unity.com/en/games/646b38ca-257b-4a97-a532-82e46a1ec544/flappy-bird-in-3d"
+}

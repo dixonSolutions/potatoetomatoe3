@@ -1,0 +1,14 @@
+{
+	"id": "the-outlander",
+	"name": "The Outlander",
+	"author": "charlieFMJ",
+	"description": "Controls: WASD to move. Hold shift to sprint. Press space to jump and left click to shoot                                                                                                                         \n                                                                                                                 Objective: Kill the aliens and survive for a long as you can.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/392c6824-48a5-48e4-bcc1-536671efdfea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9e87c692-8844-4352-94c4-6aae9b71aef6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9e87c692-8844-4352-94c4-6aae9b71aef6",
+	"unityPlayUrl": "https://play.unity.com/en/games/9e87c692-8844-4352-94c4-6aae9b71aef6/the-outlander"
+}

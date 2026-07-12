@@ -1,0 +1,14 @@
+{
+	"id": "dont-be-dark",
+	"name": "don't be dark",
+	"author": "jehhui",
+	"description": "don't be dark",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28ded104-8ac0-4864-ae87-d27365d8793f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28ded104-8ac0-4864-ae87-d27365d8793f",
+	"unityPlayUrl": "https://play.unity.com/en/games/28ded104-8ac0-4864-ae87-d27365d8793f/dont-be-dark"
+}

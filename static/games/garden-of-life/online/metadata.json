@@ -1,0 +1,14 @@
+{
+	"id": "garden-of-life",
+	"name": "Garden Of Life",
+	"author": "DumbUnityProgramming",
+	"description": "Game for lymphoma cancer research.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9228664e-e9e1-4cad-a234-6624a675a50b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/030e6e0e-31a1-4e8a-844a-835aff5e712a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "030e6e0e-31a1-4e8a-844a-835aff5e712a",
+	"unityPlayUrl": "https://play.unity.com/en/games/030e6e0e-31a1-4e8a-844a-835aff5e712a/garden-of-life"
+}

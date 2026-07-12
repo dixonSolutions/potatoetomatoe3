@@ -1,0 +1,14 @@
+{
+	"id": "chasing-love",
+	"name": "Chasing Love",
+	"author": "NhoxKien",
+	"description": "Description: You are a Pirate, who is chasing the love of his life, a parrot named Brief. But she is a parrot from the navy (a forbidden love). So now you must overcome challenges and enemies to get to your Love.\n\nMechanics: This is an run-and-jump sidescroller game with only one button (Spacebar). Primary for jumping (but can be use in different contexts)\n\nDevLog: https://docs.google.com/document/d/13lCfXuuTK9QI8-oE61x5qICWTMuj_M03c2_IQsJp6cc/edit?usp=sharing\n\nSource Code: https://github.com/NhoxxKienn/Chasing-Love.git\n\nThank you for trying the game. Leave feedback if you can.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d8281f56-b939-4b96-8ee9-987f8e3d0586/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c883757e-37c0-4630-85ab-3c0f3af7921b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c883757e-37c0-4630-85ab-3c0f3af7921b",
+	"unityPlayUrl": "https://play.unity.com/en/games/c883757e-37c0-4630-85ab-3c0f3af7921b/chasing-love"
+}

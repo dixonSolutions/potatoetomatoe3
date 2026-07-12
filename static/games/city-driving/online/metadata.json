@@ -1,0 +1,14 @@
+{
+	"id": "city-driving",
+	"name": "City Driving",
+	"author": "Jibin09",
+	"description": "Welcome to City Drive 3D, an open-world car game set in a lively 3D city!  just cruise around freely.  you\u2019re free to drive how you want. enjoy the freedom of the city!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6dc930e7-1161-497c-b23f-f20895a9731f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36efb451-d78c-491d-b158-5e465a0102b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36efb451-d78c-491d-b158-5e465a0102b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/36efb451-d78c-491d-b158-5e465a0102b3/city-driving"
+}

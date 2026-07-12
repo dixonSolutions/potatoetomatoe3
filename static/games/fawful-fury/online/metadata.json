@@ -1,0 +1,14 @@
+{
+	"id": "fawful-fury",
+	"name": "Fawful Fury",
+	"author": "mikeyparker13",
+	"description": "Play Fawful Fury on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c31a4825-34f6-49ba-9429-bfd7fda8588c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01d5369f-fc35-4ec0-aa7d-587526fd6b3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01d5369f-fc35-4ec0-aa7d-587526fd6b3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/01d5369f-fc35-4ec0-aa7d-587526fd6b3d/fawful-fury"
+}

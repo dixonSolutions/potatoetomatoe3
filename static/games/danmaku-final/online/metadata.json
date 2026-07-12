@@ -1,0 +1,14 @@
+{
+	"id": "danmaku-final",
+	"name": "Danmaku - Final",
+	"author": "shangkvmndswe7x",
+	"description": "Controls:\nWASD to move\nJ to shoot \nK clears the screen of enemy bullets\nLShift to slow down and fire a more powerful laser\n\nYour hitbox is the red dot.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/60af9a9f-2a6d-4b5e-b126-0e06ef54b256/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "60af9a9f-2a6d-4b5e-b126-0e06ef54b256",
+	"unityPlayUrl": "https://play.unity.com/en/games/60af9a9f-2a6d-4b5e-b126-0e06ef54b256/danmaku-final"
+}

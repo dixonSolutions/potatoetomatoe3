@@ -1,0 +1,14 @@
+{
+	"id": "driftumble-super-alpha-build-07232022",
+	"name": "Driftumble Super-Alpha Build 07232022",
+	"author": "Dobelong",
+	"description": "Basic build structure of a racing game that I am developing. More vehicles are coming, but for now the most interesting one is the tank. The road assets seen here were made with the help of tutorials from Imphenzia, on YouTube.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c14ba88f-9abb-46cd-af3e-f4cd44f623e5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8bd90fd2-10e8-45ea-9104-5e8ff5d356f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8bd90fd2-10e8-45ea-9104-5e8ff5d356f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/8bd90fd2-10e8-45ea-9104-5e8ff5d356f1/driftumble-super-alpha-build-07232022"
+}

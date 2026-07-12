@@ -1,0 +1,14 @@
+{
+	"id": "moving-out",
+	"name": "Moving out",
+	"author": "JinGard",
+	"description": "Press r to reset the level.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e378488-8a04-4589-8172-1eb907e13e1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e378488-8a04-4589-8172-1eb907e13e1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e378488-8a04-4589-8172-1eb907e13e1c/moving-out"
+}

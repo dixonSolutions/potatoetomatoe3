@@ -1,0 +1,14 @@
+{
+	"id": "uhh-game",
+	"name": "Uhh, game.",
+	"author": "Howard_Hamilton_",
+	"description": "Play Uhh, game. on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8858f646-a70a-4293-84b3-6ba84ee4cbe4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/391806ef-ba41-41ae-ac15-07c549d6a9d6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "391806ef-ba41-41ae-ac15-07c549d6a9d6",
+	"unityPlayUrl": "https://play.unity.com/en/games/391806ef-ba41-41ae-ac15-07c549d6a9d6/uhh-game"
+}

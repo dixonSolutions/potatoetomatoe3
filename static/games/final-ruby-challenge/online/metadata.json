@@ -1,0 +1,14 @@
+{
+	"id": "final-ruby-challenge",
+	"name": "Final Ruby Challenge",
+	"author": "moguimei",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/073b4867-e78f-4c27-bf3c-8989b7f11c12/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "073b4867-e78f-4c27-bf3c-8989b7f11c12",
+	"unityPlayUrl": "https://play.unity.com/en/games/073b4867-e78f-4c27-bf3c-8989b7f11c12/final-ruby-challenge"
+}

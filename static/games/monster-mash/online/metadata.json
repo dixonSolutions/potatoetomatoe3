@@ -1,0 +1,14 @@
+{
+	"id": "monster-mash",
+	"name": "Monster Mash",
+	"author": "thomaswinkley",
+	"description": "Help Anna battle through waves of monsters with her witch powers.  Keyboard/Mouse controls- move WASD, aim - right arrows - fire space bar. Controller - left thumbstick - move, right thumbstick - aim, fire - right trigger",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01768cde-a1c9-4a8d-b088-5daced596269/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df27e251-4c6f-4b48-acec-784a111ae97a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df27e251-4c6f-4b48-acec-784a111ae97a",
+	"unityPlayUrl": "https://play.unity.com/en/games/df27e251-4c6f-4b48-acec-784a111ae97a/monster-mash"
+}

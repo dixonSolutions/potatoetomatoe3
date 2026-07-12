@@ -1,0 +1,14 @@
+{
+	"id": "dinoduel",
+	"name": "DinoDuel",
+	"author": "Yuppixx",
+	"description": "Dino Duel is a 2D fighting platformer game where each player is a dinosaur with a laser gun. It\u2019s a very simple game where the goal is to shoot the other player, dodge the flaming rocks, and traverse",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/037bdadd-c33d-433a-b355-aaf89401018f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "037bdadd-c33d-433a-b355-aaf89401018f",
+	"unityPlayUrl": "https://play.unity.com/en/games/037bdadd-c33d-433a-b355-aaf89401018f/dinoduel"
+}

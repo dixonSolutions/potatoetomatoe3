@@ -1,0 +1,14 @@
+{
+	"id": "super-generic-racing-game",
+	"name": "Super Generic Racing Game",
+	"author": "vituba2202",
+	"description": "The first game I ever made on Unity",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/034ed1c2-29c5-4211-832d-27582e2bbd92/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/435044be-c0ed-4f74-be82-fd9f739b6943/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "435044be-c0ed-4f74-be82-fd9f739b6943",
+	"unityPlayUrl": "https://play.unity.com/en/games/435044be-c0ed-4f74-be82-fd9f739b6943/super-generic-racing-game"
+}

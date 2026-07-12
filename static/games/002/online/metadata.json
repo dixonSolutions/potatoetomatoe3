@@ -1,0 +1,14 @@
+{
+	"id": "002",
+	"name": "0.02",
+	"author": "HiyuuKamiya",
+	"description": "Play 0.02 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/496cb918-1ff8-4f9d-80e4-f5b44f9355ef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44510a1e-b731-4260-932e-857cbeda9643/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "44510a1e-b731-4260-932e-857cbeda9643",
+	"unityPlayUrl": "https://play.unity.com/en/games/44510a1e-b731-4260-932e-857cbeda9643/002"
+}

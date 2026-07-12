@@ -1,0 +1,14 @@
+{
+	"id": "super-awesome-shooter-game",
+	"name": "Super Awesome Shooter Game",
+	"author": "tezenaied",
+	"description": "A beginner project. Hope you like it.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6ed3c271-d224-49c9-b8d0-8b80e17fcb13/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ac1c6e25-50b1-4d6a-a70f-7e6133f7915d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ac1c6e25-50b1-4d6a-a70f-7e6133f7915d",
+	"unityPlayUrl": "https://play.unity.com/en/games/ac1c6e25-50b1-4d6a-a70f-7e6133f7915d/super-awesome-shooter-game"
+}

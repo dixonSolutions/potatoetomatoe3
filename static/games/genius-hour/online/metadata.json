@@ -1,0 +1,14 @@
+{
+	"id": "genius-hour",
+	"name": "genius hour",
+	"author": "pedroam_unity",
+	"description": "Play genius hour on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3cfe2bcc-9380-40c5-90e1-f5a6f5361d9b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b875d1af-4b8e-4221-a82e-58493a44b733/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b875d1af-4b8e-4221-a82e-58493a44b733",
+	"unityPlayUrl": "https://play.unity.com/en/games/b875d1af-4b8e-4221-a82e-58493a44b733/genius-hour"
+}

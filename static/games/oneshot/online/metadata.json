@@ -1,0 +1,14 @@
+{
+	"id": "oneshot",
+	"name": "OneShot",
+	"author": "christpr",
+	"description": "The land is cold and lifeless. nothing but odd capsular statues remain... or so you thought. Survive the platform or be thrown to your death by an endless army of colored pills. Kill the King for what he did to grandpa...\n                                                                                                                                \nYou only have one Shot - one life or it's Game Over. Will you be one-shot by your enemies or will you grow so powerful as to destroy your enemies in one-shot!                                                                                                                           \n     \nWASD for movement controls. Spacebar jumps. Double Jump and wall jump for excellent mobility. Make Quick direction changes in the air by holding a direction while double jumping. Click on the left mouse button while on the ground for explosive effect. Slam down from the air by clicking while off the ground. This uses energy, getting hit uses energy. if you run out of energy - you will lose health if you get hit. killing pills will grant you health, energy and permanent damage, health, and energy capacity. (Mouse pointer does not influence gameplay)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/12762b35-a506-43f8-96e8-5e2eba4e9401/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f51b124-5479-4a03-8d5e-76caf2018b3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f51b124-5479-4a03-8d5e-76caf2018b3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f51b124-5479-4a03-8d5e-76caf2018b3d/oneshot"
+}

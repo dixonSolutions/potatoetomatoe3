@@ -1,0 +1,14 @@
+{
+	"id": "lego-parkour",
+	"name": "LEGO Parkour",
+	"author": "danielschultz2001",
+	"description": "LEGO Idea Contest Entry",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/302b827b-d3a0-40a3-9229-8a97c83f3608/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/227860d6-cc5c-40de-99f0-aa22f5c6091e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "227860d6-cc5c-40de-99f0-aa22f5c6091e",
+	"unityPlayUrl": "https://play.unity.com/en/games/227860d6-cc5c-40de-99f0-aa22f5c6091e/lego-parkour"
+}

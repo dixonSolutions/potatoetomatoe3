@@ -1,0 +1,14 @@
+{
+	"id": "2d-game-runner",
+	"name": "2D game runner",
+	"author": "moi_king",
+	"description": "Play 2D game runner on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cba1d013-69ea-45e8-88f9-8ee187ec6473/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07bc52b6-d57e-43a8-8131-63e66bb104d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07bc52b6-d57e-43a8-8131-63e66bb104d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/07bc52b6-d57e-43a8-8131-63e66bb104d2/2d-game-runner"
+}

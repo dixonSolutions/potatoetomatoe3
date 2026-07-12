@@ -1,0 +1,14 @@
+{
+	"id": "call-of-todd",
+	"name": "Call of Todd",
+	"author": "Nocturnis9",
+	"description": "E3 is behind the doors :)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04acc016-7883-46a0-95db-f105a0c1e65f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04acc016-7883-46a0-95db-f105a0c1e65f",
+	"unityPlayUrl": "https://play.unity.com/en/games/04acc016-7883-46a0-95db-f105a0c1e65f/call-of-todd"
+}

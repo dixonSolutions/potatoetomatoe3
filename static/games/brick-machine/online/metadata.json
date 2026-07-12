@@ -1,0 +1,14 @@
+{
+	"id": "brick-machine",
+	"name": "Brick Machine",
+	"author": "elzekool",
+	"description": "Things are falling down! And it is your task to guide those falling bricks by dragging platforms and portals into the right position.\nDo this as quickly as possible to gain the maximum points. Oh and also choose your platforms wisely, nothing comes for free.\nYou score points by being quick, by keeping your lives and by only using the platforms you need.\nThe name \"Brick Machine\" comes from Rube Goldberg machine where once set in motion, you don't control the machine anymore\n\n--- UPDATE 06-03-2021 ---\n* Added 3 new levels\n* Added Trap Door Element\n\n--- UPDATE 01-03-2021 ---\n* Added 1 new level\n* Improved level done / scores UI\n* Fixed bug for portal element\n\n--- UPDATE 23-02-2021 ---\n* Added level selection\n* Added 2 new levels\n* Small UI improvements",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c43d6436-68e7-4ece-a070-59c727dbb345/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08fc5faa-f98b-4d14-929c-e7411227c37d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08fc5faa-f98b-4d14-929c-e7411227c37d",
+	"unityPlayUrl": "https://play.unity.com/en/games/08fc5faa-f98b-4d14-929c-e7411227c37d/brick-machine"
+}

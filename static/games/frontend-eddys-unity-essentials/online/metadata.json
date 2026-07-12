@@ -1,0 +1,14 @@
+{
+	"id": "frontend-eddys-unity-essentials",
+	"name": "Frontend Eddy's Unity Essentials",
+	"author": "BLo52om",
+	"description": "First game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b3d95df-61eb-4da8-82c2-8d4ad75d377f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b3d95df-61eb-4da8-82c2-8d4ad75d377f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b3d95df-61eb-4da8-82c2-8d4ad75d377f/frontend-eddys-unity-essentials"
+}

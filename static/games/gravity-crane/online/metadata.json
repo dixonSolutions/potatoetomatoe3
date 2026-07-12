@@ -1,0 +1,14 @@
+{
+	"id": "gravity-crane",
+	"name": "Gravity Crane",
+	"author": "ToastBubbles",
+	"description": "Harness the power of the Gravity Crane to help the technician escape these dangerous test rooms!\n\nHold Space to move, Tap Space to change direction.\n\nGoing to the trash bins is a good way to drop stuff!\n\nLevels are selected randomly ((except the secret level of course)) ;)\n\nMore levels coming soon!\n\n[Music is 8 Bit Space Groove! by HeatleyBros (Royalty Free of course)]",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/901a6bf9-598c-42e0-b69b-8bdb696dbcac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15e154e5-f71f-451b-ae15-942c4a4f841f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15e154e5-f71f-451b-ae15-942c4a4f841f",
+	"unityPlayUrl": "https://play.unity.com/en/games/15e154e5-f71f-451b-ae15-942c4a4f841f/gravity-crane"
+}

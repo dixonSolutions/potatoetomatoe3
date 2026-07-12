@@ -1,0 +1,14 @@
+{
+	"id": "color-sorter-v100",
+	"name": "Color Sorter V1.0.0",
+	"author": "Loganphx",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df0bc05b-62d7-40d5-a632-f6017eb21916/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df0bc05b-62d7-40d5-a632-f6017eb21916",
+	"unityPlayUrl": "https://play.unity.com/en/games/df0bc05b-62d7-40d5-a632-f6017eb21916/color-sorter-v100"
+}

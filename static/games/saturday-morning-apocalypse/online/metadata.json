@@ -1,0 +1,14 @@
+{
+	"id": "saturday-morning-apocalypse",
+	"name": "Saturday Morning Apocalypse",
+	"author": "Unity Play",
+	"description": "Originally made for the Bracky's Game Jam 2021.2 in August. Music and Audio Design by Brian Paul Zimmerman. Art, animation, and coding by myself. The theme was \"Let there be Chaos\". For this, we created a bullet hell side scroller, with limited control and no form of blocking. The controls, and perspective change in a chaotic manner. You play as a telepath who will be the death of the world.\n\nStory:\n\nShi Sakerarenai ( \u907f\u3051\u3089\u308c\u306a\u3044 \u6b7b ), is a power telepath who has dissociative identity disorder. Each of her four personalities has a different psychic ability and she can not control when her personality changes. Believing that one day she will go nuclear, Shi was brought to a government lab to receive a lobotomy to neutralize her powers. However, before the operation could start, Shi escaped the government lab, destroying everything and everyone in her path.\n\nIn this fast-paced shoot \u2018em up, inspired by 90\u2019s Saturday morning cartoons, you play as Shi with access to her unique powers and abilities. Battle your way through the chaos of ferocious security bots before time runs out to complete your escape! All the while, you are unable to control your abilities causing massive chaos, each time your powers switch your perspective of the world changes based on your personality. Though do all this knowing that after you escape you will soon end the world. You are the villain, this is how it all ends, let there be chaos!\n\nPower Types :\n\nTelekinesis - Move floating knives with your mind to attack.\nPyrokinesis - Control fire itself to attack your enemies.\nPsychic Blast - Release psychic energy to attack.\nElectrokinesis - Control Lightning to attack your enemies.\n\nInstructions / Controls :\n\nSurvive the wave of enemies until the timer runs out. Use your keyboard and mouse to move up and down and shoot. Or use your gamepad ( Xbox A button to fire ). Press the start button, or the ESC key at any time to access the pause menu which may be useful to restart the level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f8d627c9-7bd5-4bc3-896a-d844cb497fdb/content",
+	"category": "action",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e937e88c-d34a-43c7-94a1-e5a05c224daa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e937e88c-d34a-43c7-94a1-e5a05c224daa",
+	"unityPlayUrl": "https://play.unity.com/en/games/e937e88c-d34a-43c7-94a1-e5a05c224daa/saturday-morning-apocalypse"
+}

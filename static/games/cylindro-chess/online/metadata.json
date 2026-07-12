@@ -1,0 +1,14 @@
+{
+	"id": "cylindro-chess",
+	"name": "Cylindro Chess",
+	"author": "chaitupendyala",
+	"description": "A chess themed endless runner.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f0f3080-ca5e-485b-b2c9-52a9a9f22b2f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f0f3080-ca5e-485b-b2c9-52a9a9f22b2f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f0f3080-ca5e-485b-b2c9-52a9a9f22b2f/cylindro-chess"
+}

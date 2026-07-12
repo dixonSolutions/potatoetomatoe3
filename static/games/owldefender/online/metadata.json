@@ -1,0 +1,14 @@
+{
+	"id": "owldefender",
+	"name": "OwlDefender",
+	"author": "akmaljonmusaev",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/07cbb3c4-4cd3-4f56-80e8-1412daae56fa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0435ab0f-1800-4281-b017-94cd352eb656/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0435ab0f-1800-4281-b017-94cd352eb656",
+	"unityPlayUrl": "https://play.unity.com/en/games/0435ab0f-1800-4281-b017-94cd352eb656/owldefender"
+}

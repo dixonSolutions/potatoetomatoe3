@@ -1,0 +1,14 @@
+{
+	"id": "internal-reflection",
+	"name": "Internal Reflection",
+	"author": "AAK-27",
+	"description": "This is a two player game where teamwork is essential.\nMovement instructions are on tooltips throughout the world. \nPlaced 3rd at TSA Nationals in Video Game Design 2025!!!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13111446-5ec6-4932-8b29-29df2e3f5448/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13111446-5ec6-4932-8b29-29df2e3f5448",
+	"unityPlayUrl": "https://play.unity.com/en/games/13111446-5ec6-4932-8b29-29df2e3f5448/internal-reflection"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tank-in-a-maze",
+	"name": "Tank in a Maze",
+	"author": "HeavyOnTheSalsa",
+	"description": "A speed and Puzzle Game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/269315dc-44a4-45c7-957d-ad3e7c5993c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a17e3863-b9f0-4e1c-aca8-3421762805ef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a17e3863-b9f0-4e1c-aca8-3421762805ef",
+	"unityPlayUrl": "https://play.unity.com/en/games/a17e3863-b9f0-4e1c-aca8-3421762805ef/tank-in-a-maze"
+}

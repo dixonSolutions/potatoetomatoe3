@@ -1,0 +1,14 @@
+{
+	"id": "code-monkeys-kitchen-chaos",
+	"name": "Code Monkey's Kitchen Chaos",
+	"author": "silver-hornet",
+	"description": "Kitchen Chaos game created during Code Monkey's \u201cLearn Unity Beginner/Intermediate 2023 (FREE COMPLETE Course - Unity Tutorial)\u201d course on YouTube: https://www.youtube.com/watch?v=AmGSEH7QcDg . Use your keyboard or gamepad to play. Deliver as many orders as you can before time runs out!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/346497c9-3665-47af-a665-28aec20cd68c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a14a039-7de3-43ed-bb75-8567897f75a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a14a039-7de3-43ed-bb75-8567897f75a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a14a039-7de3-43ed-bb75-8567897f75a7/code-monkeys-kitchen-chaos"
+}

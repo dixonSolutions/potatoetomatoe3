@@ -1,0 +1,14 @@
+{
+	"id": "inductancesimulation",
+	"name": "Inductance_Simulation",
+	"author": "OlgaAndri",
+	"description": "Play Inductance_Simulation on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e0296ab7-3da7-44c0-b9c0-136335da195d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6df3f0d5-e101-4d2e-86b8-16787f0730d5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6df3f0d5-e101-4d2e-86b8-16787f0730d5",
+	"unityPlayUrl": "https://play.unity.com/en/games/6df3f0d5-e101-4d2e-86b8-16787f0730d5/inductancesimulation"
+}

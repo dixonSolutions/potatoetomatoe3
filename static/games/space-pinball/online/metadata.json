@@ -1,0 +1,14 @@
+{
+	"id": "space-pinball",
+	"name": "Space Pinball",
+	"author": "karenLC",
+	"description": "3D Pinball machine simulation.\nHow to play:\n- Keep Space key down to load the launch force, release to eject the ball.\n- Move the flippers using the Right/Left arrows to mantain the ball in the playfield.\n- Hit the bumpers, slingshots and pass through the switchers to score points.\n- The game ends when the third ball falls into the drain.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d6ed3970-3a63-476c-a258-79c67b918302/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b1a55137-575a-43dc-8861-3bb652f8ddbd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b1a55137-575a-43dc-8861-3bb652f8ddbd",
+	"unityPlayUrl": "https://play.unity.com/en/games/b1a55137-575a-43dc-8861-3bb652f8ddbd/space-pinball"
+}

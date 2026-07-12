@@ -1,0 +1,14 @@
+{
+	"id": "tanks-v10",
+	"name": "Tanks! v.1.0",
+	"author": "Mrityuanjay",
+	"description": "My very first game build for web.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8a75b90c-c36e-4701-a82d-13177a55c55c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ac3a4b5-7fb2-4f28-8421-2036ae607560/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ac3a4b5-7fb2-4f28-8421-2036ae607560",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ac3a4b5-7fb2-4f28-8421-2036ae607560/tanks-v10"
+}

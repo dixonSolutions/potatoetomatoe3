@@ -1,0 +1,14 @@
+{
+	"id": "icebox",
+	"name": "IceBox",
+	"author": "LarStudio",
+	"description": "\u2192, \u2190, \u2191 = right, left, jump\nd, a, w or space",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/167aed1d-195c-4ad4-bbe7-cd9dc735106e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c0531a2-49c2-4b50-8984-03f7c89b9eb2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c0531a2-49c2-4b50-8984-03f7c89b9eb2",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c0531a2-49c2-4b50-8984-03f7c89b9eb2/icebox"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "photon-rpg-framework-11",
+	"name": "photon rpg framework 1.1",
+	"author": "Azalore",
+	"description": "An Online RPG made with photon PUN2. Features real time multiplayer action and chat system in a private world with your friends. Works across various browsers with android support coming soon.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/13cc1dd6-8741-44ff-a53f-b927ed922307/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e452a9c5-d088-44e8-96e6-ad187428188e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e452a9c5-d088-44e8-96e6-ad187428188e",
+	"unityPlayUrl": "https://play.unity.com/en/games/e452a9c5-d088-44e8-96e6-ad187428188e/photon-rpg-framework-11"
+}

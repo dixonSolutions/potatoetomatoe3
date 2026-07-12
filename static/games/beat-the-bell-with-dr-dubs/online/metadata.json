@@ -1,0 +1,14 @@
+{
+	"id": "beat-the-bell-with-dr-dubs",
+	"name": "Beat The Bell With Dr. Dubs",
+	"author": "MrKoesler",
+	"description": "Microgame made by Tanner P. from Spring 2022 Program Class.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ddbf20cf-4088-4b07-9600-e575b19f2da8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf79a764-9b3e-4728-a9a7-caa7391bf9bf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bf79a764-9b3e-4728-a9a7-caa7391bf9bf",
+	"unityPlayUrl": "https://play.unity.com/en/games/bf79a764-9b3e-4728-a9a7-caa7391bf9bf/beat-the-bell-with-dr-dubs"
+}

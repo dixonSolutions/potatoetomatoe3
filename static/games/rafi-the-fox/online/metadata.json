@@ -1,0 +1,14 @@
+{
+	"id": "rafi-the-fox",
+	"name": "Rafi The Fox",
+	"author": "johnfu11er",
+	"description": "Single level 2d platform jumper.  Collect the gems and watch out for the spikes!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c2e75aae-1138-43ef-84b1-2c285f8455fb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5cc337f8-696d-4bd9-8b52-3ddbaa315f54/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5cc337f8-696d-4bd9-8b52-3ddbaa315f54",
+	"unityPlayUrl": "https://play.unity.com/en/games/5cc337f8-696d-4bd9-8b52-3ddbaa315f54/rafi-the-fox"
+}

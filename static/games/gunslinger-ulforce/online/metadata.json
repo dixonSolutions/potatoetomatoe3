@@ -1,0 +1,14 @@
+{
+	"id": "gunslinger-ulforce",
+	"name": "Gunslinger Ulforce",
+	"author": "FrostIllusion",
+	"description": "Blast through the enemy, fly above the ground, wield two guns at once.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7f205b54-ff24-4fc6-be9b-518cabdbc11e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/302bdf04-068e-461f-a138-8f7d978ef0fd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "302bdf04-068e-461f-a138-8f7d978ef0fd",
+	"unityPlayUrl": "https://play.unity.com/en/games/302bdf04-068e-461f-a138-8f7d978ef0fd/gunslinger-ulforce"
+}

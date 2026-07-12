@@ -1,0 +1,14 @@
+{
+	"id": "battle-field",
+	"name": "Battle Field",
+	"author": "DTGRIK",
+	"description": "Release 1.0",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4395bfff-fd34-4608-a50a-2ff9678fac0b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4395bfff-fd34-4608-a50a-2ff9678fac0b",
+	"unityPlayUrl": "https://play.unity.com/en/games/4395bfff-fd34-4608-a50a-2ff9678fac0b/battle-field"
+}

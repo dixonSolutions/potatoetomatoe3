@@ -1,0 +1,14 @@
+{
+	"id": "station-meltdown",
+	"name": "Station Meltdown",
+	"author": "Unity Play",
+	"description": "An arcade first person shooter where you battle an endless army of robots",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e0b0267f-afb2-477b-8ead-399b55b57a72/content",
+	"category": "first-person-shooter",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68a28762-abe0-47b0-b2bb-9919ca4f42ec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68a28762-abe0-47b0-b2bb-9919ca4f42ec",
+	"unityPlayUrl": "https://play.unity.com/en/games/68a28762-abe0-47b0-b2bb-9919ca4f42ec/station-meltdown"
+}

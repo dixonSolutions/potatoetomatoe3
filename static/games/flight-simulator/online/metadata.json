@@ -1,0 +1,14 @@
+{
+	"id": "flight-simulator",
+	"name": "Flight-Simulator",
+	"author": "Unity Play",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5c807c84-69c2-435d-a3c3-66d609d202d5/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e46bd19-6ae8-4fa1-a0a9-a6a6364a910a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e46bd19-6ae8-4fa1-a0a9-a6a6364a910a",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e46bd19-6ae8-4fa1-a0a9-a6a6364a910a/flight-simulator"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lava-roll-2",
+	"name": "Lava Roll 2",
+	"author": "gparnold",
+	"description": "My attempt at the Foundation ball rolling tutorial.\nThe path now gets steeper and the ball larger so rolls faster as the game progresses. Keys tilt the platforms left and right so you can guide the ball along the pathway. \u2018A\u2019 or left arrow tilt left, \u2018D\u2019 or right arrow tilt right. Unfortunately, the keys don\u2019t seem to work in full screen mode!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eeae5eb9-193c-43dd-90db-ac64e9952f66/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6fe1f242-2b32-4968-a0c7-1abd668960b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6fe1f242-2b32-4968-a0c7-1abd668960b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/6fe1f242-2b32-4968-a0c7-1abd668960b7/lava-roll-2"
+}

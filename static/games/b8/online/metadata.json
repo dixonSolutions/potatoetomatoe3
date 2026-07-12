@@ -1,0 +1,14 @@
+{
+	"id": "b8",
+	"name": "B8",
+	"author": "studbricks",
+	"description": "Play B8 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/15871eaf-38ee-49f8-b800-0a7c52c0c5a6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51d234c8-426d-409b-8217-3736877f6985/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51d234c8-426d-409b-8217-3736877f6985",
+	"unityPlayUrl": "https://play.unity.com/en/games/51d234c8-426d-409b-8217-3736877f6985/b8"
+}

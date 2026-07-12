@@ -1,0 +1,14 @@
+{
+	"id": "frozen-lantern",
+	"name": "Frozen Lantern",
+	"author": "unity_100033622",
+	"description": "A/D to move; space to jump; shift to sprint. Campfires regenerate your health, and sprints temporarily drain your stamina. Can you ascend the mountain?",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/922aa110-a4bd-4c63-89d1-76f5f5517f32/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "922aa110-a4bd-4c63-89d1-76f5f5517f32",
+	"unityPlayUrl": "https://play.unity.com/en/games/922aa110-a4bd-4c63-89d1-76f5f5517f32/frozen-lantern"
+}

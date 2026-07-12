@@ -1,0 +1,14 @@
+{
+	"id": "world-of-war-tanks",
+	"name": "World of War Tanks",
+	"author": "WillTes",
+	"description": "A multiplayer immersive realistic battleground, with the overarching goal of defeating other online players to become victorious.\n\nControls \n\n1. Left mouse button to shoot.\n2. C to change cameras.  \n3. 1 to lock cursor 2 to unlock cursor.\n4. F to change ammo.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b983d1cb-ee3c-4008-9165-4b6e11f752dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf05ae75-57c1-4682-9ee1-ebb169d626cc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cf05ae75-57c1-4682-9ee1-ebb169d626cc",
+	"unityPlayUrl": "https://play.unity.com/en/games/cf05ae75-57c1-4682-9ee1-ebb169d626cc/world-of-war-tanks"
+}

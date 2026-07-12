@@ -1,0 +1,14 @@
+{
+	"id": "collaboratory",
+	"name": "Collaboratory",
+	"author": "Unity Play",
+	"description": "TSA VGD 2024",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/15e67388-4cbc-455d-93c9-69a7ea500cd0/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/480e70d5-1a26-4590-a702-22916cad2a1b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "480e70d5-1a26-4590-a702-22916cad2a1b",
+	"unityPlayUrl": "https://play.unity.com/en/games/480e70d5-1a26-4590-a702-22916cad2a1b/collaboratory"
+}

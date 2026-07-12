@@ -1,0 +1,14 @@
+{
+	"id": "asteroid-scavenger",
+	"name": "Asteroid Scavenger",
+	"author": "Zennef",
+	"description": "A neon arcade survival game. Dodge asteroids, collect fuel, and build your ship through 12 escalating levels. How far can you make it?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f69d49b6-04bc-463d-9991-e8aa04a3a96f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d771237-34fd-4632-9192-d67346b6a459/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d771237-34fd-4632-9192-d67346b6a459",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d771237-34fd-4632-9192-d67346b6a459/asteroid-scavenger"
+}

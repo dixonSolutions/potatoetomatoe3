@@ -1,0 +1,14 @@
+{
+	"id": "the-curse-of-zandar-web",
+	"name": "the curse of Zandar web",
+	"author": "LeMarmoset",
+	"description": "Play the curse of Zandar web on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d5d2bff9-52c8-49df-8234-fe7b3143879a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c2f0c59b-638e-4672-bf94-db882d9bfa27/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c2f0c59b-638e-4672-bf94-db882d9bfa27",
+	"unityPlayUrl": "https://play.unity.com/en/games/c2f0c59b-638e-4672-bf94-db882d9bfa27/the-curse-of-zandar-web"
+}

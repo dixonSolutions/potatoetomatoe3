@@ -1,0 +1,14 @@
+{
+	"id": "cursed-dungeon-raider",
+	"name": "Cursed Dungeon Raider",
+	"author": "CleverAI",
+	"description": "WebGl does not support HDRP. Download the game for Windows here: https://cleverai.itch.io/cursed-dungeon-raider\n\nIt is an Indiana Jones / Tomb Raider like horror game, where you have to recover real historic artifacts from excavation sites, which are filled with traps and monsters.\n\nSell those artifacts at a museum to gain archaeological reputation and get access to new excavation sites or sell them on the black market to earn more money and buy new exciting equipment (not integrated yet).\n\nThe used Unity x Humble Bundle Assets are listed on the right side.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a1959fe0-5fb5-4ac5-8a3a-c32af088aef9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/242bd319-fb71-4575-8473-924be06a90a1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "242bd319-fb71-4575-8473-924be06a90a1",
+	"unityPlayUrl": "https://play.unity.com/en/games/242bd319-fb71-4575-8473-924be06a90a1/cursed-dungeon-raider"
+}

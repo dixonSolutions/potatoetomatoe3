@@ -1,0 +1,14 @@
+{
+	"id": "creator-kit-rpg",
+	"name": "Creator Kit RPG",
+	"author": "RenegadeMasaki",
+	"description": "A very simple quest-based RPG, made with the Unity Creator Kit.  :)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0691ea23-1e98-4ece-aea2-d86dbb44a9e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0691ea23-1e98-4ece-aea2-d86dbb44a9e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0691ea23-1e98-4ece-aea2-d86dbb44a9e3/creator-kit-rpg"
+}

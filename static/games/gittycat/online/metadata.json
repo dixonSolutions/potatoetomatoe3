@@ -1,0 +1,14 @@
+{
+	"id": "gittycat",
+	"name": "Gitty_Cat",
+	"author": "aseraphyss",
+	"description": "Checkout fast,  revert the past.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9949a9ec-27ef-4dec-934c-fd2947779132/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9949a9ec-27ef-4dec-934c-fd2947779132",
+	"unityPlayUrl": "https://play.unity.com/en/games/9949a9ec-27ef-4dec-934c-fd2947779132/gittycat"
+}

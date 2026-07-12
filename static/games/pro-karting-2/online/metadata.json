@@ -1,0 +1,14 @@
+{
+	"id": "pro-karting-2",
+	"name": "Pro Karting 2",
+	"author": "akhilgeorge06",
+	"description": "Play Pro Karting 2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/da31600f-e6a8-4a3a-8705-fdf2c6b0da53/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "da31600f-e6a8-4a3a-8705-fdf2c6b0da53",
+	"unityPlayUrl": "https://play.unity.com/en/games/da31600f-e6a8-4a3a-8705-fdf2c6b0da53/pro-karting-2"
+}

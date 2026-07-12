@@ -1,0 +1,14 @@
+{
+	"id": "lego-tower-defense",
+	"name": "Lego Tower Defense",
+	"author": "FeedMyKids1",
+	"description": "Pretty Simple Lego Tower Defense Game: <br> Use Hotkeys to build towers: <br> 1) Combat Tower <br> 2) Power Tower <br> 3) Slow Tower <br> <br> or use \"B\" to open build menu. <br> \"R\" rotates towers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/485fcd89-b97b-4de1-b18b-c22a76a439aa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59c0884e-2d57-4f3d-8e4c-ae0d726466c6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59c0884e-2d57-4f3d-8e4c-ae0d726466c6",
+	"unityPlayUrl": "https://play.unity.com/en/games/59c0884e-2d57-4f3d-8e4c-ae0d726466c6/lego-tower-defense"
+}

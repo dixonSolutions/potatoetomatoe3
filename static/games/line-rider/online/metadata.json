@@ -1,0 +1,14 @@
+{
+	"id": "line-rider",
+	"name": "Line Rider",
+	"author": "ioanstefan2020",
+	"description": "Press spacebar to start and 'p' to pause.If is pause you can use 'a','w','s','d' to move and create level.Press 1,2,3,4 to choose the normal line,boost line,bouncy line and linethrough line.Linethrough line is just for drawing.Thanks for all to Brackeys and have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/adf54f10-574b-4a67-8d85-469509a11021/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80b90b88-f0cc-4dff-874b-98fd5209a22a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80b90b88-f0cc-4dff-874b-98fd5209a22a",
+	"unityPlayUrl": "https://play.unity.com/en/games/80b90b88-f0cc-4dff-874b-98fd5209a22a/line-rider"
+}

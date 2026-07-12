@@ -1,0 +1,14 @@
+{
+	"id": "enspire-online",
+	"name": "Enspire Online",
+	"author": "EnspireDigital",
+	"description": "\u1ee8ng d\u1ee5ng Enspire Online cho tr\u1ebb m\u1ea7m non",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/422cd7f4-5572-435e-b016-1d528bca938c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "422cd7f4-5572-435e-b016-1d528bca938c",
+	"unityPlayUrl": "https://play.unity.com/en/games/422cd7f4-5572-435e-b016-1d528bca938c/enspire-online"
+}

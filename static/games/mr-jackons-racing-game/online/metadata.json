@@ -1,0 +1,14 @@
+{
+	"id": "mr-jackons-racing-game",
+	"name": "Mr. Jackon's Racing Game",
+	"author": "Mr_Jackson",
+	"description": "This is for demo purposes only.\n\nANY GAMEPAD/KEYBOARD : Game uses New & Old Input System\n\nShift/BackTriggers = Hard Turning\nSpace/West Button = Turbos\nDpad/ASWD = Movement\nS KEY/Down DPAD = Brake",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/020716a7-e4f7-4b8d-a172-e1b22eba19cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "020716a7-e4f7-4b8d-a172-e1b22eba19cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/020716a7-e4f7-4b8d-a172-e1b22eba19cb/mr-jackons-racing-game"
+}

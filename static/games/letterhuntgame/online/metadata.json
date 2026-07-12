@@ -1,0 +1,14 @@
+{
+	"id": "letterhuntgame",
+	"name": "LetterHuntGame",
+	"author": "br28945",
+	"description": "Play LetterHuntGame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e6f82c15-b3d1-4709-b23c-fa7a76d1d887/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e6f82c15-b3d1-4709-b23c-fa7a76d1d887",
+	"unityPlayUrl": "https://play.unity.com/en/games/e6f82c15-b3d1-4709-b23c-fa7a76d1d887/letterhuntgame"
+}

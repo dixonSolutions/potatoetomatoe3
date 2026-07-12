@@ -1,0 +1,14 @@
+{
+	"id": "snow-boarder",
+	"name": "Snow Boarder",
+	"author": "CH_HASSAAN",
+	"description": "Welcome to Snow Boarder, a thrilling snowboarding game where you glide down icy slopes, collect coins, and perform daring jumps. Your goal is to collect as many coins as possible while avoiding crashes to achieve the highest score. With challenging obstacles and exciting gameplay, you\u2019ll need to master your snowboarding skills to win!\n\nControls:\n\nIncrease Speed: W or Up Arrow Key\nRotate Left/Right: A and D or Left and Right Arrow Keys\n\nHow to Play:\n\nCollect Coins: Navigate your snowboarder to collect coins scattered along the icy path to increase your score.\nAvoid Crashes: Watch out for obstacles and jump at the right time to avoid crashing. Keep your reflexes sharp to stay on course!\nSpeed and Rotation: Use the W key or Up Arrow to speed up and the A, D, or Left and Right Arrow keys to rotate your character for better maneuvering.\nScore: The more coins you collect without crashing, the higher your score. Aim for a perfect run to achieve the best score possible!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dbc7a93c-a57a-4bd1-ab87-32fb8df34b25/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/488cdc7b-7bcb-4c8d-ae7d-da4fe2f0567b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "488cdc7b-7bcb-4c8d-ae7d-da4fe2f0567b",
+	"unityPlayUrl": "https://play.unity.com/en/games/488cdc7b-7bcb-4c8d-ae7d-da4fe2f0567b/snow-boarder"
+}

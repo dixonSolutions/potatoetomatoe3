@@ -1,0 +1,14 @@
+{
+	"id": "gun-strike",
+	"name": "GUN STRIKE",
+	"author": "MGboy123",
+	"description": "My latest microgame. Please play and Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fe2ac1ea-0fe3-48b2-8866-cef699b1eab7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5588f6eb-7713-4f24-a062-ab24c9a515cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5588f6eb-7713-4f24-a062-ab24c9a515cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/5588f6eb-7713-4f24-a062-ab24c9a515cd/gun-strike"
+}

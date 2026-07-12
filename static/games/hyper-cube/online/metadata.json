@@ -1,0 +1,14 @@
+{
+	"id": "hyper-cube",
+	"name": "Hyper Cube",
+	"author": "HackingtonsStudent",
+	"description": "Fun Game with 4 levels!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47dab584-9475-4735-94d7-02220d358ad2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1fc00278-3fad-4fc0-be00-1b21955913e0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1fc00278-3fad-4fc0-be00-1b21955913e0",
+	"unityPlayUrl": "https://play.unity.com/en/games/1fc00278-3fad-4fc0-be00-1b21955913e0/hyper-cube"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "exportwebgl3",
+	"name": "exportWebGL3",
+	"author": "venom789",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf898339-cb63-40de-97ee-41250c842118/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bf898339-cb63-40de-97ee-41250c842118",
+	"unityPlayUrl": "https://play.unity.com/en/games/bf898339-cb63-40de-97ee-41250c842118/exportwebgl3"
+}

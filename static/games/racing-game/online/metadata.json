@@ -1,0 +1,14 @@
+{
+	"id": "racing-game",
+	"name": "Racing Game",
+	"author": "tkuhn_unity",
+	"description": "Game Design Class 2022/23 S1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e42bc03-1079-4cda-a969-acb7cdeb45e6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e42bc03-1079-4cda-a969-acb7cdeb45e6",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e42bc03-1079-4cda-a969-acb7cdeb45e6/racing-game"
+}

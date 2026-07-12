@@ -1,0 +1,14 @@
+{
+	"id": "escape-game-a-tutorial-project",
+	"name": "Escape Game- A tutorial project",
+	"author": "Squirreltimbo",
+	"description": "A project from the Unity From Zero To Proficiency: Beginner book. The levels were provided and I added the UI elements, level change screens, and objects. I also created the petrol-can from a 2d image myself.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/453fe3b2-96c7-46b7-be09-a74fede22177/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "453fe3b2-96c7-46b7-be09-a74fede22177",
+	"unityPlayUrl": "https://play.unity.com/en/games/453fe3b2-96c7-46b7-be09-a74fede22177/escape-game-a-tutorial-project"
+}

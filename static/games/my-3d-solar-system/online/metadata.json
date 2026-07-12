@@ -1,0 +1,14 @@
+{
+	"id": "my-3d-solar-system",
+	"name": "My 3D Solar System",
+	"author": "ejeff-hall",
+	"description": "An interactive 3D simulation of our solar system. Click on any planet to watch up close as the planet orbits the sun.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a24a4075-fa4d-4524-ad8e-35f52bab6e47/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38f91118-32df-441f-9a46-d209161a2c3e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38f91118-32df-441f-9a46-d209161a2c3e",
+	"unityPlayUrl": "https://play.unity.com/en/games/38f91118-32df-441f-9a46-d209161a2c3e/my-3d-solar-system"
+}

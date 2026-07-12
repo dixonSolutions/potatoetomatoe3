@@ -1,0 +1,14 @@
+{
+	"id": "smallscapes",
+	"name": "smallscapes",
+	"author": "Niiilsen",
+	"description": "Replicate a reference landscape using masking blocks in this brain-teasing puzzle game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a7dc884c-0ee1-4caa-889d-85be4d4ba142/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67418ce7-94e9-4b08-8338-2c459d1996fe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67418ce7-94e9-4b08-8338-2c459d1996fe",
+	"unityPlayUrl": "https://play.unity.com/en/games/67418ce7-94e9-4b08-8338-2c459d1996fe/smallscapes"
+}

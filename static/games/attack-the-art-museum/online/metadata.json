@@ -1,0 +1,14 @@
+{
+	"id": "attack-the-art-museum",
+	"name": "Attack the Art Museum",
+	"author": "wesdhy",
+	"description": "Art Museum",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1f593959-90d8-47e0-b065-b96305ac9bc5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/77d3d724-0b61-4b9a-97ba-d2a6e9aad2b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "77d3d724-0b61-4b9a-97ba-d2a6e9aad2b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/77d3d724-0b61-4b9a-97ba-d2a6e9aad2b6/attack-the-art-museum"
+}

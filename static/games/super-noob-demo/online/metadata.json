@@ -1,0 +1,14 @@
+{
+	"id": "super-noob-demo",
+	"name": "Super Noob Demo",
+	"author": "Nachokaxis",
+	"description": "Barely fuctional level inspired in Super Mario World, for study/practicing purposes (obviously). I'm aware that there are a lot of bugs in it, but I just wanted to build something that works (despite the before mentioned bugs). Hopefully Nintendo doesn't sue me.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01cf3040-e1e9-4b9f-a810-d5a8b93b928c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50497be9-37c6-4bde-bb5e-42f708dc5dec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50497be9-37c6-4bde-bb5e-42f708dc5dec",
+	"unityPlayUrl": "https://play.unity.com/en/games/50497be9-37c6-4bde-bb5e-42f708dc5dec/super-noob-demo"
+}

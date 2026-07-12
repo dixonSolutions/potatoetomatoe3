@@ -1,0 +1,14 @@
+{
+	"id": "magic-animation-blending",
+	"name": "Magic Animation Blending",
+	"author": "samson96",
+	"description": "This is a new way to blend animations in Unity. Instead of using traditional complicated animator setups and override controllers, this tool allows you to dynamically animate poses using the same animator controller.\n\nGet it here: https://u3d.as/2Y8S",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1148c517-815b-4e1d-a8f7-a2fc18b88618/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/700af78f-a4d9-41a5-be94-dc225f1da41f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "700af78f-a4d9-41a5-be94-dc225f1da41f",
+	"unityPlayUrl": "https://play.unity.com/en/games/700af78f-a4d9-41a5-be94-dc225f1da41f/magic-animation-blending"
+}

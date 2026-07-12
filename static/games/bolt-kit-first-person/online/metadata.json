@@ -1,0 +1,14 @@
+{
+	"id": "bolt-kit-first-person",
+	"name": "Bolt Kit - First Person",
+	"author": "pixelagent",
+	"description": "Bolt Kit - First Person",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4daa9307-dfaf-4999-b576-5e74c299b28e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48acd1b2-dafa-4f7b-8133-5d03fd85cdb7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48acd1b2-dafa-4f7b-8133-5d03fd85cdb7",
+	"unityPlayUrl": "https://play.unity.com/en/games/48acd1b2-dafa-4f7b-8133-5d03fd85cdb7/bolt-kit-first-person"
+}

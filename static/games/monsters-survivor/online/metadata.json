@@ -1,0 +1,14 @@
+{
+	"id": "monsters-survivor",
+	"name": "Monsters Survivor",
+	"author": "RFIGNITE",
+	"description": "An ARPG(Action Role-playing Game) heavily inspired by popular ARPGs like Path of Exile and Vampire Survivors, built in Unity Engine. Survive as long as you can by defeating waves of monsters, looting items, and leveling up.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e19847ba-890d-423a-b0fd-bd2bfd288e49/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9203a80c-186f-40cb-bc54-305e190b5cbc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9203a80c-186f-40cb-bc54-305e190b5cbc",
+	"unityPlayUrl": "https://play.unity.com/en/games/9203a80c-186f-40cb-bc54-305e190b5cbc/monsters-survivor"
+}

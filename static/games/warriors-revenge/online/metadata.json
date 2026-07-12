@@ -1,0 +1,14 @@
+{
+	"id": "warriors-revenge",
+	"name": "Warrior's Revenge",
+	"author": "LunarBlade",
+	"description": "Press Space to Interact.\nFixed Inconsistent jump height.\nFixed Player getting stuck inside tiles.\n\nA 2d Platformer game, with two levels, one simple and one boss level, also has a local multiplayer mode.\n\nNo story added yet.\n\nLet me know your thoughts, Thanks!.\n\nControls:-\nPlayer 1 - Arrow keys and Z and Space to interact.\nPlayer 2 - WASD and G\n\nCredits -----[]\n\nClembod - https://clembod.itch.io - https://clembod.artstation.com/\n----- []\n\n- Warrior (Sprite)\n\n- BringerOfDeath (Sprite)\n\nPenusbmic - https://penusbmic.itch.io -\nhttps://www.instagram.com/penusbmic/ ----- []\n\n- ToasterBot (Sprite)\n\n- Shield Droid (Sprite)\n\nHeart (Sprite) - Brackeys ----- []\n\nMusic - Timbeek - https://timbeek.itch.io/royalty-free-music-pack ----- []\n\nTiles - @Maytch (twitter) ----- []\n\nExclamationMark (Sprite) - PixelBuddha",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f3394b27-621d-47a8-b967-54a1a590b508/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b5b5298f-86b6-43fd-b26c-fb2b0013a1cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b5b5298f-86b6-43fd-b26c-fb2b0013a1cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/b5b5298f-86b6-43fd-b26c-fb2b0013a1cd/warriors-revenge"
+}

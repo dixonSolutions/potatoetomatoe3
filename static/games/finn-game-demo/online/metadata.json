@@ -1,0 +1,14 @@
+{
+	"id": "finn-game-demo",
+	"name": "Finn Game Demo",
+	"author": "Finn_McCann",
+	"description": "Controls:\nJump= up or W\nLeft= left key or A\nRight= right key or D\nCrouch= down key or S (bullet does not change with the crouch at the moment)\nShoot= / or Q",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ba1f023a-2d0d-45a9-8df0-2286a7ad08d0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13a35fae-8f8b-4172-b204-993d1ab9c098/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13a35fae-8f8b-4172-b204-993d1ab9c098",
+	"unityPlayUrl": "https://play.unity.com/en/games/13a35fae-8f8b-4172-b204-993d1ab9c098/finn-game-demo"
+}

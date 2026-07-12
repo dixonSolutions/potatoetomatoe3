@@ -1,0 +1,14 @@
+{
+	"id": "aig-demo",
+	"name": "AIG Demo",
+	"author": "justmonotone",
+	"description": "Play AIG Demo on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a0f437d-5cbc-48ba-b582-56979f587075/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0557cbd9-93b2-4d79-9d7c-3f756e4b4b6e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0557cbd9-93b2-4d79-9d7c-3f756e4b4b6e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0557cbd9-93b2-4d79-9d7c-3f756e4b4b6e/aig-demo"
+}

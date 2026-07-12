@@ -1,0 +1,14 @@
+{
+	"id": "dmv-simulator",
+	"name": "DMV SImulator",
+	"author": "matt_levy",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4a4d487b-5c63-4ac4-a788-d1ee0accfbe1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4a4d487b-5c63-4ac4-a788-d1ee0accfbe1",
+	"unityPlayUrl": "https://play.unity.com/en/games/4a4d487b-5c63-4ac4-a788-d1ee0accfbe1/dmv-simulator"
+}

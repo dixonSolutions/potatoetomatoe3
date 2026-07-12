@@ -1,0 +1,14 @@
+{
+	"id": "samurai-schoolgirl-beta",
+	"name": "Samurai Schoolgirl (Beta)",
+	"author": "two_four_five",
+	"description": "Use your Katana to defeat monsters!!\n\nKeyboard & Mouse\nA / D: Move Left / Right\nSpace: Jump\nLeft Click: Attack\nRight Click: Guard\nR: Restart\nEsc: Pause",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a168b454-5b15-4898-9b76-cbed9300c57b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e552d967-0143-4718-a53e-b8e7f0c6b3ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e552d967-0143-4718-a53e-b8e7f0c6b3ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/e552d967-0143-4718-a53e-b8e7f0c6b3ac/samurai-schoolgirl-beta"
+}

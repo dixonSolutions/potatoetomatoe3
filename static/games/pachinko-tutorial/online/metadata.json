@@ -1,0 +1,14 @@
+{
+	"id": "pachinko-tutorial",
+	"name": "Pachinko Tutorial",
+	"author": "Cynnis232",
+	"description": "Making my way down the tutorial list by making the pachinko game! It's fun it's basic it's learning! Keep up the great work everyone who is on this journey with me! I also do not know why the asteroid 'balls' turn into ovals once they collide with the bombs.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4a721e9a-3709-4b1d-8016-2a6b984fe6d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4a721e9a-3709-4b1d-8016-2a6b984fe6d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/4a721e9a-3709-4b1d-8016-2a6b984fe6d9/pachinko-tutorial"
+}

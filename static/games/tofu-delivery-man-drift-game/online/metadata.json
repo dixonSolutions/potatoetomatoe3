@@ -1,0 +1,14 @@
+{
+	"id": "tofu-delivery-man-drift-game",
+	"name": "Tofu Delivery Man (Drift game)",
+	"author": "indubitavel",
+	"description": "A fun and simple drift game. Score drift points before the time runs out. Car has automatic gears, rear wheel drive and no traction control.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16e04200-fcb5-4908-8ff1-40f3278b6d4d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0899ac75-4f69-4393-9b3c-764cef97f1c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0899ac75-4f69-4393-9b3c-764cef97f1c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0899ac75-4f69-4393-9b3c-764cef97f1c3/tofu-delivery-man-drift-game"
+}

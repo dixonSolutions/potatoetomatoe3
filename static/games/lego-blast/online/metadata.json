@@ -1,0 +1,14 @@
+{
+	"id": "lego-blast",
+	"name": "Lego Blast",
+	"author": "jojo9496",
+	"description": "My latest microgame. Find the treasure chest and win :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/297b970a-808f-47ae-bf18-39c850080303/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ab795060-76ad-44e1-98c1-be1b0f82402d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ab795060-76ad-44e1-98c1-be1b0f82402d",
+	"unityPlayUrl": "https://play.unity.com/en/games/ab795060-76ad-44e1-98c1-be1b0f82402d/lego-blast"
+}

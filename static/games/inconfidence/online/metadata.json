@@ -1,0 +1,14 @@
+{
+	"id": "inconfidence",
+	"name": "InConfidence",
+	"author": "arnie_M",
+	"description": "Internal test link for game called InConfidence",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49a3ae33-ff53-454f-b115-b546ecd0b07d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49a3ae33-ff53-454f-b115-b546ecd0b07d",
+	"unityPlayUrl": "https://play.unity.com/en/games/49a3ae33-ff53-454f-b115-b546ecd0b07d/inconfidence"
+}

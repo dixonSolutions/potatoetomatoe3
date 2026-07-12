@@ -1,0 +1,14 @@
+{
+	"id": "prototype-1",
+	"name": "Prototype 1",
+	"author": "truestone",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f4c54df6-d6b7-4f27-9938-116c6767f19f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/163d4197-6fef-46d6-9cb3-efe999d5dcbb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "163d4197-6fef-46d6-9cb3-efe999d5dcbb",
+	"unityPlayUrl": "https://play.unity.com/en/games/163d4197-6fef-46d6-9cb3-efe999d5dcbb/prototype-1"
+}

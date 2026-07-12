@@ -1,0 +1,14 @@
+{
+	"id": "unity-pong",
+	"name": "Unity Pong",
+	"author": "pgmorin366",
+	"description": "Just a basic pong clone for two players or player vs AI. \n\nBuild as a way to learn Unity and C#",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff0e4213-3f2a-4cd2-8704-6d77633c6693/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43f71c1e-3feb-46ca-b691-484824dbb625/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43f71c1e-3feb-46ca-b691-484824dbb625",
+	"unityPlayUrl": "https://play.unity.com/en/games/43f71c1e-3feb-46ca-b691-484824dbb625/unity-pong"
+}

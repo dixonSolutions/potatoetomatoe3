@@ -30,6 +30,7 @@ Environment variables:
 ## Security
 
 - Game IDs are validated against `games-list.json` (allowlist)
+- The allowlist reloads when `games-list.json` mtime changes (and once on a miss), so catalog imports do not require a puller restart for new IDs
 - Path traversal is rejected on static file serving
 - Writes are restricted to `<dataDir>/<gameId>/offline/` and `<dataDir>/<gameId>/data/` (browser profiles)
 
@@ -56,8 +57,6 @@ Default for catalog games:
 
 ### Y8 catalog import
 
-New games are imported from Y8 (not Poki):
-
 ```bash
 pnpm run games:import-y8
 pnpm run games:import-y8 -- --limit 50 --skip-existing
@@ -65,6 +64,19 @@ node scripts/generate-games-list.js
 ```
 
 Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. Online play routes through `/unity/player.html` which loads `inject.js` (no splash, no portal loading screens). Offline pulls use the same inject + `asset-map.json` under `offline/`.
+
+### Unity Play catalog import
+
+Primary source for new Unity WebGL catalog entries (Poki import is deprecated; purge with `pnpm games:purge-poki`):
+
+```bash
+pnpm run games:import-unity-play -- --discover-only
+pnpm run games:import-unity-play -- --limit 20 --skip-existing
+pnpm run games:import-unity-play -- --skip-existing
+node scripts/generate-games-list.js
+```
+
+Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbedUrl` set to the Unity Play build frame (`https://play.unity.com/api/v1/games/game/<uuid>/build/latest/frame`). That frame loads `createUnityInstance` against `cdn.play.unity.com` assets and does **not** send `frame-ancestors` / `X-Frame-Options`, so `/unity/player.html?src=…` works. When the puller is running, online play prefers `/api/unity-play/:id` (same-origin inject proxy).
 
 ## Tauri integration
 
@@ -77,7 +89,7 @@ The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads per
 | Variable | Dev | Packaged app |
 |----------|-----|--------------|
 | `GAMES_DATA_DIR` | `static/games/` | `~/.local/share/com.potatotomato.games/games/` |
-| `CATALOG_DIR` | same as data dir | bundled `catalog/games/` resource (read-only online shells) |
+| `CATALOG_DIR` | same as data dir | bundled `catalog/games/` resource (read-only online shells). Flatpak installs under `/app/lib/potato-tomato/catalog/games/` from `src-tauri/target/release/catalog/` after `tauri build --no-bundle`. |
 
 Downloaded `offline/` folders are **gitignored** under `static/games/` during development.
 

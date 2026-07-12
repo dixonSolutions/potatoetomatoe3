@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-w-assets",
+	"name": "Roll-a-ball w/ Assets",
+	"author": "holexion",
+	"description": "Roll-a-ball example utilizing assets from Unity store.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fad2f693-6dd3-49b2-ab07-da77e9c19d38/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/da38864a-8b98-4afd-8da8-07e5f80e993a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "da38864a-8b98-4afd-8da8-07e5f80e993a",
+	"unityPlayUrl": "https://play.unity.com/en/games/da38864a-8b98-4afd-8da8-07e5f80e993a/roll-a-ball-w-assets"
+}

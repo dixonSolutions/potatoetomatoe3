@@ -1,0 +1,14 @@
+{
+	"id": "counting-prototype-pinball",
+	"name": "Counting Prototype (PinBall)",
+	"author": "jonatanmedinae",
+	"description": "I decided to re-use the counting box to count the lost balls during a PinBall game. I think I overdo a bit on this exercise but Im quite happy with the results. To start the game use the mouse left click press and hold to increase the force bar, depending how much more we hold the more force will be applied. for the flippers use the keys \"Z\" and \"X\" to hit left and right flipper respectively. You got Max 3 tries, see how much points can you get!!! SFX from ZapSplat.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a595b48-8880-4218-8045-187bf1a3d352/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55e0ddb2-88fd-4a9e-a853-bc795a3a5d15/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55e0ddb2-88fd-4a9e-a853-bc795a3a5d15",
+	"unityPlayUrl": "https://play.unity.com/en/games/55e0ddb2-88fd-4a9e-a853-bc795a3a5d15/counting-prototype-pinball"
+}

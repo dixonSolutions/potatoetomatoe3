@@ -1,0 +1,14 @@
+{
+	"id": "air-command",
+	"name": "Air Command",
+	"author": "faizanx168",
+	"description": "My latest game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b83d013b-d1de-4732-ab4e-80a75aef1b2c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ddf96595-250f-4a9b-9238-d1739cd6e005/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ddf96595-250f-4a9b-9238-d1739cd6e005",
+	"unityPlayUrl": "https://play.unity.com/en/games/ddf96595-250f-4a9b-9238-d1739cd6e005/air-command"
+}

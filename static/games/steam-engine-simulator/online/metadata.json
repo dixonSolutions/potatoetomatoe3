@@ -1,0 +1,14 @@
+{
+	"id": "steam-engine-simulator",
+	"name": "Steam Engine Simulator",
+	"author": "Jorin_Liesse",
+	"description": "This is a research competence project (OZC) for school that simulates a steam engine using Unity. It features interactive elements that allow users to learn and explore the workings of a steam engine.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70a00240-3ee3-454a-8f12-2f2e6bc9434e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a2c8200-4885-4aea-bf04-005cc70ef928/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a2c8200-4885-4aea-bf04-005cc70ef928",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a2c8200-4885-4aea-bf04-005cc70ef928/steam-engine-simulator"
+}

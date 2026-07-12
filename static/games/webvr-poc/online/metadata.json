@@ -1,0 +1,14 @@
+{
+	"id": "webvr-poc",
+	"name": "WebVR POC",
+	"author": "muhammadhaziqdanial",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/074ceea9-d639-4cce-9ef2-7d8d219a1c73/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "074ceea9-d639-4cce-9ef2-7d8d219a1c73",
+	"unityPlayUrl": "https://play.unity.com/en/games/074ceea9-d639-4cce-9ef2-7d8d219a1c73/webvr-poc"
+}

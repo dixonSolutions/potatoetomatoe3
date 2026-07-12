@@ -1,0 +1,14 @@
+{
+	"id": "anu2023-ghost-hunter",
+	"name": "ANU2023 Ghost Hunter",
+	"author": "l466163038",
+	"description": "Welcome to the ghost town. Hope you enjoy this game :)\nNote: Please use 1920\u00d71080, and DO NOT enter full screen mode. Or enter full screen as soon as unity icon starts loading and do not switch the screen setting. Thank you so much!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/261d884b-59fe-4c89-a9e9-841feff16b83/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38f048a1-8134-493f-bc5f-25af9c7deec5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38f048a1-8134-493f-bc5f-25af9c7deec5",
+	"unityPlayUrl": "https://play.unity.com/en/games/38f048a1-8134-493f-bc5f-25af9c7deec5/anu2023-ghost-hunter"
+}

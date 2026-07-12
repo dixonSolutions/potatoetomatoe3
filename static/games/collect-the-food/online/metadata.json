@@ -1,0 +1,14 @@
+{
+	"id": "collect-the-food",
+	"name": "collect the food",
+	"author": "sudovinay01",
+	"description": "use left and right arrows to move basket to collect food items.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5d82b4e3-a976-4522-b97d-8f95df3261e3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/41d3b4cf-77a2-4fff-b449-823c5bca4614/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "41d3b4cf-77a2-4fff-b449-823c5bca4614",
+	"unityPlayUrl": "https://play.unity.com/en/games/41d3b4cf-77a2-4fff-b449-823c5bca4614/collect-the-food"
+}

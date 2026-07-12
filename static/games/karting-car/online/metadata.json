@@ -1,0 +1,14 @@
+{
+	"id": "karting-car",
+	"name": "karting car",
+	"author": "Lokesh2022",
+	"description": "My latest microgame. use up and down arrow keys to move forward and backward.  left and arrow key to move vehicle left and right",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00d48917-e922-4460-bf6c-eac4d8907ed1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0700fa73-cb23-40b9-8186-e1a7b007ac66/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0700fa73-cb23-40b9-8186-e1a7b007ac66",
+	"unityPlayUrl": "https://play.unity.com/en/games/0700fa73-cb23-40b9-8186-e1a7b007ac66/karting-car"
+}

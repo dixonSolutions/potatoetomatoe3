@@ -1,0 +1,14 @@
+{
+	"id": "projectile-motion-simulator",
+	"name": "Projectile Motion Simulator",
+	"author": "Kharalos",
+	"description": "This project simulates the projectile motion formula on a standard unity capsule object. Press Space to start the simulation.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00320938-29f7-4fb1-b444-a3cde560feb9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28774277-7811-4f5c-bae7-cb4ff20b4871/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28774277-7811-4f5c-bae7-cb4ff20b4871",
+	"unityPlayUrl": "https://play.unity.com/en/games/28774277-7811-4f5c-bae7-cb4ff20b4871/projectile-motion-simulator"
+}

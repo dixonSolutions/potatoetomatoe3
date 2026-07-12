@@ -1,0 +1,14 @@
+{
+	"id": "unitymodule01-leaf",
+	"name": "unityModule01 - Leaf",
+	"author": "Leaf67",
+	"description": "1-2-3 : \t\t\t\tSwitch characters\n4 : \t\t\t\t\tSelect camera\nZQSD / Arrow keys : \tMove characters or camera\nSpace : \t\t\t\tJump\nE : \t\t\t\t\tInteract",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/069c552a-9c12-41c7-a834-0c5161eaded7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4cd41114-07ca-45d3-ad52-6f22991d8a64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4cd41114-07ca-45d3-ad52-6f22991d8a64",
+	"unityPlayUrl": "https://play.unity.com/en/games/4cd41114-07ca-45d3-ad52-6f22991d8a64/unitymodule01-leaf"
+}

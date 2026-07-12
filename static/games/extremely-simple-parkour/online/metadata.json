@@ -1,0 +1,14 @@
+{
+	"id": "extremely-simple-parkour",
+	"name": "Extremely simple \"parkour\"",
+	"author": "Dexetro",
+	"description": "Done by learning the visual scripting, didn't manage to polish it as much as i wanted so it feels clunky\nWon't improve on this one anymore but will on the future ones",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/10b8b0c6-302c-4a95-af77-22b3d95d87f4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00faa8f5-dea8-4d86-bfc9-ea3aecc5c19b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00faa8f5-dea8-4d86-bfc9-ea3aecc5c19b",
+	"unityPlayUrl": "https://play.unity.com/en/games/00faa8f5-dea8-4d86-bfc9-ea3aecc5c19b/extremely-simple-parkour"
+}

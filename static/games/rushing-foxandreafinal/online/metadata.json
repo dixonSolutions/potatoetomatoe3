@@ -1,0 +1,14 @@
+{
+	"id": "rushing-foxandreafinal",
+	"name": "Rushing Fox_Andrea_Final",
+	"author": "Andrea_Gopher",
+	"description": "Hi this is a running game and hope you can score high. Go Grab the food!\nLeft: left shift\nRight: right shift\nUp: acceleration\nSpace: jump \n\nAsset resources:\nBackground Scene: https://assetstore.unity.com/packages/3d/environments/landscapes/simple-low-poly-nature-pack-157552\n\nPlayer: (the fox)\nhttps://assetstore.unity.com/?q=Character%20Pack&orderBy=1\n\nBasic Motions of the player:\nhttps://assetstore.unity.com/?q=Character%20Pack&orderBy=1\n\nFood: \nhttps://assetstore.unity.com/packages/3d/food-pack-3d-microgames-add-ons-163295\n\nGrass Tiles:\nhttps://assetstore.unity.com/packages/3d/environments/platform-tiles-polypack-209922\n\nTrees:\nhttps://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208\n\n\nThank you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/26bbb91f-a55b-4641-8529-ec47275fc42e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/106dcc91-57c8-4957-aced-b92ecefc8ec0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "106dcc91-57c8-4957-aced-b92ecefc8ec0",
+	"unityPlayUrl": "https://play.unity.com/en/games/106dcc91-57c8-4957-aced-b92ecefc8ec0/rushing-foxandreafinal"
+}

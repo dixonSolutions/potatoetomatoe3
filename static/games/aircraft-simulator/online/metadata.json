@@ -1,0 +1,14 @@
+{
+	"id": "aircraft-simulator",
+	"name": "Aircraft Simulator",
+	"author": "aelomb2497",
+	"description": "Fly through the rings to collect them & dodge the pillars!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a3dbe431-f4bc-4222-a87c-f5837e86853d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b7a0211-3b69-45b6-aa60-e518e684503e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b7a0211-3b69-45b6-aa60-e518e684503e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b7a0211-3b69-45b6-aa60-e518e684503e/aircraft-simulator"
+}

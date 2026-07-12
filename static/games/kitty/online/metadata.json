@@ -1,0 +1,14 @@
+{
+	"id": "kitty",
+	"name": "Kitty",
+	"author": "kris_varenyk",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb67ebbe-5b8d-4a45-8a48-e3fe13873988/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0496fdf9-8ada-4ccb-ba93-6c4b6d227be8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0496fdf9-8ada-4ccb-ba93-6c4b6d227be8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0496fdf9-8ada-4ccb-ba93-6c4b6d227be8/kitty"
+}

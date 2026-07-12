@@ -1,0 +1,14 @@
+{
+	"id": "josephfps",
+	"name": "JosephFPS",
+	"author": "snazzynerd",
+	"description": "Play JosephFPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7cc36c2f-abf6-47e0-8c06-85f1b2b79fb6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72674875-c043-4f88-9505-963518682569/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "72674875-c043-4f88-9505-963518682569",
+	"unityPlayUrl": "https://play.unity.com/en/games/72674875-c043-4f88-9505-963518682569/josephfps"
+}

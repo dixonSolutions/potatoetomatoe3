@@ -1,0 +1,14 @@
+{
+	"id": "k-dash-game",
+	"name": "K-dash Game",
+	"author": "Unity Play",
+	"description": "A space Unity Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dec71577-03af-44db-b69b-9936f6f3318a/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/157d4db2-b9b0-422b-ba8e-a7c08da9f0cc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "157d4db2-b9b0-422b-ba8e-a7c08da9f0cc",
+	"unityPlayUrl": "https://play.unity.com/en/games/157d4db2-b9b0-422b-ba8e-a7c08da9f0cc/k-dash-game"
+}

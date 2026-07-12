@@ -1,0 +1,14 @@
+{
+	"id": "space-wars",
+	"name": "Space Wars",
+	"author": "Pooja_27",
+	"description": "Eliminate all the enemies. Watch out for the ones who are hiding! And don't forget to Loot!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/601142ba-de1f-4772-a1b8-965e3097e5a9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3324f8e7-2111-402b-8a7d-ea60a677d2fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3324f8e7-2111-402b-8a7d-ea60a677d2fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/3324f8e7-2111-402b-8a7d-ea60a677d2fa/space-wars"
+}

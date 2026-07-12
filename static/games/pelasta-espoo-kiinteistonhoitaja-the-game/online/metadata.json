@@ -1,0 +1,14 @@
+{
+	"id": "pelasta-espoo-kiinteistonhoitaja-the-game",
+	"name": "Pelasta Espoo - Kiinteist\u00f6nhoitaja The Game",
+	"author": "VirtualDawn",
+	"description": "v1.1.0.50 - Release Candidate 1.2\n-Fixed error when exiting Kannusali and an exit panel appeared on map screen.\n-Water now drains in Kannusali.\n-Tweaked audio levels\n-Music now plays through all scenes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37fbe1ff-5ecb-41ce-ad59-17c7804589af/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6222deaa-b9c2-4e32-9eaa-d0014fcf071f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6222deaa-b9c2-4e32-9eaa-d0014fcf071f",
+	"unityPlayUrl": "https://play.unity.com/en/games/6222deaa-b9c2-4e32-9eaa-d0014fcf071f/pelasta-espoo-kiinteistonhoitaja-the-game"
+}

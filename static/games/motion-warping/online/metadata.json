@@ -1,0 +1,14 @@
+{
+	"id": "motion-warping",
+	"name": "Motion Warping",
+	"author": "samson96",
+	"description": "Animation Warping is used to align characters with targets on the fly. Climbing, vaulting, attacking enemies, entering vehicles - all these mechanics are powered by warping in real production.\n\nNow Unity finally has a solution for it: https://u3d.as/3bsY",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/64aed346-d3e8-488f-acb2-6fcd050b6edb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/953fabeb-8ef7-4c16-bb7f-13e22338f1fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "953fabeb-8ef7-4c16-bb7f-13e22338f1fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/953fabeb-8ef7-4c16-bb7f-13e22338f1fb/motion-warping"
+}

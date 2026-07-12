@@ -1,0 +1,14 @@
+{
+	"id": "hand-drawn-open-world-wolf-simulator",
+	"name": "Hand Drawn Open World Wolf Simulator",
+	"author": "EyvindWolf",
+	"description": "I wanted to try creating the illusion of movement and ended up drawing way more assets for this than I intended to. You'll see what I mean if you approach some of the grass... WASD or ARROW controls movement, just please don't run backwards.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/086ec8a0-3aaf-4552-a6ab-701f6ae597cd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29cc999d-b575-49e6-9567-e48720f6cc42/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29cc999d-b575-49e6-9567-e48720f6cc42",
+	"unityPlayUrl": "https://play.unity.com/en/games/29cc999d-b575-49e6-9567-e48720f6cc42/hand-drawn-open-world-wolf-simulator"
+}

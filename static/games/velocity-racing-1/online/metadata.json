@@ -1,0 +1,14 @@
+{
+	"id": "velocity-racing-1",
+	"name": "Velocity Racing 1",
+	"author": "passaybrown",
+	"description": "Velocity Racing 1 is a racing game that consist of racing through various tracks (soon to be added), NEW Characters, and upgraded racing karts. The goal is to get to the end before the time runs out!.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c32951ae-062a-4cf3-b247-e228da2d245b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f203355a-b94d-4de1-bc4f-f53437e483ea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f203355a-b94d-4de1-bc4f-f53437e483ea",
+	"unityPlayUrl": "https://play.unity.com/en/games/f203355a-b94d-4de1-bc4f-f53437e483ea/velocity-racing-1"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ninjago",
+	"name": "Ninjago",
+	"author": "waynehalger3",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eef8fbcf-ad2c-4de5-b8dc-ea05027f1dcf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0be597b6-b30f-4490-839b-c896dc6eb96d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0be597b6-b30f-4490-839b-c896dc6eb96d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0be597b6-b30f-4490-839b-c896dc6eb96d/ninjago"
+}

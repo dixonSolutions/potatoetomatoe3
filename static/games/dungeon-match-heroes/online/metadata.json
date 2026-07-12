@@ -1,0 +1,14 @@
+{
+	"id": "dungeon-match-heroes",
+	"name": "Dungeon Match Heroes",
+	"author": "keijiro",
+	"description": "The game is played on a 7x7 grid. Unlike traditional match-3 games where you swap pieces, here you directly interact with the Bottom Row.\n\nhttps://github.com/keijiro/DungeonMatchHeroes",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/399e2e07-4d3f-462f-9a5c-6a8fb2c68c1a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "399e2e07-4d3f-462f-9a5c-6a8fb2c68c1a",
+	"unityPlayUrl": "https://play.unity.com/en/games/399e2e07-4d3f-462f-9a5c-6a8fb2c68c1a/dungeon-match-heroes"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "valoguesser",
+	"name": "ValoGuesser",
+	"author": "ahmadsaeed2046",
+	"description": "Test your game knowledge on Valorant! Play with your friends to see who scores the most!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99ee759b-0f35-4290-8983-d8fb0962735c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/69fa577f-043e-40ab-9223-f07614416c30/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "69fa577f-043e-40ab-9223-f07614416c30",
+	"unityPlayUrl": "https://play.unity.com/en/games/69fa577f-043e-40ab-9223-f07614416c30/valoguesser"
+}

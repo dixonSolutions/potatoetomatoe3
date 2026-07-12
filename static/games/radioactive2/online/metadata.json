@@ -1,0 +1,14 @@
+{
+	"id": "radioactive2",
+	"name": "Radioactive2",
+	"author": "toadwashington",
+	"description": "Play Radioactive2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8815106f-0972-43ee-a76b-0df3339f02ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b8e31807-4a30-4f2e-836a-1b7e46f6f368/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b8e31807-4a30-4f2e-836a-1b7e46f6f368",
+	"unityPlayUrl": "https://play.unity.com/en/games/b8e31807-4a30-4f2e-836a-1b7e46f6f368/radioactive2"
+}

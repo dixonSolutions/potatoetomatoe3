@@ -1,0 +1,14 @@
+{
+	"id": "3d-essential-gameobject-scriptobject-prefabs-materials",
+	"name": "3D Essential - GameObject, ScriptObject, Prefabs, Materials",
+	"author": "mihye-bang",
+	"description": "Objects are falling at different speeds based on their shape, size, and whether they meet obstacles until they fall to the ground/ fences. \n\n<Concepts related>\n- Material, Rigidbody, and bounciness added to GameObjects \n- The main camera is adjusted and fixed (position, angle) to display falling objects better \n- Primitive objects made into one structure by nesting \n- C# Script component was added to increase the size of a GameObject",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/491a09ef-f609-4830-b97c-55b1e4ccb3b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07e08970-a669-4400-b9e6-4f9eb571021c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07e08970-a669-4400-b9e6-4f9eb571021c",
+	"unityPlayUrl": "https://play.unity.com/en/games/07e08970-a669-4400-b9e6-4f9eb571021c/3d-essential-gameobject-scriptobject-prefabs-materials"
+}

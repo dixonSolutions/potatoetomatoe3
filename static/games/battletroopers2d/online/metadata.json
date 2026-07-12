@@ -1,0 +1,14 @@
+{
+	"id": "battletroopers2d",
+	"name": "BattleTroopers2D",
+	"author": "supnmax61",
+	"description": "MultiplayerPlatfomer",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/efd2824a-c6c4-49a2-ac74-f9765e45bb09/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "efd2824a-c6c4-49a2-ac74-f9765e45bb09",
+	"unityPlayUrl": "https://play.unity.com/en/games/efd2824a-c6c4-49a2-ac74-f9765e45bb09/battletroopers2d"
+}

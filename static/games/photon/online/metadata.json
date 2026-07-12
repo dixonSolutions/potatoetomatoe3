@@ -1,0 +1,14 @@
+{
+	"id": "photon",
+	"name": "Photon",
+	"author": "karl_unity823",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/845f99c2-e4b9-472f-beba-cf284cc2e6aa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a5bbb16f-830a-42bd-9ca9-fe922e39666e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a5bbb16f-830a-42bd-9ca9-fe922e39666e",
+	"unityPlayUrl": "https://play.unity.com/en/games/a5bbb16f-830a-42bd-9ca9-fe922e39666e/photon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "webgl-builds-lava",
+	"name": "WebGL Builds LaVa",
+	"author": "wanlermmm",
+	"description": "My latest microgame. Actually my first!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/78c49b49-fd83-4d02-b391-1b19c96036c7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b412d545-dd82-4124-b717-11a2eff94fa5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b412d545-dd82-4124-b717-11a2eff94fa5",
+	"unityPlayUrl": "https://play.unity.com/en/games/b412d545-dd82-4124-b717-11a2eff94fa5/webgl-builds-lava"
+}

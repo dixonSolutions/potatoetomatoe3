@@ -1,0 +1,14 @@
+{
+	"id": "fixed",
+	"name": "Fixed",
+	"author": "sabasrochagal",
+	"description": "Arreglar",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8496fb02-a29d-4adb-951e-5b74db750001/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0742f9b1-0512-4c2d-8fe9-1af20dbd6b2f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0742f9b1-0512-4c2d-8fe9-1af20dbd6b2f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0742f9b1-0512-4c2d-8fe9-1af20dbd6b2f/fixed"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "agent-runa-operation-resupply",
+	"name": "Agent Runa: Operation Resupply",
+	"author": "Peter-S-Hollander",
+	"description": "Stealth, escape, and a suspicious amount of pastries.  Will you help \nAgent Runa uncover this mysterious story and retrieve her important \nsupplies?  Made for the LEGO Ideas Unity Microgame contest.  LEGO Ideas username: Epic185.  See this submission on LEGO Ideas: https://ideas.lego.com/challenges/6811cf30-f944-4dfa-8714-9b38be6fbb52/application/9340aaf8-e95c-4a89-a98b-cb078eb959e0",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a6ad0a9-1d3b-4244-b666-8bb782dd531b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/275b0513-7e52-4076-adfd-39c62e45d937/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "275b0513-7e52-4076-adfd-39c62e45d937",
+	"unityPlayUrl": "https://play.unity.com/en/games/275b0513-7e52-4076-adfd-39c62e45d937/agent-runa-operation-resupply"
+}

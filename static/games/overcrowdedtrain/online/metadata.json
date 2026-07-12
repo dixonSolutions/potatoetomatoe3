@@ -1,0 +1,14 @@
+{
+	"id": "overcrowdedtrain",
+	"name": "OvercrowdedTrain",
+	"author": "ichiem",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02d82ec8-0bda-47d8-8434-0ca27ae38bda/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02d82ec8-0bda-47d8-8434-0ca27ae38bda",
+	"unityPlayUrl": "https://play.unity.com/en/games/02d82ec8-0bda-47d8-8434-0ca27ae38bda/overcrowdedtrain"
+}

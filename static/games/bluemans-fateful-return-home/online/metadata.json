@@ -1,0 +1,14 @@
+{
+	"id": "bluemans-fateful-return-home",
+	"name": "Blueman's Fateful Return Home",
+	"author": "Lavitz_io",
+	"description": "After another day of Blueman stomping out the slime infestation, he returns home... or so he thinks. The Void cometh. (Sound on!)\n\n==================\n\nLet me know in the comments if you managed to beat it! It is a bit challenging :)\n\nThis is my first project in Unity. Kept it simple and reused the same assets, but added a few (credits below). I didn't modify the movement or collision mechanics to keep the game feeling familiar to those who have played the microgame, but it is finnicky and results in tiny bugs. I learned a lot about the Command pattern and Unity itself, excited to continue my education and make some cool games!\n\nCredits:\n- Energy Drain sound by \"qubodup\" https://opengameart.org/content/energy-drain\n- Slime monster sounds by \"qubodup\" https://opengameart.org/content/slime-monster\n- Enemy song by \"Se\u00f1or Moreno\" https://opengameart.org/content/enemy-song-evorg",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/630993e4-a6e9-49e3-b101-c270ccfba693/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ce0a2db7-2110-431b-bdde-810c164cbd79/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ce0a2db7-2110-431b-bdde-810c164cbd79",
+	"unityPlayUrl": "https://play.unity.com/en/games/ce0a2db7-2110-431b-bdde-810c164cbd79/bluemans-fateful-return-home"
+}

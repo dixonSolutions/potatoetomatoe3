@@ -1,0 +1,14 @@
+{
+	"id": "tom-piccolo-first-game",
+	"name": "Tom Piccolo First Game",
+	"author": "tomtompik",
+	"description": "Practice game made with tutorial",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2603ebe8-0f21-48f2-8aec-54e3ff2c3511/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01e487a4-0fd4-4c14-9edd-62db3a3fb6ee/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01e487a4-0fd4-4c14-9edd-62db3a3fb6ee",
+	"unityPlayUrl": "https://play.unity.com/en/games/01e487a4-0fd4-4c14-9edd-62db3a3fb6ee/tom-piccolo-first-game"
+}

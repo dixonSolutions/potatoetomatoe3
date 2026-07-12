@@ -1,0 +1,14 @@
+{
+	"id": "zen-rally",
+	"name": "Zen Rally",
+	"author": "jegesgabor2000",
+	"description": "University Project with B\u00e1lint Scholtz and Csaba Szelle.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/789ac5ca-8141-4045-80a8-d5c315317f5b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b7e4ea51-3e69-4ada-ae43-cfa645628305/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b7e4ea51-3e69-4ada-ae43-cfa645628305",
+	"unityPlayUrl": "https://play.unity.com/en/games/b7e4ea51-3e69-4ada-ae43-cfa645628305/zen-rally"
+}

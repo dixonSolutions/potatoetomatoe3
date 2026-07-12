@@ -1,0 +1,14 @@
+{
+	"id": "trash-day",
+	"name": "Trash Day",
+	"author": "ChadSquares",
+	"description": "Pick up trash to make money and sell your money for upgrades. Save The World!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5b9e9481-0329-4b8c-8af6-eb3b8d45d439/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6cd79a36-c3e7-42ed-8f72-f887713c7650/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6cd79a36-c3e7-42ed-8f72-f887713c7650",
+	"unityPlayUrl": "https://play.unity.com/en/games/6cd79a36-c3e7-42ed-8f72-f887713c7650/trash-day"
+}

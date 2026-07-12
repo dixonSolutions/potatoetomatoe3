@@ -1,0 +1,14 @@
+{
+	"id": "a-conducir",
+	"name": "A conducir",
+	"author": "goyo3",
+	"description": "un jugador: A,S,D.W, cambio de c\u00e1mara con Q. Dos jugadores: A,S,D,W y las flechas, cambio de c\u00e1mara con Q y O.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04817ad3-b025-4872-b3a2-96adf7400ebc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04817ad3-b025-4872-b3a2-96adf7400ebc",
+	"unityPlayUrl": "https://play.unity.com/en/games/04817ad3-b025-4872-b3a2-96adf7400ebc/a-conducir"
+}

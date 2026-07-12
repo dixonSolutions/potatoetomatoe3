@@ -1,0 +1,14 @@
+{
+	"id": "cake-clicker",
+	"name": "Cake Clicker",
+	"author": "Matthew_Devs",
+	"description": "Cake Clicker is a clicker game where you click on the cake to buy the items!\nCurrently there are 4 different options of cake-themed items! Each of them give a boost to your \"cake-per-second\".",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/777e244f-bd62-46c9-b9a3-f951bedd4586/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eda852bb-0b7a-4000-9e36-ba91fef7da13/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eda852bb-0b7a-4000-9e36-ba91fef7da13",
+	"unityPlayUrl": "https://play.unity.com/en/games/eda852bb-0b7a-4000-9e36-ba91fef7da13/cake-clicker"
+}

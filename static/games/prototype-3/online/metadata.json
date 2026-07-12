@@ -1,0 +1,14 @@
+{
+	"id": "prototype-3",
+	"name": "Prototype 3",
+	"author": "vj_anomolee",
+	"description": "Play Prototype 3 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9012896d-c8c9-4ebe-b562-66eb3d3027bd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71cc602c-27b4-4ac7-838e-f3897793de47/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71cc602c-27b4-4ac7-838e-f3897793de47",
+	"unityPlayUrl": "https://play.unity.com/en/games/71cc602c-27b4-4ac7-838e-f3897793de47/prototype-3"
+}

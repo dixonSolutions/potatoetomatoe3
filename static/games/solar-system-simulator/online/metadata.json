@@ -1,0 +1,14 @@
+{
+	"id": "solar-system-simulator",
+	"name": "Solar system Simulator",
+	"author": "krockzz",
+	"description": "Explore the mysteries of universe in this simulator.Use mouse clicks to select the planets.Ambient sound and much more.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/335267e5-bf5a-46ce-b329-3b0417d953df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "335267e5-bf5a-46ce-b329-3b0417d953df",
+	"unityPlayUrl": "https://play.unity.com/en/games/335267e5-bf5a-46ce-b329-3b0417d953df/solar-system-simulator"
+}

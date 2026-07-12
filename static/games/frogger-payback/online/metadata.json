@@ -1,0 +1,14 @@
+{
+	"id": "frogger-payback",
+	"name": "Frogger: Payback",
+	"author": "technitaur",
+	"description": "A game about being a vengeful frog! The theme for this one was 'modernizing a classic,' so I decided to do Frogger... with guns! All of the assets I used were from free packs in the Asset Store.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/145ea709-3b1f-4c3b-90f9-74847a6ee62b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39377cdd-88b5-435a-96bf-6df0edadc0c4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39377cdd-88b5-435a-96bf-6df0edadc0c4",
+	"unityPlayUrl": "https://play.unity.com/en/games/39377cdd-88b5-435a-96bf-6df0edadc0c4/frogger-payback"
+}

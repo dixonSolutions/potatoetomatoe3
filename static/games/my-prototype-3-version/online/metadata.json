@@ -1,0 +1,14 @@
+{
+	"id": "my-prototype-3-version",
+	"name": "My Prototype 3 version",
+	"author": "AntonioPV",
+	"description": "This is my version of the prototype 3,  i added some bonuses, shoots, enemies, change some animation, and a lives sistem. it took me 2 days",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b0a6c5aa-c091-43fb-9786-823e2c0eed24/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10567e81-b584-4689-93e6-78e18c7365fe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10567e81-b584-4689-93e6-78e18c7365fe",
+	"unityPlayUrl": "https://play.unity.com/en/games/10567e81-b584-4689-93e6-78e18c7365fe/my-prototype-3-version"
+}

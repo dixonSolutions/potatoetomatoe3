@@ -1,0 +1,14 @@
+{
+	"id": "ultimate-game",
+	"name": "ULTIMATE GAME",
+	"author": "Nishaa_Kishore",
+	"description": "Find his way back from under the sea to his castle...",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ef0371d0-0da0-48d2-99f5-ef5a3a726a34/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ef0371d0-0da0-48d2-99f5-ef5a3a726a34",
+	"unityPlayUrl": "https://play.unity.com/en/games/ef0371d0-0da0-48d2-99f5-ef5a3a726a34/ultimate-game"
+}

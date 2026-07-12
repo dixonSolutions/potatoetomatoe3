@@ -1,0 +1,14 @@
+{
+	"id": "game-of-g-pre-release",
+	"name": "Game Of G (Pre-Release)",
+	"author": "StaggeringlyPurple",
+	"description": "[IMPORTANT: If your mouse sensitivity is too high or you don't know how to play the game, press P. Also please don't press close or the game crashes.]                                                                                       This is a pre-release tutorial of my Unity survival game. Hopefully the full game will be available on Steam or itch.io sometime soon, but for now, this is all that I'm releasing. It is just a quick and simple walkthrough that explains the basic mechanics of the game. Also, there is a free play level, where you can run around and do stuff. In that scene, you can practice aiming your bow and arrow, and work on your building. This was a lot more difficult than I anticipated, but I'm overall pretty satisfied with the way it came out. I used Blender for the 3D modeling and Visual Studio for the scripting. I would love to hear your feedback as long as you keep the comments friendly and appropriate. I hope you enjoy!\ud83d\ude03(Also please don\u2019t judge my lousy art)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/83fb9e82-268d-4c7d-9945-cd99ae9c1491/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe50dbe4-25cf-4e21-aa91-62bd6afb6706/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe50dbe4-25cf-4e21-aa91-62bd6afb6706",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe50dbe4-25cf-4e21-aa91-62bd6afb6706/game-of-g-pre-release"
+}

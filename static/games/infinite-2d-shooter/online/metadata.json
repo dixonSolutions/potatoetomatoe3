@@ -1,0 +1,14 @@
+{
+	"id": "infinite-2d-shooter",
+	"name": "Infinite 2D Shooter",
+	"author": "hagould",
+	"description": "While exploring a new world you are ambushed by a seemingly endless spawn of enemies! You might as well kill as many as you can before your inevitable death..                                                                                         Controls are FORWARD: W, BACKWARD: S, Rotate Left: D, Rotate Right: A (Yes I know it is opposite but I kind of liked it that way.)                                                                                    All sprites taken from: https://opengameart.org/",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6968ffaf-b129-4ceb-b65f-e6067bf44bd1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6968ffaf-b129-4ceb-b65f-e6067bf44bd1",
+	"unityPlayUrl": "https://play.unity.com/en/games/6968ffaf-b129-4ceb-b65f-e6067bf44bd1/infinite-2d-shooter"
+}

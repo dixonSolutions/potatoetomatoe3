@@ -1,0 +1,14 @@
+{
+	"id": "run-left",
+	"name": "Run Left",
+	"author": "Drole",
+	"description": "Panda will never stop running forward. Hold down anywhere on the screen to turn left and keep Panda on track. Designed with One Button in mind. :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f224e631-efa9-4f66-9bb5-f1e326ad96f4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f617a3fa-99f8-4068-81c8-23c2b7b1e27b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f617a3fa-99f8-4068-81c8-23c2b7b1e27b",
+	"unityPlayUrl": "https://play.unity.com/en/games/f617a3fa-99f8-4068-81c8-23c2b7b1e27b/run-left"
+}

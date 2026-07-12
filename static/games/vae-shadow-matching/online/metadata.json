@@ -1,0 +1,14 @@
+{
+	"id": "vae-shadow-matching",
+	"name": "VAE - Shadow Matching!",
+	"author": "anonymous-vae",
+	"description": "Instructions:\n* Move the cubes by the cursor\n* Use arrow keys to rotate the object\n* Press \"S\" to snap the rotation\n* Press key \"D\" to enter decoder mode and cast a shadow\n* Press key \"E\" to enter encoder mode and move cubes\n* Drag the navy blue cube will move the whole thing\n\nNotes:\n* Use Safari if Chrome doesn't work\n* You can't move cubes around in decoder mode, press \"E\" to enter encoder mode and then move the cube.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/effa8f72-27f5-426a-b417-2efcbe441a68/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b07d1ffe-5152-41d6-a70b-ed1d91c9c389/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b07d1ffe-5152-41d6-a70b-ed1d91c9c389",
+	"unityPlayUrl": "https://play.unity.com/en/games/b07d1ffe-5152-41d6-a70b-ed1d91c9c389/vae-shadow-matching"
+}

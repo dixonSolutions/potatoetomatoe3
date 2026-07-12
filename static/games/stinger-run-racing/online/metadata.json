@@ -1,0 +1,14 @@
+{
+	"id": "stinger-run-racing",
+	"name": "Stinger Run Racing",
+	"author": "KaizarTheSneak",
+	"description": "The latest game from Culture Club studios, presents Stinger Run Racing! The hottest new dragon racing game where you race against opponents and time for gold coins, gems, honor, and GLORY!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3dc1ae57-74cd-43eb-ad67-fc855e157d84/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aa12ee5e-152b-4e90-b135-002c66c8cd75/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aa12ee5e-152b-4e90-b135-002c66c8cd75",
+	"unityPlayUrl": "https://play.unity.com/en/games/aa12ee5e-152b-4e90-b135-002c66c8cd75/stinger-run-racing"
+}

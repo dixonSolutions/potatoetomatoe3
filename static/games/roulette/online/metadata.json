@@ -1,0 +1,14 @@
+{
+	"id": "roulette",
+	"name": "Roulette",
+	"author": "Shroudoodlex",
+	"description": "Play Roulette on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a59ced0-750b-45f7-819c-2e7c110d9f0f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a181c63c-7fab-43b2-bbab-a9f4a8c92ebf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a181c63c-7fab-43b2-bbab-a9f4a8c92ebf",
+	"unityPlayUrl": "https://play.unity.com/en/games/a181c63c-7fab-43b2-bbab-a9f4a8c92ebf/roulette"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "snake-web-build",
+	"name": "Snake Web Build",
+	"author": "Nord86",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/038ac621-6ab2-4688-97e5-4a7d5925eb1d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "038ac621-6ab2-4688-97e5-4a7d5925eb1d",
+	"unityPlayUrl": "https://play.unity.com/en/games/038ac621-6ab2-4688-97e5-4a7d5925eb1d/snake-web-build"
+}

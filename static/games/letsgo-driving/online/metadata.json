@@ -1,0 +1,14 @@
+{
+	"id": "letsgo-driving",
+	"name": "LEtsGO Driving",
+	"author": "aliasbb42",
+	"description": "Are you an easy rider?  Or do you have a need for speed?  Put up your fastest times to a hard drivin' beat!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b98ebe29-d834-4732-bb0d-976a0371d56c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b5c69d6-1b76-4ae7-af65-469feefabe3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b5c69d6-1b76-4ae7-af65-469feefabe3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b5c69d6-1b76-4ae7-af65-469feefabe3d/letsgo-driving"
+}

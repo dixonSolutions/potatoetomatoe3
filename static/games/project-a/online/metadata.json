@@ -1,0 +1,14 @@
+{
+	"id": "project-a",
+	"name": "Project A",
+	"author": "V_e_v_e",
+	"description": "Hexes UI",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07671404-5368-41e6-8d63-db9e09ccb611/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07671404-5368-41e6-8d63-db9e09ccb611",
+	"unityPlayUrl": "https://play.unity.com/en/games/07671404-5368-41e6-8d63-db9e09ccb611/project-a"
+}

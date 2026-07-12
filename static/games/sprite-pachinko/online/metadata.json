@@ -1,0 +1,14 @@
+{
+	"id": "sprite-pachinko",
+	"name": "Sprite pachinko",
+	"author": "GrizlikD",
+	"description": "Sprite pachinko - 2D Unity tutorial",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0498a3de-e9b3-4809-9c6e-29a008f9477e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0498a3de-e9b3-4809-9c6e-29a008f9477e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0498a3de-e9b3-4809-9c6e-29a008f9477e/sprite-pachinko"
+}

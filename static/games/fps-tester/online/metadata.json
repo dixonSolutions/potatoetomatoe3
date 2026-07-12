@@ -1,0 +1,14 @@
+{
+	"id": "fps-tester",
+	"name": "FPS Tester",
+	"author": "chsisthebest6",
+	"description": "Play FPS Tester on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/89f1170a-cd2a-41b7-9550-47c431a00a98/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b759508-08d3-4585-8638-d17cc2ea2f8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b759508-08d3-4585-8638-d17cc2ea2f8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b759508-08d3-4585-8638-d17cc2ea2f8c/fps-tester"
+}

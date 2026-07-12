@@ -1,0 +1,14 @@
+{
+	"id": "xscape",
+	"name": "XScape",
+	"author": "rrpanda",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0dd0d1e2-1195-4a30-babc-f71e30008d6c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf832b0b-ab14-4747-b946-5aceb2302f01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cf832b0b-ab14-4747-b946-5aceb2302f01",
+	"unityPlayUrl": "https://play.unity.com/en/games/cf832b0b-ab14-4747-b946-5aceb2302f01/xscape"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "szoo-build",
+	"name": "Szoo Build",
+	"author": "sune171205",
+	"description": "Det bedste spil",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b040a1bb-3324-4ccc-9118-838178e18a8e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15342ff9-0495-46c4-a227-c7cfd1e9a1bd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15342ff9-0495-46c4-a227-c7cfd1e9a1bd",
+	"unityPlayUrl": "https://play.unity.com/en/games/15342ff9-0495-46c4-a227-c7cfd1e9a1bd/szoo-build"
+}

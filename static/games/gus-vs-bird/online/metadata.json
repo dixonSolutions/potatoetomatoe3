@@ -1,0 +1,14 @@
+{
+	"id": "gus-vs-bird",
+	"name": "Gus VS. Bird",
+	"author": "sldowner_unity",
+	"description": "Virginia Tech School of Visual Arts, Intro to Game Development. Make it through the obstacles to reclaim your egg from Gus the Squirrel! Visually based on a series of paintings by artist Tarsila do Amaral.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4609a01e-24bb-47dc-b8f5-2bfbecb4da12/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28061194-1ccd-46a8-9c49-a3803acfad9d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28061194-1ccd-46a8-9c49-a3803acfad9d",
+	"unityPlayUrl": "https://play.unity.com/en/games/28061194-1ccd-46a8-9c49-a3803acfad9d/gus-vs-bird"
+}

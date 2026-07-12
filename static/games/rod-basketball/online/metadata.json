@@ -1,0 +1,14 @@
+{
+	"id": "rod-basketball",
+	"name": "ROD BASKETBALL",
+	"author": "talatuccar",
+	"description": "TURN THE STICKS USING THE ARROW KEYS",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/918c9018-f0f0-4766-b722-70ece670872e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2cf2a444-a270-4ccd-9373-b29a7aa97127/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2cf2a444-a270-4ccd-9373-b29a7aa97127",
+	"unityPlayUrl": "https://play.unity.com/en/games/2cf2a444-a270-4ccd-9373-b29a7aa97127/rod-basketball"
+}

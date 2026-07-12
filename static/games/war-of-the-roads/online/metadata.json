@@ -1,0 +1,14 @@
+{
+	"id": "war-of-the-roads",
+	"name": "War of the Roads",
+	"author": "Ev145",
+	"description": "Use WASD or arrows keys to steer .  Press \"Q\" to view overhead view. Press \"E\" for First Person view. If the bus gets flipped, just press \"F\". If you fall off the road, press \"R\". Can you knock everything off of the road? If you find any bugs, please let me know in the chat. This game was built using the Create with Code Live packet.\n\n You can get it here:\n\n https://assetstore.unity.com/packages/templates/tutorials/create-with-code-prototype-1-driving-simulation-145891\n\nFun fact: When you press \"R\", even though you reset your car, the game still remembers everything that you crashed into!\n\nCongratulations on getting to the end of this article!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/efd60b77-2fb7-4fbb-8a12-80d4500f7a56/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e21f206e-8c7d-47f2-8da0-8f2b504585a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e21f206e-8c7d-47f2-8da0-8f2b504585a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/e21f206e-8c7d-47f2-8da0-8f2b504585a0/war-of-the-roads"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "crowns-of-power",
+	"name": "Crowns Of Power",
+	"author": "Skelly_Belly",
+	"description": "Collect the 4 crowns and use their powers to traverse the world in unique ways.\n\nReturn the crowns or slay their owners to gain passive powers.\n\nDepose King King and Claim power over the world.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1c06b5a8-6640-4c53-987b-f1e1a7b52282/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6193719c-2031-4fb4-8bd5-7d6718af77b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6193719c-2031-4fb4-8bd5-7d6718af77b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/6193719c-2031-4fb4-8bd5-7d6718af77b2/crowns-of-power"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "laberinto-game",
+	"name": "Laberinto Game",
+	"author": "camilov1927",
+	"description": "Mini Juego de laberinto",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21cea2c2-a604-4e4a-bd28-fb538bdf6079/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21cea2c2-a604-4e4a-bd28-fb538bdf6079",
+	"unityPlayUrl": "https://play.unity.com/en/games/21cea2c2-a604-4e4a-bd28-fb538bdf6079/laberinto-game"
+}

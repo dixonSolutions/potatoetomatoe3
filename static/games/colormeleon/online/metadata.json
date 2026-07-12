@@ -1,0 +1,14 @@
+{
+	"id": "colormeleon",
+	"name": "ColorMeleon",
+	"author": "Megajokcer",
+	"description": "A 2D platformer puzzle game about a chameleon named Hue that has to take back lost colors from an evil chameleon . Every color has its own abilities that change how each level is played.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d2b2a3ba-7693-4305-89fc-ae875e668a63/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2656b72f-4167-40c4-b44b-7baba798fd43/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2656b72f-4167-40c4-b44b-7baba798fd43",
+	"unityPlayUrl": "https://play.unity.com/en/games/2656b72f-4167-40c4-b44b-7baba798fd43/colormeleon"
+}

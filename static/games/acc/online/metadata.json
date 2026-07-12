@@ -1,0 +1,14 @@
+{
+	"id": "acc",
+	"name": "A.C.C.",
+	"author": "DavidAKerr",
+	"description": "ACC experiment\nNew Creature!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67438ba7-e4fd-4617-b7d6-515c6d5f6665/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67438ba7-e4fd-4617-b7d6-515c6d5f6665",
+	"unityPlayUrl": "https://play.unity.com/en/games/67438ba7-e4fd-4617-b7d6-515c6d5f6665/acc"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "wheres-silkin",
+	"name": "Wheres Silkin",
+	"author": "BossBen123",
+	"description": "Test",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dca7d16-8f5b-46c6-ab72-468bb6813b1f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0dca7d16-8f5b-46c6-ab72-468bb6813b1f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0dca7d16-8f5b-46c6-ab72-468bb6813b1f/wheres-silkin"
+}

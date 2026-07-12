@@ -1,0 +1,14 @@
+{
+	"id": "dorkan-jump-jumpygame",
+	"name": "Dorkan Jump (JumpyGame)",
+	"author": "Dorkan",
+	"description": "Juego de saltos inspirado en JumpKing de carreras, crea una sala invita a tus amigos y intenta ser el primero en llegar a la cima! Ven a jugarlo a los streams del multiverso. Creador: DorkanTV http://www.twitch.tv/DorkanTV",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/541bae9f-9ca2-4647-aefd-28b9eae9aef6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ca86406a-f7c5-4bb6-aee3-f4603dcfdc96/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ca86406a-f7c5-4bb6-aee3-f4603dcfdc96",
+	"unityPlayUrl": "https://play.unity.com/en/games/ca86406a-f7c5-4bb6-aee3-f4603dcfdc96/dorkan-jump-jumpygame"
+}

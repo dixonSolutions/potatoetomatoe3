@@ -1,0 +1,14 @@
+{
+	"id": "code-navigator",
+	"name": "Code Navigator",
+	"author": "anaspasc",
+	"description": "This 2D puzzle game introduces basic programming concepts through a visual block-based system. Guide a small robot through grid-based labyrinths by arranging commands. Full screen for best experience.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3b663a8f-45fd-4155-8ec6-9f3c6201778f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a38246f-de1c-4296-a17c-271017c004dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a38246f-de1c-4296-a17c-271017c004dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a38246f-de1c-4296-a17c-271017c004dc/code-navigator"
+}

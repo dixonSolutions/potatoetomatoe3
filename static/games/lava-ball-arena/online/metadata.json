@@ -1,0 +1,14 @@
+{
+	"id": "lava-ball-arena",
+	"name": "Lava Ball - Arena",
+	"author": "cheese_games",
+	"description": "An Awesome Local 2 Player Game! You and your friend can be on the same computer and play! One on WASD and the other on the arrow keys. Whoever pushes the other onto the lava first wins!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/944e72e6-5f01-471e-bb18-49a5b91936e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9a8a464e-0b64-4b82-a712-92b0dad84800/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9a8a464e-0b64-4b82-a712-92b0dad84800",
+	"unityPlayUrl": "https://play.unity.com/en/games/9a8a464e-0b64-4b82-a712-92b0dad84800/lava-ball-arena"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "undrivable-2",
+	"name": "Undrivable 2",
+	"author": "jazzhara",
+	"description": "Player Controls:\n\nLeft > Player 1 \u2013 WS / AD \nCamera switch \u2013 F\n\nRight> Player 2 \u2013 up and down, left and right arrows\nCamera switch - G\n                                                                                                                          \n*has Audio\n                                                                                                                   \nUpdated Prototype 1 Bonus features - CwCLive Spring 2021 \nincludes all bonus features, plus background music, ambience sfx and a bit of scenery.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8f066d38-3db4-4c4d-b5a0-5f07da8be7c6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46e65da0-dd82-4509-833f-ed08c10e3ac8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46e65da0-dd82-4509-833f-ed08c10e3ac8",
+	"unityPlayUrl": "https://play.unity.com/en/games/46e65da0-dd82-4509-833f-ed08c10e3ac8/undrivable-2"
+}

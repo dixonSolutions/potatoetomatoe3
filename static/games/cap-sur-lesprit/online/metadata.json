@@ -1,0 +1,14 @@
+{
+	"id": "cap-sur-lesprit",
+	"name": "Cap sur l'esprit",
+	"author": "ouss3ma19",
+	"description": "CapSurEsprit est une aventure narrative maritime o\u00f9 vous explorez des \u00eeles myst\u00e9rieuses, prenez des d\u00e9cisions critiques et naviguez entre rumeurs, traditions et dangers inconnus afin de retrouver un r",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6073e26e-c4b4-4fa0-bd6e-c873fbf7279b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6073e26e-c4b4-4fa0-bd6e-c873fbf7279b",
+	"unityPlayUrl": "https://play.unity.com/en/games/6073e26e-c4b4-4fa0-bd6e-c873fbf7279b/cap-sur-lesprit"
+}

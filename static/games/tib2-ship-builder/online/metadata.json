@@ -1,0 +1,14 @@
+{
+	"id": "tib2-ship-builder",
+	"name": "TIB2 Ship Builder",
+	"author": "keccaknewton",
+	"description": "Keccak's TIB2 Ship Builder.   v1.7.3e-web_holiday\nAvailable for this holiday season only. (official release is pending blirx decision)\nfor the indie mmo game:  TIB2 (https://tib2.com/)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f0b20a07-a18c-43fe-947b-29abf0de2b13/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f0b20a07-a18c-43fe-947b-29abf0de2b13",
+	"unityPlayUrl": "https://play.unity.com/en/games/f0b20a07-a18c-43fe-947b-29abf0de2b13/tib2-ship-builder"
+}

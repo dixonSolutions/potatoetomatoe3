@@ -1,0 +1,14 @@
+{
+	"id": "hotels-inc-prototype",
+	"name": "Hotels Inc. - Prototype",
+	"author": "Clara_Krieg",
+	"description": "Snapping is currently really wonky.\n\nMinimum Goal: \n\nTo build a hotel manager/tycoon game, where you start with a plot of land and build a hotel on it. You will hire employees to run the main aspects of the hotel (i.e. cleaning, reception, cooking, etc.) which will cost money. Once the hotel is built and employees hired, you will open for business and begin to attract guests, which will increase your revenue. You lose if your funds reaches a negetive value.\n\nLong-term Goal:\n\nAllow you to build a multiple level hotel with a rating system that increases guest flow.\nGive the player more lots to purchase to have multiple hotels at once.\nAllow the player to sell a hotel to gain lump sum amount, as well as add loans to get you more features up front, but at a cost.\nAdd in marketing campaigns that cost per day, but bring in more guests based on hotel ratings.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c1b3d9f-addd-48d4-a2ec-0985f40da2d3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c92219a3-c235-4bad-9ca2-5f6ee2ccb2fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c92219a3-c235-4bad-9ca2-5f6ee2ccb2fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/c92219a3-c235-4bad-9ca2-5f6ee2ccb2fa/hotels-inc-prototype"
+}

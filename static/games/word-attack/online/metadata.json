@@ -1,0 +1,14 @@
+{
+	"id": "word-attack",
+	"name": "Word Attack",
+	"author": "abhishek_mitra",
+	"description": "Word Attack is an amalgamation of Hangman and Shooting. Just like Hangman, guess the word, BUT THIS TIME, be dexterous enough to shoot its letters, all while dodging rocks and killing enemies.\n\nThe game is split across multiple levels - each having a word theme of its own. In addition - each level will have interesting bits like monsters, powerups and higher difficulty - either in vocabulary or shooting.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ae90c177-2bf0-499c-9b81-859a6e9932d7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4548264-41c7-47cb-b159-6f533f197ed3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4548264-41c7-47cb-b159-6f533f197ed3",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4548264-41c7-47cb-b159-6f533f197ed3/word-attack"
+}

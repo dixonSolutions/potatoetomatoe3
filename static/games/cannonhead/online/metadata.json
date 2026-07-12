@@ -1,0 +1,14 @@
+{
+	"id": "cannonhead",
+	"name": "CannonHead",
+	"author": "Shirouto411",
+	"description": "Incomming Heads!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f45a215e-1408-42d3-b8a9-89b1bc63a23b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15cee4db-776b-40a7-b48c-11c02c8a5c35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15cee4db-776b-40a7-b48c-11c02c8a5c35",
+	"unityPlayUrl": "https://play.unity.com/en/games/15cee4db-776b-40a7-b48c-11c02c8a5c35/cannonhead"
+}

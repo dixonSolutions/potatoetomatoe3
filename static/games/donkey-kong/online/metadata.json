@@ -1,0 +1,14 @@
+{
+	"id": "donkey-kong",
+	"name": "Donkey Kong",
+	"author": "No13Koval",
+	"description": "Movement:\nWASD\nSpace - Jump",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/691851d2-c1a1-4c6a-8b56-1f1f5d02eae6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d9a0b3b-099f-4faf-a07c-ed5adc140875/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d9a0b3b-099f-4faf-a07c-ed5adc140875",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d9a0b3b-099f-4faf-a07c-ed5adc140875/donkey-kong"
+}

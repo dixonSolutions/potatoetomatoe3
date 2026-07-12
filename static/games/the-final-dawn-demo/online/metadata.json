@@ -1,0 +1,14 @@
+{
+	"id": "the-final-dawn-demo",
+	"name": "The Final Dawn (Demo)",
+	"author": "BearNCodes",
+	"description": "idk",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/447ed4de-9d24-4b9c-ae57-93756aaf79a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "447ed4de-9d24-4b9c-ae57-93756aaf79a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/447ed4de-9d24-4b9c-ae57-93756aaf79a8/the-final-dawn-demo"
+}

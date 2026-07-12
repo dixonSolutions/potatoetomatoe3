@@ -1,0 +1,14 @@
+{
+	"id": "spring-joint-buggy-drop-simulator",
+	"name": "Spring Joint Buggy - Drop Simulator",
+	"author": "hritikmehta10",
+	"description": "Play around with all the variable attributes to make the correct design decisions for your own mars rover with a spring joint!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/233e5809-1c2d-4d0b-99b1-12b4d33dcc21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/097d629f-9a41-44b9-a1ba-c87ec2fe317e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "097d629f-9a41-44b9-a1ba-c87ec2fe317e",
+	"unityPlayUrl": "https://play.unity.com/en/games/097d629f-9a41-44b9-a1ba-c87ec2fe317e/spring-joint-buggy-drop-simulator"
+}

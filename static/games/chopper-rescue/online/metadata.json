@@ -1,0 +1,14 @@
+{
+	"id": "chopper-rescue",
+	"name": "Chopper Rescue",
+	"author": "jackmojo1",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e0cd56c-50ed-4cd2-bbb2-7ecdc6b97ff3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17b7e42e-7235-4613-8009-cb86743af1bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17b7e42e-7235-4613-8009-cb86743af1bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/17b7e42e-7235-4613-8009-cb86743af1bc/chopper-rescue"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ping-pong",
+	"name": "Ping-Pong",
+	"author": "rajdivyansh1128",
+	"description": "A great 1 player game for great timepass with hard difficulty. \nAll the best beating the unbeatable villain AI in a simple game of Ping-Pong. \n\nFor any suggestions please contact rajdivyansh1128@gamil.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c3fff3ca-d50b-44e1-b543-1f3a395075b4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a4d1ab82-a16a-4f0a-8979-3d64a7383558/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a4d1ab82-a16a-4f0a-8979-3d64a7383558",
+	"unityPlayUrl": "https://play.unity.com/en/games/a4d1ab82-a16a-4f0a-8979-3d64a7383558/ping-pong"
+}

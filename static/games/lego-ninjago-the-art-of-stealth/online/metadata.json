@@ -1,0 +1,14 @@
+{
+	"id": "lego-ninjago-the-art-of-stealth",
+	"name": "LEGO Ninjago: The Art of Stealth",
+	"author": "joeshmoe554",
+	"description": "My entry for the LEGO Ninjago & 1-Button Game Challenge on LEGO Ideas.  This was a lot of fun to develop and I hope people have fun playing it.  The game is very similar to the classic game of red light green light.  Each level has a guard and you can only move while the guard is facing away.  An exclamation point will build above the guard's head before they turn around warning you to stop moving and hide (crouch).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5b4e39b0-fe91-4aee-ac3a-1125d0d020d6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9beb4346-e052-4a4b-b6c3-05199cd6fd08/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9beb4346-e052-4a4b-b6c3-05199cd6fd08",
+	"unityPlayUrl": "https://play.unity.com/en/games/9beb4346-e052-4a4b-b6c3-05199cd6fd08/lego-ninjago-the-art-of-stealth"
+}

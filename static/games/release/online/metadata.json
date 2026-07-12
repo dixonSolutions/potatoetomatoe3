@@ -1,0 +1,14 @@
+{
+	"id": "release",
+	"name": "Release",
+	"author": "Jonnous",
+	"description": "Play Release on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17da17d9-9a71-45ee-a438-35cb17383d24/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17da17d9-9a71-45ee-a438-35cb17383d24",
+	"unityPlayUrl": "https://play.unity.com/en/games/17da17d9-9a71-45ee-a438-35cb17383d24/release"
+}

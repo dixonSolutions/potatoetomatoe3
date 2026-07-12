@@ -1,0 +1,14 @@
+{
+	"id": "protect-the-princess",
+	"name": "Protect the Princess",
+	"author": "Unity Play",
+	"description": "A quick game in which attacking and being attacked are separated into two different characters.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cb3a4e39-29d3-4132-adb1-40e6fd8244f0/content",
+	"category": "action",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9b0d8468-29cd-4944-950d-ab063a27a887/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9b0d8468-29cd-4944-950d-ab063a27a887",
+	"unityPlayUrl": "https://play.unity.com/en/games/9b0d8468-29cd-4944-950d-ab063a27a887/protect-the-princess"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "rocket-booster",
+	"name": "Rocket Booster",
+	"author": "Raaj18",
+	"description": "Its basically a Thruster Balance Game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3ec7bbc3-b1ef-4383-b3db-9990edc752a0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07bdd53b-3e54-47e9-9309-15b74dbff117/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07bdd53b-3e54-47e9-9309-15b74dbff117",
+	"unityPlayUrl": "https://play.unity.com/en/games/07bdd53b-3e54-47e9-9309-15b74dbff117/rocket-booster"
+}

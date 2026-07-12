@@ -1,0 +1,14 @@
+{
+	"id": "dangerous-driver",
+	"name": "Dangerous driver",
+	"author": "No13Koval",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b9a6085d-e48e-44b8-bc50-c83f93288f68/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/79194b0c-c3b4-4161-adc6-5b24b5dde424/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "79194b0c-c3b4-4161-adc6-5b24b5dde424",
+	"unityPlayUrl": "https://play.unity.com/en/games/79194b0c-c3b4-4161-adc6-5b24b5dde424/dangerous-driver"
+}

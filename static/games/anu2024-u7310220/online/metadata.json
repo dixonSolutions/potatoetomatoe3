@@ -1,0 +1,14 @@
+{
+	"id": "anu2024-u7310220",
+	"name": "ANU2024 u7310220",
+	"author": "Unity Play",
+	"description": "My Proposal Prototype\nObjective:\nReach the spice quota in time by gathering it with harvesters, use carriers to move them to spice fields and away when worms come.\n\nControls:\nLeft Click: Select and move carrier\nRight Click: Land carrier\nMiddle mouse: Pan by clicking it, zoom by scrolling\n\nGame Guide:\nLeft Click a carrier (blue circle) to select it.\nLeft Click else where to move it.\nRight Click to land the carrier.\nRight Clicking on a harvester (grey square) will attach it to the carrier.\nRight Click again to land and place the harvester.\nPlacing a harvester on a Spice Field will make it harvest.\nSpice Fields are constantly moving, keep an eye on them. They fade as the amount of spice lowers.\nIf the harvester is: grey = no spice, cyan = some spice, green = full of spice.\nBe careful of the worms that lurk below the surface, if they get close to a crawler on the ground, they will target it. When they start this hunting they surface and are pinged with red triangles.\nHarvesters are safe on the base (black square)\nIf they reach the crawler, they will swallow it and all its spice with it.\nPicking the harvester up and placing it on the base (black square) will cause it to deposit its spice.\nLanding the carrier on the base will refuel it, if it runs out of fuel it crashes and becomes unusable.\nTo beat the game deposit the indicated amount of spice by the quota before the time limit elapses.\nGood Luck",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3f14c629-da56-41e7-9522-cfeea29d2699/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3f14c629-da56-41e7-9522-cfeea29d2699",
+	"unityPlayUrl": "https://play.unity.com/en/games/3f14c629-da56-41e7-9522-cfeea29d2699/anu2024-u7310220"
+}

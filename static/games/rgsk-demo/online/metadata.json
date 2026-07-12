@@ -1,0 +1,14 @@
+{
+	"id": "rgsk-demo",
+	"name": "RGSK Demo",
+	"author": "Ian094",
+	"description": "The Racing Game Starter Kit (RGSK) is an all-in-one solution for developing racing games in Unity!\n\nhttps://assetstore.unity.com/packages/templates/systems/racing-game-starter-kit-22615",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e4636cd3-2b2b-481e-81cb-3eff5a1beff1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c9c3f457-2c07-4f96-aaa8-07e4ad8116ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c9c3f457-2c07-4f96-aaa8-07e4ad8116ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/c9c3f457-2c07-4f96-aaa8-07e4ad8116ab/rgsk-demo"
+}

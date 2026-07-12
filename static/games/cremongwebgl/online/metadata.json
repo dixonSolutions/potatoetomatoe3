@@ -1,0 +1,14 @@
+{
+	"id": "cremongwebgl",
+	"name": "CremongWebGL",
+	"author": "oharinth",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6b896ea2-b8f1-4aaf-84d3-e62295804371/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e489b5c-35db-49c4-8c55-660d56d24bb1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e489b5c-35db-49c4-8c55-660d56d24bb1",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e489b5c-35db-49c4-8c55-660d56d24bb1/cremongwebgl"
+}

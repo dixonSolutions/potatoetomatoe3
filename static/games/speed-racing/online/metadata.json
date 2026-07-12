@@ -1,0 +1,14 @@
+{
+	"id": "speed-racing",
+	"name": "Speed Racing",
+	"author": "yeetmanhero",
+	"description": "Made by Eric",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6c1c5e92-0f89-44c9-b93f-8febb052a0c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/585e7647-438b-468b-83e1-abb5e35feb6f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "585e7647-438b-468b-83e1-abb5e35feb6f",
+	"unityPlayUrl": "https://play.unity.com/en/games/585e7647-438b-468b-83e1-abb5e35feb6f/speed-racing"
+}

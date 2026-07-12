@@ -1,0 +1,14 @@
+{
+	"id": "monstertrainerrpg-ver01-testbed",
+	"name": "MonsterTrainerRPG ver01-testbed",
+	"author": "tlucas1",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/97e9276e-c456-47ad-bfe7-a8aabfc620be/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/14d56d4b-f5c5-4c82-b41f-7b8ae7948c06/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "14d56d4b-f5c5-4c82-b41f-7b8ae7948c06",
+	"unityPlayUrl": "https://play.unity.com/en/games/14d56d4b-f5c5-4c82-b41f-7b8ae7948c06/monstertrainerrpg-ver01-testbed"
+}

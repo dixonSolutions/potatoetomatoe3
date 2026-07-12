@@ -1,0 +1,14 @@
+{
+	"id": "timos-adventures",
+	"name": "Timo's Adventures",
+	"author": "Unity Play",
+	"description": "Play Timo's Adventures on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8d05135b-a214-459a-8b60-32bc58291f0b/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f3b62b4-3d7f-4738-904a-9c06f7b1b83d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f3b62b4-3d7f-4738-904a-9c06f7b1b83d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f3b62b4-3d7f-4738-904a-9c06f7b1b83d/timos-adventures"
+}

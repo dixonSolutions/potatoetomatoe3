@@ -1,0 +1,14 @@
+{
+	"id": "platformer-parkour",
+	"name": "Platformer Parkour",
+	"author": "GrizzlyRoom",
+	"description": "Play Platformer Parkour on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fca9af44-5226-43e7-8b87-eec4a373887d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/781c7fb5-2724-44de-a9a7-be61502018bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "781c7fb5-2724-44de-a9a7-be61502018bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/781c7fb5-2724-44de-a9a7-be61502018bc/platformer-parkour"
+}

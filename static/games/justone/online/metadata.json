@@ -1,0 +1,14 @@
+{
+	"id": "justone",
+	"name": "JustOne",
+	"author": "Nick9973",
+	"description": "El objetivo de este juego es es dejar una sola ficha en el agujero central. Las piezas se pueden mover saltando a otras fichas y as\u00ed sac\u00e1ndolas del tablero",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5a15e104-20c2-4bd1-94c9-8304a71cab05/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b511827-659e-4348-a36b-2f13b4da377c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b511827-659e-4348-a36b-2f13b4da377c",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b511827-659e-4348-a36b-2f13b4da377c/justone"
+}

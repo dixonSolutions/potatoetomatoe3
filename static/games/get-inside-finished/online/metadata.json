@@ -1,0 +1,14 @@
+{
+	"id": "get-inside-finished",
+	"name": "Get Inside Finished",
+	"author": "Chudroy",
+	"description": "Play Get Inside Finished on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f94a1259-1cde-495f-858a-a4a49e63ada9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/167bf86b-4b30-4e19-a128-0b0c33cf71e2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "167bf86b-4b30-4e19-a128-0b0c33cf71e2",
+	"unityPlayUrl": "https://play.unity.com/en/games/167bf86b-4b30-4e19-a128-0b0c33cf71e2/get-inside-finished"
+}

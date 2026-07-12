@@ -1,0 +1,14 @@
+{
+	"id": "mod-the-cube",
+	"name": "Mod the Cube",
+	"author": "ZFN2021",
+	"description": "My latest microgame\u706b\ud83e\udd0f.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1456d09a-4b55-4421-a279-b5c408ab98d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1456d09a-4b55-4421-a279-b5c408ab98d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/1456d09a-4b55-4421-a279-b5c408ab98d9/mod-the-cube"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fmp",
+	"name": "FMP",
+	"author": "JameswEagelton",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05503428-d563-401f-9b0c-af3d35b763b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05503428-d563-401f-9b0c-af3d35b763b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/05503428-d563-401f-9b0c-af3d35b763b8/fmp"
+}

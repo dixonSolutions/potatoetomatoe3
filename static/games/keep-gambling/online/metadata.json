@@ -1,0 +1,14 @@
+{
+	"id": "keep-gambling",
+	"name": "Keep Gambling!",
+	"author": "leidorf_foss",
+	"description": "A mini game based on the Galton Box. Press \"Space\" to create ball. If you feel unlucky while playing, there is a fun hint in the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/afc05cbd-5605-4f3c-bda4-7b24b1acbe30/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d09aa772-2f1b-4f49-a474-23c6eb750940/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d09aa772-2f1b-4f49-a474-23c6eb750940",
+	"unityPlayUrl": "https://play.unity.com/en/games/d09aa772-2f1b-4f49-a474-23c6eb750940/keep-gambling"
+}

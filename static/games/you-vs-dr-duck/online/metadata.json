@@ -1,0 +1,14 @@
+{
+	"id": "you-vs-dr-duck",
+	"name": "You VS. Dr. Duck!",
+	"author": "LEGOCODE",
+	"description": "In this game you are on a quest to free the gnomes and defeat evil Dr. duck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/30b2e6c8-8f8b-49c5-993e-cf78593001a0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9081fb22-29a1-4559-819b-7b89b6178d04/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9081fb22-29a1-4559-819b-7b89b6178d04",
+	"unityPlayUrl": "https://play.unity.com/en/games/9081fb22-29a1-4559-819b-7b89b6178d04/you-vs-dr-duck"
+}

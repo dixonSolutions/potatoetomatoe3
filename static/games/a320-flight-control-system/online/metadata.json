@@ -1,0 +1,14 @@
+{
+	"id": "a320-flight-control-system",
+	"name": "A320 Flight Control System",
+	"author": "AISAT",
+	"description": "A320 Flight Control System",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7ba52bae-048e-4a4c-bc9f-2dc514fa1a89/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e1cd85ac-62ff-4ce4-9371-9e15093dc336/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e1cd85ac-62ff-4ce4-9371-9e15093dc336",
+	"unityPlayUrl": "https://play.unity.com/en/games/e1cd85ac-62ff-4ce4-9371-9e15093dc336/a320-flight-control-system"
+}

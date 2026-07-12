@@ -1,0 +1,14 @@
+{
+	"id": "dekuiper-kong",
+	"name": "DeKuiper Kong",
+	"author": "TheGreatAbiss",
+	"description": "A video game build created for the great Mr. DeKuiper!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/553dc3ee-484f-45bb-a060-f54f39071ba0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b2a8941-834c-4fef-b2c2-abcf3bc10f66/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b2a8941-834c-4fef-b2c2-abcf3bc10f66",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b2a8941-834c-4fef-b2c2-abcf3bc10f66/dekuiper-kong"
+}

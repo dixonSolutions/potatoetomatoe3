@@ -1,0 +1,14 @@
+{
+	"id": "pineapple-distress",
+	"name": "Pineapple Distress",
+	"author": "TehEmperor",
+	"description": "A game made for CWC Game Jam. The Topic is \"Modernizing the Classics\" and this is our take on \"Frogger\". You Play as a Chief who is trying to get pineapples for his pizza. Made by a team of three semi-porffesionals. (Sean Silla, Andrew McLane, Leonid Yerukhimov).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c211d68-2fe5-4ca1-a0d7-802b8bedc42e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19b2c2c5-b39d-470f-8f6c-53cfba0075a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19b2c2c5-b39d-470f-8f6c-53cfba0075a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/19b2c2c5-b39d-470f-8f6c-53cfba0075a3/pineapple-distress"
+}

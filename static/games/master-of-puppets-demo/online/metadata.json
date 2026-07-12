@@ -1,0 +1,14 @@
+{
+	"id": "master-of-puppets-demo",
+	"name": "Master of Puppets Demo",
+	"author": "BoaNeo",
+	"description": "Turn-based strategy game with a deck-building mechanic. Get the full version on Steam: https://store.steampowered.com/app/1620600/Master_of_Puppets/?beta=0",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c15ebd5d-d0bd-4ed7-b3c1-9061b46609eb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ec609bd3-6554-4318-a44f-c8a35e95862a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ec609bd3-6554-4318-a44f-c8a35e95862a",
+	"unityPlayUrl": "https://play.unity.com/en/games/ec609bd3-6554-4318-a44f-c8a35e95862a/master-of-puppets-demo"
+}

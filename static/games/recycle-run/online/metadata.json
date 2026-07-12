@@ -1,0 +1,14 @@
+{
+	"id": "recycle-run",
+	"name": "Recycle Run",
+	"author": "ArturAraripe",
+	"description": "Hi, my name's Artur Araripe. That's my first game on unity. I hope you enjoy it!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7be9b6e8-88eb-4317-b80a-ad8b250820db/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9420c238-a97d-4013-a466-ee32b8839e7d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9420c238-a97d-4013-a466-ee32b8839e7d",
+	"unityPlayUrl": "https://play.unity.com/en/games/9420c238-a97d-4013-a466-ee32b8839e7d/recycle-run"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dungeon-shooter",
+	"name": "Dungeon Shooter",
+	"author": "KingCJ",
+	"description": "My first 1 Level microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10269e3a-75e1-43af-9bd1-75826e7c0784/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10269e3a-75e1-43af-9bd1-75826e7c0784",
+	"unityPlayUrl": "https://play.unity.com/en/games/10269e3a-75e1-43af-9bd1-75826e7c0784/dungeon-shooter"
+}

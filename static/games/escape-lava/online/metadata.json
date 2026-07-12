@@ -1,0 +1,14 @@
+{
+	"id": "escape-lava",
+	"name": "Escape Lava",
+	"author": "RotaryMoon",
+	"description": "My first WebGL project. Patika challange.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a41d525a-f4a3-4998-9d7b-7ce08a45b73b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01d523b8-6735-4a66-afa8-21e1b5ad6589/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01d523b8-6735-4a66-afa8-21e1b5ad6589",
+	"unityPlayUrl": "https://play.unity.com/en/games/01d523b8-6735-4a66-afa8-21e1b5ad6589/escape-lava"
+}

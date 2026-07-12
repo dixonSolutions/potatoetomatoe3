@@ -1,0 +1,14 @@
+{
+	"id": "ardmac-virtual-showroom",
+	"name": "ARDMAC Virtual showroom",
+	"author": "rrabi",
+	"description": "Stable webGL build",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2b31dc61-9729-4011-9a16-903dae0ffea7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25edf203-910c-4761-8a43-b7e26e806b4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25edf203-910c-4761-8a43-b7e26e806b4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/25edf203-910c-4761-8a43-b7e26e806b4a/ardmac-virtual-showroom"
+}

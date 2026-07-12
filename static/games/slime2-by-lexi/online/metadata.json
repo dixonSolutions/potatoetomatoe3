@@ -1,0 +1,14 @@
+{
+	"id": "slime2-by-lexi",
+	"name": "Slime2 by Lexi",
+	"author": "bcollins94",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4819d5da-4c9f-4c89-8d94-c3c05276fd02/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4819d5da-4c9f-4c89-8d94-c3c05276fd02",
+	"unityPlayUrl": "https://play.unity.com/en/games/4819d5da-4c9f-4c89-8d94-c3c05276fd02/slime2-by-lexi"
+}

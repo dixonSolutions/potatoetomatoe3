@@ -1,0 +1,14 @@
+{
+	"id": "heroes-of-war",
+	"name": "Heroes Of War",
+	"author": "kor6k",
+	"description": "Heroes Of War is within the genre of turn-based strategy.\nYou control a hero who can recruit armies, move around the map, capture resources, and engage in combat.\n\nThe hero possesses a set of statistics that confer bonuses to an army or produce strategic benefits. Also, hero gains experience levels from battle, such that veteran heroes are significantly more powerful than inexperienced ones.\n\nPlayers begin a game with one town of a chosen alignment (Paladin, Overlord, Necromancer, Daemon, Wizard). Each town alignment hosts a unique selection of creatures from which the player can build an army.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b98f473-f152-42ee-b303-960503a4185f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23a19d28-fad0-4157-93cc-dbc406af5eef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "23a19d28-fad0-4157-93cc-dbc406af5eef",
+	"unityPlayUrl": "https://play.unity.com/en/games/23a19d28-fad0-4157-93cc-dbc406af5eef/heroes-of-war"
+}

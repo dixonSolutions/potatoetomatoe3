@@ -1,0 +1,14 @@
+{
+	"id": "dirt-bike-racing",
+	"name": "Dirt Bike Racing",
+	"author": "rashiddogar",
+	"description": "Bike Racing Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9780ff7c-cb13-493b-95d5-e55802722ff3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e01d326c-ce1c-40a2-a387-ea9d0571b9f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e01d326c-ce1c-40a2-a387-ea9d0571b9f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/e01d326c-ce1c-40a2-a387-ea9d0571b9f1/dirt-bike-racing"
+}

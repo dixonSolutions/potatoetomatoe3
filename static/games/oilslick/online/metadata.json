@@ -1,0 +1,14 @@
+{
+	"id": "oilslick",
+	"name": "OilSlick",
+	"author": "AaronTaskerLynch",
+	"description": "Controls: WASD + Space or Controller",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/692a8fe3-1628-48f1-9238-2a6dacda8726/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d056a00-ff38-42d8-a999-fd03069f8fd8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d056a00-ff38-42d8-a999-fd03069f8fd8",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d056a00-ff38-42d8-a999-fd03069f8fd8/oilslick"
+}

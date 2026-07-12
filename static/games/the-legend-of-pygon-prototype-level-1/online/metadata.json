@@ -1,0 +1,14 @@
+{
+	"id": "the-legend-of-pygon-prototype-level-1",
+	"name": "The Legend of Pygon (Prototype - Level 1)",
+	"author": "teamtron3",
+	"description": "* For Testing Purpose Only *\n\nIn-Game :\n- 3rd Person Shooter.\n- Car Controller.\n- Enemy AI.\n- Missions & Tasks.\n- 2 Puzzles.\n- Waypoint/Direction Indicator System.\n- Mini-Map.\n- Pause Menu.\n- Checkpoint System (for Car only).\n- Gameplay Instructions.\n- Audio & SFX.\n- UI Update (for Tab).\n- Animations - Door Open, Tab Animation, etc.\n- Post Processing.\n- Tutorial Level.\n- Cutscene Storyline Intro.\n- Add Intro Cutscene.\n- Bounds around Level.\n- Enemy AI Update.\n- Player inside vehicle.\n- Player Shadow Fix.\n- Camera Culling & Optimization.\n- Lights Baking.\n- Fixed Environment Glitches (Floating buildings).\n\nUpdates (TODO) :\n- VFX & SFX.\n- Code Refactoring.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b22de18e-3206-457e-a4c2-238036115916/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44f4390b-2fe6-472d-a137-b462ffc8af2a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "44f4390b-2fe6-472d-a137-b462ffc8af2a",
+	"unityPlayUrl": "https://play.unity.com/en/games/44f4390b-2fe6-472d-a137-b462ffc8af2a/the-legend-of-pygon-prototype-level-1"
+}

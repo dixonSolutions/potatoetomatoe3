@@ -1,0 +1,14 @@
+{
+	"id": "torch",
+	"name": "Torch",
+	"author": "Ririkaa",
+	"description": "LD54",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07b2740a-c612-4053-aed6-5cbf72905772/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07b2740a-c612-4053-aed6-5cbf72905772",
+	"unityPlayUrl": "https://play.unity.com/en/games/07b2740a-c612-4053-aed6-5cbf72905772/torch"
+}

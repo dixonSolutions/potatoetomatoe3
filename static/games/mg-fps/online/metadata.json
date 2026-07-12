@@ -1,0 +1,14 @@
+{
+	"id": "mg-fps",
+	"name": "MG-FPS",
+	"author": "TayG57",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/850ed24f-cb09-45a1-b391-d61b27c462fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "850ed24f-cb09-45a1-b391-d61b27c462fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/850ed24f-cb09-45a1-b391-d61b27c462fa/mg-fps"
+}

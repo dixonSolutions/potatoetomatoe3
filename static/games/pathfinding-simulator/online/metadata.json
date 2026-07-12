@@ -1,0 +1,14 @@
+{
+	"id": "pathfinding-simulator",
+	"name": "Pathfinding Simulator",
+	"author": "muhammadfahkry",
+	"description": "This is my first big project. Pathfinding Simulator is an application that simulate how pathfinding algorithm works so you can understand how each algorithm works",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07de714a-d9d3-4ce1-89a3-9a9ac1a20cb3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07de714a-d9d3-4ce1-89a3-9a9ac1a20cb3",
+	"unityPlayUrl": "https://play.unity.com/en/games/07de714a-d9d3-4ce1-89a3-9a9ac1a20cb3/pathfinding-simulator"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "clicker",
+	"name": "Clicker",
+	"author": "Emoww",
+	"description": "You can easily count your clicks anywhere!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/abf89df4-d468-450d-8c42-d8f3f8abca78/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/76acbdd5-19a0-4d13-af6c-c272a87c73b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "76acbdd5-19a0-4d13-af6c-c272a87c73b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/76acbdd5-19a0-4d13-af6c-c272a87c73b5/clicker"
+}

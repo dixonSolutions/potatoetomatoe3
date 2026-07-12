@@ -1,0 +1,14 @@
+{
+	"id": "rest",
+	"name": "REST",
+	"author": "iLoveYourFace",
+	"description": "I decided to add a neon/Tron aesthetic for this challenge as well as expanding the level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3f0855c8-bc5a-4a17-a299-f0602260d9a4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2fbf5113-d1f6-4086-93f1-7ff7801bd95b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2fbf5113-d1f6-4086-93f1-7ff7801bd95b",
+	"unityPlayUrl": "https://play.unity.com/en/games/2fbf5113-d1f6-4086-93f1-7ff7801bd95b/rest"
+}

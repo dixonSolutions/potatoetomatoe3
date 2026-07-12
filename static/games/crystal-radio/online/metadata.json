@@ -1,0 +1,14 @@
+{
+	"id": "crystal-radio",
+	"name": "Crystal Radio",
+	"author": "Keexi",
+	"description": "A short rogue-like that changes based on the music you have playing. Now testing controller support. The majority of controls should be functional. The bumpers shoot and dodge, the triggers switch weapons (for now), and the DPad controls the music player. Up to play, down, to pause, hold down to stop, right for next song and left for previous. Controller input on WebGL apps is very spotty, but at least Xbox controllers have been confirmed to work. \nControls:\n\nPlayer:\ne: Pick up items\nAiming: mouse position\nLeft click: shoot\nRight click: dodge\nw: move up\na: move left\ns: move down\nd: move right\nScroll mousewheel: change weapon\nTab: enlarge map\nr: reload\nm: Passive item info\n\no: previous song\np: next song\nj: stop\nk: pause\nl: play\ni: song info\n\n\nGeneral info:\nEach song will provide a different benefit while it is playing.\nNew songs drop from bosses. They appear as discs.\nPassive items can also drop from bosses.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eef67720-d2ae-4d37-86c7-a78b8f7bfc80/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f46298f-4957-4a36-9208-b556cc8c6344/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f46298f-4957-4a36-9208-b556cc8c6344",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f46298f-4957-4a36-9208-b556cc8c6344/crystal-radio"
+}

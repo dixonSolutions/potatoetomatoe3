@@ -1,0 +1,14 @@
+{
+	"id": "combat-demo",
+	"name": "Combat Demo",
+	"author": "zacbatog",
+	"description": "Attack preview UI added. Characters now have their own unique stats, and there is more than one weapon. Damage is now modified by which direction the target is facing.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c1dc0005-c5a2-4b7f-96cb-8441d37701c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02e374f9-798a-4dcd-9223-422354ba4312/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02e374f9-798a-4dcd-9223-422354ba4312",
+	"unityPlayUrl": "https://play.unity.com/en/games/02e374f9-798a-4dcd-9223-422354ba4312/combat-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "maplehead-by-fadiflashi",
+	"name": "MapleHead by FadiFlashi",
+	"author": "FadiFlashi",
+	"description": "Maplestory and Cuphead inspired game (FULL SCREEN IT)\n\nAttack - Delete\nJump - Space\nSkills window - K\nItems window - I\nSkills:\nRolling Dagger - R\nHeal - T\nDash - Double jump\nZ - Shooting\nX - Loot",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a51b56b-a24c-4c2a-ad5b-e85aa38e4807/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a51b56b-a24c-4c2a-ad5b-e85aa38e4807",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a51b56b-a24c-4c2a-ad5b-e85aa38e4807/maplehead-by-fadiflashi"
+}

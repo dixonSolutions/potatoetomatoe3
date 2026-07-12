@@ -1,0 +1,14 @@
+{
+	"id": "clicky-crates-2",
+	"name": "Clicky Crates 2",
+	"author": "sirLorran",
+	"description": "Project for unit 5",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4dbdf36c-0ff2-42f8-8600-c2de256a844e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4dbdf36c-0ff2-42f8-8600-c2de256a844e",
+	"unityPlayUrl": "https://play.unity.com/en/games/4dbdf36c-0ff2-42f8-8600-c2de256a844e/clicky-crates-2"
+}

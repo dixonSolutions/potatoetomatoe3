@@ -1,0 +1,14 @@
+{
+	"id": "collect-all-the-stars",
+	"name": "Collect All The Stars\u2b50",
+	"author": "evelinvincentkattor",
+	"description": "My First game !!! \n\nCollect all the stars while avoiding obstacles.\nUse WASD or Arrow Keys to move,Space to jump, and hold Shift to sprint.Challenge yourself to gather them all as quickly as possible!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b068c213-df5e-437f-a779-057ba88fbcf5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/052a44c9-711e-4f50-af3d-19e2ac0b7125/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "052a44c9-711e-4f50-af3d-19e2ac0b7125",
+	"unityPlayUrl": "https://play.unity.com/en/games/052a44c9-711e-4f50-af3d-19e2ac0b7125/collect-all-the-stars"
+}

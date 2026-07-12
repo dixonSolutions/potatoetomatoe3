@@ -1,0 +1,14 @@
+{
+	"id": "smart-ball",
+	"name": "Smart Ball",
+	"author": "TimeliO",
+	"description": "Smart balls don't want to live in a box. \nDrag them with the mouse",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0935308c-796d-44d9-bd44-2e94c0595de2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/14bfee81-0fc1-4f9d-8e79-71f4df310c52/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "14bfee81-0fc1-4f9d-8e79-71f4df310c52",
+	"unityPlayUrl": "https://play.unity.com/en/games/14bfee81-0fc1-4f9d-8e79-71f4df310c52/smart-ball"
+}

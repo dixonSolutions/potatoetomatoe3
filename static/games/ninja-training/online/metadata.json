@@ -1,0 +1,14 @@
+{
+	"id": "ninja-training",
+	"name": "Ninja Training",
+	"author": "galateanmarcell96",
+	"description": "Use your <- -> arrow keys to avoid the falling rocks.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/03ee8e8d-3b94-4e86-af7c-3dbcb285d0fe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0fc0f4e7-8f8b-464d-976e-03720859555b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0fc0f4e7-8f8b-464d-976e-03720859555b",
+	"unityPlayUrl": "https://play.unity.com/en/games/0fc0f4e7-8f8b-464d-976e-03720859555b/ninja-training"
+}

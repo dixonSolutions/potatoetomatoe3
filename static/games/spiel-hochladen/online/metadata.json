@@ -1,0 +1,14 @@
+{
+	"id": "spiel-hochladen",
+	"name": "Spiel hochladen",
+	"author": "NoahS08",
+	"description": "Play Spiel hochladen on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0d519100-f149-4e27-a3ed-1c6b2c43010b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17d8dd3c-4e7b-49ff-8f5d-39f6af4a71b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17d8dd3c-4e7b-49ff-8f5d-39f6af4a71b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/17d8dd3c-4e7b-49ff-8f5d-39f6af4a71b7/spiel-hochladen"
+}

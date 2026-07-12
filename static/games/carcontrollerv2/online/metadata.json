@@ -1,0 +1,14 @@
+{
+	"id": "carcontrollerv2",
+	"name": "CarControllerV2",
+	"author": "choudharynaresh2018",
+	"description": "The New Car Controller mechanism with new feature and the controls. The Basics:- Movement W,A,S,D and Spacebar hand Brake and use drift also on the display the speedometer is use for car speed navigation.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/84db8b23-3679-4dc2-a054-91a6afe936dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1115695e-66c6-47a6-ac38-6bbb9e1b6640/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1115695e-66c6-47a6-ac38-6bbb9e1b6640",
+	"unityPlayUrl": "https://play.unity.com/en/games/1115695e-66c6-47a6-ac38-6bbb9e1b6640/carcontrollerv2"
+}

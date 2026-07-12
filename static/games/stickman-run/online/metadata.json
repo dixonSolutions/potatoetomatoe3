@@ -1,8 +1,14 @@
 {
-  "id": "stickman-run",
-  "name": "Stickman Run",
-  "author": "Poki",
-  "description": "Stickman Run is a fun platform game where you are on an unstoppable race! The core gameplay sounds really simple, all you need to do is get ready and tap to jump! Jump over the gap and watch out for all kinds of obstacles! Perform some cool stunts like wall jumps and avoid enemies who try to shoot you down. Remember to collect coins along the way to unlock various cute skins. The more you play, the better you get! Can you run towards success in one go? How to play Stickman Run? Tap the space bar or the up arrow key or left click to jump. Who created Stickman Run? Stickman Run is created by Shima. This is their first game on Poki! How can I play Stickman Run for free? You can play Stickman Run for free on Poki. Can I play Stickman Run on mobile devices and desktop? Stickman Run can be played on your computer and mobile devices like phones and tablets.",
-  "thumbnail": "/games/stickman-run/online/assets/stickman-run.png",
-  "category": "stickman"
+	"id": "stickman-run",
+	"name": "stickman run",
+	"author": "unity_4F30B5F079FF79A77416",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5c4c1c2d-78c7-4ee2-baab-909856ced2fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5c4c1c2d-78c7-4ee2-baab-909856ced2fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/5c4c1c2d-78c7-4ee2-baab-909856ced2fa/stickman-run"
 }

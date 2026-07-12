@@ -1,0 +1,14 @@
+{
+	"id": "code-and-visual-demo-v4",
+	"name": "Code and Visual Demo V4",
+	"author": "niftynick",
+	"description": "Demo",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4cae8a69-1751-492b-9c71-2290bdd0f8b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4cae8a69-1751-492b-9c71-2290bdd0f8b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/4cae8a69-1751-492b-9c71-2290bdd0f8b6/code-and-visual-demo-v4"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pong-2-players",
+	"name": "Pong-2 Players",
+	"author": "ioanstefan2020",
+	"description": "A two player game.Press 'w' and 's' for player 1 and up and down for player 2",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/04f7e04e-8314-40d9-85bc-c9ef53a83527/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/740ccdbc-fc6a-4907-ac24-88bd82b987dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "740ccdbc-fc6a-4907-ac24-88bd82b987dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/740ccdbc-fc6a-4907-ac24-88bd82b987dd/pong-2-players"
+}

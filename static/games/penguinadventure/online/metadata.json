@@ -1,0 +1,14 @@
+{
+	"id": "penguinadventure",
+	"name": "PenguinAdventure",
+	"author": "unity_053160776EBC301F39AA",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/48042a02-82f1-49ff-892e-6d83f247e57e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/601860ba-1268-4494-b3d3-dd4d8252d74c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "601860ba-1268-4494-b3d3-dd4d8252d74c",
+	"unityPlayUrl": "https://play.unity.com/en/games/601860ba-1268-4494-b3d3-dd4d8252d74c/penguinadventure"
+}

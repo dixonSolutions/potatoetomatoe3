@@ -1,0 +1,14 @@
+{
+	"id": "ez-glass",
+	"name": "EZ Glass",
+	"author": "Mirza-Beig",
+	"description": "Fast, pretty glass, with realtime, per-material scattering (and more).\n\ud83d\udd17 https://assetstore.unity.com/packages/vfx/shaders/ez-glass-fast-beautiful-glass-urp-365248",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec8ee78b-2adc-4cda-a22f-3d3be18f50fb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a95e643b-21a7-433d-9b75-f6c2e9658d22/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a95e643b-21a7-433d-9b75-f6c2e9658d22",
+	"unityPlayUrl": "https://play.unity.com/en/games/a95e643b-21a7-433d-9b75-f6c2e9658d22/ez-glass"
+}

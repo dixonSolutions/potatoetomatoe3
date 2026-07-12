@@ -1,0 +1,14 @@
+{
+	"id": "crazy-farm",
+	"name": "Crazy Farm",
+	"author": "Darkzarich",
+	"description": "Controls:\nMove - Left\\Right Arrows or A\\D keys \nChange Food - Up/Down Arrows or W\\S keys\nThrow food - Left Mouse Button or Left Ctrl\n\nFeed the animals the food they love to gain score! If you feed an animal the food it doesn't like you will loose the score. Bumping into any animal results in death so be careful!\n\nTip:\n\nHorses like carrots\nDogs like bones\nCows like ... pears!\n\nAssets were taken from the course \"Junior Programmer Pathway - Unit 2\". I felt bad for leave it at the state it was by the end of Unit 2 so decided to add some more functionality to make it something more or less finished\n\nEnjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c680781a-2e8c-44f1-a700-da41b0a00a67/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9df0986f-84a2-4b73-a61a-54abce074ee2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9df0986f-84a2-4b73-a61a-54abce074ee2",
+	"unityPlayUrl": "https://play.unity.com/en/games/9df0986f-84a2-4b73-a61a-54abce074ee2/crazy-farm"
+}

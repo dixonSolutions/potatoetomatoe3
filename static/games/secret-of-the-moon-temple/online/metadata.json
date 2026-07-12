@@ -1,0 +1,14 @@
+{
+	"id": "secret-of-the-moon-temple",
+	"name": "Secret of the Moon Temple",
+	"author": "anmcmill",
+	"description": "This is the Unity Red Belt project at Hackingtons. In this lesson we cover 3d movement controllers, cinemachine camera movement and animations, environmental interactions and animations and Unity Events.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a504511e-92b6-4b35-ba28-474cb8875289/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/74f48990-6f66-4108-a286-c02478ce8d20/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "74f48990-6f66-4108-a286-c02478ce8d20",
+	"unityPlayUrl": "https://play.unity.com/en/games/74f48990-6f66-4108-a286-c02478ce8d20/secret-of-the-moon-temple"
+}

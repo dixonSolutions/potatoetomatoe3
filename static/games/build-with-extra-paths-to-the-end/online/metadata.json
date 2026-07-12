@@ -1,0 +1,14 @@
+{
+	"id": "build-with-extra-paths-to-the-end",
+	"name": "build with extra paths to the end.",
+	"author": "GeekHornsFan",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/41ed9adf-cb70-433a-a097-0dc4a5690f9c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2dae9301-7f17-4e58-b25b-1a7aa2824dec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2dae9301-7f17-4e58-b25b-1a7aa2824dec",
+	"unityPlayUrl": "https://play.unity.com/en/games/2dae9301-7f17-4e58-b25b-1a7aa2824dec/build-with-extra-paths-to-the-end"
+}

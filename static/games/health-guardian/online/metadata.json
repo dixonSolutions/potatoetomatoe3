@@ -1,0 +1,14 @@
+{
+	"id": "health-guardian",
+	"name": "Health Guardian",
+	"author": "Tn_fm",
+	"description": "Play Health Guardian on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21c55ef4-0460-412b-b5f0-0e7950aa37fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21c55ef4-0460-412b-b5f0-0e7950aa37fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/21c55ef4-0460-412b-b5f0-0e7950aa37fa/health-guardian"
+}

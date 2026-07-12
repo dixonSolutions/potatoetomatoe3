@@ -1,0 +1,14 @@
+{
+	"id": "muff-quest",
+	"name": "Muff Quest",
+	"author": "PimpSlapGames",
+	"description": "Another Learning project #nsfw",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/872c9eac-786f-45ca-8298-a9ca170539f5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e6073f89-05e2-4f46-b585-f72d01e53459/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e6073f89-05e2-4f46-b585-f72d01e53459",
+	"unityPlayUrl": "https://play.unity.com/en/games/e6073f89-05e2-4f46-b585-f72d01e53459/muff-quest"
+}

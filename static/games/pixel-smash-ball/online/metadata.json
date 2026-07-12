@@ -1,0 +1,14 @@
+{
+	"id": "pixel-smash-ball",
+	"name": "pixel smash ball",
+	"author": "umairatjanbark",
+	"description": "version1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07db6584-f01e-4f81-a7e6-cf3f021189a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07db6584-f01e-4f81-a7e6-cf3f021189a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/07db6584-f01e-4f81-a7e6-cf3f021189a2/pixel-smash-ball"
+}

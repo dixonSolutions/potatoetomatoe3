@@ -1,0 +1,14 @@
+{
+	"id": "carrot-chomp",
+	"name": "Carrot Chomp!",
+	"author": "MinorDistractions",
+	"description": "Avoid the farmer and chomp 1,000 carrots to win! Use the power up carrots along the way and take advantage of the fences to slow the farmer down. \n\nMy first microgame developed over the last few months while following the Unity Junior Programming Course.\n\nFeedback welcome!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6cac0984-fdca-4bf9-a293-358cc5e3443c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f188f297-4e99-477c-8aef-62ee941ea1bf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f188f297-4e99-477c-8aef-62ee941ea1bf",
+	"unityPlayUrl": "https://play.unity.com/en/games/f188f297-4e99-477c-8aef-62ee941ea1bf/carrot-chomp"
+}

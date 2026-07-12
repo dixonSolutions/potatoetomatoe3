@@ -1,0 +1,14 @@
+{
+	"id": "big-city",
+	"name": "Big city",
+	"author": "sfwn_bsheer",
+	"description": "2d box game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b79f41e6-fae5-4b59-a83a-1b3bcdf78992/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fcb1406c-bc60-4224-b94b-25a4c54c58c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fcb1406c-bc60-4224-b94b-25a4c54c58c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/fcb1406c-bc60-4224-b94b-25a4c54c58c1/big-city"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cardriving",
+	"name": "Car_Driving",
+	"author": "ZeeWolfed",
+	"description": "My first player controller",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f8e198be-1e06-4f3a-9b7a-66eca730302a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b927990-269f-451b-8eb8-8a8fe2bd6f0c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b927990-269f-451b-8eb8-8a8fe2bd6f0c",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b927990-269f-451b-8eb8-8a8fe2bd6f0c/cardriving"
+}

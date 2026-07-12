@@ -1,0 +1,14 @@
+{
+	"id": "private-i",
+	"name": "private <i>",
+	"author": "adzatarka",
+	"description": "An interactive film exploring the grey area between personal privacy and personal security.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f15c5ef3-8211-4985-afc4-0259a5cc833c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34b1f9ef-c140-41d7-ba7b-da632ef1a2d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34b1f9ef-c140-41d7-ba7b-da632ef1a2d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/34b1f9ef-c140-41d7-ba7b-da632ef1a2d9/private-i"
+}

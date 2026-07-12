@@ -1,0 +1,14 @@
+{
+	"id": "my-car-game-prototype",
+	"name": "My car game prototype",
+	"author": "ArunSV",
+	"description": "This is my first independent game project. I have used free assets from Unity Asset store viz. Cartoon trackPack1, Retro Cartoon car Cicada and Town Music 1.0.  For script I have used information from Unity's \"Roll a Ball\" game project and an youtube video.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9f478f65-268a-4045-992e-38e9f53187b8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d6e7f72c-d589-474c-8683-221986eb2334/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d6e7f72c-d589-474c-8683-221986eb2334",
+	"unityPlayUrl": "https://play.unity.com/en/games/d6e7f72c-d589-474c-8683-221986eb2334/my-car-game-prototype"
+}

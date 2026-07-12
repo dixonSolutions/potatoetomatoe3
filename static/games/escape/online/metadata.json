@@ -1,0 +1,14 @@
+{
+	"id": "escape",
+	"name": "Escape",
+	"author": "R34P3R-",
+	"description": "Play Escape on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5d9888db-fce3-47c5-a7f6-1721f4b11385/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/268ab2f9-7897-4a21-871a-4a855adf1899/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "268ab2f9-7897-4a21-871a-4a855adf1899",
+	"unityPlayUrl": "https://play.unity.com/en/games/268ab2f9-7897-4a21-871a-4a855adf1899/escape"
+}

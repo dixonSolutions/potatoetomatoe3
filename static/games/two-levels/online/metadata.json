@@ -1,0 +1,14 @@
+{
+	"id": "two-levels",
+	"name": "Two levels",
+	"author": "blamapps18",
+	"description": "Just to try a simple navigation among scenes or levels in LEGO microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6ba46340-2794-4fc7-a4b6-7b4afc206118/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/af6aa493-68e9-47c0-b350-91e934f97686/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "af6aa493-68e9-47c0-b350-91e934f97686",
+	"unityPlayUrl": "https://play.unity.com/en/games/af6aa493-68e9-47c0-b350-91e934f97686/two-levels"
+}

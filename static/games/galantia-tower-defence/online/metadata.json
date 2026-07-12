@@ -1,0 +1,14 @@
+{
+	"id": "galantia-tower-defence",
+	"name": "Galantia Tower Defence",
+	"author": "MykeBlack",
+	"description": "3D tower defence game built using the Tower Defence Kit by 24bit Games",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a66d085d-7528-45b1-addb-79fd18652f52/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a559fff-d81b-46ec-a45b-6617073e5628/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a559fff-d81b-46ec-a45b-6617073e5628",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a559fff-d81b-46ec-a45b-6617073e5628/galantia-tower-defence"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ducktective",
+	"name": "Ducktective",
+	"author": "Humancrisp",
+	"description": "He's a duck, he's a detective. This is a porotype of his game.\nhttps://twitter.com/ohgooditsmatt",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a251431-8da3-4ff9-a01f-68018478ae72/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40a97fe7-2ced-44e3-b3d8-e591b0ec4840/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40a97fe7-2ced-44e3-b3d8-e591b0ec4840",
+	"unityPlayUrl": "https://play.unity.com/en/games/40a97fe7-2ced-44e3-b3d8-e591b0ec4840/ducktective"
+}

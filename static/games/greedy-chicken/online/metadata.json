@@ -1,0 +1,14 @@
+{
+	"id": "greedy-chicken",
+	"name": "Greedy Chicken",
+	"author": "xinmei14",
+	"description": "Play Greedy Chicken on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/87a0086b-80a7-4896-90cd-ef1bd8796af5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c7c1f35-0423-4258-96ef-1a704e2ce5d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c7c1f35-0423-4258-96ef-1a704e2ce5d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c7c1f35-0423-4258-96ef-1a704e2ce5d2/greedy-chicken"
+}

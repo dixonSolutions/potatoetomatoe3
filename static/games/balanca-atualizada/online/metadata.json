@@ -1,0 +1,14 @@
+{
+	"id": "balanca-atualizada",
+	"name": "Balan\u00e7a Atualizada",
+	"author": "Oupom",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/187fef0a-ad20-43c7-a61f-116b2dbd7dfa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "187fef0a-ad20-43c7-a61f-116b2dbd7dfa",
+	"unityPlayUrl": "https://play.unity.com/en/games/187fef0a-ad20-43c7-a61f-116b2dbd7dfa/balanca-atualizada"
+}

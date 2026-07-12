@@ -1,0 +1,14 @@
+{
+	"id": "lava-drop",
+	"name": "Lava Drop",
+	"author": "unity_4Sbj93Buo2bn6Q",
+	"description": "First scene, used gravity and shapes along with materials to create an interesting scene.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/88dc6f84-94cc-426b-8e4a-0f178ef0c20d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/60388cfa-8e21-4520-aadc-1d36c037a6e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "60388cfa-8e21-4520-aadc-1d36c037a6e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/60388cfa-8e21-4520-aadc-1d36c037a6e3/lava-drop"
+}

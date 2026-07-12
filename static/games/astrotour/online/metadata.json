@@ -1,0 +1,14 @@
+{
+	"id": "astrotour",
+	"name": "AstroTour",
+	"author": "safbaig5",
+	"description": "Travel through various worlds to learn about different careers & complete challenges!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/235a2c8c-5c46-447f-86b5-1bd6c819f469/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4840d816-e430-4887-87ae-8159a44fba21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4840d816-e430-4887-87ae-8159a44fba21",
+	"unityPlayUrl": "https://play.unity.com/en/games/4840d816-e430-4887-87ae-8159a44fba21/astrotour"
+}

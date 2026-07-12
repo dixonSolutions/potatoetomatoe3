@@ -1,0 +1,14 @@
+{
+	"id": "galaxytest",
+	"name": "GalaxyTest",
+	"author": "saifbeats77",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eeb508cb-eb7d-4e73-8596-2d10b069dd8c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75750d87-da27-4bc8-aa84-aa7369e9a71e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75750d87-da27-4bc8-aa84-aa7369e9a71e",
+	"unityPlayUrl": "https://play.unity.com/en/games/75750d87-da27-4bc8-aa84-aa7369e9a71e/galaxytest"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dragon-defense",
+	"name": "Dragon Defense",
+	"author": "rugi81",
+	"description": "Protect the village from 5 waves of little sprite dudes!\nWatch out for archers! Deadly falling thread!\n\nWASD controls\nSpace to jump, tap space while jumping to hover\nMouse aim, right click to breath fire\n\nWhen hovering, press shift to toggle flight mode\nFlight mode;\nW = faster\nS = slower\nA/D = turn",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f59ae98-2692-43f7-a286-8ba5057223e4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2aba3ac1-31fa-49b7-a612-ad50309e7be9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2aba3ac1-31fa-49b7-a612-ad50309e7be9",
+	"unityPlayUrl": "https://play.unity.com/en/games/2aba3ac1-31fa-49b7-a612-ad50309e7be9/dragon-defense"
+}

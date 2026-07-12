@@ -1,0 +1,14 @@
+{
+	"id": "module15",
+	"name": "Module15",
+	"author": "bnguyen2c",
+	"description": "Play Module15 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d2fae37b-33d4-4ab3-b751-36341a43f784/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d2fae37b-33d4-4ab3-b751-36341a43f784",
+	"unityPlayUrl": "https://play.unity.com/en/games/d2fae37b-33d4-4ab3-b751-36341a43f784/module15"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "simple-spin-blur-demo",
+	"name": "Simple Spin Blur Demo",
+	"author": "Xpert3D",
+	"description": "This is a demo for the asset Simple Spin Blur on the asset store. The framerate and visual quality is much better in the editor and the standalone build. The light weight script still holds up a good frame rate at max settings of 64 samples and shutter speed of 10.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e571e55c-07cd-42e6-b63f-122ee3924bc1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09d347b0-112a-454f-b94f-09df65309ce3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09d347b0-112a-454f-b94f-09df65309ce3",
+	"unityPlayUrl": "https://play.unity.com/en/games/09d347b0-112a-454f-b94f-09df65309ce3/simple-spin-blur-demo"
+}

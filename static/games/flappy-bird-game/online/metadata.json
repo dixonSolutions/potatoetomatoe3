@@ -1,0 +1,14 @@
+{
+	"id": "flappy-bird-game",
+	"name": "Flappy Bird Game",
+	"author": "mark3boi",
+	"description": "Hi guys!, so i fixed a few bugs from the last few versions. There was a issue with the \"gameOver\" text not appearing.by the way the score doesn't reset when you restart, i'll be fixing that .i added a main menu.hope you guys have fun. you can make the game fullscreen by pressing the full screen button at the bottom right. im working on a version 0.7 and will update soon .If you find any bugs or glitches  tell in the comments",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/71e90a3f-f1dd-45bd-8f60-b009b6503517/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df966f48-7543-4e55-bb70-a4fff12b3169/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df966f48-7543-4e55-bb70-a4fff12b3169",
+	"unityPlayUrl": "https://play.unity.com/en/games/df966f48-7543-4e55-bb70-a4fff12b3169/flappy-bird-game"
+}

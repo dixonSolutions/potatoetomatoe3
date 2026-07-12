@@ -1,0 +1,14 @@
+{
+	"id": "blazesadventurebuilds",
+	"name": "BlazesAdventureBuilds",
+	"author": "cjmennerick",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01cc26ac-40ce-4c11-af81-4286d10f6d08/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e7d7bb6-ad7f-4c66-8d05-9ba1ab34e52f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e7d7bb6-ad7f-4c66-8d05-9ba1ab34e52f",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e7d7bb6-ad7f-4c66-8d05-9ba1ab34e52f/blazesadventurebuilds"
+}

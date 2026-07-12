@@ -1,0 +1,14 @@
+{
+	"id": "floor-is-lava",
+	"name": "Floor Is Lava",
+	"author": "Q_Yoneda",
+	"description": "My second upload! This one I've tried harder to make it feel better in terms of sound effect, particle effect, animation, and simple power-mechanism. There are several things I would need more work on, though. Overall, I know my code is super messy and patchy. When the character jumps, sometimes, it jumps much higher than coded (which I think has something to do with the force of the rocks...? I'm not sure) and I would love to have some kind of incentive such as points system. Background loop is glitchy because, well, that's because I was lazy to make the image loopable. It might add more levels, too. But overall, I'm pretty happy about how it turned out as I've elaborated on the tutorial project and done it all in about 3 days.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d6e0a2b2-6a77-46f1-b111-2f24ae3fd9ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8f4cf8a2-e18e-4129-a3e3-c41289423d3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8f4cf8a2-e18e-4129-a3e3-c41289423d3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/8f4cf8a2-e18e-4129-a3e3-c41289423d3f/floor-is-lava"
+}

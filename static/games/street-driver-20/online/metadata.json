@@ -1,0 +1,14 @@
+{
+	"id": "street-driver-20",
+	"name": "STREET DRIVER 2.0",
+	"author": "PriyanshuSol",
+	"description": "Its a Car Controlling game. Press H for Horn. Use Left/Right keys to steer and Up/Down keys for accelaration and decelaration. There are 3 different maps, 2 modes, day/sunset/night environment, also 4 cars with different speeds, different colors. There are different screens too such as pause screen, gameover screen, highscore screen. Play the game and score as high as possible. Enjoy the Game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/971779ff-cd4f-4f20-99cf-d07089138f13/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/991b0634-ee5e-4e93-8613-c1ef2774be55/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "991b0634-ee5e-4e93-8613-c1ef2774be55",
+	"unityPlayUrl": "https://play.unity.com/en/games/991b0634-ee5e-4e93-8613-c1ef2774be55/street-driver-20"
+}

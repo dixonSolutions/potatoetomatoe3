@@ -1,0 +1,14 @@
+{
+	"id": "enigma",
+	"name": "Enigma",
+	"author": "lavanya_19",
+	"description": "A puzzle game that combines Lazors and Unblock Me!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/72e4916e-261e-4d46-8c5b-14cdf043f106/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/013e4d35-f04e-4d76-b51c-45af7426c390/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "013e4d35-f04e-4d76-b51c-45af7426c390",
+	"unityPlayUrl": "https://play.unity.com/en/games/013e4d35-f04e-4d76-b51c-45af7426c390/enigma"
+}

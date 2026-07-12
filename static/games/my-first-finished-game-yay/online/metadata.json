@@ -1,0 +1,14 @@
+{
+	"id": "my-first-finished-game-yay",
+	"name": "My first Finished Game YAY",
+	"author": "kubcza",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b3d52b7-3ed8-4bea-b6c0-ac19c03e51d5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b3d52b7-3ed8-4bea-b6c0-ac19c03e51d5",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b3d52b7-3ed8-4bea-b6c0-ac19c03e51d5/my-first-finished-game-yay"
+}

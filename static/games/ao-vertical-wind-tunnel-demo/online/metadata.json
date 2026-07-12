@@ -1,0 +1,14 @@
+{
+	"id": "ao-vertical-wind-tunnel-demo",
+	"name": "AO Vertical Wind Tunnel Demo",
+	"author": "billcrowther",
+	"description": "Drop rag doll skydivers and random shaped objects into a vertical wind tunnel. Change the wind speed and see what happens.\u00a0 Wind tunnel is built using a custom Fluid Zone that produces a local vertical wind that drops off with height. Objects are randomised in terms of shape and centre of mass location.                                                                \nwww.aerodynamicobjects.com                                               \nSkydivers are built using a mannequin asset purchased from Bevans Media https://assetstore.unity.com/publishers/3631",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/731f65f1-5332-43c0-b9d3-2f2c5cb46de1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/088f0cfe-126d-435c-8d2b-aeebbb822867/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "088f0cfe-126d-435c-8d2b-aeebbb822867",
+	"unityPlayUrl": "https://play.unity.com/en/games/088f0cfe-126d-435c-8d2b-aeebbb822867/ao-vertical-wind-tunnel-demo"
+}

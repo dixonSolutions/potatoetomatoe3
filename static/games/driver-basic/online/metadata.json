@@ -1,0 +1,14 @@
+{
+	"id": "driver-basic",
+	"name": "Driver BASIC",
+	"author": "UniverseSimulator",
+	"description": "my basic project",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1b007692-50c3-4e77-90df-f8a81fe165a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6a83658b-9af4-40de-93ed-dd83e928c7ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6a83658b-9af4-40de-93ed-dd83e928c7ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/6a83658b-9af4-40de-93ed-dd83e928c7ab/driver-basic"
+}

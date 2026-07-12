@@ -1,0 +1,14 @@
+{
+	"id": "kart-game",
+	"name": "Kart Game",
+	"author": "kPascy",
+	"description": "Our latest karting game.\nRex Cuales\nJoshua Saguit\nKyle Pascual",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ddbad8c-1af9-45fc-b5e0-706697137432/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3ddbad8c-1af9-45fc-b5e0-706697137432",
+	"unityPlayUrl": "https://play.unity.com/en/games/3ddbad8c-1af9-45fc-b5e0-706697137432/kart-game"
+}

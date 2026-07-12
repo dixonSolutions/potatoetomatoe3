@@ -1,0 +1,14 @@
+{
+	"id": "rocket-quest",
+	"name": "Rocket Quest",
+	"author": "ice77",
+	"description": "My first completed project! I followed the GameDev.tv tutorial to create this. Navigate your rocket past obstacles and land safely on the platform.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3ef76093-fedf-4b7d-b71e-00245b328526/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f19329-e206-4bd1-825a-13c4694c4214/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00f19329-e206-4bd1-825a-13c4694c4214",
+	"unityPlayUrl": "https://play.unity.com/en/games/00f19329-e206-4bd1-825a-13c4694c4214/rocket-quest"
+}

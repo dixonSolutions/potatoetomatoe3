@@ -1,0 +1,14 @@
+{
+	"id": "art-history",
+	"name": "Art History",
+	"author": "Crazsnowy",
+	"description": "Art History",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf851dbb-35d2-4b91-a344-2c865373fc5a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cf851dbb-35d2-4b91-a344-2c865373fc5a",
+	"unityPlayUrl": "https://play.unity.com/en/games/cf851dbb-35d2-4b91-a344-2c865373fc5a/art-history"
+}

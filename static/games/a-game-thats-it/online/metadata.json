@@ -1,0 +1,14 @@
+{
+	"id": "a-game-thats-it",
+	"name": "A game... thats it",
+	"author": "HackingtonsStudent",
+	"description": "WASD and space to jump.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1fd41e5e-58cd-4d7b-866c-834ee0a4a732/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/871ff203-6788-4cf4-ad5d-835313007635/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "871ff203-6788-4cf4-ad5d-835313007635",
+	"unityPlayUrl": "https://play.unity.com/en/games/871ff203-6788-4cf4-ad5d-835313007635/a-game-thats-it"
+}

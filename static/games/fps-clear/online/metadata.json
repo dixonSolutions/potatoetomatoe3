@@ -1,0 +1,14 @@
+{
+	"id": "fps-clear",
+	"name": "FPS Clear!",
+	"author": "Aearion",
+	"description": "Play FPS Clear! on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/573e21a3-5948-458d-a50f-f3fd25a23107/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56f6e8fe-8bd7-4cd4-b3a7-21752ba83759/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56f6e8fe-8bd7-4cd4-b3a7-21752ba83759",
+	"unityPlayUrl": "https://play.unity.com/en/games/56f6e8fe-8bd7-4cd4-b3a7-21752ba83759/fps-clear"
+}

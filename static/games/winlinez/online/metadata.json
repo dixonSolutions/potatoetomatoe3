@@ -1,0 +1,14 @@
+{
+	"id": "winlinez",
+	"name": "Winlinez",
+	"author": "danielpclin",
+	"description": "Winlinez",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75ceb51c-57d7-45e6-81d6-3d2951fb789b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75ceb51c-57d7-45e6-81d6-3d2951fb789b",
+	"unityPlayUrl": "https://play.unity.com/en/games/75ceb51c-57d7-45e6-81d6-3d2951fb789b/winlinez"
+}

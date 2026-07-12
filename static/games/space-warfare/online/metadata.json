@@ -1,0 +1,14 @@
+{
+	"id": "space-warfare",
+	"name": "Space Warfare",
+	"author": "Jackurius",
+	"description": "Asteroids but Star Wars!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/75ab0c73-b20c-42b0-bc6a-311a95d3ddcb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb3e4f74-ae53-4f09-b221-a80e8b946054/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb3e4f74-ae53-4f09-b221-a80e8b946054",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb3e4f74-ae53-4f09-b221-a80e8b946054/space-warfare"
+}

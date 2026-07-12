@@ -1,0 +1,14 @@
+{
+	"id": "tank-game",
+	"name": "Tank Game",
+	"author": "PMihailo05",
+	"description": "Create with Code Live Game Mod",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/34270d45-c08d-481d-b468-77756ff732b8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c6d4df1-6e5e-4021-8078-08670fd2e9d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c6d4df1-6e5e-4021-8078-08670fd2e9d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c6d4df1-6e5e-4021-8078-08670fd2e9d2/tank-game"
+}

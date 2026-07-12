@@ -1,0 +1,14 @@
+{
+	"id": "capture-the-flag-with-a-tank",
+	"name": "Capture the Flag (With a Tank!)",
+	"author": "SirRaidenGalahad",
+	"description": "A completely normal game of capture the flag (with tanks and zombies and explosions)\nPlayed either co-op or singleplayer, with a gunner and a driver.\nPlay on Itch.io: https://big-small-games.itch.io",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fee43de7-461e-42a0-81a4-e38f7399bf36/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/809bcfb1-0cfd-4d64-89dd-2c6a56868c16/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "809bcfb1-0cfd-4d64-89dd-2c6a56868c16",
+	"unityPlayUrl": "https://play.unity.com/en/games/809bcfb1-0cfd-4d64-89dd-2c6a56868c16/capture-the-flag-with-a-tank"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hill-climb-racing-game",
+	"name": "Hill Climb Racing Game",
+	"author": "Yankue",
+	"description": "This is the 1st ever game I've made in unity 2D! You can use either WASD or arrows to move.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05221c36-7494-4de7-b6ce-22e095210e5a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07ca56fd-441a-4ba2-b866-8bf2a581c9df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07ca56fd-441a-4ba2-b866-8bf2a581c9df",
+	"unityPlayUrl": "https://play.unity.com/en/games/07ca56fd-441a-4ba2-b866-8bf2a581c9df/hill-climb-racing-game"
+}

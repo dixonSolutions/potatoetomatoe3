@@ -1,0 +1,14 @@
+{
+	"id": "aurumkongunitybuild",
+	"name": "AurumKong_UnityBuild",
+	"author": "buckaroo_banzai",
+	"description": "Play AurumKong_UnityBuild on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a90440f4-c0a2-42ee-8a4a-385ab0b364c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/85587a62-4578-447d-a20c-d3bf332373f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "85587a62-4578-447d-a20c-d3bf332373f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/85587a62-4578-447d-a20c-d3bf332373f7/aurumkongunitybuild"
+}

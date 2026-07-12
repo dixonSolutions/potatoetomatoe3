@@ -1,0 +1,14 @@
+{
+	"id": "orbs",
+	"name": "Orbs",
+	"author": "videogamepeoples",
+	"description": "This game was made for the Utah TSA Competition 2022                                                   Font made by Tiny Worlds on the Unity Asset Store",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ca1b26f-84c3-49cc-8979-c6eb53d0205a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/072c660e-01ce-46a3-94fb-3e5777506240/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "072c660e-01ce-46a3-94fb-3e5777506240",
+	"unityPlayUrl": "https://play.unity.com/en/games/072c660e-01ce-46a3-94fb-3e5777506240/orbs"
+}

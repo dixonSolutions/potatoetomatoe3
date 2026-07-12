@@ -1,0 +1,14 @@
+{
+	"id": "flappy-bird-2-demo",
+	"name": "Flappy Bird 2 Demo",
+	"author": "Uuzerno",
+	"description": "in this game you need to fly thruw all of the pipes this is the demo version",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d50d0767-c7aa-47a4-bc2b-1df6d24d2dfb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cf0a45f-b1d0-449f-8123-21296df34f0a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cf0a45f-b1d0-449f-8123-21296df34f0a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cf0a45f-b1d0-449f-8123-21296df34f0a/flappy-bird-2-demo"
+}

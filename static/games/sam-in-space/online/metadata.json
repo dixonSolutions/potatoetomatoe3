@@ -1,0 +1,14 @@
+{
+	"id": "sam-in-space",
+	"name": "Sam in Space",
+	"author": "bartvandalen",
+	"description": "Play Sam in Space on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6af702f7-afbe-4547-be8e-1838d373d04f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0296a682-c82e-4dea-b27d-8fbef551fbbd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0296a682-c82e-4dea-b27d-8fbef551fbbd",
+	"unityPlayUrl": "https://play.unity.com/en/games/0296a682-c82e-4dea-b27d-8fbef551fbbd/sam-in-space"
+}

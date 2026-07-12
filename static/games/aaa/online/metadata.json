@@ -1,0 +1,14 @@
+{
+	"id": "aaa",
+	"name": "AAA",
+	"author": "micaharvey",
+	"description": "2.5D Roll and Jump\n\u23ee\u23edarrow keys to roll, \ud83c\udf0c spacebar to jump \ud83d\ude80 Make sure to unmute \ud83d\udce3\ud83c\udfb6",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/74a9cdbf-dbc0-4f0c-aac3-99e02c8d5a42/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/272f39a2-dafd-4ab3-b45a-d0bd734b4ff9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "272f39a2-dafd-4ab3-b45a-d0bd734b4ff9",
+	"unityPlayUrl": "https://play.unity.com/en/games/272f39a2-dafd-4ab3-b45a-d0bd734b4ff9/aaa"
+}

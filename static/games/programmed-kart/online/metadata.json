@@ -1,0 +1,14 @@
+{
+	"id": "programmed-kart",
+	"name": "Programmed kart",
+	"author": "rmfpspt",
+	"description": "\uac04\ub2e8\ud55c \ub808\uc774\uc2f1 \uac8c\uc784",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12ae8c84-186f-4d57-af22-4ecc218ebb2f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12ae8c84-186f-4d57-af22-4ecc218ebb2f",
+	"unityPlayUrl": "https://play.unity.com/en/games/12ae8c84-186f-4d57-af22-4ecc218ebb2f/programmed-kart"
+}

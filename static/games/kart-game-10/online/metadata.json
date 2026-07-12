@@ -1,0 +1,14 @@
+{
+	"id": "kart-game-10",
+	"name": "Kart Game 1.0",
+	"author": "brayden_dull",
+	"description": "This is the best kart game ever.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a9fa88b8-e2ae-4d6d-9d65-8206e0bf2fed/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02c29268-eedc-4bcf-bdfa-479be2139b26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02c29268-eedc-4bcf-bdfa-479be2139b26",
+	"unityPlayUrl": "https://play.unity.com/en/games/02c29268-eedc-4bcf-bdfa-479be2139b26/kart-game-10"
+}

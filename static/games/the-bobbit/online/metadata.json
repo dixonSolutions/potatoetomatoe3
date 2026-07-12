@@ -1,0 +1,14 @@
+{
+	"id": "the-bobbit",
+	"name": "The Bobbit",
+	"author": "Unity Play",
+	"description": "Maze game\nSome of the art from:\nhttps://game-endeavor.itch.io\nhttps://penzilla.itch.io\nhttps://cupnooble.itch.io\nhttps://kevins-moms-house.itch.io",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/58baa925-929f-42d3-b464-321a14e47ff8/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2198dacc-f65a-4768-a6b5-a56374324f83/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2198dacc-f65a-4768-a6b5-a56374324f83",
+	"unityPlayUrl": "https://play.unity.com/en/games/2198dacc-f65a-4768-a6b5-a56374324f83/the-bobbit"
+}

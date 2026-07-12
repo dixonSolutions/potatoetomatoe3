@@ -1,0 +1,14 @@
+{
+	"id": "06marblerace2",
+	"name": "06MarbleRace2",
+	"author": "mottcast",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/10d5eaba-35d8-4ad9-8d09-d118d03eae34/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cb66a8e-09cf-45c6-afd1-f907460e2078/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cb66a8e-09cf-45c6-afd1-f907460e2078",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cb66a8e-09cf-45c6-afd1-f907460e2078/06marblerace2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cosmic-obstacle-course",
+	"name": "Cosmic Obstacle Course",
+	"author": "CaligoArts",
+	"description": "My 1st Game! Made using the Lego Microgame tutorial. Can you survive & make it to the ship while collecting all the fuel to escape this challenge? The Galaxy is watching!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14ca7ba8-95aa-4b36-847d-09a284eb115e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/007ea035-23f4-43cb-82ef-29418b46489d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "007ea035-23f4-43cb-82ef-29418b46489d",
+	"unityPlayUrl": "https://play.unity.com/en/games/007ea035-23f4-43cb-82ef-29418b46489d/cosmic-obstacle-course"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "s1-not-portal",
+	"name": "S1 NOT Portal",
+	"author": "tkuhn_unity",
+	"description": "S1 Game Design Class 2021/22",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4886fc3f-ce57-4fa9-bf2c-ab78ad5191b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4886fc3f-ce57-4fa9-bf2c-ab78ad5191b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/4886fc3f-ce57-4fa9-bf2c-ab78ad5191b5/s1-not-portal"
+}

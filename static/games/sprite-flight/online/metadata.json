@@ -1,0 +1,14 @@
+{
+	"id": "sprite-flight",
+	"name": "SPRITE FLIGHT",
+	"author": "Unity-Learning-Team",
+	"description": "In Sprite Flight, the ship goes wherever you click, or touch (on mobile). The goal is to survive for as long as possible by avoiding the moving hazards. The longer you survive, the higher your score!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f87bfd00-6eb9-419e-b309-17e9ec005011/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f87bfd00-6eb9-419e-b309-17e9ec005011",
+	"unityPlayUrl": "https://play.unity.com/en/games/f87bfd00-6eb9-419e-b309-17e9ec005011/sprite-flight"
+}

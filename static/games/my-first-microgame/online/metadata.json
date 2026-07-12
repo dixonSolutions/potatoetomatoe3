@@ -1,0 +1,14 @@
+{
+	"id": "my-first-microgame",
+	"name": "My First Microgame",
+	"author": "lavacakecake",
+	"description": "Play My First Microgame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/783404b9-7750-4563-a7c6-d0d22eccd6a7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03cabbf9-f7a8-4969-a57f-6e0e7e3b2762/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03cabbf9-f7a8-4969-a57f-6e0e7e3b2762",
+	"unityPlayUrl": "https://play.unity.com/en/games/03cabbf9-f7a8-4969-a57f-6e0e7e3b2762/my-first-microgame"
+}

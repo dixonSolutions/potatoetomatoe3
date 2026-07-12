@@ -1,0 +1,14 @@
+{
+	"id": "swing-mania",
+	"name": "Swing Mania",
+	"author": "kolemans85",
+	"description": "My Grapple-Gun Swinging game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e4d87804-2ced-4075-93b2-10ea103e11d6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c693bb5c-20ba-4a76-ab08-172bebffab3c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c693bb5c-20ba-4a76-ab08-172bebffab3c",
+	"unityPlayUrl": "https://play.unity.com/en/games/c693bb5c-20ba-4a76-ab08-172bebffab3c/swing-mania"
+}

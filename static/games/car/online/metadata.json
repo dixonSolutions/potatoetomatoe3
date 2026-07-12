@@ -1,0 +1,14 @@
+{
+	"id": "car",
+	"name": "Car",
+	"author": "lewandd",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d8e0179f-89d1-41f1-9b23-729480776bbc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5c03c4ad-f358-48ec-831b-c1b75486aa3e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5c03c4ad-f358-48ec-831b-c1b75486aa3e",
+	"unityPlayUrl": "https://play.unity.com/en/games/5c03c4ad-f358-48ec-831b-c1b75486aa3e/car"
+}

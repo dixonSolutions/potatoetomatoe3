@@ -1,0 +1,14 @@
+{
+	"id": "backrooms",
+	"name": "BackRooms",
+	"author": "Stradoken",
+	"description": "Just a short game about an old creepypasta. Just a test, nothing serious.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/96ae4ff3-14f1-4a34-91c1-4379d73c3db4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "96ae4ff3-14f1-4a34-91c1-4379d73c3db4",
+	"unityPlayUrl": "https://play.unity.com/en/games/96ae4ff3-14f1-4a34-91c1-4379d73c3db4/backrooms"
+}

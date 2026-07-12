@@ -1,0 +1,14 @@
+{
+	"id": "empty-headed",
+	"name": "Empty-Headed",
+	"author": "Mizzen33",
+	"description": "Play Empty-Headed on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08770ca4-0bf0-4cae-ad7e-b77489edd503/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08770ca4-0bf0-4cae-ad7e-b77489edd503",
+	"unityPlayUrl": "https://play.unity.com/en/games/08770ca4-0bf0-4cae-ad7e-b77489edd503/empty-headed"
+}

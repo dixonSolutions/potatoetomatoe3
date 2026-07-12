@@ -1,0 +1,14 @@
+{
+	"id": "grandmasters-revenge-alpha",
+	"name": "Grandmaster's Revenge alpha",
+	"author": "N_Ryz",
+	"description": "Full version of this game you can find at Steam",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee1bd530-fe30-4282-aa0f-c66b3b4d8151/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ec5caf1f-67a1-4fec-a34b-07577deedf02/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ec5caf1f-67a1-4fec-a34b-07577deedf02",
+	"unityPlayUrl": "https://play.unity.com/en/games/ec5caf1f-67a1-4fec-a34b-07577deedf02/grandmasters-revenge-alpha"
+}

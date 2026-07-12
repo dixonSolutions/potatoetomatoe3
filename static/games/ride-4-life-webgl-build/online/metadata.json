@@ -1,0 +1,14 @@
+{
+	"id": "ride-4-life-webgl-build",
+	"name": "Ride 4 Life WebGL Build",
+	"author": "officialyenum",
+	"description": "This is My GD50 Final Project Submission.\n\nIt is a driving game where you pick money icon while avoiding meteors, \nFind 10 dollar icons before time runs out.\nLook how easy it is to use:\n    Input Your Name\n    Ride\n    After 60 seconds or finding the ten items in the map check your score. Music Credits : Tell Me That I can't by NEFFEX",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f27faf3-fdb8-41b8-ad7d-e40a1bb5eab3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dae89b5-3e32-4e5a-976a-4e6143f803fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0dae89b5-3e32-4e5a-976a-4e6143f803fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/0dae89b5-3e32-4e5a-976a-4e6143f803fb/ride-4-life-webgl-build"
+}

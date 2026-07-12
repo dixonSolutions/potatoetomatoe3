@@ -1,0 +1,14 @@
+{
+	"id": "exploration-insanity",
+	"name": "Exploration Insanity",
+	"author": "apepe22",
+	"description": "Red Square = Player, Pink Diamond = Enemy. Test the player and enemy movement and the collisions between the player and various objects.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/24304152-f0fd-47df-9cac-ac158b828b32/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "24304152-f0fd-47df-9cac-ac158b828b32",
+	"unityPlayUrl": "https://play.unity.com/en/games/24304152-f0fd-47df-9cac-ac158b828b32/exploration-insanity"
+}

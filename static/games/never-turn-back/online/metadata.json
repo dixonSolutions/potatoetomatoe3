@@ -1,0 +1,14 @@
+{
+	"id": "never-turn-back",
+	"name": "Never Turn Back",
+	"author": "AaronCol",
+	"description": "WASD= movement, E=pick up flash light, F=pick up object/open door                            DO tasks, Stay moving, Find Keys",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/50dd9aad-bfec-4169-8dac-ba53b77c6d55/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0496bacf-80e3-40db-a7e0-4736de2434c4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0496bacf-80e3-40db-a7e0-4736de2434c4",
+	"unityPlayUrl": "https://play.unity.com/en/games/0496bacf-80e3-40db-a7e0-4736de2434c4/never-turn-back"
+}

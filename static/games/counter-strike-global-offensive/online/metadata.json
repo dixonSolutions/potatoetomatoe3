@@ -1,0 +1,14 @@
+{
+	"id": "counter-strike-global-offensive",
+	"name": "Counter Strike: Global Offensive",
+	"author": "devin7331",
+	"description": "Play Counter Strike: Global Offensive on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3e51bd82-6774-4807-b1d7-a695ce6952db/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b113e6d-072c-4973-b532-abef809b4a17/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b113e6d-072c-4973-b532-abef809b4a17",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b113e6d-072c-4973-b532-abef809b4a17/counter-strike-global-offensive"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "survival-game",
+	"name": "Survival Game",
+	"author": "RodMaker",
+	"description": "Press I to open the inventory, press C to open the crafting menu, press spacebar to jump, press the arrow keys or WASD to walk, press mouse button 1 to pick up items",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f8cab98-d6ea-4c4a-a453-8f0d85ca614e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f8cab98-d6ea-4c4a-a453-8f0d85ca614e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f8cab98-d6ea-4c4a-a453-8f0d85ca614e/survival-game"
+}

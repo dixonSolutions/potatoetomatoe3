@@ -1,0 +1,14 @@
+{
+	"id": "empowersdgs",
+	"name": "EmpowerSDGs",
+	"author": "Innovation-Hive",
+	"description": "Play EmpowerSDGs on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/50cd5389-9ed8-46df-bc98-17193d3e81bd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/480ac336-33cd-4c99-99a3-bbfc16c7e6d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "480ac336-33cd-4c99-99a3-bbfc16c7e6d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/480ac336-33cd-4c99-99a3-bbfc16c7e6d2/empowersdgs"
+}

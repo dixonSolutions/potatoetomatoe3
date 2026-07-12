@@ -1,0 +1,14 @@
+{
+	"id": "get-inside",
+	"name": "Get Inside",
+	"author": "Chudroy",
+	"description": "To progress: follow the paths through the forest villages. They all eventually lead to an exit to the next level. This is a prototype of a game I've been working on for two months aprox. It takes about 30 mins to get to the end, more or less. There are five levels plus the ending area in total. Let me know if you find any bugs!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e32281d-1185-43b7-a52b-86de70c97d4e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00a943b6-0644-40bf-bc87-147c7ac4f665/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00a943b6-0644-40bf-bc87-147c7ac4f665",
+	"unityPlayUrl": "https://play.unity.com/en/games/00a943b6-0644-40bf-bc87-147c7ac4f665/get-inside"
+}

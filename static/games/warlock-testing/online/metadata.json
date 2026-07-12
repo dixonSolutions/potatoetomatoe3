@@ -1,0 +1,14 @@
+{
+	"id": "warlock-testing",
+	"name": "warlock-testing",
+	"author": "talk2mohammadumar",
+	"description": "warlock-testing",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a7a3be23-4f5f-4a95-a613-a3ddaa057536/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a7a3be23-4f5f-4a95-a613-a3ddaa057536",
+	"unityPlayUrl": "https://play.unity.com/en/games/a7a3be23-4f5f-4a95-a613-a3ddaa057536/warlock-testing"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "akiba-kart",
+	"name": "Akiba Kart",
+	"author": "karaage0703",
+	"description": "Enjoy Kart in Otaku City(Akihabara in Japan).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/60d0f3d6-b66c-4bbf-bd77-3c4cf364c2e4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/35125b2f-458e-4df5-8b3c-de2f655ad42a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "35125b2f-458e-4df5-8b3c-de2f655ad42a",
+	"unityPlayUrl": "https://play.unity.com/en/games/35125b2f-458e-4df5-8b3c-de2f655ad42a/akiba-kart"
+}

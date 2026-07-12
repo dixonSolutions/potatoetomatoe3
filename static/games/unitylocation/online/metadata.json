@@ -1,0 +1,14 @@
+{
+	"id": "unitylocation",
+	"name": "UnityLocation",
+	"author": "qq1162857004",
+	"description": "test",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7cf4fc37-66a0-45ff-801a-6b245761250b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7cf4fc37-66a0-45ff-801a-6b245761250b",
+	"unityPlayUrl": "https://play.unity.com/en/games/7cf4fc37-66a0-45ff-801a-6b245761250b/unitylocation"
+}

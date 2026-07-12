@@ -1,0 +1,14 @@
+{
+	"id": "checkers-fps",
+	"name": "checkers (fps)",
+	"author": "magicdiamond007",
+	"description": "Play checkers (fps) on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3853b6b7-0676-45d8-a21f-7ad621a8e4ab/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cb07f84-67b8-467f-9842-2a06148d453a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cb07f84-67b8-467f-9842-2a06148d453a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cb07f84-67b8-467f-9842-2a06148d453a/checkers-fps"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "plane-challenge",
+	"name": "Plane Challenge",
+	"author": "Schroeker",
+	"description": "Flying through the red tunnel without hitting the blue obstacles.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1d445a78-074f-4dc8-9133-04c26c6f5f0f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4991f5c1-e577-4461-ab20-74047375f4a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4991f5c1-e577-4461-ab20-74047375f4a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/4991f5c1-e577-4461-ab20-74047375f4a0/plane-challenge"
+}

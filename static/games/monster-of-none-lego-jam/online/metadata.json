@@ -1,0 +1,14 @@
+{
+	"id": "monster-of-none-lego-jam",
+	"name": "Monster of None: LEGO Jam",
+	"author": "BiscuitsMx",
+	"description": "LEGO Monster truck arena microgame!\nThere are no rules or objectives: just drive!\nGet some big air; get even bigger air. Really, there is a lot of air there to get:)\nIf you have framerate problems, try running in Edge rather than Chrome (Chrome tried to run on my APU rather than GPU).\nThis game uses my custom \"realistic\" monster truck physics I've been working on for some time.\nIt's my entry for \"LEGO IDEAS: BUILD YOUR OWN GAME!\", I quite want the Unity minifigure:)\nI originally had a nicer truck, but you can't scale the LEGO models without resorting to Actual Magic which I worried might disqualify me, so now we have this cute littl MOC:)\nhttps://twitter.com/biscuitsmitten",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3f3f6260-184b-4d5b-bc37-85d9b2f95b71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/91552588-3b17-4bcf-9d6d-ecb3d1bb8558/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "91552588-3b17-4bcf-9d6d-ecb3d1bb8558",
+	"unityPlayUrl": "https://play.unity.com/en/games/91552588-3b17-4bcf-9d6d-ecb3d1bb8558/monster-of-none-lego-jam"
+}

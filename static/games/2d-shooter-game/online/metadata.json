@@ -1,0 +1,14 @@
+{
+	"id": "2d-shooter-game",
+	"name": "2D shooter game",
+	"author": "pokl_unity",
+	"description": "A small 2d shooter game. Press spacebar to dash!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e44b73b-79ba-4483-992f-86dde0f2fcd1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b6ee7b9-7b31-4195-992c-bd57705841d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5b6ee7b9-7b31-4195-992c-bd57705841d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/5b6ee7b9-7b31-4195-992c-bd57705841d9/2d-shooter-game"
+}

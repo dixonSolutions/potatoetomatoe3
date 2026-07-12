@@ -5,6 +5,7 @@ import {
 	hasOnlineShell,
 	invalidateCatalogCache,
 	isValidGameId,
+	isGameInCatalog,
 	loadGameIds,
 	offlineDir,
 	type GameStatus
@@ -65,8 +66,7 @@ export async function getAllGameStatuses(): Promise<Record<string, GameStatus>> 
 
 export async function deleteOfflineGame(gameId: string): Promise<void> {
 	if (!isValidGameId(gameId)) throw new Error('Invalid game id');
-	const ids = await loadGameIds();
-	if (!ids.includes(gameId)) throw new Error('Game not in catalog');
+	if (!(await isGameInCatalog(gameId))) throw new Error('Game not in catalog');
 
 	if (isGameDownloading(gameId)) {
 		throw new Error('Cannot delete while download is in progress');
@@ -78,8 +78,7 @@ export async function deleteOfflineGame(gameId: string): Promise<void> {
 
 export async function startDownload(gameId: string): Promise<{ started: boolean; message: string }> {
 	if (!isValidGameId(gameId)) throw new Error('Invalid game id');
-	const ids = await loadGameIds();
-	if (!ids.includes(gameId)) throw new Error('Game not in catalog');
+	if (!(await isGameInCatalog(gameId))) throw new Error('Game not in catalog');
 
 	if (!(await hasOnlineShell(gameId))) {
 		throw new Error('Game has no online shell to pull from');

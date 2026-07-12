@@ -1,0 +1,14 @@
+{
+	"id": "lego-tutorial-island",
+	"name": "LEGO Tutorial Island",
+	"author": "justicem",
+	"description": "My latest microgame. Minimal customization.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2ad7baa5-a9a3-4b6e-a7cf-2fb9cc6b9242/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a9ecda8-0d0c-45a1-a2f2-5e4e7054f39a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a9ecda8-0d0c-45a1-a2f2-5e4e7054f39a",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a9ecda8-0d0c-45a1-a2f2-5e4e7054f39a/lego-tutorial-island"
+}

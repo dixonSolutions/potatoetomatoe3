@@ -1,0 +1,14 @@
+{
+	"id": "car-multiplayer-game",
+	"name": "Car Multiplayer Game",
+	"author": "Dipak2812",
+	"description": "My First 3D Multiplayer Car Game.Use these to play :\nFor player 1 use WASD keys for movement and Q to change camera angle\nFor player 2 use Aerrow keys for movement and ShiftRight to change camera angle",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ec017ae-3e40-46f8-8292-642ec93b56a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/478ca1b7-79dc-45f8-a20a-1b6bc5b51260/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "478ca1b7-79dc-45f8-a20a-1b6bc5b51260",
+	"unityPlayUrl": "https://play.unity.com/en/games/478ca1b7-79dc-45f8-a20a-1b6bc5b51260/car-multiplayer-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "comfort-zone",
+	"name": "Comfort Zone",
+	"author": "GdevStudios",
+	"description": "LEFT CLICK - Interact with UI in menus\nWASD or Arrow Keys - Move Up, Left, Down, Right respectively\nE - Interact with objects and people\nQ - Open the map in the 1st level\nTab - Open pause menu",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/69154351-ce4c-422e-aa6c-80c8154bb714/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62039c19-0f4d-4812-87bd-4eb35866db47/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62039c19-0f4d-4812-87bd-4eb35866db47",
+	"unityPlayUrl": "https://play.unity.com/en/games/62039c19-0f4d-4812-87bd-4eb35866db47/comfort-zone"
+}

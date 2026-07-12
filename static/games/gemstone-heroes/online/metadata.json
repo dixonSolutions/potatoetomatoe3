@@ -1,0 +1,14 @@
+{
+	"id": "gemstone-heroes",
+	"name": "Gemstone Heroes",
+	"author": "Unity Play",
+	"description": "Match 3 game with RPG element. Defeat powerful enemies and acquire legendary loot on your adventure. Fun and addictive puzzle game meets the magic of RPG games.\n\nCurrently active version v0.15.1:\n-\u201cFast Mode\u201d\n-Animations for dual wield and bite attacks\n\nv0.14.1:\n-Implemented tutorial\n-Fixed save/load system\n\nv0.14.0:\n-Implemented save and load system\n-Several bug fixes\n\nv0.13.44:\n-First release",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/76f5bbbf-4c93-4592-982e-585735cae5db/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8abf2e66-b27f-4efa-8e4f-a8681cb6e28d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8abf2e66-b27f-4efa-8e4f-a8681cb6e28d",
+	"unityPlayUrl": "https://play.unity.com/en/games/8abf2e66-b27f-4efa-8e4f-a8681cb6e28d/gemstone-heroes"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "vis-script-practice",
+	"name": "vis script practice",
+	"author": "Nyx-_",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c9478ec0-8880-4e88-8e6e-158adcb57836/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c9478ec0-8880-4e88-8e6e-158adcb57836",
+	"unityPlayUrl": "https://play.unity.com/en/games/c9478ec0-8880-4e88-8e6e-158adcb57836/vis-script-practice"
+}

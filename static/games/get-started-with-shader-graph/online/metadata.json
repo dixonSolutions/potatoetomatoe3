@@ -1,0 +1,14 @@
+{
+	"id": "get-started-with-shader-graph",
+	"name": "Get started with Shader Graph",
+	"author": "Unity-Learning-Team",
+	"description": "This is a demo for the Getting started with Shader Graph Learn course. Walk around the marketplace and see all of the various shaders you can make with Shader Graph. \n\nMovement: WASD\nInteract: E",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9266ba3c-6910-495e-aed8-b5d61c7037e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/291514b7-0c44-4647-8181-ea7f658207a6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "291514b7-0c44-4647-8181-ea7f658207a6",
+	"unityPlayUrl": "https://play.unity.com/en/games/291514b7-0c44-4647-8181-ea7f658207a6/get-started-with-shader-graph"
+}

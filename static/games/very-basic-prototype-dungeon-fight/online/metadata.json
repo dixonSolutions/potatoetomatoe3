@@ -1,0 +1,14 @@
+{
+	"id": "very-basic-prototype-dungeon-fight",
+	"name": "very basic prototype dungeon fight",
+	"author": "Chiproe",
+	"description": "controls:\n\nP1: WASD to move, F to dash, G to Hit.\n\nP2: IJKL to move, ; to dash, ' to Hit.\n\nYes, there is no death effect yet.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c7016d8-afac-4541-ade9-a0ab6cfbd120/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c7016d8-afac-4541-ade9-a0ab6cfbd120",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c7016d8-afac-4541-ade9-a0ab6cfbd120/very-basic-prototype-dungeon-fight"
+}

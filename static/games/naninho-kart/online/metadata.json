@@ -1,0 +1,14 @@
+{
+	"id": "naninho-kart",
+	"name": "Naninho Kart",
+	"author": "tta_unity934",
+	"description": "Second upload.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/222dbc2e-2b74-43bd-99f3-0598b2122a12/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "222dbc2e-2b74-43bd-99f3-0598b2122a12",
+	"unityPlayUrl": "https://play.unity.com/en/games/222dbc2e-2b74-43bd-99f3-0598b2122a12/naninho-kart"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "vettura-volante",
+	"name": "vettura volante",
+	"author": "mariodiegoli",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0aff0006-9d9e-4fef-b3dc-c2a385f84ba9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0aff0006-9d9e-4fef-b3dc-c2a385f84ba9",
+	"unityPlayUrl": "https://play.unity.com/en/games/0aff0006-9d9e-4fef-b3dc-c2a385f84ba9/vettura-volante"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "rolling-ball-webgl-game",
+	"name": "Rolling Ball WebGL Game",
+	"author": "krokodilemouse",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/026c535b-64fb-449f-9e09-673bcf8889e8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "026c535b-64fb-449f-9e09-673bcf8889e8",
+	"unityPlayUrl": "https://play.unity.com/en/games/026c535b-64fb-449f-9e09-673bcf8889e8/rolling-ball-webgl-game"
+}

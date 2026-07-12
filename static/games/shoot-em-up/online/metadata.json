@@ -1,0 +1,14 @@
+{
+	"id": "shoot-em-up",
+	"name": "Shoot 'em up",
+	"author": "Salva73",
+	"description": "Play Shoot 'em up on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8b9b8fd7-4d74-42ed-ac87-c3d2cbc41db4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1208dde1-2566-4ef9-8e91-b0d85a9bfa5c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1208dde1-2566-4ef9-8e91-b0d85a9bfa5c",
+	"unityPlayUrl": "https://play.unity.com/en/games/1208dde1-2566-4ef9-8e91-b0d85a9bfa5c/shoot-em-up"
+}

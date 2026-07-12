@@ -1,0 +1,14 @@
+{
+	"id": "blend-in",
+	"name": "Blend In",
+	"author": "shamikakumar",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/160d21d6-b11e-46a3-bafd-f495d1181017/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cfec513e-eaf7-42d3-afae-dc84e1a03d59/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cfec513e-eaf7-42d3-afae-dc84e1a03d59",
+	"unityPlayUrl": "https://play.unity.com/en/games/cfec513e-eaf7-42d3-afae-dc84e1a03d59/blend-in"
+}

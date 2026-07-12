@@ -1,0 +1,14 @@
+{
+	"id": "good-days-and-bad-days",
+	"name": "Good Days and Bad Days",
+	"author": "ahnmur",
+	"description": "How to:\n\ud83d\udd0a Sound on! \n\ud83d\ude00 Collect the Happy Days\n\u2b06\ufe0f Keyboard UP arrow to jump\n\ud83d\ude1f Avoid the Sad Days \n\nBuilt with guidance from Unity's Create with Code Project 3. \n-I designed a custom background using Adobe Illustrator\n-I modeled and texture painted the happy/sad coins in Blender\n-I programmed a SpawnManager to spawn both Happy and Sad coins randomly and at different heights \n-I added collectible functionality + score counter for Happy Days \n-Custom sounds for jumping / Happy Days / Sad Days",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5bbf73a-7445-40ef-9c88-32e2997fa46d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4dc80d92-97dd-4836-bae1-9832ece53add/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4dc80d92-97dd-4836-bae1-9832ece53add",
+	"unityPlayUrl": "https://play.unity.com/en/games/4dc80d92-97dd-4836-bae1-9832ece53add/good-days-and-bad-days"
+}

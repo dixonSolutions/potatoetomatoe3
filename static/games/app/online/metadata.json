@@ -1,0 +1,14 @@
+{
+	"id": "app",
+	"name": "App",
+	"author": "biodigital",
+	"description": "mobile build",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/033487c3-c48b-4ded-808c-8e4cf9fee92e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "033487c3-c48b-4ded-808c-8e4cf9fee92e",
+	"unityPlayUrl": "https://play.unity.com/en/games/033487c3-c48b-4ded-808c-8e4cf9fee92e/app"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "speedtutor-clutch-pong",
+	"name": "SpeedTutor Clutch Pong",
+	"author": "SpeedTutor",
+	"description": "Example game from the WebGL uploading video here: https://youtu.be/c8BZJQvEq4g",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc9e1263-15dd-486c-821e-5debed8b7e71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e099a43-6a6b-4d0f-b342-6b757f7eb082/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e099a43-6a6b-4d0f-b342-6b757f7eb082",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e099a43-6a6b-4d0f-b342-6b757f7eb082/speedtutor-clutch-pong"
+}

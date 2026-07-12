@@ -1,0 +1,14 @@
+{
+	"id": "mylittlehorrorgame",
+	"name": "MyLittleHorrorGame",
+	"author": "vendaar",
+	"description": "little horror game I'm trying to make",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e8ea6d17-1c3b-40ca-85f6-96c146208a26/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/914d4e2d-1d05-492a-93f0-a07bca2e86f6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "914d4e2d-1d05-492a-93f0-a07bca2e86f6",
+	"unityPlayUrl": "https://play.unity.com/en/games/914d4e2d-1d05-492a-93f0-a07bca2e86f6/mylittlehorrorgame"
+}

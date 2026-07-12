@@ -1,0 +1,14 @@
+{
+	"id": "minecraft-run",
+	"name": "Minecraft run",
+	"author": "chubbywaddler",
+	"description": "My latest million-dollar game\n\nShare this game with all of your friends\n\nAnd subscribe to me on youtube\n\nhttps://www.youtube.com/channel/UCUt7EY8DN302CuVhBkeOfaA",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4840ac5a-ee3f-4ab0-8d2d-1f1dfa3a4496/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a7eb8206-fa5e-4d20-b900-b493f74b4fe8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a7eb8206-fa5e-4d20-b900-b493f74b4fe8",
+	"unityPlayUrl": "https://play.unity.com/en/games/a7eb8206-fa5e-4d20-b900-b493f74b4fe8/minecraft-run"
+}

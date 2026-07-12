@@ -1,0 +1,14 @@
+{
+	"id": "pinkart",
+	"name": "PINKART",
+	"author": "ChilliPapa",
+	"description": "Play PINKART on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a3b5860-341b-4190-9097-aad56eb4f5a2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a03d8439-2800-422e-90b7-ff9810465ede/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a03d8439-2800-422e-90b7-ff9810465ede",
+	"unityPlayUrl": "https://play.unity.com/en/games/a03d8439-2800-422e-90b7-ff9810465ede/pinkart"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "truck-crash",
+	"name": "Truck crash",
+	"author": "Techopanda",
+	"description": "Finally did it! Local multiplayer with oncoming cars. Struggled as player controllers were not working at first, but fixed by going to Edit > Project Settings > Player > Other Settings > Active Input Handling and switching option from \"Input System Package (New)\" to \"Both\".\n\nPlayer 1: WASD to move, F to toggle cam\nPlayer 2: Arrow keys to move, Right Shift tab to toggle cam",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de45e5ec-fd3f-4dc9-89f4-fbcecb73f3a9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f73e03a-408d-46b1-b9c9-e35936d7028d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f73e03a-408d-46b1-b9c9-e35936d7028d",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f73e03a-408d-46b1-b9c9-e35936d7028d/truck-crash"
+}

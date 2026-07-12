@@ -1,0 +1,14 @@
+{
+	"id": "terrain-game",
+	"name": "Terrain Game",
+	"author": "Twlilight",
+	"description": "WASD to move around. If you fall off the terrain, you can walk towards the flashing terrain and you should be teleported back.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d021fdb8-1353-40ec-9d0c-ee96a9bf0689/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d021fdb8-1353-40ec-9d0c-ee96a9bf0689",
+	"unityPlayUrl": "https://play.unity.com/en/games/d021fdb8-1353-40ec-9d0c-ee96a9bf0689/terrain-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "shooterv2",
+	"name": "shooterv2",
+	"author": "smd1234",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/832369c7-ab25-487c-8302-9be9fe36dc18/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/265c1845-6e4d-4f4f-9330-a6c108a911ed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "265c1845-6e4d-4f4f-9330-a6c108a911ed",
+	"unityPlayUrl": "https://play.unity.com/en/games/265c1845-6e4d-4f4f-9330-a6c108a911ed/shooterv2"
+}

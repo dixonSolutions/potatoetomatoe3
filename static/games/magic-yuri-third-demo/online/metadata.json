@@ -1,0 +1,14 @@
+{
+	"id": "magic-yuri-third-demo",
+	"name": "Magic Yuri - Third Demo",
+	"author": "YuHsiangChen",
+	"description": "AD : Movment\nW: Jump\nS: Drop\nLeft/Right Click: Fire\nShift + Left/Right : Switch Weapon",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9074436b-e448-43d7-b41a-a41b053ae556/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9074436b-e448-43d7-b41a-a41b053ae556",
+	"unityPlayUrl": "https://play.unity.com/en/games/9074436b-e448-43d7-b41a-a41b053ae556/magic-yuri-third-demo"
+}

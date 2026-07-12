@@ -1,0 +1,14 @@
+{
+	"id": "visual-scripting-tutorial-challenge",
+	"name": "Visual Scripting tutorial challenge",
+	"author": "LauraAvila",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/67c23dd3-c32f-4834-958e-0ebb3dd3d482/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/499fb546-1659-4d12-b2c5-d91918b5f47d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "499fb546-1659-4d12-b2c5-d91918b5f47d",
+	"unityPlayUrl": "https://play.unity.com/en/games/499fb546-1659-4d12-b2c5-d91918b5f47d/visual-scripting-tutorial-challenge"
+}

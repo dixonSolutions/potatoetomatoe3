@@ -1,0 +1,14 @@
+{
+	"id": "gamizign-instructors",
+	"name": "Gamizign Instructors",
+	"author": "zsmadi",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2f6c867f-c98c-4449-9e4e-25aa7478f52b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b6c319f-81cc-478b-ac15-2b9158434acf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5b6c319f-81cc-478b-ac15-2b9158434acf",
+	"unityPlayUrl": "https://play.unity.com/en/games/5b6c319f-81cc-478b-ac15-2b9158434acf/gamizign-instructors"
+}

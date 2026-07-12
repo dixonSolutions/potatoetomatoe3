@@ -1,0 +1,14 @@
+{
+	"id": "giga-blitz",
+	"name": "Giga Blitz",
+	"author": "Nukejolt",
+	"description": "Giga Blitz is a Kart game where you can complete laps, zoom down tracks, make epic jumps off of ramps, and much more! After you have mastered the tracks try and beat them in Speedrun Mode! Update 2 : Added some buildings to the track. Added a new track. Added Freestyle Mode.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dd9da06e-b3a8-41f4-8d19-1c3787f746e0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0682615b-e6bd-4556-8348-5b07642f117e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0682615b-e6bd-4556-8348-5b07642f117e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0682615b-e6bd-4556-8348-5b07642f117e/giga-blitz"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pixelland",
+	"name": "PixelLand",
+	"author": "midorikuma",
+	"description": "Play PixelLand on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e6717cc5-fc7e-4017-b15d-618c4c917ca8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/37458c61-084e-4934-adaa-5fbe84657c04/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "37458c61-084e-4934-adaa-5fbe84657c04",
+	"unityPlayUrl": "https://play.unity.com/en/games/37458c61-084e-4934-adaa-5fbe84657c04/pixelland"
+}

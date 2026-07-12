@@ -1,0 +1,14 @@
+{
+	"id": "battle-trucks-burnout",
+	"name": "Battle Trucks Burnout",
+	"author": "zamolxis",
+	"description": "Junior Programmer Pathway/Learn to Create with Code - Spring 2022 Unit 1 Project\n\nControls:\n- Player1 - red truck on the left: WASD, C to change camera\n- Player 2 - blue truck on the right: UpArrow,DownArrow,LeftArrow,RightArrow, Ctrl right (on the left side of the arrows) to change camera\n\nThe first truck to fall loses and the first truck to knock down the wall of barrels down the road wins.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2b97fbc3-29fc-4491-80fe-0493de49e21b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b359618-4825-49ef-ad46-26fbd211602e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2b359618-4825-49ef-ad46-26fbd211602e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2b359618-4825-49ef-ad46-26fbd211602e/battle-trucks-burnout"
+}

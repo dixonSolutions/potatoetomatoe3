@@ -1,0 +1,14 @@
+{
+	"id": "rescueone-lite",
+	"name": "RescueOne Lite",
+	"author": "CamperJohn",
+	"description": "Become the pilot of a rescue helicopter with realistic feel and controls.  Avoid hitting trees, buildings and other objects.\n\nComplete with missions, animations and cut-scenes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/83c6281e-fa8a-4236-8817-9514e2317c21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/66cb2ad4-3cfd-478a-969a-ee08e347ad52/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "66cb2ad4-3cfd-478a-969a-ee08e347ad52",
+	"unityPlayUrl": "https://play.unity.com/en/games/66cb2ad4-3cfd-478a-969a-ee08e347ad52/rescueone-lite"
+}

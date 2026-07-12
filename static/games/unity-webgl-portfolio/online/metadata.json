@@ -1,0 +1,14 @@
+{
+	"id": "unity-webgl-portfolio",
+	"name": "Unity WebGL Portfolio",
+	"author": "VZNZ",
+	"description": "NINE GEMS - Collect the nine black gems hidden in the labyrinth as quickly as possible.  Keypad to move/ Space to jump                                                          AR SLIME GHOST - Hit the slime ghost 3 times to win.  If they slime you hit the screen 5 times to clear. Use mouse for WebGL, or Android Phone gyroscope                                                                                                                         VR INVADERS - Shoot all the invaders as quickly as possible. T to shoot in WebGL, works best in Occulus Browser",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c25ec2d6-7f14-48e4-bab3-5b2e4b961315/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cbd7bb1-0c28-48de-86f9-d72dd5a748b1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cbd7bb1-0c28-48de-86f9-d72dd5a748b1",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cbd7bb1-0c28-48de-86f9-d72dd5a748b1/unity-webgl-portfolio"
+}

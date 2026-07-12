@@ -1,0 +1,14 @@
+{
+	"id": "pieces-of-me",
+	"name": "Pieces of Me",
+	"author": "SamuelHsu",
+	"description": "A chill sandbox game where you explore a world as a car robot. Can you make it to the top of the ramp to get the 2nd LEGO brick pickup? Customize your character with the color picker in the options menu! Original title soundtrack! I wanted to push the boundaries of the character controller to make a unique game about a character who changes and has to struggle and loses pieces of himself along the way. Custom player controls using RigidBodies and custom rigging and animation. The Unity Input System allows for controller support.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ddc6ce32-b84f-4a72-a45d-ec5fc694148d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9985ce72-4f15-4dfb-ae63-348441744395/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9985ce72-4f15-4dfb-ae63-348441744395",
+	"unityPlayUrl": "https://play.unity.com/en/games/9985ce72-4f15-4dfb-ae63-348441744395/pieces-of-me"
+}

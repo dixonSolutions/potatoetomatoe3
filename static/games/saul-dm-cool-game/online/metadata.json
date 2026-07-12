@@ -1,0 +1,14 @@
+{
+	"id": "saul-dm-cool-game",
+	"name": "Saul DM Cool Game",
+	"author": "NTes11",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e35e35a-f078-4111-8c2d-ba1cc88476e4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e35e35a-f078-4111-8c2d-ba1cc88476e4",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e35e35a-f078-4111-8c2d-ba1cc88476e4/saul-dm-cool-game"
+}

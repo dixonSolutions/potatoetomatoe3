@@ -1,0 +1,14 @@
+{
+	"id": "mx-game",
+	"name": "MX Game",
+	"author": "layman",
+	"description": "Now with ghost and set back due to off-track.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/44eac9f7-d2f6-4c77-9988-a33c78ea2248/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62609b53-3dac-43c8-bdde-4b6b3fcbc3e4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62609b53-3dac-43c8-bdde-4b6b3fcbc3e4",
+	"unityPlayUrl": "https://play.unity.com/en/games/62609b53-3dac-43c8-bdde-4b6b3fcbc3e4/mx-game"
+}

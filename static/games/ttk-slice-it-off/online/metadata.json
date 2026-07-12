@@ -1,0 +1,14 @@
+{
+	"id": "ttk-slice-it-off",
+	"name": "TTK - Slice It Off",
+	"author": "kabirjuneja",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05f7f02c-8d2b-4b9e-9c4c-159fa0c23ef2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05f7f02c-8d2b-4b9e-9c4c-159fa0c23ef2",
+	"unityPlayUrl": "https://play.unity.com/en/games/05f7f02c-8d2b-4b9e-9c4c-159fa0c23ef2/ttk-slice-it-off"
+}

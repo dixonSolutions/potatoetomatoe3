@@ -1,0 +1,14 @@
+{
+	"id": "fps-in-space",
+	"name": "FPS in space",
+	"author": "Techopanda",
+	"description": "Shoot weird robots in space! Made with FPS microgame tutorial and game jam, used city buildings assets. WASD to move, click to shoot, scroll mouse wheel to switch weapon, space to jetpack, play with music!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6855c962-c7cc-44e4-9899-47aa1dcb2687/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f584454-9056-4882-bdba-f3636e9c8238/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f584454-9056-4882-bdba-f3636e9c8238",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f584454-9056-4882-bdba-f3636e9c8238/fps-in-space"
+}

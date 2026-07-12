@@ -1,0 +1,14 @@
+{
+	"id": "glub",
+	"name": "Glub",
+	"author": "Unity Play",
+	"description": "1. English\n2. French\n\n----- 1. English -----\n\nEnd-of-studies project on Unity (3WAcademy 2021, session 09, during the health crisis).\n\nCompletion time: 1.5 months.\n\nThis project is designed for Cross Platform: you can play it on mobile, WebGL or PC.\n\nThis game is a Casual and Arcade game for 7 year olds. The player controls Glub who has to hit cubes to get stars.\n\nThe movements are done in 2D on a finite dimension board. The view is in 3D, centered on Glub and the camera follows the position of the character.\n\nCubes fall from the sky at random positions and at regular intervals. They roll away from the board. Collecting cubes earns points.\n\nA level lasts 30 seconds. An alarm clock that extends the time drops 5 seconds before the end of the countdown; collecting it moves to the next level and the timer restarts.\n\nFailure rules: when Glub leaves the board or when the countdown is at 0.\n\nA number of levels have been created offering various challenges.\n\nBest score is saved.\n\nThe user inputs are real time, i.e. you can for example play on a touch terminal and switch to keyboard-mouse or joystick control without interruption. The mobile control is inspired by Sky made by That Game Company.\n\nThe project is subject to Responsive Design: on mobile in particular, the game supports portrait or landscape orientations, which influences the gameplay (portrait: 1 finger and move, landscape: 2 fingers and move and rotate camera) and the display of data on the screen (position of elements, dimensions ...).\n\nBonuses to be collected according to the score levels obtained are planned, but it is not realized at this time. I focused on the core of the game.\n\nOn the development side, this Unity project includes the Universal Render Pipeline, the new InputSystem, Singletons, ScriptableObjects and Unity Events. All scripts have a custom display by EditorScripting (I had to recreate the FlexBox CSS behavior).\n\nThe UI animations still have some bugs and I'm not satisfied by the architecture ",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ea8f807-e8a8-4016-990a-f7f79010ab40/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cdd9709d-ce08-46ba-a9b7-9a29f0345a92/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cdd9709d-ce08-46ba-a9b7-9a29f0345a92",
+	"unityPlayUrl": "https://play.unity.com/en/games/cdd9709d-ce08-46ba-a9b7-9a29f0345a92/glub"
+}

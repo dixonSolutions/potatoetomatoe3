@@ -1,0 +1,14 @@
+{
+	"id": "unity-learn-code-built",
+	"name": "Unity Learn Code Built",
+	"author": "DylanMorganUnity",
+	"description": "Play Unity Learn Code Built on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/93d486f9-e7b7-48f0-b785-cf5dde284e3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "93d486f9-e7b7-48f0-b785-cf5dde284e3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/93d486f9-e7b7-48f0-b785-cf5dde284e3d/unity-learn-code-built"
+}

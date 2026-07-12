@@ -1,0 +1,14 @@
+{
+	"id": "2d-roguelike-extended-version",
+	"name": "2D Roguelike | Extended Version",
+	"author": "Unity Play",
+	"description": "An extended version of the Create a 2D Roguelike Game on Unity Learn, which adds a menu, more levels, a stat system, better graphics, and more!\n\nHow to play:\nUse Arrow Keys to move and attack",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0870b673-492b-40a1-b33e-719d931cebcd/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7cea0fd4-1d35-4fc6-87cf-a5470de5a450/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7cea0fd4-1d35-4fc6-87cf-a5470de5a450",
+	"unityPlayUrl": "https://play.unity.com/en/games/7cea0fd4-1d35-4fc6-87cf-a5470de5a450/2d-roguelike-extended-version"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pigeon",
+	"name": "Pigeon",
+	"author": "HoodlesYT",
+	"description": "A Game About Pigeon Defiantly Not Just A Microgame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e727726-85a9-4528-b57b-91217c89d609/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4294246e-0756-4611-986c-03b9a9b7cb30/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4294246e-0756-4611-986c-03b9a9b7cb30",
+	"unityPlayUrl": "https://play.unity.com/en/games/4294246e-0756-4611-986c-03b9a9b7cb30/pigeon"
+}

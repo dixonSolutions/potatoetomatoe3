@@ -1,0 +1,14 @@
+{
+	"id": "break-tiles",
+	"name": "Break Tiles",
+	"author": "Elw",
+	"description": "Break the red tiles to win the game! Move the paddle with the mouse or by touch. The ball is released on mouse up or touch up.\n\nNote, that playing on a phone the phone needs to be horizontal. You do not need to touch the paddle to move it!\n\nThis is work in progress. So far no thrills, no frills.\n\nKnown issues:\n- The sound cut off each other\n- The ball can roll along the upper edge of the play area.\n- When the ball just misses a tile it can produce a false \"hit\" sound\n\nVersions:\n- 0.0 16.7.2024 MVP\n- 0.1  17.7.2024 Sound effects on ball bounce\n- 0.2 18.7.2024 Added support for mobile input\n- 0.3 18.7.2024 Mobile input support\n- 0.4 18.7.2024 Version shown in screen. Ball released on mouse up & touch up at the game start\n- 0.5 19.7.2024 Fixed bounce bugs. There's still a few weird behaviours.\n- 0.6 20.7.2024 Initial fix for different  resolutions. Playable at least on the iPad/iPhone that I tested.\n- 0.7 20.7.2024 Misc. fixes. Constricting paddle movement to a bit outside the game field. Release  version to LinkedIn.\n- 0.8 22.7.2024  Added particle system to tile break. Not sure if this is better or not. Needs at least tweaking.\n- 0.9 22.7.2024 Made the paddle a bit thicker and moved it up to help play on the phone. Fixed bounce bugs. The ball should not get stuck anymore in back and forth bounces. Please report if it does.\n- 0.10 22.7.2024 Added endgame sounds.\n- 0.11 28.7.2024 Added tiles that need more than one hit to break\n- 0.12 30.7.2024 Three game levels\n- 0.12 2.8.2024 Fixed balls not breaking",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/db4595b1-37a2-4c58-934d-252964eade12/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c7aa211-9ba4-42bf-8d7a-a18e9f7fb9e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c7aa211-9ba4-42bf-8d7a-a18e9f7fb9e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c7aa211-9ba4-42bf-8d7a-a18e9f7fb9e3/break-tiles"
+}

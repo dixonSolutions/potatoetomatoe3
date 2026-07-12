@@ -1,0 +1,14 @@
+{
+	"id": "slider-bros",
+	"name": "Slider Bros",
+	"author": "OwynBuddy",
+	"description": "Slide down a slope as a penguin! Avoid obstacles to stay alive. Travel 6 different biomes with unique enemies. Try to reach the final area. Slide alone or together. Game is finished, no more updates.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f49917bf-0fd5-48f5-85be-7772f09fffd9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bec2403b-345e-4e3d-8456-2bf3266245bf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bec2403b-345e-4e3d-8456-2bf3266245bf",
+	"unityPlayUrl": "https://play.unity.com/en/games/bec2403b-345e-4e3d-8456-2bf3266245bf/slider-bros"
+}

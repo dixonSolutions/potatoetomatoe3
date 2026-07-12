@@ -1,0 +1,14 @@
+{
+	"id": "lego-gear-solid-cargo-dock",
+	"name": "LEGO GEAR SOLID - Cargo Dock",
+	"author": "PeraStation",
+	"description": "My first Unity microgame, clearly inspired by the popular stealth action game we all know and love.\nI was just having a little fun with this project, it's missing a lot of features, plus there are many bugs that I couldn't bother fixing.\n\nEverything was created with LEGO Microgame (template/foundation),\nLEGO Behaviour Bricks (logic) \nand BrickLink Studio (LEGO modeling). \nThe underwater effect was created with SineWave Effect by Justin Garza (available on the Asset Store).\n\n- Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b4498430-8fa4-4e82-baf8-8e0f5b600838/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/750ea182-f4ee-404a-a1e6-589c1d871fe0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "750ea182-f4ee-404a-a1e6-589c1d871fe0",
+	"unityPlayUrl": "https://play.unity.com/en/games/750ea182-f4ee-404a-a1e6-589c1d871fe0/lego-gear-solid-cargo-dock"
+}

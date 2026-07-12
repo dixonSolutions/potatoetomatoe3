@@ -1,0 +1,14 @@
+{
+	"id": "project-annihilation",
+	"name": "Project Annihilation",
+	"author": "Incognito08",
+	"description": "The year is 2600, and the government has sent out over 250 droids to explore different planets. Upon landing on Taielius 82, you receive orders to terminate all located life. Will your state-of-the-art armor prevail or will you succumb to the might of the Goblins?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fddd539c-b0a0-4432-9664-7dee133c11f7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/30dc51f8-a95f-4e9f-8f87-284458331314/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "30dc51f8-a95f-4e9f-8f87-284458331314",
+	"unityPlayUrl": "https://play.unity.com/en/games/30dc51f8-a95f-4e9f-8f87-284458331314/project-annihilation"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "virtual-runner",
+	"name": "Virtual Runner",
+	"author": "Bharathunityengine",
+	"description": "My First 2D Game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d40be577-47b6-45bc-8ad8-a44702dc6b75/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06183f14-3921-4b63-9b66-f0b2be72b2b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06183f14-3921-4b63-9b66-f0b2be72b2b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/06183f14-3921-4b63-9b66-f0b2be72b2b7/virtual-runner"
+}

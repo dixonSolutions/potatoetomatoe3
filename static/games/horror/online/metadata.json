@@ -1,0 +1,14 @@
+{
+	"id": "horror",
+	"name": "HORROR",
+	"author": "olegaleksandrovic760",
+	"description": "BOO",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a2f92a81-247c-4212-94b5-dcc057dcd05b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15eb4c9c-de18-4236-816f-42b572e43387/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15eb4c9c-de18-4236-816f-42b572e43387",
+	"unityPlayUrl": "https://play.unity.com/en/games/15eb4c9c-de18-4236-816f-42b572e43387/horror"
+}

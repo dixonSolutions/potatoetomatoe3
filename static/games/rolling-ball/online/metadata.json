@@ -1,0 +1,14 @@
+{
+	"id": "rolling-ball",
+	"name": "Rolling ball",
+	"author": "Goood_Morning",
+	"description": "My first microgame with unity essentials",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3194ad60-f49b-4101-b0fb-aa97c152d780/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67244f07-5423-47b0-8603-397e6bd7e606/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67244f07-5423-47b0-8603-397e6bd7e606",
+	"unityPlayUrl": "https://play.unity.com/en/games/67244f07-5423-47b0-8603-397e6bd7e606/rolling-ball"
+}

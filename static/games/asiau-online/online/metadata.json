@@ -1,0 +1,14 @@
+{
+	"id": "asiau-online",
+	"name": "AsiaU-online",
+	"author": "CageHou",
+	"description": "Play AsiaU-online on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f35b3712-606e-433a-a599-300dc7b66ae4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1136a6ad-f287-418c-a681-b152b788d26b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1136a6ad-f287-418c-a681-b152b788d26b",
+	"unityPlayUrl": "https://play.unity.com/en/games/1136a6ad-f287-418c-a681-b152b788d26b/asiau-online"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mod-the-cube-final-build",
+	"name": "Mod the Cube final build",
+	"author": "DenDiTZ",
+	"description": "This is the mod the cube tutorial project",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f46db7e-cd70-4620-9b67-fff75c879dc6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f46db7e-cd70-4620-9b67-fff75c879dc6",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f46db7e-cd70-4620-9b67-fff75c879dc6/mod-the-cube-final-build"
+}

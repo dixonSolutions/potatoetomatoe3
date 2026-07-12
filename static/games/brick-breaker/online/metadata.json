@@ -1,8 +1,14 @@
 {
-  "id": "brick-breaker",
-  "name": "Brick Breaker",
-  "author": "Poki",
-  "description": "Showcase your Arkanoid skills in Brick Breaker! Move the paddle left and right to keep the ball in play. You must react quickly to hit the ball as it bounces on every wall. The goal is to clear every brick!",
-  "thumbnail": "/games/brick-breaker/online/assets/brick-breaker.png",
-  "category": "action"
+	"id": "brick-breaker",
+	"name": "Brick Breaker",
+	"author": "olsenbt",
+	"description": "A remake of the classic game \"Breakout\". Hit blocks in succession to spark combos in order to get high scores. Unlock new themes that change the look and feel of the game.\nControls:\n- Use a mouse to control the paddle",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ae8659b4-7c17-4715-a725-e5060c16a202/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/191d5998-3a15-4c90-867e-9827ce2c7db3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "191d5998-3a15-4c90-867e-9827ce2c7db3",
+	"unityPlayUrl": "https://play.unity.com/en/games/191d5998-3a15-4c90-867e-9827ce2c7db3/brick-breaker"
 }

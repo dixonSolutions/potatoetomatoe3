@@ -1,0 +1,14 @@
+{
+	"id": "mod-the-cube-challenge",
+	"name": "Mod The Cube Challenge",
+	"author": "robertsoron",
+	"description": "Mod the Cube Challenge",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7f2e0256-77b3-441c-9aa6-6972630ba815/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7f2e0256-77b3-441c-9aa6-6972630ba815",
+	"unityPlayUrl": "https://play.unity.com/en/games/7f2e0256-77b3-441c-9aa6-6972630ba815/mod-the-cube-challenge"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "breakout-3d",
+	"name": "Breakout 3D",
+	"author": "MaxDriessen",
+	"description": "3D Breakout game created for the Computer Graphics and Computer Vision course.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f5a88637-06c0-4a0a-bb78-2bf12c261700/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d8b28fa8-b3ab-494c-a146-19331912af9d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d8b28fa8-b3ab-494c-a146-19331912af9d",
+	"unityPlayUrl": "https://play.unity.com/en/games/d8b28fa8-b3ab-494c-a146-19331912af9d/breakout-3d"
+}

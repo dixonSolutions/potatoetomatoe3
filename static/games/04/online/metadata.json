@@ -1,0 +1,14 @@
+{
+	"id": "04",
+	"name": "0.4",
+	"author": "unity_AkGames",
+	"description": "Play 0.4 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1483dd2b-4fca-4aad-96c7-33af9490c834/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4cff1368-9827-491f-9f44-a31d7e105352/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4cff1368-9827-491f-9f44-a31d7e105352",
+	"unityPlayUrl": "https://play.unity.com/en/games/4cff1368-9827-491f-9f44-a31d7e105352/04"
+}

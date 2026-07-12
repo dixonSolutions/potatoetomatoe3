@@ -1,0 +1,14 @@
+{
+	"id": "journey-to-arm-devsummit",
+	"name": "Journey to Arm DevSummit",
+	"author": "GabrielDPeterson",
+	"description": "Arm DevSummit is starting soon! Quick, fly your rocket across nine uniquely designed levels and arrive at the virtual event in style before the opening keynote starts!\n\nIf you need help: C toggles invincibility mode and L skips to the next level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/765541ff-0c00-4ad8-86e6-a298a492446a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2240cbbe-7d7e-4afe-baf7-79982f819e1d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2240cbbe-7d7e-4afe-baf7-79982f819e1d",
+	"unityPlayUrl": "https://play.unity.com/en/games/2240cbbe-7d7e-4afe-baf7-79982f819e1d/journey-to-arm-devsummit"
+}

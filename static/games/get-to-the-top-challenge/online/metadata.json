@@ -1,0 +1,14 @@
+{
+	"id": "get-to-the-top-challenge",
+	"name": "GET TO THE TOP CHALLENGE!!!",
+	"author": "eriko480",
+	"description": "WASD to move, Space to jump. Get to the top! The gray poles are checkpoints. Feedback is appreciated.                                                                                                                           Version 1.2 (Checkpoint added on level 2 and both checkpoints optimized).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/15f6c6a0-d614-4fcd-9df2-2f86f0eba8cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/31958d35-4ce7-4905-8d0e-df4704dd2516/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "31958d35-4ce7-4905-8d0e-df4704dd2516",
+	"unityPlayUrl": "https://play.unity.com/en/games/31958d35-4ce7-4905-8d0e-df4704dd2516/get-to-the-top-challenge"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ahr-web-app",
+	"name": "AHR WEB app",
+	"author": "AHRStudio",
+	"description": "Simulacion de incendio y Sismo.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15cb633e-4236-4bee-883b-b5a8f56aafc0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15cb633e-4236-4bee-883b-b5a8f56aafc0",
+	"unityPlayUrl": "https://play.unity.com/en/games/15cb633e-4236-4bee-883b-b5a8f56aafc0/ahr-web-app"
+}

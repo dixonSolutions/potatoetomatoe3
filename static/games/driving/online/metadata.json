@@ -1,0 +1,14 @@
+{
+	"id": "driving",
+	"name": "Driving+",
+	"author": "MemeMachine90",
+	"description": "Same driving but new features, check them out.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/af9e869a-53b2-4d40-9f25-410e3f4f1eb3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d9cc7cc-843f-4ca2-9157-1ab32956fa4d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d9cc7cc-843f-4ca2-9157-1ab32956fa4d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d9cc7cc-843f-4ca2-9157-1ab32956fa4d/driving"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "red-game-1",
+	"name": "Red Game 1",
+	"author": "Chuypistolas",
+	"description": "Priemer",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d433b1cd-4f32-4806-8b29-06ba95e1c8b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0477941d-08f1-41c6-a777-2124e0e0219d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0477941d-08f1-41c6-a777-2124e0e0219d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0477941d-08f1-41c6-a777-2124e0e0219d/red-game-1"
+}

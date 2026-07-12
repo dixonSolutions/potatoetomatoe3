@@ -1,0 +1,14 @@
+{
+	"id": "best-fps-game",
+	"name": "Best FPS game!",
+	"author": "Zflex092",
+	"description": "try it",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e89ded05-961c-44ca-be79-540a84f6a878/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e89ded05-961c-44ca-be79-540a84f6a878",
+	"unityPlayUrl": "https://play.unity.com/en/games/e89ded05-961c-44ca-be79-540a84f6a878/best-fps-game"
+}

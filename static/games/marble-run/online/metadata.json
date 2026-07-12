@@ -1,0 +1,14 @@
+{
+	"id": "marble-run",
+	"name": "Marble Run",
+	"author": "DinoDragon09",
+	"description": "Made as part of the 'Foundations of Real-Time 3D' tutorial.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b259f26f-5af5-4abb-9ca7-7ea84a1c099f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b259f26f-5af5-4abb-9ca7-7ea84a1c099f",
+	"unityPlayUrl": "https://play.unity.com/en/games/b259f26f-5af5-4abb-9ca7-7ea84a1c099f/marble-run"
+}

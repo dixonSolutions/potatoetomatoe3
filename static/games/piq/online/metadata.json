@@ -1,0 +1,14 @@
+{
+	"id": "piq",
+	"name": "p_I_q",
+	"author": "on9ks301995",
+	"description": "Play p_I_q on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4bbd4d81-600c-4e04-8feb-7f798491b855/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4bbd4d81-600c-4e04-8feb-7f798491b855",
+	"unityPlayUrl": "https://play.unity.com/en/games/4bbd4d81-600c-4e04-8feb-7f798491b855/piq"
+}

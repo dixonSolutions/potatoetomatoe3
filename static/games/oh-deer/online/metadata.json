@@ -1,0 +1,14 @@
+{
+	"id": "oh-deer",
+	"name": "Oh deer",
+	"author": "Techopanda",
+	"description": "Coded to shoot pizzas to feed the animals and fill their hunger bars! Randomly spawning animals at random times in a few directions. WASD to move, space to shoot pizzas.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/932d4a75-0063-4231-a5b2-fd505fe357dd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c90abd05-f7e3-48a5-8a51-4243ec9e39dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c90abd05-f7e3-48a5-8a51-4243ec9e39dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/c90abd05-f7e3-48a5-8a51-4243ec9e39dc/oh-deer"
+}

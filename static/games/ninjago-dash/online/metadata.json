@@ -1,0 +1,14 @@
+{
+	"id": "ninjago-dash",
+	"name": "NINJAGO: Dash",
+	"author": "Leslie-Young",
+	"description": "Find your inner ninja rhythm and dash to a high score! Include fan favourite songs like DJ Brick's Party Mix and Knights of the Round Brick.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/169b15f0-dd6a-449e-90ba-c641272fa66b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68544fe9-901a-470a-beb3-309bdb19c31a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68544fe9-901a-470a-beb3-309bdb19c31a",
+	"unityPlayUrl": "https://play.unity.com/en/games/68544fe9-901a-470a-beb3-309bdb19c31a/ninjago-dash"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "a-penguins-adventure",
+	"name": "A Penguin's Adventure",
+	"author": "s745296457",
+	"description": "CSCI526-Cinnamoroll team project",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1c0af25c-8231-436c-887e-53585ea81fd5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1c0af25c-8231-436c-887e-53585ea81fd5",
+	"unityPlayUrl": "https://play.unity.com/en/games/1c0af25c-8231-436c-887e-53585ea81fd5/a-penguins-adventure"
+}

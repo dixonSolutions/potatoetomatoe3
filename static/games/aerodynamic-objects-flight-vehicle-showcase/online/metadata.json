@@ -1,0 +1,14 @@
+{
+	"id": "aerodynamic-objects-flight-vehicle-showcase",
+	"name": "Aerodynamic Objects Flight Vehicle Showcase",
+	"author": "billcrowther",
+	"description": "Try out a hang glider, transport aircraft, helicopter, airship, Wright Flyer or quadcopter built using Aerodynamic Objects. The source code for all these models is provided as part of the AO core package",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/66ba1a89-f4e4-4887-bac4-fea14768c898/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28226a06-29c0-4fd8-b89c-46a7a187dc41/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28226a06-29c0-4fd8-b89c-46a7a187dc41",
+	"unityPlayUrl": "https://play.unity.com/en/games/28226a06-29c0-4fd8-b89c-46a7a187dc41/aerodynamic-objects-flight-vehicle-showcase"
+}

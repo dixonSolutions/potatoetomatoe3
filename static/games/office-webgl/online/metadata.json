@@ -1,0 +1,14 @@
+{
+	"id": "office-webgl",
+	"name": "Office WebGL",
+	"author": "AkidoAkeem",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9a525b4d-e6ea-4360-8cbc-01fbc30806d1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/078fd2b6-e4a4-4dac-b78f-74a78a80a3e9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "078fd2b6-e4a4-4dac-b78f-74a78a80a3e9",
+	"unityPlayUrl": "https://play.unity.com/en/games/078fd2b6-e4a4-4dac-b78f-74a78a80a3e9/office-webgl"
+}

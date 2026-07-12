@@ -1,0 +1,14 @@
+{
+	"id": "2ddemo",
+	"name": "2D\u6a2a\u7248\u79fb\u52a8\u5e73\u53f0\u6e38\u620fDemo\u8bd5\u73a9",
+	"author": "mwang33",
+	"description": "\u5b98\u65b9\u8ba4\u8bc1\u8bfe\u7a0b\u300aCreate & Monetize 2D Mobile Game\u300b\u8bd5\u73a9\u9879\u76ee\u3002\u64cd\u4f5c\u65b9\u6cd5\uff1a\u4f7f\u7528\u201cWASD\u201d\u6216 \u65b9\u5411\u952e \u6765\u63a7\u5236\u79fb\u52a8\uff0c\u6309\u952e\u76d8\u201cJ\u201d\u6765\u91ca\u653e\u70b8\u5f39\uff0c\u6309\u201c\u7a7a\u683c\u201d\u8df3\u8dc3\u3002\u7531\u4e8e\u662f\u79fb\u52a8\u5e73\u53f0\u7684\u6e38\u620f\u9879\u76ee\uff0c\u6240\u4ee5\u65e0\u6cd5\u5728WebGL\u5e73\u53f0\u64ad\u653e Unity Ads \u5e7f\u544a\u3002\u5982\u679c\u4f60\u4e5f\u60f3\u5b66\u4e60\u8fd9\u4e2a\u6e38\u620f\u9879\u76ee\uff0c\u8bf7\u8bbf\u95ee\uff1ahttps://learn.u3d.cn/tutorial/2d-mobile-mstudio",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/323bbb76-acc7-4fba-b760-7a37eae3a591/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e4cb891-69d6-4eff-af16-1e8c451e4ebc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e4cb891-69d6-4eff-af16-1e8c451e4ebc",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e4cb891-69d6-4eff-af16-1e8c451e4ebc/2ddemo"
+}

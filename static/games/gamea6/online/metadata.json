@@ -1,0 +1,14 @@
+{
+	"id": "gamea6",
+	"name": "GameA6",
+	"author": "Bask_",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/91965c60-6206-46d5-86d9-3f8962b28da7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a92a7b5-59ff-47f4-a967-ea825daeece5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a92a7b5-59ff-47f4-a967-ea825daeece5",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a92a7b5-59ff-47f4-a967-ea825daeece5/gamea6"
+}

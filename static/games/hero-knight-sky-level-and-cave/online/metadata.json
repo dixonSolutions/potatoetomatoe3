@@ -1,0 +1,14 @@
+{
+	"id": "hero-knight-sky-level-and-cave",
+	"name": "Hero Knight - Sky Level and Cave",
+	"author": "PeterRaeder",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0c2ef5f8-da7d-4898-8a56-e64ca04b9f6d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b712566-cdbd-4cc3-a55d-ea3a2de21623/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2b712566-cdbd-4cc3-a55d-ea3a2de21623",
+	"unityPlayUrl": "https://play.unity.com/en/games/2b712566-cdbd-4cc3-a55d-ea3a2de21623/hero-knight-sky-level-and-cave"
+}

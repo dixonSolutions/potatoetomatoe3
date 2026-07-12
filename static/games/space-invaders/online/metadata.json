@@ -1,0 +1,14 @@
+{
+	"id": "space-invaders",
+	"name": "Space Invaders",
+	"author": "ROSSO_GAMES",
+	"description": "https://github.com/Hazard103508/Sample-Game-SpaceInvader",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/259f9e3a-5035-4d52-aa89-0e194026c77a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a1d544a-2790-4bfd-ba2d-8f3b591c5305/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a1d544a-2790-4bfd-ba2d-8f3b591c5305",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a1d544a-2790-4bfd-ba2d-8f3b591c5305/space-invaders"
+}

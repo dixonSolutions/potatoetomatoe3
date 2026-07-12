@@ -1,0 +1,14 @@
+{
+	"id": "hungrydragonupdate",
+	"name": "HungryDragonUpdate",
+	"author": "tlskxxp",
+	"description": "WASD to move get to the sheep to win!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d5912bfc-e2b1-481e-8839-888be7c869c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04d2f70e-ad61-4303-ac2a-2c2f5daade17/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04d2f70e-ad61-4303-ac2a-2c2f5daade17",
+	"unityPlayUrl": "https://play.unity.com/en/games/04d2f70e-ad61-4303-ac2a-2c2f5daade17/hungrydragonupdate"
+}

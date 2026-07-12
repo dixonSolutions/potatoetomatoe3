@@ -1,0 +1,14 @@
+{
+	"id": "dino-hunter",
+	"name": "Dino Hunter",
+	"author": "Black_Box_Games",
+	"description": "The internet is back up! Now someone just needs to hunt down all of the Dinos...\n\nControls are:\nLeft Arrow -> Move Left\nRight Arrow -> Move Right\nUp Arrow -> Jump\nSpace -> Shoot\n\n(20230317)\n \t- Pterodactyls\n\t- Sound Effects\n\t- Music\n\t- Ground Issue Patched\n\n(20230318)\n \t- Game Controls added to death screen\n\t- Fixed glitchy Dino turn around",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bde0ddf9-7956-4673-bed5-06af3e018e06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ad0c5ecf-4db0-4902-a58a-ae2f549d982d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ad0c5ecf-4db0-4902-a58a-ae2f549d982d",
+	"unityPlayUrl": "https://play.unity.com/en/games/ad0c5ecf-4db0-4902-a58a-ae2f549d982d/dino-hunter"
+}

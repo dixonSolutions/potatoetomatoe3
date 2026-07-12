@@ -1,0 +1,14 @@
+{
+	"id": "fps-shooter-improved",
+	"name": "fps shooter improved",
+	"author": "sudyutdas07",
+	"description": "Play fps shooter improved on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/46a2c3b6-1128-4ac0-b4bd-872918511545/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29b045f9-d4fd-4f2d-baa2-78c0ec9c0a8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29b045f9-d4fd-4f2d-baa2-78c0ec9c0a8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/29b045f9-d4fd-4f2d-baa2-78c0ec9c0a8c/fps-shooter-improved"
+}

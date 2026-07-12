@@ -1,0 +1,14 @@
+{
+	"id": "game",
+	"name": "Game",
+	"author": "unity_Tp4tbWvqYj107w",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4725ed58-f481-47d0-8b27-2278572055d6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4725ed58-f481-47d0-8b27-2278572055d6",
+	"unityPlayUrl": "https://play.unity.com/en/games/4725ed58-f481-47d0-8b27-2278572055d6/game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "death-cave",
+	"name": "Death Cave",
+	"author": "Younes_B",
+	"description": "You play as an adventurer who heard about a valuable treasure hidden in a cave... the \"Death Cave\". Can you face all the challenges the cave throws at you? Will you acquire the protected treasure?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/573a59b0-5322-471d-9285-a07ce1e19c4f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48e1ba90-0c8f-4da1-9698-b69ad9401979/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48e1ba90-0c8f-4da1-9698-b69ad9401979",
+	"unityPlayUrl": "https://play.unity.com/en/games/48e1ba90-0c8f-4da1-9698-b69ad9401979/death-cave"
+}

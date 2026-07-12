@@ -1,0 +1,14 @@
+{
+	"id": "craziest-cattle",
+	"name": "Craziest Cattle",
+	"author": "Yurteo",
+	"description": "A game based of the game of the year, CrazyCattle3D",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d28e4e6-98a1-463f-97da-26c5d1d1e375/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d28e4e6-98a1-463f-97da-26c5d1d1e375",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d28e4e6-98a1-463f-97da-26c5d1d1e375/craziest-cattle"
+}

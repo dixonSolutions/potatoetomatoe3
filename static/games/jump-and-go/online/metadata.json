@@ -1,0 +1,14 @@
+{
+	"id": "jump-and-go",
+	"name": "Jump and Go",
+	"author": "amit_unity849",
+	"description": "Added the Gameover screen and the restart button",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bfc6170b-91d6-4d5d-8093-ae363de13b78/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0baf2c5a-bff9-47d0-8038-5a07354f50b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0baf2c5a-bff9-47d0-8038-5a07354f50b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0baf2c5a-bff9-47d0-8038-5a07354f50b8/jump-and-go"
+}

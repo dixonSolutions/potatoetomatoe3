@@ -1,0 +1,14 @@
+{
+	"id": "car-game-with-modified-menu",
+	"name": "Car game with modified menu",
+	"author": "ArunSV",
+	"description": "New version of my Car game prototype. Changes are modified menu button camera switch between external camera and dash board camera. Next planning to include animated driver inside the car.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/33a858a4-4a1d-4a94-93bc-355420523d76/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/767ea156-8087-4f5b-b8c2-2d63348513cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "767ea156-8087-4f5b-b8c2-2d63348513cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/767ea156-8087-4f5b-b8c2-2d63348513cb/car-game-with-modified-menu"
+}

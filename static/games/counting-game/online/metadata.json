@@ -1,0 +1,14 @@
+{
+	"id": "counting-game",
+	"name": "Counting Game",
+	"author": "Snehashiju",
+	"description": "Use Buttons For Movements and touch for rotation.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0483ded3-ec44-48fb-a2e2-9b20d6c83f04/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0483ded3-ec44-48fb-a2e2-9b20d6c83f04",
+	"unityPlayUrl": "https://play.unity.com/en/games/0483ded3-ec44-48fb-a2e2-9b20d6c83f04/counting-game"
+}

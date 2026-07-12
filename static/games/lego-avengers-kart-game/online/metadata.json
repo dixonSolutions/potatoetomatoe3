@@ -1,0 +1,14 @@
+{
+	"id": "lego-avengers-kart-game",
+	"name": "Lego Avengers Kart Game",
+	"author": "paulyanez",
+	"description": "The game is a fast paced thrill ride for those who play it. The game features the entire Marvel family of characters.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fa473b21-65bb-4fb8-bb5c-7235eb7c4ea6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/65c2c90a-0b54-4948-bb42-ce2b716826eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "65c2c90a-0b54-4948-bb42-ce2b716826eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/65c2c90a-0b54-4948-bb42-ce2b716826eb/lego-avengers-kart-game"
+}

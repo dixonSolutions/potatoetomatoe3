@@ -1,0 +1,14 @@
+{
+	"id": "juan-camacho-portfolio",
+	"name": "Juan Camacho Portfolio",
+	"author": "jcamacho249",
+	"description": "My interactive portfolio of video games I've worked on",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/363792b0-19e7-45b3-9e54-b20a3b7d3649/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/140c7a7d-4407-4eb5-9462-8578a3601707/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "140c7a7d-4407-4eb5-9462-8578a3601707",
+	"unityPlayUrl": "https://play.unity.com/en/games/140c7a7d-4407-4eb5-9462-8578a3601707/juan-camacho-portfolio"
+}

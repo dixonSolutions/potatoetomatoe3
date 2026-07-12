@@ -1,0 +1,14 @@
+{
+	"id": "bluethegame",
+	"name": "Blue_TheGame",
+	"author": "Pixel8tedPotato",
+	"description": "The third Game I have made in Unity. I was just messing around with shapes and this game was made so there is not really a game loop or anything so just have some fun and mess around.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/345c5d39-c50a-4b93-8c10-1b43e8634cfe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7e74f1e4-5bca-41c9-8cf0-cbb4a60d146b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7e74f1e4-5bca-41c9-8cf0-cbb4a60d146b",
+	"unityPlayUrl": "https://play.unity.com/en/games/7e74f1e4-5bca-41c9-8cf0-cbb4a60d146b/bluethegame"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tumbletrash",
+	"name": "TumbleTrash!",
+	"author": "matthew_gigante",
+	"description": "Play as a roomba-like robot tasked with cleaning up trash.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/421d53bb-1f15-4c38-b0db-914b9c76ca42/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48b25ef8-5608-4a20-a29b-ed5f2db89798/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48b25ef8-5608-4a20-a29b-ed5f2db89798",
+	"unityPlayUrl": "https://play.unity.com/en/games/48b25ef8-5608-4a20-a29b-ed5f2db89798/tumbletrash"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "game-3",
+	"name": "game 3",
+	"author": "BadCatGameStudios",
+	"description": "Play game 3 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/004a3bc7-4516-4d15-b6d3-f7d06f42b15b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "004a3bc7-4516-4d15-b6d3-f7d06f42b15b",
+	"unityPlayUrl": "https://play.unity.com/en/games/004a3bc7-4516-4d15-b6d3-f7d06f42b15b/game-3"
+}

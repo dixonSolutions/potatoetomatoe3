@@ -1,0 +1,14 @@
+{
+	"id": "poc-showroom",
+	"name": "POC Showroom",
+	"author": "POCShowroom",
+	"description": "POC Showroom",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8493d04a-c2d6-4f05-8b0d-6e0aa24f7b75/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c3a04ad-7e42-4bc7-a1ed-1369628f6aab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c3a04ad-7e42-4bc7-a1ed-1369628f6aab",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c3a04ad-7e42-4bc7-a1ed-1369628f6aab/poc-showroom"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fps-shooter",
+	"name": "FPS shooter",
+	"author": "rishitsood",
+	"description": "My  first FPS game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1cdbefc5-d6ad-410e-8e02-3422d9f625f9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e6905e1e-33ad-4d8c-9521-d44189fcefdc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e6905e1e-33ad-4d8c-9521-d44189fcefdc",
+	"unityPlayUrl": "https://play.unity.com/en/games/e6905e1e-33ad-4d8c-9521-d44189fcefdc/fps-shooter"
+}

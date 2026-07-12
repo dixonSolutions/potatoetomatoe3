@@ -1,0 +1,14 @@
+{
+	"id": "penguin-run",
+	"name": "Penguin Run",
+	"author": "l1nn3h",
+	"description": "Side-scrolling endless runner with a magical twist \u2013 dodge obstacles, collect valuables, and maybe learn a spell or two!\n\nPlease let me know what you think and be kind, it's my very first game! :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8c6e6da1-de59-4baf-aa06-5a6df7b81662/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5042a44d-fe4e-466f-9dc0-a3b00e953248/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5042a44d-fe4e-466f-9dc0-a3b00e953248",
+	"unityPlayUrl": "https://play.unity.com/en/games/5042a44d-fe4e-466f-9dc0-a3b00e953248/penguin-run"
+}

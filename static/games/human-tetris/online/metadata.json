@@ -1,0 +1,14 @@
+{
+	"id": "human-tetris",
+	"name": "Human Tetris",
+	"author": "melzmirth",
+	"description": "Based on a popular Japanese game show, Human Tetris is here! Play the tutorial for clarity.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/23f5ba21-3d71-4229-a6e8-62493f5f7c97/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bfc9829-9990-48a9-a7ff-4f0713dbfbb8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bfc9829-9990-48a9-a7ff-4f0713dbfbb8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bfc9829-9990-48a9-a7ff-4f0713dbfbb8/human-tetris"
+}

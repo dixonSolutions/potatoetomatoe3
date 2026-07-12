@@ -1,0 +1,14 @@
+{
+	"id": "gunblade-game-jam-submission",
+	"name": "Gunblade Game Jam Submission",
+	"author": "ktcarver",
+	"description": "My submission for CSC 325 Game Jam 2 - Gunblade Game Jam.\n\nAll sprites and artwork made by me.\n\nResources used:\n\nhttps://www.youtube.com/watch?v=-EIXQHxoicg\nhttps://answers.unity.com/questions/373181/restart-the-game-when-health-variable-reaches-0.html\nhttps://gamedevelopment.tutsplus.com/tutorials/bone-based-unity-2d-animation-creating-the-actual-animations--cms-21366\nhttps://www.youtube.com/watch?v=FTxQKHG5WCA\nhttps://www.youtube.com/watch?v=rhoQd6IAtDo\nhttps://www.youtube.com/watch?v=f-oSXg6_AMQ\nhttps://learn.unity.com/project/ruby-s-2d-rpg\n\n\nSound Effects and Background Music:\nhttps://assetstore.unity.com/packages/audio/sound-fx/weapons/swordsoundpack-177824\nhttps://assetstore.unity.com/packages/audio/sound-fx/weapons/futuristic-gun-soundfx-100851\nhttps://assetstore.unity.com/packages/audio/music/orchestral/free-orchestral-music-pack-189885\nhttps://assetstore.unity.com/packages/audio/sound-fx/sound-fx-retro-pack-121743",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/362dbbdc-e1c8-4e6d-b981-390d404f056e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8aede7c2-221f-4204-917d-50a3c1c6ad6f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8aede7c2-221f-4204-917d-50a3c1c6ad6f",
+	"unityPlayUrl": "https://play.unity.com/en/games/8aede7c2-221f-4204-917d-50a3c1c6ad6f/gunblade-game-jam-submission"
+}

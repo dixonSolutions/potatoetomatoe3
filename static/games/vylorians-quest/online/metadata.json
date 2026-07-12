@@ -1,0 +1,14 @@
+{
+	"id": "vylorians-quest",
+	"name": "Vylorian's Quest",
+	"author": "StudioChibiGames",
+	"description": "Defeat The Evil !",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ccf0f3ac-777b-47ea-ac4b-6950e76253ff/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ccf0f3ac-777b-47ea-ac4b-6950e76253ff",
+	"unityPlayUrl": "https://play.unity.com/en/games/ccf0f3ac-777b-47ea-ac4b-6950e76253ff/vylorians-quest"
+}

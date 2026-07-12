@@ -1,0 +1,14 @@
+{
+	"id": "robot-kyle-moves",
+	"name": "Robot Kyle Moves",
+	"author": "cfarlee21",
+	"description": "A game where you can move Robot Kyle around in 3D space with rotation",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/48581b21-bb96-46f0-8f2d-160279be0b70/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/20dff200-742d-46e4-85b1-2e96ca87559c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "20dff200-742d-46e4-85b1-2e96ca87559c",
+	"unityPlayUrl": "https://play.unity.com/en/games/20dff200-742d-46e4-85b1-2e96ca87559c/robot-kyle-moves"
+}

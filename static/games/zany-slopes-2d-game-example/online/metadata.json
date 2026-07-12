@@ -1,0 +1,14 @@
+{
+	"id": "zany-slopes-2d-game-example",
+	"name": "Zany Slopes - 2D Game Example",
+	"author": "mattarnold_codehs",
+	"description": "Example of the Zany Slopes 2D game students learn to develop in the CodeHS Game Development in Unity course.\n\nCodeHS is a web-based computer science education platform for K-12 with national and state standards aligned curriculum, teacher tools, resources, professional development, and more. \n\nSign up for a free account at codehs.com or reach out to our team at hello@codehs.com to see how CodeHS can help your school or district implement a comprehensive K-12 CS program.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5ca967e3-8249-4519-9dc7-36d45c848a50/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05777f3f-518a-4cd4-8795-008252b02af0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05777f3f-518a-4cd4-8795-008252b02af0",
+	"unityPlayUrl": "https://play.unity.com/en/games/05777f3f-518a-4cd4-8795-008252b02af0/zany-slopes-2d-game-example"
+}

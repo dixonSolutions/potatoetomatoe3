@@ -1,0 +1,14 @@
+{
+	"id": "doomity-doom-unity",
+	"name": "Doomity (DOOM + UNITY)",
+	"author": "NathanFuentes",
+	"description": "Play Doom on WebGL\nIf JS error, then play.unity.com is blocking music player, play it directly on:\nhttps://kncarnage.itch.io/doomity\n\nIt's loading the shareware wad from:\n\nhttps://doomwiki.org/wiki/DOOM1.WAD\n\nYou can paste the URL of another IWAD to use, then \"Get IWAD\"\n\nIt can download HD Assets\n\nEverything is stored on db storage\n\nTilde or Backslash (Under ESC Key) for Menu\n\nWASD for Moving\n\nMore Info:\n\nhttps://www.doomworld.com/forum/topic/120309-doomity-public-beta-released/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/19ae50d4-e2b0-4425-9c2b-b29ad7676366/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c8b54a0c-6a96-4118-b5ac-fffd97e50583/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c8b54a0c-6a96-4118-b5ac-fffd97e50583",
+	"unityPlayUrl": "https://play.unity.com/en/games/c8b54a0c-6a96-4118-b5ac-fffd97e50583/doomity-doom-unity"
+}

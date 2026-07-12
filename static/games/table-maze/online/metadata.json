@@ -1,0 +1,14 @@
+{
+	"id": "table-maze",
+	"name": "Table Maze",
+	"author": "anmcmill",
+	"description": "A prototype project for the Unity Lessons at Hackingtons Code School for Kids: https://www.hackingtons.com/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/496328a5-f28d-4304-bbc8-b4ed6da64d21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5cf4467e-0d77-4783-b157-987f3092aa04/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5cf4467e-0d77-4783-b157-987f3092aa04",
+	"unityPlayUrl": "https://play.unity.com/en/games/5cf4467e-0d77-4783-b157-987f3092aa04/table-maze"
+}

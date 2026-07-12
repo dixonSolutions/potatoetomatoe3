@@ -1,0 +1,14 @@
+{
+	"id": "axe-thrower",
+	"name": "AXE THROWER",
+	"author": "brayhay212",
+	"description": "Play as a axe throwing warrior and kill as many monsters as you can without dying.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2e61bc84-4aec-460b-96b5-77ce1c1543ad/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/051d3294-5a65-42bb-8499-c62e5b4b621b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "051d3294-5a65-42bb-8499-c62e5b4b621b",
+	"unityPlayUrl": "https://play.unity.com/en/games/051d3294-5a65-42bb-8499-c62e5b4b621b/axe-thrower"
+}

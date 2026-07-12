@@ -1,0 +1,14 @@
+{
+	"id": "force-of-the-gunblade",
+	"name": "Force of the Gunblade",
+	"author": "DrWhodoo",
+	"description": "Space to shoot swords at blue slimes. F to guard against red slimes.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/049ebf32-51db-4904-aea6-93015ca8cf4e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "049ebf32-51db-4904-aea6-93015ca8cf4e",
+	"unityPlayUrl": "https://play.unity.com/en/games/049ebf32-51db-4904-aea6-93015ca8cf4e/force-of-the-gunblade"
+}

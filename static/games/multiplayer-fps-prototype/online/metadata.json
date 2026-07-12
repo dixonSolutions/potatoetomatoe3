@@ -1,0 +1,14 @@
+{
+	"id": "multiplayer-fps-prototype",
+	"name": "MultiPlayer FPS Prototype",
+	"author": "Severant",
+	"description": "FPS multiplayer test 1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67daf9c6-f99d-4ef6-a9e4-f074d9884cb7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67daf9c6-f99d-4ef6-a9e4-f074d9884cb7",
+	"unityPlayUrl": "https://play.unity.com/en/games/67daf9c6-f99d-4ef6-a9e4-f074d9884cb7/multiplayer-fps-prototype"
+}

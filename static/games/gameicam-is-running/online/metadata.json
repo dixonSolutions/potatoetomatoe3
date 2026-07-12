@@ -1,0 +1,14 @@
+{
+	"id": "gameicam-is-running",
+	"name": "Game'Icam is running",
+	"author": "unity_ED529CAF3DE06720B030",
+	"description": "Jeu vid\u00e9o de Game Icam pour la semaine des assos",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/808480d2-4497-4327-bb4f-391999c34561/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "808480d2-4497-4327-bb4f-391999c34561",
+	"unityPlayUrl": "https://play.unity.com/en/games/808480d2-4497-4327-bb4f-391999c34561/gameicam-is-running"
+}

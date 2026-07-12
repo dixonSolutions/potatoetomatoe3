@@ -1,0 +1,14 @@
+{
+	"id": "dead-drop",
+	"name": "Dead Drop!",
+	"author": "JEJ_87",
+	"description": "Took the 2D Sprite Pachinko Challenge and ran as far as I could with it. Wonder if anyone can get a perfect score O_o",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16ec8d85-8ac2-4b6b-8649-dde388e256df/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d0ee5054-90cc-4014-a58a-c83a8e671fb1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d0ee5054-90cc-4014-a58a-c83a8e671fb1",
+	"unityPlayUrl": "https://play.unity.com/en/games/d0ee5054-90cc-4014-a58a-c83a8e671fb1/dead-drop"
+}

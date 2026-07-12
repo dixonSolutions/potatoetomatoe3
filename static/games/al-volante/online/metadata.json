@@ -1,0 +1,14 @@
+{
+	"id": "al-volante",
+	"name": "Al Volante!!",
+	"author": "Swaganu",
+	"description": "Ciao, sono Anouar Chenani e spero che ti piaccia il mio videogioco!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86de9cc1-b88a-4028-9226-7b64b0ac4fa3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0460877c-b805-478d-99cd-8f120602e735/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0460877c-b805-478d-99cd-8f120602e735",
+	"unityPlayUrl": "https://play.unity.com/en/games/0460877c-b805-478d-99cd-8f120602e735/al-volante"
+}

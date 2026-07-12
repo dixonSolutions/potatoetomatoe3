@@ -1,0 +1,14 @@
+{
+	"id": "bush-pilot",
+	"name": "Bush Pilot",
+	"author": "Peeter1978",
+	"description": "My microgame developed during the online course 'Create with Code'. After much - and mostly pointless - work I managed to build the start and end title and give the game thus a more 'real' look. Nevertheless it's still a very primitive thing and mostly I learned during the scripting and building this tiny game world how NOT to make a game. I hope it will nevertheless bring joy to its players.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fe577eb3-ce5f-4407-b7ca-e31abb791e40/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/029a8d54-2a74-4c59-a0d8-68f126af8e17/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "029a8d54-2a74-4c59-a0d8-68f126af8e17",
+	"unityPlayUrl": "https://play.unity.com/en/games/029a8d54-2a74-4c59-a0d8-68f126af8e17/bush-pilot"
+}

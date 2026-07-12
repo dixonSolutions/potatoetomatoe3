@@ -1,0 +1,14 @@
+{
+	"id": "rpg",
+	"name": "RPG",
+	"author": "zaholmes",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40636bea-6d79-47b4-b826-7088df10a88c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0232bdaf-afdc-4a70-95d9-365aedb10e18/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0232bdaf-afdc-4a70-95d9-365aedb10e18",
+	"unityPlayUrl": "https://play.unity.com/en/games/0232bdaf-afdc-4a70-95d9-365aedb10e18/rpg"
+}

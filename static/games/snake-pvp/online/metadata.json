@@ -1,0 +1,14 @@
+{
+	"id": "snake-pvp",
+	"name": "Snake PVP",
+	"author": "Unity Play",
+	"description": "Snake PVP is an intense multiplayer game where you control a snake to eat food, grow and try to defeat your opponents",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b2de5c1c-0cb3-4f21-9956-f19f3d49cca8/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9151c4b6-86b6-4614-a9f0-c2e4d5a34468/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9151c4b6-86b6-4614-a9f0-c2e4d5a34468",
+	"unityPlayUrl": "https://play.unity.com/en/games/9151c4b6-86b6-4614-a9f0-c2e4d5a34468/snake-pvp"
+}

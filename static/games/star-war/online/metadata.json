@@ -1,0 +1,14 @@
+{
+	"id": "star-war",
+	"name": "Star War",
+	"author": "Schroeker",
+	"description": "Pressing A/S/D to choose from three different light saber!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ad538e01-39e4-427d-bfab-8e554eafdb22/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38e3cb83-bed7-47a7-97bf-20c55e41eba1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38e3cb83-bed7-47a7-97bf-20c55e41eba1",
+	"unityPlayUrl": "https://play.unity.com/en/games/38e3cb83-bed7-47a7-97bf-20c55e41eba1/star-war"
+}

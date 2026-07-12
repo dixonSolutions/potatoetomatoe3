@@ -1,0 +1,14 @@
+{
+	"id": "lps2",
+	"name": "LPS2",
+	"author": "lpry",
+	"description": "Multiplayer Ship/Shop Adventure",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2412e90e-3dac-404e-a48a-348231564009/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2412e90e-3dac-404e-a48a-348231564009",
+	"unityPlayUrl": "https://play.unity.com/en/games/2412e90e-3dac-404e-a48a-348231564009/lps2"
+}

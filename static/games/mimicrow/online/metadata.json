@@ -1,0 +1,14 @@
+{
+	"id": "mimicrow",
+	"name": "Mimicrow",
+	"author": "Kekeeya",
+	"description": "The game might take a little bit to load. In this game you are playing as a little crow looking for its mom. Explore the world, discover sounds and avoid hazards in; Mimicrow. Currently known bugs: PRESS THE Z BUTTON NEAR THE RIVER  AFTER YOU HAVE COLLECTED THE ORB. There is a prompt however this might not up on monitors with certain sizes. This might also cause the Pause menu to look off. Some tearing of the screen can occur. Ocassionally when you exit the in-game pause menu you will no longer be able to jump even though having collected the jump orb, in that case die and respawn. When you fullscreen the game the interactable buttons might switch positions on the screen once you click on them.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec8a222c-623a-4705-a1e3-b923ce53dc05/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b19496a-6b6b-41b4-a531-b2ec40b1ff1b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b19496a-6b6b-41b4-a531-b2ec40b1ff1b",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b19496a-6b6b-41b4-a531-b2ec40b1ff1b/mimicrow"
+}

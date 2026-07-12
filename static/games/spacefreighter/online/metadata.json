@@ -1,0 +1,14 @@
+{
+	"id": "spacefreighter",
+	"name": "Spacefreighter",
+	"author": "msyoung2012",
+	"description": "Spacefreighter is a game about ships in space.\nSelect your crew and control and command your ship as you battle pirates and civilizations from beyond our star. This project is active and in very early, pre-alpha stages.\n\nThis is a fun side project for me, and one that was inspired by a few games I loved playing while growing up, most notably Treasure Planet: Battle at Procyon and Legend of Zelda: The Wind Waker.\n\nYou can follow the development on the website here: https://www.spacefreighter.net/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/80664db4-dd53-48ce-8d9a-f9aabdc9a353/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b82232df-40e9-4bb9-95a5-97a98c580bf6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b82232df-40e9-4bb9-95a5-97a98c580bf6",
+	"unityPlayUrl": "https://play.unity.com/en/games/b82232df-40e9-4bb9-95a5-97a98c580bf6/spacefreighter"
+}

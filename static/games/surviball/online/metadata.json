@@ -1,0 +1,14 @@
+{
+	"id": "surviball",
+	"name": "SurviBall",
+	"author": "Severant",
+	"description": "This is my project for the mission counting prototype of the pathway \"junior programmer\",you have to get to the goal 3 times in each map to get 3 stars, this is possible taking advantage of the inertia that you have when you reach the goal, wich is maintained at the restart point, it is a work in progress, so expect for bugs. Enjoy! :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c15fc613-f89a-4314-b449-ce507b51434e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6cbd2ef3-1f4c-492d-adf3-bc0cd1077b4f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6cbd2ef3-1f4c-492d-adf3-bc0cd1077b4f",
+	"unityPlayUrl": "https://play.unity.com/en/games/6cbd2ef3-1f4c-492d-adf3-bc0cd1077b4f/surviball"
+}

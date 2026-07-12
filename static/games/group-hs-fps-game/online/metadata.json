@@ -1,0 +1,14 @@
+{
+	"id": "group-hs-fps-game",
+	"name": "Group H's FPS Game",
+	"author": "mvanwoensel",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8f9782bd-f5f1-4181-b7b4-7e399e1c9827/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25e23faf-9e40-4160-a2e8-25e0090d841b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25e23faf-9e40-4160-a2e8-25e0090d841b",
+	"unityPlayUrl": "https://play.unity.com/en/games/25e23faf-9e40-4160-a2e8-25e0090d841b/group-hs-fps-game"
+}

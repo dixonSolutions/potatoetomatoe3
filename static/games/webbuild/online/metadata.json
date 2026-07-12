@@ -1,0 +1,14 @@
+{
+	"id": "webbuild",
+	"name": "WebBuild",
+	"author": "lyrari",
+	"description": "Play WebBuild on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25035424-d920-4874-9808-a44bbf96a6b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25035424-d920-4874-9808-a44bbf96a6b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/25035424-d920-4874-9808-a44bbf96a6b4/webbuild"
+}

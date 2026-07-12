@@ -1,0 +1,14 @@
+{
+	"id": "industry-fundamentals",
+	"name": "Industry Fundamentals",
+	"author": "Mikkel_Munch-Christiansen",
+	"description": "The final scene from Unity's free Industry Fundamentals template. Learn to convert CAD files into a full working scene using the Asset Transformer Toolkit. https://shorturl.at/jyACQ",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dcbde670-45b5-43a2-af67-825cfc9e3c52/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28497bc8-b717-4dfe-9266-dedbe06ee0a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28497bc8-b717-4dfe-9266-dedbe06ee0a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/28497bc8-b717-4dfe-9266-dedbe06ee0a7/industry-fundamentals"
+}

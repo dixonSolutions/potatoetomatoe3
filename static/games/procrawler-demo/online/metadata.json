@@ -1,0 +1,14 @@
+{
+	"id": "procrawler-demo",
+	"name": "ProCrawler DEMO",
+	"author": "CodeSmile",
+	"description": "Demo of ProCrawler, the grid-based dungeon crawler character controller that makes you feel like you're in Legend of Grimrock. Available on the Unity Asset Store.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70a59ddc-aefc-4267-a69f-f6ca8b8aaba2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c450245-939e-4a07-84f5-7ca503537289/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7c450245-939e-4a07-84f5-7ca503537289",
+	"unityPlayUrl": "https://play.unity.com/en/games/7c450245-939e-4a07-84f5-7ca503537289/procrawler-demo"
+}

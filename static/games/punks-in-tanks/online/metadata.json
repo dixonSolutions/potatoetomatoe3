@@ -1,0 +1,14 @@
+{
+	"id": "punks-in-tanks",
+	"name": "Punks In Tanks",
+	"author": "Neonage",
+	"description": "Fast-paced multiplayer mayhem with destructible environments and tanks that pickup turrets scattered across the battlefield",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70ac1980-3ad7-4dcd-9ac9-4c6387d936d7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e36782c-2a2a-42c1-aac5-eb11517606a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e36782c-2a2a-42c1-aac5-eb11517606a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e36782c-2a2a-42c1-aac5-eb11517606a2/punks-in-tanks"
+}

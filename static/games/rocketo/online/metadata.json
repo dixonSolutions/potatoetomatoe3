@@ -1,0 +1,14 @@
+{
+	"id": "rocketo",
+	"name": "rocketo",
+	"author": "Harikrishna437",
+	"description": "hello everyone this is my first game, keep supporting me.  space:thrust, A:rotate left, D:rotate right",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6c4b877c-c4a2-4a32-a510-2c370d9398bb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bcbf728-4697-4111-b65b-729d966c6797/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bcbf728-4697-4111-b65b-729d966c6797",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bcbf728-4697-4111-b65b-729d966c6797/rocketo"
+}

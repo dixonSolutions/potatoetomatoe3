@@ -1,0 +1,14 @@
+{
+	"id": "prototype-2-remix",
+	"name": "Prototype 2 Remix",
+	"author": "MustacheLincoln",
+	"description": "A Remix of Prototype 2 from the Create with Code Summer course. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cd10f1be-5b57-48a5-ba7e-7f6b8e9f0fed/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/961f7be5-44fd-469d-baa3-08685f3b09c5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "961f7be5-44fd-469d-baa3-08685f3b09c5",
+	"unityPlayUrl": "https://play.unity.com/en/games/961f7be5-44fd-469d-baa3-08685f3b09c5/prototype-2-remix"
+}

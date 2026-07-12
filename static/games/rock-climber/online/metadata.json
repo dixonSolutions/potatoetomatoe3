@@ -1,0 +1,14 @@
+{
+	"id": "rock-climber",
+	"name": "ROCK CLIMBER",
+	"author": "Hellweger",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3d24cc96-c9e8-4972-8e1c-57a6e5d7d8b4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e08675bd-1bfe-4d22-b348-9456311e787f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e08675bd-1bfe-4d22-b348-9456311e787f",
+	"unityPlayUrl": "https://play.unity.com/en/games/e08675bd-1bfe-4d22-b348-9456311e787f/rock-climber"
+}

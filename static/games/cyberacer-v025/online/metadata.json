@@ -1,0 +1,14 @@
+{
+	"id": "cyberacer-v025",
+	"name": "Cyberacer v0.2.5",
+	"author": "yangshiyuan1",
+	"description": "Dear Mentors & Orbiters,\n\n1       Welcome to Cyberace v0.2.5 \u2014 Milestone II Submission Build!\n\n2       This is a build dedicated to your evaluation of Milestone II.\n\n3       Keyboard Control:\n\n          -      Key W:  Forward Acceleration\n          -      Key S: Reverse Acceleration\n          -      Key A: Left Turn\n          -      Key D: Right Turn\n          -      Key C: Change Camera View\n          -      Key Esc: Pause Menu\n \n5     Your feedback and suggestions are the uttermost helpful guide we can have in the development process. Feel free to leave a comment!\n\n6     Thank you very much!\n\n\nBest Regards,\nTeam Aston Martin Henz.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/012a2eaf-5190-44e2-aec0-85c09f90c46c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e1f58633-249b-427d-b370-07d37c9f3664/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e1f58633-249b-427d-b370-07d37c9f3664",
+	"unityPlayUrl": "https://play.unity.com/en/games/e1f58633-249b-427d-b370-07d37c9f3664/cyberacer-v025"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "shooter-vs-wind",
+	"name": "Shooter Vs Wind",
+	"author": "Dino213dz",
+	"description": "My counting prototype for Learning.\n\nControls:\nUp/Down : Change Angle\nSpace: Shoot\nP: Pause\n\nNote: Game made from scratch. Dont hesitate to comment and add ideas or bug report. Thanks all!\n\n:D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fd06d1ef-c2fa-4053-99bf-cded0a29009e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/baa916fe-76a5-48e3-8c3e-1c82f70d2e24/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "baa916fe-76a5-48e3-8c3e-1c82f70d2e24",
+	"unityPlayUrl": "https://play.unity.com/en/games/baa916fe-76a5-48e3-8c3e-1c82f70d2e24/shooter-vs-wind"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "snowboarding",
+	"name": "snowboarding",
+	"author": "leaderofcoc112",
+	"description": "Created by Parshwa Jain (with udemy course by Rick Davidson) use left right arrows for flips and space for jump and up and down arrow keys for speed up and slow down. Enjoy snowboarding enjoy!!!!!!!!!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f3a7fa1-ae47-4350-b595-10fe7baba33b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f3a7fa1-ae47-4350-b595-10fe7baba33b",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f3a7fa1-ae47-4350-b595-10fe7baba33b/snowboarding"
+}

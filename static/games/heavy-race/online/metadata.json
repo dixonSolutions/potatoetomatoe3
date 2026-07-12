@@ -1,0 +1,14 @@
+{
+	"id": "heavy-race",
+	"name": "Heavy Race",
+	"author": "AlainPlusPlus",
+	"description": "Create with Code Live - Sumer 2020\nPrototype 1 (Expert challenges)\nhttps://alainv.itch.io/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b1fa2bb7-481d-4569-890d-753a70892141/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e5a0800-259e-4d74-94db-4c61652e4dcb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e5a0800-259e-4d74-94db-4c61652e4dcb",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e5a0800-259e-4d74-94db-4c61652e4dcb/heavy-race"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "space-shooter-v25-10-levels",
+	"name": "Space Shooter v2.5 (10 levels!)",
+	"author": "bennyk88",
+	"description": "Space Shooter, a space invaders-inspired game, now has mobile support, computer support, ten levels, a boss, and many more features. Shoot enemy ships to get the best score possible and unlock new levels. Please comment if you find any bugs or issues.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/abcb6d2c-2ae1-45d8-ae08-d312b31dc80b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/47844bd4-249d-4091-9ac5-048f38eedc9d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "47844bd4-249d-4091-9ac5-048f38eedc9d",
+	"unityPlayUrl": "https://play.unity.com/en/games/47844bd4-249d-4091-9ac5-048f38eedc9d/space-shooter-v25-10-levels"
+}

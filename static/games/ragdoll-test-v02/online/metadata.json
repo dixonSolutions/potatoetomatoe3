@@ -1,0 +1,14 @@
+{
+	"id": "ragdoll-test-v02",
+	"name": "Ragdoll Test v0.2",
+	"author": "Turtlehellmax",
+	"description": "A demonstration of the ragdolls in my game :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/94d21745-74b4-44b8-a4a6-df1a7e595f9f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c7fb2faf-80d7-44b8-a507-078148437cde/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c7fb2faf-80d7-44b8-a507-078148437cde",
+	"unityPlayUrl": "https://play.unity.com/en/games/c7fb2faf-80d7-44b8-a507-078148437cde/ragdoll-test-v02"
+}

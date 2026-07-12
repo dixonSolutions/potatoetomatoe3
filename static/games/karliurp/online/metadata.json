@@ -1,0 +1,14 @@
+{
+	"id": "karliurp",
+	"name": "KARLI_URP",
+	"author": "Stricker_SK",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/10831959-c424-4bdb-961b-2758f2b05560/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9e897a5b-a48b-4429-999f-d9b0baa88ce2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9e897a5b-a48b-4429-999f-d9b0baa88ce2",
+	"unityPlayUrl": "https://play.unity.com/en/games/9e897a5b-a48b-4429-999f-d9b0baa88ce2/karliurp"
+}

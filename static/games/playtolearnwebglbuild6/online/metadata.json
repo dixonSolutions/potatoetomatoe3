@@ -1,0 +1,14 @@
+{
+	"id": "playtolearnwebglbuild6",
+	"name": "PlayToLearnWebGLBuild6",
+	"author": "HMCMRes",
+	"description": "Play PlayToLearnWebGLBuild6 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70f9578d-3966-4d95-a8ae-51e10e459853/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d0be5a9d-6ce6-4563-b2b4-e80b14462edd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d0be5a9d-6ce6-4563-b2b4-e80b14462edd",
+	"unityPlayUrl": "https://play.unity.com/en/games/d0be5a9d-6ce6-4563-b2b4-e80b14462edd/playtolearnwebglbuild6"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lost-in-the-desert",
+	"name": "Lost in the Desert",
+	"author": "Kikwalar",
+	"description": "A pilot crashes in the middle of a desert and is trying to reach to safety, through his journy he needs to find water and food to survive.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/07b9bc99-4cd4-4bcf-a667-78a05fe6f535/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/de30b6d7-3a9b-4d9c-ace8-910476e29dec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "de30b6d7-3a9b-4d9c-ace8-910476e29dec",
+	"unityPlayUrl": "https://play.unity.com/en/games/de30b6d7-3a9b-4d9c-ace8-910476e29dec/lost-in-the-desert"
+}

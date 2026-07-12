@@ -1,0 +1,14 @@
+{
+	"id": "glitch-tsa-25-26-dcms",
+	"name": "Glitch TSA 25-26 DCMS",
+	"author": "Studio-56_DeerCreekMS",
+	"description": "Movement: WASD or Arrow keys\nJump: Space\nCamera Rotation: Mouse (Right & Left)\n\nTo deactivate an enemy, ground pound them by jumping then pressing space again.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/034290ce-8721-4534-9c79-edb675e47c33/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36c7fc54-fc30-43c4-874c-ef4c7ee34e5a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36c7fc54-fc30-43c4-874c-ef4c7ee34e5a",
+	"unityPlayUrl": "https://play.unity.com/en/games/36c7fc54-fc30-43c4-874c-ef4c7ee34e5a/glitch-tsa-25-26-dcms"
+}

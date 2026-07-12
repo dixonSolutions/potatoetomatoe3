@@ -1,0 +1,14 @@
+{
+	"id": "demo-for-online-multiplayer-template-voice-chat-photon",
+	"name": "Demo for Online Multiplayer Template + Voice Chat (Photon)",
+	"author": "Konstantin100",
+	"description": "This is the demo for the asset Online Multiplayer Template + Voice Chat (Photon): https://assetstore.unity.com/packages/templates/packs/online-multiplayer-template-voice-chat-photon-190640 You can open this demo multiple times to test its connectivity. Hope you like it!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5afd7502-ccb3-4f23-acc6-b0ddff9e9f0a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48e601c1-25c5-4d51-b531-2f7f8a590c41/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48e601c1-25c5-4d51-b531-2f7f8a590c41",
+	"unityPlayUrl": "https://play.unity.com/en/games/48e601c1-25c5-4d51-b531-2f7f8a590c41/demo-for-online-multiplayer-template-voice-chat-photon"
+}

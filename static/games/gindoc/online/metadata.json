@@ -1,0 +1,14 @@
+{
+	"id": "gindoc",
+	"name": "Gindoc",
+	"author": "dmql",
+	"description": "Created by Qianlin Duanmu, Yingcheng Cai, Tian Dai",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03d3932f-78c8-44b8-9f8f-a5d2018a00a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03d3932f-78c8-44b8-9f8f-a5d2018a00a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/03d3932f-78c8-44b8-9f8f-a5d2018a00a2/gindoc"
+}

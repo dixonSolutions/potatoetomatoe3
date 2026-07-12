@@ -1,0 +1,14 @@
+{
+	"id": "disco-cube",
+	"name": "disco cube",
+	"author": "itxquinn",
+	"description": "disco cube tutorial thingy",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27e39d4b-d3db-40b3-8811-ac6564c31eea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "27e39d4b-d3db-40b3-8811-ac6564c31eea",
+	"unityPlayUrl": "https://play.unity.com/en/games/27e39d4b-d3db-40b3-8811-ac6564c31eea/disco-cube"
+}

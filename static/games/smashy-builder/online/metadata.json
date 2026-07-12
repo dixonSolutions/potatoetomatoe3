@@ -1,0 +1,14 @@
+{
+	"id": "smashy-builder",
+	"name": "Smashy Builder",
+	"author": "gamermaker107",
+	"description": "Well, what are you waiting around reading this for? Go ahead and press play!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/23696ff3-a996-4629-9b43-f7da69223fec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ce0b1c1-eb93-41cd-a5a0-cee77f81f855/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ce0b1c1-eb93-41cd-a5a0-cee77f81f855",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ce0b1c1-eb93-41cd-a5a0-cee77f81f855/smashy-builder"
+}

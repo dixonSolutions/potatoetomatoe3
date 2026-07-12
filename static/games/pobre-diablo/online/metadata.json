@@ -1,0 +1,14 @@
+{
+	"id": "pobre-diablo",
+	"name": "Pobre Diablo",
+	"author": "Daguam",
+	"description": "Bullet Hell Game Prototype",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee54e658-3046-4b89-90e0-93ff6930a956/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/76bd1391-3b43-43b4-af32-dfb3f232d50a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "76bd1391-3b43-43b4-af32-dfb3f232d50a",
+	"unityPlayUrl": "https://play.unity.com/en/games/76bd1391-3b43-43b4-af32-dfb3f232d50a/pobre-diablo"
+}

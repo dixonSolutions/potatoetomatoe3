@@ -1,0 +1,14 @@
+{
+	"id": "get-out",
+	"name": "Get out",
+	"author": "buildcrash",
+	"description": "A platformer with 9 levels where you have to get to the yellow door\nblue ghosts damage you if you move through them\norange ghosts damage you when you are stopped through them\nyou can create custom lev",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0724224b-334e-4695-bf8d-b21039c3c470/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0724224b-334e-4695-bf8d-b21039c3c470",
+	"unityPlayUrl": "https://play.unity.com/en/games/0724224b-334e-4695-bf8d-b21039c3c470/get-out"
+}

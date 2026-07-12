@@ -1,0 +1,14 @@
+{
+	"id": "lost-in-space",
+	"name": "Lost in Space",
+	"author": "Esaddkra",
+	"description": "Activate the path to the next level by collecting all the diamonds. You can switch to first-person control by pressing V. Have fun :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8190be3b-4452-4797-aef0-6867de138cbb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/95f3d333-931d-407c-9c81-27ebe4d80989/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "95f3d333-931d-407c-9c81-27ebe4d80989",
+	"unityPlayUrl": "https://play.unity.com/en/games/95f3d333-931d-407c-9c81-27ebe4d80989/lost-in-space"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "snappyjump",
+	"name": "SnappyJump",
+	"author": "Unity Play",
+	"description": "Simple 2D platformer created for research purposes on evoking emotions in games",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9fe6154c-ce19-4bae-b2d4-077ebace9cd9/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7fad7dbd-c317-4dea-9c47-5a3752ad61ed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7fad7dbd-c317-4dea-9c47-5a3752ad61ed",
+	"unityPlayUrl": "https://play.unity.com/en/games/7fad7dbd-c317-4dea-9c47-5a3752ad61ed/snappyjump"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "car-driving-simulator",
+	"name": "Car Driving Simulator",
+	"author": "Tierland",
+	"description": "A little game where you can drive along a road. Made with tutorial: https://learn.unity.com/project/unit-1-driving-simulation?uv=2021.3&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f71fe63edbc2a00200e9de0 Controls: WASD / arrow keys for driving the vehicle, Space to switch the camera and R to reset the position of the car",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86038773-cdb0-4bd8-85fd-a029babedacb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/829bcb67-e112-4e3f-8678-a07ff088e797/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "829bcb67-e112-4e3f-8678-a07ff088e797",
+	"unityPlayUrl": "https://play.unity.com/en/games/829bcb67-e112-4e3f-8678-a07ff088e797/car-driving-simulator"
+}

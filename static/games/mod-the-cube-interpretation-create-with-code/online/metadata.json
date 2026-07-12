@@ -1,0 +1,14 @@
+{
+	"id": "mod-the-cube-interpretation-create-with-code",
+	"name": "Mod the cube interpretation (Create with Code)",
+	"author": "Zhiu_1234",
+	"description": "In this version of \"Mod the Cube\" you start with an empty scene. Press [spacebar] to create new cubes with random properties such as position, rotation, color or opacity.\n\nHave fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4be7ba21-bf73-438b-8c21-348bb38302d6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/049e472a-5a3e-490d-b432-2516591611ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "049e472a-5a3e-490d-b432-2516591611ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/049e472a-5a3e-490d-b432-2516591611ad/mod-the-cube-interpretation-create-with-code"
+}

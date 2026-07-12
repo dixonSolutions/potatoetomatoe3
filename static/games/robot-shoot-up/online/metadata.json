@@ -1,0 +1,14 @@
+{
+	"id": "robot-shoot-up",
+	"name": "Robot Shoot Up",
+	"author": "MemeMachine90",
+	"description": "New FPS game where you run around the level and look through multiple rooms destroying all robots. You can even find some other weapons while exploring. Make sure too kill each and every robot left.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6625725c-8b7b-4ca0-a4f9-2c2e673e5905/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ed7d111b-2199-4835-88a5-5a4b037d160b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ed7d111b-2199-4835-88a5-5a4b037d160b",
+	"unityPlayUrl": "https://play.unity.com/en/games/ed7d111b-2199-4835-88a5-5a4b037d160b/robot-shoot-up"
+}

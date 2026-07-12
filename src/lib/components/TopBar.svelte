@@ -7,6 +7,9 @@
 	import { Menu, Sun, Moon, Settings } from 'lucide-svelte';
 	import { toggleMode } from 'mode-watcher';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
+	import logo from '$lib/assets/logo.png';
+
+	let { hidden = false }: { hidden?: boolean } = $props();
 
 	let isOpen = $state(false);
 
@@ -22,11 +25,12 @@
 	]);
 </script>
 
+{#if !hidden}
 <nav class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 	<div class="container mx-auto flex h-16 items-center px-4">
 		<!-- Logo -->
 		<a href={resolve('/home')} class="flex items-center space-x-2 flex-shrink-0">
-			<span class="text-2xl">🥔🍅</span>
+			<img src={logo} alt="" width="32" height="32" class="h-8 w-8" />
 			<span class="font-bold text-xl">Potato Tomato Games</span>
 		</a>
 
@@ -135,7 +139,7 @@
 					<div class="flex flex-col space-y-6 mt-8">
 						<!-- Mobile Logo -->
 						<div class="flex items-center space-x-2 pb-4 border-b">
-							<span class="text-2xl">🥔🍅</span>
+							<img src={logo} alt="" width="32" height="32" class="h-8 w-8" />
 							<span class="font-bold text-xl">Potato Tomato Games</span>
 						</div>
 
@@ -206,3 +210,4 @@
 		</div>
 	</div>
 </nav>
+{/if}

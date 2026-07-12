@@ -1,0 +1,14 @@
+{
+	"id": "last-stand-frenzy-playtest",
+	"name": "Last Stand Frenzy (Playtest)",
+	"author": "Unity Play",
+	"description": "Last Stand Frenzy is a 3D progressional tower defense game \nControls\nWASD => Movement\nL-Shift => Down\nSpace => Up\nRight-Click(Hold) => Move Camera\n\nInfo & Code Doc:\nhttps://shorturl.at/ExYg4",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0af3178b-598c-4e1a-a069-89fcb3ac9149/content",
+	"category": "action",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/720e7444-2400-43ac-8152-f0276e10bcf0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "720e7444-2400-43ac-8152-f0276e10bcf0",
+	"unityPlayUrl": "https://play.unity.com/en/games/720e7444-2400-43ac-8152-f0276e10bcf0/last-stand-frenzy-playtest"
+}

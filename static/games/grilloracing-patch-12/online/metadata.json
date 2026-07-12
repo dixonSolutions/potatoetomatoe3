@@ -1,0 +1,14 @@
+{
+	"id": "grilloracing-patch-12",
+	"name": "Grillo.Racing (patch 1.2)",
+	"author": "saggio_grillo",
+	"description": "COMMANDS:\n- To move you have to use \"WASD\"\n- By pressing the \"space\" key the car will slowly reverse (for drifting)\n- By pressing the up arrow, the car rises slightly\n- By pressing the left and right arrow the car will tip over to the side     \nPATCH 1.2 NEW CHANGES:                                                                                     - Two floors of the Grillo-tower have been added                                                - In a few days a mini update will be released that will fix some of the most \nannoying bugs of patch 1.2, stay strong and see you soon.                                      - Uga uga",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4f806730-8e76-40ce-9a85-a61893d7ef94/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/16aacc52-f85b-47ae-831b-cb6a3d1b80d0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "16aacc52-f85b-47ae-831b-cb6a3d1b80d0",
+	"unityPlayUrl": "https://play.unity.com/en/games/16aacc52-f85b-47ae-831b-cb6a3d1b80d0/grilloracing-patch-12"
+}

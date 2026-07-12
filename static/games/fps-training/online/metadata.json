@@ -1,0 +1,14 @@
+{
+	"id": "fps-training",
+	"name": "FPS training",
+	"author": "Bussuf",
+	"description": "A simple prototype of a First Person Shooting game, where you have multiple weapons and need to clear all the targets inside a building within one minute.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/67b19100-a1c5-44d3-81a4-a690127a3efe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a0ca065a-ffba-4139-a914-6e6299c38efb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a0ca065a-ffba-4139-a914-6e6299c38efb",
+	"unityPlayUrl": "https://play.unity.com/en/games/a0ca065a-ffba-4139-a914-6e6299c38efb/fps-training"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "swing-racer",
+	"name": "Swing Racer",
+	"author": "theCyberStallion",
+	"description": "Swing racer is a game about swinging, grappling and bouncing your way to the finish as fast as you can. Control a block using [controls] and race to the end! This is a game I've been working on for a while. I started it when i was new with unity, and now I've picked it back up 2 years later and redid all the code and improved the visuals.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/12dbc9a6-776b-444f-9b55-88845a56eb0d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04874abb-4f78-43b7-b9df-e583a09194dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04874abb-4f78-43b7-b9df-e583a09194dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/04874abb-4f78-43b7-b9df-e583a09194dd/swing-racer"
+}

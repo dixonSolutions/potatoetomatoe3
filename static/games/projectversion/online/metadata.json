@@ -1,0 +1,14 @@
+{
+	"id": "projectversion",
+	"name": "ProjectVersion",
+	"author": "monkeysquad",
+	"description": "Play ProjectVersion on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d9ced34f-fe90-450e-b371-682d1928fe5d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c8c0d54d-2e80-4067-b50c-72c048358da2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c8c0d54d-2e80-4067-b50c-72c048358da2",
+	"unityPlayUrl": "https://play.unity.com/en/games/c8c0d54d-2e80-4067-b50c-72c048358da2/projectversion"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "boss-fight-demo",
+	"name": "Boss Fight Demo",
+	"author": "momodream",
+	"description": "W,A,S,D: move.\nSpace: jump.\nEnter: attack.\nR: restart.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b19a07fc-35c4-4707-8dc8-79ffc72b7861/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/012a4258-25ff-4c82-8028-269672443cbe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "012a4258-25ff-4c82-8028-269672443cbe",
+	"unityPlayUrl": "https://play.unity.com/en/games/012a4258-25ff-4c82-8028-269672443cbe/boss-fight-demo"
+}

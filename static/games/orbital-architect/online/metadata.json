@@ -1,0 +1,14 @@
+{
+	"id": "orbital-architect",
+	"name": "Orbital Architect",
+	"author": "chemnerd16",
+	"description": "An arcade-style game where you race through stages, each with their own unique theme and feel, by constructing electron configurations of increasingly larger atoms! Can you hit the highest rank?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47cb2410-96e7-4d99-b512-05db17de84c0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ea5fd4fd-15b3-4eef-a8cf-ad66f69e4e3a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ea5fd4fd-15b3-4eef-a8cf-ad66f69e4e3a",
+	"unityPlayUrl": "https://play.unity.com/en/games/ea5fd4fd-15b3-4eef-a8cf-ad66f69e4e3a/orbital-architect"
+}

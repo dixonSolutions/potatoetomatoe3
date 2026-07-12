@@ -1,0 +1,14 @@
+{
+	"id": "relight-creativecore-ui",
+	"name": "Re:LIGHT (CreativeCore UI)",
+	"author": "LightningAce",
+	"description": "Creative Core UI Challenge. I've used post processing effects and VFX Graphs for the thumbnail, which are not supported on WebGL. Turn the volume on to hear ISAo's beautiful melody playing in the background.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1da92658-0d7f-466f-873d-c53098732f8d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03997770-e4b8-4191-afc8-54f5381cb528/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03997770-e4b8-4191-afc8-54f5381cb528",
+	"unityPlayUrl": "https://play.unity.com/en/games/03997770-e4b8-4191-afc8-54f5381cb528/relight-creativecore-ui"
+}

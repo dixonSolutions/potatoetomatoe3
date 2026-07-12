@@ -1,0 +1,14 @@
+{
+	"id": "buhgawkweb",
+	"name": "Buhgawk_Web",
+	"author": "BrotherWrong",
+	"description": "Play Buhgawk_Web on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7d6d5aa5-9ffc-46af-9d6e-2f1bd503446b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3aa37b09-004d-4444-bfbd-b810150780d0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3aa37b09-004d-4444-bfbd-b810150780d0",
+	"unityPlayUrl": "https://play.unity.com/en/games/3aa37b09-004d-4444-bfbd-b810150780d0/buhgawkweb"
+}

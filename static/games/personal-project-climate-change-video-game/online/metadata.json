@@ -1,0 +1,14 @@
+{
+	"id": "personal-project-climate-change-video-game",
+	"name": "Personal Project - Climate Change Video Game",
+	"author": "unity_bfPAfEukK7dTOA",
+	"description": "A short and simple video game that spreads awareness about what climate change is and the different ways we can help fight it. This game includes facts and statistics on the UN SDG. Use WASD to move, and R to return to your last checkpoint.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/19e52eec-61b6-4aa9-8ed4-512e9f2b0c66/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/547b9b87-1c1e-4288-afdc-a40825105bfd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "547b9b87-1c1e-4288-afdc-a40825105bfd",
+	"unityPlayUrl": "https://play.unity.com/en/games/547b9b87-1c1e-4288-afdc-a40825105bfd/personal-project-climate-change-video-game"
+}

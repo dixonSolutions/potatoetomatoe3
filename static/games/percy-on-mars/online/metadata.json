@@ -1,0 +1,14 @@
+{
+	"id": "percy-on-mars",
+	"name": "Percy on Mars",
+	"author": "MishManners",
+	"description": "Game built using the LEGO Microgame builder. Code is available on github: https://github.com/MishManners/LEGO-Unity. Unfortunately there is a bug I need to iron out. The only way to get rid of the initial game menu is to click \"TAB\" then click \"Let's go\". These two menus are currently linked and need to be separated.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fffc90d6-db45-47dc-9396-b1ef7f86c656/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3497f533-a8d6-4b84-be17-37d8c86b525f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3497f533-a8d6-4b84-be17-37d8c86b525f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3497f533-a8d6-4b84-be17-37d8c86b525f/percy-on-mars"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "gd-fps",
+	"name": "GD FPS",
+	"author": "SirTangoGibus",
+	"description": "Explore the world and use the secrets you find to your advantage in order to beat the boss.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aa607402-adfa-4376-8142-13ec50d94cc2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aa607402-adfa-4376-8142-13ec50d94cc2",
+	"unityPlayUrl": "https://play.unity.com/en/games/aa607402-adfa-4376-8142-13ec50d94cc2/gd-fps"
+}

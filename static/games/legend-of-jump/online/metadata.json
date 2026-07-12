@@ -1,0 +1,14 @@
+{
+	"id": "legend-of-jump",
+	"name": "Legend of Jump",
+	"author": "Goldmetal",
+	"description": "Unity 2D platformer game made with ChatGPT.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/efa4ec94-bf25-4096-9f19-2656dcf1917f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22db3ea9-f05a-45f6-80e3-392a17dbb644/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "22db3ea9-f05a-45f6-80e3-392a17dbb644",
+	"unityPlayUrl": "https://play.unity.com/en/games/22db3ea9-f05a-45f6-80e3-392a17dbb644/legend-of-jump"
+}

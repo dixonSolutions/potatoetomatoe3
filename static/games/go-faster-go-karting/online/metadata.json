@@ -1,0 +1,14 @@
+{
+	"id": "go-faster-go-karting",
+	"name": "Go Faster Go Karting",
+	"author": "Future102",
+	"description": "Speed boosts, Custom text, Bowling Pins! This karting game has it all! (Except for AI drivers)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e75afd57-f539-4b65-8961-89e6f31c83b3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/32f74246-7c9a-4fe5-ad9d-d861ecb7bda2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "32f74246-7c9a-4fe5-ad9d-d861ecb7bda2",
+	"unityPlayUrl": "https://play.unity.com/en/games/32f74246-7c9a-4fe5-ad9d-d861ecb7bda2/go-faster-go-karting"
+}

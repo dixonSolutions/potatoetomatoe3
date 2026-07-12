@@ -1,0 +1,14 @@
+{
+	"id": "zenova",
+	"name": "Zenova",
+	"author": "mekury",
+	"description": "dwdw",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6fe0afd2-f68f-4eda-8f8c-39ee8c3a9cf6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6fe0afd2-f68f-4eda-8f8c-39ee8c3a9cf6",
+	"unityPlayUrl": "https://play.unity.com/en/games/6fe0afd2-f68f-4eda-8f8c-39ee8c3a9cf6/zenova"
+}

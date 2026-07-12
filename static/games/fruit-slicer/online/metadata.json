@@ -1,0 +1,14 @@
+{
+	"id": "fruit-slicer",
+	"name": "Fruit Slicer",
+	"author": "ArtemBugrov",
+	"description": "Slice Fruits to get points\nAvoid the Bombs \nChoose your level",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/87d10c8b-449d-4a7b-a7f9-1bc9554653ef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/54a28a76-5505-4375-a552-76163ec6e8e7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "54a28a76-5505-4375-a552-76163ec6e8e7",
+	"unityPlayUrl": "https://play.unity.com/en/games/54a28a76-5505-4375-a552-76163ec6e8e7/fruit-slicer"
+}

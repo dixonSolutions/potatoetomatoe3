@@ -1,0 +1,14 @@
+{
+	"id": "perris-adventure",
+	"name": "Perri's Adventure",
+	"author": "soolim520",
+	"description": "2022-1 Interactive Media Design, team1, Yonsei University",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9f384814-1bf7-4398-bd4a-fa163b85ad5c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b1603284-0d32-4a73-a34e-cce0b1718a96/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b1603284-0d32-4a73-a34e-cce0b1718a96",
+	"unityPlayUrl": "https://play.unity.com/en/games/b1603284-0d32-4a73-a34e-cce0b1718a96/perris-adventure"
+}

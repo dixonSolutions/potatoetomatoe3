@@ -1,0 +1,14 @@
+{
+	"id": "platformer-school",
+	"name": "Platformer School",
+	"author": "abhi_22_coder",
+	"description": "This game is called Platformer School  where you are in a school trying to get through the levels without falling. If you fall you have to go back to that level until you succeed.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06f559ef-bb81-4235-b8c6-7e2f3e47b798/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06f559ef-bb81-4235-b8c6-7e2f3e47b798",
+	"unityPlayUrl": "https://play.unity.com/en/games/06f559ef-bb81-4235-b8c6-7e2f3e47b798/platformer-school"
+}

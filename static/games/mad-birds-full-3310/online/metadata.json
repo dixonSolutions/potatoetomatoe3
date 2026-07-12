@@ -1,0 +1,14 @@
+{
+	"id": "mad-birds-full-3310",
+	"name": "Mad Birds Full 3.3.10",
+	"author": "Insineum",
+	"description": "this project is a 2D game based off of the game \"Angry Birds\" it took about 2 weeks of development to make, please like and Enjoy! (full screen recomended)=============================================== -----------------------(INSTRUCTIONS)-------------------------------------\npress space on the right color (red is the farthest, green is the closest) to launch the bird,\n-------------------------(UPDATE LOG)-------------------------------------- 3.0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Full release! 3.1 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -added a new level. 3.2 - - - - - - - - - - - - - fixed arrow spawn position, and added updated log. 3.3 - - - - - - - - - - -- - - - - - - - - --added a new level and enhanced the UI. 3.3.10 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -minor bug fixes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/88be5bbd-6e1b-403c-a868-baff9e875305/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38d75e6d-00c6-40d7-916e-e1524cae4994/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38d75e6d-00c6-40d7-916e-e1524cae4994",
+	"unityPlayUrl": "https://play.unity.com/en/games/38d75e6d-00c6-40d7-916e-e1524cae4994/mad-birds-full-3310"
+}

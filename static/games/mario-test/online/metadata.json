@@ -1,0 +1,14 @@
+{
+	"id": "mario-test",
+	"name": "Mario Test",
+	"author": "Ssvbxx",
+	"description": "Here's a fully functional Mario engine. Let's hope Nintendo doesn't DMCA it. Arrow keys to move.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3913583d-004e-48c8-92f4-bf4b090f8c41/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3913583d-004e-48c8-92f4-bf4b090f8c41",
+	"unityPlayUrl": "https://play.unity.com/en/games/3913583d-004e-48c8-92f4-bf4b090f8c41/mario-test"
+}

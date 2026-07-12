@@ -1,0 +1,14 @@
+{
+	"id": "slip-n-slide",
+	"name": "Slip N' Slide",
+	"author": "dexter_deandro",
+	"description": "Traverse through the rooms and take out as many enemies as you can! Pick up ammo and medkits to replenish your resources!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9cdee55d-3d90-4f91-b4de-0c19da582abc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ce5b430-c58c-41e9-a210-3171277869fe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3ce5b430-c58c-41e9-a210-3171277869fe",
+	"unityPlayUrl": "https://play.unity.com/en/games/3ce5b430-c58c-41e9-a210-3171277869fe/slip-n-slide"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "bingogame",
+	"name": "bingogame",
+	"author": "Vivian_Luke",
+	"description": "bingogame",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/093d53e1-61d6-48d0-a621-1eac8f8744ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "093d53e1-61d6-48d0-a621-1eac8f8744ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/093d53e1-61d6-48d0-a621-1eac8f8744ad/bingogame"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fish-sim-test",
+	"name": "Fish Sim Test",
+	"author": "puddlewatt",
+	"description": "Fish Simulation Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8b0aa2ef-5473-4074-bdd1-7ac06cf8eb36/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7dc79d71-f4c1-4add-8366-1b7cdde0c485/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7dc79d71-f4c1-4add-8366-1b7cdde0c485",
+	"unityPlayUrl": "https://play.unity.com/en/games/7dc79d71-f4c1-4add-8366-1b7cdde0c485/fish-sim-test"
+}

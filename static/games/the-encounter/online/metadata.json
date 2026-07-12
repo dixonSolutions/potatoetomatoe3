@@ -1,0 +1,14 @@
+{
+	"id": "the-encounter",
+	"name": "The Encounter",
+	"author": "gmjeangel",
+	"description": "Move with wasd and block with q. Featuring Background Music by Matthew Pablo\nhttp://www.matthewpablo.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b8986cdc-9c1d-4956-8d8c-098a1efbbb8d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/321b7242-9076-436b-aad6-1e116ce40581/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "321b7242-9076-436b-aad6-1e116ce40581",
+	"unityPlayUrl": "https://play.unity.com/en/games/321b7242-9076-436b-aad6-1e116ce40581/the-encounter"
+}

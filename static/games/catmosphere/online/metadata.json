@@ -1,0 +1,14 @@
+{
+	"id": "catmosphere",
+	"name": "Catmosphere",
+	"author": "kchap_unity",
+	"description": "The cozy cat game inspired by HackMIT!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f9bdaf18-526f-4a75-ba15-e1df03165afe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f9bdaf18-526f-4a75-ba15-e1df03165afe",
+	"unityPlayUrl": "https://play.unity.com/en/games/f9bdaf18-526f-4a75-ba15-e1df03165afe/catmosphere"
+}

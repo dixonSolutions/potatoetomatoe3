@@ -1,0 +1,14 @@
+{
+	"id": "fall-lego-1-vs-1",
+	"name": "Fall Lego 1 vs 1",
+	"author": "kuriharahironari",
+	"description": "This is a communication battle game.\nIf it falls or is destroyed, you lose.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01649a33-ec15-4cc4-ab94-4cbba8efee78/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01649a33-ec15-4cc4-ab94-4cbba8efee78",
+	"unityPlayUrl": "https://play.unity.com/en/games/01649a33-ec15-4cc4-ab94-4cbba8efee78/fall-lego-1-vs-1"
+}

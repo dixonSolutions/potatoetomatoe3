@@ -1,0 +1,14 @@
+{
+	"id": "thing",
+	"name": "thing",
+	"author": "WookaloreJR",
+	"description": "thingy",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/08a4a82c-e4f9-42e6-9768-c0e71985210e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45f338c4-b2af-498a-a34a-d023c27ec7a1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "45f338c4-b2af-498a-a34a-d023c27ec7a1",
+	"unityPlayUrl": "https://play.unity.com/en/games/45f338c4-b2af-498a-a34a-d023c27ec7a1/thing"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "driving-game",
+	"name": "Driving Game",
+	"author": "mjaocha",
+	"description": "Single and Multiplayer game. Drive to the white wall while avoiding incoming traffic. Can you make it to level 10? This project is derived from Prototype 1 of the Create with Code Unity Learn series. Bonus features assigned were obstacle pyramids, a set number of incoming vehicles, changing camera view, and multiplayer. Features added by myself are infinitely spawning incoming vehicles, a goal, a win condition, the start and pause menus, the increase in difficulty as the goal is reached by increasing vehicle speed, and the choice to change the play mode between solo and multiplayer.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a8a7ef70-80a7-48cc-8357-8733ca19e6e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/069ba988-d61b-4c3f-a5a5-15cb011bf34e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "069ba988-d61b-4c3f-a5a5-15cb011bf34e",
+	"unityPlayUrl": "https://play.unity.com/en/games/069ba988-d61b-4c3f-a5a5-15cb011bf34e/driving-game"
+}

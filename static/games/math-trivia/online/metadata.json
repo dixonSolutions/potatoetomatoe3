@@ -1,0 +1,14 @@
+{
+	"id": "math-trivia",
+	"name": "Math Trivia",
+	"author": "unity_E636BCAC3EC4D0CB8EA4",
+	"description": "Our very first prototype (1.0). 4x Questions Per Level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/080803c1-e4ae-4e41-b55a-bd07f404b419/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ef2393e-a3f0-49b0-b36d-476abde8a2ca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ef2393e-a3f0-49b0-b36d-476abde8a2ca",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ef2393e-a3f0-49b0-b36d-476abde8a2ca/math-trivia"
+}

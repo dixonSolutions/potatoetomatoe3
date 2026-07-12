@@ -1,0 +1,14 @@
+{
+	"id": "pfizer-zeck-attack",
+	"name": "Pfizer - Zeck Attack",
+	"author": "Orovo",
+	"description": "Play Pfizer - Zeck Attack on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ab6fe0b-5211-4a59-a145-09340326b1f6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ab6fe0b-5211-4a59-a145-09340326b1f6",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ab6fe0b-5211-4a59-a145-09340326b1f6/pfizer-zeck-attack"
+}

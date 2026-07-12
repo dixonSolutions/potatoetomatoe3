@@ -1,0 +1,14 @@
+{
+	"id": "x-cog-teams",
+	"name": "X-Cog Teams",
+	"author": "WTrapp11",
+	"description": "Kurze Bedienungsanleitung:\nBeim ersten Aufruf zuerst rechts oben einen Spielernamen eingeben und dann \u201aadd\u2018 klicken. Sp\u00e4ter links oben den eigenen Spielernamen ausw\u00e4hlen.\nAuf eine der unteren Schaltfl\u00e4chen klicken, um ein Spiel zu starten. Zum Beenden <ESC> klicken.\nEscape: Mit den Pfeiltasten die B\u00e4lle links oder rechts sortieren. B\u00e4lle, welche die Farbe schnell wechseln, nicht sortieren.\nWater: Auf die B\u00e4lle in der unten angegebenen Reihenfolge klicken, um eine Br\u00fccke zu bauen. Mehrfarbige B\u00e4lle gelten als Joker und d\u00fcrfen immer geklickt werden.\nCollect: Mit den Pfeiltasten den Schmetterling zu allen Blumen au\u00dfer den grauen steuern\nSalad: Auf die Felder, welche nicht von Schnecken besetzt sind, klicken, um Salate zu s\u00e4en.\nBounce: Mit der Maus das Kreuz bewegen, um zu verhindern, dass die gelben B\u00e4llchen mit den roten kollidieren. Wenn die roten B\u00e4llchen gr\u00fcn werden, sind diese harmlos.\nWorms: Die \u00c4pfel m\u00fcssen die gleiche Farbe wie die Blumen darunter haben. Dazu entweder auf einen Apfel klicken, um die Farbe zu wechseln oder auf einen Wurm und danach auf einen Apfel klicken, um die Farbe eines Apfels auf einen anderen zu \u00fcbertragen.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7537a8c8-03ae-4571-a899-641b3692eea9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5dcc394c-29a4-44a1-a5a3-e1d9e65179f5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5dcc394c-29a4-44a1-a5a3-e1d9e65179f5",
+	"unityPlayUrl": "https://play.unity.com/en/games/5dcc394c-29a4-44a1-a5a3-e1d9e65179f5/x-cog-teams"
+}

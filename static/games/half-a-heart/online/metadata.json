@@ -1,0 +1,14 @@
+{
+	"id": "half-a-heart",
+	"name": "Half A Heart",
+	"author": "HackingtonsStudent",
+	"description": "W=up\nS=down\nA=left\nD=right\nAvoid any obstacle, except for the dead ones and spawners",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5726fee1-0ad4-4f32-bea8-ebdd36a83b89/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e9be29b2-f71d-4190-aebd-726ec766c180/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e9be29b2-f71d-4190-aebd-726ec766c180",
+	"unityPlayUrl": "https://play.unity.com/en/games/e9be29b2-f71d-4190-aebd-726ec766c180/half-a-heart"
+}

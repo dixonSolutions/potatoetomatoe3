@@ -1,0 +1,14 @@
+{
+	"id": "elmos-funworld",
+	"name": "Elmo's Funworld",
+	"author": "devms",
+	"description": "Now on WebGL!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e503da0-28b8-4c55-8685-e2ea07c3c3a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/189c93e7-2c9e-4da4-af99-ca5ddcb94698/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "189c93e7-2c9e-4da4-af99-ca5ddcb94698",
+	"unityPlayUrl": "https://play.unity.com/en/games/189c93e7-2c9e-4da4-af99-ca5ddcb94698/elmos-funworld"
+}

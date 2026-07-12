@@ -1,0 +1,14 @@
+{
+	"id": "garbage-collector-team-6",
+	"name": "Garbage Collector - Team 6",
+	"author": "gurankas",
+	"description": "Humans have destroyed the planet by not recycling properly. Play as aliens to help Mother Nature clean up Earth.\nInstructions:\nMove around (WASD/arrows) and pick up items (E/return), then dispose of them in the correct bin, either trash or recycle. However, make sure to rinse out and/or flatten items beforehand if needed! And work together to score more points! Controller support also there!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/93847983-30bc-44a0-9b3c-f1ee3a2d00c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a01bff69-89d5-41ef-a228-aefc101070b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a01bff69-89d5-41ef-a228-aefc101070b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/a01bff69-89d5-41ef-a228-aefc101070b8/garbage-collector-team-6"
+}

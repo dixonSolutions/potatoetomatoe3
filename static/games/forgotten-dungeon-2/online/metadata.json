@@ -1,0 +1,14 @@
+{
+	"id": "forgotten-dungeon-2",
+	"name": "Forgotten Dungeon 2",
+	"author": "Unity Play",
+	"description": "Forgotten Dungeon 2 is an addictive hack-and-slash action RPG.\nSlay skeletons, zombies, and other monsters as you explore dungeons.\nYou will gain experience for each kill, and sometimes, enemies will drop items.\nWhen you level up, you can upgrade your strength, dexterity, intelligence, vitality, and spells.\nIncrease your attack/damage and defense by equipping yourself with better weapons and armor.\n\nChoose between a sorcerer, archer, and warrior in this Diablo style RPG adventure game. Build experience and level up by defeating enemies.\nEquip your character with items that are found, won in battle, or purchased from various vendors. There are a ton of different items to choose from in this game.\n\nWhen you level up, the player has a choice of certain skills and attributes to improve and expand upon with their earned experience points.\nItems and weapons collected which are not equipped can be sold at the shop for gold. Attacks can be melee based or magic based. Click on the target enemy to battle. \n\nYour magical skills can be selected from the left of the screen. Using these decreases the mana levels but deliver extra attack damage.\nYou can go back to town at any time by clicking the town button beside the skills button, and returning through the portal brings you back to where you left off.\n\nSpecial attack types can target weakness areas of enemies, so choosing when to use the proper magical attacks is important.\nThe equipment you have selected actually shows up on the your character in the game.\nStrength increases damage. Dexterity increases attack speed and dodge chance. Intelligence increases magic speed, magic damage, and mana max. Vitality increases life max.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8f6367c9-2e15-45f3-ace3-0310e5557131/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0fadeada-b14c-4a48-a38f-465987125dcb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0fadeada-b14c-4a48-a38f-465987125dcb",
+	"unityPlayUrl": "https://play.unity.com/en/games/0fadeada-b14c-4a48-a38f-465987125dcb/forgotten-dungeon-2"
+}

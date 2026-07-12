@@ -1,0 +1,14 @@
+{
+	"id": "nxise",
+	"name": "nxise",
+	"author": "nxise",
+	"description": "Play nxise on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70de9115-4cda-4249-afa4-3e1eae42bcd4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/86523e33-ca19-462c-a8e5-c8569bb5b6a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "86523e33-ca19-462c-a8e5-c8569bb5b6a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/86523e33-ca19-462c-a8e5-c8569bb5b6a8/nxise"
+}

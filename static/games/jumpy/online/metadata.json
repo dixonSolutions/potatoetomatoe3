@@ -1,0 +1,14 @@
+{
+	"id": "jumpy",
+	"name": "Jumpy!",
+	"author": "mjell",
+	"description": "This is my first ever Unity game, and video game in general. I had a lot of fun tinkering with the 2d Platformer Microgame - I added a lot of stuff that's almost guaranteed not to be even remotely optimized but it was a great learning experience! I hope one day I can revisit this platformer idea and fully expand it into something proper.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/82801034-00f3-42a6-bc46-587bacb7933c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/be1187f0-0f46-468e-9174-25479eec3d22/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "be1187f0-0f46-468e-9174-25479eec3d22",
+	"unityPlayUrl": "https://play.unity.com/en/games/be1187f0-0f46-468e-9174-25479eec3d22/jumpy"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "asteroid-destroyer",
+	"name": "Asteroid Destroyer",
+	"author": "Poornajith",
+	"description": "Shoot and destroy as many asteroids as you can to protect your planet. Left click & hold to shoot",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/44952c2f-fad5-451b-92ef-6c1f6ea8da83/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/061a1a3c-e5d2-44eb-a2e7-928a593e04bf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "061a1a3c-e5d2-44eb-a2e7-928a593e04bf",
+	"unityPlayUrl": "https://play.unity.com/en/games/061a1a3c-e5d2-44eb-a2e7-928a593e04bf/asteroid-destroyer"
+}

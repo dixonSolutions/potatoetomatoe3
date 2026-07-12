@@ -1,0 +1,14 @@
+{
+	"id": "lego-microgame-unity-learn",
+	"name": "Lego Microgame Unity Learn",
+	"author": "Professor_Verbrugghe",
+	"description": "The Tutorial Microgame from Unity Learn",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b55e5b61-7a03-4c83-882c-164c385b4274/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b55e5b61-7a03-4c83-882c-164c385b4274",
+	"unityPlayUrl": "https://play.unity.com/en/games/b55e5b61-7a03-4c83-882c-164c385b4274/lego-microgame-unity-learn"
+}

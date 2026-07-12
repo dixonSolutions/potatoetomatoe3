@@ -1,0 +1,14 @@
+{
+	"id": "fall-if-you-dare",
+	"name": "Fall If You Dare",
+	"author": "ismailaltay",
+	"description": "Green one is player. Reds are enemies. Orange diomands are powerup for player. You can jump for 5 score point. If you fall your all enemies, you can pass to another round. Each round number of enemies increase. Some rounds boss enemy joins. Have fun :)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d15deb0-4293-4b60-a0f4-fa057e8bcb93/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d15deb0-4293-4b60-a0f4-fa057e8bcb93",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d15deb0-4293-4b60-a0f4-fa057e8bcb93/fall-if-you-dare"
+}

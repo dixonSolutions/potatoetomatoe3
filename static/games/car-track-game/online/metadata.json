@@ -1,0 +1,14 @@
+{
+	"id": "car-track-game",
+	"name": "Car Track Game",
+	"author": "aelomb2497",
+	"description": "Ramp up the speed and drive around this fun track!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/941391b5-93d0-4970-b5b7-c3408369fd26/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4dbb9791-4733-4bca-a46d-1113c076b0f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4dbb9791-4733-4bca-a46d-1113c076b0f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/4dbb9791-4733-4bca-a46d-1113c076b0f9/car-track-game"
+}

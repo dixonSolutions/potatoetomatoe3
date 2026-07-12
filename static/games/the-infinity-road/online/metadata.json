@@ -1,0 +1,14 @@
+{
+	"id": "the-infinity-road",
+	"name": "The Infinity Road",
+	"author": "OONYTEAM",
+	"description": "Endless runner",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a7fe514a-9569-463e-bf06-1949672dacd9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/454be99b-9c1c-45d3-ae37-79994e05c370/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "454be99b-9c1c-45d3-ae37-79994e05c370",
+	"unityPlayUrl": "https://play.unity.com/en/games/454be99b-9c1c-45d3-ae37-79994e05c370/the-infinity-road"
+}

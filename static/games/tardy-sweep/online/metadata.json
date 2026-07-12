@@ -1,0 +1,14 @@
+{
+	"id": "tardy-sweep",
+	"name": "Tardy Sweep",
+	"author": "BriZ19",
+	"description": "Tardy Sweep is a side-scroller in which you help the main character, Ace the Eagle, make their way to class before the tardy bell rings, traveling from the portables to Room 225 while dodging obstacles such as spilled food, students in the way and teachers roaming the halls. The game ends when you either make it to class before the timer reaches zero, run out of time, or bump into the principal.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9339117d-d40b-4fe6-87b6-43be3be07815/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2efae9a8-d152-4e33-a746-19c67c9ff1ed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2efae9a8-d152-4e33-a746-19c67c9ff1ed",
+	"unityPlayUrl": "https://play.unity.com/en/games/2efae9a8-d152-4e33-a746-19c67c9ff1ed/tardy-sweep"
+}

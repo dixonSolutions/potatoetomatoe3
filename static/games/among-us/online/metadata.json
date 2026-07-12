@@ -1,0 +1,14 @@
+{
+	"id": "among-us",
+	"name": "among us",
+	"author": "WorldClassRFD",
+	"description": "Play among us on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e1e53f90-5d5a-4464-b4c2-438727af0ad0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe9e477e-165a-4257-9fd8-4eea25db795a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe9e477e-165a-4257-9fd8-4eea25db795a",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe9e477e-165a-4257-9fd8-4eea25db795a/among-us"
+}

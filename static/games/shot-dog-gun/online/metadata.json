@@ -1,0 +1,14 @@
+{
+	"id": "shot-dog-gun",
+	"name": "Shot Dog Gun",
+	"author": "jonattfield",
+	"description": "Hotdog Vs Burger Shooter",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/09116576-a5d7-4df7-b2f7-72950089a92d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a4436b7a-f990-4c65-8af8-940bd8fd9bce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a4436b7a-f990-4c65-8af8-940bd8fd9bce",
+	"unityPlayUrl": "https://play.unity.com/en/games/a4436b7a-f990-4c65-8af8-940bd8fd9bce/shot-dog-gun"
+}

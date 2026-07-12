@@ -1,0 +1,14 @@
+{
+	"id": "ufs-unity-flight-simulator",
+	"name": "(UFS) Unity Flight Simulator",
+	"author": "XxJonas_YTxX",
+	"description": "this is the first game i made. The Unity Flight Simulator is in a beta version, [v.0.0.1] I will always improve and expand the game!\n\n-------------- will be added in the future --------------\n\n- Multiplayer mode\n--Main menu\n- several aircraft\n--realistic terrian\n--water\n--sound effects\n--settings\n- movable control elements e.g. movable yoke\n- outside view\n- day / night cycle [automatically and manually adjustable]\n--improved airports [taxiway, gates, tower, etc.]\n______________________________________________________________________\n\nFollow me on Youtube: https://www.youtube.com/c/AviationSimmer",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/90709cf9-badb-4b45-bcb7-799c13f92ee1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/93125d5a-6154-4237-8ca2-f389102d38cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "93125d5a-6154-4237-8ca2-f389102d38cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/93125d5a-6154-4237-8ca2-f389102d38cb/ufs-unity-flight-simulator"
+}

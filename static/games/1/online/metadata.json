@@ -1,0 +1,14 @@
+{
+	"id": "1",
+	"name": "1",
+	"author": "JenniferA1001",
+	"description": "Play 1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ba37460-e72d-4015-b6f5-0c8535c4b57c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ba37460-e72d-4015-b6f5-0c8535c4b57c",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ba37460-e72d-4015-b6f5-0c8535c4b57c/1"
+}

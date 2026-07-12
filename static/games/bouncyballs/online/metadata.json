@@ -1,0 +1,14 @@
+{
+	"id": "bouncyballs",
+	"name": "BouncyBalls",
+	"author": "alex1094853986",
+	"description": "Made for Floor is Lava project from Unity Learn.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b1ff696-ed33-4ba6-b7a2-d932a334c6c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b1ff696-ed33-4ba6-b7a2-d932a334c6c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b1ff696-ed33-4ba6-b7a2-d932a334c6c3/bouncyballs"
+}

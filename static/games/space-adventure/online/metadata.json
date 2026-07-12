@@ -1,0 +1,14 @@
+{
+	"id": "space-adventure",
+	"name": "Space Adventure",
+	"author": "VloneThero",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aab1779e-9307-4058-a398-54ddccc1ebb0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6497ea79-1431-441d-b812-95ef2bc87b7e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6497ea79-1431-441d-b812-95ef2bc87b7e",
+	"unityPlayUrl": "https://play.unity.com/en/games/6497ea79-1431-441d-b812-95ef2bc87b7e/space-adventure"
+}

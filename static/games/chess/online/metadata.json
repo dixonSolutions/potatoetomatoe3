@@ -1,0 +1,14 @@
+{
+	"id": "chess",
+	"name": "Chess",
+	"author": "vygral",
+	"description": "You can also play with bot.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/98ef14bf-5113-4350-85a8-618503525096/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/53e87180-71c9-4d16-bbaf-b9b2eed56f94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "53e87180-71c9-4d16-bbaf-b9b2eed56f94",
+	"unityPlayUrl": "https://play.unity.com/en/games/53e87180-71c9-4d16-bbaf-b9b2eed56f94/chess"
+}

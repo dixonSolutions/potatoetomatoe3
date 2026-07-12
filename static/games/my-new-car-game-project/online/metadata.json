@@ -1,0 +1,14 @@
+{
+	"id": "my-new-car-game-project",
+	"name": "My new car game project.",
+	"author": "ArunSV",
+	"description": "I have made a small and complete car game prototype. This is a learning project for me. I want to test this game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d234dd6e-8106-4f5d-9c81-08b206b3e62a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d8abe229-d1b8-47c4-b681-54251936ef94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d8abe229-d1b8-47c4-b681-54251936ef94",
+	"unityPlayUrl": "https://play.unity.com/en/games/d8abe229-d1b8-47c4-b681-54251936ef94/my-new-car-game-project"
+}

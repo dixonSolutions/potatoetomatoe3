@@ -1,0 +1,14 @@
+{
+	"id": "i-scream-truck",
+	"name": "I Scream Truck",
+	"author": "Docjaded",
+	"description": "Play I Scream Truck on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5d9e6914-6ab0-4e11-b18a-c2e6727d6e54/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4982ace2-78bc-49ff-bc2c-a37f5a7c6a8a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4982ace2-78bc-49ff-bc2c-a37f5a7c6a8a",
+	"unityPlayUrl": "https://play.unity.com/en/games/4982ace2-78bc-49ff-bc2c-a37f5a7c6a8a/i-scream-truck"
+}

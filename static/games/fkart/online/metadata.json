@@ -1,0 +1,14 @@
+{
+	"id": "fkart",
+	"name": "FKart",
+	"author": "LudoLP",
+	"description": "Play FKart on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb4a481c-c99b-4ffb-8370-182eacd2c3d0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3db431f4-521e-4868-8dfc-c9bc51653beb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3db431f4-521e-4868-8dfc-c9bc51653beb",
+	"unityPlayUrl": "https://play.unity.com/en/games/3db431f4-521e-4868-8dfc-c9bc51653beb/fkart"
+}

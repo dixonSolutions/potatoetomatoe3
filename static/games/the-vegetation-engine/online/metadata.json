@@ -1,0 +1,14 @@
+{
+	"id": "the-vegetation-engine",
+	"name": "The Vegetation Engine",
+	"author": "Unity Play",
+	"description": "The Vegetation Engine: http://u3d.as/1H9u\u200b\nDiscord: https://discord.gg/znxuXET\u200b\nWebsite: https://boxophobic.com/\u200b\n\nOVERVIEW\n\nA small scene showing The Vegetation Engine shaders, with next-level shading, player-vegetation interaction, bark blending, high-quality wind support, and real-time seasons changing using assets from the Book of the Dead, a short video created by Unity. \n\nTHE VEGETATION ENGINE\n\nThe Vegetation Engine is a set of highly optimized vegetation shaders and tools designed to unify any vegetation asset from the Unity Asset Store, Megascans, Speedtree, Tree Creator, and more, or custom vegetation made by your team.\n\nEnable high-quality wind motion, interaction, local wind, seasons, wetness, subsurface, gradient and noise tint, perspective correction, camera distance fade, glancing angle fade, crossfade, size fade, height blending, and more, for all vegetation assets and props with Standard, Universal, or HD Render Pipeline!\n\n* Vegetation assets, props, and music used from the open-source project Book of the Dead by Unity Technologies.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a9d4cd8c-45d1-4795-880b-f3d37fd21f76/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bf53712-4a3e-4172-a668-9818afbf8f71/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bf53712-4a3e-4172-a668-9818afbf8f71",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bf53712-4a3e-4172-a668-9818afbf8f71/the-vegetation-engine"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hoverysim",
+	"name": "HoverySim",
+	"author": "GreatBloodY",
+	"description": "Hovery Hovercraft Simulator\n19-4-26",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a021828-dbf8-4cb8-93d0-eee594f0d99d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a021828-dbf8-4cb8-93d0-eee594f0d99d",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a021828-dbf8-4cb8-93d0-eee594f0d99d/hoverysim"
+}

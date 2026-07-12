@@ -1,0 +1,14 @@
+{
+	"id": "3d-chess",
+	"name": "3D Chess",
+	"author": "unity_40A98C2FD884ABE34851",
+	"description": "My new 3D chess game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07a8e36b-2925-46f2-84a0-c1979af7f873/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07a8e36b-2925-46f2-84a0-c1979af7f873",
+	"unityPlayUrl": "https://play.unity.com/en/games/07a8e36b-2925-46f2-84a0-c1979af7f873/3d-chess"
+}

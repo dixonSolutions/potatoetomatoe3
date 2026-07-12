@@ -1,0 +1,14 @@
+{
+	"id": "my-truck-simulator",
+	"name": "My Truck Simulator",
+	"author": "vcarlos1",
+	"description": "A simple pick-and-deliver game, just for beginner practice. Assets by Synty Studios.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d68d6eb7-ae4e-4d4e-8aaf-3c76f04fa7c6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7fb155ec-cbcb-4edd-8432-b4c7301411ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7fb155ec-cbcb-4edd-8432-b4c7301411ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/7fb155ec-cbcb-4edd-8432-b4c7301411ad/my-truck-simulator"
+}

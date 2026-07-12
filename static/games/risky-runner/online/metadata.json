@@ -1,0 +1,14 @@
+{
+	"id": "risky-runner",
+	"name": "Risky Runner",
+	"author": "unity_93E3836AEAED1E12E81D",
+	"description": "Risky RUnner",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67878a32-e285-457a-946d-408f159927b1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67878a32-e285-457a-946d-408f159927b1",
+	"unityPlayUrl": "https://play.unity.com/en/games/67878a32-e285-457a-946d-408f159927b1/risky-runner"
+}

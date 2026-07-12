@@ -1,0 +1,14 @@
+{
+	"id": "hello-world-with-unity",
+	"name": "Hello World with Unity",
+	"author": "thiagoabreu",
+	"description": "My first game.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/075e19a7-5077-4588-88a5-7532a131b66c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "075e19a7-5077-4588-88a5-7532a131b66c",
+	"unityPlayUrl": "https://play.unity.com/en/games/075e19a7-5077-4588-88a5-7532a131b66c/hello-world-with-unity"
+}

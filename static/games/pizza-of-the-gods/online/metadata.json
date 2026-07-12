@@ -1,0 +1,14 @@
+{
+	"id": "pizza-of-the-gods",
+	"name": "Pizza of the Gods",
+	"author": "Unity Play",
+	"description": "This is an early demo of Pizza of the Gods, a humorous adventure platformer with hand-drawn art painted on paper.\nSteam page:\nhttps://store.steampowered.com/app/4184220/Pizza_of_the_Gods/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5fa9b415-ce3f-4378-bb35-4d6ef97d43e7/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6f44b4dd-4473-46a8-9d15-753a33abac26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6f44b4dd-4473-46a8-9d15-753a33abac26",
+	"unityPlayUrl": "https://play.unity.com/en/games/6f44b4dd-4473-46a8-9d15-753a33abac26/pizza-of-the-gods"
+}

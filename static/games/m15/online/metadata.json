@@ -1,0 +1,14 @@
+{
+	"id": "m15",
+	"name": "M15",
+	"author": "dchin5",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4cee2175-48be-449d-a413-43fcfd51fed6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42c4014f-0a9e-4234-9978-93df52a740f8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42c4014f-0a9e-4234-9978-93df52a740f8",
+	"unityPlayUrl": "https://play.unity.com/en/games/42c4014f-0a9e-4234-9978-93df52a740f8/m15"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fps-robot-destroyer-shooter",
+	"name": "FPS Robot-Destroyer Shooter",
+	"author": "adarshrizwaan",
+	"description": "My latest microgame. Try to clear all objectives without the invincibility mode, now that's a challenge! Don't be afraid to provide any feedback/suggestions!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/09663523-4d1e-41d8-bb93-82d709dd152c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2422fb33-5373-4ce0-a1b2-3496f1de1ef9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2422fb33-5373-4ce0-a1b2-3496f1de1ef9",
+	"unityPlayUrl": "https://play.unity.com/en/games/2422fb33-5373-4ce0-a1b2-3496f1de1ef9/fps-robot-destroyer-shooter"
+}

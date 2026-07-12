@@ -1,0 +1,14 @@
+{
+	"id": "grave-fortune",
+	"name": "Grave Fortune",
+	"author": "FierceMiner55",
+	"description": "Grave fortune is an adventure game where the player's goal is to traverse various rooms in a tomb in order to reach the end and collect their rewards!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/121fa75c-733a-42c9-b64e-d29fb46b4ac8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09d8ec97-402d-46ba-8d9a-b9ed878cb71d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09d8ec97-402d-46ba-8d9a-b9ed878cb71d",
+	"unityPlayUrl": "https://play.unity.com/en/games/09d8ec97-402d-46ba-8d9a-b9ed878cb71d/grave-fortune"
+}

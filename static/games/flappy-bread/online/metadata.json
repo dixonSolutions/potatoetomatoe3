@@ -1,0 +1,14 @@
+{
+	"id": "flappy-bread",
+	"name": "Flappy Bread",
+	"author": "S-P-A-R-K",
+	"description": "Flappy Bird... but BREAD",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/64ab3446-0c15-43d6-a616-4ef79f601bf3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/26d9c972-77d6-4a1c-a2af-3157624d3c8e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "26d9c972-77d6-4a1c-a2af-3157624d3c8e",
+	"unityPlayUrl": "https://play.unity.com/en/games/26d9c972-77d6-4a1c-a2af-3157624d3c8e/flappy-bread"
+}

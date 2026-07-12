@@ -1,0 +1,14 @@
+{
+	"id": "i-just-took-6-pictures-but-in-this",
+	"name": "I just took 6 pictures, but in this",
+	"author": "artifactcode",
+	"description": "A game where you submit 6 photos to see the ending, developed at the Unity Game Jam.\n\n[ Movement keys: w, a ,s ,d / Run: Left Shift / Mouse cursor: 1 / Photo mode: R / Shoot: Space bar / Album: Tab ]",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f0170092-afe1-4593-a21b-cffbc9e567c0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29a1c5c8-c96a-4bbf-9234-e67b3ff9c89c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29a1c5c8-c96a-4bbf-9234-e67b3ff9c89c",
+	"unityPlayUrl": "https://play.unity.com/en/games/29a1c5c8-c96a-4bbf-9234-e67b3ff9c89c/i-just-took-6-pictures-but-in-this"
+}

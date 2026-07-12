@@ -1,0 +1,14 @@
+{
+	"id": "cityrace",
+	"name": "CityRace",
+	"author": "XtreamRacer",
+	"description": "Play CityRace on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/36e84010-f457-49ce-8e80-475551e38df8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9c0bdad4-b704-4438-b82a-6951b2e25050/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9c0bdad4-b704-4438-b82a-6951b2e25050",
+	"unityPlayUrl": "https://play.unity.com/en/games/9c0bdad4-b704-4438-b82a-6951b2e25050/cityrace"
+}

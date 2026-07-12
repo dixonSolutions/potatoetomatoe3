@@ -1,0 +1,14 @@
+{
+	"id": "planet-defence",
+	"name": "Planet Defence",
+	"author": "cyonnd_unity",
+	"description": "Defend the planet Earth from the attack. Use WASd to move and Space to shoot",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/52ce9047-f595-4180-aa8c-d121b2949306/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bb75832-4174-47ae-a835-0a45c9c161ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bb75832-4174-47ae-a835-0a45c9c161ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bb75832-4174-47ae-a835-0a45c9c161ac/planet-defence"
+}

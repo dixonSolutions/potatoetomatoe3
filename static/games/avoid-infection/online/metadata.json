@@ -1,0 +1,14 @@
+{
+	"id": "avoid-infection",
+	"name": "AVOID INFECTION",
+	"author": "DimitrisMarc",
+	"description": "Use the Up and Down Arrows in order to keep the virus away from people. Otherwise, you will cause an infection !! \nMy first game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05104a81-4654-42e5-8ec6-7a4f7cfd041f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b050762-cf9a-4ace-8db8-79dad49da407/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b050762-cf9a-4ace-8db8-79dad49da407",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b050762-cf9a-4ace-8db8-79dad49da407/avoid-infection"
+}

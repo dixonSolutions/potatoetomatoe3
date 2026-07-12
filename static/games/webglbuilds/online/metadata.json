@@ -1,0 +1,14 @@
+{
+	"id": "webglbuilds",
+	"name": "WebGLBuilds",
+	"author": "SamYin",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4169cb35-4689-4821-bf8b-785e92abf3dd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0860b00d-ac2d-4a01-b584-837aed03b820/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0860b00d-ac2d-4a01-b584-837aed03b820",
+	"unityPlayUrl": "https://play.unity.com/en/games/0860b00d-ac2d-4a01-b584-837aed03b820/webglbuilds"
+}

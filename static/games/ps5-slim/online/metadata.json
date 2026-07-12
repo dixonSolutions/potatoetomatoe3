@@ -1,0 +1,14 @@
+{
+	"id": "ps5-slim",
+	"name": "PS5 Slim",
+	"author": "anotherdestiny",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/318ae24b-6d20-48b5-a607-38b114e60367/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "318ae24b-6d20-48b5-a607-38b114e60367",
+	"unityPlayUrl": "https://play.unity.com/en/games/318ae24b-6d20-48b5-a607-38b114e60367/ps5-slim"
+}

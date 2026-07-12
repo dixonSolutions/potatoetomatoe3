@@ -1,0 +1,14 @@
+{
+	"id": "456-guys",
+	"name": "456 Guys",
+	"author": "ianwowo",
+	"description": "456 Guys is a massively multiplayer survival game where up to 456 players compete through unpredictable challenges until only one remains",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2f193932-bbd5-4a14-b79e-a9c6a9da2cde/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2678de44-3bb1-42d8-bbf0-67687605f4a5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2678de44-3bb1-42d8-bbf0-67687605f4a5",
+	"unityPlayUrl": "https://play.unity.com/en/games/2678de44-3bb1-42d8-bbf0-67687605f4a5/456-guys"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-alchemists-dungeon",
+	"name": "The Alchemist's Dungeon",
+	"author": "WunderingMind",
+	"description": "You must make the potion of Youth to continue your journey as an Alchemist. Unfortunately the ingredients are hidden in the dungeon guarded by unfriendly creatures.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3c78261e-3f05-4ce9-b1c5-7d2527824dd0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a33357a-9803-4809-9e16-0f023710ce01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a33357a-9803-4809-9e16-0f023710ce01",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a33357a-9803-4809-9e16-0f023710ce01/the-alchemists-dungeon"
+}

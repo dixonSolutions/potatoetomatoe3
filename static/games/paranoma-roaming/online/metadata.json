@@ -1,0 +1,14 @@
+{
+	"id": "paranoma-roaming",
+	"name": "Paranoma Roaming",
+	"author": "lili_arch",
+	"description": "Paranoma Roaming",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3bbf9cfb-cfb3-4f8f-85d2-d68544f3e4c6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3bbf9cfb-cfb3-4f8f-85d2-d68544f3e4c6",
+	"unityPlayUrl": "https://play.unity.com/en/games/3bbf9cfb-cfb3-4f8f-85d2-d68544f3e4c6/paranoma-roaming"
+}

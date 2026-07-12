@@ -1,0 +1,14 @@
+{
+	"id": "feather-fox",
+	"name": "Feather Fox",
+	"author": "SeykaStudio",
+	"description": "Navigate trough obstacles, travel at fast speeds and try to survive in this fast-paced endless 2D platformer! Visit seykastudio.com for more info.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6358b2aa-41c2-4993-a3bb-f7486590e548/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55810fb3-6bf1-4707-bf22-21d2895abc75/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55810fb3-6bf1-4707-bf22-21d2895abc75",
+	"unityPlayUrl": "https://play.unity.com/en/games/55810fb3-6bf1-4707-bf22-21d2895abc75/feather-fox"
+}

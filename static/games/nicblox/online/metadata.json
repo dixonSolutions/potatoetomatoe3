@@ -1,0 +1,14 @@
+{
+	"id": "nicblox",
+	"name": "Nicblox",
+	"author": "Nicky2023",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fc49e58d-562d-4a2f-8b1a-bff0059d14f9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2df04c8a-26ed-4b1b-9543-a35bebb01e72/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2df04c8a-26ed-4b1b-9543-a35bebb01e72",
+	"unityPlayUrl": "https://play.unity.com/en/games/2df04c8a-26ed-4b1b-9543-a35bebb01e72/nicblox"
+}

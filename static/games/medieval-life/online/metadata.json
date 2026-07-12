@@ -1,0 +1,14 @@
+{
+	"id": "medieval-life",
+	"name": "Medieval Life",
+	"author": "WolseyAcademy",
+	"description": "A medieval village exploration game using the SMILE game development platform.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0dcd8680-fbc6-47ab-a85c-ece63beedf07/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f4fe1af-671e-4503-993e-94365f032198/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f4fe1af-671e-4503-993e-94365f032198",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f4fe1af-671e-4503-993e-94365f032198/medieval-life"
+}

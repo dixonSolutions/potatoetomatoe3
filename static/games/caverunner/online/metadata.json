@@ -1,0 +1,14 @@
+{
+	"id": "caverunner",
+	"name": "CaveRunner",
+	"author": "jufi01",
+	"description": "CaveRunner is a simple and thought out Runner-Game in which you can upgrade your character, collect rare skins, open mystic boxes, completing hard challenges and have tons of fun. We wish you a great time playing and enjo CaveRunner and would really appreciate feedback and new ideas. \nThanks for your support. \nYour CaveRunner Team!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/02580cf1-949f-4ebb-a8fc-fb0237c0b005/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2420dc3f-8bb5-49c4-a767-1fc530e7cecb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2420dc3f-8bb5-49c4-a767-1fc530e7cecb",
+	"unityPlayUrl": "https://play.unity.com/en/games/2420dc3f-8bb5-49c4-a767-1fc530e7cecb/caverunner"
+}

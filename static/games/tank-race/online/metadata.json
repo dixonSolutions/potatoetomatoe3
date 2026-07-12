@@ -1,0 +1,14 @@
+{
+	"id": "tank-race",
+	"name": "Tank race!",
+	"author": "ellagale",
+	"description": "Try to make it to the end of the road. Player 1 controls: WASD and f to change camera. Player 2 controls: arrow keys and right-shift to change camera.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e6f09e29-fd20-4c81-a82f-5afb6afb9580/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb232899-fa4b-4aa7-918d-4c792a4a7a1e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb232899-fa4b-4aa7-918d-4c792a4a7a1e",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb232899-fa4b-4aa7-918d-4c792a4a7a1e/tank-race"
+}

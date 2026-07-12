@@ -1,0 +1,14 @@
+{
+	"id": "hollow-knight-boss-battles",
+	"name": "Hollow Knight BOSS Battles",
+	"author": "DreemurrDango",
+	"description": "This project is a learning practice for Behavior Designer plugin follow a video tutorial of Dominik Hackl on youtube. Try to replicate the boss battles in Hollow Knight.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1384a8c6-0ad5-4195-80ca-7f06702902ef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/710ba784-a30b-4b5b-b70e-c85386378ee8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "710ba784-a30b-4b5b-b70e-c85386378ee8",
+	"unityPlayUrl": "https://play.unity.com/en/games/710ba784-a30b-4b5b-b70e-c85386378ee8/hollow-knight-boss-battles"
+}

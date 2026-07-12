@@ -1,0 +1,14 @@
+{
+	"id": "tower-master",
+	"name": "Tower Master",
+	"author": "unity_705498",
+	"description": "Climb up the tower and reach the peak to become the TOWER MASTER",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9233ed80-9a12-429b-bc6f-251c417c5bd8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/767ca611-f41a-474c-9230-7c647ca6eebf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "767ca611-f41a-474c-9230-7c647ca6eebf",
+	"unityPlayUrl": "https://play.unity.com/en/games/767ca611-f41a-474c-9230-7c647ca6eebf/tower-master"
+}

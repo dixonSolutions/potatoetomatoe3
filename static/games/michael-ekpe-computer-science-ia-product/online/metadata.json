@@ -1,0 +1,14 @@
+{
+	"id": "michael-ekpe-computer-science-ia-product",
+	"name": "Michael Ekpe Computer Science IA _Product",
+	"author": "mekpe1",
+	"description": "Product is in the form of a Unity WebGL link. If game looks zoomed in on website please lower the zoom on your browser to 50%. Once this is done press the fullscreen icon underneath the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b24cafaf-5fa8-45ea-959f-97d195b23207/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e8bdbb5-b385-4d57-af59-6bb3c8074cd4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e8bdbb5-b385-4d57-af59-6bb3c8074cd4",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e8bdbb5-b385-4d57-af59-6bb3c8074cd4/michael-ekpe-computer-science-ia-product"
+}

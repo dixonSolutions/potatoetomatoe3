@@ -1,0 +1,14 @@
+{
+	"id": "bloxnite",
+	"name": "Bloxnite",
+	"author": "visheshv05",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5774036a-c09c-478c-b816-63344ac8811b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/099c91aa-de2d-485a-a07b-2652e65add1e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "099c91aa-de2d-485a-a07b-2652e65add1e",
+	"unityPlayUrl": "https://play.unity.com/en/games/099c91aa-de2d-485a-a07b-2652e65add1e/bloxnite"
+}

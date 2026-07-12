@@ -1,0 +1,14 @@
+{
+	"id": "the-adventure-of-kuu",
+	"name": "The Adventure of Kuu",
+	"author": "millGai",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/391a7ff8-b532-465e-a24c-ed85dedc4a85/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ff11f42a-ac41-487f-bbb6-d56a1a0e8167/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ff11f42a-ac41-487f-bbb6-d56a1a0e8167",
+	"unityPlayUrl": "https://play.unity.com/en/games/ff11f42a-ac41-487f-bbb6-d56a1a0e8167/the-adventure-of-kuu"
+}

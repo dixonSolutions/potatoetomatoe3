@@ -1,0 +1,14 @@
+{
+	"id": "run-dino-run",
+	"name": "Run Dino Run",
+	"author": "samuelshine",
+	"description": "This game is inspired by the 3D T-Rex Game on Google Chrome that appears when there is no Internet. This is a 3D Version of that game developed by 4 students Carlton Sam Charles, Joel Nencil, Mohammed Mudassir Hayath and Samuel Shine.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e9239061-5afb-4185-8eb5-dd6056252393/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/095c67dd-a5c1-40d7-be8f-4db1a0c4946b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "095c67dd-a5c1-40d7-be8f-4db1a0c4946b",
+	"unityPlayUrl": "https://play.unity.com/en/games/095c67dd-a5c1-40d7-be8f-4db1a0c4946b/run-dino-run"
+}

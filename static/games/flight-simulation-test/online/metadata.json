@@ -1,0 +1,14 @@
+{
+	"id": "flight-simulation-test",
+	"name": "Flight Simulation Test",
+	"author": "mwisner",
+	"description": "Player Controls made with Visual Scripting following the Introduction To Visual Scripting project on Unity Learn.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a5050203-e531-49a4-92d0-35ad3868cc27/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/80c69d04-b5e6-4261-b064-e09a99479093/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "80c69d04-b5e6-4261-b064-e09a99479093",
+	"unityPlayUrl": "https://play.unity.com/en/games/80c69d04-b5e6-4261-b064-e09a99479093/flight-simulation-test"
+}

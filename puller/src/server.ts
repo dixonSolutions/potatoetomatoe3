@@ -11,7 +11,7 @@ import {
   cancelDownload
 } from './download-manager.js';
 import { getProgressJobForGame } from './jobs.js';
-import { isValidGameId, loadGameIds, resolveOfflineFilePath } from './catalog.js';
+import { isValidGameId, isGameInCatalog, loadGameIds, resolveOfflineFilePath } from './catalog.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
 import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
 import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
@@ -77,8 +77,7 @@ async function serveStaticGames(
     return true;
   }
 
-  const ids = await loadGameIds();
-  if (!ids.includes(gameId)) {
+  if (!(await isGameInCatalog(gameId))) {
     sendJson(res, 404, { error: 'Game not in catalog' });
     return true;
   }
@@ -139,10 +138,12 @@ export function createServer(): http.Server {
 
     try {
       if (pathname === '/api/offline/health' && req.method === 'GET') {
+        const catalogIds = await loadGameIds();
         sendJson(res, 200, {
           ok: true,
           dataDir: GAMES_DATA_DIR,
-          catalogDir: CATALOG_DIR
+          catalogDir: CATALOG_DIR,
+          catalogGameCount: catalogIds.length
         });
         return;
       }
@@ -214,8 +215,7 @@ export function createServer(): http.Server {
           sendJson(res, 400, { error: 'Invalid game id' });
           return;
         }
-        const ids = await loadGameIds();
-        if (!ids.includes(gameId)) {
+        if (!(await isGameInCatalog(gameId))) {
           sendJson(res, 404, { error: 'Game not in catalog' });
           return;
         }
@@ -248,8 +248,7 @@ export function createServer(): http.Server {
           sendJson(res, 400, { error: 'Invalid game id' });
           return;
         }
-        const ids = await loadGameIds();
-        if (!ids.includes(gameId)) {
+        if (!(await isGameInCatalog(gameId))) {
           sendJson(res, 404, { error: 'Game not in catalog' });
           return;
         }
@@ -269,8 +268,7 @@ export function createServer(): http.Server {
           sendJson(res, 400, { error: 'Invalid game id' });
           return;
         }
-        const ids = await loadGameIds();
-        if (!ids.includes(gameId)) {
+        if (!(await isGameInCatalog(gameId))) {
           sendJson(res, 404, { error: 'Game not in catalog' });
           return;
         }
@@ -292,8 +290,7 @@ export function createServer(): http.Server {
           sendJson(res, 400, { error: 'Invalid game id' });
           return;
         }
-        const ids = await loadGameIds();
-        if (!ids.includes(gameId)) {
+        if (!(await isGameInCatalog(gameId))) {
           sendJson(res, 404, { error: 'Game not in catalog' });
           return;
         }

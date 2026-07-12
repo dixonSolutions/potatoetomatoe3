@@ -1,0 +1,14 @@
+{
+	"id": "first-person-controller",
+	"name": "First Person Controller",
+	"author": "bg98",
+	"description": "Simple player controller for first person 3D games. WASD to move, Left Shift to sprint.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e4795446-5147-4288-be32-9ad317b5ad79/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/37e0614d-2932-4627-9d4f-5b9c339f1ddb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "37e0614d-2932-4627-9d4f-5b9c339f1ddb",
+	"unityPlayUrl": "https://play.unity.com/en/games/37e0614d-2932-4627-9d4f-5b9c339f1ddb/first-person-controller"
+}

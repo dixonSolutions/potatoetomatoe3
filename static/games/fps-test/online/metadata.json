@@ -1,0 +1,14 @@
+{
+	"id": "fps-test",
+	"name": "FPS Test",
+	"author": "boyan_unity641",
+	"description": "Play FPS Test on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/106b5ecf-919a-41d8-a16a-a5e7dc5aa1ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7eb7549e-8158-4fc9-a160-a38594c99faf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7eb7549e-8158-4fc9-a160-a38594c99faf",
+	"unityPlayUrl": "https://play.unity.com/en/games/7eb7549e-8158-4fc9-a160-a38594c99faf/fps-test"
+}

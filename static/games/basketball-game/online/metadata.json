@@ -1,0 +1,14 @@
+{
+	"id": "basketball-game",
+	"name": "Basketball Game",
+	"author": "Dread_Bunny",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b63cad9f-d280-4206-b5b6-1016e1535a00/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bf1a293-7e5b-4ae5-b362-5435e4d12eb6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bf1a293-7e5b-4ae5-b362-5435e4d12eb6",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bf1a293-7e5b-4ae5-b362-5435e4d12eb6/basketball-game"
+}

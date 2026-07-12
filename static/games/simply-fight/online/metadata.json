@@ -1,0 +1,14 @@
+{
+	"id": "simply-fight",
+	"name": "Simply Fight",
+	"author": "gamercozmo",
+	"description": "Simply Fight is a 2d fighting game where you have 2 attacks, punch and kick. You also have a block that reduces the damage you take. This game has no special abilities, powers, characters, etc.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/253b8f4e-1ca7-473a-8751-2c2330c5dee9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68690c9a-1935-4974-a9f0-64311e117fbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68690c9a-1935-4974-a9f0-64311e117fbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/68690c9a-1935-4974-a9f0-64311e117fbf/simply-fight"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "urp-racer",
+	"name": "URP Racer",
+	"author": "Ammut88",
+	"description": "Obstacle Course exercise with the URP sample scene.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/207ba8f1-fe64-4025-bb86-22cf21d94bb2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d4fac26-325a-451a-8aad-9df9a55ca0d3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d4fac26-325a-451a-8aad-9df9a55ca0d3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d4fac26-325a-451a-8aad-9df9a55ca0d3/urp-racer"
+}

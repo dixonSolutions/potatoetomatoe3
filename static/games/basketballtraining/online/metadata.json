@@ -1,0 +1,14 @@
+{
+	"id": "basketballtraining",
+	"name": "BasketBallTraining",
+	"author": "N_Ryz",
+	"description": "A simple game of hitting a basketball hoop.\n\nControl.\nYou can adjust the angle of the ball with the up and down arrows. The power of the throw is controlled by holding the space bar. If you release the space bar, the ball will fly towards the target.\n\nVictory conditions.\nYou are competing with a computer controlled opponent. Your task is to throw more balls into the basket than your opponent in ten attempts. If you find it too easy or, on the contrary, too hard, you can raise / lower your opponent's level after every 10 throws.\n\nHint: you almost always hit the hoop if the throwing power is between 401-419 and the ball is aimed at the inner rectangle of the basketball backboard.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/834b6d64-1f22-45e1-bd1f-71fc4f31bd6a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1db39f2c-3d19-4f5e-a6b4-a61a52b33849/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1db39f2c-3d19-4f5e-a6b4-a61a52b33849",
+	"unityPlayUrl": "https://play.unity.com/en/games/1db39f2c-3d19-4f5e-a6b4-a61a52b33849/basketballtraining"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-best-game-i-ever-made",
+	"name": "The Best Game I Ever Made",
+	"author": "Minaverus",
+	"description": "This is the best game I ever made!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/041bba1f-481c-41f8-9acb-7502ae24edfd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "041bba1f-481c-41f8-9acb-7502ae24edfd",
+	"unityPlayUrl": "https://play.unity.com/en/games/041bba1f-481c-41f8-9acb-7502ae24edfd/the-best-game-i-ever-made"
+}

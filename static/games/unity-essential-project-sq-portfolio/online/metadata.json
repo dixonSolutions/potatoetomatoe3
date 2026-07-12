@@ -1,0 +1,14 @@
+{
+	"id": "unity-essential-project-sq-portfolio",
+	"name": "Unity Essential project - S.Q portfolio",
+	"author": "SwordFalcon",
+	"description": "what is special?\nI complete all 3 challenges of the tutorial \"Bounce Scene\"!\nthere are 2 parts of the 2d game, 2 puzzles!\n\nbasic control:\nmovement: w,s, a,d.\njump : space.\nback to the home page: Esc          or just use the mouse to press the arrow on the upper left of the screen",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a70acc13-0018-42b1-ba8b-ef7cf817257c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/664a5782-2790-416d-adf2-25b5b5db8b54/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "664a5782-2790-416d-adf2-25b5b5db8b54",
+	"unityPlayUrl": "https://play.unity.com/en/games/664a5782-2790-416d-adf2-25b5b5db8b54/unity-essential-project-sq-portfolio"
+}

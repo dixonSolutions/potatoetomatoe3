@@ -1,0 +1,14 @@
+{
+	"id": "beach-volleyball",
+	"name": "Beach Volleyball",
+	"author": "cnsudstudent1",
+	"description": "An award winning(Kathryn Awards) game. Played by many, loved by lots. This will simulate what its like to play beach volleyball!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13f6736d-f357-411c-a803-b91116e23e1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13f6736d-f357-411c-a803-b91116e23e1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/13f6736d-f357-411c-a803-b91116e23e1c/beach-volleyball"
+}

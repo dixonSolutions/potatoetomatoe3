@@ -1,0 +1,14 @@
+{
+	"id": "kids-of-star",
+	"name": "Kids of Star",
+	"author": "xorua4510",
+	"description": "Controls: WASD & Space Bar / Joystick & Touch\nForm Change: Click / Touch the number keys (1, 2, 3, 4)\n#Full screen is recommended.#\n\n\uc870\uc791 : WASD&Space Bar / \uc870\uc774\uc2a4\ud2f1&\ud130\uce58\n\ud615\ud0dc\ubcc0\ud654 : \uc22b\uc790\ud0a4(1, 2, 3, 4) \ud074\ub9ad / \ud130\uce58",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1afc6210-f107-41f6-9a27-32a348721b26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1afc6210-f107-41f6-9a27-32a348721b26",
+	"unityPlayUrl": "https://play.unity.com/en/games/1afc6210-f107-41f6-9a27-32a348721b26/kids-of-star"
+}

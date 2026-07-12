@@ -1,0 +1,14 @@
+{
+	"id": "healing-heart",
+	"name": "Healing Heart",
+	"author": "doncorve",
+	"description": "Play as an astronaut whose ultimate mission is to humanize the aliens with love.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0198ad8b-cf84-4db2-826a-bae7557d10e2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6a73a0ec-66e9-47c2-8149-9297fb3836b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6a73a0ec-66e9-47c2-8149-9297fb3836b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/6a73a0ec-66e9-47c2-8149-9297fb3836b0/healing-heart"
+}

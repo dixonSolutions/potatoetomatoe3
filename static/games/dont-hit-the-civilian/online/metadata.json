@@ -1,0 +1,14 @@
+{
+	"id": "dont-hit-the-civilian",
+	"name": "Don't Hit the Civilian",
+	"author": "angelajones1010",
+	"description": "You are a tank driver on your way to the battle line.  Avoid the obstacles and don't hit the innocent civilian.  Use the left and right arrows (or the \"a\" or \"d\" keys) to navigate.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c75e3378-cc5d-4bf6-9e6d-c122688e64f3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18b0db3b-77ec-4490-8cf8-bb44cdd11b26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18b0db3b-77ec-4490-8cf8-bb44cdd11b26",
+	"unityPlayUrl": "https://play.unity.com/en/games/18b0db3b-77ec-4490-8cf8-bb44cdd11b26/dont-hit-the-civilian"
+}

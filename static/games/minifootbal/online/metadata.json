@@ -1,0 +1,14 @@
+{
+	"id": "minifootbal",
+	"name": "MiniFootbal",
+	"author": "han73r",
+	"description": "Hello! It's a mini football game. Two players can play on one keyboard with WASD and Arrow Buttons. Use Space to Reset Ball Position and Enjoy Game :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0015fb75-fa17-425d-9cee-fbe9815a18bf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c176b98-6ba8-4336-8149-bea6478b74c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7c176b98-6ba8-4336-8149-bea6478b74c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/7c176b98-6ba8-4336-8149-bea6478b74c2/minifootbal"
+}

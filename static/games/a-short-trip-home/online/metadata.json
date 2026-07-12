@@ -1,0 +1,14 @@
+{
+	"id": "a-short-trip-home",
+	"name": "A Short Trip Home",
+	"author": "DaveHeader",
+	"description": "Help the lost being return home. (Be sure to turn on sound and full screen mode by clicking in the bottom right corner of the game view after the game loads and you hit escape to start)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/06c4673c-19d9-4846-93d6-abf92dd35bfa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e8f090c-44e7-41e7-8335-79fe10ba84d1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e8f090c-44e7-41e7-8335-79fe10ba84d1",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e8f090c-44e7-41e7-8335-79fe10ba84d1/a-short-trip-home"
+}

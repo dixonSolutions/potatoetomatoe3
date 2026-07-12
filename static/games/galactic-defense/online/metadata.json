@@ -1,0 +1,14 @@
+{
+	"id": "galactic-defense",
+	"name": "Galactic Defense",
+	"author": "dbeck157",
+	"description": "The invasion is today and there is no way out. Endure for as long as possible, and eliminate as many of the invaders as you can.\n\nUse the ARROWS to move and SPACE to fire.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3572c2db-9c9c-49ae-9d07-a406e2b818e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/037cae50-6a0a-4c4e-83e1-60b1a1646bac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "037cae50-6a0a-4c4e-83e1-60b1a1646bac",
+	"unityPlayUrl": "https://play.unity.com/en/games/037cae50-6a0a-4c4e-83e1-60b1a1646bac/galactic-defense"
+}

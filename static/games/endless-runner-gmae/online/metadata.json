@@ -1,0 +1,14 @@
+{
+	"id": "endless-runner-gmae",
+	"name": "Endless Runner Gmae",
+	"author": "amrhegab10",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bebc0831-1c55-401c-a50f-7d2de97629a8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b54f4d5-8a26-46f0-b527-000ccdcdb70d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b54f4d5-8a26-46f0-b527-000ccdcdb70d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b54f4d5-8a26-46f0-b527-000ccdcdb70d/endless-runner-gmae"
+}

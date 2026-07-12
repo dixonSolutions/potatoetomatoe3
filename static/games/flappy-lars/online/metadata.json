@@ -1,0 +1,14 @@
+{
+	"id": "flappy-lars",
+	"name": "Flappy Lars",
+	"author": "benjaminnaglang",
+	"description": "Be a student",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/57a94d45-e497-4763-abe8-ad25c1ed0716/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/017a6a8f-1c58-47b3-8d15-4a2a884bb417/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "017a6a8f-1c58-47b3-8d15-4a2a884bb417",
+	"unityPlayUrl": "https://play.unity.com/en/games/017a6a8f-1c58-47b3-8d15-4a2a884bb417/flappy-lars"
+}

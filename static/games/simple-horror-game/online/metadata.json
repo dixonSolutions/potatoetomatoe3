@@ -1,0 +1,14 @@
+{
+	"id": "simple-horror-game",
+	"name": "Simple Horror game",
+	"author": "Dazmenia",
+	"description": "find the key to survive , WASD to move and Mouse for camera rotation",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9a43fbc3-68e7-4fe3-89e4-acd943e64f00/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9a43fbc3-68e7-4fe3-89e4-acd943e64f00",
+	"unityPlayUrl": "https://play.unity.com/en/games/9a43fbc3-68e7-4fe3-89e4-acd943e64f00/simple-horror-game"
+}

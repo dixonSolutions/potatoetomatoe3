@@ -1,0 +1,14 @@
+{
+	"id": "drunk-drivinn-smith",
+	"name": "Drunk Drivinn - Smith",
+	"author": "BSmith_NDHS",
+	"description": "Swerve through traffic and avoid hitting other cars while drunk!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/04dded18-abb0-4f10-b77c-53413d2970b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56e4045f-0093-4de2-afd5-37c6d526061b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56e4045f-0093-4de2-afd5-37c6d526061b",
+	"unityPlayUrl": "https://play.unity.com/en/games/56e4045f-0093-4de2-afd5-37c6d526061b/drunk-drivinn-smith"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "timi-skidloader-web-gpu",
+	"name": "Timi SkidLoader Web GPU",
+	"author": "msutto",
+	"description": "Configure the Timi Skidloader in Web GPU with our open source configurator package\nLearn more - https://youtu.be/TF10tyOMQ30?si",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/02a84ba7-f5c5-4bc4-b569-a4e93c93a6be/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5576756f-e93e-4df4-9163-c32a6195a752/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5576756f-e93e-4df4-9163-c32a6195a752",
+	"unityPlayUrl": "https://play.unity.com/en/games/5576756f-e93e-4df4-9163-c32a6195a752/timi-skidloader-web-gpu"
+}

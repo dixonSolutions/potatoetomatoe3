@@ -1,0 +1,14 @@
+{
+	"id": "spacefreighter-v-006-the-torpedoening",
+	"name": "Spacefreighter v 0.06 - The Torpedoening",
+	"author": "msyoung2012",
+	"description": "This new release includes lots of cool features. We've added torpedoes to the game - they track targets and can be shot down or intercepted. You can target them just like an enemy ship. The Pom-Pom gun was also added - it fires a short burst of low-damage bullets before reloading (excellent for tracking moving targets... maybe use it to intercept a torepdo!). We've also improved the sound system a tad, and improved the AI so behaves a bit more realistically... lots more work to do there. Finally, we squashed lots of small bugs and made improvements to make the game run much faster. Be sure to join the discord if you want more regular updates: https://discord.gg/jHYNAfs",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3c7b5db7-5af2-4d9e-b711-267bebd19dce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b92d1db-73b2-43a1-868f-5d1f95e10231/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5b92d1db-73b2-43a1-868f-5d1f95e10231",
+	"unityPlayUrl": "https://play.unity.com/en/games/5b92d1db-73b2-43a1-868f-5d1f95e10231/spacefreighter-v-006-the-torpedoening"
+}

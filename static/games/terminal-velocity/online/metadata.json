@@ -1,0 +1,14 @@
+{
+	"id": "terminal-velocity",
+	"name": "Terminal Velocity",
+	"author": "ExeSandbox",
+	"description": "An endless synthwave runner made for the LEGO Ideas 1-Button Game Challenge. Make sure to unmute the game! ((d[-_-]b))                              \nMusic by < e s c p > | https://escp-music.bandcamp.com/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/abddb88a-a211-49a4-a6c7-f11799583e4a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c91fef3-5213-4486-ad44-e291ea2c5776/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c91fef3-5213-4486-ad44-e291ea2c5776",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c91fef3-5213-4486-ad44-e291ea2c5776/terminal-velocity"
+}

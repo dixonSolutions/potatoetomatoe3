@@ -1,0 +1,14 @@
+{
+	"id": "the-shape-escape",
+	"name": "The Shape Escape",
+	"author": "Vincent_Cashotti",
+	"description": "The Shape Escape contains six levels and one boss fight. Despite being short, the game is very difficult. It's my first time coding a full game, but it's still worth checking out! I hope you enjoy it!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd58260a-948a-485e-a0b9-f5fbde09b699/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fd4acba4-da00-4f3e-b825-d08189161859/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fd4acba4-da00-4f3e-b825-d08189161859",
+	"unityPlayUrl": "https://play.unity.com/en/games/fd4acba4-da00-4f3e-b825-d08189161859/the-shape-escape"
+}

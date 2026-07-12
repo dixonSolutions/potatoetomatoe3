@@ -1,0 +1,14 @@
+{
+	"id": "lego-town-builder",
+	"name": "LEGO Town Builder",
+	"author": "Terrev",
+	"description": "A simple little town builder, with some homages to classic LEGO games and sets.\nLEGO Ideas username: jamesster",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4024b90b-12a7-42cd-b28a-e58b196c330c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8325ce56-c0a9-44b6-bbad-3b2ec3b7151e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8325ce56-c0a9-44b6-bbad-3b2ec3b7151e",
+	"unityPlayUrl": "https://play.unity.com/en/games/8325ce56-c0a9-44b6-bbad-3b2ec3b7151e/lego-town-builder"
+}

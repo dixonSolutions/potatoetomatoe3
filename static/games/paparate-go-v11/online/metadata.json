@@ -1,0 +1,14 @@
+{
+	"id": "paparate-go-v11",
+	"name": "Paparate GO v1.1",
+	"author": "HerrMurasame",
+	"description": "A challenging Jump-and-Run tiny game! \nTap any key once to jump, tap again to double jump.\nContains a little game features Flappy Bird!\n\nAssets are from the Unity Assets store.\n1 bgm is from Arknights mobile game, links:\nhttps://www.bilibili.com/video/BV12a4y1E7PT?share_source=copy_web",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e934c66f-b488-4a24-8337-a82c1c4e2dd9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40577858-e098-40ec-984e-a2b28e25cc72/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40577858-e098-40ec-984e-a2b28e25cc72",
+	"unityPlayUrl": "https://play.unity.com/en/games/40577858-e098-40ec-984e-a2b28e25cc72/paparate-go-v11"
+}

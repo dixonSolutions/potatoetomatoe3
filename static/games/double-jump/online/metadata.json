@@ -1,0 +1,14 @@
+{
+	"id": "double-jump",
+	"name": "Double jump",
+	"author": "unity_1cohenr",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee3c08c9-ea2a-43bc-a617-f0f9a7379c7c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a3c364b7-2803-4716-bf51-b31eada1e79b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a3c364b7-2803-4716-bf51-b31eada1e79b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a3c364b7-2803-4716-bf51-b31eada1e79b/double-jump"
+}

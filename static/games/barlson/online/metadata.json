@@ -1,0 +1,14 @@
+{
+	"id": "barlson",
+	"name": "Barlson",
+	"author": "somedumkid",
+	"description": "basicly a bad version of Karlson",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb838125-915d-4a35-abc2-7d9340c3e2e3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5bc1b5d6-5517-4247-8625-6f4e02dc5257/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5bc1b5d6-5517-4247-8625-6f4e02dc5257",
+	"unityPlayUrl": "https://play.unity.com/en/games/5bc1b5d6-5517-4247-8625-6f4e02dc5257/barlson"
+}

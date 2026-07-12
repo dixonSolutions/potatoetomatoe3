@@ -1,0 +1,14 @@
+{
+	"id": "eminem-goes-on-an-adventure",
+	"name": "Eminem Goes on an Adventure",
+	"author": "unity_1lavoieo",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/76a94409-d5e2-4b57-bc65-4084f05fcf71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50e186d1-f3cb-4f77-92a6-f9bbda66e3c8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50e186d1-f3cb-4f77-92a6-f9bbda66e3c8",
+	"unityPlayUrl": "https://play.unity.com/en/games/50e186d1-f3cb-4f77-92a6-f9bbda66e3c8/eminem-goes-on-an-adventure"
+}

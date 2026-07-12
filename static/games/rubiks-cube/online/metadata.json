@@ -1,0 +1,14 @@
+{
+	"id": "rubiks-cube",
+	"name": "Rubiks Cube",
+	"author": "Oli-L",
+	"description": "My latest shitshow",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04399db1-1140-4187-b373-fed1ef8eba06/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04399db1-1140-4187-b373-fed1ef8eba06",
+	"unityPlayUrl": "https://play.unity.com/en/games/04399db1-1140-4187-b373-fed1ef8eba06/rubiks-cube"
+}

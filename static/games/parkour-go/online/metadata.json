@@ -1,0 +1,14 @@
+{
+	"id": "parkour-go",
+	"name": "Parkour GO!",
+	"author": "DevelopersIncoming",
+	"description": "It's 2D parkour game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/75d9c470-135f-43c8-8cc3-e302d46fee7f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7d32ff0f-51ae-4a9c-af95-22b0c29fb2bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7d32ff0f-51ae-4a9c-af95-22b0c29fb2bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/7d32ff0f-51ae-4a9c-af95-22b0c29fb2bc/parkour-go"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "martian-volcano",
+	"name": "martian volcano",
+	"author": "themeteorites",
+	"description": "An fps microgame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8f823060-18e8-419c-89de-ac2a976c3c2b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/490824cc-2715-427b-a472-88632b33633b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "490824cc-2715-427b-a472-88632b33633b",
+	"unityPlayUrl": "https://play.unity.com/en/games/490824cc-2715-427b-a472-88632b33633b/martian-volcano"
+}

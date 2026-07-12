@@ -1,0 +1,14 @@
+{
+	"id": "egyptian-platformer",
+	"name": "Egyptian Platformer",
+	"author": "RoMo1",
+	"description": "Amazing graphics and animations. Play a platformer game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5d7cf365-52d3-4cac-963a-16427a5a66d9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12646f08-84d9-4e36-9ea8-02d5d949fa21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12646f08-84d9-4e36-9ea8-02d5d949fa21",
+	"unityPlayUrl": "https://play.unity.com/en/games/12646f08-84d9-4e36-9ea8-02d5d949fa21/egyptian-platformer"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "challenge",
+	"name": "Challenge!",
+	"author": "frenchice",
+	"description": "I developed a game version of our region\u2019s PBS KEDT Challenge! quiz show. Please visit https://www.pbs.org/show/challenge/ to watch the show. I also have the files for the mobile versions (android and ios). My contact info is at max-health.webflow.io if you want the mobile version.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e374bd2b-09c7-4f4c-8584-00b450f18b2b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/399ba0cf-2013-417e-95f9-409a4ce4dd6c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "399ba0cf-2013-417e-95f9-409a4ce4dd6c",
+	"unityPlayUrl": "https://play.unity.com/en/games/399ba0cf-2013-417e-95f9-409a4ce4dd6c/challenge"
+}

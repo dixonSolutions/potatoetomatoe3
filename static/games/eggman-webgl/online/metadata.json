@@ -1,0 +1,14 @@
+{
+	"id": "eggman-webgl",
+	"name": "EggMan WebGL",
+	"author": "MrKankles",
+	"description": "A Rigidbody 2D physics where two AI battle. The game showcases independent limb-to-limb movement instead of the traditional character controller approach.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8c22cdb4-a426-47c3-a873-62a0650cb19b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0daf6cb7-bc3f-49d7-87ea-aad85aba2f5a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0daf6cb7-bc3f-49d7-87ea-aad85aba2f5a",
+	"unityPlayUrl": "https://play.unity.com/en/games/0daf6cb7-bc3f-49d7-87ea-aad85aba2f5a/eggman-webgl"
+}

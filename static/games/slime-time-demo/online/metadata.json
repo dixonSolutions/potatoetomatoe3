@@ -1,0 +1,14 @@
+{
+	"id": "slime-time-demo",
+	"name": "Slime Time Demo",
+	"author": "ParkerLove0526",
+	"description": "Game and Sim Demo!\n\nMovement:WASD/Arrow Keys\nPause/Admin Panel: Esc\nAdmin Speed Up:L\nAdmin Slow Down:R\nShoot: M1\nMax Hearts: O\nEXP Add: K\nProgress Dialogue: Enter\nBronny James Mode: H",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6dbaf8e5-5456-423e-916c-ca577171a6b1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ddfe238-d410-40e5-ba1b-0797717e6293/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ddfe238-d410-40e5-ba1b-0797717e6293",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ddfe238-d410-40e5-ba1b-0797717e6293/slime-time-demo"
+}

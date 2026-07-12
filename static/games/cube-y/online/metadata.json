@@ -1,0 +1,14 @@
+{
+	"id": "cube-y",
+	"name": "CUBE-Y",
+	"author": "Bleepish",
+	"description": "Play CUBE-Y on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a01b5a39-3c5c-405a-8919-68878e96d23f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/abc25946-d91d-47a7-af46-bd4d309ec31d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "abc25946-d91d-47a7-af46-bd4d309ec31d",
+	"unityPlayUrl": "https://play.unity.com/en/games/abc25946-d91d-47a7-af46-bd4d309ec31d/cube-y"
+}

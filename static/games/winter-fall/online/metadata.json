@@ -1,0 +1,14 @@
+{
+	"id": "winter-fall",
+	"name": "Winter Fall",
+	"author": "PageO",
+	"description": "Relaxing winter-themed 2d collecting game. \nThe goal is to collect the requested combination and the faster it is collected the better the score is.\n\nTry to be in the top 10 players.\nhttps://twitter.com/EnBojan\nhttps://game-forge.itch.io/winter-fall",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e763cbf8-ef9a-4b22-a009-5a2eaca818d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19b0091e-cf97-4f20-8dba-92445d288ecd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19b0091e-cf97-4f20-8dba-92445d288ecd",
+	"unityPlayUrl": "https://play.unity.com/en/games/19b0091e-cf97-4f20-8dba-92445d288ecd/winter-fall"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "minilife-game",
+	"name": "MiniLife Game",
+	"author": "unity_UrzzByI25RBHnw",
+	"description": "You are some kind of microorganism. Eat smaller ones, avoid big ones. \nUse light to produce energy out of eaten food. You need it to move and stay alive.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/616f33e5-96c2-4c62-926c-3911c45252e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11a0f5cb-aa8e-435d-bd38-192e797831ff/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11a0f5cb-aa8e-435d-bd38-192e797831ff",
+	"unityPlayUrl": "https://play.unity.com/en/games/11a0f5cb-aa8e-435d-bd38-192e797831ff/minilife-game"
+}

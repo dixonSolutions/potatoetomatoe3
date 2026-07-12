@@ -1,0 +1,14 @@
+{
+	"id": "slime-quest-packages",
+	"name": "Slime Quest Packages",
+	"author": "awesomeguy1741",
+	"description": "Slime Quest is a game where your goal is to eliminate all of the enemies in the villages. Once you reclaim the villages, you have to defeat the final boss and find peace.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/25e09759-2ef4-42ae-8997-eb519027759e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/595197ec-9b06-46af-a36a-84215531240a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "595197ec-9b06-46af-a36a-84215531240a",
+	"unityPlayUrl": "https://play.unity.com/en/games/595197ec-9b06-46af-a36a-84215531240a/slime-quest-packages"
+}

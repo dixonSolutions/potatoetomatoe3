@@ -1,0 +1,14 @@
+{
+	"id": "need-for-speed-game",
+	"name": "Need For Speed Game",
+	"author": "thanhcongchien",
+	"description": "Play Need For Speed Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05ad2bc9-493d-4a7c-996c-69e8972216e0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e6c4c10-5055-4bdc-968a-94fa07cc892c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e6c4c10-5055-4bdc-968a-94fa07cc892c",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e6c4c10-5055-4bdc-968a-94fa07cc892c/need-for-speed-game"
+}

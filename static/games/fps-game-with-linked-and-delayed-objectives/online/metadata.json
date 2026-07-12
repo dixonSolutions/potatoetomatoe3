@@ -1,0 +1,14 @@
+{
+	"id": "fps-game-with-linked-and-delayed-objectives",
+	"name": "FPS game with linked and delayed objectives",
+	"author": "theblitz",
+	"description": "An FPS game based on the Military Asset. Finished an objective and new ones will pop up. Keep it up until you reach the end. But, be warned, there are rogue bots out there to get you. Many of the objectives include picking up weapons etc and can appear in weird places that seem impossible to get to. Don't give up! And be careful of those enemies. If you don't kill them they will slowly recover.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/64c3c133-ca5b-4005-9ac1-6ae7dc8dacbc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/388565b7-48ea-4daf-ae82-74b9e0fc7199/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "388565b7-48ea-4daf-ae82-74b9e0fc7199",
+	"unityPlayUrl": "https://play.unity.com/en/games/388565b7-48ea-4daf-ae82-74b9e0fc7199/fps-game-with-linked-and-delayed-objectives"
+}

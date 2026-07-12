@@ -1,0 +1,14 @@
+{
+	"id": "prototype-1-driving-cars-down-the-road",
+	"name": "Prototype 1 - Driving cars down the road",
+	"author": "Shidigital",
+	"description": "How many things (cars, obstacles, other player) can you throw down from the road?                                                                                                                2 Player Game \nPlayer1: w,a,s,d for moving c to switch camera.                                       Player2: Arrow keys for moving and right Shift for camera switch.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee505542-379e-487a-a913-aefe29a7bb9e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bbad7bcf-c8d0-45d2-a790-8eebb79aae6a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bbad7bcf-c8d0-45d2-a790-8eebb79aae6a",
+	"unityPlayUrl": "https://play.unity.com/en/games/bbad7bcf-c8d0-45d2-a790-8eebb79aae6a/prototype-1-driving-cars-down-the-road"
+}

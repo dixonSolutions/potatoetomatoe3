@@ -1,0 +1,14 @@
+{
+	"id": "pumpkin-panic-v1",
+	"name": "Pumpkin Panic v1",
+	"author": "RaspberryPiDude314",
+	"description": "Made in 4 hours",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/73132d16-729f-4dde-8625-4a364d0589b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "73132d16-729f-4dde-8625-4a364d0589b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/73132d16-729f-4dde-8625-4a364d0589b0/pumpkin-panic-v1"
+}

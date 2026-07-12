@@ -1,0 +1,14 @@
+{
+	"id": "space-quest",
+	"name": "Space Quest",
+	"author": "codeLaboratory",
+	"description": "Blast through asteroids, fight enemies, and rescue the space whale!\nControls: \nSHOOT - left mouse / alt key\nBOOST (super speed) - right mouse / space bar\nMOVE - WSAD / arrows",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/303e4739-083b-4d23-8d87-fc6fd49875d5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/919513d2-c1ce-41e1-8dd9-dbd44c508bbe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "919513d2-c1ce-41e1-8dd9-dbd44c508bbe",
+	"unityPlayUrl": "https://play.unity.com/en/games/919513d2-c1ce-41e1-8dd9-dbd44c508bbe/space-quest"
+}

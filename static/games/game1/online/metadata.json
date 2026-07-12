@@ -1,0 +1,14 @@
+{
+	"id": "game1",
+	"name": "game_1",
+	"author": "KXD2018",
+	"description": "Play game_1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68fb16d8-b534-4830-a2dc-2c67a260f5ec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68fb16d8-b534-4830-a2dc-2c67a260f5ec",
+	"unityPlayUrl": "https://play.unity.com/en/games/68fb16d8-b534-4830-a2dc-2c67a260f5ec/game1"
+}

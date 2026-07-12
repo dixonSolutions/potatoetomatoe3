@@ -1,0 +1,14 @@
+{
+	"id": "animal-shooting-game",
+	"name": "Animal shooting game",
+	"author": "werfycool",
+	"description": "Dont let the animals get past you.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5dfc28f1-d893-4bad-a9d8-2cee2ba99bbb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5dfc28f1-d893-4bad-a9d8-2cee2ba99bbb",
+	"unityPlayUrl": "https://play.unity.com/en/games/5dfc28f1-d893-4bad-a9d8-2cee2ba99bbb/animal-shooting-game"
+}

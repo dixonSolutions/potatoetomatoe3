@@ -1,0 +1,14 @@
+{
+	"id": "sundered-temple",
+	"name": "Sundered Temple",
+	"author": "Baker-C",
+	"description": "Movement:   A, D\nJump:            Spacebar/W\nSprint:            Left Shift",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/069b434e-fa9a-4b9b-bcee-8432eeccb9b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "069b434e-fa9a-4b9b-bcee-8432eeccb9b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/069b434e-fa9a-4b9b-bcee-8432eeccb9b3/sundered-temple"
+}

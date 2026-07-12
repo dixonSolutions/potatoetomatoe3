@@ -1,0 +1,14 @@
+{
+	"id": "swarm-demo",
+	"name": "S.W.A.R.M (DEMO)",
+	"author": "GHOST612",
+	"description": "Specially Weaponized Armoured Robotic Machinery is my first game or more specifically a demo. Enjoy 3 levels of gameplay and give support if you want to see the full game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0eec693e-2a36-4689-aea1-126964a1b95a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19932ac5-fc26-447b-91b8-eb0fdb175a65/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19932ac5-fc26-447b-91b8-eb0fdb175a65",
+	"unityPlayUrl": "https://play.unity.com/en/games/19932ac5-fc26-447b-91b8-eb0fdb175a65/swarm-demo"
+}

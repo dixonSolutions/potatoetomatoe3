@@ -1,0 +1,14 @@
+{
+	"id": "my-first-3d-game",
+	"name": "My first 3D game",
+	"author": "DJ_BomB",
+	"description": "NOTHING...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/822e9968-4843-4072-8c9f-ed8830ca7155/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0591ddfe-341e-4387-9c2e-5f44095f2154/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0591ddfe-341e-4387-9c2e-5f44095f2154",
+	"unityPlayUrl": "https://play.unity.com/en/games/0591ddfe-341e-4387-9c2e-5f44095f2154/my-first-3d-game"
+}

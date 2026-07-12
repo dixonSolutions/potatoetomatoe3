@@ -1,0 +1,14 @@
+{
+	"id": "science-fair-project-b",
+	"name": "Science Fair Project B",
+	"author": "bluehedgehog",
+	"description": "Science Fair Project B",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11cb2334-1fd5-48f7-a903-131aa97ae88d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11cb2334-1fd5-48f7-a903-131aa97ae88d",
+	"unityPlayUrl": "https://play.unity.com/en/games/11cb2334-1fd5-48f7-a903-131aa97ae88d/science-fair-project-b"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "yes",
+	"name": "yes",
+	"author": "MrUnityMan_",
+	"description": "Play yes on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3aa958af-08ca-4c66-8a92-ad53529543af/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07ec6f76-59dd-4072-bc8e-9b528af6e580/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07ec6f76-59dd-4072-bc8e-9b528af6e580",
+	"unityPlayUrl": "https://play.unity.com/en/games/07ec6f76-59dd-4072-bc8e-9b528af6e580/yes"
+}

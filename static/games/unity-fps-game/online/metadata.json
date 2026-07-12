@@ -1,0 +1,14 @@
+{
+	"id": "unity-fps-game",
+	"name": "Unity FPS Game",
+	"author": "et3rnald",
+	"description": "Play Unity FPS Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f7d7476a-de97-4b89-a7d5-0ab30429aaab/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55c6079d-dc0f-479f-8bd8-8beb313a1560/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55c6079d-dc0f-479f-8bd8-8beb313a1560",
+	"unityPlayUrl": "https://play.unity.com/en/games/55c6079d-dc0f-479f-8bd8-8beb313a1560/unity-fps-game"
+}

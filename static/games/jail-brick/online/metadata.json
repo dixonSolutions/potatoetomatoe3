@@ -1,0 +1,14 @@
+{
+	"id": "jail-brick",
+	"name": "Jail Brick!",
+	"author": "LizardBrickz",
+	"description": "Escape from prison and get to the get-away car. Don't die along the way!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d9edce27-beb9-43c9-81fe-e7301d1fc460/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/54503be8-0ce1-4286-87b6-fdb4f8bd3d93/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "54503be8-0ce1-4286-87b6-fdb4f8bd3d93",
+	"unityPlayUrl": "https://play.unity.com/en/games/54503be8-0ce1-4286-87b6-fdb4f8bd3d93/jail-brick"
+}

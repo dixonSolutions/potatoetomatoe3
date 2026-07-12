@@ -1,0 +1,14 @@
+{
+	"id": "slingman",
+	"name": "Slingman",
+	"author": "unity_vK835-BSeV7NZw",
+	"description": "A unity Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/20bd183b-bbb5-4be2-8663-02b0edcf9599/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dccc04c3-2225-4da0-8e26-7129c969ce6b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dccc04c3-2225-4da0-8e26-7129c969ce6b",
+	"unityPlayUrl": "https://play.unity.com/en/games/dccc04c3-2225-4da0-8e26-7129c969ce6b/slingman"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "my-first-unity-game-uwu",
+	"name": "My First Unity Game UwU",
+	"author": "Aluzinagium",
+	"description": "Play My First Unity Game UwU on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2bcaaec2-7761-4042-a243-d32eacceda44/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49f3dc4a-8ab4-44ba-9493-29dbf1d73ef7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49f3dc4a-8ab4-44ba-9493-29dbf1d73ef7",
+	"unityPlayUrl": "https://play.unity.com/en/games/49f3dc4a-8ab4-44ba-9493-29dbf1d73ef7/my-first-unity-game-uwu"
+}

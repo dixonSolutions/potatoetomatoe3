@@ -1,0 +1,14 @@
+{
+	"id": "candyland-adventures",
+	"name": "CandyLand Adventures",
+	"author": "melnd444",
+	"description": "CandyLand Adventures est un jeu d'aventure color\u00e9 o\u00f9 vous plongez dans un monde magique fait de bonbons et de sucreries \ud83c\udf6d\ud83c\udf6c\ud83c\udf69",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/055ab824-28a7-43ac-a723-41724eecb3be/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f17f618-a3c0-4843-8b8e-07248c0c8da7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5f17f618-a3c0-4843-8b8e-07248c0c8da7",
+	"unityPlayUrl": "https://play.unity.com/en/games/5f17f618-a3c0-4843-8b8e-07248c0c8da7/candyland-adventures"
+}

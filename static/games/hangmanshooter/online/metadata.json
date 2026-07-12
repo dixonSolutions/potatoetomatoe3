@@ -1,0 +1,14 @@
+{
+	"id": "hangmanshooter",
+	"name": "HangmanShooter",
+	"author": "guptapra",
+	"description": "Play HangmanShooter on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fc7cae0a-325b-41bf-b342-9c76b019313c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b858136-0b77-4870-a0f8-cf309335abaa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b858136-0b77-4870-a0f8-cf309335abaa",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b858136-0b77-4870-a0f8-cf309335abaa/hangmanshooter"
+}

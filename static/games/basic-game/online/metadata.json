@@ -1,0 +1,14 @@
+{
+	"id": "basic-game",
+	"name": "Basic Game",
+	"author": "BrendanS2",
+	"description": "This game is so basic and so basic controls that it is very simple to play.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8621da8a-2317-40f3-88cf-407019922f86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55b02e15-8b03-4d01-a8b9-b8dadc8af3a4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55b02e15-8b03-4d01-a8b9-b8dadc8af3a4",
+	"unityPlayUrl": "https://play.unity.com/en/games/55b02e15-8b03-4d01-a8b9-b8dadc8af3a4/basic-game"
+}

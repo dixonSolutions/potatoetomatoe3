@@ -1,0 +1,14 @@
+{
+	"id": "driver-project-modded",
+	"name": "Driver Project MODDED",
+	"author": "snorris414",
+	"description": "Driver Project Modded with additional obstacles, higher speed and turn speed, Space Bar to Jump, Text Overlay in Bottom Left with Directions, \"BYE\" spelled out with obstacles at end of road that float with no gravity (but have rigidbody), and \"BYE\" Camera Overlay in top right to view destruction after collision at the end.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e5b2056-4148-41f7-8bfa-fb56a0bde295/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/245938f6-d004-47e0-b162-a7fbe8f7c136/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "245938f6-d004-47e0-b162-a7fbe8f7c136",
+	"unityPlayUrl": "https://play.unity.com/en/games/245938f6-d004-47e0-b162-a7fbe8f7c136/driver-project-modded"
+}

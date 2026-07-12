@@ -1,0 +1,14 @@
+{
+	"id": "ben-10-angry-birds",
+	"name": "Ben 10 Angry Birds",
+	"author": "CinderAnt",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/769d2462-29e2-4df5-9e37-2eb4860a0737/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c3213df2-6671-4788-aaa3-587854bf37dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c3213df2-6671-4788-aaa3-587854bf37dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/c3213df2-6671-4788-aaa3-587854bf37dd/ben-10-angry-birds"
+}

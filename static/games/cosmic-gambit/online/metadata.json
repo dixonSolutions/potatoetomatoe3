@@ -1,0 +1,14 @@
+{
+	"id": "cosmic-gambit",
+	"name": "Cosmic Gambit",
+	"author": "AceEmo_",
+	"description": "Cosmic Gambit is a Unity-based 2D roguelike game set in a sci-fi space universe. Players navigate procedurally generated levels, battling hostile alien forces and collecting upgrades while fighting.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/145f2fde-c9f6-4b3f-8723-28f55ec8857e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/051750a9-c66d-4b59-bec7-05d01f585cb4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "051750a9-c66d-4b59-bec7-05d01f585cb4",
+	"unityPlayUrl": "https://play.unity.com/en/games/051750a9-c66d-4b59-bec7-05d01f585cb4/cosmic-gambit"
+}

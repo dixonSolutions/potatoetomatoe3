@@ -1,0 +1,14 @@
+{
+	"id": "game-to-win",
+	"name": "Game To Win",
+	"author": "UniqueSoumit",
+	"description": "My First FPS Microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/24047efd-7738-439e-89ae-8285205a1db5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d9c8428d-f6d9-464e-851a-dec5fd0a6874/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d9c8428d-f6d9-464e-851a-dec5fd0a6874",
+	"unityPlayUrl": "https://play.unity.com/en/games/d9c8428d-f6d9-464e-851a-dec5fd0a6874/game-to-win"
+}

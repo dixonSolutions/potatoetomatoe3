@@ -1,0 +1,14 @@
+{
+	"id": "prison-break",
+	"name": "Prison Break",
+	"author": "SIMONJANSSEN",
+	"description": "Escape from prison by typing commands in the command line.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c2ca273-bc75-4627-87ed-4a5bedbc675d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b4b416b0-dc2e-4d8a-bf56-3cbc855e459a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b4b416b0-dc2e-4d8a-bf56-3cbc855e459a",
+	"unityPlayUrl": "https://play.unity.com/en/games/b4b416b0-dc2e-4d8a-bf56-3cbc855e459a/prison-break"
+}

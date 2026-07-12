@@ -1,0 +1,14 @@
+{
+	"id": "nihaoweb11",
+	"name": "nihao_web1.1",
+	"author": "frool",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/972a5840-88d0-4c9c-b7b3-2ec616947e33/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09aa7379-5ff6-4b11-b3f8-c60581dd149d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09aa7379-5ff6-4b11-b3f8-c60581dd149d",
+	"unityPlayUrl": "https://play.unity.com/en/games/09aa7379-5ff6-4b11-b3f8-c60581dd149d/nihaoweb11"
+}

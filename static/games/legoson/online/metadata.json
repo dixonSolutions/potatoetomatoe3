@@ -1,0 +1,14 @@
+{
+	"id": "legoson",
+	"name": "Legoson",
+	"author": "Sammyueru1",
+	"description": "Based off Karlson (But with Legos?)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aede1671-16b7-4f6d-9616-c621a85d648a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/450477a5-59a0-4dc0-abbc-988589f139b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "450477a5-59a0-4dc0-abbc-988589f139b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/450477a5-59a0-4dc0-abbc-988589f139b8/legoson"
+}

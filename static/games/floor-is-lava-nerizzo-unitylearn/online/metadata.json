@@ -1,0 +1,14 @@
+{
+	"id": "floor-is-lava-nerizzo-unitylearn",
+	"name": "Floor is lava, Nerizzo, UnityLearn",
+	"author": "Nerizzo",
+	"description": "Physics demo from Unity Learn",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40b592c8-8ff5-4b4c-912e-6c07d01d3f53/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/032e5053-67b7-4397-8141-fe61174d41c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "032e5053-67b7-4397-8141-fe61174d41c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/032e5053-67b7-4397-8141-fe61174d41c7/floor-is-lava-nerizzo-unitylearn"
+}

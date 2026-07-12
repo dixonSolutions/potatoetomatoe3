@@ -1,0 +1,14 @@
+{
+	"id": "space-rush",
+	"name": "Space Rush",
+	"author": "EHervas",
+	"description": "Compete in a racing spaceship against the clock for the best lap time or tour the refuel space station and interact with quirky droids and cute astronauts!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0404e1e1-8e65-4e21-b964-34148b5f74f6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8f2d5d94-c05e-4c56-8f89-5a465491d2b9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8f2d5d94-c05e-4c56-8f89-5a465491d2b9",
+	"unityPlayUrl": "https://play.unity.com/en/games/8f2d5d94-c05e-4c56-8f89-5a465491d2b9/space-rush"
+}

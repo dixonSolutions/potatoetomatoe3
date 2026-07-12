@@ -1,0 +1,14 @@
+{
+	"id": "fps-10",
+	"name": "FPS 1.0",
+	"author": "Roman20082008",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fdd44028-fe64-4c93-914f-3621f1e85436/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46f4d373-532a-4764-937b-df5c89263870/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46f4d373-532a-4764-937b-df5c89263870",
+	"unityPlayUrl": "https://play.unity.com/en/games/46f4d373-532a-4764-937b-df5c89263870/fps-10"
+}

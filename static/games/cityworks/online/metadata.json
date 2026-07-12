@@ -1,0 +1,14 @@
+{
+	"id": "cityworks",
+	"name": "Cityworks",
+	"author": "rubencreus",
+	"description": "Cityworks - Week4. The city can be a dangerous place.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b9311624-1d97-4677-b248-06294c0cd9fb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aee646d0-5c30-4fdd-b39d-5007809e6d99/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aee646d0-5c30-4fdd-b39d-5007809e6d99",
+	"unityPlayUrl": "https://play.unity.com/en/games/aee646d0-5c30-4fdd-b39d-5007809e6d99/cityworks"
+}

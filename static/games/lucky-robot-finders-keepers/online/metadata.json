@@ -1,0 +1,14 @@
+{
+	"id": "lucky-robot-finders-keepers",
+	"name": "Lucky Robot | Finders Keepers",
+	"author": "Xirantics",
+	"description": "A cute robot explores an abandoned deposit tower and finds a lot of things to collect... until the batteries stay charged. Have fun! :)\n\nThis is my first videogame made with Unity as a personal project during the Junior Programmer Pathway.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b9e04e82-284f-4897-a5db-a670905a90d0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2539f679-e25f-4c4d-8916-b18051b9e426/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2539f679-e25f-4c4d-8916-b18051b9e426",
+	"unityPlayUrl": "https://play.unity.com/en/games/2539f679-e25f-4c4d-8916-b18051b9e426/lucky-robot-finders-keepers"
+}

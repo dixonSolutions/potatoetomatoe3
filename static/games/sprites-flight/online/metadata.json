@@ -1,0 +1,14 @@
+{
+	"id": "sprites-flight",
+	"name": "SPRITES FLIGHT",
+	"author": "Axel_CLEMENT",
+	"description": "In Sprites Flight, every tap sends your ship into danger. Dodge shifting hazards, react fast, and survive the chaos. The longer you last, the higher your score climbs ! \ud83d\ude80",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2e1405d4-c617-4127-b6e8-e32e700fb99e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0811496d-6e5f-46d2-8185-47592206b908/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0811496d-6e5f-46d2-8185-47592206b908",
+	"unityPlayUrl": "https://play.unity.com/en/games/0811496d-6e5f-46d2-8185-47592206b908/sprites-flight"
+}

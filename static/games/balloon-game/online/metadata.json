@@ -1,0 +1,14 @@
+{
+	"id": "balloon-game",
+	"name": "Balloon game",
+	"author": "evgenijantonov801",
+	"description": "Flappy bird like",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/033547c3-dd27-49cd-8a36-2e5a1db93abc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "033547c3-dd27-49cd-8a36-2e5a1db93abc",
+	"unityPlayUrl": "https://play.unity.com/en/games/033547c3-dd27-49cd-8a36-2e5a1db93abc/balloon-game"
+}

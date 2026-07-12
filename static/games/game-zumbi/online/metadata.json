@@ -1,0 +1,14 @@
+{
+	"id": "game-zumbi",
+	"name": "Game Zumbi",
+	"author": "NelsonFilho",
+	"description": "Sobreviva",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5668f409-59f1-4ede-8dc8-8973bdbee9e3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bae1a7c-a041-41d4-a479-9845832f7f67/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bae1a7c-a041-41d4-a479-9845832f7f67",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bae1a7c-a041-41d4-a479-9845832f7f67/game-zumbi"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "2d-modern-sonic-pre-alpha-build",
+	"name": "2D Modern Sonic (Pre-Alpha Build)",
+	"author": "jbo2",
+	"description": "This is my 2d modern sonic fan game. This game was made without the permission of SEGA so this project should not be distributed or sold as a product. \n\nThe exit buttons will crash the game on this version but you can stop the game by clicking the x button on the top right",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eabe4614-466e-4c46-bdeb-91bd4e929dd2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06d0dc30-850f-4318-84d4-060a1289dd9b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06d0dc30-850f-4318-84d4-060a1289dd9b",
+	"unityPlayUrl": "https://play.unity.com/en/games/06d0dc30-850f-4318-84d4-060a1289dd9b/2d-modern-sonic-pre-alpha-build"
+}

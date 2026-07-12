@@ -1,0 +1,14 @@
+{
+	"id": "geometry-of-doom-god",
+	"name": "Geometry of Doom (GOD)",
+	"author": "Womensicus",
+	"description": "WASD or ARROW keys to move. Q, P or R to do things. Ask Donk for cheats.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b0d2e3c9-5434-4a56-8506-32a96f4146eb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a95b9a5-fd07-4cb6-af78-e27e88160204/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a95b9a5-fd07-4cb6-af78-e27e88160204",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a95b9a5-fd07-4cb6-af78-e27e88160204/geometry-of-doom-god"
+}

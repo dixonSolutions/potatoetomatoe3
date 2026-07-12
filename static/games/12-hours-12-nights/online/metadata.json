@@ -1,0 +1,14 @@
+{
+	"id": "12-hours-12-nights",
+	"name": "12 hours 12 nights",
+	"author": "tienyingchin",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c0c03d1-bc7b-470b-b891-e92387e301f2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a9b8d8d-d3ee-4bb2-b745-53760b759bc4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a9b8d8d-d3ee-4bb2-b745-53760b759bc4",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a9b8d8d-d3ee-4bb2-b745-53760b759bc4/12-hours-12-nights"
+}

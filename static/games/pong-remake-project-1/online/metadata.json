@@ -1,0 +1,14 @@
+{
+	"id": "pong-remake-project-1",
+	"name": "Pong Remake Project 1",
+	"author": "xxsoranogenkai",
+	"description": "My first finished project of 2023. Made in about 5-6 hours over a couple of days. First time not following a step by step tutorial. This is a 2 player game. Player 1 controls the purple paddle using W for up and S for down. Player 2 uses the up and down arrows for movement to control the blue paddle. First to 5 points wins!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7ea2f1e7-6550-4f3c-861b-e780ab7236a8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9fc46f9c-abef-4944-ad0c-6e72d1dc4e13/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9fc46f9c-abef-4944-ad0c-6e72d1dc4e13",
+	"unityPlayUrl": "https://play.unity.com/en/games/9fc46f9c-abef-4944-ad0c-6e72d1dc4e13/pong-remake-project-1"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "module08",
+	"name": "Module08",
+	"author": "mr5x5",
+	"description": "Play Module08 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05f48eee-09e8-40ac-9966-695a494ef25f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05f48eee-09e8-40ac-9966-695a494ef25f",
+	"unityPlayUrl": "https://play.unity.com/en/games/05f48eee-09e8-40ac-9966-695a494ef25f/module08"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "aquakarts",
+	"name": "AquaKarts",
+	"author": "AquaFrostDesign",
+	"description": "Cool go-karting with lots of chrome!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/57835bfa-c10b-4efb-b83b-a31be2fd291c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6786b613-6245-4131-a275-d400c91a5e77/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6786b613-6245-4131-a275-d400c91a5e77",
+	"unityPlayUrl": "https://play.unity.com/en/games/6786b613-6245-4131-a275-d400c91a5e77/aquakarts"
+}

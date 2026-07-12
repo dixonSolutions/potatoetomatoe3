@@ -1,0 +1,14 @@
+{
+	"id": "kadai",
+	"name": "Kadai",
+	"author": "k221q008",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/053b0ede-853b-4153-a4bc-95036acfa436/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "053b0ede-853b-4153-a4bc-95036acfa436",
+	"unityPlayUrl": "https://play.unity.com/en/games/053b0ede-853b-4153-a4bc-95036acfa436/kadai"
+}

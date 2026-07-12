@@ -1,0 +1,14 @@
+{
+	"id": "mykartgame-multiplayer",
+	"name": "MyKartGame Multiplayer",
+	"author": "mw2357",
+	"description": "Karting Microgame split screen mode for two players. Controls: Left screen: WASD, right screen: Arrow keys.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f102dd6e-abc4-465f-9e15-1fb1fed0d128/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a996115e-1c81-4e52-8546-1ca6e3be616b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a996115e-1c81-4e52-8546-1ca6e3be616b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a996115e-1c81-4e52-8546-1ca6e3be616b/mykartgame-multiplayer"
+}

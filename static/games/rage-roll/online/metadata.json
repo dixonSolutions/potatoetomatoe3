@@ -1,0 +1,14 @@
+{
+	"id": "rage-roll",
+	"name": "Rage Roll",
+	"author": "kragot234",
+	"description": "Read the help page.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef95d5bd-34e1-465f-83cc-38012988db04/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8a172779-6419-48ad-9a3a-f95b92346a1d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8a172779-6419-48ad-9a3a-f95b92346a1d",
+	"unityPlayUrl": "https://play.unity.com/en/games/8a172779-6419-48ad-9a3a-f95b92346a1d/rage-roll"
+}

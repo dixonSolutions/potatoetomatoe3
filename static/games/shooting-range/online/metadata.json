@@ -1,0 +1,14 @@
+{
+	"id": "shooting-range",
+	"name": "Shooting range",
+	"author": "xplayer777",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b0ee1154-939f-4d30-b364-14af7e25b4ac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/497fd0ab-1399-46e3-a054-aa6fdd921d89/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "497fd0ab-1399-46e3-a054-aa6fdd921d89",
+	"unityPlayUrl": "https://play.unity.com/en/games/497fd0ab-1399-46e3-a054-aa6fdd921d89/shooting-range"
+}

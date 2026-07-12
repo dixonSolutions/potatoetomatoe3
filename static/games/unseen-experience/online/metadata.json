@@ -1,0 +1,14 @@
+{
+	"id": "unseen-experience",
+	"name": "Unseen Experience",
+	"author": "unity_117B8CA117886F18295B",
+	"description": "Hi everyone! With the Believe Impact Program, my team and I develop of first game ever! Our goal is to raise awareness about how a person with visual impairments may experience everyday activities. In this case, we developed a very simple game where the player has to solve a labyrinth while the screen is completely dark. When the character hits a wall, a sound will play. You will receive a glimpse of the labyrinth every 10 seconds in case you get stuck! Let us know what you think!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/599e142f-bbcc-4020-9795-271352deae58/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0f99e94-a432-4c96-aed4-c9b672525816/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b0f99e94-a432-4c96-aed4-c9b672525816",
+	"unityPlayUrl": "https://play.unity.com/en/games/b0f99e94-a432-4c96-aed4-c9b672525816/unseen-experience"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "virtualtrainingvessel",
+	"name": "VirtualTrainingVessel",
+	"author": "unity_FCF1614A4541ADFFCAB3",
+	"description": "Play VirtualTrainingVessel on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/402ec33d-ed41-4640-b2d1-395414ea0dce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bd8a6432-b91c-4ce4-9b8b-d56d37e4e5e0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bd8a6432-b91c-4ce4-9b8b-d56d37e4e5e0",
+	"unityPlayUrl": "https://play.unity.com/en/games/bd8a6432-b91c-4ce4-9b8b-d56d37e4e5e0/virtualtrainingvessel"
+}

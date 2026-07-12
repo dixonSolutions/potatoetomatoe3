@@ -1,0 +1,14 @@
+{
+	"id": "panda-warrior",
+	"name": "Panda Warrior",
+	"author": "manlinard02",
+	"description": "A three-level game about a panda (and its pet cat) fighting enemies with a bamboo stick! To activate the cat, click on the hidden cat icon in the start screen.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/818c13e2-da65-4708-813d-2f29856cbbe1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9e88322c-4091-4a04-88db-56a3f4f600ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9e88322c-4091-4a04-88db-56a3f4f600ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/9e88322c-4091-4a04-88db-56a3f4f600ce/panda-warrior"
+}

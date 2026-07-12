@@ -1,0 +1,14 @@
+{
+	"id": "angry-birds",
+	"name": "Angry Birds",
+	"author": "ColderMoon",
+	"description": "This is an update of the Angry Birds game recreation I made. This has 36 levels. Three new birds and the way the pigs lose now is if an object hits them with a fast enough velocity. Computer's Control: Use the left mouse to drag the player. Use the right-click to use the ability. Use the middle mouse to refresh.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef6f39af-b42f-4db1-9644-2f0a2b0e827b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d0e9759-f67f-4440-9bcf-50d710331d07/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d0e9759-f67f-4440-9bcf-50d710331d07",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d0e9759-f67f-4440-9bcf-50d710331d07/angry-birds"
+}

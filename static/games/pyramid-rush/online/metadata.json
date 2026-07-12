@@ -1,0 +1,14 @@
+{
+	"id": "pyramid-rush",
+	"name": "Pyramid Rush",
+	"author": "Dev_Algot",
+	"description": "Welcome to Pyramid Rush, a thrilling game of chance and strategy! In this game, players drop balls from the top of a pyramid structure filled with pegs. As the balls bounce unpredictably off the pegs, they make their way down to the bottom, where they land in slots with different multipliers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/619582d8-fed0-4544-8cf0-da9e83864733/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cefb2944-19f6-4be2-b34a-89f629fe4976/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cefb2944-19f6-4be2-b34a-89f629fe4976",
+	"unityPlayUrl": "https://play.unity.com/en/games/cefb2944-19f6-4be2-b34a-89f629fe4976/pyramid-rush"
+}

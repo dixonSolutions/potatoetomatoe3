@@ -1,0 +1,14 @@
+{
+	"id": "to-save-a-soul",
+	"name": "To Save A Soul",
+	"author": "Unity Play",
+	"description": "In this 2D adventure you are playing Orpheus, the hero who came to Hell to rescue his wife, the nymph Eurydice.\nYou will need to find pieces of her soul in order to activate the portal to the next level.\n\nBut there is a trick! As the legend says, Orpheus needs to lead Eurydice out of hell without ever looking at her.\n\nIf you manage to beat all the obstacles and reach the end, Eurydice is human again and they can happily live their life.\n\nMade with a team for CWC Jam 2020\nhttps://connect.unity.com/u/jessica-liu-1\nhttps://connect.unity.com/u/amaury-mx",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e4855fcf-ef91-424e-9f67-19538f5c79c1/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/241f5260-cea4-41ef-9da9-7cc14a688b1b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "241f5260-cea4-41ef-9da9-7cc14a688b1b",
+	"unityPlayUrl": "https://play.unity.com/en/games/241f5260-cea4-41ef-9da9-7cc14a688b1b/to-save-a-soul"
+}

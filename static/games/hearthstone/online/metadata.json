@@ -1,0 +1,14 @@
+{
+	"id": "hearthstone",
+	"name": "Hearthstone",
+	"author": "itutunaru1998",
+	"description": "My take on the player hand creation that is widely used in games like Heathestone.\n\nThe whole project design was heavily inspired by Hearthestone.\n\nThis is not really a game, but more of an exercise which consists of a random deck of cards, where image of every card is fetched remotely via an API. After pressing Start, the player's hand is slowly populated with cards until it reaches a number between 4 and 6. The cards are re-positioned to create a smooth animation.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b532b694-5258-48fd-9259-b667a606390a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e56ea270-2756-452c-96b6-3ed65cc862ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e56ea270-2756-452c-96b6-3ed65cc862ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/e56ea270-2756-452c-96b6-3ed65cc862ce/hearthstone"
+}

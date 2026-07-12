@@ -1,0 +1,14 @@
+{
+	"id": "bingo",
+	"name": "Bingo",
+	"author": "micheal332001",
+	"description": "This is a little bingo game i'v been working on. The menu is just a list of game types. The main game has an AI player so that you have to call bingo before the AI player. This is a game in progress and just wanted to know what you think on this take of the bingo game. I'm sorry for the bingo caller the voice is not that great. You can try this out on my web page here http://addonsrus.com/unity/bingo/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a150b3f0-2400-468b-b7a9-f5aaedfa555d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d83b2f17-6db5-4759-987a-3aaebda6c08a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d83b2f17-6db5-4759-987a-3aaebda6c08a",
+	"unityPlayUrl": "https://play.unity.com/en/games/d83b2f17-6db5-4759-987a-3aaebda6c08a/bingo"
+}

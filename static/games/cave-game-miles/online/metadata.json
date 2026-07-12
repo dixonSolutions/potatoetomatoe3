@@ -1,0 +1,14 @@
+{
+	"id": "cave-game-miles",
+	"name": "Cave game - miles",
+	"author": "milesl26",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0047f8c4-3d4d-4387-bea7-8b6b80343d2c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0047f8c4-3d4d-4387-bea7-8b6b80343d2c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0047f8c4-3d4d-4387-bea7-8b6b80343d2c/cave-game-miles"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lesgames001ver200hajisan",
+	"name": "LES_games_001_ver.2.0.0_hajisan",
+	"author": "unity_13CF024002DE344FDCB9",
+	"description": "This is a microgame where you move the block in the front using the left and right arrow keys to bounce the ball and destroy the blue block in the back.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff56c623-ab85-474c-8084-412ce817f486/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a0003aeb-0456-4845-b1df-fb937c6f2fbc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a0003aeb-0456-4845-b1df-fb937c6f2fbc",
+	"unityPlayUrl": "https://play.unity.com/en/games/a0003aeb-0456-4845-b1df-fb937c6f2fbc/lesgames001ver200hajisan"
+}

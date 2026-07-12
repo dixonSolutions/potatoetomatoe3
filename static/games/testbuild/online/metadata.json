@@ -1,0 +1,14 @@
+{
+	"id": "testbuild",
+	"name": "TestBuild",
+	"author": "KamilDevs",
+	"description": "I made level 4 so I better get my regular payment again, or else, you know who you are . . .                                                                                                             (Also, gimme some name ideas for this game) :)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/41a457b5-e315-4045-90ca-550dc0af04bd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "41a457b5-e315-4045-90ca-550dc0af04bd",
+	"unityPlayUrl": "https://play.unity.com/en/games/41a457b5-e315-4045-90ca-550dc0af04bd/testbuild"
+}

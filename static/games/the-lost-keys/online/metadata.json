@@ -1,0 +1,14 @@
+{
+	"id": "the-lost-keys",
+	"name": "The Lost Keys",
+	"author": "Bicho15H",
+	"description": "Welcome to my first FP game, In this game you have to to find the hidden keys in order to open doors that leads to another room. The more you progress , the closer you get to the secret reward at the end. Use WASD to move, Shift to sprint, Hold left click to pickup an item, Hold right click to throw an item and Esc to pause or change sensitivity. Thanks for playing my game :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/61610fb0-94f4-4aed-aba0-ab541e578498/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e99dd36-0cc9-4edf-8b3e-73a617b7be91/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e99dd36-0cc9-4edf-8b3e-73a617b7be91",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e99dd36-0cc9-4edf-8b3e-73a617b7be91/the-lost-keys"
+}

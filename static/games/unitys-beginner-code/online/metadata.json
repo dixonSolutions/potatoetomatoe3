@@ -1,0 +1,14 @@
+{
+	"id": "unitys-beginner-code",
+	"name": "Unity's Beginner Code",
+	"author": "Skulls23",
+	"description": "A simple RPG",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/da2fa6af-700d-45fa-8e8d-4f2ba0e19526/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d1c8d1c-9fbe-4760-b362-979326e7487d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d1c8d1c-9fbe-4760-b362-979326e7487d",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d1c8d1c-9fbe-4760-b362-979326e7487d/unitys-beginner-code"
+}

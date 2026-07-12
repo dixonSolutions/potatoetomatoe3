@@ -1,0 +1,14 @@
+{
+	"id": "visual-scripting-challenge",
+	"name": "Visual Scripting Challenge",
+	"author": "Womanwer",
+	"description": "Move a lil' slime fella trying to escape this purgatory landscape.                   (WASD to move, Left Shift to speed up)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5e1a696d-3969-4107-ba6f-c07d9fc54562/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5aad3954-ccfd-4bcd-8c46-359d21e88626/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5aad3954-ccfd-4bcd-8c46-359d21e88626",
+	"unityPlayUrl": "https://play.unity.com/en/games/5aad3954-ccfd-4bcd-8c46-359d21e88626/visual-scripting-challenge"
+}

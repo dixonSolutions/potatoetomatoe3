@@ -1,0 +1,14 @@
+{
+	"id": "primitive-art-gallery",
+	"name": "Primitive Art Gallery",
+	"author": "sanpeita",
+	"description": "I am using Unity's Primitive Object. [W][A][S][D] player walking. [Q][E]  player rotation.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f9817a97-4c84-4deb-8802-57286afdf170/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/db925610-b308-4438-bd93-f3dba1e991e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "db925610-b308-4438-bd93-f3dba1e991e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/db925610-b308-4438-bd93-f3dba1e991e3/primitive-art-gallery"
+}

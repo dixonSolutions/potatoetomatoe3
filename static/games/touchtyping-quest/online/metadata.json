@@ -1,0 +1,14 @@
+{
+	"id": "touchtyping-quest",
+	"name": "TouchTyping Quest",
+	"author": "mengoliandrea_unity",
+	"description": "Write the letters on the screen to score. When your Mana Bar is full release the powers! SPACE -> 'Divine Bless' or ENTER -> 'Armageddon'",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd348355-7ea9-4ff3-8063-18e2395ac147/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/061bf401-9920-4bde-9e78-0405e58fb77f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "061bf401-9920-4bde-9e78-0405e58fb77f",
+	"unityPlayUrl": "https://play.unity.com/en/games/061bf401-9920-4bde-9e78-0405e58fb77f/touchtyping-quest"
+}

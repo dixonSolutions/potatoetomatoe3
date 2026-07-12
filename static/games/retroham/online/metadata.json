@@ -1,0 +1,14 @@
+{
+	"id": "retroham",
+	"name": "RetroHam",
+	"author": "soipsuo",
+	"description": "RetroHam is a multi-level exciting pixelated story adventure where you play as a daring hamster and overcome corrupted obstacles in order to defeat the evil virus spreading throughout the arcade games",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/46e25544-5733-4cae-80b1-53346dfd017a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/296bd816-b158-476f-a9b6-803c30805bdd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "296bd816-b158-476f-a9b6-803c30805bdd",
+	"unityPlayUrl": "https://play.unity.com/en/games/296bd816-b158-476f-a9b6-803c30805bdd/retroham"
+}

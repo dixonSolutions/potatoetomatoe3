@@ -1,0 +1,14 @@
+{
+	"id": "geometry-dash-3d",
+	"name": "Geometry Dash 3D",
+	"author": "EpicalGamer",
+	"description": "Ever wanted to play the popular Geometry Dash game in 3D? Well now you can! Quickly dodge obstacles while dashing through geometry plains in this all-new three-dimensional revamp!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c050cae7-b93f-4fc9-8745-b12e9fc592b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b031374f-3f27-4a14-ae83-bc5ad2b346f8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b031374f-3f27-4a14-ae83-bc5ad2b346f8",
+	"unityPlayUrl": "https://play.unity.com/en/games/b031374f-3f27-4a14-ae83-bc5ad2b346f8/geometry-dash-3d"
+}

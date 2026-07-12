@@ -1,0 +1,14 @@
+{
+	"id": "practice-upload",
+	"name": "Practice Upload",
+	"author": "Jusouzak12",
+	"description": "Practice Upload for future games",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dc08c8dd-2058-44d9-8681-95b6e37f200b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4c80608-3800-462d-9369-18f848ac8714/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4c80608-3800-462d-9369-18f848ac8714",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4c80608-3800-462d-9369-18f848ac8714/practice-upload"
+}

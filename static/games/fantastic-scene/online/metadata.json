@@ -1,0 +1,14 @@
+{
+	"id": "fantastic-scene",
+	"name": "Fantastic Scene",
+	"author": "komiko775",
+	"description": "Fantastic Scene",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/63f0b79a-e15c-4b39-bf6f-4cbbb0124790/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49f7d349-0236-4cd0-a61a-a9711a6e151b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49f7d349-0236-4cd0-a61a-a9711a6e151b",
+	"unityPlayUrl": "https://play.unity.com/en/games/49f7d349-0236-4cd0-a61a-a9711a6e151b/fantastic-scene"
+}

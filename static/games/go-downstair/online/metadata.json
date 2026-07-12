@@ -1,0 +1,14 @@
+{
+	"id": "go-downstair",
+	"name": "Go downstair",
+	"author": "ako321",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c7819988-df5f-488b-aa2e-e701f36be474/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34fe630b-a9f1-40f0-bf0f-a130a902d60a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34fe630b-a9f1-40f0-bf0f-a130a902d60a",
+	"unityPlayUrl": "https://play.unity.com/en/games/34fe630b-a9f1-40f0-bf0f-a130a902d60a/go-downstair"
+}

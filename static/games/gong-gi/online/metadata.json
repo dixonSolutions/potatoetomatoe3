@@ -1,0 +1,14 @@
+{
+	"id": "gong-gi",
+	"name": "Gong gi",
+	"author": "Bhavya156",
+	"description": "Inspired from Squid Game, Gong Gi, a fast-paced, time-based challenge. Gong Gi tests your speed, precision, and reaction time\u2014the faster you complete the challenge, the better. Can you beat the clock?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7553f89a-ced5-4d5c-af2a-dcc0ff661820/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b375491-0818-4832-878f-3384db06f926/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b375491-0818-4832-878f-3384db06f926",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b375491-0818-4832-878f-3384db06f926/gong-gi"
+}

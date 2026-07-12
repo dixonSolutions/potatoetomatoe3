@@ -1,0 +1,14 @@
+{
+	"id": "complete-first-person-controller",
+	"name": "Complete First-Person Controller",
+	"author": "FrodoUndead",
+	"description": "Controls:\nW A S D - Movement\nMouse - Look\nLeft Shift - Sprint\nLeft Ctrl - Crouch\nSpacebar - Jump\n\nThis is a complete first-person controller with many functions including sprinting, crouching, climbing ladders and swimming! It can be used with either a controller, or a keyboard and mouse and is completely customizable to fit your game's needs. This demo allows you to switch between the 4 Pre-Made character variants that are included in this asset. If you'd like to use this character controller in a game of your own, it is available for download on the asset store. https://assetstore.unity.com/packages/tools/physics/complete-first-person-controller-195497",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4489061b-1bf4-49b2-99e4-39ffdbdac6be/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8842dece-d20d-45df-a805-a7fb04efb3a1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8842dece-d20d-45df-a805-a7fb04efb3a1",
+	"unityPlayUrl": "https://play.unity.com/en/games/8842dece-d20d-45df-a805-a7fb04efb3a1/complete-first-person-controller"
+}

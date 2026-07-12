@@ -1,0 +1,14 @@
+{
+	"id": "lego-dragon",
+	"name": "Lego dragon",
+	"author": "dolphinssix",
+	"description": "Lego dragon                                                                                                                         Your goal is to stay alive.                                                                                    All pieces are made in studio.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/26188c6b-23bd-4aa6-9d89-309124856b57/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/adc3985d-8bea-4956-9f6d-81fc3ac8642a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "adc3985d-8bea-4956-9f6d-81fc3ac8642a",
+	"unityPlayUrl": "https://play.unity.com/en/games/adc3985d-8bea-4956-9f6d-81fc3ac8642a/lego-dragon"
+}

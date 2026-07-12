@@ -1,0 +1,14 @@
+{
+	"id": "cubix",
+	"name": "Cubix",
+	"author": "Unity Play",
+	"description": "You are a glowing neon cube. The map is endless. Rules are minimal. You shrink over time. You will disappear. To avoid deletion, collect other cubes. They provide temporary mass. Temporary hope.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/362758bf-7a33-499e-90ec-9e7b1480bc0d/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e59de455-5914-49e6-90d7-e9e5d8ceab5b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e59de455-5914-49e6-90d7-e9e5d8ceab5b",
+	"unityPlayUrl": "https://play.unity.com/en/games/e59de455-5914-49e6-90d7-e9e5d8ceab5b/cubix"
+}

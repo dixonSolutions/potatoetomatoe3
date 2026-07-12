@@ -1,0 +1,14 @@
+{
+	"id": "gmtkweb",
+	"name": "GMTKWeb",
+	"author": "leomacrury",
+	"description": "Play GMTKWeb on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/590aa538-f26c-4351-bfba-a447cdf0bd35/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04aef821-78d7-4338-9448-d747e2e13073/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04aef821-78d7-4338-9448-d747e2e13073",
+	"unityPlayUrl": "https://play.unity.com/en/games/04aef821-78d7-4338-9448-d747e2e13073/gmtkweb"
+}

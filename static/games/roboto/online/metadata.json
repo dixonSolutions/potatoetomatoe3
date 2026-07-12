@@ -1,0 +1,14 @@
+{
+	"id": "roboto",
+	"name": "Roboto",
+	"author": "hmgupta8871",
+	"description": "A robot who had limited battery to survive, but the aliens are coming on his way, jump and survive. Avoid                               \n      obstacles by jumping through a tap on the screen. \nDeveloped a visually captivating 3D game centered around a robot character with limited battery life.\nDesigned an immersive environment with a stylish blue-themed background, creating an engaging atmosphere.\nImplemented obstacle-avoidance gameplay mechanics, where the player must navigate through a series of aliens to survive.\nIntroduced a strategic element by incorporating a limited battery feature, where collisions with aliens drain the robot's energy",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/932aa7f5-ae0b-45a4-a54a-54c9ea6c4457/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d919f4a-c23b-4c9d-bb20-fe3a4cd25327/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d919f4a-c23b-4c9d-bb20-fe3a4cd25327",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d919f4a-c23b-4c9d-bb20-fe3a4cd25327/roboto"
+}

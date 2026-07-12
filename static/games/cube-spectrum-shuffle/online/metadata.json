@@ -1,0 +1,14 @@
+{
+	"id": "cube-spectrum-shuffle",
+	"name": "Cube Spectrum Shuffle",
+	"author": "maurizio0987",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2333026f-a546-463c-9464-7ee4d0b5cdb6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2333026f-a546-463c-9464-7ee4d0b5cdb6",
+	"unityPlayUrl": "https://play.unity.com/en/games/2333026f-a546-463c-9464-7ee4d0b5cdb6/cube-spectrum-shuffle"
+}

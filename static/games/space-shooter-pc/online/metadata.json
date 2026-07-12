@@ -1,0 +1,14 @@
+{
+	"id": "space-shooter-pc",
+	"name": "Space Shooter PC",
+	"author": "PriyanshuSol",
+	"description": "It is a basic Shooter Game. Press Left mouse click/LCtrl for single fire. Press Right mouse click/LShift for double fire. After scoring 300, enemies get powerup.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c2fc5aa-e091-4e2b-88ee-03ed0930b3b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/610588bb-7531-4bf6-8e33-9ca30be2ae65/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "610588bb-7531-4bf6-8e33-9ca30be2ae65",
+	"unityPlayUrl": "https://play.unity.com/en/games/610588bb-7531-4bf6-8e33-9ca30be2ae65/space-shooter-pc"
+}

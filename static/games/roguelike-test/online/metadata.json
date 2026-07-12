@@ -1,0 +1,14 @@
+{
+	"id": "roguelike-test",
+	"name": "Roguelike Test",
+	"author": "Aryel-Sander",
+	"description": "Roguelie from Tutorial",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/827cebd1-b4be-46bc-81c8-f00987a88b8b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "827cebd1-b4be-46bc-81c8-f00987a88b8b",
+	"unityPlayUrl": "https://play.unity.com/en/games/827cebd1-b4be-46bc-81c8-f00987a88b8b/roguelike-test"
+}

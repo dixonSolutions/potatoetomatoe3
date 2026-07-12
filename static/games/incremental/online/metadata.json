@@ -1,0 +1,14 @@
+{
+	"id": "incremental",
+	"name": "Incremental",
+	"author": "HappyNoodle",
+	"description": "Blast enemies, level up and upgrade your character!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf07e468-29a5-4482-aa84-6c62c9f63fe0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ab559d0-d6f3-473c-8ba0-e6165bc738e2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ab559d0-d6f3-473c-8ba0-e6165bc738e2",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ab559d0-d6f3-473c-8ba0-e6165bc738e2/incremental"
+}

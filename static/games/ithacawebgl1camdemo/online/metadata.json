@@ -1,0 +1,14 @@
+{
+	"id": "ithacawebgl1camdemo",
+	"name": "IthacaWebGL_1cam_demo",
+	"author": "gentilcopain",
+	"description": "Web GL Ithaca demo (with graphics.blit)\n\nOnline mp4 and Online XYt\n\n640x576 depth resolution\n\nMouse rotation",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f106456-1ca0-41b5-818b-4c8cf98ad899/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5f106456-1ca0-41b5-818b-4c8cf98ad899",
+	"unityPlayUrl": "https://play.unity.com/en/games/5f106456-1ca0-41b5-818b-4c8cf98ad899/ithacawebgl1camdemo"
+}

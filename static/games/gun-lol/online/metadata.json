@@ -1,0 +1,14 @@
+{
+	"id": "gun-lol",
+	"name": "Gun lol",
+	"author": "LandCake",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7120231f-4bb8-4a16-915a-ace64f99b926/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ddc96d58-9053-451a-97a2-7d8475acbe80/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ddc96d58-9053-451a-97a2-7d8475acbe80",
+	"unityPlayUrl": "https://play.unity.com/en/games/ddc96d58-9053-451a-97a2-7d8475acbe80/gun-lol"
+}

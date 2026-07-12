@@ -1,0 +1,14 @@
+{
+	"id": "hammondr-mart-447-kart",
+	"name": "HammondR MART 447 KART",
+	"author": "HammondR",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/287faab5-1ac1-4a5d-a1dd-dbd2b375d7e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b95044da-87a7-4f66-bc9c-68fd91ada1b9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b95044da-87a7-4f66-bc9c-68fd91ada1b9",
+	"unityPlayUrl": "https://play.unity.com/en/games/b95044da-87a7-4f66-bc9c-68fd91ada1b9/hammondr-mart-447-kart"
+}

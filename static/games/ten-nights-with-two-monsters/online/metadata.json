@@ -1,0 +1,14 @@
+{
+	"id": "ten-nights-with-two-monsters",
+	"name": "Ten Nights With Two Monsters",
+	"author": "kaovya",
+	"description": "INTRODUCTION:\nHi! This is the first fully functional and complete game I made in Unity.\n\n\nThis game is a spinoff of Five Nights At Freddy's. You wake up and find yourself in a mysterious room with doors on either side. You can hear the footsteps of the monsters outside each door. A counter is shown in the top right which tells you what Day it is. Once you reach Day 10, you are freed. To advance to the next night, look at the red button on the table and press E. However, with each button press, there is a chance that the monster will catch you, so be prepared.\n\n\nEXPLANATION:\nThere is a 5% chance with each button press that you will be caught by the monster (2.5% the jumpscare will trigger for each monster). If the jumpscare is triggered, the player is \u201ccaught\u201d and the game ends. If the player manages to advance through all nights without triggering either jumpscare, the player has \u201cescaped\u201d and the game ends.\n\n\nSince each jumpscare is independent of the others and randomly occurs, with 2 jumpscares each having a 2.5% chance of occurring and 10 nights the player must survive, the player has a 50 % chance of winning the game (escaping) and a 50% of losing (getting caught by a monster). Good luck and have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a21ba5c-dcca-4089-9a3d-d4a91bcafc64/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3676aa58-4422-4083-94dc-1280c7e055ef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3676aa58-4422-4083-94dc-1280c7e055ef",
+	"unityPlayUrl": "https://play.unity.com/en/games/3676aa58-4422-4083-94dc-1280c7e055ef/ten-nights-with-two-monsters"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "candy-catch-game",
+	"name": "Candy Catch Game",
+	"author": "Vasudev_8",
+	"description": "Use left and right arrow keys to move character",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f841467a-3be1-44e6-b391-8089735e39b0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4bfb87b5-5a71-435b-9524-ef55c0492354/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4bfb87b5-5a71-435b-9524-ef55c0492354",
+	"unityPlayUrl": "https://play.unity.com/en/games/4bfb87b5-5a71-435b-9524-ef55c0492354/candy-catch-game"
+}

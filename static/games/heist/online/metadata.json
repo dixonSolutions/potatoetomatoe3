@@ -1,0 +1,14 @@
+{
+	"id": "heist",
+	"name": "Heist",
+	"author": "CamperJohn",
+	"description": "Fast paced and fun game of cops and robbers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86ce83a8-21a8-4f20-8066-438a7f3ff4a6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9d1792d4-4309-45c8-b158-99b6dae13e54/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9d1792d4-4309-45c8-b158-99b6dae13e54",
+	"unityPlayUrl": "https://play.unity.com/en/games/9d1792d4-4309-45c8-b158-99b6dae13e54/heist"
+}

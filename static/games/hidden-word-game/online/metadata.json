@@ -1,0 +1,14 @@
+{
+	"id": "hidden-word-game",
+	"name": "Hidden Word Game",
+	"author": "Unity Play",
+	"description": "Hidden Words is an interactive word guessing game that can be played with your Twitch chat! Your viewers will try to find the hidden words in a picture by just typing to your chat.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/73b2abc1-cca3-416a-a1e3-52ea1cee795d/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bd1159b-ddee-45c9-8296-5afcf95fb536/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bd1159b-ddee-45c9-8296-5afcf95fb536",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bd1159b-ddee-45c9-8296-5afcf95fb536/hidden-word-game"
+}

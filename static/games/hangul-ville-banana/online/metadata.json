@@ -1,0 +1,14 @@
+{
+	"id": "hangul-ville-banana",
+	"name": "Hangul Ville - Banana",
+	"author": "dueCraft",
+	"description": "Shoot, Search, Combine Hangul Cubes.\nMake a syllable and match words to things.\n------\nMouse left button : shoot\nMouse right button : grasp cube, push switch\nL-shift : sprint\nspacebar : jump",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e7931980-57e5-4382-8d91-225b9c85e111/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bbc38e7-259d-495f-ac3b-77a2c89d587b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bbc38e7-259d-495f-ac3b-77a2c89d587b",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bbc38e7-259d-495f-ac3b-77a2c89d587b/hangul-ville-banana"
+}

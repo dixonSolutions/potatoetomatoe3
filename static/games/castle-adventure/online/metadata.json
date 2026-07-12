@@ -1,0 +1,14 @@
+{
+	"id": "castle-adventure",
+	"name": "Castle Adventure",
+	"author": "J2873",
+	"description": "In this castle-themed adventure, you are on a mission to take back your treasure, and collect the green crystals on the way. There is also an optional training area. Watch out for bubble gum shooting creatures, golems, cannons, boiling cauldrons, and potion spills. The game will end when you complete your mission. Good luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/135fc384-fa1b-4d93-8c7b-d6e9c1c265f2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/505cc8c3-01ca-4dbc-ae88-ee7523217200/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "505cc8c3-01ca-4dbc-ae88-ee7523217200",
+	"unityPlayUrl": "https://play.unity.com/en/games/505cc8c3-01ca-4dbc-ae88-ee7523217200/castle-adventure"
+}

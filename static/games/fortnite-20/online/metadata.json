@@ -1,0 +1,14 @@
+{
+	"id": "fortnite-20",
+	"name": "Fortnite 2.0",
+	"author": "asj18a",
+	"description": "Play Fortnite 2.0 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a78174aa-e89c-4941-a969-aeb2b7a6a82f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/906e0c59-caca-4277-8461-5c5f1ee6c567/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "906e0c59-caca-4277-8461-5c5f1ee6c567",
+	"unityPlayUrl": "https://play.unity.com/en/games/906e0c59-caca-4277-8461-5c5f1ee6c567/fortnite-20"
+}

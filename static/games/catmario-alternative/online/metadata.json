@@ -1,0 +1,14 @@
+{
+	"id": "catmario-alternative",
+	"name": "CatMario Alternative",
+	"author": "thomassheep",
+	"description": "Press Space to Jump, <-/-> to control player's movement.\nCatMario with Unity -\u6c5f\u79c9\u5bb8(Ping-Chang Chung)2024/6/5",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/72763d60-d594-4239-9d6f-8c817e6a535f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cf7cdcd-9f91-4f68-b450-775a5375db52/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cf7cdcd-9f91-4f68-b450-775a5375db52",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cf7cdcd-9f91-4f68-b450-775a5375db52/catmario-alternative"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "drone-2d-simulator",
+	"name": "Drone 2D Simulator",
+	"author": "AHIGAKI",
+	"description": "\u30c9\u30ed\u30fc\u30f3\u306eMode 2\u3067\u306e\u30d7\u30ed\u30dd\u64cd\u4f5c\u306b\u6163\u308c\u308b\u305f\u3081\u306e\u30b7\u30df\u30e5\u30ec\u30fc\u30bf\u3067\u3059.\n\u305c\u3072\u30a2\u30f3\u30b1\u30fc\u30c8\u306b\u3054\u5354\u529b\u304f\u3060\u3055\u3044: https://forms.gle/MEWqfHyRo2vxg8qs5\n\n\u5de6Stick:  WASD\u30ad\u30fc\n\u53f3Stick: \u4e0a\u4e0b\u5de6\u53f3\u30ad\u30fc\nB\u30dc\u30bf\u30f3 or R\u30ad\u30fc: \u30ea\u30bb\u30c3\u30c8\nR\u30dc\u30bf\u30f3 or Q\u30ad\u30fc: \u901f\u5ea6\u5909\u66f4\nR\u30c8\u30ea\u30ac\u30fc or P\u30ad\u30fc: \u7dda\u5206\u5c04\u51fa\nZephyr\u30af\u30ea\u30c3\u30af: \u6a2a\u98a8",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8dfa6196-bc50-4442-8271-4c760604d507/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/252c3c47-cd9e-4432-8758-cab62b3ae222/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "252c3c47-cd9e-4432-8758-cab62b3ae222",
+	"unityPlayUrl": "https://play.unity.com/en/games/252c3c47-cd9e-4432-8758-cab62b3ae222/drone-2d-simulator"
+}

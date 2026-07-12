@@ -1,0 +1,14 @@
+{
+	"id": "upgrade-demo",
+	"name": "Upgrade demo",
+	"author": "karunacchi",
+	"description": "class",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06074818-118e-4abb-9ccf-4c7330899c1d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06074818-118e-4abb-9ccf-4c7330899c1d",
+	"unityPlayUrl": "https://play.unity.com/en/games/06074818-118e-4abb-9ccf-4c7330899c1d/upgrade-demo"
+}

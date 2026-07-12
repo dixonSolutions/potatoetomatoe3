@@ -1,0 +1,14 @@
+{
+	"id": "ninja-block-v02",
+	"name": "Ninja Block | v0.2",
+	"author": "m_vishuu",
+	"description": "Ninja Block - An endless platformer minigame | Do you have what it takes to be a Ninja? Show your skills in this fast paced and frustrating game where you play as a Ninja who is being attacked by enemy Rogue Ninjas. How long can you withstand their attacks? Share your High Scores by taking a snapshot and uploading it in the comments. Added: new movement mechanics and sound effects and better collision detection. Controls:                                        Arrow Keys/A-D -> Move                                                                                                          Space -> Jump                                  \nLong Press Space -> High Jump",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7147755a-e19b-4a17-bde3-39e68d4004b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36e5a985-2627-4c3a-adee-a22c336ef62a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36e5a985-2627-4c3a-adee-a22c336ef62a",
+	"unityPlayUrl": "https://play.unity.com/en/games/36e5a985-2627-4c3a-adee-a22c336ef62a/ninja-block-v02"
+}

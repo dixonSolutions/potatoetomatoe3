@@ -1,0 +1,14 @@
+{
+	"id": "basketball",
+	"name": "Basketball",
+	"author": "Komodeo",
+	"description": "Aim and shoot. Zenva Academy Basketball game built using this course: https://academy.zenva.com/course/unity-game-development-create-a-basketball-game/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8099ca80-8b8a-47bd-94f4-6fc8158b715f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e449dd66-0829-4579-8447-f2ba90f32509/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e449dd66-0829-4579-8447-f2ba90f32509",
+	"unityPlayUrl": "https://play.unity.com/en/games/e449dd66-0829-4579-8447-f2ba90f32509/basketball"
+}

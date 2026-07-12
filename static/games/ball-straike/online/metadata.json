@@ -1,0 +1,14 @@
+{
+	"id": "ball-straike",
+	"name": "Ball Straike",
+	"author": "Ahonyan",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/043be6ac-f5f8-41e5-8ed7-a90dec26a341/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a1568d17-5e09-4112-badb-cf5ee12e62ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a1568d17-5e09-4112-badb-cf5ee12e62ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/a1568d17-5e09-4112-badb-cf5ee12e62ac/ball-straike"
+}

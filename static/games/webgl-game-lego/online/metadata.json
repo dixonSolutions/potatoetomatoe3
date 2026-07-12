@@ -1,0 +1,14 @@
+{
+	"id": "webgl-game-lego",
+	"name": "WebGL Game - LEGO",
+	"author": "Raminta",
+	"description": "Play WebGL Game - LEGO on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4071156b-de72-4024-a1ca-4b40e2597524/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4071156b-de72-4024-a1ca-4b40e2597524",
+	"unityPlayUrl": "https://play.unity.com/en/games/4071156b-de72-4024-a1ca-4b40e2597524/webgl-game-lego"
+}

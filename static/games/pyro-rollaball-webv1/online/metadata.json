@@ -1,0 +1,14 @@
+{
+	"id": "pyro-rollaball-webv1",
+	"name": "Pyro - RollABall webv1",
+	"author": "PyroWithaPen",
+	"description": "RollABall Unity tutorial",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04b81801-3448-486d-93f0-09fd2dea770d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04b81801-3448-486d-93f0-09fd2dea770d",
+	"unityPlayUrl": "https://play.unity.com/en/games/04b81801-3448-486d-93f0-09fd2dea770d/pyro-rollaball-webv1"
+}

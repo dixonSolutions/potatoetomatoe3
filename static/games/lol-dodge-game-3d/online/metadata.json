@@ -1,0 +1,14 @@
+{
+	"id": "lol-dodge-game-3d",
+	"name": "LoL Dodge Game 3D",
+	"author": "bdecamargo",
+	"description": "Based on LoL Dodge Game - League of \u201cSkillshot\u201d - Skill + Dodge.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/16a74932-c035-4368-9b50-8a13bd34d8f6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "16a74932-c035-4368-9b50-8a13bd34d8f6",
+	"unityPlayUrl": "https://play.unity.com/en/games/16a74932-c035-4368-9b50-8a13bd34d8f6/lol-dodge-game-3d"
+}

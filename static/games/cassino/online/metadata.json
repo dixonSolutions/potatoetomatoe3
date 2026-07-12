@@ -1,0 +1,14 @@
+{
+	"id": "cassino",
+	"name": "cassino",
+	"author": "jeffhardyabner",
+	"description": "jogo de cassino",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/296a9ab3-c762-4366-951f-74aeb39d61b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "296a9ab3-c762-4366-951f-74aeb39d61b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/296a9ab3-c762-4366-951f-74aeb39d61b7/cassino"
+}

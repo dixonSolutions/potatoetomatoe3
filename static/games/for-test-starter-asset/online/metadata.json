@@ -1,0 +1,14 @@
+{
+	"id": "for-test-starter-asset",
+	"name": "For Test starter Asset",
+	"author": "chisuga04",
+	"description": "For Test starter Asset",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/290f5933-d420-4183-a38d-6dc440032b20/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/055463e3-8f40-40a3-b3b9-70143bb7a80b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "055463e3-8f40-40a3-b3b9-70143bb7a80b",
+	"unityPlayUrl": "https://play.unity.com/en/games/055463e3-8f40-40a3-b3b9-70143bb7a80b/for-test-starter-asset"
+}

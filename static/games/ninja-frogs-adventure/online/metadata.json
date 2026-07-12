@@ -1,0 +1,14 @@
+{
+	"id": "ninja-frogs-adventure",
+	"name": "Ninja Frog's adventure",
+	"author": "IlkkaEskola",
+	"description": "2D-sidescroller adventure game. OLD VERSION.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/679b5bc7-eae7-40c6-830c-0968799bfcfa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "679b5bc7-eae7-40c6-830c-0968799bfcfa",
+	"unityPlayUrl": "https://play.unity.com/en/games/679b5bc7-eae7-40c6-830c-0968799bfcfa/ninja-frogs-adventure"
+}

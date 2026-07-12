@@ -1,0 +1,14 @@
+{
+	"id": "maya-the-bat-final",
+	"name": "Maya the Bat Final",
+	"author": "lilrodent",
+	"description": "Maya the Bat Final Build. \nCollect all the treats as fast as you can! Use the arrow or WASD keys to turn and spacebar to activate a speed boost. Press esc to pause.\nWhen in 2 player mode, player 1 uses WASD + Space and player 2 uses arrow and Right Ctrl. \n\nGithub: https://github.com/chloewoods/MayaGame/tree/main\nSchedule reflections: https://github.com/chloewoods/MayaGame/blob/main/README.md",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14d585e6-ef72-4d34-bfae-68e1c13621b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4865a701-29e7-4251-9e28-f994a3941be2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4865a701-29e7-4251-9e28-f994a3941be2",
+	"unityPlayUrl": "https://play.unity.com/en/games/4865a701-29e7-4251-9e28-f994a3941be2/maya-the-bat-final"
+}

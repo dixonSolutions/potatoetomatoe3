@@ -1,0 +1,14 @@
+{
+	"id": "persistance-data-project",
+	"name": "Persistance Data Project",
+	"author": "tomasengstrom",
+	"description": "The data persistance exercise in the junior programmer pathway. Active player score functionality and a best score logging feature added to the game by scripting in VS.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/62c0e023-44f7-4fcf-81fb-387d52de05ac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f1a24899-309b-498b-8121-d7a08ddc72ae/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f1a24899-309b-498b-8121-d7a08ddc72ae",
+	"unityPlayUrl": "https://play.unity.com/en/games/f1a24899-309b-498b-8121-d7a08ddc72ae/persistance-data-project"
+}

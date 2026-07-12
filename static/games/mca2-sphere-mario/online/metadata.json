@@ -1,0 +1,14 @@
+{
+	"id": "mca2-sphere-mario",
+	"name": "MCA2 - Sphere Mario",
+	"author": "xrlabresearch",
+	"description": "Hit ESC or Tab to destroy all enemies/coins",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9da845ee-9679-40fb-a08f-a2bd188a3551/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9da845ee-9679-40fb-a08f-a2bd188a3551",
+	"unityPlayUrl": "https://play.unity.com/en/games/9da845ee-9679-40fb-a08f-a2bd188a3551/mca2-sphere-mario"
+}

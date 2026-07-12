@@ -1,0 +1,14 @@
+{
+	"id": "fighter-jet-battle",
+	"name": "Fighter Jet Battle",
+	"author": "Tygur",
+	"description": "Fight endless enemies in this epic fighter jet shooter, conquer a vast ocean with many battleships to destroy (yes I'm meta-tag spamming so what)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/67b69dbf-81e0-4bae-be22-a7d496597ee0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4eef9250-df83-4d37-a5d4-3b54fdffebb7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4eef9250-df83-4d37-a5d4-3b54fdffebb7",
+	"unityPlayUrl": "https://play.unity.com/en/games/4eef9250-df83-4d37-a5d4-3b54fdffebb7/fighter-jet-battle"
+}

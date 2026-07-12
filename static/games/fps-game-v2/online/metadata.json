@@ -1,0 +1,14 @@
+{
+	"id": "fps-game-v2",
+	"name": "FPS GAME V2",
+	"author": "hamzahkarimah09",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7c84197-e53f-472a-9d4f-87593c388f79/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c2b6bf5f-a0a4-46ae-82f5-3097df752140/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c2b6bf5f-a0a4-46ae-82f5-3097df752140",
+	"unityPlayUrl": "https://play.unity.com/en/games/c2b6bf5f-a0a4-46ae-82f5-3097df752140/fps-game-v2"
+}

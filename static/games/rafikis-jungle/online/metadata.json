@@ -1,0 +1,14 @@
+{
+	"id": "rafikis-jungle",
+	"name": "Rafikis Jungle",
+	"author": "WaseemDayili",
+	"description": "WASD to move - left shift to run - left mouse click for shooting | Ctrl",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/62d9a51c-3fc4-4576-9bbb-a0b68a038797/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00caf547-6105-4d66-b0bb-924094dd76be/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00caf547-6105-4d66-b0bb-924094dd76be",
+	"unityPlayUrl": "https://play.unity.com/en/games/00caf547-6105-4d66-b0bb-924094dd76be/rafikis-jungle"
+}

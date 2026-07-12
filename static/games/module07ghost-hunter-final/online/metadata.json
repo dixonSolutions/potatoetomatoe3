@@ -1,0 +1,14 @@
+{
+	"id": "module07ghost-hunter-final",
+	"name": "Module07_Ghost Hunter Final",
+	"author": "AJ_Gonsalves",
+	"description": "Mixed reality mobile Ghost Hunter video game.  Transform your environment into a spooky ectoplasmic-filled cemetery. Tap ghosts to destroy them as fast as you can to win!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ac77b222-7114-4b83-91e7-dfe2eca3d56a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05880419-aabc-4d8a-adfb-bf6b589d1dac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05880419-aabc-4d8a-adfb-bf6b589d1dac",
+	"unityPlayUrl": "https://play.unity.com/en/games/05880419-aabc-4d8a-adfb-bf6b589d1dac/module07ghost-hunter-final"
+}

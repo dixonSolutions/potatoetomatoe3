@@ -1,0 +1,14 @@
+{
+	"id": "spooky-kart",
+	"name": "Spooky Kart",
+	"author": "unity_kUzc7jsS3Zzb1g",
+	"description": "Made with assets from the asset store. I'm very new to game dev and unity so I used this as a learning experience. I followed tutorials to learn the things I wanted to make problems I needed to solve. I had a lot of fun modding this MicroGame and I hope it's fun to play.             To play the high quality version that runs better than WebGL Version, visit:  https://kegs.itch.io/spooky-kart",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/39e3846b-fc6d-4337-92db-b9dba4ce51dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d86b613a-84b7-4525-b7df-c7936ef51773/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d86b613a-84b7-4525-b7df-c7936ef51773",
+	"unityPlayUrl": "https://play.unity.com/en/games/d86b613a-84b7-4525-b7df-c7936ef51773/spooky-kart"
+}

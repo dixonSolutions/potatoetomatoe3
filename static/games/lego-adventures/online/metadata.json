@@ -1,0 +1,14 @@
+{
+	"id": "lego-adventures",
+	"name": "Lego Adventures",
+	"author": "Xdavoroo",
+	"description": "Videogame for project in school",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/def7a841-02ff-46fc-b09a-bcf95b83cbe4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1243834b-ab54-44a1-8b66-3fdef748037e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1243834b-ab54-44a1-8b66-3fdef748037e",
+	"unityPlayUrl": "https://play.unity.com/en/games/1243834b-ab54-44a1-8b66-3fdef748037e/lego-adventures"
+}

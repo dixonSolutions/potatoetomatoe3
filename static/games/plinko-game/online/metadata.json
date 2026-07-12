@@ -1,0 +1,14 @@
+{
+	"id": "plinko-game",
+	"name": "Plinko Game",
+	"author": "Rumble330",
+	"description": "This is a simple project I made in 8 minutes. You can't actually do anything but watch the ball, so \"Don't try it!\"",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f031162d-b967-4615-bb4e-29c2b5adb1de/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e5c4d2db-9ee2-4002-ad6f-b226cb69c770/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e5c4d2db-9ee2-4002-ad6f-b226cb69c770",
+	"unityPlayUrl": "https://play.unity.com/en/games/e5c4d2db-9ee2-4002-ad6f-b226cb69c770/plinko-game"
+}

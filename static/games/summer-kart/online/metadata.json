@@ -1,0 +1,14 @@
+{
+	"id": "summer-kart",
+	"name": "Summer Kart",
+	"author": "AnayV",
+	"description": "Play Summer Kart on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ab3436bd-1755-495c-ab7e-0718ad9286da/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/53e3edec-1ac6-4dfa-86d5-6fb5b5cb80e5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "53e3edec-1ac6-4dfa-86d5-6fb5b5cb80e5",
+	"unityPlayUrl": "https://play.unity.com/en/games/53e3edec-1ac6-4dfa-86d5-6fb5b5cb80e5/summer-kart"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "live-meet",
+	"name": "Live Meet",
+	"author": "vijitendrak",
+	"description": "Welcome to the Live Meet.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a30572b-1315-43a4-b25c-11fa813f0aef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d38aa52-7b3f-4034-8eb2-c435e57e56c8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d38aa52-7b3f-4034-8eb2-c435e57e56c8",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d38aa52-7b3f-4034-8eb2-c435e57e56c8/live-meet"
+}

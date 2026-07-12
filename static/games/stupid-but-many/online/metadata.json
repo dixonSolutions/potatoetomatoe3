@@ -1,0 +1,14 @@
+{
+	"id": "stupid-but-many",
+	"name": "Stupid But Many",
+	"author": "derwaeldaltonbaptiste",
+	"description": "just play",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28058dc2-0a55-4734-b100-308bc16be4b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28058dc2-0a55-4734-b100-308bc16be4b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/28058dc2-0a55-4734-b100-308bc16be4b5/stupid-but-many"
+}

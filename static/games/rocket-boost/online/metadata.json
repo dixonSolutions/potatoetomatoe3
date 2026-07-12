@@ -1,0 +1,14 @@
+{
+	"id": "rocket-boost",
+	"name": "Rocket Boost",
+	"author": "Abdul_R",
+	"description": "This Rocket boost game have 3 different levels if rocket get collides with other game object it will Reload the level or when you reach the landing pad 2nd or 3rd level get unlock",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/014c374e-8ee6-4fde-9a41-5c233d9ba681/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2052207e-67d4-4bed-9eb7-26995a15352c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2052207e-67d4-4bed-9eb7-26995a15352c",
+	"unityPlayUrl": "https://play.unity.com/en/games/2052207e-67d4-4bed-9eb7-26995a15352c/rocket-boost"
+}

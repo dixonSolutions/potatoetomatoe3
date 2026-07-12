@@ -1,0 +1,14 @@
+{
+	"id": "count-masters-clone",
+	"name": "Count Masters Clone",
+	"author": "romantikhaydut",
+	"description": "Control : A/D Keys or Left/Right Arrow Keys",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7caa772c-2d7d-4fd4-b5a3-c7dae8d3ab32/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6fd37020-0065-482c-bf26-6e2693091549/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6fd37020-0065-482c-bf26-6e2693091549",
+	"unityPlayUrl": "https://play.unity.com/en/games/6fd37020-0065-482c-bf26-6e2693091549/count-masters-clone"
+}

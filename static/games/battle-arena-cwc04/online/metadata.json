@@ -1,0 +1,14 @@
+{
+	"id": "battle-arena-cwc04",
+	"name": "Battle Arena (CWC04)",
+	"author": "Zhiu_1234",
+	"description": "This game is based on the CWC Live prototype 4, but it has some extras:\n\n- Basic movement (space = jump. vertical movement for speed control, horizontal movement for camera control)\n- Three unique power-ups: Shockwave jump, auto-aim bullets and power tackle\n- Normal, aggressive and boss enemies\n- Each boss has an additional ability: spawning additional enemies, firing homing missiles at player, or agile jumps\n- The game counts the waves and at wave 4, 6 and 10, boss enemies will spawn\n- Postprocessing effects\n- Cheat button \"R\" will reset the player back to the platform\nTry to finish all waves and be victorious (without using \"R\"). Have fun! :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aff5468d-3db8-4ed0-991f-007634df108c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c91dd88-5fd4-4a73-ac28-68a17abaf8ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c91dd88-5fd4-4a73-ac28-68a17abaf8ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c91dd88-5fd4-4a73-ac28-68a17abaf8ac/battle-arena-cwc04"
+}

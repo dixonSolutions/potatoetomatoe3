@@ -1,0 +1,14 @@
+{
+	"id": "snow-pro",
+	"name": "Snow Pro",
+	"author": "zaid81",
+	"description": "Reach the end without falling! Use the left and right arrow keys to tilt.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/25916bdf-db5b-44d9-a4b8-13e0dc86f47c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1066e735-8c26-4576-911a-8642eed6f723/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1066e735-8c26-4576-911a-8642eed6f723",
+	"unityPlayUrl": "https://play.unity.com/en/games/1066e735-8c26-4576-911a-8642eed6f723/snow-pro"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ping-pong-rec",
+	"name": "Ping Pong rec",
+	"author": "Rec33",
+	"description": "Selam. Bu Oyunu 1 G\u00fcn \u0130\u00e7inde S\u0131f\u0131r Kodlama Bilgisi \u0130le Oyun Yapmak Videomda Yapt\u0131m. Umar\u0131m Ho\u015funuza Gitmi\u015ftir.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6652512a-f462-42e6-b4aa-757480d0085e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6652512a-f462-42e6-b4aa-757480d0085e",
+	"unityPlayUrl": "https://play.unity.com/en/games/6652512a-f462-42e6-b4aa-757480d0085e/ping-pong-rec"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ruby",
+	"name": "Ruby",
+	"author": "li86",
+	"description": "Help Ruby to complete the test by collecting gold coins from the cactus bush! \nThis is my first game =) Please feel free to leave your comments.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fbf18f23-bc07-46e8-aea7-adc554f936e5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2977ea02-9902-475c-a0b8-119125d7439e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2977ea02-9902-475c-a0b8-119125d7439e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2977ea02-9902-475c-a0b8-119125d7439e/ruby"
+}

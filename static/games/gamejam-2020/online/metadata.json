@@ -1,0 +1,14 @@
+{
+	"id": "gamejam-2020",
+	"name": "GameJam 2020",
+	"author": "Nwei-glu",
+	"description": "A player vs zombie made by Robert Kuszmar and Neien Wei.\n\nControls:\n\nWASD or arrow key - move character\nspace - jump\n1 - shoot mode\n2 - deploy turret mode\n3 - heal mode\nleft click - trigger mode\ne - upgrade a turret for $10 while standing next to a turret\n\nFor shooting, hold left click to shoot farther\n\nTurrets and health pack cost $5",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/90a82e2e-b2c5-4191-b51d-5165b9e6cc90/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/93154435-dbdc-4212-8680-359a1e3db16b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "93154435-dbdc-4212-8680-359a1e3db16b",
+	"unityPlayUrl": "https://play.unity.com/en/games/93154435-dbdc-4212-8680-359a1e3db16b/gamejam-2020"
+}

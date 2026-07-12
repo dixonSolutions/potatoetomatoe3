@@ -1,0 +1,14 @@
+{
+	"id": "prototype-3-jump-force-game",
+	"name": "Prototype 3 - Jump Force Game",
+	"author": "Aldegard",
+	"description": "added only destroy to prevent problems with too many prefabs\n\nmade simple VR version short movie https://youtu.be/yzAIy20gaG8\nhttps://github.com/....... it will be revealed shortly before our Saturday meeting",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d001d31d-17aa-4eb4-b877-6d4abdaba1cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0391a500-633c-44b6-8659-5109ca60314d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0391a500-633c-44b6-8659-5109ca60314d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0391a500-633c-44b6-8659-5109ca60314d/prototype-3-jump-force-game"
+}

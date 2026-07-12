@@ -1,0 +1,14 @@
+{
+	"id": "juego-pagina",
+	"name": "juego pagina",
+	"author": "JACOCABI",
+	"description": "Play juego pagina on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07526bcb-78a8-43cc-9d4d-25715cb2dc4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07526bcb-78a8-43cc-9d4d-25715cb2dc4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/07526bcb-78a8-43cc-9d4d-25715cb2dc4a/juego-pagina"
+}

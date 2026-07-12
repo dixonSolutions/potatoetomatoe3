@@ -1,0 +1,14 @@
+{
+	"id": "balls-1v1",
+	"name": "Balls 1v1",
+	"author": "MROSA",
+	"description": "In this game you can play any times as you want an 1v1 against another person. The Controls are: (Player 1) WASD, and (Player 2) Up Arrow, Down Arrow, Left Arrow and Right Arrow. My discord link is: https://discord.gg/g9SF8yw",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7fde11a3-8556-439f-8c67-049f43064e0e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f62ea15-adc0-44ba-a9da-389f6ec99dbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f62ea15-adc0-44ba-a9da-389f6ec99dbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f62ea15-adc0-44ba-a9da-389f6ec99dbf/balls-1v1"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pizza-boy-adventure-demo",
+	"name": "Pizza Boy Adventure Demo",
+	"author": "LegoNick007",
+	"description": "Ever wanted to help Gnomes with their problems? Play as Pep... uh I mean Pizza Boy, in Pizza Boy Adventure. If you wanna get used to the controls first, go to the Test Room. There is also 4 additional bonus Microgames, just for fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f72b8da8-d957-4c3e-840b-06f69177678d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d5e8e4ad-e61e-4111-a95e-53e90612115b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d5e8e4ad-e61e-4111-a95e-53e90612115b",
+	"unityPlayUrl": "https://play.unity.com/en/games/d5e8e4ad-e61e-4111-a95e-53e90612115b/pizza-boy-adventure-demo"
+}

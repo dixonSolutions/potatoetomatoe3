@@ -1,0 +1,14 @@
+{
+	"id": "bean-bash",
+	"name": "Bean Bash",
+	"author": "aaron_zeng",
+	"description": "Use the mouse scrollwheel to switch between weapons. Click to fire. Right click to scope. Wasd to move around, and space to jump. (weapons have a fire interval, so not all clicks will work. The 4th weapon (hotkey 4) has an automatic fire so just hold down your mouse))",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3ed6dd5a-a0e6-4fc5-b857-edc35041c0c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/920b6687-c4cd-4d20-b395-8de4a6aab5c8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "920b6687-c4cd-4d20-b395-8de4a6aab5c8",
+	"unityPlayUrl": "https://play.unity.com/en/games/920b6687-c4cd-4d20-b395-8de4a6aab5c8/bean-bash"
+}

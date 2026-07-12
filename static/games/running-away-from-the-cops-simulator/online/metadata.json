@@ -1,0 +1,14 @@
+{
+	"id": "running-away-from-the-cops-simulator",
+	"name": "Running away from the cops simulator",
+	"author": "ellagale",
+	"description": "Avoid obstacles to escape the city. To jump hit space, double jump hit space twice, to dash, hit the left shift key. (Not finished, this game is still buggy, why are the barrels floating?)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7eac0f4e-9152-40f8-873f-4b4d8d663901/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40dfc642-b30e-45a9-aec5-237f58346fa3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40dfc642-b30e-45a9-aec5-237f58346fa3",
+	"unityPlayUrl": "https://play.unity.com/en/games/40dfc642-b30e-45a9-aec5-237f58346fa3/running-away-from-the-cops-simulator"
+}

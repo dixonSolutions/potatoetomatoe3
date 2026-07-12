@@ -1,0 +1,14 @@
+{
+	"id": "tile-castlevania",
+	"name": "Tile CastleVania",
+	"author": "Chris766X",
+	"description": "WASD/\u2190\u2191\u2192\u2193  :  To Move                                                                                       Space                 :  To Jump                                                                                        Ctrl                     :  To  Fire Arrows                                                                                                            \n                                                                                                                   \n Navigate through the 4 Levels to get a score as high as possible with only 3 lives.                                                                                                            \n Burning through all lives means game over.                                                   Get a higher score then the previous player and u will see your name displayed",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/74b5cfeb-4e0c-4310-a1c2-143ccf4cb71c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a92f159-cff5-439f-ae18-86ae9bfe2e55/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a92f159-cff5-439f-ae18-86ae9bfe2e55",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a92f159-cff5-439f-ae18-86ae9bfe2e55/tile-castlevania"
+}

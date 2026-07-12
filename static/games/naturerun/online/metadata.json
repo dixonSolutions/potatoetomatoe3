@@ -1,0 +1,14 @@
+{
+	"id": "naturerun",
+	"name": "NatureRun",
+	"author": "shooki11",
+	"description": "Tap to attack, swipe to jump",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/96a216b3-6fbd-4aba-824f-f2de6740682d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "96a216b3-6fbd-4aba-824f-f2de6740682d",
+	"unityPlayUrl": "https://play.unity.com/en/games/96a216b3-6fbd-4aba-824f-f2de6740682d/naturerun"
+}

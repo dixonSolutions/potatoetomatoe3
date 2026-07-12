@@ -1,0 +1,14 @@
+{
+	"id": "clicky-game",
+	"name": "Clicky Game",
+	"author": "MykeBlack",
+	"description": "Click on the boxes to score points, but beware of the skulls!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8a2a46dd-62a7-4547-b2db-0ce8959fa238/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10ba3b4d-a7a4-4b9b-8906-8c821b962bd9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10ba3b4d-a7a4-4b9b-8906-8c821b962bd9",
+	"unityPlayUrl": "https://play.unity.com/en/games/10ba3b4d-a7a4-4b9b-8906-8c821b962bd9/clicky-game"
+}

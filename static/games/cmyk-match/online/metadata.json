@@ -1,0 +1,14 @@
+{
+	"id": "cmyk-match",
+	"name": "CMYK Match",
+	"author": "JMGomezCobo",
+	"description": "\ud83c\udfae About the game:\nDive into the vibrant world of CMYK Match, where your task is to master the art of color blending using the CMYK color model. Test your skills by matching colors with precision, and race against the clock to achieve the highest score!\n\n\ud83c\udfaf What's the main goal? \nThe main goal of CMYK Match is to match the randomly generated target color using sliders representing the cyan, magenta, yellow, and black (key) channels. The closer your color is to the target, the more points you score.\n\n\ud83e\udde9 How to play:\n\u2022 Adjust Sliders: Use the cyan, magenta, yellow, and black sliders to mix and match the current color with the target color. \n\u2022 Input Fields: You can also type specific values in the input fields for precise adjustments. \n\u2022 Check Match: Press the spacebar or click the on-screen button to check if your color matches the target. The closer the match, the more points you earn!\n\n\ud83d\udca1 A few tips:\n\u2022 Precision Matters: The closer your color is to the target, the more points you score. Fine-tune your adjustments for better accuracy.  \n\u2022 Speed Counts: You earn more points for quicker matches. Balance speed and precision to maximize your score. \n\u2022 Increasing Challenge: The game starts with a forgiving tolerance but gets more challenging as you progress through the rounds.\n\nTest your color-matching prowess and strive for the perfect match in CMYK Match! Can you achieve the ultimate high score and master the art of CMYK color blending?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f04e7842-05e2-4980-b9b2-af9216d536cb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/57bd4711-3d02-4fd8-8422-d72137f0b796/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "57bd4711-3d02-4fd8-8422-d72137f0b796",
+	"unityPlayUrl": "https://play.unity.com/en/games/57bd4711-3d02-4fd8-8422-d72137f0b796/cmyk-match"
+}

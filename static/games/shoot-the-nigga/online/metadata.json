@@ -1,0 +1,14 @@
+{
+	"id": "shoot-the-nigga",
+	"name": "Shoot the Nigga",
+	"author": "yama417",
+	"description": "a fps",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42fe0631-8f36-4ad8-8da0-400b2c290a65/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42fe0631-8f36-4ad8-8da0-400b2c290a65",
+	"unityPlayUrl": "https://play.unity.com/en/games/42fe0631-8f36-4ad8-8da0-400b2c290a65/shoot-the-nigga"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mindfulness-demo",
+	"name": "Mindfulness Demo",
+	"author": "duckrates",
+	"description": "Basic demonstration of some ideas for the mindfulness app.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ee7bf56-a702-47de-a9b7-462fdafdfade/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3ee7bf56-a702-47de-a9b7-462fdafdfade",
+	"unityPlayUrl": "https://play.unity.com/en/games/3ee7bf56-a702-47de-a9b7-462fdafdfade/mindfulness-demo"
+}

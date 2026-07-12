@@ -1,0 +1,14 @@
+{
+	"id": "the-matrix-micro-karting-game",
+	"name": "The Matrix Micro Karting Game",
+	"author": "JWadia-NDHS",
+	"description": "Microgame, reach the checkpoint to win!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/08f27ad5-6cd4-4a3b-8f6a-b41666a37d05/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/293223b2-c5c5-491a-b56f-7860eb1f9d04/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "293223b2-c5c5-491a-b56f-7860eb1f9d04",
+	"unityPlayUrl": "https://play.unity.com/en/games/293223b2-c5c5-491a-b56f-7860eb1f9d04/the-matrix-micro-karting-game"
+}

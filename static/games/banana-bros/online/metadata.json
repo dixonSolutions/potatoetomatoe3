@@ -1,0 +1,14 @@
+{
+	"id": "banana-bros",
+	"name": "Banana Bros",
+	"author": "banana_penguin",
+	"description": "a game based of banaza bros on the sega genisis (Please full screen)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5effe10a-3eb2-4b3d-a5f1-1424efd2b73a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ec52b58-2eae-4585-8f65-eff9f0f843a4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ec52b58-2eae-4585-8f65-eff9f0f843a4",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ec52b58-2eae-4585-8f65-eff9f0f843a4/banana-bros"
+}

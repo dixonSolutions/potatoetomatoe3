@@ -1,0 +1,14 @@
+{
+	"id": "a-christmas-themed-pinball-game",
+	"name": "A Christmas themed pinball game",
+	"author": "HackingtonsStudent",
+	"description": "Very long title guys",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1a807373-5c7b-4dc4-a25e-058c1faa3ea7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1df0c92d-2555-4592-aedc-806bae22ec90/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1df0c92d-2555-4592-aedc-806bae22ec90",
+	"unityPlayUrl": "https://play.unity.com/en/games/1df0c92d-2555-4592-aedc-806bae22ec90/a-christmas-themed-pinball-game"
+}

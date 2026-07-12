@@ -1,0 +1,14 @@
+{
+	"id": "lightwave",
+	"name": "LightWave",
+	"author": "Av_Mirror",
+	"description": "Play LightWave on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c360c544-16b1-4ff6-9aea-5c89d7b58100/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4cc92224-a001-420b-b826-ed7ac05c5bbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4cc92224-a001-420b-b826-ed7ac05c5bbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/4cc92224-a001-420b-b826-ed7ac05c5bbf/lightwave"
+}

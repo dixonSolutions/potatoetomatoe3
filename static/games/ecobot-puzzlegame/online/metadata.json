@@ -1,0 +1,14 @@
+{
+	"id": "ecobot-puzzlegame",
+	"name": "EcoBot - PuzzleGame",
+	"author": "rypcer",
+	"description": "TO PAUSE INGAME PRESS 'P'. A puzzle game for the clever ones out there! Made by Ivan & Ajmal. The game takes some time until it loads so have patience, please.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/48f06c71-2c4c-4077-93fb-90640b18bbf6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4398aa7b-b8cc-4e5f-8c88-64f3a63ddb79/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4398aa7b-b8cc-4e5f-8c88-64f3a63ddb79",
+	"unityPlayUrl": "https://play.unity.com/en/games/4398aa7b-b8cc-4e5f-8c88-64f3a63ddb79/ecobot-puzzlegame"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "zombie-shooter-prototype",
+	"name": "Zombie Shooter Prototype",
+	"author": "mwisner",
+	"description": "No points. No goal. Just enjoy shooting zombies. This game was built from the Prototype 2 assignment in the Junior Programming 1 pathway.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/711510c9-73bd-43dc-881b-7ba173d5cfb3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a535579d-206b-4f5e-a8fa-156a26ab42a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a535579d-206b-4f5e-a8fa-156a26ab42a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/a535579d-206b-4f5e-a8fa-156a26ab42a8/zombie-shooter-prototype"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "starship",
+	"name": "Starship",
+	"author": "unity_3C04473B6EA760FCE089",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40d95ad4-888f-4d6b-a5ee-ed5dfc046633/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4af96aae-cd39-4f05-8a31-0806b1f80cf0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4af96aae-cd39-4f05-8a31-0806b1f80cf0",
+	"unityPlayUrl": "https://play.unity.com/en/games/4af96aae-cd39-4f05-8a31-0806b1f80cf0/starship"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "2d-platformer-with-metrics",
+	"name": "2D Platformer With Metrics",
+	"author": "saniab27",
+	"description": "This is a 2D platformer that collects various metrics which can be useful.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3016d2f2-ca86-4d54-b84b-d7cf5e416e1e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12114b75-bae7-432b-a8cc-032e304b8dcc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12114b75-bae7-432b-a8cc-032e304b8dcc",
+	"unityPlayUrl": "https://play.unity.com/en/games/12114b75-bae7-432b-a8cc-032e304b8dcc/2d-platformer-with-metrics"
+}

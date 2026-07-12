@@ -1,0 +1,14 @@
+{
+	"id": "thunder-knights-wasteland",
+	"name": "Thunder Knights: Wasteland",
+	"author": "ANS_685",
+	"description": "You are tasked with a recon mission near a volcano in enemy territory. Soon, it spirals out of control and you are knocked out. You wake up in a labyrinth, and you must get back to your shuttle. Can you complete your mission and make it home in one piece?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/75de633d-83d2-440d-944e-80a22613eaf7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b1dd21d-9582-4617-a61d-60d3f8074e2e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b1dd21d-9582-4617-a61d-60d3f8074e2e",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b1dd21d-9582-4617-a61d-60d3f8074e2e/thunder-knights-wasteland"
+}

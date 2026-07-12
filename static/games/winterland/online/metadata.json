@@ -1,0 +1,14 @@
+{
+	"id": "winterland",
+	"name": "Winterland",
+	"author": "shivanishawr",
+	"description": "Dash across the snowy lands with your trusty Reindeer sidekick and collect all of Santa's gifts to defeat the Evil Yule with the magic of Christmas. Will you be able to save Santa from the clutches of the Evil Yule? Only time will tell...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/04c41769-459c-4670-a405-cdd2a81036b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c604f6f-5c13-4f8f-864a-7ac654810787/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c604f6f-5c13-4f8f-864a-7ac654810787",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c604f6f-5c13-4f8f-864a-7ac654810787/winterland"
+}

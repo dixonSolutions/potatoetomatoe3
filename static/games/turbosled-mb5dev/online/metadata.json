@@ -1,0 +1,14 @@
+{
+	"id": "turbosled-mb5dev",
+	"name": "TurboSled - MB5Dev",
+	"author": "Unity Play",
+	"description": "A short minigame i made before Christmas day.\nYou have to \"request a desktop webpage\" on IOS for the correct resolution if your on IOS in the settings\n-Recommended to play on PC\n-Mobile is buggy.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eaee7420-ca78-4933-a358-9ad6a7838143/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7ada9dd4-a280-4e11-9b24-ee331b939157/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7ada9dd4-a280-4e11-9b24-ee331b939157",
+	"unityPlayUrl": "https://play.unity.com/en/games/7ada9dd4-a280-4e11-9b24-ee331b939157/turbosled-mb5dev"
+}

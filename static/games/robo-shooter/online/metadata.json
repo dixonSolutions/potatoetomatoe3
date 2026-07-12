@@ -1,0 +1,14 @@
+{
+	"id": "robo-shooter",
+	"name": "Robo shooter",
+	"author": "kmoser1389",
+	"description": "In this game you need to find all of the robots and take them down.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a71e5e66-741b-465a-8d03-af992592cada/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/89170339-8321-44cb-bb9a-5299a97c4259/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "89170339-8321-44cb-bb9a-5299a97c4259",
+	"unityPlayUrl": "https://play.unity.com/en/games/89170339-8321-44cb-bb9a-5299a97c4259/robo-shooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "creamult10",
+	"name": "creaMult10",
+	"author": "hughe391",
+	"description": "Play creaMult10 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb62ec33-594a-455b-a21d-65e741be8043/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb62ec33-594a-455b-a21d-65e741be8043",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb62ec33-594a-455b-a21d-65e741be8043/creamult10"
+}

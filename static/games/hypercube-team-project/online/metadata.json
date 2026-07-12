@@ -1,0 +1,14 @@
+{
+	"id": "hypercube-team-project",
+	"name": "HyperCube Team Project",
+	"author": "anmcmill",
+	"description": "Hypercube with levels made by Hackingtons Students.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/03f42d41-17bf-4246-b1c9-8312a1f76032/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17e3fa79-f6f0-4d66-80cc-e8c3f04e9876/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17e3fa79-f6f0-4d66-80cc-e8c3f04e9876",
+	"unityPlayUrl": "https://play.unity.com/en/games/17e3fa79-f6f0-4d66-80cc-e8c3f04e9876/hypercube-team-project"
+}

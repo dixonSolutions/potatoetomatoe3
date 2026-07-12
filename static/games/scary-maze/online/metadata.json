@@ -1,8 +1,14 @@
 {
-  "id": "scary-maze",
-  "name": "Scary Maze",
-  "author": "Poki",
-  "description": "Muster up the courage to complete the scary maze! This dangerously frightening game will challenge your ability to control the mouse. You must guide the blue dot through every path without hitting the walls. Turn up the volume for a true fright!",
-  "thumbnail": "/games/scary-maze/online/assets/scary-maze.png",
-  "category": "adventure"
+	"id": "scary-maze",
+	"name": "Scary maze",
+	"author": "Fyniti",
+	"description": "Scariest maze",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08d6455d-38fb-4980-8fc2-b9b83a6fccc2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08d6455d-38fb-4980-8fc2-b9b83a6fccc2",
+	"unityPlayUrl": "https://play.unity.com/en/games/08d6455d-38fb-4980-8fc2-b9b83a6fccc2/scary-maze"
 }

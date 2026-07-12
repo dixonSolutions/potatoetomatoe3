@@ -1,0 +1,14 @@
+{
+	"id": "dtm-car-racing-demo",
+	"name": "DTM Car Racing Demo",
+	"author": "dtm3ds",
+	"description": "It is a prototype car racing game demo as well as a YouTube tutorial if applicable. It uses the \"WASD\" Key to move. This game was created for the mobile platform. Just press the \"Back\" of your browser to quit the game. Have fun! If you any enquires, please feel free to go to my official website https://dtm3ds.com or DTM3DS YouTube channel at https://www.youtube.com/channel/UChG68auINVvS3FkOQESoWIg",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5826ede9-5951-46bb-8776-3ec6d2c98c4e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a9a82cf8-6fd7-4853-8e3d-b72218bc592c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a9a82cf8-6fd7-4853-8e3d-b72218bc592c",
+	"unityPlayUrl": "https://play.unity.com/en/games/a9a82cf8-6fd7-4853-8e3d-b72218bc592c/dtm-car-racing-demo"
+}

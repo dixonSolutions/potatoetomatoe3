@@ -1,0 +1,14 @@
+{
+	"id": "its-almost-an-actual-game",
+	"name": "It's almost an actual game!",
+	"author": "Unity_fauxpas",
+	"description": "You have a bow. There are Skeletons. Kill the skeletons to see the cool message at the end. Be killed by the skeletons to see the cool message at that end. Either way, it's pretty cool. You can do damage and kill, take damage and die. A whole world of digital experience. Animations are pretty janky but I don't know enough to fix them, lord knows I spent some time trying.                                                                                                             Assets Used:\nPlayer - https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/free-low-poly-human-rpg-character-219979\nEnemies - https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-skeleton-35463\nScenery - https://assetstore.unity.com/packages/3d/environments/historic/low-poly-game-ready-history-village-207553 , https://assetstore.unity.com/packages/3d/environments/fantasy/magic-idol-17908\nWeapons - https://assetstore.unity.com/packages/3d/props/weapons/fantasy-medieval-weapon-154210",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/07bb0921-feef-4222-b6c0-f10aaaf0359e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55e1f8e6-5701-414a-b6cc-0c39dfbe2192/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55e1f8e6-5701-414a-b6cc-0c39dfbe2192",
+	"unityPlayUrl": "https://play.unity.com/en/games/55e1f8e6-5701-414a-b6cc-0c39dfbe2192/its-almost-an-actual-game"
+}

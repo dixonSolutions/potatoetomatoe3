@@ -1,0 +1,14 @@
+{
+	"id": "lego-soccer-champions",
+	"name": "LEGO Soccer Champions",
+	"author": "unity_bclCfHr89oaikA",
+	"description": "Compete with your friends in this two player LEGO soccer game. The game includes a stadium that I custom built on Bricklink's Studio and imported into the Unity platform. The behavior bricks that the build uses include the touch trigger, count trigger, count brick, and win brick.\u00a0\n\nPlease let me know what you think - I am new to Unity so if you have any suggestions for how I could improve this game in the future it would be greatly appreciated.\n\nHope you enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/092a9000-f71d-41b0-a809-4b3f422504c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bac7e41-e139-4e4c-8dce-a968eb8a9fd2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bac7e41-e139-4e4c-8dce-a968eb8a9fd2",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bac7e41-e139-4e4c-8dce-a968eb8a9fd2/lego-soccer-champions"
+}

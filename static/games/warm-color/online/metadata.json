@@ -1,0 +1,14 @@
+{
+	"id": "warm-color",
+	"name": "Warm color",
+	"author": "RachaelB",
+	"description": "Play Warm color on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9b8c15ff-ba2e-4919-a60b-9572de98df6f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0708477e-b040-47e9-b491-712f8293cef9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0708477e-b040-47e9-b491-712f8293cef9",
+	"unityPlayUrl": "https://play.unity.com/en/games/0708477e-b040-47e9-b491-712f8293cef9/warm-color"
+}

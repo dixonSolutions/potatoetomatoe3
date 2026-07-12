@@ -1,0 +1,14 @@
+{
+	"id": "enemy-killer",
+	"name": "enemy killer",
+	"author": "k190345",
+	"description": "Maaz's First Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/24fd14e9-835c-4a43-b591-676df426af47/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dc03893-970e-4c88-9125-66642e1be33c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0dc03893-970e-4c88-9125-66642e1be33c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0dc03893-970e-4c88-9125-66642e1be33c/enemy-killer"
+}

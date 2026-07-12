@@ -1,0 +1,14 @@
+{
+	"id": "jump-and-run",
+	"name": "JUMP AND RUN",
+	"author": "UniqueSoumit",
+	"description": "COLLECT DIAMONDS AS MUCH AS POSSIBLE",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0f5e2721-2a91-4b09-bbf3-52b20bb70133/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b25f1e9-adc1-4e37-8b52-11a97599b65f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b25f1e9-adc1-4e37-8b52-11a97599b65f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b25f1e9-adc1-4e37-8b52-11a97599b65f/jump-and-run"
+}

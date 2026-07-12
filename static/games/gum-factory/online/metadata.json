@@ -1,0 +1,14 @@
+{
+	"id": "gum-factory",
+	"name": "Gum Factory",
+	"author": "zaholmes",
+	"description": "Either go through a puzzle mode or a tycoon mode and show your wealth as you establish a gum ball empire!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d57b590f-9ff8-4c61-a2e1-ebb834d00324/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d66355e8-b1f6-41cb-af7e-807ee85327df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d66355e8-b1f6-41cb-af7e-807ee85327df",
+	"unityPlayUrl": "https://play.unity.com/en/games/d66355e8-b1f6-41cb-af7e-807ee85327df/gum-factory"
+}

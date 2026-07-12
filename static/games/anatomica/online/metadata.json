@@ -1,0 +1,14 @@
+{
+	"id": "anatomica",
+	"name": "Anatomica",
+	"author": "samatalalayanmaya_2025",
+	"description": "Anatomica is 3D platform that presents anatomy with respect to spatial dimensions, changing the way of learning for future doctors.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/51d9150b-5ac0-4b96-95f4-6092f260b5a2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04b817aa-41d0-4895-8685-d32be75f291f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04b817aa-41d0-4895-8685-d32be75f291f",
+	"unityPlayUrl": "https://play.unity.com/en/games/04b817aa-41d0-4895-8685-d32be75f291f/anatomica"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fuminigame",
+	"name": "FuminiGame",
+	"author": "hicctt",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ce0c846d-9b5b-4f85-bcf6-7c89490ed9a0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d7afe23d-4c05-48aa-ae93-cfbfd94dea54/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d7afe23d-4c05-48aa-ae93-cfbfd94dea54",
+	"unityPlayUrl": "https://play.unity.com/en/games/d7afe23d-4c05-48aa-ae93-cfbfd94dea54/fuminigame"
+}

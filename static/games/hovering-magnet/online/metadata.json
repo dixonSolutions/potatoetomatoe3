@@ -1,0 +1,14 @@
+{
+	"id": "hovering-magnet",
+	"name": "Hovering Magnet",
+	"author": "Hashim-J",
+	"description": "The game is about fetching a maximum score and collecting coins for buying different characters which have their own powers. Main controller is a magnet which moves the character left or right, in order to move it and save it from the blacks/obstacles.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/793245f7-0894-4e2a-9444-2467857c486c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e0e7ad0-dac5-4d7e-a159-a277dca8afbe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e0e7ad0-dac5-4d7e-a159-a277dca8afbe",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e0e7ad0-dac5-4d7e-a159-a277dca8afbe/hovering-magnet"
+}

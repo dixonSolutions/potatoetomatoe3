@@ -1,0 +1,14 @@
+{
+	"id": "one-key-jumping-game",
+	"name": "One key Jumping Game",
+	"author": "sunnysidestreet",
+	"description": "updated: 15/4/2020  This game has sounds. Please click volume on at middle of lower right switch. Jumping is space bar. if you get a new record, you can run with your replay. Initial start is to clear your record. Arrow keys are DJ sound effect to go with background music.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/30ba88d5-d2a5-4001-880f-3e6d73556c84/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e48196b-20ca-480b-84d0-d5f41a070dbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e48196b-20ca-480b-84d0-d5f41a070dbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e48196b-20ca-480b-84d0-d5f41a070dbf/one-key-jumping-game"
+}

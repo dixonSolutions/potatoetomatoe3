@@ -1,0 +1,14 @@
+{
+	"id": "8-ball-of-doom",
+	"name": "8-Ball of Doom",
+	"author": "polomeo",
+	"description": "Play 8-Ball of Doom on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2c4e65cf-e788-44ad-b97f-faaccf947c14/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f0048f6b-e108-4a8e-b7ae-07f0ac8f4cc7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f0048f6b-e108-4a8e-b7ae-07f0ac8f4cc7",
+	"unityPlayUrl": "https://play.unity.com/en/games/f0048f6b-e108-4a8e-b7ae-07f0ac8f4cc7/8-ball-of-doom"
+}

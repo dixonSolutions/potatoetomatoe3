@@ -1,0 +1,14 @@
+{
+	"id": "olsens-burger-coin-drop",
+	"name": "Olsen's burger coin drop",
+	"author": "OreoCookieTurkey",
+	"description": "Coin drop with burger. Click the objects to remove them. Try to get the burger into the mouth.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/60b4abf6-e227-45f3-8821-41a9081a8975/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1842b428-adb9-4162-a3a0-ceb8c80a48c6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1842b428-adb9-4162-a3a0-ceb8c80a48c6",
+	"unityPlayUrl": "https://play.unity.com/en/games/1842b428-adb9-4162-a3a0-ceb8c80a48c6/olsens-burger-coin-drop"
+}

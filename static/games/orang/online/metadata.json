@@ -1,0 +1,14 @@
+{
+	"id": "orang",
+	"name": "Orang",
+	"author": "space-tiger-123",
+	"description": "WASD to move, shift to slide\nTime penalty of 2 seconds if get spotted by CCTV camera\nIf you hit a laser you die!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ed05c26-18d5-4c5e-ab1e-03eef9b2e6fb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1164eb93-1c42-4483-96d0-757def921fef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1164eb93-1c42-4483-96d0-757def921fef",
+	"unityPlayUrl": "https://play.unity.com/en/games/1164eb93-1c42-4483-96d0-757def921fef/orang"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "karategame",
+	"name": "KarateGame",
+	"author": "raisontoast87",
+	"description": "My latest microgame.\nArrows to Move, WADQ for attacks and S for block",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de648ac3-7440-44eb-8487-8e34f14602b1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6358062f-d05a-4697-8f37-20da597a89a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6358062f-d05a-4697-8f37-20da597a89a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/6358062f-d05a-4697-8f37-20da597a89a7/karategame"
+}

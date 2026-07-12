@@ -1,0 +1,14 @@
+{
+	"id": "maho-survivor",
+	"name": "MAHO Survivor",
+	"author": "shawn-jj",
+	"description": "Play instructions:\n\n- Left click to continue conversation\n- Use \"W A S D\" to move around\n- Press \"E\" to interact with environment\n- Move around to avoid monster attacks\n- Player attacks automatically",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df1500df-3503-4565-b01c-bfc38c1ec9d5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d700656-2f02-404b-af0d-072deaa4c134/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d700656-2f02-404b-af0d-072deaa4c134",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d700656-2f02-404b-af0d-072deaa4c134/maho-survivor"
+}

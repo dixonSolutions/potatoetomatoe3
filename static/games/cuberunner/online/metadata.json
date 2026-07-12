@@ -1,0 +1,14 @@
+{
+	"id": "cuberunner",
+	"name": "CubeRunner",
+	"author": "Perry1500",
+	"description": "CubeRunner is an endless runner game. It only works on desktop, and not mobile. WASD or Arrow keys to move. Space to jump. P for pause. Esc to minimize.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ad7cc811-47d6-4092-89f0-dcd6c945fc53/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19e5cf5c-f557-4318-8ba1-88157e6c4071/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19e5cf5c-f557-4318-8ba1-88157e6c4071",
+	"unityPlayUrl": "https://play.unity.com/en/games/19e5cf5c-f557-4318-8ba1-88157e6c4071/cuberunner"
+}

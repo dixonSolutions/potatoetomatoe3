@@ -1,0 +1,14 @@
+{
+	"id": "space-face",
+	"name": "Space Face",
+	"author": "HardKillerAc",
+	"description": "An action packed space fps game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/caae7510-f555-48c4-9783-cae03b50a84b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17cc2220-6354-46b0-ad18-19b58b14ea1f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17cc2220-6354-46b0-ad18-19b58b14ea1f",
+	"unityPlayUrl": "https://play.unity.com/en/games/17cc2220-6354-46b0-ad18-19b58b14ea1f/space-face"
+}
