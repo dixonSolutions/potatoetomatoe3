@@ -1,0 +1,14 @@
+{
+	"id": "rf-go-karting",
+	"name": "RF Go Karting",
+	"author": "RF_Gamer",
+	"description": "Play RF Go Karting on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/216febb2-4f23-442e-a9ab-3e4fd2006e64/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aa51ce20-7b1f-4f3c-ae61-eff2dea7ee0d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aa51ce20-7b1f-4f3c-ae61-eff2dea7ee0d",
+	"unityPlayUrl": "https://play.unity.com/en/games/aa51ce20-7b1f-4f3c-ae61-eff2dea7ee0d/rf-go-karting"
+}

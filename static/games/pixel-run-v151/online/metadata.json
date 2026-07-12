@@ -1,0 +1,14 @@
+{
+	"id": "pixel-run-v151",
+	"name": "Pixel RUN v1.5.1",
+	"author": "sukesan_0306",
+	"description": "\u30de\u30a4\u30ca\u30fc\u30a2\u30c3\u30d7\u30c7\u30fc\u30c8\u3067\u3059\u3002\u8ffd\u52a0\u8981\u7d20\u3042\u3093\u307e\u306a\u3044\u3067\u3059\u3002\u6700\u5f8c\u306e\u30ef\u30fc\u30d7\u307e\u3060\u4f5c\u3063\u3066\u307e\u305b\u3093\u3002\u4e00\u5b9a\u4ee5\u4e0a\u30e1\u30c0\u30eb\u3092\u6301\u3063\u3066\u3044\u306a\u3044\u3068\u901a\u308c\u306a\u3044\u3088\u3046\u306b\u3059\u308b\u4e88\u5b9a\u3067\u3059\u3002iPadOS15\u306a\u3093\u3066\u77e5\u308a\u307e\u305b\u3093",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/223bd2f6-ac67-4613-b01f-834586cac555/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "223bd2f6-ac67-4613-b01f-834586cac555",
+	"unityPlayUrl": "https://play.unity.com/en/games/223bd2f6-ac67-4613-b01f-834586cac555/pixel-run-v151"
+}

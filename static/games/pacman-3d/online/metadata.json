@@ -1,0 +1,14 @@
+{
+	"id": "pacman-3d",
+	"name": "Pacman 3D",
+	"author": "Timursik",
+	"description": "Classic Pacman is now in 3D! Collect all the coins and don't get caught by the ghosts.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/082c09e8-76ca-4ded-8e24-6e69b8b7f5a1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "082c09e8-76ca-4ded-8e24-6e69b8b7f5a1",
+	"unityPlayUrl": "https://play.unity.com/en/games/082c09e8-76ca-4ded-8e24-6e69b8b7f5a1/pacman-3d"
+}

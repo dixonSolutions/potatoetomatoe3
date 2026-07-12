@@ -1,0 +1,14 @@
+{
+	"id": "reaction-typing",
+	"name": "Reaction Typing",
+	"author": "Flamy1221",
+	"description": "This is a typing game designed to help improve your reaction speed and typing. This is not like most typing games where you have to type words shown on screen, instead you have to type letters that move across the screen. This helps improve your key-coordination instead of just improving muscle memory with certain words. Latest Version: v0.1.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e8f27d5-b9d1-4850-806f-f5d34f2f1fbc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ce681fd-8b9c-4cca-939c-eab279ec222a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ce681fd-8b9c-4cca-939c-eab279ec222a",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ce681fd-8b9c-4cca-939c-eab279ec222a/reaction-typing"
+}

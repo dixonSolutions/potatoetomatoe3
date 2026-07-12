@@ -1,0 +1,14 @@
+{
+	"id": "parkour-punk",
+	"name": "Parkour Punk",
+	"author": "RayanWaail",
+	"description": "My latest and first microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a0cf08b7-061f-47bb-9e24-52b5f6fee94b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02c0747c-a5e5-4957-8eec-071cc0f3c4aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02c0747c-a5e5-4957-8eec-071cc0f3c4aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/02c0747c-a5e5-4957-8eec-071cc0f3c4aa/parkour-punk"
+}

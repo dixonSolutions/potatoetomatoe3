@@ -1,0 +1,14 @@
+{
+	"id": "passenger-sim-v07",
+	"name": "Passenger SIM v0.7",
+	"author": "ztau",
+	"description": "TAB or Right Click to switch Mouse Mode to interact with menus in-game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c6b3189-028a-4ba7-beea-ac3024c210a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c6b3189-028a-4ba7-beea-ac3024c210a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c6b3189-028a-4ba7-beea-ac3024c210a2/passenger-sim-v07"
+}

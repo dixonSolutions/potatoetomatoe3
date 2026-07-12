@@ -1,0 +1,14 @@
+{
+	"id": "peace",
+	"name": "P.E.A.C.E",
+	"author": "Unity Play",
+	"description": "Is it really an option?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3b83f7d8-4cf0-423d-9119-81eacf2ac8ff/content",
+	"category": "first-person-shooter",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25a75ad2-6513-4a6f-975b-ea276fe92ec4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25a75ad2-6513-4a6f-975b-ea276fe92ec4",
+	"unityPlayUrl": "https://play.unity.com/en/games/25a75ad2-6513-4a6f-975b-ea276fe92ec4/peace"
+}

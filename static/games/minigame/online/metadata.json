@@ -1,0 +1,14 @@
+{
+	"id": "minigame",
+	"name": "Minigame",
+	"author": "Jabeom",
+	"description": "Play Minigame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/645bfba4-b898-4f27-bf4a-e4aaf017e1dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11a5d394-c48a-4835-8473-9f3c10718367/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11a5d394-c48a-4835-8473-9f3c10718367",
+	"unityPlayUrl": "https://play.unity.com/en/games/11a5d394-c48a-4835-8473-9f3c10718367/minigame"
+}

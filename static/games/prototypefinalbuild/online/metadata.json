@@ -1,0 +1,14 @@
+{
+	"id": "prototypefinalbuild",
+	"name": "PrototypeFinalBuild",
+	"author": "trojan-aadit",
+	"description": "Play PrototypeFinalBuild on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/61fc180e-9ace-4e77-a153-13c8489110a8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f9384fcc-2573-4f40-91c2-7de750963994/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f9384fcc-2573-4f40-91c2-7de750963994",
+	"unityPlayUrl": "https://play.unity.com/en/games/f9384fcc-2573-4f40-91c2-7de750963994/prototypefinalbuild"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "memorai-metroidvania-preview",
+	"name": "MemorAI Metroidvania Preview",
+	"author": "IntegerMan",
+	"description": "Controls:\n\nMove: WASD / Arrow Keys / Gamepad Right Stick\n\nShoot (after getting gun):  Space / Left Mouse Button / Gamepad Right Trigger\n\nLaunch (after getting launch): F / Gamepad \"South\" button (A) / Right Mouse Button",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01952138-e264-4bc3-9709-91e1a2fd967a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/793b2f18-1978-4756-b544-3bd8c796be01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "793b2f18-1978-4756-b544-3bd8c796be01",
+	"unityPlayUrl": "https://play.unity.com/en/games/793b2f18-1978-4756-b544-3bd8c796be01/memorai-metroidvania-preview"
+}

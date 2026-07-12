@@ -1,0 +1,14 @@
+{
+	"id": "mountain-climbcrab-dash",
+	"name": "mountain climb/crab dash",
+	"author": "elijai0347",
+	"description": "get to the top and collect golden crabs,the ship doesn't stop so best of luck.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3fba17af-f6dc-424c-af08-ebb086c137e6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02834f3d-aaec-4675-b505-b5820d8a3bea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02834f3d-aaec-4675-b505-b5820d8a3bea",
+	"unityPlayUrl": "https://play.unity.com/en/games/02834f3d-aaec-4675-b505-b5820d8a3bea/mountain-climbcrab-dash"
+}

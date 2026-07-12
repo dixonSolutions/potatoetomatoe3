@@ -1,0 +1,14 @@
+{
+	"id": "pixel-invaders",
+	"name": "Pixel-Invaders",
+	"author": "hiverkiya",
+	"description": "Trying out Unity, So here's my first mini-game. Though created it using \nUnity tutorials.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e2b648fe-4aae-483f-86a4-0d4780568c21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27bd5989-4131-4393-b6a3-0e2ca0486449/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "27bd5989-4131-4393-b6a3-0e2ca0486449",
+	"unityPlayUrl": "https://play.unity.com/en/games/27bd5989-4131-4393-b6a3-0e2ca0486449/pixel-invaders"
+}

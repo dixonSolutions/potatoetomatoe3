@@ -1,0 +1,14 @@
+{
+	"id": "my-clive-the-cat-demo",
+	"name": "My Clive the Cat DEMO",
+	"author": "UnitySombra",
+	"description": "Move: ASWD, Rewind: R, Wait: Space",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/238c7c56-f2ff-4d6e-90be-641ff74fceb8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51ebdba0-a51c-4803-ad33-fb0c4a707aa6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51ebdba0-a51c-4803-ad33-fb0c4a707aa6",
+	"unityPlayUrl": "https://play.unity.com/en/games/51ebdba0-a51c-4803-ad33-fb0c4a707aa6/my-clive-the-cat-demo"
+}

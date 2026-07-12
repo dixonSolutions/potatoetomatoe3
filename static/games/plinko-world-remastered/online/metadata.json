@@ -1,0 +1,14 @@
+{
+	"id": "plinko-world-remastered",
+	"name": "Plinko World Remastered",
+	"author": "DANP00L",
+	"description": "It's just basic plinko with lighting and extra particles. I forgot to mention you get 3 balls.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ab14d3ba-8865-4bbd-818f-e91196462e10/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/94537174-1676-4642-b46e-6247143fc97d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "94537174-1676-4642-b46e-6247143fc97d",
+	"unityPlayUrl": "https://play.unity.com/en/games/94537174-1676-4642-b46e-6247143fc97d/plinko-world-remastered"
+}

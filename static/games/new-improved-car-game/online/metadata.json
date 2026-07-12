@@ -1,0 +1,14 @@
+{
+	"id": "new-improved-car-game",
+	"name": "New improved car game",
+	"author": "ArunSV",
+	"description": "Improved the game by adding some new features like camera toggle. In next version I improve the steering.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/870659e5-fcf1-4c57-a4bb-b3948cbf867f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d72852e0-c0ae-4b63-9235-d773510739c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d72852e0-c0ae-4b63-9235-d773510739c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/d72852e0-c0ae-4b63-9235-d773510739c2/new-improved-car-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "neo-tetris-modernizing-a-classic-mae-by-saif-ali-khan-solo",
+	"name": "NEO-TETRIS (Modernizing A Classic) (Mae by : Saif Ali Khan (Solo))",
+	"author": "Xaif",
+	"description": "NEO-TETRIS is a game I made for Create with Code Game Jam. As per theme (Modernizing a Classic) I decided to modernize Tetris with hyper casual feel. As the name suggests the game takes inspiration from neon /sci-fi assets. A lot of creators have made Tetris in unity before so programming wasn't a very big challenge. I thoroughly enjoyed the whole game jamming process. First I wrote down my idea, then divided it into sub-tasks. After division I prioritized them. First came basic functionality like creation of grid, making prefabs and then spawning. After these tasks I worked on some post processing to get the feel in game so that I would enjoy creating it more. After then I worked on basic UI and tried to polish it a little by optimizing code and adding sounds. I used Neon sphere's asset for level design. Used Camera Shake by watching videos of Brackey's. Also used Sci-fi sound effects assets from Asset store.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee763a36-be8d-45bd-be9e-c00241becdfe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/83c8ae30-f4af-4cef-b64b-c8e898459275/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "83c8ae30-f4af-4cef-b64b-c8e898459275",
+	"unityPlayUrl": "https://play.unity.com/en/games/83c8ae30-f4af-4cef-b64b-c8e898459275/neo-tetris-modernizing-a-classic-mae-by-saif-ali-khan-solo"
+}

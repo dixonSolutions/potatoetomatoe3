@@ -1,0 +1,14 @@
+{
+	"id": "my-rpg-in-progress",
+	"name": "My RPG in-progress",
+	"author": "Azalore",
+	"description": "This isn't ready for release or even demo yet, this is just a proof-of-concept build. Here I show all the features I have currently built into the game, including: (1) grid based movement system. (2) Item/inventory system with lootable, sorting, stackable, usable and equippable items. (3) Equipment system with stat affects and buffs, and specific equipment types/slots. (4) Complete Shop/NPC system with buying/selling/ and customizable inventory. (5) Enemy AI with follow, auto target, chase radius and attack range/speed. (6) Full combat system with melee, bow, and magic attack styles, combat text, animations, and health/mana bars. (7) enemy and item spawning, with custom or random locations. (8) Fully features menu and UI system with stat pages, inventory/equipment, settings and Working Save/Load buttons........ with much more already built and being debugged, and even more to come!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a9ceb534-c9a9-4fe8-bd17-2de19f49642b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3f4a22cf-2668-430b-9cb1-84ee35b76d3a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3f4a22cf-2668-430b-9cb1-84ee35b76d3a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3f4a22cf-2668-430b-9cb1-84ee35b76d3a/my-rpg-in-progress"
+}

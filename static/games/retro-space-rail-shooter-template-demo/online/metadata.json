@@ -1,0 +1,14 @@
+{
+	"id": "retro-space-rail-shooter-template-demo",
+	"name": "Retro Space Rail Shooter - Template Demo",
+	"author": "OneManEscapePlan",
+	"description": "Want to make your own rail shooter? Buy this template on the Unity Asset Store: https://assetstore.unity.com/packages/templates/packs/retro-space-rail-shooter-132618 This template provides nearly everything you need to start building a 3D on-rails shooter in a retro style, including code, music, sound effects, models, prefabs, HUD, menu and gameplay scenes, retro-style shaders, and more! Note that this demo intentionally uses a very low resolution and low framerate to emulate the experience of early 3D games. If you purchase the template, you can of course adjust the resolution, framerate, and everything else to suit your preferences.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4837c2fd-779c-4457-85fe-062efe5903da/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/54ca472c-cd8a-4191-adbf-b67541833d21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "54ca472c-cd8a-4191-adbf-b67541833d21",
+	"unityPlayUrl": "https://play.unity.com/en/games/54ca472c-cd8a-4191-adbf-b67541833d21/retro-space-rail-shooter-template-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pru212-ninja-attack-fpt-group1",
+	"name": "PRU212-Ninja Attack-FPT Group1",
+	"author": "nguyenthailongvu",
+	"description": "Ninja Attack is monster action game,farm money to upgrade items to pass levels",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/25dc11ad-cfef-4eab-b19f-93e975fb8cf5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46195b28-1ba6-4311-a29d-fdc84115867c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46195b28-1ba6-4311-a29d-fdc84115867c",
+	"unityPlayUrl": "https://play.unity.com/en/games/46195b28-1ba6-4311-a29d-fdc84115867c/pru212-ninja-attack-fpt-group1"
+}

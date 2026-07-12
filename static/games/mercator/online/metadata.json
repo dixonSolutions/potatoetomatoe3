@@ -1,0 +1,14 @@
+{
+	"id": "mercator",
+	"name": "Mercator",
+	"author": "RaymondZL",
+	"description": "Latest build.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14838113-0eec-4953-818f-42c868d29950/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fdfb58f2-8745-4495-a11b-effb17315060/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fdfb58f2-8745-4495-a11b-effb17315060",
+	"unityPlayUrl": "https://play.unity.com/en/games/fdfb58f2-8745-4495-a11b-effb17315060/mercator"
+}

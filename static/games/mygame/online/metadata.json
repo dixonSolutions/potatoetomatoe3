@@ -1,0 +1,14 @@
+{
+	"id": "mygame",
+	"name": "My_Game",
+	"author": "Toothless1",
+	"description": "Play My_Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a16f577e-7b1d-4ab5-9d16-407e2143893a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9438803b-df51-4097-8e36-6259d09d9eba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9438803b-df51-4097-8e36-6259d09d9eba",
+	"unityPlayUrl": "https://play.unity.com/en/games/9438803b-df51-4097-8e36-6259d09d9eba/mygame"
+}

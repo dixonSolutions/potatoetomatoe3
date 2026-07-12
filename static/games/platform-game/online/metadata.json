@@ -1,0 +1,14 @@
+{
+	"id": "platform-game",
+	"name": "platform game",
+	"author": "VictorM5991",
+	"description": "Play platform game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00ed24c9-adfd-474b-8031-d4dc6ca21c42/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03eeff59-146c-4945-a402-dbab76fb657f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03eeff59-146c-4945-a402-dbab76fb657f",
+	"unityPlayUrl": "https://play.unity.com/en/games/03eeff59-146c-4945-a402-dbab76fb657f/platform-game"
+}

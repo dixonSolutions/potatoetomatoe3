@@ -1,0 +1,14 @@
+{
+	"id": "order-of-the-labyrinth-v10",
+	"name": "Order of the Labyrinth v1.0",
+	"author": "CollinTift",
+	"description": "Order of the Labyrinth\n----------------------\nWaking up in an unknown space having forgotten who you are, you have an urge to escape this labyrinth. However, there are enemies abound, seemingly all belonging to some order of knights. Do what you can to remember who you are and escape in this roguelike.\n\nControls:\nWASD - movement\nSpace (moving) - dash in direction of movement at cost of Chaos\nSpace (not moving) - apply shield at cost of Chaos (if you have at least 1 max shielding)\nLeft Click - attack in direction of mouse\n\nGoals:\nFind your memories by defeating foes and uncovering secrets they have placed in this labyrinth. Along the way, pick up items to help protect yourself and defeat your enemies. Harness powers of Chaos to aid you in your survival. Once you have remembered yourself fully, you may attempt to escape. Enter portals to spend memories to upgrade your abilities and venture deeper into the labyrinth.\n\nCredits:\nAstar Pathfinding Project - https://arongranberg.com/astar/front\nHorror Elements by Anthon - https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021\n\nPlease show a screenshot if you are able to win :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4f29f1b7-ad7c-429d-b453-741f118f13e8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5856536a-3222-434a-a664-f93d29ab4abb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5856536a-3222-434a-a664-f93d29ab4abb",
+	"unityPlayUrl": "https://play.unity.com/en/games/5856536a-3222-434a-a664-f93d29ab4abb/order-of-the-labyrinth-v10"
+}

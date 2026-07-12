@@ -1,0 +1,14 @@
+{
+	"id": "miki",
+	"name": "Miki",
+	"author": "Arcanna",
+	"description": "Miki must save the station and rescue the astronauts.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4d1fab0f-cd9e-421d-8e25-eab961c57c94/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b64b0a4e-e715-4744-853d-86dcb644a8d1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b64b0a4e-e715-4744-853d-86dcb644a8d1",
+	"unityPlayUrl": "https://play.unity.com/en/games/b64b0a4e-e715-4744-853d-86dcb644a8d1/miki"
+}

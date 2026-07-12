@@ -1,0 +1,14 @@
+{
+	"id": "plague-survival",
+	"name": "Plague Survival",
+	"author": "Unity Play",
+	"description": "Time survival roguelite game.\n\nEngage in a fast paced battle against escalating hordes of monsters, collect upgrades in order to survive the relentless assault of incoming infested monsters.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4bb9299f-7f4b-4015-b94f-5dc4ec61ed9e/content",
+	"category": "action",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c93fdfa8-2854-4140-9868-8bd285f38858/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c93fdfa8-2854-4140-9868-8bd285f38858",
+	"unityPlayUrl": "https://play.unity.com/en/games/c93fdfa8-2854-4140-9868-8bd285f38858/plague-survival"
+}

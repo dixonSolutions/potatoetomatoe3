@@ -1,0 +1,14 @@
+{
+	"id": "minicar-race",
+	"name": "Minicar Race",
+	"author": "Unity Play",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a86983f-a0ee-4366-9e71-4b77fbd37ec7/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0303a4e2-9fcc-4496-9581-642ef732104d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0303a4e2-9fcc-4496-9581-642ef732104d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0303a4e2-9fcc-4496-9581-642ef732104d/minicar-race"
+}

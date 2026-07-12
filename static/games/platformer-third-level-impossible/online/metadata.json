@@ -1,0 +1,14 @@
+{
+	"id": "platformer-third-level-impossible",
+	"name": "Platformer: Third Level Impossible",
+	"author": "aaron_zeng",
+	"description": "Can you beat the third level with only 10 lives?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/07339c09-f65d-43f1-83ab-0495fab6fe01/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7ad0a0bc-da4f-4cc7-8b48-121f3d92c504/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7ad0a0bc-da4f-4cc7-8b48-121f3d92c504",
+	"unityPlayUrl": "https://play.unity.com/en/games/7ad0a0bc-da4f-4cc7-8b48-121f3d92c504/platformer-third-level-impossible"
+}

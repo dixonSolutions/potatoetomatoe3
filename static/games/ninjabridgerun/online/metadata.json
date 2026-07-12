@@ -1,0 +1,14 @@
+{
+	"id": "ninjabridgerun",
+	"name": "NinjaBridgeRun",
+	"author": "yumbbq",
+	"description": "My latest microgame.\nBe a ninja!\nAuto run and push space key for jump.((((((((((\u3063\uff65\u03c9\uff65)\u3063 \uff8c\uff9e\uff70\uff9d",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/30b254e5-7f5f-4eba-94ee-eb2a174dd982/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f8005f16-5486-4176-a10b-174ee563b341/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f8005f16-5486-4176-a10b-174ee563b341",
+	"unityPlayUrl": "https://play.unity.com/en/games/f8005f16-5486-4176-a10b-174ee563b341/ninjabridgerun"
+}

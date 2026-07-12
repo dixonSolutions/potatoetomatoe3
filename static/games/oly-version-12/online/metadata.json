@@ -1,0 +1,14 @@
+{
+	"id": "oly-version-12",
+	"name": "OLY Version 1.2",
+	"author": "vishnupai",
+	"description": "Game by these people:\nVishnu: Making the game\nArnav: Suggestions and Feedback\nLucas: Suggestions and Feedback\nNathan: Suggestions and Feedback\nJR: Suggestions and Feedback\nAditya: Feedback",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/756c94bd-31cb-480d-b7ea-ddfbb5ca4473/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "756c94bd-31cb-480d-b7ea-ddfbb5ca4473",
+	"unityPlayUrl": "https://play.unity.com/en/games/756c94bd-31cb-480d-b7ea-ddfbb5ca4473/oly-version-12"
+}

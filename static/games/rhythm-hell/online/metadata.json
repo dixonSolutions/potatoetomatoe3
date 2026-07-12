@@ -1,0 +1,14 @@
+{
+	"id": "rhythm-hell",
+	"name": "Rhythm Hell",
+	"author": "Unity Play",
+	"description": "just a quick little rhythm game based on a Louie Zong animation",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2822f039-9fa7-4c72-97de-f9d25948c3ec/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18b027bc-9c7d-4f10-9f00-6a69029861e9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18b027bc-9c7d-4f10-9f00-6a69029861e9",
+	"unityPlayUrl": "https://play.unity.com/en/games/18b027bc-9c7d-4f10-9f00-6a69029861e9/rhythm-hell"
+}

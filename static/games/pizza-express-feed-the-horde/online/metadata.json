@@ -1,0 +1,14 @@
+{
+	"id": "pizza-express-feed-the-horde",
+	"name": "Pizza Express - Feed The Horde!",
+	"author": "BeerHuntor",
+	"description": "VERSION 0.4 RELEASED Changelog Below -- ALL FUTURE UPDATES WILL BE ON ITCH.IO -- Follow the development at https://huntorgames.itch.io/pizza-express\n\nA game developed in unity.  This is the first game of I hope many that I am developing in the Unity Game Engine with C#. \n\nYou play as a pizza shop worker, who has to feed the hungry horde before they get to the counter and break it down - still in early development, but planned features include: \n\n* Full Shop Upgrade System\n* Quirky boost system.  - Introduced in V0.3\n* Highscores\n\nNew to development - Join our begginer community on discord at https://discord.gg/GaQXmGg\n\n\nChangelog:\nv0.4 - \n * Added pause menu ui and an options menu from the main menu screen \n * Added menu and game music -- Im sorry! \n * Removed menu button animations and made them change colour. \n * Added sound queues' for delivery crates and for fed customers\n * Added voice over sounds to accompany the new delivery icons. \n * Added independant audio sliders for music and sfx - Still a little janky.\n * Re-added particle system to show when you have fed a customer. \n    \n-- Gameplay Changes --\n* Reduced starting money from 100 to 50 - Which was the original intended amount. \n\n---BUG FIXES---\n* Fixed a bug where one of the delivery icons was not de activating\n* Fixed a bug where the above delivery was not being called and activated. \n\n\nv0.3 -\n * Added a pause feature where the game stops when you press the ESC or P keys.\n * Added a delivery system into the game, where you collect the deliveries and they can boost you or give you a negative effect. \n * Implemented a money system - Pizzas when cooked cost money, earn money from feeding the customers.  New delivery system complements this feature.\n * Designed And Added new UI icons to represent the counter health, and the customers remaining and money earned.\n * Pizza slices now despawn after going out of the game view.  And also when they hit the ground. \n * Reworked main menu and game over screens -- Ad",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/56e1a038-d09c-40fc-b2bc-6bc17f1e657d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4bb3afb4-848b-483a-8f09-89b0af191fd5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4bb3afb4-848b-483a-8f09-89b0af191fd5",
+	"unityPlayUrl": "https://play.unity.com/en/games/4bb3afb4-848b-483a-8f09-89b0af191fd5/pizza-express-feed-the-horde"
+}

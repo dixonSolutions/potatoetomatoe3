@@ -1,0 +1,14 @@
+{
+	"id": "neptunia-the-game",
+	"name": "Neptunia: The game",
+	"author": "michaelw64ster",
+	"description": "Latest build",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/03316c9e-086c-47bc-bf0b-824dc2aacbae/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07b31dfe-4ee1-4eba-b77a-99d13b8810b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07b31dfe-4ee1-4eba-b77a-99d13b8810b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/07b31dfe-4ee1-4eba-b77a-99d13b8810b5/neptunia-the-game"
+}

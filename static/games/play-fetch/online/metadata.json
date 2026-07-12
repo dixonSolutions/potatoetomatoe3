@@ -1,0 +1,14 @@
+{
+	"id": "play-fetch",
+	"name": "Play Fetch",
+	"author": "jazzhara",
+	"description": "CwCLive 2021 Spring Challenge 2 with bonus features and background music.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/931cd249-7249-43a3-8877-1a9172e5ea5b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28962396-d2da-4c2d-8d91-3a9c0ea35fd4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28962396-d2da-4c2d-8d91-3a9c0ea35fd4",
+	"unityPlayUrl": "https://play.unity.com/en/games/28962396-d2da-4c2d-8d91-3a9c0ea35fd4/play-fetch"
+}

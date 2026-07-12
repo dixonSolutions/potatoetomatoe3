@@ -1,0 +1,14 @@
+{
+	"id": "riotalien",
+	"name": "RIOTALIEN",
+	"author": "noelio15",
+	"description": "A game for yung eSKito\u2019s upcoming song \u2018RIOTALIEN\u2019. Dive into chaos, identity & suspense with hidden teasers. Built by VIA LACTEA, a first-of-its-kind experience before the song and video release.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ed357d6-1117-4130-8644-c3b2364aa13b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21b5ecaa-17a5-47c2-b6b1-4c57215ef6d6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21b5ecaa-17a5-47c2-b6b1-4c57215ef6d6",
+	"unityPlayUrl": "https://play.unity.com/en/games/21b5ecaa-17a5-47c2-b6b1-4c57215ef6d6/riotalien"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mental-illnesses",
+	"name": "Mental Illnesses",
+	"author": "CapKiwi",
+	"description": "Controls - W (up)\n                  A  (left)\n                  S  (down)\n                  D  (right)\n\nThis is a game for everyone to understand and diagnose mental illnesses. We hope that you have a takeaway from playing our game! ~ Developers          (Note that to not fullscreen when playing the game, there was a problem with the building so it makes everything off placed)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/48f3b867-5faf-439f-9f4f-fef269fe2ed3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03de5753-dae9-4e2f-8a86-29024c9db49f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03de5753-dae9-4e2f-8a86-29024c9db49f",
+	"unityPlayUrl": "https://play.unity.com/en/games/03de5753-dae9-4e2f-8a86-29024c9db49f/mental-illnesses"
+}

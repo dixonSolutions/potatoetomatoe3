@@ -1,0 +1,14 @@
+{
+	"id": "red-pistol",
+	"name": "Red Pistol",
+	"author": "Unity Play",
+	"description": "This version is experimental and has many graphical bugs. We recommend the PC version. Available at acehorizonstudio.com/redpistol",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2d143709-acb7-4fd0-b0d1-80e82ab4711b/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bccf4804-42da-44dd-8bed-e2ee588da03d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bccf4804-42da-44dd-8bed-e2ee588da03d",
+	"unityPlayUrl": "https://play.unity.com/en/games/bccf4804-42da-44dd-8bed-e2ee588da03d/red-pistol"
+}

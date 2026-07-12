@@ -1,0 +1,14 @@
+{
+	"id": "micro-character-select-screen-v014",
+	"name": "Micro character select screen v0.1.4",
+	"author": "aallbright",
+	"description": "Here is the v0.1.4 version of this prototype. It's been fun letting TDD drive asset creation. Future plans is to animate a small cut scene sequence using the character you select. Cheers!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8f833db1-309d-4f33-af77-0ae4afa17691/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02504b51-4fc6-4b39-8b89-af2bba2ffc9a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02504b51-4fc6-4b39-8b89-af2bba2ffc9a",
+	"unityPlayUrl": "https://play.unity.com/en/games/02504b51-4fc6-4b39-8b89-af2bba2ffc9a/micro-character-select-screen-v014"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "platformer",
+	"name": "Platformer",
+	"author": "HackingtonsStudent",
+	"description": "Platformer made with assets from asset store",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/12286f09-53d9-45e4-8df8-786728d6a729/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e73b4729-76f1-45ce-98ca-ed18383fb21a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e73b4729-76f1-45ce-98ca-ed18383fb21a",
+	"unityPlayUrl": "https://play.unity.com/en/games/e73b4729-76f1-45ce-98ca-ed18383fb21a/platformer"
+}

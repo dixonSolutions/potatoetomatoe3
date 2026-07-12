@@ -1,0 +1,14 @@
+{
+	"id": "new-game",
+	"name": "New Game",
+	"author": "ankitwarkade",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d092281c-2983-4dfe-a05f-fab13ea04859/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d092281c-2983-4dfe-a05f-fab13ea04859",
+	"unityPlayUrl": "https://play.unity.com/en/games/d092281c-2983-4dfe-a05f-fab13ea04859/new-game"
+}

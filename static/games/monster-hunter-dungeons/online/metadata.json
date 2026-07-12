@@ -1,0 +1,14 @@
+{
+	"id": "monster-hunter-dungeons",
+	"name": "Monster Hunter Dungeons",
+	"author": "GoofballEveryday",
+	"description": "GOTY 2026",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0b13cdde-dfe3-497a-8b8c-e2bff1fa105e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51af91c5-1c7e-4e1a-b78f-4861343d8efa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51af91c5-1c7e-4e1a-b78f-4861343d8efa",
+	"unityPlayUrl": "https://play.unity.com/en/games/51af91c5-1c7e-4e1a-b78f-4861343d8efa/monster-hunter-dungeons"
+}

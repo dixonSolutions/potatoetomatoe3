@@ -1,0 +1,14 @@
+{
+	"id": "merps-adventure",
+	"name": "Merp's Adventure",
+	"author": "PandaGuy_NL",
+	"description": "Join Merp on it's journey to gather all the coins. (final build?)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9744da7b-ee16-4bf9-8baa-010c278d512a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f695e01-ac04-4b8e-9732-296bcad395af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f695e01-ac04-4b8e-9732-296bcad395af",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f695e01-ac04-4b8e-9732-296bcad395af/merps-adventure"
+}

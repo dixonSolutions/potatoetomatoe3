@@ -1,0 +1,14 @@
+{
+	"id": "operation-override",
+	"name": "Operation Override",
+	"author": "T_blus12",
+	"description": "You have lost control of the spaceship Splattr and the ships computer is taking you through space killing aliens.  Answer the programming questions to regain control of the ship and stop this rampage.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c29f8500-22b2-4bc0-ada8-c55641629f99/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45cb5c6f-e30f-4882-b14f-c2bb61c8da02/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "45cb5c6f-e30f-4882-b14f-c2bb61c8da02",
+	"unityPlayUrl": "https://play.unity.com/en/games/45cb5c6f-e30f-4882-b14f-c2bb61c8da02/operation-override"
+}

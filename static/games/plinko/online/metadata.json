@@ -1,0 +1,14 @@
+{
+	"id": "plinko",
+	"name": "Plinko!",
+	"author": "litdiedye",
+	"description": "A and D to move left and right, S to fall",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b719ba69-17e5-44e2-b9c1-17520c35dadd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b719ba69-17e5-44e2-b9c1-17520c35dadd",
+	"unityPlayUrl": "https://play.unity.com/en/games/b719ba69-17e5-44e2-b9c1-17520c35dadd/plinko"
+}

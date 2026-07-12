@@ -1,0 +1,14 @@
+{
+	"id": "office-demo",
+	"name": "Office Demo",
+	"author": "loverainstm",
+	"description": "for office visualization demo",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6a0dc045-f9f1-4b7e-a2c5-e01bfa9faace/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/700857a4-27c2-43ac-ab5e-dcbd84039c17/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "700857a4-27c2-43ac-ab5e-dcbd84039c17",
+	"unityPlayUrl": "https://play.unity.com/en/games/700857a4-27c2-43ac-ab5e-dcbd84039c17/office-demo"
+}

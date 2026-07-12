@@ -1,0 +1,14 @@
+{
+	"id": "panini",
+	"name": "Panini",
+	"author": "iamata",
+	"description": "Play Panini on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ab5b0fb9-ab28-4a16-b584-3546c28536f4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29a81216-e8eb-472f-a969-a84e2c60d529/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29a81216-e8eb-472f-a969-a84e2c60d529",
+	"unityPlayUrl": "https://play.unity.com/en/games/29a81216-e8eb-472f-a969-a84e2c60d529/panini"
+}

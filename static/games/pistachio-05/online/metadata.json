@@ -1,0 +1,14 @@
+{
+	"id": "pistachio-05",
+	"name": "Pistachio 0.5",
+	"author": "MEismsart",
+	"description": "My Studio Project",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15b3ee3e-4e6c-450a-8990-fb5cce831352/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15b3ee3e-4e6c-450a-8990-fb5cce831352",
+	"unityPlayUrl": "https://play.unity.com/en/games/15b3ee3e-4e6c-450a-8990-fb5cce831352/pistachio-05"
+}

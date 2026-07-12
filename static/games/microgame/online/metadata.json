@@ -1,0 +1,14 @@
+{
+	"id": "microgame",
+	"name": "Microgame",
+	"author": "TurTleZR",
+	"description": "What is my game about?\nYou are a soldier who has awakened and is helped by the informant Letix to win the game. You have 200 health points. There are 3 levels. The higher the level the more difficult it gets. \n\nIn the first level you have 8 enemies, they are the Hover_bots, there are 5 big Hover_bots and 3 small ones. The big ones have 100 health points and the small ones have half of it. You get a pistol to help you as well as a shotgun that is in the ground. With the shotgun you can take out a Hover_bot with only one shot, but you have to be at close range.  When you take out a Hover_bot, health points are dropped on the ground, giving you 40 health points. When you have completed the first level, you can go to the altar, a sacred room from the map itself. There is a rocket launcher near the altar, with which you can take out the Turret_Bots faster.  The launcher only has a range of 15 meters, so it doesn't do much good to shoot from a long distance.\n\nThe second level is about taking out 2 Turrets and 4 Hover_bots. This is not easy.  In each corner there are health points that you can take, they give you 100 health points.\n\nAt the third level you get a jetpack at your disposal because with it you can fly to 4 different platforms where you get health points in case you have little life. You can also shoot enemies from the platforms, but you run the risk of being quickly eliminated.\nIn this level you have to fight against the final boss, he has 2000 health points and gets 12 health points deduction per shot, but he is not alone, he has 4 protectors helping him, each of them has 800 health points and gets 6 health points deduction per shot. The final boss is surrounded by 4 walls, each 2.5 meters apart. \nWhat is the goal of the game?\nYour goal is to eliminate all the enemies without dying.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/67185d1b-4397-425f-a5a4-304baaa5467c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c07afa3-59c0-42c2-865e-4eb3a15aba5e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c07afa3-59c0-42c2-865e-4eb3a15aba5e",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c07afa3-59c0-42c2-865e-4eb3a15aba5e/microgame"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pixel-survivors",
+	"name": "Pixel Survivors",
+	"author": "codeLaboratory",
+	"description": "Avoid enemies, level up your weapons, become an unstoppable force!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4938b554-d195-49e5-8d04-20dcbc0efbf5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02ffc327-abd7-494c-8c65-02b1a016e46d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02ffc327-abd7-494c-8c65-02b1a016e46d",
+	"unityPlayUrl": "https://play.unity.com/en/games/02ffc327-abd7-494c-8c65-02b1a016e46d/pixel-survivors"
+}

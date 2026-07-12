@@ -1,0 +1,14 @@
+{
+	"id": "missaocubo",
+	"name": "Missao_cubo",
+	"author": "ivoadriel",
+	"description": "Generates a number and acts accordingly every 5 seconds.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf8f8f4a-d843-4434-8ceb-4f84b9cab904/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cf8f8f4a-d843-4434-8ceb-4f84b9cab904",
+	"unityPlayUrl": "https://play.unity.com/en/games/cf8f8f4a-d843-4434-8ceb-4f84b9cab904/missaocubo"
+}

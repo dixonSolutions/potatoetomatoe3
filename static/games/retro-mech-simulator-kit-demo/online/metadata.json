@@ -1,0 +1,14 @@
+{
+	"id": "retro-mech-simulator-kit-demo",
+	"name": "Retro Mech Simulator - Kit Demo",
+	"author": "OneManEscapePlan",
+	"description": "Want to build your own mech simulator game? You can buy this game kit on the Unity Asset Store: https://assetstore.unity.com/packages/templates/packs/retro-mech-simulator-183957",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/96b8390e-ec35-4bc5-b475-14e3d4c302f3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58aa8839-052f-4339-8c47-83e7df02409b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58aa8839-052f-4339-8c47-83e7df02409b",
+	"unityPlayUrl": "https://play.unity.com/en/games/58aa8839-052f-4339-8c47-83e7df02409b/retro-mech-simulator-kit-demo"
+}

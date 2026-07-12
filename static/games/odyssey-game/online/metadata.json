@@ -1,0 +1,14 @@
+{
+	"id": "odyssey-game",
+	"name": "Odyssey Game",
+	"author": "NomadicalYT",
+	"description": "A game by me, built around the book called \"The Odyssey\" by homer. Left or right-click to shoot your bow, and shoot all the axes while standing behind the white line.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df81740c-3120-467c-87c4-5aabc630919e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75e29a56-55e1-428a-8fa1-11a6d281fa26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75e29a56-55e1-428a-8fa1-11a6d281fa26",
+	"unityPlayUrl": "https://play.unity.com/en/games/75e29a56-55e1-428a-8fa1-11a6d281fa26/odyssey-game"
+}

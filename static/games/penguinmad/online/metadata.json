@@ -1,0 +1,14 @@
+{
+	"id": "penguinmad",
+	"name": "PenguinMad",
+	"author": "KazamiU2",
+	"description": "Play PenguinMad on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f0b20bfb-8429-48e8-8928-2694c1fa6dd8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/af5ba792-c521-4062-9ffc-92aeb6214172/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "af5ba792-c521-4062-9ffc-92aeb6214172",
+	"unityPlayUrl": "https://play.unity.com/en/games/af5ba792-c521-4062-9ffc-92aeb6214172/penguinmad"
+}

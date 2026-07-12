@@ -1,0 +1,14 @@
+{
+	"id": "my-new-title",
+	"name": "My new title",
+	"author": "SamDogantimur",
+	"description": "Play My new title on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/24b68ea6-23d1-4e0d-b2af-e216eb0aa6bd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "24b68ea6-23d1-4e0d-b2af-e216eb0aa6bd",
+	"unityPlayUrl": "https://play.unity.com/en/games/24b68ea6-23d1-4e0d-b2af-e216eb0aa6bd/my-new-title"
+}

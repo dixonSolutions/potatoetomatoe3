@@ -1,0 +1,14 @@
+{
+	"id": "miracles-on-bends",
+	"name": "Miracles on bends",
+	"author": "SecretiveDev",
+	"description": "Controls:                                                                                                                                                                                                                                 \n Fly: W or UpArrow                                                                                       \n Rotate: A or D or LeftArrow or RightArrow                                                 \n Shoot: Space",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7cfc1de-e83a-4307-8d57-021d08ff499f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b32e229-5f96-4417-91c3-e49816ab0068/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b32e229-5f96-4417-91c3-e49816ab0068",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b32e229-5f96-4417-91c3-e49816ab0068/miracles-on-bends"
+}

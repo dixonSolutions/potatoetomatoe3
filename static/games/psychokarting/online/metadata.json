@@ -1,0 +1,14 @@
+{
+	"id": "psychokarting",
+	"name": "PsychoKarting",
+	"author": "Yourbadpumpkin",
+	"description": "Vroom, vroom, vroom",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8c800bb1-bbbd-4b8a-83a4-ba7decbcefdd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/76ad9eee-0506-4fcc-8f90-f472c3593a4f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "76ad9eee-0506-4fcc-8f90-f472c3593a4f",
+	"unityPlayUrl": "https://play.unity.com/en/games/76ad9eee-0506-4fcc-8f90-f472c3593a4f/psychokarting"
+}

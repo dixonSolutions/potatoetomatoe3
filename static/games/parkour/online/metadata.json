@@ -1,0 +1,14 @@
+{
+	"id": "parkour",
+	"name": "Parkour",
+	"author": "ofarukyerkazan",
+	"description": "Unity parkour",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4a766228-485c-40f7-8b5a-25d06f3a74bd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4a766228-485c-40f7-8b5a-25d06f3a74bd",
+	"unityPlayUrl": "https://play.unity.com/en/games/4a766228-485c-40f7-8b5a-25d06f3a74bd/parkour"
+}

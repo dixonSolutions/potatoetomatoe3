@@ -1,0 +1,14 @@
+{
+	"id": "pachinko-fantasy-beta-publish",
+	"name": "Pachinko Fantasy beta publish",
+	"author": "patrickhant642",
+	"description": "My first 2D game development. A and D for drop point movement and Space for dropping ball. You will win if the balls get into all of the hats. You will get really fun.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2541f18f-028e-4130-a000-ede02a0dc909/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00878570-5061-4fe8-a3eb-54da29605dd3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00878570-5061-4fe8-a3eb-54da29605dd3",
+	"unityPlayUrl": "https://play.unity.com/en/games/00878570-5061-4fe8-a3eb-54da29605dd3/pachinko-fantasy-beta-publish"
+}

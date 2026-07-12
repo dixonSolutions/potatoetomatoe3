@@ -1,0 +1,14 @@
+{
+	"id": "odyssey",
+	"name": "ODYSSEY",
+	"author": "magancete",
+	"description": "Play ODYSSEY on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ca061626-e234-442c-bdf8-1faca053f33a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e26288be-413b-4b24-a593-92d7dd9a8a1f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e26288be-413b-4b24-a593-92d7dd9a8a1f",
+	"unityPlayUrl": "https://play.unity.com/en/games/e26288be-413b-4b24-a593-92d7dd9a8a1f/odyssey"
+}

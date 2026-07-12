@@ -1,0 +1,14 @@
+{
+	"id": "prospector-solitaire",
+	"name": "Prospector Solitaire",
+	"author": "Mbarto",
+	"description": "Card game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10c515a8-1485-4173-add8-e7388de19484/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10c515a8-1485-4173-add8-e7388de19484",
+	"unityPlayUrl": "https://play.unity.com/en/games/10c515a8-1485-4173-add8-e7388de19484/prospector-solitaire"
+}

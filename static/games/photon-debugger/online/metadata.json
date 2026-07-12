@@ -1,0 +1,14 @@
+{
+	"id": "photon-debugger",
+	"name": "Photon Debugger",
+	"author": "MechaFizz",
+	"description": "Entry for LEGO IDEAS contest. You are a new hire in the CSF Engineering division and have been tasked with debugging their Quantum Photon Array. You may not have formal training, but you do have the manual! Realign the circuits and get the QPA operable again!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bf744be4-a4ae-402b-a2f9-1a3288ae8e43/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5fb5660a-a006-443c-b5bf-a9d508f1dd94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5fb5660a-a006-443c-b5bf-a9d508f1dd94",
+	"unityPlayUrl": "https://play.unity.com/en/games/5fb5660a-a006-443c-b5bf-a9d508f1dd94/photon-debugger"
+}

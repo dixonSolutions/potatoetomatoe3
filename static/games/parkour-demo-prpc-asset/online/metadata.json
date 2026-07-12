@@ -1,0 +1,14 @@
+{
+	"id": "parkour-demo-prpc-asset",
+	"name": "Parkour demo (PRPC asset)",
+	"author": "Allekq07",
+	"description": "this is the demo of an asset:  https://u3d.as/2TL8",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0a3746c7-0e4d-4766-bfa5-536f5af455b0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ba4f533-d06c-4bc1-83ac-1e2030c26ea1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ba4f533-d06c-4bc1-83ac-1e2030c26ea1",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ba4f533-d06c-4bc1-83ac-1e2030c26ea1/parkour-demo-prpc-asset"
+}

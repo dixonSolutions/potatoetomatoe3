@@ -1,0 +1,14 @@
+{
+	"id": "projectiles-test-1",
+	"name": "Projectiles Test 1",
+	"author": "AF-Scientific-Publications",
+	"description": "Fire - Space Bar,  Move Forward - W,  Move Backward - S,  Turn Left A, Turn Right - D (Or Cursor Keys),  Gun Angle Z/X",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/78361b21-82bc-4d81-adf8-e9e7dc626864/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/41da2382-cadf-417a-b052-954518ed5508/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "41da2382-cadf-417a-b052-954518ed5508",
+	"unityPlayUrl": "https://play.unity.com/en/games/41da2382-cadf-417a-b052-954518ed5508/projectiles-test-1"
+}

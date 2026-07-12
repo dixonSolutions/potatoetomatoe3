@@ -1,0 +1,14 @@
+{
+	"id": "redline-rush",
+	"name": "Redline Rush",
+	"author": "carterbilawchuk",
+	"description": "This is a car game it is the Beta 0.3 version",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/19d3e1c4-675d-49c7-b8e8-4dffdf31959c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/307ca84c-cda8-47f8-953e-10009b4d5ab8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "307ca84c-cda8-47f8-953e-10009b4d5ab8",
+	"unityPlayUrl": "https://play.unity.com/en/games/307ca84c-cda8-47f8-953e-10009b4d5ab8/redline-rush"
+}

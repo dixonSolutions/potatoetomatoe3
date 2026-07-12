@@ -1,0 +1,14 @@
+{
+	"id": "my-epic-go-cart-game",
+	"name": "my epic go cart  game",
+	"author": "Kacperwastaken",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e28bf956-69aa-412c-bb4b-4941fb3e1177/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/35de86ad-d494-484b-bddd-4d70638fab2a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "35de86ad-d494-484b-bddd-4d70638fab2a",
+	"unityPlayUrl": "https://play.unity.com/en/games/35de86ad-d494-484b-bddd-4d70638fab2a/my-epic-go-cart-game"
+}

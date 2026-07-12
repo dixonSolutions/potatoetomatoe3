@@ -1,0 +1,14 @@
+{
+	"id": "multiple-car-race-prototype",
+	"name": "Multiple Car Race Prototype",
+	"author": "zhijinzhiduzhong",
+	"description": "My latest microgame. I have learn a lot form this prototype. Control: < wasd keys/ arrow keys > control player 1/ 2. < v key/ forward slash key > change view to frist person.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9b3281ee-95b0-42b1-a214-d221b2643f6a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/abbcdcd7-01ec-4bc0-bfdb-7a0e6a2897e8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "abbcdcd7-01ec-4bc0-bfdb-7a0e6a2897e8",
+	"unityPlayUrl": "https://play.unity.com/en/games/abbcdcd7-01ec-4bc0-bfdb-7a0e6a2897e8/multiple-car-race-prototype"
+}

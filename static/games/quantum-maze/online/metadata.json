@@ -1,0 +1,14 @@
+{
+	"id": "quantum-maze",
+	"name": "Quantum Maze",
+	"author": "wiltchamberian777",
+	"description": "a quantum inspired game prototype used for education or entertainment",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e9f8ad62-97b1-449f-b7b7-3ab12af812f2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e9f8ad62-97b1-449f-b7b7-3ab12af812f2",
+	"unityPlayUrl": "https://play.unity.com/en/games/e9f8ad62-97b1-449f-b7b7-3ab12af812f2/quantum-maze"
+}

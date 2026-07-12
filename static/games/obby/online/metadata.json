@@ -1,0 +1,14 @@
+{
+	"id": "obby",
+	"name": "Obby",
+	"author": "juscanales",
+	"description": "Drive on the line and try to pass the levels!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6fb01a1a-7ab0-4da7-8844-f0846bd5d9c9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6fb01a1a-7ab0-4da7-8844-f0846bd5d9c9",
+	"unityPlayUrl": "https://play.unity.com/en/games/6fb01a1a-7ab0-4da7-8844-f0846bd5d9c9/obby"
+}

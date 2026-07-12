@@ -1,0 +1,14 @@
+{
+	"id": "monkey-madness",
+	"name": "Monkey Madness",
+	"author": "CrumbleBIscuitGameDev",
+	"description": "I made this game in about a month and it is my first game.\nThe controls are:\nW is forward\nA & D are turning\nS is Jump, but to jump well you have to press S and W at the same time.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df578938-75a0-4148-85bf-bd37757c3acc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12b6fdcd-9528-47da-b587-84fb2dd110be/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12b6fdcd-9528-47da-b587-84fb2dd110be",
+	"unityPlayUrl": "https://play.unity.com/en/games/12b6fdcd-9528-47da-b587-84fb2dd110be/monkey-madness"
+}

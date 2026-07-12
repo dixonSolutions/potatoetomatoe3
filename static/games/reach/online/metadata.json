@@ -1,0 +1,14 @@
+{
+	"id": "reach",
+	"name": "Reach",
+	"author": "kaelfdl",
+	"description": "A 3D third-person game where you control a ship to collect data blocks.\n\nUse the WASD/Arrow keys to move your ship. Collect as many data blocks as you can before the time runs out. Each data block increases your time by 5 seconds. Avoid getting hit by space debris.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a3c46be7-2839-460d-a5ba-7ee31b37626c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03343765-10e7-4882-b291-e2efcfd079b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03343765-10e7-4882-b291-e2efcfd079b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/03343765-10e7-4882-b291-e2efcfd079b0/reach"
+}

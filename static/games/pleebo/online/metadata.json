@@ -1,0 +1,14 @@
+{
+	"id": "pleebo",
+	"name": "Pleebo",
+	"author": "MertiePertie",
+	"description": "In this game you play as a purple diamond named Pleebo.\nYour job is to go through a map made by a guy who doesn't know how to make games. (Which is me)\nIf this game makes you frustrated, it's working.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fa056682-b027-4ee0-8b22-0ee14953b97b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/481cb245-37f3-4884-8aa4-4959040eddfc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "481cb245-37f3-4884-8aa4-4959040eddfc",
+	"unityPlayUrl": "https://play.unity.com/en/games/481cb245-37f3-4884-8aa4-4959040eddfc/pleebo"
+}

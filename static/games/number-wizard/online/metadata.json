@@ -1,0 +1,14 @@
+{
+	"id": "number-wizard",
+	"name": "Number Wizard",
+	"author": "RCruse1807",
+	"description": "Number Wizard Is A Game Where You Think Of A Number Between 1 And 100 And The Number Wizard Has 10 Guesses At That Number. Play In Full Screen",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cea959c9-782a-498f-8041-994906255439/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06efafe8-1704-40a9-af7b-7606231ec33c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06efafe8-1704-40a9-af7b-7606231ec33c",
+	"unityPlayUrl": "https://play.unity.com/en/games/06efafe8-1704-40a9-af7b-7606231ec33c/number-wizard"
+}

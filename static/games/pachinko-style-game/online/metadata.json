@@ -1,0 +1,14 @@
+{
+	"id": "pachinko-style-game",
+	"name": "Pachinko-style game",
+	"author": "Unity Play",
+	"description": "This is my first 2D game.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45ef3684-faa2-40cf-a738-6a53f8624f2d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "45ef3684-faa2-40cf-a738-6a53f8624f2d",
+	"unityPlayUrl": "https://play.unity.com/en/games/45ef3684-faa2-40cf-a738-6a53f8624f2d/pachinko-style-game"
+}

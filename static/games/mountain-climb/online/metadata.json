@@ -1,0 +1,14 @@
+{
+	"id": "mountain-climb",
+	"name": "Mountain Climb",
+	"author": "davethefarmbot",
+	"description": "Climb a Mountain",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03130abf-8d42-4666-aa9d-e7e2bf7be03d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03130abf-8d42-4666-aa9d-e7e2bf7be03d",
+	"unityPlayUrl": "https://play.unity.com/en/games/03130abf-8d42-4666-aa9d-e7e2bf7be03d/mountain-climb"
+}

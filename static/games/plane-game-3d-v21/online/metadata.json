@@ -1,0 +1,14 @@
+{
+	"id": "plane-game-3d-v21",
+	"name": "Plane Game 3D V2.1",
+	"author": "lvdaxd",
+	"description": "a 3D version of plane game. Controls: W = down, S = Up,  A = Left,   D = Right,   Press and Hold left Shift and then press A or D to tilt the plane.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9594c444-c833-4ac0-9bee-2267f0cfece2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6012b327-b0a3-422f-b3b4-87701cb5ef44/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6012b327-b0a3-422f-b3b4-87701cb5ef44",
+	"unityPlayUrl": "https://play.unity.com/en/games/6012b327-b0a3-422f-b3b4-87701cb5ef44/plane-game-3d-v21"
+}

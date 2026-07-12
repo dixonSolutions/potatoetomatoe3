@@ -1,0 +1,14 @@
+{
+	"id": "obsolete-machine-v2",
+	"name": "Obsolete Machine (v2)",
+	"author": "Opoprar",
+	"description": "A little 2D platformer in a pixel art style, recommend playing it in full screen. My first game on Unity, so if you find any bugs and whatnot, feel free to let me know. All art was done by me. Made some bug fixes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37c7f4bb-ade7-4dcc-84e4-3fd28842196c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/172c0147-ce3e-4633-b12e-c64500f39341/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "172c0147-ce3e-4633-b12e-c64500f39341",
+	"unityPlayUrl": "https://play.unity.com/en/games/172c0147-ce3e-4633-b12e-c64500f39341/obsolete-machine-v2"
+}

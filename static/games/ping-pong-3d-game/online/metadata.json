@@ -1,0 +1,14 @@
+{
+	"id": "ping-pong-3d-game",
+	"name": "Ping Pong 3D Game",
+	"author": "zoegeop",
+	"description": "Videojuego de Ping Pong en 3D con efectos e AI.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6df2a76b-c2f4-4fb4-9104-b5b8dac2eb11/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a4cb4a82-3ff1-4fc7-af73-246e5f4dc693/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a4cb4a82-3ff1-4fc7-af73-246e5f4dc693",
+	"unityPlayUrl": "https://play.unity.com/en/games/a4cb4a82-3ff1-4fc7-af73-246e5f4dc693/ping-pong-3d-game"
+}

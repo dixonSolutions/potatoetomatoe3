@@ -1,0 +1,14 @@
+{
+	"id": "mountain-expedition",
+	"name": "Mountain Expedition",
+	"author": "NeevKanwar",
+	"description": "A game where you control 2 adventurers trying to get to the top of a mountain. Watch out for the hazards!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/226f2eb7-b21f-4bb0-af1f-eb4b24926698/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c75c72f5-dd44-4b95-b4e5-f2ebe2a996dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c75c72f5-dd44-4b95-b4e5-f2ebe2a996dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/c75c72f5-dd44-4b95-b4e5-f2ebe2a996dd/mountain-expedition"
+}

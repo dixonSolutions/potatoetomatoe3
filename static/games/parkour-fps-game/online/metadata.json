@@ -1,0 +1,14 @@
+{
+	"id": "parkour-fps-game",
+	"name": "Parkour FPS Game",
+	"author": "Nukejolt",
+	"description": "A game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ffce5ae6-6e4d-437f-8521-84da8bbcc1d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ffce5ae6-6e4d-437f-8521-84da8bbcc1d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/ffce5ae6-6e4d-437f-8521-84da8bbcc1d9/parkour-fps-game"
+}

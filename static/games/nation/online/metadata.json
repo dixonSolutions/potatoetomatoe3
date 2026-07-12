@@ -1,0 +1,14 @@
+{
+	"id": "nation",
+	"name": "Nation",
+	"author": "GetLitGames",
+	"description": "Nation the online PVP card game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6751208a-fb43-4f16-b0b2-bbde1f3e027a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5cb47822-ff4d-4b94-a028-d399a301e3a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5cb47822-ff4d-4b94-a028-d399a301e3a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/5cb47822-ff4d-4b94-a028-d399a301e3a0/nation"
+}

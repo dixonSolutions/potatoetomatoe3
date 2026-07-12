@@ -1,0 +1,14 @@
+{
+	"id": "pamguin-hit",
+	"name": "Pamguin hit",
+	"author": "Fawad_Dev",
+	"description": "Play Pamguin hit on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1f2fe255-6c33-43f0-a319-75f600a9bc07/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1f2fe255-6c33-43f0-a319-75f600a9bc07",
+	"unityPlayUrl": "https://play.unity.com/en/games/1f2fe255-6c33-43f0-a319-75f600a9bc07/pamguin-hit"
+}

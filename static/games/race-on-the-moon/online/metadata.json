@@ -1,0 +1,14 @@
+{
+	"id": "race-on-the-moon",
+	"name": "Race On The Moon",
+	"author": "sceltec14",
+	"description": "Play Race On The Moon on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec72e2c2-7671-4283-b196-bdb67d84982b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/567265c6-3a44-4867-bb08-119a716e8593/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "567265c6-3a44-4867-bb08-119a716e8593",
+	"unityPlayUrl": "https://play.unity.com/en/games/567265c6-3a44-4867-bb08-119a716e8593/race-on-the-moon"
+}

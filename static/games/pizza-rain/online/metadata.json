@@ -1,0 +1,14 @@
+{
+	"id": "pizza-rain",
+	"name": "Pizza Rain",
+	"author": "MariusPontmercy",
+	"description": "Challenge: Sprite pachinko",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e25c4ae8-8f02-4cfc-9cff-41c3cd51034a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c6acfcf-9c82-4b28-9b86-637a5b9a527a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c6acfcf-9c82-4b28-9b86-637a5b9a527a",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c6acfcf-9c82-4b28-9b86-637a5b9a527a/pizza-rain"
+}

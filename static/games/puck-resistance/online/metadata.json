@@ -1,0 +1,14 @@
+{
+	"id": "puck-resistance",
+	"name": "Puck Resistance",
+	"author": "ezevelez23",
+	"description": "This is my first solo project,  is still in Beta edition. It is an Arcade Shooter where the objetive is to eliminate all the enemies and protect the core of the base located in one of the Urano's \"moon\" called Puck.                             \nButtons: awsd or arrows(direction move), mouse(aim and shot), shift(run), Space(pause).                                                                                                \nHope you enjoy my game! your reviews and advices are welcome to keep improving my game. ezedisciullo@gmail.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/30979e4d-f366-4c37-8c42-ebb992899a62/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fa2bfe7a-33e2-4a6c-b006-2385e04f6629/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fa2bfe7a-33e2-4a6c-b006-2385e04f6629",
+	"unityPlayUrl": "https://play.unity.com/en/games/fa2bfe7a-33e2-4a6c-b006-2385e04f6629/puck-resistance"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ml-breakout",
+	"name": "ML-Breakout",
+	"author": "maraudingpangolin2",
+	"description": "This game was developed using Unity and ML-Agents and uses reinforcement learning to train a neural network on how the game should be played.   First, a clone of the Atari Breakout game was developed in unity.  Then the ML-Agent was trained to move the paddle left or right while being provided observations about the ball, paddle, and blocks.  The Agent was given rewards for hitting the ball with the paddle, breaking bricks, and a penalty for losing the ball.  By allowing the ML-Agent to train for increasing amounts of time, the Agent will learn what actions maximize the rewards and minimize the penalties, effectively learning to play the game.\n\nIn addition to developing the required game and a trained agent, we decided to expand the project to offer a multiple levels, a leaderboard, multiple trained models, and deployment of the game using WebGL to Unity Play.  This game demonstrates the learning behavior by offering three different levels of model training: \n\n     - Beginner - the ML Agent was trained for 7 minutes.\n     - Intermediate - the ML Agent was trained for 11 minutes.\n     - Advanced - the ML Agent was trained for 44 minutes.\n\nThis project was developed by Jonathan Reuter (reuterjo@oregonstate.edu), and Joel Strong (stronjoe@oregonstate.edu / www.jdstrongpdx.com) as part of their Capstone course at Oregon State University.  We used a GitHub repository with CI/CD and workflows found at: https://github.com/ReuterJo/ML-Breakout",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf3d1704-6480-47e6-86cd-e36583c82dcf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29073861-10a0-4027-839c-303f0eb8d8ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29073861-10a0-4027-839c-303f0eb8d8ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/29073861-10a0-4027-839c-303f0eb8d8ac/ml-breakout"
+}

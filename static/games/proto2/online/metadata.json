@@ -1,0 +1,14 @@
+{
+	"id": "proto2",
+	"name": "proto2",
+	"author": "unity_MoPxx-cvHtkVvA",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/435df296-84d0-4354-955e-27452d970720/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08b006cb-41ff-41e6-ac6b-f5075bdb30f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08b006cb-41ff-41e6-ac6b-f5075bdb30f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/08b006cb-41ff-41e6-ac6b-f5075bdb30f7/proto2"
+}

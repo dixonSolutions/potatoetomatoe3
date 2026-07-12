@@ -1,0 +1,14 @@
+{
+	"id": "metavido-vfx",
+	"name": "Metavido VFX",
+	"author": "Keijiro-UTJ",
+	"description": "Metavido VFX is a demo that visualizes volumetric video captured with an iPhone Pro\u2019s LiDAR sensor.\n\nMore info: https://github.com/keijiro/MetavidoVFX",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/debe2e83-3be2-455c-9614-6bc67604e3a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f4e0ea34-bd6d-4b2d-b24d-69ffa6e88795/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f4e0ea34-bd6d-4b2d-b24d-69ffa6e88795",
+	"unityPlayUrl": "https://play.unity.com/en/games/f4e0ea34-bd6d-4b2d-b24d-69ffa6e88795/metavido-vfx"
+}

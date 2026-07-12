@@ -1,0 +1,14 @@
+{
+	"id": "ninjago-spinjitzu-runner",
+	"name": "Ninjago: Spinjitzu Runner",
+	"author": "Nardo_East",
+	"description": "Welcome ninja! It's time to train and Master Wu waiting for you. Hone your skills as a ninja to harness the power of Spinjitzu. Can you develop the mastery required to beat all of the randomly generated courses?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/57ae6572-681e-4340-a2a8-299d706c41b9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9f23ecbc-d595-40ac-a082-9d35aed51e91/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9f23ecbc-d595-40ac-a082-9d35aed51e91",
+	"unityPlayUrl": "https://play.unity.com/en/games/9f23ecbc-d595-40ac-a082-9d35aed51e91/ninjago-spinjitzu-runner"
+}

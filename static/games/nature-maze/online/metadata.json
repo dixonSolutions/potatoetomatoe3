@@ -1,0 +1,14 @@
+{
+	"id": "nature-maze",
+	"name": "Nature Maze",
+	"author": "Untrioctium",
+	"description": "My first game.\nI arranged and upgraded a template project from a game creation tutorial, but it is no longer in its original form.\nSince I built this as a WebGL project, the graphics quality is pretty low.\n\nJust swipe the screen or use the arrow keys to get to the goal!\nKonami Code available on the Title screen...?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9d39a66b-2dbb-4033-9878-961e79587aff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48b0dcf8-0e55-4c77-8203-f5664b83bcba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48b0dcf8-0e55-4c77-8203-f5664b83bcba",
+	"unityPlayUrl": "https://play.unity.com/en/games/48b0dcf8-0e55-4c77-8203-f5664b83bcba/nature-maze"
+}

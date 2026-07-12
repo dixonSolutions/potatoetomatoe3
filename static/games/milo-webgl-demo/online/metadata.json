@@ -1,0 +1,14 @@
+{
+	"id": "milo-webgl-demo",
+	"name": "Milo WebGL Demo",
+	"author": "johnnyjacques",
+	"description": "High-end PC required for the best experience. Milo is an upcoming Steam game I'm developing along with my 2nd grader daughter. This webGL demo has limited keyboard support, gamepad is strongly recommended. Press the start button or [ ESC ] during gameplay for more options. Be sure to check out the Photomode!\n\nJoin Milo and friends in this 4 player co-op adventure as they journey through time and space. Transform into colossal beasts, use copy abilities and power-ups to adapt to enemy terrains. Unlock new friends and characters, each with their own unique abilities.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/44b03087-4a92-4f02-9d3b-5ec9a7151b64/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36b8a99f-9c0d-45fd-a39f-7f88ebfc0543/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36b8a99f-9c0d-45fd-a39f-7f88ebfc0543",
+	"unityPlayUrl": "https://play.unity.com/en/games/36b8a99f-9c0d-45fd-a39f-7f88ebfc0543/milo-webgl-demo"
+}

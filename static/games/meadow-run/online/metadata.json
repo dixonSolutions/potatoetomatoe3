@@ -1,0 +1,14 @@
+{
+	"id": "meadow-run",
+	"name": "Meadow Run",
+	"author": "dgarroway98",
+	"description": "Try to collect all the flowers!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee162ca2-2293-4a27-9b0b-48f65eb32f88/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8a1c1020-2d10-43d3-9a11-a683e7ed7711/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8a1c1020-2d10-43d3-9a11-a683e7ed7711",
+	"unityPlayUrl": "https://play.unity.com/en/games/8a1c1020-2d10-43d3-9a11-a683e7ed7711/meadow-run"
+}

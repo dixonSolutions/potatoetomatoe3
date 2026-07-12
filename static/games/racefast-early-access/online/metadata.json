@@ -1,0 +1,14 @@
+{
+	"id": "racefast-early-access",
+	"name": "Racefast Early Access",
+	"author": "AllGamesStudios",
+	"description": "This is an Early Access, do not expect this to be perfect. They might be bugs or glitches, WASD to move car or Arrow keys to move car, Press F2 to fix car, press F3 to reset.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d33dadf6-e69b-4b75-b227-cbdece59be70/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d33dadf6-e69b-4b75-b227-cbdece59be70",
+	"unityPlayUrl": "https://play.unity.com/en/games/d33dadf6-e69b-4b75-b227-cbdece59be70/racefast-early-access"
+}

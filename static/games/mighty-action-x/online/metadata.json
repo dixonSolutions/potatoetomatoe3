@@ -1,0 +1,14 @@
+{
+	"id": "mighty-action-x",
+	"name": "Mighty Action X",
+	"author": "GenmCorporation",
+	"description": "Play Mighty Action X on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3d9924a6-2d0c-4409-b8a2-09a4ef621105/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dc917a8d-4036-4c5d-89e2-b6f9c0acdea6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dc917a8d-4036-4c5d-89e2-b6f9c0acdea6",
+	"unityPlayUrl": "https://play.unity.com/en/games/dc917a8d-4036-4c5d-89e2-b6f9c0acdea6/mighty-action-x"
+}

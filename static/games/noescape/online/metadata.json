@@ -1,0 +1,14 @@
+{
+	"id": "noescape",
+	"name": "NoEscape",
+	"author": "kotyshev",
+	"description": "Fixed something... Controls A D Space",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/010eac5a-03e3-4fba-a0fa-05dd199ba391/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/151a7c78-23a7-48d9-8677-2b09c9497082/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "151a7c78-23a7-48d9-8677-2b09c9497082",
+	"unityPlayUrl": "https://play.unity.com/en/games/151a7c78-23a7-48d9-8677-2b09c9497082/noescape"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "newb-games",
+	"name": "Newb Games",
+	"author": "unity_wOaDwAFVb1PNNA",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c1993350-ae6f-45b4-acc8-dad736d55135/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40e0bc56-2862-4dac-86ba-240859cf62a9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40e0bc56-2862-4dac-86ba-240859cf62a9",
+	"unityPlayUrl": "https://play.unity.com/en/games/40e0bc56-2862-4dac-86ba-240859cf62a9/newb-games"
+}

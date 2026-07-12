@@ -1,0 +1,14 @@
+{
+	"id": "prototype-2-3rd-person-shooter-version",
+	"name": "Prototype 2 3rd Person Shooter Version",
+	"author": "vendaar",
+	"description": "updated version of: https://play.unity.com/mg/other/prototype-2-new. Im abandoning this project now as unity causing problems with the controller and it is really frustating me, constantly seeing crashes and losing progress. in this version you can shoot a RPG thats meant to be a energydrink launcher not harming the animals and run around in an mostly uninteresting, unfinished terrain. animals are in there running at the player but apart from doing damage with the rpg to yourself you cant really do anything in this game.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15ce3044-4ab6-4a8a-9742-40e51e031b30/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15ce3044-4ab6-4a8a-9742-40e51e031b30",
+	"unityPlayUrl": "https://play.unity.com/en/games/15ce3044-4ab6-4a8a-9742-40e51e031b30/prototype-2-3rd-person-shooter-version"
+}

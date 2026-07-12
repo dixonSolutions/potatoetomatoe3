@@ -1,0 +1,14 @@
+{
+	"id": "prototype-2-third-person-version",
+	"name": "Prototype 2 - Third Person version",
+	"author": "vendaar",
+	"description": "I'm trying to make a PS1-style third person shooter out of the originally 2d topdown game that you are meant to code in the course \"Unity Learn - Create with Code Unit 2 Basic Gameplay\" https://learn.unity.com/project/unit-2-basic-gameplay?uv=2020.3&courseId=5cf96c41edbc2a2ca6e8810f",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bf8011df-faeb-4831-a979-fa00373b56a5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0f83b6e-a3df-47e0-8afb-85aa2feeb67d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b0f83b6e-a3df-47e0-8afb-85aa2feeb67d",
+	"unityPlayUrl": "https://play.unity.com/en/games/b0f83b6e-a3df-47e0-8afb-85aa2feeb67d/prototype-2-third-person-version"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mike-ro-machines",
+	"name": "Mike-ro Machines",
+	"author": "Mike-Geig",
+	"description": "Play Mike-ro Machines on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/291324b3-00c4-4dcf-b402-322bc0adaa2a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6970dcc9-46c4-462e-8f79-68c1994b57f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6970dcc9-46c4-462e-8f79-68c1994b57f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/6970dcc9-46c4-462e-8f79-68c1994b57f3/mike-ro-machines"
+}

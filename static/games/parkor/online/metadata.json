@@ -1,0 +1,14 @@
+{
+	"id": "parkor",
+	"name": "Parkor",
+	"author": "iykjii",
+	"description": "Play Parkor on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6084add3-e5cd-4dff-9b79-a44d22c169c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6084add3-e5cd-4dff-9b79-a44d22c169c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/6084add3-e5cd-4dff-9b79-a44d22c169c1/parkor"
+}

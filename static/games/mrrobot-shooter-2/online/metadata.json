@@ -1,0 +1,14 @@
+{
+	"id": "mrrobot-shooter-2",
+	"name": "Mr.Robot Shooter 2",
+	"author": "AnayV",
+	"description": "The robots have stolen the rockets and fled to Jupiter.It's your job to kill the robots and bring back the rockets safely.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/72db9e4e-ac79-488c-b351-2da12d868caf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d731628-2560-4463-8c5b-1c2fb91d4bea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d731628-2560-4463-8c5b-1c2fb91d4bea",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d731628-2560-4463-8c5b-1c2fb91d4bea/mrrobot-shooter-2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "push-me-not",
+	"name": "Push Me Not",
+	"author": "Dhairya95",
+	"description": "My first Properly built Unity Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ea2cbc8e-b893-4037-aed0-9b4101aeb103/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f56c7a7-da26-4b34-a711-24f3022feaaa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f56c7a7-da26-4b34-a711-24f3022feaaa",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f56c7a7-da26-4b34-a711-24f3022feaaa/push-me-not"
+}

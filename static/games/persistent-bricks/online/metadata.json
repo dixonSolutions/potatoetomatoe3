@@ -1,0 +1,14 @@
+{
+	"id": "persistent-bricks",
+	"name": "Persistent Bricks",
+	"author": "vj_anomolee",
+	"description": "I didnt spend time doing any of the extra challenges. Just the basics of saving name and highscore even after quitting the game.\nMight come back to this project later and add the settings functionality.\n\nhttps://github.com/vjanomolee/Data-Persistence-Project",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bc6dddff-738b-4791-9e2e-8b5a89159d5f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/161f1754-7c39-4aaa-9142-82652bc169ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "161f1754-7c39-4aaa-9142-82652bc169ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/161f1754-7c39-4aaa-9142-82652bc169ce/persistent-bricks"
+}

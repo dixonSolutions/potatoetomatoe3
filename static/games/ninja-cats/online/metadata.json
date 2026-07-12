@@ -1,0 +1,14 @@
+{
+	"id": "ninja-cats",
+	"name": "Ninja cats",
+	"author": "unity_96peregon",
+	"description": "-Projectiles bug\n-Solo ladder bug\n+Sounds\n+shurikens\n+ color swap",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe8a429d-c1ae-43d9-ab05-d3dfaed8b72f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe8a429d-c1ae-43d9-ab05-d3dfaed8b72f",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe8a429d-c1ae-43d9-ab05-d3dfaed8b72f/ninja-cats"
+}

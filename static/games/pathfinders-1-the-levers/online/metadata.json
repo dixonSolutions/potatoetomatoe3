@@ -1,0 +1,14 @@
+{
+	"id": "pathfinders-1-the-levers",
+	"name": "PathFinders 1: The Levers",
+	"author": "MegaFaze99",
+	"description": "In the mines you must find 4 levers while chased by a ghost.\n\nControls:\nWalk: w,a,s,d or Arrow keys \nRun: R lasts for 5 secs then a 15 secs countdown \nPress Lever: E\nSpace Bar: Reset the game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3517e4a2-5ca6-40e7-b55d-545111882d8b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b357f9d-a426-42d9-a26a-52aaf6a3996b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5b357f9d-a426-42d9-a26a-52aaf6a3996b",
+	"unityPlayUrl": "https://play.unity.com/en/games/5b357f9d-a426-42d9-a26a-52aaf6a3996b/pathfinders-1-the-levers"
+}

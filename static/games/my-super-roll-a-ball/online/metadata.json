@@ -1,0 +1,14 @@
+{
+	"id": "my-super-roll-a-ball",
+	"name": "My Super Roll a Ball",
+	"author": "hugotheanonimus",
+	"description": "This is my game.\nThe objective is pick up the 20 cubes hidden around the map ...\nWill you find them all?\n\n\n\nTracks:\nUnder the withered tree of the waterfall.\nInside the waterfall.\nIn the labyrinth.\nIn the woods.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/acdba2d2-e866-4968-aa54-7d33f4a46e6f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/596f6eb3-5a68-4b7e-9e6c-4a21dd0f85f8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "596f6eb3-5a68-4b7e-9e6c-4a21dd0f85f8",
+	"unityPlayUrl": "https://play.unity.com/en/games/596f6eb3-5a68-4b7e-9e6c-4a21dd0f85f8/my-super-roll-a-ball"
+}

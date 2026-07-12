@@ -1,0 +1,14 @@
+{
+	"id": "oscillarium",
+	"name": "Oscillarium",
+	"author": "wpetillo",
+	"description": "Play Oscillarium on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1daf7a1d-0336-4d0f-973d-686652c22dac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c326d99c-ecd8-4a46-9a58-7a2553ce2121/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c326d99c-ecd8-4a46-9a58-7a2553ce2121",
+	"unityPlayUrl": "https://play.unity.com/en/games/c326d99c-ecd8-4a46-9a58-7a2553ce2121/oscillarium"
+}

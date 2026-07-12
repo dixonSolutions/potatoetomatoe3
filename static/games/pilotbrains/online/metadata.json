@@ -1,0 +1,14 @@
+{
+	"id": "pilotbrains",
+	"name": "Pilot_Brains",
+	"author": "hungvsme",
+	"description": "Play Pilot_Brains on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/585e28d7-00eb-4045-b7ce-e657eae699cb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3923575e-7184-49b6-9dba-e6f29f64e62d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3923575e-7184-49b6-9dba-e6f29f64e62d",
+	"unityPlayUrl": "https://play.unity.com/en/games/3923575e-7184-49b6-9dba-e6f29f64e62d/pilotbrains"
+}

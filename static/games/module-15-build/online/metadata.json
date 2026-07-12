@@ -1,0 +1,14 @@
+{
+	"id": "module-15-build",
+	"name": "Module 15 Build",
+	"author": "BenM18",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b217c827-8d86-40a5-bc8f-03c38d001b92/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b217c827-8d86-40a5-bc8f-03c38d001b92",
+	"unityPlayUrl": "https://play.unity.com/en/games/b217c827-8d86-40a5-bc8f-03c38d001b92/module-15-build"
+}

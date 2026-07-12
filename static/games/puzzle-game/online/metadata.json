@@ -1,0 +1,14 @@
+{
+	"id": "puzzle-game",
+	"name": "\u30c4\u30e0\u30c4\u30e0\u98a8\u30b2\u30fc\u30e0(puzzle game)",
+	"author": "yuukaaaa",
+	"description": "\u30c4\u30e0\u30c4\u30e0\u98a8\u30b2\u30fc\u30e0",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4d50d062-57c6-4980-8046-6d5b4ebcf38a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c06b2f59-9bff-4732-83db-a0e1845a2a4b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c06b2f59-9bff-4732-83db-a0e1845a2a4b",
+	"unityPlayUrl": "https://play.unity.com/en/games/c06b2f59-9bff-4732-83db-a0e1845a2a4b/puzzle-game"
+}

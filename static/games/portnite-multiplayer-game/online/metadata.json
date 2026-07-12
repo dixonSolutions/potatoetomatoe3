@@ -1,0 +1,14 @@
+{
+	"id": "portnite-multiplayer-game",
+	"name": "Portnite Multiplayer Game",
+	"author": "dreamtech07",
+	"description": "This is a multiplayer shooting game:) Fading through structures while walking by pressing space is a feature.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f2b1623a-51be-4f2c-a5ab-0c81eee277aa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ec14ceb-632b-4dfb-b4dc-7ba792861435/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ec14ceb-632b-4dfb-b4dc-7ba792861435",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ec14ceb-632b-4dfb-b4dc-7ba792861435/portnite-multiplayer-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "phil-the-demo",
+	"name": "Phil - The Demo",
+	"author": "tomosbach",
+	"description": "Play Phil - The Demo on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d624b0af-b75d-4fbc-8784-b418187ab3c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c9c25697-7d4a-493e-b783-1aff043ced09/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c9c25697-7d4a-493e-b783-1aff043ced09",
+	"unityPlayUrl": "https://play.unity.com/en/games/c9c25697-7d4a-493e-b783-1aff043ced09/phil-the-demo"
+}

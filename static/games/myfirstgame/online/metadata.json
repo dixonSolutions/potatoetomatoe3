@@ -1,0 +1,14 @@
+{
+	"id": "myfirstgame",
+	"name": "MyFirstGame",
+	"author": "Randalljb",
+	"description": "Play MyFirstGame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dcac471b-a44f-4ac9-99dc-a3ff1ec7fcd4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7aedfd2a-3d11-4403-b905-7532b9d149a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7aedfd2a-3d11-4403-b905-7532b9d149a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/7aedfd2a-3d11-4403-b905-7532b9d149a2/myfirstgame"
+}

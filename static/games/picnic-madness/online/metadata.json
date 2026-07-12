@@ -1,0 +1,14 @@
+{
+	"id": "picnic-madness",
+	"name": "Picnic Madness",
+	"author": "B_Dani",
+	"description": "https://bexeb.itch.io/picnic-madness",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7bce0b82-7653-42ac-af78-25f75cbed452/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0328b4cd-9e13-49e1-bb2e-3b4d8dfff733/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0328b4cd-9e13-49e1-bb2e-3b4d8dfff733",
+	"unityPlayUrl": "https://play.unity.com/en/games/0328b4cd-9e13-49e1-bb2e-3b4d8dfff733/picnic-madness"
+}

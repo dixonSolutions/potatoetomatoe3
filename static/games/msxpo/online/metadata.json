@@ -1,0 +1,14 @@
+{
+	"id": "msxpo",
+	"name": "MSXPO",
+	"author": "Tuzlak",
+	"description": "Demo MSXPO Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/619ef2a1-5ca0-4394-b232-9f24305faf1b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "619ef2a1-5ca0-4394-b232-9f24305faf1b",
+	"unityPlayUrl": "https://play.unity.com/en/games/619ef2a1-5ca0-4394-b232-9f24305faf1b/msxpo"
+}

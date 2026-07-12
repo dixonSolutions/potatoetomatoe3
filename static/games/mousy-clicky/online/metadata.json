@@ -1,0 +1,14 @@
+{
+	"id": "mousy-clicky",
+	"name": "Mousy Clicky",
+	"author": "EhPeaBee",
+	"description": "bomb's don't reset the score multiplier anymore.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8e534e44-dd4e-4eff-9b0e-f0b1a2dbd9ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e457f4e-9806-48cb-8afd-29af9a517555/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e457f4e-9806-48cb-8afd-29af9a517555",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e457f4e-9806-48cb-8afd-29af9a517555/mousy-clicky"
+}

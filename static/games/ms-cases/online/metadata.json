@@ -1,0 +1,14 @@
+{
+	"id": "ms-cases",
+	"name": "M's Cases",
+	"author": "Unity Play",
+	"description": "This is chapter 1 of M's Cases, a detective adventure game starring Mark the Cat, solving mystery cases.\n\nUse [Backspace] instead of [Esc] to avoid exiting fullscreen mode.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bea3abb4-e515-4eaa-af00-8175d23cff22/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb39b7ca-d373-4cde-995a-7590751de4e2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb39b7ca-d373-4cde-995a-7590751de4e2",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb39b7ca-d373-4cde-995a-7590751de4e2/ms-cases"
+}

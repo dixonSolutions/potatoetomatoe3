@@ -1,0 +1,14 @@
+{
+	"id": "pretty-pursuit",
+	"name": "Pretty Pursuit",
+	"author": "swetaparajuli",
+	"description": "The final version. The map is bigger, the gems are more hidden, and Skink the squirrel is swifter making the game more difficult!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c070e5d8-8b70-4a55-b2b2-d7ee0801f986/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/394ae97c-dbaa-4bde-ab78-e700928e3428/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "394ae97c-dbaa-4bde-ab78-e700928e3428",
+	"unityPlayUrl": "https://play.unity.com/en/games/394ae97c-dbaa-4bde-ab78-e700928e3428/pretty-pursuit"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "poultree",
+	"name": "Poultree",
+	"author": "sergionegroe",
+	"description": "Poultree es un juego de plataformas en 3D, desarrollado por 3 estudiantes de preparatoria, C\u00e9sar Augusto Gonz\u00e1lez Zapata, Sergio Jes\u00fas Negroe Ruiz y William Mor\u00e1n Ram\u00edrez, para el concurso anual de la Universidad An\u00e1huac Mayab: Liga Internacional de Talentos, Game Jam 2020. El juego nos pone en las plumas de un pollito que perdi\u00f3 a su familia y a su hogar por la quema que hicieron un grupo de hombres en su granja, en busca de m\u00e1s recursos naturales para explotar. Nuestro protagonista deber\u00e1 atravesar distintos escenarios en busca de semillas para recuperar su hogar y ponerle fin a este infausto acto.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/36ae1add-f2eb-4bdd-91eb-4c54d1e6b9c9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/525594e2-528d-4ad9-911f-8baf641c8fee/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "525594e2-528d-4ad9-911f-8baf641c8fee",
+	"unityPlayUrl": "https://play.unity.com/en/games/525594e2-528d-4ad9-911f-8baf641c8fee/poultree"
+}

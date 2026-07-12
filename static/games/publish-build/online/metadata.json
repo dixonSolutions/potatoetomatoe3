@@ -1,0 +1,14 @@
+{
+	"id": "publish-build",
+	"name": "Publish-Build",
+	"author": "edgeball",
+	"description": "Play Publish-Build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cb0f25e-7ea8-4f64-9f28-e650619802f4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cb0f25e-7ea8-4f64-9f28-e650619802f4",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cb0f25e-7ea8-4f64-9f28-e650619802f4/publish-build"
+}

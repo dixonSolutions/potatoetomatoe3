@@ -1,0 +1,14 @@
+{
+	"id": "prototype-racer",
+	"name": "Prototype Racer",
+	"author": "fitrox",
+	"description": "Prototype for racing game with selectable cars and two players mode.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4f927350-1222-4511-9411-f5ab541f8b98/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/818e5953-7bf2-478d-9f74-0c98b613429a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "818e5953-7bf2-478d-9f74-0c98b613429a",
+	"unityPlayUrl": "https://play.unity.com/en/games/818e5953-7bf2-478d-9f74-0c98b613429a/prototype-racer"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mpcgame",
+	"name": "MPCGame",
+	"author": "Payal_J",
+	"description": "Player 1 is at your right side and Player 2 is at your left side.For Player 1 use Arrow keys to move and Right shift for camera switching. For Player 2 use WASD keys to move and Z for camera switching.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6123a5a2-ad66-48ef-960b-ba910ad04acd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0362ec9e-407d-4fa4-aedb-c6031ffcb9c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0362ec9e-407d-4fa4-aedb-c6031ffcb9c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0362ec9e-407d-4fa4-aedb-c6031ffcb9c3/mpcgame"
+}

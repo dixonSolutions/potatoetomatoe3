@@ -1,0 +1,14 @@
+{
+	"id": "pling-plong-v01",
+	"name": "Pling Plong v01",
+	"author": "sumannemo",
+	"description": "A casual game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/089e7fe0-65e7-4901-ba72-db5ad13d91d5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4eb3d94c-0556-493f-93a4-d73cfb74137f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4eb3d94c-0556-493f-93a4-d73cfb74137f",
+	"unityPlayUrl": "https://play.unity.com/en/games/4eb3d94c-0556-493f-93a4-d73cfb74137f/pling-plong-v01"
+}

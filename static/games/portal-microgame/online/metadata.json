@@ -1,0 +1,14 @@
+{
+	"id": "portal-microgame",
+	"name": "portal microgame",
+	"author": "Najwa_72",
+	"description": "I made portal but tiny\nhold ball with Left mouse button",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/344a5f69-5207-4f16-9501-f6ed68eb9504/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b520bfe1-9004-45ac-b658-5523b2f3f6b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b520bfe1-9004-45ac-b658-5523b2f3f6b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/b520bfe1-9004-45ac-b658-5523b2f3f6b0/portal-microgame"
+}

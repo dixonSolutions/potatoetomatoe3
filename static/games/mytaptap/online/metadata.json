@@ -1,0 +1,14 @@
+{
+	"id": "mytaptap",
+	"name": "MyTapTap",
+	"author": "xiaocai618",
+	"description": "Updates: 1. Power bar can be recharged; 2. Add shadow to player; 3. Add mouse's right key to control which could jump higher but closer; 4. Add more details to tutorial with video demo; 5. Add \"safezone\" on power bar; 6. username input added; 7. leaderboard added; 8. Shop system added; 9. Buff system added",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99378476-60b0-4af8-88d8-fadd1c317727/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e6579e73-adf9-489c-b063-6a091d585fa0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e6579e73-adf9-489c-b063-6a091d585fa0",
+	"unityPlayUrl": "https://play.unity.com/en/games/e6579e73-adf9-489c-b063-6a091d585fa0/mytaptap"
+}

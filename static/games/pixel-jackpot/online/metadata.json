@@ -1,0 +1,14 @@
+{
+	"id": "pixel-jackpot",
+	"name": "Pixel Jackpot",
+	"author": "itsyaboitroy21",
+	"description": "2D Pixel Casino",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1872c98a-c89f-4805-b80f-324ab9f2b133/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1872c98a-c89f-4805-b80f-324ab9f2b133",
+	"unityPlayUrl": "https://play.unity.com/en/games/1872c98a-c89f-4805-b80f-324ab9f2b133/pixel-jackpot"
+}

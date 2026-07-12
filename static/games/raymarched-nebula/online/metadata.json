@@ -1,0 +1,14 @@
+{
+	"id": "raymarched-nebula",
+	"name": "Raymarched Nebula",
+	"author": "PrimalCoder",
+	"description": "Using ray-marching to render a nebula (port of ShaderToy shader to Unity)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ffda2359-8ffe-4061-97fe-b22f0733bf06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51ced5db-170b-4e16-8646-ae00b4554a2c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51ced5db-170b-4e16-8646-ae00b4554a2c",
+	"unityPlayUrl": "https://play.unity.com/en/games/51ced5db-170b-4e16-8646-ae00b4554a2c/raymarched-nebula"
+}

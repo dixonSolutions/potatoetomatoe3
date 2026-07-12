@@ -1,0 +1,14 @@
+{
+	"id": "only-up",
+	"name": "Only Up",
+	"author": "ayacon11",
+	"description": "Get the Trophy",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5975b6e8-dd8c-4842-87c6-ba4da8c7e82c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5975b6e8-dd8c-4842-87c6-ba4da8c7e82c",
+	"unityPlayUrl": "https://play.unity.com/en/games/5975b6e8-dd8c-4842-87c6-ba4da8c7e82c/only-up"
+}

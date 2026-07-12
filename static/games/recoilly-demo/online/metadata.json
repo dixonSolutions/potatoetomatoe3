@@ -1,0 +1,14 @@
+{
+	"id": "recoilly-demo",
+	"name": "Recoilly Demo",
+	"author": "samson96",
+	"description": "Playable demo",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6bc4e787-f319-4fc0-a62b-8bd479060e8f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6bc4e787-f319-4fc0-a62b-8bd479060e8f",
+	"unityPlayUrl": "https://play.unity.com/en/games/6bc4e787-f319-4fc0-a62b-8bd479060e8f/recoilly-demo"
+}

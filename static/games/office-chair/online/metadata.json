@@ -1,0 +1,14 @@
+{
+	"id": "office-chair",
+	"name": "Office Chair",
+	"author": "bhuvneet",
+	"description": "Step into the twisted dreams of a developer! Navigate through rooms, take down hostile colleagues, upgrade weapons, collect coins, and unlock unique avatars in this action-packed survival game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8dd170a9-dd7b-4638-91e0-71635d1c525c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a807697-5a40-48df-ae77-5bbc9591111f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a807697-5a40-48df-ae77-5bbc9591111f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a807697-5a40-48df-ae77-5bbc9591111f/office-chair"
+}

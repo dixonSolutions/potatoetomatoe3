@@ -1,0 +1,14 @@
+{
+	"id": "prueba-ventanas-solas",
+	"name": "Prueba ventanas solas",
+	"author": "choger",
+	"description": "Play Prueba ventanas solas on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/532a88c4-b382-4f3e-8ced-2a6719abc230/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "532a88c4-b382-4f3e-8ced-2a6719abc230",
+	"unityPlayUrl": "https://play.unity.com/en/games/532a88c4-b382-4f3e-8ced-2a6719abc230/prueba-ventanas-solas"
+}

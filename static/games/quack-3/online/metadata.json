@@ -1,0 +1,14 @@
+{
+	"id": "quack-3",
+	"name": "Quack 3",
+	"author": "Vexury",
+	"description": "A boomer shooter with classic FPS elements. Surve the arena, kill enemies to collect masks that grant you power. Find the final boss (hint: unlock the feather jump power) and defeat him to win.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e93aae6-2930-43fd-9869-d9fa76334911/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3063178a-f9ae-42c1-afab-a970aa7c209a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3063178a-f9ae-42c1-afab-a970aa7c209a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3063178a-f9ae-42c1-afab-a970aa7c209a/quack-3"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "planb-control-room",
+	"name": "PlanB - Control room",
+	"author": "lochid",
+	"description": "v0.1.1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b2f8689-1871-4812-aafc-98e570dbb40b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b2f8689-1871-4812-aafc-98e570dbb40b",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b2f8689-1871-4812-aafc-98e570dbb40b/planb-control-room"
+}

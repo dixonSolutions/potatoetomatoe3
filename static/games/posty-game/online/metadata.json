@@ -1,0 +1,14 @@
+{
+	"id": "posty-game",
+	"name": "Posty Game",
+	"author": "DylanBond",
+	"description": "An innovative new 'posty' game inspired by the popular TV series Postman Pat. Please feel free to add feedback in this survey: https://forms.office.com/Pages/ResponsePage.aspx?id=6fS7c4gGRkmuqb0LtA7PB_eQiz-q2LxFrRmLfwcCIN9UQTNNSzZKUDZDRVhVWE9JVVYyVFRLWUo4Ui4u. Thank you! Game mechanics: you a gain point when you collect a parcel and lose a point if you collide with a dog. The van can be controlled with WASD or the arrow keys.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e319276-9404-4f6e-8595-d5c13572f130/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2852cc6f-b608-47a7-b2c1-c1a023e80eff/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2852cc6f-b608-47a7-b2c1-c1a023e80eff",
+	"unityPlayUrl": "https://play.unity.com/en/games/2852cc6f-b608-47a7-b2c1-c1a023e80eff/posty-game"
+}

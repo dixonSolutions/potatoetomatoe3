@@ -1,0 +1,14 @@
+{
+	"id": "racing-drifters",
+	"name": "Racing Drifters",
+	"author": "CCriCar05",
+	"description": "Play Racing Drifters on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eaa246ff-bb6d-46f9-86be-7715894ecf81/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71809166-e56c-49bc-b59d-de6865a74464/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71809166-e56c-49bc-b59d-de6865a74464",
+	"unityPlayUrl": "https://play.unity.com/en/games/71809166-e56c-49bc-b59d-de6865a74464/racing-drifters"
+}

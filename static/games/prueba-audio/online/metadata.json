@@ -1,0 +1,14 @@
+{
+	"id": "prueba-audio",
+	"name": "prueba audio",
+	"author": "jlalala",
+	"description": "Play prueba audio on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/045ff6e2-353f-4756-bad3-c25dc66c11cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "045ff6e2-353f-4756-bad3-c25dc66c11cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/045ff6e2-353f-4756-bad3-c25dc66c11cf/prueba-audio"
+}

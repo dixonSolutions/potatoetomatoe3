@@ -1,0 +1,14 @@
+{
+	"id": "ornatus",
+	"name": "Ornatus",
+	"author": "RootCee",
+	"description": "Play Ornatus on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8b0d010c-343a-427a-bbc2-fc4a953a0bb1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/493404d2-c776-4b92-ba64-a799a07316d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "493404d2-c776-4b92-ba64-a799a07316d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/493404d2-c776-4b92-ba64-a799a07316d8/ornatus"
+}

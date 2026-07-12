@@ -1,0 +1,14 @@
+{
+	"id": "piggy",
+	"name": "Piggy",
+	"author": "Unity Play",
+	"description": "You're piggy, a cute little pig, which tries to escape a slaughterhouse.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cb9d0307-6a3a-4f92-918a-1fc03a367476/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8a2f4631-ecee-42e6-b7b6-68c749610dfe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8a2f4631-ecee-42e6-b7b6-68c749610dfe",
+	"unityPlayUrl": "https://play.unity.com/en/games/8a2f4631-ecee-42e6-b7b6-68c749610dfe/piggy"
+}

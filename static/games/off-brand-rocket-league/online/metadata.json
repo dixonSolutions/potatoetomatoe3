@@ -1,0 +1,14 @@
+{
+	"id": "off-brand-rocket-league",
+	"name": "Off Brand Rocket League",
+	"author": "Timi-D",
+	"description": "Off Brand Rocket League",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/96356868-a1a9-4210-a335-fd1c8404402c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "96356868-a1a9-4210-a335-fd1c8404402c",
+	"unityPlayUrl": "https://play.unity.com/en/games/96356868-a1a9-4210-a335-fd1c8404402c/off-brand-rocket-league"
+}

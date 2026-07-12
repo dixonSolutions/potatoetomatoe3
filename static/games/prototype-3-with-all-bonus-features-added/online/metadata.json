@@ -1,0 +1,14 @@
+{
+	"id": "prototype-3-with-all-bonus-features-added",
+	"name": "Prototype 3 with all bonus features added",
+	"author": "Xypess",
+	"description": "The jump key is SPACE and you can double jump.\nYou can run faster with SHIFT key and each object you passes you get 2x point. \nEasy: Randomize obstacles\nMedium: Double jump\nHard: Dash ability and score\nExpert: Game start animation",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/48ed13cd-d3ba-4905-85d3-53398aab5b21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/868d2ad6-acdb-411b-a614-589f8c60b68d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "868d2ad6-acdb-411b-a614-589f8c60b68d",
+	"unityPlayUrl": "https://play.unity.com/en/games/868d2ad6-acdb-411b-a614-589f8c60b68d/prototype-3-with-all-bonus-features-added"
+}

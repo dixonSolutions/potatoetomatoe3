@@ -1,0 +1,14 @@
+{
+	"id": "my-science-pba",
+	"name": "My science PBA",
+	"author": "rishitsood",
+	"description": "A peaceful farming simulator (REMEMBER TO TURN ON YOUR AUDIO).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a22a7e20-a751-4b0f-9585-b5af1945b228/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e1658915-625f-40db-8023-7b32e4ee88dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e1658915-625f-40db-8023-7b32e4ee88dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/e1658915-625f-40db-8023-7b32e4ee88dc/my-science-pba"
+}

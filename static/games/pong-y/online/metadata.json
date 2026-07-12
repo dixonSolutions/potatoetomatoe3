@@ -1,0 +1,14 @@
+{
+	"id": "pong-y",
+	"name": "PONG-Y",
+	"author": "oofnik",
+	"description": "Simple 2 Player Pong. Made with this tutorial by BMo: https://www.youtube.com/watch?v=YHSanceczXY\nAlso added an intro screen and sounds.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86a46483-05d1-40ec-a8d9-b91c3a7c802a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a717b92e-e97a-4c91-9bdc-2795452d53b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a717b92e-e97a-4c91-9bdc-2795452d53b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/a717b92e-e97a-4c91-9bdc-2795452d53b5/pong-y"
+}

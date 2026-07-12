@@ -1,0 +1,14 @@
+{
+	"id": "pickuptrash",
+	"name": "PickupTrash",
+	"author": "notClade",
+	"description": "DCB",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02910e66-227e-4d53-ae14-a9428a4cdd3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02910e66-227e-4d53-ae14-a9428a4cdd3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/02910e66-227e-4d53-ae14-a9428a4cdd3f/pickuptrash"
+}

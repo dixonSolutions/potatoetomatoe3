@@ -1,0 +1,14 @@
+{
+	"id": "moonlight",
+	"name": "Moonlight",
+	"author": "oonas",
+	"description": "Interactive Scene - Click on things and stuff might happen",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a441075b-4c6f-42f6-8198-18326a8b8295/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21e5d5dc-8d88-4d87-873f-bf2f45dbc8b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21e5d5dc-8d88-4d87-873f-bf2f45dbc8b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/21e5d5dc-8d88-4d87-873f-bf2f45dbc8b3/moonlight"
+}

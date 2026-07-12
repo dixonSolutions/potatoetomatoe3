@@ -1,0 +1,14 @@
+{
+	"id": "rammys-plane-show",
+	"name": "Rammy's Plane Show",
+	"author": "randybej",
+	"description": "Challenge assignment on Introduction to Unity Part 1 - Prof. Nicolas Barone. Use Arrow Keys to Fly. Don't forget to activate the sound.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec736c42-42b6-4a5a-8fce-f479bc106a98/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/54852f4c-124d-4a19-8544-7f3fed955270/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "54852f4c-124d-4a19-8544-7f3fed955270",
+	"unityPlayUrl": "https://play.unity.com/en/games/54852f4c-124d-4a19-8544-7f3fed955270/rammys-plane-show"
+}

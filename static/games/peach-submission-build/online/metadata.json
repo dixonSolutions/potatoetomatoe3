@@ -1,0 +1,14 @@
+{
+	"id": "peach-submission-build",
+	"name": "Peach - Submission Build",
+	"author": "Cal_Hemingway",
+	"description": "READ ME READ ME READ ME Mechanics: +HUD: Lives, Coin Counter.  +Side-Scrolling Movement and Camera. +Animated Character. +Spinning interactable coins. +Platforming Elements. +Breakable Brick blocks with randomly generated coin count. +Brick breaking effects/particles. +Interactable Lucky Blocks either holding 1-Up or Red-Mushrooms. +Lucky block efffects and particles. +Moving Mushrooms. +Red Mushroom. +1-Up mushroom. +1-Up sprite on pick-up. +Red Mushroom sprite on Pick-Up. +Moving Goomba. +Goomba Animations. +Goomba damaging player. +Player damaging Goomba. +Player bouncing off Goomba's head. +Mushroom(s) Kills Goomba +Thwomp moving up and down. +Thwomp kills player when slamming down. +Thwomp effects and particles. +Thwomp attack Indicator. +Wall Jumping Mechanics (Jump against wall then jump in opposite direction. +Player death. +Player respawn. +Level reset at 0 lives. +Level reset when timer hits 0.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff1f44ee-02f1-438f-a14f-c1e442b06312/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e2e5456-5e54-4492-a283-a3aa9da493a9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e2e5456-5e54-4492-a283-a3aa9da493a9",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e2e5456-5e54-4492-a283-a3aa9da493a9/peach-submission-build"
+}

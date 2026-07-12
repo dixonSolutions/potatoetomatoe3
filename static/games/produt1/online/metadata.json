@@ -1,0 +1,14 @@
+{
+	"id": "produt1",
+	"name": "Produt1",
+	"author": "Tonycm",
+	"description": "Play Produt1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c34ea65-8a09-4d82-abca-6eeaf9c87344/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39e337f1-2a13-4292-a71e-acddf84b2401/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39e337f1-2a13-4292-a71e-acddf84b2401",
+	"unityPlayUrl": "https://play.unity.com/en/games/39e337f1-2a13-4292-a71e-acddf84b2401/produt1"
+}

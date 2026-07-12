@@ -1,0 +1,14 @@
+{
+	"id": "plane-game",
+	"name": "Plane Game",
+	"author": "hinal_2402",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7cb4cc1e-6030-4228-a7e0-06d78f54d50f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f3428d5-bf97-4bad-bd22-5ed3b19d435b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f3428d5-bf97-4bad-bd22-5ed3b19d435b",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f3428d5-bf97-4bad-bd22-5ed3b19d435b/plane-game"
+}

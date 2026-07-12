@@ -1,0 +1,14 @@
+{
+	"id": "ps-game",
+	"name": "PS Game",
+	"author": "Le_Martins",
+	"description": "Vers\u00e3o de testes.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1f8049ce-2272-45cd-9cfd-c60400fa0c53/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1f8049ce-2272-45cd-9cfd-c60400fa0c53",
+	"unityPlayUrl": "https://play.unity.com/en/games/1f8049ce-2272-45cd-9cfd-c60400fa0c53/ps-game"
+}

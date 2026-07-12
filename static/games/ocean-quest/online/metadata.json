@@ -1,0 +1,14 @@
+{
+	"id": "ocean-quest",
+	"name": "Ocean Quest",
+	"author": "JeffyJefff755",
+	"description": "Ocean Quest is a fun, interactive, and educational game all about exploring the oceans! With Ocean Quest, you can discover the seven seas learning about animals, plants, current research and careers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/87c0c6c7-912f-439f-b8f1-5aeb4489e578/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8619bf6a-9f6f-469c-9eeb-69fe2937fc2d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8619bf6a-9f6f-469c-9eeb-69fe2937fc2d",
+	"unityPlayUrl": "https://play.unity.com/en/games/8619bf6a-9f6f-469c-9eeb-69fe2937fc2d/ocean-quest"
+}

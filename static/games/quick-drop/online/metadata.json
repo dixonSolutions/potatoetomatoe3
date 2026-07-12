@@ -1,0 +1,14 @@
+{
+	"id": "quick-drop",
+	"name": "Quick Drop",
+	"author": "robmichael",
+	"description": "This game is a simulation of the popular arcade game, Quick Drop.  You have 60 seconds to catch 50 balls in bins that rotate on a platform.  Once you click the \"Start\" button, the platform will begin to rotate and the game UI will be displayed.  The timer doesn't start until your first click of the left mouse button, or press of the space bar.  At the end of the game, a yellow splash will play for every 10 balls caught.  If you get all 50 balls, a special set of splashes and congratulatory message is displayed.  You can then click on the \"Restart\" button to try again.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dd193f8e-0643-42f6-96a3-f86f54517de7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9c2b015b-17ed-4f94-a922-48208c73732f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9c2b015b-17ed-4f94-a922-48208c73732f",
+	"unityPlayUrl": "https://play.unity.com/en/games/9c2b015b-17ed-4f94-a922-48208c73732f/quick-drop"
+}

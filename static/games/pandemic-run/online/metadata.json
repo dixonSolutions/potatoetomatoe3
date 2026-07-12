@@ -1,0 +1,14 @@
+{
+	"id": "pandemic-run",
+	"name": "Pandemic Run",
+	"author": "SheldonR",
+	"description": "Play Pandemic Run on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb187c51-c156-49f9-ba72-89edafd5c03e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c24e41a-6fe0-45b3-87d1-5585517dd505/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c24e41a-6fe0-45b3-87d1-5585517dd505",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c24e41a-6fe0-45b3-87d1-5585517dd505/pandemic-run"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "pachinstics-v04",
+	"name": "Pachinstics v0.4",
+	"author": "maxencelem",
+	"description": "You have 10 marbles. Your goal is to place a certain number of them in the bucket. Move the mouse and click to drop the 10 marbles. One advice: widen your view on statistics and chaos theory (of course you can calculate it!)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9a38044c-78a4-432c-bb60-4e28909b8420/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/490a30ca-3970-477c-984a-8ad5656d1a7e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "490a30ca-3970-477c-984a-8ad5656d1a7e",
+	"unityPlayUrl": "https://play.unity.com/en/games/490a30ca-3970-477c-984a-8ad5656d1a7e/pachinstics-v04"
+}

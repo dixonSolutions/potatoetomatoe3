@@ -1,0 +1,14 @@
+{
+	"id": "ripoff-tetris",
+	"name": "Ripoff Tetris",
+	"author": "Sushi_Boy",
+	"description": "My first game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2d29fac5-123c-49f8-b6ae-d5cefd4c056f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f403e63-a29e-4ef0-9800-58f1de08cd16/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5f403e63-a29e-4ef0-9800-58f1de08cd16",
+	"unityPlayUrl": "https://play.unity.com/en/games/5f403e63-a29e-4ef0-9800-58f1de08cd16/ripoff-tetris"
+}

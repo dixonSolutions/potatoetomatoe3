@@ -1,0 +1,14 @@
+{
+	"id": "project-hogsmaede",
+	"name": "Project Hogsmaede",
+	"author": "kodokoto",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06600b14-7b74-4afe-872e-3a29a1d6c73d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06600b14-7b74-4afe-872e-3a29a1d6c73d",
+	"unityPlayUrl": "https://play.unity.com/en/games/06600b14-7b74-4afe-872e-3a29a1d6c73d/project-hogsmaede"
+}

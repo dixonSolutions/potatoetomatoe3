@@ -1,0 +1,14 @@
+{
+	"id": "minigolf",
+	"name": "Minigolf",
+	"author": "CptTigris",
+	"description": "WIP project developed while working through the Create with Code learning pathways.  Lots of problems remain, chief among them being ghost collisions.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/074f7300-5714-4cd2-905a-1cd8b6443177/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "074f7300-5714-4cd2-905a-1cd8b6443177",
+	"unityPlayUrl": "https://play.unity.com/en/games/074f7300-5714-4cd2-905a-1cd8b6443177/minigolf"
+}

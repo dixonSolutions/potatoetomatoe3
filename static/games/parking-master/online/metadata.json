@@ -1,0 +1,14 @@
+{
+	"id": "parking-master",
+	"name": "Parking Master",
+	"author": "sfwn_bsheer",
+	"description": "Car parking game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3ec7dd5c-2ee2-4407-ac8c-314689e63410/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4a24ef8a-06ec-449b-8828-df622a150f00/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4a24ef8a-06ec-449b-8828-df622a150f00",
+	"unityPlayUrl": "https://play.unity.com/en/games/4a24ef8a-06ec-449b-8828-df622a150f00/parking-master"
+}

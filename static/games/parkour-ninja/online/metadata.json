@@ -1,0 +1,14 @@
+{
+	"id": "parkour-ninja",
+	"name": "Parkour Ninja",
+	"author": "CitrineCA",
+	"description": "My latest microgame for the lego ideas contest, heavily based off of the show Ninja Warrior!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/46673ea8-3e35-410a-81fa-beb8a8952264/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38b100ad-5122-4893-acd8-6d845ee90e00/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38b100ad-5122-4893-acd8-6d845ee90e00",
+	"unityPlayUrl": "https://play.unity.com/en/games/38b100ad-5122-4893-acd8-6d845ee90e00/parkour-ninja"
+}

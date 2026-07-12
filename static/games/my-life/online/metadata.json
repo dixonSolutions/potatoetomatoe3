@@ -1,0 +1,14 @@
+{
+	"id": "my-life",
+	"name": "My Life",
+	"author": "HackingtonsStudent",
+	"description": "This is a game not about my life very easy have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4070b320-5777-48c5-9587-b95e4ab06500/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cbb02a7b-b05f-4e80-9d88-65a6c6760bc6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cbb02a7b-b05f-4e80-9d88-65a6c6760bc6",
+	"unityPlayUrl": "https://play.unity.com/en/games/cbb02a7b-b05f-4e80-9d88-65a6c6760bc6/my-life"
+}

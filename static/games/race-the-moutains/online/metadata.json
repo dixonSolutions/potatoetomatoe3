@@ -1,0 +1,14 @@
+{
+	"id": "race-the-moutains",
+	"name": "Race THe Moutains",
+	"author": "class1coder",
+	"description": "Play Race THe Moutains on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec84a086-d399-42e4-ba03-ed70b27ede71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ded5d898-2b4a-4c29-b0f7-77a2fe58d1af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ded5d898-2b4a-4c29-b0f7-77a2fe58d1af",
+	"unityPlayUrl": "https://play.unity.com/en/games/ded5d898-2b4a-4c29-b0f7-77a2fe58d1af/race-the-moutains"
+}

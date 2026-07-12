@@ -1,0 +1,14 @@
+{
+	"id": "ponx-web",
+	"name": "Ponx-Web",
+	"author": "unity_GsRioSHuPMfA-Q",
+	"description": "Play Ponx-Web on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ed8ee0e1-aea5-4dcc-8d11-7bf020d87be7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02325aaa-3dcb-4b6f-b3c2-79ba39cb29b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02325aaa-3dcb-4b6f-b3c2-79ba39cb29b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/02325aaa-3dcb-4b6f-b3c2-79ba39cb29b5/ponx-web"
+}

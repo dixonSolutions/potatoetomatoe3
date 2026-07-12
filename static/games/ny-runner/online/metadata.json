@@ -1,0 +1,14 @@
+{
+	"id": "ny-runner",
+	"name": "NY Runner",
+	"author": "AdriPSK8",
+	"description": "Hello friends. I completed my Modified Prototype 3, I called it NY Runner, I really dedicated it so much time into this Game and I really enjoy the process of making it, it was difficult to made something like this but i could resolved it with Google Searshing. I tried to add Restart Button but the double jump has bug so i couldn't added it, sorry. I hope you have fun playing it. The max score is 30.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/046adeb7-88aa-49a4-bfd4-b57bae68da92/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8017e215-6378-4bc8-989d-be460179cb1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8017e215-6378-4bc8-989d-be460179cb1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/8017e215-6378-4bc8-989d-be460179cb1c/ny-runner"
+}

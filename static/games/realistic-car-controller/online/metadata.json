@@ -1,0 +1,14 @@
+{
+	"id": "realistic-car-controller",
+	"name": "Realistic Car Controller",
+	"author": "sohailashrafunity",
+	"description": "Play Realistic Car Controller on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c398d12-d071-4d83-96fe-29bef97269f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c398d12-d071-4d83-96fe-29bef97269f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c398d12-d071-4d83-96fe-29bef97269f0/realistic-car-controller"
+}

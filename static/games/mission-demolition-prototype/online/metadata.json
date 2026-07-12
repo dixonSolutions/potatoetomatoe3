@@ -1,0 +1,14 @@
+{
+	"id": "mission-demolition-prototype",
+	"name": "Mission Demolition Prototype",
+	"author": "nclarkinwright",
+	"description": "Prototype from \"Introduction to Game Design, Prototyping, and Development.\" 2nd Edition. Edits made for Homework 3 for CSC 476 at WCU.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/54d029e1-760a-41b2-8e40-fb9c6319a28c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/561d84ef-e3ae-434c-a6a3-fd7e539f1826/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "561d84ef-e3ae-434c-a6a3-fd7e539f1826",
+	"unityPlayUrl": "https://play.unity.com/en/games/561d84ef-e3ae-434c-a6a3-fd7e539f1826/mission-demolition-prototype"
+}

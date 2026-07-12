@@ -1,0 +1,14 @@
+{
+	"id": "prototype-1-with-bonus-features-controls-in-description",
+	"name": "Prototype 1 with bonus features- Controls in description",
+	"author": "sarantgode",
+	"description": "Player 1(Top Screen)\n\nWASD- Movement, Lshift-Turbo, C-Switch Camera\n\nPlayer 2(Bottom Screen)\n\nArrow Keys- Movement, RCtrl-Turbo, RShift-Switch Camera",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03204553-6179-4beb-bb4b-795e2c4037d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03204553-6179-4beb-bb4b-795e2c4037d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/03204553-6179-4beb-bb4b-795e2c4037d9/prototype-1-with-bonus-features-controls-in-description"
+}

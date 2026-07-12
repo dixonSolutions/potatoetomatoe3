@@ -1,0 +1,14 @@
+{
+	"id": "pinwheel",
+	"name": "PinWheel",
+	"author": "Spiderboy55555",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fcffae2a-95ee-401f-a300-cb6655ff3254/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21d00ec1-5184-4c8a-af9d-6ee8f94cb347/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21d00ec1-5184-4c8a-af9d-6ee8f94cb347",
+	"unityPlayUrl": "https://play.unity.com/en/games/21d00ec1-5184-4c8a-af9d-6ee8f94cb347/pinwheel"
+}

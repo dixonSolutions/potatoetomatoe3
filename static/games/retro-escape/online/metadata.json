@@ -1,0 +1,14 @@
+{
+	"id": "retro-escape",
+	"name": "Retro Escape",
+	"author": "Alltoc",
+	"description": "Jump'n'Run von Julian Schmitt und Buck\nTon an!\nController ist Plug and Play\n\nBewegung:\nA/D oder Pfeiltasten : Links/Rechts\nLeertaste/W : Sprung (funktioniert auch als Start Game)\n1 und 3 beide gleichzeitig kurz gedr\u00fcckt: Levelrestart\nR\u00fccktaste kurz gedr\u00fcckt halten: Zur\u00fcck zum Start Bildschirm\n\nController:\nD-Pad Links/Rechts : Bewegen\nButton South : Sprung (funktioniert auch als Start Game)\nShoulderL und -R f\u00fcr Levelrestart\nStart kurz gedr\u00fcckt halten: Zur\u00fcck zum Start Bildschirm\n\nStart Game:\nSammle alle Kiwis und erreiche die Zielflagge, um ein Level zu beenden\nEs gibt insgesamt 5 Level (W\u00fcste, Reaktor, Weltraum, Eis, Burg)\nTimer und Death-Counter wird im ersten Level beim Tod zur\u00fcckgesetzt, damit man f\u00fcr einen Perfekten Start nicht das Spiel neustarten muss ;)\nNach dem letzten Level wird die ben\u00f6tigte Zeit angezeigt\n\nChoose Level:\nTimer und Death Counter nur f\u00fcr das eine Level\n\nEnd Screen: Hard Mode\nBonus Level (Vorsicht! Sehr schwer!)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fa81a8ac-4bce-49c4-b278-55a09cc1e6f3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/86369200-e680-4ee8-a1da-e0492db8ced6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "86369200-e680-4ee8-a1da-e0492db8ced6",
+	"unityPlayUrl": "https://play.unity.com/en/games/86369200-e680-4ee8-a1da-e0492db8ced6/retro-escape"
+}

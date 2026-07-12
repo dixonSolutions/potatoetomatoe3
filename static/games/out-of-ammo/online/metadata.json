@@ -1,0 +1,14 @@
+{
+	"id": "out-of-ammo",
+	"name": "Out of Ammo",
+	"author": "cpicardal",
+	"description": "Uh Oh, Im out of ammo!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00862894-28ed-432c-88d7-0499fbce3191/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00862894-28ed-432c-88d7-0499fbce3191",
+	"unityPlayUrl": "https://play.unity.com/en/games/00862894-28ed-432c-88d7-0499fbce3191/out-of-ammo"
+}

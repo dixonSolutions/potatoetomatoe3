@@ -1,0 +1,14 @@
+{
+	"id": "rec-room-box-opener",
+	"name": "Rec Room Box Opener",
+	"author": "ThatOneVertX",
+	"description": "Rec Room box opener game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/18ff77cf-e327-4462-99e3-da91dfd5e202/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/35d50554-562b-4ae4-8743-e6d259e23ed4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "35d50554-562b-4ae4-8743-e6d259e23ed4",
+	"unityPlayUrl": "https://play.unity.com/en/games/35d50554-562b-4ae4-8743-e6d259e23ed4/rec-room-box-opener"
+}

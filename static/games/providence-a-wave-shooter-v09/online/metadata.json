@@ -1,0 +1,14 @@
+{
+	"id": "providence-a-wave-shooter-v09",
+	"name": "Providence (A Wave Shooter) v0.9",
+	"author": "AkitoTheDev",
+	"description": "Just a Wave Shooter Rougelike\nControls: WASD to move, LeftClick to Shoot, Spacebar to Roll, E ActiveSkill\nIts my first real game since I started GameDev 1Month ago.\nHave Fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1bb4eef0-1bf8-4bef-b531-211d540b3667/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12198f51-4df9-4339-a748-4584f604ef68/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12198f51-4df9-4339-a748-4584f604ef68",
+	"unityPlayUrl": "https://play.unity.com/en/games/12198f51-4df9-4339-a748-4584f604ef68/providence-a-wave-shooter-v09"
+}

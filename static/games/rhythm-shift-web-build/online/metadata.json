@@ -1,0 +1,14 @@
+{
+	"id": "rhythm-shift-web-build",
+	"name": "Rhythm Shift Web Build",
+	"author": "eggysaur",
+	"description": "Finish your shift at the rhythm convenience store!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4ca74bb0-a995-4cc7-b8bd-9e63f945de12/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/047f7bf8-1543-4188-a836-71a58b0a237a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "047f7bf8-1543-4188-a836-71a58b0a237a",
+	"unityPlayUrl": "https://play.unity.com/en/games/047f7bf8-1543-4188-a836-71a58b0a237a/rhythm-shift-web-build"
+}

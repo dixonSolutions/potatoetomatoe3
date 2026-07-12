@@ -1,0 +1,14 @@
+{
+	"id": "mazenumberpuzzle",
+	"name": "MazeNumberPuzzle",
+	"author": "koushik-m",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c0f46556-de7f-4d20-ae7a-12beba66510c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c0f46556-de7f-4d20-ae7a-12beba66510c",
+	"unityPlayUrl": "https://play.unity.com/en/games/c0f46556-de7f-4d20-ae7a-12beba66510c/mazenumberpuzzle"
+}

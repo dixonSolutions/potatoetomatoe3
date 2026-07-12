@@ -1,0 +1,14 @@
+{
+	"id": "ninjago-brick-slicer",
+	"name": "Ninjago Brick Slicer",
+	"author": "JensOlesen",
+	"description": "Master Wu want you to train, by slicing the bricks with your weapon.\nBUT beware, if you miss them it gets harder !. There are a few special bricks that can help you.\nHope you enjoy the game :-) /Jens Olesen [JensODK]\n\nInstructions:\nClick SPACE to Start the game.\nThen the game will rotate between the ninjas. When your favorite ninja is highlighted click SPACE to select it.\nYou will see bricks falling from the sky, click SPACE to rotate your ninja to slice the bricks.\nIf you miss, the bricks will elevate the platform you stand on.\nIf you get so elevated that you touch the Hazard behavioral brick at top, its game over.\nThere are certain special bricks:\n1) Red brick with bomb : If you hit it with sword its game over. However if you let it hit floor, it will remove some of the bricks under your platform\n2) Blue brick with clock : If you hit this, the drop rate will slow down for a few seconds.\n3) Green brick with Heart : This will summon a few friends to help you for a few seconds.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f349c231-a2dc-474f-84e3-a8c1cd8af96e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6e69eb60-97b7-43f7-bec3-44bbfe6d481b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6e69eb60-97b7-43f7-bec3-44bbfe6d481b",
+	"unityPlayUrl": "https://play.unity.com/en/games/6e69eb60-97b7-43f7-bec3-44bbfe6d481b/ninjago-brick-slicer"
+}

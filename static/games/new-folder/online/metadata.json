@@ -1,0 +1,14 @@
+{
+	"id": "new-folder",
+	"name": "New folder",
+	"author": "unity_375282C6523F770CABD7",
+	"description": "Play New folder on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/314e4134-06c9-4171-9998-316c6efc6363/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c04413cc-156a-44d0-9ad7-f55bfc775f25/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c04413cc-156a-44d0-9ad7-f55bfc775f25",
+	"unityPlayUrl": "https://play.unity.com/en/games/c04413cc-156a-44d0-9ad7-f55bfc775f25/new-folder"
+}

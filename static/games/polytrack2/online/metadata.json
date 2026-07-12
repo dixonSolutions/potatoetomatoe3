@@ -1,0 +1,14 @@
+{
+	"id": "polytrack2",
+	"name": "PolyTrack2",
+	"author": "davidellefson50",
+	"description": "Was made in 3 hours. Is better than Polytrack in a few ways.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4bb43900-3f08-4733-a1e7-66377e24e57a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4bb43900-3f08-4733-a1e7-66377e24e57a",
+	"unityPlayUrl": "https://play.unity.com/en/games/4bb43900-3f08-4733-a1e7-66377e24e57a/polytrack2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "outside-is-chaos",
+	"name": "Outside is Chaos",
+	"author": "MarcosFortuna",
+	"description": "My latest microgame.                                                                                    \nEnjoy this exercise very much. Locate sound behind each door, above the house and an object with lights and siren sound moving outside.\nI once used a script to trigger a sound when approaching the source.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2dafa8c7-a06f-49be-88e0-8d2c8fad63e4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d2e0568c-5a3b-4081-8c93-b40c376ac56d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d2e0568c-5a3b-4081-8c93-b40c376ac56d",
+	"unityPlayUrl": "https://play.unity.com/en/games/d2e0568c-5a3b-4081-8c93-b40c376ac56d/outside-is-chaos"
+}

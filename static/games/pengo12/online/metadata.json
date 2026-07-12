@@ -1,0 +1,14 @@
+{
+	"id": "pengo12",
+	"name": "Pengo1.2",
+	"author": "gbuacorona",
+	"description": "This is a remake of Pengo, a SEGA game from 1982. To play use ASWD e space or mouse (touch).\nhttps://en.wikipedia.org/wiki/Pengo_(video_game)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/76769b21-9ef8-421e-aa11-639f65c39242/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fee9ad90-4188-4333-b04b-c9a50ffa556d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fee9ad90-4188-4333-b04b-c9a50ffa556d",
+	"unityPlayUrl": "https://play.unity.com/en/games/fee9ad90-4188-4333-b04b-c9a50ffa556d/pengo12"
+}

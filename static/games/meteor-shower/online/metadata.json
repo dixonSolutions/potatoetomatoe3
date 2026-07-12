@@ -1,0 +1,14 @@
+{
+	"id": "meteor-shower",
+	"name": "Meteor Shower",
+	"author": "dothouse0",
+	"description": "The world is about to crumble down due to a meteor shower. You are a dinosaur, and your goal is to avoid all meteors at all costs and survive as long as you can!\n\nWASD / Arrow Keys - Movement",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c23666ea-7ece-4c0c-8af1-c64812cd38fd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40eb8ca7-f868-4655-b0dd-ef8a76f2a993/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40eb8ca7-f868-4655-b0dd-ef8a76f2a993",
+	"unityPlayUrl": "https://play.unity.com/en/games/40eb8ca7-f868-4655-b0dd-ef8a76f2a993/meteor-shower"
+}

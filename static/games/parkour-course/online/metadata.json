@@ -1,0 +1,14 @@
+{
+	"id": "parkour-course",
+	"name": "Parkour Course",
+	"author": "ryanrl",
+	"description": "This parkour game involves jumping, hopping, riding and timing. Complete all the challenges to get to the end of the parkour course. Once you reach the end, touch the trigger brick to win the game! Made by Lego Ideas user mjlahaie.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eab2862e-cefd-46af-bca0-3f9550346bd3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39a2543b-e702-4ef2-a33d-7323bc1483ed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39a2543b-e702-4ef2-a33d-7323bc1483ed",
+	"unityPlayUrl": "https://play.unity.com/en/games/39a2543b-e702-4ef2-a33d-7323bc1483ed/parkour-course"
+}

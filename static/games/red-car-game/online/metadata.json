@@ -1,0 +1,14 @@
+{
+	"id": "red-car-game",
+	"name": "Red Car Game",
+	"author": "Ballstihileo",
+	"description": "Play Red Car Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/94ae4d82-724b-4bbe-a150-0989626c0829/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f84d0745-07cf-40a7-8c6d-53e66567a050/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f84d0745-07cf-40a7-8c6d-53e66567a050",
+	"unityPlayUrl": "https://play.unity.com/en/games/f84d0745-07cf-40a7-8c6d-53e66567a050/red-car-game"
+}

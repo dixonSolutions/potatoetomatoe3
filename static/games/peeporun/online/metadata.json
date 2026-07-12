@@ -1,0 +1,14 @@
+{
+	"id": "peeporun",
+	"name": "PeepoRun",
+	"author": "AusgetrunkenTV",
+	"description": "Microgame for Speedrunning",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/13382351-9164-4e6e-809b-91a47ed84a26/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bf41118-c625-438d-97f3-7b83c33cbb3a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bf41118-c625-438d-97f3-7b83c33cbb3a",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bf41118-c625-438d-97f3-7b83c33cbb3a/peeporun"
+}

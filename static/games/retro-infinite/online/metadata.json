@@ -1,0 +1,14 @@
+{
+	"id": "retro-infinite",
+	"name": "Retro Infinite",
+	"author": "ChadSquares",
+	"description": "play in class",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c6974a96-db44-44ee-88c2-19b5c7f85f44/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7d906ae1-b3f0-4dba-ad50-e6e242b423a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7d906ae1-b3f0-4dba-ad50-e6e242b423a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/7d906ae1-b3f0-4dba-ad50-e6e242b423a2/retro-infinite"
+}

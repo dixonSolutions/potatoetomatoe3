@@ -1,0 +1,14 @@
+{
+	"id": "pachinko-simulator",
+	"name": "Pachinko simulator",
+	"author": "sebasianv52",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c20b534-068d-455b-8240-ef3f9c2031cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c20b534-068d-455b-8240-ef3f9c2031cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c20b534-068d-455b-8240-ef3f9c2031cf/pachinko-simulator"
+}

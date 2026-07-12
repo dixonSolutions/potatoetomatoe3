@@ -1,0 +1,14 @@
+{
+	"id": "pirates-of-the-sea",
+	"name": "Pirates of the Sea++",
+	"author": "Unity Play",
+	"description": "Embark on an adventure to find the treasure left by the Pirate! In the process, learn some C++ programming. This is an educational game that combines gameplay and learning. We hope you enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0cb88a0f-aecf-4c23-8c0f-37e688a31480/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e058521e-9164-49c4-a3af-ac3fc23c54e6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e058521e-9164-49c4-a3af-ac3fc23c54e6",
+	"unityPlayUrl": "https://play.unity.com/en/games/e058521e-9164-49c4-a3af-ac3fc23c54e6/pirates-of-the-sea"
+}

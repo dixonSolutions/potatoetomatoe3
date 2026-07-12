@@ -1,0 +1,14 @@
+{
+	"id": "pachinko-sort-of",
+	"name": "Pachinko (sort of)",
+	"author": "DelgadoUprep",
+	"description": "Had fun making this, used Sunny Land asset pack and Brackey's 2D character controller. 2d physics for the frogs with bounciness. I made the song in GroovePad.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d8a90348-d378-4044-a97f-47b491f3f41f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b189a0f-c791-491c-85de-43602f750ee4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1b189a0f-c791-491c-85de-43602f750ee4",
+	"unityPlayUrl": "https://play.unity.com/en/games/1b189a0f-c791-491c-85de-43602f750ee4/pachinko-sort-of"
+}

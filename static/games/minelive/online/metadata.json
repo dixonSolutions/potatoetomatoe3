@@ -1,0 +1,14 @@
+{
+	"id": "minelive",
+	"name": "Minelive",
+	"author": "ustymstudios",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/064c10cc-4461-43b3-9c75-2e4e412fdd61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/196fcb00-33fd-4130-98a2-bed07eca6f35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "196fcb00-33fd-4130-98a2-bed07eca6f35",
+	"unityPlayUrl": "https://play.unity.com/en/games/196fcb00-33fd-4130-98a2-bed07eca6f35/minelive"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "online-museum",
+	"name": "Online Museum",
+	"author": "orkshire",
+	"description": "Kai Helge Wirth: Cosmos & Mythology",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/82768934-7c16-48f9-bb90-8e2389583350/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58a43f6d-78ee-4de6-b614-30be5e8fc037/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58a43f6d-78ee-4de6-b614-30be5e8fc037",
+	"unityPlayUrl": "https://play.unity.com/en/games/58a43f6d-78ee-4de6-b614-30be5e8fc037/online-museum"
+}

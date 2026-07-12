@@ -1,0 +1,14 @@
+{
+	"id": "pillars-to-grow-jr-programming-theory",
+	"name": "Pillars To Grow - Jr Programming Theory",
+	"author": "zg00gz",
+	"description": "Play with keyboard or with a gamepad. Move, jump and get the best score !\n\nI make this game during the mission Junior programmer: Apply object-oriented principles. (Programming theory in action)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47115b85-3932-4d2c-839b-798654a15b0c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12e9218e-e6cf-42b6-aa30-f5b143918b96/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12e9218e-e6cf-42b6-aa30-f5b143918b96",
+	"unityPlayUrl": "https://play.unity.com/en/games/12e9218e-e6cf-42b6-aa30-f5b143918b96/pillars-to-grow-jr-programming-theory"
+}

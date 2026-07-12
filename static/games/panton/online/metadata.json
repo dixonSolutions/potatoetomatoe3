@@ -1,0 +1,14 @@
+{
+	"id": "panton",
+	"name": "Panton",
+	"author": "archielopernes",
+	"description": "Play Panton on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a3b63e60-5e42-4a7c-9bfe-b0eeaba743a5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34b82df3-d9d0-4687-bdb6-194d11d4fca8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34b82df3-d9d0-4687-bdb6-194d11d4fca8",
+	"unityPlayUrl": "https://play.unity.com/en/games/34b82df3-d9d0-4687-bdb6-194d11d4fca8/panton"
+}

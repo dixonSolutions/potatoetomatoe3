@@ -1,0 +1,14 @@
+{
+	"id": "retrorunner-1",
+	"name": "RetroRunner 1",
+	"author": "Darsh_Khandelwal",
+	"description": "Hey guys, Darsh here! Here's my microgame from scratch. I used Expat Studio tutorials and sprites on YouTube to create this homage to Retro Mario. There are 12 Levels!!                                                                                                                       \n                                                                                                                           \nUse the left/right arrow keys to move.                                                            Use the up arrow key, space bar, or left mouse button to jump.                                                                                                        \n                                                                                                                                 I hope you guys enjoy! Let me know what you think of it!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3f111362-8e7e-4d5f-ac93-baf4a29cbc1b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39c564ac-7a5b-4e02-af37-75cfe98ffa81/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39c564ac-7a5b-4e02-af37-75cfe98ffa81",
+	"unityPlayUrl": "https://play.unity.com/en/games/39c564ac-7a5b-4e02-af37-75cfe98ffa81/retrorunner-1"
+}

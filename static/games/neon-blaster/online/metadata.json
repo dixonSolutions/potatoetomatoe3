@@ -1,0 +1,14 @@
+{
+	"id": "neon-blaster",
+	"name": "Neon Blaster",
+	"author": "Elcectron",
+	"description": "My latest microgame. This is my first real game. Its not the best but i think its okay. Sorry for the bugs. Whateep and Brackeys helped me with this game so thank you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/daaaf45a-e065-4fe7-9159-77c7a90afece/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/026ddc06-3d87-4540-8f93-fc3f973a1fdf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "026ddc06-3d87-4540-8f93-fc3f973a1fdf",
+	"unityPlayUrl": "https://play.unity.com/en/games/026ddc06-3d87-4540-8f93-fc3f973a1fdf/neon-blaster"
+}

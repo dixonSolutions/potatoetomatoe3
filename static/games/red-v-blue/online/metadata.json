@@ -1,0 +1,14 @@
+{
+	"id": "red-v-blue",
+	"name": "Red v. Blue",
+	"author": "unity_100023039",
+	"description": "2 Player Combat Game. Red controls are W, A, D to move and S to attack. Blue controls are Up, Left, and Right arrows to move and Down arrow to attack. The goal of the game is to defeat the opposing player while using the map to your advantage.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b080c96-6749-4f66-8049-f836f4893746/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1de4da4d-dbea-413d-86a4-931211e7d4a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1de4da4d-dbea-413d-86a4-931211e7d4a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/1de4da4d-dbea-413d-86a4-931211e7d4a3/red-v-blue"
+}

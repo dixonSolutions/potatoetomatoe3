@@ -1,0 +1,14 @@
+{
+	"id": "rage-mode-fps",
+	"name": "Rage Mode FPS",
+	"author": "Punster1212",
+	"description": "One Life Two Levels, Can You Beat It?\n(hint): you start with all the weapons just use 1-4 to select them.\n(hint 2): one enemy on the second map is much stronger than all others.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c76fe6cf-ee87-4748-9186-a47672cba5fb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0ea456c-430d-4f10-b254-29f23072f032/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b0ea456c-430d-4f10-b254-29f23072f032",
+	"unityPlayUrl": "https://play.unity.com/en/games/b0ea456c-430d-4f10-b254-29f23072f032/rage-mode-fps"
+}

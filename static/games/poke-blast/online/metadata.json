@@ -1,0 +1,14 @@
+{
+	"id": "poke-blast",
+	"name": "PoKe Blast",
+	"author": "shahbinshoaib",
+	"description": "A small tribute to the best show of our childhood: PokeMon\nEnable sound from the bottom right corner",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e673bb2-02a9-4181-b294-3eee3416f9b6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00627d77-19fa-49e7-9836-1a51c176977f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00627d77-19fa-49e7-9836-1a51c176977f",
+	"unityPlayUrl": "https://play.unity.com/en/games/00627d77-19fa-49e7-9836-1a51c176977f/poke-blast"
+}

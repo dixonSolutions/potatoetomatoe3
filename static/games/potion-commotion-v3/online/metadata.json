@@ -1,0 +1,14 @@
+{
+	"id": "potion-commotion-v3",
+	"name": "Potion Commotion v3",
+	"author": "tcorriveau1287",
+	"description": "There may be glitches in the game.\nControls: \nWASD to move\nE to interact (Almost everything can be interacted with)\nSpacebar to jump\nLeft Click to grab and drop things\nTab to pause\nMade by: Tyler Corriveau, Carter LeCates, Tam Smith, and Jeremiah Hernandez",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0395b1cf-afba-41a6-8a8f-f0e2f4b574c1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/017d470a-b727-49b5-9003-c6289e8a5a3b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "017d470a-b727-49b5-9003-c6289e8a5a3b",
+	"unityPlayUrl": "https://play.unity.com/en/games/017d470a-b727-49b5-9003-c6289e8a5a3b/potion-commotion-v3"
+}

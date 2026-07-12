@@ -1,0 +1,14 @@
+{
+	"id": "quad-guys",
+	"name": "quad guys",
+	"author": "uhot-9002",
+	"description": "Arrow or WASD to move/jump. Space to dash. Down Arrow / S to shoot bullet. Can you beat the highScore?                                                                                          Play on newGrounds: https://www.newgrounds.com/portal/view/887348",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef55fdf8-7a5e-4fe4-8325-cafa0ed25b79/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1455cd9d-04d0-4012-bb03-e9ea84dd9064/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1455cd9d-04d0-4012-bb03-e9ea84dd9064",
+	"unityPlayUrl": "https://play.unity.com/en/games/1455cd9d-04d0-4012-bb03-e9ea84dd9064/quad-guys"
+}

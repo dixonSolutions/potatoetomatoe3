@@ -1,0 +1,14 @@
+{
+	"id": "qubesurvive",
+	"name": "QubeSurvive",
+	"author": "Lostspiritual",
+	"description": "Don't forget to turn on the sound. Ver 0.0.1",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2f0aca88-4c95-4c38-9fc1-ce0214c4373f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1abc01be-22fa-4577-a326-c8e577fa08fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1abc01be-22fa-4577-a326-c8e577fa08fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/1abc01be-22fa-4577-a326-c8e577fa08fb/qubesurvive"
+}

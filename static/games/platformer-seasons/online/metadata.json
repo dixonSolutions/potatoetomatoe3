@@ -1,0 +1,14 @@
+{
+	"id": "platformer-seasons",
+	"name": "Platformer \"Seasons\"",
+	"author": "KatuXaKRU",
+	"description": "My first microgame about seasons.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3812549b-6eb6-4181-8e1b-c5212d12248e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bf424f4-5b1d-498c-b023-c51c090f48f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bf424f4-5b1d-498c-b023-c51c090f48f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bf424f4-5b1d-498c-b023-c51c090f48f3/platformer-seasons"
+}

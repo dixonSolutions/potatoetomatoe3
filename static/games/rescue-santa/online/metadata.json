@@ -1,0 +1,14 @@
+{
+	"id": "rescue-santa",
+	"name": "Rescue Santa",
+	"author": "akshatabhiraj5",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/81545e50-d4e8-4915-b2d5-214f06567717/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23c1f1c0-96bc-4f3d-a56e-c5664e89df62/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "23c1f1c0-96bc-4f3d-a56e-c5664e89df62",
+	"unityPlayUrl": "https://play.unity.com/en/games/23c1f1c0-96bc-4f3d-a56e-c5664e89df62/rescue-santa"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "prototype-11",
+	"name": "Prototype 1.1",
+	"author": "jwosborne",
+	"description": "Arrow keys for camera movement, scroll to zoom, drag click for unit selection and esc to deselect all units",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a26ff4f9-125b-4980-827a-1326e29f7422/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a26ff4f9-125b-4980-827a-1326e29f7422",
+	"unityPlayUrl": "https://play.unity.com/en/games/a26ff4f9-125b-4980-827a-1326e29f7422/prototype-11"
+}

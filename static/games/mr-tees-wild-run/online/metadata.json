@@ -1,0 +1,14 @@
+{
+	"id": "mr-tees-wild-run",
+	"name": "Mr. Tee's Wild Run",
+	"author": "PolygonPros",
+	"description": "Mr. Tee loves kicking cans down the street. But crates are bad for his health! Help him run for as long as you can, by running, dashing, stomping, jumping, and double-jumping through the cans, and dodging the crates. Hitting multiple cans in a row scores combos - extending your running time, and occasionally boosting your health. If you run out of health or run out of time, Mr. Tee's run is over. GL & HF! \n****** Controls ****** \nJump = Spacebar\nDouble-Jump = Spacebar x2 (pro-tip: you can jump extra times after colliding with cans or crates) \nDash = Right Arrow Key \nStomp = Down Arrow Key \nRestart Game = Enter",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/150000ac-1dcb-4c81-85bf-1e1ca9dbc2ca/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/95757d11-4ca4-4a3b-9907-6d825685bea4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "95757d11-4ca4-4a3b-9907-6d825685bea4",
+	"unityPlayUrl": "https://play.unity.com/en/games/95757d11-4ca4-4a3b-9907-6d825685bea4/mr-tees-wild-run"
+}

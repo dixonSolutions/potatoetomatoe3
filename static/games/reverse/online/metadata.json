@@ -1,0 +1,14 @@
+{
+	"id": "reverse",
+	"name": "Reverse!",
+	"author": "Joyaaauhh",
+	"description": "A maze game made in my Game Design class! Use 'W' 'A' 'S' 'D' to move around. One of the objects (ex: pink tree) is your clue to the way out!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00e483f8-f18a-4f4d-b72d-387e638ffe88/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00e483f8-f18a-4f4d-b72d-387e638ffe88",
+	"unityPlayUrl": "https://play.unity.com/en/games/00e483f8-f18a-4f4d-b72d-387e638ffe88/reverse"
+}

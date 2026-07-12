@@ -1,0 +1,14 @@
+{
+	"id": "plinko-challenge",
+	"name": "Plinko Challenge!",
+	"author": "jrenaud88",
+	"description": "Seems to play okay. The great and powerful Plinko Challenge, everyone! Will you get the highest score? Go big or bust. Play Plinko yourself or challenge your friends. ... hey, I'm plink'in he'a! (updated!)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/43c7e200-3e27-4933-8841-75e64eef2abb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c7ff27e-04b6-4d9b-9ee2-e1e96be5bff5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c7ff27e-04b6-4d9b-9ee2-e1e96be5bff5",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c7ff27e-04b6-4d9b-9ee2-e1e96be5bff5/plinko-challenge"
+}

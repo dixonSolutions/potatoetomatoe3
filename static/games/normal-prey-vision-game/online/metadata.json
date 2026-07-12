@@ -1,0 +1,14 @@
+{
+	"id": "normal-prey-vision-game",
+	"name": "Normal prey vision game",
+	"author": "justLars7D1",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c9791640-7c72-411a-8d12-8699fc1ed18f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c0a9836-d512-40cb-b6e5-659c2eedfa11/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c0a9836-d512-40cb-b6e5-659c2eedfa11",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c0a9836-d512-40cb-b6e5-659c2eedfa11/normal-prey-vision-game"
+}

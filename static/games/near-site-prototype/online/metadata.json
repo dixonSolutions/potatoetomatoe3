@@ -1,0 +1,14 @@
+{
+	"id": "near-site-prototype",
+	"name": "Near Site Prototype",
+	"author": "Ohima_Interactive_chasep",
+	"description": "WASD + Mouse to move.  Tab for settings.   So you find yourself stuck on a floating rock over a volcano, defenseless, hunted by a hover-bot you can't kill, AND you're super near sighted?  Better be sneaky and do your best to find clues on how to escape without being slain.  If only you had a pair of glasses....even then, I can only imagine how fragile they are...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ace81fc8-1111-4513-939d-0f4df5dba037/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ee77d6e4-39d1-4926-82f8-3719d90399b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ee77d6e4-39d1-4926-82f8-3719d90399b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/ee77d6e4-39d1-4926-82f8-3719d90399b4/near-site-prototype"
+}

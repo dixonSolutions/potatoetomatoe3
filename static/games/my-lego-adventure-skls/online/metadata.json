@@ -1,0 +1,14 @@
+{
+	"id": "my-lego-adventure-skls",
+	"name": "My LEGO Adventure (SKLS)",
+	"author": "cikgunaswadi",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05073c51-73e2-45ac-97d2-0a2b9027346c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c231f28-9863-4f6d-9a47-57b6dc0be8b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c231f28-9863-4f6d-9a47-57b6dc0be8b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c231f28-9863-4f6d-9a47-57b6dc0be8b8/my-lego-adventure-skls"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ours-v10-prototype",
+	"name": "OURS v.1.0 Prototype",
+	"author": "Linias",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/865c04a2-091d-4af3-af33-fe7064496f93/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "865c04a2-091d-4af3-af33-fe7064496f93",
+	"unityPlayUrl": "https://play.unity.com/en/games/865c04a2-091d-4af3-af33-fe7064496f93/ours-v10-prototype"
+}

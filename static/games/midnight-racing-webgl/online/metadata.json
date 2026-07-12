@@ -1,0 +1,14 @@
+{
+	"id": "midnight-racing-webgl",
+	"name": "Midnight Racing WEBGL",
+	"author": "Mmvlp",
+	"description": "Full physics-based 3D Arcade Racing with 4 different minigame modes  and race tracks to play around (Practice, Bowling, Checkpoints and Competitive). This project is based on a quick and simple gamelay for casual fun, enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d01a6167-f01e-4fa7-836b-1eee66adbe55/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dfabd349-6d2a-4bf0-b87d-fb9b927b04d3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dfabd349-6d2a-4bf0-b87d-fb9b927b04d3",
+	"unityPlayUrl": "https://play.unity.com/en/games/dfabd349-6d2a-4bf0-b87d-fb9b927b04d3/midnight-racing-webgl"
+}

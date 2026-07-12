@@ -1,0 +1,14 @@
+{
+	"id": "no-frogs-allowed",
+	"name": "No Frogs Allowed!",
+	"author": "briant_001",
+	"description": "LEGO tower defense game. My entry for the LEGO x Unity Microgame Game Jam Summer Edition. Here's the PC version: https://github.com/briantria/lego-summer-td/releases/tag/v0.2.0",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b9239429-002f-4d1b-a538-162ce39b7eaa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d706a097-7705-4778-b990-797638ce45ea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d706a097-7705-4778-b990-797638ce45ea",
+	"unityPlayUrl": "https://play.unity.com/en/games/d706a097-7705-4778-b990-797638ce45ea/no-frogs-allowed"
+}

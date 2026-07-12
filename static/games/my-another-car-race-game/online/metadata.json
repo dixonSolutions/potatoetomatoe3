@@ -1,0 +1,14 @@
+{
+	"id": "my-another-car-race-game",
+	"name": "My another car race game.",
+	"author": "ArunSV",
+	"description": "This is my car race game. In this game the player needs to complete three laps in the shortest possible time. This is first version of the game. The game will be improvised further in upcoming versions of the game. Hope players will enjoy the game. Players feedback and reviews are highly appreciated.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16270a86-c003-4738-8ce6-b27826683f59/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a4224fae-91db-4e44-be9c-034e56c37afc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a4224fae-91db-4e44-be9c-034e56c37afc",
+	"unityPlayUrl": "https://play.unity.com/en/games/a4224fae-91db-4e44-be9c-034e56c37afc/my-another-car-race-game"
+}

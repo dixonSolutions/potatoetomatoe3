@@ -1,0 +1,14 @@
+{
+	"id": "recycle-it-game",
+	"name": "Recycle It! Game",
+	"author": "DollarZhu",
+	"description": "Survey link: https://vassarpsych.az1.qualtrics.com/jfe/form/SV_d6Ho4zhoCo4XT5I",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e038aa96-0976-4165-b7c5-32b40cca2c7b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e038aa96-0976-4165-b7c5-32b40cca2c7b",
+	"unityPlayUrl": "https://play.unity.com/en/games/e038aa96-0976-4165-b7c5-32b40cca2c7b/recycle-it-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "meme-of-duty",
+	"name": "Meme of duty",
+	"author": "memeofdutygame",
+	"description": "The first shooter game with the best fuking memes",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7727bb01-2ac9-4026-8139-5ea50e294375/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/db273edb-a159-478d-87f7-4ccac63d3835/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "db273edb-a159-478d-87f7-4ccac63d3835",
+	"unityPlayUrl": "https://play.unity.com/en/games/db273edb-a159-478d-87f7-4ccac63d3835/meme-of-duty"
+}

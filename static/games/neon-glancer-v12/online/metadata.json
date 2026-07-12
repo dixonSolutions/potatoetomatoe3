@@ -1,0 +1,14 @@
+{
+	"id": "neon-glancer-v12",
+	"name": "Neon Glancer v1.2",
+	"author": "OzoneY",
+	"description": "Colourful neon-style small game where player is defending himself against waves of enemies. Player can buy upgrades and consumables in two shops. Project is planned to be extended with new game mode(s), enemies, second shop, and more.\n\nPause & Controls - Tab.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c9793d8a-6ad4-4eec-8066-4e9fcd683fa5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/35854573-a689-4587-94a8-bf424704ca6d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "35854573-a689-4587-94a8-bf424704ca6d",
+	"unityPlayUrl": "https://play.unity.com/en/games/35854573-a689-4587-94a8-bf424704ca6d/neon-glancer-v12"
+}

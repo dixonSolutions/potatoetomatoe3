@@ -1,0 +1,14 @@
+{
+	"id": "plane-battle",
+	"name": "Plane Battle",
+	"author": "tezenaied",
+	"description": "In Plane Battle you are the pilot of a fighter plane who has to destroy a horde of endless enemy ships.\n\nControls: \n-wasd/arrow keys: move \n-space bar: shoot\n-escape: pause",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bef3a0be-116c-4efb-814e-6ff17161133c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e9af6f9-ef77-48be-b169-c0e303359420/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e9af6f9-ef77-48be-b169-c0e303359420",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e9af6f9-ef77-48be-b169-c0e303359420/plane-battle"
+}

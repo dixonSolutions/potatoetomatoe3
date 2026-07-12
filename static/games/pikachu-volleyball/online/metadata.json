@@ -1,0 +1,14 @@
+{
+	"id": "pikachu-volleyball",
+	"name": "Pikachu Volleyball ~ \u76ae\u5361\u4e18\u6392\u7403",
+	"author": "KamiShiraSama_Neko",
+	"description": "Pikachu Volleyball (\u5bfe\u6226\u3074\u304b\u3061\u3085\uff5e\u3000\uff8b\uff9e\uff70\uff81\uff8a\uff9e\uff9a\uff70\u7de8) is an old Windows game which was developed by \"(C) SACHI SOFT / SAWAYAKAN Programmers\" and \"(C) Satoshi Takenouchi\" in 1997. The source code is gained by reverse engineering the original game and implementing it into JavaScript by gorisanson. He opensource the code in his responsitory. Thanks to his kind works, we can play this game again nowaday.\n\nhttps://github.com/gorisanson/pikachu-volleyball\n\nI am a Unity green hand and repeat it with Unity. I've tried to improve on the game by using a realistic physics system, more realistic jumps, etc. Of course, there are still many imperfections in the game. The original game had a square window, which does not match the current 16:10 window, and it result in the extra blue squares being added to the sides. The balls remnant have not implied yet, the AI is too foolish... \n\nIt is a little practice demo game for me. Wish you can like it. ; )",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/31591761-068f-40d3-8f3b-636afaf8182f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9e00a341-4848-40dc-a607-621f4ec90578/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9e00a341-4848-40dc-a607-621f4ec90578",
+	"unityPlayUrl": "https://play.unity.com/en/games/9e00a341-4848-40dc-a607-621f4ec90578/pikachu-volleyball"
+}

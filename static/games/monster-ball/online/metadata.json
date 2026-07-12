@@ -1,0 +1,14 @@
+{
+	"id": "monster-ball",
+	"name": "Monster Ball",
+	"author": "theNfan",
+	"description": "Deliver the balls to the target in time!\n\nMonster Ball was initially created as the Counting Prototype for the Junior Programmer Pathway. \nHowever, things got way out of hand when I decided I want to learn how to make a physics-based truck and model it in ProBuilder.\n\nUsed assets:\nhttps://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116\nhttps://assetstore.unity.com/packages/audio/music/rock/free-energy-hard-rock-music-pack-54012\nhttps://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776\nhttps://assetstore.unity.com/packages/audio/sound-fx/transportation/vehicle-essentials-194951\nhttps://assetstore.unity.com/packages/2d/gui/icons/controller-icon-pack-128505\nhttps://www.fontriver.com/font/monstera/\nhttps://www.fontriver.com/font/valentine_monster/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/141d4c9d-0023-413a-9779-f586d2cd5ea3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9ee2ca90-ac75-4bd2-816e-eb1c1b0559ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9ee2ca90-ac75-4bd2-816e-eb1c1b0559ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/9ee2ca90-ac75-4bd2-816e-eb1c1b0559ab/monster-ball"
+}

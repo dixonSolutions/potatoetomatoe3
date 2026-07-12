@@ -1,0 +1,14 @@
+{
+	"id": "my-space-invaders-game",
+	"name": "My Space Invaders Game",
+	"author": "unity_CSobpyMTA5hVYQ",
+	"description": "Updated to add some small stuff and change the controls a bit, you can now use arrow keys to move around as well as wasd.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/307a27c7-b622-4559-8bdf-2a67f7dbccca/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/73541709-009f-4a2c-be00-9fabba770398/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "73541709-009f-4a2c-be00-9fabba770398",
+	"unityPlayUrl": "https://play.unity.com/en/games/73541709-009f-4a2c-be00-9fabba770398/my-space-invaders-game"
+}

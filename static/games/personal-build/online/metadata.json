@@ -1,0 +1,14 @@
+{
+	"id": "personal-build",
+	"name": "personal build",
+	"author": "AimAlex",
+	"description": "Play personal build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50aac792-fb16-488b-aa2e-90d1817678cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50aac792-fb16-488b-aa2e-90d1817678cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/50aac792-fb16-488b-aa2e-90d1817678cd/personal-build"
+}

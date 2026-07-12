@@ -1,0 +1,14 @@
+{
+	"id": "ragebait",
+	"name": "Ragebait",
+	"author": "s0merand0muser",
+	"description": "Goodluck.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df9c5576-4dd4-4843-88b0-d41cdbaec546/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df9c5576-4dd4-4843-88b0-d41cdbaec546",
+	"unityPlayUrl": "https://play.unity.com/en/games/df9c5576-4dd4-4843-88b0-d41cdbaec546/ragebait"
+}

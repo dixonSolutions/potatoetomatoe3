@@ -1,0 +1,14 @@
+{
+	"id": "particle-builder",
+	"name": "Particle Builder",
+	"author": "Tony_Ru",
+	"description": "A probably stable version for singleplayer. This include levels 1 - 4.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/877e82fc-0d04-44d8-ab7f-f8cac3b2bee3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "877e82fc-0d04-44d8-ab7f-f8cac3b2bee3",
+	"unityPlayUrl": "https://play.unity.com/en/games/877e82fc-0d04-44d8-ab7f-f8cac3b2bee3/particle-builder"
+}

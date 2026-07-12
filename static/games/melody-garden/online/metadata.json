@@ -1,0 +1,14 @@
+{
+	"id": "melody-garden",
+	"name": "Melody Garden",
+	"author": "Ki-Heon",
+	"description": "Melody Garden was developed based on Unity 6 Game Jam\u2019s theme, \"6,\" inspired by the six strings of a guitar.\n\nUnity 6 Game Jam Team 1 : Wise Circle\n\n[Keys: A, D, W, Space bar, M]",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5b3cd4cc-5284-4d04-a9b8-5e47831213b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b904a253-d437-4fb1-9571-387aefec58b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b904a253-d437-4fb1-9571-387aefec58b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/b904a253-d437-4fb1-9571-387aefec58b4/melody-garden"
+}

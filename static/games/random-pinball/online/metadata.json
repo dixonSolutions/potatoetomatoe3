@@ -1,0 +1,14 @@
+{
+	"id": "random-pinball",
+	"name": "Random PinBall",
+	"author": "Dofrainer",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ab44d1b-384c-40f3-beb7-c6490af81b6a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/021a9d5e-9753-41e7-929a-efee76f14bb7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "021a9d5e-9753-41e7-929a-efee76f14bb7",
+	"unityPlayUrl": "https://play.unity.com/en/games/021a9d5e-9753-41e7-929a-efee76f14bb7/random-pinball"
+}

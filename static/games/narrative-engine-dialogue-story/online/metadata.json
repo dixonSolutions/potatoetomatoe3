@@ -1,0 +1,14 @@
+{
+	"id": "narrative-engine-dialogue-story",
+	"name": "Narrative Engine - Dialogue & Story",
+	"author": "unity_E6C814B6DDB70B7D8B29",
+	"description": "Complete dialogue system with branching choices, NPC interactions, save and rollback support - built for creating immersive, narrative-driven game experiences.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16bda182-cf20-45ba-8c87-fc2e31123826/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0498e7b0-4abc-4f5e-b1b6-9b6ccefd79b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0498e7b0-4abc-4f5e-b1b6-9b6ccefd79b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/0498e7b0-4abc-4f5e-b1b6-9b6ccefd79b5/narrative-engine-dialogue-story"
+}

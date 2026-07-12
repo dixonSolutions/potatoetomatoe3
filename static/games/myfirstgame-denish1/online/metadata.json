@@ -1,0 +1,14 @@
+{
+	"id": "myfirstgame-denish1",
+	"name": "MyFirstGame-Denish1",
+	"author": "denish12",
+	"description": "Play MyFirstGame-Denish1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0fbf49e1-4df7-447c-8171-e929a91b7353/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1f6252ae-c2b2-4dd1-aa14-caf4229e74cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1f6252ae-c2b2-4dd1-aa14-caf4229e74cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/1f6252ae-c2b2-4dd1-aa14-caf4229e74cb/myfirstgame-denish1"
+}

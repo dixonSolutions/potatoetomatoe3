@@ -1,0 +1,14 @@
+{
+	"id": "offroad-adventure",
+	"name": "OffRoad Adventure",
+	"author": "kshafiqu",
+	"description": "A total of six checkpoints are available on the map, and each one earns bonus time. The 3D feature of Terrain has been used to create the view, as well as for the entire up and down part of the landscape; grass trees and roads have been sourced from free Unity assets",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9684d0a5-22fd-4068-b7f1-12e9958106dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36a0bfae-fbed-482f-a97f-b889eb76da72/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36a0bfae-fbed-482f-a97f-b889eb76da72",
+	"unityPlayUrl": "https://play.unity.com/en/games/36a0bfae-fbed-482f-a97f-b889eb76da72/offroad-adventure"
+}

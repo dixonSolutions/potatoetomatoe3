@@ -1,0 +1,14 @@
+{
+	"id": "minecraft",
+	"name": "minecraft",
+	"author": "vandenboerb",
+	"description": "mc made by vandenboerb",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/18e4854f-587f-42a5-aae7-b807be2e1060/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49c0e969-274d-4fbe-b30d-c7049cf45128/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49c0e969-274d-4fbe-b30d-c7049cf45128",
+	"unityPlayUrl": "https://play.unity.com/en/games/49c0e969-274d-4fbe-b30d-c7049cf45128/minecraft"
+}

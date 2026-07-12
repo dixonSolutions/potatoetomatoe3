@@ -1,0 +1,14 @@
+{
+	"id": "platformergame",
+	"name": "PlatformerGame",
+	"author": "shamrock_lsm",
+	"description": "Jump to Goal!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/91fb212f-53dc-49f4-8db0-2e2a0a57c7af/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d8ade68f-7f2d-472f-9412-a54b27e38383/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d8ade68f-7f2d-472f-9412-a54b27e38383",
+	"unityPlayUrl": "https://play.unity.com/en/games/d8ade68f-7f2d-472f-9412-a54b27e38383/platformergame"
+}

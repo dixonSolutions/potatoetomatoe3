@@ -1,0 +1,14 @@
+{
+	"id": "my-new-microgame",
+	"name": "My new microgame",
+	"author": "dmstjd10",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cd6d8ee3-05a8-4034-930b-9daa5b5a01dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cd6d8ee3-05a8-4034-930b-9daa5b5a01dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/cd6d8ee3-05a8-4034-930b-9daa5b5a01dc/my-new-microgame"
+}

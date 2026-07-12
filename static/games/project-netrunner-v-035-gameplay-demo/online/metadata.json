@@ -1,0 +1,14 @@
+{
+	"id": "project-netrunner-v-035-gameplay-demo",
+	"name": "Project Netrunner v 0.35 Gameplay Demo",
+	"author": "norad89",
+	"description": "This is the latest version of Project Netrunner, a simple infinite runner game. Use the spacebar to jump, double jump or dash forward, showcasing your agility and reflexes.\nThis demo focuses on providing a basic gameplay experience while demonstrating data persistence between scenes, allowing you to keep your progress during the same play.\nFor an immersive experience, don't forget to enable the sound. Although it's a demo with limited features, it serves as a professional showcase of the core mechanics.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/36121a2a-85de-4f56-8743-3ad9318713ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28b25b26-7442-4198-b0d3-2a6c0b015c09/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "28b25b26-7442-4198-b0d3-2a6c0b015c09",
+	"unityPlayUrl": "https://play.unity.com/en/games/28b25b26-7442-4198-b0d3-2a6c0b015c09/project-netrunner-v-035-gameplay-demo"
+}

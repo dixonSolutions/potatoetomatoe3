@@ -1,0 +1,14 @@
+{
+	"id": "mit-adt-virtual-tour-game",
+	"name": "MIT ADT VIRTUAL TOUR GAME",
+	"author": "Hpking12",
+	"description": "An immersive first-person game experience that allows you to explore our campus like never before.  university to prospective students and stakeholders.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b4730ab-8a74-4c99-acf2-4fc248861a03/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b4730ab-8a74-4c99-acf2-4fc248861a03",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b4730ab-8a74-4c99-acf2-4fc248861a03/mit-adt-virtual-tour-game"
+}

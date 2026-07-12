@@ -1,0 +1,14 @@
+{
+	"id": "realistic-racing",
+	"name": "Realistic Racing",
+	"author": "Scarletor",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/439ee99b-43ee-44da-b9bc-3fbf3f615b52/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01ef1ec1-2dea-4d48-98ca-b63b33e316e4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01ef1ec1-2dea-4d48-98ca-b63b33e316e4",
+	"unityPlayUrl": "https://play.unity.com/en/games/01ef1ec1-2dea-4d48-98ca-b63b33e316e4/realistic-racing"
+}

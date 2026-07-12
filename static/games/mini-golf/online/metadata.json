@@ -1,0 +1,14 @@
+{
+	"id": "mini-golf",
+	"name": "Mini Golf",
+	"author": "eplinox",
+	"description": "Supports 3 players and contains 3 courses. Use \"A\" and \"D\" keys to aim and \"space\" key to putt.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f95a32e1-3f0d-4758-b5bd-e6153015cb49/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e170c6d1-cf72-4a28-8663-5737d7023be9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e170c6d1-cf72-4a28-8663-5737d7023be9",
+	"unityPlayUrl": "https://play.unity.com/en/games/e170c6d1-cf72-4a28-8663-5737d7023be9/mini-golf"
+}

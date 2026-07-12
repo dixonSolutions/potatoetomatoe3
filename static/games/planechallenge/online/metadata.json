@@ -1,0 +1,14 @@
+{
+	"id": "planechallenge",
+	"name": "PlaneChallenge",
+	"author": "MDOPoTempsCiel",
+	"description": "Play PlaneChallenge on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b02bbc88-53db-4d2a-a92b-86510a968943/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e8a84d1-f176-41d4-afa4-5333bf79d782/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e8a84d1-f176-41d4-afa4-5333bf79d782",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e8a84d1-f176-41d4-afa4-5333bf79d782/planechallenge"
+}

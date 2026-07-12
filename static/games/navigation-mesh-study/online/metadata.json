@@ -1,0 +1,14 @@
+{
+	"id": "navigation-mesh-study",
+	"name": "Navigation Mesh Study",
+	"author": "reevthechameleon",
+	"description": "My study about NavMesh. It includes:\n= How agents avoid each other\n= How slope, height, step, and radius settings affect where agents can and cannot go\n= How NavMeshObstacle works, both on dynamic and static obstacles\n= How NavMeshLink works\n= How to bake NavMeshSurface at runtime.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b684c6eb-273c-48f4-b032-611bfcf6f220/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c9c6a5d-6cb9-4c07-a983-574b381ec6d0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c9c6a5d-6cb9-4c07-a983-574b381ec6d0",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c9c6a5d-6cb9-4c07-a983-574b381ec6d0/navigation-mesh-study"
+}

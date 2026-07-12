@@ -1,0 +1,14 @@
+{
+	"id": "redmoon",
+	"name": "RedMoon",
+	"author": "FantasyEdition",
+	"description": "This is only a demo.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40c7ee62-e060-4c59-bceb-6caf80b15235/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8893e09b-a3b2-43a7-97a4-c9eba416913f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8893e09b-a3b2-43a7-97a4-c9eba416913f",
+	"unityPlayUrl": "https://play.unity.com/en/games/8893e09b-a3b2-43a7-97a4-c9eba416913f/redmoon"
+}

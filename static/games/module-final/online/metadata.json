@@ -1,0 +1,14 @@
+{
+	"id": "module-final",
+	"name": "Module FINAL",
+	"author": "ShotgunOtaku",
+	"description": "Final Version of game for Unity class. Changed the positions of certain walls, changed up the shaders for a bunch of the objects in the level in order to make the walls and platforms more visually distinct. The Lava obstacles now use a glowing read crystal shader, simply because it looks better.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42ac0c1f-181f-486f-ba78-e0045d7c6f36/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42ac0c1f-181f-486f-ba78-e0045d7c6f36",
+	"unityPlayUrl": "https://play.unity.com/en/games/42ac0c1f-181f-486f-ba78-e0045d7c6f36/module-final"
+}

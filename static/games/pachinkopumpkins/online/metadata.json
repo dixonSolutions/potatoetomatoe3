@@ -1,0 +1,14 @@
+{
+	"id": "pachinkopumpkins",
+	"name": "PachinkoPumpkins",
+	"author": "quiet_forest",
+	"description": "Play PachinkoPumpkins on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6fd579b6-ba29-46de-885d-a716730a9f41/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/adc749d2-2669-4c53-af7b-df43cf4115a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "adc749d2-2669-4c53-af7b-df43cf4115a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/adc749d2-2669-4c53-af7b-df43cf4115a8/pachinkopumpkins"
+}

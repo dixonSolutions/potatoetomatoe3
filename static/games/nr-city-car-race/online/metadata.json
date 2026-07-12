@@ -1,0 +1,14 @@
+{
+	"id": "nr-city-car-race",
+	"name": "NR City Car Race",
+	"author": "nidhirawat",
+	"description": "I made this mobile game in Unity 3D, bringing fast-paced racing action to city streets! Navigate sharp turns, unlock cars, and enjoy smooth controls in a stunning city environment.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a8ad4737-cc29-4974-8989-4351f8e55e6f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b63818fd-d474-4a95-a2ac-7acab392c643/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b63818fd-d474-4a95-a2ac-7acab392c643",
+	"unityPlayUrl": "https://play.unity.com/en/games/b63818fd-d474-4a95-a2ac-7acab392c643/nr-city-car-race"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "olivers-farm-v11",
+	"name": "Oliver's Farm V1.1",
+	"author": "DylanBond",
+	"description": "Oliver's Farm is an Educational RPG designed to help year 3/4 students in learning and practicing mathematical equations. It follows the story of Oliver, a farmer's son who is tasked with travelling around the village in order to help the village residents prepare for the annual food festival.microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/83ccf567-0d17-4d46-b953-99905ff3f406/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3579d8ed-f80b-4037-916b-688630fb91f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3579d8ed-f80b-4037-916b-688630fb91f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/3579d8ed-f80b-4037-916b-688630fb91f9/olivers-farm-v11"
+}

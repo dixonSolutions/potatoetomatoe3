@@ -1,0 +1,14 @@
+{
+	"id": "puzzles",
+	"name": "Puzzles",
+	"author": "V_I_Z_I_X",
+	"description": "Puzzles",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1fb196a2-22de-4e74-a756-09a1bf811a47/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e06c871-a3dd-4be1-bc55-83deefef5331/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e06c871-a3dd-4be1-bc55-83deefef5331",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e06c871-a3dd-4be1-bc55-83deefef5331/puzzles"
+}
