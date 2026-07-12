@@ -31,6 +31,26 @@ modules:
         done
         if [ -z "$SIDECAR" ]; then echo "ERROR puller sidecar missing — run pnpm puller:bundle:linux" >&2; exit 1; fi
         install -Dm755 "$SIDECAR" /app/bin/puller-sidecar
+      - |
+        # Tauri `build --no-bundle` places resources next to the binary
+        # (src-tauri/target/release/{catalog,puller}/). Linux runtime resolves
+        # resources at ../lib/<package> relative to the executable, so Flatpak
+        # must install them under /app/lib/potato-tomato/.
+        RESOURCE_SRC=src-tauri/target/release
+        CATALOG_LIST="$RESOURCE_SRC/catalog/games/games-list.json"
+        if [ ! -f "$CATALOG_LIST" ]; then
+          echo "ERROR: missing $CATALOG_LIST — run pnpm tauri:build:flatpak first" >&2
+          exit 1
+        fi
+        mkdir -p /app/lib/potato-tomato
+        cp -a "$RESOURCE_SRC/catalog" /app/lib/potato-tomato/
+        if [ -d "$RESOURCE_SRC/puller" ]; then
+          cp -a "$RESOURCE_SRC/puller" /app/lib/potato-tomato/
+        fi
+        test -f /app/lib/potato-tomato/catalog/games/games-list.json || {
+          echo "ERROR: catalog/games/games-list.json missing after install into /app/lib/potato-tomato" >&2
+          exit 1
+        }
       - install -Dm644 flatpak/com.potatotomato.games.desktop /app/share/applications/com.potatotomato.games.desktop
       - install -Dm644 buildResources/icons/potato-tomato-512.png /app/share/icons/hicolor/512x512/apps/com.potatotomato.games.png
     sources:

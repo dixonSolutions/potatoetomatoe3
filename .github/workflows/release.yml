@@ -86,6 +86,19 @@ jobs:
       - name: Build Tauri app
         run: pnpm tauri:build:flatpak
 
+      - name: Assert Tauri catalog resources
+        run: |
+          # After `tauri build --no-bundle`, resources sit next to the binary
+          # (not under target/lib/). Flatpak copies them into /app/lib/potato-tomato/.
+          CATALOG_LIST=src-tauri/target/release/catalog/games/games-list.json
+          if [ ! -f "$CATALOG_LIST" ]; then
+            echo "ERROR: missing $CATALOG_LIST after tauri build" >&2
+            echo "Searched nearby games-list.json paths:" >&2
+            find src-tauri/target -name 'games-list.json' 2>/dev/null | head -20 >&2 || true
+            exit 1
+          fi
+          echo "OK: $CATALOG_LIST"
+
       - name: Build Flatpak
         run: |
           flatpak-builder --force-clean --user --install-deps-from=flathub \

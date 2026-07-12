@@ -13,7 +13,8 @@ export {
 	isPullerAvailable,
 	invalidatePullerAvailabilityCache,
 	pullerOfflinePlayUrl,
-	pullerUnityPlayUrl
+	pullerUnityPlayUrl,
+	describePullerDownloadError
 } from './offline-downloader-puller';
 
 export {

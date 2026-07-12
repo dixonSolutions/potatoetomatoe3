@@ -22,7 +22,8 @@
 		pollDownloadUntilDone,
 		dispatchOfflineStatusChanged,
 		OFFLINE_STATUS_CHANGED,
-		isBundledOfflineGame
+		isBundledOfflineGame,
+		describePullerDownloadError
 	} from '$lib/utils/offline-downloader';
 	import { getGameMeta } from '$lib/utils/browser-offline-storage';
 	import {
@@ -160,13 +161,15 @@
 				status = await refreshGameOfflineState(gameId);
 				dispatchOfflineStatusChanged(gameId, 'download-cancel');
 			} else if (final.state === 'error') {
-				toast.error(final.error ?? 'Download failed');
+				const msg = await describePullerDownloadError(final.error);
+				toast.error(msg);
 				dispatchOfflineStatusChanged(gameId, 'download-error');
 				await refreshStatus();
 			}
 		} catch (e) {
 			if (generation !== pollGeneration) return;
-			toast.error(e instanceof Error ? e.message : 'Download failed');
+			const raw = e instanceof Error ? e.message : 'Download failed';
+			toast.error(await describePullerDownloadError(raw));
 			dispatchOfflineStatusChanged(gameId, 'download-error');
 			await refreshStatus();
 		} finally {
