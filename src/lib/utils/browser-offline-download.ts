@@ -23,6 +23,47 @@ const ASSET_PATTERN =
 const progressByGame = new Map<string, DownloadProgress>();
 const abortByGame = new Map<string, AbortController>();
 const discardOnCancel = new Map<string, boolean>();
+/** Blob URLs for cached covers (browser offline backend). */
+const thumbBlobUrls = new Map<string, string>();
+
+const COVER_PATH = '__cover__/thumbnail';
+
+async function cacheRemoteThumbnail(
+	gameId: string,
+	thumbnail: string,
+	signal: AbortSignal
+): Promise<string | null> {
+	const t = thumbnail.trim();
+	if (!t || (!t.startsWith('http') && !t.startsWith('/'))) return null;
+	try {
+		const url = t.startsWith('/') ? `${window.location.origin}${base}${t}` : t;
+		const res = await fetch(url, { signal, redirect: 'follow' });
+		if (!res.ok) return null;
+		const buf = await res.arrayBuffer();
+		if (buf.byteLength < 32) return null;
+		const mime = res.headers.get('content-type')?.split(';')[0]?.trim() || 'image/jpeg';
+		const ext =
+			mime.includes('png') ? '.png' : mime.includes('webp') ? '.webp' : mime.includes('gif') ? '.gif' : '.jpg';
+		const path = `${COVER_PATH}${ext}`;
+		await putGameFile(gameId, path, mime, buf);
+		return path;
+	} catch {
+		return null;
+	}
+}
+
+export async function browserOfflineThumbnailUrl(gameId: string): Promise<string | null> {
+	const cached = thumbBlobUrls.get(gameId);
+	if (cached) return cached;
+	const meta = await getGameMeta(gameId);
+	const path = meta?.thumbnailPath;
+	if (!path) return null;
+	const file = await getGameFile(gameId, path);
+	if (!file) return null;
+	const url = URL.createObjectURL(new Blob([file.data], { type: file.mimeType }));
+	thumbBlobUrls.set(gameId, url);
+	return url;
+}
 
 export class BrowserDownloadCancelledError extends Error {
 	constructor(message = 'Download cancelled') {
@@ -266,12 +307,15 @@ export async function fetchBrowserGameOfflineStatus(gameId: string): Promise<Gam
 	const partialCache = Boolean(meta?.partialCache) || (await hasBrowserPartialCache(gameId));
 	const offline = Boolean(meta?.downloadedAt && meta.fileCount > 0 && !meta?.partialCache);
 	const cacheFileCount = meta?.cachedFileCount ?? (partialCache ? await countStoredGameFiles(gameId) : 0);
+	const thumbUrl = offline ? await browserOfflineThumbnailUrl(gameId) : null;
 	return {
 		online,
 		offline,
 		downloading: Boolean(meta?.downloading),
 		partialCache: partialCache && !offline,
-		cacheFileCount: cacheFileCount > 0 ? cacheFileCount : undefined
+		cacheFileCount: cacheFileCount > 0 ? cacheFileCount : undefined,
+		/* Reuse offlineThumbnail for a usable URL (blob:) so cards can preferOffline without a second field. */
+		offlineThumbnail: thumbUrl ?? undefined
 	};
 }
 
@@ -367,6 +411,23 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 			totalFileCount: files.size,
 			externalIframe
 		};
+
+		try {
+			setBrowserProgress(gameId, {
+				state: 'running',
+				progress: 97,
+				message: 'Caching cover thumbnail…'
+			});
+			const { loadGameMetadata } = await import('./games');
+			const gameMeta = await loadGameMetadata(gameId);
+			const thumbPath = gameMeta?.thumbnail
+				? await cacheRemoteThumbnail(gameId, gameMeta.thumbnail, signal)
+				: null;
+			if (thumbPath) meta.thumbnailPath = thumbPath;
+		} catch {
+			/* cover is optional */
+		}
+
 		await setGameMeta(gameId, meta);
 
 		const message = externalIframe

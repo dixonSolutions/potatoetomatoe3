@@ -27,14 +27,22 @@
 	let feedReady = $state(false);
 	let favouriteIds = $state<string[]>([]);
 	let networkOnline = $state(true);
-	let offlineStatusMap = $state<Record<string, { offline?: boolean }>>({});
+	let offlineStatusMap = $state<
+		Record<string, { offline?: boolean; offlineThumbnail?: string }>
+	>({});
 
 	const continueSkeletonCount = 12;
 	const recommendedSkeletonCount = 6;
 	const featuredSkeletonCount = 8;
 
 	function thumbUrl(game: GameMetadata) {
-		return resolveGameThumbnailSrc(game.thumbnail);
+		const status = offlineStatusMap[game.id];
+		const preferOffline = !networkOnline || Boolean(status?.offline);
+		return resolveGameThumbnailSrc(game.thumbnail, {
+			gameId: game.id,
+			preferOffline,
+			offlineThumbnailRel: status?.offlineThumbnail
+		});
 	}
 
 	function placeholderDataUrl() {

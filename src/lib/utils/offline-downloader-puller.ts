@@ -8,6 +8,8 @@ export interface GameOfflineStatus {
 	downloading: boolean;
 	partialCache?: boolean;
 	cacheFileCount?: number;
+	/** Relative path under offline/ for a cached cover (puller). */
+	offlineThumbnail?: string;
 }
 
 export interface DownloadProgress {
@@ -244,6 +246,15 @@ export function pullerOfflinePlayUrl(
 		return `${getPullerGameProxyPrefix(basePath)}/${encodeURIComponent(gameId)}/offline/${safeEntry}`;
 	}
 	return `${getPullerBaseUrl()}/games/${encodeURIComponent(gameId)}/offline/${safeEntry}`;
+}
+
+/** URL for a file under the puller's offline mirror (e.g. cached cover thumbnail). */
+export function pullerOfflineAssetUrl(
+	gameId: string,
+	relPath: string,
+	basePath = ''
+): string {
+	return pullerOfflinePlayUrl(gameId, basePath, relPath);
 }
 
 /** Same-origin proxied Unity build (splash stripped) when puller is running. */

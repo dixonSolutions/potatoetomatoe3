@@ -33,9 +33,21 @@
 	let showFavouritesOnly = $state(false);
 	let showDownloadedOnly = $state(false);
 	let networkOnline = $state(true);
-	let offlineStatusMap = $state<Record<string, { offline?: boolean }>>({});
+	let offlineStatusMap = $state<
+		Record<string, { offline?: boolean; offlineThumbnail?: string }>
+	>({});
 	let fuse: Fuse<GameMetadata> | null = null;
 	let favouriteIds = $state<Set<string>>(new Set());
+
+	function thumbUrl(game: GameMetadata) {
+		const status = offlineStatusMap[game.id];
+		const preferOffline = !networkOnline || Boolean(status?.offline);
+		return resolveGameThumbnailSrc(game.thumbnail, {
+			gameId: game.id,
+			preferOffline,
+			offlineThumbnailRel: status?.offlineThumbnail
+		});
+	}
 
 	function toggleFavourite(gameId: string, event: MouseEvent) {
 		event.preventDefault();
@@ -405,7 +417,7 @@
 						<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 							<div class="relative aspect-square overflow-hidden bg-muted">
 								<img
-									src={resolveGameThumbnailSrc(game.thumbnail)}
+									src={thumbUrl(game)}
 									alt={game.name}
 									loading="lazy"
 									decoding="async"

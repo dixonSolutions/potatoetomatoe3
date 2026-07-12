@@ -26,18 +26,22 @@ import { createJob, getActiveJobForGame, isGameDownloading, listDownloadingGameI
 import { pullEmbedGame } from './strategies/embed.js';
 import { pullGenericGame } from './strategies/generic.js';
 import type { ProgressReporter } from './strategies/types.js';
+import { ensureOfflineThumbnail, readOfflineThumbnailRel } from './offline-thumbnail.js';
 
 const cancelDiscardCache = new Map<string, boolean>();
 
 export async function getGameStatus(gameId: string): Promise<GameStatus> {
 	const partialCache = await hasPartialDownloadCache(gameId);
 	const cache = partialCache ? await countOfflineFiles(gameId) : 0;
+	const offline = await hasOfflineMirror(gameId);
+	const offlineThumbnail = offline ? ((await readOfflineThumbnailRel(gameId)) ?? undefined) : undefined;
 	return {
 		online: await hasOnlineShell(gameId),
-		offline: await hasOfflineMirror(gameId),
+		offline,
 		downloading: isGameDownloading(gameId),
-		partialCache: partialCache && !(await hasOfflineMirror(gameId)),
-		cacheFileCount: cache > 0 ? cache : undefined
+		partialCache: partialCache && !offline,
+		cacheFileCount: cache > 0 ? cache : undefined,
+		offlineThumbnail
 	};
 }
 
@@ -51,12 +55,16 @@ export async function getAllGameStatuses(): Promise<Record<string, GameStatus>> 
 			const partialCache = await hasPartialDownloadCache(id);
 			const offline = await hasOfflineMirror(id);
 			const cacheFileCount = partialCache ? await countOfflineFiles(id) : 0;
+			const offlineThumbnail = offline
+				? ((await readOfflineThumbnailRel(id)) ?? undefined)
+				: undefined;
 			result[id] = {
 				online: await hasOnlineShell(id),
 				offline,
 				downloading: downloading.has(id),
 				partialCache: partialCache && !offline,
-				cacheFileCount: cacheFileCount > 0 ? cacheFileCount : undefined
+				cacheFileCount: cacheFileCount > 0 ? cacheFileCount : undefined,
+				offlineThumbnail
 			};
 		})
 	);
@@ -133,6 +141,10 @@ async function runDownloadJob(
 		} else {
 			await pullGenericGame(gameId, reporter, signal);
 		}
+
+		if (signal.aborted) throw new DownloadCancelledError();
+		reporter(96, 'Caching cover thumbnail…');
+		await ensureOfflineThumbnail(gameId);
 
 		await clearDownloadCache(gameId);
 		updateJob(gameId, {
