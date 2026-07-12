@@ -1,8 +1,12 @@
 /**
  * Privacy disguise provider/service registry.
  * Tab title and favicon are derived from the selected service (not user-customizable).
+ *
+ * Favicon hrefs use stable paths under `static/privacy-favicons/` (not Vite-hashed URLs) so
+ * prerendered SPA shells and the early `app.html` script can show the disguise before JS boots.
  */
 
+import { base } from '$app/paths';
 import googleG from '$lib/assets/Google__G__logo.svg';
 import googleDocsIcon from '$lib/assets/Google_Docs_logo_(2014-2020).svg';
 import googleSheetsIcon from '$lib/assets/privacy/google-sheets.svg';
@@ -19,21 +23,6 @@ import msOutlookIcon from '$lib/assets/privacy/microsoft-outlook.svg';
 import msOneDriveIcon from '$lib/assets/privacy/microsoft-onedrive.svg';
 import msOneNoteIcon from '$lib/assets/privacy/microsoft-onenote.svg';
 import msTeamsIcon from '$lib/assets/privacy/microsoft-teams.svg';
-
-import googleDocsIconUrl from '$lib/assets/Google_Docs_logo_(2014-2020).svg?url';
-import googleSheetsIconUrl from '$lib/assets/privacy/google-sheets.svg?url';
-import googleSlidesIconUrl from '$lib/assets/privacy/google-slides.svg?url';
-import googleDriveIconUrl from '$lib/assets/privacy/google-drive.svg?url';
-import googleGmailIconUrl from '$lib/assets/privacy/google-gmail.svg?url';
-import googleCalendarIconUrl from '$lib/assets/privacy/google-calendar.svg?url';
-import googleMeetIconUrl from '$lib/assets/privacy/google-meet.svg?url';
-import msWordIconUrl from '$lib/assets/privacy/microsoft-word.svg?url';
-import msExcelIconUrl from '$lib/assets/privacy/microsoft-excel.svg?url';
-import msPowerPointIconUrl from '$lib/assets/privacy/microsoft-powerpoint.svg?url';
-import msOutlookIconUrl from '$lib/assets/privacy/microsoft-outlook.svg?url';
-import msOneDriveIconUrl from '$lib/assets/privacy/microsoft-onedrive.svg?url';
-import msOneNoteIconUrl from '$lib/assets/privacy/microsoft-onenote.svg?url';
-import msTeamsIconUrl from '$lib/assets/privacy/microsoft-teams.svg?url';
 
 export type PrivacyDisguiseProvider = 'google' | 'microsoft';
 
@@ -135,6 +124,11 @@ export const MICROSOFT_PROVIDER_THEME: DisguiseProviderTheme = {
 	cardBorder: '1px solid transparent'
 };
 
+/** Stable public path for a service tab icon (`static/privacy-favicons/<id>.svg`). */
+export function privacyFaviconPublicPath(serviceId: string): string {
+	return `${base}/privacy-favicons/${serviceId}.svg`;
+}
+
 export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 	{
 		id: 'docs',
@@ -142,7 +136,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Google Docs',
 		tabTitles: ['Google Docs', 'Untitled document - Google Docs'],
 		serviceIcon: googleDocsIcon,
-		faviconUrl: googleDocsIconUrl,
+		faviconUrl: privacyFaviconPublicPath('docs'),
 		rememberRedirect: 'https://docs.google.com/document/u/0/'
 	},
 	{
@@ -151,7 +145,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Google Sheets',
 		tabTitles: ['Google Sheets', 'Untitled spreadsheet - Google Sheets'],
 		serviceIcon: googleSheetsIcon,
-		faviconUrl: googleSheetsIconUrl,
+		faviconUrl: privacyFaviconPublicPath('sheets'),
 		rememberRedirect: 'https://docs.google.com/spreadsheets/u/0/'
 	},
 	{
@@ -160,7 +154,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Google Slides',
 		tabTitles: ['Google Slides', 'Untitled presentation - Google Slides'],
 		serviceIcon: googleSlidesIcon,
-		faviconUrl: googleSlidesIconUrl,
+		faviconUrl: privacyFaviconPublicPath('slides'),
 		rememberRedirect: 'https://docs.google.com/presentation/u/0/'
 	},
 	{
@@ -169,7 +163,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Google Drive',
 		tabTitles: ['My Drive - Google Drive', 'Google Drive'],
 		serviceIcon: googleDriveIcon,
-		faviconUrl: googleDriveIconUrl,
+		faviconUrl: privacyFaviconPublicPath('drive'),
 		rememberRedirect: 'https://drive.google.com/drive/my-drive'
 	},
 	{
@@ -178,7 +172,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Gmail',
 		tabTitles: ['Gmail', 'Inbox - Gmail'],
 		serviceIcon: googleGmailIcon,
-		faviconUrl: googleGmailIconUrl,
+		faviconUrl: privacyFaviconPublicPath('gmail'),
 		rememberRedirect: 'https://mail.google.com/mail/u/0/'
 	},
 	{
@@ -187,7 +181,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Google Calendar',
 		tabTitles: ['Google Calendar', 'Calendar - Google Calendar'],
 		serviceIcon: googleCalendarIcon,
-		faviconUrl: googleCalendarIconUrl,
+		faviconUrl: privacyFaviconPublicPath('calendar'),
 		rememberRedirect: 'https://calendar.google.com/calendar/u/0/r'
 	},
 	{
@@ -196,7 +190,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Google Meet',
 		tabTitles: ['Google Meet', 'Meet - Google Meet'],
 		serviceIcon: googleMeetIcon,
-		faviconUrl: googleMeetIconUrl,
+		faviconUrl: privacyFaviconPublicPath('meet'),
 		rememberRedirect: 'https://meet.google.com/'
 	},
 	{
@@ -205,7 +199,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Word',
 		tabTitles: ['Document1 - Word', 'Word'],
 		serviceIcon: msWordIcon,
-		faviconUrl: msWordIconUrl,
+		faviconUrl: privacyFaviconPublicPath('word'),
 		rememberRedirect: 'https://www.office.com/launch/word'
 	},
 	{
@@ -214,7 +208,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Excel',
 		tabTitles: ['Book1 - Excel', 'Excel'],
 		serviceIcon: msExcelIcon,
-		faviconUrl: msExcelIconUrl,
+		faviconUrl: privacyFaviconPublicPath('excel'),
 		rememberRedirect: 'https://www.office.com/launch/excel'
 	},
 	{
@@ -223,7 +217,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'PowerPoint',
 		tabTitles: ['Presentation1 - PowerPoint', 'PowerPoint'],
 		serviceIcon: msPowerPointIcon,
-		faviconUrl: msPowerPointIconUrl,
+		faviconUrl: privacyFaviconPublicPath('powerpoint'),
 		rememberRedirect: 'https://www.office.com/launch/powerpoint'
 	},
 	{
@@ -232,7 +226,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Outlook',
 		tabTitles: ['Mail - Outlook', 'Outlook'],
 		serviceIcon: msOutlookIcon,
-		faviconUrl: msOutlookIconUrl,
+		faviconUrl: privacyFaviconPublicPath('outlook'),
 		rememberRedirect: 'https://outlook.office.com/mail/'
 	},
 	{
@@ -241,7 +235,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'OneDrive',
 		tabTitles: ['My files - OneDrive', 'OneDrive'],
 		serviceIcon: msOneDriveIcon,
-		faviconUrl: msOneDriveIconUrl,
+		faviconUrl: privacyFaviconPublicPath('onedrive'),
 		rememberRedirect: 'https://onedrive.live.com/'
 	},
 	{
@@ -250,7 +244,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'OneNote',
 		tabTitles: ['Notebook - OneNote', 'OneNote'],
 		serviceIcon: msOneNoteIcon,
-		faviconUrl: msOneNoteIconUrl,
+		faviconUrl: privacyFaviconPublicPath('onenote'),
 		rememberRedirect: 'https://www.onenote.com/notebooks'
 	},
 	{
@@ -259,7 +253,7 @@ export const DISGUISE_SERVICES: DisguiseServiceConfig[] = [
 		label: 'Microsoft Teams',
 		tabTitles: ['Microsoft Teams', 'Chat | Microsoft Teams'],
 		serviceIcon: msTeamsIcon,
-		faviconUrl: msTeamsIconUrl,
+		faviconUrl: privacyFaviconPublicPath('teams'),
 		rememberRedirect: 'https://teams.microsoft.com/'
 	}
 ];
@@ -308,5 +302,5 @@ export function getDecoyFaviconUrl(
 	provider: PrivacyDisguiseProvider,
 	serviceId: string
 ): string {
-	return resolveDisguiseService(provider, serviceId).faviconUrl;
+	return privacyFaviconPublicPath(resolveDisguiseService(provider, serviceId).id);
 }

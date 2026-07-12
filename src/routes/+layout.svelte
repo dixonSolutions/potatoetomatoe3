@@ -6,8 +6,8 @@
 	import { base } from '$app/paths';
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
 	import { ensureBrowserOfflineReady } from '$lib/utils/browser-offline-download';
-	/** `?url` keeps SSR and client `href` identical (plain URL); default SVG import becomes a data URL on the client only and triggers hydration warnings. */
-	import favicon from '$lib/assets/favicon.svg?url';
+	/** Same potato-over-tomato mark as TopBar (`logo.png`). `?url` keeps SSR/client href identical. */
+	import favicon from '$lib/assets/logo.png?url';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import PrivacyGate from '$lib/components/privacy-gateway/PrivacyGate.svelte';
 	import PlayLimitGate from '$lib/components/play-limit-gateway/PlayLimitGate.svelte';
@@ -35,6 +35,7 @@
 	import type { PrivacyDisguiseMode } from '$lib/utils/site-settings';
 	import { attachGlobalMediaMute } from '$lib/utils/audio-mute';
 	import { attachGameStorageBridge } from '$lib/utils/game-storage-bridge';
+	import { GAME_IMMERSIVE_CHANGED } from '$lib/utils/game-immersive';
 
 	let { data, children } = $props();
 
@@ -53,8 +54,11 @@
 		!ssrPrivacyHead.privacyModeEnabled || !!ssrPrivacyHead.privacySessionUnlocked
 	);
 	let settingsOpen = $state(false);
-	let decoyTitle = $state('Google Docs');
-	let decoyFavicon = $state(favicon);
+	let decoyTitle = $state(ssrPrivacyHead.decoyTitle ?? 'Google Docs');
+	/** Prefer SSR disguise URL; never default to the brand logo (that caused privacy-login tab flashes). */
+	let decoyFavicon = $state(
+		ssrPrivacyHead.decoyFavicon ?? getDecoyFaviconUrl('google', 'docs')
+	);
 	let privacyDisguiseMode = $state<PrivacyDisguiseMode>('focus_loss');
 	/** Tab in background — used when disguise mode is "focus loss" (Google Docs tab while away). */
 	/** Assume visible for first paint to match SSR; real state applied in onMount (tab hidden is client-only). */
@@ -62,6 +66,7 @@
 	let privacyBootstrapReady = $state(false);
 	let playLimitLocked = $state(false);
 	let playLimitToastIssued = $state(false);
+	let gameImmersive = $state(false);
 
 	/**
 	 * Title/icon must come from reactive <svelte:head>. Imperative document.title / link.href
@@ -101,15 +106,14 @@
 
 	const activeFavicon = $derived.by(() => {
 		if (!browser) {
-			if (ssrPrivacyHead.decoyTitle) {
-				return ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
-			}
+			if (ssrPrivacyHead.decoyFavicon) return ssrPrivacyHead.decoyFavicon;
+			if (ssrPrivacyHead.decoyTitle) return decoyFavicon;
 			return favicon;
 		}
+		/* Match SSR / early app.html script until bootstrap — avoid brand logo while privacy login is pending. */
 		if (!privacyBootstrapReady) {
-			if (ssrPrivacyHead.decoyTitle) {
-				return ssrPrivacyHead.decoyFavicon ?? decoyFavicon;
-			}
+			if (ssrPrivacyHead.decoyFavicon) return ssrPrivacyHead.decoyFavicon;
+			if (ssrPrivacyHead.decoyTitle) return decoyFavicon;
 			return favicon;
 		}
 		if (shouldShowDecoyTab(privacyDisguiseMode, privacyEnabled, privacyUnlocked, tabHidden)) {
@@ -117,6 +121,11 @@
 		}
 		return favicon;
 	});
+
+	/** App brand is PNG; privacy decoys are SVG. */
+	const activeFaviconType = $derived(
+		activeFavicon.includes('.png') ? 'image/png' : 'image/svg+xml'
+	);
 
 	function refreshPrivacyState() {
 		const enabled = isPrivacyEnabled();
@@ -284,6 +293,17 @@
 		const detachMediaMute = attachGlobalMediaMute(document);
 		const detachGameStorageBridge = attachGameStorageBridge();
 
+		const onGameImmersive = (e: Event) => {
+			gameImmersive = !!(e as CustomEvent<{ immersive: boolean }>).detail?.immersive;
+		};
+		const onFullscreenChange = () => {
+			gameImmersive = document.documentElement.hasAttribute('data-game-immersive');
+		};
+
+		window.addEventListener(GAME_IMMERSIVE_CHANGED, onGameImmersive);
+		document.addEventListener('fullscreenchange', onFullscreenChange);
+		document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+
 		window.addEventListener('keydown', onPrivacyKeydown);
 		window.addEventListener('focus', onWindowFocusForPrivacy);
 		document.addEventListener('visibilitychange', onVisibilityChangeForPrivacy);
@@ -300,6 +320,9 @@
 			window.removeEventListener('keydown', onPrivacyKeydown);
 			window.removeEventListener('focus', onWindowFocusForPrivacy);
 			document.removeEventListener('visibilitychange', onVisibilityChangeForPrivacy);
+			window.removeEventListener(GAME_IMMERSIVE_CHANGED, onGameImmersive);
+			document.removeEventListener('fullscreenchange', onFullscreenChange);
+			document.removeEventListener('webkitfullscreenchange', onFullscreenChange);
 		};
 	});
 
@@ -321,8 +344,8 @@
 	<title>{activeTitle}</title>
 	<!-- `key` forces a new <link> when the tab icon swaps (browsers cache favicons aggressively). -->
 	{#key activeFavicon}
-		<link rel="icon" href={activeFavicon} type="image/svg+xml" sizes="any" />
-		<link rel="shortcut icon" href={activeFavicon} type="image/svg+xml" />
+		<link rel="icon" href={activeFavicon} type={activeFaviconType} sizes="any" />
+		<link rel="shortcut icon" href={activeFavicon} type={activeFaviconType} />
 	{/key}
 </svelte:head>
 
@@ -345,7 +368,7 @@
 		class="min-h-screen"
 		inert={privacyEnabled && !privacyUnlocked ? true : playLimitLocked ? true : undefined}
 	>
-		<TopBar />
+		<TopBar hidden={gameImmersive} />
 		{#if children}
 			{@render children()}
 		{/if}

@@ -2,9 +2,92 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- Favicon only from +layout.svelte (Google Docs decoy vs app icon); avoid a duplicate first <link> that wins over the Docs SVG. -->
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
+		<!-- Favicon from +layout.svelte; early script below may swap to a privacy disguise before paint. -->
 		%sveltekit.head%
+		<!--
+			Static/SPA builds prerender the brand favicon (no per-user cookies at build time).
+			Rewrite the tab icon synchronously from settings cookie/localStorage so privacy login
+			does not flash the potato-tomato mark. Keep in sync with +layout.server.ts disguise rules.
+		-->
+		<script>
+			(function () {
+				var assets = '%sveltekit.assets%';
+				var allowed = {
+					docs: 1,
+					sheets: 1,
+					slides: 1,
+					drive: 1,
+					gmail: 1,
+					calendar: 1,
+					meet: 1,
+					word: 1,
+					excel: 1,
+					powerpoint: 1,
+					outlook: 1,
+					onedrive: 1,
+					onenote: 1,
+					teams: 1
+				};
+				function readCookie(name) {
+					var m = document.cookie.match(
+						new RegExp('(?:^|; )' + name.replace(/[$()*+.?[\\\]^{|}]/g, '\\$&') + '=([^;]*)')
+					);
+					return m ? decodeURIComponent(m[1]) : null;
+				}
+				function parseSettings() {
+					var raw = readCookie('potato-tomato-settings');
+					if (!raw) {
+						try {
+							raw = localStorage.getItem('potato-tomato-site-settings-v1');
+						} catch (e) {
+							/* ignore */
+						}
+					}
+					if (!raw) return null;
+					try {
+						return JSON.parse(raw);
+					} catch (e) {
+						return null;
+					}
+				}
+				var s = parseSettings();
+				if (!s || s.privacyModeEnabled !== true) return;
+				var mode = s.privacyDisguiseMode;
+				if (mode !== 'off' && mode !== 'focus_loss' && mode !== 'always') mode = 'focus_loss';
+				if (mode === 'off') return;
+				var unlocked = false;
+				try {
+					unlocked = sessionStorage.getItem('potato-tomato-privacy-session-ok') === '1';
+				} catch (e) {
+					/* ignore */
+				}
+				if (!unlocked) unlocked = readCookie('potato-tomato-privacy-unlock') === '1';
+				if (mode !== 'always' && unlocked) return;
+				var service =
+					typeof s.privacyDisguiseService === 'string' && allowed[s.privacyDisguiseService]
+						? s.privacyDisguiseService
+						: s.privacyDisguiseProvider === 'microsoft'
+							? 'word'
+							: 'docs';
+				var href = assets + '/privacy-favicons/' + service + '.svg';
+				var existing = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+				for (var i = 0; i < existing.length; i++) existing[i].parentNode.removeChild(existing[i]);
+				function add(rel) {
+					var link = document.createElement('link');
+					link.rel = rel;
+					link.href = href;
+					link.type = 'image/svg+xml';
+					if (rel === 'icon') link.setAttribute('sizes', 'any');
+					document.head.appendChild(link);
+				}
+				add('icon');
+				add('shortcut icon');
+			})();
+		</script>
 	</head>
 	<body data-sveltekit-preload-data="tap">
 		<div style="display: contents">%sveltekit.body%</div>
