@@ -1,0 +1,14 @@
+{
+	"id": "rna-runner",
+	"name": "RNA Runner",
+	"author": "morelanj",
+	"description": "Welcome to RNA Runner! As you fly along the strand, use the Left & Right Arrow Keys to select the correct mRNA nucleotide to correctly make base pairs. Try to figure out the base-pairing rules! Use the spacebar to get a speed boost (refreshes after each base-pair). How high of a score can you get? How fast can you go?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bdefa343-e5cb-449a-af13-a476e691b5d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8441774e-572f-49b1-9528-c037650b487f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8441774e-572f-49b1-9528-c037650b487f",
+	"unityPlayUrl": "https://play.unity.com/en/games/8441774e-572f-49b1-9528-c037650b487f/rna-runner"
+}

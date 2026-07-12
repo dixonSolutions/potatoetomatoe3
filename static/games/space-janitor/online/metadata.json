@@ -1,0 +1,14 @@
+{
+	"id": "space-janitor",
+	"name": "Space Janitor",
+	"author": "Bussuf",
+	"description": "3D recourses management game in first person movement controls. The game takes place in an outer space station in which you need to manage power and oxygen storages in order to make money but also to survive. It is possible to save your progress in the menu (press ESC) and continue next time from you left off.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/91b17643-764f-4819-a5d8-872cf183367d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5158e3cf-b137-409a-a4a4-5948c9a0c4b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5158e3cf-b137-409a-a4a4-5948c9a0c4b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/5158e3cf-b137-409a-a4a4-5948c9a0c4b5/space-janitor"
+}

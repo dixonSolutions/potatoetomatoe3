@@ -1,0 +1,14 @@
+{
+	"id": "slime-with-leaves",
+	"name": "Slime with leaves",
+	"author": "KaiKelen",
+	"description": "Made for \"Challenge: Control your Character with Visual Scripting\". Use \"WASD\" or the \"Arrow keys to move the Slime. And can use \"Shift\" to accelerate. Thanks for playing =)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/75c64779-ae81-4097-aa98-a35e646f5a8e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46b15ef6-b183-48b0-b52d-2b2717317a71/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46b15ef6-b183-48b0-b52d-2b2717317a71",
+	"unityPlayUrl": "https://play.unity.com/en/games/46b15ef6-b183-48b0-b52d-2b2717317a71/slime-with-leaves"
+}

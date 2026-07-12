@@ -1,0 +1,14 @@
+{
+	"id": "scuffed-mario-kart",
+	"name": "SCUFFED MARIO KART",
+	"author": "TheZebra99",
+	"description": "Play SCUFFED MARIO KART on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/556ee0ae-0a69-488f-8a62-ca94c2d5d9f9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4218afa5-2231-4859-a229-29857d5e8d6e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4218afa5-2231-4859-a229-29857d5e8d6e",
+	"unityPlayUrl": "https://play.unity.com/en/games/4218afa5-2231-4859-a229-29857d5e8d6e/scuffed-mario-kart"
+}

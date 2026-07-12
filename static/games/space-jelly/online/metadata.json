@@ -1,0 +1,14 @@
+{
+	"id": "space-jelly",
+	"name": "Space Jelly",
+	"author": "madebymorkle",
+	"description": "Greetings, Jelly. Complete as many missions as you can before the time runs out. Compete on the global leaderboard or just relax and collect aliens to the lo-fi beat.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b5c82c55-e7db-4562-ad7d-0f2f675f5061/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38803b74-7798-4060-b64c-2802f3deb44a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38803b74-7798-4060-b64c-2802f3deb44a",
+	"unityPlayUrl": "https://play.unity.com/en/games/38803b74-7798-4060-b64c-2802f3deb44a/space-jelly"
+}

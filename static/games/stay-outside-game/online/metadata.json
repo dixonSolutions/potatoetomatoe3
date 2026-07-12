@@ -1,0 +1,14 @@
+{
+	"id": "stay-outside-game",
+	"name": "Stay Outside Game",
+	"author": "marshybubblenuggets",
+	"description": "First game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/18fa7f34-8f3d-4655-a90c-27fe61fc9aa9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9abf7c66-db34-4a8f-98b7-e474718bae51/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9abf7c66-db34-4a8f-98b7-e474718bae51",
+	"unityPlayUrl": "https://play.unity.com/en/games/9abf7c66-db34-4a8f-98b7-e474718bae51/stay-outside-game"
+}

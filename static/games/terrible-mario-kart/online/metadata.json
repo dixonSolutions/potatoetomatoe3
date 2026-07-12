@@ -1,0 +1,14 @@
+{
+	"id": "terrible-mario-kart",
+	"name": "Terrible Mario Kart",
+	"author": "AngoGames",
+	"description": "My latest microgame. ( this is just a project I cooked up in 30 mins)..my other one is going 3 days strong so far. (;",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/be2e71a2-3d50-4053-b7d2-2551fdd275ea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9303e420-89db-4946-86b3-5e40dcef8c8d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9303e420-89db-4946-86b3-5e40dcef8c8d",
+	"unityPlayUrl": "https://play.unity.com/en/games/9303e420-89db-4946-86b3-5e40dcef8c8d/terrible-mario-kart"
+}

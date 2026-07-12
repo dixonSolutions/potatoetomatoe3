@@ -1,0 +1,14 @@
+{
+	"id": "street-racing",
+	"name": "Street Racing",
+	"author": "lucasctnh",
+	"description": "This is a single-player racing game where you try to beat your own time finishing a race.\n\n    \u25e6 See more at: https://lucascoutinho.dev",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1c317526-7175-4946-8f64-c8e6ff5246c1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fac255fe-31fa-47a7-8b3a-b4de448346b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fac255fe-31fa-47a7-8b3a-b4de448346b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/fac255fe-31fa-47a7-8b3a-b4de448346b4/street-racing"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "rover-wash",
+	"name": "Rover Wash",
+	"author": "Miramana",
+	"description": "Welcome to Rover Racing! \n\nUse the keyboard WASD keys to drive. \n\nUse the F key to shoot your autolaser, use SHIFT to boost, but be careful, they both draw power from the same source, destroy only what stands in your way, save that precious boost. \n\nEnemies will drop a variety of items when destroyed, these can be useful (ultra sticky goo gives you amazing grip temporarily) and or extremely annoying (shock crystals disable your vehicle temporarily!), so be careful when running the little ones over, you'll automatically pick up whatever they drop. Might be a good idea to destroy a few, and avoid the rest wink \n\nThe game is difficult to play, but very rewarding to master, using real physics in a low gravity environment, weight transfer is the most important thing, learn to move the weight of your rover around on its wheels with judicious use of throttle and brake, and you'll soon master the challenging terrain! \n\nYou score points by passing the checkpoints with the highest speed possible. Completing the track quickly will get you more checkpoints, but choosing to go fast into some checkpoints might be advantageous. Learn which checkpoints can be abused and which ones to respect! \n\nEnjoy, and Happy Holidays!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7d16de73-fa6e-4400-bf64-266f1fe9131c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7d16de73-fa6e-4400-bf64-266f1fe9131c",
+	"unityPlayUrl": "https://play.unity.com/en/games/7d16de73-fa6e-4400-bf64-266f1fe9131c/rover-wash"
+}

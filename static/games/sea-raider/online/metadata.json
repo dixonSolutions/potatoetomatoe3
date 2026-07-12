@@ -1,0 +1,14 @@
+{
+	"id": "sea-raider",
+	"name": "Sea Raider",
+	"author": "homeslicerae",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7346bf46-0e31-45cd-91d5-ca3c0bf14f8d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/700c85c6-781b-4c0e-989f-01f42a520f4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "700c85c6-781b-4c0e-989f-01f42a520f4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/700c85c6-781b-4c0e-989f-01f42a520f4a/sea-raider"
+}

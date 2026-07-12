@@ -1,0 +1,14 @@
+{
+	"id": "rocket-legends",
+	"name": "Rocket Legends",
+	"author": "gh4abhishek",
+	"description": "You are a skilled rocket pilot. You have to dodge the obstacles in your way and have to reach the green landing pad to move to the next level. There are total 10 levels to win the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/43316e90-f84d-4590-a3dd-ad3c730cd874/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45a8d8db-8aa8-4a75-81b9-50d3638f3191/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "45a8d8db-8aa8-4a75-81b9-50d3638f3191",
+	"unityPlayUrl": "https://play.unity.com/en/games/45a8d8db-8aa8-4a75-81b9-50d3638f3191/rocket-legends"
+}

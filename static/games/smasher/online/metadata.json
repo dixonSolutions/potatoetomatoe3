@@ -1,0 +1,14 @@
+{
+	"id": "smasher",
+	"name": "Smasher",
+	"author": "Zalver",
+	"description": "Use Arrow keys or WASD to control the player.\nTry to survive for as long as you can.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59d1ec58-f085-4d8c-ba46-6d2f785df213/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59d1ec58-f085-4d8c-ba46-6d2f785df213",
+	"unityPlayUrl": "https://play.unity.com/en/games/59d1ec58-f085-4d8c-ba46-6d2f785df213/smasher"
+}

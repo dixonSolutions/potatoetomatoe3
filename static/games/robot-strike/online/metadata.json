@@ -1,0 +1,14 @@
+{
+	"id": "robot-strike",
+	"name": "Robot Strike",
+	"author": "OwenTheOther",
+	"description": "-> My latest microgame <-",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/443b5aec-b9c2-4ebe-a104-f77077069776/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/195b8885-767e-4ea1-bb68-ed6ae483dbac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "195b8885-767e-4ea1-bb68-ed6ae483dbac",
+	"unityPlayUrl": "https://play.unity.com/en/games/195b8885-767e-4ea1-bb68-ed6ae483dbac/robot-strike"
+}

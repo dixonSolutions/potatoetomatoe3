@@ -1,0 +1,14 @@
+{
+	"id": "starway-demo-v03",
+	"name": "Starway DEMO v0.3",
+	"author": "lucilo",
+	"description": "Bring your cognitive attention to another level while having fun playing StarWay !\nGameplay video:\nhttps://www.youtube.com/watch?v=BOpR0NW0hnw\nDownload for Windows:\nhttps://mounajistudio.itch.io/starway",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/52c36da2-b265-4336-b3df-8c66f8e91038/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/140a155b-7ca9-4ff0-b676-cdf2ff38a6c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "140a155b-7ca9-4ff0-b676-cdf2ff38a6c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/140a155b-7ca9-4ff0-b676-cdf2ff38a6c3/starway-demo-v03"
+}

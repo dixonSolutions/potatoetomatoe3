@@ -1,0 +1,14 @@
+{
+	"id": "tank-battle",
+	"name": "Tank Battle",
+	"author": "Makro1997",
+	"description": "An Epic Tank Battle",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3d3fde00-3781-4856-b940-01465094b120/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/32547c8e-4497-484e-aa31-d93d6853a06f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "32547c8e-4497-484e-aa31-d93d6853a06f",
+	"unityPlayUrl": "https://play.unity.com/en/games/32547c8e-4497-484e-aa31-d93d6853a06f/tank-battle"
+}

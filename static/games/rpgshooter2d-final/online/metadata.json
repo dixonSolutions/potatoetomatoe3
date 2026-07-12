@@ -1,0 +1,14 @@
+{
+	"id": "rpgshooter2d-final",
+	"name": "RPGShooter2D Final",
+	"author": "kaylodes",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eaff1054-9373-47f6-a5be-189651644c14/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eaff1054-9373-47f6-a5be-189651644c14",
+	"unityPlayUrl": "https://play.unity.com/en/games/eaff1054-9373-47f6-a5be-189651644c14/rpgshooter2d-final"
+}

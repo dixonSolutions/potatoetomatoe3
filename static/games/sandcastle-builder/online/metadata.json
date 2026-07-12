@@ -1,0 +1,14 @@
+{
+	"id": "sandcastle-builder",
+	"name": "Sandcastle Builder",
+	"author": "dat2166",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38ea067b-3a6e-400d-bda5-8d42427d9331/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "38ea067b-3a6e-400d-bda5-8d42427d9331",
+	"unityPlayUrl": "https://play.unity.com/en/games/38ea067b-3a6e-400d-bda5-8d42427d9331/sandcastle-builder"
+}

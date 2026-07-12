@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball",
+	"name": "Roll-A-Ball",
+	"author": "alxsasha",
+	"description": "My interpretations of \"Roll a Ball\" games.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39d65e89-3819-47e7-8022-70d58c169ce6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39d65e89-3819-47e7-8022-70d58c169ce6",
+	"unityPlayUrl": "https://play.unity.com/en/games/39d65e89-3819-47e7-8022-70d58c169ce6/roll-a-ball"
+}

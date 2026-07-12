@@ -1,0 +1,14 @@
+{
+	"id": "soccer-1v1",
+	"name": "Soccer 1v1",
+	"author": "Unity Play",
+	"description": "It's a multiplayer game where 2 player either use arrow keys or WASD and the player with the most goals win.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9fd24cc3-da02-4dce-998a-d92f527b828c/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c68c426-eca7-47bc-9a37-c814e2ea6699/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c68c426-eca7-47bc-9a37-c814e2ea6699",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c68c426-eca7-47bc-9a37-c814e2ea6699/soccer-1v1"
+}

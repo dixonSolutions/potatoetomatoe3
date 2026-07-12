@@ -1,0 +1,14 @@
+{
+	"id": "splitscreen-platformer",
+	"name": "SplitScreen Platformer",
+	"author": "Arnav_Sanghavi",
+	"description": "This is a 2d split-screen platformer couch competitive game where 2 players compete to reach the finish line.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd2fe16b-bcf4-4399-8333-92cb8f1d7a43/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c360d70-cdcd-4ad7-822e-ec243c835899/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c360d70-cdcd-4ad7-822e-ec243c835899",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c360d70-cdcd-4ad7-822e-ec243c835899/splitscreen-platformer"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "super-jet",
+	"name": "Super JET",
+	"author": "pravinallrounder",
+	"description": "My first game!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/612afcc6-ff92-4b36-b6e6-a4f8ac7fd9ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df264690-77ee-4e8f-891c-c3f726eaebc7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df264690-77ee-4e8f-891c-c3f726eaebc7",
+	"unityPlayUrl": "https://play.unity.com/en/games/df264690-77ee-4e8f-891c-c3f726eaebc7/super-jet"
+}

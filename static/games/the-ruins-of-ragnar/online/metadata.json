@@ -1,0 +1,14 @@
+{
+	"id": "the-ruins-of-ragnar",
+	"name": "The Ruins of Ragnar!",
+	"author": "moophyres",
+	"description": "Join us in testing The Ruins of Ragnar, a 2D auto-run platformer game which follows the adventures of Ragnar and his pursuit of power. We are in early production and are ready to test out the first 3 levels. Thank you for taking your time to test our game, and if you could, please leave your feedback.\n\nControls\nSpacebar = Jump (can double jump, longer press for a longer jump)\n\nInstructions / Goal \nReach the end of the level (portals will be added in later)\n\nObstacles:\n\nYmir:\nSection_1\nIce spikes will protrude from the ground, avoid colliding with them\nSection_2\nIcicles will fall from the ceiling, avoid colliding with them\nPlatforms without snow on them will increase your speed as long as you\u2019re on them\nSection_3\nTraps from sections 1+2\nDark blue platforms will permanently increase your movement speed\nCollide with the rune piece to unlock the next platforms to jump on",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e0d32d11-dfd6-4e5c-8b64-ce4a30dfdd70/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/175568cd-dd0e-406e-9c8f-fb579fe95206/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "175568cd-dd0e-406e-9c8f-fb579fe95206",
+	"unityPlayUrl": "https://play.unity.com/en/games/175568cd-dd0e-406e-9c8f-fb579fe95206/the-ruins-of-ragnar"
+}

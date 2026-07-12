@@ -1,0 +1,14 @@
+{
+	"id": "rl",
+	"name": "Rl",
+	"author": "evanp1230",
+	"description": "An Idle Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2537437c-5580-4f09-9925-2e09f397a8f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2537437c-5580-4f09-9925-2e09f397a8f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/2537437c-5580-4f09-9925-2e09f397a8f0/rl"
+}

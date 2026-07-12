@@ -1,0 +1,14 @@
+{
+	"id": "the-banana-hero",
+	"name": "The Banana Hero",
+	"author": "MonkeyNerd64",
+	"description": "It is the year 2100.  A pathogen has been decimating banana populations. Can you be the banana hero?",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04ae9241-1f63-43b8-8a2f-8bb50354134c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04ae9241-1f63-43b8-8a2f-8bb50354134c",
+	"unityPlayUrl": "https://play.unity.com/en/games/04ae9241-1f63-43b8-8a2f-8bb50354134c/the-banana-hero"
+}

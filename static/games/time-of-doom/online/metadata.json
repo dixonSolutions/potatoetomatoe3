@@ -1,0 +1,14 @@
+{
+	"id": "time-of-doom",
+	"name": "Time of Doom",
+	"author": "CodeNinjaES",
+	"description": "This is an infinite race try to get the high score. There are objects that give you less points and some that give you more points, and some make you immediately die. Have fun playing Time of Doom!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c59ca586-d17d-47d2-89a4-ed1e9bdadc33/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/629d02e1-4eff-48e6-8bc5-aeec04f0fe15/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "629d02e1-4eff-48e6-8bc5-aeec04f0fe15",
+	"unityPlayUrl": "https://play.unity.com/en/games/629d02e1-4eff-48e6-8bc5-aeec04f0fe15/time-of-doom"
+}

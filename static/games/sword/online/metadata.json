@@ -1,0 +1,14 @@
+{
+	"id": "sword",
+	"name": "Sword",
+	"author": "OtusScops",
+	"description": "If the UI is out of position , click the Fullscreen  button in the bottom-right corner.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/98d003a9-1a72-422a-831b-ed0afbd94c96/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e30a5ccf-a7b6-456c-9cd9-ff13672e0179/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e30a5ccf-a7b6-456c-9cd9-ff13672e0179",
+	"unityPlayUrl": "https://play.unity.com/en/games/e30a5ccf-a7b6-456c-9cd9-ff13672e0179/sword"
+}

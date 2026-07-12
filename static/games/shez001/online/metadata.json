@@ -1,0 +1,14 @@
+{
+	"id": "shez001",
+	"name": "SheZ001",
+	"author": "Unity Play",
+	"description": "SheZ001",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/621bba69-4411-4c4d-b184-a80d61b73c19/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "621bba69-4411-4c4d-b184-a80d61b73c19",
+	"unityPlayUrl": "https://play.unity.com/en/games/621bba69-4411-4c4d-b184-a80d61b73c19/shez001"
+}

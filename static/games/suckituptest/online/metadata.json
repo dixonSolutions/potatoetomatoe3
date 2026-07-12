@@ -1,0 +1,14 @@
+{
+	"id": "suckituptest",
+	"name": "SuckItUpTest",
+	"author": "Kapuniai42",
+	"description": "Play SuckItUpTest on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d1e51b2-8b42-4636-931e-a16aa96e1322/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d1e51b2-8b42-4636-931e-a16aa96e1322",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d1e51b2-8b42-4636-931e-a16aa96e1322/suckituptest"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-threatmill",
+	"name": "The Threatmill",
+	"author": "Rava4U",
+	"description": "How long can you survive... THE THREATMILL?\nTwo playing modes:\nAVOID'EM: just don't get hit!\nCRASH'EM: get the good crates, avoid the bad ones!\n\nV3.0:\n-fixed a bug occurring during mode selection;\n-code refactoring implementing event logic (just learned! :-) )\n\nOnce again, play and share your thoughts, opinions, critics and comments. And, if you like it... also share the game!\nEnjoy!\n\nRava\n\nSound credits:\n\nDoor opening and closing\nhttps://freesound.org/people/deleted_user_7146007/sounds/383828/\nhttps://freesound.org/people/deleted_user_7146007/sounds/383441/ \nSiren effect\nhttps://freesound.org/people/kyles/sounds/450130/\nTreadmill humming\nhttps://freesound.org/people/cassssi/sounds/328999/\nJump effect\nhttps://freesound.org/people/OwlStorm/sounds/404793/\nScore effect\nhttps://freesound.org/people/ProjectsU012/sounds/341695/\nBad coin / target miss effect\nhttps://freesound.org/people/michael_kur95/sounds/333077/\nCrash\nhttps://freesound.org/people/InspectorJ/sounds/352208/\nHealth regeneration\nPotion Drink Regen Copyright 2012 DrMinky\nHealth Potion Copyright 2012 Iwan Gabovitch, CC-BY3 license. \nDark Mode switch\nhttps://freesound.org/people/EchoCinematics/sounds/131599/\nPowering up during Dark Mode\nhttps://freesound.org/people/spoonsandlessspoons/sounds/361339/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86c16642-3cfe-45ae-9838-796f2ac60fdb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a62703f-85c8-4e64-871e-7f9bef39d98a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a62703f-85c8-4e64-871e-7f9bef39d98a",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a62703f-85c8-4e64-871e-7f9bef39d98a/the-threatmill"
+}

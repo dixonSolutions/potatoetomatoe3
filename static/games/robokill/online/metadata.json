@@ -1,0 +1,14 @@
+{
+	"id": "robokill",
+	"name": "robokill",
+	"author": "GoldenWolf09",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0cd97e9c-b353-4ca5-95d6-d9dcb7e7c164/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0cd97e9c-b353-4ca5-95d6-d9dcb7e7c164",
+	"unityPlayUrl": "https://play.unity.com/en/games/0cd97e9c-b353-4ca5-95d6-d9dcb7e7c164/robokill"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-game",
+	"name": "Roll a Ball Game",
+	"author": "eyupylmzz",
+	"description": "Roll a Ball is a game where you advance to the final with the ball without falling. The course gets harder and longer as the level passes\nhttps://www.gamerhtml5.com/tr/roll-a-ball-game/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5c8c117-4ccd-4510-bfdf-20d8adbdb48e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fbe0ef22-3f55-475f-8791-7a19d77fc7ba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fbe0ef22-3f55-475f-8791-7a19d77fc7ba",
+	"unityPlayUrl": "https://play.unity.com/en/games/fbe0ef22-3f55-475f-8791-7a19d77fc7ba/roll-a-ball-game"
+}

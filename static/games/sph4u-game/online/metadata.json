@@ -1,0 +1,14 @@
+{
+	"id": "sph4u-game",
+	"name": "SPH4U - Game",
+	"author": "rabia0002",
+	"description": "Rabia",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4c3db7b6-0219-411f-8ff2-8383ce37ae82/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1efdd6f9-2b70-4f92-b8d1-791d0df1ac38/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1efdd6f9-2b70-4f92-b8d1-791d0df1ac38",
+	"unityPlayUrl": "https://play.unity.com/en/games/1efdd6f9-2b70-4f92-b8d1-791d0df1ac38/sph4u-game"
+}

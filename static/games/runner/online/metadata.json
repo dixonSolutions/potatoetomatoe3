@@ -1,0 +1,14 @@
+{
+	"id": "runner",
+	"name": "Runner",
+	"author": "Moorllk",
+	"description": "F5 - Restart, Space - Jump, Volume On.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b50ba89f-b71f-4966-9292-2b3f000df188/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6827a0fa-833c-4581-aeb8-033c62d7b959/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6827a0fa-833c-4581-aeb8-033c62d7b959",
+	"unityPlayUrl": "https://play.unity.com/en/games/6827a0fa-833c-4581-aeb8-033c62d7b959/runner"
+}

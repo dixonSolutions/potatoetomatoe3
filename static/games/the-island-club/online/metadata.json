@@ -1,0 +1,14 @@
+{
+	"id": "the-island-club",
+	"name": "The Island Club",
+	"author": "Dravioli",
+	"description": "An updated remake of The Island Club. As the head of the environmental group, The Island Club, you have devoted yourself to saving this town.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4fdd5736-3f88-4fe6-a232-80f99888f114/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7911fe8b-254e-470a-96ae-cb4aa9f695f4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7911fe8b-254e-470a-96ae-cb4aa9f695f4",
+	"unityPlayUrl": "https://play.unity.com/en/games/7911fe8b-254e-470a-96ae-cb4aa9f695f4/the-island-club"
+}

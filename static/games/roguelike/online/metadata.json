@@ -1,0 +1,14 @@
+{
+	"id": "roguelike",
+	"name": "RogueLike",
+	"author": "Reyzafauzi",
+	"description": "Still no improvement from the last lesson",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36955eb2-5e8f-4829-9ca0-be8bf9617d2d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36955eb2-5e8f-4829-9ca0-be8bf9617d2d",
+	"unityPlayUrl": "https://play.unity.com/en/games/36955eb2-5e8f-4829-9ca0-be8bf9617d2d/roguelike"
+}

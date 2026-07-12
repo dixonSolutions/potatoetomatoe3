@@ -1,0 +1,14 @@
+{
+	"id": "the-lil-dungeon",
+	"name": "The lil dungeon",
+	"author": "ShadyFig",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13caed58-2a51-4004-898e-b958840ec8ea/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "13caed58-2a51-4004-898e-b958840ec8ea",
+	"unityPlayUrl": "https://play.unity.com/en/games/13caed58-2a51-4004-898e-b958840ec8ea/the-lil-dungeon"
+}

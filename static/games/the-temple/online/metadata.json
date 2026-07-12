@@ -1,0 +1,14 @@
+{
+	"id": "the-temple",
+	"name": "The Temple",
+	"author": "Aerya",
+	"description": "Help the brave Adventurer in his first great mission!\nUncover the secrets of the Temple, an ancient hidden ruin of a glorious past civilization.\nBut be careful, because rumors say the Temple is a perilous place...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/32cc6f4e-3bbc-4ce2-bd03-a32da4c86031/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f8da416-e9d4-4285-bcb0-c2f294473ec8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f8da416-e9d4-4285-bcb0-c2f294473ec8",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f8da416-e9d4-4285-bcb0-c2f294473ec8/the-temple"
+}

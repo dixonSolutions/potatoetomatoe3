@@ -1,0 +1,14 @@
+{
+	"id": "roblox",
+	"name": "ROBLOX",
+	"author": "TheEndlers",
+	"description": "Play ROBLOX on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e520646f-e7cd-4f71-b638-014eeba4e6d4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe7204d4-0b98-40a9-8c4a-4b3cdb8fba1e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe7204d4-0b98-40a9-8c4a-4b3cdb8fba1e",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe7204d4-0b98-40a9-8c4a-4b3cdb8fba1e/roblox"
+}

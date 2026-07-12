@@ -1,0 +1,14 @@
+{
+	"id": "teledraw",
+	"name": "Teledraw",
+	"author": "SumoSimo",
+	"description": "Play Teledraw on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dc317e7e-5b66-4ee0-a68b-aa27a56242dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45b6e2e7-4230-4f3c-995a-86457c41e90b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "45b6e2e7-4230-4f3c-995a-86457c41e90b",
+	"unityPlayUrl": "https://play.unity.com/en/games/45b6e2e7-4230-4f3c-995a-86457c41e90b/teledraw"
+}

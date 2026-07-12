@@ -1,0 +1,14 @@
+{
+	"id": "to-clean-the-mountain",
+	"name": "To Clean The Mountain",
+	"author": "Unity Play",
+	"description": "To Clean The Mountain is a platformer where you traverse a mountainous environment by flinging yourself with a trash bag. Enjoy the open environment without guardrails as you persevere towards the summit.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2a6e3933-add7-43de-a623-f1a614067a47/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7d233fda-ecd3-4e0c-8de1-c0de3544d553/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7d233fda-ecd3-4e0c-8de1-c0de3544d553",
+	"unityPlayUrl": "https://play.unity.com/en/games/7d233fda-ecd3-4e0c-8de1-c0de3544d553/to-clean-the-mountain"
+}

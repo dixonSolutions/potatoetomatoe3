@@ -1,0 +1,14 @@
+{
+	"id": "to-hell-and-back",
+	"name": "To Hell And Back",
+	"author": "Vrijl",
+	"description": "2D dungeon crawler with procedurally generated levels.\n(Early prototype. Developed as part of a student project).\n\nKeybindings:\nLeft Mouse Button - Attack\nW - Move up\nA - Move left\nS - Move down\nD - Move right\nShift (hold down) - Sprint",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1c13df5e-d0a3-4614-a517-822b9d0ab4d7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/acdc95ac-1b0f-436d-ad98-928a7727fc0b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "acdc95ac-1b0f-436d-ad98-928a7727fc0b",
+	"unityPlayUrl": "https://play.unity.com/en/games/acdc95ac-1b0f-436d-ad98-928a7727fc0b/to-hell-and-back"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "run-through-the-forest-avoiding-the-obstacles-dont-get-eaten",
+	"name": "Run through the forest avoiding the obstacles! Don't get eaten!",
+	"author": "harlandpj",
+	"description": "Prototype 3 from Create with Code Summer 2020. Modified to use animals from protoype 2 as well. Jump with Space bar, Superspeed is \"S\", You get one point per second, or two in superspeed. Tried to get a restart option but couldn't work out how to restart animator on player to initial position from \"death\", and then spent 30hrs trying to clone player, rename it, and reset as original player on background, but failed to get new player rotation right so kept shooting off behind background and dying! Gave up! lol!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6119c28a-6130-42c9-82ea-b4a2d5927aab/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1aec4810-ba32-4bff-9bec-2de7df63d1c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1aec4810-ba32-4bff-9bec-2de7df63d1c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/1aec4810-ba32-4bff-9bec-2de7df63d1c3/run-through-the-forest-avoiding-the-obstacles-dont-get-eaten"
+}

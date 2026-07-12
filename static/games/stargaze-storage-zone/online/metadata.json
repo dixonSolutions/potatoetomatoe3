@@ -1,0 +1,14 @@
+{
+	"id": "stargaze-storage-zone",
+	"name": "Stargaze Storage Zone",
+	"author": "eewrong",
+	"description": "The Cosmos, a sprawling network of interconnected blockchains, is far more than a mere technological marvel; it is a rich tapestry of interstellar communities, each with its unique destiny, yet all connected in the web of cosmic existence. It is here, in the Stargaze area of this digital Metaverse, that the Alpha Gamers and friends embark on a journey of exploration and connection, driven by their unquenchable thirst for knowledge and a desire to reach beyond the known Metaverse through the power of games. \n\nTo play:\n1) On Google Chrome, go to Google Settings, System and enable graphics accelerator.\n2) When you load the game, the bottom right is to set your region, very important as you cant play with a high ping.\n3) In Game Lobby, on the Left, change your loadout. \n4) At the top, you can set a server and invite your friends to join you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5ca61a32-801f-405a-9a7e-546663d0b1fd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ca0be491-b7b7-4eec-bc64-01505e47cad8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ca0be491-b7b7-4eec-bc64-01505e47cad8",
+	"unityPlayUrl": "https://play.unity.com/en/games/ca0be491-b7b7-4eec-bc64-01505e47cad8/stargaze-storage-zone"
+}

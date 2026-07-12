@@ -1,0 +1,14 @@
+{
+	"id": "shoot-it-up",
+	"name": "Shoot It up",
+	"author": "Noah_hallows",
+	"description": "This is Shoot It up. You are the plane and you have to hit the heroes by  touching them and pressing space, and in the normal mode not get hit by the bird.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/141d91c0-8c6a-4237-b4d6-2316e8035e03/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/95018beb-0c24-4e1a-b099-8af410f29f21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "95018beb-0c24-4e1a-b099-8af410f29f21",
+	"unityPlayUrl": "https://play.unity.com/en/games/95018beb-0c24-4e1a-b099-8af410f29f21/shoot-it-up"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tethertag",
+	"name": "TetherTag",
+	"author": "GTmask",
+	"description": "A game with Tether Guns and normal guns right now just a place to mess around.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/58b8ebe8-9879-4a8f-9ad2-6f3966c90cbe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06a4f9e0-148a-4b0a-9521-748baf2955c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06a4f9e0-148a-4b0a-9521-748baf2955c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/06a4f9e0-148a-4b0a-9521-748baf2955c2/tethertag"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "super-zombie-slayer",
+	"name": "Super Zombie Slayer",
+	"author": "supersteve729",
+	"description": "Kill zombies and survive for as long as you can!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c379e980-3717-4de8-818d-b7d79654f2a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0de29dfe-a056-44cc-9417-a70e6d80f4b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0de29dfe-a056-44cc-9417-a70e6d80f4b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/0de29dfe-a056-44cc-9417-a70e6d80f4b5/super-zombie-slayer"
+}

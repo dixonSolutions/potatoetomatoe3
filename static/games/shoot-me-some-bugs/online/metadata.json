@@ -1,0 +1,14 @@
+{
+	"id": "shoot-me-some-bugs",
+	"name": "Shoot Me Some Bugs",
+	"author": "jayeshmahapatra",
+	"description": "A fast paced top down shooter, with 2 different enemy types. You have to survive for 12 waves of enemy onslaught in order to win the game.  You can take help from the occasional health pickup and powerups to aid you in your mission. Ensure unmuted run for the full experience.\n\nFight enemies and use pickups !",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f105b7c-a7f9-4d10-957d-da4ec12c5cc7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2059ae08-92ae-4753-ad85-7dfbfc06003b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2059ae08-92ae-4753-ad85-7dfbfc06003b",
+	"unityPlayUrl": "https://play.unity.com/en/games/2059ae08-92ae-4753-ad85-7dfbfc06003b/shoot-me-some-bugs"
+}

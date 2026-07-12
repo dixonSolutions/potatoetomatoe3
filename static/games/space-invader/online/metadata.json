@@ -1,0 +1,14 @@
+{
+	"id": "space-invader",
+	"name": "Space Invader",
+	"author": "Analu_star",
+	"description": "Lignor...",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06a74e99-1035-4290-b2e6-b1a03afc80d0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06a74e99-1035-4290-b2e6-b1a03afc80d0",
+	"unityPlayUrl": "https://play.unity.com/en/games/06a74e99-1035-4290-b2e6-b1a03afc80d0/space-invader"
+}

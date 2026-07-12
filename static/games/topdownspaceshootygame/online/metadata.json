@@ -1,0 +1,14 @@
+{
+	"id": "topdownspaceshootygame",
+	"name": "TopDownSpaceShootyGame",
+	"author": "Captain_Slime",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/483f3f29-f72e-4840-aa7f-068fd0b5f0aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "483f3f29-f72e-4840-aa7f-068fd0b5f0aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/483f3f29-f72e-4840-aa7f-068fd0b5f0aa/topdownspaceshootygame"
+}

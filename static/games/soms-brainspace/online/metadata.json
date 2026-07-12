@@ -1,0 +1,14 @@
+{
+	"id": "soms-brainspace",
+	"name": "SOMS BrainSpace",
+	"author": "onyanth",
+	"description": "SOMS BrainSpace - Honours Project by Anthony Tran\n\nTest 21/02/2025 upload\n\n[23/8/2023]: Now contains 4 additional 'Test your knowledge quizzes'. Correct answers shown upon completion.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/301eb5a5-556d-4d67-8b91-9e6a4d4724f2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ccb9b59e-a8dd-427c-90d1-ea9e729ce6c8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ccb9b59e-a8dd-427c-90d1-ea9e729ce6c8",
+	"unityPlayUrl": "https://play.unity.com/en/games/ccb9b59e-a8dd-427c-90d1-ea9e729ce6c8/soms-brainspace"
+}

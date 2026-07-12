@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-snowball",
+	"name": "Roll a snowball",
+	"author": "Hesswi",
+	"description": "My fifth microgame. Roll a snowball to grow it to 350M.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/018f2759-958a-4f8c-a390-9bf09d5e69f5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/166ac9c7-23a3-4e5b-a728-7a859a8c43ac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "166ac9c7-23a3-4e5b-a728-7a859a8c43ac",
+	"unityPlayUrl": "https://play.unity.com/en/games/166ac9c7-23a3-4e5b-a728-7a859a8c43ac/roll-a-snowball"
+}

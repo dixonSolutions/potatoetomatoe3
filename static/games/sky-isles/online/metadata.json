@@ -1,0 +1,14 @@
+{
+	"id": "sky-isles",
+	"name": "Sky Isles",
+	"author": "Siuan",
+	"description": "--- UPDATE: tutorial level is done ---\nStory mode objective, in case it wasn\u2019t clear enough (was it?): for level 1 you must find and get the apple before the dragon gets you. If the dragon reaches you and you have no food to give it, or if you fall too far down, you lost. If you reach the apple you pick it up with magic, and if the dragon reaches you after you have the apple, you give it the apple and it flies away :D everybody's happy. For level 2 you need to get to the highest island in the scene (collect fruits and twigs for extra score) before the mist reaches you.\nStill to do: put more trees on level 2 and make time mode; finish title screen; get saving working properly and then make it so you need to beat level 1 story mode to have access to time challenge mode and to level 2; set up the level 2 high scores. \nKnown issues: On level 2 if you fall to the mist you get resurrected at the position of your last collision with the ground; if that was with the side of the island you'll resurrect there and just fall again.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e4670111-4d33-476f-a5e9-350c87b7c9c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/92411d98-a75c-4b78-b756-9ee3de2d465c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "92411d98-a75c-4b78-b756-9ee3de2d465c",
+	"unityPlayUrl": "https://play.unity.com/en/games/92411d98-a75c-4b78-b756-9ee3de2d465c/sky-isles"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "solo-royale",
+	"name": "Solo Royale",
+	"author": "GaryRuddock",
+	"description": "Press \"F\" to pickup a weapon.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/181263f5-ae99-4273-8aed-b0e20a4c64d4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a95352bb-e573-4b2d-8afe-29fa39c23df3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a95352bb-e573-4b2d-8afe-29fa39c23df3",
+	"unityPlayUrl": "https://play.unity.com/en/games/a95352bb-e573-4b2d-8afe-29fa39c23df3/solo-royale"
+}

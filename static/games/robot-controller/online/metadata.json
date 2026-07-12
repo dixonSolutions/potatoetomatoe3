@@ -1,0 +1,14 @@
+{
+	"id": "robot-controller",
+	"name": "Robot Controller",
+	"author": "cdheale",
+	"description": "The Robot Controller for robots.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/037f78b1-f39f-45e1-98f6-b1812c73d08f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "037f78b1-f39f-45e1-98f6-b1812c73d08f",
+	"unityPlayUrl": "https://play.unity.com/en/games/037f78b1-f39f-45e1-98f6-b1812c73d08f/robot-controller"
+}

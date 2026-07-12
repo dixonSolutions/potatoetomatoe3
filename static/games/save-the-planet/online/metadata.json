@@ -1,0 +1,14 @@
+{
+	"id": "save-the-planet",
+	"name": "Save the Planet",
+	"author": "kyrylo_k",
+	"description": "Our game for the CWC Game Jam. The theme of the jam is \"Modernizing a Classic\". For full immersion, turn on the sound and switch to full screen mode in the control panel.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/83f5eeab-31a5-4430-b762-85c6055376a5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a83b1d4d-8782-4d2b-a1a6-1744bbbd6a27/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a83b1d4d-8782-4d2b-a1a6-1744bbbd6a27",
+	"unityPlayUrl": "https://play.unity.com/en/games/a83b1d4d-8782-4d2b-a1a6-1744bbbd6a27/save-the-planet"
+}

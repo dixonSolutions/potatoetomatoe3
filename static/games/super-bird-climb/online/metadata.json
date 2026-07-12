@@ -1,0 +1,14 @@
+{
+	"id": "super-bird-climb",
+	"name": "Super Bird Climb",
+	"author": "ISH-Technology",
+	"description": "a fun parkour adventure where you (a young bird) have fallen out of your nest. You must climb your way back up, but its not a easy path.\n\nWASD to move \nR to reset\nK shortcut 1\nO shortcut 2",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f5b1bd44-e0e7-4bc1-9ede-0aa770959d1d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d705824a-1dcb-4d23-8d4c-99028961ac40/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d705824a-1dcb-4d23-8d4c-99028961ac40",
+	"unityPlayUrl": "https://play.unity.com/en/games/d705824a-1dcb-4d23-8d4c-99028961ac40/super-bird-climb"
+}

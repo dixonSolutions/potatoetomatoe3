@@ -1,0 +1,14 @@
+{
+	"id": "space-miners",
+	"name": "Space Miners",
+	"author": "GR8_Matticus",
+	"description": "My rendition of the classic arcade game Asteroids!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3c771666-9c38-43ce-b334-8e2eabc3fd42/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8fe865b0-baed-49cf-b64b-2302d8c6635d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8fe865b0-baed-49cf-b64b-2302d8c6635d",
+	"unityPlayUrl": "https://play.unity.com/en/games/8fe865b0-baed-49cf-b64b-2302d8c6635d/space-miners"
+}

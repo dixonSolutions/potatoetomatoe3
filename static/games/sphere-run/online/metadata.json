@@ -1,0 +1,14 @@
+{
+	"id": "sphere-run",
+	"name": "Sphere Run",
+	"author": "shirlee_e",
+	"description": "Avoid obstacles and stay on the platform",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/230c2e8c-5094-47ed-87ae-5a1f05b9505b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0377ab13-e9ef-472e-b3f3-0f59e21d0142/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0377ab13-e9ef-472e-b3f3-0f59e21d0142",
+	"unityPlayUrl": "https://play.unity.com/en/games/0377ab13-e9ef-472e-b3f3-0f59e21d0142/sphere-run"
+}

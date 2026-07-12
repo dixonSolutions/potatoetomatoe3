@@ -1,0 +1,14 @@
+{
+	"id": "sassy-astronaut",
+	"name": "Sassy Astronaut",
+	"author": "raumaugher",
+	"description": "In my game you've crashed onto a moon-like planet and your ship is wrecked. You need to find some help, and there seems to be some alien guy that will help you out if you help him back! I really wanted to focus on using absolutely no external assets that I didn't create (except for the music). The dialogue system that you experience with the alien was the backbone for a whole quest, but it broke today and I'm not sure why. So instead of many, we only have one dialogue. Everything you see was drawn by me with adobe photoshop/fresco. This was highly inspired by the Ruby tutorial, and this Brackeys video was super helpful with the dialogues: https://www.youtube.com/watch?v=_nRzoTzeyxU    Hope you like! Song is: Song for Denise by Piano Fantasia",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4d4e992c-31ad-49ea-b0a0-1be8cdda7a61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48792920-44a2-48cd-a902-6bdadd5b9aae/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48792920-44a2-48cd-a902-6bdadd5b9aae",
+	"unityPlayUrl": "https://play.unity.com/en/games/48792920-44a2-48cd-a902-6bdadd5b9aae/sassy-astronaut"
+}

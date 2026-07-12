@@ -1,0 +1,14 @@
+{
+	"id": "super-mario-64-but-as-a-fps",
+	"name": "Super Mario 64, but as a FPS",
+	"author": "KhoolWasHere",
+	"description": "My first FPS game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8c516845-e3ea-449b-96b0-077747eb96d1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58e2e83a-56fe-4bd1-b3de-ef0d90b8aee7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58e2e83a-56fe-4bd1-b3de-ef0d90b8aee7",
+	"unityPlayUrl": "https://play.unity.com/en/games/58e2e83a-56fe-4bd1-b3de-ef0d90b8aee7/super-mario-64-but-as-a-fps"
+}

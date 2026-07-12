@@ -1,0 +1,14 @@
+{
+	"id": "shootone",
+	"name": "ShootOne",
+	"author": "Responder_",
+	"description": "Find Spheres by entering different islands with bridges. Then shoot them with your weapon of choice: a Pistol, Mac-10,  a Shotgun, FFAR, a Sniper.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/afacad67-7952-43b7-98ee-f01071dc57e4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2be5a69f-f55f-4d70-8203-bf6de4a49634/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2be5a69f-f55f-4d70-8203-bf6de4a49634",
+	"unityPlayUrl": "https://play.unity.com/en/games/2be5a69f-f55f-4d70-8203-bf6de4a49634/shootone"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "robo-wars",
+	"name": "Robo-Wars",
+	"author": "PeskyTea6",
+	"description": "Fight waves of an endless robotic horde",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/240d8363-9ff6-48db-a9aa-bf0f8218ff4e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ede3898-6d98-4442-a5b1-2020c20e5f26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ede3898-6d98-4442-a5b1-2020c20e5f26",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ede3898-6d98-4442-a5b1-2020c20e5f26/robo-wars"
+}

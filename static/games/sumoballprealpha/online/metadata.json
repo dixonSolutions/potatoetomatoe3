@@ -1,0 +1,14 @@
+{
+	"id": "sumoballprealpha",
+	"name": "Sumo_Ball_Pre_Alpha",
+	"author": "napforceelite",
+	"description": "Refresh to Restart.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02cbcad6-c833-4e1f-ae1d-a01439a23d26/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02cbcad6-c833-4e1f-ae1d-a01439a23d26",
+	"unityPlayUrl": "https://play.unity.com/en/games/02cbcad6-c833-4e1f-ae1d-a01439a23d26/sumoballprealpha"
+}

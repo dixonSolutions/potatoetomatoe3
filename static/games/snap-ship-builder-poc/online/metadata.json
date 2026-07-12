@@ -1,0 +1,14 @@
+{
+	"id": "snap-ship-builder-poc",
+	"name": "Snap Ship Builder (POC)",
+	"author": "mccorkle",
+	"description": "Build a ship with cubes, the put some thrusters on it.  \n\nRight click on each thruster and set a key to activate that thruster (note, don't use wasd, cause those move the camera). \n\nNow fly your ship!\n\n--- \n\nDuring the previous Unity cyber week sale, I purchased a lot of ship \"part kits\" and a few ship combat and space sim kits.  To bring those together with the Gestalt design, I first must be able to, ingame, snap parts of a kit together and make a functioning ship in Unity physics.  This is where I'll publish and update as I go along with that.  I am following along with quill18creates's tutorial initially, but will apply my own design and purchased art once I get closer to the end of the tutorials.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef03a8e3-b9b7-476a-9e83-21a1ed3bcb13/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/373c06c2-3097-47a1-878b-3f65bde1aab6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "373c06c2-3097-47a1-878b-3f65bde1aab6",
+	"unityPlayUrl": "https://play.unity.com/en/games/373c06c2-3097-47a1-878b-3f65bde1aab6/snap-ship-builder-poc"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-advanced",
+	"name": "Roll-a-Ball Advanced",
+	"author": "RinceArt",
+	"description": "An enhanced version of the popular Roll-a-Ball tutorial game. Collect all pickups before the time limit runs out and face increased challenges as you level up.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4795a592-41be-4020-8f8a-4e192234419a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6f3de24b-3287-4ed6-a2e3-6d44949ebb63/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6f3de24b-3287-4ed6-a2e3-6d44949ebb63",
+	"unityPlayUrl": "https://play.unity.com/en/games/6f3de24b-3287-4ed6-a2e3-6d44949ebb63/roll-a-ball-advanced"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "this-game-is-probably-impossible",
+	"name": "This game is probably impossible",
+	"author": "umshere",
+	"description": "try to beat up all the enemy bots (Beware there are a LOT of them)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7803cc18-2bc1-4c6b-a0da-65e458682cbe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06800c62-5f89-4b25-a28e-5a93976da5c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06800c62-5f89-4b25-a28e-5a93976da5c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/06800c62-5f89-4b25-a28e-5a93976da5c7/this-game-is-probably-impossible"
+}

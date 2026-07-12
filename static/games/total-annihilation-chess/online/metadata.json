@@ -1,0 +1,14 @@
+{
+	"id": "total-annihilation-chess",
+	"name": "TOTAL ANNIHILATION CHESS",
+	"author": "bry33productions",
+	"description": "No checkmate! Win by destroying all enemy pieces. Captured pieces are instantly replaced by the next lowest rank (Pawn>Knight>Bishop>Rook>Queen). If your King falls, a Pawn becomes the new King.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/027846a6-ba2d-4931-8246-cbbbbd15b5b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "027846a6-ba2d-4931-8246-cbbbbd15b5b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/027846a6-ba2d-4931-8246-cbbbbd15b5b3/total-annihilation-chess"
+}

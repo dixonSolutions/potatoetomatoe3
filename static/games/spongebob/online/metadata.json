@@ -1,0 +1,14 @@
+{
+	"id": "spongebob",
+	"name": "Spongebob",
+	"author": "NotoriousNate",
+	"description": "Play Spongebob on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd2ec8ac-c6ad-4780-acb6-e084322f893d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a7fbd5ec-ea0e-4945-9d0d-721c28d3541b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a7fbd5ec-ea0e-4945-9d0d-721c28d3541b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a7fbd5ec-ea0e-4945-9d0d-721c28d3541b/spongebob"
+}

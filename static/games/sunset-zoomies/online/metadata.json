@@ -1,0 +1,14 @@
+{
+	"id": "sunset-zoomies",
+	"name": "Sunset Zoomies",
+	"author": "GalaxiasKyklos",
+	"description": "A Endless Cat runner game\n\nFOR Mobile - (Please make sure to set to Desktop Mode and Rotate phone )\nMobile - Tap to jump,tap and hold to jump higher\nPC - Spacebar to jump, hold jump to jump higher",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1099620c-ab44-4642-bf03-539d039e2b50/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1099620c-ab44-4642-bf03-539d039e2b50",
+	"unityPlayUrl": "https://play.unity.com/en/games/1099620c-ab44-4642-bf03-539d039e2b50/sunset-zoomies"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tiff-jam-my-first-game-jam",
+	"name": "Tiff Jam: My First Game Jam",
+	"author": "TiffJam",
+	"description": "Play Tiff Jam: My First Game Jam on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/58751c62-3883-440f-9147-9d4ec89fa745/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a914925-67ce-4d6d-bd5b-e5d80b9efd2c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a914925-67ce-4d6d-bd5b-e5d80b9efd2c",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a914925-67ce-4d6d-bd5b-e5d80b9efd2c/tiff-jam-my-first-game-jam"
+}

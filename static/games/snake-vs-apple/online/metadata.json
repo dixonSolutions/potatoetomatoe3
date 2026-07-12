@@ -1,0 +1,14 @@
+{
+	"id": "snake-vs-apple",
+	"name": "SNAKE vs APPLE",
+	"author": "Spider_DLH",
+	"description": "SNAKE vs APPLE Is a fun and Entertaining Snake type game where you Eat Apples to grow your Snake and get a high score it saves the high score so you can try beat it later. I really hope you enjoy this game as i worked really hard on it and its my first finished game ive done so far",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/778b75a7-fa1c-492c-838c-154ebcfb0946/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a0e7895-7ef8-44c9-8b69-70b3da77012b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a0e7895-7ef8-44c9-8b69-70b3da77012b",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a0e7895-7ef8-44c9-8b69-70b3da77012b/snake-vs-apple"
+}

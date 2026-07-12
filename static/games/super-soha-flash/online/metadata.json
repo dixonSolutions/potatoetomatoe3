@@ -1,0 +1,14 @@
+{
+	"id": "super-soha-flash",
+	"name": "SUPER SoHa FLASH",
+	"author": "marijanantakli",
+	"description": "Das Spiel wurde von den Kinder der Sonnenhalde Grundschule Konstanz entworfen.\n\nVersucht den Highscore zu knacken ihr Loser!\n\nViel Spa\u00df beim Spielen!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d474e4b5-ebdb-4d2b-9f77-60201731d6a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a5c43939-dfb6-49a2-a28b-dd9a56cdaf76/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a5c43939-dfb6-49a2-a28b-dd9a56cdaf76",
+	"unityPlayUrl": "https://play.unity.com/en/games/a5c43939-dfb6-49a2-a28b-dd9a56cdaf76/super-soha-flash"
+}

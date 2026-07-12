@@ -1,0 +1,14 @@
+{
+	"id": "robots",
+	"name": "robots!",
+	"author": "dhivagarp45",
+	"description": "enjoy the game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b8412a5d-8386-4490-8543-4337188d328c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1cc286fc-e0d1-41de-b758-92639e8e557a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1cc286fc-e0d1-41de-b758-92639e8e557a",
+	"unityPlayUrl": "https://play.unity.com/en/games/1cc286fc-e0d1-41de-b758-92639e8e557a/robots"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "sylva",
+	"name": "SYLVA",
+	"author": "HappySeal_Games",
+	"description": "Welcome to SYLVA!\nProtect the Sacred Tree! \nPlant seeds for flower allies or consume them for boosts. \nSurvive endless insect swarms and fight for the top spot on the global leaderboard!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/da9d1fc5-fab0-487c-9867-364f3cb0f945/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58812dd8-ab1c-4e7e-ae10-82996a9a9e55/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58812dd8-ab1c-4e7e-ae10-82996a9a9e55",
+	"unityPlayUrl": "https://play.unity.com/en/games/58812dd8-ab1c-4e7e-ae10-82996a9a9e55/sylva"
+}

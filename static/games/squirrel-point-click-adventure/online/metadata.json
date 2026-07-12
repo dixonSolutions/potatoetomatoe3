@@ -1,0 +1,14 @@
+{
+	"id": "squirrel-point-click-adventure",
+	"name": "Squirrel Point & Click Adventure",
+	"author": "nxzmyki",
+	"description": "Click on the items and try to get the acorn to the squirrel!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/31bd3495-93b1-4ba3-8a5e-cb728e8768b8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/018fd193-6087-463c-b402-0171c2aa18df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "018fd193-6087-463c-b402-0171c2aa18df",
+	"unityPlayUrl": "https://play.unity.com/en/games/018fd193-6087-463c-b402-0171c2aa18df/squirrel-point-click-adventure"
+}

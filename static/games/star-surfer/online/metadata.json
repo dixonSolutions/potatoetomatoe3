@@ -1,0 +1,14 @@
+{
+	"id": "star-surfer",
+	"name": "Star Surfer",
+	"author": "unity_Nachiket",
+	"description": "My very first Unity game! No fancy graphics, just a raw experiment with physics and code. Navigate past the boxes, collect all the stars, and see my first steps as a developer.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9657d0ee-a1f3-40dc-aaeb-afd884bf25ec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0864a266-4e05-4e61-b0c3-7ee2e9b33431/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0864a266-4e05-4e61-b0c3-7ee2e9b33431",
+	"unityPlayUrl": "https://play.unity.com/en/games/0864a266-4e05-4e61-b0c3-7ee2e9b33431/star-surfer"
+}

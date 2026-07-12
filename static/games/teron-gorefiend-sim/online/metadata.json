@@ -1,0 +1,14 @@
+{
+	"id": "teron-gorefiend-sim",
+	"name": "Teron Gorefiend Sim",
+	"author": "ijust-dev",
+	"description": "Recreation of the Teron Gorefiend flash game. Use abilities to stop the ghosts from reaching the boss. Press 'R' to restart.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/70b0553b-bef9-4153-8639-337cb40843b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "70b0553b-bef9-4153-8639-337cb40843b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/70b0553b-bef9-4153-8639-337cb40843b6/teron-gorefiend-sim"
+}

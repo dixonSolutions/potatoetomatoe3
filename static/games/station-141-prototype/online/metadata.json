@@ -1,0 +1,14 @@
+{
+	"id": "station-141-prototype",
+	"name": "Station 141 | Prototype",
+	"author": "Unity Play",
+	"description": "A short old-school FPS with fast gameplay and punchy weapons. Standalone Windows version also available at: https://booleet.itch.io/station-141",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/abf82ea1-581c-4c5f-be65-194426325d69/content",
+	"category": "first-person-shooter",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bd0904d-09bd-4c0d-8e57-4a49b79d18a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bd0904d-09bd-4c0d-8e57-4a49b79d18a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bd0904d-09bd-4c0d-8e57-4a49b79d18a3/station-141-prototype"
+}

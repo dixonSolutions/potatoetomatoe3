@@ -1,0 +1,14 @@
+{
+	"id": "super-pig-kicker",
+	"name": "Super Pig Kicker",
+	"author": "NeverEvi",
+	"description": "Kick some pigs, kick some more pigs, kick BETTER pigs!\nCollect bacon.\nUpgrade your trough to get passive bacon faster!\n\nPC Controls:\n-WASD to move.\n-Space to kick.\n-Q to open/close the shop.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d63b7b30-8917-43b0-b445-75141748e414/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c2bb0617-3436-428d-8a7a-3ee2ded3bbdd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c2bb0617-3436-428d-8a7a-3ee2ded3bbdd",
+	"unityPlayUrl": "https://play.unity.com/en/games/c2bb0617-3436-428d-8a7a-3ee2ded3bbdd/super-pig-kicker"
+}

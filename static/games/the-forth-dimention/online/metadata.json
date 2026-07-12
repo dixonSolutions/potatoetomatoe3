@@ -1,0 +1,14 @@
+{
+	"id": "the-forth-dimention",
+	"name": "The Forth Dimention",
+	"author": "mhfalken",
+	"description": "2D platform game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c8c7975f-f9b9-42ac-9171-dc89689e169e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b0181f3-4f7d-4277-b1c9-126c3505451a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b0181f3-4f7d-4277-b1c9-126c3505451a",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b0181f3-4f7d-4277-b1c9-126c3505451a/the-forth-dimention"
+}

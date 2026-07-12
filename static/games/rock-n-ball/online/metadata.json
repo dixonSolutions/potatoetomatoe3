@@ -1,0 +1,14 @@
+{
+	"id": "rock-n-ball",
+	"name": "Rock 'n' Ball",
+	"author": "Krisztian92",
+	"description": "Hey guys, this is my first game i,ve ever made by my own. Please feel free and leave a comment.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ad42e143-7428-4a1c-bc5e-2b08d35b227f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0bd9c62-2187-40bd-addd-89acc459323f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b0bd9c62-2187-40bd-addd-89acc459323f",
+	"unityPlayUrl": "https://play.unity.com/en/games/b0bd9c62-2187-40bd-addd-89acc459323f/rock-n-ball"
+}

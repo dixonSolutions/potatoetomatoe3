@@ -1,0 +1,14 @@
+{
+	"id": "small-racer-v005",
+	"name": "Small Racer V0.05",
+	"author": "misiakow",
+	"description": "Use Arrows to drive, Z and X to change gears. Small build to test drive system. Using Broken Vector and Alex Lenk assets.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0279d643-ea60-4527-91f2-00f6cf8d8388/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/91a7728b-3ca6-4cfb-8bf9-48917eef157b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "91a7728b-3ca6-4cfb-8bf9-48917eef157b",
+	"unityPlayUrl": "https://play.unity.com/en/games/91a7728b-3ca6-4cfb-8bf9-48917eef157b/small-racer-v005"
+}

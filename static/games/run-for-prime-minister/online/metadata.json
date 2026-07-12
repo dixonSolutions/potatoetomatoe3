@@ -1,0 +1,14 @@
+{
+	"id": "run-for-prime-minister",
+	"name": "Run for Prime Minister",
+	"author": "GavinMiller",
+	"description": "Play Run for Prime Minister on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8b883937-fb72-43ce-8c8a-9628b6dc23f8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cba1eda4-594b-451e-9674-f6d9f2ac7e1e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cba1eda4-594b-451e-9674-f6d9f2ac7e1e",
+	"unityPlayUrl": "https://play.unity.com/en/games/cba1eda4-594b-451e-9674-f6d9f2ac7e1e/run-for-prime-minister"
+}

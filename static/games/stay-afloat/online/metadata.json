@@ -1,0 +1,14 @@
+{
+	"id": "stay-afloat",
+	"name": "Stay Afloat",
+	"author": "BLNKY",
+	"description": "Stay Afloat, a Jam entry for Ludum Dare 50 by Fredrik Rosell. At the bottom of the game window, make sure to turn on the sound and to run in fullscreen.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7ffb73bc-0382-4ee0-829b-083dcc577e8a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ed37849a-2338-40f8-a8d5-7f2fa5b5b4e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ed37849a-2338-40f8-a8d5-7f2fa5b5b4e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/ed37849a-2338-40f8-a8d5-7f2fa5b5b4e3/stay-afloat"
+}

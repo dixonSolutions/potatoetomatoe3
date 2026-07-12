@@ -1,0 +1,14 @@
+{
+	"id": "sp4c3-ride",
+	"name": "SP4C3 Ride!",
+	"author": "martinwinged",
+	"description": "low gravity, hyper-donut jumps and much more! entry for Karting mode challenge.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dba6e9f4-1aca-434a-bc77-8ab9b280766a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36b34b15-8745-44dc-b5cd-ff9819df59b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36b34b15-8745-44dc-b5cd-ff9819df59b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/36b34b15-8745-44dc-b5cd-ff9819df59b3/sp4c3-ride"
+}

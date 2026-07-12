@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-modified",
+	"name": "Roll A Ball (Modified)",
+	"author": "CapitalKage",
+	"description": "This is my Roll A Ball build from the Unity Tutorial. I have modified the game slightly to show my own personal tweaks to the game. In my version, you have player health which can be deducted by running into enemies. I have also increased the speed of the ball movement to make it more challenging to avoid the enemies. You will also find ramps and multi-tier ramps to give the level more exploration and a deeper challenge. Finally, I have added a game over message that will appear if you have lost all your health points.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2663664b-7255-4258-a7f1-fc85d6a6f19d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0746335c-90da-4289-b157-7559bbed8400/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0746335c-90da-4289-b157-7559bbed8400",
+	"unityPlayUrl": "https://play.unity.com/en/games/0746335c-90da-4289-b157-7559bbed8400/roll-a-ball-modified"
+}

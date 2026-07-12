@@ -1,0 +1,14 @@
+{
+	"id": "tanks-mastery",
+	"name": "Tanks Mastery",
+	"author": "HunterLucius",
+	"description": "Top down tanks shooter based on tanks template. Supports 2 player couch coop and selection of game modes to play solo, in team or pvp.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d2c6f1dd-f89e-4bcc-ba00-134d86c90d94/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2032c440-fc20-48ba-a5f0-dc8103caef94/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2032c440-fc20-48ba-a5f0-dc8103caef94",
+	"unityPlayUrl": "https://play.unity.com/en/games/2032c440-fc20-48ba-a5f0-dc8103caef94/tanks-mastery"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "slot-machine",
+	"name": "Slot Machine",
+	"author": "nghianvfpt",
+	"description": "quay",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71e5e4e5-f7fe-4c49-bc17-f655505e96fd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "71e5e4e5-f7fe-4c49-bc17-f655505e96fd",
+	"unityPlayUrl": "https://play.unity.com/en/games/71e5e4e5-f7fe-4c49-bc17-f655505e96fd/slot-machine"
+}

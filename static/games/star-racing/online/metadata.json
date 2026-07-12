@@ -1,0 +1,14 @@
+{
+	"id": "star-racing",
+	"name": "Star Racing",
+	"author": "renanpcruz",
+	"description": "Star Racing is a racing game (Time Attack), whose objective is to complete the established course in less than the maximum time stipulated. If you want, you can also destroy the enemies during the course. \n\nWhat was done:\n\n- Implemented player movement;\n- Build NPCs and some environment models using Stud.io;\n- Rig NPCs using blender;\n- Animated the NPC's using blender (Idle, Walking and Die animation);\n- Track system (track was based in the 1999 Lego Racer game - Ice Planet Pathway track);\n- Implemented the player movement;\n- Implemented Checkpoint system (each lap can only be completed if you pass in all checkpoints in the correct order);\n- Implemented Minimap (shows the track, player location and enemies locations);\n- Head Procedural Animation of some NPC's (follow the player if hes in front and near);\n- Effects (boost, hit enemy, hit ground, projectiles)\n- Sound effects (footsteps, spaceships, projectiles, menu UI)\n- Completely redo the game UI.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/36737239-ad29-41fd-96db-361ebcef4312/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/167a33c3-1161-4124-98b0-384d7b54e474/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "167a33c3-1161-4124-98b0-384d7b54e474",
+	"unityPlayUrl": "https://play.unity.com/en/games/167a33c3-1161-4124-98b0-384d7b54e474/star-racing"
+}

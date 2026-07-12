@@ -1,0 +1,14 @@
+{
+	"id": "top-down-tank",
+	"name": "Top Down Tank",
+	"author": "malaycake",
+	"description": "How to play:\n1) Arrow keys for moving the tank, space bar to fire, Enter to start/restart.\n2) D-pad for moving, Button A for fire, Start btn to restart.\nObjective:\nTry to destroy all 20 tank in 1 min.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc3bc852-9459-42e5-9b62-ff22683090df/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c36cd6ea-d15d-4505-a1ce-9796f31ee101/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c36cd6ea-d15d-4505-a1ce-9796f31ee101",
+	"unityPlayUrl": "https://play.unity.com/en/games/c36cd6ea-d15d-4505-a1ce-9796f31ee101/top-down-tank"
+}

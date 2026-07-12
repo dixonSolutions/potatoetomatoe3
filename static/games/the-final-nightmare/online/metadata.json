@@ -1,0 +1,14 @@
+{
+	"id": "the-final-nightmare",
+	"name": "The Final Nightmare",
+	"author": "Aditya_Iyengar",
+	"description": "Survive the Void and Reclaim.\nInstructions:\nA, D - Move Left / Right\nSpace - Jump / Boost\nLeft Shift - Lunge\nX - Bat form/Reverse Gravity\nZ - Hellfire attack\nLeft Mouse - Fireball\nRight Mouse - Shield",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2105fb41-6d28-4aff-be11-c80cb5fec690/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2105fb41-6d28-4aff-be11-c80cb5fec690",
+	"unityPlayUrl": "https://play.unity.com/en/games/2105fb41-6d28-4aff-be11-c80cb5fec690/the-final-nightmare"
+}

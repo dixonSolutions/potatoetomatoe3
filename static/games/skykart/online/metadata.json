@@ -1,0 +1,14 @@
+{
+	"id": "skykart",
+	"name": "SkyKart",
+	"author": "BeorGames",
+	"description": "Sky Kart is a casual racing game, where you can race as long as you keep your kart charged! \n\nTurn on the sound and play with one hand while dancing with the other :P\n\nIt's a solo and independent game by Beor Games.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c5fc856e-8734-4f00-b3d7-bbf7cb8e41d9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9795e35a-f7a7-4e8d-9b66-5fc3e9ae18f8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9795e35a-f7a7-4e8d-9b66-5fc3e9ae18f8",
+	"unityPlayUrl": "https://play.unity.com/en/games/9795e35a-f7a7-4e8d-9b66-5fc3e9ae18f8/skykart"
+}

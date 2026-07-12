@@ -1,0 +1,14 @@
+{
+	"id": "the-cube",
+	"name": "The Cube",
+	"author": "Glebzex",
+	"description": "Use W/A/S/D to rotate the cube, J/K to darken/brighten the color of the cube and Space/Left Shift to expand/shrink",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9bfce47c-d301-460a-8efe-346888f828dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9bfce47c-d301-460a-8efe-346888f828dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/9bfce47c-d301-460a-8efe-346888f828dd/the-cube"
+}

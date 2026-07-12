@@ -1,0 +1,14 @@
+{
+	"id": "space-shooter-pro",
+	"name": "Space Shooter Pro",
+	"author": "bekua",
+	"description": "A simple 2D Game where user controls a spaceship to travel into deep-space and destroy enemy spacecraft",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/768c5dfa-732b-4cb7-8469-e7f43991797a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e2aec8ce-797a-4b03-bbb0-048c81287dd4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e2aec8ce-797a-4b03-bbb0-048c81287dd4",
+	"unityPlayUrl": "https://play.unity.com/en/games/e2aec8ce-797a-4b03-bbb0-048c81287dd4/space-shooter-pro"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "sending-transactions",
+	"name": "Sending Transactions",
+	"author": "sohailashrafunity",
+	"description": "Play Sending Transactions on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e8355ff-cd4c-4f38-9457-81d7e3559781/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e8355ff-cd4c-4f38-9457-81d7e3559781",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e8355ff-cd4c-4f38-9457-81d7e3559781/sending-transactions"
+}

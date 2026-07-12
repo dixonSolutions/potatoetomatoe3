@@ -1,0 +1,14 @@
+{
+	"id": "to-the-light",
+	"name": "To the light",
+	"author": "ViennaCoffee780",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00b03c09-8500-4bb3-8b40-1aa0d413616f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00b03c09-8500-4bb3-8b40-1aa0d413616f",
+	"unityPlayUrl": "https://play.unity.com/en/games/00b03c09-8500-4bb3-8b40-1aa0d413616f/to-the-light"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-maze",
+	"name": "The Maze",
+	"author": "ealatkie",
+	"description": "Find your way to the end of the maze and eliminate enemies along the way!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb34091d-1e12-442e-bb1e-f029d14de5f9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0677f5e4-41aa-4f98-9cce-22a127185aeb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0677f5e4-41aa-4f98-9cce-22a127185aeb",
+	"unityPlayUrl": "https://play.unity.com/en/games/0677f5e4-41aa-4f98-9cce-22a127185aeb/the-maze"
+}

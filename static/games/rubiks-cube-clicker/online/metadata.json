@@ -1,0 +1,14 @@
+{
+	"id": "rubiks-cube-clicker",
+	"name": "Rubik's Cube Clicker",
+	"author": "LukeMcDevy",
+	"description": "This is a Rubik's cube clicker I made and you can reset progress by pressing r and leaving and coming back. Leave a comment on how long it takes you to make the score counter break!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/17029a7c-972f-4c8b-a7fa-a75dc1f5d05d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/24940568-f047-450a-a8c6-cb4475084210/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "24940568-f047-450a-a8c6-cb4475084210",
+	"unityPlayUrl": "https://play.unity.com/en/games/24940568-f047-450a-a8c6-cb4475084210/rubiks-cube-clicker"
+}

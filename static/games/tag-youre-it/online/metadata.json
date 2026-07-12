@@ -1,0 +1,14 @@
+{
+	"id": "tag-youre-it",
+	"name": "TAG: You're IT!",
+	"author": "marjohloo",
+	"description": "Play tag against the computer. Please play fullscreen otherwise you may click outside the play area and interrupt your game. Downloads for Windows, OS-X and Linux at marjohloo.itch.io/tag",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee725b91-16c2-4051-8a20-01be2f18da18/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48ce2cea-dc5a-4038-9391-313a9a74ad11/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48ce2cea-dc5a-4038-9391-313a9a74ad11",
+	"unityPlayUrl": "https://play.unity.com/en/games/48ce2cea-dc5a-4038-9391-313a9a74ad11/tag-youre-it"
+}

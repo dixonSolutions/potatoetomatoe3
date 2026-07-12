@@ -1,0 +1,14 @@
+{
+	"id": "tiles-a-puzzle-strategy-game",
+	"name": "Tiles - A puzzle-strategy game",
+	"author": "dave_1404",
+	"description": "Tiles is a game, where you can build your own World. Place down a tile by clicking on a free hexagon. Place outpost next to your cities and create lines between outposts. Try to supply wood and stone to your cities to earn money, otherwise you'll run out of money. Have fun and let me now if there are any bugs left or you have some wishes I should implement.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3db67f79-a3c4-4297-85da-c6c414e58228/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/177aa38c-ff1c-4323-8df7-dff0cac8631e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "177aa38c-ff1c-4323-8df7-dff0cac8631e",
+	"unityPlayUrl": "https://play.unity.com/en/games/177aa38c-ff1c-4323-8df7-dff0cac8631e/tiles-a-puzzle-strategy-game"
+}

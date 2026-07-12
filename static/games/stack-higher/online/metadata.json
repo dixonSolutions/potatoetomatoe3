@@ -1,0 +1,14 @@
+{
+	"id": "stack-higher",
+	"name": "Stack Higher!",
+	"author": "SJGRID",
+	"description": "Poison is coming! Stack everything to go higher. Press 'E' to grab and 'E' again to release. You can only grab it once.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d599f467-853b-43cd-a771-19acc9d4811c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c28d462-7935-4027-980e-5be51c940304/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c28d462-7935-4027-980e-5be51c940304",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c28d462-7935-4027-980e-5be51c940304/stack-higher"
+}

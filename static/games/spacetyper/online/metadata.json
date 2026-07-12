@@ -1,0 +1,14 @@
+{
+	"id": "spacetyper",
+	"name": "SPACETYPER",
+	"author": "JaxOnThat",
+	"description": "Asteroids are approaching your spaceship! Use your targeting typer to aim at them, and press the space bar to fire!\n\nA simple game to help students practice their typing skills. \n\nv3.1.1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e90549bc-b935-430f-85a7-a44e8dfa217c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e90549bc-b935-430f-85a7-a44e8dfa217c",
+	"unityPlayUrl": "https://play.unity.com/en/games/e90549bc-b935-430f-85a7-a44e8dfa217c/spacetyper"
+}

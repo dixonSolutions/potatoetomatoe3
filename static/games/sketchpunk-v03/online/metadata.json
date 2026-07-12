@@ -1,0 +1,14 @@
+{
+	"id": "sketchpunk-v03",
+	"name": "SketchPunk V0.3",
+	"author": "Sleepi_one",
+	"description": "Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/242bbacb-bddf-4b02-863b-4a339dd7567a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "242bbacb-bddf-4b02-863b-4a339dd7567a",
+	"unityPlayUrl": "https://play.unity.com/en/games/242bbacb-bddf-4b02-863b-4a339dd7567a/sketchpunk-v03"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "robounce",
+	"name": "ROBOUNCE",
+	"author": "cleidy22",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc2cc5eb-e8f1-40a3-8895-917b9ad02e61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c220a5e-f6f6-4efe-b4b5-19a5c266ecc7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c220a5e-f6f6-4efe-b4b5-19a5c266ecc7",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c220a5e-f6f6-4efe-b4b5-19a5c266ecc7/robounce"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "spider-man-zoom",
+	"name": "Spider Man Zoom",
+	"author": "nubiancoder",
+	"description": "Try out our Game, Inspired by \"Spider Man: Miles Morales\". This platformer game was designed by #GavinTheLionKING of the \"Game Maker: Teen Edition\" class of #NubiasLearningAdventures linktr.ee/nubiaslearningadventure",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c7284c9a-ae3c-42c5-bdff-ec9422be3775/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f7410f7c-f929-4d0f-9464-a421001b6545/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f7410f7c-f929-4d0f-9464-a421001b6545",
+	"unityPlayUrl": "https://play.unity.com/en/games/f7410f7c-f929-4d0f-9464-a421001b6545/spider-man-zoom"
+}

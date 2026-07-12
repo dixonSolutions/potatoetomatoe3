@@ -1,0 +1,14 @@
+{
+	"id": "skc-pixel-art-parkour",
+	"name": "SKC Pixel Art Parkour",
+	"author": "ChaseAMVHS",
+	"description": "A and D for Horizontal Movement. Space to Jump, and Left Shift to slow in mid air. You can slow down once per jump. Don't fall off, don't touch the spikes, and get to the campfire safely.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/67154754-0b25-4d10-9a3e-a4404148c0b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19e6400b-f67e-4328-81ef-2b6d4531ca39/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19e6400b-f67e-4328-81ef-2b6d4531ca39",
+	"unityPlayUrl": "https://play.unity.com/en/games/19e6400b-f67e-4328-81ef-2b6d4531ca39/skc-pixel-art-parkour"
+}

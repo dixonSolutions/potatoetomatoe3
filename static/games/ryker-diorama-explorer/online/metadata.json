@@ -1,0 +1,14 @@
+{
+	"id": "ryker-diorama-explorer",
+	"name": "Ryker Diorama Explorer",
+	"author": "RykerBuildsGames",
+	"description": "play using w,a,s,d and use mouse to look around yippe",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/30a2c7de-9b55-44ab-95d7-0e4282b2baa3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "30a2c7de-9b55-44ab-95d7-0e4282b2baa3",
+	"unityPlayUrl": "https://play.unity.com/en/games/30a2c7de-9b55-44ab-95d7-0e4282b2baa3/ryker-diorama-explorer"
+}

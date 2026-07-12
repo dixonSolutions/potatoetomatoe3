@@ -1,0 +1,14 @@
+{
+	"id": "rotten-root",
+	"name": "Rotten root",
+	"author": "unity_5FA61B422359FC598829",
+	"description": "Play Rotten root on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67d2183e-6d56-42c3-b299-57a5ef24843b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67d2183e-6d56-42c3-b299-57a5ef24843b",
+	"unityPlayUrl": "https://play.unity.com/en/games/67d2183e-6d56-42c3-b299-57a5ef24843b/rotten-root"
+}

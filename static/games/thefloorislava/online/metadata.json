@@ -1,0 +1,14 @@
+{
+	"id": "thefloorislava",
+	"name": "TheFloorIsLava",
+	"author": "OscarPerez96",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aa12d9c5-f97f-49b5-8490-ad3d5f06e1ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01f4d291-79ce-4d8f-9aa4-00d700b39352/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01f4d291-79ce-4d8f-9aa4-00d700b39352",
+	"unityPlayUrl": "https://play.unity.com/en/games/01f4d291-79ce-4d8f-9aa4-00d700b39352/thefloorislava"
+}

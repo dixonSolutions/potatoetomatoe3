@@ -1,0 +1,14 @@
+{
+	"id": "tic-tactic",
+	"name": "Tic Tactic",
+	"author": "Unity Play",
+	"description": "A roguelike deckbuilder where you face an army of chickens in deadly games of tic-tac-toe.\n\nTic Tactic is now on Steam! Wishlist now: https://store.steampowered.com/app/3256850",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f5965f0d-2ed0-4d6f-a2f1-a06a9089291c/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8609f33f-7f0f-4e97-a546-dc46ed187d3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8609f33f-7f0f-4e97-a546-dc46ed187d3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/8609f33f-7f0f-4e97-a546-dc46ed187d3d/tic-tactic"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "science-runner",
+	"name": "Science Runner",
+	"author": "Dessurt",
+	"description": "Agarra toda la comida buena para combatir el covid\n\nEvade toda la comida mala\n\nVe si lo puedes terminar en menos tiempo que tus amigos!\n\nUsa las flechas de [derecha] y [izquierda] para moverte.Usa [espacio] para brincar. \nUse the arrow keys [right] and [left] to move. Use [space] to jump.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/004475b2-12f3-4848-87a4-d5d95ffa9700/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8371b71a-71aa-4f76-a291-8e93813401a1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8371b71a-71aa-4f76-a291-8e93813401a1",
+	"unityPlayUrl": "https://play.unity.com/en/games/8371b71a-71aa-4f76-a291-8e93813401a1/science-runner"
+}

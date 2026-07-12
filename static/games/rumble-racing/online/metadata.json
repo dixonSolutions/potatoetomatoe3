@@ -1,0 +1,14 @@
+{
+	"id": "rumble-racing",
+	"name": "Rumble Racing",
+	"author": "sneakypig200",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a9e6734-edbd-4563-8398-dacd55217746/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a9e6734-edbd-4563-8398-dacd55217746",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a9e6734-edbd-4563-8398-dacd55217746/rumble-racing"
+}

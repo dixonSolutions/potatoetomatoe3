@@ -1,0 +1,14 @@
+{
+	"id": "snowman-racers",
+	"name": "Snowman Racers",
+	"author": "markakram",
+	"description": "Coldest (multiplayer) game of 2020",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/13e13c59-5152-49c0-9505-b19ea8e2f24f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/306b92d8-8f91-466c-9656-8641ac7ee964/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "306b92d8-8f91-466c-9656-8641ac7ee964",
+	"unityPlayUrl": "https://play.unity.com/en/games/306b92d8-8f91-466c-9656-8641ac7ee964/snowman-racers"
+}

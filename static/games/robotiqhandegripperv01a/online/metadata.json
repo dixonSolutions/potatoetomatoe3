@@ -1,0 +1,14 @@
+{
+	"id": "robotiqhandegripperv01a",
+	"name": "RobotiqHandEGripperV01a",
+	"author": "spicytechs",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f44ea266-7fc6-433b-b981-2190826e197c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5593c165-566f-479a-baef-50947018b18f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5593c165-566f-479a-baef-50947018b18f",
+	"unityPlayUrl": "https://play.unity.com/en/games/5593c165-566f-479a-baef-50947018b18f/robotiqhandegripperv01a"
+}

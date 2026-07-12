@@ -1,0 +1,14 @@
+{
+	"id": "tank-battles",
+	"name": "Tank Battles",
+	"author": "Kanchi97",
+	"description": "Fight your foes on this short - action packed Tanks game. Battle against Enemy AI Tanks on Mobile devices or defeat a friend playing a competitive local multiplayer match on PC!\nNow with Jungle Update",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c0785b7e-d5ab-42dc-8404-3e933170390b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4dcba7c2-1bdd-4d38-9283-7b2d32ddc378/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4dcba7c2-1bdd-4d38-9283-7b2d32ddc378",
+	"unityPlayUrl": "https://play.unity.com/en/games/4dcba7c2-1bdd-4d38-9283-7b2d32ddc378/tank-battles"
+}

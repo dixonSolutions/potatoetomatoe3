@@ -1,0 +1,14 @@
+{
+	"id": "rts",
+	"name": "RTS",
+	"author": "SpaceManRaph",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1c04a42f-e7da-423c-80b6-68762a2b8bd3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1c04a42f-e7da-423c-80b6-68762a2b8bd3",
+	"unityPlayUrl": "https://play.unity.com/en/games/1c04a42f-e7da-423c-80b6-68762a2b8bd3/rts"
+}

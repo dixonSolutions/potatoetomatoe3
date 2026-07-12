@@ -1,0 +1,14 @@
+{
+	"id": "sumo-balls",
+	"name": "Sumo Balls",
+	"author": "Vladulay",
+	"description": "Survive against the enemy balls! Press Left and Right to move the camera, Up and Down to move your ball, E to use blaster power up and Spacebar to use the smash power up. (Just testing uploading stuff with prototype 4 from the junior programming pathway)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c6324056-39d9-4733-9d92-7721cdffecac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04f9454d-437c-4031-a20a-1f3a67f64c39/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04f9454d-437c-4031-a20a-1f3a67f64c39",
+	"unityPlayUrl": "https://play.unity.com/en/games/04f9454d-437c-4031-a20a-1f3a67f64c39/sumo-balls"
+}

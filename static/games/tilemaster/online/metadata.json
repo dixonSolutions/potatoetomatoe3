@@ -1,0 +1,14 @@
+{
+	"id": "tilemaster",
+	"name": "TileMaster",
+	"author": "Esox_Lucius",
+	"description": "Not my creation! Sample Version for player testing.\n\nLeft, Right buttons to move.\nSpace to jump.\nX to fire arrows.\n\nEnemy, Spikes and Water kills.\n\n3 Levels, fairly easy. If you think it's adeguate, let me know to add more levels and make it bigger and more interesting.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/68280de9-8cd6-4bf3-a8e6-b7866bf31ed3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62abdd3d-ff78-44b7-953b-87347c59f7d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62abdd3d-ff78-44b7-953b-87347c59f7d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/62abdd3d-ff78-44b7-953b-87347c59f7d8/tilemaster"
+}

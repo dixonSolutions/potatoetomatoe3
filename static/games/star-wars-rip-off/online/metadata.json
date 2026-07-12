@@ -1,0 +1,14 @@
+{
+	"id": "star-wars-rip-off",
+	"name": "Star Wars rip off",
+	"author": "pevans",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/df7ba493-ed57-422b-b730-d8362051e95d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f6d84f2-9a43-4778-80f9-c741a4c6c911/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f6d84f2-9a43-4778-80f9-c741a4c6c911",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f6d84f2-9a43-4778-80f9-c741a4c6c911/star-wars-rip-off"
+}

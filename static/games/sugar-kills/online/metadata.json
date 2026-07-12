@@ -1,0 +1,14 @@
+{
+	"id": "sugar-kills",
+	"name": "Sugar Kills",
+	"author": "Unity Play",
+	"description": "Collect sugars and avoid enemies to reach the coffee mug. Gamepad only!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00ce8281-f29d-4a10-94db-a75ce1342568/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2257a079-4f17-42cb-a02f-112b2c68f1e1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2257a079-4f17-42cb-a02f-112b2c68f1e1",
+	"unityPlayUrl": "https://play.unity.com/en/games/2257a079-4f17-42cb-a02f-112b2c68f1e1/sugar-kills"
+}

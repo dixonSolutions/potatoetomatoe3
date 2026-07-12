@@ -1,0 +1,14 @@
+{
+	"id": "sicarius-hku-student-project",
+	"name": "Sicarius (HKU Student Project)",
+	"author": "Unity Play",
+	"description": "A fast-paced, top-down shooting game. Set in the post-apocalyptic world, you have control over a spider to defeat the killer robots and retrieve the Tree of Life.\nThe game was made for HKU COMP3329.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cd7afdab-8096-48db-b907-228ed243a128/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00ad4522-a218-4f64-b605-b7dbd2404ccf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00ad4522-a218-4f64-b605-b7dbd2404ccf",
+	"unityPlayUrl": "https://play.unity.com/en/games/00ad4522-a218-4f64-b605-b7dbd2404ccf/sicarius-hku-student-project"
+}

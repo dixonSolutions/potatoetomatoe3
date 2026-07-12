@@ -1,0 +1,14 @@
+{
+	"id": "sharp-turn",
+	"name": "Sharp Turn",
+	"author": "FollowGames",
+	"description": "Sharp Turn is a endless tap car driving game. Controls: Left Mouse Button(Tap), Esc(Pause).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1639eda6-02d4-410e-9926-ac19d6b1f75e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3f218cf9-00b8-4f0d-9d5f-f5ac33c130b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3f218cf9-00b8-4f0d-9d5f-f5ac33c130b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/3f218cf9-00b8-4f0d-9d5f-f5ac33c130b7/sharp-turn"
+}

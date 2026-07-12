@@ -1,0 +1,14 @@
+{
+	"id": "super-mario-maker-3neos-edition",
+	"name": "Super Mario Maker 3(Neos Edition)",
+	"author": "alimneimneh5",
+	"description": "Play Super Mario Maker 3(Neos Edition) on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b6b403c5-d079-49b0-9107-585fed5421b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e4a5004-5a70-4818-bbc7-5aebbe8bc7fc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e4a5004-5a70-4818-bbc7-5aebbe8bc7fc",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e4a5004-5a70-4818-bbc7-5aebbe8bc7fc/super-mario-maker-3neos-edition"
+}

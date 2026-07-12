@@ -1,0 +1,14 @@
+{
+	"id": "test12",
+	"name": "Test12",
+	"author": "Khampa",
+	"description": "Play Test12 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9fb7b728-84b3-4f3c-b390-f15c57e7b02d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c172edb-bba9-40af-b3ac-e646f3638e64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c172edb-bba9-40af-b3ac-e646f3638e64",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c172edb-bba9-40af-b3ac-e646f3638e64/test12"
+}

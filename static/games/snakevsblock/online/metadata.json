@@ -1,0 +1,14 @@
+{
+	"id": "snakevsblock",
+	"name": "snakevsblock",
+	"author": "ouchhawk",
+	"description": "Hi,\nI'm trying to make a snakevsblock copy. \n\n(Revive button doesn't work)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b6f2c43f-43dc-44e8-ad31-d7fafd600014/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b6f2c43f-43dc-44e8-ad31-d7fafd600014",
+	"unityPlayUrl": "https://play.unity.com/en/games/b6f2c43f-43dc-44e8-ad31-d7fafd600014/snakevsblock"
+}

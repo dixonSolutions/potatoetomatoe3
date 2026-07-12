@@ -1,0 +1,14 @@
+{
+	"id": "the-computational-adventures-of-robot",
+	"name": "The Computational Adventures of [robot]",
+	"author": "ckester223",
+	"description": "By Avery Meyers, Cheyanne Kester, and Sasha Heye. The final build is here!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6770ec08-8c4d-429d-8104-7956bff5de4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6770ec08-8c4d-429d-8104-7956bff5de4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/6770ec08-8c4d-429d-8104-7956bff5de4a/the-computational-adventures-of-robot"
+}

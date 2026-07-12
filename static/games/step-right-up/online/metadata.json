@@ -1,0 +1,14 @@
+{
+	"id": "step-right-up",
+	"name": "Step Right Up!",
+	"author": "unity_64bitsanimation",
+	"description": "My First Microgame made from scratch without tutorials! Now with Cloth Physics! Fancy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1463dc97-c1c6-4db2-a3e0-7e7f7f9c56c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9d3ce2ab-1349-4d99-b1b2-f6efcbb9b473/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9d3ce2ab-1349-4d99-b1b2-f6efcbb9b473",
+	"unityPlayUrl": "https://play.unity.com/en/games/9d3ce2ab-1349-4d99-b1b2-f6efcbb9b473/step-right-up"
+}

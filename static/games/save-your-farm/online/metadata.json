@@ -1,0 +1,14 @@
+{
+	"id": "save-your-farm",
+	"name": "SAVE YOUR FARM",
+	"author": "mohammedsuwaidi",
+	"description": "This mini game is based on what I have learnt so far in the Unity Create with Code Live course, learning how to instantiate spawns from a prefab object and creating an interactive experience for the user by controlling the player and feeding the animals before they escape.\n\nuse 'A' and 'D' to move the farmer right and left, use 'I' ; 'O' and 'P' to shoot food projectiles at the approaching animals before they escape past the red line.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e17e58b3-ebfd-4904-82f4-9f83e000ada1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b333231b-2b22-4ee8-90a2-1f99534cfd76/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b333231b-2b22-4ee8-90a2-1f99534cfd76",
+	"unityPlayUrl": "https://play.unity.com/en/games/b333231b-2b22-4ee8-90a2-1f99534cfd76/save-your-farm"
+}

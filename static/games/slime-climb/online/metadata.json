@@ -1,0 +1,14 @@
+{
+	"id": "slime-climb",
+	"name": "Slime Climb",
+	"author": "lmaschenberg",
+	"description": "Sprint 2 of Lizzy, Fish, Luke, and Andree's project!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f7162c85-bfcc-4659-bd2b-5db95699f01c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/634a6bca-a4d5-4db0-a916-62dd4c0dcb41/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "634a6bca-a4d5-4db0-a916-62dd4c0dcb41",
+	"unityPlayUrl": "https://play.unity.com/en/games/634a6bca-a4d5-4db0-a916-62dd4c0dcb41/slime-climb"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "task-6",
+	"name": "Task 6",
+	"author": "aarslanbajwa14",
+	"description": "Play Task 6 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/30415f95-776a-47ab-8c0c-c68e7781502c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "30415f95-776a-47ab-8c0c-c68e7781502c",
+	"unityPlayUrl": "https://play.unity.com/en/games/30415f95-776a-47ab-8c0c-c68e7781502c/task-6"
+}

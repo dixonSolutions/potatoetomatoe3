@@ -1,0 +1,14 @@
+{
+	"id": "top-down-shooting",
+	"name": "Top-Down Shooting",
+	"author": "Keith_Ku",
+	"description": "Play Top-Down Shooting on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/232f8a44-7270-4f0e-8557-6d0c7a69d2dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "232f8a44-7270-4f0e-8557-6d0c7a69d2dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/232f8a44-7270-4f0e-8557-6d0c7a69d2dc/top-down-shooting"
+}

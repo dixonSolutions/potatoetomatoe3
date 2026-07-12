@@ -1,0 +1,14 @@
+{
+	"id": "splendor-prototype",
+	"name": "Splendor - Prototype",
+	"author": "thioritz",
+	"description": "This is same as Splendor (board game), but made with Unity and primitive shapes. This is my first complete game made with Unity, so I post in here just to showcase that I can make a complete game even with just primitive shapes. All credit belong to the people who make the original Splendor board game, and Unity as my game engine. As for me, I am just an ordinary people. Name is Jurgen Desman Thioritz. Thank you for reading and enjoy. Notes: this is for 2-4 players playing locally.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b8650ab8-edff-4a47-9de6-7fe73e311501/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/032b9a4d-03a1-44b5-8e68-b8cbe7a274b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "032b9a4d-03a1-44b5-8e68-b8cbe7a274b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/032b9a4d-03a1-44b5-8e68-b8cbe7a274b2/splendor-prototype"
+}

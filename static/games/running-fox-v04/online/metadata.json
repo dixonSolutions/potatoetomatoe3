@@ -1,0 +1,14 @@
+{
+	"id": "running-fox-v04",
+	"name": "Running Fox V0.4",
+	"author": "misiakow",
+	"description": "Navigate running fox through the wood, avoid obstacles and deers, collect food.u",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f5fb50d6-173a-4d7c-afd1-8093423c31d0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12d4df96-60ae-4438-89ad-c89bbb8ef151/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12d4df96-60ae-4438-89ad-c89bbb8ef151",
+	"unityPlayUrl": "https://play.unity.com/en/games/12d4df96-60ae-4438-89ad-c89bbb8ef151/running-fox-v04"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "scp-2d-breach",
+	"name": "SCP 2D BREACH",
+	"author": "SashkoKit",
+	"description": "Play SCP 2D BREACH on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/999138a1-992d-4702-b5a3-810d5fb00e7d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1928d7f6-9f2d-4f50-bdd3-57b25d5b1f03/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1928d7f6-9f2d-4f50-bdd3-57b25d5b1f03",
+	"unityPlayUrl": "https://play.unity.com/en/games/1928d7f6-9f2d-4f50-bdd3-57b25d5b1f03/scp-2d-breach"
+}

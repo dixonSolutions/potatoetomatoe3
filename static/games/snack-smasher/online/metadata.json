@@ -1,0 +1,14 @@
+{
+	"id": "snack-smasher",
+	"name": "Snack Smasher",
+	"author": "CH_HASSAAN",
+	"description": "Welcome to Snack Smasher, an exciting game where your quick reflexes and sharp eyes will be put to the test. Snacks will appear randomly in boxes, and your goal is to pick them up while avoiding skulls. You have 60 seconds to score as much as you can. Choose from Easy, Medium, and Hard modes to match your skill level.\n\nControls:\n\nInteract: Left Click Mouse\nPause: Tab\n\nHow to Play:\n\nChoose Difficulty: Select from Easy, Medium, or Hard mode to suit your preference.\nCollect Snacks: Click on the snacks that appear in random boxes to collect them and increase your score.\nAvoid Skulls: Be careful to avoid clicking on skulls, as they will hinder your progress.\nTime Limit: You have 60 seconds to gather as many snacks as possible and achieve a high score.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01aa93e8-2420-4e1f-b389-f3fba16dc8c8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08033134-68ce-407b-b120-0d93870881dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08033134-68ce-407b-b120-0d93870881dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/08033134-68ce-407b-b120-0d93870881dd/snack-smasher"
+}

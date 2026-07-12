@@ -1,0 +1,14 @@
+{
+	"id": "sew-it-goes",
+	"name": "Sew It Goes",
+	"author": "jfattic",
+	"description": "This is the first early access build of the debut game from Sprint53 studio.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/88fde35e-d10b-4b37-8d80-7955bda5c49c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "88fde35e-d10b-4b37-8d80-7955bda5c49c",
+	"unityPlayUrl": "https://play.unity.com/en/games/88fde35e-d10b-4b37-8d80-7955bda5c49c/sew-it-goes"
+}

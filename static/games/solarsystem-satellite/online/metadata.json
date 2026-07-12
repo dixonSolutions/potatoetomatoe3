@@ -1,0 +1,14 @@
+{
+	"id": "solarsystem-satellite",
+	"name": "SolarSystem Satellite",
+	"author": "dunezhu",
+	"description": "Controls : Yaw = A D | Pitch = W S | Roll = Left Right | Scroll = Thrust | https://jun-zhu.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/efe97058-07e7-478a-8172-8f749500ae55/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/74a5b6e4-5c2f-430b-a7a2-3bbfacfdc734/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "74a5b6e4-5c2f-430b-a7a2-3bbfacfdc734",
+	"unityPlayUrl": "https://play.unity.com/en/games/74a5b6e4-5c2f-430b-a7a2-3bbfacfdc734/solarsystem-satellite"
+}

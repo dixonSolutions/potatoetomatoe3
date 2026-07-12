@@ -1,0 +1,14 @@
+{
+	"id": "somecargame",
+	"name": "someCarGame",
+	"author": "danker-dev",
+	"description": "v0.0.1-alpha",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d0b47b3d-8cd4-4d3d-a06e-ebf3ed1bc8ef/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c362f1f2-662d-4ca9-ba0f-eeaa3f45e62f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c362f1f2-662d-4ca9-ba0f-eeaa3f45e62f",
+	"unityPlayUrl": "https://play.unity.com/en/games/c362f1f2-662d-4ca9-ba0f-eeaa3f45e62f/somecargame"
+}

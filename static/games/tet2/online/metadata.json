@@ -1,0 +1,14 @@
+{
+	"id": "tet2",
+	"name": "tet2",
+	"author": "lanmii",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/85afb7f9-f945-4111-a48f-df079d2bd53d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "85afb7f9-f945-4111-a48f-df079d2bd53d",
+	"unityPlayUrl": "https://play.unity.com/en/games/85afb7f9-f945-4111-a48f-df079d2bd53d/tet2"
+}

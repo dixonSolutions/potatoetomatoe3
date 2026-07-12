@@ -1,0 +1,14 @@
+{
+	"id": "space-invasion",
+	"name": "Space Invasion",
+	"author": "SiddharthKumar743",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/21c2d801-2d1b-491d-8b2d-4ed1daab7678/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a60d72c7-0a57-4175-b004-07dee7d0145b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a60d72c7-0a57-4175-b004-07dee7d0145b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a60d72c7-0a57-4175-b004-07dee7d0145b/space-invasion"
+}

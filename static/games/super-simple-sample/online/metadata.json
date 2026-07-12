@@ -1,0 +1,14 @@
+{
+	"id": "super-simple-sample",
+	"name": "Super simple sample",
+	"author": "heezo",
+	"description": "Another LEGO\u00ae Microgame",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6395c119-cf46-4b7a-926f-2da52f5b33f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6395c119-cf46-4b7a-926f-2da52f5b33f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/6395c119-cf46-4b7a-926f-2da52f5b33f9/super-simple-sample"
+}

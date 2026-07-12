@@ -1,0 +1,14 @@
+{
+	"id": "the-woodlander",
+	"name": "The Woodlander",
+	"author": "CelestialFlair",
+	"description": "A 2D brawler game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a32256f-ee08-4a67-b293-76c69d56b430/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09fb1f5b-1924-47dd-9274-8b2f02dd522b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09fb1f5b-1924-47dd-9274-8b2f02dd522b",
+	"unityPlayUrl": "https://play.unity.com/en/games/09fb1f5b-1924-47dd-9274-8b2f02dd522b/the-woodlander"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "survive-lego-game",
+	"name": "SURVIVE - Lego Game",
+	"author": "Elvenair",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8ac9ae00-236c-4069-931b-3271744e76bf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c1d0cec4-ee65-43cc-919c-1075448bc3e9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c1d0cec4-ee65-43cc-919c-1075448bc3e9",
+	"unityPlayUrl": "https://play.unity.com/en/games/c1d0cec4-ee65-43cc-919c-1075448bc3e9/survive-lego-game"
+}

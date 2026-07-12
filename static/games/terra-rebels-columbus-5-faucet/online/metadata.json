@@ -1,0 +1,14 @@
+{
+	"id": "terra-rebels-columbus-5-faucet",
+	"name": "Terra Rebels Columbus-5 Faucet",
+	"author": "unity_0B6196B447EFDB6BCEE4",
+	"description": "Enter your wallet address IN THE GAME to earn LUNC.  NEVER SHARE YOUR SEED PHRASE.  This is just your wallet.  Stop putting your address in the comments.  You need to play the game to get lunc.  The faucet is rate limited to 1 tx per block.  If you did not receive lunc, you will have to play again when it is not so busy.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14fcad77-5acf-49aa-bf1a-f016ebd6ce9f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/738b0da4-4b89-4d1b-95c3-84a8c8f9d12e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "738b0da4-4b89-4d1b-95c3-84a8c8f9d12e",
+	"unityPlayUrl": "https://play.unity.com/en/games/738b0da4-4b89-4d1b-95c3-84a8c8f9d12e/terra-rebels-columbus-5-faucet"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tokio-the-game",
+	"name": "ToKiO, The Game",
+	"author": "michaelfyk",
+	"description": "Playable Demo of ToKiO, The Game online against a computer opponent",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/841a8471-0ea8-4458-9167-ad254d9b40b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "841a8471-0ea8-4458-9167-ad254d9b40b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/841a8471-0ea8-4458-9167-ad254d9b40b6/tokio-the-game"
+}

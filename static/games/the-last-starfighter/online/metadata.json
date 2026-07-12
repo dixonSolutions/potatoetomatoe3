@@ -1,0 +1,14 @@
+{
+	"id": "the-last-starfighter",
+	"name": "The Last Starfighter",
+	"author": "mrsandman88",
+	"description": "Serve as Earth's last line of defense against an endless alien assault.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42f9e613-da83-46ee-a24b-4e1544ef6375/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42f9e613-da83-46ee-a24b-4e1544ef6375",
+	"unityPlayUrl": "https://play.unity.com/en/games/42f9e613-da83-46ee-a24b-4e1544ef6375/the-last-starfighter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-case-of-monster-manor",
+	"name": "The Case of Monster Manor",
+	"author": "sgates22",
+	"description": "Play The Case of Monster Manor on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5352edb6-bf35-4dc5-b590-b31cd2593847/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5352edb6-bf35-4dc5-b590-b31cd2593847",
+	"unityPlayUrl": "https://play.unity.com/en/games/5352edb6-bf35-4dc5-b590-b31cd2593847/the-case-of-monster-manor"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "rooms-unity-essentials",
+	"name": "Rooms | Unity Essentials",
+	"author": "SebastianIFGI",
+	"description": "This project follows Unity Essentials tutorials, covering scene creation, object manipulation, lighting, physics, and basic scripting. It applies prefabs, animations, and simple gameplay mechanics.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b2d605f5-32d8-4ca4-8b48-d0421813a2f0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03c0ca53-a854-4b6d-8f94-12838db98f7f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03c0ca53-a854-4b6d-8f94-12838db98f7f",
+	"unityPlayUrl": "https://play.unity.com/en/games/03c0ca53-a854-4b6d-8f94-12838db98f7f/rooms-unity-essentials"
+}

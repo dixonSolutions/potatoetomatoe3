@@ -1,0 +1,14 @@
+{
+	"id": "sheperd",
+	"name": "Sheperd",
+	"author": "Immament",
+	"description": "Herd all the sheep to advance to the next level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c78f101b-b02d-401c-92d6-2c8e409ebfe4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0214d730-6673-41c2-ad75-c7912ef77cd3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0214d730-6673-41c2-ad75-c7912ef77cd3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0214d730-6673-41c2-ad75-c7912ef77cd3/sheperd"
+}

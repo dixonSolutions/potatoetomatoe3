@@ -1,0 +1,14 @@
+{
+	"id": "synced-in-a-2d-puzzle-game",
+	"name": "Synced In - A 2D Puzzle Game",
+	"author": "unknown_56",
+	"description": "My first ever game created for a school project assignment. 4 months of work. --------------------------------------------------------------------------------In this game you have to really think and keep track of both robots. If one of the robots touch the lasers then you have to restart. The levels are created to keep the game challenging but not entirely impossible to complete. There are a total of 6 levels and 1 bonus level as the end. Think your way through the puzzles to complete them and try to find new ways to figure out what to do. Not everything is the right way.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2122a2e1-cb32-428f-8bfd-48b127ba490d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f9aee68-3e1d-46ac-982d-673315b5cf78/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f9aee68-3e1d-46ac-982d-673315b5cf78",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f9aee68-3e1d-46ac-982d-673315b5cf78/synced-in-a-2d-puzzle-game"
+}

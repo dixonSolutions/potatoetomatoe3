@@ -1,0 +1,14 @@
+{
+	"id": "thtl6-kart-build",
+	"name": "THTL6 Kart Build",
+	"author": "Borellab6",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16c57467-bccc-4a3d-a5eb-0200f5b966ac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/710a24f2-f96e-42aa-bddc-f5c27576e39e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "710a24f2-f96e-42aa-bddc-f5c27576e39e",
+	"unityPlayUrl": "https://play.unity.com/en/games/710a24f2-f96e-42aa-bddc-f5c27576e39e/thtl6-kart-build"
+}

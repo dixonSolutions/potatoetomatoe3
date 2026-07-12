@@ -1,0 +1,14 @@
+{
+	"id": "the-shooting-game",
+	"name": "The Shooting game",
+	"author": "dk040106",
+	"description": "Move - WASD\nJump - Space bar\nShoot - Mouse Left \nZoom In - Mouse Right\nGrenade - E\n\nPlease enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bdae317c-08db-4f92-9c1d-d55487292b8e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b8a563a5-e6ca-46bf-91a2-8ca3568d0c5b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b8a563a5-e6ca-46bf-91a2-8ca3568d0c5b",
+	"unityPlayUrl": "https://play.unity.com/en/games/b8a563a5-e6ca-46bf-91a2-8ca3568d0c5b/the-shooting-game"
+}

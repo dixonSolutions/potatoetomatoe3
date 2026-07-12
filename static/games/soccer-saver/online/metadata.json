@@ -1,0 +1,14 @@
+{
+	"id": "soccer-saver",
+	"name": "Soccer Saver",
+	"author": "RedHeadGamingStudios",
+	"description": "controls = WASD, arrow keys & space bar for PowerUp play around and see how far you can get!!! check out the Soccer Saver (Unity unit 4 Challenge 4 - Soccer Scripting)  here is a link to a video of the game and what I did with the script  https://bit.ly/vidsocsav",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9e32c59d-9f1a-4b7e-8447-bf40c78cf2b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7b390ccd-c703-4b41-a0dd-2c02d2179b21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7b390ccd-c703-4b41-a0dd-2c02d2179b21",
+	"unityPlayUrl": "https://play.unity.com/en/games/7b390ccd-c703-4b41-a0dd-2c02d2179b21/soccer-saver"
+}

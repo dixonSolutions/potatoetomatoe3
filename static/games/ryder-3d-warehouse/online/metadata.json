@@ -1,0 +1,14 @@
+{
+	"id": "ryder-3d-warehouse",
+	"name": "Ryder 3d Warehouse",
+	"author": "donavan_ryder",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c0d2592e-03d7-436d-8e00-dcbdfdf9d82b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c0d2592e-03d7-436d-8e00-dcbdfdf9d82b",
+	"unityPlayUrl": "https://play.unity.com/en/games/c0d2592e-03d7-436d-8e00-dcbdfdf9d82b/ryder-3d-warehouse"
+}

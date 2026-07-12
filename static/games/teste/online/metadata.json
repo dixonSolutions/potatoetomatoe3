@@ -1,0 +1,14 @@
+{
+	"id": "teste",
+	"name": "TEste",
+	"author": "ozeiasmoreiralmeida",
+	"description": "Ola",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ae6df2d4-f76f-444a-9976-3974947e9ade/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ae6df2d4-f76f-444a-9976-3974947e9ade",
+	"unityPlayUrl": "https://play.unity.com/en/games/ae6df2d4-f76f-444a-9976-3974947e9ade/teste"
+}

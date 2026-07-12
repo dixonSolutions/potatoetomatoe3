@@ -1,0 +1,14 @@
+{
+	"id": "rubys-adventure-final-jess-harrison",
+	"name": "Ruby's Adventure (Final) - Jess Harrison",
+	"author": "rainbowjess",
+	"description": "Use WSAD keys to move Ruby. Press X when facing Jambi to talk to him. Once you have collected ammo, you can press C to shoot the cogs. Eating berries increases your health and drinking the soda will increase speed. Shoot the cogs at the robots to fix them. Once you have fixed all the robots, talk to Jambi to go to level two! Also, robots and hazards around the map can decrease your health-- if you die, press the R key to restart!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/122c7baa-47b5-4c17-ae01-1acc45503ee5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "122c7baa-47b5-4c17-ae01-1acc45503ee5",
+	"unityPlayUrl": "https://play.unity.com/en/games/122c7baa-47b5-4c17-ae01-1acc45503ee5/rubys-adventure-final-jess-harrison"
+}

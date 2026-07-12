@@ -1,0 +1,14 @@
+{
+	"id": "sunny-land-adventure",
+	"name": "Sunny Land Adventure",
+	"author": "atomic1023",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/23541a26-d2f5-42c4-9ab6-6901f842704b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a51a718-f53f-4f69-a11c-dbbee856f874/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a51a718-f53f-4f69-a11c-dbbee856f874",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a51a718-f53f-4f69-a11c-dbbee856f874/sunny-land-adventure"
+}

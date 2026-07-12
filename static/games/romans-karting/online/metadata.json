@@ -1,0 +1,14 @@
+{
+	"id": "romans-karting",
+	"name": "Roman's Karting",
+	"author": "romanpapush",
+	"description": "Play Roman's Karting on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/353ecdde-0438-465a-a99a-ef885cac3c46/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b640bd1-f572-48a0-ab00-cbd51f889b34/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5b640bd1-f572-48a0-ab00-cbd51f889b34",
+	"unityPlayUrl": "https://play.unity.com/en/games/5b640bd1-f572-48a0-ab00-cbd51f889b34/romans-karting"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "sumit-first-game",
+	"name": "sumit first game",
+	"author": "sumitsonaskar",
+	"description": "first game of sumit",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c6b7d906-6fa6-4f7d-9891-b62a095c39e5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c6b7d906-6fa6-4f7d-9891-b62a095c39e5",
+	"unityPlayUrl": "https://play.unity.com/en/games/c6b7d906-6fa6-4f7d-9891-b62a095c39e5/sumit-first-game"
+}

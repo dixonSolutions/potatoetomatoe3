@@ -1,0 +1,14 @@
+{
+	"id": "test",
+	"name": "Test",
+	"author": "constab",
+	"description": "Play Test on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0fd3032-c14c-4e8b-b0cc-05242b54ea13/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b0fd3032-c14c-4e8b-b0cc-05242b54ea13",
+	"unityPlayUrl": "https://play.unity.com/en/games/b0fd3032-c14c-4e8b-b0cc-05242b54ea13/test"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "spiral-girl-11",
+	"name": "Spiral-Girl 1.1",
+	"author": "yogeshparihar2105",
+	"description": "This is a 2D platformer game in which you have to find the Key and Open the door while fighting with the enemies and collecting the Coins. The door won't open without the Key.                                                                                             Controls : \"A\"-for Left,  \"B\"-for Right,  \"E\"-for Attack and  \"Space\"-for Jump",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/09c5b218-0664-48ae-84a1-85e6d95b6479/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c585e21c-5ffb-4ebf-9051-38351f41a2d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c585e21c-5ffb-4ebf-9051-38351f41a2d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/c585e21c-5ffb-4ebf-9051-38351f41a2d2/spiral-girl-11"
+}

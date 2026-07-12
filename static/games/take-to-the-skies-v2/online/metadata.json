@@ -1,0 +1,14 @@
+{
+	"id": "take-to-the-skies-v2",
+	"name": "Take to the Skies V2",
+	"author": "Jobaham_Productions",
+	"description": "\"Take to the Skies\" is a game where you pilot a plane and defend against endless waves of enemy jets. Please send feedback.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e9a9236a-1661-4400-9d6c-2be6aea38186/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c404f58c-1e59-4d62-98bd-e27a87d1504b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c404f58c-1e59-4d62-98bd-e27a87d1504b",
+	"unityPlayUrl": "https://play.unity.com/en/games/c404f58c-1e59-4d62-98bd-e27a87d1504b/take-to-the-skies-v2"
+}

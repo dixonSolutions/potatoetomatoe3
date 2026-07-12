@@ -1,0 +1,14 @@
+{
+	"id": "talia-chair-web-gpu",
+	"name": "Talia Chair Web GPU",
+	"author": "msutto",
+	"description": "Configure the Talia Chair in Web GPU with our open source configurator package\nLearn more - https://youtu.be/TF10tyOMQ30?si",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d7df9d8a-eb33-4f8d-8685-dbe9fe3e0d4c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56bd3abf-e7b2-4428-992a-f8b3ec8400e4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56bd3abf-e7b2-4428-992a-f8b3ec8400e4",
+	"unityPlayUrl": "https://play.unity.com/en/games/56bd3abf-e7b2-4428-992a-f8b3ec8400e4/talia-chair-web-gpu"
+}

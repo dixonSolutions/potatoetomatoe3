@@ -1,0 +1,14 @@
+{
+	"id": "shopping-mall-vr-experience",
+	"name": "Shopping Mall - VR Experience",
+	"author": "alifeasgamedev",
+	"description": "A WebGL Application",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/61dfae1f-d48d-48ee-8074-95d8be1f002e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07b45e79-95a9-42d0-9359-5590b280a30b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07b45e79-95a9-42d0-9359-5590b280a30b",
+	"unityPlayUrl": "https://play.unity.com/en/games/07b45e79-95a9-42d0-9359-5590b280a30b/shopping-mall-vr-experience"
+}

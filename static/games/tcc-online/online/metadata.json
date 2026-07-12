@@ -1,0 +1,14 @@
+{
+	"id": "tcc-online",
+	"name": "TCC Online",
+	"author": "Volfaer",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8f5f32eb-1555-45ff-9ec5-5ff8cc2efaf6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8f5f32eb-1555-45ff-9ec5-5ff8cc2efaf6",
+	"unityPlayUrl": "https://play.unity.com/en/games/8f5f32eb-1555-45ff-9ec5-5ff8cc2efaf6/tcc-online"
+}

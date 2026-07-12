@@ -1,0 +1,14 @@
+{
+	"id": "ruby-final",
+	"name": "Ruby Final",
+	"author": "AnnieBergo1",
+	"description": "WASD to move, C to shoot cogs, X to speak to Jambi. Help Jambi fix the broken robots, watch out for the spikes and pick up health and ammo as you need. There's a blue potion that will grant you a speed boost Swing by the little fox and and sit by the bonfire. Watch out for the red bot, it's more potent than the others!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8a760ed2-3033-4fcf-8bc9-3c3a8ad7aa4c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0865db48-efe5-4bdb-ab07-3a3ecb32a6f2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0865db48-efe5-4bdb-ab07-3a3ecb32a6f2",
+	"unityPlayUrl": "https://play.unity.com/en/games/0865db48-efe5-4bdb-ab07-3a3ecb32a6f2/ruby-final"
+}

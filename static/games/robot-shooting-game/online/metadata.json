@@ -1,0 +1,14 @@
+{
+	"id": "robot-shooting-game",
+	"name": "Robot Shooting Game",
+	"author": "nxtboyIII",
+	"description": "Multiplayer, go around and shoot other players and customize your vehicle (Press Y to go to 3rd person)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/60282ea4-d9fe-4179-a899-b0fef43c72e0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ed6b632-adcb-4bfb-9203-f33ab1d33c43/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ed6b632-adcb-4bfb-9203-f33ab1d33c43",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ed6b632-adcb-4bfb-9203-f33ab1d33c43/robot-shooting-game"
+}

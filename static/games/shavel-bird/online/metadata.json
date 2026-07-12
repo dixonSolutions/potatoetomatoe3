@@ -1,0 +1,14 @@
+{
+	"id": "shavel-bird",
+	"name": "Shavel bird",
+	"author": "AlptGames",
+	"description": "In this game, similar to Flappy bird, you have to fly for a bird and dodge obstacles",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8a4705ed-b23e-49bc-a1f8-5bf160a6efaf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/100d54be-299c-4d77-8ada-142235778e8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "100d54be-299c-4d77-8ada-142235778e8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/100d54be-299c-4d77-8ada-142235778e8c/shavel-bird"
+}

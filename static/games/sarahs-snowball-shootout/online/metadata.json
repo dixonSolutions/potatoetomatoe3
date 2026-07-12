@@ -1,0 +1,14 @@
+{
+	"id": "sarahs-snowball-shootout",
+	"name": "Sarah's Snowball Shootout!",
+	"author": "TimsTech",
+	"description": "This year, the judges have arranged a snowball fight and you are the target. Sweet revenge for all your 'quality' litigation this year? Shoot the judges quickly - or pay the price...\n\nTo help, Santas will appear sporadically in the background. Whilst they do not shoot you, they are worth triple points if you shoot them (Sorry Santa) so get your priorities straight! Good luck out there...\n\n*Bug fixes: After reading the games context, it will no longer appear on future rounds. Judges no longer levitate, and the game gets harder after reaching scores of 200 and 500.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2fb410cc-7f7f-482f-93b8-efc4579f7325/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/89a344e4-b6f7-46aa-8ee9-2c554d76c140/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "89a344e4-b6f7-46aa-8ee9-2c554d76c140",
+	"unityPlayUrl": "https://play.unity.com/en/games/89a344e4-b6f7-46aa-8ee9-2c554d76c140/sarahs-snowball-shootout"
+}

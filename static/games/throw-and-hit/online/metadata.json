@@ -1,0 +1,14 @@
+{
+	"id": "throw-and-hit",
+	"name": "Throw and Hit",
+	"author": "y01cu",
+	"description": "A game that has throw and hit logic which is made for Counting Prototype lesson. Don't forget to turn on sound and try to make it full screen if possible. Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/72fca7ca-8779-4747-9966-7bda6ccfe2e6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/028e2384-f766-459e-807a-eb040585cfb1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "028e2384-f766-459e-807a-eb040585cfb1",
+	"unityPlayUrl": "https://play.unity.com/en/games/028e2384-f766-459e-807a-eb040585cfb1/throw-and-hit"
+}

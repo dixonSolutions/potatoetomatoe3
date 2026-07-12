@@ -1,0 +1,14 @@
+{
+	"id": "test1",
+	"name": "test1",
+	"author": "ImaTire",
+	"description": "idk",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c839e5b0-f747-4cc5-91b7-6d61bfef2d9a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c839e5b0-f747-4cc5-91b7-6d61bfef2d9a",
+	"unityPlayUrl": "https://play.unity.com/en/games/c839e5b0-f747-4cc5-91b7-6d61bfef2d9a/test1"
+}

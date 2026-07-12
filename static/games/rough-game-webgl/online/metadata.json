@@ -1,0 +1,14 @@
+{
+	"id": "rough-game-webgl",
+	"name": "Rough Game WebGL",
+	"author": "Coldog8",
+	"description": "Play Rough Game WebGL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0381229b-f2b0-45c1-9586-24c3af48abdc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0381229b-f2b0-45c1-9586-24c3af48abdc",
+	"unityPlayUrl": "https://play.unity.com/en/games/0381229b-f2b0-45c1-9586-24c3af48abdc/rough-game-webgl"
+}

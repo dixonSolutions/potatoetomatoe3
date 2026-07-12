@@ -1,0 +1,14 @@
+{
+	"id": "swipe-lego",
+	"name": "Swipe Lego",
+	"author": "cozy0614",
+	"description": "Reach your destination!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb8d56d7-5d13-44ed-9b38-da275ba67d86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c52dfe42-8563-4bb4-a8b7-af3d117a5244/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c52dfe42-8563-4bb4-a8b7-af3d117a5244",
+	"unityPlayUrl": "https://play.unity.com/en/games/c52dfe42-8563-4bb4-a8b7-af3d117a5244/swipe-lego"
+}

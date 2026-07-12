@@ -1,0 +1,14 @@
+{
+	"id": "rogulike-game",
+	"name": "Rogulike Game",
+	"author": "andemp4",
+	"description": "User the keypad arrows to mpvement and enter to restart the game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ae6ec425-1b09-48e7-932d-15c7b295640f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ae6ec425-1b09-48e7-932d-15c7b295640f",
+	"unityPlayUrl": "https://play.unity.com/en/games/ae6ec425-1b09-48e7-932d-15c7b295640f/rogulike-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tasminha",
+	"name": "Tasminha",
+	"author": "mwarbr2",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/29310fc4-4601-4989-9ec9-bd83d6f02a9c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/648bb4a2-814b-43a2-a5f2-3f829d0bed49/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "648bb4a2-814b-43a2-a5f2-3f829d0bed49",
+	"unityPlayUrl": "https://play.unity.com/en/games/648bb4a2-814b-43a2-a5f2-3f829d0bed49/tasminha"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "speak-of-the-devil",
+	"name": "Speak of the Devil",
+	"author": "unity_100031969",
+	"description": "A difficult action platformer with 3 levels and intricate movement. Find the blue gems.\nAD - Move\nWS - Move up/down on walls\nClick - Dash, kills enemies in your way\nSpace - Jump\nR - Go to level select",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ad67426-899a-4eac-8de0-a534517625cc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ad67426-899a-4eac-8de0-a534517625cc",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ad67426-899a-4eac-8de0-a534517625cc/speak-of-the-devil"
+}

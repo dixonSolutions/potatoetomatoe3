@@ -1,0 +1,14 @@
+{
+	"id": "super-ball-time-the-prequel",
+	"name": "Super Ball Time: The Prequel",
+	"author": "emiirose",
+	"description": "Physics-based ball platformer. WASD to move. Space to jump. Shift to boost (3s Cooldown). C to brake. R to restart (Shift + R to return to hub). Esc to Pause.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00a5c105-6d90-4fce-8a52-233f041b972f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c264d625-134d-45d2-97dd-c17351d3a921/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c264d625-134d-45d2-97dd-c17351d3a921",
+	"unityPlayUrl": "https://play.unity.com/en/games/c264d625-134d-45d2-97dd-c17351d3a921/super-ball-time-the-prequel"
+}

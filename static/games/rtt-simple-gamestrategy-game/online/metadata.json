@@ -1,0 +1,14 @@
+{
+	"id": "rtt-simple-gamestrategy-game",
+	"name": "RTT simple game(Strategy Game)",
+	"author": "DarkMatter_Mai",
+	"description": "In this game , the 3Dmodel use blender building ,if you hope player Strategy Game, you can play this game simple\nControl:\nMouse Click Player building(Blue icon building), After click to Enemy building(Red icon building) or NPC building(White icron building) play it",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b566069d-fc85-47ea-a9ce-5c186c8d1af3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f9bf908-d941-4354-a54b-baea7c48b2f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f9bf908-d941-4354-a54b-baea7c48b2f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f9bf908-d941-4354-a54b-baea7c48b2f7/rtt-simple-gamestrategy-game"
+}

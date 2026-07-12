@@ -1,0 +1,14 @@
+{
+	"id": "the-maze-escape",
+	"name": "The Maze Escape",
+	"author": "SirRaidenGalahad",
+	"description": "CLICK THE MAZE ENTRANCE TO START\n\nMovement:\nW-Forward\nS-Backward\nA-Turn Left\nD-Turn Right\nLeft shift-Sprint\n\nAbilities:\nF-Use foodpack. Foodpacks restore 100 stamina and can be eaten every 10 seconds\nV-Drop vinebit. Vinebits can be used to make trails\nSPACE-Use weapon\n\nWeapons:\n1-Rock. Deals 1 damage\n2-Bow. Deals 5 damage. Arrows can be picked up\n3-Fish blade. Deals 3 damage. Can only be unlocked by orange vault.\n\nGame rules:\nYou are a runner in a maze. Your goal is to escape. The obstacles: many. Every 90 seconds, the day becomes night. When night falls... well, you'll figure it out later. Your only hope is to run, and run fast. The rest you'll learn over time. Good luck, and don't smash your face into a wall.\n\nNotes:\nThis game was made in 5 days. In other words, don't judge. If you make a masterful work of art while your goal was to just make a game in 5 days, do people criticize you? No, cause you did it, so leave me to hide in the hole I've dug myself. Alone.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/84d559fc-4f45-49f0-bf87-a42f9cfac332/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/934725ed-8ded-4ebe-a3a6-45bc551218b3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "934725ed-8ded-4ebe-a3a6-45bc551218b3",
+	"unityPlayUrl": "https://play.unity.com/en/games/934725ed-8ded-4ebe-a3a6-45bc551218b3/the-maze-escape"
+}

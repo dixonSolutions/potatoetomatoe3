@@ -1,0 +1,14 @@
+{
+	"id": "rocket",
+	"name": "Rocket",
+	"author": "BelicovAlexei",
+	"description": "Press 'Enter' to start the game!\n\nControl Keys:\nPress 'Space' to make the rocket fly!\nPress 'A' or 'D' to control the rocket!\n\nPress 'Escape' to quit...",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/395046f2-4470-4945-a5bf-5a95ae5de801/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "395046f2-4470-4945-a5bf-5a95ae5de801",
+	"unityPlayUrl": "https://play.unity.com/en/games/395046f2-4470-4945-a5bf-5a95ae5de801/rocket"
+}

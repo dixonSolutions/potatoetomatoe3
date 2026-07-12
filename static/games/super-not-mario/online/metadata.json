@@ -1,0 +1,14 @@
+{
+	"id": "super-not-mario",
+	"name": "Super not Mario",
+	"author": "mamendozamiranda",
+	"description": "Run, Jump, Throw and Jump again.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/564b7190-a57c-460c-b702-a1895213f745/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/689ffcb7-0409-4b1f-a0fc-d8c20d1b0023/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "689ffcb7-0409-4b1f-a0fc-d8c20d1b0023",
+	"unityPlayUrl": "https://play.unity.com/en/games/689ffcb7-0409-4b1f-a0fc-d8c20d1b0023/super-not-mario"
+}

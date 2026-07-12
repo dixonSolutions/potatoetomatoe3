@@ -1,0 +1,14 @@
+{
+	"id": "soccer-saturday",
+	"name": "Soccer Saturday",
+	"author": "KhalimaAli",
+	"description": "Use the up and down arrow keys to move forward and back and to hit the opposing balls.  Use the left and right arrows to turn to line up your player. I added a boost of speed and particle effects when you press the space bar, but you can only use once per second so you can\u2019t spam the space bar.  You get a stronger bounce after you pick up the power-up, but use it before time runs out.  Waves of the opposing blue team increase in numbers and speed. Knock them into their own goal for 3 points.  They get a point for getting into your goal.  You get 3 pts for every power-up you grab. There are ten waves per game.  When game is over, you can replay by typing \u2018S\u2019. This game is for Create with Code Challenge 4, and all fixes and bonuses were done plus scoring, game over and restart, adding wall banners, soccer pitch instead of ground, textures to balls and particles.  Added code so space bar can\u2019t be spammed.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0fdcab15-0d78-4e31-9f70-cd06b99804b9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ce42c71-a0b2-4b3b-9749-d2358394f483/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ce42c71-a0b2-4b3b-9749-d2358394f483",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ce42c71-a0b2-4b3b-9749-d2358394f483/soccer-saturday"
+}

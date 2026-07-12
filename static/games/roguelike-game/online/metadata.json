@@ -1,0 +1,14 @@
+{
+	"id": "roguelike-game",
+	"name": "Roguelike Game",
+	"author": "Khedrak",
+	"description": "Game made for the tutorial Roguelike from Unity Learn",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/edbb911a-2439-4406-ae1d-8bef5e1f37f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "edbb911a-2439-4406-ae1d-8bef5e1f37f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/edbb911a-2439-4406-ae1d-8bef5e1f37f0/roguelike-game"
+}

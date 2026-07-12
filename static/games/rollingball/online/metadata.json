@@ -1,0 +1,14 @@
+{
+	"id": "rollingball",
+	"name": "RollingBall",
+	"author": "Pea_Tea",
+	"description": "A purple ball rolls across grass platforms and avoids lava. However, there is a hidden danger...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5b6e2cde-45a9-4ac2-9ba2-29e0ba6c3e05/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2210f20c-6688-474e-b888-3d3f6addab99/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2210f20c-6688-474e-b888-3d3f6addab99",
+	"unityPlayUrl": "https://play.unity.com/en/games/2210f20c-6688-474e-b888-3d3f6addab99/rollingball"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "the-greatest-rpg",
+	"name": "The greatest RPG",
+	"author": "RAX0327",
+	"description": "Play The greatest RPG on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2a750f62-9735-406d-8b4f-32c24114fcbf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67ac7579-d44f-48e1-ae5a-f16f29a18421/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67ac7579-d44f-48e1-ae5a-f16f29a18421",
+	"unityPlayUrl": "https://play.unity.com/en/games/67ac7579-d44f-48e1-ae5a-f16f29a18421/the-greatest-rpg"
+}

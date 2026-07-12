@@ -1,0 +1,14 @@
+{
+	"id": "third-person-shooter",
+	"name": "Third Person Shooter",
+	"author": "Cookieg82",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2275b594-7a9d-442e-9864-4d53bb87931d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0eb6a215-9d39-45a0-8b7b-7a5d7ded3029/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0eb6a215-9d39-45a0-8b7b-7a5d7ded3029",
+	"unityPlayUrl": "https://play.unity.com/en/games/0eb6a215-9d39-45a0-8b7b-7a5d7ded3029/third-person-shooter"
+}

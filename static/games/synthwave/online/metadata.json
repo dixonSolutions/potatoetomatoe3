@@ -1,0 +1,14 @@
+{
+	"id": "synthwave",
+	"name": "Synthwave",
+	"author": "tcerwin_ndhs",
+	"description": "This Game is Built off of the carting microgame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d7d1bec2-5bff-485e-b192-85635539c443/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9723d41e-3f1f-4fb2-af8a-f5d2348c761a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9723d41e-3f1f-4fb2-af8a-f5d2348c761a",
+	"unityPlayUrl": "https://play.unity.com/en/games/9723d41e-3f1f-4fb2-af8a-f5d2348c761a/synthwave"
+}

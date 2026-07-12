@@ -1,0 +1,14 @@
+{
+	"id": "sort-it-out",
+	"name": "Sort it Out!",
+	"author": "billdev0108",
+	"description": "GGJ2025",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bec5984-3f2b-4641-89b2-d3ceea229a6d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bec5984-3f2b-4641-89b2-d3ceea229a6d",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bec5984-3f2b-4641-89b2-d3ceea229a6d/sort-it-out"
+}

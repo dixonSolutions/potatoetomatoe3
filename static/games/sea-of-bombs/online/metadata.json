@@ -1,0 +1,14 @@
+{
+	"id": "sea-of-bombs",
+	"name": "Sea of Bombs",
+	"author": "Unity Play",
+	"description": "My take on the classic game Minesweeper",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/93eae812-d0f2-428c-b8df-7a066c4a747b/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05dd7ce7-34ec-4319-92f5-592f9b1e1d7e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05dd7ce7-34ec-4319-92f5-592f9b1e1d7e",
+	"unityPlayUrl": "https://play.unity.com/en/games/05dd7ce7-34ec-4319-92f5-592f9b1e1d7e/sea-of-bombs"
+}

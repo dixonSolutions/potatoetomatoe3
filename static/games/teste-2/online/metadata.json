@@ -1,0 +1,14 @@
+{
+	"id": "teste-2",
+	"name": "teste 2",
+	"author": "HGM1996",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/385ef08f-2e10-4662-9be5-519114b7e8d7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "385ef08f-2e10-4662-9be5-519114b7e8d7",
+	"unityPlayUrl": "https://play.unity.com/en/games/385ef08f-2e10-4662-9be5-519114b7e8d7/teste-2"
+}

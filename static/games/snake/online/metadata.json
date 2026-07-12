@@ -1,0 +1,14 @@
+{
+	"id": "snake",
+	"name": "Snake",
+	"author": "ROSSO_GAMES",
+	"description": "https://github.com/Hazard103508/Sample-Game-Snake.git",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7de47919-cf66-45ee-a28e-83d90a2b5e1f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7de47919-cf66-45ee-a28e-83d90a2b5e1f",
+	"unityPlayUrl": "https://play.unity.com/en/games/7de47919-cf66-45ee-a28e-83d90a2b5e1f/snake"
+}

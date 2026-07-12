@@ -1,0 +1,14 @@
+{
+	"id": "roll-in-the-dark-optimized",
+	"name": "Roll in the Dark (Optimized)",
+	"author": "kul0tz",
+	"description": "This is the optimized build for the WebGL version. My rendition of the Roll-a-ball tutorial from Unity Learn. I was dead set to create my own game and this is the first tutorial that I learn from Unity Learn website. I finished the tutorial and wasn't satisfied to what I've done, so I refined it and this is what I've got.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/efaa801d-2682-46ed-bf87-081e252b1736/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/096bdde6-f0f4-4b25-bdd0-c37e774dad49/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "096bdde6-f0f4-4b25-bdd0-c37e774dad49",
+	"unityPlayUrl": "https://play.unity.com/en/games/096bdde6-f0f4-4b25-bdd0-c37e774dad49/roll-in-the-dark-optimized"
+}

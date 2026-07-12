@@ -1,0 +1,14 @@
+{
+	"id": "solarsystem-gravity",
+	"name": "SolarSystem Gravity",
+	"author": "dunezhu",
+	"description": "Controls : A D S W | Scroll = Thrust | https://jun-zhu.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/72eab6a1-b808-4a33-ad52-e472e4fd506f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/161ee067-79fe-4391-81fc-7c638cf57774/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "161ee067-79fe-4391-81fc-7c638cf57774",
+	"unityPlayUrl": "https://play.unity.com/en/games/161ee067-79fe-4391-81fc-7c638cf57774/solarsystem-gravity"
+}

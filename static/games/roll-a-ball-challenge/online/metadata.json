@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-challenge",
+	"name": "roll a ball challenge",
+	"author": "JamalH9801",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a412355f-a5fa-4f05-8651-783009de752b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a412355f-a5fa-4f05-8651-783009de752b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a412355f-a5fa-4f05-8651-783009de752b/roll-a-ball-challenge"
+}

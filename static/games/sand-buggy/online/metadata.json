@@ -1,0 +1,14 @@
+{
+	"id": "sand-buggy",
+	"name": "Sand Buggy",
+	"author": "rymv",
+	"description": "My attempt to make a 3D controlled Car from Scratch. Some textures, soundfx and wheelset are downloaded from AssetStore. The Course, Buggy, Music are designed and composed by me. This is to improve and practice my skills in coding and game development.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6ee99592-b25e-4ebe-b81b-4f7b8ccf430a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bd45cfdb-0507-4d18-84a0-87d64800a8ed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bd45cfdb-0507-4d18-84a0-87d64800a8ed",
+	"unityPlayUrl": "https://play.unity.com/en/games/bd45cfdb-0507-4d18-84a0-87d64800a8ed/sand-buggy"
+}

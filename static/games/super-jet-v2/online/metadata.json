@@ -1,0 +1,14 @@
+{
+	"id": "super-jet-v2",
+	"name": "Super JET V2",
+	"author": "pravinallrounder",
+	"description": "V2 of my game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9cb6732a-bf82-40c2-8ece-f9ddb5df8f0c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a1fe89bc-7db4-47e7-96c7-0cb1adf6f313/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a1fe89bc-7db4-47e7-96c7-0cb1adf6f313",
+	"unityPlayUrl": "https://play.unity.com/en/games/a1fe89bc-7db4-47e7-96c7-0cb1adf6f313/super-jet-v2"
+}

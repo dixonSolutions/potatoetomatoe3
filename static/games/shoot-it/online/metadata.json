@@ -1,0 +1,14 @@
+{
+	"id": "shoot-it",
+	"name": "Shoot It",
+	"author": "Supertuv20",
+	"description": "My first microgame. It is a First-Person-Shooter game. I made a walkthrough of the game on Youtube. Link of the walkthrough: https://www.youtube.com/watch?v=0jLWthYRExo&feature=youtu.be .Please give your feedback in the comments. Thanks!. Hope you like it\ud83d\ude0a.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/be1cb52b-0f6f-4b59-a6f9-3d4fe44ff3be/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fc3198e5-1060-4ddd-8741-8468c12f3811/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fc3198e5-1060-4ddd-8741-8468c12f3811",
+	"unityPlayUrl": "https://play.unity.com/en/games/fc3198e5-1060-4ddd-8741-8468c12f3811/shoot-it"
+}

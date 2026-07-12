@@ -1,0 +1,14 @@
+{
+	"id": "space-clicker-tycoon",
+	"name": "Space Clicker Tycoon",
+	"author": "Electric_Mind",
+	"description": "Space Clicker Tycoon is a game that is currently still in development. You can test it and give feed back here: https://forms.gle/MQA8eVvmrQFM3YySA\n It is likely that there will be bugs and issues, because the game has a ways to go. \n\nRight now, only Survival Mode is working. To play, click the green box in the center to earn cash. You will need to buy a certain amount of defense points before each wave ends. (There is no death screen event yet.)\n\nWarning: I recommend using auto click, because clicking too many times can cause RSI.\n\nHave fun and thanks for the feedback!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3b3962a8-b4a5-4f00-b302-80193ea174db/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c4985f7-ac56-4c97-99a8-70eb4463640b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c4985f7-ac56-4c97-99a8-70eb4463640b",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c4985f7-ac56-4c97-99a8-70eb4463640b/space-clicker-tycoon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "solar-system-simulation",
+	"name": "Solar System Simulation",
+	"author": "nyx318",
+	"description": "This is a simple solar system simulation - my first project as part of the Introduction to Game Development course. You can click on individual planets in either of the camera views to zoom onto them. Technically it's not a game, but it introduces many important Unity concepts. It ain't much, but it's honest work!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/841a0833-77fb-4348-98be-6d9b6fc192dd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a45ecd17-65ff-4f9f-9cb4-8556425e1c9c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a45ecd17-65ff-4f9f-9cb4-8556425e1c9c",
+	"unityPlayUrl": "https://play.unity.com/en/games/a45ecd17-65ff-4f9f-9cb4-8556425e1c9c/solar-system-simulation"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "tank",
+	"name": "Tank",
+	"author": "ROSSO_GAMES",
+	"description": "It moves with arrows and aim with mouse",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2aeff9e9-0ef0-4ae3-83d8-15297d20cd59/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9f97b28c-fc55-4a31-8cc9-9adea5532b3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9f97b28c-fc55-4a31-8cc9-9adea5532b3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/9f97b28c-fc55-4a31-8cc9-9adea5532b3f/tank"
+}

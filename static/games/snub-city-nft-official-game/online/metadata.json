@@ -1,0 +1,14 @@
+{
+	"id": "snub-city-nft-official-game",
+	"name": "Snub City NFT Official Game",
+	"author": "honeyimholm",
+	"description": "Join Snubby in his quest for NYC pizza - but watch out for traffic! This minigame is part of a larger NFT project with more details at www.snubcity.com. Join the Discord and post your high score for a chance to win special prizes",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1a470a76-f08e-4c0b-aa6f-b0056edffd3f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dee95605-d1ea-44c7-a0e3-56d40b616486/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dee95605-d1ea-44c7-a0e3-56d40b616486",
+	"unityPlayUrl": "https://play.unity.com/en/games/dee95605-d1ea-44c7-a0e3-56d40b616486/snub-city-nft-official-game"
+}

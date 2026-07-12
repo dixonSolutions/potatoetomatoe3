@@ -1,0 +1,14 @@
+{
+	"id": "rockwells-night-watch-demo",
+	"name": "Rockwell's Night Watch - Demo",
+	"author": "RockIQ",
+	"description": "Tower defense game with Rockwell, the lovable coonhound. Help him protect his cooler, fend off critters, and collect yummy treats to buy improvements in town.  Try to survive the 25 days of this demo.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4b3b1889-8f85-453b-8c25-525fcc31012a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/61418fa1-0fda-4efb-b4aa-0229dde1cae5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "61418fa1-0fda-4efb-b4aa-0229dde1cae5",
+	"unityPlayUrl": "https://play.unity.com/en/games/61418fa1-0fda-4efb-b4aa-0229dde1cae5/rockwells-night-watch-demo"
+}

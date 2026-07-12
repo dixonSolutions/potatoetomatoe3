@@ -1,0 +1,14 @@
+{
+	"id": "slappy-starman",
+	"name": "Slappy Starman",
+	"author": "GJStuffs",
+	"description": "Final Build",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1253c26a-353b-492c-8574-88e4bb6f5ea4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1253c26a-353b-492c-8574-88e4bb6f5ea4",
+	"unityPlayUrl": "https://play.unity.com/en/games/1253c26a-353b-492c-8574-88e4bb6f5ea4/slappy-starman"
+}

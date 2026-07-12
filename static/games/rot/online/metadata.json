@@ -1,0 +1,14 @@
+{
+	"id": "rot",
+	"name": "ROT",
+	"author": "gamesbythomas",
+	"description": "Fight your way through a dungeon full of creatures from the other side. Collect items to get yourself stronger and see how far you can get!\n\nhttps://www.patreon.com/gamesbythomas",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f4ac3322-48be-4917-9b7d-dd6746148a63/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6d7c2848-cebf-4cb9-b99f-41ccdebba8a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6d7c2848-cebf-4cb9-b99f-41ccdebba8a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/6d7c2848-cebf-4cb9-b99f-41ccdebba8a7/rot"
+}

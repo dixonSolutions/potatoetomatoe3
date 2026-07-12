@@ -1,0 +1,14 @@
+{
+	"id": "tetris-replica-from-noob-tuts-unity-2d-tetris-tutorial",
+	"name": "Tetris Replica (from Noob Tuts' \"Unity 2D Tetris Tutorial\")",
+	"author": "silver-hornet",
+	"description": "Tetris Replica game created while following Noob Tuts \"Unity 2D Tetris Tutorial\" at: https://www.noobtuts.com/unity/2d-tetris-game . Use cursor keys to rotate pieces.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1600d195-69ed-4c2d-8b20-0840e7aea262/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c1fe26b6-853c-49a5-a2e1-97c61aa18ead/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c1fe26b6-853c-49a5-a2e1-97c61aa18ead",
+	"unityPlayUrl": "https://play.unity.com/en/games/c1fe26b6-853c-49a5-a2e1-97c61aa18ead/tetris-replica-from-noob-tuts-unity-2d-tetris-tutorial"
+}

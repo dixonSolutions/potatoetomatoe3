@@ -1,0 +1,14 @@
+{
+	"id": "ruins-explorer-rougelike",
+	"name": "Ruins Explorer Rougelike",
+	"author": "NoahThePerson",
+	"description": "Journey through a City, Snowy Mountain, Desert, or [Redacted]. Collect food to keep going as long as you can. Note no music currently.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a1f4eca6-7efb-460f-a429-064e14c575b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0afcd1e7-6412-4b76-b808-a8852b2d5eb5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0afcd1e7-6412-4b76-b808-a8852b2d5eb5",
+	"unityPlayUrl": "https://play.unity.com/en/games/0afcd1e7-6412-4b76-b808-a8852b2d5eb5/ruins-explorer-rougelike"
+}

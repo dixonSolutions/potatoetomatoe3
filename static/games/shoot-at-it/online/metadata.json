@@ -1,0 +1,14 @@
+{
+	"id": "shoot-at-it",
+	"name": "Shoot At IT",
+	"author": "Zarin_RGM",
+	"description": "Play Shoot At IT on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/586c077e-652f-4cf8-98be-e7664c5bbc19/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3c3773c8-fc88-4376-b1ef-4b499d0c1aa7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3c3773c8-fc88-4376-b1ef-4b499d0c1aa7",
+	"unityPlayUrl": "https://play.unity.com/en/games/3c3773c8-fc88-4376-b1ef-4b499d0c1aa7/shoot-at-it"
+}

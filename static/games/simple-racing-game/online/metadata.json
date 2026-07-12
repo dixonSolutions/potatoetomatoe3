@@ -1,0 +1,14 @@
+{
+	"id": "simple-racing-game",
+	"name": "Simple Racing Game",
+	"author": "SwordForTheLord",
+	"description": "Basic vehicle control around a track.  Features include speed-impacting obstacle collisions, minor drifting, and a lap timer.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d58962fc-97a9-422f-90f5-b40ad9e927da/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8d7082e6-74d8-4add-a9b8-e92d70f90ac3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8d7082e6-74d8-4add-a9b8-e92d70f90ac3",
+	"unityPlayUrl": "https://play.unity.com/en/games/8d7082e6-74d8-4add-a9b8-e92d70f90ac3/simple-racing-game"
+}

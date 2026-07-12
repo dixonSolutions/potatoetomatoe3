@@ -1,0 +1,14 @@
+{
+	"id": "squid-game-glass-bridge",
+	"name": "Squid Game Glass Bridge",
+	"author": "guitasolo",
+	"description": "Glass bridge challenge simulator. Try to arrive at the final stage to survive. \nWASD to Move;\n\"Space\" key to Jump;",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8671ca27-150d-4adb-a4d0-647eb4d7d9c5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/035a5b5f-3387-4eef-8cff-8444fec9fd85/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "035a5b5f-3387-4eef-8cff-8444fec9fd85",
+	"unityPlayUrl": "https://play.unity.com/en/games/035a5b5f-3387-4eef-8cff-8444fec9fd85/squid-game-glass-bridge"
+}

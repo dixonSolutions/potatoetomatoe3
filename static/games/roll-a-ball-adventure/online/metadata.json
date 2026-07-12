@@ -1,0 +1,14 @@
+{
+	"id": "roll-a-ball-adventure",
+	"name": "Roll-a-Ball Adventure",
+	"author": "c-b",
+	"description": "MOVE ball: Arrow/WASD/Mouse; Toggles::Alt-Text, Ctrl-Camera Closeup, Del-Dark, Shift-Sound, Space-Safety, Tab-Slow Motion; Mouse::LBClick Collision-xAnim, RBClick Demo-xAnim, Scroll-Complexity. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c65d13af-ceb0-41b4-a284-0a2ca56951ea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c45a46a-f4a2-46f3-b8eb-8de1a92e4d8e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c45a46a-f4a2-46f3-b8eb-8de1a92e4d8e",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c45a46a-f4a2-46f3-b8eb-8de1a92e4d8e/roll-a-ball-adventure"
+}

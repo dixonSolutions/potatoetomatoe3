@@ -1,0 +1,14 @@
+{
+	"id": "slime-world",
+	"name": "Slime World",
+	"author": "VampX",
+	"description": "Slime World is a Pixel Action 2D Platformer. In the amazing world of Slime World you play as a slime and you try and overcome 10+ unique levels. The game is filled with lots of enemies, obstacles and much more. Controls: WASD, or Arrow keys. Space to Dash\nFor more games, Join the Official Discord Server: https://discord.gg/p6D543ff",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7522b76c-a200-4b6d-817c-fca7454c7414/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a79ac9bf-812c-4a76-9d11-7cdf27cec56f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a79ac9bf-812c-4a76-9d11-7cdf27cec56f",
+	"unityPlayUrl": "https://play.unity.com/en/games/a79ac9bf-812c-4a76-9d11-7cdf27cec56f/slime-world"
+}

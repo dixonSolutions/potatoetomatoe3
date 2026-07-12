@@ -1,0 +1,14 @@
+{
+	"id": "simple-chess-game",
+	"name": "Simple Chess Game",
+	"author": "Dnasok",
+	"description": "Simple Chess Game is a chessboard game played from a 2.5D perspective.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2dfd7a08-d7f1-4b5f-8e39-813d53805e5d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c0aebb00-3d41-4cf1-bdb9-67a6443ed937/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c0aebb00-3d41-4cf1-bdb9-67a6443ed937",
+	"unityPlayUrl": "https://play.unity.com/en/games/c0aebb00-3d41-4cf1-bdb9-67a6443ed937/simple-chess-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "space-flight-asteroid-battle",
+	"name": "Space Flight : Asteroid Battle",
+	"author": "DigitalMicky",
+	"description": "Asteroids attacking earth. Shoot and avoid asteroids",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f1f90dd9-d703-4193-9cea-e939ca3d7f23/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e03c680b-0144-41c0-a85a-9460d85b5abb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e03c680b-0144-41c0-a85a-9460d85b5abb",
+	"unityPlayUrl": "https://play.unity.com/en/games/e03c680b-0144-41c0-a85a-9460d85b5abb/space-flight-asteroid-battle"
+}

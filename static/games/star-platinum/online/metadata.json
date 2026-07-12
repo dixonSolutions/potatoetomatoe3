@@ -1,0 +1,14 @@
+{
+	"id": "star-platinum",
+	"name": "Star Platinum",
+	"author": "terranova919",
+	"description": "Play Star Platinum on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3c6351ab-da1f-4f56-a237-3e489901a5d9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1785cd2b-6c68-443d-b661-62e83d82eafa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1785cd2b-6c68-443d-b661-62e83d82eafa",
+	"unityPlayUrl": "https://play.unity.com/en/games/1785cd2b-6c68-443d-b661-62e83d82eafa/star-platinum"
+}

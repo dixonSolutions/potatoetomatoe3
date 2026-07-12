@@ -1,0 +1,14 @@
+{
+	"id": "stickmn",
+	"name": "stickmn",
+	"author": "umairatjanbark",
+	"description": "version1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04c43468-e0a5-43cb-9f34-eeed1a0c1b40/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04c43468-e0a5-43cb-9f34-eeed1a0c1b40",
+	"unityPlayUrl": "https://play.unity.com/en/games/04c43468-e0a5-43cb-9f34-eeed1a0c1b40/stickmn"
+}

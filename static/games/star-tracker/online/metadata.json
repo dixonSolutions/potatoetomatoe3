@@ -1,0 +1,14 @@
+{
+	"id": "star-tracker",
+	"name": "Star Tracker",
+	"author": "renanpcruz",
+	"description": "Star Tracker is a \"diorama-style\" game that mixes adventure with puzzle. \n\nA stage bonus has been added just for the sake of LEGO space nostalgia. (Use left mouse to go UP and right mouse to go DOWN)\n\nNew stages still in development,  with more challenges. Hope you enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e943890-665b-4a3c-a3d1-96239ec05ce8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb73e5b5-890b-4206-8b00-62c20a464da9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb73e5b5-890b-4206-8b00-62c20a464da9",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb73e5b5-890b-4206-8b00-62c20a464da9/star-tracker"
+}

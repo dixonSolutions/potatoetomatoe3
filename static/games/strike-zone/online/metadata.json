@@ -1,0 +1,14 @@
+{
+	"id": "strike-zone",
+	"name": "Strike Zone",
+	"author": "Tyler_Kumnick",
+	"description": "hi",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ef0f211-d19e-4e12-b509-94d8297f0b03/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ef0f211-d19e-4e12-b509-94d8297f0b03",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ef0f211-d19e-4e12-b509-94d8297f0b03/strike-zone"
+}

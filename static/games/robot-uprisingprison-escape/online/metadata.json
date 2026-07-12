@@ -1,0 +1,14 @@
+{
+	"id": "robot-uprisingprison-escape",
+	"name": "robot uprising:prison escape",
+	"author": "diginewb",
+	"description": "Play robot uprising:prison escape on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/263501c7-8db0-435b-b9c8-da9146e91001/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a884006-b79b-4366-af9a-f2b5be773c27/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a884006-b79b-4366-af9a-f2b5be773c27",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a884006-b79b-4366-af9a-f2b5be773c27/robot-uprisingprison-escape"
+}

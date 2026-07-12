@@ -1,0 +1,14 @@
+{
+	"id": "tanks",
+	"name": "Tanks!",
+	"author": "Unity-Learning-Team",
+	"description": "Tanks! is a multiplayer battle game where you can compete against AI tanks or if you have a friend next to you go head to head!\n\nControls:\nP1 - WASD: Move | Space: Fire\nP2 - Arrows: Move | Enter: Fire",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/82209253-e0c2-4e00-89de-87c8707fbdb1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3772f049-9025-4536-8ede-d93718dace14/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3772f049-9025-4536-8ede-d93718dace14",
+	"unityPlayUrl": "https://play.unity.com/en/games/3772f049-9025-4536-8ede-d93718dace14/tanks"
+}

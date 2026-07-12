@@ -1,0 +1,14 @@
+{
+	"id": "the-floor-is-lava-project",
+	"name": "The Floor is Lava Project",
+	"author": "Seansilla",
+	"description": "In this challenge, I built my own Scene using primitive GameObjects and free assets. In the process of meeting this challenge I took the following steps:\n\n- Create a new 3D Scene.\n- Create new primitives.\n- Navigate 3D space in the Scene view.\n- Move, rotate, and scale GameObjects.\n- Move and rotate the Main Camera.\n- Add a RigidBody Component to a GameObject.\n- Create and apply new Materials.\n- Playtest your game in the Game view.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d25a1227-540e-4292-94c7-fe45b5c3f4ca/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/818fac99-45cd-424c-8607-7d4dc18d3967/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "818fac99-45cd-424c-8607-7d4dc18d3967",
+	"unityPlayUrl": "https://play.unity.com/en/games/818fac99-45cd-424c-8607-7d4dc18d3967/the-floor-is-lava-project"
+}

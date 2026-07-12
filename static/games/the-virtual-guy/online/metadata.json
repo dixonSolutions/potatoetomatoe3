@@ -1,0 +1,14 @@
+{
+	"id": "the-virtual-guy",
+	"name": "The Virtual Guy",
+	"author": "Asparkofficial",
+	"description": "A simple 2D game.                                                                                                                                                                                                                             Press Space bar to jump.                                                                                   Right arrow key to move right.                                                                           Left arrow key to move left.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0c17cb71-6b71-4703-8406-4b6f26343b6d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4eff25c6-f475-4a50-85ea-d876e30caac8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4eff25c6-f475-4a50-85ea-d876e30caac8",
+	"unityPlayUrl": "https://play.unity.com/en/games/4eff25c6-f475-4a50-85ea-d876e30caac8/the-virtual-guy"
+}

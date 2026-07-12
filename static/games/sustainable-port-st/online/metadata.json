@@ -1,0 +1,14 @@
+{
+	"id": "sustainable-port-st",
+	"name": "Sustainable Port (ST)",
+	"author": "Japke-CSAI",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/414aaae1-279f-40cb-b63a-1a20900ccc97/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "414aaae1-279f-40cb-b63a-1a20900ccc97",
+	"unityPlayUrl": "https://play.unity.com/en/games/414aaae1-279f-40cb-b63a-1a20900ccc97/sustainable-port-st"
+}

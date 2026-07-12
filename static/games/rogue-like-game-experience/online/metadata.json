@@ -1,0 +1,14 @@
+{
+	"id": "rogue-like-game-experience",
+	"name": "Rogue like game experience",
+	"author": "Oleejas",
+	"description": "Controls: left button mouse on character to select it\nright button mouse to move or attack\nspace to skip turn\nenemies has drop item\ntry yourself",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/265c1c53-185e-473f-8b0d-56cefbfee8c4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "265c1c53-185e-473f-8b0d-56cefbfee8c4",
+	"unityPlayUrl": "https://play.unity.com/en/games/265c1c53-185e-473f-8b0d-56cefbfee8c4/rogue-like-game-experience"
+}

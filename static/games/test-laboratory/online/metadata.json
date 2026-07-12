@@ -1,0 +1,14 @@
+{
+	"id": "test-laboratory",
+	"name": "Test Laboratory",
+	"author": "DRC314",
+	"description": "Virtual lab simulation for volume lab",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/333fc3e8-9277-4191-a2c3-0623e9942f3f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/87eb3d3b-4c1c-4870-b295-cd4d3d746426/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "87eb3d3b-4c1c-4870-b295-cd4d3d746426",
+	"unityPlayUrl": "https://play.unity.com/en/games/87eb3d3b-4c1c-4870-b295-cd4d3d746426/test-laboratory"
+}

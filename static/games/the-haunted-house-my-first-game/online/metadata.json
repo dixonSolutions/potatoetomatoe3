@@ -1,0 +1,14 @@
+{
+	"id": "the-haunted-house-my-first-game",
+	"name": "The Haunted House - My first game!",
+	"author": "Jurietta",
+	"description": "Hi! This is my submission for the Unity Learn tutorial 3D Stealth Game: Haunted House. \nThere are 30 coins to collect and a secret character to find, if you fancy trying some extra features!\nEnjoy :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0df02edb-b198-4648-982f-7b7a4e977b63/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c08fe73-171d-4213-a28a-ee70673fcb4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c08fe73-171d-4213-a28a-ee70673fcb4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c08fe73-171d-4213-a28a-ee70673fcb4a/the-haunted-house-my-first-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "street-fighter",
+	"name": "Street Fighter",
+	"author": "CracyMage",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/91ab95fa-547f-46cc-b6b6-8d8573924934/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/29fbd84f-994e-484d-aebf-896754cb5e28/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "29fbd84f-994e-484d-aebf-896754cb5e28",
+	"unityPlayUrl": "https://play.unity.com/en/games/29fbd84f-994e-484d-aebf-896754cb5e28/street-fighter"
+}

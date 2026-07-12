@@ -1,0 +1,14 @@
+{
+	"id": "tilevania-unity-platformer",
+	"name": "Tilevania - Unity Platformer",
+	"author": "CharlExMachina",
+	"description": "Tilevania is a short platformer game made wih Unity that was made following GameDev.tv's excellent online course for making 2D games with Unity.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43f972ea-6849-49d0-8046-839bb4994ed8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43f972ea-6849-49d0-8046-839bb4994ed8",
+	"unityPlayUrl": "https://play.unity.com/en/games/43f972ea-6849-49d0-8046-839bb4994ed8/tilevania-unity-platformer"
+}

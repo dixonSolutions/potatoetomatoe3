@@ -1,0 +1,14 @@
+{
+	"id": "space-jump",
+	"name": "Space Jump",
+	"author": "Giorgos_123",
+	"description": "Assignment",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00404f99-14cf-47f2-a875-8aff1b5fb925/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00404f99-14cf-47f2-a875-8aff1b5fb925",
+	"unityPlayUrl": "https://play.unity.com/en/games/00404f99-14cf-47f2-a875-8aff1b5fb925/space-jump"
+}

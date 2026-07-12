@@ -1,0 +1,14 @@
+{
+	"id": "run-n-gun",
+	"name": "Run 'n Gun",
+	"author": "ViciousTNT",
+	"description": "Pew pew pew",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2e73d07a-ef32-4558-9bbd-a692f55e485f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf9bb745-c215-4624-8f7f-5859d4916bb8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bf9bb745-c215-4624-8f7f-5859d4916bb8",
+	"unityPlayUrl": "https://play.unity.com/en/games/bf9bb745-c215-4624-8f7f-5859d4916bb8/run-n-gun"
+}

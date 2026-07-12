@@ -1,0 +1,14 @@
+{
+	"id": "squarevania",
+	"name": "Squarevania",
+	"author": "HackingtonsStudent",
+	"description": "unity metroidvania",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/424e9d53-523b-491b-995d-f5cdf0195586/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "424e9d53-523b-491b-995d-f5cdf0195586",
+	"unityPlayUrl": "https://play.unity.com/en/games/424e9d53-523b-491b-995d-f5cdf0195586/squarevania"
+}

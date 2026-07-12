@@ -1,0 +1,14 @@
+{
+	"id": "the-game",
+	"name": "The game",
+	"author": "crazyfly072",
+	"description": "Small food minigame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1eb8c12e-5f14-403a-b51a-7ed39debb1a3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/971c40aa-0c73-48c6-b909-2c954fcf1b5d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "971c40aa-0c73-48c6-b909-2c954fcf1b5d",
+	"unityPlayUrl": "https://play.unity.com/en/games/971c40aa-0c73-48c6-b909-2c954fcf1b5d/the-game"
+}
