@@ -112,7 +112,8 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		id: 'search-sec-games',
 		title: 'Games',
 		panel: 'games',
-		sectionKeywords: 'games play online offline default version unity download bundled pause resume shortcut',
+		sectionKeywords:
+			'games play online offline default version unity download bundled pause resume shortcut tray quit close',
 		subsections: [
 			{
 				id: 'sub-games-default-mode',
@@ -125,6 +126,12 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				label: 'Pause / resume shortcut',
 				scrollTargetId: 'settings-section-games-pause-shortcut',
 				keywords: 'pause resume shortcut backtick hotkey keyboard game xonotic'
+			},
+			{
+				id: 'sub-games-close-to-tray',
+				label: 'Close to tray',
+				scrollTargetId: 'settings-section-games-close-to-tray',
+				keywords: 'tray close quit background gnome silverblue desktop appindicator'
 			}
 		]
 	}

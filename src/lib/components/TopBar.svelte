@@ -4,16 +4,27 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import * as NavigationMenu from '$lib/components/ui/navigation-menu';
-	import { Menu, Sun, Moon, Settings } from 'lucide-svelte';
+	import { Menu, Sun, Moon, Settings, LogOut } from 'lucide-svelte';
 	import { toggleMode } from 'mode-watcher';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
 	import logo from '$lib/assets/logo.png';
+	import { isTauriApp } from '$lib/utils/offline-deployment';
+	import { quitDesktopApp } from '$lib/utils/desktop-tray';
 
 	let { hidden = false }: { hidden?: boolean } = $props();
 
 	let isOpen = $state(false);
+	let showQuit = $state(false);
 
 	const settingsUi = getSettingsUiContext();
+
+	$effect(() => {
+		showQuit = isTauriApp();
+	});
+
+	async function onQuit() {
+		await quitDesktopApp();
+	}
 
 	const categories = $derived([
 		{ title: 'Action Games', href: `${base}/games?category=action`, description: 'Fast-paced action and combat games' },
@@ -100,6 +111,12 @@
 					<Settings class="h-[1.2rem] w-[1.2rem]" />
 				</Button>
 			{/if}
+			{#if showQuit}
+				<Button onclick={onQuit} variant="outline" size="sm" aria-label="Quit Potato Tomato">
+					<LogOut class="mr-2 h-4 w-4" />
+					Quit
+				</Button>
+			{/if}
 			<Button onclick={toggleMode} variant="outline" size="icon">
 				<Sun class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
 				<Moon class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -115,6 +132,11 @@
 
 		<!-- Mobile Menu Button -->
 		<div class="lg:hidden ml-auto flex items-center space-x-2">
+			{#if showQuit}
+				<Button onclick={onQuit} variant="outline" size="icon" aria-label="Quit Potato Tomato">
+					<LogOut class="h-5 w-5" />
+				</Button>
+			{/if}
 			{#if settingsUi}
 				<Button
 					onclick={() => settingsUi.openSettings()}

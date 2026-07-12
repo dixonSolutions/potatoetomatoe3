@@ -39,6 +39,7 @@
 	import { GAME_IMMERSIVE_CHANGED } from '$lib/utils/game-immersive';
 	import {
 		attachDesktopTrayListeners,
+		getTrayLifecycleState,
 		markTrayCloseHintShown,
 		shouldShowTrayCloseHint,
 		syncDesktopTrayRecent
@@ -316,8 +317,19 @@
 			void syncDesktopTrayRecent();
 			if (shouldShowTrayCloseHint()) {
 				markTrayCloseHintShown();
-				toast.message('Runs in the tray', {
-					description: 'Closing the window keeps Potato Tomato in the notification area. Quit from the tray menu to exit.'
+				void getTrayLifecycleState().then((life) => {
+					if (life.closeToTray) {
+						toast.message('Runs in the tray', {
+							description:
+								'Closing the window keeps Potato Tomato in the notification area. Quit from the tray menu to exit.'
+						});
+					} else {
+						toast.message('Closing quits the app', {
+							description: life.trayAvailable
+								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → Games after installing an AppIndicator extension.'
+								: 'No system tray was found. Closing the window fully quits Potato Tomato (and stops background downloads).'
+						});
+					}
 				});
 			}
 		}

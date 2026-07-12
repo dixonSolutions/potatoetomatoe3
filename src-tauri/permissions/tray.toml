@@ -7,3 +7,8 @@ commands.allow = ["sync_tray_recent"]
 identifier = "allow-get-puller-base-url"
 description = "Allow the frontend to read the local puller HTTP base URL"
 commands.allow = ["get_puller_base_url"]
+
+[[permission]]
+identifier = "allow-tray-lifecycle"
+description = "Allow the frontend to query tray availability and quit the desktop app"
+commands.allow = ["is_tray_available", "is_close_to_tray_enabled", "set_close_to_tray_enabled", "quit_app"]

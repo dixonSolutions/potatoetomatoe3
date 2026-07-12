@@ -299,11 +299,11 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Unity online: `/api/unity-play/:id` is only proxied in Vite dev (vite.config.ts).
-	 * Packaged Tauri/Flatpak has no reverse proxy — using that path serves the SPA shell
-	 * and looks like a blank game. Fall through to /unity/player.html?src=<HTTPS embed>.
+	 * Unity online with inject: prefer puller `/api/unity-play/:id` whenever the puller is up.
+	 * In Vite that path is same-origin (proxy). In Tauri it is http://127.0.0.1 — still gets
+	 * inject.js inside the game document (unlike /unity/player.html wrapping play.unity.com).
 	 */
-	if (metadata?.engine === 'unity' && import.meta.env.DEV) {
+	if (metadata?.engine === 'unity') {
 		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
 		if (await isPullerAvailable()) {
 			const url = pullerUnityPlayUrl(gameId, base);
@@ -351,6 +351,9 @@ export function iframeAllowForUrl(url: string): string | undefined {
 		url.includes('/unity/embed.html') ||
 		url.includes('jsdelivr.net') ||
 		url.includes('/browser-offline/') ||
+		url.includes('/puller-games/') ||
+		url.includes('127.0.0.1') ||
+		url.includes('localhost') ||
 		url.startsWith('blob:') ||
 		(url.includes('/games/') && (url.includes('/online/') || url.includes('/offline/')))
 	) {

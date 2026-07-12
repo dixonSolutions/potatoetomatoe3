@@ -17,7 +17,14 @@ export interface TrayRecentGame {
 	name: string;
 }
 
+export interface TrayLifecycleState {
+	trayAvailable: boolean;
+	closeToTray: boolean;
+}
+
 const TRAY_HINT_KEY = 'potato-tomato-tray-hint-shown';
+
+let cachedLifecycle: TrayLifecycleState | null = null;
 
 /** Top five recently played games for the tray menu (excludes disliked). */
 export async function getTrayRecentGames(limit = 5): Promise<TrayRecentGame[]> {
@@ -41,6 +48,51 @@ export async function syncDesktopTrayRecent(): Promise<void> {
 		await invoke('sync_tray_recent', { games });
 	} catch (err) {
 		console.warn('Tray recent sync failed:', err);
+	}
+}
+
+export async function getTrayLifecycleState(force = false): Promise<TrayLifecycleState> {
+	if (!isTauriApp()) {
+		return { trayAvailable: false, closeToTray: false };
+	}
+	if (!force && cachedLifecycle) return cachedLifecycle;
+	try {
+		const [trayAvailable, closeToTray] = await Promise.all([
+			invoke<boolean>('is_tray_available'),
+			invoke<boolean>('is_close_to_tray_enabled')
+		]);
+		cachedLifecycle = {
+			trayAvailable: !!trayAvailable,
+			closeToTray: !!closeToTray
+		};
+		return cachedLifecycle;
+	} catch {
+		cachedLifecycle = { trayAvailable: false, closeToTray: false };
+		return cachedLifecycle;
+	}
+}
+
+export async function setCloseToTrayEnabled(enabled: boolean): Promise<boolean> {
+	if (!isTauriApp()) return false;
+	try {
+		const next = await invoke<boolean>('set_close_to_tray_enabled', { enabled });
+		cachedLifecycle = {
+			trayAvailable: cachedLifecycle?.trayAvailable ?? true,
+			closeToTray: !!next
+		};
+		return !!next;
+	} catch {
+		return false;
+	}
+}
+
+/** Fully quit the desktop app (stops puller). */
+export async function quitDesktopApp(): Promise<void> {
+	if (!isTauriApp()) return;
+	try {
+		await invoke('quit_app');
+	} catch (err) {
+		console.warn('quit_app failed:', err);
 	}
 }
 
@@ -68,7 +120,7 @@ export async function attachDesktopTrayListeners(): Promise<UnlistenFn> {
 	};
 }
 
-/** One-time hint that closing the window keeps the app in the tray. */
+/** One-time hint about close behavior (tray vs quit). */
 export function shouldShowTrayCloseHint(): boolean {
 	if (!isTauriApp() || typeof localStorage === 'undefined') return false;
 	try {

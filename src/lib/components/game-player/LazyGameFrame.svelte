@@ -36,12 +36,23 @@
 	const DEFAULT_IFRAME_ALLOW = 'fullscreen; autoplay; gamepad; microphone; camera';
 
 	let iframeEl = $state<HTMLIFrameElement | null>(null);
+	let surfaceEl = $state<HTMLDivElement | null>(null);
 
 	function bumpAudioUnlock() {
 		unlockGameIframeAudio(iframeEl);
 		/* Nested player shells / late Unity AudioContext creation */
 		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 250);
 		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 1000);
+		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 3000);
+	}
+
+	function startGame() {
+		started = true;
+		/* Kick unlock from the user gesture that starts play (WebKitGTK needs this). */
+		void tick().then(() => {
+			bumpAudioUnlock();
+			iframeEl?.focus?.();
+		});
 	}
 
 	$effect(() => {
@@ -66,18 +77,20 @@
 </script>
 
 <div
+	bind:this={surfaceEl}
 	class="relative w-full overflow-hidden bg-muted {fillContainer
 		? 'h-full min-h-0 border-0 shadow-none'
 		: 'rounded-lg border shadow-lg'}"
 	style={fillContainer ? undefined : 'aspect-ratio: 16 / 9;'}
+	onpointerdown={() => {
+		if (started) bumpAudioUnlock();
+	}}
 >
 	{#if !started}
 		<button
 			type="button"
 			class="group absolute inset-0 flex w-full flex-col items-center justify-center gap-3 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-			onclick={() => {
-				started = true;
-			}}
+			onclick={startGame}
 			aria-label="Load and play {title}"
 		>
 			<img
@@ -113,7 +126,7 @@
 			src={gameUrl}
 			{title}
 			class="h-full w-full border-0 bg-black"
-			loading="lazy"
+			loading="eager"
 			allowfullscreen
 			allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
 			referrerpolicy="no-referrer-when-downgrade"

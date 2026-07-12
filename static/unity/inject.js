@@ -92,17 +92,30 @@
 		if (!OrigAC) return;
 		window.__ptAudioContextPatched = true;
 		function PatchedAudioContext() {
-			var ctx = new OrigAC();
+			var args = arguments;
+			var ctx;
+			try {
+				if (typeof Reflect !== 'undefined' && Reflect.construct) {
+					ctx = Reflect.construct(OrigAC, args);
+				} else {
+					ctx = new OrigAC();
+				}
+			} catch (e) {
+				ctx = new OrigAC();
+			}
 			audioContexts.push(ctx);
 			window.__ptSharedAudioCtx = ctx;
-			if (window.__ptAudioOutputMuted) {
+			if (window.__ptAudioOutputMuted || window.__ptGamePaused) {
 				try {
 					ctx.suspend();
-				} catch (e) {}
+				} catch (e2) {}
 			}
 			return ctx;
 		}
 		PatchedAudioContext.prototype = OrigAC.prototype;
+		try {
+			Object.setPrototypeOf(PatchedAudioContext, OrigAC);
+		} catch (e) {}
 		window.AudioContext = PatchedAudioContext;
 		if ('webkitAudioContext' in window) window.webkitAudioContext = PatchedAudioContext;
 	})();

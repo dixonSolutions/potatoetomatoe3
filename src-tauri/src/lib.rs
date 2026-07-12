@@ -2,11 +2,15 @@ mod tray;
 
 use std::net::TcpListener;
 use std::path::{Path, PathBuf};
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::OnceLock;
 use tauri::Manager;
 use tauri::path::BaseDirectory;
 
 static PULLER_PORT: OnceLock<u16> = OnceLock::new();
+static TRAY_AVAILABLE: AtomicBool = AtomicBool::new(false);
+/** When false, window close quits the app (GNOME/Silverblue without a visible tray). */
+static CLOSE_TO_TRAY: AtomicBool = AtomicBool::new(false);
 
 const DEFAULT_PULLER_PORT: u16 = 18787;
 
@@ -26,9 +30,54 @@ pub fn puller_port() -> u16 {
   reserve_puller_port()
 }
 
+/// GNOME Shell does not show SNI tray icons without an extension (common on Fedora Silverblue).
+fn is_gnome_desktop() -> bool {
+  let desktop = std::env::var("XDG_CURRENT_DESKTOP").unwrap_or_default();
+  desktop
+    .split(':')
+    .any(|part| part.eq_ignore_ascii_case("gnome"))
+}
+
+fn compute_close_to_tray(tray_ok: bool) -> bool {
+  if !tray_ok {
+    return false;
+  }
+  if std::env::var_os("POTATO_TOMATO_CLOSE_TO_TRAY").is_some() {
+    return true;
+  }
+  if std::env::var_os("POTATO_TOMATO_NO_CLOSE_TO_TRAY").is_some() {
+    return false;
+  }
+  /* Invisible tray + hide-on-close = stranded background process on Silverblue. */
+  !is_gnome_desktop()
+}
+
 #[tauri::command]
 fn get_puller_base_url() -> String {
   format!("http://127.0.0.1:{}", puller_port())
+}
+
+#[tauri::command]
+fn is_tray_available() -> bool {
+  TRAY_AVAILABLE.load(Ordering::SeqCst)
+}
+
+#[tauri::command]
+fn is_close_to_tray_enabled() -> bool {
+  CLOSE_TO_TRAY.load(Ordering::SeqCst)
+}
+
+#[tauri::command]
+fn set_close_to_tray_enabled(enabled: bool) -> bool {
+  let tray_ok = TRAY_AVAILABLE.load(Ordering::SeqCst);
+  let next = enabled && tray_ok;
+  CLOSE_TO_TRAY.store(next, Ordering::SeqCst);
+  next
+}
+
+#[tauri::command]
+fn quit_app(app: tauri::AppHandle) {
+  app.exit(0);
 }
 
 fn repo_root() -> PathBuf {
@@ -221,7 +270,11 @@ pub fn run() {
     .plugin(tauri_plugin_shell::init())
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
-      get_puller_base_url
+      get_puller_base_url,
+      is_tray_available,
+      is_close_to_tray_enabled,
+      set_close_to_tray_enabled,
+      quit_app
     ])
     .setup(|app| {
       if cfg!(debug_assertions) {
@@ -236,22 +289,44 @@ pub fn run() {
       spawn_puller(app.handle());
       // libappindicator-sys panics (does not return Err) when the .so is missing
       // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
-      match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+      let tray_ok = match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
         tray::build_tray(app.handle())
       })) {
-        Ok(Ok(())) => {}
-        Ok(Err(e)) => log::warn!("system tray unavailable: {e}"),
-        Err(_) => log::warn!(
-          "system tray unavailable: appindicator library missing or panic during init"
-        ),
+        Ok(Ok(())) => true,
+        Ok(Err(e)) => {
+          log::warn!("system tray unavailable: {e}");
+          false
+        }
+        Err(_) => {
+          log::warn!(
+            "system tray unavailable: appindicator library missing or panic during init"
+          );
+          false
+        }
+      };
+      TRAY_AVAILABLE.store(tray_ok, Ordering::SeqCst);
+      let close_to_tray = compute_close_to_tray(tray_ok);
+      CLOSE_TO_TRAY.store(close_to_tray, Ordering::SeqCst);
+      if tray_ok && !close_to_tray {
+        log::info!(
+          "tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)"
+        );
+      } else if !tray_ok {
+        log::info!("no system tray — closing the window will quit the app");
       }
       Ok(())
     })
     .on_window_event(|window, event| {
       if let tauri::WindowEvent::CloseRequested { api, .. } = event {
-        // Keep puller + tray alive; Quit from the tray exits for real.
-        let _ = window.hide();
-        api.prevent_close();
+        if CLOSE_TO_TRAY.load(Ordering::SeqCst) {
+          // Keep puller + tray alive; Quit from the tray exits for real.
+          let _ = window.hide();
+          api.prevent_close();
+        } else {
+          // No usable tray (common on Fedora Silverblue / stock GNOME): quit fully.
+          api.prevent_close();
+          window.app_handle().exit(0);
+        }
       }
     })
     .run(tauri::generate_context!())

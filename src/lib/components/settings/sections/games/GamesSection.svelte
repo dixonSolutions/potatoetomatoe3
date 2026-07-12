@@ -17,6 +17,13 @@
 		type GamePauseShortcut
 	} from '$lib/utils/game-pause';
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
+	import {
+		getTrayLifecycleState,
+		setCloseToTrayEnabled,
+		type TrayLifecycleState
+	} from '$lib/utils/desktop-tray';
+	import { isTauriApp } from '$lib/utils/offline-deployment';
+	import { Switch } from '$lib/components/ui/switch';
 	import { toast } from 'svelte-sonner';
 	import { onMount } from 'svelte';
 
@@ -45,6 +52,8 @@
 
 	let pauseShortcut = $state<GamePauseShortcut>({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
 	let recordingPauseShortcut = $state(false);
+	let trayLife = $state<TrayLifecycleState | null>(null);
+	let closeToTrayBusy = $state(false);
 
 	function onDefaultChange(value: string | undefined) {
 		if (value !== 'online' && value !== 'offline') return;
@@ -57,8 +66,28 @@
 		toast.message('Pause shortcut reset to `');
 	}
 
+	async function onCloseToTrayToggle(checked: boolean) {
+		closeToTrayBusy = true;
+		try {
+			const next = await setCloseToTrayEnabled(checked);
+			trayLife = { ...(trayLife ?? { trayAvailable: false, closeToTray: false }), closeToTray: next };
+			toast.message(
+				next
+					? 'Closing the window will keep the app in the tray'
+					: 'Closing the window will quit the app'
+			);
+		} finally {
+			closeToTrayBusy = false;
+		}
+	}
+
 	onMount(() => {
 		pauseShortcut = getGamePauseShortcut();
+		if (isTauriApp()) {
+			void getTrayLifecycleState(true).then((s) => {
+				trayLife = s;
+			});
+		}
 	});
 
 	$effect(() => {
@@ -164,7 +193,37 @@
 		</div>
 	{/if}
 
-	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'game play online offline default version unity download') && !sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game')}
+	{#if trayLife && sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
+		<div
+			id="settings-section-games-close-to-tray"
+			class="scroll-mt-32 flex items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
+		>
+			<div class="min-w-0 space-y-1">
+				<Label for="games-close-to-tray" class="text-sm font-medium">Keep running in tray when closing</Label>
+				<p class="text-xs text-muted-foreground">
+					{#if !trayLife.trayAvailable}
+						No system tray was detected. Closing the window always quits. On Fedora Silverblue / GNOME, install
+						an AppIndicator extension if you want a tray icon.
+					{:else}
+						When on, closing the window hides to the tray (puller keeps running). When off, close fully quits —
+						recommended on GNOME/Silverblue where tray icons are often invisible. Use <strong>Quit</strong> in
+						the top bar anytime.
+					{/if}
+				</p>
+			</div>
+			<Switch
+				id="games-close-to-tray"
+				checked={trayLife.closeToTray}
+				disabled={busy || closeToTrayBusy || !trayLife.trayAvailable}
+				onCheckedChange={(v) => {
+					void onCloseToTrayToggle(Boolean(v));
+				}}
+				aria-label="Keep running in tray when closing"
+			/>
+		</div>
+	{/if}
+
+	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'game play online offline default version unity download') && !sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game') && !sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
 		<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
 	{/if}
 </div>

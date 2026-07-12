@@ -67,7 +67,7 @@ pnpm run games:import-y8 -- --limit 50 --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. Online play routes through `/unity/player.html` which loads `inject.js` (no splash, no portal loading screens). Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
+Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock). Without the puller, play falls back to `/unity/player.html?src=…` (shell only — cross-origin embeds cannot receive inject). Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
 
 ### Unity Play catalog import
 
