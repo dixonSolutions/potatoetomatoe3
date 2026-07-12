@@ -1,0 +1,14 @@
+{
+	"id": "mathgame",
+	"name": "MathGame",
+	"author": "RingoLau",
+	"description": "get challenge!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cba213be-4dbb-4433-a49b-18cf55bd3bc8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dd10097f-1d8b-4f45-99c3-0e37024c12cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dd10097f-1d8b-4f45-99c3-0e37024c12cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/dd10097f-1d8b-4f45-99c3-0e37024c12cf/mathgame"
+}

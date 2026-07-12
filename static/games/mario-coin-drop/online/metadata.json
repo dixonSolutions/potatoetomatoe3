@@ -1,0 +1,14 @@
+{
+	"id": "mario-coin-drop",
+	"name": "Mario Coin Drop",
+	"author": "Felblitzer",
+	"description": "Destroy the crates and planks to get the 1up to Mario!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0b133a01-5ec8-489a-bd37-c5432bb75024/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1936aa08-f097-4501-9118-b2c43367026c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1936aa08-f097-4501-9118-b2c43367026c",
+	"unityPlayUrl": "https://play.unity.com/en/games/1936aa08-f097-4501-9118-b2c43367026c/mario-coin-drop"
+}

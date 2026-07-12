@@ -1,0 +1,14 @@
+{
+	"id": "krosh-run",
+	"name": "Krosh Run",
+	"author": "AlptGames",
+	"description": "In this game you have to jump over the obstacles by cartoon character Krosh. It is not as easy as you can think.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2600205c-5fda-403c-9b07-b4926294a82e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5700c9c0-0a14-44dd-a5da-2caa146d9870/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5700c9c0-0a14-44dd-a5da-2caa146d9870",
+	"unityPlayUrl": "https://play.unity.com/en/games/5700c9c0-0a14-44dd-a5da-2caa146d9870/krosh-run"
+}

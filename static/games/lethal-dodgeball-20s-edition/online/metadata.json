@@ -1,0 +1,14 @@
+{
+	"id": "lethal-dodgeball-20s-edition",
+	"name": "Lethal Dodgeball (20s edition)",
+	"author": "KrohnenXV",
+	"description": "This is a prototype, i haven't yet setup the actual PvE, but i will soon.\nYou have 20s to dodgeball your rival to death while a fever dreamish mob is encouraging you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4879ebc5-b1d1-4dbf-8fc7-d0ecc5ec59f2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/057395c3-e54c-47c5-b0ec-c00aed960807/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "057395c3-e54c-47c5-b0ec-c00aed960807",
+	"unityPlayUrl": "https://play.unity.com/en/games/057395c3-e54c-47c5-b0ec-c00aed960807/lethal-dodgeball-20s-edition"
+}

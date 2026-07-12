@@ -1,0 +1,14 @@
+{
+	"id": "ghost-adventure",
+	"name": "Ghost Adventure",
+	"author": "LePelerin",
+	"description": "Play Ghost Adventure on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/024aef3c-e5f3-4899-917a-5ffa73f4352a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "024aef3c-e5f3-4899-917a-5ffa73f4352a",
+	"unityPlayUrl": "https://play.unity.com/en/games/024aef3c-e5f3-4899-917a-5ffa73f4352a/ghost-adventure"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "mantrawarriortcg-deck-builder",
+	"name": "MantraWarriorTCG Deck Builder",
+	"author": "GrinTeen",
+	"description": "Deck Builder for MantraWarriorTCG Ver.0.2.0",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/15797a60-9c7a-4577-8fd7-c44b79393dcc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11d28f48-25ac-46f1-8f80-6273c596cf7a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11d28f48-25ac-46f1-8f80-6273c596cf7a",
+	"unityPlayUrl": "https://play.unity.com/en/games/11d28f48-25ac-46f1-8f80-6273c596cf7a/mantrawarriortcg-deck-builder"
+}

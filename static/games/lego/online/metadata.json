@@ -1,0 +1,14 @@
+{
+	"id": "lego",
+	"name": "LEGO",
+	"author": "unity_19cs066",
+	"description": "Hello guys! This is the 1st ever game I made in Unity. I learned and referenced from Unity tutorials for Game making. I'm happy to share it with you guys!   Please share your feedback with me! Thank You",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b132dee9-ac56-44c7-88f3-4361f4e7c3c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d069625-2f2d-43a8-ae48-e1351cc5a1fe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d069625-2f2d-43a8-ae48-e1351cc5a1fe",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d069625-2f2d-43a8-ae48-e1351cc5a1fe/lego"
+}

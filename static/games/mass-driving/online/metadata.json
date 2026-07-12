@@ -1,0 +1,14 @@
+{
+	"id": "mass-driving",
+	"name": "Mass Driving!",
+	"author": "Clara_Krieg",
+	"description": "How good a driver are you? Find out!\n\nIn all \"Endless\" difficulties, max speed increases incrementally up to 10 times, with the final level being when you reach a score of 2560+. Making it harder the longer you're in the game.\n\nChangelog April 3, 2020\n\nAdded 10 Normal Mode levels and 10 Hard Mode levels for a total of 23 levels (including the 3 Endless Mode difficulties)\nAdded a \"Controls\" menu\nAdded a \"Level Select\" for the non-endless modes\nAdded a \"Pause\" menu to escape to the Main Menu or exit the game\nAdded a text at the bottom right of the screen to indicate your current level in Normal and Hard Modes\n\n\"Game Over\" screen now allows you to choose to restart the current level or quit to main menu\nOn Normal and Hard Mode levels there is a screen in between each level to give you a rest between levels\nEach level in Normal and Hard Modes increases the distance to the goal (which is currently invisible [plans to change that in future hopefully]) and increases the speed.\nHard Mode has a 50% base speed increase over Normal Mode on top of the 1st person only.\n\nChangelog April 2, 2020\n\nAdjusted the rain to be less white, and thinner so it looks more realistic.\nAdded some ambiance\n> Rain sounds\n> Engine sounds for both player and NPC vehicles\n> Some relaxing music for the drive!\n\nChangelog April 1,2020\n\nAdded image to: Main Menu and both Difficulty menus, so it's not blinding white.\nAdded a \"Night Mode\" (i.e. \"Expert Mode\")\nAdded rain to the endless modes\nAdjusted car lighting to be way less intense and more realistic\nIncreased fog density in \"Hard Mode\" so the cars become visible closer.\n\nUpdated \"did't\" to \"didn't\" on Game Over screen. ;)\n\nEndless Night Mode:\nIncredibly dark.\nHeadlights are auto on, and can't be toggled.\nFog is very dense, making cars become visible fairly close to player.\nIncrease base speed by 50% compared to other modes.\n\nControls:\nAuto forward movement\n\"A\" and \"D\" move left and right\n\"F\" to toggle Headlights (disabled in \"Night Time Mode\")\n\"C\" togg",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/60ad0a19-623c-47f1-80c0-694bf26b1613/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/24612a41-d05a-4fb5-ac9a-9c0eed586dab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "24612a41-d05a-4fb5-ac9a-9c0eed586dab",
+	"unityPlayUrl": "https://play.unity.com/en/games/24612a41-d05a-4fb5-ac9a-9c0eed586dab/mass-driving"
+}

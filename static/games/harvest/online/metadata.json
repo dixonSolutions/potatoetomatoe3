@@ -1,0 +1,14 @@
+{
+	"id": "harvest",
+	"name": "Harvest",
+	"author": "JafSharf",
+	"description": "A game made for a player experience study.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6e53e343-c96c-4c31-9293-c6902eed7494/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6cc38d4f-2937-49df-b1c2-a266482e8d10/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6cc38d4f-2937-49df-b1c2-a266482e8d10",
+	"unityPlayUrl": "https://play.unity.com/en/games/6cc38d4f-2937-49df-b1c2-a266482e8d10/harvest"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "kart-template",
+	"name": "kart-template",
+	"author": "alodel",
+	"description": "Play kart-template on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3c746238-ef7a-487f-896d-b04dbd9f103a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4d3dc7e8-b76a-40f8-a9c3-1759ec072ac6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4d3dc7e8-b76a-40f8-a9c3-1759ec072ac6",
+	"unityPlayUrl": "https://play.unity.com/en/games/4d3dc7e8-b76a-40f8-a9c3-1759ec072ac6/kart-template"
+}

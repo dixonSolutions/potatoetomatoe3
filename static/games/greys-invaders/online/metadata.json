@@ -1,0 +1,14 @@
+{
+	"id": "greys-invaders",
+	"name": "Grey's Invaders",
+	"author": "Skribbl_Grey",
+	"description": "This is the test version of our first microgame made in Unity based on our family NFT project The Matic Greys! Thank you to Udemy for providing an excellent learning experience!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6378cc17-71a4-416f-ac0c-6ee8822d5345/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2491ec6f-2492-44a2-8d8b-fb180e99ab4c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2491ec6f-2492-44a2-8d8b-fb180e99ab4c",
+	"unityPlayUrl": "https://play.unity.com/en/games/2491ec6f-2492-44a2-8d8b-fb180e99ab4c/greys-invaders"
+}

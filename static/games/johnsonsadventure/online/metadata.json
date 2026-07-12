@@ -1,0 +1,14 @@
+{
+	"id": "johnsonsadventure",
+	"name": "JohnsonsAdventure",
+	"author": "HbombTX",
+	"description": "FPS with rythym based movement and hidden lore, about 3 hours.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3e580d2a-c6b4-4a78-a3d8-fc25289f825a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02a5ec01-a9fb-41f0-82d7-1923bfcd0758/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02a5ec01-a9fb-41f0-82d7-1923bfcd0758",
+	"unityPlayUrl": "https://play.unity.com/en/games/02a5ec01-a9fb-41f0-82d7-1923bfcd0758/johnsonsadventure"
+}

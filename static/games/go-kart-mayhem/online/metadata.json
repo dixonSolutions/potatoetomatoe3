@@ -1,0 +1,14 @@
+{
+	"id": "go-kart-mayhem",
+	"name": "Go Kart Mayhem",
+	"author": "zorbs",
+	"description": "A simple game, where you race around a track to beat your friends or your own highscore.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7c5cbf99-a200-4f5c-8475-5c994a3d6e6b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/490a7f4c-2454-449e-a645-91853c9d0d8e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "490a7f4c-2454-449e-a645-91853c9d0d8e",
+	"unityPlayUrl": "https://play.unity.com/en/games/490a7f4c-2454-449e-a645-91853c9d0d8e/go-kart-mayhem"
+}

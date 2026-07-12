@@ -1,0 +1,14 @@
+{
+	"id": "horror-escape-game",
+	"name": "Horror escape game",
+	"author": "jamatrack12",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ca8cb728-b803-4a66-9da6-4828d7a96122/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dcb0e846-7dc6-4818-a51a-9b352677600c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dcb0e846-7dc6-4818-a51a-9b352677600c",
+	"unityPlayUrl": "https://play.unity.com/en/games/dcb0e846-7dc6-4818-a51a-9b352677600c/horror-escape-game"
+}

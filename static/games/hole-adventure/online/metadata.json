@@ -1,0 +1,14 @@
+{
+	"id": "hole-adventure",
+	"name": "Hole Adventure",
+	"author": "AbobaDeveloper",
+	"description": "Hi! This is demo version of my game about story of the hole. Please comment if you liked this game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/84d177a8-3de8-4f89-a9df-508c579a35cd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d36a16b-478e-4978-9fd3-c9807475e410/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d36a16b-478e-4978-9fd3-c9807475e410",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d36a16b-478e-4978-9fd3-c9807475e410/hole-adventure"
+}

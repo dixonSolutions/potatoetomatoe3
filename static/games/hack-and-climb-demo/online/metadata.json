@@ -1,0 +1,14 @@
+{
+	"id": "hack-and-climb-demo",
+	"name": "Hack And Climb - Demo",
+	"author": "Unity Play",
+	"description": "Hack And Climb: Chop to the Top! is a physics-based platformer where you control an axe on a thrilling ascent through treacherous landscapes.\nUnlock up to 4 unique weapons on this demo.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0485d77d-a97f-4a89-95d9-3338cc2a6753/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5aadfef3-112d-4e47-b312-7a2104acf9c0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5aadfef3-112d-4e47-b312-7a2104acf9c0",
+	"unityPlayUrl": "https://play.unity.com/en/games/5aadfef3-112d-4e47-b312-7a2104acf9c0/hack-and-climb-demo"
+}

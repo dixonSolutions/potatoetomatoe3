@@ -1,0 +1,14 @@
+{
+	"id": "karting-esteve-gf",
+	"name": "Karting Esteve GF",
+	"author": "estevegf",
+	"description": "Play Karting Esteve GF on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/08944ca6-0b7d-458c-b782-bdf2e53c2983/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a16b8d85-a466-402e-a338-b01f5493065b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a16b8d85-a466-402e-a338-b01f5493065b",
+	"unityPlayUrl": "https://play.unity.com/en/games/a16b8d85-a466-402e-a338-b01f5493065b/karting-esteve-gf"
+}

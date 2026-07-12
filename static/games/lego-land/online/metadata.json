@@ -1,0 +1,14 @@
+{
+	"id": "lego-land",
+	"name": "LEGO-Land",
+	"author": "graydogstudios",
+	"description": "Extremely hard Unity Tutorial level. Good luck and beware of traps!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/db1fd7dd-b4fb-4b70-accb-658e6d7791bc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/37061509-4487-4416-bdb7-d4923ae716c4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "37061509-4487-4416-bdb7-d4923ae716c4",
+	"unityPlayUrl": "https://play.unity.com/en/games/37061509-4487-4416-bdb7-d4923ae716c4/lego-land"
+}

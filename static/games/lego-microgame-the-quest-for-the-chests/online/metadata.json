@@ -1,0 +1,14 @@
+{
+	"id": "lego-microgame-the-quest-for-the-chests",
+	"name": "Lego Microgame: The Quest for The Chests",
+	"author": "Jacob_The_Dewback",
+	"description": "In my first ever game on Unity, explore a fun and creative Lego world and collect all of the chests. Can you beat all of the bosses?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c88f6054-b608-44e8-84cc-9d4cbd65f676/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/92a39856-128d-4e7a-b37f-8945752ad94b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "92a39856-128d-4e7a-b37f-8945752ad94b",
+	"unityPlayUrl": "https://play.unity.com/en/games/92a39856-128d-4e7a-b37f-8945752ad94b/lego-microgame-the-quest-for-the-chests"
+}

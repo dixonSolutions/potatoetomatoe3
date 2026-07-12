@@ -1,0 +1,14 @@
+{
+	"id": "mathsjong",
+	"name": "mathsjong",
+	"author": "oumathsgamer",
+	"description": "Mahjong patience for calculus. Based on original code made available on an MIT License by Lucas Belfanti at https://github.com/lhbelfanti. This game was developed as part of the scholarship project # 23E-ISAU-MS-01 sponsored by the Centre for Scholarship and Innovation in Science, Technology, Engineering and Maths (eSTEeM), the Open University, UK.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/193bf662-9ccc-406e-b466-ce3ac281ffb8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ca21af7-ce2f-45a9-b8a4-1e786f9b3d84/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ca21af7-ce2f-45a9-b8a4-1e786f9b3d84",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ca21af7-ce2f-45a9-b8a4-1e786f9b3d84/mathsjong"
+}

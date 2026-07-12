@@ -1,0 +1,14 @@
+{
+	"id": "knockout-party",
+	"name": "knockout party",
+	"author": "harshakarteek",
+	"description": "My latest multiplayer game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5de7dee8-70a7-46e6-a6c3-6ca383a30095/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45d1b2fe-ede5-4ade-81db-3a24bc0769a5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "45d1b2fe-ede5-4ade-81db-3a24bc0769a5",
+	"unityPlayUrl": "https://play.unity.com/en/games/45d1b2fe-ede5-4ade-81db-3a24bc0769a5/knockout-party"
+}

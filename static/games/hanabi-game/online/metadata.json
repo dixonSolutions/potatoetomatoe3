@@ -1,0 +1,14 @@
+{
+	"id": "hanabi-game",
+	"name": "Hanabi Game",
+	"author": "shokkun",
+	"description": "\"Hanabi Game\" is a simple yet strategic puzzle game where you combine bubbles of the same color to compete for a high score. As you progress, planning the placement and merging order of bubbles becomes crucial, requiring thoughtful and strategic gameplay. The game's colorful effects and music add to the fun during merges. While it's quick to pick up and play, repeated sessions allow for skill improvement, making it a game with depth that keeps you coming back for more. \nI am currently a third-year university student, and I developed this game in collaboration with my lab members, showcasing it at our school festival.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fcf6f933-aa02-4b21-b375-63373e079126/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81e8c582-fc71-4d90-8a98-581432e2cae7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81e8c582-fc71-4d90-8a98-581432e2cae7",
+	"unityPlayUrl": "https://play.unity.com/en/games/81e8c582-fc71-4d90-8a98-581432e2cae7/hanabi-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "gamedevtv-game-jam-2022-death-is-only-the-beginning",
+	"name": "GameDev.tv game jam 2022 - Death is only the beginning",
+	"author": "Zhiu_1234",
+	"description": "This is my submission for the GameDev.tv\u200b game jam 2022 with the theme: Death is only the beginning.\nIn this jump-and-run platformer, you don't have to start over when you die. Upon death, the player's corpse becomes part of the level and you can use the corpse to reach the other side of lava lakes or to block the patrol of enemies. But be careful - you can only die once and the next time you'd die, it's lethal.\nThere's also a checkpoint system that allows you to retry the level at the furthest point you've progressed so far. Hint: When \"picking up\" the checkpoint, the player can die again!\nControl:\nArrow Keys / WASD --> moving\nSpace Key --> jumping\nMouse --> clicking buttons in the menu",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/923f6cda-4c34-4ba4-a275-5822115f50f2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10735535-a019-4580-bfe3-4e14b655f9b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10735535-a019-4580-bfe3-4e14b655f9b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/10735535-a019-4580-bfe3-4e14b655f9b4/gamedevtv-game-jam-2022-death-is-only-the-beginning"
+}

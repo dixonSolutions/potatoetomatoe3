@@ -1,0 +1,14 @@
+{
+	"id": "lego-game",
+	"name": "Lego Game",
+	"author": "vishalkothari32",
+	"description": "My latest microgame. Vishal Kothari",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d6ad0d51-f554-4910-bd4d-3da44efa9d99/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d2c9aee-4f35-4617-81d1-55e55b0ca0c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d2c9aee-4f35-4617-81d1-55e55b0ca0c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d2c9aee-4f35-4617-81d1-55e55b0ca0c3/lego-game"
+}

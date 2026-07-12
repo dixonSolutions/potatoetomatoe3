@@ -1,0 +1,14 @@
+{
+	"id": "legends-of-the-wayuu-alpha-demo",
+	"name": "Legends Of The Wayuu (Alpha Demo)",
+	"author": "l1mk",
+	"description": "TopDown Action Adventure RPG with extraction - roguelite mechanics. Inspired by the Legend of Zelda, Helldivers, Dmz, Dave the Diver, Moonlighter and Vampire survivors.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70147eba-b272-4a9f-92a3-b1a82dfd5325/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a26c7b71-bca3-463d-a745-ce8ada03686e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a26c7b71-bca3-463d-a745-ce8ada03686e",
+	"unityPlayUrl": "https://play.unity.com/en/games/a26c7b71-bca3-463d-a745-ce8ada03686e/legends-of-the-wayuu-alpha-demo"
+}

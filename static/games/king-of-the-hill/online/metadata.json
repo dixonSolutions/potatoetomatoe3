@@ -1,0 +1,14 @@
+{
+	"id": "king-of-the-hill",
+	"name": "King of the Hill",
+	"author": "rioleo2",
+	"description": "Player is black & white sphere. \"W\" \"S\" to control the Sphere, \"A\" \"D\" to control the camera, \"Space\" to Smash, \"F\" to launch missiles, \"R\" to replay. Fire pickup allows homing missiles, pill allows smashing. Have fun :)\nv.1_3",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bdd2b8b2-0bd6-442f-9fc0-8b91c8e816a9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/371ed4e4-a9c6-4441-9003-31a9b779b847/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "371ed4e4-a9c6-4441-9003-31a9b779b847",
+	"unityPlayUrl": "https://play.unity.com/en/games/371ed4e4-a9c6-4441-9003-31a9b779b847/king-of-the-hill"
+}

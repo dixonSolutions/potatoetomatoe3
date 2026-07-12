@@ -1,0 +1,14 @@
+{
+	"id": "life-merchant",
+	"name": "Life Merchant",
+	"author": "Unity Play",
+	"description": "Life merchant is a Puzzle game where you have to buy and sell trinkets to get older or younger. Use these mechanics to progress to different levels and help our hero reach their life goal.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e814c8a-1d83-471c-8f31-a68013e12474/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0680fdcd-cfcd-4ec8-8b36-1267ad9c0fe2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0680fdcd-cfcd-4ec8-8b36-1267ad9c0fe2",
+	"unityPlayUrl": "https://play.unity.com/en/games/0680fdcd-cfcd-4ec8-8b36-1267ad9c0fe2/life-merchant"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "honeycomb-game-demo",
+	"name": "Honeycomb Game Demo",
+	"author": "umaipunch",
+	"description": "Honeycomb Game Demo v0.0.3",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a579a748-bd99-4f5b-a082-4156116f0dd9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a579a748-bd99-4f5b-a082-4156116f0dd9",
+	"unityPlayUrl": "https://play.unity.com/en/games/a579a748-bd99-4f5b-a082-4156116f0dd9/honeycomb-game-demo"
+}

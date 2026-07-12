@@ -1,0 +1,14 @@
+{
+	"id": "immunoguard",
+	"name": "ImmunoGuard",
+	"author": "SOMS_LZ",
+	"description": "ImmunoGuard - PhD Project by Lincoln Zhang\n\n05/04 - Initial release\n11/04 - Fixed bugs in Level 1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2f550801-9790-43bb-a9f4-ca4e22b5b842/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2f550801-9790-43bb-a9f4-ca4e22b5b842",
+	"unityPlayUrl": "https://play.unity.com/en/games/2f550801-9790-43bb-a9f4-ca4e22b5b842/immunoguard"
+}

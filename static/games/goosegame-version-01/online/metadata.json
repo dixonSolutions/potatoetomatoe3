@@ -1,0 +1,14 @@
+{
+	"id": "goosegame-version-01",
+	"name": "goosegame version 01",
+	"author": "urhuzz0mqbn25we",
+	"description": ":3",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b9b3e624-ac32-4d52-9ed0-8d7321e5190a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b9b3e624-ac32-4d52-9ed0-8d7321e5190a",
+	"unityPlayUrl": "https://play.unity.com/en/games/b9b3e624-ac32-4d52-9ed0-8d7321e5190a/goosegame-version-01"
+}

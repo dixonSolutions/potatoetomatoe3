@@ -1,0 +1,14 @@
+{
+	"id": "lab-rat-fixed-v2",
+	"name": "Lab Rat FIXED V2",
+	"author": "cjgordon99",
+	"description": "This game will be a game where you will be thinking about the maze layout and trying to solve the puzzle while trying to get your fastest time. Trying to get the fastest time is a way to make the play",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e98feee-7437-4980-8ae1-ebf0a7d17e54/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e98feee-7437-4980-8ae1-ebf0a7d17e54",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e98feee-7437-4980-8ae1-ebf0a7d17e54/lab-rat-fixed-v2"
+}

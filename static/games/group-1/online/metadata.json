@@ -1,0 +1,14 @@
+{
+	"id": "group-1",
+	"name": "Group 1",
+	"author": "truongnxhe176705",
+	"description": "Link to download game: https://zenzenzen1.itch.io/group-1",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fc2dde7f-af62-4382-848b-3c2bd5470230/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fc2dde7f-af62-4382-848b-3c2bd5470230",
+	"unityPlayUrl": "https://play.unity.com/en/games/fc2dde7f-af62-4382-848b-3c2bd5470230/group-1"
+}

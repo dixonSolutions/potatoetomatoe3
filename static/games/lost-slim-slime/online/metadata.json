@@ -1,0 +1,14 @@
+{
+	"id": "lost-slim-slime",
+	"name": "Lost Slim Slime",
+	"author": "Mebius-Wei",
+	"description": "Move: A/D  \nJump :Space\nThe menu has the enemies test",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef2333d7-be5b-4161-af86-580b823b298e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1c28f150-71d3-4202-8c27-1ed25d512712/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1c28f150-71d3-4202-8c27-1ed25d512712",
+	"unityPlayUrl": "https://play.unity.com/en/games/1c28f150-71d3-4202-8c27-1ed25d512712/lost-slim-slime"
+}

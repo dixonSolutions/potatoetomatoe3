@@ -1,0 +1,14 @@
+{
+	"id": "gameesquivando",
+	"name": "GameEsquivando",
+	"author": "rafaploc",
+	"description": "Elimina asteroides y ve cuantos puntos haces antes de quedarte sin balas o chocar 3 veces. Los elementos rojos te brindan 25 nuevas balas y el \u00edcono amarillo te regala un nuevo ca\u00f1\u00f3n momentaneo.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2ead1d6b-de98-455e-914e-137eb82493c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5385c503-6f34-4f3a-a861-a169a0e05926/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5385c503-6f34-4f3a-a861-a169a0e05926",
+	"unityPlayUrl": "https://play.unity.com/en/games/5385c503-6f34-4f3a-a861-a169a0e05926/gameesquivando"
+}

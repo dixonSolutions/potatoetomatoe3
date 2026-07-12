@@ -1,0 +1,14 @@
+{
+	"id": "happy-harvest",
+	"name": "Happy Harvest",
+	"author": "Unity Play",
+	"description": "Happy Harvest is an enchanting 2D top-down farming simulation game that invites you to cultivate, craft, and create your perfect farm. Built using a Unity sample project and powered by the cutting-edge capabilities of WebGPU, Happy Harvest offers smooth performance and stunning visual fidelity directly in your browser. From planting and nurturing crops to selling them at the market, your green-thumbed adventures await in this delightful and immersive farming experience. \nReady to harvest happiness? Dive into Happy Harvest today!\n\nGet the Happy Harvest - 2D Sample Project for free on the Unity AssetStore: https://assetstore.unity.com/packages/essentials/tutorial-projects/happy-harvest-2d-sample-project-259218",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d1c34e77-71d1-4542-8f86-c400c0bea166/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9d7f1ab8-d1f9-4b5d-9a53-f15ef61cfa73/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9d7f1ab8-d1f9-4b5d-9a53-f15ef61cfa73",
+	"unityPlayUrl": "https://play.unity.com/en/games/9d7f1ab8-d1f9-4b5d-9a53-f15ef61cfa73/happy-harvest"
+}

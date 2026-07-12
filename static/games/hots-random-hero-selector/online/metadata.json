@@ -1,0 +1,14 @@
+{
+	"id": "hots-random-hero-selector",
+	"name": "HOTS random HERO-SELECTOR",
+	"author": "LordHeman",
+	"description": "Cant decide which hero you want to play?\nSelect class and/or franchise that the hero should be from, and the program will give you a hero from that collection. Optionally add/remove additional heroes.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11225a09-06ce-4d11-aeb2-ab4f1512896e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11225a09-06ce-4d11-aeb2-ab4f1512896e",
+	"unityPlayUrl": "https://play.unity.com/en/games/11225a09-06ce-4d11-aeb2-ab4f1512896e/hots-random-hero-selector"
+}

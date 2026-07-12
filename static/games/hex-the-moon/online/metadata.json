@@ -1,0 +1,14 @@
+{
+	"id": "hex-the-moon",
+	"name": "Hex the Moon",
+	"author": "hhaselwood",
+	"description": "Come on down to moon town.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/691b16cf-f0af-4337-9690-3c13603510bd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9b5fac5c-e36e-4cba-9a69-db6fa27495bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9b5fac5c-e36e-4cba-9a69-db6fa27495bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/9b5fac5c-e36e-4cba-9a69-db6fa27495bc/hex-the-moon"
+}

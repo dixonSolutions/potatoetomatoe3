@@ -1,0 +1,14 @@
+{
+	"id": "lastone-demo",
+	"name": "LastOne Demo",
+	"author": "BroncoJimmy",
+	"description": "Top Down Survival Shooter Demo",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0af86be7-a881-4138-90a1-fd32769e3631/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0af86be7-a881-4138-90a1-fd32769e3631",
+	"unityPlayUrl": "https://play.unity.com/en/games/0af86be7-a881-4138-90a1-fd32769e3631/lastone-demo"
+}

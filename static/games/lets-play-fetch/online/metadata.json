@@ -1,0 +1,14 @@
+{
+	"id": "lets-play-fetch",
+	"name": "Let's Play Fetch!",
+	"author": "lucasmoten",
+	"description": "My latest microgame. Let's Play Fetch - From Challenge 2 of Create with Code course on Unity Learn.  ---- A few enhancements: Play tested under default Unity Website Games dimension (1024x580). Only allow spawning a dog after 2 seconds pass. Spawn manager stops spawning once the game is over. Altered farmer outfit by mixing up in available textures as well as a pose on main menu and a different on the game play screen to avoid idle slouching. Dog switches direction when pressing space. 3 scenes (Main Menu, the Challenge, and Game Over). Main menu provides instructional text and start button. Game Over is shown momentarily for a few seconds before returning to the Main Menu. Display of dogs remaining updates and ticks down as a form of \"player lives\".",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/382c75f5-cdf5-46a0-b214-b5e00b112e97/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0741c8ef-773a-4b36-84ad-dbd010fc50f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0741c8ef-773a-4b36-84ad-dbd010fc50f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/0741c8ef-773a-4b36-84ad-dbd010fc50f7/lets-play-fetch"
+}

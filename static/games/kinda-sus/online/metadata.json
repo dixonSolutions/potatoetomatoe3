@@ -1,0 +1,14 @@
+{
+	"id": "kinda-sus",
+	"name": "Kinda Sus",
+	"author": "Unity Play",
+	"description": "A short science fiction 2D platformer inspired by Among Us. You play as an alien who disguises itself as the crew and tries to kill all 10 crewmates before its presence is discovered and a distress beacon is sent out.\n\nI made a short video on this game at https://youtu.be/pOQv38EQXQw\n\nThe most up-to-date version going forward will be at: https://integerman.itch.io/kinda-sus",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/125f49be-3895-41ef-a432-fa122f2fc3ee/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/be64d004-92f1-4b1f-a4b6-a18684ff6bec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "be64d004-92f1-4b1f-a4b6-a18684ff6bec",
+	"unityPlayUrl": "https://play.unity.com/en/games/be64d004-92f1-4b1f-a4b6-a18684ff6bec/kinda-sus"
+}

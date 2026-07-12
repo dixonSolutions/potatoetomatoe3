@@ -1,0 +1,14 @@
+{
+	"id": "happy-birds-happy-farm",
+	"name": "Happy Birds, Happy Farm.",
+	"author": "Q_Yoneda",
+	"description": "First time ever to publish my microgame. I think I tried what I can at the moment but I do see some stuff I have to immediately work on. Screen size when exporting the game, how to call a method in a different class, and over all game play itself. After all, it was so much fun making it!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7fdf5d4a-9f8e-4528-bfba-909df5568c02/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c63781f-b52a-40f1-99b7-f5e3b4ac9172/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c63781f-b52a-40f1-99b7-f5e3b4ac9172",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c63781f-b52a-40f1-99b7-f5e3b4ac9172/happy-birds-happy-farm"
+}

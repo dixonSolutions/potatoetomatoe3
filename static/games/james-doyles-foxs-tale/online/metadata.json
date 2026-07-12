@@ -1,0 +1,14 @@
+{
+	"id": "james-doyles-foxs-tale",
+	"name": "James Doyle's Fox's Tale",
+	"author": "silver-hornet",
+	"description": "Fox\u2019s Tale mini-game created during James Doyle\u2019s \u201cLearn To Code By Making a 2D Platformer in Unity & C#\u201d course on Udemy: https://www.udemy.com/course/unityplatformer/ Use left and right cursor keys to move, space to jump (and hit again to double jump), esc to pause the game and access the menu. Unmute the audio at the bottom right hand side of the above game window once the game loads.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9b2ac352-29d8-4e87-b4d5-e241e843eebe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c0f9859b-f8fe-4e30-84b0-bdda1447d41a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c0f9859b-f8fe-4e30-84b0-bdda1447d41a",
+	"unityPlayUrl": "https://play.unity.com/en/games/c0f9859b-f8fe-4e30-84b0-bdda1447d41a/james-doyles-foxs-tale"
+}

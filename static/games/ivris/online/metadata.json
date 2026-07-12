@@ -1,0 +1,14 @@
+{
+	"id": "ivris",
+	"name": "Ivris",
+	"author": "ivrisdevhost",
+	"description": "Ivris Home Editor",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dcd080d8-de42-4bc7-b3e3-e990be5d07ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dcd080d8-de42-4bc7-b3e3-e990be5d07ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/dcd080d8-de42-4bc7-b3e3-e990be5d07ab/ivris"
+}

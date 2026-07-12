@@ -1,0 +1,14 @@
+{
+	"id": "gilson-flappy-bird",
+	"name": "Gilson Flappy Bird",
+	"author": "unity_DE49D09342B3E73DF1EB",
+	"description": "Unity-made Flappy Bird prototype",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/52d5cb89-038c-42c0-9da1-9f47ad1162fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "52d5cb89-038c-42c0-9da1-9f47ad1162fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/52d5cb89-038c-42c0-9da1-9f47ad1162fb/gilson-flappy-bird"
+}

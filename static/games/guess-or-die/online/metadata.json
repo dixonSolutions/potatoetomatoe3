@@ -1,0 +1,14 @@
+{
+	"id": "guess-or-die",
+	"name": "Guess or Die",
+	"author": "ivanbravo261",
+	"description": "You have one opportunity to survive. Don\u2019t mess it up!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7798089b-25d3-4117-b0bd-796ef0ccb07d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1120b517-e272-499f-acd5-43aae9175f69/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1120b517-e272-499f-acd5-43aae9175f69",
+	"unityPlayUrl": "https://play.unity.com/en/games/1120b517-e272-499f-acd5-43aae9175f69/guess-or-die"
+}

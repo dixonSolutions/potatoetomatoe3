@@ -1,0 +1,14 @@
+{
+	"id": "instacat",
+	"name": "Instacat",
+	"author": "vanechaaale",
+	"description": "cat.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f823cda8-e8a4-494e-bb45-f3fb63ca2cb1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/59469954-c320-430f-9b04-956b430448d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "59469954-c320-430f-9b04-956b430448d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/59469954-c320-430f-9b04-956b430448d8/instacat"
+}

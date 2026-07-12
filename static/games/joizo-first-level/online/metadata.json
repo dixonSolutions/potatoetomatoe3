@@ -1,0 +1,14 @@
+{
+	"id": "joizo-first-level",
+	"name": "Joizo | First Level",
+	"author": "artzeegirl5",
+	"description": "Welcome to the first level of Joizo ( for now ;) )! Joizo is a 2D puzzle/parkour game that takes players on a mindful adventure. Players play as the character Joizo, a lost human. In the first level, the player must find the spirit guide, Ozo, to lead the way.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7db4b485-8c50-414d-af1f-03c13ad30ed6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d914650-081d-40a0-a686-eadd5f8bb689/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d914650-081d-40a0-a686-eadd5f8bb689",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d914650-081d-40a0-a686-eadd5f8bb689/joizo-first-level"
+}

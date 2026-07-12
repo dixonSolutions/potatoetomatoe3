@@ -1,0 +1,14 @@
+{
+	"id": "gorilla-racers",
+	"name": "gorilla racers",
+	"author": "Leininger5507",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bacdba1b-22a5-48f4-a289-5452994fd75c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e5810bb-579e-4860-8f99-aacd4018f8cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e5810bb-579e-4860-8f99-aacd4018f8cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e5810bb-579e-4860-8f99-aacd4018f8cb/gorilla-racers"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-ninjago-rush",
+	"name": "Lego Ninjago Rush",
+	"author": "Iceadin",
+	"description": "Can you escape from the Nindroids? How far can you go? Lego Ninjago Rush is my entry for the latest Lego Ideas game jam contest! Lego Ideas username: Iceadin",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00a08d88-2c69-474c-ab84-1d9411645f93/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e26d40f-6a95-48b0-8d44-169d2a5327dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e26d40f-6a95-48b0-8d44-169d2a5327dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e26d40f-6a95-48b0-8d44-169d2a5327dc/lego-ninjago-rush"
+}

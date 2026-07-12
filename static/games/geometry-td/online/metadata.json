@@ -1,0 +1,14 @@
+{
+	"id": "geometry-td",
+	"name": "Geometry T.D.",
+	"author": "DZhangHZ",
+	"description": "After transferred to webgl version, some small bugs can happen. But the general gameplay should be fine.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51d56b48-03a4-473b-9039-95ae482dd9d0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51d56b48-03a4-473b-9039-95ae482dd9d0",
+	"unityPlayUrl": "https://play.unity.com/en/games/51d56b48-03a4-473b-9039-95ae482dd9d0/geometry-td"
+}

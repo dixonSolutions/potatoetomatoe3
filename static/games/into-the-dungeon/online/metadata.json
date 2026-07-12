@@ -1,0 +1,14 @@
+{
+	"id": "into-the-dungeon",
+	"name": "Into the dungeon",
+	"author": "Unity Play",
+	"description": "My first micro game made for the \"Create With Code\" series. Guide your knight through waves of monsters and ghouls in this top/down adventure!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/24213c01-674c-42d5-92a4-945c82193865/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb8d4bbe-8423-442d-bb4a-6ea63b23ce48/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb8d4bbe-8423-442d-bb4a-6ea63b23ce48",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb8d4bbe-8423-442d-bb4a-6ea63b23ce48/into-the-dungeon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hockeyv2",
+	"name": "HockeyV2",
+	"author": "ferolsen1222",
+	"description": "Play HockeyV2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/badf3895-a4d8-4550-9a42-ccdd1d7469e1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "badf3895-a4d8-4550-9a42-ccdd1d7469e1",
+	"unityPlayUrl": "https://play.unity.com/en/games/badf3895-a4d8-4550-9a42-ccdd1d7469e1/hockeyv2"
+}

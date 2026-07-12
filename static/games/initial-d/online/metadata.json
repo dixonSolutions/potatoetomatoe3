@@ -1,0 +1,14 @@
+{
+	"id": "initial-d",
+	"name": "Initial D",
+	"author": "Unity Play",
+	"description": "Play Initial D on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c846dbce-8a09-4564-b6a1-243a91cb462a/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c3492bab-9aa4-4673-afe5-0fcb34d63776/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c3492bab-9aa4-4673-afe5-0fcb34d63776",
+	"unityPlayUrl": "https://play.unity.com/en/games/c3492bab-9aa4-4673-afe5-0fcb34d63776/initial-d"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "game-development-project",
+	"name": "Game Development Project",
+	"author": "liamnefzger25",
+	"description": ".",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d74508be-b475-4d5a-bae3-7158ceabf20f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d74508be-b475-4d5a-bae3-7158ceabf20f",
+	"unityPlayUrl": "https://play.unity.com/en/games/d74508be-b475-4d5a-bae3-7158ceabf20f/game-development-project"
+}

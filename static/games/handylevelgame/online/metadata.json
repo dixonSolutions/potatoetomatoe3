@@ -1,0 +1,14 @@
+{
+	"id": "handylevelgame",
+	"name": "handylevelgame",
+	"author": "eshamsafeer",
+	"description": "Play handylevelgame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de24c41d-a955-4b83-9fa6-09c6b643965e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b753769-8497-4f95-8e86-36acbdb55a8b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b753769-8497-4f95-8e86-36acbdb55a8b",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b753769-8497-4f95-8e86-36acbdb55a8b/handylevelgame"
+}

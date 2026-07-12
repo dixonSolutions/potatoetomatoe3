@@ -1,0 +1,14 @@
+{
+	"id": "idle-clicker-game",
+	"name": "Idle Clicker Game",
+	"author": "RodMaker",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a5b0066c-2730-409e-975b-83754acf10dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a5b0066c-2730-409e-975b-83754acf10dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/a5b0066c-2730-409e-975b-83754acf10dc/idle-clicker-game"
+}

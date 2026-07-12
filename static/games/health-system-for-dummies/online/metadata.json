@@ -1,0 +1,14 @@
+{
+	"id": "health-system-for-dummies",
+	"name": "Health System For Dummies",
+	"author": "andrelewkatz",
+	"description": "This is a Web Build so you can have a look at how the system works. It's really easy to use!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a3ea1f8-e9cd-4700-baf9-f1804a5cc985/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a3ea1f8-e9cd-4700-baf9-f1804a5cc985",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a3ea1f8-e9cd-4700-baf9-f1804a5cc985/health-system-for-dummies"
+}

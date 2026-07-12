@@ -1,0 +1,14 @@
+{
+	"id": "kartinggame11",
+	"name": "KartingGame_1_1",
+	"author": "chiragjoshi",
+	"description": "My latest microgame. 2",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08ce66ad-6444-4f07-bb25-207ee8eb8c4a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08ce66ad-6444-4f07-bb25-207ee8eb8c4a",
+	"unityPlayUrl": "https://play.unity.com/en/games/08ce66ad-6444-4f07-bb25-207ee8eb8c4a/kartinggame11"
+}

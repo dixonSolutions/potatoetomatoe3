@@ -1,0 +1,14 @@
+{
+	"id": "jumper-dude",
+	"name": "jumper dude",
+	"author": "grolloj",
+	"description": "Play jumper dude on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a662ceb1-8508-4182-8d8b-6c29ce6d80c5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40f9fa2c-4176-4074-b640-ad1c5137ef01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40f9fa2c-4176-4074-b640-ad1c5137ef01",
+	"unityPlayUrl": "https://play.unity.com/en/games/40f9fa2c-4176-4074-b640-ad1c5137ef01/jumper-dude"
+}

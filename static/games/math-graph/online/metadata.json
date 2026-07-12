@@ -1,0 +1,14 @@
+{
+	"id": "math-graph",
+	"name": "Math Graph",
+	"author": "tjPark",
+	"description": "Math Graph making app for Korean children",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d45e13c-4e7f-4efc-81d0-ba0d0ad93f5c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d45e13c-4e7f-4efc-81d0-ba0d0ad93f5c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d45e13c-4e7f-4efc-81d0-ba0d0ad93f5c/math-graph"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-obby",
+	"name": "LEGO-OBBY",
+	"author": "RaidNinja",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/14ccc296-1d37-4371-8304-7dbf28324656/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "14ccc296-1d37-4371-8304-7dbf28324656",
+	"unityPlayUrl": "https://play.unity.com/en/games/14ccc296-1d37-4371-8304-7dbf28324656/lego-obby"
+}

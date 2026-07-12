@@ -1,0 +1,14 @@
+{
+	"id": "ice-planet-scrapper",
+	"name": "Ice Planet Scrapper",
+	"author": "Surmoi",
+	"description": "An Ice Planet Astronaut can't work with his tool, but yours is missing!\nAn air drop of scrap is incoming, maybe you can build yourself a new tool with some of that junk...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/002c4bbd-13b3-424f-a648-f8b484675f3f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bc0bc40e-5b7e-45d1-94b9-ede6fb1e8757/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bc0bc40e-5b7e-45d1-94b9-ede6fb1e8757",
+	"unityPlayUrl": "https://play.unity.com/en/games/bc0bc40e-5b7e-45d1-94b9-ede6fb1e8757/ice-planet-scrapper"
+}

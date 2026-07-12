@@ -1,0 +1,14 @@
+{
+	"id": "hero-knight",
+	"name": "Hero Knight",
+	"author": "Lumafire007",
+	"description": "Jump, slash, and block your way through a swampy 2D platformer where frogs aren\u2019t cute \u2014 they\u2019re deadly. Battle through lily pad villages, mossy ruins, and murky caverns as you face relentless amphibi",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a744d3c-249e-4c60-b792-da8a06b578f6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a744d3c-249e-4c60-b792-da8a06b578f6",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a744d3c-249e-4c60-b792-da8a06b578f6/hero-knight"
+}

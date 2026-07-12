@@ -1,0 +1,14 @@
+{
+	"id": "just-cube",
+	"name": "Just Cube",
+	"author": "ulascolak7",
+	"description": "You are just a cube and you can wander around but not too far",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/21a44309-1375-41eb-9ead-f73157ec74bd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05270cf1-5dd1-4df9-8f67-599230b7f4bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05270cf1-5dd1-4df9-8f67-599230b7f4bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/05270cf1-5dd1-4df9-8f67-599230b7f4bc/just-cube"
+}

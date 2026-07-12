@@ -1,0 +1,14 @@
+{
+	"id": "lp-pinball",
+	"name": "Lp Pinball!",
+	"author": "louispalter1",
+	"description": "This is a Hackingtons Unity Yellow Belt Project!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bce2d3ad-cf1c-4149-aaa8-783c9addb5f7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07c2750d-251b-4eb1-a2c8-8d652f16cdf9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07c2750d-251b-4eb1-a2c8-8d652f16cdf9",
+	"unityPlayUrl": "https://play.unity.com/en/games/07c2750d-251b-4eb1-a2c8-8d652f16cdf9/lp-pinball"
+}

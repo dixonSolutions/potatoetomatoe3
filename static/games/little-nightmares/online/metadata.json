@@ -1,0 +1,14 @@
+{
+	"id": "little-nightmares",
+	"name": "Little Nightmares",
+	"author": "EpicalGamer",
+	"description": "You are stuck in a nightmare where you are a doll fighting off zombie dolls. Shoot down as many as you can before they trap you in an eternal slumber.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37c7339f-bb0c-461c-945a-1c52c386597a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39e1e01c-65b3-4e89-b62b-3d3e0570b7a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39e1e01c-65b3-4e89-b62b-3d3e0570b7a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/39e1e01c-65b3-4e89-b62b-3d3e0570b7a8/little-nightmares"
+}

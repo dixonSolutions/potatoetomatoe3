@@ -1,0 +1,14 @@
+{
+	"id": "mad-driving-simulator",
+	"name": "Mad Driving Simulator",
+	"author": "Skull_Dev",
+	"description": "Driving simulator with new features:\n- New obstacles\n- Vans that drop obstacle rocks\n- Many vehicles that do not let pass \n- Camera switch\n- 2 players",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8b1624eb-0831-42e0-80e0-331b4e91d22f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4dc98f3-8708-408a-a693-34982cf470f5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4dc98f3-8708-408a-a693-34982cf470f5",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4dc98f3-8708-408a-a693-34982cf470f5/mad-driving-simulator"
+}

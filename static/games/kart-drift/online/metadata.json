@@ -1,0 +1,14 @@
+{
+	"id": "kart-drift",
+	"name": "Kart Drift",
+	"author": "MemeMachine90",
+	"description": "Drive around the track, avoid obstacles, and make a lap before time runs out",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/88021c30-6836-4593-8681-de84dac7b2e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a20445b5-5808-4d8d-8cd8-c799b36ca663/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a20445b5-5808-4d8d-8cd8-c799b36ca663",
+	"unityPlayUrl": "https://play.unity.com/en/games/a20445b5-5808-4d8d-8cd8-c799b36ca663/kart-drift"
+}

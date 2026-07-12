@@ -1,0 +1,14 @@
+{
+	"id": "magemantest",
+	"name": "MagemanTest",
+	"author": "unity_90A11831340204C20EF8",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/328b92cf-37dd-46e9-a216-0631c0a754e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/312e2e46-0d82-499f-9596-5b4dfd16a6da/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "312e2e46-0d82-499f-9596-5b4dfd16a6da",
+	"unityPlayUrl": "https://play.unity.com/en/games/312e2e46-0d82-499f-9596-5b4dfd16a6da/magemantest"
+}

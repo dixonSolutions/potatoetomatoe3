@@ -1,0 +1,14 @@
+{
+	"id": "knight-monsters-and-arena",
+	"name": "Knight, monsters and arena",
+	"author": "leonardo-collazo",
+	"description": "Single-level minigame. A knight who fights with many monsters in a combat arena. He has a sword and shield to fight monsters. The more monsters are killed, the more score you get.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f95177de-6d41-44ee-80e7-4c2fb28c9e87/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f95a711a-1fb1-436c-8d70-379e35ecb5c6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f95a711a-1fb1-436c-8d70-379e35ecb5c6",
+	"unityPlayUrl": "https://play.unity.com/en/games/f95a711a-1fb1-436c-8d70-379e35ecb5c6/knight-monsters-and-arena"
+}

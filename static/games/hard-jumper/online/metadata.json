@@ -1,0 +1,14 @@
+{
+	"id": "hard-jumper",
+	"name": "Hard jumper",
+	"author": "AlptGames",
+	"description": "In this game you have to jump on platforms and fight with different dangers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/322772e9-e4fc-4b55-a7ab-36069f76400a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/285dd80b-b24f-4636-9655-2a822fa18084/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "285dd80b-b24f-4636-9655-2a822fa18084",
+	"unityPlayUrl": "https://play.unity.com/en/games/285dd80b-b24f-4636-9655-2a822fa18084/hard-jumper"
+}

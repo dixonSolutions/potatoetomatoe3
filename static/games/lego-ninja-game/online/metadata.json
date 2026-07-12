@@ -1,0 +1,14 @@
+{
+	"id": "lego-ninja-game",
+	"name": "Lego Ninja Game",
+	"author": "TimDaTurdle",
+	"description": "Made with Unity.                                                                                                                   Controls:   WASD: Move             Space Bar: Jump             Mouse: Look around                                                                                        Hint: Press jump up to ten times midair for extra jumps.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/017bbb2a-d361-41a7-a61d-a77aa9942b8e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00dd2df9-aa55-42e2-a76a-9f8f62e8be8b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00dd2df9-aa55-42e2-a76a-9f8f62e8be8b",
+	"unityPlayUrl": "https://play.unity.com/en/games/00dd2df9-aa55-42e2-a76a-9f8f62e8be8b/lego-ninja-game"
+}

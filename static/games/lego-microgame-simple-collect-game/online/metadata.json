@@ -1,0 +1,14 @@
+{
+	"id": "lego-microgame-simple-collect-game",
+	"name": "LEGO Microgame - Simple Collect Game",
+	"author": "MASTERMlND",
+	"description": "Play for free: https://intj.itch.io\n\nJust published my LEGO Microgame, I have changed the avatar and added some mechanics using Unity Learn.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ba536868-a96c-43a5-9827-45524b08efd1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02eb6194-75a4-4509-b060-2d18a50db00a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02eb6194-75a4-4509-b060-2d18a50db00a",
+	"unityPlayUrl": "https://play.unity.com/en/games/02eb6194-75a4-4509-b060-2d18a50db00a/lego-microgame-simple-collect-game"
+}

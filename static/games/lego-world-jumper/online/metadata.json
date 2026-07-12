@@ -1,0 +1,14 @@
+{
+	"id": "lego-world-jumper",
+	"name": "LEGO world jumper",
+	"author": "theLegomuffin",
+	"description": "Do you know which year the yellow LEGO castle is from or the first LEGO classic space sets? Find out with LEGO world jumper! Explore old LEGO themed worlds! Collect all pickups and go to the finish! LEGO ideas: The Lego Muffin",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f3c5ff04-92f6-4beb-9418-bbf7a509dfb7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb42a925-2971-4590-92fa-16e8f6bec35d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb42a925-2971-4590-92fa-16e8f6bec35d",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb42a925-2971-4590-92fa-16e8f6bec35d/lego-world-jumper"
+}

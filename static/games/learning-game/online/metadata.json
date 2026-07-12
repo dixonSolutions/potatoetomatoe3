@@ -1,0 +1,14 @@
+{
+	"id": "learning-game",
+	"name": "learning game",
+	"author": "iHGEN",
+	"description": "this is the game from learning unity",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9a6aafdf-a691-4a90-8c8a-f84b75fd3eab/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/123e0531-addd-4424-81a4-27807933cc64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "123e0531-addd-4424-81a4-27807933cc64",
+	"unityPlayUrl": "https://play.unity.com/en/games/123e0531-addd-4424-81a4-27807933cc64/learning-game"
+}

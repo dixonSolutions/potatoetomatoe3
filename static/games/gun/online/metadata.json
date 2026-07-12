@@ -1,0 +1,14 @@
+{
+	"id": "gun",
+	"name": "Gun",
+	"author": "LeonardoUrielP3",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/194d16e9-12c7-4695-aed6-6c064b411779/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d97da8b-1299-46f9-802f-8106cdabbc5e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d97da8b-1299-46f9-802f-8106cdabbc5e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d97da8b-1299-46f9-802f-8106cdabbc5e/gun"
+}

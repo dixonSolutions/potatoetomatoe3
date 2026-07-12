@@ -1,0 +1,14 @@
+{
+	"id": "lowpoly-racer",
+	"name": "LowPoly Racer",
+	"author": "fastFox2",
+	"description": "A low poly racing game with online muliplayer. If you have some suguestions, please leave them in the comments, because this game is still under development and not yet finished. :)\n\n\nDrift sound from https://freesound.org/people/Soundholder/sounds/425861/\n\nEngine sound from\nhttps://assetstore.unity.com/packages/audio/sound-fx/transportation/rotary-x8-free-engine-sound-pack-106119",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1389b8c8-22b9-4c36-a7d8-c44f576375df/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/199a6ea2-a109-4307-be88-9abf9cb30958/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "199a6ea2-a109-4307-be88-9abf9cb30958",
+	"unityPlayUrl": "https://play.unity.com/en/games/199a6ea2-a109-4307-be88-9abf9cb30958/lowpoly-racer"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "generic-sc-eye-f-eye-shooter",
+	"name": "Generic Sc-eye F-eye Shooter",
+	"author": "alancastle",
+	"description": "game jam",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c5c2327e-87ec-4c57-8e23-39c01f5ce9a2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c5c2327e-87ec-4c57-8e23-39c01f5ce9a2",
+	"unityPlayUrl": "https://play.unity.com/en/games/c5c2327e-87ec-4c57-8e23-39c01f5ce9a2/generic-sc-eye-f-eye-shooter"
+}

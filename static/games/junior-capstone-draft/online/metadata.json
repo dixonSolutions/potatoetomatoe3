@@ -1,0 +1,14 @@
+{
+	"id": "junior-capstone-draft",
+	"name": "Junior Capstone draft",
+	"author": "YuzuTamaki",
+	"description": "Play Junior Capstone draft on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/601a81d1-f8b1-47ff-81dd-24ce582ec97a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c2ad9821-2efd-4a62-8bb8-d823fcf1f4ee/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c2ad9821-2efd-4a62-8bb8-d823fcf1f4ee",
+	"unityPlayUrl": "https://play.unity.com/en/games/c2ad9821-2efd-4a62-8bb8-d823fcf1f4ee/junior-capstone-draft"
+}

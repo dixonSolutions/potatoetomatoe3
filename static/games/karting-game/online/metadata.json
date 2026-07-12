@@ -1,0 +1,14 @@
+{
+	"id": "karting-game",
+	"name": "Karting Game",
+	"author": "tezenaied",
+	"description": "Play Karting Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17c0cc30-4b47-44e0-a14b-d2000da14d68/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17c0cc30-4b47-44e0-a14b-d2000da14d68",
+	"unityPlayUrl": "https://play.unity.com/en/games/17c0cc30-4b47-44e0-a14b-d2000da14d68/karting-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "kartsy-krab",
+	"name": "Kartsy Krab",
+	"author": "Otaku_Create",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9fadd944-67d2-4283-9dca-c763e05b6938/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00ef8433-a6df-4f94-832b-52b3a71f09af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00ef8433-a6df-4f94-832b-52b3a71f09af",
+	"unityPlayUrl": "https://play.unity.com/en/games/00ef8433-a6df-4f94-832b-52b3a71f09af/kartsy-krab"
+}

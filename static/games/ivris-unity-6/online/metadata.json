@@ -1,0 +1,14 @@
+{
+	"id": "ivris-unity-6",
+	"name": "Ivris  Unity 6",
+	"author": "amrkhalil184",
+	"description": "Ivris Unity 6",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08dfa6fc-e3fa-4b89-a627-bb97b82ea97e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08dfa6fc-e3fa-4b89-a627-bb97b82ea97e",
+	"unityPlayUrl": "https://play.unity.com/en/games/08dfa6fc-e3fa-4b89-a627-bb97b82ea97e/ivris-unity-6"
+}

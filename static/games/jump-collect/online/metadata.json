@@ -1,0 +1,14 @@
+{
+	"id": "jump-collect",
+	"name": "Jump & Collect",
+	"author": "GalinaZh",
+	"description": "The controls for this game are: \n\n- Arrow keys to Move\n- Space bar to Jump\n\n- Press Escape to unpause and start playing!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8b84ad57-27c2-4e1b-8d15-e6c6bfc43a9d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62c33af0-c1a8-4db8-9a3d-5f0a7d9bb00e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62c33af0-c1a8-4db8-9a3d-5f0a7d9bb00e",
+	"unityPlayUrl": "https://play.unity.com/en/games/62c33af0-c1a8-4db8-9a3d-5f0a7d9bb00e/jump-collect"
+}

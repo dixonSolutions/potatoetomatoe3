@@ -1,0 +1,14 @@
+{
+	"id": "hammondr-mart-447-bunnyball",
+	"name": "HammondR MART 447 BunnyBall",
+	"author": "HammondR",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5fd18e2-070b-4574-a597-d3bc07cb8807/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/624a0c3a-c2ee-4e6d-ae73-60d4268dfbb9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "624a0c3a-c2ee-4e6d-ae73-60d4268dfbb9",
+	"unityPlayUrl": "https://play.unity.com/en/games/624a0c3a-c2ee-4e6d-ae73-60d4268dfbb9/hammondr-mart-447-bunnyball"
+}

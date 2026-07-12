@@ -1,0 +1,14 @@
+{
+	"id": "knauf-newslettery",
+	"name": "Knauf Newslettery",
+	"author": "Nayunh",
+	"description": "Hallo lieber Tester! Danke f\u00fcr Deine Teilnahme an meiner Bachelorarbeit! :-)\n\nEin kurzes Tutorial und Anmerkungen:\n\n1. Unten kannst du deine Email-Adresse angeben und dann auf \"Anmelden\" klicken oder die Enter-Taste dr\u00fccken. Achtung: Beim Dr\u00fccken von \"Alt\" oder \"Alt Gr\" erscheint ein Kommentar-Fenster von Unity. Das einfach wegklicken. Alternativ kannst du auch irgendwas oder sogar gar nichts ins Feld eingeben - es funktioniert trotzdem!\n\n1. Unten rechts ist ein \"Sound an\"-Button, der standardm\u00e4\u00dfig ausgeschaltet ist. Diesen kannst du gerne einschalten!\n\n3. Der Button \"Alles renovieren\" ist nur f\u00fcr Testzwecke. Damit kannst du das vollst\u00e4ndig renovierte Haus betrachten, ohne jede einzelne Renovierung durchzugehen. Beim erneuten Dr\u00fccken des Buttons kommst du wieder in den vorherigen Zustand zur\u00fcck.\n\nDanke nochmals f\u00fcr deine Teilnahme!\nMaurice",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0d8c448a-e497-4aa2-bb26-00c1ecfba5a2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7e8c3c9f-6e25-4ab5-b8b8-a42389700957/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7e8c3c9f-6e25-4ab5-b8b8-a42389700957",
+	"unityPlayUrl": "https://play.unity.com/en/games/7e8c3c9f-6e25-4ab5-b8b8-a42389700957/knauf-newslettery"
+}

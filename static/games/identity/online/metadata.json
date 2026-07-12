@@ -1,0 +1,14 @@
+{
+	"id": "identity",
+	"name": "Identity",
+	"author": "Unity Play",
+	"description": "Identity is a 2D single-player, side-scroller, platformer game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e8e1895f-c978-4aeb-8f38-625f38ed20ce/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43143caf-ae4b-4cce-9c30-a0403cddefda/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43143caf-ae4b-4cce-9c30-a0403cddefda",
+	"unityPlayUrl": "https://play.unity.com/en/games/43143caf-ae4b-4cce-9c30-a0403cddefda/identity"
+}

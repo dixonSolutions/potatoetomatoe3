@@ -1,0 +1,14 @@
+{
+	"id": "hitting-ball",
+	"name": "Hitting ball",
+	"author": "ako321",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d9e18765-0a4d-44c2-ad67-f43bd94edfdd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d9e18765-0a4d-44c2-ad67-f43bd94edfdd",
+	"unityPlayUrl": "https://play.unity.com/en/games/d9e18765-0a4d-44c2-ad67-f43bd94edfdd/hitting-ball"
+}

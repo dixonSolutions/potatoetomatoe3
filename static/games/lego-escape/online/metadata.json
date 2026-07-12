@@ -1,0 +1,14 @@
+{
+	"id": "lego-escape",
+	"name": "LEGO Escape",
+	"author": "hebory",
+	"description": "LEGO \ud29c\ud1a0\ub9ac\uc5bc \ubcf4\uba74\uc11c \ub530\ub77c \ub9cc\ub4e4\uc5b4 \ubcf8 \uc608\uc81c",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9bb05524-79d4-4ec8-8611-bcd01b2a3f60/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/31638ce8-4ee1-43f2-806b-fa5dab462047/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "31638ce8-4ee1-43f2-806b-fa5dab462047",
+	"unityPlayUrl": "https://play.unity.com/en/games/31638ce8-4ee1-43f2-806b-fa5dab462047/lego-escape"
+}

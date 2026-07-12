@@ -1,0 +1,14 @@
+{
+	"id": "healinggame",
+	"name": "HealingGame",
+	"author": "mingichoi",
+	"description": "Play HealingGame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d74d57bf-267b-42d5-a3c3-4008c71a6702/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a81fc074-1e89-4a22-9258-dc6e2a655f41/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a81fc074-1e89-4a22-9258-dc6e2a655f41",
+	"unityPlayUrl": "https://play.unity.com/en/games/a81fc074-1e89-4a22-9258-dc6e2a655f41/healinggame"
+}

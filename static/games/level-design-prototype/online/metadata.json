@@ -1,0 +1,14 @@
+{
+	"id": "level-design-prototype",
+	"name": "Level Design Prototype",
+	"author": "FatherSeamus",
+	"description": "First draft upload of Level Design Prototype. Level is still being worked on, and is not finished as of yet.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01c5d973-76e0-4266-8ddf-415564b29526/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01c5d973-76e0-4266-8ddf-415564b29526",
+	"unityPlayUrl": "https://play.unity.com/en/games/01c5d973-76e0-4266-8ddf-415564b29526/level-design-prototype"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "haunted-funhouse",
+	"name": "Haunted Funhouse",
+	"author": "Raaj18",
+	"description": "Eventful escape game\nKeyspoints:\n1) Find the keys and escape the room as soon as possible.\n2) Don't stay in dark much longer.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00de9529-6529-465e-8214-579a74b7545d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00de9529-6529-465e-8214-579a74b7545d",
+	"unityPlayUrl": "https://play.unity.com/en/games/00de9529-6529-465e-8214-579a74b7545d/haunted-funhouse"
+}

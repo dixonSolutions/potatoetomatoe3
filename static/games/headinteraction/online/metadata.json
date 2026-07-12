@@ -1,0 +1,14 @@
+{
+	"id": "headinteraction",
+	"name": "Head_Interaction",
+	"author": "kamaleshh",
+	"description": "Play Head_Interaction on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06a8e188-b9e7-4dd3-9c7a-0e116ecbf661/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06a8e188-b9e7-4dd3-9c7a-0e116ecbf661",
+	"unityPlayUrl": "https://play.unity.com/en/games/06a8e188-b9e7-4dd3-9c7a-0e116ecbf661/headinteraction"
+}

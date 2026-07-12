@@ -1,0 +1,14 @@
+{
+	"id": "lego-micro-game-test",
+	"name": "LEGO MICRO GAME TEST",
+	"author": "replay11",
+	"description": "Experimenting with Unity's LEGO Micro Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ecf8309-2355-42d5-8774-aa7acd5072c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ecf8309-2355-42d5-8774-aa7acd5072c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ecf8309-2355-42d5-8774-aa7acd5072c1/lego-micro-game-test"
+}

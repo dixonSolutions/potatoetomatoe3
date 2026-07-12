@@ -1,0 +1,14 @@
+{
+	"id": "islegone",
+	"name": "ISLEGONE",
+	"author": "SFBTom",
+	"description": "Arriving on the shores of a mysterious island, you discover ruins of a once-mighty tower. But can it still be climbed? Perhaps, if the island lends you its power... \n\n~~~\n\nCONTROLS: WASD or arrow keys to move, mouse to look around\n\n~~~\n\nI built this game over the last 2 weeks or so, in spare evenings, and I'm really happy with how it turned out! I put together a tool to auto-build Lego models from ProBuilder mesh shapes, so that I didn't have to hand place every brick in Unity or stud.io. I also tinkered around with giving the minifig character more of a stop-motion look, by forcing their animations to a lower framerate than the game.\n\nI hope you enjoy the maze, it should be a fairly short game, though I'm not exactly sure - I know the routes already when testing!\n\nFor the Lego Ideas 'Build your own game' contest, Lego Ideas username SFBTom",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9d718af7-4b46-44f9-a33d-a9a0b5602ca2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/69fbfd2d-e0f7-4d14-8e6d-e86a57cd0dba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "69fbfd2d-e0f7-4d14-8e6d-e86a57cd0dba",
+	"unityPlayUrl": "https://play.unity.com/en/games/69fbfd2d-e0f7-4d14-8e6d-e86a57cd0dba/islegone"
+}

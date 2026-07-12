@@ -1,0 +1,14 @@
+{
+	"id": "good-dogs",
+	"name": "Good Dogs",
+	"author": "RemusPlays",
+	"description": "Submitted as part of the Checkpoint for Mission 2 in the Jr. Programmer course. You and 8 dogs must reach the finish line without getting distracted by food. Use WASD to move your dog, and to push other dogs to the finish line. How many dogs will be \"Good Dogs\"?!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e359df15-b99b-4e00-b0e4-6568173e2eb0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/090fd5d2-d972-4aad-9a6a-34d55c060604/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "090fd5d2-d972-4aad-9a6a-34d55c060604",
+	"unityPlayUrl": "https://play.unity.com/en/games/090fd5d2-d972-4aad-9a6a-34d55c060604/good-dogs"
+}

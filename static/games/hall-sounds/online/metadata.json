@@ -1,0 +1,14 @@
+{
+	"id": "hall-sounds",
+	"name": "Hall Sounds",
+	"author": "yuviL",
+	"description": "For Challenge: Your own soundscape. Move around to identify the sounds. \n- Hold right mouse button - rotate camera\n- Shift - boost movement\n- Movement - WASDQE/arrows",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/626bdbe8-adae-47da-958f-6d28ca107232/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27540139-1c74-4d98-a404-f253f3acfc8d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "27540139-1c74-4d98-a404-f253f3acfc8d",
+	"unityPlayUrl": "https://play.unity.com/en/games/27540139-1c74-4d98-a404-f253f3acfc8d/hall-sounds"
+}

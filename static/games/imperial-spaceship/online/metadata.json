@@ -1,0 +1,14 @@
+{
+	"id": "imperial-spaceship",
+	"name": "IMPERIAL SPACESHIP",
+	"author": "DOPEFML",
+	"description": "You Control an A.I. Plane armed with a bomb designated to destroy enemy targets. The plane is armed with weapons to defend itself from enemy fighters. Have to avoid being hit by enemy fighters and AA defenses as one hit in the wrong place could detonate the bomb. \nCore Mechanic(s): Dodge & Shoot .\n\nCore Game Loop( objective ) :  Get as far as possible without dying in order to get \t\t\t\t\t\t    the highest  score possible, start from beginning \t\t\t\t\t\t\t    when die\n\nControls : WASD or ARROW KEYS for Movements of the Spaceship and SPACE to fire (Also added controller controls)                                                              ALSO PLEASE RATE THE GAME (out of 10) FOR ANALYSIS.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d26f19cf-ddf3-4dbd-abd2-9bdec70e3763/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e3a090c5-06c1-4dfb-9fd4-868f84f4d0b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e3a090c5-06c1-4dfb-9fd4-868f84f4d0b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/e3a090c5-06c1-4dfb-9fd4-868f84f4d0b4/imperial-spaceship"
+}

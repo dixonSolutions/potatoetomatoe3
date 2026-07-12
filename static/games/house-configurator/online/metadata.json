@@ -1,0 +1,14 @@
+{
+	"id": "house-configurator",
+	"name": "House Configurator",
+	"author": "jfaraday1879",
+	"description": "Click on furniture to modify materials",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d4d2081d-4335-4597-8452-04ecd603d7d6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/062814d0-bcfc-40a0-a2ec-67b062885649/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "062814d0-bcfc-40a0-a2ec-67b062885649",
+	"unityPlayUrl": "https://play.unity.com/en/games/062814d0-bcfc-40a0-a2ec-67b062885649/house-configurator"
+}

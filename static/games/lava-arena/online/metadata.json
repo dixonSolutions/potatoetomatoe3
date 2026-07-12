@@ -1,0 +1,14 @@
+{
+	"id": "lava-arena",
+	"name": "Lava Arena",
+	"author": "HunterLucius",
+	"description": "Arena shooter based on FPS Microgame. Please leave feedback and share your highest score!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0848e41e-e8ad-4826-bdfa-4304214233c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aeea53e4-f14b-4570-a0e9-aa33f056838d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aeea53e4-f14b-4570-a0e9-aa33f056838d",
+	"unityPlayUrl": "https://play.unity.com/en/games/aeea53e4-f14b-4570-a0e9-aa33f056838d/lava-arena"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-racing",
+	"name": "Lego racing",
+	"author": "dolphinssix",
+	"description": "This game was made with Unity and the props are made in Lego studio.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e397a0f6-8e94-4f58-91c6-bba2ad7f43ec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fa432663-c667-4daa-89f3-969a5552c26f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fa432663-c667-4daa-89f3-969a5552c26f",
+	"unityPlayUrl": "https://play.unity.com/en/games/fa432663-c667-4daa-89f3-969a5552c26f/lego-racing"
+}

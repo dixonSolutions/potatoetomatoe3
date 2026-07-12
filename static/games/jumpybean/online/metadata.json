@@ -1,0 +1,14 @@
+{
+	"id": "jumpybean",
+	"name": "JumpyBean",
+	"author": "jadhavamar2004",
+	"description": "Just Jump and Collect Coinz",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/62867ef6-de04-43dd-84fa-a20f649f2dff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03ab1816-6ed4-4862-af3f-d447a5f2118c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03ab1816-6ed4-4862-af3f-d447a5f2118c",
+	"unityPlayUrl": "https://play.unity.com/en/games/03ab1816-6ed4-4862-af3f-d447a5f2118c/jumpybean"
+}

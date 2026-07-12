@@ -1,0 +1,14 @@
+{
+	"id": "heavy-tank",
+	"name": "Heavy tank",
+	"author": "unity_6BFF19D91BC7381033E2",
+	"description": "You control the tank with the arrow keys or WASD, your goal is to overcome as much distance as you can. There are some mines on the road, try not to touch them. You can shoot (press Space), but the quantity of the projectiles is limited. The volume of the petrol is also limited.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b74f0007-70e9-4b54-a1be-669609c07ad7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d186188-bdc5-48a4-bfd3-9efbe14f69da/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d186188-bdc5-48a4-bfd3-9efbe14f69da",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d186188-bdc5-48a4-bfd3-9efbe14f69da/heavy-tank"
+}

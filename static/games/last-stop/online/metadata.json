@@ -1,0 +1,14 @@
+{
+	"id": "last-stop",
+	"name": "Last Stop",
+	"author": "cstlee32",
+	"description": "Play Last Stop on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/10c81931-efa2-47c0-b525-1ef1330e7be2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/063c6a79-14a9-4f44-a236-3de789393f1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "063c6a79-14a9-4f44-a236-3de789393f1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/063c6a79-14a9-4f44-a236-3de789393f1c/last-stop"
+}

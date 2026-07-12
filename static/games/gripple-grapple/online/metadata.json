@@ -1,0 +1,14 @@
+{
+	"id": "gripple-grapple",
+	"name": "Gripple Grapple",
+	"author": "Unity Play",
+	"description": "Version 1.0.0",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/60aecb22-2a12-46dd-9007-8e35731ae7b1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "60aecb22-2a12-46dd-9007-8e35731ae7b1",
+	"unityPlayUrl": "https://play.unity.com/en/games/60aecb22-2a12-46dd-9007-8e35731ae7b1/gripple-grapple"
+}

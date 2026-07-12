@@ -1,0 +1,14 @@
+{
+	"id": "haunted",
+	"name": "Haunted",
+	"author": "MFevre",
+	"description": "Haunted House Escape Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6454f946-ad33-416f-b22b-cc4189dd6509/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/585a0f71-ac5a-415f-a0fa-9792cbb768b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "585a0f71-ac5a-415f-a0fa-9792cbb768b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/585a0f71-ac5a-415f-a0fa-9792cbb768b6/haunted"
+}

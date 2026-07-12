@@ -1,0 +1,14 @@
+{
+	"id": "jump",
+	"name": "Jump!",
+	"author": "siddhantharsoda11",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/44e62829-1505-4f10-a3f9-2d057416fe5f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d3d23592-a9fe-4921-9b4f-f188d8a5d278/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d3d23592-a9fe-4921-9b4f-f188d8a5d278",
+	"unityPlayUrl": "https://play.unity.com/en/games/d3d23592-a9fe-4921-9b4f-f188d8a5d278/jump"
+}

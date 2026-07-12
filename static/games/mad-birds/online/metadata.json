@@ -1,0 +1,14 @@
+{
+	"id": "mad-birds",
+	"name": "Mad Birds",
+	"author": "mikosali375",
+	"description": "Game created using Jason Weimann's tutorials, brain and little bit internet. Informations:                                                                                                                     5 birds for each level,                                                                                                     green bird is stronger than red,                                                                                  you can't move metal blocks,                                                                                     you can use cheats if you know how and                                                                    enjoy :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5ccad724-0de5-4af6-b17e-1fae03cf7358/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ac5f3b2d-82b6-45d1-9203-3b5b232c2131/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ac5f3b2d-82b6-45d1-9203-3b5b232c2131",
+	"unityPlayUrl": "https://play.unity.com/en/games/ac5f3b2d-82b6-45d1-9203-3b5b232c2131/mad-birds"
+}

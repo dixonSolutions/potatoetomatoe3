@@ -1,0 +1,14 @@
+{
+	"id": "kart-nigga",
+	"name": "Kart Nigga",
+	"author": "cheeseballboss",
+	"description": "Play Kart Nigga on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/95e4e4b9-5421-4a3f-8478-d266cae9303a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e93808d-21ea-4b84-9d10-e3e3918eaf8c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e93808d-21ea-4b84-9d10-e3e3918eaf8c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e93808d-21ea-4b84-9d10-e3e3918eaf8c/kart-nigga"
+}

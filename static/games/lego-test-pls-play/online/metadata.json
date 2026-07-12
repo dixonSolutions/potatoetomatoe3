@@ -1,0 +1,14 @@
+{
+	"id": "lego-test-pls-play",
+	"name": "lego test pls play",
+	"author": "codered111",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/41ec1585-5ed0-4c31-b2d5-d0527aeedf8f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/457f1c02-5fc3-4c46-9275-d0287cde6691/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "457f1c02-5fc3-4c46-9275-d0287cde6691",
+	"unityPlayUrl": "https://play.unity.com/en/games/457f1c02-5fc3-4c46-9275-d0287cde6691/lego-test-pls-play"
+}

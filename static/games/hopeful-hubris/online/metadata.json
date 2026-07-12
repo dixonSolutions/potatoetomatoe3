@@ -1,0 +1,14 @@
+{
+	"id": "hopeful-hubris",
+	"name": "Hopeful Hubris",
+	"author": "RachaelB",
+	"description": "Play Hopeful Hubris on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6c201e7d-d24f-4ca0-a75a-6023030bd2db/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dcce372-d10d-4c49-beba-cb515c7d67d4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0dcce372-d10d-4c49-beba-cb515c7d67d4",
+	"unityPlayUrl": "https://play.unity.com/en/games/0dcce372-d10d-4c49-beba-cb515c7d67d4/hopeful-hubris"
+}

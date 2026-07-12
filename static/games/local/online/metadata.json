@@ -1,0 +1,14 @@
+{
+	"id": "local",
+	"name": "local",
+	"author": "timtoon",
+	"description": "Play local on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f938d526-d7cd-4c56-9230-d9039a13a474/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81c9b781-99d5-47f4-9cd8-33d5d02dec29/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "81c9b781-99d5-47f4-9cd8-33d5d02dec29",
+	"unityPlayUrl": "https://play.unity.com/en/games/81c9b781-99d5-47f4-9cd8-33d5d02dec29/local"
+}

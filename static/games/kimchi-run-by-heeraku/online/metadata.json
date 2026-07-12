@@ -1,0 +1,14 @@
+{
+	"id": "kimchi-run-by-heeraku",
+	"name": "Kimchi Run by heeraku",
+	"author": "heeraku",
+	"description": "My first Unity game: Run as long as possible, avoid enemies, and recover health with kimchi items. Thanks to Nico and the Unity team for their valuable resources and events.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47a5b0bd-1a2e-4704-91ff-46c1f4e559d9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48f6f558-aae6-4b72-8b43-4eb812c92504/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48f6f558-aae6-4b72-8b43-4eb812c92504",
+	"unityPlayUrl": "https://play.unity.com/en/games/48f6f558-aae6-4b72-8b43-4eb812c92504/kimchi-run-by-heeraku"
+}

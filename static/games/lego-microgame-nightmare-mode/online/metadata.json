@@ -1,0 +1,14 @@
+{
+	"id": "lego-microgame-nightmare-mode",
+	"name": "LEGO Microgame: Nightmare Mode",
+	"author": "EvelynXzy",
+	"description": "The first game by XZY modified based on the LEGO Microgame. Difficulty: Insane. Enjoy it :D",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/845234ad-a2fa-4598-b2e3-d9d9a03aa7c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ec2d5de4-2e79-4ace-be7a-d8d509baaa07/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ec2d5de4-2e79-4ace-be7a-d8d509baaa07",
+	"unityPlayUrl": "https://play.unity.com/en/games/ec2d5de4-2e79-4ace-be7a-d8d509baaa07/lego-microgame-nightmare-mode"
+}

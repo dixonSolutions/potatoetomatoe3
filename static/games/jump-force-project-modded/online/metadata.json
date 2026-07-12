@@ -1,0 +1,14 @@
+{
+	"id": "jump-force-project-modded",
+	"name": "Jump Force Project MODDED",
+	"author": "snorris414",
+	"description": "Jump Force Project Modified * Stop Music when Game Over * Added Road Material that moves to the left. * Made explosion Purple * *Force On Player Sends them back on collision with obstacle * Used Death Animation 2.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/73e88e4f-4945-4d29-baf9-251b01efb2d9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f030880-b50d-4bda-9b17-0e608dae4140/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f030880-b50d-4bda-9b17-0e608dae4140",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f030880-b50d-4bda-9b17-0e608dae4140/jump-force-project-modded"
+}

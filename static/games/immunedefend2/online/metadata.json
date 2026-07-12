@@ -1,0 +1,14 @@
+{
+	"id": "immunedefend2",
+	"name": "ImmuneDefend2",
+	"author": "AngloSpanglo",
+	"description": "Play ImmuneDefend2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42c7a8ca-ed6f-4a62-88a8-43655cab4b74/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42c7a8ca-ed6f-4a62-88a8-43655cab4b74",
+	"unityPlayUrl": "https://play.unity.com/en/games/42c7a8ca-ed6f-4a62-88a8-43655cab4b74/immunedefend2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hexteroids",
+	"name": "hex_teroids",
+	"author": "ivan_uspenskiy",
+	"description": "This project is a tribute to great portable LCD games of 80s\n\nYou are the space ship pilot and your mission is to defend Earth from a flow of asteroids; your ship shoots automatically when reloaded\n\nYou can rotate ship with arrow keys or with touchs on screen buttons\n\nPress Space or touch Start button to begin\n\nEnable sound in player on this web page!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6f82f165-1297-48eb-9dee-c5e6a43f9ed0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e191323d-19a9-4f25-b7d8-ba0bf9841e99/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e191323d-19a9-4f25-b7d8-ba0bf9841e99",
+	"unityPlayUrl": "https://play.unity.com/en/games/e191323d-19a9-4f25-b7d8-ba0bf9841e99/hexteroids"
+}

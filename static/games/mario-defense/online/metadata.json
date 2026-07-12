@@ -1,0 +1,14 @@
+{
+	"id": "mario-defense",
+	"name": "Mario Defense",
+	"author": "xmliszt_unity",
+	"description": "Mr. Mario is back with more power! Shoot Mario from Slingshot to defeat the enemies who are trying to enter your castle! There are 4 levels in total. Simply use your mouse to drag and shoot. Game inspired by Angry Bird.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01f7dbd2-baec-4188-adc1-8084ac703745/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8522612f-6f20-44f1-86f2-4944616104f3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8522612f-6f20-44f1-86f2-4944616104f3",
+	"unityPlayUrl": "https://play.unity.com/en/games/8522612f-6f20-44f1-86f2-4944616104f3/mario-defense"
+}

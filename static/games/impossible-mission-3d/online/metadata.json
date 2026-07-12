@@ -1,0 +1,14 @@
+{
+	"id": "impossible-mission-3d",
+	"name": "Impossible Mission 3D",
+	"author": "aminbadh",
+	"description": "A game inspired by Impossible Mission (a game created in 1984 by Epyx). The goal of the game is to unlock the scientist's lab. This game is made for the Create With Code Game Jam - Spring - 2021.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4073a95f-77a7-4af9-a0d3-f75d73bc7883/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25cb6e7b-8cc1-4c9b-bd56-483b75183827/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25cb6e7b-8cc1-4c9b-bd56-483b75183827",
+	"unityPlayUrl": "https://play.unity.com/en/games/25cb6e7b-8cc1-4c9b-bd56-483b75183827/impossible-mission-3d"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "iambot",
+	"name": "IamBot",
+	"author": "unity_100027450",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/185892a0-d16a-4566-be3c-5d9dfbdeab6c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "185892a0-d16a-4566-be3c-5d9dfbdeab6c",
+	"unityPlayUrl": "https://play.unity.com/en/games/185892a0-d16a-4566-be3c-5d9dfbdeab6c/iambot"
+}

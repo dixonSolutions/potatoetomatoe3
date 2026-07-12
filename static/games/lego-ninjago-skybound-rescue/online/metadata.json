@@ -1,0 +1,14 @@
+{
+	"id": "lego-ninjago-skybound-rescue",
+	"name": "LEGO\u00ae Ninjago\u00ae Skybound Rescue",
+	"author": "Faeltrold",
+	"description": "Official example game from the LEGO\u00ae Ninjago\u00ae Addon for the LEGO Microgame.\n\nFly to the rescue of Kai, using just 1 button!\n\nLEGO\u00ae Ninjago\u00ae addon link on Unity Asset Store: https://assetstore.unity.com/packages/3d/lego-ninjago-lego-microgame-add-ons-202944",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/79006b24-36b4-4753-acbb-3ea606ad820a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9ff81a8a-269c-4125-86b8-f254f171d88c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9ff81a8a-269c-4125-86b8-f254f171d88c",
+	"unityPlayUrl": "https://play.unity.com/en/games/9ff81a8a-269c-4125-86b8-f254f171d88c/lego-ninjago-skybound-rescue"
+}

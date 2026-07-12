@@ -1,0 +1,14 @@
+{
+	"id": "immunity-midterm",
+	"name": "Immunity-Midterm",
+	"author": "cdeshpan",
+	"description": "Play Immunity-Midterm on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c9c2c8de-f8af-4a5d-9f03-c89664e3dbdc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e1ed44b4-9492-4c4c-96d7-48676403ce09/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e1ed44b4-9492-4c4c-96d7-48676403ce09",
+	"unityPlayUrl": "https://play.unity.com/en/games/e1ed44b4-9492-4c4c-96d7-48676403ce09/immunity-midterm"
+}

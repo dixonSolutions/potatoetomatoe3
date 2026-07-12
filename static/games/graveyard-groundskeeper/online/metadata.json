@@ -1,0 +1,14 @@
+{
+	"id": "graveyard-groundskeeper",
+	"name": "Graveyard Groundskeeper",
+	"author": "Siflou",
+	"description": "You\u2019re just a groundskeeper trying to do your job!\n\nHOW TO PLAY:\nHarvest some bones\nAvoid the barrels\nUse the arrow keys to move\nEnjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f3f398e8-3d1b-485e-832a-f95ef4325d17/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e0cc6798-1cea-4151-ae05-74cfc02f6113/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e0cc6798-1cea-4151-ae05-74cfc02f6113",
+	"unityPlayUrl": "https://play.unity.com/en/games/e0cc6798-1cea-4151-ae05-74cfc02f6113/graveyard-groundskeeper"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "hardcore-parkour",
+	"name": "Hardcore Parkour",
+	"author": "yoyocoolio123",
+	"description": "My latest game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/324fe1b8-f0b9-4196-8b87-44230934fc65/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cc9a6cc-44d7-47a7-88ea-6746607af93f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cc9a6cc-44d7-47a7-88ea-6746607af93f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cc9a6cc-44d7-47a7-88ea-6746607af93f/hardcore-parkour"
+}

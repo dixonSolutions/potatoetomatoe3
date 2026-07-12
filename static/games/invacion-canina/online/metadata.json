@@ -1,0 +1,14 @@
+{
+	"id": "invacion-canina",
+	"name": "Invaci\u00f3n Canina",
+	"author": "tonathiurojas",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/891fc404-9e88-4fab-b19c-762def647add/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04a12a1a-9f0f-4c52-9cc1-6d7a3bfe838f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04a12a1a-9f0f-4c52-9cc1-6d7a3bfe838f",
+	"unityPlayUrl": "https://play.unity.com/en/games/04a12a1a-9f0f-4c52-9cc1-6d7a3bfe838f/invacion-canina"
+}

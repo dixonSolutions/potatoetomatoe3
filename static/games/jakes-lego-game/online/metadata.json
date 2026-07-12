@@ -1,0 +1,14 @@
+{
+	"id": "jakes-lego-game",
+	"name": "Jakes Lego Game",
+	"author": "JakeMailes",
+	"description": "My first Lego microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a72ad34-5aa5-4105-aa31-2c716b11cca3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b9fa2cef-91e9-469c-8639-187d40f573cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b9fa2cef-91e9-469c-8639-187d40f573cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/b9fa2cef-91e9-469c-8639-187d40f573cb/jakes-lego-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "garbage-collector",
+	"name": "Garbage Collector",
+	"author": "ldnguye4",
+	"description": "Humans have destroyed the planet by not recycling properly. Play as aliens to help Mother Nature clean up Earth. \nInstructions:\nMove around (WASD/arrows) and pick up items (E/return), then dispose of them in the correct bin, either trash or recycle. However, make sure to rinse out and/or flatten items beforehand if needed! And work together to score more points!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/05b4da99-bdd3-4d07-99fb-3d6732085490/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04ddb75a-b15f-4d21-93ca-077debc2ed7f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04ddb75a-b15f-4d21-93ca-077debc2ed7f",
+	"unityPlayUrl": "https://play.unity.com/en/games/04ddb75a-b15f-4d21-93ca-077debc2ed7f/garbage-collector"
+}

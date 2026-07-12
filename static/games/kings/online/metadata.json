@@ -1,0 +1,14 @@
+{
+	"id": "kings",
+	"name": "kings",
+	"author": "myh666",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7933bb03-37b9-42d8-a202-1a9104243d3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7933bb03-37b9-42d8-a202-1a9104243d3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/7933bb03-37b9-42d8-a202-1a9104243d3d/kings"
+}

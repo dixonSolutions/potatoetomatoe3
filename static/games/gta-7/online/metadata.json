@@ -1,0 +1,14 @@
+{
+	"id": "gta-7",
+	"name": "GTA 7",
+	"author": "ooogamingeazy",
+	"description": "GTA 7 ONLINE",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/518d96a5-b6c4-48db-b174-b06389821238/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "518d96a5-b6c4-48db-b174-b06389821238",
+	"unityPlayUrl": "https://play.unity.com/en/games/518d96a5-b6c4-48db-b174-b06389821238/gta-7"
+}

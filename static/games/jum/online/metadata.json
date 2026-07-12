@@ -1,0 +1,14 @@
+{
+	"id": "jum",
+	"name": "Jum",
+	"author": "vishnupai",
+	"description": "Just a game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/56a4ff42-ac06-40ec-aecc-d4a202de7de9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/471a8cb6-0318-46d1-9949-fd91fd3caac5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "471a8cb6-0318-46d1-9949-fd91fd3caac5",
+	"unityPlayUrl": "https://play.unity.com/en/games/471a8cb6-0318-46d1-9949-fd91fd3caac5/jum"
+}

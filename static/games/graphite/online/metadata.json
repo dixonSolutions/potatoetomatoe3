@@ -1,0 +1,14 @@
+{
+	"id": "graphite",
+	"name": "Graphite",
+	"author": "dvlovett",
+	"description": "A simple interactive platformer. Help Chomper get to the exit.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e7da960f-cd52-4bbf-a30a-188d632934ee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bca2a400-85e9-4947-aa0f-d00a4119bea1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bca2a400-85e9-4947-aa0f-d00a4119bea1",
+	"unityPlayUrl": "https://play.unity.com/en/games/bca2a400-85e9-4947-aa0f-d00a4119bea1/graphite"
+}

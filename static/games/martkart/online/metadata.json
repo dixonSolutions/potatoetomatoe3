@@ -1,0 +1,14 @@
+{
+	"id": "martkart",
+	"name": "Martkart",
+	"author": "hcpox",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/232f8958-463b-445a-bbe9-c9714ff61083/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "232f8958-463b-445a-bbe9-c9714ff61083",
+	"unityPlayUrl": "https://play.unity.com/en/games/232f8958-463b-445a-bbe9-c9714ff61083/martkart"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-speedrun",
+	"name": "Lego Speedrun",
+	"author": "richardleesk87111",
+	"description": "You have ONLY 3 mins. Try your best to climb up the mountain before the time runs out. Make sure you get some fruits on your way so I can bake a pie. HAVE FUN!!! =)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d23f49c1-1508-47fe-855b-70c7c8b7f6b0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2fe24180-a953-4085-92c6-3e88a2b27abe/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2fe24180-a953-4085-92c6-3e88a2b27abe",
+	"unityPlayUrl": "https://play.unity.com/en/games/2fe24180-a953-4085-92c6-3e88a2b27abe/lego-speedrun"
+}

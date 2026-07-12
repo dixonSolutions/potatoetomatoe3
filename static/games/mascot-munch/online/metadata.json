@@ -1,0 +1,14 @@
+{
+	"id": "mascot-munch",
+	"name": "Mascot Munch",
+	"author": "salavideoclase7",
+	"description": "\u201cMascot Munch\u201d is a reflex and coordination game where the player must feed stationary pets with their favorite food. The game is controlled using three buttons that swap the pets on the screen to match the correct food being thrown at them. Created by Diego Fern\u00e1ndez.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/38780316-d209-446f-9946-efa26aafd59d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d48d4d8-7f8b-4fe1-b9de-600206b04eec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d48d4d8-7f8b-4fe1-b9de-600206b04eec",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d48d4d8-7f8b-4fe1-b9de-600206b04eec/mascot-munch"
+}

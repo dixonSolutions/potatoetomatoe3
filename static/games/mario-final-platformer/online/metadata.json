@@ -1,0 +1,14 @@
+{
+	"id": "mario-final-platformer",
+	"name": "Mario Final Platformer",
+	"author": "xmliszt_unity",
+	"description": "Play it on my itch page: https://xmliszt.itch.io/mario-final Re-create classic Mario platformer with 2 difficult levels and an inventory system. Press \"E\" to use the power-ups you collected. Help Mario to meet his princess in the end!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aa6403df-7eba-468c-9df6-eed661fc5129/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67e7dc15-1d72-49da-8d47-c76f9c625706/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67e7dc15-1d72-49da-8d47-c76f9c625706",
+	"unityPlayUrl": "https://play.unity.com/en/games/67e7dc15-1d72-49da-8d47-c76f9c625706/mario-final-platformer"
+}

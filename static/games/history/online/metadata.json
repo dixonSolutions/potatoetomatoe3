@@ -1,0 +1,14 @@
+{
+	"id": "history",
+	"name": "history",
+	"author": "plavt",
+	"description": "Play history on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3d5d0dbf-1f1c-419a-af5b-476035c3bec8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/24c6cb8a-3d0e-467a-9b6a-844120e4b6ba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "24c6cb8a-3d0e-467a-9b6a-844120e4b6ba",
+	"unityPlayUrl": "https://play.unity.com/en/games/24c6cb8a-3d0e-467a-9b6a-844120e4b6ba/history"
+}

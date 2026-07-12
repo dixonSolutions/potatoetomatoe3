@@ -1,0 +1,14 @@
+{
+	"id": "ghost-slime-escape",
+	"name": "Ghost Slime Escape",
+	"author": "p_saelee",
+	"description": "Play Ghost Slime Escape on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f3a70ddf-0e4f-4feb-aecb-07b67d59cf38/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bd4ee526-2afc-4940-89da-4462528d39e1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bd4ee526-2afc-4940-89da-4462528d39e1",
+	"unityPlayUrl": "https://play.unity.com/en/games/bd4ee526-2afc-4940-89da-4462528d39e1/ghost-slime-escape"
+}

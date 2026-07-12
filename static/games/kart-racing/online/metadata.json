@@ -1,0 +1,14 @@
+{
+	"id": "kart-racing",
+	"name": "Kart Racing",
+	"author": "zee_game",
+	"description": "Play Kart Racing on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/17552096-c232-4027-b246-bafdac72ebb7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1193a41a-2453-4c8f-a78c-9f56a6d6a12e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1193a41a-2453-4c8f-a78c-9f56a6d6a12e",
+	"unityPlayUrl": "https://play.unity.com/en/games/1193a41a-2453-4c8f-a78c-9f56a6d6a12e/kart-racing"
+}

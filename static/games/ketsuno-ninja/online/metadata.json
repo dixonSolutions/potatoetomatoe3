@@ -1,0 +1,14 @@
+{
+	"id": "ketsuno-ninja",
+	"name": "Ketsuno Ninja",
+	"author": "Jankew",
+	"description": "My Game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a11f4f2-2aa1-46d0-8ecc-2c6f6a4d8d9c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a8ff067c-3873-497b-b184-1b32bd425850/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a8ff067c-3873-497b-b184-1b32bd425850",
+	"unityPlayUrl": "https://play.unity.com/en/games/a8ff067c-3873-497b-b184-1b32bd425850/ketsuno-ninja"
+}

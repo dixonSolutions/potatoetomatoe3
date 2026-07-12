@@ -1,0 +1,14 @@
+{
+	"id": "heavens-patch-13",
+	"name": "Heaven's Patch 1.3",
+	"author": "kyllua_",
+	"description": "Use WASD for move, Space or Left shift for dash. One minutes demo video: https://youtu.be/ZzZhUXLLcYU",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4cc52527-4fce-4d9a-b7da-74f9e10ae906/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0541b4fc-d776-4451-baaa-1b2fc7319eb4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0541b4fc-d776-4451-baaa-1b2fc7319eb4",
+	"unityPlayUrl": "https://play.unity.com/en/games/0541b4fc-d776-4451-baaa-1b2fc7319eb4/heavens-patch-13"
+}

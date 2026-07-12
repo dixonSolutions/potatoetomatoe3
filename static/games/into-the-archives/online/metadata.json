@@ -1,0 +1,14 @@
+{
+	"id": "into-the-archives",
+	"name": "Into The Archives",
+	"author": "Toastrz",
+	"description": "A very tiny text adventure made as part of the Unity programmer course. Venture into RotMG's Cursed Library and get some loot before the mob takes it all! Thanks to Tiffit for his incredible patience with my dumb questions. Background art by Susan He: https://www.artstation.com/artwork/ZGA3mx",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b233a525-3522-4c70-999a-1aa4615ea81b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55b78e3a-ce54-4e63-a9b0-d1cbf5176ddb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55b78e3a-ce54-4e63-a9b0-d1cbf5176ddb",
+	"unityPlayUrl": "https://play.unity.com/en/games/55b78e3a-ce54-4e63-a9b0-d1cbf5176ddb/into-the-archives"
+}

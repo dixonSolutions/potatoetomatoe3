@@ -1,0 +1,14 @@
+{
+	"id": "mask",
+	"name": "Mask",
+	"author": "Tassos",
+	"description": "(Team 13) A game about the risks and rewards of revealing yourself to others.\nWriting & Game Design: Sarah Doherty Granoff\nLevel & Game Design: Tassos Karras \nGame programmers: Virginie Nguyen, Adbou Lahi \nDiop\nMusic: Time Crawler - Mt Fuji (licensed Under CC)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2e234b8c-5291-4fe8-a57a-c26d4a6481ec/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e757f0fe-8c68-489b-9504-cbeda964e383/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e757f0fe-8c68-489b-9504-cbeda964e383",
+	"unityPlayUrl": "https://play.unity.com/en/games/e757f0fe-8c68-489b-9504-cbeda964e383/mask"
+}

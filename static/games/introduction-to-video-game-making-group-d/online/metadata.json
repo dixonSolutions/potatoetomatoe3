@@ -1,0 +1,14 @@
+{
+	"id": "introduction-to-video-game-making-group-d",
+	"name": "Introduction to Video Game Making - Group D",
+	"author": "RoosW",
+	"description": "This is a candy-themed FPS game created for the course \"Introduction to Video Game Making\". Note that the mouse needs to be at the same position as the aim. This can be done by pressing the ESC-button an position the mouse on the aim-cross.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8f8db6dc-2b9f-4f62-9e23-1a9e5d173a6c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ff0adb4-7ae0-460f-bd2e-ccede0525955/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2ff0adb4-7ae0-460f-bd2e-ccede0525955",
+	"unityPlayUrl": "https://play.unity.com/en/games/2ff0adb4-7ae0-460f-bd2e-ccede0525955/introduction-to-video-game-making-group-d"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-mini-world",
+	"name": "Lego Mini world",
+	"author": "xlibraries",
+	"description": "Explore the Lego World. There are several different types of tasks complete them to unlock new levels, new themes and difficulty. Also focus on the instruction/ talks with the player you might find hidden levels. (If you get some lag/ between switching the scene/ level just press tab). Thank-You",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/93a3236d-e2f1-4bdb-8350-62eec6937c22/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e89834fd-00d8-4f02-98c7-0be315a24a38/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e89834fd-00d8-4f02-98c7-0be315a24a38",
+	"unityPlayUrl": "https://play.unity.com/en/games/e89834fd-00d8-4f02-98c7-0be315a24a38/lego-mini-world"
+}

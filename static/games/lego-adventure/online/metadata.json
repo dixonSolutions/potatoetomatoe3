@@ -1,0 +1,14 @@
+{
+	"id": "lego-adventure",
+	"name": "LEGO Adventure",
+	"author": "UnityDev_tgp",
+	"description": "Let the fun begin!                                                                                                    Fun game by TGP",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e3e922fd-c929-4fef-8c86-8e189dadad06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10c1e97f-c034-432d-aa14-b9b34dafbeed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10c1e97f-c034-432d-aa14-b9b34dafbeed",
+	"unityPlayUrl": "https://play.unity.com/en/games/10c1e97f-c034-432d-aa14-b9b34dafbeed/lego-adventure"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "katha",
+	"name": "Katha",
+	"author": "urmatamsimon",
+	"description": "Alamat Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/77a2ce00-0368-432c-9c04-f77084c6f209/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "77a2ce00-0368-432c-9c04-f77084c6f209",
+	"unityPlayUrl": "https://play.unity.com/en/games/77a2ce00-0368-432c-9c04-f77084c6f209/katha"
+}

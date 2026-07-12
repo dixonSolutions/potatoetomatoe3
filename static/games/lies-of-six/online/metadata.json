@@ -1,0 +1,14 @@
+{
+	"id": "lies-of-six",
+	"name": "Lies of six",
+	"author": "gamak",
+	"description": "\"The number six called the number of demons...\"\n\nMovement : WASD\nDash : Space bar\nWeak Attack : Left mouse click\nStrong Attack : Right mouse click",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e2255255-b638-407f-ba6c-1f7bfbd9caa7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/233a8162-533b-4703-bc98-94c5427f6a76/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "233a8162-533b-4703-bc98-94c5427f6a76",
+	"unityPlayUrl": "https://play.unity.com/en/games/233a8162-533b-4703-bc98-94c5427f6a76/lies-of-six"
+}

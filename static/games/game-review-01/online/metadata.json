@@ -1,0 +1,14 @@
+{
+	"id": "game-review-01",
+	"name": "Game Review #01",
+	"author": "AaronChau",
+	"description": "For DDM4914. Note: Please play on mobile device.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2de664d9-36c8-4cbf-aea4-4b82de12d00e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2de664d9-36c8-4cbf-aea4-4b82de12d00e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2de664d9-36c8-4cbf-aea4-4b82de12d00e/game-review-01"
+}

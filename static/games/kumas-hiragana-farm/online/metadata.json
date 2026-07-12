@@ -1,0 +1,14 @@
+{
+	"id": "kumas-hiragana-farm",
+	"name": "Kuma's Hiragana Farm",
+	"author": "LostOctopie",
+	"description": "Help Kuma collect the correct Hiragana Apples! Move by using A and D. Collect the corresponding Hiragana that is shown at the top!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5d1b7315-e1f7-4f4f-a01b-eb25c7366fb5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5d1b7315-e1f7-4f4f-a01b-eb25c7366fb5",
+	"unityPlayUrl": "https://play.unity.com/en/games/5d1b7315-e1f7-4f4f-a01b-eb25c7366fb5/kumas-hiragana-farm"
+}

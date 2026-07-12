@@ -1,0 +1,14 @@
+{
+	"id": "lego-hunt",
+	"name": "Lego Hunt",
+	"author": "waliaff",
+	"description": "My first microgame made with Unity!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/20a59685-877b-489f-9af3-0cf95dd97d09/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99cd76fc-11bf-4da1-bcd4-c2c5c258f066/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "99cd76fc-11bf-4da1-bcd4-c2c5c258f066",
+	"unityPlayUrl": "https://play.unity.com/en/games/99cd76fc-11bf-4da1-bcd4-c2c5c258f066/lego-hunt"
+}

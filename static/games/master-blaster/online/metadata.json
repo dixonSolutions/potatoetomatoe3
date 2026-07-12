@@ -1,0 +1,14 @@
+{
+	"id": "master-blaster",
+	"name": "Master Blaster",
+	"author": "Traileme",
+	"description": "This is a fantasy shooter game. You are stranded on a unidentified planet trying to survive.                                                                                                                                                          (This is a singleplayer game multiplayer will be coming out soon)                                             Full version will be coming out in some time 2023!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9debda7e-3e58-4fcf-903b-060cd389b58e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/af9f84ae-b156-4ac6-9255-fc7aac4a9e59/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "af9f84ae-b156-4ac6-9255-fc7aac4a9e59",
+	"unityPlayUrl": "https://play.unity.com/en/games/af9f84ae-b156-4ac6-9255-fc7aac4a9e59/master-blaster"
+}

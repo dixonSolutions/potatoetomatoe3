@@ -1,0 +1,14 @@
+{
+	"id": "green-thunder",
+	"name": "Green Thunder",
+	"author": "Darth_Possum",
+	"description": "Play Green Thunder on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/65ac2fe0-9412-450f-ac65-5852207b535d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9b50542b-1732-4a72-8336-bda78830c99d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9b50542b-1732-4a72-8336-bda78830c99d",
+	"unityPlayUrl": "https://play.unity.com/en/games/9b50542b-1732-4a72-8336-bda78830c99d/green-thunder"
+}

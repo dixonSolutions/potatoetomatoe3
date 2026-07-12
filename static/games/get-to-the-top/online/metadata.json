@@ -1,0 +1,14 @@
+{
+	"id": "get-to-the-top",
+	"name": "get to the top",
+	"author": "dmcnic01",
+	"description": "my platforming game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f3cabb3c-60a0-4531-8a1a-34f30a6a3b47/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c63d767-a236-4e15-8b56-16be07ee05e0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c63d767-a236-4e15-8b56-16be07ee05e0",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c63d767-a236-4e15-8b56-16be07ee05e0/get-to-the-top"
+}

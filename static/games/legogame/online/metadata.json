@@ -1,0 +1,14 @@
+{
+	"id": "legogame",
+	"name": "LEGOGame",
+	"author": "SingDevelopments",
+	"description": "LEGOGame by Sing Gaming! Visit my website: https://singdev.wixsite.com/sing-developments/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9f236d73-f9e3-410b-8eb9-738cbaa37c45/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6f7e4bd2-49d9-4f7b-84c5-e3f37459114c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6f7e4bd2-49d9-4f7b-84c5-e3f37459114c",
+	"unityPlayUrl": "https://play.unity.com/en/games/6f7e4bd2-49d9-4f7b-84c5-e3f37459114c/legogame"
+}

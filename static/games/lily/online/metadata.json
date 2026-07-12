@@ -1,0 +1,14 @@
+{
+	"id": "lily",
+	"name": "Lily",
+	"author": "KingSaltBoi",
+	"description": "My final project submission for Game Development.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/773f2cf3-4494-4243-bceb-fa76d9d98a88/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bd04700-3663-404f-833f-608206da837e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bd04700-3663-404f-833f-608206da837e",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bd04700-3663-404f-833f-608206da837e/lily"
+}

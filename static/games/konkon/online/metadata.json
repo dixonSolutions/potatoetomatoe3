@@ -1,0 +1,14 @@
+{
+	"id": "konkon",
+	"name": "konkon",
+	"author": "akira0987",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06a180ab-b8ed-4506-b2d1-3fe0c841c84d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06a180ab-b8ed-4506-b2d1-3fe0c841c84d",
+	"unityPlayUrl": "https://play.unity.com/en/games/06a180ab-b8ed-4506-b2d1-3fe0c841c84d/konkon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "infiltrain",
+	"name": "Infiltrain",
+	"author": "SeanTieu",
+	"description": "||| Infiltrain ||| - Team Yes\n\nYou\u2019re on a runaway freight train, and your mission is to get to the front of the train to stop it before all of your merchandise is lost. Dodge the flying appliances as they become loose from their cars. If only you had control over your limbs.\n\n\n[!] - Currently Unfinished - [!]\n\n------------------------------------------------------\n\n|-| Normal Mode |-|\n\nThe standard playing experience. Slightly challenging, but still possible. All of the normal appliances with a small refrigerator spawn rate.\n\n------------------------------------------------------\n\n|+| Absurd Mode |+|\n\nAn absurd playing experience. Very challenging, probably possible. All of the normal appliances with a large refrigerator spawn rate, and a small chance of some extra surprises.\n\n------------------------------------------------------\n\n|.| Sandbox Mode |.|\n\nA peaceful playing experience. Simplistic, very possible. No appliances spawn, just watch your balance and don\u2019t fall off.\n\n------------------------------------------------------\n\nControls (In relation to camera position):\n\n[W] key - Move Forward\n[A] key - Move Left\n[S] key - Move Backward\n[D] key - Move Right\n[Space Bar] - Jump\n------------------------------------------------------\n\n\nCredits:\nSxddnz - Animator\nUnluckyest - Programmer\nItz - Builder\n\n------------------------------------------------------\n------------------------------------------------------\n\nAssets Used:\n\nhttps://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208\n\nhttps://assetstore.unity.com/packages/3d/environments/house-pack-35346\n\nhttps://assetstore.unity.com/packages/3d/props/electronics/kitchen-appliance-low-poly-180419\n\nhttps://assetstore.unity.com/packages/3d/props/furniture/folding-table-and-chair-pbr-111726\n\nhttps://assetstore.unity.com/packages/3d/props/electronics/tv-set-26193\n\nhttps://assetstore.unity.com/packages/3d/vehicles/land/industrial-train-dr14-162567\n\nhttps://assetstore.unity.com/packages/3d/characters/distant-",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9c332788-901d-494b-bdaf-37b2defee481/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34a0126d-d23f-4354-99ad-efcb8b8225c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34a0126d-d23f-4354-99ad-efcb8b8225c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/34a0126d-d23f-4354-99ad-efcb8b8225c7/infiltrain"
+}

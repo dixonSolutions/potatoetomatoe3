@@ -1,0 +1,14 @@
+{
+	"id": "garbagekart",
+	"name": "GarbageKart",
+	"author": "SunWolf07",
+	"description": "Play GarbageKart on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19ff0b25-fe6a-4986-8ead-3ebbb82e5f8f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19ff0b25-fe6a-4986-8ead-3ebbb82e5f8f",
+	"unityPlayUrl": "https://play.unity.com/en/games/19ff0b25-fe6a-4986-8ead-3ebbb82e5f8f/garbagekart"
+}

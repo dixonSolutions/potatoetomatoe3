@@ -1,0 +1,14 @@
+{
+	"id": "home-demo",
+	"name": "HOME demo",
+	"author": "Spider74pizza",
+	"description": "help",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/383ecdc9-0935-4699-ae88-a83319212154/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/010d446c-1bbd-4772-a6b9-7f521c8bfaf7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "010d446c-1bbd-4772-a6b9-7f521c8bfaf7",
+	"unityPlayUrl": "https://play.unity.com/en/games/010d446c-1bbd-4772-a6b9-7f521c8bfaf7/home-demo"
+}

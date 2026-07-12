@@ -1,0 +1,14 @@
+{
+	"id": "kart-blast",
+	"name": "Kart Blast!",
+	"author": "Play_Ben",
+	"description": "Blast your way through the blocks using the space bar and comment here with your fastest time! I gave myself 24 hours to go from absolute beginner with Unity (1st time downloading) to modding a game for this challenge.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2ae21439-28ab-41d4-acc3-84bad65d5be7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c4307da6-ea4b-4986-b28d-f3ac84aae875/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c4307da6-ea4b-4986-b28d-f3ac84aae875",
+	"unityPlayUrl": "https://play.unity.com/en/games/c4307da6-ea4b-4986-b28d-f3ac84aae875/kart-blast"
+}

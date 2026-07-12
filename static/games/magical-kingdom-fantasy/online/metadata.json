@@ -1,0 +1,14 @@
+{
+	"id": "magical-kingdom-fantasy",
+	"name": "Magical Kingdom Fantasy",
+	"author": "ravianand",
+	"description": "Action adventure RPG, Can you save the kingdom from the evil witch?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b004b0ec-30d3-4b91-a9eb-8c230e01d531/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9d82fdc3-ce02-4c64-bd2d-8ce0d51fd6bd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9d82fdc3-ce02-4c64-bd2d-8ce0d51fd6bd",
+	"unityPlayUrl": "https://play.unity.com/en/games/9d82fdc3-ce02-4c64-bd2d-8ce0d51fd6bd/magical-kingdom-fantasy"
+}

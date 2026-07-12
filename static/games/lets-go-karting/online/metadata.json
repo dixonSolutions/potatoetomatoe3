@@ -1,0 +1,14 @@
+{
+	"id": "lets-go-karting",
+	"name": "Let's Go Karting!",
+	"author": "veinkone",
+	"description": "Haven't had time to finish all the power-ups and levels, but go and have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ae1e3e8e-ea65-48b2-a4f7-7fe7b934ff94/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f36172b-d6ca-4782-8d42-004ebaf488fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f36172b-d6ca-4782-8d42-004ebaf488fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f36172b-d6ca-4782-8d42-004ebaf488fb/lets-go-karting"
+}

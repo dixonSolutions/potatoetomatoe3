@@ -1,0 +1,14 @@
+{
+	"id": "horse-plinko",
+	"name": "Horse Plinko",
+	"author": "Epidermoid",
+	"description": "-",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d99b48af-9c66-4d20-bf64-c1c29e089337/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d99b48af-9c66-4d20-bf64-c1c29e089337",
+	"unityPlayUrl": "https://play.unity.com/en/games/d99b48af-9c66-4d20-bf64-c1c29e089337/horse-plinko"
+}

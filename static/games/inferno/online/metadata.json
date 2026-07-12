@@ -1,0 +1,14 @@
+{
+	"id": "inferno",
+	"name": "INFERNO",
+	"author": "GrapePaste",
+	"description": "A cool level for Create with Code. You can switch the camera with tab. Avoid crates, oncoming traffic, and falling meteors. Use A and D to steer.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/60161ed1-c35a-475d-9611-a1408bcd3287/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19699386-86ec-4e8e-8d45-4c964551abb0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19699386-86ec-4e8e-8d45-4c964551abb0",
+	"unityPlayUrl": "https://play.unity.com/en/games/19699386-86ec-4e8e-8d45-4c964551abb0/inferno"
+}

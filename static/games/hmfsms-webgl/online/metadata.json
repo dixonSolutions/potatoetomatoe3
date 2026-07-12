@@ -1,0 +1,14 @@
+{
+	"id": "hmfsms-webgl",
+	"name": "HMFSMS - WebGL",
+	"author": "yong-kyu-lee",
+	"description": "HMFSMS",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/406f9dcd-eb6a-496a-a00a-5f47bf23afd2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "406f9dcd-eb6a-496a-a00a-5f47bf23afd2",
+	"unityPlayUrl": "https://play.unity.com/en/games/406f9dcd-eb6a-496a-a00a-5f47bf23afd2/hmfsms-webgl"
+}

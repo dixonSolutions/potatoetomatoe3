@@ -1,0 +1,14 @@
+{
+	"id": "kiromultitestv1",
+	"name": "KiroMultiTestV1",
+	"author": "colinlolos",
+	"description": "Play KiroMultiTestV1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3df5b1f7-7a58-4eef-87f6-1a8a6f174c07/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3df5b1f7-7a58-4eef-87f6-1a8a6f174c07",
+	"unityPlayUrl": "https://play.unity.com/en/games/3df5b1f7-7a58-4eef-87f6-1a8a6f174c07/kiromultitestv1"
+}

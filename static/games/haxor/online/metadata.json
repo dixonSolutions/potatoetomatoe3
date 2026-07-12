@@ -1,0 +1,14 @@
+{
+	"id": "haxor",
+	"name": "Haxor",
+	"author": "mechaghost",
+	"description": "Play Haxor on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/01408570-836d-488a-95cc-ccacf14d0a17/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bcedd16-fc38-4098-a8fb-c9a74fb79525/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bcedd16-fc38-4098-a8fb-c9a74fb79525",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bcedd16-fc38-4098-a8fb-c9a74fb79525/haxor"
+}

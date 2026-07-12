@@ -1,0 +1,14 @@
+{
+	"id": "haunted-gates",
+	"name": "Haunted Gates!",
+	"author": "rmorsi",
+	"description": "Game optimized for English: Haunted Gates is a hidden objects serious game that injects electrical and computer engineering content into the gameplay. Play 4 levels and practice what you have learned while having fun finding both educational and non-educational objects.  Our intent in designing this game is to make it playable and inherently educational at the same time. Learn as you play using image word association. The more you play, the more you remember the digital components, binary conversions, gates, etc. This work was funded by a Lockheed Martin Grant: \"e-STEM: Improving STEM Education and Retention through Technology\nEnhanced Teaching and Learning\", PI: Dr. Rasha Morsi",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47ae6906-5e15-4578-a63d-0e70eeb89da9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2da0de81-ec71-47ac-990e-e173a44546fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2da0de81-ec71-47ac-990e-e173a44546fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/2da0de81-ec71-47ac-990e-e173a44546fa/haunted-gates"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-3d-platformer",
+	"name": "LEGO 3D Platformer",
+	"author": "SpideyCoding25",
+	"description": "A LEGO platformer made using Unity Microgame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/048885f0-6b49-4f53-87d5-d39ec1709fcc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/256a9175-4fd7-4f9d-9c00-96f7cbaf8313/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "256a9175-4fd7-4f9d-9c00-96f7cbaf8313",
+	"unityPlayUrl": "https://play.unity.com/en/games/256a9175-4fd7-4f9d-9c00-96f7cbaf8313/lego-3d-platformer"
+}

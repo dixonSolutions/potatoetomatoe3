@@ -1,0 +1,14 @@
+{
+	"id": "kingdedede",
+	"name": "KingDedede",
+	"author": "PhilipM_R",
+	"description": "Play KingDedede on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6aba8a55-bd5d-46c7-8389-b5f8bd802930/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fdac6946-a172-4fab-bbaf-116a0478a990/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fdac6946-a172-4fab-bbaf-116a0478a990",
+	"unityPlayUrl": "https://play.unity.com/en/games/fdac6946-a172-4fab-bbaf-116a0478a990/kingdedede"
+}

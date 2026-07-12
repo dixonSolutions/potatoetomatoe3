@@ -1,0 +1,14 @@
+{
+	"id": "kaboomv02",
+	"name": "KaBoomv0.2",
+	"author": "Unity Play",
+	"description": "Game Submitted for the Showcase\n\nGame based on the FPS Microgame template and used ProBuilder for lot of structures.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7881a03-1341-43d5-bd41-a59c5f4b091f/content",
+	"category": "first-person-shooter",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/099332f3-a763-4062-a195-ab7e4f34dc6d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "099332f3-a763-4062-a195-ab7e4f34dc6d",
+	"unityPlayUrl": "https://play.unity.com/en/games/099332f3-a763-4062-a195-ab7e4f34dc6d/kaboomv02"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "kirby-pillow-drop",
+	"name": "Kirby Pillow Drop!",
+	"author": "hngdxxl",
+	"description": "Click on the beams and boxes to get Kirby to the pillow!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/52724d01-4a05-4620-bf72-5ea39c101ca5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08e5f8ab-c8ae-4116-9287-aee1c9b790ba/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08e5f8ab-c8ae-4116-9287-aee1c9b790ba",
+	"unityPlayUrl": "https://play.unity.com/en/games/08e5f8ab-c8ae-4116-9287-aee1c9b790ba/kirby-pillow-drop"
+}

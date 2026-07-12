@@ -1,0 +1,14 @@
+{
+	"id": "jetbrain",
+	"name": "JetBrain",
+	"author": "Nebula0001_",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a2ad7d7b-43c4-462a-acee-e76a3319ad5e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c86a8aa-0557-4e37-85fd-6024a9898395/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c86a8aa-0557-4e37-85fd-6024a9898395",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c86a8aa-0557-4e37-85fd-6024a9898395/jetbrain"
+}

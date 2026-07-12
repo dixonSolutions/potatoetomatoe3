@@ -1,0 +1,14 @@
+{
+	"id": "geo-stretch",
+	"name": "Geo Stretch",
+	"author": "GreatBuilder",
+	"description": "Play Geo Stretch on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d4261519-8706-4290-bb09-4dd6b739cbf4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/49d5be8a-d78c-4a86-86af-81eddd92ed68/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "49d5be8a-d78c-4a86-86af-81eddd92ed68",
+	"unityPlayUrl": "https://play.unity.com/en/games/49d5be8a-d78c-4a86-86af-81eddd92ed68/geo-stretch"
+}

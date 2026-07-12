@@ -1,0 +1,14 @@
+{
+	"id": "lavacreek",
+	"name": "LavaCreek",
+	"author": "BarishGameDev",
+	"description": "This is my first microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c91baa9f-1d0e-40cf-9d94-d8072b6e7fc1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75810a28-1ab5-4760-a40c-0cb57ace8553/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75810a28-1ab5-4760-a40c-0cb57ace8553",
+	"unityPlayUrl": "https://play.unity.com/en/games/75810a28-1ab5-4760-a40c-0cb57ace8553/lavacreek"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-micro",
+	"name": "Lego Micro",
+	"author": "Stohrm",
+	"description": "This is version 1.2 and is still a work in progress.  I think I figured out how to put it where the original was; so I guess the first file won't be there for a proper comparison.  Even so, there is a lot yet to be \"tweaked\", but I hope you enjoy what I've accomplished so far.  In addition, I did try to TAG the various LEGO Mods that I used; but they're not showing.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/67a89269-5ec1-4477-8f36-5a9406a196b7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34a8984b-fe27-4613-8d7e-fb2fac7908f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34a8984b-fe27-4613-8d7e-fb2fac7908f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/34a8984b-fe27-4613-8d7e-fb2fac7908f1/lego-micro"
+}

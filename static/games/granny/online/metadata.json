@@ -1,0 +1,14 @@
+{
+	"id": "granny",
+	"name": "Granny",
+	"author": "UserX22934bro",
+	"description": "A fun horror game.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/12dc3267-e1cd-4fe7-a455-988c0115a098/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "12dc3267-e1cd-4fe7-a455-988c0115a098",
+	"unityPlayUrl": "https://play.unity.com/en/games/12dc3267-e1cd-4fe7-a455-988c0115a098/granny"
+}

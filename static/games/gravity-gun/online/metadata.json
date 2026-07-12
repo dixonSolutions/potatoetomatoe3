@@ -1,0 +1,14 @@
+{
+	"id": "gravity-gun",
+	"name": "Gravity gun",
+	"author": "CGPdisighner",
+	"description": "Made by TLAprograming",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e9493d8-23d7-464f-9b10-aecbd88d2405/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d1721c0-e3ab-4f5d-8eab-18f41f388bfd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d1721c0-e3ab-4f5d-8eab-18f41f388bfd",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d1721c0-e3ab-4f5d-8eab-18f41f388bfd/gravity-gun"
+}

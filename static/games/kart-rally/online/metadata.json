@@ -1,0 +1,14 @@
+{
+	"id": "kart-rally",
+	"name": "Kart Rally",
+	"author": "przemyslawziolek",
+	"description": "Update: 4 tracks, including new one called City. Track elements created in Blender.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f12a54cc-db13-4e70-8ccb-e3103c5c6590/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18c57f4d-6cdb-4fe4-8c55-0776f1039311/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18c57f4d-6cdb-4fe4-8c55-0776f1039311",
+	"unityPlayUrl": "https://play.unity.com/en/games/18c57f4d-6cdb-4fe4-8c55-0776f1039311/kart-rally"
+}

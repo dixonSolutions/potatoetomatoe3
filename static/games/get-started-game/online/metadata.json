@@ -1,0 +1,14 @@
+{
+	"id": "get-started-game",
+	"name": "Get Started Game",
+	"author": "crystalsu2008",
+	"description": "My First Unity Game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2283ccfd-1fc0-4639-8c2b-49a131b22d94/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10b45312-0404-4a9d-88fc-e3d67fe5170b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "10b45312-0404-4a9d-88fc-e3d67fe5170b",
+	"unityPlayUrl": "https://play.unity.com/en/games/10b45312-0404-4a9d-88fc-e3d67fe5170b/get-started-game"
+}

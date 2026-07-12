@@ -1,0 +1,14 @@
+{
+	"id": "games",
+	"name": "Games",
+	"author": "N1ck0las",
+	"description": "Play Games on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf73854c-c143-4651-9dee-deee5a89cbfd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bf73854c-c143-4651-9dee-deee5a89cbfd",
+	"unityPlayUrl": "https://play.unity.com/en/games/bf73854c-c143-4651-9dee-deee5a89cbfd/games"
+}

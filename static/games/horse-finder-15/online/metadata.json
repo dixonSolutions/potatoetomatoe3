@@ -1,0 +1,14 @@
+{
+	"id": "horse-finder-15",
+	"name": "Horse Finder 15",
+	"author": "alex-pasay",
+	"description": "Find all 3 Horsies! WASD to move, SPACE to jump, and Q to switch characters!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/220bf6d0-88e5-42af-9988-077bfa415ce1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c9655bf9-25b9-4a03-8ccc-9b0fdacdd2e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c9655bf9-25b9-4a03-8ccc-9b0fdacdd2e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/c9655bf9-25b9-4a03-8ccc-9b0fdacdd2e3/horse-finder-15"
+}

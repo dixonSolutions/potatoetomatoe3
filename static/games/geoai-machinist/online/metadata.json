@@ -1,0 +1,14 @@
+{
+	"id": "geoai-machinist",
+	"name": "GeoAI Machinist",
+	"author": "unity_ajil4ux3-GGq8w",
+	"description": "A game to introduce the application of machine learning for geospatial data\n\nSource code available at: https://github.com/rebeca53/GeoAI-Machinist",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5ee25873-1765-4c9c-8387-38160a58546c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fdee5f3-c7c8-4a8d-a0e2-e86b8cdbc290/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fdee5f3-c7c8-4a8d-a0e2-e86b8cdbc290",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fdee5f3-c7c8-4a8d-a0e2-e86b8cdbc290/geoai-machinist"
+}

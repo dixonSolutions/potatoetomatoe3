@@ -1,0 +1,14 @@
+{
+	"id": "good-wizard-bad-wizard",
+	"name": "Good Wizard, Bad Wizard",
+	"author": "bbrie1",
+	"description": "IVGM Team 10 game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04b0fad6-08b8-4ca4-9f59-e00acb96dcd5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04b0fad6-08b8-4ca4-9f59-e00acb96dcd5",
+	"unityPlayUrl": "https://play.unity.com/en/games/04b0fad6-08b8-4ca4-9f59-e00acb96dcd5/good-wizard-bad-wizard"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "it-remains",
+	"name": "It Remains",
+	"author": "hristoivanov97",
+	"description": "It Remains \u2013 Web\nThe Walk, the companion game also inside the It Remains app, invites you to step into this world and navigate a barren wasteland where father and son walk the Walk.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07e11aab-1e2d-4da5-a896-809d8b8dacc2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07e11aab-1e2d-4da5-a896-809d8b8dacc2",
+	"unityPlayUrl": "https://play.unity.com/en/games/07e11aab-1e2d-4da5-a896-809d8b8dacc2/it-remains"
+}

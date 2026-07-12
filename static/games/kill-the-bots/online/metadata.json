@@ -1,0 +1,14 @@
+{
+	"id": "kill-the-bots",
+	"name": "Kill The Bots",
+	"author": "aryangrover",
+	"description": "In this game you got jetpacks, RPG, Shotgun and a Pistol. To move it is W,A,S,D. Also to jump it is space bar and to shoot click the mouse pad. also to use jet pack first jump then hold the space bar.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8780841f-7e76-4136-abb0-e6a3bb280a21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f202c4-a2e8-4f48-8491-1050b5b167dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00f202c4-a2e8-4f48-8491-1050b5b167dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/00f202c4-a2e8-4f48-8491-1050b5b167dc/kill-the-bots"
+}

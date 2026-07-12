@@ -1,0 +1,14 @@
+{
+	"id": "jumping-over-it",
+	"name": "Jumping Over It",
+	"author": "AnimeAdam",
+	"description": "My latest microgame: Press 'Space' to jump.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e2e74c16-8f9d-4ac3-8518-d069797b055f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0322608c-353a-469f-94f0-3dc617bd42ca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0322608c-353a-469f-94f0-3dc617bd42ca",
+	"unityPlayUrl": "https://play.unity.com/en/games/0322608c-353a-469f-94f0-3dc617bd42ca/jumping-over-it"
+}

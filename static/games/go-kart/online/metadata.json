@@ -1,0 +1,14 @@
+{
+	"id": "go-kart",
+	"name": "Go Kart_",
+	"author": "camolad",
+	"description": "Play Go Kart_ on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2a496f29-3c9e-4109-94c2-85220654c702/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08321df7-1f09-4aff-8df7-bba57a55fc21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "08321df7-1f09-4aff-8df7-bba57a55fc21",
+	"unityPlayUrl": "https://play.unity.com/en/games/08321df7-1f09-4aff-8df7-bba57a55fc21/go-kart"
+}

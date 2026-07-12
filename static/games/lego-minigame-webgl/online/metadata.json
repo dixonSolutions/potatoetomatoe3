@@ -1,0 +1,14 @@
+{
+	"id": "lego-minigame-webgl",
+	"name": "Lego Minigame WebGL",
+	"author": "stratosrom",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1719c675-430c-4065-aed7-18da3412ed4c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/038ac650-0e4b-4796-be03-736217a3013c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "038ac650-0e4b-4796-be03-736217a3013c",
+	"unityPlayUrl": "https://play.unity.com/en/games/038ac650-0e4b-4796-be03-736217a3013c/lego-minigame-webgl"
+}

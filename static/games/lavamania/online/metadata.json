@@ -1,0 +1,14 @@
+{
+	"id": "lavamania",
+	"name": "LavaMania",
+	"author": "TsubasaSuzuki",
+	"description": "Simple architecture and a bouncy ball rolling around.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4ff4311a-c245-4e44-b327-d068f59a2bd3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d034d49-b145-49f9-a421-8ba4af7e0364/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d034d49-b145-49f9-a421-8ba4af7e0364",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d034d49-b145-49f9-a421-8ba4af7e0364/lavamania"
+}

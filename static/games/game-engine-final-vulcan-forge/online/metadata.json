@@ -1,0 +1,14 @@
+{
+	"id": "game-engine-final-vulcan-forge",
+	"name": "Game Engine Final - Vulcan Forge",
+	"author": "MythScara",
+	"description": "Start the mission by leaving the HQ. Kill all the Robots, use Skill Points to Upgrade Weapons and Health and get to the top of the Central Building to complete the Mission. Good Luck Have Fun!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dfaf024-753d-4c6f-8ee8-65f92a251144/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0dfaf024-753d-4c6f-8ee8-65f92a251144",
+	"unityPlayUrl": "https://play.unity.com/en/games/0dfaf024-753d-4c6f-8ee8-65f92a251144/game-engine-final-vulcan-forge"
+}

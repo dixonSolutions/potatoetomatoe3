@@ -1,0 +1,14 @@
+{
+	"id": "jumpy-man",
+	"name": "Jumpy Man",
+	"author": "christiaanscrause",
+	"description": "My personal project, simple side scroller. I used a famous level to setup my mechanics, not done yet. First build I'm happy to share.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1f33cba4-6dfc-4180-89e3-bb58175de470/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/733336d5-72ff-4e35-8603-37fc18909b83/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "733336d5-72ff-4e35-8603-37fc18909b83",
+	"unityPlayUrl": "https://play.unity.com/en/games/733336d5-72ff-4e35-8603-37fc18909b83/jumpy-man"
+}

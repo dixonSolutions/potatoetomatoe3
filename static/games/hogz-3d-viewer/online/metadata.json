@@ -1,0 +1,14 @@
+{
+	"id": "hogz-3d-viewer",
+	"name": "Hogz 3D Viewer",
+	"author": "265lutab",
+	"description": "3D viewer for the HC Hogz from https://www.hchogz.com/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/364a0560-6a94-4163-9940-e6842155a0a2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02be0b90-c0ae-412c-8501-582d7dfb331b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02be0b90-c0ae-412c-8501-582d7dfb331b",
+	"unityPlayUrl": "https://play.unity.com/en/games/02be0b90-c0ae-412c-8501-582d7dfb331b/hogz-3d-viewer"
+}

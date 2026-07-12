@@ -1,0 +1,14 @@
+{
+	"id": "iseewebgl",
+	"name": "iSeeWebGL",
+	"author": "iSeeGreg",
+	"description": "Play iSeeWebGL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a6fd2a2-c33b-4e68-b3c7-207a7cc0a0e1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/96690b6e-d0d3-418a-899e-25902ea30024/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "96690b6e-d0d3-418a-899e-25902ea30024",
+	"unityPlayUrl": "https://play.unity.com/en/games/96690b6e-d0d3-418a-899e-25902ea30024/iseewebgl"
+}

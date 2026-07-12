@@ -1,0 +1,14 @@
+{
+	"id": "learning-visual-scripting-tutorial",
+	"name": "Learning Visual Scripting tutorial",
+	"author": "Jo_Jeske727",
+	"description": "Challenge: Control your character with Visual Scripting",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4ac6f2bf-cf93-4f0a-901c-ad9c55059727/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f2f3294-1e4a-4a6b-ad62-2ca60b6d9702/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f2f3294-1e4a-4a6b-ad62-2ca60b6d9702",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f2f3294-1e4a-4a6b-ad62-2ca60b6d9702/learning-visual-scripting-tutorial"
+}

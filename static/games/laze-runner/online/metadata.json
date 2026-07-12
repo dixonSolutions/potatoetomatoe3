@@ -1,0 +1,14 @@
+{
+	"id": "laze-runner",
+	"name": "Laze Runner",
+	"author": "willi0955",
+	"description": "Turn the music on and try it.\nFind out where the sound comes from,\nand you will find the path.\n02/12/2020 Fixed bug",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5c80e2b5-29f9-42fe-9638-732b6c7ef293/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51aab22c-5724-4c63-9f38-b48cfd20b8a5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51aab22c-5724-4c63-9f38-b48cfd20b8a5",
+	"unityPlayUrl": "https://play.unity.com/en/games/51aab22c-5724-4c63-9f38-b48cfd20b8a5/laze-runner"
+}

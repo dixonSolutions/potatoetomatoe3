@@ -1,0 +1,14 @@
+{
+	"id": "glitch-garden",
+	"name": "Glitch Garden",
+	"author": "jinkimu",
+	"description": "Plants vs Zombie like defense game. Tutorial from Udemy.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a025869b-355d-4077-9df9-70264da8894c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03922986-c31f-43b0-947b-6bda8dada1a3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03922986-c31f-43b0-947b-6bda8dada1a3",
+	"unityPlayUrl": "https://play.unity.com/en/games/03922986-c31f-43b0-947b-6bda8dada1a3/glitch-garden"
+}

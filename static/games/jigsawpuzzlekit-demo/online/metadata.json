@@ -1,0 +1,14 @@
+{
+	"id": "jigsawpuzzlekit-demo",
+	"name": "JigsawPuzzleKit Demo",
+	"author": "Allebi",
+	"description": "Play JigsawPuzzleKit Demo on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1e97de25-eaa4-48ab-bebe-3246b47d3122/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/635ef307-f3e4-4739-bdcd-50a88f47fd36/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "635ef307-f3e4-4739-bdcd-50a88f47fd36",
+	"unityPlayUrl": "https://play.unity.com/en/games/635ef307-f3e4-4739-bdcd-50a88f47fd36/jigsawpuzzlekit-demo"
+}

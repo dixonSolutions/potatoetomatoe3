@@ -1,0 +1,14 @@
+{
+	"id": "hanja-game",
+	"name": "Hanja Game",
+	"author": "choiseeun15",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/38ab2f28-dffa-4021-b731-63cb9a14e87d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a152936c-d2ab-46af-8e6c-8b475b6fd221/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a152936c-d2ab-46af-8e6c-8b475b6fd221",
+	"unityPlayUrl": "https://play.unity.com/en/games/a152936c-d2ab-46af-8e6c-8b475b6fd221/hanja-game"
+}

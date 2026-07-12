@@ -1,0 +1,14 @@
+{
+	"id": "humamuseooctavo",
+	"name": "HumaMuseoOctavo",
+	"author": "cindy0708",
+	"description": "Virtual",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05497c58-f86f-46b8-9385-37e9106a2c41/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05497c58-f86f-46b8-9385-37e9106a2c41",
+	"unityPlayUrl": "https://play.unity.com/en/games/05497c58-f86f-46b8-9385-37e9106a2c41/humamuseooctavo"
+}

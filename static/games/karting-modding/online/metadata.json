@@ -1,0 +1,14 @@
+{
+	"id": "karting-modding",
+	"name": "Karting Modding",
+	"author": "adirzourk85",
+	"description": "Play Karting Modding on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b62342e6-52ce-4d57-b37f-c6b5e7827115/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/aaeb6837-a1f0-4aae-a918-6920ca352307/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "aaeb6837-a1f0-4aae-a918-6920ca352307",
+	"unityPlayUrl": "https://play.unity.com/en/games/aaeb6837-a1f0-4aae-a918-6920ca352307/karting-modding"
+}

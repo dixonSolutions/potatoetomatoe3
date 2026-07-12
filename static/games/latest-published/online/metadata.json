@@ -1,0 +1,14 @@
+{
+	"id": "latest-published",
+	"name": "Latest Published",
+	"author": "hippybatmanda",
+	"description": "Play Latest Published on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a5d99485-1eab-4e5e-adf4-fc9e749d18d5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/212eaacc-c195-4020-ac0f-1c79a6b8e807/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "212eaacc-c195-4020-ac0f-1c79a6b8e807",
+	"unityPlayUrl": "https://play.unity.com/en/games/212eaacc-c195-4020-ac0f-1c79a6b8e807/latest-published"
+}

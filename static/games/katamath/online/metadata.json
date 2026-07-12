@@ -1,0 +1,14 @@
+{
+	"id": "katamath",
+	"name": "Katamath",
+	"author": "VincentROS",
+	"description": "With Katamath, children develop their calculation skills through fast-paced challenges and strengthen their abilities in addition and multiplication.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d72c302f-d4a2-47e1-a741-2185d93d673f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50dd8026-eb94-45dd-8a5f-72713b5d3af7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50dd8026-eb94-45dd-8a5f-72713b5d3af7",
+	"unityPlayUrl": "https://play.unity.com/en/games/50dd8026-eb94-45dd-8a5f-72713b5d3af7/katamath"
+}

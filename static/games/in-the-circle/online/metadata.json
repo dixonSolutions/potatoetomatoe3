@@ -1,0 +1,14 @@
+{
+	"id": "in-the-circle",
+	"name": "In The Circle",
+	"author": "Yorm",
+	"description": "Let's avoid red beads and hit the blue ones to get rid of red beads. Survive as much as you can.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5bbb06d3-eced-46df-9804-c043054c47f3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/650559c6-c1ea-4be6-a060-6fc5c83d5cc2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "650559c6-c1ea-4be6-a060-6fc5c83d5cc2",
+	"unityPlayUrl": "https://play.unity.com/en/games/650559c6-c1ea-4be6-a060-6fc5c83d5cc2/in-the-circle"
+}

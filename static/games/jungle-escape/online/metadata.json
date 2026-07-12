@@ -1,0 +1,14 @@
+{
+	"id": "jungle-escape",
+	"name": "Jungle Escape",
+	"author": "Koaku",
+	"description": "Help KAI to escape the jungle and get together with his friends. WARNING, the jungle hides many pitfalls",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/55cfa638-22db-41d5-b00c-945d73745a1f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1987007b-a20d-4991-bdd4-15f0380f6396/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1987007b-a20d-4991-bdd4-15f0380f6396",
+	"unityPlayUrl": "https://play.unity.com/en/games/1987007b-a20d-4991-bdd4-15f0380f6396/jungle-escape"
+}

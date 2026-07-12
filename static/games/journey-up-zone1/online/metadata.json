@@ -1,0 +1,14 @@
+{
+	"id": "journey-up-zone1",
+	"name": "Journey Up Zone1",
+	"author": "Unity Play",
+	"description": "This is the first zone of Journey Up.\nPlay the rest of the game on Steam or Quest or Pico.\nSingle and multiplayer, VR and desktop modes.\n\nhttps://store.steampowered.com/app/3144110/Journey_Up/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/18b11c73-5fcd-459a-9fe7-6c87bd220673/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/276cf4cc-fc34-4f67-9ec5-53d620196292/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "276cf4cc-fc34-4f67-9ec5-53d620196292",
+	"unityPlayUrl": "https://play.unity.com/en/games/276cf4cc-fc34-4f67-9ec5-53d620196292/journey-up-zone1"
+}

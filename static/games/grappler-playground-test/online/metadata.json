@@ -1,0 +1,14 @@
+{
+	"id": "grappler-playground-test",
+	"name": "Grappler Playground (Test)",
+	"author": "BadKarma24",
+	"description": "Try to finish the parkour!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b919e21b-1327-4349-938f-db1ab0598e86/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c4c88d7a-d6c8-4297-9eaf-74b8fbe08505/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c4c88d7a-d6c8-4297-9eaf-74b8fbe08505",
+	"unityPlayUrl": "https://play.unity.com/en/games/c4c88d7a-d6c8-4297-9eaf-74b8fbe08505/grappler-playground-test"
+}

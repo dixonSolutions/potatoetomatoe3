@@ -1,0 +1,14 @@
+{
+	"id": "gp2mca1cargame",
+	"name": "GP2_MCA1_CarGAME",
+	"author": "xrlabresearch",
+	"description": "Please play in full screen.\n\nShift for boosting and left Ctrl for braking\nSpace for jumping",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/759b2b89-31d9-42b5-a585-ad27c23c12d6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "759b2b89-31d9-42b5-a585-ad27c23c12d6",
+	"unityPlayUrl": "https://play.unity.com/en/games/759b2b89-31d9-42b5-a585-ad27c23c12d6/gp2mca1cargame"
+}

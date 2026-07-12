@@ -1,0 +1,14 @@
+{
+	"id": "incrediballs",
+	"name": "Incrediballs",
+	"author": "Unity Play",
+	"description": "A fast-paced multiplayer game where players collect orbs to power up their speed and impact force to push their opponents off a crumbling platform. The last player standing wins.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c9c1197f-c638-4a9b-ac18-870b6934481d/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8def4523-7693-4255-bac0-92f764a7db9a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8def4523-7693-4255-bac0-92f764a7db9a",
+	"unityPlayUrl": "https://play.unity.com/en/games/8def4523-7693-4255-bac0-92f764a7db9a/incrediballs"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "lego-game-webbuild",
+	"name": "Lego Game WEBBUILD",
+	"author": "AgentQuack",
+	"description": "This is my microgame of the Lego X Unity Campaign \"Build your own Game\". The Gameplay is esay: Your Misson is to survive for 3 minutes, during the 12 Platforms + Start Brige will be explode after a certain period of time, but there are two platformes, that won\u00b4t explode.                                             \n                Lego Ideas Name: Mr Gaming",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/437f7d86-92a7-43e6-9f07-fa4202e98cd3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/129b6cea-5c08-402e-b6d3-281b824abf5e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "129b6cea-5c08-402e-b6d3-281b824abf5e",
+	"unityPlayUrl": "https://play.unity.com/en/games/129b6cea-5c08-402e-b6d3-281b824abf5e/lego-game-webbuild"
+}

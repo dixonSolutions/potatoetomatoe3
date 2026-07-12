@@ -1,0 +1,14 @@
+{
+	"id": "lab2",
+	"name": "Lab2",
+	"author": "kc1001",
+	"description": "Lab2",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/30823aa1-8417-4ff7-8bda-45e4a1a6c950/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "30823aa1-8417-4ff7-8bda-45e4a1a6c950",
+	"unityPlayUrl": "https://play.unity.com/en/games/30823aa1-8417-4ff7-8bda-45e4a1a6c950/lab2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ken-do",
+	"name": "Ken Do!",
+	"author": "Unity Play",
+	"description": "With Ken Do, Sudoku has got a baby cousin. The rule: Each number can only appear as many times as its value in any row or column. But no more than two identical numbers may be placed next to another.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/47023852-a767-40b9-b511-feab9948e855/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ed88f966-3bd8-4a01-bf62-9397ab1c871c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ed88f966-3bd8-4a01-bf62-9397ab1c871c",
+	"unityPlayUrl": "https://play.unity.com/en/games/ed88f966-3bd8-4a01-bf62-9397ab1c871c/ken-do"
+}

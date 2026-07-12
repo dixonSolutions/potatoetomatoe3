@@ -1,0 +1,14 @@
+{
+	"id": "icy-parkour",
+	"name": "Icy Parkour",
+	"author": "Hazzadog65",
+	"description": "This is the game for our inquiry topic at school. I hope you like it! You have to answer the first question of each level but after that, you can press space to skip.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/457048ac-b644-4922-89ce-be36be375b4f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb084d3a-d3c3-4052-8e4c-ec34411b53e2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb084d3a-d3c3-4052-8e4c-ec34411b53e2",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb084d3a-d3c3-4052-8e4c-ec34411b53e2/icy-parkour"
+}

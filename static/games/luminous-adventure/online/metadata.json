@@ -1,0 +1,14 @@
+{
+	"id": "luminous-adventure",
+	"name": "Luminous Adventure",
+	"author": "uxalice",
+	"description": "In a whimsical world where magic meets mischief, a mischievous Shadow Sprite plucked the sun right out of the sky! As shadows unfurled and the lands were draped in darkness, a whisper of hope echoed through the woods. With twinkling stars as clues and the moon as your guide, embark on a luminous adventure to restore the radiant glow to our realm!\n\nHow to Play:\n1. Walk: Use the middle mouse button to scroll forward and backward.\n2. Move Wooden Stick: Simply drag the wooden stick across the screen to move it along with you.\n3. Interact with Magical Elements: Interact by clicking on magical elements like stars, moons, and mushrooms to light up the road.\n\nYour ultimate quest is to navigate through the mystical forest and find the stolen sun, restoring light to the world!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/049d3bcb-51b3-444a-8189-a14f4aadad74/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "049d3bcb-51b3-444a-8189-a14f4aadad74",
+	"unityPlayUrl": "https://play.unity.com/en/games/049d3bcb-51b3-444a-8189-a14f4aadad74/luminous-adventure"
+}

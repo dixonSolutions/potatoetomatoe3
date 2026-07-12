@@ -1,0 +1,14 @@
+{
+	"id": "happy-farm",
+	"name": "Happy Farm",
+	"author": "luon18_2",
+	"description": "Game n\u00f4ng tr\u1ea1i",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07ce4722-498c-48bf-bb26-7953cef903f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "07ce4722-498c-48bf-bb26-7953cef903f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/07ce4722-498c-48bf-bb26-7953cef903f1/happy-farm"
+}

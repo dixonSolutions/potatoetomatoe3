@@ -1,0 +1,14 @@
+{
+	"id": "low-level-digger",
+	"name": "Low-Level Digger",
+	"author": "keijiro",
+	"description": "* Tips for touchscreen play: You can boost the spring strength by touching the screen with multiple fingers!\n\nThe Unity source project is available here: https://github.com/keijiro/LowLevelDigger",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/407dcb6e-d06c-4d61-95cb-a153a59f3190/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "407dcb6e-d06c-4d61-95cb-a153a59f3190",
+	"unityPlayUrl": "https://play.unity.com/en/games/407dcb6e-d06c-4d61-95cb-a153a59f3190/low-level-digger"
+}

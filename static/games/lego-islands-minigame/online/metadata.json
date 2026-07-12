@@ -1,0 +1,14 @@
+{
+	"id": "lego-islands-minigame",
+	"name": "LEGO Islands Minigame",
+	"author": "atrik1978",
+	"description": "This is my first game, guided by the LEGO tutorials.\nExplore the islands and discover secret pickups and enemies on your adventure!\nIt may take a few attempts to fully identify the elements that help you win \ud83d\ude09\n\nJust a warning: beware of the Killer Mini Hippo \ud83d\ude02\n\nFirst published on 02 April 2021.\nIt was completely guided by the LEGO tutorials with little customisation.\n\nModified on 05 April 2021\n1. Changed the firing from Cannonball to Arrows.\n2. Added new structures in the mini island\n\nModified on 13 April 2021\n1. Added a killer Mini Hippo in one of the islands.\n2. Added messenger figures and kill switches.\n\nModified on 23 April 2021\nCustomised the menus.\n\nModified on 30 April 2021\n1. Removed a bug from Menu Lose button\n2. Added newer islands, challenges and pickups.\n\nLooking forward to your opinions and suggestions.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0033ed9f-c88d-4dc8-aece-62ec0baa545c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b4a143aa-30e8-468f-9118-efcd56d05ee3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b4a143aa-30e8-468f-9118-efcd56d05ee3",
+	"unityPlayUrl": "https://play.unity.com/en/games/b4a143aa-30e8-468f-9118-efcd56d05ee3/lego-islands-minigame"
+}

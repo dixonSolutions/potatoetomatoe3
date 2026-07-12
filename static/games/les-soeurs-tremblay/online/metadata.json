@@ -1,0 +1,14 @@
+{
+	"id": "les-soeurs-tremblay",
+	"name": "Les Soeurs Tremblay",
+	"author": "Davyboy22",
+	"description": "Puzzle game where two little spiders are trapped in a room and need to collaborate to be able to escape.\nThis is the BETA version of the game with 7 tutorials, 10 puzzles, 2 boss and 4 bonus levels.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e859e235-0dd9-4747-94e4-e1c34b23ec6c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19066ea4-fae7-4d34-900d-13f76d0d3cd9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19066ea4-fae7-4d34-900d-13f76d0d3cd9",
+	"unityPlayUrl": "https://play.unity.com/en/games/19066ea4-fae7-4d34-900d-13f76d0d3cd9/les-soeurs-tremblay"
+}

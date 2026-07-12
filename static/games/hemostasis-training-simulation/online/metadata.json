@@ -1,0 +1,14 @@
+{
+	"id": "hemostasis-training-simulation",
+	"name": "Hemostasis Training Simulation",
+	"author": "Winter8040",
+	"description": "An interactive simulation of 3 hemostasis experiments using the Start-4 coagulation instrument.\n\nFull-screen viewing recommended. Controls may not function correctly inside the browser window.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/84a21cfe-0abe-4dec-b79f-36bab76f8391/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8d3668e0-5571-4aa9-be0b-1cf747a488f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8d3668e0-5571-4aa9-be0b-1cf747a488f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/8d3668e0-5571-4aa9-be0b-1cf747a488f0/hemostasis-training-simulation"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "get-to-grannys-house",
+	"name": "Get to granny's house",
+	"author": "thopee",
+	"description": "you wake up in a place you've never seen before and explore the map around you. video and thumbnail coming soon...",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/950b9170-71d0-456c-9567-dc143793780f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/be25cfc1-b323-472f-a807-46fe0f3dbffa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "be25cfc1-b323-472f-a807-46fe0f3dbffa",
+	"unityPlayUrl": "https://play.unity.com/en/games/be25cfc1-b323-472f-a807-46fe0f3dbffa/get-to-grannys-house"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "idlecasino",
+	"name": "IdleCasino",
+	"author": "BazuCompany",
+	"description": "Play IdleCasino on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5169f998-69d7-4a46-b628-9e049d00267d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5169f998-69d7-4a46-b628-9e049d00267d",
+	"unityPlayUrl": "https://play.unity.com/en/games/5169f998-69d7-4a46-b628-9e049d00267d/idlecasino"
+}

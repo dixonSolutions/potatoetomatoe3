@@ -1,0 +1,14 @@
+{
+	"id": "lego-challenge",
+	"name": "Lego Challenge",
+	"author": "programcuber",
+	"description": "Lego challenge is  a videogame made with the Lego Microgame Kit for Unity. Your going to find a lot of platforms and challenges in the game that you have to win to defeat the final boss. Enjoy the game! Thank you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bc208fe7-72bf-4683-bcd2-ce7b2e83db66/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/777464c3-e089-4e02-a4e4-e6b60fa9237c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "777464c3-e089-4e02-a4e4-e6b60fa9237c",
+	"unityPlayUrl": "https://play.unity.com/en/games/777464c3-e089-4e02-a4e4-e6b60fa9237c/lego-challenge"
+}

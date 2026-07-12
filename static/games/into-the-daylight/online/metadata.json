@@ -1,0 +1,14 @@
+{
+	"id": "into-the-daylight",
+	"name": "Into The Daylight",
+	"author": "fatima5310",
+	"description": "Our latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a0895b5-b893-489c-903b-6a83434f60c7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1437b90a-cb4b-4f8f-98d4-b25bb8a57230/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1437b90a-cb4b-4f8f-98d4-b25bb8a57230",
+	"unityPlayUrl": "https://play.unity.com/en/games/1437b90a-cb4b-4f8f-98d4-b25bb8a57230/into-the-daylight"
+}

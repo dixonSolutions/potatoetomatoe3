@@ -1,0 +1,14 @@
+{
+	"id": "gamebalance",
+	"name": "GameBalance",
+	"author": "mateusffarias",
+	"description": "Jogo do GameBalance",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e468d1f9-3dae-4e73-8898-096c39dc1e33/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e468d1f9-3dae-4e73-8898-096c39dc1e33",
+	"unityPlayUrl": "https://play.unity.com/en/games/e468d1f9-3dae-4e73-8898-096c39dc1e33/gamebalance"
+}

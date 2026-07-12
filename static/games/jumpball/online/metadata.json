@@ -1,0 +1,14 @@
+{
+	"id": "jumpball",
+	"name": "JumpBall",
+	"author": "Mango1307",
+	"description": "Ballin 2D Platformer",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0af2c079-6696-4982-a724-8683763f75fa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a820002d-b3e3-4dab-aed2-277f21cc174f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a820002d-b3e3-4dab-aed2-277f21cc174f",
+	"unityPlayUrl": "https://play.unity.com/en/games/a820002d-b3e3-4dab-aed2-277f21cc174f/jumpball"
+}

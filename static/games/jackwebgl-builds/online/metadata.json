@@ -1,0 +1,14 @@
+{
+	"id": "jackwebgl-builds",
+	"name": "JACKWebGL Builds",
+	"author": "Unity Play",
+	"description": "TEST",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e9e5e354-ffd6-4d96-bdae-44503b60c90d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e9e5e354-ffd6-4d96-bdae-44503b60c90d",
+	"unityPlayUrl": "https://play.unity.com/en/games/e9e5e354-ffd6-4d96-bdae-44503b60c90d/jackwebgl-builds"
+}

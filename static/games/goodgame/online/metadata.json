@@ -1,0 +1,14 @@
+{
+	"id": "goodgame",
+	"name": "GoodGame",
+	"author": "Mango_Ices",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86eec995-0cd0-425b-a7f4-98d6d9e57d3d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0782399c-bf5a-48cf-ac1a-3f90d9cb2ec3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0782399c-bf5a-48cf-ac1a-3f90d9cb2ec3",
+	"unityPlayUrl": "https://play.unity.com/en/games/0782399c-bf5a-48cf-ac1a-3f90d9cb2ec3/goodgame"
+}

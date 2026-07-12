@@ -1,0 +1,14 @@
+{
+	"id": "maayan-fps-12",
+	"name": "Maayan FPS 1.2",
+	"author": "maayan07",
+	"description": "Play Maayan FPS 1.2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/720ec2a3-9246-4aeb-959c-34f90d0cb698/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e790f9c-f665-4b63-b0ad-bf2e18174d5f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e790f9c-f665-4b63-b0ad-bf2e18174d5f",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e790f9c-f665-4b63-b0ad-bf2e18174d5f/maayan-fps-12"
+}

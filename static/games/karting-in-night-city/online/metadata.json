@@ -1,0 +1,14 @@
+{
+	"id": "karting-in-night-city",
+	"name": "Karting in Night City",
+	"author": "ffabiang",
+	"description": "Based on karting microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2d1db1f7-a26a-4ee8-b8da-b611be55a129/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1711ed59-d795-4195-8305-e030e9761554/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1711ed59-d795-4195-8305-e030e9761554",
+	"unityPlayUrl": "https://play.unity.com/en/games/1711ed59-d795-4195-8305-e030e9761554/karting-in-night-city"
+}

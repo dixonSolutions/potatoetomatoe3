@@ -1,0 +1,14 @@
+{
+	"id": "lost-in-the-universe",
+	"name": "Lost In The Universe",
+	"author": "facundorsabia",
+	"description": "This is my first game development. It's a DEMO with 2 levels i developed for Coderhouse (Argentina) course of VideoGame development.\nIt is a demonstration of my skills as a developer with this engine.  I used free assets from the Unity asset store. \nI would love to work in the video game industry, contact me! https://www.linkedin.com/in/rodriguez-sabia/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf7d96c6-b2d4-4b57-9f64-0418827e1104/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c8f6ee9-48ea-464e-b330-cdb837b0ec90/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c8f6ee9-48ea-464e-b330-cdb837b0ec90",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c8f6ee9-48ea-464e-b330-cdb837b0ec90/lost-in-the-universe"
+}

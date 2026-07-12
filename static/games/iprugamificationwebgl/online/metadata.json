@@ -1,0 +1,14 @@
+{
+	"id": "iprugamificationwebgl",
+	"name": "IpruGamification_Webgl",
+	"author": "bscs20075",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fc8d7258-a0b2-429e-bc1e-cd7ad6ab4e5c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fc8d7258-a0b2-429e-bc1e-cd7ad6ab4e5c",
+	"unityPlayUrl": "https://play.unity.com/en/games/fc8d7258-a0b2-429e-bc1e-cd7ad6ab4e5c/iprugamificationwebgl"
+}

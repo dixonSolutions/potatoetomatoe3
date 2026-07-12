@@ -1,0 +1,14 @@
+{
+	"id": "man-in-land",
+	"name": "Man in Land",
+	"author": "henrylay750",
+	"description": "Get to the Coin! Wasd or arrow keys to move.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/22e6799d-bd64-4bcb-a8a2-667ea9e5c0e2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/153d15b3-bf8f-4d32-8de3-171b0bb13c4b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "153d15b3-bf8f-4d32-8de3-171b0bb13c4b",
+	"unityPlayUrl": "https://play.unity.com/en/games/153d15b3-bf8f-4d32-8de3-171b0bb13c4b/man-in-land"
+}

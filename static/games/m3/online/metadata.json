@@ -1,0 +1,14 @@
+{
+	"id": "m3",
+	"name": "M^3",
+	"author": "syrshaharv",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/456c01bc-e2c5-4002-97f0-9e250b7a8de3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c48d9dc-0da0-493c-a3f9-a138a4e639cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7c48d9dc-0da0-493c-a3f9-a138a4e639cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/7c48d9dc-0da0-493c-a3f9-a138a4e639cd/m3"
+}

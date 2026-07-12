@@ -1,0 +1,14 @@
+{
+	"id": "jump-force-modded",
+	"name": "Jump Force MODDED",
+	"author": "chelsieh60",
+	"description": "Use space to jump.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/db7f78f0-7c2f-46c0-825e-2fe63d89c081/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/040271ef-d12a-45ec-bb35-c6b7c92269c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "040271ef-d12a-45ec-bb35-c6b7c92269c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/040271ef-d12a-45ec-bb35-c6b7c92269c7/jump-force-modded"
+}

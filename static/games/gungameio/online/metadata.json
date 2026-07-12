@@ -1,0 +1,14 @@
+{
+	"id": "gungameio",
+	"name": "GunGame.io",
+	"author": "icnatejackson",
+	"description": "Play GunGame.io on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cb3194fd-3738-4e65-85ff-0d0fc4741097/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/50e935e7-5438-49c2-b649-520012a846eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "50e935e7-5438-49c2-b649-520012a846eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/50e935e7-5438-49c2-b649-520012a846eb/gungameio"
+}
