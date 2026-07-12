@@ -1,0 +1,14 @@
+{
+  "id": "lighthouse-keeper",
+  "name": "Lighthouse Keeper",
+  "author": "ccdt",
+  "description": "Use arrows and space bar to move.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a2d26433-b92c-453d-a280-020ac66843a7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a85d84df-ba3f-4fdd-869b-fe7f14de83b4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "a85d84df-ba3f-4fdd-869b-fe7f14de83b4",
+  "unityPlayUrl": "https://play.unity.com/en/games/a85d84df-ba3f-4fdd-869b-fe7f14de83b4/lighthouse-keeper"
+}

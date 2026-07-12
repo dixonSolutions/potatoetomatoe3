@@ -1,0 +1,14 @@
+{
+  "id": "module02",
+  "name": "Module02",
+  "author": "univepro",
+  "description": "Re-import of Module02 from the XR Game Dev course I'm taking.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/006c50c7-4e68-46c1-b17a-55cfb449cb6c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "006c50c7-4e68-46c1-b17a-55cfb449cb6c",
+  "unityPlayUrl": "https://play.unity.com/en/games/006c50c7-4e68-46c1-b17a-55cfb449cb6c/module02"
+}

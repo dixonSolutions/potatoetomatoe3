@@ -1,0 +1,14 @@
+{
+  "id": "lego-mg",
+  "name": "LEGO® MG",
+  "author": "OpexStudios",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/022c7981-1ecb-4d90-8b69-4507d6a29b42/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "022c7981-1ecb-4d90-8b69-4507d6a29b42",
+  "unityPlayUrl": "https://play.unity.com/en/games/022c7981-1ecb-4d90-8b69-4507d6a29b42/lego-mg"
+}

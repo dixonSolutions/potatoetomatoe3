@@ -1,0 +1,14 @@
+{
+  "id": "cave-stuffs",
+  "name": "cave stuffs",
+  "author": "Sam_Schlaud",
+  "description": "school",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0de3a98a-4315-4db9-961c-9516a6ee7986/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0de3a98a-4315-4db9-961c-9516a6ee7986",
+  "unityPlayUrl": "https://play.unity.com/en/games/0de3a98a-4315-4db9-961c-9516a6ee7986/cave-stuffs"
+}

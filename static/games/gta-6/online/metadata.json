@@ -1,0 +1,14 @@
+{
+  "id": "gta-6",
+  "name": "GTA 6",
+  "author": "maneadaniel286",
+  "description": "Play GTA 6 on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/85445248-100b-458d-8db5-eb26a5c5c378/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f322d959-7c13-4902-910a-83fd3c29a662/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "f322d959-7c13-4902-910a-83fd3c29a662",
+  "unityPlayUrl": "https://play.unity.com/en/games/f322d959-7c13-4902-910a-83fd3c29a662/gta-6"
+}

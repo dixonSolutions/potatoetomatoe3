@@ -1,0 +1,14 @@
+{
+  "id": "imagelabellingmturk",
+  "name": "ImageLabellingMturk",
+  "author": "stan5dard",
+  "description": "Play ImageLabellingMturk on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08e8d597-415d-4c9d-b8c7-f37d44472c72/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "08e8d597-415d-4c9d-b8c7-f37d44472c72",
+  "unityPlayUrl": "https://play.unity.com/en/games/08e8d597-415d-4c9d-b8c7-f37d44472c72/imagelabellingmturk"
+}

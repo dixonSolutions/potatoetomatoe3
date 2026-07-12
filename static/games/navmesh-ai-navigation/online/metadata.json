@@ -1,0 +1,14 @@
+{
+  "id": "navmesh-ai-navigation",
+  "name": "NavMesh - AI Navigation",
+  "author": "Alexiiinka",
+  "description": "Hello :) This is my first AI implementation into my projects. I learned it from Unity Project. NavMesh Agent finds the shortest path to the point, on which we clicked with Left MOUSE Button.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6f1f3a02-b829-4d08-94d9-bbb1090769e7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a46651b-079c-4986-a8a6-7010a4da970e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a46651b-079c-4986-a8a6-7010a4da970e",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a46651b-079c-4986-a8a6-7010a4da970e/navmesh-ai-navigation"
+}

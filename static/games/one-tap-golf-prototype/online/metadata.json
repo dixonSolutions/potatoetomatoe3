@@ -1,0 +1,14 @@
+{
+  "id": "one-tap-golf-prototype",
+  "name": "One Tap Golf - prototype",
+  "author": "toth-b-benedek-99",
+  "description": "My solution for task of Pyramid Games.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1212f1a5-9b26-4def-ac14-e7370b89d80b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1212f1a5-9b26-4def-ac14-e7370b89d80b",
+  "unityPlayUrl": "https://play.unity.com/en/games/1212f1a5-9b26-4def-ac14-e7370b89d80b/one-tap-golf-prototype"
+}

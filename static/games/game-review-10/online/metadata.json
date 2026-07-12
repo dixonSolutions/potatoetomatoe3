@@ -1,0 +1,14 @@
+{
+  "id": "game-review-10",
+  "name": "Game Review #10",
+  "author": "AaronChau",
+  "description": "For DDM4914",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2362c5bf-b7c8-4c08-9f73-c612fe663536/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2362c5bf-b7c8-4c08-9f73-c612fe663536",
+  "unityPlayUrl": "https://play.unity.com/en/games/2362c5bf-b7c8-4c08-9f73-c612fe663536/game-review-10"
+}

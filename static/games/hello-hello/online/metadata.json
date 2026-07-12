@@ -1,0 +1,14 @@
+{
+  "id": "hello-hello",
+  "name": "hello hello",
+  "author": "WEB_ART_STYLE",
+  "description": "hello world!!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f577459-7553-48df-a54d-ee70e33547bf/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0f577459-7553-48df-a54d-ee70e33547bf",
+  "unityPlayUrl": "https://play.unity.com/en/games/0f577459-7553-48df-a54d-ee70e33547bf/hello-hello"
+}

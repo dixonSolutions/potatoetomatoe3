@@ -1,0 +1,14 @@
+{
+  "id": "zombie-horror-game",
+  "name": "Zombie Horror Game",
+  "author": "programmerEthan",
+  "description": "Survive as long as possible. Hide in the trees if you want to escape but you will have to come down to maintain hunger levels. \n\nYour score will get submitted to leaderboards.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3577653b-22cf-42e0-b658-ae589bb4f53f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3577653b-22cf-42e0-b658-ae589bb4f53f",
+  "unityPlayUrl": "https://play.unity.com/en/games/3577653b-22cf-42e0-b658-ae589bb4f53f/zombie-horror-game"
+}

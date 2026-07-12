@@ -1,0 +1,14 @@
+{
+  "id": "the-rgb-platformer",
+  "name": "The RGB Platformer",
+  "author": "MrDankinator",
+  "description": "This game is a 3D platformer. Use different colored lenses to see and interact with the different objects that match it's color. For example, when you use a red lens, you can see and interact with red objects. You will also have to get past deadly obstacles!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1759d67b-8d05-42c9-9743-1c719a8da850/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c37925e7-9c6e-4023-8006-5259f79e8a1c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c37925e7-9c6e-4023-8006-5259f79e8a1c",
+  "unityPlayUrl": "https://play.unity.com/en/games/c37925e7-9c6e-4023-8006-5259f79e8a1c/the-rgb-platformer"
+}

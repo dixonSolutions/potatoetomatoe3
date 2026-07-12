@@ -1,0 +1,14 @@
+{
+  "id": "anu2023-acute-arena",
+  "name": "ANU2023 Acute-Arena",
+  "author": "bradfroud",
+  "description": "A top-down shooter.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2baa4b53-749f-43e8-9c55-f51c7f1e115d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67171962-28be-40f9-9fd1-c48f355f244d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "67171962-28be-40f9-9fd1-c48f355f244d",
+  "unityPlayUrl": "https://play.unity.com/en/games/67171962-28be-40f9-9fd1-c48f355f244d/anu2023-acute-arena"
+}

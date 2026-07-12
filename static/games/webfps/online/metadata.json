@@ -1,0 +1,14 @@
+{
+  "id": "webfps",
+  "name": "WebFPS",
+  "author": "Creaty123",
+  "description": "Play WebFPS on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a9fa5cb0-761e-4f23-bfa3-c1476d4c660d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5d1ae99b-3867-48b0-8d44-55fb5bb318fc/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5d1ae99b-3867-48b0-8d44-55fb5bb318fc",
+  "unityPlayUrl": "https://play.unity.com/en/games/5d1ae99b-3867-48b0-8d44-55fb5bb318fc/webfps"
+}

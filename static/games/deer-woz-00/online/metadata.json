@@ -1,0 +1,14 @@
+{
+  "id": "deer-woz-00",
+  "name": "DEER-woz-00",
+  "author": "faidroid27",
+  "description": "waf!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a85e17fe-094c-410e-a707-a5c9afc6b7a5/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "a85e17fe-094c-410e-a707-a5c9afc6b7a5",
+  "unityPlayUrl": "https://play.unity.com/en/games/a85e17fe-094c-410e-a707-a5c9afc6b7a5/deer-woz-00"
+}

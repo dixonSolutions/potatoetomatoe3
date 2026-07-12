@@ -1,0 +1,14 @@
+{
+  "id": "pruebas-online-2",
+  "name": "Pruebas online 2",
+  "author": "charmelo5000",
+  "description": "prueba 33",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4103a243-bf0c-466a-b910-b429e5152254/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "4103a243-bf0c-466a-b910-b429e5152254",
+  "unityPlayUrl": "https://play.unity.com/en/games/4103a243-bf0c-466a-b910-b429e5152254/pruebas-online-2"
+}

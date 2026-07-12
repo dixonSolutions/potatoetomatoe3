@@ -1,0 +1,14 @@
+{
+  "id": "rabbits-carrots",
+  "name": "Rabbits & Carrots",
+  "author": "LR777",
+  "description": "The game is simple. You find a rabbit and you must feed it three carrots. You score points for each rabbit you feed. But be careful! Not all carrots are good and score different points.\nThis is my first project finishing Unity basic programming courses. I had a lot of fun making it and I want to continue to improve it.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ed1c7d0a-dbbb-43fb-833f-3f376e530bdc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00705054-8673-481b-b8ea-eb77d9c4f265/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00705054-8673-481b-b8ea-eb77d9c4f265",
+  "unityPlayUrl": "https://play.unity.com/en/games/00705054-8673-481b-b8ea-eb77d9c4f265/rabbits-carrots"
+}

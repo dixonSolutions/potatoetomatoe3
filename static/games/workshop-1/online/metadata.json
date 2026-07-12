@@ -1,0 +1,14 @@
+{
+  "id": "workshop-1",
+  "name": "Workshop 1",
+  "author": "hghfhhngh",
+  "description": "Workshop 1",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/012fd737-2b90-4a95-8f83-108091a90055/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "012fd737-2b90-4a95-8f83-108091a90055",
+  "unityPlayUrl": "https://play.unity.com/en/games/012fd737-2b90-4a95-8f83-108091a90055/workshop-1"
+}

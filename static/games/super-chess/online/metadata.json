@@ -1,0 +1,14 @@
+{
+  "id": "super-chess",
+  "name": "Super Chess!",
+  "author": "fcarosio",
+  "description": "May I introduce you my chess game. I'm pretty sure I forgot to implement some game rules: just movement and capture feature are implemented. I didn't have time to animate it (it was out of the scope of my project). To play:\n1) click a piece you want to move. A special indicator appear around the piece;\n2) all cell you can move to are put in evidence by a red spot;\n3) all pieces you can capture are surrounded by a red ring;\n4) click the cell you want to move your piece o the piece you want to capture;\n5) use key \"A\" and \"D\" to rotate the game board to have a better view of the game;",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7a846dd2-7ae5-4380-bb95-e4cf531fa448/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cbc6a4a8-7990-4fc0-bda1-fa0c346fd98b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "cbc6a4a8-7990-4fc0-bda1-fa0c346fd98b",
+  "unityPlayUrl": "https://play.unity.com/en/games/cbc6a4a8-7990-4fc0-bda1-fa0c346fd98b/super-chess"
+}

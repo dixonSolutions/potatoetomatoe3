@@ -1,0 +1,14 @@
+{
+  "id": "the-ball",
+  "name": "The Ball",
+  "author": "rab8bit",
+  "description": "Unity physics test.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4a7590ff-fe93-42ee-8ed2-e325780eb78e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/784342a3-edef-42c7-a2b8-a566e9b17139/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "784342a3-edef-42c7-a2b8-a566e9b17139",
+  "unityPlayUrl": "https://play.unity.com/en/games/784342a3-edef-42c7-a2b8-a566e9b17139/the-ball"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "spikes-madness",
+  "name": "Spikes Madness",
+  "author": "GVarela7",
+  "description": "Think your reflexes are sharp? Stop the spikes from falling into the ocean and hit them as many times as possible!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c7638f38-7198-4a7a-b259-934ff295e69f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f251f4b-c31c-4696-9df6-af6cb11e9303/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0f251f4b-c31c-4696-9df6-af6cb11e9303",
+  "unityPlayUrl": "https://play.unity.com/en/games/0f251f4b-c31c-4696-9df6-af6cb11e9303/spikes-madness"
+}

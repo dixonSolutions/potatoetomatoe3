@@ -1,0 +1,14 @@
+{
+  "id": "apex-ascent",
+  "name": "Apex Ascent",
+  "author": "KhauKha",
+  "description": "Update 0.2\nInventory - [I]\nSpawnPoint",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/068b4b60-176b-4edb-b640-2dfe917a15bc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07d6d490-af36-41cc-ac83-01b863eb9075/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "07d6d490-af36-41cc-ac83-01b863eb9075",
+  "unityPlayUrl": "https://play.unity.com/en/games/07d6d490-af36-41cc-ac83-01b863eb9075/apex-ascent"
+}

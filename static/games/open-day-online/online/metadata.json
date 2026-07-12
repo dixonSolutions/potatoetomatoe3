@@ -1,0 +1,14 @@
+{
+  "id": "open-day-online",
+  "name": "OPEN-DAY-online",
+  "author": "unity_F8F17C2D4226B2B22DAE",
+  "description": "Videogioco 2D emulativo  dell'istituto Galileo Galilei di Ostiglia",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1f926553-63a2-4b15-8144-5e25b108ad38/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9a592be1-5389-4cbf-bb9b-34cff286c251/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9a592be1-5389-4cbf-bb9b-34cff286c251",
+  "unityPlayUrl": "https://play.unity.com/en/games/9a592be1-5389-4cbf-bb9b-34cff286c251/open-day-online"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "zybraly-beta",
+  "name": "Zybraly [Beta]",
+  "author": "K-SuwaP",
+  "description": "Cybersecurity Awareness Game\n\nThis game is part of the university's Senior Program in Business Information Technology to learn game development and raise awareness of cyber threats in daily life. [Thai language available only]",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/080b7a06-10bc-4190-96db-049638b0aa13/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d897443-cd35-4888-9501-d537c2ddb02d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2d897443-cd35-4888-9501-d537c2ddb02d",
+  "unityPlayUrl": "https://play.unity.com/en/games/2d897443-cd35-4888-9501-d537c2ddb02d/zybraly-beta"
+}

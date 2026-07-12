@@ -1,0 +1,14 @@
+{
+  "id": "feed-your-fish",
+  "name": "Feed your fish",
+  "author": "tina170792",
+  "description": "This is my lab project in Create with code course.\nUse A/D or arrow keys to move.\nAvoid sharks and rays! Be carefull, enemies will move faster over time.\nCollect worms to score points.\nGood luck!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/204b6e73-c671-48fe-a01f-2a78f335dabc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dbde8e7-74f0-4711-a16c-ab4cd22d7812/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0dbde8e7-74f0-4711-a16c-ab4cd22d7812",
+  "unityPlayUrl": "https://play.unity.com/en/games/0dbde8e7-74f0-4711-a16c-ab4cd22d7812/feed-your-fish"
+}

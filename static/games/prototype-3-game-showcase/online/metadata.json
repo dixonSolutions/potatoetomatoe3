@@ -1,0 +1,14 @@
+{
+  "id": "prototype-3-game-showcase",
+  "name": "Prototype 3 Game Showcase",
+  "author": "TimoBelov",
+  "description": "This project is showcase of skills from the pathway of learning \"Junior Programmer\". Press spacebar to jump over an obstacle.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/315b8e5a-4cbf-41bb-b376-15e7237295b3/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c61a3db-df1b-46e5-ba4a-1b9f1e8a7faa/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c61a3db-df1b-46e5-ba4a-1b9f1e8a7faa",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c61a3db-df1b-46e5-ba4a-1b9f1e8a7faa/prototype-3-game-showcase"
+}

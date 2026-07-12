@@ -1,0 +1,14 @@
+{
+  "id": "samplescene",
+  "name": "SampleScene",
+  "author": "Mactarvish",
+  "description": "Play SampleScene on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d9bb1fbb-41f4-4c2f-b30d-a3fbe1a76e69/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/86448f14-7da4-411b-b44b-61cee4635aba/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "86448f14-7da4-411b-b44b-61cee4635aba",
+  "unityPlayUrl": "https://play.unity.com/en/games/86448f14-7da4-411b-b44b-61cee4635aba/samplescene"
+}

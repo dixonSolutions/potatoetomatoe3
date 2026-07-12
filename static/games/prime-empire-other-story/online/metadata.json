@@ -1,0 +1,14 @@
+{
+  "id": "prime-empire-other-story",
+  "name": "Prime Empire (Other story)",
+  "author": "Asm0dey",
+  "description": "Final build 1.0\nLego ideas - Asmik1\nOn the home screen.\nShort press on the spacebar - select a character. Available:\nLong press (3-4 sec.) To confirm the selection and load the level.\nIn Game.\nSingle tap - jump.\nDouble tap in the game - double jump.\nIf you lose, then a short press will restart the level with the same character, and a long press will exit to the main screen.\n\nIf you do not press anything for a long time after a loss, then after 15 seconds it will automatically go to the character selection screen.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d986fa38-3c1a-4745-ba43-090c1443d77f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/755dd1fd-b409-49bc-b2cc-674ecac58e06/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "755dd1fd-b409-49bc-b2cc-674ecac58e06",
+  "unityPlayUrl": "https://play.unity.com/en/games/755dd1fd-b409-49bc-b2cc-674ecac58e06/prime-empire-other-story"
+}

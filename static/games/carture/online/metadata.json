@@ -1,0 +1,14 @@
+{
+  "id": "carture",
+  "name": "Carture",
+  "author": "matthewanh",
+  "description": "Carture is an adventure game in which you drive around a very immersive environment. This project was done in my spare time and I hope you enjoy it!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2aca9df9-de5c-4c1b-af8a-4bbb54b89798/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e5172ee-b7a3-4ae0-b57a-e1f10b09a9de/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0e5172ee-b7a3-4ae0-b57a-e1f10b09a9de",
+  "unityPlayUrl": "https://play.unity.com/en/games/0e5172ee-b7a3-4ae0-b57a-e1f10b09a9de/carture"
+}

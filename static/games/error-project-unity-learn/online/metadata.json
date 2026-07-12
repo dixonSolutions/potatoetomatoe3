@@ -1,0 +1,14 @@
+{
+  "id": "error-project-unity-learn",
+  "name": "Error project Unity Learn",
+  "author": "rexuslim",
+  "description": "All error fixed",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c62f882-45d6-4143-86a1-40cde3b8e68f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c62f882-45d6-4143-86a1-40cde3b8e68f",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c62f882-45d6-4143-86a1-40cde3b8e68f/error-project-unity-learn"
+}

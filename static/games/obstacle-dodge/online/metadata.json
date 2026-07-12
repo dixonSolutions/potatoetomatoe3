@@ -1,0 +1,14 @@
+{
+  "id": "obstacle-dodge",
+  "name": "Obstacle Dodge",
+  "author": "earthstar71",
+  "description": "Get to end without touching anything. You have five lives.\nPlease give feedback by commenting.\n\nControls:\nArrow keys or on-screen buttons. On a phone, rotate to landscape mode for the best experience.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c4e203ab-2ebd-4f60-bc83-22e9254376eb/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf502563-ff0d-4990-8ec3-b9fae9e26fb8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bf502563-ff0d-4990-8ec3-b9fae9e26fb8",
+  "unityPlayUrl": "https://play.unity.com/en/games/bf502563-ff0d-4990-8ec3-b9fae9e26fb8/obstacle-dodge"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "recoil-rush",
+  "name": "Recoil Rush",
+  "author": "Nask67",
+  "description": "Side scroller",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d0f6190-902e-4ecf-b78a-ee7b9f1f053f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0d0f6190-902e-4ecf-b78a-ee7b9f1f053f",
+  "unityPlayUrl": "https://play.unity.com/en/games/0d0f6190-902e-4ecf-b78a-ee7b9f1f053f/recoil-rush"
+}

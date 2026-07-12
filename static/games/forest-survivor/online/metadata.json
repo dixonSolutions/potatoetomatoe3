@@ -1,0 +1,14 @@
+{
+  "id": "forest-survivor",
+  "name": "森林幸存者|Forest Survivor",
+  "author": "TempoZero",
+  "description": "一个练习项目，4分钟一局的小游戏，手机&PC均可游玩，玩得开心~\nA practice project, 4-minute game, both mobile and PC can play, have fun playing~",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/135df39f-b184-4ba6-b3c6-7eebb97e78e9/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/834bc496-8f00-4148-94ef-32f7760f3fa5/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "834bc496-8f00-4148-94ef-32f7760f3fa5",
+  "unityPlayUrl": "https://play.unity.com/en/games/834bc496-8f00-4148-94ef-32f7760f3fa5/forest-survivor"
+}

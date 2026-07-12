@@ -1,0 +1,14 @@
+{
+  "id": "stick-fighters",
+  "name": "Stick Fighters",
+  "author": "Dast3212",
+  "description": "Play Stick Fighters on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/dae096b6-ca16-4ef3-9f5e-4e342b6c3520/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c26afc0-a1e4-4ba7-9854-48f67af92c27/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7c26afc0-a1e4-4ba7-9854-48f67af92c27",
+  "unityPlayUrl": "https://play.unity.com/en/games/7c26afc0-a1e4-4ba7-9854-48f67af92c27/stick-fighters"
+}

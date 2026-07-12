@@ -1,0 +1,14 @@
+{
+  "id": "overhandgame",
+  "name": "overHAND.game",
+  "author": "annojoe",
+  "description": "Play overHAND.game on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d6efd9f9-ab40-48e9-85aa-6b48cf9d5de6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09a282d1-d43b-4b30-ba91-d9318416930f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "09a282d1-d43b-4b30-ba91-d9318416930f",
+  "unityPlayUrl": "https://play.unity.com/en/games/09a282d1-d43b-4b30-ba91-d9318416930f/overhandgame"
+}

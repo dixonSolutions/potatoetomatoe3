@@ -1,0 +1,14 @@
+{
+  "id": "wordo",
+  "name": "Wordo-法语学习小游戏",
+  "author": "MidnightMoca",
+  "description": "这是一个学法语的小游戏试玩，希望您能喜欢！",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dd54c9a-5eb4-485f-8154-8a4c13ef2b68/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0dd54c9a-5eb4-485f-8154-8a4c13ef2b68",
+  "unityPlayUrl": "https://play.unity.com/en/games/0dd54c9a-5eb4-485f-8154-8a4c13ef2b68/wordo"
+}

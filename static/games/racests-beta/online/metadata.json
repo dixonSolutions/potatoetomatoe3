@@ -1,0 +1,14 @@
+{
+  "id": "racests-beta",
+  "name": "Racests (Beta)",
+  "author": "KillerChicken37",
+  "description": "Racing game",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08a1fb11-f3d2-4a33-b774-2740121103ce/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "08a1fb11-f3d2-4a33-b774-2740121103ce",
+  "unityPlayUrl": "https://play.unity.com/en/games/08a1fb11-f3d2-4a33-b774-2740121103ce/racests-beta"
+}

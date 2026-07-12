@@ -1,0 +1,14 @@
+{
+  "id": "pachinko-v11",
+  "name": "Pachinko v1.1",
+  "author": "Ziffers",
+  "description": "Click above the fence to drop balls. Better with sound on.\nApples give points & balls\nBags give more points\nClose all bags for a bonus\nPost your high score (my wife thinks you cant beat her).\n\nGame will restart 12 seconds after last ball drop.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/36d3a36a-981b-42d9-8194-413db61af42d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5436c06c-ac0c-4a37-9d23-854f94e4d0e2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5436c06c-ac0c-4a37-9d23-854f94e4d0e2",
+  "unityPlayUrl": "https://play.unity.com/en/games/5436c06c-ac0c-4a37-9d23-854f94e4d0e2/pachinko-v11"
+}

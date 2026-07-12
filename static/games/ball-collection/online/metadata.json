@@ -1,0 +1,14 @@
+{
+  "id": "ball-collection",
+  "name": "ball collection",
+  "author": "Slenderpi",
+  "description": "collect balls. Drag brown objects to move them. If they don't budge just move your mouse further",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7108ade2-90f4-40fd-b8bf-752936c5d678/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15413cfd-ffae-4a18-8bb0-7b296053479c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "15413cfd-ffae-4a18-8bb0-7b296053479c",
+  "unityPlayUrl": "https://play.unity.com/en/games/15413cfd-ffae-4a18-8bb0-7b296053479c/ball-collection"
+}

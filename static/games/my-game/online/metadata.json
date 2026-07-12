@@ -1,0 +1,14 @@
+{
+  "id": "my-game",
+  "name": "my game",
+  "author": "Swiftmckiller",
+  "description": "Play my game on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0affdfb2-d92a-44d6-a296-cfd9a907732c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0affdfb2-d92a-44d6-a296-cfd9a907732c",
+  "unityPlayUrl": "https://play.unity.com/en/games/0affdfb2-d92a-44d6-a296-cfd9a907732c/my-game"
+}

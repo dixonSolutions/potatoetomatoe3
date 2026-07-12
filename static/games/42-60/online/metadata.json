@@ -1,0 +1,14 @@
+{
+  "id": "42-60",
+  "name": "42 : 60",
+  "author": "eriko480",
+  "description": "TURN ON SOUND. WASD to move (Space to jump / Shift to sprint). Use T to slow time(game timer still runs at normal speed however). Destroy 42 of the Skull King's Projectiles (within the 60 seconds) to win! If you get hit, fall off the stage, or run out of time you die.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2700661e-cf17-4f47-9d74-48ea647a71ba/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/295dd05a-b349-4697-8a77-fd9d7a700b88/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "295dd05a-b349-4697-8a77-fd9d7a700b88",
+  "unityPlayUrl": "https://play.unity.com/en/games/295dd05a-b349-4697-8a77-fd9d7a700b88/42-60"
+}

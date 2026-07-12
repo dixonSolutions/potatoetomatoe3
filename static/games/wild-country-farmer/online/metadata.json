@@ -1,0 +1,14 @@
+{
+  "id": "wild-country-farmer",
+  "name": "Wild Country Farmer",
+  "author": "Salva73",
+  "description": "Enable the audio, move the farmer around with all 4 cursor keys, feed those dogs with the space key and have some fun!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3782bd62-74a5-422d-9bae-b0b71f27d1f2/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c7849930-c3b1-4c87-ab52-36ac3614159c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c7849930-c3b1-4c87-ab52-36ac3614159c",
+  "unityPlayUrl": "https://play.unity.com/en/games/c7849930-c3b1-4c87-ab52-36ac3614159c/wild-country-farmer"
+}

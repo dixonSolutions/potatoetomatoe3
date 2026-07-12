@@ -1,0 +1,14 @@
+{
+  "id": "vectorforce-polished",
+  "name": "VectorForce Polished",
+  "author": "kichoul",
+  "description": "- 점프연타로 Wall Jump가 가능하도록 수정했습니다\n- 길을 헤메지 않도록 수정 했습니다\n- 부활위치 버그를 줄였습니다\n- 난이도를 현실화 했습니다",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/342b0424-cd3d-4840-bc7b-bdb9b68a5c37/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "342b0424-cd3d-4840-bc7b-bdb9b68a5c37",
+  "unityPlayUrl": "https://play.unity.com/en/games/342b0424-cd3d-4840-bc7b-bdb9b68a5c37/vectorforce-polished"
+}

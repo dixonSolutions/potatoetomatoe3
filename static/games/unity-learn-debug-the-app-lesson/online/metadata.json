@@ -1,0 +1,14 @@
+{
+  "id": "unity-learn-debug-the-app-lesson",
+  "name": "Unity Learn - Debug the App Lesson",
+  "author": "jimau",
+  "description": "https://learn.unity.com/tutorial/debug-the-app",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f37411c5-d2d9-4dde-9089-01a41484e67b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/63925099-ddc8-4fa1-be54-ad670a960e4f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "63925099-ddc8-4fa1-be54-ad670a960e4f",
+  "unityPlayUrl": "https://play.unity.com/en/games/63925099-ddc8-4fa1-be54-ad670a960e4f/unity-learn-debug-the-app-lesson"
+}

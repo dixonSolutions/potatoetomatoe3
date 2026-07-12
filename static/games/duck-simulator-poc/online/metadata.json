@@ -1,0 +1,14 @@
+{
+  "id": "duck-simulator-poc",
+  "name": "Duck Simulator (PoC)",
+  "author": "AdamCase",
+  "description": "This is a Proof of Concept for our Duck Simulation Game. Movement: Standard 3rd person controls. (Sprint: Shift, Crouch: Ctrl)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f6e0f268-5daf-442d-acb8-062ed096d7c7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5727ed77-0c13-49d2-88ee-10198a020b09/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5727ed77-0c13-49d2-88ee-10198a020b09",
+  "unityPlayUrl": "https://play.unity.com/en/games/5727ed77-0c13-49d2-88ee-10198a020b09/duck-simulator-poc"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "unity-hub",
+  "name": "Unity Hub",
+  "author": "heh041421",
+  "description": "Play Unity Hub on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3453b4d6-262f-4151-938e-be7454461ad0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3453b4d6-262f-4151-938e-be7454461ad0",
+  "unityPlayUrl": "https://play.unity.com/en/games/3453b4d6-262f-4151-938e-be7454461ad0/unity-hub"
+}

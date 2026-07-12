@@ -1,0 +1,14 @@
+{
+  "id": "eternal-night-survivor",
+  "name": "Eternal Night Survivor",
+  "author": "lrsoft",
+  "description": "Grab your weapons and fight to survive against endless waves of monsters! Defeat enemies, collect gold, purchase and upgrade weapons, and unlock skills.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/dc4c499c-86e1-4aaa-a368-f6ba7aa27098/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5faafcaf-b79a-4687-ac67-eed40c859d6f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5faafcaf-b79a-4687-ac67-eed40c859d6f",
+  "unityPlayUrl": "https://play.unity.com/en/games/5faafcaf-b79a-4687-ac67-eed40c859d6f/eternal-night-survivor"
+}

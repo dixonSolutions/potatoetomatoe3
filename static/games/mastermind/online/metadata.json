@@ -1,0 +1,14 @@
+{
+  "id": "mastermind",
+  "name": "Mastermind",
+  "author": "mdogan89",
+  "description": "Mastermind code breaking game",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/96fedfc9-1b7c-4ad6-8893-215cdd86a93e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ab7c8965-663e-4fcc-8006-079cadc3c804/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "ab7c8965-663e-4fcc-8006-079cadc3c804",
+  "unityPlayUrl": "https://play.unity.com/en/games/ab7c8965-663e-4fcc-8006-079cadc3c804/mastermind"
+}

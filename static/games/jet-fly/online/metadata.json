@@ -1,0 +1,14 @@
+{
+  "id": "jet-fly",
+  "name": "Jet-Fly",
+  "author": "TheLink52",
+  "description": "An open-world flying game. WASD controls + QE.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3984a50b-f7e6-468b-89be-5569d3be03ef/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3984a50b-f7e6-468b-89be-5569d3be03ef",
+  "unityPlayUrl": "https://play.unity.com/en/games/3984a50b-f7e6-468b-89be-5569d3be03ef/jet-fly"
+}

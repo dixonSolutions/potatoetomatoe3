@@ -1,0 +1,14 @@
+{
+  "id": "essential-games",
+  "name": "Essential Games",
+  "author": "Melodex",
+  "description": "This package showcases my completion of the Unity Essentials course, including the Bonus Game and the Top Down Game. They were enjoyable projects to build and demonstrate the skills I learned.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0729e168-c1d0-4702-ae24-3f54e6eb529a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/394017ec-7a86-418b-9fe2-2b77f3572834/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "394017ec-7a86-418b-9fe2-2b77f3572834",
+  "unityPlayUrl": "https://play.unity.com/en/games/394017ec-7a86-418b-9fe2-2b77f3572834/essential-games"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "wagner-lecture",
+  "name": "Wagner Lecture",
+  "author": "DubiousGoose",
+  "description": "An experiment with putting a lecture in a game. Turn the sound on by clicking the microphone icon on the bottom right hand corner of the game when it is active.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9e448d7a-c83a-4a70-ade9-f74265f0cb9e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/63df3f02-4013-430b-90f0-6cc2f691cf13/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "63df3f02-4013-430b-90f0-6cc2f691cf13",
+  "unityPlayUrl": "https://play.unity.com/en/games/63df3f02-4013-430b-90f0-6cc2f691cf13/wagner-lecture"
+}

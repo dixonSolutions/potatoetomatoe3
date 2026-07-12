@@ -1,0 +1,14 @@
+{
+  "id": "igra-gde-ty-tipa-gribok",
+  "name": "игра где ты типа грибок",
+  "author": "itzunamii",
+  "description": "Play игра где ты типа грибок on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c1763f4-a49b-47b3-b68f-594bb618299e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c1763f4-a49b-47b3-b68f-594bb618299e",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c1763f4-a49b-47b3-b68f-594bb618299e/igra-gde-ty-tipa-gribok"
+}

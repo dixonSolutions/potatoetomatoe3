@@ -1,0 +1,14 @@
+{
+  "id": "fifty-fifty",
+  "name": "FIFTY / FIFTY",
+  "author": "CannonSword",
+  "description": "Final submission version of our game, FIFTY / FIFTY\nCreated by Kaiser Lee, Eric Im, and Leo Kotok\n\nHow it works:\nplayed 1 vs 1\nguess what side the coin will land, and play cards for bonus effect.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d1646d20-76c3-4c22-9950-0fec300c72a7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf686dc2-c5f3-4381-89a0-0b7a9dad2cc7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bf686dc2-c5f3-4381-89a0-0b7a9dad2cc7",
+  "unityPlayUrl": "https://play.unity.com/en/games/bf686dc2-c5f3-4381-89a0-0b7a9dad2cc7/fifty-fifty"
+}

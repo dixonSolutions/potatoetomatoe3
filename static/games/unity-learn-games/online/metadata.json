@@ -1,0 +1,14 @@
+{
+  "id": "unity-learn-games",
+  "name": "Unity Learn - Games",
+  "author": "BekirCnAta",
+  "description": "Prototype 2",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01142c4b-be09-4dc4-9201-2a2953ad90a1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "01142c4b-be09-4dc4-9201-2a2953ad90a1",
+  "unityPlayUrl": "https://play.unity.com/en/games/01142c4b-be09-4dc4-9201-2a2953ad90a1/unity-learn-games"
+}

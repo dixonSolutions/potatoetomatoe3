@@ -1,0 +1,14 @@
+{
+  "id": "purple-walls",
+  "name": "作品③　危険地帯を進め！Purple Walls",
+  "author": "y01117504",
+  "description": "単純な玉転がしゲームです。紫色の壁を上手く避け、計33個あるカプセルを上手く取ってください。\n紫色の壁に触れると、初期位置からやり直しです。\n特別難しくはありませんが、焦るとミスしやすいので要注意です。\n\nクリア後の挙動を実装できていないので、やめるときは画面左上の更新マークを押してください。\n\n223411 ZakiYama",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7ef7a427-cd64-4941-89b6-3023321232bf/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7ef7a427-cd64-4941-89b6-3023321232bf",
+  "unityPlayUrl": "https://play.unity.com/en/games/7ef7a427-cd64-4941-89b6-3023321232bf/purple-walls"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "realaudiochallenge",
+  "name": "RealAudioChallenge",
+  "author": "MickRayzee",
+  "description": "Car doing laps",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/28c6fe83-88b5-46a8-a8b2-8d63a2f68495/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/011e1c19-b414-4148-bcb6-e598c5471ea3/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "011e1c19-b414-4148-bcb6-e598c5471ea3",
+  "unityPlayUrl": "https://play.unity.com/en/games/011e1c19-b414-4148-bcb6-e598c5471ea3/realaudiochallenge"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "moose-master",
+  "name": "Moose Master",
+  "author": "jor4291",
+  "description": "Can you master your Moose? This is just a test environment to practice scripting for an actual game I'm working on. It runs like utter trash on play.unity. Literally, 0 optimizations were done. I cannot emphasize enough this is just to test inventory, item, stat, and other RPG elements.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/13fc62ba-fbe7-470d-806e-5f1b1d37c787/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "13fc62ba-fbe7-470d-806e-5f1b1d37c787",
+  "unityPlayUrl": "https://play.unity.com/en/games/13fc62ba-fbe7-470d-806e-5f1b1d37c787/moose-master"
+}

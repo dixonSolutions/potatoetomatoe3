@@ -1,0 +1,14 @@
+{
+  "id": "split-shot",
+  "name": "Split Shot",
+  "author": "N8Dev_",
+  "description": "A top down shooter, made in two days, where enemies split into even more enemies, fitting with the GMTK Game Jam 2020's theme of \"out of control\". Play and rate 5 stars on itch.io https://n8dev.itch.io/splitshot *BETTER WITH SOUND*",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/38b1620e-ce1b-4273-9f4d-633bd552aa39/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1fc1bf6a-f7a5-486a-b62f-2569c9138e2a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1fc1bf6a-f7a5-486a-b62f-2569c9138e2a",
+  "unityPlayUrl": "https://play.unity.com/en/games/1fc1bf6a-f7a5-486a-b62f-2569c9138e2a/split-shot"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "starz",
+  "name": "STARz",
+  "author": "Zerax_",
+  "description": "A simple 1v1 game.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/fbb752fa-894d-47b0-817c-8edc41096ad0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f1454219-719e-4db4-bb4c-058e7f41c402/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "f1454219-719e-4db4-bb4c-058e7f41c402",
+  "unityPlayUrl": "https://play.unity.com/en/games/f1454219-719e-4db4-bb4c-058e7f41c402/starz"
+}

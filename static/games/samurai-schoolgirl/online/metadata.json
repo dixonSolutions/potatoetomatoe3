@@ -1,0 +1,14 @@
+{
+  "id": "samurai-schoolgirl",
+  "name": "Samurai Schoolgirl!!",
+  "author": "two_four_five",
+  "description": "Use your Katana to defeat a BOSS!!\n\nKeyboard & Mouse\nA/D: Move Left / Right\nDouble-tap A/D: Roll\nSpace: Jump\nLeft Click: Attack\nRight Click: Guard\nR: Restart\nEsc: Pause",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d5917af3-41d2-41c3-96ab-47caba47571f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a8a667c7-59dd-43fe-a50a-9a7b2aaf90c4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "a8a667c7-59dd-43fe-a50a-9a7b2aaf90c4",
+  "unityPlayUrl": "https://play.unity.com/en/games/a8a667c7-59dd-43fe-a50a-9a7b2aaf90c4/samurai-schoolgirl"
+}

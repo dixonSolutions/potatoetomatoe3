@@ -1,0 +1,14 @@
+{
+  "id": "create-with-code-prototype-3",
+  "name": "Create With Code - Prototype 3",
+  "author": "ChristopherWoodard",
+  "description": "Unit 3 of Create with Code focuses on the finishing touches that can make a game feel more polished. This side-scrolling runner game utilizes an endless repeating background and features music, sound effects, and particle effects (splatters and explosions)! These features transform the user experience and make the game more enjoyable to play. \n\nHow to Play: Use the space bar to jump over the oncoming obstacles and avoid exploding on collision! Note - be sure to enable sound by clicking on the speaker icon just below the game on the bottom right and then click again anywhere within the game screen!\n\nKey Concepts: GetComponent, ForceMode.Impulse, Physics.Gravity, Rigidbody contraints, Rigidbody variables, Booleans, Multiply/Assign (\"*) Operator, And (&&) Operator, OnCollisionEnter(), Repeat Background, Get Collider width, Script communication, Equal to (==) operator, Tags, CompareTag(), Animation Controllers, Animation parameters, Animation programming, SetTrigger(), Not (!) Operator,",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f118837d-e8df-411b-9179-4ee43f33ccb5/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/289e1217-8b60-43ad-b881-63505a9e3906/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "289e1217-8b60-43ad-b881-63505a9e3906",
+  "unityPlayUrl": "https://play.unity.com/en/games/289e1217-8b60-43ad-b881-63505a9e3906/create-with-code-prototype-3"
+}

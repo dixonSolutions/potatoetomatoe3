@@ -1,0 +1,14 @@
+{
+  "id": "apocalypse-simulator",
+  "name": "Apocalypse Simulator",
+  "author": "Sleet827",
+  "description": "First Person Shooter using Microgame Tutorial. Added a new room, a chonky boss and a hemburger(?)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/963d356e-8ad2-4647-afa9-a90f792f9bba/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/63ed608b-b925-4801-b7b8-dc522b402c93/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "63ed608b-b925-4801-b7b8-dc522b402c93",
+  "unityPlayUrl": "https://play.unity.com/en/games/63ed608b-b925-4801-b7b8-dc522b402c93/apocalypse-simulator"
+}

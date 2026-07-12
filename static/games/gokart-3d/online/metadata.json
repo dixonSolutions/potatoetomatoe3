@@ -1,0 +1,14 @@
+{
+  "id": "gokart-3d",
+  "name": "GoKart 3D",
+  "author": "mojizabbasrizvi65445",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4b1f02dc-255f-4933-87a1-854f8363e301/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/077e3a96-d112-4756-a279-f19fc0fbc117/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "077e3a96-d112-4756-a279-f19fc0fbc117",
+  "unityPlayUrl": "https://play.unity.com/en/games/077e3a96-d112-4756-a279-f19fc0fbc117/gokart-3d"
+}

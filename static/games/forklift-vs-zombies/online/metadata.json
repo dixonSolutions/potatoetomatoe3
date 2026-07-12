@@ -1,0 +1,14 @@
+{
+  "id": "forklift-vs-zombies",
+  "name": "Forklift vs Zombies",
+  "author": "DATS-games",
+  "description": "Forklift vs Zombies",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/93b5972d-2333-47f9-b78e-0a6baee7f460/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "93b5972d-2333-47f9-b78e-0a6baee7f460",
+  "unityPlayUrl": "https://play.unity.com/en/games/93b5972d-2333-47f9-b78e-0a6baee7f460/forklift-vs-zombies"
+}

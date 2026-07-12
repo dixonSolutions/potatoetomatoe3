@@ -1,0 +1,14 @@
+{
+  "id": "fortnite-v2",
+  "name": "fortnite V2",
+  "author": "husky134",
+  "description": "Play fortnite V2 on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d19e5f7b-414a-4873-83b2-f42d62798574/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f4ce3c4-b569-43f2-928b-95db12facc94/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5f4ce3c4-b569-43f2-928b-95db12facc94",
+  "unityPlayUrl": "https://play.unity.com/en/games/5f4ce3c4-b569-43f2-928b-95db12facc94/fortnite-v2"
+}

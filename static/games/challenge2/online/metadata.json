@@ -1,0 +1,14 @@
+{
+  "id": "challenge2",
+  "name": "challenge2",
+  "author": "huuro",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c3e15b0-fc93-4f51-8edf-a86d02c24e21/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c3e15b0-fc93-4f51-8edf-a86d02c24e21",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c3e15b0-fc93-4f51-8edf-a86d02c24e21/challenge2"
+}

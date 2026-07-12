@@ -1,0 +1,14 @@
+{
+  "id": "project-bone",
+  "name": "Project BOne",
+  "author": "Ganzosupremo",
+  "description": "Play Project BOne on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a6ff7b1d-1dcd-43ae-b0b0-ec2af3593629/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4635ce1f-3f6e-47f7-95cf-2e526ed97d67/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "4635ce1f-3f6e-47f7-95cf-2e526ed97d67",
+  "unityPlayUrl": "https://play.unity.com/en/games/4635ce1f-3f6e-47f7-95cf-2e526ed97d67/project-bone"
+}

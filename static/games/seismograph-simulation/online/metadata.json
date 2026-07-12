@@ -1,0 +1,14 @@
+{
+  "id": "seismograph-simulation",
+  "name": "Seismograph Simulation",
+  "author": "EddDom",
+  "description": "A simple afternoons work (thanks to unity's built in physics and rigidbodies) of a randomly shaking plane and a seismograph and seismogram. Made for Science class.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f7b772dc-5d80-4d6b-be54-1b0684a597a4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7f393032-b0bf-4547-960f-e9d3f046e093/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7f393032-b0bf-4547-960f-e9d3f046e093",
+  "unityPlayUrl": "https://play.unity.com/en/games/7f393032-b0bf-4547-960f-e9d3f046e093/seismograph-simulation"
+}

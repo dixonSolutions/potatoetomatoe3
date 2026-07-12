@@ -1,0 +1,14 @@
+{
+  "id": "pong",
+  "name": "PONG",
+  "author": "UselessGuteKatze",
+  "description": "Made with a tutorial by BMo:\nhttps://www.youtube.com/watch?v=YHSanceczXY&t=112s.\nChange Log: \n1) Menu added;\n2) Little ball bouncing changes;\n3) At each paddle interact the ball is faster;\n4) At each round ball speed returns to original value;",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/acec03cd-46c6-4f3e-94c6-4d16e1b2263e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/84ed5004-c76b-465d-a2b6-1b72eb2acce9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "84ed5004-c76b-465d-a2b6-1b72eb2acce9",
+  "unityPlayUrl": "https://play.unity.com/en/games/84ed5004-c76b-465d-a2b6-1b72eb2acce9/pong"
+}

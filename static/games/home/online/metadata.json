@@ -1,0 +1,14 @@
+{
+  "id": "home",
+  "name": "Home.",
+  "author": "marco-colonna",
+  "description": "The sun has set after a long day of work. Make your way home through the cold. CONTROLS: WASD/Arrow keys to move, Space to jump, Shift to sprint, Mouse controls the camera ASSETS: https://assetstore.unity.com/packages/3d/vegetation/trees/snowy-low-poly-trees-76796 https://assetstore.unity.com/packages/3d/props/low-poly-christmas-pack-free-184483 https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021 https://assetstore.unity.com/packages/2d/textures-materials/sky/farland-skies-cloudy-crown-60004 https://assetstore.unity.com/packages/2d/textures-materials/nature/terrain-tools-sample-asset-pack-145808",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/bfd22296-77b4-404c-8378-727d4d2df704/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ce29d94-6f46-40b0-9847-81becfde71e2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3ce29d94-6f46-40b0-9847-81becfde71e2",
+  "unityPlayUrl": "https://play.unity.com/en/games/3ce29d94-6f46-40b0-9847-81becfde71e2/home"
+}

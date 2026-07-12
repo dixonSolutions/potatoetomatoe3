@@ -1,0 +1,14 @@
+{
+  "id": "childrenapp",
+  "name": "ChildrenApp",
+  "author": "tinerm",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/16e3fe5b-e0d9-4e75-bfdc-9c49361f4b9c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bdeab386-32df-45c7-bc05-c7c2b5907501/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bdeab386-32df-45c7-bc05-c7c2b5907501",
+  "unityPlayUrl": "https://play.unity.com/en/games/bdeab386-32df-45c7-bc05-c7c2b5907501/childrenapp"
+}

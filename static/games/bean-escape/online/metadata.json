@@ -1,0 +1,14 @@
+{
+  "id": "bean-escape",
+  "name": "Bean Escape",
+  "author": "PeterRaeder",
+  "description": "You're a bean (with a spacesuite) and you need to escape the spaceship!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e33caf07-fcc3-4a5d-a2e3-cb7f7a3f4ca1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a70fc67-2243-4ee9-a2d1-0e42a247af48/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a70fc67-2243-4ee9-a2d1-0e42a247af48",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a70fc67-2243-4ee9-a2d1-0e42a247af48/bean-escape"
+}

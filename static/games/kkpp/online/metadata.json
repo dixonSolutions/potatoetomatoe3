@@ -1,0 +1,14 @@
+{
+  "id": "kkpp",
+  "name": "콩콩핑퐁 : KKPP",
+  "author": "eugeneking",
+  "description": "몬스터의 머리를 밟아 처치하며 맵을 모험하는 게임입니다.                                              플레이영상:https://youtu.be/qRY4g1kKkxo                                                                              WegGL 게임시작 씬에서 이상할정도로 렉이 많이걸립니다. 앞에 보이는 콩새를 처치하면 렉이 줄어들더라고요. 아쉽지만 렉때문에 게임시작씬에서 콩새를 한마리만 배치하였습니다. 아직도 렉이 걸리지만 앞에 보이는 콩새만 처치하면 렉이 많이 줄어들거에요..  플레이해주셔서 감사합니다 !!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/16bfb7c3-9d88-4290-adb2-553d619c1465/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9ee711b3-7d16-419b-8454-29083b26642d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9ee711b3-7d16-419b-8454-29083b26642d",
+  "unityPlayUrl": "https://play.unity.com/en/games/9ee711b3-7d16-419b-8454-29083b26642d/kkpp"
+}

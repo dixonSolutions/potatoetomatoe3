@@ -1,0 +1,14 @@
+{
+  "id": "2d-pachinko-game",
+  "name": "2D Pachinko Game",
+  "author": "nmjcreates",
+  "description": "I made this Pachinko Game for foundations of unity real time 2D development. To make the truck move, I applied a force and then calculated what the change in position would be. I then appended the position accordingly. I used collision detectors to allow the hat to collect coins and to play audio queues. I have several coin generators above the visible area, which every now and again will spawn coins randomly inside some area. For the score counter I added a text object and had the collision detector in the hat update when a coin collided with it.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ba0a530e-79c5-4e8f-bdda-918de68cf5b5/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/33ce4f0a-1bdd-4ca4-8174-2b96ac20c92a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "33ce4f0a-1bdd-4ca4-8174-2b96ac20c92a",
+  "unityPlayUrl": "https://play.unity.com/en/games/33ce4f0a-1bdd-4ca4-8174-2b96ac20c92a/2d-pachinko-game"
+}

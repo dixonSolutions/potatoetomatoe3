@@ -1,0 +1,14 @@
+{
+  "id": "karting-microgame",
+  "name": "karting microgame",
+  "author": "stephenSmith1231",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01b683bf-a1bf-4625-86d0-96f2e913a74c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "01b683bf-a1bf-4625-86d0-96f2e913a74c",
+  "unityPlayUrl": "https://play.unity.com/en/games/01b683bf-a1bf-4625-86d0-96f2e913a74c/karting-microgame"
+}

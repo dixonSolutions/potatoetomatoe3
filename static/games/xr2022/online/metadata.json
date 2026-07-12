@@ -1,0 +1,14 @@
+{
+  "id": "xr2022",
+  "name": "XR2022",
+  "author": "edithcreeper",
+  "description": "Middle Assignment",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3bfb3f66-9071-4b48-a0ca-12170ee702b3/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3bfb3f66-9071-4b48-a0ca-12170ee702b3",
+  "unityPlayUrl": "https://play.unity.com/en/games/3bfb3f66-9071-4b48-a0ca-12170ee702b3/xr2022"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "la-5060-maze",
+  "name": "LA 5060 Maze",
+  "author": "peg68",
+  "description": "Maze created for LA 5060. Get to the center and find the flower!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/88f577c3-7cf7-4dc9-9b24-3ae1d83656b3/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/015094d2-130e-4f5e-983f-2ef24dd2f4bf/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "015094d2-130e-4f5e-983f-2ef24dd2f4bf",
+  "unityPlayUrl": "https://play.unity.com/en/games/015094d2-130e-4f5e-983f-2ef24dd2f4bf/la-5060-maze"
+}

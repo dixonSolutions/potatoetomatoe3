@@ -1,0 +1,14 @@
+{
+  "id": "full-forced-firing",
+  "name": "Full Forced Firing",
+  "author": "codecoastconsulting",
+  "description": "Full Forced Firing",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40997f65-57b8-4f20-a30b-3c929a520790/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "40997f65-57b8-4f20-a30b-3c929a520790",
+  "unityPlayUrl": "https://play.unity.com/en/games/40997f65-57b8-4f20-a30b-3c929a520790/full-forced-firing"
+}

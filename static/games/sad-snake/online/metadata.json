@@ -1,0 +1,14 @@
+{
+  "id": "sad-snake",
+  "name": "Sad Snake",
+  "author": "Nethardan",
+  "description": "Sad Snake have a problem when the appel is green.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f4ad3314-3fda-4c59-9923-816d00200a8d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0149dd03-5808-42a0-bf4e-2f6af00455f4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0149dd03-5808-42a0-bf4e-2f6af00455f4",
+  "unityPlayUrl": "https://play.unity.com/en/games/0149dd03-5808-42a0-bf4e-2f6af00455f4/sad-snake"
+}

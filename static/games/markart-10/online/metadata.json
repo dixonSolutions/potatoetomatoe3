@@ -1,0 +1,14 @@
+{
+  "id": "markart-10",
+  "name": "marKart 1.0",
+  "author": "marcam-fs",
+  "description": "My first microgame!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/016cb88d-6e39-4c65-9fa3-73407c01ba2d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "016cb88d-6e39-4c65-9fa3-73407c01ba2d",
+  "unityPlayUrl": "https://play.unity.com/en/games/016cb88d-6e39-4c65-9fa3-73407c01ba2d/markart-10"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "mo-subway",
+  "name": "MO SUBWAY",
+  "author": "momesbah",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4e64b1cd-612b-4ca8-be10-c3e5f740c4a6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf268a84-8f49-46a5-bfca-c632b2f1f53f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "cf268a84-8f49-46a5-bfca-c632b2f1f53f",
+  "unityPlayUrl": "https://play.unity.com/en/games/cf268a84-8f49-46a5-bfca-c632b2f1f53f/mo-subway"
+}

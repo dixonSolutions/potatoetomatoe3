@@ -1,0 +1,14 @@
+{
+  "id": "online-log-hopper",
+  "name": "Online Log Hopper",
+  "author": "Nathan844",
+  "description": "Hop on the logs and beat your best time! Controls: AD (Movement) SPACE (Jump)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9456570e-d11b-4500-becf-0d8c2d555d72/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/510df259-f914-4e80-b2b8-90235c69041d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "510df259-f914-4e80-b2b8-90235c69041d",
+  "unityPlayUrl": "https://play.unity.com/en/games/510df259-f914-4e80-b2b8-90235c69041d/online-log-hopper"
+}

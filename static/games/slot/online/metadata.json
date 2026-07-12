@@ -1,0 +1,14 @@
+{
+  "id": "slot",
+  "name": "slot",
+  "author": "Shroudoodlex",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/159aef4e-75b9-4236-85f0-cbd8fb8c7b13/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a9c9a3ce-6790-4c51-bb50-47d3ac29c009/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "a9c9a3ce-6790-4c51-bb50-47d3ac29c009",
+  "unityPlayUrl": "https://play.unity.com/en/games/a9c9a3ce-6790-4c51-bb50-47d3ac29c009/slot"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "normal-car-simulation",
+  "name": "Normal Car Simulation",
+  "author": "shubhamGames",
+  "description": "I am working on developing a car controller.\nCar movement input\nw: Forward,\nS: Backward,\nA: Left,\nD: Right,\nSpace: Hand Brake,\nH: Horn,\nLeft Ctrl: Light on and off.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/99e90649-c490-408c-8728-ea96adf78892/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2dc26aa6-3f8b-455e-a37b-f64062db1901/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2dc26aa6-3f8b-455e-a37b-f64062db1901",
+  "unityPlayUrl": "https://play.unity.com/en/games/2dc26aa6-3f8b-455e-a37b-f64062db1901/normal-car-simulation"
+}

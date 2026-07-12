@@ -1,0 +1,14 @@
+{
+  "id": "co-op-tanks-moon-escape",
+  "name": "Co-op Tanks! Moon Escape",
+  "author": "CuriouserMcKZ",
+  "description": "2 human players (use the same keyboard) as Rover & Astronaut racing against 2 droids (computer) to the escape pod.\nRover: WASD+Spacebar\nAstronaut: Arrow keys+Enter\nPlanets/Galaxy images from NASA",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6f90c01d-4132-4d59-84aa-5c5f3b0235e4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/846b4176-bf1c-4b23-861f-9c9ababff621/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "846b4176-bf1c-4b23-861f-9c9ababff621",
+  "unityPlayUrl": "https://play.unity.com/en/games/846b4176-bf1c-4b23-861f-9c9ababff621/co-op-tanks-moon-escape"
+}

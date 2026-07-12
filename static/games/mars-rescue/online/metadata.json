@@ -1,0 +1,14 @@
+{
+  "id": "mars-rescue",
+  "name": "Mars Rescue",
+  "author": "PeterBoxXu",
+  "description": "You know  that LEGO Microgame minifigs can run and jump, but do you know they can also fight? Come and experience 100% pure LEGO Microgame-style Boss Battle! \n\nYou are Silver Leader, the most fierce pilot in the Galaxy Squadron. Your mission now is to protect the galaxy from the Intergalactic devourer, Zeltah, a merciless tyrant in the shape of a cube, with the sole purpose of devouring galaxies to sustain its own existence.\n\nThis time, Zeltah's goal is your Galaxy, and one of your commanders, Red Commander, has been defeated and captured by Zeltah! You are called because you are going to blow the cosmic creature up, and rescue Red Commander, as well as your own Galaxy!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6ccc9dc4-bba4-4fe4-922f-3dcfeca22d7a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02d6d75e-abc8-4a8e-a8f6-111308b1aeeb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02d6d75e-abc8-4a8e-a8f6-111308b1aeeb",
+  "unityPlayUrl": "https://play.unity.com/en/games/02d6d75e-abc8-4a8e-a8f6-111308b1aeeb/mars-rescue"
+}

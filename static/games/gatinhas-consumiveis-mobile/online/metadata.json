@@ -1,0 +1,14 @@
+{
+  "id": "gatinhas-consumiveis-mobile",
+  "name": "Gatinhas Consumíveis (Mobile)",
+  "author": "JOBSU246",
+  "description": "Um jogo sobre pegar cocotas",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/94069f2e-bccb-4019-900d-43f3b0d7795c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a4b762c-fcd6-42df-97c8-4312fb22e05a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a4b762c-fcd6-42df-97c8-4312fb22e05a",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a4b762c-fcd6-42df-97c8-4312fb22e05a/gatinhas-consumiveis-mobile"
+}

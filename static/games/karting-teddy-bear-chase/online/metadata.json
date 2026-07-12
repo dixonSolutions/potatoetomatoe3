@@ -1,0 +1,14 @@
+{
+  "id": "karting-teddy-bear-chase",
+  "name": "Karting - Teddy Bear Chase",
+  "author": "vcarlos1",
+  "description": "Mod of Karting Microgame. Each time the bear reaches the player counts as a bite.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/bc50aa2f-dd7e-4974-a33f-5725d4a973e0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06839bae-c093-4885-a50b-2ff287e0291e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "06839bae-c093-4885-a50b-2ff287e0291e",
+  "unityPlayUrl": "https://play.unity.com/en/games/06839bae-c093-4885-a50b-2ff287e0291e/karting-teddy-bear-chase"
+}

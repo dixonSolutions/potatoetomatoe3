@@ -1,0 +1,14 @@
+{
+  "id": "level22-final",
+  "name": "Level2.2 final",
+  "author": "jommy454",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c442d3e-96b2-44cc-8eb2-84b07bc88d60/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c442d3e-96b2-44cc-8eb2-84b07bc88d60",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c442d3e-96b2-44cc-8eb2-84b07bc88d60/level22-final"
+}

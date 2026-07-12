@@ -1,0 +1,14 @@
+{
+  "id": "icy-space-2020",
+  "name": "icy space 2020",
+  "author": "Nicolascampo",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f8736538-441d-4ffa-bad4-eb1b86729824/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/90b6b793-ad38-4c35-a63a-07722c7e1c19/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "90b6b793-ad38-4c35-a63a-07722c7e1c19",
+  "unityPlayUrl": "https://play.unity.com/en/games/90b6b793-ad38-4c35-a63a-07722c7e1c19/icy-space-2020"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "uber-coca",
+  "name": "Uber Coca",
+  "author": "khizar382",
+  "description": "Test Build V1.18",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c714bf9-2248-41ad-9285-4d7dc042018f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7c714bf9-2248-41ad-9285-4d7dc042018f",
+  "unityPlayUrl": "https://play.unity.com/en/games/7c714bf9-2248-41ad-9285-4d7dc042018f/uber-coca"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "marioni-pipes-world",
+  "name": "Marioni: Pipes World",
+  "author": "romainhnr",
+  "description": "Our microgame proudly made by:\n- Fabien SISCA\n- Maxime LIBBRECHT\n- Rayhan GHEZZI\n- Romain HENRY",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/466a3557-9d8b-4ba3-9a8f-828b9cd1e0a1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/657df023-cab5-46c3-b6e1-7026248b587d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "657df023-cab5-46c3-b6e1-7026248b587d",
+  "unityPlayUrl": "https://play.unity.com/en/games/657df023-cab5-46c3-b6e1-7026248b587d/marioni-pipes-world"
+}

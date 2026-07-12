@@ -1,0 +1,14 @@
+{
+  "id": "nkhs-team-15982-robotics-simulation",
+  "name": "NKHS Team 15982 Robotics Simulation",
+  "author": "Space_Pianist",
+  "description": "Enjoy a small simulation with the 15982 Robot. The field, Robot, and view are to scale, so driving practice is the best possible. Please leave any comments of bugs and or errors that the game may include. you can control the robot with WASD, spin with o and p, and raise the box with n and m.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/51b4dde5-5fd8-4fc0-89eb-891a65222e28/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a427b89-f900-4fb6-92ec-0911fdc02eeb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a427b89-f900-4fb6-92ec-0911fdc02eeb",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a427b89-f900-4fb6-92ec-0911fdc02eeb/nkhs-team-15982-robotics-simulation"
+}

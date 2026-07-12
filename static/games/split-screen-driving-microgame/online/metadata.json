@@ -1,0 +1,14 @@
+{
+  "id": "split-screen-driving-microgame",
+  "name": "Split screen driving microgame",
+  "author": "Yassine24434",
+  "description": "Player 1 : wasd + v (camera) Player 2 : arrow keys + right ctrl (camera)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d7f39209-e212-499a-86d0-e1b2ecef530f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02238b50-6cd1-4b23-8269-dca18f642c23/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02238b50-6cd1-4b23-8269-dca18f642c23",
+  "unityPlayUrl": "https://play.unity.com/en/games/02238b50-6cd1-4b23-8269-dca18f642c23/split-screen-driving-microgame"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "fruit-merge",
+  "name": "fruit-merge",
+  "author": "Adomasprogameris",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/60cb681b-bb90-4bc9-858e-325ef718fbea/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a15d949-f822-408e-9186-cf2013caaa95/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a15d949-f822-408e-9186-cf2013caaa95",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a15d949-f822-408e-9186-cf2013caaa95/fruit-merge"
+}

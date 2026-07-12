@@ -1,0 +1,14 @@
+{
+  "id": "withstand",
+  "name": "Withstand",
+  "author": "Yeet935",
+  "description": "Final Prototype of this game for Rapid prototyping.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02bf562f-ba6a-45dd-bfac-2c6df6ef4207/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02bf562f-ba6a-45dd-bfac-2c6df6ef4207",
+  "unityPlayUrl": "https://play.unity.com/en/games/02bf562f-ba6a-45dd-bfac-2c6df6ef4207/withstand"
+}

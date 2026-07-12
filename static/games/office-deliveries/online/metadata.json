@@ -1,0 +1,14 @@
+{
+  "id": "office-deliveries",
+  "name": "Office Deliveries",
+  "author": "NoahTH",
+  "description": "There is no race in this game, just good honest work. I've tried to credit the free assets I used in the made with section, but the Karting Microgame devours all. Here are links to all of the free assets used: https://assetstore.unity.com/packages/audio/sound-fx/96-general-library-free-sample-pack-185157, https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116, and https://assetstore.unity.com/packages/3d/environments/snaps-prototype-office-137490. I also used a song from Incompetech, credited in the main menu. Don't forget to enable audio and thanks for playing!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0abfec9b-5cf8-4d2b-a1d2-b15ad52257e7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0abfec9b-5cf8-4d2b-a1d2-b15ad52257e7",
+  "unityPlayUrl": "https://play.unity.com/en/games/0abfec9b-5cf8-4d2b-a1d2-b15ad52257e7/office-deliveries"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "seek-ar-dev",
+  "name": "Seek AR Dev",
+  "author": "PanderaStudios",
+  "description": "Seek AR TEST DEVELOPER",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/976a9591-df51-4c9f-ab42-0f88ce7b200b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "976a9591-df51-4c9f-ab42-0f88ce7b200b",
+  "unityPlayUrl": "https://play.unity.com/en/games/976a9591-df51-4c9f-ab42-0f88ce7b200b/seek-ar-dev"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ih8u",
+  "name": "IH8U",
+  "author": "Luffy772",
+  "description": "P1: A/D to move, Space to jump\nP2: Arrow keys to move/jump\nGoal: Reach the flag — don’t fall! Work together to win!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00ab0f8e-e267-46d0-8c3f-7df0fb353c3e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00ab0f8e-e267-46d0-8c3f-7df0fb353c3e",
+  "unityPlayUrl": "https://play.unity.com/en/games/00ab0f8e-e267-46d0-8c3f-7df0fb353c3e/ih8u"
+}

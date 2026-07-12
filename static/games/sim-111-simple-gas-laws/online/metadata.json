@@ -1,0 +1,14 @@
+{
+  "id": "sim-111-simple-gas-laws",
+  "name": "sim-111-simple-gas-laws",
+  "author": "rahul_unity357",
+  "description": "Play sim-111-simple-gas-laws on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bed0f77-dd2a-4fb0-945c-3062c99d9d5e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0bed0f77-dd2a-4fb0-945c-3062c99d9d5e",
+  "unityPlayUrl": "https://play.unity.com/en/games/0bed0f77-dd2a-4fb0-945c-3062c99d9d5e/sim-111-simple-gas-laws"
+}

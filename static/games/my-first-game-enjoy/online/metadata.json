@@ -1,0 +1,14 @@
+{
+  "id": "my-first-game-enjoy",
+  "name": "My first game, Enjoy",
+  "author": "Antcap",
+  "description": "My latest microgame that I feel is finished and Hope you enjoy it. It may be hard for some ;)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a5e86b2e-a192-4ae0-b355-8a03caad5a74/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ac42aee-e555-4176-953c-47a6c0356a4c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0ac42aee-e555-4176-953c-47a6c0356a4c",
+  "unityPlayUrl": "https://play.unity.com/en/games/0ac42aee-e555-4176-953c-47a6c0356a4c/my-first-game-enjoy"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "the-mimic-demo",
+  "name": "The Mimic {DEMO}",
+  "author": "tmmytruong",
+  "description": "Created by Tommy Truong & Nathaniel Stephen. Inspired & Credited to The Mimic Roblox.                                                                                                                                    Update Log 3/24/2022:                                                                                                                         - Increased Player Field Of Vision                                                                                       - Increased Monster Speed                                                                                                - Decreased Map Lighting & Brightness",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/afe4f75f-88f4-4440-84a9-1f96638f7ca6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cae436fb-78bf-44d8-838b-8af51ad082aa/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "cae436fb-78bf-44d8-838b-8af51ad082aa",
+  "unityPlayUrl": "https://play.unity.com/en/games/cae436fb-78bf-44d8-838b-8af51ad082aa/the-mimic-demo"
+}

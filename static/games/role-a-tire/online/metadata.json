@@ -1,0 +1,14 @@
+{
+  "id": "role-a-tire",
+  "name": "Role a Tire",
+  "author": "FallenKlond",
+  "description": "This Role a Tire game was designed by Michael Burke. You can play this game by rolling around the map with WASD and collect all 45 coins around the map. Make sure you don't stop and keep on rolling!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/83760ba1-5a75-4172-944c-0d345fb545cb/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c1ed6c2f-b562-45a7-af63-f64d7e14a4a8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c1ed6c2f-b562-45a7-af63-f64d7e14a4a8",
+  "unityPlayUrl": "https://play.unity.com/en/games/c1ed6c2f-b562-45a7-af63-f64d7e14a4a8/role-a-tire"
+}

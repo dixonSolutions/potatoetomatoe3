@@ -1,0 +1,14 @@
+{
+  "id": "newbuild",
+  "name": "new_build",
+  "author": "ayushkothari27",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42b1e4f0-af92-4eb0-bda8-b0a1564d6ec9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "42b1e4f0-af92-4eb0-bda8-b0a1564d6ec9",
+  "unityPlayUrl": "https://play.unity.com/en/games/42b1e4f0-af92-4eb0-bda8-b0a1564d6ec9/newbuild"
+}

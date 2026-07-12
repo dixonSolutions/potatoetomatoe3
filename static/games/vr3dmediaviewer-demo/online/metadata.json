@@ -1,0 +1,14 @@
+{
+  "id": "vr3dmediaviewer-demo",
+  "name": "VR3DMediaViewer Demo",
+  "author": "DarkAkuma",
+  "description": "Web demo for the VR3DMediaViewer Asset.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/20633a93-e22d-4e48-9b00-285b8eedf34a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b2f162f9-d925-4b43-b0dd-5696623a1b79/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b2f162f9-d925-4b43-b0dd-5696623a1b79",
+  "unityPlayUrl": "https://play.unity.com/en/games/b2f162f9-d925-4b43-b0dd-5696623a1b79/vr3dmediaviewer-demo"
+}

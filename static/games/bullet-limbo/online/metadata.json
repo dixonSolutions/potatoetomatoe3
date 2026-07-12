@@ -1,0 +1,14 @@
+{
+  "id": "bullet-limbo",
+  "name": "Bullet Limbo",
+  "author": "l8doku",
+  "description": "Play Bullet Limbo on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ed90bf16-7751-42cc-84cd-12c1febbe411/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2da8d91a-a757-45d0-a10b-5f666804887c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2da8d91a-a757-45d0-a10b-5f666804887c",
+  "unityPlayUrl": "https://play.unity.com/en/games/2da8d91a-a757-45d0-a10b-5f666804887c/bullet-limbo"
+}

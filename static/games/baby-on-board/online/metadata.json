@@ -1,0 +1,14 @@
+{
+  "id": "baby-on-board",
+  "name": "Baby On Board",
+  "author": "yifanguo247",
+  "description": "Deliver packages on time, but stay out of trouble! [CS 6457 - Nimble Rabbits - Final Project, Fall 2023]",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0cabe457-47f3-4257-b305-ebf521809f7b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c165b7f6-44da-4a21-8a6c-95d87376e507/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c165b7f6-44da-4a21-8a6c-95d87376e507",
+  "unityPlayUrl": "https://play.unity.com/en/games/c165b7f6-44da-4a21-8a6c-95d87376e507/baby-on-board"
+}

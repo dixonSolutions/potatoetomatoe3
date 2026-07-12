@@ -1,0 +1,14 @@
+{
+  "id": "seabin-game",
+  "name": "Seabin Game",
+  "author": "Lukasz_L",
+  "description": "Take care of planet Earth,\nClean the Sea,\nBecome a Bin!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/515cff3b-f180-43e1-95e0-7dc44680bb44/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bdd930ac-d826-4732-83d7-f18433658b65/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bdd930ac-d826-4732-83d7-f18433658b65",
+  "unityPlayUrl": "https://play.unity.com/en/games/bdd930ac-d826-4732-83d7-f18433658b65/seabin-game"
+}

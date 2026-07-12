@@ -1,0 +1,14 @@
+{
+  "id": "cbs-ghosts",
+  "name": "CBS Ghosts",
+  "author": "rizzimeta",
+  "description": "Ghosts",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4935dc65-6cfe-48d8-a58f-59dbc65db239/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/081afe06-e9b4-4c0b-a4de-6fe9dc05105b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "081afe06-e9b4-4c0b-a4de-6fe9dc05105b",
+  "unityPlayUrl": "https://play.unity.com/en/games/081afe06-e9b4-4c0b-a4de-6fe9dc05105b/cbs-ghosts"
+}

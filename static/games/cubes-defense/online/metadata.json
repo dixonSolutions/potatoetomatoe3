@@ -1,0 +1,14 @@
+{
+  "id": "cubes-defense",
+  "name": "Cubes Defense",
+  "author": "Micherman",
+  "description": "Minimalistic tower defense game with infinite number of turns. Click on a green area to build or destroy turrets. Github project: https://github.com/MichalSlawin/TowerDefense",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7561bd19-4fc8-4373-84ce-696fbb5d0fef/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c6307c67-d9b7-4e42-8d21-32ba98d1ae6a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c6307c67-d9b7-4e42-8d21-32ba98d1ae6a",
+  "unityPlayUrl": "https://play.unity.com/en/games/c6307c67-d9b7-4e42-8d21-32ba98d1ae6a/cubes-defense"
+}

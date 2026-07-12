@@ -1,0 +1,14 @@
+{
+  "id": "dual-gravity",
+  "name": "Dual Gravity",
+  "author": "ShyGuise",
+  "description": "The universe is folding onto itself. You and your alternate self must find your way to the portal while navigating the hazards of the world.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5db81982-8366-47d9-b737-ec2ee48f8b4f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b89f5e8d-4707-4d2c-acb3-22e8f1d7fe73/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b89f5e8d-4707-4d2c-acb3-22e8f1d7fe73",
+  "unityPlayUrl": "https://play.unity.com/en/games/b89f5e8d-4707-4d2c-acb3-22e8f1d7fe73/dual-gravity"
+}

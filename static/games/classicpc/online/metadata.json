@@ -1,0 +1,14 @@
+{
+  "id": "classicpc",
+  "name": "Classic(PC)",
+  "author": "KrishnaBhaskar644",
+  "description": "WASD!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7c99673e-3b61-4ca6-978b-6010c26cbd93/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/016d115c-906a-4da3-9cbc-68d838c6b8d2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "016d115c-906a-4da3-9cbc-68d838c6b8d2",
+  "unityPlayUrl": "https://play.unity.com/en/games/016d115c-906a-4da3-9cbc-68d838c6b8d2/classicpc"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "bridge-run",
+  "name": "Bridge Run",
+  "author": "L-Kaz",
+  "description": "Choose the right path and run to the goal!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7a59c546-5832-4c63-b115-ad669375700e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6655ab04-efaf-411e-b626-95f8ddb206f0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6655ab04-efaf-411e-b626-95f8ddb206f0",
+  "unityPlayUrl": "https://play.unity.com/en/games/6655ab04-efaf-411e-b626-95f8ddb206f0/bridge-run"
+}

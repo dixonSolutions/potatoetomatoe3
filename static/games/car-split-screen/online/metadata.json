@@ -1,0 +1,14 @@
+{
+  "id": "car-split-screen",
+  "name": "Car Split Screen",
+  "author": "ProfessorVee",
+  "description": "A car driving simulation made from the Junior Programming module on Unity Learn. The challenge was to make it split screen, have a first person and third person camera, create pyramids of obstacles, and have cars driving from the other direction. Left players controllers are WASD and x to change camera view. Right players controllers are the arrows and c to change camera view.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/98d31058-ed2d-4bcb-9956-f3f90235283d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/84bc4ccc-3f47-48f0-84fd-d1786a927ef1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "84bc4ccc-3f47-48f0-84fd-d1786a927ef1",
+  "unityPlayUrl": "https://play.unity.com/en/games/84bc4ccc-3f47-48f0-84fd-d1786a927ef1/car-split-screen"
+}

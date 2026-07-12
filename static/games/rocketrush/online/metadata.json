@@ -1,0 +1,14 @@
+{
+  "id": "rocketrush",
+  "name": "RocketRush",
+  "author": "kheyen_unity",
+  "description": "Elon Musk vs Jeff Bezos",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/745564fe-6713-4698-8346-6554e19c581a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c394540c-1fda-4137-8abd-ccb52e7ba6cd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c394540c-1fda-4137-8abd-ccb52e7ba6cd",
+  "unityPlayUrl": "https://play.unity.com/en/games/c394540c-1fda-4137-8abd-ccb52e7ba6cd/rocketrush"
+}

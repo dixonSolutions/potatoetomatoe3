@@ -1,0 +1,14 @@
+{
+  "id": "audiogzip",
+  "name": "AudioGzip",
+  "author": "VaticanCity",
+  "description": "Had to enable Gzip in Compression Settings in Publishing Settings",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00769c7e-0640-4491-9eb2-0303d83d6074/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00769c7e-0640-4491-9eb2-0303d83d6074",
+  "unityPlayUrl": "https://play.unity.com/en/games/00769c7e-0640-4491-9eb2-0303d83d6074/audiogzip"
+}

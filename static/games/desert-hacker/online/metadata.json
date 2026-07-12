@@ -1,0 +1,14 @@
+{
+  "id": "desert-hacker",
+  "name": "Desert Hacker",
+  "author": "JoyceZheng",
+  "description": "CGDD | Spring 2021 | 2D Side-Scrolling Game Design",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/374e6f45-32d5-4255-9c45-f8d2bdcabae0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e32d2f2-2b19-473b-af22-d22b7fe85eac/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0e32d2f2-2b19-473b-af22-d22b7fe85eac",
+  "unityPlayUrl": "https://play.unity.com/en/games/0e32d2f2-2b19-473b-af22-d22b7fe85eac/desert-hacker"
+}

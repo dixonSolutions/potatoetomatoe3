@@ -1,0 +1,14 @@
+{
+  "id": "rax",
+  "name": "Rax雷電-比賽版",
+  "author": "RAX0327",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b0e9fc9b-d769-4d93-8aed-d3ae349523f7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40b45551-3ae4-4f9d-932a-b625fc3a09d6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "40b45551-3ae4-4f9d-932a-b625fc3a09d6",
+  "unityPlayUrl": "https://play.unity.com/en/games/40b45551-3ae4-4f9d-932a-b625fc3a09d6/rax"
+}

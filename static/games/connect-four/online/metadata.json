@@ -1,0 +1,14 @@
+{
+  "id": "connect-four",
+  "name": "Connect Four",
+  "author": "januep",
+  "description": "Simple game - connect four to win!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c008599a-a091-4805-8f53-f2ee172e8532/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05e242a3-eff5-45be-81f8-48bfa3724c5a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "05e242a3-eff5-45be-81f8-48bfa3724c5a",
+  "unityPlayUrl": "https://play.unity.com/en/games/05e242a3-eff5-45be-81f8-48bfa3724c5a/connect-four"
+}

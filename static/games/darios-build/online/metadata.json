@@ -1,0 +1,14 @@
+{
+  "id": "darios-build",
+  "name": "Dario's Build",
+  "author": "farmertimson",
+  "description": "Play Dario's Build on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23410749-0461-48c4-85b3-c1d85bec50cd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "23410749-0461-48c4-85b3-c1d85bec50cd",
+  "unityPlayUrl": "https://play.unity.com/en/games/23410749-0461-48c4-85b3-c1d85bec50cd/darios-build"
+}

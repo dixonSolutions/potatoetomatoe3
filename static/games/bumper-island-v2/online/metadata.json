@@ -1,0 +1,14 @@
+{
+  "id": "bumper-island-v2",
+  "name": "Bumper Island V.2",
+  "author": "garrettmmoore",
+  "description": "Bump as many enemies off of the island and try to get the highest score before the enemies bump you off the island. \n\nControls (Keyboard):\n- \"J\" to jump.\n- \"Spacebar\" to use powerups.\n- \"P\" to pause the game.\n- WASD to move the player (ball) and rotate the camera.\n\nPowerups:\n- Green: Shoot unlimited heat-seeking projectiles.\n- Yellow: Extra strength when bumping into enemies.\n- Red: Jump and slam into the ground with extra force to create an impact that blasts enemies away.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/bec75cb4-353c-4909-9234-5947f7a33a64/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45736c50-7491-40a9-ac49-6ebaf678094a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "45736c50-7491-40a9-ac49-6ebaf678094a",
+  "unityPlayUrl": "https://play.unity.com/en/games/45736c50-7491-40a9-ac49-6ebaf678094a/bumper-island-v2"
+}

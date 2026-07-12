@@ -1,0 +1,14 @@
+{
+  "id": "gta",
+  "name": "GTA",
+  "author": "AmobearGame",
+  "description": "gta des",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6e6e9ed4-ecb6-4bc1-8e3e-a001cd7d6146/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6e6e9ed4-ecb6-4bc1-8e3e-a001cd7d6146",
+  "unityPlayUrl": "https://play.unity.com/en/games/6e6e9ed4-ecb6-4bc1-8e3e-a001cd7d6146/gta"
+}

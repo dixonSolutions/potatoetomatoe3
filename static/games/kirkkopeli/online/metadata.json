@@ -1,0 +1,14 @@
+{
+  "id": "kirkkopeli",
+  "name": "KirkkoPeli",
+  "author": "Derizion",
+  "description": "Desc",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/341477e1-5923-45d1-bd01-777064bb9984/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "341477e1-5923-45d1-bd01-777064bb9984",
+  "unityPlayUrl": "https://play.unity.com/en/games/341477e1-5923-45d1-bd01-777064bb9984/kirkkopeli"
+}

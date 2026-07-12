@@ -1,0 +1,14 @@
+{
+  "id": "flappy-wars",
+  "name": "Flappy Wars",
+  "author": "develoveyou",
+  "description": "War of Birds",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/cc3c67d8-98ad-4031-b70b-1efaa6856e8a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03c522f7-efac-49c4-ace9-82b4dc586e1b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "03c522f7-efac-49c4-ace9-82b4dc586e1b",
+  "unityPlayUrl": "https://play.unity.com/en/games/03c522f7-efac-49c4-ace9-82b4dc586e1b/flappy-wars"
+}

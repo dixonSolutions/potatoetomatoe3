@@ -1,0 +1,14 @@
+{
+  "id": "punch-perfect",
+  "name": "Punch Perfect",
+  "author": "NewGameStudio",
+  "description": "WASD - Movement\nArrows - Slip\n0 - 9 - Punches\nShift - High Guard\nCtrl - Low Guard\nQ - Steps\nSpace - Change Pair",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/69c154b3-02cf-4817-9171-b0a4c5ebecad/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d2d286ed-2143-44eb-b5b8-4ee67bcdbac0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "d2d286ed-2143-44eb-b5b8-4ee67bcdbac0",
+  "unityPlayUrl": "https://play.unity.com/en/games/d2d286ed-2143-44eb-b5b8-4ee67bcdbac0/punch-perfect"
+}

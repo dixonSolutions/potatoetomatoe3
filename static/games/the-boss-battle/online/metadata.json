@@ -1,0 +1,14 @@
+{
+  "id": "the-boss-battle",
+  "name": "The Boss Battle",
+  "author": "MatthewXMB",
+  "description": "destroy the enermie with wasd space and click",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e5682c09-a930-4625-a502-0dde989d329b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c712311-9f22-40aa-b1a2-0fcdbcf36fe8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c712311-9f22-40aa-b1a2-0fcdbcf36fe8",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c712311-9f22-40aa-b1a2-0fcdbcf36fe8/the-boss-battle"
+}

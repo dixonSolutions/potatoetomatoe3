@@ -1,0 +1,14 @@
+{
+  "id": "cubeproject",
+  "name": "CubeProject",
+  "author": "Quadrivium77",
+  "description": "Cool project I thought that sharing a web version of a game would be way more complicated",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4dedff55-521c-470e-a1fa-cb4bad6eccaa/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01026bfa-6d53-4851-a589-7ebd804dc379/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "01026bfa-6d53-4851-a589-7ebd804dc379",
+  "unityPlayUrl": "https://play.unity.com/en/games/01026bfa-6d53-4851-a589-7ebd804dc379/cubeproject"
+}

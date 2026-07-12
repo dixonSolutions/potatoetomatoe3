@@ -1,0 +1,14 @@
+{
+  "id": "hardcore-chess",
+  "name": "HARDCORE CHESS",
+  "author": "FalkenGamer",
+  "description": "Hardcore fps",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6d80dd62-091e-4247-99bb-bb0f20d746da/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6d80dd62-091e-4247-99bb-bb0f20d746da",
+  "unityPlayUrl": "https://play.unity.com/en/games/6d80dd62-091e-4247-99bb-bb0f20d746da/hardcore-chess"
+}

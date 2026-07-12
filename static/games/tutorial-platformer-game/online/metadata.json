@@ -1,0 +1,14 @@
+{
+  "id": "tutorial-platformer-game",
+  "name": "tutorial platformer game",
+  "author": "Fat_Avocado",
+  "description": "Play tutorial platformer game on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/70ac3fdb-13cd-4f4d-8cc1-7db3d69c3d27/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/428db53e-9b72-4c26-ac78-e88a0b45b6ae/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "428db53e-9b72-4c26-ac78-e88a0b45b6ae",
+  "unityPlayUrl": "https://play.unity.com/en/games/428db53e-9b72-4c26-ac78-e88a0b45b6ae/tutorial-platformer-game"
+}

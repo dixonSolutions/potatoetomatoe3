@@ -1,0 +1,14 @@
+{
+  "id": "bird-vs-hunter",
+  "name": "Bird vs hunter",
+  "author": "sega51",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d2858dba-554e-4398-af51-a29259be28ce/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28e27ef4-8062-4ff0-be93-4a497c341336/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "28e27ef4-8062-4ff0-be93-4a497c341336",
+  "unityPlayUrl": "https://play.unity.com/en/games/28e27ef4-8062-4ff0-be93-4a497c341336/bird-vs-hunter"
+}

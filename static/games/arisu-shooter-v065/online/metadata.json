@@ -1,0 +1,14 @@
+{
+  "id": "arisu-shooter-v065",
+  "name": "Arisu Shooter v0.6.5",
+  "author": "MrHvn",
+  "description": "遊戲操作：\nA/D：向左/右移動\nW：跳躍，最多可二段跳\nS：俯衝\nLeft Shift：衝刺(限空中)\n滑鼠：瞄準\n滑鼠左鍵：射子彈\nF : 進入下一關(僅作用在傳送門上)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/98f2a284-d9cf-4d00-b5f3-2455b9767c1d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/476afdf2-e5d3-4154-95a4-7450dfd00a20/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "476afdf2-e5d3-4154-95a4-7450dfd00a20",
+  "unityPlayUrl": "https://play.unity.com/en/games/476afdf2-e5d3-4154-95a4-7450dfd00a20/arisu-shooter-v065"
+}

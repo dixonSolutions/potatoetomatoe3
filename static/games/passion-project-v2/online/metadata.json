@@ -1,0 +1,14 @@
+{
+  "id": "passion-project-v2",
+  "name": "Passion Project V2",
+  "author": "eggmanunity",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b2d95f08-bf65-4442-985f-4291e30f9e04/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b2d95f08-bf65-4442-985f-4291e30f9e04",
+  "unityPlayUrl": "https://play.unity.com/en/games/b2d95f08-bf65-4442-985f-4291e30f9e04/passion-project-v2"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "the-brave-pilot",
+  "name": "The Brave Pilot",
+  "author": "losu507",
+  "description": "Be the brave pilot and catch all the balloons. Look out and don't crashed! Use arrows for pulling up and down and rotate, z button for decreasing speed and x button for accelerate. This is my first video game. I made it during Unity course \"Create with code\". For assets that I used check \"About\" button in the menu.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/705645ac-6848-436b-b4e3-5fdfa43bb753/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/136ae1e1-838a-49f7-9015-420f816d0ea9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "136ae1e1-838a-49f7-9015-420f816d0ea9",
+  "unityPlayUrl": "https://play.unity.com/en/games/136ae1e1-838a-49f7-9015-420f816d0ea9/the-brave-pilot"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "kart-part-1",
+  "name": "Kart (Part 1)",
+  "author": "NathB1301",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2326d6f1-b214-4df1-82a6-13c9feb9fcdd/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8a7df190-da2d-42cc-a9a4-e1bb7f824654/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8a7df190-da2d-42cc-a9a4-e1bb7f824654",
+  "unityPlayUrl": "https://play.unity.com/en/games/8a7df190-da2d-42cc-a9a4-e1bb7f824654/kart-part-1"
+}

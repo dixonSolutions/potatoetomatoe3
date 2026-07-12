@@ -1,0 +1,14 @@
+{
+  "id": "free-shoot",
+  "name": "Free Shoot",
+  "author": "Adil_Khan546",
+  "description": "It is a shooting game, Ill keep on adding updates to it. Have fun :)",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10fbe496-14f5-4a98-96de-318c07133a62/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "10fbe496-14f5-4a98-96de-318c07133a62",
+  "unityPlayUrl": "https://play.unity.com/en/games/10fbe496-14f5-4a98-96de-318c07133a62/free-shoot"
+}

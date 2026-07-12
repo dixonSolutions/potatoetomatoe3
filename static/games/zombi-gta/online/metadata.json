@@ -1,0 +1,14 @@
+{
+  "id": "zombi-gta",
+  "name": "Zombi GTA",
+  "author": "emilystrange93",
+  "description": "A Zombies GTA game.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c22738c1-0a50-488a-a9f0-23016bc4082b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dc2a7e5-3785-4ce0-95a5-e2f4737e1bee/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0dc2a7e5-3785-4ce0-95a5-e2f4737e1bee",
+  "unityPlayUrl": "https://play.unity.com/en/games/0dc2a7e5-3785-4ce0-95a5-e2f4737e1bee/zombi-gta"
+}

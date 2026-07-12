@@ -1,0 +1,14 @@
+{
+  "id": "jumpjumpjump",
+  "name": "JumpJUMPJump!",
+  "author": "wwwyhui",
+  "description": "Yinghui Wang's Final project of CCTP-660； \nDrag and Move your mouse to control the pole and don't touch the red part!\nYou can also gain the power to destroy a platform if you pass through 2 layers without bounce.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/caeda1b3-c05c-43f2-a68e-489035331281/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3dec4c63-7f06-4f7d-a222-4a68d7d75209/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3dec4c63-7f06-4f7d-a222-4a68d7d75209",
+  "unityPlayUrl": "https://play.unity.com/en/games/3dec4c63-7f06-4f7d-a222-4a68d7d75209/jumpjumpjump"
+}

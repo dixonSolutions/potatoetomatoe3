@@ -1,0 +1,14 @@
+{
+  "id": "chifley-library-nightmare",
+  "name": "Chifley Library Nightmare",
+  "author": "u7145624",
+  "description": "This is Group 22's game for the ANU COMP3540 group project!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/330224fc-8c17-4195-aef9-0712168f5b5b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "330224fc-8c17-4195-aef9-0712168f5b5b",
+  "unityPlayUrl": "https://play.unity.com/en/games/330224fc-8c17-4195-aef9-0712168f5b5b/chifley-library-nightmare"
+}

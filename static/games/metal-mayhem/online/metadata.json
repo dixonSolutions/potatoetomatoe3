@@ -1,0 +1,14 @@
+{
+  "id": "metal-mayhem",
+  "name": "Metal Mayhem",
+  "author": "Gorgodon",
+  "description": "Click to charge in that direction and crash into your enemies.\nAvoid missiles, destroy enemies and\nCAUSE MAYHEM!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2a6a239a-1710-41b4-b283-ed7a2170ce23/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6158fd77-8152-468a-a78a-da274850df36/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6158fd77-8152-468a-a78a-da274850df36",
+  "unityPlayUrl": "https://play.unity.com/en/games/6158fd77-8152-468a-a78a-da274850df36/metal-mayhem"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "sphere-track",
+  "name": "Sphere Track",
+  "author": "MG_HM_SJ5",
+  "description": "Unity Scene made from doing the Unity Essentials (Essentials of real-time 3D).                                                                                                                                              \n                                                                                                                                \nSmall track for the Sphere to roll on.\nThere are no controls.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5ca2ad0a-e0f1-4f17-becb-acefd5ea85de/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00721a2c-9698-440a-8eeb-19081f9b677f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00721a2c-9698-440a-8eeb-19081f9b677f",
+  "unityPlayUrl": "https://play.unity.com/en/games/00721a2c-9698-440a-8eeb-19081f9b677f/sphere-track"
+}

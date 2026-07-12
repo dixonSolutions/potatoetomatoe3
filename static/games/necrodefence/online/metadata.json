@@ -1,0 +1,14 @@
+{
+  "id": "necrodefence",
+  "name": "Necrodefence",
+  "author": "HappySeal_Games",
+  "description": "Hello, mortal! Welcome to Necrodefence!\nA dark and stylish 2D pixel-art tower defense game forged in 10 days for Pixel Game Jam 2025!\nPlease play in full screen",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1872332a-d182-41e7-a44c-ed92fdbd89a8/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/57531fef-ecb0-4fdf-9763-abf6ba8ba9dc/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "57531fef-ecb0-4fdf-9763-abf6ba8ba9dc",
+  "unityPlayUrl": "https://play.unity.com/en/games/57531fef-ecb0-4fdf-9763-abf6ba8ba9dc/necrodefence"
+}

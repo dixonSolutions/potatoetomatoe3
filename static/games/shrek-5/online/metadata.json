@@ -1,0 +1,14 @@
+{
+  "id": "shrek-5",
+  "name": "Shrek 5",
+  "author": "jbuczarski",
+  "description": "Shrek is back",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ff306fe3-48b9-41df-ae8f-6a3e2a65bd54/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6f4838e5-7741-4ce9-9d55-11ac79b39971/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6f4838e5-7741-4ce9-9d55-11ac79b39971",
+  "unityPlayUrl": "https://play.unity.com/en/games/6f4838e5-7741-4ce9-9d55-11ac79b39971/shrek-5"
+}

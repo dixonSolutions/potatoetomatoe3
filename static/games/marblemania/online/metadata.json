@@ -1,0 +1,14 @@
+{
+  "id": "marblemania",
+  "name": "MarbleMania",
+  "author": "geuthim",
+  "description": "Η εικονική σας περιήγηση στη Λίμνη Παμβώτιδα μέσα από ένα ταξίδι στη δημιουργία του μαρμάρου και των μνημείων Πολιτισμού γύρω από αυτή.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4461b2c5-5c60-4869-ac76-9403ffecdaa0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ba5d33a-4ed2-4d05-b670-b24981063462/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0ba5d33a-4ed2-4d05-b670-b24981063462",
+  "unityPlayUrl": "https://play.unity.com/en/games/0ba5d33a-4ed2-4d05-b670-b24981063462/marblemania"
+}

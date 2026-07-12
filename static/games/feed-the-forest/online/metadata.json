@@ -1,0 +1,14 @@
+{
+  "id": "feed-the-forest",
+  "name": "Feed The Forest",
+  "author": "elsucre",
+  "description": "Team with another player to feed all the hungry animals before they eat you or the world ends. From Unit 2 - Basic Gameplay.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d8b42d39-9ec1-492c-853d-555e5a0fdead/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c64b71e-a6dd-4ac3-ab05-6911b48d19c0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c64b71e-a6dd-4ac3-ab05-6911b48d19c0",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c64b71e-a6dd-4ac3-ab05-6911b48d19c0/feed-the-forest"
+}

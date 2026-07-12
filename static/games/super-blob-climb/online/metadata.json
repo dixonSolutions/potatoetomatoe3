@@ -1,0 +1,14 @@
+{
+  "id": "super-blob-climb",
+  "name": "Super Blob Climb",
+  "author": "ISH-Technology",
+  "description": "WASD to move Space to jump\nmade",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b826f195-d4ab-474e-94cb-1eab4afc2090/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3accb2a6-5f90-42a2-b4de-58657c11dbc6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3accb2a6-5f90-42a2-b4de-58657c11dbc6",
+  "unityPlayUrl": "https://play.unity.com/en/games/3accb2a6-5f90-42a2-b4de-58657c11dbc6/super-blob-climb"
+}

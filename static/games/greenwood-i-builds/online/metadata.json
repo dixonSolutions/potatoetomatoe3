@@ -1,0 +1,14 @@
+{
+  "id": "greenwood-i-builds",
+  "name": "Greenwood I builds",
+  "author": "millsmess",
+  "description": "Use WASD or arrow keys to move. \"i\" toggles inventory. \"Enter\" picks up items.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/55d24d48-9c1e-43d8-a15f-b3294fff56f3/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d5e456b-bf3b-47b9-b0e1-b950a76c37ed/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0d5e456b-bf3b-47b9-b0e1-b950a76c37ed",
+  "unityPlayUrl": "https://play.unity.com/en/games/0d5e456b-bf3b-47b9-b0e1-b950a76c37ed/greenwood-i-builds"
+}

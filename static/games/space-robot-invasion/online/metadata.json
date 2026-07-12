@@ -1,0 +1,14 @@
+{
+  "id": "space-robot-invasion",
+  "name": "Space Robot Invasion",
+  "author": "JC4144",
+  "description": "Play Space Robot Invasion on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2af8263e-0968-4d50-9c83-608f0d6ddad3/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b3197cd-fd91-4a6e-9f4f-122d70ed3494/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6b3197cd-fd91-4a6e-9f4f-122d70ed3494",
+  "unityPlayUrl": "https://play.unity.com/en/games/6b3197cd-fd91-4a6e-9f4f-122d70ed3494/space-robot-invasion"
+}

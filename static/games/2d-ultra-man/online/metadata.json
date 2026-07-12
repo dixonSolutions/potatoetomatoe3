@@ -1,0 +1,14 @@
+{
+  "id": "2d-ultra-man",
+  "name": "2D-ULTRA-Man",
+  "author": "Glubscher",
+  "description": "It's an updated version of the old game, but now with three levels!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a68bf1b2-69db-4c38-ae8e-4be9c43db4a2/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7c3e8b42-2c5c-4c6c-8ba2-9bbc3feb12dc/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7c3e8b42-2c5c-4c6c-8ba2-9bbc3feb12dc",
+  "unityPlayUrl": "https://play.unity.com/en/games/7c3e8b42-2c5c-4c6c-8ba2-9bbc3feb12dc/2d-ultra-man"
+}

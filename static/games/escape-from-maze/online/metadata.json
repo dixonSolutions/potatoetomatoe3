@@ -1,0 +1,14 @@
+{
+  "id": "escape-from-maze",
+  "name": "Escape from Maze",
+  "author": "isakrmn",
+  "description": "WASD: Movement, Left Shift: For Slow Down, How To Play: Escape the maze and do not touch the walls. Go to the green zone.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5fdc87fe-f6fc-477d-830c-59177279307c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5fdc87fe-f6fc-477d-830c-59177279307c",
+  "unityPlayUrl": "https://play.unity.com/en/games/5fdc87fe-f6fc-477d-830c-59177279307c/escape-from-maze"
+}

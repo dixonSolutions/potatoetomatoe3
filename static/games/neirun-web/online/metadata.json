@@ -1,0 +1,14 @@
+{
+  "id": "neirun-web",
+  "name": "NeiRun Web",
+  "author": "Arielan",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3d21f146-1e6a-4df8-b384-3c255b3c462f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8ab902a3-417c-453f-a292-075fd51645d4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8ab902a3-417c-453f-a292-075fd51645d4",
+  "unityPlayUrl": "https://play.unity.com/en/games/8ab902a3-417c-453f-a292-075fd51645d4/neirun-web"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "molecule-matcher-test",
+  "name": "Molecule Matcher Test",
+  "author": "alecramo",
+  "description": "A demo for a molecule matching application. Github for the project above can be found here: https://github.com/FIUMTS/MoleculeMatching",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b2d222a8-9bdb-482d-9b7b-f37a02fd003e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b2d222a8-9bdb-482d-9b7b-f37a02fd003e",
+  "unityPlayUrl": "https://play.unity.com/en/games/b2d222a8-9bdb-482d-9b7b-f37a02fd003e/molecule-matcher-test"
+}

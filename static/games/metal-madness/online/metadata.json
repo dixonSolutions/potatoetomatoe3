@@ -1,0 +1,14 @@
+{
+  "id": "metal-madness",
+  "name": "METAL MADNESS",
+  "author": "BigEG250",
+  "description": "Run through a factory as a... robot? You can stick to magnets! Just avoid getting crushed by sawblades, don't touch the rust, and definitely don't anger the EVIL BOT! Can you escape the factory?",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b9ca1a3a-256d-46ba-8d1d-5c1b7a9ab12d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b9ca1a3a-256d-46ba-8d1d-5c1b7a9ab12d",
+  "unityPlayUrl": "https://play.unity.com/en/games/b9ca1a3a-256d-46ba-8d1d-5c1b7a9ab12d/metal-madness"
+}

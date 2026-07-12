@@ -1,0 +1,14 @@
+{
+  "id": "drag-and-destroy",
+  "name": "Drag and Destroy",
+  "author": "GGARA",
+  "description": "UI 연습용",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d5558c44-27c6-428f-9480-a564d0b3f9d0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "d5558c44-27c6-428f-9480-a564d0b3f9d0",
+  "unityPlayUrl": "https://play.unity.com/en/games/d5558c44-27c6-428f-9480-a564d0b3f9d0/drag-and-destroy"
+}

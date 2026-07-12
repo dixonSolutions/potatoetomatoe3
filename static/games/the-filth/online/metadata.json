@@ -1,0 +1,14 @@
+{
+  "id": "the-filth",
+  "name": "The Filth",
+  "author": "cybodragon",
+  "description": "\"Finished\" 3 day game jam game with the theme \"Making free space\"\n\nIMPORTANT NOTES: \n- to pauze press ~ key, since escape isn't available\n- sometimes the animation when the game starts won't work as expected, but you should still be able to play (damn you webGL)\n- make sure to go full screen the moment you can, otherwise you might not see things at the top of the screen\n\nOther:\nTeam Eten tussen je tanden",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/eefea317-d759-4057-af19-80d6a54d8fac/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b90b0494-ef42-4095-bdf8-ac9bbe0ff9be/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b90b0494-ef42-4095-bdf8-ac9bbe0ff9be",
+  "unityPlayUrl": "https://play.unity.com/en/games/b90b0494-ef42-4095-bdf8-ac9bbe0ff9be/the-filth"
+}

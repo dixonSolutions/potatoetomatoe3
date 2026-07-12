@@ -1,0 +1,14 @@
+{
+  "id": "transformers-energon-blast",
+  "name": "Transformers: Energon Blast",
+  "author": "eviltwinv",
+  "description": "A Transformers-themed Arkanoid clone I made for my son",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/241b62e2-5bba-452c-8466-d0411c397b2d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0232dda4-dd99-41b1-a1d4-84c7e327738f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0232dda4-dd99-41b1-a1d4-84c7e327738f",
+  "unityPlayUrl": "https://play.unity.com/en/games/0232dda4-dd99-41b1-a1d4-84c7e327738f/transformers-energon-blast"
+}

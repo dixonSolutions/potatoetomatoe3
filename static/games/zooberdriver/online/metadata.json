@@ -1,0 +1,14 @@
+{
+  "id": "zooberdriver",
+  "name": "ZooberDriver",
+  "author": "berryr5",
+  "description": "Go No Go, click on the open phone, and then accept a job. This will have you drive to go pick up your customer, and then drive to drop them off at their destination.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c2455826-9eec-4608-9149-98bb67c20086/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/748b8540-ca20-4c3d-b0b8-62be83365c4f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "748b8540-ca20-4c3d-b0b8-62be83365c4f",
+  "unityPlayUrl": "https://play.unity.com/en/games/748b8540-ca20-4c3d-b0b8-62be83365c4f/zooberdriver"
+}

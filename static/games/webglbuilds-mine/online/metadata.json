@@ -1,0 +1,14 @@
+{
+  "id": "webglbuilds-mine",
+  "name": "WebGLBuilds MINE",
+  "author": "LtKelleyUSMC",
+  "description": "Play WebGLBuilds MINE on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/61ba4ab5-eb3d-45a2-b0c0-ae40b32ea3f5/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "61ba4ab5-eb3d-45a2-b0c0-ae40b32ea3f5",
+  "unityPlayUrl": "https://play.unity.com/en/games/61ba4ab5-eb3d-45a2-b0c0-ae40b32ea3f5/webglbuilds-mine"
+}

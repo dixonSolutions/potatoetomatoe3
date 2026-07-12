@@ -1,0 +1,14 @@
+{
+  "id": "super-cooper",
+  "name": "Super Cooper",
+  "author": "EduFunApps",
+  "description": "To maneuver the vehicle\nuse the arrow keys or push the\ncar with your mouse.\nYour score is calculated\nby the distance traveled,\nyour top speed, and \ndiamonds collected.\nPowerups last for about\n10 seconds and are:\n1. Slow down\n2. Turbo (Speeds up)\n3. Fog (Affects looking ahead)\n4. Rain (Affects steering)\n5. Shield (Crash protection)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e9fe054f-6721-4461-8272-af761f2e1e4d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ea7d5f3-98f9-4983-b5cd-1842e1723fd4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3ea7d5f3-98f9-4983-b5cd-1842e1723fd4",
+  "unityPlayUrl": "https://play.unity.com/en/games/3ea7d5f3-98f9-4983-b5cd-1842e1723fd4/super-cooper"
+}

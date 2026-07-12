@@ -1,0 +1,14 @@
+{
+  "id": "creatorkit-demo",
+  "name": "CreatorKit 直播课程Demo试玩",
+  "author": "mwang33",
+  "description": "快来参加Unity官方直播课程教学吧。最后一周会试玩大家自己打造的游戏项目，如果你的作品很有设计感很优秀，会得到神秘礼物哦。",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a7de9896-4687-44f4-9761-9781e901cf91/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c3adb96-12b5-41b9-855e-9240f4423350/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c3adb96-12b5-41b9-855e-9240f4423350",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c3adb96-12b5-41b9-855e-9240f4423350/creatorkit-demo"
+}

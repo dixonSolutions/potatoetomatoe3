@@ -1,0 +1,14 @@
+{
+  "id": "zany-slopes",
+  "name": "Zany Slopes",
+  "author": "ShrillR3D",
+  "description": "This is the first game I've developed. From the game development course in CodeHS.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/890c6eb5-653b-449a-aba1-c47aee5115f1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9c87c639-3823-4809-b9e4-1b17b93d8f04/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9c87c639-3823-4809-b9e4-1b17b93d8f04",
+  "unityPlayUrl": "https://play.unity.com/en/games/9c87c639-3823-4809-b9e4-1b17b93d8f04/zany-slopes"
+}

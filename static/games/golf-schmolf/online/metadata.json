@@ -1,0 +1,14 @@
+{
+  "id": "golf-schmolf",
+  "name": "Golf Schmolf",
+  "author": "Maximilianimation",
+  "description": "Control with arrow keys or A and D and Space. Use the power meter to aim your shots and avoid the wind!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6d092135-78a2-4919-9f1a-a0eb9693a71c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f4a7745-470a-4c2b-9771-5e6a6efb8815/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0f4a7745-470a-4c2b-9771-5e6a6efb8815",
+  "unityPlayUrl": "https://play.unity.com/en/games/0f4a7745-470a-4c2b-9771-5e6a6efb8815/golf-schmolf"
+}

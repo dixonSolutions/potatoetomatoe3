@@ -1,0 +1,14 @@
+{
+  "id": "oracleio",
+  "name": "Oracle.io",
+  "author": "Chichipe",
+  "description": ".io Game in progress\nWASD : Move\nLeft Click : Shoot\nRight Click : Create 3 Walls\nUp to 20 people can connect at the same time",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2611c1c4-1f9a-48fb-8e65-216531fd7036/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c8c994fe-e83f-4f51-a5cb-9eb57983104b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c8c994fe-e83f-4f51-a5cb-9eb57983104b",
+  "unityPlayUrl": "https://play.unity.com/en/games/c8c994fe-e83f-4f51-a5cb-9eb57983104b/oracleio"
+}

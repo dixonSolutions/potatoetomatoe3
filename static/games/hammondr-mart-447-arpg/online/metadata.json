@@ -1,0 +1,14 @@
+{
+  "id": "hammondr-mart-447-arpg",
+  "name": "HammondR MART 447 ARPG",
+  "author": "HammondR",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/17a38973-8acc-4d79-b9c0-708ae0be00c4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43e82abd-1c0d-4ade-b2fa-05b75d9aa53e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "43e82abd-1c0d-4ade-b2fa-05b75d9aa53e",
+  "unityPlayUrl": "https://play.unity.com/en/games/43e82abd-1c0d-4ade-b2fa-05b75d9aa53e/hammondr-mart-447-arpg"
+}

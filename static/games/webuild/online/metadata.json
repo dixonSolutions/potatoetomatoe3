@@ -1,0 +1,14 @@
+{
+  "id": "webuild",
+  "name": "webuild",
+  "author": "aydineralp",
+  "description": "Play webuild on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02495e27-5cdd-4a43-b8ba-92ecb0079330/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02495e27-5cdd-4a43-b8ba-92ecb0079330",
+  "unityPlayUrl": "https://play.unity.com/en/games/02495e27-5cdd-4a43-b8ba-92ecb0079330/webuild"
+}

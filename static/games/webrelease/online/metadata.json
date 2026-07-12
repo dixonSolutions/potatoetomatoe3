@@ -1,0 +1,14 @@
+{
+  "id": "webrelease",
+  "name": "WebRelease",
+  "author": "KOLOVAETHERSTUDIOSENTERTAINMENT",
+  "description": "Play WebRelease on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/763c768c-640f-45ee-b333-0dc1fe388de8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "763c768c-640f-45ee-b333-0dc1fe388de8",
+  "unityPlayUrl": "https://play.unity.com/en/games/763c768c-640f-45ee-b333-0dc1fe388de8/webrelease"
+}

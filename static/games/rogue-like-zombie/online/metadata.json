@@ -1,0 +1,14 @@
+{
+  "id": "rogue-like-zombie",
+  "name": "Rogue like zombie",
+  "author": "aravind_krishnan_",
+  "description": "This game is made only for learning",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/cd37e770-6b95-4e68-b31c-6e38c5c632d1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72eea4fc-2193-410b-be9b-50602b1b545e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "72eea4fc-2193-410b-be9b-50602b1b545e",
+  "unityPlayUrl": "https://play.unity.com/en/games/72eea4fc-2193-410b-be9b-50602b1b545e/rogue-like-zombie"
+}

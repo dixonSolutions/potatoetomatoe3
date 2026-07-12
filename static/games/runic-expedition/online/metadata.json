@@ -1,0 +1,14 @@
+{
+  "id": "runic-expedition",
+  "name": "Runic Expedition",
+  "author": "Platylaza",
+  "description": "​Go through and collect runes to craft abilities that you must use to overcome various challenges.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/97760fee-01da-48e4-84ea-b72defae4bf2/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c584787a-56bf-4e84-9695-3bb1454e2779/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c584787a-56bf-4e84-9695-3bb1454e2779",
+  "unityPlayUrl": "https://play.unity.com/en/games/c584787a-56bf-4e84-9695-3bb1454e2779/runic-expedition"
+}

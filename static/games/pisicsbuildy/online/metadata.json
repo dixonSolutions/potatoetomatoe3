@@ -1,0 +1,14 @@
+{
+  "id": "pisicsbuildy",
+  "name": "PisicsBuiLdy",
+  "author": "ZenjiMaster",
+  "description": "fr pisics",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/69d0928c-c4e7-40e1-a03f-c3f30627ffd6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "69d0928c-c4e7-40e1-a03f-c3f30627ffd6",
+  "unityPlayUrl": "https://play.unity.com/en/games/69d0928c-c4e7-40e1-a03f-c3f30627ffd6/pisicsbuildy"
+}

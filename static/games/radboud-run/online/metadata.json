@@ -1,0 +1,14 @@
+{
+  "id": "radboud-run",
+  "name": "Radboud Run",
+  "author": "lalvral",
+  "description": "Collect enough ECs and make it to the Faculty of Social Sciences!!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0cdc6540-a234-498d-9951-4830208b61bf/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09e39ff1-be55-4414-82cf-17dc8a6c18af/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "09e39ff1-be55-4414-82cf-17dc8a6c18af",
+  "unityPlayUrl": "https://play.unity.com/en/games/09e39ff1-be55-4414-82cf-17dc8a6c18af/radboud-run"
+}

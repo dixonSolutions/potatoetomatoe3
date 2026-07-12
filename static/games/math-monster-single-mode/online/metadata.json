@@ -1,0 +1,14 @@
+{
+  "id": "math-monster-single-mode",
+  "name": "Math Monster Single Mode",
+  "author": "talatuccar",
+  "description": "Reach the target numbers that in the lower right corner, using four operations with the given random numbers. You can use the given numbers only once. click guide button for more.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/aad01501-d481-40ec-a1f4-ae5d7ec91998/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0077c0eb-f4b0-4535-a352-91de1e7af419/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0077c0eb-f4b0-4535-a352-91de1e7af419",
+  "unityPlayUrl": "https://play.unity.com/en/games/0077c0eb-f4b0-4535-a352-91de1e7af419/math-monster-single-mode"
+}

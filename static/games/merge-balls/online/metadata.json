@@ -1,0 +1,14 @@
+{
+  "id": "merge-balls",
+  "name": "Merge Balls",
+  "author": "RCN_GAME",
+  "description": "Merge Balls is a fun hyper-casual game where you merge balls of the same size to score points. Keep the field under control and prevent balls from falling.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/bb14a397-982c-4262-ac66-a5a933257321/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/52dc1826-570d-40bc-b79b-73f1b3fcf821/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "52dc1826-570d-40bc-b79b-73f1b3fcf821",
+  "unityPlayUrl": "https://play.unity.com/en/games/52dc1826-570d-40bc-b79b-73f1b3fcf821/merge-balls"
+}

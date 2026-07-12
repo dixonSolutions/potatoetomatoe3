@@ -1,0 +1,14 @@
+{
+  "id": "galactic-aeroport",
+  "name": "Galactic aeroport",
+  "author": "Lenamav",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2f863c1a-706c-4309-857d-ae8cf59c8921/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cdb4fe3-06ad-46cf-b258-9193d4e4fca3/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3cdb4fe3-06ad-46cf-b258-9193d4e4fca3",
+  "unityPlayUrl": "https://play.unity.com/en/games/3cdb4fe3-06ad-46cf-b258-9193d4e4fca3/galactic-aeroport"
+}

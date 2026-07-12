@@ -1,0 +1,14 @@
+{
+  "id": "nicodino-game",
+  "name": "Nicodino Game",
+  "author": "NicodinoTV",
+  "description": "Play Nicodino Game on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/35f5cd9f-8aef-417f-a697-1d0e7f7ad9a3/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f4d414-4587-46d3-b233-febcf6c0ebb2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00f4d414-4587-46d3-b233-febcf6c0ebb2",
+  "unityPlayUrl": "https://play.unity.com/en/games/00f4d414-4587-46d3-b233-febcf6c0ebb2/nicodino-game"
+}

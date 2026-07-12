@@ -1,0 +1,14 @@
+{
+  "id": "unityhrmn",
+  "name": "Unity_Hrmn",
+  "author": "hrmnDhaliwal",
+  "description": "Completed Unity Essentials",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/370303c7-ce3c-4400-8842-6aa3f16ecf6f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "370303c7-ce3c-4400-8842-6aa3f16ecf6f",
+  "unityPlayUrl": "https://play.unity.com/en/games/370303c7-ce3c-4400-8842-6aa3f16ecf6f/unityhrmn"
+}

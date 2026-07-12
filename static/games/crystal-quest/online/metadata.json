@@ -1,0 +1,14 @@
+{
+  "id": "crystal-quest",
+  "name": "Crystal Quest",
+  "author": "lynlorelei",
+  "description": "-- Don't forget to unmute! -- Crystal Quest is a 3D isometric puzzle game set in a cave system. WASD/Arrow Keys to move.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5ce15f18-b9d8-4184-8f5c-8d89a21b2761/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28cfd3fe-0837-4382-ada0-98af0d7da191/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "28cfd3fe-0837-4382-ada0-98af0d7da191",
+  "unityPlayUrl": "https://play.unity.com/en/games/28cfd3fe-0837-4382-ada0-98af0d7da191/crystal-quest"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "hunting",
+  "name": "Hunting",
+  "author": "VladimirKud",
+  "description": "My new game",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c1c1e635-bd44-4013-81eb-afe8de311072/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/237fd0cb-1d79-4ede-82e7-f615eb9c0cdd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "237fd0cb-1d79-4ede-82e7-f615eb9c0cdd",
+  "unityPlayUrl": "https://play.unity.com/en/games/237fd0cb-1d79-4ede-82e7-f615eb9c0cdd/hunting"
+}

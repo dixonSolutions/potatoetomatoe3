@@ -1,0 +1,14 @@
+{
+  "id": "simple-sound-room",
+  "name": "Simple Sound Room",
+  "author": "FrancescoA",
+  "description": "Press right button while moving the mouse to orient the view and use WASD and/or arrow keys to move the camera.\nSounds / Effects are:\n   - Jukebox starts a loop when you reach it (thx Lord Feder!)\n   - A piano start playing behind a door when you go near it\n   - The fire crackles\n   - The canvas lights are buzzing\n   - Reverb",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0073dc2d-e63c-4a62-8719-6564c5697e85/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40563f6d-e057-40a5-b87b-0d0323e76821/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "40563f6d-e057-40a5-b87b-0d0323e76821",
+  "unityPlayUrl": "https://play.unity.com/en/games/40563f6d-e057-40a5-b87b-0d0323e76821/simple-sound-room"
+}

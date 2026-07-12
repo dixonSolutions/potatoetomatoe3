@@ -1,0 +1,14 @@
+{
+  "id": "pachinko-exercise",
+  "name": "Pachinko exercise",
+  "author": "anahermosa3",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4cb9913b-ab21-43d4-8b79-817b8c71906f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/023a9c82-5c9b-4ee8-9967-47998303bc3c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "023a9c82-5c9b-4ee8-9967-47998303bc3c",
+  "unityPlayUrl": "https://play.unity.com/en/games/023a9c82-5c9b-4ee8-9967-47998303bc3c/pachinko-exercise"
+}

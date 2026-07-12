@@ -1,0 +1,14 @@
+{
+  "id": "planet-golf",
+  "name": "Planet Golf",
+  "author": "pjklika",
+  "description": "VR Planet Golf is an educational VR experience where players learn planet names and facts while exploring space and playing golf.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5f06adf4-8263-4157-a79c-35ebd6559ca9/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04fa1d78-0044-47e7-8921-37f12c4e4d73/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "04fa1d78-0044-47e7-8921-37f12c4e4d73",
+  "unityPlayUrl": "https://play.unity.com/en/games/04fa1d78-0044-47e7-8921-37f12c4e4d73/planet-golf"
+}

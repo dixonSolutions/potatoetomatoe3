@@ -1,0 +1,14 @@
+{
+  "id": "marble-muster",
+  "name": "Marble Muster",
+  "author": "AppyAndroid",
+  "description": "How many red and blue marbles can you muster in one minute?                                                                                    \n                                                                                                                           See if you can beat the high score.                                                                                                         \n                                                                                                                       \nRotate the squares with the mouse to make a safe passage for the red and blue marbles.  Do not let the black marbles reach the goal!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4d44a432-c4a2-4228-b843-e0c05d46f287/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/657abda3-3946-40ec-ae31-7c9b56770ebb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "657abda3-3946-40ec-ae31-7c9b56770ebb",
+  "unityPlayUrl": "https://play.unity.com/en/games/657abda3-3946-40ec-ae31-7c9b56770ebb/marble-muster"
+}

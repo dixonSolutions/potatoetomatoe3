@@ -1,0 +1,14 @@
+{
+  "id": "color-kill",
+  "name": "Color Kill",
+  "author": "Androjhinous",
+  "description": "CM344 Group Project.\n\nHow to Play: Collect corresponding keys to Kill Color enemies!\n\nControls: WASD navigation\n\nCredits: \nfdgod247\nandroJHINous\njae_hyun808\nDuomi\ncont4gious\nYancypie",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9783c80b-917e-46f7-9986-1b8453ec5e70/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/022d27f4-7b66-4d89-a690-4b9ea43985f8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "022d27f4-7b66-4d89-a690-4b9ea43985f8",
+  "unityPlayUrl": "https://play.unity.com/en/games/022d27f4-7b66-4d89-a690-4b9ea43985f8/color-kill"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "juego-del-globito",
+  "name": "juego del globito",
+  "author": "ispa16",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c664c2a-cb58-403a-ad4a-0caa24044ff4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c664c2a-cb58-403a-ad4a-0caa24044ff4",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c664c2a-cb58-403a-ad4a-0caa24044ff4/juego-del-globito"
+}

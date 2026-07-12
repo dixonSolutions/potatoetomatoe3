@@ -1,0 +1,14 @@
+{
+  "id": "brick-game-data-persistence-project",
+  "name": "Brick Game - Data Persistence Project",
+  "author": "Kharalos",
+  "description": "A very simple game. Things to implement in the future: Add levels. When all bricks all cleared, add a level. Every level increases the minimum velocity of the ball and adds more bricks.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/fff7a847-9f7b-4c74-ac92-d2d83c56db59/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0696a359-b3ca-452a-9f7d-09af6f23a3af/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0696a359-b3ca-452a-9f7d-09af6f23a3af",
+  "unityPlayUrl": "https://play.unity.com/en/games/0696a359-b3ca-452a-9f7d-09af6f23a3af/brick-game-data-persistence-project"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "apple-picker",
+  "name": "Apple Picker",
+  "author": "benderry",
+  "description": "Author: Ryan Bender\nDescription:\nUse the mouse to move the basket to try to catch apples in the basket. Avoid falling branches or missing apples.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02383d83-1264-4a04-8eae-c9243be7ab6a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02383d83-1264-4a04-8eae-c9243be7ab6a",
+  "unityPlayUrl": "https://play.unity.com/en/games/02383d83-1264-4a04-8eae-c9243be7ab6a/apple-picker"
+}

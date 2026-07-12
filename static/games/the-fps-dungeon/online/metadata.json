@@ -1,0 +1,14 @@
+{
+  "id": "the-fps-dungeon",
+  "name": "The FPS Dungeon",
+  "author": "Rocketeer52",
+  "description": "This is my first FPS microgame. I would love any feedback you have about it. Hope you enjoy.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/8dcc1b59-16ce-443c-a608-37ddc65eeb84/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72e2458e-7f25-42c2-8238-5fa6d5d63231/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "72e2458e-7f25-42c2-8238-5fa6d5d63231",
+  "unityPlayUrl": "https://play.unity.com/en/games/72e2458e-7f25-42c2-8238-5fa6d5d63231/the-fps-dungeon"
+}

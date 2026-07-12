@@ -1,0 +1,14 @@
+{
+  "id": "sumoball",
+  "name": "SUMOBALL",
+  "author": "EyvindWolf",
+  "description": "I really hated the camera and movement from the tutorial lesson with these assets. I made my own camera script while thinking about the camera movement in Mario64 on Bowser's stage, and how it follows you but not too closely. I'm really happy with the result. Movement I just kept to the x and z axis, nice and simple. I imported assets from the other tutorials as well to make it feel a bit more fleshed out. Coming up with the Boss spheres was a really fun challenge too.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1e39b4e5-d8b5-48e4-8ec0-7d71b6033959/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3857b669-5e48-4835-87d3-af5f7361c10d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3857b669-5e48-4835-87d3-af5f7361c10d",
+  "unityPlayUrl": "https://play.unity.com/en/games/3857b669-5e48-4835-87d3-af5f7361c10d/sumoball"
+}

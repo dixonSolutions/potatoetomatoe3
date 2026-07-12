@@ -1,0 +1,14 @@
+{
+  "id": "frog-invaders",
+  "name": "Frog Invaders",
+  "author": "anmcmill",
+  "description": "Frog Invaders is the Unity green belt example project at Hackingtons Code School for Kids. This lesson teaches how to create a player health and attack system, how to use a tile map, and how to create enemies.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e2d36b01-b515-427e-aa53-dfa9721846f7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9964e5f1-7e2f-492a-b62d-3ffb8f785698/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9964e5f1-7e2f-492a-b62d-3ffb8f785698",
+  "unityPlayUrl": "https://play.unity.com/en/games/9964e5f1-7e2f-492a-b62d-3ffb8f785698/frog-invaders"
+}

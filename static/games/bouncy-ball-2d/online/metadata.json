@@ -1,0 +1,14 @@
+{
+  "id": "bouncy-ball-2d",
+  "name": "BOUNCY BALL 2D",
+  "author": "PriyanshuSol",
+  "description": "Control the ball with left/right keys. Avoid the obstacles, collect the coins and score as much as possible. Enjoy the game.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e8873173-ef09-4591-a49e-63aaa129207a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b1e1ae50-114b-46e7-8715-c4ac418bc6ed/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b1e1ae50-114b-46e7-8715-c4ac418bc6ed",
+  "unityPlayUrl": "https://play.unity.com/en/games/b1e1ae50-114b-46e7-8715-c4ac418bc6ed/bouncy-ball-2d"
+}

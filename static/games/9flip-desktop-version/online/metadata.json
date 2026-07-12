@@ -1,0 +1,14 @@
+{
+  "id": "9flip-desktop-version",
+  "name": "9Flip Desktop Version",
+  "author": "ManslyFred",
+  "description": "--- This is a desktop version for demo purposes. Please download mobile version for android in Google Play Store for free. https://play.google.com/store/apps/details?id=com.MaOw.NineFlip ---- \n9Flip  Take an 8-puzzle and add a flip mechanism and voila you have 9Flip, a challenging game that trains your logical thinking and your capacity for abstraction. And its fun, too! Start with an easy pattern you have to achieve in one turn and move up to the most difficult levels with pattern that require several flips and moves. Rules are simple: Just move one square or flip the complete row and column the square is in. Thats its! And now, try it out!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/69d799f0-08c8-439b-8a53-838f7c4bc79d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2ee3dfc4-2481-456a-b070-70a17c89d3a2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2ee3dfc4-2481-456a-b070-70a17c89d3a2",
+  "unityPlayUrl": "https://play.unity.com/en/games/2ee3dfc4-2481-456a-b070-70a17c89d3a2/9flip-desktop-version"
+}

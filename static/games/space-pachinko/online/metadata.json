@@ -1,0 +1,14 @@
+{
+  "id": "space-pachinko",
+  "name": "Space pachinko",
+  "author": "HEMANTH2410",
+  "description": "Just some brick breaker on steroids.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3763605b-4e48-4364-9440-a0f5a83e3057/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10f37fc7-3cbd-4488-830b-d150afc186af/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "10f37fc7-3cbd-4488-830b-d150afc186af",
+  "unityPlayUrl": "https://play.unity.com/en/games/10f37fc7-3cbd-4488-830b-d150afc186af/space-pachinko"
+}

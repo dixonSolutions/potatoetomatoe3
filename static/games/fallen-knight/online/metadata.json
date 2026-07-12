@@ -1,0 +1,14 @@
+{
+  "id": "fallen-knight",
+  "name": "Fallen Knight",
+  "author": "Saykan",
+  "description": "Un juego de plataforma un poco dificil. by Saykan247",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2a7ab0f6-3c75-4a93-8f46-1d1ec1858cf9/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3a9f5e0e-dd8f-4820-9478-97856cd2cff7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3a9f5e0e-dd8f-4820-9478-97856cd2cff7",
+  "unityPlayUrl": "https://play.unity.com/en/games/3a9f5e0e-dd8f-4820-9478-97856cd2cff7/fallen-knight"
+}

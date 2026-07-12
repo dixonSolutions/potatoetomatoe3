@@ -1,0 +1,14 @@
+{
+  "id": "galactic-oasis-playtest-1",
+  "name": "Galactic Oasis Playtest 1",
+  "author": "jacob0503",
+  "description": "Galactic Oasis is currently in a very early stage of development. We need feedback on the general feel of the game (movement, platforming, combat). \n\nWASD - Move\nLeft Click - Attack\nSpace - Jump\nLeft Shift - Dash",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/430d0d8b-7245-4584-bfd0-65d4415d2db1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "430d0d8b-7245-4584-bfd0-65d4415d2db1",
+  "unityPlayUrl": "https://play.unity.com/en/games/430d0d8b-7245-4584-bfd0-65d4415d2db1/galactic-oasis-playtest-1"
+}

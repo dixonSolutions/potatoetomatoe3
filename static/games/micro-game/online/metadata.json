@@ -1,0 +1,14 @@
+{
+  "id": "micro-game",
+  "name": "Micro game",
+  "author": "Antirix",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e244f2c9-a8af-4fbc-be5f-0f5be2fe972c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02c846d7-abac-46d8-9200-642b7c1af449/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02c846d7-abac-46d8-9200-642b7c1af449",
+  "unityPlayUrl": "https://play.unity.com/en/games/02c846d7-abac-46d8-9200-642b7c1af449/micro-game"
+}

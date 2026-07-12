@@ -1,0 +1,14 @@
+{
+  "id": "right-round",
+  "name": "Right round",
+  "author": "elizaveta_mikhailova",
+  "description": "The coolest game!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/90b54584-f777-4c19-9a29-98b62bd2b242/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "90b54584-f777-4c19-9a29-98b62bd2b242",
+  "unityPlayUrl": "https://play.unity.com/en/games/90b54584-f777-4c19-9a29-98b62bd2b242/right-round"
+}

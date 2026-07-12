@@ -1,0 +1,14 @@
+{
+  "id": "artclubtour",
+  "name": "ArtclubTour",
+  "author": "EsraTalat-ArtClub",
+  "description": "Play ArtclubTour on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c8baccf3-9490-4d2e-998c-2a1b7fbfef62/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/73eaf241-3cb1-41d9-9762-4236e23fddfd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "73eaf241-3cb1-41d9-9762-4236e23fddfd",
+  "unityPlayUrl": "https://play.unity.com/en/games/73eaf241-3cb1-41d9-9762-4236e23fddfd/artclubtour"
+}

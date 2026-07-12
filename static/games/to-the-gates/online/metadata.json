@@ -1,0 +1,14 @@
+{
+  "id": "to-the-gates",
+  "name": "To The Gates!",
+  "author": "Fzhut",
+  "description": "Tower/fence defense game.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6262f33a-54db-4030-916c-6f18e199f2d2/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/597353eb-24bb-4270-8055-e20e1eef615e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "597353eb-24bb-4270-8055-e20e1eef615e",
+  "unityPlayUrl": "https://play.unity.com/en/games/597353eb-24bb-4270-8055-e20e1eef615e/to-the-gates"
+}

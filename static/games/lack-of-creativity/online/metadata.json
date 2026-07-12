@@ -1,0 +1,14 @@
+{
+  "id": "lack-of-creativity",
+  "name": "Lack of creativity",
+  "author": "alexwaitforitangelov",
+  "description": "My first real uploaded project. This is a small platformer where you need to collect pineapples so that you can feast on the joy of having belly acids.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f36b36-9076-462b-b6d4-154cb40f1a66/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00f36b36-9076-462b-b6d4-154cb40f1a66",
+  "unityPlayUrl": "https://play.unity.com/en/games/00f36b36-9076-462b-b6d4-154cb40f1a66/lack-of-creativity"
+}

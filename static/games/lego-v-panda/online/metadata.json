@@ -1,0 +1,14 @@
+{
+  "id": "lego-v-panda",
+  "name": "Lego v Panda",
+  "author": "angelfloresaf007",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/96601859-0342-4ad9-8b3d-84a9c4dfd0ff/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/021bcef8-5419-490a-9c81-3d91a4c8e8d1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "021bcef8-5419-490a-9c81-3d91a4c8e8d1",
+  "unityPlayUrl": "https://play.unity.com/en/games/021bcef8-5419-490a-9c81-3d91a4c8e8d1/lego-v-panda"
+}

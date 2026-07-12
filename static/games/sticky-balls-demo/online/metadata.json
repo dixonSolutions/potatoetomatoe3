@@ -1,0 +1,14 @@
+{
+  "id": "sticky-balls-demo",
+  "name": "Sticky Balls — Demo",
+  "author": "jo_banana",
+  "description": "This game is a demo of a two player game I'm currently working on called Sticky Balls. Please like the game and comment some more features that I should add.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/19128234-7e51-4e6d-b0bb-2dccb256079f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b42398b-50c1-4fc4-ac08-bfa14cbb6ef1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8b42398b-50c1-4fc4-ac08-bfa14cbb6ef1",
+  "unityPlayUrl": "https://play.unity.com/en/games/8b42398b-50c1-4fc4-ac08-bfa14cbb6ef1/sticky-balls-demo"
+}

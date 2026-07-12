@@ -1,0 +1,14 @@
+{
+  "id": "dream-runner",
+  "name": "Dream Runner",
+  "author": "dsl7uw",
+  "description": "You were adventuring in Dreamworld when suddenly there was a loud crack. The sky turned purple and split open as the portal between Dreamworld and Nightmare World appeared. The sky was flooded with Ghouls and Sprites as nightmare world started to take over. \nIt is all up to you to save Dreamworld before it is too late. Before you can close the portal between Nightmare World and Dreamworld, you must catch all the sprites and return them to the darkness.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/086bfe69-6dc7-4edc-8e66-8c594b469148/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c7dfcb5d-f2da-4eab-8828-ccce76cea491/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c7dfcb5d-f2da-4eab-8828-ccce76cea491",
+  "unityPlayUrl": "https://play.unity.com/en/games/c7dfcb5d-f2da-4eab-8828-ccce76cea491/dream-runner"
+}

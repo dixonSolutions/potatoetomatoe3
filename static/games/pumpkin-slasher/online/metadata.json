@@ -1,0 +1,14 @@
+{
+  "id": "pumpkin-slasher",
+  "name": "Pumpkin Slasher",
+  "author": "shanxi_",
+  "description": "My latest microgame made by Noah Worcester, Swan S. & Julia Morgado.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2b70b412-ba9e-44f1-a3cc-646cf50240e0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4601dd09-d4a2-4aae-8476-86052b14af26/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "4601dd09-d4a2-4aae-8476-86052b14af26",
+  "unityPlayUrl": "https://play.unity.com/en/games/4601dd09-d4a2-4aae-8476-86052b14af26/pumpkin-slasher"
+}

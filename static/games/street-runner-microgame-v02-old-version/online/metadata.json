@@ -1,0 +1,14 @@
+{
+  "id": "street-runner-microgame-v02-old-version",
+  "name": "Street Runner MicroGame V0.2 (OLD VERSION)",
+  "author": "alexpina224",
+  "description": "NEW VERSION: https://connect.unity.com/mg/other/street-runner-microgame-v0-3\nMy take on the week 3 Create with Code Live lessons. Supports double jumps and running across two lanes. Unmute sounds for more immersion!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c138d856-19c1-4c53-beff-e5032575dec5/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/096c0aa2-ac0c-4381-bcfa-e8ec0d434f78/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "096c0aa2-ac0c-4381-bcfa-e8ec0d434f78",
+  "unityPlayUrl": "https://play.unity.com/en/games/096c0aa2-ac0c-4381-bcfa-e8ec0d434f78/street-runner-microgame-v02-old-version"
+}

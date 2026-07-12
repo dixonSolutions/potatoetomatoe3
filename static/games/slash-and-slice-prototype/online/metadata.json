@@ -1,0 +1,14 @@
+{
+  "id": "slash-and-slice-prototype",
+  "name": "Slash and slice prototype",
+  "author": "ernestbatyrbayev",
+  "description": "WASD for movement, hold LMB to control the sword. DON'T FORGET TO TURN ON SOUND!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b6b0a799-07be-4f4d-a0ae-c5d4d41c87f3/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11c7c33f-4991-4b1e-afe5-a6756f77cedc/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "11c7c33f-4991-4b1e-afe5-a6756f77cedc",
+  "unityPlayUrl": "https://play.unity.com/en/games/11c7c33f-4991-4b1e-afe5-a6756f77cedc/slash-and-slice-prototype"
+}

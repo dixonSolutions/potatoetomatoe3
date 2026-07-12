@@ -1,0 +1,14 @@
+{
+  "id": "godown1000",
+  "name": "GoDown1000",
+  "author": "ZEROPIRATE",
+  "description": "touch test",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/113d46d5-f31b-4bd8-8914-1284e18bd9d0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "113d46d5-f31b-4bd8-8914-1284e18bd9d0",
+  "unityPlayUrl": "https://play.unity.com/en/games/113d46d5-f31b-4bd8-8914-1284e18bd9d0/godown1000"
+}

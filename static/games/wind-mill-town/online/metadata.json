@@ -1,0 +1,14 @@
+{
+  "id": "wind-mill-town",
+  "name": "Wind Mill Town",
+  "author": "Willemvanvugt",
+  "description": "Now with smooth camera following the ball.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c85e4fd3-84c8-46b4-9ed0-230f778af68b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c447979-66d5-44f7-adc1-5653d22b1226/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c447979-66d5-44f7-adc1-5653d22b1226",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c447979-66d5-44f7-adc1-5653d22b1226/wind-mill-town"
+}

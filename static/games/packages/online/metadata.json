@@ -1,0 +1,14 @@
+{
+  "id": "packages",
+  "name": "Packages",
+  "author": "Imranova220",
+  "description": "RightsRise",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/453deeb5-60c3-4d8c-bddf-34045eff8dc1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a4d1009-2377-42c6-a086-feaa693619ee/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1a4d1009-2377-42c6-a086-feaa693619ee",
+  "unityPlayUrl": "https://play.unity.com/en/games/1a4d1009-2377-42c6-a086-feaa693619ee/packages"
+}

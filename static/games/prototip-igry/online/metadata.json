@@ -1,0 +1,14 @@
+{
+  "id": "prototip-igry",
+  "name": "Прототип игры",
+  "author": "ilyavasilevskiyy",
+  "description": "Перемещать червя стрелками. Чтобы убрать зеленый лист - нажми на него. Чтобы разбить камень - 3 клика в любом месте.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb86daa8-a870-4290-9267-23435c8f2f37/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "eb86daa8-a870-4290-9267-23435c8f2f37",
+  "unityPlayUrl": "https://play.unity.com/en/games/eb86daa8-a870-4290-9267-23435c8f2f37/prototip-igry"
+}

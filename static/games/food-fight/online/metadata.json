@@ -1,0 +1,14 @@
+{
+  "id": "food-fight",
+  "name": "Food Fight",
+  "author": "Y_Svenn",
+  "description": "Food Fight is a 3D, top down, shooter game where a farmer does his best to defend his crops from hungry animals. My highest score was 2500, can you beat that?",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/97118594-88dc-4835-8271-f1edcfd4202b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3237178e-bd18-4dca-9c0a-1952df9e5467/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3237178e-bd18-4dca-9c0a-1952df9e5467",
+  "unityPlayUrl": "https://play.unity.com/en/games/3237178e-bd18-4dca-9c0a-1952df9e5467/food-fight"
+}

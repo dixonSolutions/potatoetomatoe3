@@ -1,0 +1,14 @@
+{
+  "id": "creator-kit-beginner",
+  "name": "Creator kit beginner",
+  "author": "SudhanshuKumarSuman",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ab156a3-1809-4343-8d7e-7a74f0f60643/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0ab156a3-1809-4343-8d7e-7a74f0f60643",
+  "unityPlayUrl": "https://play.unity.com/en/games/0ab156a3-1809-4343-8d7e-7a74f0f60643/creator-kit-beginner"
+}

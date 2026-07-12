@@ -1,0 +1,14 @@
+{
+  "id": "mini-golf-mania",
+  "name": "Mini Golf Mania",
+  "author": "LukeNoor",
+  "description": "Get ready to tee off in Mini-Golf Mania!\n\nWe recommend playing on Fullscreen and Controls can be found through the in-game HUD",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/02db3a92-3081-40eb-ac97-88cff1c89494/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c03b88dc-9a8e-4505-b5f1-56b70304e04d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c03b88dc-9a8e-4505-b5f1-56b70304e04d",
+  "unityPlayUrl": "https://play.unity.com/en/games/c03b88dc-9a8e-4505-b5f1-56b70304e04d/mini-golf-mania"
+}

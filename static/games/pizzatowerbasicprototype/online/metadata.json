@@ -1,0 +1,14 @@
+{
+  "id": "pizzatowerbasicprototype",
+  "name": "PizzaTower_BasicPrototype",
+  "author": "allvvin666",
+  "description": "Press the Space bar to get a new slice. The new slice will be placed on top of the flipper one second after the space bar is pressed. The slice will teleport to the corresponding anchor. The next slice's direction will change clockwise every second.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45294234-5357-4eb0-a17a-b1289dc5efbd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "45294234-5357-4eb0-a17a-b1289dc5efbd",
+  "unityPlayUrl": "https://play.unity.com/en/games/45294234-5357-4eb0-a17a-b1289dc5efbd/pizzatowerbasicprototype"
+}

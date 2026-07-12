@@ -1,0 +1,14 @@
+{
+  "id": "defenceshooting",
+  "name": "defenceshooting",
+  "author": "magiciousmaths",
+  "description": "Play defenceshooting on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1e09bf2b-7ec8-46b4-b87d-5190f8734c8c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00267b5f-30fa-47a0-b094-cb3786572a99/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00267b5f-30fa-47a0-b094-cb3786572a99",
+  "unityPlayUrl": "https://play.unity.com/en/games/00267b5f-30fa-47a0-b094-cb3786572a99/defenceshooting"
+}

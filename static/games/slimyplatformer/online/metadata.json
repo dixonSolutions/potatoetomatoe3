@@ -1,0 +1,14 @@
+{
+  "id": "slimyplatformer",
+  "name": "SlimyPlatformer",
+  "author": "gus-azv",
+  "description": "Play SlimyPlatformer on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/afbb763a-1dcc-4162-a2b8-f1dcfd064a8d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5d225326-f2fa-4b1f-8546-435ec8bc5e1b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5d225326-f2fa-4b1f-8546-435ec8bc5e1b",
+  "unityPlayUrl": "https://play.unity.com/en/games/5d225326-f2fa-4b1f-8546-435ec8bc5e1b/slimyplatformer"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "shooter-showdown",
+  "name": "Shooter Showdown",
+  "author": "jroberts1707",
+  "description": "Title: Designing and Optimising Different Difficulties in Video Games\n\nWhat is the research about?\nThis research is part of the COMP3200 – Part III Individual Project. The research will involve playing a game with different difficulty levels and then being asked to fill out a questionnaire about your gameplay and your opinions on what can be improved/changed. There is a tutorial and 6 levels in total to play, each of which will take no longer than 3 minutes. The game is a 2d top-down spaceship shooter game with simplistic graphics and the game is non-violent.\n\nWhat will happen to me if I take part?\nYou will play a video game consisting of different difficulty levels and will then be asked to fill out a questionnaire about the game and your opinions on it.\nYou can play the game online on your own device anywhere you like as long as there is internet access.\n\nAre there any benefits in my taking part?\nThe study will help my research in trying to find optimal difficulty levels in video games. You will get to play a video game and give your opinions on the game play and what can be improved/changed.\n\nAre there any risks involved?\nNo risks that you wouldn’t experience in everyday life.\n\nWhat data will be collected?\nNo personal data will be collected. Results from the game such as score, accuracy and time survived will be recorded after each level. Along with this, your answers to the short series of questions will be recorded. \n\nPlease could you also take part in the following survey once you have played the game:\nhttps://docs.google.com/forms/d/e/1FAIpQLSdpZEa07S-yboSltLwZVQq4KZ32eslGATdC9tju9kDHAVowIQ/viewform?usp=sf_link",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ca84df5-b3b5-42b4-a850-372d1955c972/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0ca84df5-b3b5-42b4-a850-372d1955c972",
+  "unityPlayUrl": "https://play.unity.com/en/games/0ca84df5-b3b5-42b4-a850-372d1955c972/shooter-showdown"
+}

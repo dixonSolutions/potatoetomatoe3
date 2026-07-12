@@ -1,0 +1,14 @@
+{
+  "id": "tutorialgame",
+  "name": "tutorialgame",
+  "author": "tahmina_st",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/8b030a91-226f-4d6a-8853-8275700aabef/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0de395ae-474b-4992-a467-407c3c027489/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0de395ae-474b-4992-a467-407c3c027489",
+  "unityPlayUrl": "https://play.unity.com/en/games/0de395ae-474b-4992-a467-407c3c027489/tutorialgame"
+}

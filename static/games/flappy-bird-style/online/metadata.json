@@ -1,0 +1,14 @@
+{
+  "id": "flappy-bird-style",
+  "name": "Flappy Bird Style",
+  "author": "murphlaw",
+  "description": "Flappy Bird Style game based on the Unity Learn project, coded with ScriptableObject events under the hood instead of a Singleton class.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1c6774d7-fd17-46df-84f5-7f2babb96995/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/81918799-b99b-450f-b3fe-c35bdd55221d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "81918799-b99b-450f-b3fe-c35bdd55221d",
+  "unityPlayUrl": "https://play.unity.com/en/games/81918799-b99b-450f-b3fe-c35bdd55221d/flappy-bird-style"
+}

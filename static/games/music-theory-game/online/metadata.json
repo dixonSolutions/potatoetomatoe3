@@ -1,0 +1,14 @@
+{
+  "id": "music-theory-game",
+  "name": "Music Theory Game",
+  "author": "nickjoshualee",
+  "description": "As part of Lee Wai Kit Nick's CO3320 Project \nSRN: 180295782\n\nDo the survey here after playing if you can! \nhttps://forms.gle/7hGv8sT4baLUK79T8",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44705bb0-2761-43c2-adc4-6ce3493474f0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "44705bb0-2761-43c2-adc4-6ce3493474f0",
+  "unityPlayUrl": "https://play.unity.com/en/games/44705bb0-2761-43c2-adc4-6ce3493474f0/music-theory-game"
+}

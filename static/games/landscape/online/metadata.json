@@ -1,0 +1,14 @@
+{
+  "id": "landscape",
+  "name": "Landscape",
+  "author": "Soico",
+  "description": "Lakeside scene",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/cd0ea7e3-686a-4197-9dbf-422154e24ad0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7146076f-94e6-4b39-9f28-4e356fa99409/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7146076f-94e6-4b39-9f28-4e356fa99409",
+  "unityPlayUrl": "https://play.unity.com/en/games/7146076f-94e6-4b39-9f28-4e356fa99409/landscape"
+}

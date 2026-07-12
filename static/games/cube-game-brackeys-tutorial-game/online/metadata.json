@@ -1,0 +1,14 @@
+{
+  "id": "cube-game-brackeys-tutorial-game",
+  "name": "Cube Game (Brackeys Tutorial Game)",
+  "author": "SlyPuffin",
+  "description": "First run-through from scratch of a Unity game. Thanks to Brackeys for the tutorials! Move with \"a\" and \"d\".",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fc1117a-6092-4432-8168-c79bbb2a0909/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3fc1117a-6092-4432-8168-c79bbb2a0909",
+  "unityPlayUrl": "https://play.unity.com/en/games/3fc1117a-6092-4432-8168-c79bbb2a0909/cube-game-brackeys-tutorial-game"
+}

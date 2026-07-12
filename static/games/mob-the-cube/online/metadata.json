@@ -1,0 +1,14 @@
+{
+  "id": "mob-the-cube",
+  "name": "Mob the Cube",
+  "author": "Shellcial",
+  "description": "Mob the Cube Tutorials",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b8529c13-bdae-4195-9ec3-e56f80db438f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e02c9c3-e73b-4155-97a0-98cb6acf5c39/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0e02c9c3-e73b-4155-97a0-98cb6acf5c39",
+  "unityPlayUrl": "https://play.unity.com/en/games/0e02c9c3-e73b-4155-97a0-98cb6acf5c39/mob-the-cube"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "teraform",
+  "name": "TeraForm",
+  "author": "usamabinimran",
+  "description": "TeraForm is an immersive, sci-fi adventure game that takes players on a journey through a fractured multiverse of wildly different worlds.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/48430e98-649f-4e95-8e79-36f086edf434/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0114824c-01a0-4b2f-88fd-62670ee8ef09/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0114824c-01a0-4b2f-88fd-62670ee8ef09",
+  "unityPlayUrl": "https://play.unity.com/en/games/0114824c-01a0-4b2f-88fd-62670ee8ef09/teraform"
+}

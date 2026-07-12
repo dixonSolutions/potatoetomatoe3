@@ -1,0 +1,14 @@
+{
+  "id": "rock-paper-scissors-shoot",
+  "name": "Rock, Paper, Scissors: SHOOT!",
+  "author": "tsagebolton",
+  "description": "PLAY IN FULL SCREEN MODE! Rock, Paper, Scissors meets Tower Defense. Use your # keys 1-3 and your left and right arrow to play.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/759b296a-a1c5-4d15-b3bc-5369cc405e36/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cfda6215-6772-4184-9d32-54bcf2d4c792/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "cfda6215-6772-4184-9d32-54bcf2d4c792",
+  "unityPlayUrl": "https://play.unity.com/en/games/cfda6215-6772-4184-9d32-54bcf2d4c792/rock-paper-scissors-shoot"
+}

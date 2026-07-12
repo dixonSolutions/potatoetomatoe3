@@ -1,0 +1,14 @@
+{
+  "id": "marius-kart",
+  "name": "Marius Kart",
+  "author": "Hydrias",
+  "description": "Play Marius Kart on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/22454a6a-4c2d-42f2-9316-ef30f99c2f58/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4228d992-2dba-4e60-a1f4-fee1722baccb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "4228d992-2dba-4e60-a1f4-fee1722baccb",
+  "unityPlayUrl": "https://play.unity.com/en/games/4228d992-2dba-4e60-a1f4-fee1722baccb/marius-kart"
+}

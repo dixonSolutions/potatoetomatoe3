@@ -1,0 +1,14 @@
+{
+  "id": "deadlines-fps-shooter-12",
+  "name": "Deadlines FPS Shooter 1.2",
+  "author": "Spacewizard-",
+  "description": "Try to defeat enemies in various difficulties.\n\nChanges:\n-Fixed lights \n-Fixed death animations.\n-Adjusted memory management.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/8c3c438c-abb7-4df1-877f-b7d0a5ea7009/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0cde301e-13a9-4b3d-b757-ed6df636f252/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0cde301e-13a9-4b3d-b757-ed6df636f252",
+  "unityPlayUrl": "https://play.unity.com/en/games/0cde301e-13a9-4b3d-b757-ed6df636f252/deadlines-fps-shooter-12"
+}

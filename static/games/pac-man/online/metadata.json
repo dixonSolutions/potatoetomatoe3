@@ -1,0 +1,14 @@
+{
+  "id": "pac-man",
+  "name": "pac-man",
+  "author": "clmr83",
+  "description": "3d pac-man",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7055f6b9-186e-4f97-aa1a-317cbbdca589/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7055f6b9-186e-4f97-aa1a-317cbbdca589",
+  "unityPlayUrl": "https://play.unity.com/en/games/7055f6b9-186e-4f97-aa1a-317cbbdca589/pac-man"
+}

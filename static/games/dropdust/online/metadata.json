@@ -1,0 +1,14 @@
+{
+  "id": "dropdust",
+  "name": "DropDust",
+  "author": "unity_3DB77D050AE0CE5AB6DB",
+  "description": "Juego realizado por un grupo de estudiantes del centro de estudios Esic, para la asignatura Desarrollo de Entornos Interactivos Multidispositivo, junto con nuestra querida profesora. Para una mejor experiencia de juego es recomendable jugar en pantalla completa y activar el sonido, darle al botón de \"Empezar Juego\" y empezar a jugar haciendo \"click\" en la pantalla con el ratón. El objetivo es que Dusty, el protagonista, recoja llaves y salve a sus compañeros, mientras recoge gemas coleccionables y llega al final del nivel, sin tocar el entorno que le rodea ya que será \"Game Over\". ¡Espero que lo disfrutéis!",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11283f0a-42cb-418e-a9bc-1ba4c4f7bf68/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "11283f0a-42cb-418e-a9bc-1ba4c4f7bf68",
+  "unityPlayUrl": "https://play.unity.com/en/games/11283f0a-42cb-418e-a9bc-1ba4c4f7bf68/dropdust"
+}

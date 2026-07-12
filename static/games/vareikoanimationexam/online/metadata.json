@@ -1,0 +1,14 @@
+{
+  "id": "vareikoanimationexam",
+  "name": "Vareiko_Animation_Exam",
+  "author": "lobo1omy",
+  "description": "Press space to jump, Press H to change idle animation.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c8f6ef6-4e05-4e75-be16-6f1715abea72/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c8f6ef6-4e05-4e75-be16-6f1715abea72",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c8f6ef6-4e05-4e75-be16-6f1715abea72/vareikoanimationexam"
+}

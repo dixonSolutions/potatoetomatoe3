@@ -1,0 +1,14 @@
+{
+  "id": "gauntlet",
+  "name": "Gauntlet",
+  "author": "remeran",
+  "description": "Slay as many orcs as possible! This is the lab project I created for the Create with Code course. I augmented it for the Junior programmer - data persistence submission as well. I added a high score that's tracked between scenes and sessions.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b0dd74d1-0ce1-4fb1-9de1-f775125193ba/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/321c6946-26ac-446a-a910-22ca06936857/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "321c6946-26ac-446a-a910-22ca06936857",
+  "unityPlayUrl": "https://play.unity.com/en/games/321c6946-26ac-446a-a910-22ca06936857/gauntlet"
+}

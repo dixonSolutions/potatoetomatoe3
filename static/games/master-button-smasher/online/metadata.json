@@ -1,0 +1,14 @@
+{
+  "id": "master-button-smasher",
+  "name": "Master Button Smasher",
+  "author": "briant_001",
+  "description": "My entry for NinjaGo x Unity 1-Button Game Challenge. Tap to attack; tap and hold to run towards an enemy; tap, tap and hold to perform the Spinjitzu.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6b7b9b12-9b1e-4406-bdee-50dd5f0456ad/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d5b0f556-ef72-40d1-ae82-10d07f21092c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "d5b0f556-ef72-40d1-ae82-10d07f21092c",
+  "unityPlayUrl": "https://play.unity.com/en/games/d5b0f556-ef72-40d1-ae82-10d07f21092c/master-button-smasher"
+}

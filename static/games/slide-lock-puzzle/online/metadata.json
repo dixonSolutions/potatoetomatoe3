@@ -1,0 +1,14 @@
+{
+  "id": "slide-lock-puzzle",
+  "name": "Slide Lock Puzzle",
+  "author": "Xinophilius",
+  "description": "Left and Right arrows to move the slide. Spacebar to rotate the lock in the swap space.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/48fda4cf-cbb5-4d10-960b-6655a257e971/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e2f559e-da0e-46e8-81e9-3048f7ea77f0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0e2f559e-da0e-46e8-81e9-3048f7ea77f0",
+  "unityPlayUrl": "https://play.unity.com/en/games/0e2f559e-da0e-46e8-81e9-3048f7ea77f0/slide-lock-puzzle"
+}

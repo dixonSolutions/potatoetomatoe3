@@ -1,0 +1,14 @@
+{
+  "id": "ball-in-the-hole",
+  "name": "Ball In The Hole",
+  "author": "jdaviee",
+  "description": "Procedurally generated game in which you must tilt the board to get the ball in the hole, watch out for those pesky barriers though! This took me a total of 22 hours and 40 minutes and was done without following any tutorials.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ee2e8d09-b0ae-4cff-824f-3a9ed9de2989/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/466caf42-5392-49fe-86b0-3f658968671c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "466caf42-5392-49fe-86b0-3f658968671c",
+  "unityPlayUrl": "https://play.unity.com/en/games/466caf42-5392-49fe-86b0-3f658968671c/ball-in-the-hole"
+}

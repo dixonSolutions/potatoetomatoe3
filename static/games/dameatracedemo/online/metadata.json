@@ -1,0 +1,14 @@
+{
+  "id": "dameatracedemo",
+  "name": "DaMeatRaceDemo",
+  "author": "MeoJust",
+  "description": "Simple arcade racing game. Download for free(with more cars and tracks)https://meojust.itch.io/crazy-races-for-the-fun-of-evil-robots",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d655f99f-4641-4396-9f93-b57262c4466f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5ebb6ad6-0c6c-4960-93e0-6627dd8e40d1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5ebb6ad6-0c6c-4960-93e0-6627dd8e40d1",
+  "unityPlayUrl": "https://play.unity.com/en/games/5ebb6ad6-0c6c-4960-93e0-6627dd8e40d1/dameatracedemo"
+}

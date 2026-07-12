@@ -1,0 +1,14 @@
+{
+  "id": "prototype-2-from-unitys-create-with-code-course",
+  "name": "Prototype 2 (from Unity's \"Create with Code\" course)",
+  "author": "silver-hornet",
+  "description": "Prototype 2 created during \"Create with Code\" course on Unity Learn Premium. Use left and right arrow keys to move; space bar to feed animals pizza.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f515ebb9-e409-4ceb-991c-8de7e9f1d70c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/456ae0bb-4111-43fd-a24b-55896f274acd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "456ae0bb-4111-43fd-a24b-55896f274acd",
+  "unityPlayUrl": "https://play.unity.com/en/games/456ae0bb-4111-43fd-a24b-55896f274acd/prototype-2-from-unitys-create-with-code-course"
+}

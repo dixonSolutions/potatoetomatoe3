@@ -1,0 +1,14 @@
+{
+  "id": "the-adventure-of-goofert",
+  "name": "The Adventure of Goofert",
+  "author": "HackingtonsStudent",
+  "description": "Goofert an adventure!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/04ea16bf-19dd-4d25-8eac-0eb8d62a01a8/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e3338003-12bc-4626-a86a-9984b181544b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "e3338003-12bc-4626-a86a-9984b181544b",
+  "unityPlayUrl": "https://play.unity.com/en/games/e3338003-12bc-4626-a86a-9984b181544b/the-adventure-of-goofert"
+}

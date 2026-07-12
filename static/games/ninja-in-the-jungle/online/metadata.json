@@ -1,0 +1,14 @@
+{
+  "id": "ninja-in-the-jungle",
+  "name": "Ninja in the Jungle",
+  "author": "Joserodolfocuellarv",
+  "description": "Juego de plataformas hecho en la clase de motores gráficos 1.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a1d8f908-b3c3-4a3e-aebb-c5bafd259fc0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a3f2df6-be45-43eb-bc6a-4fe8e6cbf941/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a3f2df6-be45-43eb-bc6a-4fe8e6cbf941",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a3f2df6-be45-43eb-bc6a-4fe8e6cbf941/ninja-in-the-jungle"
+}

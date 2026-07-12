@@ -1,0 +1,14 @@
+{
+  "id": "trial-demo",
+  "name": "Trial Demo",
+  "author": "unity_E7D9ABC0A0D419D95011",
+  "description": "FPS microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/627ea33e-9058-44f0-a101-6977fd7b6932/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42dd0ea6-e9d5-409f-9a31-29b5089ad542/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "42dd0ea6-e9d5-409f-9a31-29b5089ad542",
+  "unityPlayUrl": "https://play.unity.com/en/games/42dd0ea6-e9d5-409f-9a31-29b5089ad542/trial-demo"
+}

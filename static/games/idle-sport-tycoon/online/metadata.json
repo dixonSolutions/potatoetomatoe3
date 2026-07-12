@@ -1,0 +1,14 @@
+{
+  "id": "idle-sport-tycoon",
+  "name": "Idle Sport Tycoon",
+  "author": "FungousSoup7421",
+  "description": "Idle Sport Tycoon",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05d9bcb0-9d3c-4f7a-9604-604e999bc21d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "05d9bcb0-9d3c-4f7a-9604-604e999bc21d",
+  "unityPlayUrl": "https://play.unity.com/en/games/05d9bcb0-9d3c-4f7a-9604-604e999bc21d/idle-sport-tycoon"
+}

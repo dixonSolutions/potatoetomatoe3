@@ -1,0 +1,14 @@
+{
+  "id": "tttt",
+  "name": "TTTT",
+  "author": "gjwnshys",
+  "description": "a",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44e4e1a2-4b23-4ce2-ae4f-9b3a96f33cf8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "44e4e1a2-4b23-4ce2-ae4f-9b3a96f33cf8",
+  "unityPlayUrl": "https://play.unity.com/en/games/44e4e1a2-4b23-4ce2-ae4f-9b3a96f33cf8/tttt"
+}

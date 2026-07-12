@@ -1,0 +1,14 @@
+{
+  "id": "till-dawn",
+  "name": "Till Dawn",
+  "author": "sky-cyh",
+  "description": "This game is a survival game, where players need to survive in a world full of enemies and treasure chests.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/082f24d6-dbb5-4891-83c4-403ce26fa6e6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "082f24d6-dbb5-4891-83c4-403ce26fa6e6",
+  "unityPlayUrl": "https://play.unity.com/en/games/082f24d6-dbb5-4891-83c4-403ce26fa6e6/till-dawn"
+}

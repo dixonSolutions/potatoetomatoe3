@@ -1,0 +1,14 @@
+{
+  "id": "publishforusteam",
+  "name": "PublishForUSTeam",
+  "author": "UjjwalPrakash",
+  "description": "Play PublishForUSTeam on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1834bd3b-eb18-4cf0-9acf-e969e839eed7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/afe371a8-b87e-4bda-8b05-b626c0ca5310/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "afe371a8-b87e-4bda-8b05-b626c0ca5310",
+  "unityPlayUrl": "https://play.unity.com/en/games/afe371a8-b87e-4bda-8b05-b626c0ca5310/publishforusteam"
+}

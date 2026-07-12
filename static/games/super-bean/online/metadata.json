@@ -1,0 +1,14 @@
+{
+  "id": "super-bean",
+  "name": "Super Bean",
+  "author": "GrimCrayon",
+  "description": "My first project. The goal of the game is to get to the end of the level with as many coins as possible. The game is quite challenging at times, but that is what makes the game fun! EDIT: THE SOUND IS FIXED",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ff370ce-6c34-48b9-b91e-178fc80d7bd9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0ff370ce-6c34-48b9-b91e-178fc80d7bd9",
+  "unityPlayUrl": "https://play.unity.com/en/games/0ff370ce-6c34-48b9-b91e-178fc80d7bd9/super-bean"
+}

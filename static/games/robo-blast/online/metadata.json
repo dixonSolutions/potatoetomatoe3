@@ -1,0 +1,14 @@
+{
+  "id": "robo-blast",
+  "name": "Robo Blast",
+  "author": "OLingWhyNot",
+  "description": "UPDATE -Bug fix",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4cca2408-1355-48af-8372-2c7f5bc515c1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0de2a18b-7006-420a-8110-7c361e527b64/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0de2a18b-7006-420a-8110-7c361e527b64",
+  "unityPlayUrl": "https://play.unity.com/en/games/0de2a18b-7006-420a-8110-7c361e527b64/robo-blast"
+}

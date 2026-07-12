@@ -1,0 +1,14 @@
+{
+  "id": "shipwreck-island",
+  "name": "Shipwreck Island",
+  "author": "praemitto",
+  "description": "Explore the shipwreck to open the path to the treasure, but watch out for the guard pigs!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/660f766b-3951-42c9-a674-33430a4c6e62/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08f5f03e-1824-46d1-8631-1e0944d51975/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "08f5f03e-1824-46d1-8631-1e0944d51975",
+  "unityPlayUrl": "https://play.unity.com/en/games/08f5f03e-1824-46d1-8631-1e0944d51975/shipwreck-island"
+}

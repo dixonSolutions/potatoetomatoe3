@@ -1,0 +1,14 @@
+{
+  "id": "zombie-rescue",
+  "name": "Zombie Rescue",
+  "author": "Angop",
+  "description": "Find and rescue your lost pet fox, and defeat any zombies who stand in your way!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/42ba2fa3-b45a-4c38-90a6-99d56a8b5784/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a517b45-eb18-4851-bff7-6d5ee2718d2c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2a517b45-eb18-4851-bff7-6d5ee2718d2c",
+  "unityPlayUrl": "https://play.unity.com/en/games/2a517b45-eb18-4851-bff7-6d5ee2718d2c/zombie-rescue"
+}

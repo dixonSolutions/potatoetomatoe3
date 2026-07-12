@@ -1,0 +1,14 @@
+{
+  "id": "web-karatesharp",
+  "name": "Web-KarateSharp",
+  "author": "guimoramortes",
+  "description": "Genre: Action and platforms.\n\nYou control a karate fighter on a mission to save the heroes of a city that has been overrun by the mafia.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c954abc6-b2c7-4c8e-a51b-77b32f640640/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/007d244b-08bd-49e4-8a24-b8cbff35e84f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "007d244b-08bd-49e4-8a24-b8cbff35e84f",
+  "unityPlayUrl": "https://play.unity.com/en/games/007d244b-08bd-49e4-8a24-b8cbff35e84f/web-karatesharp"
+}

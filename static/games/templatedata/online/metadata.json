@@ -1,0 +1,14 @@
+{
+  "id": "templatedata",
+  "name": "TemplateData",
+  "author": "Alejorozco",
+  "description": "Play TemplateData on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3f2245a9-3581-4cb8-baf5-f198b7aba92a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f32d9d-3ff6-42d2-a476-a18abb827b4c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00f32d9d-3ff6-42d2-a476-a18abb827b4c",
+  "unityPlayUrl": "https://play.unity.com/en/games/00f32d9d-3ff6-42d2-a476-a18abb827b4c/templatedata"
+}

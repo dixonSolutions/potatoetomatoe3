@@ -1,0 +1,14 @@
+{
+  "id": "afroshoot",
+  "name": "AfroShoot",
+  "author": "dehmieJo",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/19d4b6c9-dba5-49b6-b07f-e379dc8220fc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02d1c438-7334-40a8-9dab-684d6090dea5/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02d1c438-7334-40a8-9dab-684d6090dea5",
+  "unityPlayUrl": "https://play.unity.com/en/games/02d1c438-7334-40a8-9dab-684d6090dea5/afroshoot"
+}

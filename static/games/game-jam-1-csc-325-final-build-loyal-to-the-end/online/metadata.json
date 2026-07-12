@@ -1,0 +1,14 @@
+{
+  "id": "game-jam-1-csc-325-final-build-loyal-to-the-end",
+  "name": "Game Jam 1 CSC 325 Final Build (Loyal to the End)",
+  "author": "smathes",
+  "description": "Controls: Movement is done with ASWD. There are wings that are expanded by the Left and Right Clicks. Protect the MotherShip for as long as you possibly can. \nResources:\n\nhttps://cutewallpaper.org/21/repeating-space-background/view-page-21.html\n\nhttp://spiralgraphics.biz/packs/terrain_desert_barren/index.htm?16\n\nhttps://assetstore.unity.com/packages/audio/sound-fx/retro-sci-fi-pack-61781\n\n\nAssistance with understanding colliders by a user known as Blazen#7644 in discord.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22ee4e42-ca77-4ae4-ab93-520e6edc1009/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "22ee4e42-ca77-4ae4-ab93-520e6edc1009",
+  "unityPlayUrl": "https://play.unity.com/en/games/22ee4e42-ca77-4ae4-ab93-520e6edc1009/game-jam-1-csc-325-final-build-loyal-to-the-end"
+}

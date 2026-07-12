@@ -1,0 +1,14 @@
+{
+  "id": "anime-marathon",
+  "name": "Anime Marathon",
+  "author": "SabrinaBP",
+  "description": "Used a custom character and hooked up the animations myself. Did all the bonus challenges (double jump, walk-in start, randomised obstacles, dash and score). Also included restart button, bonus points pick-ups and an entertaining dash animation. Enjoy! Made for Unit 3 of Create with Code.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e22e92f2-ddd4-4e5c-94bc-ddef6e507464/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c25ff830-be19-45e3-8227-de1f12c94577/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c25ff830-be19-45e3-8227-de1f12c94577",
+  "unityPlayUrl": "https://play.unity.com/en/games/c25ff830-be19-45e3-8227-de1f12c94577/anime-marathon"
+}

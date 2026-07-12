@@ -1,0 +1,14 @@
+{
+  "id": "ball-blast",
+  "name": "BALL BLAST",
+  "author": "behroz340",
+  "description": "Ball Blast is an addictive, fast-paced arcade game that challenges players to shoot balls at descending blocks to clear the screen.\n\nStay updated for the next amazing Games.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1a79fda4-5ae8-451b-8f0d-74d350d261d4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/289dd4b2-6654-4ae5-a561-b658469f9ca0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "289dd4b2-6654-4ae5-a561-b658469f9ca0",
+  "unityPlayUrl": "https://play.unity.com/en/games/289dd4b2-6654-4ae5-a561-b658469f9ca0/ball-blast"
+}

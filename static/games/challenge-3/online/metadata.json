@@ -1,0 +1,14 @@
+{
+  "id": "challenge-3",
+  "name": "Challenge 3",
+  "author": "truestone",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7dede167-f632-4249-9bd4-4b87a94ec311/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b9beca8c-dd21-48f8-b789-325ef160e8aa/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b9beca8c-dd21-48f8-b789-325ef160e8aa",
+  "unityPlayUrl": "https://play.unity.com/en/games/b9beca8c-dd21-48f8-b789-325ef160e8aa/challenge-3"
+}

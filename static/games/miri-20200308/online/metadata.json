@@ -1,0 +1,14 @@
+{
+  "id": "miri-20200308",
+  "name": "miri-20200308",
+  "author": "mirimiriri",
+  "description": "操作方法：WASDキーで移動、Wキー移動中スペースキーでジャンプ",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5c398cf3-6827-478f-8ce8-e9bfad786e80/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02dc8ff5-5b6b-4ea9-bde1-204d518fe862/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02dc8ff5-5b6b-4ea9-bde1-204d518fe862",
+  "unityPlayUrl": "https://play.unity.com/en/games/02dc8ff5-5b6b-4ea9-bde1-204d518fe862/miri-20200308"
+}

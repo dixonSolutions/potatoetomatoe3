@@ -1,0 +1,14 @@
+{
+  "id": "cruiser-survival",
+  "name": "Cruiser Survival",
+  "author": "Spanners229",
+  "description": "Play Cruiser Survival on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/82f79071-cac7-48a0-b59f-84cf6208486f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/38c3e9ac-04bb-44ce-9dd2-c1b1af9ded69/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "38c3e9ac-04bb-44ce-9dd2-c1b1af9ded69",
+  "unityPlayUrl": "https://play.unity.com/en/games/38c3e9ac-04bb-44ce-9dd2-c1b1af9ded69/cruiser-survival"
+}

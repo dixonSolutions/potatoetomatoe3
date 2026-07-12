@@ -1,0 +1,14 @@
+{
+  "id": "area-53-game",
+  "name": "Area 53 Game",
+  "author": "mehmetyusufbilge",
+  "description": "WASD for Movement,                                                                                                    E for Special Ability,                                                                                     SPACE for Jumping,                                                                                               F for Frozing Time,                                                                                       Please play in full screen. The aim of the game is to find the white/yellow cube by navigating the maze. Click \"Clear Choices\" from the OPTIONS section to reset your character. Click \"Delete Saves\" to start the game from the beginning.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b6e6d84-5a06-4c04-885f-a7ad2e4b58a3/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0b6e6d84-5a06-4c04-885f-a7ad2e4b58a3",
+  "unityPlayUrl": "https://play.unity.com/en/games/0b6e6d84-5a06-4c04-885f-a7ad2e4b58a3/area-53-game"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "rpg-village",
+  "name": "RPG Village",
+  "author": "theNfan",
+  "description": "Just a night scene in an RGP village. You can walk around and behold the lighting, but not really do anythining.\n\nLanterns, candle and directional light is baked in. Most objects are static, except small items like jugs and vases. Light probes have been added to light those and the avatar.\n\nThis has been created as the Cinematic Lighting exercise for the Creative Core Pathway.\n\nUsed assets:\n\nhttps://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-hero-pbr-hp-polyart-121480\nhttps://assetstore.unity.com/packages/3d/environments/landscapes/rpg-poly-pack-lite-148410\nhttps://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776\nhttps://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526\nhttps://freesound.org/people/1ratatosk1/sounds/245826/\nhttps://freesound.org/people/Electroviolence/sounds/234542/",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b65170d5-e3b2-4ae0-89ef-9e96ea1e967c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8d689f84-404a-4f61-a421-77959fb985a2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8d689f84-404a-4f61-a421-77959fb985a2",
+  "unityPlayUrl": "https://play.unity.com/en/games/8d689f84-404a-4f61-a421-77959fb985a2/rpg-village"
+}

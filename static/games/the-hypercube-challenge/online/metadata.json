@@ -1,0 +1,14 @@
+{
+  "id": "the-hypercube-challenge",
+  "name": "the hypercube challenge",
+  "author": "HackingtonsStudent",
+  "description": "the hypercube challenge is a hypercube game with 4 (technically 5) levels. it is fun but hard. (obviously level 1 is easiest but level 4 is hardest)... HAVE FUN!!!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/310a1267-17cc-422f-bf24-c4a683b5ea34/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7b4132be-e20b-4a78-b0a4-f61df9e0dc08/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "7b4132be-e20b-4a78-b0a4-f61df9e0dc08",
+  "unityPlayUrl": "https://play.unity.com/en/games/7b4132be-e20b-4a78-b0a4-f61df9e0dc08/the-hypercube-challenge"
+}

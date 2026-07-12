@@ -1,0 +1,14 @@
+{
+  "id": "final-rest",
+  "name": "Final Rest",
+  "author": "maurocunha0710",
+  "description": "Simple Unity3D Zombie FPS Game\nThree levels to play (Easy, Medium & Hard)\n\n- Good luck putting them to the ground one last time! -\n\n* The [ Exit ] button is unavailable in the WebGL Build., if clicked please refresh the page.\n\nDeveloped by Mauro Cunha [2024]\nhttps://github.com/cunhamauro\nhttps://www.linkedin.com/in/cunhamauro/",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/13e5e8b7-f7e8-4ef6-8a18-85312708d3f6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/133d22b6-08e7-4e03-a56c-5b76d08bc246/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "133d22b6-08e7-4e03-a56c-5b76d08bc246",
+  "unityPlayUrl": "https://play.unity.com/en/games/133d22b6-08e7-4e03-a56c-5b76d08bc246/final-rest"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "pixel-crusade",
+  "name": "Pixel Crusade",
+  "author": "NobleMode",
+  "description": "Very WIP",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0b539ea9-3e3f-453e-b061-e3fe101e7713/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/006e2d9f-b739-4fd0-ade3-825e0e0e396f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "006e2d9f-b739-4fd0-ade3-825e0e0e396f",
+  "unityPlayUrl": "https://play.unity.com/en/games/006e2d9f-b739-4fd0-ade3-825e0e0e396f/pixel-crusade"
+}

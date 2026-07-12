@@ -1,0 +1,14 @@
+{
+  "id": "robot-rampage-mk2",
+  "name": "Robot Rampage Mk.2",
+  "author": "philip_abang",
+  "description": "My latest microgame in Unity. This game is based on FPS-Microgame modified with free assets on the Asset Store. Hope you enjoyed it.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c41af0c9-6cfe-41d3-8746-53f326ce0175/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bab846f1-6db6-4d3a-b935-4d2f337243a5/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bab846f1-6db6-4d3a-b935-4d2f337243a5",
+  "unityPlayUrl": "https://play.unity.com/en/games/bab846f1-6db6-4d3a-b935-4d2f337243a5/robot-rampage-mk2"
+}

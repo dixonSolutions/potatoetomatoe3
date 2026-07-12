@@ -1,0 +1,14 @@
+{
+  "id": "final-halloween-track-version",
+  "name": "Final Halloween Track version",
+  "author": "Densartay",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6a6cb9c8-e5c0-476f-b223-45df39c0f2f2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6a6cb9c8-e5c0-476f-b223-45df39c0f2f2",
+  "unityPlayUrl": "https://play.unity.com/en/games/6a6cb9c8-e5c0-476f-b223-45df39c0f2f2/final-halloween-track-version"
+}

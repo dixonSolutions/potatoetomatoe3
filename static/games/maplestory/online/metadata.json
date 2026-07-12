@@ -1,0 +1,14 @@
+{
+  "id": "maplestory",
+  "name": "Maplestory",
+  "author": "Afergan11_Studios",
+  "description": "This is a little homage I made to the classic game Maplestory.\nas part of my Game Development course.\n\nThis is one of the first 2D projects.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/cedc8d49-dd10-42f6-a58e-90b839bdb8f6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/727d069a-bbac-4bfd-8f51-dc02564d7e0d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "727d069a-bbac-4bfd-8f51-dc02564d7e0d",
+  "unityPlayUrl": "https://play.unity.com/en/games/727d069a-bbac-4bfd-8f51-dc02564d7e0d/maplestory"
+}

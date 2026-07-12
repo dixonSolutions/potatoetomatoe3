@@ -1,0 +1,14 @@
+{
+  "id": "beer-run",
+  "name": "Beer Run",
+  "author": "iAmChrisBro",
+  "description": "Beer Run is an Indie game created to steal beers from supermarkets. Three guys with a plan to steal more beer after running out, they go into multiple grocery stores to rob beer. Security guards are the enemy while the characters intend to rob from a store. As you progress throughout the game, each level gets harder by improving their security system. Multiple security guards in certain levels that make it tough to steal without being caught. As you collect more beers the character starts to slow down from all the weight being carried, creating another challenge besides evading the security. \n\nFeatures include - \nLimited carrying supply\nSlowed down speed when carrying beers.\nCan drop beers to gain speed.\n3-star reward system\nStory\n3 different characters",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/20ffec6e-be11-488d-8b1f-b56f7f56927b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e9a8d9b-f604-4245-baec-5b7a85ccd314/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2e9a8d9b-f604-4245-baec-5b7a85ccd314",
+  "unityPlayUrl": "https://play.unity.com/en/games/2e9a8d9b-f604-4245-baec-5b7a85ccd314/beer-run"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "just-a-dream",
+  "name": "Just A Dream?",
+  "author": "pablomarpan",
+  "description": "Play Just A Dream? on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/471b0ed1-7ff1-4c22-9ad5-cc716623c263/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df130889-58cd-4a0c-8565-004c2c1e30a4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "df130889-58cd-4a0c-8565-004c2c1e30a4",
+  "unityPlayUrl": "https://play.unity.com/en/games/df130889-58cd-4a0c-8565-004c2c1e30a4/just-a-dream"
+}

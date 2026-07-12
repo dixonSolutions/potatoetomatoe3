@@ -1,0 +1,14 @@
+{
+  "id": "crash",
+  "name": "Crash",
+  "author": "car20134",
+  "description": "some car crash game I guess. fps counter is glitchy, as is everything",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/03be6e64-460f-4765-8b3a-f9944afaf2bd/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/300f0a51-ce87-43a3-a485-f3308657a7e9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "300f0a51-ce87-43a3-a485-f3308657a7e9",
+  "unityPlayUrl": "https://play.unity.com/en/games/300f0a51-ce87-43a3-a485-f3308657a7e9/crash"
+}

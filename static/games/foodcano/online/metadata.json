@@ -1,0 +1,14 @@
+{
+  "id": "foodcano",
+  "name": "Foodcano",
+  "author": "cathNotcat",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/65414f63-9ac8-4d20-9436-bdd6950aeead/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a8993b4-d0c4-4009-b0bb-9abbc1da926f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a8993b4-d0c4-4009-b0bb-9abbc1da926f",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a8993b4-d0c4-4009-b0bb-9abbc1da926f/foodcano"
+}

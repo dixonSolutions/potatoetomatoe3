@@ -1,0 +1,14 @@
+{
+  "id": "challenge-1-with-plane",
+  "name": "Challenge 1 with Plane",
+  "author": "sanatokarev2",
+  "description": "Another small scene of Prototype 1 from Unitu-learn \"Challenge 1\" lesson, course \"Junior programmer\"\n\nUse arrows up and down to control the plane",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bdb90df6-02e1-4f89-baa8-e66415fd7be1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bdb90df6-02e1-4f89-baa8-e66415fd7be1",
+  "unityPlayUrl": "https://play.unity.com/en/games/bdb90df6-02e1-4f89-baa8-e66415fd7be1/challenge-1-with-plane"
+}

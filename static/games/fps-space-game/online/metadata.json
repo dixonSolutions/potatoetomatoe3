@@ -1,0 +1,14 @@
+{
+  "id": "fps-space-game",
+  "name": "fps space game",
+  "author": "hmzys",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9c26ec8d-b258-4e19-b899-db13b0e27d19/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf9dbf38-48c3-479b-8eab-e17df95dcb28/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bf9dbf38-48c3-479b-8eab-e17df95dcb28",
+  "unityPlayUrl": "https://play.unity.com/en/games/bf9dbf38-48c3-479b-8eab-e17df95dcb28/fps-space-game"
+}

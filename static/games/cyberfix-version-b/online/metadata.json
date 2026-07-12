@@ -1,0 +1,14 @@
+{
+  "id": "cyberfix-version-b",
+  "name": "CyberFix Version B",
+  "author": "Linatic",
+  "description": "CyberFix Version B for testing",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b93b83b-638b-4c77-8fe5-2dd347a5112e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0b93b83b-638b-4c77-8fe5-2dd347a5112e",
+  "unityPlayUrl": "https://play.unity.com/en/games/0b93b83b-638b-4c77-8fe5-2dd347a5112e/cyberfix-version-b"
+}

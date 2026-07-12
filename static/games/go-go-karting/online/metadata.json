@@ -1,0 +1,14 @@
+{
+  "id": "go-go-karting",
+  "name": "Go-Go Karting",
+  "author": "captainmap",
+  "description": "Game_Dev_05LE1",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1122af08-d8f6-4537-8fcd-b97647a1b78d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1122af08-d8f6-4537-8fcd-b97647a1b78d",
+  "unityPlayUrl": "https://play.unity.com/en/games/1122af08-d8f6-4537-8fcd-b97647a1b78d/go-go-karting"
+}

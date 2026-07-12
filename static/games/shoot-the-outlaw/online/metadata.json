@@ -1,0 +1,14 @@
+{
+  "id": "shoot-the-outlaw",
+  "name": "Shoot The Outlaw",
+  "author": "dlyubich",
+  "description": "A small shooting game demonstrating the principles of OOP developed for the Junior Programmer pathway course.\n\nShoot the bad guys, don't shoot the good girls, conserve ammo and survive!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2b9785a1-b250-4e5e-96e7-c45da433d377/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1be83b0c-991a-470f-97b6-3b044673b0fc/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1be83b0c-991a-470f-97b6-3b044673b0fc",
+  "unityPlayUrl": "https://play.unity.com/en/games/1be83b0c-991a-470f-97b6-3b044673b0fc/shoot-the-outlaw"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "foodadventure",
+  "name": "FoodAdventure",
+  "author": "ak1240758",
+  "description": "My latest microgame. This is my mini project please feel free to comment your valuable suggestions as comments. It will help me a lot to improve my skills.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b2b065e0-537a-470f-b297-c3046ec25cb1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b2ff553a-561a-4c52-b005-70dfd99c97ec/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b2ff553a-561a-4c52-b005-70dfd99c97ec",
+  "unityPlayUrl": "https://play.unity.com/en/games/b2ff553a-561a-4c52-b005-70dfd99c97ec/foodadventure"
+}

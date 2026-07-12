@@ -1,0 +1,14 @@
+{
+  "id": "a-simple-driving-game",
+  "name": "A Simple Driving Game",
+  "author": "max294628",
+  "description": "Controls = WASD/Arrow Keys",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2ec18f61-7113-4d2a-a6e5-055deecf7af2/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d91c4a0-b65c-42cf-ac84-4c89df2e83a7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0d91c4a0-b65c-42cf-ac84-4c89df2e83a7",
+  "unityPlayUrl": "https://play.unity.com/en/games/0d91c4a0-b65c-42cf-ac84-4c89df2e83a7/a-simple-driving-game"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "firstproject",
+  "name": "FirstProject",
+  "author": "IRzol",
+  "description": "Golyos jatek",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c6ffbd5b-6c71-4a2a-bd40-6043367cbd46/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3a573eeb-bd90-4121-9a97-4e7218627637/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3a573eeb-bd90-4121-9a97-4e7218627637",
+  "unityPlayUrl": "https://play.unity.com/en/games/3a573eeb-bd90-4121-9a97-4e7218627637/firstproject"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "star-catcher",
+  "name": "Star catcher",
+  "author": "aninagaraj808",
+  "description": "a demo game for the tutorial",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6debd62a-2f52-40f1-83c9-e288d70a4383/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6debd62a-2f52-40f1-83c9-e288d70a4383",
+  "unityPlayUrl": "https://play.unity.com/en/games/6debd62a-2f52-40f1-83c9-e288d70a4383/star-catcher"
+}

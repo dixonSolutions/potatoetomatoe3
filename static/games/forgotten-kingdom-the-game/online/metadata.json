@@ -1,0 +1,14 @@
+{
+  "id": "forgotten-kingdom-the-game",
+  "name": "Forgotten Kingdom the Game",
+  "author": "Venom1946",
+  "description": "Forgotten Kingdom is an alpha phase game made as a school project.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8e472ebc-3c3f-49bd-9445-a1e41fe7c1cb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8e472ebc-3c3f-49bd-9445-a1e41fe7c1cb",
+  "unityPlayUrl": "https://play.unity.com/en/games/8e472ebc-3c3f-49bd-9445-a1e41fe7c1cb/forgotten-kingdom-the-game"
+}

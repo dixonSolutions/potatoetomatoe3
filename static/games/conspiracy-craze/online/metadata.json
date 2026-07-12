@@ -1,0 +1,14 @@
+{
+  "id": "conspiracy-craze",
+  "name": "Conspiracy Craze!",
+  "author": "OmarSaid0",
+  "description": "A concept game during GGJ 2021, done in 48HRS, made by a team.\nCredits:\nGame Design: DieP\n\nArt Designers: MatchaGoga, Naru Lin, JED, graes_b4\n\nProgrammer: G3GaByte\n\nSound Designer: humanpyramids\n\nDescription:\n\nFour Conspiracy theorists have to find the truth, but one of them is a reptilian in disguise! Can the three humans find the real conspiracy before the reptilian reaches his goal? This is a investigative co-op game. One of the players is a reptilian that has to reach his goal without being exposed and the other players have to look for clues throughout different historical ages, while they lose everything: cards, identities and trust between each other.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3e7624d3-fa29-4233-9023-1cd59295620e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00a7311b-0922-44cd-baa5-ccfb18c0612a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00a7311b-0922-44cd-baa5-ccfb18c0612a",
+  "unityPlayUrl": "https://play.unity.com/en/games/00a7311b-0922-44cd-baa5-ccfb18c0612a/conspiracy-craze"
+}

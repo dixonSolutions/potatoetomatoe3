@@ -1,0 +1,14 @@
+{
+  "id": "first-3d-game-mhk",
+  "name": "first 3d game mhk",
+  "author": "irhs9u",
+  "description": "this is first",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/26d221fc-b4e9-48ea-9698-29f6513c1e41/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "26d221fc-b4e9-48ea-9698-29f6513c1e41",
+  "unityPlayUrl": "https://play.unity.com/en/games/26d221fc-b4e9-48ea-9698-29f6513c1e41/first-3d-game-mhk"
+}

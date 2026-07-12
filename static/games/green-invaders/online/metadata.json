@@ -1,0 +1,14 @@
+{
+  "id": "green-invaders",
+  "name": "Green Invaders",
+  "author": "ArchwayJay",
+  "description": "After working through a few beginner Unity Courses , this is my first basic game I created. Attempt to avoid the Green Invaders for along as you can ,  more invaders will teleport in as time passes. Try and survive for as long as you can and post your best times below. DEV BEST TIME :  113:01                                                         Assets that Helped the creation ;                                                                   \n // Free 2D Impact FX  (Particles)https://assetstore.unity.com/packages/vfx/particles/fire-explosions/free-2d-impact-fx-201222\n // Pbr Stylized Textures (Buildings and floor).https://assetstore.unity.com/packages/2d/textures-materials/building/pbr-stylized-textures-214513.                                              \n // Stylized Brick Texture (Walls) https://assetstore.unity.com/packages/2d/textures-materials/brick/stylized-brick-texture-213150                                                                                          //Garageband // https://twitter.com/ArchwayJay",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b604dd54-0db3-46c5-ad3f-bec3bcb9f9f6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/104a6ff3-e894-4856-a87b-fb062b3112f7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "104a6ff3-e894-4856-a87b-fb062b3112f7",
+  "unityPlayUrl": "https://play.unity.com/en/games/104a6ff3-e894-4856-a87b-fb062b3112f7/green-invaders"
+}

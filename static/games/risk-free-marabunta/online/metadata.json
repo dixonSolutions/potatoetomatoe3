@@ -1,0 +1,14 @@
+{
+  "id": "risk-free-marabunta",
+  "name": "Risk free marabunta",
+  "author": "RiskFreeGame",
+  "description": "Marabunta",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02a67408-2d12-4ef4-a71b-d9434532623f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02a67408-2d12-4ef4-a71b-d9434532623f",
+  "unityPlayUrl": "https://play.unity.com/en/games/02a67408-2d12-4ef4-a71b-d9434532623f/risk-free-marabunta"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "lk-my-first-game",
+  "name": "LK - My First Game",
+  "author": "Kolo13",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1713ad2e-9736-472a-b2a1-5a634be206b7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1713ad2e-9736-472a-b2a1-5a634be206b7",
+  "unityPlayUrl": "https://play.unity.com/en/games/1713ad2e-9736-472a-b2a1-5a634be206b7/lk-my-first-game"
+}

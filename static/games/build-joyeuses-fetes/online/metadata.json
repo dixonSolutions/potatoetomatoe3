@@ -1,0 +1,14 @@
+{
+  "id": "build-joyeuses-fetes",
+  "name": "Build Joyeuses Fetes",
+  "author": "warkworld",
+  "description": "Changement:\n1-mecanique pour appeler la lumière piéton\n2-optimisation charge décharge de modules\n3-systeme de progression\nSVP Ne pas utiliser le FRM a haute vitesse (3-4-5)\nSe termine au clocher",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/615b9fff-760c-4bc6-bab4-49db37a4f098/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "615b9fff-760c-4bc6-bab4-49db37a4f098",
+  "unityPlayUrl": "https://play.unity.com/en/games/615b9fff-760c-4bc6-bab4-49db37a4f098/build-joyeuses-fetes"
+}

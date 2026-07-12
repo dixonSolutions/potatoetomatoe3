@@ -1,0 +1,14 @@
+{
+  "id": "cave-master",
+  "name": "Cave Master",
+  "author": "constuehmer_unity",
+  "description": "Hey folks out there, this is our LEGO microgame. Try to get all the pumpkins and crystals in the cave. But be careful.... and watch out for all that is going on around you! - and for those who did not already discover: the walls are sticky and cost you a lot of time to get back on track!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9f2127bd-df22-4d91-ba87-7509daf9ce64/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c21a18ee-001f-4e1c-b1d4-5f488a630f30/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c21a18ee-001f-4e1c-b1d4-5f488a630f30",
+  "unityPlayUrl": "https://play.unity.com/en/games/c21a18ee-001f-4e1c-b1d4-5f488a630f30/cave-master"
+}

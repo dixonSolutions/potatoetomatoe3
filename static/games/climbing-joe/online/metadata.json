@@ -1,0 +1,14 @@
+{
+  "id": "climbing-joe",
+  "name": "Climbing Joe",
+  "author": "unity_100029140",
+  "description": "Joe is stuck in a ravine. Joe needs help. Help Joe climb out of the ravine.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d8ce826f-582f-42c4-9e1e-5c547a9ca065/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "d8ce826f-582f-42c4-9e1e-5c547a9ca065",
+  "unityPlayUrl": "https://play.unity.com/en/games/d8ce826f-582f-42c4-9e1e-5c547a9ca065/climbing-joe"
+}

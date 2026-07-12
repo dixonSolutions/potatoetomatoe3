@@ -1,0 +1,14 @@
+{
+  "id": "dumplings",
+  "name": "DUMPLings",
+  "author": "kngwayne27",
+  "description": "A shoot 'em up top down game about some kids and their dumplings.\n\nInstructions: \n[WASD] to move around\nHold [left click] or [left click] to fire projectiles\n[Right click] to place torches\n[Space]",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2bddcaa7-32d9-4e70-86df-19f58963ff56/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e37fa6c-2f3a-4021-88e6-7d9f77e0866f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5e37fa6c-2f3a-4021-88e6-7d9f77e0866f",
+  "unityPlayUrl": "https://play.unity.com/en/games/5e37fa6c-2f3a-4021-88e6-7d9f77e0866f/dumplings"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "just-a-normal-game",
+  "name": "Just a Normal Game",
+  "author": "aaronsolent",
+  "description": "Made for the Solent Winter Jam 2020",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b9f405ee-baa2-43b8-ac19-c416d6413f2e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/57e939fb-0ca2-4874-a517-1a302f865686/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "57e939fb-0ca2-4874-a517-1a302f865686",
+  "unityPlayUrl": "https://play.unity.com/en/games/57e939fb-0ca2-4874-a517-1a302f865686/just-a-normal-game"
+}

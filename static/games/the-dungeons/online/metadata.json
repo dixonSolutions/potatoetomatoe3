@@ -1,0 +1,14 @@
+{
+  "id": "the-dungeons",
+  "name": "The Dungeons",
+  "author": "k3thung",
+  "description": "Play The Dungeons on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e2abbb6f-91da-4112-a78b-77b7efdab76e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9eacbfae-9b1e-4065-a83f-5363d557cd24/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9eacbfae-9b1e-4065-a83f-5363d557cd24",
+  "unityPlayUrl": "https://play.unity.com/en/games/9eacbfae-9b1e-4065-a83f-5363d557cd24/the-dungeons"
+}

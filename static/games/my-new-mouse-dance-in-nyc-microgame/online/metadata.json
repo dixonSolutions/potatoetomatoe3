@@ -1,0 +1,14 @@
+{
+  "id": "my-new-mouse-dance-in-nyc-microgame",
+  "name": "My new Mouse Dance In NYC microgame",
+  "author": "micfaber",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f3b7cef3-76f6-47b3-993c-74977473a314/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03e2ee4f-9c7a-4f9d-a235-15c08b681ac1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "03e2ee4f-9c7a-4f9d-a235-15c08b681ac1",
+  "unityPlayUrl": "https://play.unity.com/en/games/03e2ee4f-9c7a-4f9d-a235-15c08b681ac1/my-new-mouse-dance-in-nyc-microgame"
+}

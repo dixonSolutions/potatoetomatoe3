@@ -1,0 +1,14 @@
+{
+  "id": "cube-kick-version-20",
+  "name": "CUBE KICK!!! (Version 2.0)",
+  "author": "Kittens_Tech",
+  "description": "Your goal is to hit the light blue cubes and knock them off the playing area. BUT, be warned, if you fall off you die! Thanks for checking out our game! Check out the game's site: sites.google.com/stu.austinisd.org/cubekick",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9d8b6dbe-c576-4892-a77d-26905e7f51c5/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/461fd13e-6032-40d7-8d75-eb2cfb665f38/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "461fd13e-6032-40d7-8d75-eb2cfb665f38",
+  "unityPlayUrl": "https://play.unity.com/en/games/461fd13e-6032-40d7-8d75-eb2cfb665f38/cube-kick-version-20"
+}

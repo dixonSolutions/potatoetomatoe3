@@ -1,0 +1,14 @@
+{
+  "id": "winter-game",
+  "name": "Winter Game",
+  "author": "jp_ma",
+  "description": "My winter microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b2f3f4d-56bb-4466-b0d4-5e88beefacc7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0b2f3f4d-56bb-4466-b0d4-5e88beefacc7",
+  "unityPlayUrl": "https://play.unity.com/en/games/0b2f3f4d-56bb-4466-b0d4-5e88beefacc7/winter-game"
+}

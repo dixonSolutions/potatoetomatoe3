@@ -1,0 +1,14 @@
+{
+  "id": "feeding-frenzy",
+  "name": "Feeding Frenzy",
+  "author": "CH_HASSAAN",
+  "description": "Welcome to Feeding Frenzy, an exciting game where you play as a farmer feeding hungry animals. Your goal is to ensure all the animals are well-fed before they get too hungry. You have 3 chances to feed the animals correctly. Each successful feed increases your score, so be quick and accurate!\n\nControls:\n\nMovement:\nMove Up: W.\nMove Down: S.\nMove Left: A.\nMove Right: D.\n\nFeeding:\nPress Space to feed the animals.\n\nHow to Play:\n\nFeed the Animals: Move around the farm and feed the hungry animals by pressing the spacebar.\nChances: You have 3 chances to feed the animals correctly. If you miss feeding an animal 3 times, the game is over.\nScore: Each successful feed adds to your score. Try to achieve the highest score possible.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e9d645e0-6aec-4efe-9a9d-be4ca1b97ec8/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ad21b67a-396d-4ae8-b7fc-55fa943a90e4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "ad21b67a-396d-4ae8-b7fc-55fa943a90e4",
+  "unityPlayUrl": "https://play.unity.com/en/games/ad21b67a-396d-4ae8-b7fc-55fa943a90e4/feeding-frenzy"
+}

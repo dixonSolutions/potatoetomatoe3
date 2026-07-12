@@ -1,0 +1,14 @@
+{
+  "id": "city-drift",
+  "name": "City Drift",
+  "author": "Jspillane_NDHS",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/488b3f01-26a7-4b32-9000-9771add02bf0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5a37078a-7f66-4bde-b99a-4b419e8e558b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5a37078a-7f66-4bde-b99a-4b419e8e558b",
+  "unityPlayUrl": "https://play.unity.com/en/games/5a37078a-7f66-4bde-b99a-4b419e8e558b/city-drift"
+}

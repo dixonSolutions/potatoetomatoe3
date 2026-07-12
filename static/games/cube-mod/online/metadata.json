@@ -1,0 +1,14 @@
+{
+  "id": "cube-mod",
+  "name": "Cube Mod",
+  "author": "thiagorcdl",
+  "description": "Tutorial exercise. Spinning cube that changes color over time.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e71fe6e4-ae35-48ea-aecf-171772531adb/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0087c9da-af95-4802-80b0-49e3d5a572bf/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0087c9da-af95-4802-80b0-49e3d5a572bf",
+  "unityPlayUrl": "https://play.unity.com/en/games/0087c9da-af95-4802-80b0-49e3d5a572bf/cube-mod"
+}

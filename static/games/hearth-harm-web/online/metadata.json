@@ -1,0 +1,14 @@
+{
+  "id": "hearth-harm-web",
+  "name": "Hearth & harm web",
+  "author": "Woop7777",
+  "description": "Turn based dungeon crawler try to see if you can make it through the rooms to make it to the end :>\n\nesc to pause for more infoZ\n\nCurrent build has some issues be sure to hit end turn to start movin",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/211996ea-e519-49e3-b0ec-71f4adc08d39/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d3a2c7f-1157-4c78-af05-10b4b4a93b6d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3d3a2c7f-1157-4c78-af05-10b4b4a93b6d",
+  "unityPlayUrl": "https://play.unity.com/en/games/3d3a2c7f-1157-4c78-af05-10b4b4a93b6d/hearth-harm-web"
+}

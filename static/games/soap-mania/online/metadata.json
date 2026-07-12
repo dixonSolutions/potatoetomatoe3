@@ -1,0 +1,14 @@
+{
+  "id": "soap-mania",
+  "name": "Soap Mania",
+  "author": "srki-88",
+  "description": "Play Soap Mania on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2eddb057-a16a-4e29-83d5-a5a17cce706e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/61b4ddbf-38e2-4b60-bce1-3f8e08c1b27f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "61b4ddbf-38e2-4b60-bce1-3f8e08c1b27f",
+  "unityPlayUrl": "https://play.unity.com/en/games/61b4ddbf-38e2-4b60-bce1-3f8e08c1b27f/soap-mania"
+}

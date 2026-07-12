@@ -1,0 +1,14 @@
+{
+  "id": "tagspel-build-webgl11",
+  "name": "tågspel build webgl11",
+  "author": "Pricker_1",
+  "description": "Play tågspel build webgl11 on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05f87bef-c7ce-4be8-81c7-3934c5071821/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "05f87bef-c7ce-4be8-81c7-3934c5071821",
+  "unityPlayUrl": "https://play.unity.com/en/games/05f87bef-c7ce-4be8-81c7-3934c5071821/tagspel-build-webgl11"
+}

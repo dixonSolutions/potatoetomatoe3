@@ -1,0 +1,14 @@
+{
+  "id": "road-runner",
+  "name": "Road Runner",
+  "author": "muhammedbm88",
+  "description": "This is the game that we developed at the end of the Bootcamp.We made this game using Unity. In the game basically, you move your character left-right with A and D keys. You can jump with space bar. If you collide with one of the cars your health decrease 20 hp. On the other hand, each gems are 10 point. Your aim is to collect gems as much as possible. Hope you enjoy!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d33cea0c-d11b-4313-b4d7-fb8cf6e8a6fa/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/28d82d19-b724-4494-b60f-da3d5a3af852/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "28d82d19-b724-4494-b60f-da3d5a3af852",
+  "unityPlayUrl": "https://play.unity.com/en/games/28d82d19-b724-4494-b60f-da3d5a3af852/road-runner"
+}

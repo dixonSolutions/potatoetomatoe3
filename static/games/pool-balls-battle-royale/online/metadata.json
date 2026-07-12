@@ -1,0 +1,14 @@
+{
+  "id": "pool-balls-battle-royale",
+  "name": "Pool Balls Battle Royale",
+  "author": "manudrago09",
+  "description": "Play Pool Balls Battle Royale on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e635d603-582f-4ada-adb9-22d7e8dadff0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3788d6ec-482d-4a44-afb2-359ac91c32a5/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3788d6ec-482d-4a44-afb2-359ac91c32a5",
+  "unityPlayUrl": "https://play.unity.com/en/games/3788d6ec-482d-4a44-afb2-359ac91c32a5/pool-balls-battle-royale"
+}

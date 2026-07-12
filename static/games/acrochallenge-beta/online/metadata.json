@@ -1,0 +1,14 @@
+{
+  "id": "acrochallenge-beta",
+  "name": "AcroChallenge! (beta)",
+  "author": "mdbingers",
+  "description": "AcroChallenge!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/de0e6abe-4881-4a70-9b5d-80124232b2d4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/71d4799a-938a-4336-a842-5b9a28ef08b1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "71d4799a-938a-4336-a842-5b9a28ef08b1",
+  "unityPlayUrl": "https://play.unity.com/en/games/71d4799a-938a-4336-a842-5b9a28ef08b1/acrochallenge-beta"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "rpg-boximon-battle",
+  "name": "RPG Boximon Battle",
+  "author": "Engenium137",
+  "description": "My latest microgame. It is a challenge exercise for creating a turn based RPG game. Left Click to move - Right Click for Spell 1 - Scroll Click for Spell 2 - It's a work in progress.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/c8e00885-6297-45dc-98bb-7439b782c0cf/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d3f13b06-8c82-4881-800f-93bfdea0451d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "d3f13b06-8c82-4881-800f-93bfdea0451d",
+  "unityPlayUrl": "https://play.unity.com/en/games/d3f13b06-8c82-4881-800f-93bfdea0451d/rpg-boximon-battle"
+}

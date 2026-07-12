@@ -1,0 +1,14 @@
+{
+  "id": "crazykarting",
+  "name": "CrazyKarting:)",
+  "author": "lorenapalacios2408",
+  "description": "Play CrazyKarting:) on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/59ce073b-262a-4e40-9c35-80711626f046/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02f52fa5-40c4-4133-bfde-ce1de4b57eff/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02f52fa5-40c4-4133-bfde-ce1de4b57eff",
+  "unityPlayUrl": "https://play.unity.com/en/games/02f52fa5-40c4-4133-bfde-ce1de4b57eff/crazykarting"
+}

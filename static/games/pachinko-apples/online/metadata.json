@@ -1,0 +1,14 @@
+{
+  "id": "pachinko-apples",
+  "name": "Pachinko Apples",
+  "author": "Pampalini",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b150f254-ee39-48e8-bced-3508eb5890fb/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02e34949-1311-43fa-b5e3-f641f025f9bb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02e34949-1311-43fa-b5e3-f641f025f9bb",
+  "unityPlayUrl": "https://play.unity.com/en/games/02e34949-1311-43fa-b5e3-f641f025f9bb/pachinko-apples"
+}

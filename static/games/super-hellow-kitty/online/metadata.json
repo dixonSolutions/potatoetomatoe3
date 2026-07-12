@@ -1,0 +1,14 @@
+{
+  "id": "super-hellow-kitty",
+  "name": "Super Hellow kitty",
+  "author": "skins2508",
+  "description": "UI 수정이 필요합니다\n이지 HP +3 일반 HP +1\nesc 메뉴\n시작화면\n계속하기 (3초)\n재시작\nhttps://www.youtube.com/watch?v=zcmazOrVofY (원작영상)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d510f6a9-9eed-46b5-a1bd-49faabbaac57/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44e55b36-6eb4-443b-b2cb-29a9c13b1897/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "44e55b36-6eb4-443b-b2cb-29a9c13b1897",
+  "unityPlayUrl": "https://play.unity.com/en/games/44e55b36-6eb4-443b-b2cb-29a9c13b1897/super-hellow-kitty"
+}

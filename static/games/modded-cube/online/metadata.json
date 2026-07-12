@@ -1,0 +1,14 @@
+{
+  "id": "modded-cube",
+  "name": "Modded Cube",
+  "author": "Livache",
+  "description": "I used a coroutine with Lerp — to generate a random target state, then smoothly interpolate towards it over time, and once reached, generate a new random target.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f09d68d-6847-4379-bd2f-512933d93b20/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0f09d68d-6847-4379-bd2f-512933d93b20",
+  "unityPlayUrl": "https://play.unity.com/en/games/0f09d68d-6847-4379-bd2f-512933d93b20/modded-cube"
+}

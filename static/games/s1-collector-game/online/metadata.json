@@ -1,0 +1,14 @@
+{
+  "id": "s1-collector-game",
+  "name": "S1 Collector Game",
+  "author": "tkuhn_unity",
+  "description": "S1 Game Design",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22cb140c-c34c-445b-9733-f170349c8a7d/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "22cb140c-c34c-445b-9733-f170349c8a7d",
+  "unityPlayUrl": "https://play.unity.com/en/games/22cb140c-c34c-445b-9733-f170349c8a7d/s1-collector-game"
+}

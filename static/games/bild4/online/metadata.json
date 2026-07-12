@@ -1,0 +1,14 @@
+{
+  "id": "bild4",
+  "name": "билд4",
+  "author": "MaximBabkin",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3dfb4c42-ea78-491a-b4bf-52922fb9444e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42037cde-1890-4a22-9a03-1b3d5bf8dfa9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "42037cde-1890-4a22-9a03-1b3d5bf8dfa9",
+  "unityPlayUrl": "https://play.unity.com/en/games/42037cde-1890-4a22-9a03-1b3d5bf8dfa9/bild4"
+}

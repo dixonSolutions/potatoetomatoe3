@@ -1,0 +1,14 @@
+{
+  "id": "brump-beta",
+  "name": "Brump (Beta)",
+  "author": "Andresiodev",
+  "description": "WASD to move around, e to shoot, esc to pause.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/39ffab14-f9bb-48ef-8f6a-fe0406499609/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01625276-f727-4d2a-a1ec-a6ceecabb0aa/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "01625276-f727-4d2a-a1ec-a6ceecabb0aa",
+  "unityPlayUrl": "https://play.unity.com/en/games/01625276-f727-4d2a-a1ec-a6ceecabb0aa/brump-beta"
+}

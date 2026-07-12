@@ -1,0 +1,14 @@
+{
+  "id": "eye-of-the-summoner",
+  "name": "Eye of the Summoner",
+  "author": "BumblebeeStudios",
+  "description": "Protect your tower from the fiendish hordes of paladins attempting to destroy it. Summon creatures of the darkness and keep the flame of your beacon alive. https://store.steampowered.com/app/2953340",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/510f6ad5-2706-4364-8c13-61249ad07831/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45ee98b3-ece4-4a9d-bac7-02804d578033/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "45ee98b3-ece4-4a9d-bac7-02804d578033",
+  "unityPlayUrl": "https://play.unity.com/en/games/45ee98b3-ece4-4a9d-bac7-02804d578033/eye-of-the-summoner"
+}

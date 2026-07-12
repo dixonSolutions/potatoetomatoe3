@@ -1,0 +1,14 @@
+{
+  "id": "boules",
+  "name": "BOULES",
+  "author": "Ermilon",
+  "description": "*ROULE* USE ARROW KEYS TO PLAY",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/22e14e8f-8cb7-4b16-960b-072d5924d7b6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0111e436-4914-4e3c-9b9f-26d5c80d9543/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0111e436-4914-4e3c-9b9f-26d5c80d9543",
+  "unityPlayUrl": "https://play.unity.com/en/games/0111e436-4914-4e3c-9b9f-26d5c80d9543/boules"
+}

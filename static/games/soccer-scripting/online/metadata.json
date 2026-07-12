@@ -1,0 +1,14 @@
+{
+  "id": "soccer-scripting",
+  "name": "Soccer Scripting",
+  "author": "FedeCana00",
+  "description": "Score goals and prevent opposing soccer balls from entering your goal! With powerups you will be stronger than ever. Move with the darts and use the boost thanks to the spacebar.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6e95eb9d-e1ee-4a7e-93b4-5d045092ab47/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a328124-0386-49c4-8ba7-6cdffca88263/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a328124-0386-49c4-8ba7-6cdffca88263",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a328124-0386-49c4-8ba7-6cdffca88263/soccer-scripting"
+}

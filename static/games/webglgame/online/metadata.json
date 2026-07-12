@@ -1,0 +1,14 @@
+{
+  "id": "webglgame",
+  "name": "webglGame",
+  "author": "kdreyerinseattle",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/26ba580b-c1b6-44b3-b7fb-56e7e9f953ac/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a43e77dd-53d5-400c-bd43-235c50dcdde0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "a43e77dd-53d5-400c-bd43-235c50dcdde0",
+  "unityPlayUrl": "https://play.unity.com/en/games/a43e77dd-53d5-400c-bd43-235c50dcdde0/webglgame"
+}

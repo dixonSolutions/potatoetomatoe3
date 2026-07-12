@@ -1,0 +1,14 @@
+{
+  "id": "tierra-del-sol",
+  "name": "tierra del sol",
+  "author": "susannahalo",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/40481ac0-82f0-4d91-a411-3020754193d2/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c462a92-611a-48ab-87b2-e5fc75d40164/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8c462a92-611a-48ab-87b2-e5fc75d40164",
+  "unityPlayUrl": "https://play.unity.com/en/games/8c462a92-611a-48ab-87b2-e5fc75d40164/tierra-del-sol"
+}

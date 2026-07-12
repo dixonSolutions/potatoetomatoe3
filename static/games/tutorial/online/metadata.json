@@ -1,0 +1,14 @@
+{
+  "id": "tutorial",
+  "name": "Tutorial",
+  "author": "unity_D0F1929E1580988D1384",
+  "description": "Tutorial",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf507c70-1b6c-4a19-94ac-e7b8e85ac4e8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "cf507c70-1b6c-4a19-94ac-e7b8e85ac4e8",
+  "unityPlayUrl": "https://play.unity.com/en/games/cf507c70-1b6c-4a19-94ac-e7b8e85ac4e8/tutorial"
+}

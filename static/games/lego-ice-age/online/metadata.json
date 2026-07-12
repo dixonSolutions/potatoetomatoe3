@@ -1,0 +1,14 @@
+{
+  "id": "lego-ice-age",
+  "name": "LEGO Ice Age",
+  "author": "Athanas7a",
+  "description": "A microgame for all LEGO fans! \n\nThe ice age is all around LEGO-land, surrounding with snow and ice everything! In this 3D platformer game you have to collect all the plants in 2 minutes to bring spring back!\nHave fun!\n\nControls: Use WASD for direction, Space to jump and the mouse to rotate the camera view!\n\nGame made for LEGO Ideas contest with username: Artanasia",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/874e3ff7-4dd7-42f5-bde5-51ba70690c75/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08e5fb6c-d324-4362-86b3-245b98cb223e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "08e5fb6c-d324-4362-86b3-245b98cb223e",
+  "unityPlayUrl": "https://play.unity.com/en/games/08e5fb6c-d324-4362-86b3-245b98cb223e/lego-ice-age"
+}

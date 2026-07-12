@@ -1,0 +1,14 @@
+{
+  "id": "minestellar",
+  "name": "MineStellar",
+  "author": "c4clef",
+  "description": "Esc to pause",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/83805587-6ed4-4763-8fc7-59060f648ae9/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f9427e07-b567-463a-b7c8-b47533a7799a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "f9427e07-b567-463a-b7c8-b47533a7799a",
+  "unityPlayUrl": "https://play.unity.com/en/games/f9427e07-b567-463a-b7c8-b47533a7799a/minestellar"
+}

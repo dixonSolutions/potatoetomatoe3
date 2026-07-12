@@ -1,0 +1,14 @@
+{
+  "id": "poly-maul-read-description",
+  "name": "Poly Maul - Read Description!",
+  "author": "Zoova",
+  "description": "PRESS THE X TO RESET GAME!!! This is Poly Maul, a 2D topdown shooter game. It's a fully functional game but I'm still gonna work on it more. WASD or arrow keys to move. SHIFT to sprint. After picking up a weapon pellet, CLICK to shoot.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39466c9d-f5bd-4682-a909-3bb56500805a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "39466c9d-f5bd-4682-a909-3bb56500805a",
+  "unityPlayUrl": "https://play.unity.com/en/games/39466c9d-f5bd-4682-a909-3bb56500805a/poly-maul-read-description"
+}

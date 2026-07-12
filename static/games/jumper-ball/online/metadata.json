@@ -1,0 +1,14 @@
+{
+  "id": "jumper-ball",
+  "name": "Jumper ball",
+  "author": "arsengevorgyan304",
+  "description": "Its game about bouncing ball (@_@)",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0126d08e-6f96-47bc-8221-763a401cf031/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0126d08e-6f96-47bc-8221-763a401cf031",
+  "unityPlayUrl": "https://play.unity.com/en/games/0126d08e-6f96-47bc-8221-763a401cf031/jumper-ball"
+}

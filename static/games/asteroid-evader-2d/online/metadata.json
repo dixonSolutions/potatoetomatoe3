@@ -1,0 +1,14 @@
+{
+  "id": "asteroid-evader-2d",
+  "name": "Asteroid Evader 2D",
+  "author": "ringolol",
+  "description": "Use mouse clicks to avoid asteroids.\n\nMake a similar game using the tutorial:\nhttps://learn.unity.com/course/2d-beginner-game-sprite-flight?version=6.0",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f969ac6c-4b7a-4341-bd76-b607bde93c45/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00cbf4a7-7c5f-4b8f-8c4b-6d5c1a504ee8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00cbf4a7-7c5f-4b8f-8c4b-6d5c1a504ee8",
+  "unityPlayUrl": "https://play.unity.com/en/games/00cbf4a7-7c5f-4b8f-8c4b-6d5c1a504ee8/asteroid-evader-2d"
+}

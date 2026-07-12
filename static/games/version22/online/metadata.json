@@ -1,0 +1,14 @@
+{
+  "id": "version22",
+  "name": "Version2.2",
+  "author": "ArnaudAzenui",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/46e90a6d-c7ec-4eb7-aecc-6b614bc355ce/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0dcfbe85-f00a-4ced-b859-49109be4f9cc/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0dcfbe85-f00a-4ced-b859-49109be4f9cc",
+  "unityPlayUrl": "https://play.unity.com/en/games/0dcfbe85-f00a-4ced-b859-49109be4f9cc/version22"
+}

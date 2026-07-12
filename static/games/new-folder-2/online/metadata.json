@@ -1,0 +1,14 @@
+{
+  "id": "new-folder-2",
+  "name": "New folder (2)",
+  "author": "JustaProgrammer2",
+  "description": "New Update!!! New track, and new settings.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/2578ac04-442d-4405-92de-52293ecb3465/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8ad9a4ab-10c5-444a-bf5f-bc567d4a18b0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8ad9a4ab-10c5-444a-bf5f-bc567d4a18b0",
+  "unityPlayUrl": "https://play.unity.com/en/games/8ad9a4ab-10c5-444a-bf5f-bc567d4a18b0/new-folder-2"
+}

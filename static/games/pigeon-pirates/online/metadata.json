@@ -1,0 +1,14 @@
+{
+  "id": "pigeon-pirates",
+  "name": "Pigeon Pirates",
+  "author": "adamxsheridan",
+  "description": "For the 2025 STEM Game Challenge.\n\nBy Adam, Ayaan, Cameron and Marcus",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67e7c35a-22ba-4902-952d-8de0a7536e93/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "67e7c35a-22ba-4902-952d-8de0a7536e93",
+  "unityPlayUrl": "https://play.unity.com/en/games/67e7c35a-22ba-4902-952d-8de0a7536e93/pigeon-pirates"
+}

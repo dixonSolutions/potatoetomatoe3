@@ -1,0 +1,14 @@
+{
+  "id": "my-game-by-unity-learn",
+  "name": "My Game by Unity Learn",
+  "author": "joaquinherrerameil",
+  "description": "This is my first time in unity.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58850886-fbec-4e55-a1cf-1c1ba1f63fc6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "58850886-fbec-4e55-a1cf-1c1ba1f63fc6",
+  "unityPlayUrl": "https://play.unity.com/en/games/58850886-fbec-4e55-a1cf-1c1ba1f63fc6/my-game-by-unity-learn"
+}

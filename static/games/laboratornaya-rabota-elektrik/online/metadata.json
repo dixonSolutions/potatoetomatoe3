@@ -1,0 +1,14 @@
+{
+  "id": "laboratornaya-rabota-elektrik",
+  "name": "Лабораторная работа \"Электрик\"",
+  "author": "key_krok",
+  "description": "Виртуальный практикум для обучения по специальности \"Электрик монтажник\"",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d231dc40-77df-4e3a-8cb3-aea385511e90/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fbf7bc0-fdca-4601-a801-61989671ad85/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3fbf7bc0-fdca-4601-a801-61989671ad85",
+  "unityPlayUrl": "https://play.unity.com/en/games/3fbf7bc0-fdca-4601-a801-61989671ad85/laboratornaya-rabota-elektrik"
+}

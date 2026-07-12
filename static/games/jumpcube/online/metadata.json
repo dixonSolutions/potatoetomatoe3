@@ -1,0 +1,14 @@
+{
+  "id": "jumpcube",
+  "name": "JumpCube",
+  "author": "unity_2029687",
+  "description": "My latest microgame. (Points don't work)",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/444c0033-93ba-494f-b49b-1d7509bfed06/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "444c0033-93ba-494f-b49b-1d7509bfed06",
+  "unityPlayUrl": "https://play.unity.com/en/games/444c0033-93ba-494f-b49b-1d7509bfed06/jumpcube"
+}

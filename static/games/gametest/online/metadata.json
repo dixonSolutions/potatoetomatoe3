@@ -1,0 +1,14 @@
+{
+  "id": "gametest",
+  "name": "gametest",
+  "author": "zzzzzzyzzzzzz",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b0368e1e-f833-4587-ab30-d2ac19434fa4/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b0368e1e-f833-4587-ab30-d2ac19434fa4",
+  "unityPlayUrl": "https://play.unity.com/en/games/b0368e1e-f833-4587-ab30-d2ac19434fa4/gametest"
+}

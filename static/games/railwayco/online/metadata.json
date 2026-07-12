@@ -1,0 +1,14 @@
+{
+  "id": "railwayco",
+  "name": "RailwayCo",
+  "author": "wenenhoe",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b6a6dedd-3b3f-4f7c-8c64-f542de971e44/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b6a6dedd-3b3f-4f7c-8c64-f542de971e44",
+  "unityPlayUrl": "https://play.unity.com/en/games/b6a6dedd-3b3f-4f7c-8c64-f542de971e44/railwayco"
+}

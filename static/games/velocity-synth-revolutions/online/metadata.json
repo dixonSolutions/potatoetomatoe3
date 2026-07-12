@@ -1,0 +1,14 @@
+{
+  "id": "velocity-synth-revolutions",
+  "name": "Velocity - Synth Revolutions",
+  "author": "ItsBurgertime",
+  "description": "**Turn on the sound for some sweet synthwave**My personal Project for the Create With Code summer session. I learned a lot to make this project, including a bunch of work with the shader and VFX graphs.  Thanks for checking it out! Use the \"A\" and \"D\" keys to move left and right to avoid enemy marbles. and the space button to activate a forcefield.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5f11ef8b-84e3-4adf-a46d-7789595d9a02/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c2a57a5e-b67f-4955-8144-f3c3c2fda01a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "c2a57a5e-b67f-4955-8144-f3c3c2fda01a",
+  "unityPlayUrl": "https://play.unity.com/en/games/c2a57a5e-b67f-4955-8144-f3c3c2fda01a/velocity-synth-revolutions"
+}

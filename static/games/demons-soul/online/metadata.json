@@ -1,0 +1,14 @@
+{
+  "id": "demons-soul",
+  "name": "Demon's Soul",
+  "author": "thaiminhnhattan280803",
+  "description": "This is our team's project 2 game",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58abf5c7-9399-41d9-95ee-21b8d8988d23/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "58abf5c7-9399-41d9-95ee-21b8d8988d23",
+  "unityPlayUrl": "https://play.unity.com/en/games/58abf5c7-9399-41d9-95ee-21b8d8988d23/demons-soul"
+}

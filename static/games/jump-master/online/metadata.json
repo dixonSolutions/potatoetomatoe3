@@ -1,0 +1,14 @@
+{
+  "id": "jump-master",
+  "name": "Jump Master",
+  "author": "Angelcarmichael",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b0e90ff0-376d-4135-aea9-1090535aff65/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/013a3a8f-3174-4c57-a318-0831bdfe69bf/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "013a3a8f-3174-4c57-a318-0831bdfe69bf",
+  "unityPlayUrl": "https://play.unity.com/en/games/013a3a8f-3174-4c57-a318-0831bdfe69bf/jump-master"
+}

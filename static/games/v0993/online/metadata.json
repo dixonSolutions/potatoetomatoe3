@@ -1,0 +1,14 @@
+{
+  "id": "v0993",
+  "name": "v0.99.3",
+  "author": "Riggnarock",
+  "description": "Play v0.99.3 on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00f9192e-877b-4cb7-b634-a6ebc6c12379/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00f9192e-877b-4cb7-b634-a6ebc6c12379",
+  "unityPlayUrl": "https://play.unity.com/en/games/00f9192e-877b-4cb7-b634-a6ebc6c12379/v0993"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "toybattlefield-targetpractice-unity-learn-counter-project",
+  "name": "ToyBattleField - TargetPractice (Unity Learn Counter Project)",
+  "author": "mmillar420",
+  "description": "A little Mini-Game I created for Unity Learn's \"Counter\" project.                                  Press \"Start\" and click as many targets as you can before time runs out.             Try and beat your personal best with a runtime Highscore system.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/010879df-5b8c-4a53-82e6-109982c3957f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/392baa5c-9c6a-48b4-a4ba-98938a68ff03/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "392baa5c-9c6a-48b4-a4ba-98938a68ff03",
+  "unityPlayUrl": "https://play.unity.com/en/games/392baa5c-9c6a-48b4-a4ba-98938a68ff03/toybattlefield-targetpractice-unity-learn-counter-project"
+}

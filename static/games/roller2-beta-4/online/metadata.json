@@ -1,0 +1,14 @@
+{
+  "id": "roller2-beta-4",
+  "name": "Roller2 beta 4",
+  "author": "FiaKun",
+  "description": "Play Roller2 beta 4 on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fd1b1ea-646c-4aa9-97b8-ae85ca0651f7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "3fd1b1ea-646c-4aa9-97b8-ae85ca0651f7",
+  "unityPlayUrl": "https://play.unity.com/en/games/3fd1b1ea-646c-4aa9-97b8-ae85ca0651f7/roller2-beta-4"
+}

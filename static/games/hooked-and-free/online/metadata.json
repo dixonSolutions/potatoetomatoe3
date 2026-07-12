@@ -1,0 +1,14 @@
+{
+  "id": "hooked-and-free",
+  "name": "Hooked And Free",
+  "author": "Qomuri",
+  "description": "Fish Game",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a706fee-6ab8-44a3-b76a-a21c1d6f3957/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a706fee-6ab8-44a3-b76a-a21c1d6f3957",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a706fee-6ab8-44a3-b76a-a21c1d6f3957/hooked-and-free"
+}

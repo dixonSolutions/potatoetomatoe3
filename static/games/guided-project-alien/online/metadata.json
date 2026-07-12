@@ -1,0 +1,14 @@
+{
+  "id": "guided-project-alien",
+  "name": "Guided Project Alien",
+  "author": "TriHermes",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/da34e995-19ac-46dc-92cb-f644b82cb921/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/024f8ce9-19cb-4a19-9947-01908a0a1830/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "024f8ce9-19cb-4a19-9947-01908a0a1830",
+  "unityPlayUrl": "https://play.unity.com/en/games/024f8ce9-19cb-4a19-9947-01908a0a1830/guided-project-alien"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "platformer-random",
+  "name": "Platformer Random",
+  "author": "Boatartist",
+  "description": "Use the arrow keys to move, this is an early draft of a random platformer, try to avoid the spikes.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0bdd506b-7326-4d49-b60b-cd6bf222b427/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6dbc2557-3bb1-46c9-8d50-57159fda6fe8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "6dbc2557-3bb1-46c9-8d50-57159fda6fe8",
+  "unityPlayUrl": "https://play.unity.com/en/games/6dbc2557-3bb1-46c9-8d50-57159fda6fe8/platformer-random"
+}

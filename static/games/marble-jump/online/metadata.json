@@ -1,0 +1,14 @@
+{
+  "id": "marble-jump",
+  "name": "Marble Jump",
+  "author": "adamharrison392",
+  "description": "A minimally interactive marble game showcasing the skills learned in the Foundations: Explore Unity course.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/05e1cd2c-38d0-4997-a7b4-52d8f0edd0cf/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/011ea963-65fc-4fe3-bec1-86ca664f78f9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "011ea963-65fc-4fe3-bec1-86ca664f78f9",
+  "unityPlayUrl": "https://play.unity.com/en/games/011ea963-65fc-4fe3-bec1-86ca664f78f9/marble-jump"
+}

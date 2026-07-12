@@ -1,0 +1,14 @@
+{
+  "id": "simple-landing",
+  "name": "Simple Landing",
+  "author": "leemindjan",
+  "description": "Hi everyone, this is Simple Landing project. This game simulates the way a rocket will land on the landing pad successfully like a SpaceX rocket. Hope you enjoy the game and give me feedback to improve the game. \n- Press Spacebar key to thrust the rocket.\n- Press Left or Right arrow key for rotating the rocket.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5f7bbb4a-e680-4d27-9a1e-67d800f9e685/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b26a1010-d49a-4df3-b848-9cbd0873a9ce/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "b26a1010-d49a-4df3-b848-9cbd0873a9ce",
+  "unityPlayUrl": "https://play.unity.com/en/games/b26a1010-d49a-4df3-b848-9cbd0873a9ce/simple-landing"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "v6",
+  "name": "v6",
+  "author": "felixzhjcr7",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/72ae77d9-62d5-4c3d-8fa4-33282e24fd4b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/23b3746f-76d5-4bfe-b0f5-e48099a8a66e/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "23b3746f-76d5-4bfe-b0f5-e48099a8a66e",
+  "unityPlayUrl": "https://play.unity.com/en/games/23b3746f-76d5-4bfe-b0f5-e48099a8a66e/v6"
+}

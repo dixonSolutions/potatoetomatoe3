@@ -1,0 +1,14 @@
+{
+  "id": "a-maze",
+  "name": "A maze",
+  "author": "dgarroway98",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0a0a6374-9ea0-493a-a9d3-8a0593f719e4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d0750bb-c37e-4262-a0bb-f496c1be78f9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0d0750bb-c37e-4262-a0bb-f496c1be78f9",
+  "unityPlayUrl": "https://play.unity.com/en/games/0d0750bb-c37e-4262-a0bb-f496c1be78f9/a-maze"
+}

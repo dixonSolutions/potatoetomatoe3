@@ -1,0 +1,14 @@
+{
+  "id": "pt",
+  "name": "PT",
+  "author": "ninmf",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a1c692b-799d-4aed-a42b-af9d71e99161/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2a1c692b-799d-4aed-a42b-af9d71e99161",
+  "unityPlayUrl": "https://play.unity.com/en/games/2a1c692b-799d-4aed-a42b-af9d71e99161/pt"
+}

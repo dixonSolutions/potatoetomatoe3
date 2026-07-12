@@ -1,0 +1,14 @@
+{
+  "id": "2d-spritechinko",
+  "name": "2D SpriteChinko",
+  "author": "Rollin561",
+  "description": "I added sound on collision with a script, but you need to play with the mute button in the WebGL player to hear it....not sure why?",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02661389-7ab2-44f3-8f0c-c1f1c0cc68f2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "02661389-7ab2-44f3-8f0c-c1f1c0cc68f2",
+  "unityPlayUrl": "https://play.unity.com/en/games/02661389-7ab2-44f3-8f0c-c1f1c0cc68f2/2d-spritechinko"
+}

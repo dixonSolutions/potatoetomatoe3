@@ -1,0 +1,14 @@
+{
+  "id": "bounce-spaceman",
+  "name": "Bounce Spaceman!",
+  "author": "unity_100024928",
+  "description": "Arrow keys/ A,D to move around while constantly bouncing. Help the slime Spaceman reach is rocket!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/f298a52c-dd38-439b-a755-75e8249dfb69/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19f67820-5ff5-4e60-913f-836863cba63f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "19f67820-5ff5-4e60-913f-836863cba63f",
+  "unityPlayUrl": "https://play.unity.com/en/games/19f67820-5ff5-4e60-913f-836863cba63f/bounce-spaceman"
+}

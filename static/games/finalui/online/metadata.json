@@ -1,0 +1,14 @@
+{
+  "id": "finalui",
+  "name": "Final_UI",
+  "author": "swordman00",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a6e17409-42a6-4e27-890a-4ce740f768ae/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b48603b-a704-4e35-bc5d-e82e14d4fe20/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "5b48603b-a704-4e35-bc5d-e82e14d4fe20",
+  "unityPlayUrl": "https://play.unity.com/en/games/5b48603b-a704-4e35-bc5d-e82e14d4fe20/finalui"
+}

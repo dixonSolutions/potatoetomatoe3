@@ -1,0 +1,14 @@
+{
+  "id": "kill-switch",
+  "name": "KILL SWITCH",
+  "author": "WyldeKard",
+  "description": "Play KILL SWITCH on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/3cda1b2e-823c-40b3-b543-6a8c06da33c0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/150bfbe9-56b3-4b38-96a7-a39242d9b993/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "150bfbe9-56b3-4b38-96a7-a39242d9b993",
+  "unityPlayUrl": "https://play.unity.com/en/games/150bfbe9-56b3-4b38-96a7-a39242d9b993/kill-switch"
+}

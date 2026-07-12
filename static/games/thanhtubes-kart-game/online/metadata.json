@@ -1,0 +1,14 @@
+{
+  "id": "thanhtubes-kart-game",
+  "name": "thanhtube's Kart Game",
+  "author": "thanhtube",
+  "description": "My latest microgame. If you play this, thanks for playing!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/8be8e270-c14b-47a4-b4aa-ca019e0cc69b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44f26d58-9c82-4afe-b227-fa9c7bb0c86f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "44f26d58-9c82-4afe-b227-fa9c7bb0c86f",
+  "unityPlayUrl": "https://play.unity.com/en/games/44f26d58-9c82-4afe-b227-fa9c7bb0c86f/thanhtubes-kart-game"
+}

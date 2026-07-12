@@ -1,0 +1,14 @@
+{
+  "id": "novaya-papka",
+  "name": "Новая папка",
+  "author": "sloykasobaka",
+  "description": "Play Новая папка on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/9e6f879c-5015-4450-bc4b-26ce685c2bb6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0cf34d3f-95ba-4346-a3cc-1efbb833d686/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0cf34d3f-95ba-4346-a3cc-1efbb833d686",
+  "unityPlayUrl": "https://play.unity.com/en/games/0cf34d3f-95ba-4346-a3cc-1efbb833d686/novaya-papka"
+}

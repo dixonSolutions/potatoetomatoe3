@@ -1,0 +1,14 @@
+{
+  "id": "untitled-bunny-shooter",
+  "name": "Untitled Bunny Shooter",
+  "author": "Cinderbun",
+  "description": "TBD\n\nControls\n이동: WASD\n공격: 마우스 좌클릭\n카메라 회전: 마우스 우클릭\n대쉬: Shift\n점프: Space\n상호작용: E",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/023dbf4f-587a-4d50-ae85-b39a2429a927/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "023dbf4f-587a-4d50-ae85-b39a2429a927",
+  "unityPlayUrl": "https://play.unity.com/en/games/023dbf4f-587a-4d50-ae85-b39a2429a927/untitled-bunny-shooter"
+}

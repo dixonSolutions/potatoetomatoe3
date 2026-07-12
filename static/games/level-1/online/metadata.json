@@ -1,0 +1,14 @@
+{
+  "id": "level-1",
+  "name": "Level 1",
+  "author": "EntwicklerT",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/10fbe4ef-c6c0-4a98-b4db-feea6022e7d1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "10fbe4ef-c6c0-4a98-b4db-feea6022e7d1",
+  "unityPlayUrl": "https://play.unity.com/en/games/10fbe4ef-c6c0-4a98-b4db-feea6022e7d1/level-1"
+}

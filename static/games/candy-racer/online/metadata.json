@@ -1,0 +1,14 @@
+{
+  "id": "candy-racer",
+  "name": "Candy Racer",
+  "author": "desatnikhailey2025",
+  "description": "Play Candy Racer on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/13b0799b-b55a-42b4-8ebb-dd67deb9edcc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a89b459-2477-4638-8bb3-34764152f94f/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0a89b459-2477-4638-8bb3-34764152f94f",
+  "unityPlayUrl": "https://play.unity.com/en/games/0a89b459-2477-4638-8bb3-34764152f94f/candy-racer"
+}

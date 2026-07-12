@@ -1,0 +1,14 @@
+{
+  "id": "space-droids",
+  "name": "Space Droids",
+  "author": "Azalore",
+  "description": "Features to be added: Health regen, Weapon Upgrade, Enemies increase speed and difficulty each round, High score charts.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4ccbe815-382c-4e56-a3f2-c83994ca20b5/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/41129ec8-cbd1-4a3f-88b9-2c6b76a8e409/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "41129ec8-cbd1-4a3f-88b9-2c6b76a8e409",
+  "unityPlayUrl": "https://play.unity.com/en/games/41129ec8-cbd1-4a3f-88b9-2c6b76a8e409/space-droids"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "fpsmicrogame",
+  "name": "fpsMicroGame",
+  "author": "porthos42",
+  "description": "Play fpsMicroGame on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/b384b589-3c66-4b80-8855-dce107b9a30b/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c670959-a14b-415a-8eca-e7bcd63ac1f9/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c670959-a14b-415a-8eca-e7bcd63ac1f9",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c670959-a14b-415a-8eca-e7bcd63ac1f9/fpsmicrogame"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "its-my-first-fps",
+  "name": "its my first fps",
+  "author": "munishaurya",
+  "description": "microbot hunter.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ec3ab83f-8c02-43f1-a554-386778f190d7/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/013e9662-8739-41a6-be7f-b7b583f3a53c/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "013e9662-8739-41a6-be7f-b7b583f3a53c",
+  "unityPlayUrl": "https://play.unity.com/en/games/013e9662-8739-41a6-be7f-b7b583f3a53c/its-my-first-fps"
+}

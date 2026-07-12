@@ -1,0 +1,14 @@
+{
+  "id": "core",
+  "name": "CORE",
+  "author": "Xadegamer",
+  "description": "A game created by Pelumi, Jack HK and Nico.\n\nWelcome to CORE. A puzzle-adventure game made in two days for the 2020 GameJam! In CORE, you have to try and escape the unstable nuclear facility in order to save yourself from a horrific nightmare. There are three rooms filled with puzzles taking advantage of physics, colours and Unity's features.\n\nTheme: Secrets\nCreation Time: Two days\n\nThanks for playing, see you at the next Jam!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/e07d9389-1e7e-487e-bd36-c38cb5c3572c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/45330bb9-3cb8-47c5-b5f4-62ba7505a3a6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "45330bb9-3cb8-47c5-b5f4-62ba7505a3a6",
+  "unityPlayUrl": "https://play.unity.com/en/games/45330bb9-3cb8-47c5-b5f4-62ba7505a3a6/core"
+}

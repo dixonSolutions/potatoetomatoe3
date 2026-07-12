@@ -1,0 +1,14 @@
+{
+  "id": "cloud-hop",
+  "name": "Cloud Hop",
+  "author": "meganyeh",
+  "description": "Cloud Hop is a maze puzzle game where the player takes on the role of a bunny and navigates through the maze to reach the gate. However, each “cloud” can only be stepped on once and every single one must be hopped on in order for the gate to open. As the level difficulty increases, more features are added that complicate the maze.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/092ded72-c3dc-4b9f-bb77-129c1031063d/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39760e2e-fc56-49e6-8f9e-0019dad10915/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "39760e2e-fc56-49e6-8f9e-0019dad10915",
+  "unityPlayUrl": "https://play.unity.com/en/games/39760e2e-fc56-49e6-8f9e-0019dad10915/cloud-hop"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "train-conductor-v011",
+  "name": "Train Conductor v0.1.1",
+  "author": "WandererStudio",
+  "description": "Update:\n- Fix Chromium issue\n- Add in-game instruction\n- Reduce base music volume\n\nPC Version: https://wandererstudio.itch.io/train-conductor\n\nOverview:\n    TRAIN CONDUCTOR is an action game set in a fantasy version of Victorian Europe. The player takes on the role of the “Train Conductor” and gets to protect the mysterious train, discover supernatural activities and creepy passengers.\n\n    The game is still in development. This is only a Prototype to show you the feel of what we want to present in the future. Please tune in for more update.\n\nControls:\n    MOVEMENT: [WASD]\n    JUMP: [Space]\n    DASH: [Left Shift]\n    INTERACT: Press [E] to interact with ruby and door\n    ATTACK: [LMB] (Left mouse button)\n    SLOW TIME: [Q]\n\nGameplay:\n    Your mission is to touch three ruby gems in order to unlock the final door. Feel free to kill everything on your path.\n\nOur team:\n    Đỗ Minh Nhựt\n    Lê Ngọc Minh\n    Bùi Minh Đức Tài\n    Lê Tuấn Khanh\n    Lưu Hoàng Long",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/d00a7f03-c1d8-4118-a089-045edfe3f3bc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/711eb16a-0814-4e60-a71f-0bec76525f24/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "711eb16a-0814-4e60-a71f-0bec76525f24",
+  "unityPlayUrl": "https://play.unity.com/en/games/711eb16a-0814-4e60-a71f-0bec76525f24/train-conductor-v011"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "learning",
+  "name": "Learning",
+  "author": "anumrha012g",
+  "description": "Play Learning on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e02a129d-85a8-40f9-9503-ea6f4a0b7ed2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "e02a129d-85a8-40f9-9503-ea6f4a0b7ed2",
+  "unityPlayUrl": "https://play.unity.com/en/games/e02a129d-85a8-40f9-9503-ea6f4a0b7ed2/learning"
+}

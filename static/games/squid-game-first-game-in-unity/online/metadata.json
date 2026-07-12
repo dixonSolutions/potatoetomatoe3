@@ -1,0 +1,14 @@
+{
+  "id": "squid-game-first-game-in-unity",
+  "name": "Squid Game | First Game in Unity",
+  "author": "kandelsujan070",
+  "description": "Welcome to Red Light, Green Light!\nYour goal is simple: reach the finish line without being eliminated. When the light turns green, use the W, A, S, D keys to move forward. \nNew challenge: GlassBridge",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4dd385d8-cb12-4051-99e8-d0dac758eabd/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22be15f8-9d59-49a1-9416-90463e02aed0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "22be15f8-9d59-49a1-9416-90463e02aed0",
+  "unityPlayUrl": "https://play.unity.com/en/games/22be15f8-9d59-49a1-9416-90463e02aed0/squid-game-first-game-in-unity"
+}

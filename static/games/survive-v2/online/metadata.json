@@ -1,0 +1,14 @@
+{
+  "id": "survive-v2",
+  "name": "Survive V2",
+  "author": "littlemonsta",
+  "description": "Updated version, Kill 'em All !!! Can you survive ? Move-> WSAD ,Aim -> Mouse, R -> Reload, Switch Weapon -> Mouse Scroll or 1/2 .Shoot -> MouseButton.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5f0532e2-fc3d-4803-939c-508f5d3240e9/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/284f770d-9a72-483e-bbca-5b7a67b636ad/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "284f770d-9a72-483e-bbca-5b7a67b636ad",
+  "unityPlayUrl": "https://play.unity.com/en/games/284f770d-9a72-483e-bbca-5b7a67b636ad/survive-v2"
+}

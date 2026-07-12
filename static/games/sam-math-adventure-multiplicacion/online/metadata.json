@@ -1,0 +1,14 @@
+{
+  "id": "sam-math-adventure-multiplicacion",
+  "name": "Sam Math Adventure - Multiplicacion",
+  "author": "pacear10",
+  "description": "Una aventura de plataformas 2D para niños. Ayuda a Sam a correr, saltar y bailar resolviendo multiplicaciones. Mejora agilidad mental y concentración. ¡Aprender matemáticas nunca fue tan divertido.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/aa1b7e9a-3189-411c-8fb1-80a9003eae08/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d6e4429-1d0b-451b-8977-4c959706d533/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0d6e4429-1d0b-451b-8977-4c959706d533",
+  "unityPlayUrl": "https://play.unity.com/en/games/0d6e4429-1d0b-451b-8977-4c959706d533/sam-math-adventure-multiplicacion"
+}

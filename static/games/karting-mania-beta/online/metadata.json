@@ -1,0 +1,14 @@
+{
+  "id": "karting-mania-beta",
+  "name": "Karting Mania Beta",
+  "author": "JacobDominic",
+  "description": "Bug fixes: Added gravity and grip to reduce kart flying",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/6201afcd-5904-4dd1-b2f3-5a3135b66249/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/92580f33-3954-4893-92ab-b76a5cf05619/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "92580f33-3954-4893-92ab-b76a5cf05619",
+  "unityPlayUrl": "https://play.unity.com/en/games/92580f33-3954-4893-92ab-b76a5cf05619/karting-mania-beta"
+}

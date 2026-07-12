@@ -1,0 +1,14 @@
+{
+  "id": "2d-essentials-build-final",
+  "name": "2D Essentials Build Final",
+  "author": "Bhuvannn",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/023f8fa8-a314-480f-be82-baa3fd6bc82a/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "023f8fa8-a314-480f-be82-baa3fd6bc82a",
+  "unityPlayUrl": "https://play.unity.com/en/games/023f8fa8-a314-480f-be82-baa3fd6bc82a/2d-essentials-build-final"
+}

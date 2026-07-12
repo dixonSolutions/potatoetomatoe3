@@ -1,0 +1,14 @@
+{
+  "id": "fire-sword",
+  "name": "Fire Sword",
+  "author": "PH01N1X",
+  "description": "Zelda Clone with new Light2D mechanics.\nUse your Fire Sword as a torch to light up the surrounding enviroment!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/1d69bd60-581b-44f6-aacd-fec7ebdccf1c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/125ab952-7e88-4974-ba36-3e4c7aa99f2b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "125ab952-7e88-4974-ba36-3e4c7aa99f2b",
+  "unityPlayUrl": "https://play.unity.com/en/games/125ab952-7e88-4974-ba36-3e4c7aa99f2b/fire-sword"
+}

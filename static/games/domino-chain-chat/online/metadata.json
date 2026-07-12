@@ -1,0 +1,14 @@
+{
+  "id": "domino-chain-chat",
+  "name": "Domino Chain Chat",
+  "author": "kazutomo1",
+  "description": "Chat GPTの会話をするとカウントが増え、カウント*5の分ドミノを自由に配置できます。ドミノモードでは十字キーで移動、ドミノを動かしながらスペースキーを押すことで複製。Cキーでドミノを倒す。\n詳しい説明動画\nhttps://youtu.be/8P7uM6oj8yE\n\n卒業研究アンケートフォームへのご協力をお願いします。\nhttps://forms.gle/nXjKmqwiroiZaQag7",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/80542b0b-3ee5-46ac-a010-7d90d641af26/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9eaff60f-a690-4716-83df-7dcaa03255ff/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9eaff60f-a690-4716-83df-7dcaa03255ff",
+  "unityPlayUrl": "https://play.unity.com/en/games/9eaff60f-a690-4716-83df-7dcaa03255ff/domino-chain-chat"
+}

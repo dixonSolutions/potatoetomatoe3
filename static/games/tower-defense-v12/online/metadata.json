@@ -1,0 +1,14 @@
+{
+  "id": "tower-defense-v12",
+  "name": "Tower Defense - v1.2",
+  "author": "khan_dayyanz",
+  "description": "Place towers and defend against enemy waves.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4a72e4be-b7bb-4a29-81fb-9fbe4817f497/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ca1ad63-8a06-40a2-bf66-e251c7f0c420/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0ca1ad63-8a06-40a2-bf66-e251c7f0c420",
+  "unityPlayUrl": "https://play.unity.com/en/games/0ca1ad63-8a06-40a2-bf66-e251c7f0c420/tower-defense-v12"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "chinchilla-quest",
+  "name": "Chinchilla Quest",
+  "author": "notzaylie",
+  "description": "Travel through the magical forest and defeat enemies. Background elements from Kenney.nl",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/320ba444-be35-4c7b-9234-e8884a4e30c6/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b9a0fc4-a4dc-474b-9cb0-485c3d4057f6/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "2b9a0fc4-a4dc-474b-9cb0-485c3d4057f6",
+  "unityPlayUrl": "https://play.unity.com/en/games/2b9a0fc4-a4dc-474b-9cb0-485c3d4057f6/chinchilla-quest"
+}

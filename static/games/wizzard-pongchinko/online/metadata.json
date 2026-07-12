@@ -1,0 +1,14 @@
+{
+  "id": "wizzard-pongchinko",
+  "name": "Wizzard Pongchinko",
+  "author": "Sebastianooo",
+  "description": "Kind of Pachinko, but Pong gets in your way. Can you collect all the coins? Click to drop a ball.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/21ed0438-bcf3-4d1c-9982-dff173f30635/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/53b9ca8e-c7d5-488e-bcf7-2ab090c388ef/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "53b9ca8e-c7d5-488e-bcf7-2ab090c388ef",
+  "unityPlayUrl": "https://play.unity.com/en/games/53b9ca8e-c7d5-488e-bcf7-2ab090c388ef/wizzard-pongchinko"
+}

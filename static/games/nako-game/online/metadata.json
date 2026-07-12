@@ -1,0 +1,14 @@
+{
+  "id": "nako-game",
+  "name": "nako game",
+  "author": "tempra350",
+  "description": "mezase teppen",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/ee454098-41c6-4057-a062-a475ba6d5fc4/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1b1be4cd-241a-470e-9804-d7b022de0bb7/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "1b1be4cd-241a-470e-9804-d7b022de0bb7",
+  "unityPlayUrl": "https://play.unity.com/en/games/1b1be4cd-241a-470e-9804-d7b022de0bb7/nako-game"
+}

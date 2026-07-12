@@ -1,0 +1,14 @@
+{
+  "id": "gnome-runner",
+  "name": "Gnome Runner",
+  "author": "TheRealRebel74",
+  "description": "Endless runner. How far can you get?",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0d23abf4-e8d6-4cf2-8a13-a0c3dcb4893c/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ce2ea6be-93e3-4742-99e7-eac57fd30176/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "ce2ea6be-93e3-4742-99e7-eac57fd30176",
+  "unityPlayUrl": "https://play.unity.com/en/games/ce2ea6be-93e3-4742-99e7-eac57fd30176/gnome-runner"
+}

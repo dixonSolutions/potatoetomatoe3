@@ -1,0 +1,14 @@
+{
+  "id": "fps-sandbox",
+  "name": "FPS Sandbox",
+  "author": "MichaelPavlista",
+  "description": "Play FPS Sandbox on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/8100545c-0d3a-4035-bba7-ad7de0e99ccc/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00c1dd27-98f8-4e14-a879-fc225951c9a0/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "00c1dd27-98f8-4e14-a879-fc225951c9a0",
+  "unityPlayUrl": "https://play.unity.com/en/games/00c1dd27-98f8-4e14-a879-fc225951c9a0/fps-sandbox"
+}

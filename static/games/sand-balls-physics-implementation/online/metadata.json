@@ -1,0 +1,14 @@
+{
+  "id": "sand-balls-physics-implementation",
+  "name": "Sand balls physics Implementation",
+  "author": "hemanthvanam",
+  "description": "I tried to implement the physics of sand balls game from say games. The procedure involves sub partitioning the sand plane and detecting the mouse click position and pushing the vertices of that location sand plane behind the background plane. https://github.com/Hemanth759/sand-balls-game This is the source code of the project.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/cca1e884-1da1-4ed0-96a5-52a0b97e279f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9477a7c2-308c-4ab7-802b-6da663b67257/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9477a7c2-308c-4ab7-802b-6da663b67257",
+  "unityPlayUrl": "https://play.unity.com/en/games/9477a7c2-308c-4ab7-802b-6da663b67257/sand-balls-physics-implementation"
+}

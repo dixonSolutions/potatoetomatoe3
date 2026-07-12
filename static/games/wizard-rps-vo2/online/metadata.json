@@ -1,0 +1,14 @@
+{
+  "id": "wizard-rps-vo2",
+  "name": "Wizard RPS Vo.2",
+  "author": "hunterlayres",
+  "description": "Rock, Paper, Scissors, but with wizards (First very basic version, in development)",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0ae80fd2-30be-4779-adec-c1cac429c961/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0cf5a2d0-7b57-49bd-b2f0-14fd2db6b558/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0cf5a2d0-7b57-49bd-b2f0-14fd2db6b558",
+  "unityPlayUrl": "https://play.unity.com/en/games/0cf5a2d0-7b57-49bd-b2f0-14fd2db6b558/wizard-rps-vo2"
+}

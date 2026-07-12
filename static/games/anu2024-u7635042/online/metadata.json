@@ -1,0 +1,14 @@
+{
+  "id": "anu2024-u7635042",
+  "name": "ANU2024 u7635042",
+  "author": "qwejsefg",
+  "description": "The player is assumed to be a wizard and control a black ball through a maze trying to reach the green exit, symbolizing a magical release. The player can control the ball by hitting the direction buttons on the keyboard, giving it lasting force in the drag direction. Blue cubes grant 5 seconds of protection, and dark blue walls are bouncy. Please avoid the red obstacles and enemies, touching them will cause the failure of the game.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/07de0bee-05fd-41e9-afc1-d2695bb53eaa/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "07de0bee-05fd-41e9-afc1-d2695bb53eaa",
+  "unityPlayUrl": "https://play.unity.com/en/games/07de0bee-05fd-41e9-afc1-d2695bb53eaa/anu2024-u7635042"
+}

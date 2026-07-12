@@ -1,0 +1,14 @@
+{
+  "id": "sweet-keeper",
+  "name": "Sweet Keeper",
+  "author": "VampX",
+  "description": "Sweet Keeper is a Pixel 2D Top Down Action Game. In Sweet Keeper you play as a slime and you compete against a variety of enemies while trying to collect as much sweets as possible. The game is filled with lots of enemies, obstacles, sweets of course and much more.\nControls: WASD, or Arrow keys. Space to Dash\nFor more games, Join the Official Discord Server: https://discord.gg/zk4fWmjX",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/7e1bc578-07b1-42b3-8c64-f0e46ec16142/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ba42fa84-5ba3-46d7-90e7-80eb30c42349/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "ba42fa84-5ba3-46d7-90e7-80eb30c42349",
+  "unityPlayUrl": "https://play.unity.com/en/games/ba42fa84-5ba3-46d7-90e7-80eb30c42349/sweet-keeper"
+}

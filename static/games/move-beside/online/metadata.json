@@ -1,0 +1,14 @@
+{
+  "id": "move-beside",
+  "name": "Move beside",
+  "author": "spbrk",
+  "description": "Wキーでジャンプ\nAキーで左Dキーで右に動く。\nステージをクリアする。",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/54bb4bfe-f924-482e-889e-b39be39f9bba/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "54bb4bfe-f924-482e-889e-b39be39f9bba",
+  "unityPlayUrl": "https://play.unity.com/en/games/54bb4bfe-f924-482e-889e-b39be39f9bba/move-beside"
+}

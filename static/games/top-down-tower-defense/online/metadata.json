@@ -1,0 +1,14 @@
+{
+  "id": "top-down-tower-defense",
+  "name": "Top down tower defense",
+  "author": "guigsc",
+  "description": "https://github.com/guigsc/TopDownTowerDefense\n\nTop down tower defense survival game.\n\n// abstraction\nAll over the code\n\n// inheritance\non Enemy:\nThere are 2 types of enemies: close combat and ranged that inherits from the base class Enemy\n\non Target:\nThere are 2 types of targets: tower and enemy. Both share the same base class Target which identify the object as targetable with health and possibility of taking damage.\n\nWhen the projectile hits, it finds the Target component (tower or enemy) and then emit an event so the projectile can check if it is supposed to hit one or another, by casting the base class into Enemy or Tower\n\n// polymorphism\non Enemy:\nFor each enemy, the attack method is overriden.\n\non Tower:\nthe TakeDamage method is virtual and can be overriden in case it needs to add more functionality to it.\n\n// encapsulation\nall properties and methods are encapsulated. Parent properties and methods which need to provide access to childs are encapsulated with protected keyword, and public and private following theirs obvious rules.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bfdc39a9-c85a-4820-9cf5-def3aea5e0c1/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "bfdc39a9-c85a-4820-9cf5-def3aea5e0c1",
+  "unityPlayUrl": "https://play.unity.com/en/games/bfdc39a9-c85a-4820-9cf5-def3aea5e0c1/top-down-tower-defense"
+}

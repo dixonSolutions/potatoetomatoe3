@@ -1,0 +1,14 @@
+{
+  "id": "2-player-space-fight",
+  "name": "2 Player Space Fight",
+  "author": "DreadIsle",
+  "description": "Simple Unity Playground Game",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/360d700e-ceb5-486c-ac1f-2ce02cbfde60/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27ecbf1b-8c4b-4a83-ab63-988cac177e77/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "27ecbf1b-8c4b-4a83-ab63-988cac177e77",
+  "unityPlayUrl": "https://play.unity.com/en/games/27ecbf1b-8c4b-4a83-ab63-988cac177e77/2-player-space-fight"
+}

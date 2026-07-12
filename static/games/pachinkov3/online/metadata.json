@@ -1,0 +1,14 @@
+{
+  "id": "pachinkov3",
+  "name": "PachinkoV3",
+  "author": "Miraha02",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/714a5826-eefc-4120-aeba-98fcbfbc6654/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8f4ad9a4-d96d-46af-a4df-53fcf1327cdf/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "8f4ad9a4-d96d-46af-a4df-53fcf1327cdf",
+  "unityPlayUrl": "https://play.unity.com/en/games/8f4ad9a4-d96d-46af-a4df-53fcf1327cdf/pachinkov3"
+}

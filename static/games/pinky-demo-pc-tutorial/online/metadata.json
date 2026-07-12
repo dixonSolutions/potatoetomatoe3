@@ -1,0 +1,14 @@
+{
+  "id": "pinky-demo-pc-tutorial",
+  "name": "Pinky Demo (PC Tutorial)",
+  "author": "Krawper",
+  "description": "Play as Pinky in this demo created entirely with the Platformer 2D Game Kit asset !\n\nWill you be able to find all 100 coins ?\n\nAll visuals are from Craftpix.net.\nIn partnership with Krawper.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/abf437e0-85c4-4369-8975-9f578bca732a/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4343bdb2-4709-4a15-9f94-e8dcfe46fe09/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "4343bdb2-4709-4a15-9f94-e8dcfe46fe09",
+  "unityPlayUrl": "https://play.unity.com/en/games/4343bdb2-4709-4a15-9f94-e8dcfe46fe09/pinky-demo-pc-tutorial"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "corridateste",
+  "name": "CorridaTeste",
+  "author": "ocidico",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/dcf2816a-d1d5-449e-b148-3c706310c77e/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/010ed0fa-3c52-4327-90a9-8227bd338acd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "010ed0fa-3c52-4327-90a9-8227bd338acd",
+  "unityPlayUrl": "https://play.unity.com/en/games/010ed0fa-3c52-4327-90a9-8227bd338acd/corridateste"
+}

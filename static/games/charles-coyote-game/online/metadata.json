@@ -1,0 +1,14 @@
+{
+  "id": "charles-coyote-game",
+  "name": "Charle's Coyote Game",
+  "author": "nathanbynum",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/da85e1e0-1448-4db8-b72c-2bc75c42bcd1/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/124c7148-a440-4ae1-b0e3-d87a72162a58/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "124c7148-a440-4ae1-b0e3-d87a72162a58",
+  "unityPlayUrl": "https://play.unity.com/en/games/124c7148-a440-4ae1-b0e3-d87a72162a58/charles-coyote-game"
+}

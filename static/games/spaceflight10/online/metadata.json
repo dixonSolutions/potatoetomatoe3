@@ -1,0 +1,14 @@
+{
+  "id": "spaceflight10",
+  "name": "SpaceFlight_1.0",
+  "author": "Mat43rexgg",
+  "description": "Another game made by the Merchants Guild (TMG). Avoid fast moving obstacles and survive, the longer u survive the higher your score gets.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/95de296e-c956-4656-91f4-42a4b0842765/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99d2e9c8-1445-476b-8634-7d06c5d22ddb/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "99d2e9c8-1445-476b-8634-7d06c5d22ddb",
+  "unityPlayUrl": "https://play.unity.com/en/games/99d2e9c8-1445-476b-8634-7d06c5d22ddb/spaceflight10"
+}

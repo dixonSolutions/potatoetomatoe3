@@ -1,0 +1,14 @@
+{
+  "id": "snatkat-neon-edition",
+  "name": "SnatKat Neon Edition",
+  "author": "ManslyFred",
+  "description": "Play SnatKat Neon Edition on Potato Tomato (mirrored from Unity Play).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/8b082bf1-dec3-4947-b124-737fd52d080f/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/44253de7-83cb-4b7d-87e3-8e845b0a92a8/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "44253de7-83cb-4b7d-87e3-8e845b0a92a8",
+  "unityPlayUrl": "https://play.unity.com/en/games/44253de7-83cb-4b7d-87e3-8e845b0a92a8/snatkat-neon-edition"
+}

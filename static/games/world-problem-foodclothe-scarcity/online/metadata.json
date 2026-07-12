@@ -1,0 +1,14 @@
+{
+  "id": "world-problem-foodclothe-scarcity",
+  "name": "World Problem: Food/Clothe Scarcity",
+  "author": "rhs-esports3",
+  "description": "In this game, you will spawn in a desert playing as a character named Marko and by using Keys A, D, Left and Right you will be able to control Marko, collect coins, and avoid obstacles.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/876662ff-bef4-4f38-bffc-9e792815db01/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01ef7004-ab3c-4b6a-b389-3c19ca255fcd/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "01ef7004-ab3c-4b6a-b389-3c19ca255fcd",
+  "unityPlayUrl": "https://play.unity.com/en/games/01ef7004-ab3c-4b6a-b389-3c19ca255fcd/world-problem-foodclothe-scarcity"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "home-minigames",
+  "name": "Home Minigames",
+  "author": "ToothlessNinja05",
+  "description": "My first project.  That's pretty much it :)\n\nControls:\nPress Esc to go back to the main menu.\nPress C to switch between cameras in the UFO minigame and Bonus Area (the 4th and 6th ones).",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/a18add66-5d79-4dea-999c-df492d12c388/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0235e9f2-3225-4e04-bdef-d53b3043d5aa/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0235e9f2-3225-4e04-bdef-d53b3043d5aa",
+  "unityPlayUrl": "https://play.unity.com/en/games/0235e9f2-3225-4e04-bdef-d53b3043d5aa/home-minigames"
+}

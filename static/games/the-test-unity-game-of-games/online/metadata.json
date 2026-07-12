@@ -1,0 +1,14 @@
+{
+  "id": "the-test-unity-game-of-games",
+  "name": "The Test Unity Game of Games",
+  "author": "torzan",
+  "description": "First time building controllers and a ui ------- W,A,S,D or arrows to move. Space to jump, and tab for pause",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/92579f68-0738-431e-9ee0-05b1eeabe065/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4202f14c-4feb-4016-ba4b-b636af6a43e2/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "4202f14c-4feb-4016-ba4b-b636af6a43e2",
+  "unityPlayUrl": "https://play.unity.com/en/games/4202f14c-4feb-4016-ba4b-b636af6a43e2/the-test-unity-game-of-games"
+}

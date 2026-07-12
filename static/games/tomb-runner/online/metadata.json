@@ -1,0 +1,14 @@
+{
+  "id": "tomb-runner",
+  "name": "Tomb Runner",
+  "author": "HungDuc",
+  "description": "my end of term project!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/65c3c1a9-42e4-4b6b-9728-914b1865aa05/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/08aa63e7-d8cd-4f31-9409-27fd5194f2b3/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "08aa63e7-d8cd-4f31-9409-27fd5194f2b3",
+  "unityPlayUrl": "https://play.unity.com/en/games/08aa63e7-d8cd-4f31-9409-27fd5194f2b3/tomb-runner"
+}

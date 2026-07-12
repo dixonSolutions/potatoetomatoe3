@@ -1,0 +1,14 @@
+{
+  "id": "virtua-fray",
+  "name": "Virtua Fray",
+  "author": "Azalore",
+  "description": "As a drone hunter of the 3rd Star Alliance, you are tasked with taking down the evil corporation known as Virtua. In this first demo you will be dropped into a base on the jungle planet of Terron, where you must defeat all the corrupt drones in this high tech facility. Complete with rain effects, forest décor and backdrop, and multiple missions spanning 2 levels (which may include some secret passages/ parkour towers/ and a trippy teleporter) this rainforest rampage will be sure to excite. Enter the Fray!",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/4e09d47f-3f5e-487e-bbb7-7c63217d9a85/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9c5eb455-2093-48ab-8316-2190e716c47b/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "9c5eb455-2093-48ab-8316-2190e716c47b",
+  "unityPlayUrl": "https://play.unity.com/en/games/9c5eb455-2093-48ab-8316-2190e716c47b/virtua-fray"
+}

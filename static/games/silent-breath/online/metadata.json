@@ -1,0 +1,14 @@
+{
+  "id": "silent-breath",
+  "name": "Silent Breath",
+  "author": "unity_GFjdmiMzgA7lpQ",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/0284c0d4-c7a7-44c8-8fc2-357b7d527074/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c6a076f-5030-4386-ade1-8eeeee2803ee/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0c6a076f-5030-4386-ade1-8eeeee2803ee",
+  "unityPlayUrl": "https://play.unity.com/en/games/0c6a076f-5030-4386-ade1-8eeeee2803ee/silent-breath"
+}

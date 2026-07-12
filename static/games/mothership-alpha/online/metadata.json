@@ -1,0 +1,14 @@
+{
+  "id": "mothership-alpha",
+  "name": "mothership - alpha",
+  "author": "dezshearer",
+  "description": "Press  SPACEBAR to start / undock; and SPACEBAR again to dock when at rear of ship.\nW - Forward\nD - Backward\nA - Left\nD - Right\nQ - Roll Left\nE - Roll Right\nLeft Mouse - Shoot mining laser at asteroid",
+  "thumbnail": "https://play.unity.com/api/v1/files/file/5b5012eb-be9c-43d0-aec2-df55bfd688e0/content",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0071a498-6632-40d7-99eb-ee089f6e2d05/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "0071a498-6632-40d7-99eb-ee089f6e2d05",
+  "unityPlayUrl": "https://play.unity.com/en/games/0071a498-6632-40d7-99eb-ee089f6e2d05/mothership-alpha"
+}

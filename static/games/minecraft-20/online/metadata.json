@@ -1,0 +1,14 @@
+{
+  "id": "minecraft-20",
+  "name": "Minecraft 2.0",
+  "author": "wyatt_moyer",
+  "description": "The Better Minecraft",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e78fe846-ad42-4568-b357-c46eab3ed115/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "e78fe846-ad42-4568-b357-c46eab3ed115",
+  "unityPlayUrl": "https://play.unity.com/en/games/e78fe846-ad42-4568-b357-c46eab3ed115/minecraft-20"
+}

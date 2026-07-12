@@ -1,0 +1,14 @@
+{
+  "id": "anu2023-zombie-nightmare",
+  "name": "ANU2023 Zombie Nightmare",
+  "author": "Jfax100",
+  "description": "My latest microgame.",
+  "thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+  "category": "arcade",
+  "engine": "unity",
+  "onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/69dd9b97-2fc2-4d3a-9390-ecef403d9559/build/latest/frame",
+  "pullStrategy": "generic",
+  "sourcePortal": "unity-play",
+  "unityPlayGameId": "69dd9b97-2fc2-4d3a-9390-ecef403d9559",
+  "unityPlayUrl": "https://play.unity.com/en/games/69dd9b97-2fc2-4d3a-9390-ecef403d9559/anu2023-zombie-nightmare"
+}
