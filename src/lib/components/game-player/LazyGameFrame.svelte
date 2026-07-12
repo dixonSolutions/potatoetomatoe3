@@ -17,6 +17,7 @@
 		title,
 		posterUrl,
 		iframeAllow,
+		fillContainer = false,
 		started = $bindable(false),
 		onIframeReady
 	}: {
@@ -25,6 +26,8 @@
 		title: string;
 		posterUrl: string;
 		iframeAllow?: string;
+		/** When true, fill the parent (fullscreen / flex child) instead of fixed 16:9. */
+		fillContainer?: boolean;
 		started?: boolean;
 		onIframeReady?: (el: HTMLIFrameElement | null) => void;
 	} = $props();
@@ -53,8 +56,10 @@
 </script>
 
 <div
-	class="relative w-full overflow-hidden rounded-lg border bg-muted shadow-lg"
-	style="aspect-ratio: 16 / 9;"
+	class="relative w-full overflow-hidden bg-muted {fillContainer
+		? 'h-full min-h-0 border-0 shadow-none'
+		: 'rounded-lg border shadow-lg'}"
+	style={fillContainer ? undefined : 'aspect-ratio: 16 / 9;'}
 >
 	{#if !started}
 		<button
