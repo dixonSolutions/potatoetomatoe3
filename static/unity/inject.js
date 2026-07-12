@@ -84,22 +84,56 @@
 		};
 	}
 
-	/* Unlock Web Audio — Play is clicked in the parent frame, so AudioContext often stays suspended. */
-	function unlockAudio() {
-		try {
-			var AC = window.AudioContext || window.webkitAudioContext;
-			if (AC) {
-				if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();
-				var ctx = window.__ptSharedAudioCtx;
-				if (ctx && ctx.state === 'suspended') ctx.resume();
+	/* Track every AudioContext so focus-loss mute can suspend Unity Web Audio too. */
+	var audioContexts = [];
+	(function patchAudioContext() {
+		if (window.__ptAudioContextPatched) return;
+		var OrigAC = window.AudioContext || window.webkitAudioContext;
+		if (!OrigAC) return;
+		window.__ptAudioContextPatched = true;
+		function PatchedAudioContext() {
+			var ctx = new OrigAC();
+			audioContexts.push(ctx);
+			window.__ptSharedAudioCtx = ctx;
+			if (window.__ptAudioOutputMuted) {
+				try {
+					ctx.suspend();
+				} catch (e) {}
 			}
-		} catch (e) {
-			/* ignore */
+			return ctx;
+		}
+		PatchedAudioContext.prototype = OrigAC.prototype;
+		window.AudioContext = PatchedAudioContext;
+		if ('webkitAudioContext' in window) window.webkitAudioContext = PatchedAudioContext;
+	})();
+
+	function unlockAudio() {
+		if (window.__ptAudioOutputMuted) return;
+		for (var i = 0; i < audioContexts.length; i++) {
+			try {
+				if (audioContexts[i].state === 'suspended') audioContexts[i].resume();
+			} catch (e) {}
 		}
 	}
+
+	function setAudioOutputMuted(muted) {
+		window.__ptAudioOutputMuted = !!muted;
+		for (var i = 0; i < audioContexts.length; i++) {
+			try {
+				if (muted) {
+					if (audioContexts[i].state === 'running') audioContexts[i].suspend();
+				} else if (audioContexts[i].state === 'suspended') {
+					audioContexts[i].resume();
+				}
+			} catch (e) {}
+		}
+	}
+
 	window.addEventListener('message', function (ev) {
 		var data = ev && ev.data;
-		if (data && data.type === 'potato-tomato-unlock-audio') unlockAudio();
+		if (!data || typeof data !== 'object') return;
+		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
+		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
 	});
 	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
 		document.addEventListener(type, unlockAudio, true);

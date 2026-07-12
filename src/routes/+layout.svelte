@@ -34,6 +34,7 @@
 	import { getDecoyFaviconUrl } from '$lib/utils/privacy-disguise-registry';
 	import type { PrivacyDisguiseMode } from '$lib/utils/site-settings';
 	import { attachGlobalMediaMute } from '$lib/utils/audio-mute';
+	import { attachAppWindowFocusTracking } from '$lib/utils/app-window-focus';
 	import { attachGameStorageBridge } from '$lib/utils/game-storage-bridge';
 	import { GAME_IMMERSIVE_CHANGED } from '$lib/utils/game-immersive';
 	import {
@@ -298,6 +299,10 @@
 		}
 
 		const detachMediaMute = attachGlobalMediaMute(document);
+		let detachAppFocus: (() => void) | undefined;
+		void attachAppWindowFocusTracking().then((unlisten) => {
+			detachAppFocus = unlisten;
+		});
 		const detachGameStorageBridge = attachGameStorageBridge();
 
 		let detachTray: (() => void) | undefined;
@@ -342,6 +347,7 @@
 			window.removeEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
 			clearInterval(poll);
 			detachMediaMute();
+			detachAppFocus?.();
 			detachGameStorageBridge();
 			detachTray?.();
 			clearLockDelayTimer();

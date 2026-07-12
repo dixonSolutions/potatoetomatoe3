@@ -1,10 +1,14 @@
 /**
  * Global mute + master volume for HTML media on this origin.
  * Cross-origin iframes cannot be controlled from the parent page — blank them on privacy lock.
+ *
+ * Important: never pause() game media on transient focus changes — that permanently silenced
+ * in-app play when focus moved into the game iframe (play() on unmute is often blocked).
  */
 
 import { loadSiteSettings, patchSiteSettings, type MuteAudioScope } from '$lib/utils/site-settings';
-import { shouldMuteForFocusLoss } from '$lib/utils/game-audio';
+import { shouldMuteForFocusLoss, broadcastGameAudioOutput } from '$lib/utils/game-audio';
+import { APP_WINDOW_FOCUS_CHANGED } from '$lib/utils/app-window-focus';
 
 export type { MuteAudioScope };
 
@@ -43,7 +47,6 @@ export function shouldForceMuteFromScope(): boolean {
 	const scope = getMuteAudioScope();
 	if (scope === 'off') return false;
 	if (scope === 'always') return true;
-	/* Do not treat focus inside a game iframe as "window lost focus" — that silenced play. */
 	return shouldMuteForFocusLoss(document);
 }
 
@@ -64,27 +67,13 @@ export function getMediaOutputState(): { muted: boolean; volume: number } {
 	return { muted: shouldMuteForFocusLoss(document), volume: master };
 }
 
+/**
+ * Apply mute/volume without pausing. Pausing on focus-loss made in-app audio stay dead
+ * after focus entered the game iframe (autoplay blocks resume).
+ */
 function applyToMediaElement(el: HTMLMediaElement, muted: boolean, volume: number): void {
-	const wasForcedSilent = el.muted || el.volume === 0;
-	el.volume = volume;
+	el.volume = muted ? 0 : volume;
 	el.muted = muted;
-	if (muted) {
-		if (!el.paused) {
-			el.setAttribute('data-pt-was-playing', '1');
-		}
-		try {
-			el.pause();
-		} catch {
-			/* ignore */
-		}
-	} else if (wasForcedSilent || el.getAttribute('data-pt-was-playing') === '1') {
-		el.removeAttribute('data-pt-was-playing');
-		try {
-			void el.play().catch(() => {});
-		} catch {
-			/* ignore autoplay rejection */
-		}
-	}
 }
 
 /**
@@ -95,6 +84,7 @@ function applyToMediaElement(el: HTMLMediaElement, muted: boolean, volume: numbe
 export function attachGlobalMediaMute(root: Document): () => void {
 	const wiredIframes = new WeakSet<HTMLIFrameElement>();
 	let scheduled = false;
+	let lastBroadcastMuted: boolean | null = null;
 
 	const schedule = () => {
 		if (scheduled) return;
@@ -129,6 +119,10 @@ export function attachGlobalMediaMute(root: Document): () => void {
 	function run() {
 		const { muted, volume } = getMediaOutputState();
 		applyToRoot(root, muted, volume);
+		if (lastBroadcastMuted !== muted) {
+			lastBroadcastMuted = muted;
+			broadcastGameAudioOutput(muted, root);
+		}
 	}
 
 	run();
@@ -145,6 +139,7 @@ export function attachGlobalMediaMute(root: Document): () => void {
 	window.addEventListener('blur', onFocusVisibility);
 	document.addEventListener('focusin', onFocusVisibility);
 	window.addEventListener(PRIVACY_LOCKED_EVENT, onFocusVisibility);
+	window.addEventListener(APP_WINDOW_FOCUS_CHANGED, onFocusVisibility);
 
 	return () => {
 		observer.disconnect();
@@ -154,5 +149,6 @@ export function attachGlobalMediaMute(root: Document): () => void {
 		window.removeEventListener('blur', onFocusVisibility);
 		document.removeEventListener('focusin', onFocusVisibility);
 		window.removeEventListener(PRIVACY_LOCKED_EVENT, onFocusVisibility);
+		window.removeEventListener(APP_WINDOW_FOCUS_CHANGED, onFocusVisibility);
 	};
 }

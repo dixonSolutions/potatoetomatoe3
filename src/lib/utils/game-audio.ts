@@ -1,36 +1,17 @@
 /**
- * Helpers for game iframe audio: Web Audio unlock + focus detection used by mute scope.
+ * Helpers for game iframe audio: Web Audio unlock + focus-loss mute decisions.
  */
 
-/** True when focus is inside an embedded frame (playing a game), not another OS window. */
-export function isFocusInsideEmbeddedFrame(doc: Document = document): boolean {
-	const active = doc.activeElement;
-	if (active && active.tagName === 'IFRAME') return true;
-
-	for (const frame of doc.querySelectorAll('iframe')) {
-		if (frame.tagName !== 'IFRAME') continue;
-		const iframe = frame as HTMLIFrameElement;
-		try {
-			const child = iframe.contentDocument;
-			if (child?.hasFocus()) return true;
-			if (child && isFocusInsideEmbeddedFrame(child)) return true;
-		} catch {
-			/* cross-origin nested frame — outer iframe still counts as in-app play */
-			if (active === frame) return true;
-		}
-	}
-	return false;
-}
+import { isAppWindowFocused } from '$lib/utils/app-window-focus';
 
 /**
  * Whether mute-on-focus-loss should silence media.
- * Tab hidden → mute. Focus in a game iframe → keep sound. True OS/window blur → mute.
+ * Uses real app-window focus (Tauri / tracked browser state): other window → mute,
+ * in-app including game iframe → keep sound.
  */
 export function shouldMuteForFocusLoss(doc: Document = document): boolean {
 	if (doc.visibilityState === 'hidden') return true;
-	if (doc.hasFocus()) return false;
-	if (isFocusInsideEmbeddedFrame(doc)) return false;
-	return true;
+	return !isAppWindowFocused();
 }
 
 type AudioContextCtor = new () => AudioContext;
@@ -43,7 +24,7 @@ function getAudioContextCtor(win: Window): AudioContextCtor | null {
 	return w.AudioContext ?? w.webkitAudioContext ?? null;
 }
 
-/** Resume suspended AudioContexts and HTMLMediaElements in a same-origin document tree. */
+/** Resume suspended AudioContexts in a same-origin document tree. */
 export function unlockDocumentAudio(doc: Document): void {
 	const win = doc.defaultView;
 	if (!win) return;
@@ -60,22 +41,30 @@ export function unlockDocumentAudio(doc: Document): void {
 		}
 	}
 
-	for (const el of doc.querySelectorAll('audio, video')) {
-		if (!(el instanceof HTMLMediaElement)) continue;
-		try {
-			if (el.paused && el.getAttribute('data-pt-was-playing') === '1') {
-				void el.play().catch(() => {});
-			}
-		} catch {
-			/* ignore */
-		}
-	}
-
 	for (const frame of doc.querySelectorAll('iframe')) {
 		if (!(frame instanceof HTMLIFrameElement)) continue;
 		try {
 			const child = frame.contentDocument;
 			if (child) unlockDocumentAudio(child);
+		} catch {
+			/* cross-origin */
+		}
+	}
+}
+
+/** Notify same-origin frames to suspend/resume Web Audio (HTML mute cannot reach Unity). */
+export function broadcastGameAudioOutput(muted: boolean, root: Document = document): void {
+	const msg = { type: 'potato-tomato-audio-output', muted };
+	for (const frame of root.querySelectorAll('iframe')) {
+		if (!(frame instanceof HTMLIFrameElement)) continue;
+		try {
+			frame.contentWindow?.postMessage(msg, '*');
+		} catch {
+			/* ignore */
+		}
+		try {
+			const child = frame.contentDocument;
+			if (child) broadcastGameAudioOutput(muted, child);
 		} catch {
 			/* cross-origin */
 		}

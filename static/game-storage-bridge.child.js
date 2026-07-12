@@ -373,6 +373,7 @@
 	installIdbShim();
 
 	function unlockAudio() {
+		if (window.__ptAudioOutputMuted) return;
 		try {
 			var AC = window.AudioContext || window.webkitAudioContext;
 			if (!AC) return;
@@ -384,8 +385,32 @@
 			/* ignore */
 		}
 	}
+
+	function setAudioOutputMuted(muted) {
+		window.__ptAudioOutputMuted = !!muted;
+		try {
+			var ctx = window.__ptSharedAudioCtx;
+			if (!ctx) {
+				var AC = window.AudioContext || window.webkitAudioContext;
+				if (!AC) return;
+				ctx = new AC();
+				window.__ptSharedAudioCtx = ctx;
+			}
+			if (muted) {
+				if (ctx.state === 'running') ctx.suspend();
+			} else if (ctx.state === 'suspended') {
+				ctx.resume();
+			}
+		} catch (e) {
+			/* ignore */
+		}
+	}
+
 	window.addEventListener('message', function (event) {
-		if (event && event.data && event.data.type === 'potato-tomato-unlock-audio') unlockAudio();
+		var data = event && event.data;
+		if (!data || typeof data !== 'object') return;
+		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
+		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
 	});
 	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
 		document.addEventListener(type, unlockAudio, true);

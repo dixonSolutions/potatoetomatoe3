@@ -1,46 +1,22 @@
-import { describe, expect, it } from 'vitest';
-import { isFocusInsideEmbeddedFrame, shouldMuteForFocusLoss } from './game-audio';
+import { describe, expect, it, beforeEach } from 'vitest';
+import { shouldMuteForFocusLoss } from './game-audio';
 
 describe('shouldMuteForFocusLoss', () => {
+	beforeEach(() => {
+		/* Default app-window-focus module state is focused=true */
+	});
+
 	it('mutes when the tab is hidden', () => {
 		const doc = {
-			visibilityState: 'hidden',
-			hasFocus: () => false,
-			activeElement: null,
-			querySelectorAll: () => []
+			visibilityState: 'hidden'
 		} as unknown as Document;
 		expect(shouldMuteForFocusLoss(doc)).toBe(true);
 	});
 
-	it('does not mute when the document has focus', () => {
+	it('does not mute when the app window is focused and tab is visible', () => {
 		const doc = {
-			visibilityState: 'visible',
-			hasFocus: () => true,
-			activeElement: null,
-			querySelectorAll: () => []
+			visibilityState: 'visible'
 		} as unknown as Document;
 		expect(shouldMuteForFocusLoss(doc)).toBe(false);
-	});
-
-	it('does not mute when focus is inside a game iframe', () => {
-		const iframe = { tagName: 'IFRAME' } as HTMLIFrameElement;
-		const doc = {
-			visibilityState: 'visible',
-			hasFocus: () => false,
-			activeElement: iframe,
-			querySelectorAll: () => []
-		} as unknown as Document;
-		expect(shouldMuteForFocusLoss(doc)).toBe(false);
-		expect(isFocusInsideEmbeddedFrame(doc)).toBe(true);
-	});
-
-	it('mutes when focus left the window and no iframe is active', () => {
-		const doc = {
-			visibilityState: 'visible',
-			hasFocus: () => false,
-			activeElement: null,
-			querySelectorAll: () => []
-		} as unknown as Document;
-		expect(shouldMuteForFocusLoss(doc)).toBe(true);
 	});
 });

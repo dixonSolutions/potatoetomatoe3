@@ -29,7 +29,7 @@
 		{
 			label: 'When tab is in the background or window loses focus',
 			value: 'focus_loss',
-			hint: 'Mute when the tab is hidden or another app takes focus. Playing inside the game frame still keeps sound on.'
+			hint: 'Mute when another app or tab takes focus. Staying in Potato Tomato (including inside the game) keeps sound on.'
 		},
 		{
 			label: 'Always',
