@@ -72,15 +72,19 @@ Port games from the 3kh0 unblocked games repository.
 node scripts/port-3kh0-games.js
 ```
 
-### 7. Poki Games (`port-poki-games.js`) — legacy
+### 7. Poki Games (`port-poki-games.js` / `import-poki-catalog.mjs`) — **deprecated**
 
-Port games from Poki platform by game slug. **Prefer Y8 for new imports** (see below).
+Poki is no longer a catalog source. Remove existing Poki entries with:
 
 ```bash
-node scripts/port-poki-games.js subway-surfers stickman-hook
+pnpm run games:purge-poki -- --dry-run
+pnpm run games:purge-poki
+node scripts/generate-games-list.js
 ```
 
-### 8. Y8 catalog (`import-y8-catalog.mjs`) — recommended
+Prefer **Unity Play** or **Y8** for new imports.
+
+### 8. Y8 catalog (`import-y8-catalog.mjs`)
 
 Discover games from Y8 RSS feeds, extract `storage-direct.y8.com` embed URLs, tag Unity WebGL builds, and write `static/games/<id>/online/` shells.
 
@@ -91,6 +95,23 @@ node scripts/generate-games-list.js
 ```
 
 Unity games play through `/unity/player.html` (splash + portal loading stripped). Use the puller to mirror offline copies with `asset-map.json`.
+
+### 9. Unity Play catalog (`import-unity-play-catalog.mjs`) — recommended
+
+Discover `unity-web` games from [play.unity.com](https://play.unity.com) APIs (`by-query?type=unity-web`, category shelves, popular/recent). Writes Unity shells with `engine: "unity"` and `onlineEmbedUrl` pointing at the official build frame (`/api/v1/games/game/<uuid>/build/latest/frame`).
+
+```bash
+pnpm run games:import-unity-play -- --discover-only
+pnpm run games:import-unity-play -- --limit 20 --skip-existing
+pnpm run games:import-unity-play -- --skip-existing
+node scripts/generate-games-list.js
+```
+
+**Flags:** `--limit`, `--skip-existing`, `--discover-only`, `--concurrency`, `--max-pages`, `--force`  
+**Manifest:** `scripts/data/unity-play-catalog.json`  
+**Dedupe:** skips when the same Unity Play UUID / frame URL is already mapped; never overwrites existing non-Poki entries without `--force`.
+
+Embed proof: frame responses have no `frame-ancestors` / `X-Frame-Options` block. Online play uses `/unity/player.html`; when the puller is up, `/api/unity-play/:id` proxies the frame same-origin with inject patches.
 
 ---
 

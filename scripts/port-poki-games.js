@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+/**
+ * @deprecated Prefer `pnpm games:import-unity-play` or `pnpm games:import-y8`.
+ * Use `pnpm games:purge-poki` to remove existing Poki catalog entries.
+ */
 
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
@@ -6,6 +10,10 @@ import { fileURLToPath } from 'url';
 import https from 'https';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+console.warn(
+	'⚠️  port-poki-games.js is deprecated. Prefer: pnpm games:import-unity-play'
+);
 
 const fetchUrl = (url) => {
     return new Promise((resolve, reject) => {

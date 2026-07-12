@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 /**
+ * @deprecated Prefer Unity Play (`pnpm games:import-unity-play`) or Y8 (`pnpm games:import-y8`).
+ * Poki catalog entries are purged via `pnpm games:purge-poki`. Kept for historical reference only.
+ *
  * Non-hardcoded Poki catalog import: discovers all games from embedded RTK state on
  * https://poki.com/en/all-games (getAllGames pagination), then for each slug loads
  * the game page and reads getGame(...) → file.content (games.poki.com iframe URL).
