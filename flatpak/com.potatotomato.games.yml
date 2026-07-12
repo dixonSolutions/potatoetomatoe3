@@ -19,8 +19,10 @@ finish-args:
   - --filesystem=xdg-run/potato-tomato-tray:create
 
 modules:
-  # Required at runtime by tray-icon / libappindicator-sys (not in GNOME Platform)
-  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
+  # Required at runtime by tray-icon / libappindicator-sys (not in GNOME Platform).
+  # Prefer classic libappindicator: ayatana cmake modules install to /app/lib64 on
+  # newer SDKs, which breaks pkg-config for nested modules (CI failure).
+  - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
   - name: potato-tomato
     buildsystem: simple
     build-commands:

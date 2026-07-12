@@ -35,9 +35,9 @@ sudo apt install libayatana-appindicator3-dev
 
 ## Flatpak
 
-The Flatpak runtime does **not** ship AppIndicator. The manifest builds it from
-Flathub [shared-modules](https://github.com/flathub/shared-modules) (`flatpak/shared-modules`
-git submodule) and talks to:
+The Flatpak runtime does **not** ship AppIndicator. The manifest builds classic
+`libappindicator` from Flathub [shared-modules](https://github.com/flathub/shared-modules)
+(`flatpak/shared-modules` git submodule) and talks to:
 
 - `org.kde.StatusNotifierWatcher`
 - `com.canonical.AppMenu.Registrar`

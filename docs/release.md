@@ -39,7 +39,8 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | GitHub Pages | `/flatpak/summary` 404 | Usually a web-only `pages.yml` deploy wiped the OSTree tree, or release deploy had not finished yet. Prefer `release.yml` for Pages; keep `pages.yml` manual-only. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
 | Remote install | Prefer one-file bundle | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken |
 | Flatpak runtime | `Game not in catalog` / `puller catalog is empty` | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`. |
-| Flatpak run | `Failed to load ayatana-appindicator3` panic | Bundle `shared-modules/libayatana-appindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak. |
+| Flatpak run | `Failed to load ayatana-appindicator3` panic | Bundle `shared-modules/libappindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak. |
+| Flatpak build | `Package 'libayatana-ido3-0.4' not found` | Ayatana cmake installs to `/app/lib64`; use classic `libappindicator-gtk3-12.10.json` instead. |
 
 ## Manual web-only deploy
 
