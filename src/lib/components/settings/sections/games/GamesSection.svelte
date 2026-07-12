@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label/label.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Select from '$lib/components/ui/select';
 	import { sectionMatches } from '$lib/components/settings/search';
 	import {
@@ -7,6 +8,17 @@
 		saveDefaultGamePlayMode,
 		type GamePlayMode
 	} from '$lib/utils/game-play-mode';
+	import {
+		DEFAULT_GAME_PAUSE_SHORTCUT,
+		formatGamePauseShortcutLabel,
+		getGamePauseShortcut,
+		isValidGamePauseShortcut,
+		saveGamePauseShortcut,
+		type GamePauseShortcut
+	} from '$lib/utils/game-pause';
+	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
+	import { toast } from 'svelte-sonner';
+	import { onMount } from 'svelte';
 
 	let {
 		searchQuery,
@@ -31,19 +43,61 @@
 		}
 	];
 
+	let pauseShortcut = $state<GamePauseShortcut>({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
+	let recordingPauseShortcut = $state(false);
+
 	function onDefaultChange(value: string | undefined) {
 		if (value !== 'online' && value !== 'offline') return;
 		defaultPlayMode = value;
 		saveDefaultGamePlayMode(value);
 	}
 
+	function resetPauseShortcut() {
+		pauseShortcut = saveGamePauseShortcut({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
+		toast.message('Pause shortcut reset to `');
+	}
+
+	onMount(() => {
+		pauseShortcut = getGamePauseShortcut();
+	});
+
 	$effect(() => {
 		defaultPlayMode = getDefaultGamePlayMode();
+	});
+
+	$effect(() => {
+		if (!recordingPauseShortcut) return;
+		const onKey = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				recordingPauseShortcut = false;
+				return;
+			}
+			e.preventDefault();
+			e.stopPropagation();
+			if (isModifierOnlyKeyboardCode(e.code)) return;
+			const next: GamePauseShortcut = {
+				code: e.code,
+				ctrlKey: e.ctrlKey,
+				shiftKey: e.shiftKey,
+				altKey: e.altKey,
+				metaKey: e.metaKey
+			};
+			if (!isValidGamePauseShortcut(next)) {
+				toast.error('That shortcut is reserved (Ctrl+Shift+, opens settings).');
+				recordingPauseShortcut = false;
+				return;
+			}
+			pauseShortcut = saveGamePauseShortcut(next);
+			recordingPauseShortcut = false;
+			toast.success(`Pause shortcut set to ${formatGamePauseShortcutLabel(next)}`);
+		};
+		window.addEventListener('keydown', onKey, true);
+		return () => window.removeEventListener('keydown', onKey, true);
 	});
 </script>
 
 <div class="space-y-6">
-	{#if sectionMatches(searchQuery, 'games play online offline default version unity download')}
+	{#if sectionMatches(searchQuery, 'game play online offline default version unity download')}
 		<div id="settings-section-games-default-mode" class="scroll-mt-32 space-y-2">
 			<Label>Default play source</Label>
 			<p class="text-xs text-muted-foreground">
@@ -71,7 +125,46 @@
 		</div>
 	{/if}
 
-	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'games play online offline default version unity download')}
+	{#if sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game')}
+		<div id="settings-section-games-pause-shortcut" class="scroll-mt-32 space-y-3">
+			<div>
+				<p class="text-sm font-medium">Pause / resume shortcut</p>
+				<p class="text-xs text-muted-foreground">
+					While a game is playing, press this key to pause or resume (like the console key in Xonotic). Default
+					is the backtick <span class="font-mono">`</span>. Ignored while typing in a field.
+				</p>
+			</div>
+			<div
+				class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2 text-sm {recordingPauseShortcut
+					? 'border-primary bg-muted/40'
+					: ''}"
+			>
+				<span class="font-mono text-xs tabular-nums">
+					{recordingPauseShortcut
+						? 'Press keys… (Esc to cancel)'
+						: formatGamePauseShortcutLabel(pauseShortcut)}
+				</span>
+			</div>
+			<div class="flex flex-wrap gap-2">
+				<Button
+					type="button"
+					variant={recordingPauseShortcut ? 'secondary' : 'outline'}
+					size="sm"
+					disabled={busy}
+					onclick={() => {
+						recordingPauseShortcut = true;
+					}}
+				>
+					{recordingPauseShortcut ? 'Listening…' : 'Record shortcut'}
+				</Button>
+				<Button type="button" variant="ghost" size="sm" disabled={busy} onclick={resetPauseShortcut}>
+					Reset to `
+				</Button>
+			</div>
+		</div>
+	{/if}
+
+	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'game play online offline default version unity download') && !sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game')}
 		<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
 	{/if}
 </div>

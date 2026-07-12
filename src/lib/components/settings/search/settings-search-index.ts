@@ -112,13 +112,19 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		id: 'search-sec-games',
 		title: 'Games',
 		panel: 'games',
-		sectionKeywords: 'games play online offline default version unity download bundled',
+		sectionKeywords: 'games play online offline default version unity download bundled pause resume shortcut',
 		subsections: [
 			{
 				id: 'sub-games-default-mode',
 				label: 'Default play source',
 				scrollTargetId: 'settings-section-games-default-mode',
 				keywords: 'default online offline play source version bundled download'
+			},
+			{
+				id: 'sub-games-pause-shortcut',
+				label: 'Pause / resume shortcut',
+				scrollTargetId: 'settings-section-games-pause-shortcut',
+				keywords: 'pause resume shortcut backtick hotkey keyboard game xonotic'
 			}
 		]
 	}

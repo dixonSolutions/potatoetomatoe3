@@ -28,7 +28,7 @@
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown, RotateCcw, ScrollText } from 'lucide-svelte';
+	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown, RotateCcw, ScrollText, Pause, Play } from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
@@ -41,6 +41,13 @@
 		getOfflineBackend
 	} from '$lib/utils/offline-runtime';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
+	import {
+		applyPauseToGameIframe,
+		dispatchGamePauseChanged,
+		formatGamePauseShortcutLabel,
+		gamePauseShortcutMatches,
+		getGamePauseShortcut
+	} from '$lib/utils/game-pause';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
@@ -106,6 +113,8 @@
 	let logsOpen = $state(false);
 	let logSnapshot = $state<string[]>([]);
 	let offlineBackendLabel = $state('…');
+	let gamePaused = $state(false);
+	let pauseShortcutLabel = $state('`');
 
 	const playerLayout = new GamePlayerLayout();
 
@@ -116,6 +125,26 @@
 			preferOffline
 			/* Detail page can still use catalog thumb when online; offline needs puller status — optional follow-up */
 		});
+	}
+
+	function refreshPauseShortcutLabel() {
+		pauseShortcutLabel = formatGamePauseShortcutLabel(getGamePauseShortcut());
+	}
+
+	function setGamePausedState(paused: boolean) {
+		if (!gameSurfaceStarted && paused) return;
+		gamePaused = paused;
+		applyPauseToGameIframe(iframeElement, paused);
+		dispatchGamePauseChanged(paused);
+		appendPlayLog('info', 'ui', paused ? 'Game paused' : 'Game resumed', `game=${gameId}`);
+	}
+
+	function toggleGamePause() {
+		if (!gameSurfaceStarted) {
+			toast.message('Start the game first');
+			return;
+		}
+		setGamePausedState(!gamePaused);
 	}
 
 	async function refreshPlayerUrl() {
@@ -152,6 +181,7 @@
 	async function relaunchGameCompletely() {
 		if (!gameId) return;
 		appendPlayLog('info', 'ui', 'Relaunch game completely', `game=${gameId}`);
+		setGamePausedState(false);
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
 		await refreshPlayerUrl();
@@ -168,6 +198,7 @@
 		loading = true;
 		error = '';
 		gameSurfaceStarted = false;
+		gamePaused = false;
 		gamePlayerUrl = '';
 
 		gameMetadata = await loadGameMetadata(id);
@@ -214,6 +245,7 @@
 
 	onMount(() => {
 		networkOnline = isNetworkOnline();
+		refreshPauseShortcutLabel();
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
 			if (gameId) void loadGamePage(gameId);
@@ -224,6 +256,7 @@
 			applyPrivacyPauseToIframe(d?.locked ?? false);
 		};
 		const onSettingsApplied = () => {
+			refreshPauseShortcutLabel();
 			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
 		};
 		const onGamePlayModeChanged = (e: Event) => {
@@ -236,10 +269,20 @@
 			if (detail?.gameId && detail.gameId !== gameId) return;
 			void refreshPlayerUrl();
 		};
+		const onPauseHotkey = (e: KeyboardEvent) => {
+			if (!gameSurfaceStarted) return;
+			const t = e.target as HTMLElement | null;
+			if (t?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+			if (!gamePauseShortcutMatches(e)) return;
+			e.preventDefault();
+			e.stopPropagation();
+			toggleGamePause();
+		};
 		window.addEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 		window.addEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+		window.addEventListener('keydown', onPauseHotkey, true);
 		document.addEventListener('fullscreenchange', syncGameFullscreenState);
 		document.addEventListener('webkitfullscreenchange', syncGameFullscreenState);
 
@@ -253,11 +296,20 @@
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
+			window.removeEventListener('keydown', onPauseHotkey, true);
 			document.removeEventListener('fullscreenchange', syncGameFullscreenState);
 			document.removeEventListener('webkitfullscreenchange', syncGameFullscreenState);
 			playerLayout.destroy();
 			setGameImmersive(false);
 		};
+	});
+
+	$effect(() => {
+		if (!gameSurfaceStarted) {
+			gamePaused = false;
+			return;
+		}
+		applyPauseToGameIframe(iframeElement, gamePaused);
 	});
 
 	function syncGameFullscreenState() {
@@ -397,6 +449,24 @@
 						View logs
 					</Button>
 					<Button
+						onclick={toggleGamePause}
+						variant={gamePaused ? 'default' : 'outline'}
+						size="sm"
+						class="w-full sm:w-auto"
+						disabled={!gameSurfaceStarted}
+						aria-pressed={gamePaused}
+						title={`Pause / resume (${pauseShortcutLabel})`}
+					>
+						{#if gamePaused}
+							<Play class="mr-2 h-4 w-4 fill-current" />
+							Resume
+						{:else}
+							<Pause class="mr-2 h-4 w-4" />
+							Pause
+						{/if}
+						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
+					</Button>
+					<Button
 						onclick={() => void relaunchGameCompletely()}
 						variant="outline"
 						size="sm"
@@ -444,6 +514,22 @@
 						variant="secondary"
 						size="sm"
 						class="shadow-md backdrop-blur-sm"
+						onclick={toggleGamePause}
+						disabled={!gameSurfaceStarted}
+						aria-label={gamePaused ? 'Resume game' : 'Pause game'}
+					>
+						{#if gamePaused}
+							<Play class="mr-2 h-4 w-4 fill-current" />
+							Resume
+						{:else}
+							<Pause class="mr-2 h-4 w-4" />
+							Pause
+						{/if}
+					</Button>
+					<Button
+						variant="secondary"
+						size="sm"
+						class="shadow-md backdrop-blur-sm"
 						onclick={() => void relaunchGameCompletely()}
 						aria-label="Relaunch game"
 					>
@@ -459,6 +545,23 @@
 					>
 						<Maximize class="mr-2 h-4 w-4" />
 						Exit
+					</Button>
+				</div>
+			{/if}
+			{#if gamePaused && gameSurfaceStarted}
+				<div
+					class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background/80 px-4 text-center backdrop-blur-[2px]"
+					role="dialog"
+					aria-label="Game paused"
+				>
+					<p class="text-lg font-semibold">Paused</p>
+					<p class="text-sm text-muted-foreground">
+						Press <kbd class="rounded border bg-muted px-1.5 py-0.5 font-mono text-xs">{pauseShortcutLabel}</kbd>
+						or Resume to continue
+					</p>
+					<Button size="sm" onclick={toggleGamePause}>
+						<Play class="mr-2 h-4 w-4 fill-current" />
+						Resume
 					</Button>
 				</div>
 			{/if}

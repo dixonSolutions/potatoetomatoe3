@@ -373,7 +373,7 @@
 	installIdbShim();
 
 	function unlockAudio() {
-		if (window.__ptAudioOutputMuted) return;
+		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;
 		try {
 			var AC = window.AudioContext || window.webkitAudioContext;
 			if (!AC) return;
@@ -386,8 +386,7 @@
 		}
 	}
 
-	function setAudioOutputMuted(muted) {
-		window.__ptAudioOutputMuted = !!muted;
+	function applyEffectiveAudioMute() {
 		try {
 			var ctx = window.__ptSharedAudioCtx;
 			if (!ctx) {
@@ -396,10 +395,40 @@
 				ctx = new AC();
 				window.__ptSharedAudioCtx = ctx;
 			}
-			if (muted) {
+			var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;
+			if (effective) {
 				if (ctx.state === 'running') ctx.suspend();
 			} else if (ctx.state === 'suspended') {
 				ctx.resume();
+			}
+		} catch (e) {
+			/* ignore */
+		}
+	}
+
+	function setAudioOutputMuted(muted) {
+		window.__ptAudioOutputMuted = !!muted;
+		applyEffectiveAudioMute();
+	}
+
+	function setGamePaused(paused) {
+		window.__ptGamePaused = !!paused;
+		applyEffectiveAudioMute();
+		try {
+			var media = document.querySelectorAll('audio, video');
+			for (var i = 0; i < media.length; i++) {
+				var el = media[i];
+				if (paused) {
+					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');
+					try {
+						el.pause();
+					} catch (e2) {}
+				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {
+					el.removeAttribute('data-pt-pause-was-playing');
+					try {
+						el.play();
+					} catch (e2) {}
+				}
 			}
 		} catch (e) {
 			/* ignore */
@@ -411,6 +440,7 @@
 		if (!data || typeof data !== 'object') return;
 		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
 		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
+		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);
 	});
 	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
 		document.addEventListener(type, unlockAudio, true);

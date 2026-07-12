@@ -50,6 +50,8 @@ export type SiteSettingsV1 = {
 	masterVolume: number;
 	/** Default play source when a game offers both online and offline copies. */
 	defaultGamePlayMode: GamePlayModePreference;
+	/** Toggle pause/resume while a game is playing (default: backtick `). */
+	gamePauseShortcut: PrivacyLockShortcut;
 };
 
 export type GamePlayModePreference = 'online' | 'offline';
@@ -67,7 +69,14 @@ const DEFAULTS: SiteSettingsV1 = {
 	privacyLockShortcut: null,
 	muteAudioScope: 'off',
 	masterVolume: 1,
-	defaultGamePlayMode: 'online'
+	defaultGamePlayMode: 'online',
+	gamePauseShortcut: {
+		code: 'Backquote',
+		ctrlKey: false,
+		shiftKey: false,
+		altKey: false,
+		metaKey: false
+	}
 };
 
 type ParsedCookie = Partial<SiteSettingsV1> & { muteAllAudio?: boolean };
@@ -116,6 +125,23 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 	if (defaultGamePlayMode !== 'online' && defaultGamePlayMode !== 'offline') {
 		defaultGamePlayMode = DEFAULTS.defaultGamePlayMode;
 	}
+	let gamePauseShortcut = DEFAULTS.gamePauseShortcut;
+	const rawPause = merged.gamePauseShortcut;
+	if (
+		rawPause &&
+		typeof rawPause === 'object' &&
+		typeof (rawPause as PrivacyLockShortcut).code === 'string' &&
+		(rawPause as PrivacyLockShortcut).code.length > 0
+	) {
+		const r = rawPause as PrivacyLockShortcut;
+		gamePauseShortcut = {
+			code: r.code,
+			ctrlKey: r.ctrlKey === true,
+			shiftKey: r.shiftKey === true,
+			altKey: r.altKey === true,
+			metaKey: r.metaKey === true
+		};
+	}
 	let privacyDisguiseProvider = merged.privacyDisguiseProvider;
 	if (privacyDisguiseProvider !== 'google' && privacyDisguiseProvider !== 'microsoft') {
 		privacyDisguiseProvider = DEFAULTS.privacyDisguiseProvider;
@@ -131,6 +157,7 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 		privacyPauseGameWhileLocked,
 		privacyLockShortcut,
 		defaultGamePlayMode,
+		gamePauseShortcut,
 		privacyDisguiseProvider,
 		privacyDisguiseService
 	};

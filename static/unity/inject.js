@@ -108,7 +108,7 @@
 	})();
 
 	function unlockAudio() {
-		if (window.__ptAudioOutputMuted) return;
+		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;
 		for (var i = 0; i < audioContexts.length; i++) {
 			try {
 				if (audioContexts[i].state === 'suspended') audioContexts[i].resume();
@@ -116,11 +116,11 @@
 		}
 	}
 
-	function setAudioOutputMuted(muted) {
-		window.__ptAudioOutputMuted = !!muted;
+	function applyEffectiveAudioMute() {
+		var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;
 		for (var i = 0; i < audioContexts.length; i++) {
 			try {
-				if (muted) {
+				if (effective) {
 					if (audioContexts[i].state === 'running') audioContexts[i].suspend();
 				} else if (audioContexts[i].state === 'suspended') {
 					audioContexts[i].resume();
@@ -129,11 +129,39 @@
 		}
 	}
 
+	function setAudioOutputMuted(muted) {
+		window.__ptAudioOutputMuted = !!muted;
+		applyEffectiveAudioMute();
+	}
+
+	function setGamePaused(paused) {
+		window.__ptGamePaused = !!paused;
+		applyEffectiveAudioMute();
+		try {
+			var media = document.querySelectorAll('audio, video');
+			for (var i = 0; i < media.length; i++) {
+				var el = media[i];
+				if (paused) {
+					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');
+					try {
+						el.pause();
+					} catch (e) {}
+				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {
+					el.removeAttribute('data-pt-pause-was-playing');
+					try {
+						el.play();
+					} catch (e) {}
+				}
+			}
+		} catch (e) {}
+	}
+
 	window.addEventListener('message', function (ev) {
 		var data = ev && ev.data;
 		if (!data || typeof data !== 'object') return;
 		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
 		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
+		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);
 	});
 	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
 		document.addEventListener(type, unlockAudio, true);

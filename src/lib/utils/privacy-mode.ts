@@ -210,6 +210,7 @@ function shortcutCodeToLabel(code: string): string {
 	if (code === 'Comma') return ',';
 	if (code === 'Period') return '.';
 	if (code === 'Slash') return '/';
+	if (code === 'Backquote') return '`';
 	if (code === 'Space') return 'Space';
 	if (code.startsWith('F') && /^F\d{1,2}$/.test(code)) return code;
 	return code;
