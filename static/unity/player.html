@@ -20,7 +20,7 @@
   <script src="inject.js"></script>
 </head>
 <body>
-  <iframe id="game" title="Unity game" allow="fullscreen; autoplay; gamepad" allowfullscreen></iframe>
+  <iframe id="game" title="Unity game" allow="fullscreen; autoplay; gamepad; microphone; camera" allowfullscreen></iframe>
   <p id="error" class="error">Missing or invalid <code>?src=</code> URL.</p>
   <script>
     (function () {
@@ -29,6 +29,27 @@
       var assetsBase = params.get('assets');
       var frame = document.getElementById('game');
       var err = document.getElementById('error');
+
+      function unlockAudio() {
+        try {
+          frame.contentWindow && frame.contentWindow.postMessage({ type: 'potato-tomato-unlock-audio' }, '*');
+        } catch (e) {}
+        try {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) {
+            if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();
+            if (window.__ptSharedAudioCtx.state === 'suspended') window.__ptSharedAudioCtx.resume();
+          }
+        } catch (e) {}
+      }
+
+      ['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
+        document.addEventListener(type, unlockAudio, true);
+      });
+      window.addEventListener('message', function (ev) {
+        if (ev && ev.data && ev.data.type === 'potato-tomato-unlock-audio') unlockAudio();
+      });
+      frame.addEventListener('load', unlockAudio);
 
       function showError(reason) {
         frame.style.display = 'none';

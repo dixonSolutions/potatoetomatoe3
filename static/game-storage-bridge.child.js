@@ -372,6 +372,25 @@
 
 	installIdbShim();
 
+	function unlockAudio() {
+		try {
+			var AC = window.AudioContext || window.webkitAudioContext;
+			if (!AC) return;
+			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();
+			if (window.__ptSharedAudioCtx.state === 'suspended') {
+				window.__ptSharedAudioCtx.resume();
+			}
+		} catch (e) {
+			/* ignore */
+		}
+	}
+	window.addEventListener('message', function (event) {
+		if (event && event.data && event.data.type === 'potato-tomato-unlock-audio') unlockAudio();
+	});
+	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
+		document.addEventListener(type, unlockAudio, true);
+	});
+
 	window.addEventListener('message', function (event) {
 		var msg = event.data;
 		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;

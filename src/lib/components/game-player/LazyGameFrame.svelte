@@ -3,6 +3,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Play } from 'lucide-svelte';
 	import { captureGameStorageFromIframe } from '$lib/utils/game-storage-bridge';
+	import { unlockGameIframeAudio } from '$lib/utils/game-audio';
 
 	/**
 	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…`, `/puller-games/{id}/…`, or `/online/…`).
@@ -32,7 +33,16 @@
 		onIframeReady?: (el: HTMLIFrameElement | null) => void;
 	} = $props();
 
+	const DEFAULT_IFRAME_ALLOW = 'fullscreen; autoplay; gamepad; microphone; camera';
+
 	let iframeEl = $state<HTMLIFrameElement | null>(null);
+
+	function bumpAudioUnlock() {
+		unlockGameIframeAudio(iframeEl);
+		/* Nested player shells / late Unity AudioContext creation */
+		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 250);
+		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 1000);
+	}
 
 	$effect(() => {
 		const el = started ? iframeEl : null;
@@ -105,8 +115,9 @@
 			class="h-full w-full border-0 bg-black"
 			loading="lazy"
 			allowfullscreen
-			allow={iframeAllow}
+			allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
 			referrerpolicy="no-referrer-when-downgrade"
+			onload={bumpAudioUnlock}
 		></iframe>
 	{/if}
 </div>

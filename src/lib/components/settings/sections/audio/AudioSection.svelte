@@ -29,7 +29,7 @@
 		{
 			label: 'When tab is in the background or window loses focus',
 			value: 'focus_loss',
-			hint: 'Mute when you switch to another tab or another window grabs focus (e.g. another app).'
+			hint: 'Mute when the tab is hidden or another app takes focus. Playing inside the game frame still keeps sound on.'
 		},
 		{
 			label: 'Always',

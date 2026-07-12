@@ -4,6 +4,7 @@
  */
 
 import { loadSiteSettings, patchSiteSettings, type MuteAudioScope } from '$lib/utils/site-settings';
+import { shouldMuteForFocusLoss } from '$lib/utils/game-audio';
 
 export type { MuteAudioScope };
 
@@ -42,7 +43,8 @@ export function shouldForceMuteFromScope(): boolean {
 	const scope = getMuteAudioScope();
 	if (scope === 'off') return false;
 	if (scope === 'always') return true;
-	return document.visibilityState === 'hidden' || !document.hasFocus();
+	/* Do not treat focus inside a game iframe as "window lost focus" — that silenced play. */
+	return shouldMuteForFocusLoss(document);
 }
 
 /** Combined mute flag + volume level to apply to each HTMLMediaElement. */
@@ -59,18 +61,28 @@ export function getMediaOutputState(): { muted: boolean; volume: number } {
 	if (scope === 'always') {
 		return { muted: true, volume: master };
 	}
-	const force = document.visibilityState === 'hidden' || !document.hasFocus();
-	return { muted: force, volume: master };
+	return { muted: shouldMuteForFocusLoss(document), volume: master };
 }
 
 function applyToMediaElement(el: HTMLMediaElement, muted: boolean, volume: number): void {
+	const wasForcedSilent = el.muted || el.volume === 0;
 	el.volume = volume;
 	el.muted = muted;
 	if (muted) {
+		if (!el.paused) {
+			el.setAttribute('data-pt-was-playing', '1');
+		}
 		try {
 			el.pause();
 		} catch {
 			/* ignore */
+		}
+	} else if (wasForcedSilent || el.getAttribute('data-pt-was-playing') === '1') {
+		el.removeAttribute('data-pt-was-playing');
+		try {
+			void el.play().catch(() => {});
+		} catch {
+			/* ignore autoplay rejection */
 		}
 	}
 }
@@ -131,6 +143,7 @@ export function attachGlobalMediaMute(root: Document): () => void {
 	document.addEventListener('visibilitychange', onFocusVisibility);
 	window.addEventListener('focus', onFocusVisibility);
 	window.addEventListener('blur', onFocusVisibility);
+	document.addEventListener('focusin', onFocusVisibility);
 	window.addEventListener(PRIVACY_LOCKED_EVENT, onFocusVisibility);
 
 	return () => {
@@ -139,6 +152,7 @@ export function attachGlobalMediaMute(root: Document): () => void {
 		document.removeEventListener('visibilitychange', onFocusVisibility);
 		window.removeEventListener('focus', onFocusVisibility);
 		window.removeEventListener('blur', onFocusVisibility);
+		document.removeEventListener('focusin', onFocusVisibility);
 		window.removeEventListener(PRIVACY_LOCKED_EVENT, onFocusVisibility);
 	};
 }

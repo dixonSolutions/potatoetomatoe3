@@ -84,6 +84,27 @@
 		};
 	}
 
+	/* Unlock Web Audio — Play is clicked in the parent frame, so AudioContext often stays suspended. */
+	function unlockAudio() {
+		try {
+			var AC = window.AudioContext || window.webkitAudioContext;
+			if (AC) {
+				if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();
+				var ctx = window.__ptSharedAudioCtx;
+				if (ctx && ctx.state === 'suspended') ctx.resume();
+			}
+		} catch (e) {
+			/* ignore */
+		}
+	}
+	window.addEventListener('message', function (ev) {
+		var data = ev && ev.data;
+		if (data && data.type === 'potato-tomato-unlock-audio') unlockAudio();
+	});
+	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
+		document.addEventListener(type, unlockAudio, true);
+	});
+
 	/* Stub portal SDKs so games do not pause on ads / login */
 	window.PokiSDK =
 		window.PokiSDK ||
