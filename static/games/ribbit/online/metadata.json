@@ -1,8 +1,14 @@
 {
-  "id": "ribbit",
-  "name": "Ribbit",
-  "author": "Poki",
-  "description": "Ribbit is a platform game made by Nitrome. You control a two-sided character of a bunny and a frog, and you need to jump your way through the levels. Do flips to charge up your jumps, then pick an angle that propels you forward. How to play: Controls are explained in-game About the creator: This game was created by Nitrome as a flash game, and later emulated in HTML5 by AwayFL for Poki. Play Nitrome's other flash games on Poki: Swindler 2 , Avalanche , Cave Chaos 2 , Enemy 585 , Silly Sausage , Swindler , Coil , Cold Storage , Twin Shot 2 , Bad Ice-Cream , Bad Ice-Cream 2 , Bad Ice-Cream 3 , Cave Chaos , Mutiny , Skywire , Twin Shot , Test Subject Green and Test Subject Blue",
-  "thumbnail": "/games/ribbit/online/assets/ribbit.png",
-  "category": "flash"
+	"id": "ribbit",
+	"name": "Ribbit",
+	"author": "LWedberg",
+	"description": "Turtles have taken over the frog's sacred home. Use WASD on your keyboard to guide Herbert The Frog King, and the mouse to maneuver his subjects. The turtles will recklessly charge at you, but eventually they get dizzy. That's when you strike! Powerups will be present to help you roll over turtles, to help you liberate the frog's home, and to help you get back to your throne. After that, you'll have won.\n\n1 1/2 months of busy work went into this game, but little did I know I wasn't the only one hard at work. Behind my back, the turtles broke the fourth wall and programmed this game itself to-\n\n-\"To revive their long missing ruler. Yes. The Emperor Turtle, at your disservice. I fester with a thousand year score to settle, so don't say I didn't warn you for meddling.  Dare amuse me spirit of another world, can you rise to the challenge? I've laid out a nasty surprise for you in the throne room.\"",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/475f3ec8-dc1e-4805-9e61-45e14e845f6a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c682310-3dbe-4d9d-bdce-79ee71aab865/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c682310-3dbe-4d9d-bdce-79ee71aab865",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c682310-3dbe-4d9d-bdce-79ee71aab865/ribbit"
 }
