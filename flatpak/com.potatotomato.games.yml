@@ -11,6 +11,10 @@ finish-args:
   - --device=dri
   - --filesystem=home
   - --talk-name=org.freedesktop.Notifications
+  # StatusNotifierItem / AppIndicator tray (KDE native; GNOME needs extension)
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonical.indicator.application
 
 modules:
   - name: potato-tomato

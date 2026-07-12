@@ -99,6 +99,62 @@ export function findUnityLoaderBuildJson(text: string): string | null {
 }
 
 /**
+ * True when the shell actually needs a on-disk UnityLoader*.js file.
+ * Unity Play frames mention "UnityLoader" in helper names but load modern loader.js from CDN —
+ * those must not require Build/UnityLoader.js.
+ */
+export function requiresLegacyUnityLoaderFile(text: string): boolean {
+	if (findUnityLoaderScriptRefs(text).length > 0) return true;
+	if (/unityWebglLoaderUrl\s*[:=]\s*["'][^"']*UnityLoader[^"']*["']/i.test(text)) return true;
+	/* Legacy instantiate against a Build/*.json (not a blob: config) */
+	const buildJson = findUnityLoaderBuildJson(text);
+	return Boolean(buildJson && !buildJson.startsWith('blob:') && /\.json(?:[?#]|$)/i.test(buildJson));
+}
+
+/** Script src / unityWebglLoaderUrl refs that point at UnityLoader*.js */
+export function findUnityLoaderScriptRefs(text: string): string[] {
+	const refs = new Set<string>();
+	const patterns = [
+		/<script[^>]+src=["']([^"']*UnityLoader[^"']*\.js[^"']*)["']/gi,
+		/unityWebglLoaderUrl\s*[:=]\s*["']([^"']*UnityLoader[^"']*\.js[^"']*)["']/gi,
+		/["']((?:\.\/|\/)?(?:Build\/)?UnityLoader(?:\.[0-9.]+)?\.js)["']/gi
+	];
+	for (const pattern of patterns) {
+		pattern.lastIndex = 0;
+		let m: RegExpExecArray | null;
+		while ((m = pattern.exec(text)) !== null) {
+			const ref = m[1]?.trim();
+			if (ref) refs.add(ref);
+		}
+	}
+	return [...refs];
+}
+
+/** Candidate absolute URLs for a missing legacy UnityLoader.js */
+export function unityLoaderCandidateUrls(text: string, baseUrl: string): string[] {
+	const urls = new Set<string>();
+	for (const ref of findUnityLoaderScriptRefs(text)) {
+		try {
+			urls.add(new URL(ref, baseUrl).href);
+		} catch {
+			// skip
+		}
+	}
+	if (urls.size > 0) return [...urls];
+
+	if (!requiresLegacyUnityLoaderFile(text)) return [];
+
+	for (const rel of ['Build/UnityLoader.js', 'UnityLoader.js']) {
+		try {
+			urls.add(new URL(rel, baseUrl).href);
+		} catch {
+			// skip
+		}
+	}
+	return [...urls];
+}
+
+/**
  * Scan minified Unity loader/framework JS for build file paths.
  * Unity bundles embed string literals like "Build/foo.data.unityweb" even when obfuscated.
  */
@@ -197,6 +253,10 @@ export function discoverUnityAssetRefs(
 	const buildJson = findUnityLoaderBuildJson(text);
 	if (buildJson) {
 		addResolvedUrl(buildJson, baseUrl, queue, seen);
+	}
+
+	for (const url of unityLoaderCandidateUrls(text, baseUrl)) {
+		addResolvedUrl(url, baseUrl, queue, seen);
 	}
 
 	try {

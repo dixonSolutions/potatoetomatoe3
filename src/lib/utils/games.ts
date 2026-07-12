@@ -229,8 +229,12 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 		return resolveOnlinePlayUrl(metadata, gameId);
 	}
 
-	/* Unity online: puller proxy injects splash removal same-origin when available */
-	if (metadata?.engine === 'unity') {
+	/*
+	 * Unity online: `/api/unity-play/:id` is only proxied in Vite dev (vite.config.ts).
+	 * Packaged Tauri/Flatpak has no reverse proxy — using that path serves the SPA shell
+	 * and looks like a blank game. Fall through to /unity/player.html?src=<HTTPS embed>.
+	 */
+	if (metadata?.engine === 'unity' && import.meta.env.DEV) {
 		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
 		if (await isPullerAvailable()) {
 			return pullerUnityPlayUrl(gameId, base);

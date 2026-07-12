@@ -1,3 +1,4 @@
+import path from 'node:path';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
@@ -10,10 +11,22 @@ const pullerTarget = (process.env.PUBLIC_DOWNLOADER_URL ?? 'http://127.0.0.1:187
 	''
 );
 
+const repoRoot = path.resolve('.');
+
+/** Skip inotify on huge trees (catalog / build outputs) — otherwise `pnpm dev` hits ENOSPC. */
+function ignoreHeavyWatchPath(watchPath: string): boolean {
+	const abs = path.resolve(watchPath);
+	const rel = path.relative(repoRoot, abs).replace(/\\/g, '/');
+	if (!rel || rel.startsWith('..')) return false;
+	return /^(static\/games|build|build-flatpak|\.flatpak-builder|\.svelte-kit|src-tauri\/target|node_modules)(\/|$)/.test(
+		rel
+	);
+}
+
 const pullerGameProxy = {
 	target: pullerTarget,
 	changeOrigin: true,
-	rewrite: (path: string) => path.replace(/^\/puller-games/, '/games')
+	rewrite: (watchedPath: string) => watchedPath.replace(/^\/puller-games/, '/games')
 };
 
 const pullerApiProxy = {
@@ -43,17 +56,16 @@ export default defineConfig({
 			'/api/unity-play': pullerApiProxy
 		},
 		watch: {
-			// Exclude build directories to prevent file watcher issues / inotify limits
 			ignored: [
+				ignoreHeavyWatchPath,
+				'**/static/games/**',
+				'**/.svelte-kit/**',
 				'**/.flatpak-builder/**',
 				'**/build-flatpak/**',
 				'**/build/**',
 				'**/node_modules/**',
-				'**/src-tauri/target/**',
-				/** Mirrored HTML5 games: served as static assets, not app source */
-				'**/static/games/**'
+				'**/src-tauri/target/**'
 			],
-			// Don't follow symbolic links to avoid ELOOP errors
 			followSymlinks: false
 		}
 	},

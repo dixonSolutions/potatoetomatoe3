@@ -36,6 +36,13 @@
 	import { attachGlobalMediaMute } from '$lib/utils/audio-mute';
 	import { attachGameStorageBridge } from '$lib/utils/game-storage-bridge';
 	import { GAME_IMMERSIVE_CHANGED } from '$lib/utils/game-immersive';
+	import {
+		attachDesktopTrayListeners,
+		markTrayCloseHintShown,
+		shouldShowTrayCloseHint,
+		syncDesktopTrayRecent
+	} from '$lib/utils/desktop-tray';
+	import { isTauriApp } from '$lib/utils/offline-deployment';
 
 	let { data, children } = $props();
 
@@ -293,6 +300,20 @@
 		const detachMediaMute = attachGlobalMediaMute(document);
 		const detachGameStorageBridge = attachGameStorageBridge();
 
+		let detachTray: (() => void) | undefined;
+		if (isTauriApp()) {
+			void attachDesktopTrayListeners().then((unlisten) => {
+				detachTray = unlisten;
+			});
+			void syncDesktopTrayRecent();
+			if (shouldShowTrayCloseHint()) {
+				markTrayCloseHintShown();
+				toast.message('Runs in the tray', {
+					description: 'Closing the window keeps Potato Tomato in the notification area. Quit from the tray menu to exit.'
+				});
+			}
+		}
+
 		const onGameImmersive = (e: Event) => {
 			gameImmersive = !!(e as CustomEvent<{ immersive: boolean }>).detail?.immersive;
 		};
@@ -309,16 +330,23 @@
 		document.addEventListener('visibilitychange', onVisibilityChangeForPrivacy);
 		window.addEventListener('potato-tomato-privacy-settings-applied', onPrivacySettingsAppliedForTimers);
 
+		const onFocusSyncTray = () => {
+			if (isTauriApp()) void syncDesktopTrayRecent();
+		};
+		window.addEventListener('focus', onFocusSyncTray);
+
 		return () => {
 			window.removeEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
 			clearInterval(poll);
 			detachMediaMute();
 			detachGameStorageBridge();
+			detachTray?.();
 			clearLockDelayTimer();
 			clearVisibilityHiddenDebounce();
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onPrivacySettingsAppliedForTimers);
 			window.removeEventListener('keydown', onPrivacyKeydown);
 			window.removeEventListener('focus', onWindowFocusForPrivacy);
+			window.removeEventListener('focus', onFocusSyncTray);
 			document.removeEventListener('visibilitychange', onVisibilityChangeForPrivacy);
 			window.removeEventListener(GAME_IMMERSIVE_CHANGED, onGameImmersive);
 			document.removeEventListener('fullscreenchange', onFullscreenChange);

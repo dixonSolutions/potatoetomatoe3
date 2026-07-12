@@ -7,6 +7,14 @@
   ],
   "permissions": [
     "core:default",
+    "core:tray:default",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-set-focus",
+    "core:window:allow-unminimize",
+    "core:event:allow-emit",
+    "core:event:allow-listen",
+    "allow-sync-tray-recent",
     "shell:default",
     {
       "identifier": "shell:allow-execute",

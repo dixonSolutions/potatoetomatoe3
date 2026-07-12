@@ -1,3 +1,5 @@
+mod tray;
+
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
 use tauri::Manager;
@@ -197,6 +199,7 @@ fn spawn_puller(app: &tauri::AppHandle) {
 pub fn run() {
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
+    .invoke_handler(tauri::generate_handler![tray::sync_tray_recent])
     .setup(|app| {
       if cfg!(debug_assertions) {
         app.handle().plugin(
@@ -206,7 +209,17 @@ pub fn run() {
         )?;
       }
       spawn_puller(app.handle());
+      if let Err(e) = tray::build_tray(app.handle()) {
+        log::warn!("system tray unavailable: {e}");
+      }
       Ok(())
+    })
+    .on_window_event(|window, event| {
+      if let tauri::WindowEvent::CloseRequested { api, .. } = event {
+        // Keep puller + tray alive; Quit from the tray exits for real.
+        let _ = window.hide();
+        api.prevent_close();
+      }
     })
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

@@ -80,7 +80,7 @@ pnpm run games:import-unity-play -- --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbedUrl` set to the Unity Play build frame (`https://play.unity.com/api/v1/games/game/<uuid>/build/latest/frame`). That frame loads `createUnityInstance` against `cdn.play.unity.com` assets and does **not** send `frame-ancestors` / `X-Frame-Options`, so `/unity/player.html?src=…` works. When the puller is running, online play prefers `/api/unity-play/:id` (same-origin inject proxy).
+Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbedUrl` set to the Unity Play build frame (`https://play.unity.com/api/v1/games/game/<uuid>/build/latest/frame`). That frame loads `createUnityInstance` against `cdn.play.unity.com` assets and does **not** send `frame-ancestors` / `X-Frame-Options`, so `/unity/player.html?src=…` works. In **Vite dev**, online play prefers `/api/unity-play/:id` (same-origin inject proxy via Vite). Packaged Tauri/Flatpak has no production proxy for that path, so it always uses `/unity/player.html?src=…`.
 
 ## Tauri integration
 

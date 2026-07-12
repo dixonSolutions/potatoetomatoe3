@@ -228,12 +228,12 @@ export function getPullerGameProxyPrefix(basePath = ''): string {
 	return `${base}/${PULLER_GAME_PROXY_SEGMENT}`.replace(/\/{2,}/g, '/');
 }
 
-/** True when puller offline games should load through the app origin (storage continuity). */
+/** True when puller offline games should load through the app origin (storage continuity).
+ * Only Vite dev/preview proxies `/puller-games` and `/api/unity-play` — packaged Tauri does not.
+ */
 export function shouldUsePullerGameProxy(): boolean {
 	if (!shouldProbePullerBackend()) return false;
-	if (import.meta.env.DEV) return true;
-	if (typeof window === 'undefined') return true;
-	return window.location.protocol === 'http:' || window.location.protocol === 'https:';
+	return import.meta.env.DEV;
 }
 
 export function pullerOfflinePlayUrl(

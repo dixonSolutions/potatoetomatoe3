@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-sync-tray-recent"
+description = "Allow the frontend to update the system tray recent-games menu"
+commands.allow = ["sync_tray_recent"]

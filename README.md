@@ -38,6 +38,8 @@ pnpm tauri:build  # production binary in src-tauri/target/release/
 
 **Linux deps:** `libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf`
 
+Closing the window hides to the **system tray** (StatusNotifierItem). Quit from the tray menu to exit. See [docs/desktop-tray.md](docs/desktop-tray.md).
+
 ## Flatpak (Linux desktop)
 
 App ID: `com.potatotomato.games`

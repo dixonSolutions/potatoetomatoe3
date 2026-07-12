@@ -13,7 +13,9 @@ import { postProcessGenericOfflineMirror } from '../generic/post-process-offline
 import {
 	expandBuildManifest,
 	findUnityLoaderBuildJson,
-	isUnityShell
+	isUnityShell,
+	requiresLegacyUnityLoaderFile,
+	unityLoaderCandidateUrls
 } from '../unity/discover-assets.js';
 import { writeOfflineManifest } from '../offline-manifest.js';
 import { postProcessUnityOfflineMirror } from '../unity/post-process-offline.js';
@@ -136,6 +138,41 @@ function localPathForUrl(baseUrl: string, assetUrl: string, outDir: string): str
 	return path.join(outDir, ...relParts);
 }
 
+async function hasUnityLoaderOnDisk(outDir: string): Promise<boolean> {
+	const roots = [outDir, path.join(outDir, 'Build')];
+	for (const root of roots) {
+		if (!existsSync(root)) continue;
+		try {
+			const entries = await fs.readdir(root);
+			if (entries.some((name) => /^UnityLoader(?:\.[0-9.]+)?\.js$/i.test(name))) {
+				return true;
+			}
+		} catch {
+			// continue
+		}
+	}
+	return false;
+}
+
+async function ensureLegacyUnityLoader(
+	outDir: string,
+	baseUrl: string,
+	indexHtml: string,
+	signal?: AbortSignal
+): Promise<void> {
+	if (!requiresLegacyUnityLoaderFile(indexHtml)) return;
+	if (await hasUnityLoaderOnDisk(outDir)) return;
+
+	const candidates = unityLoaderCandidateUrls(indexHtml, baseUrl);
+	if (candidates.length === 0) return;
+
+	const tasks = candidates.map((url) => ({
+		url,
+		destPath: localPathForUrl(baseUrl, url, outDir)
+	}));
+	await downloadFilesParallel(tasks, { signal });
+}
+
 async function validateRequiredAssets(
 	outDir: string,
 	baseUrl: string,
@@ -145,7 +182,8 @@ async function validateRequiredAssets(
 
 	if (isUnityShell(indexHtml)) {
 		const buildJsonRel = findUnityLoaderBuildJson(indexHtml);
-		if (buildJsonRel) {
+		/* Skip blob: configs (Unity Play packs config into a Blob URL). */
+		if (buildJsonRel && !buildJsonRel.startsWith('blob:')) {
 			const buildJsonUrl = new URL(buildJsonRel, baseUrl).href;
 			const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
 			if (!existsSync(buildJsonPath)) {
@@ -166,11 +204,7 @@ async function validateRequiredAssets(
 			}
 		}
 
-		if (
-			/UnityLoader/i.test(indexHtml) &&
-			!existsSync(path.join(outDir, 'Build', 'UnityLoader.js')) &&
-			!existsSync(path.join(outDir, 'UnityLoader.js'))
-		) {
+		if (requiresLegacyUnityLoaderFile(indexHtml) && !(await hasUnityLoaderOnDisk(outDir))) {
 			missing.push(path.join(outDir, 'Build/UnityLoader.js'));
 		}
 	}
@@ -216,8 +250,12 @@ async function discoverAndDownloadAssets(
 	});
 
 	throwIfCancelled(signal);
-	onProgress(92, 'Verifying Unity / required assets…');
+	onProgress(90, 'Ensuring Unity loader assets…');
 	const entryHtml = await fs.readFile(path.join(outDir, entryRel), 'utf-8');
+	await ensureLegacyUnityLoader(outDir, baseUrl, entryHtml, signal);
+
+	throwIfCancelled(signal);
+	onProgress(92, 'Verifying Unity / required assets…');
 	await validateRequiredAssets(outDir, baseUrl, entryHtml);
 }
 

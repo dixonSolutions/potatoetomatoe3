@@ -143,6 +143,14 @@ export function recordGamePlay(gameId: string, category: string, author: string)
 	data.recentCategories = rc.slice(0, RECENT_CAT_MAX);
 
 	savePlayAnalytics(data);
+
+	if (typeof window !== 'undefined') {
+		void import('$lib/utils/desktop-tray')
+			.then((m) => m.syncDesktopTrayRecent())
+			.catch(() => {
+				/* tray sync is best-effort */
+			});
+	}
 }
 
 /** Accumulate active play time (call from game page while the session is visible). */
