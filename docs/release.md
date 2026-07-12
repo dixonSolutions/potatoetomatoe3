@@ -38,6 +38,7 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | Remote install | `Invalid gpg key` | Remove empty `GPGKey=` from `.flatpakrepo`; add remote with `--no-gpg-verify` |
 | GitHub Pages | `/flatpak/summary` 404 | Usually a web-only `pages.yml` deploy wiped the OSTree tree, or release deploy had not finished yet. Prefer `release.yml` for Pages; keep `pages.yml` manual-only. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
 | Remote install | Prefer one-file bundle | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken |
+| Flatpak runtime | `Game not in catalog` / `puller catalog is empty` | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`. |
 
 ## Manual web-only deploy
 

@@ -93,7 +93,7 @@ The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads per
 | Variable | Dev | Packaged app |
 |----------|-----|--------------|
 | `GAMES_DATA_DIR` | `static/games/` | `~/.local/share/com.potatotomato.games/games/` |
-| `CATALOG_DIR` | same as data dir | bundled `catalog/games/` resource (read-only online shells). Flatpak installs under `/app/lib/potato-tomato/catalog/games/` from `src-tauri/target/release/catalog/` after `tauri build --no-bundle`. |
+| `CATALOG_DIR` | same as data dir | bundled `catalog/games/` resource (read-only online shells). Flatpak must install under `/app/lib/Potato Tomato/catalog/games/` because Tauri resolves Linux resources with `productName` (`Potato Tomato`), not the Cargo crate name. A `potato-tomato` symlink is also created for debugging. |
 
 Downloaded `offline/` folders are **gitignored** under `static/games/` during development.
 

@@ -33,24 +33,38 @@ modules:
         install -Dm755 "$SIDECAR" /app/bin/puller-sidecar
       - |
         # Tauri `build --no-bundle` places resources next to the binary
-        # (src-tauri/target/release/{catalog,puller}/). Linux runtime resolves
-        # resources at ../lib/<package> relative to the executable, so Flatpak
-        # must install them under /app/lib/potato-tomato/.
+        # (src-tauri/target/release/{catalog,puller}/). On Linux, Tauri resolves
+        # resources via PackageInfo.name (= productName "Potato Tomato"), so the
+        # path is ../lib/Potato Tomato — NOT the Cargo crate name potato-tomato.
+        # Installing only under potato-tomato leaves CATALOG_DIR empty at runtime.
         RESOURCE_SRC=src-tauri/target/release
         CATALOG_LIST="$RESOURCE_SRC/catalog/games/games-list.json"
         if [ ! -f "$CATALOG_LIST" ]; then
           echo "ERROR: missing $CATALOG_LIST — run pnpm tauri:build:flatpak first" >&2
           exit 1
         fi
-        mkdir -p /app/lib/potato-tomato
-        cp -a "$RESOURCE_SRC/catalog" /app/lib/potato-tomato/
+        RESOURCE_DST="/app/lib/Potato Tomato"
+        mkdir -p "$RESOURCE_DST"
+        cp -a "$RESOURCE_SRC/catalog" "$RESOURCE_DST/"
         if [ -d "$RESOURCE_SRC/puller" ]; then
-          cp -a "$RESOURCE_SRC/puller" /app/lib/potato-tomato/
+          cp -a "$RESOURCE_SRC/puller" "$RESOURCE_DST/"
         fi
-        test -f /app/lib/potato-tomato/catalog/games/games-list.json || {
-          echo "ERROR: catalog/games/games-list.json missing after install into /app/lib/potato-tomato" >&2
+        # Alias for docs / debugging (crate-style path)
+        ln -sfn "Potato Tomato" /app/lib/potato-tomato
+        test -f "$RESOURCE_DST/catalog/games/games-list.json" || {
+          echo "ERROR: catalog/games/games-list.json missing after install into $RESOURCE_DST" >&2
           exit 1
         }
+        # Fail CI if list is empty (would surface as "puller catalog is empty")
+        python3 - <<'PY'
+        import json, sys
+        path = "/app/lib/Potato Tomato/catalog/games/games-list.json"
+        ids = json.load(open(path))
+        if not isinstance(ids, list) or len(ids) < 100:
+            print(f"ERROR: expected large games-list.json, got {type(ids)} len={getattr(ids, '__len__', lambda: '?')()}", file=sys.stderr)
+            sys.exit(1)
+        print(f"OK: Flatpak catalog has {len(ids)} game ids at {path}")
+        PY
       - install -Dm644 flatpak/com.potatotomato.games.desktop /app/share/applications/com.potatotomato.games.desktop
       - install -Dm644 buildResources/icons/potato-tomato-512.png /app/share/icons/hicolor/512x512/apps/com.potatotomato.games.png
     sources:

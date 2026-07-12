@@ -89,7 +89,8 @@ jobs:
       - name: Assert Tauri catalog resources
         run: |
           # After `tauri build --no-bundle`, resources sit next to the binary
-          # (not under target/lib/). Flatpak copies them into /app/lib/potato-tomato/.
+          # (not under target/lib/). Flatpak copies them into
+          # `/app/lib/Potato Tomato/` (Tauri productName), with a potato-tomato symlink.
           CATALOG_LIST=src-tauri/target/release/catalog/games/games-list.json
           if [ ! -f "$CATALOG_LIST" ]; then
             echo "ERROR: missing $CATALOG_LIST after tauri build" >&2

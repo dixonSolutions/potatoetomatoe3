@@ -25,6 +25,23 @@ fn games_data_dir(app: &tauri::AppHandle) -> PathBuf {
   }
 }
 
+/// Candidate resource roots next to the executable (`../lib/<name>/catalog/games`).
+/// Tauri's PackageInfo.name is `productName` ("Potato Tomato"); Flatpak may also
+/// expose the crate-style `potato-tomato` alias.
+fn catalog_dir_beside_exe() -> Option<PathBuf> {
+  let exe = std::env::current_exe().ok()?;
+  let exe_dir = exe.parent()?;
+  for name in ["Potato Tomato", "potato-tomato"] {
+    let candidate = exe_dir.join("../lib").join(name).join("catalog/games");
+    if let Ok(canonical) = candidate.canonicalize() {
+      if canonical.is_dir() {
+        return Some(canonical);
+      }
+    }
+  }
+  None
+}
+
 fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
   if cfg!(debug_assertions) {
     return repo_root().join("static/games");
@@ -35,13 +52,15 @@ fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
     if path.exists() {
       return path;
     }
-    log::error!(
-      "bundled catalog missing at {} — offline downloads will fail",
+    log::warn!(
+      "Tauri Resource catalog missing at {} — trying exe-adjacent lib paths",
       path.display()
     );
-    // Still return the expected resource path so CATALOG_DIR is not a
-    // build-machine repo path that only exists where the binary was compiled.
-    return path;
+  }
+
+  if let Some(beside) = catalog_dir_beside_exe() {
+    log::info!("using exe-adjacent catalog at {}", beside.display());
+    return beside;
   }
 
   // Secondary: older list-style resource layout under _up_/build/games.
