@@ -1,0 +1,14 @@
+{
+	"id": "cooking-merge",
+	"name": "Cooking Merge",
+	"author": "YADAV10",
+	"description": "Cooking Merge",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18f5af0f-ad27-41be-8d33-afe9f86b6f97/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18f5af0f-ad27-41be-8d33-afe9f86b6f97",
+	"unityPlayUrl": "https://play.unity.com/en/games/18f5af0f-ad27-41be-8d33-afe9f86b6f97/cooking-merge"
+}

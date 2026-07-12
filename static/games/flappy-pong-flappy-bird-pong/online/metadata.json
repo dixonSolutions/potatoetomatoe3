@@ -1,0 +1,14 @@
+{
+	"id": "flappy-pong-flappy-bird-pong",
+	"name": "Flappy Pong (Flappy Bird + Pong)",
+	"author": "masadamsahid",
+	"description": "Click to Flap! \ud83d\udc24\n\nThis is a Flappy Bird-styled game with some additional Pong- game concept .\n\nBut the some Pong features is under development due to the bugs. So please wait and enjoy this game first!\n\nThank you! \ud83d\ude00\n(30-10-2020 23:45:00)\n\n==============================\n\nUpdate (31-10-2020 04:53:00) :\n \u2714 Pillar Gap Paddle fixed\n \u2714 Scoring Fixed\n \u2714 Bird turns back horizontally after collided with the gap\n\n==============================\n\nUpcoming updates:\n\n\ud83d\udfe2 Intense speed\n       \u2796the backgrounds and pillars scrolling speed will be increased as the game score get higher\n \n\ud83d\udfe2 Random pillars respawning\n       \u2796 the pillars will be respawned after collided with the bird\n\n=============================\n\nSimmer.io link: https://simmer.io/@masadam/flappy-pong-flappy-bird-pong\n\n==============================\n\n\ud83d\ude4c Enjoy the game ! \ud83c\udfae",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e0433591-216d-4b60-82ef-033bc9dd7b8c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ce9d9f26-84e9-46d3-8656-b5588fbd34e4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ce9d9f26-84e9-46d3-8656-b5588fbd34e4",
+	"unityPlayUrl": "https://play.unity.com/en/games/ce9d9f26-84e9-46d3-8656-b5588fbd34e4/flappy-pong-flappy-bird-pong"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dinos",
+	"name": "DinOS",
+	"author": "karolyne_marques",
+	"description": "Mini game to teach operating systems concepts through challenges and allusions in the context of an airport.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ae3443f-80bc-4fec-83aa-a48f2e362c18/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/70129f08-480b-4134-98a5-df11e8f14c9a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "70129f08-480b-4134-98a5-df11e8f14c9a",
+	"unityPlayUrl": "https://play.unity.com/en/games/70129f08-480b-4134-98a5-df11e8f14c9a/dinos"
+}

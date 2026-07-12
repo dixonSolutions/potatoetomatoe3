@@ -1,0 +1,14 @@
+{
+	"id": "dragons-pursuit",
+	"name": "Dragons Pursuit",
+	"author": "cjgordon99",
+	"description": "The game's primary goal is to get as far as possible in time and destroy incoming rocks to gain a score. Like the old game Flappy Bird, it uses gravity to make movement harder while things fly toward",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5db3196a-bbdf-4b49-a2be-fe23c7544144/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5db3196a-bbdf-4b49-a2be-fe23c7544144",
+	"unityPlayUrl": "https://play.unity.com/en/games/5db3196a-bbdf-4b49-a2be-fe23c7544144/dragons-pursuit"
+}

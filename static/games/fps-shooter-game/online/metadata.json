@@ -1,0 +1,14 @@
+{
+	"id": "fps-shooter-game",
+	"name": "FPS SHOOTER GAME",
+	"author": "Tanay1029",
+	"description": "Play FPS SHOOTER GAME on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c889b9ce-e8c0-4303-b680-b8d3d11aca3d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e7fc1d5-82fc-4bd2-b9d7-f79395d35683/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e7fc1d5-82fc-4bd2-b9d7-f79395d35683",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e7fc1d5-82fc-4bd2-b9d7-f79395d35683/fps-shooter-game"
+}

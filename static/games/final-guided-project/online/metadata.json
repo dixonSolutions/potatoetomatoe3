@@ -1,0 +1,14 @@
+{
+	"id": "final-guided-project",
+	"name": "Final Guided Project",
+	"author": "Sonorous_Lab",
+	"description": "Play Final Guided Project on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00b217b2-ebb5-4fac-8328-00a19ea8b4fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00b217b2-ebb5-4fac-8328-00a19ea8b4fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/00b217b2-ebb5-4fac-8328-00a19ea8b4fb/final-guided-project"
+}

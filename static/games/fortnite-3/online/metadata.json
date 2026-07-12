@@ -1,0 +1,14 @@
+{
+	"id": "fortnite-3",
+	"name": "Fortnite 3",
+	"author": "Starfrost99",
+	"description": "The fortnitest.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff9a956d-610a-40c4-a802-695ab5f3590d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c83e3ee8-870a-4be3-bac4-5cd64ce7480d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c83e3ee8-870a-4be3-bac4-5cd64ce7480d",
+	"unityPlayUrl": "https://play.unity.com/en/games/c83e3ee8-870a-4be3-bac4-5cd64ce7480d/fortnite-3"
+}

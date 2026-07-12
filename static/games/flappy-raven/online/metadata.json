@@ -1,0 +1,14 @@
+{
+	"id": "flappy-raven",
+	"name": "Flappy Raven",
+	"author": "duncand99",
+	"description": "This is a small game I made called Flappy Raven, please enjoy! Press or hold SpaceBar to flap the raven's wings and gain points by passing through trees - the game is over once the raven's body hits a tree. Music by PixelMusicFree.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7ac8199c-3b22-467a-aea4-4a809135aeb3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/142464fd-b8e2-487d-853f-ccac09c1c113/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "142464fd-b8e2-487d-853f-ccac09c1c113",
+	"unityPlayUrl": "https://play.unity.com/en/games/142464fd-b8e2-487d-853f-ccac09c1c113/flappy-raven"
+}

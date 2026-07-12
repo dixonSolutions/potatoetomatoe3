@@ -1,0 +1,14 @@
+{
+	"id": "cr-roll-a-ball-peaceformers",
+	"name": "CR: Roll-A-Ball PeaceFormers",
+	"author": "cloudr",
+	"description": "This is a Roll-A-Ball game with the theme of Peace Formers.\n\nUPDATES:\n-Brand new UI\n-New enemy animation\n-New materials to make the scene feel more realistic! (Translucent material is in the ocean)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e79ee434-db40-45b6-a08d-92fb26900ca5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5ff449cb-83d1-49b9-8d89-bdc1f94101fb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5ff449cb-83d1-49b9-8d89-bdc1f94101fb",
+	"unityPlayUrl": "https://play.unity.com/en/games/5ff449cb-83d1-49b9-8d89-bdc1f94101fb/cr-roll-a-ball-peaceformers"
+}

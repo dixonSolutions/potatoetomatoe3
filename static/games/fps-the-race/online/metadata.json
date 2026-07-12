@@ -1,0 +1,14 @@
+{
+	"id": "fps-the-race",
+	"name": "FPS THE RACE",
+	"author": "Drag56on",
+	"description": "My latest microgame. Hope you enjoy.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2d69f570-f780-4b37-9c4c-a0ba28830ebc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/32841ac4-d8ac-4009-a35c-cdbeb6311408/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "32841ac4-d8ac-4009-a35c-cdbeb6311408",
+	"unityPlayUrl": "https://play.unity.com/en/games/32841ac4-d8ac-4009-a35c-cdbeb6311408/fps-the-race"
+}

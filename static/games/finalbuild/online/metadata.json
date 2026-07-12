@@ -1,0 +1,14 @@
+{
+	"id": "finalbuild",
+	"name": "Final_build",
+	"author": "nkruss99",
+	"description": "Play Final_build on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef96b0c2-bea3-44df-90de-fa94942dfec7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e652fc4-aec7-4637-b67e-0b2e461aa1eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e652fc4-aec7-4637-b67e-0b2e461aa1eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e652fc4-aec7-4637-b67e-0b2e461aa1eb/finalbuild"
+}

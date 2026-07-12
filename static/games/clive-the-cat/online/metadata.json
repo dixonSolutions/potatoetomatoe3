@@ -1,0 +1,14 @@
+{
+	"id": "clive-the-cat",
+	"name": "Clive The Cat",
+	"author": "natashaxkia",
+	"description": "My first microgame. 8/13/2022",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1e390d63-766e-402f-9835-03671b7d59e6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b0860bd-a6ac-497a-9341-940add7bf8aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b0860bd-a6ac-497a-9341-940add7bf8aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b0860bd-a6ac-497a-9341-940add7bf8aa/clive-the-cat"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "flappy-bird-cover",
+	"name": "Flappy Bird Cover",
+	"author": "No13Koval",
+	"description": "Sound available.\nMovement:\nSpace / Mouse Click / Screen touch",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec1621f3-8fd6-4d7d-b8c7-a3324012fd6b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/343b2bd0-5f52-43e8-a1c1-a0c0dd37fc67/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "343b2bd0-5f52-43e8-a1c1-a0c0dd37fc67",
+	"unityPlayUrl": "https://play.unity.com/en/games/343b2bd0-5f52-43e8-a1c1-a0c0dd37fc67/flappy-bird-cover"
+}

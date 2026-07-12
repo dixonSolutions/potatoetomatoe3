@@ -1,0 +1,14 @@
+{
+	"id": "dinohunt",
+	"name": "DinoHunt",
+	"author": "ArtyDc",
+	"description": "ver0.3.0 April 6, 2026\n\nTerminate all the Dinos and YOU WIN! But dont let them terminate you.\n\nMove : W A S D\nRun : Shift\nShoot : LMB\nPickup : F\nKeep : G\nInventory : TAB\nWeapon : Q\nCamera : C",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4fee0738-63cc-4b6a-8e67-0dd2c68ed934/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9ad1ec96-b4a9-454e-87c5-8ae17d9e5fe2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9ad1ec96-b4a9-454e-87c5-8ae17d9e5fe2",
+	"unityPlayUrl": "https://play.unity.com/en/games/9ad1ec96-b4a9-454e-87c5-8ae17d9e5fe2/dinohunt"
+}

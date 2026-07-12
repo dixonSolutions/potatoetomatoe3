@@ -1,0 +1,14 @@
+{
+	"id": "cyberacer-v001",
+	"name": "Cyberacer v0.0.1",
+	"author": "yangshiyuan1",
+	"description": "Dear Mentors & Orbiters,\n\n1       Welcome to Cyberace v0.0.1 \u2014 Milestone I Submission Built!\n\n2       This is a built dedicated to your evaluation of Milestone I.\n\n3       Current Built consists of:\n\n          -      Basic Player Car Acceleration\n          -      Basic Player Car Steering\n          -      Basic Player Car Terrain Reaction\n          -      Basic Player Car Drifting\n          -      Basic Player Car Reaction with Environmental GameObjects\n          -      Basic Player Car Sound Effect - Engine, Drifting, Collision\n          -      Test Circuit for Milestone I Evaluation\n          (Current Built runs only in WebGL Project)\n\n4     Keyboard Control:\n\n          -      Key W:  Forward Acceleration\n          -      Key S: Reverse Acceleration\n          -      Key A: Left Turn\n          -      Key D: Right Turn\n          -      Key C: Change Camera View\n\n5     Your feedback and suggestions are the uttermost helpful guide we can have in the development process. Feel free to leave a comment!\n\n6     Thank you very much!\n\n\nBest Regards,\nTeam Aston Martin Henz.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40b16b7c-7b45-4482-a263-efbb783d5b0e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/64a919bd-f8de-4ee4-8347-0197a2952644/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "64a919bd-f8de-4ee4-8347-0197a2952644",
+	"unityPlayUrl": "https://play.unity.com/en/games/64a919bd-f8de-4ee4-8347-0197a2952644/cyberacer-v001"
+}

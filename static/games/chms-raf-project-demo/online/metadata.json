@@ -1,0 +1,14 @@
+{
+	"id": "chms-raf-project-demo",
+	"name": "CHMS - RAF Project Demo",
+	"author": "schearerGroup",
+	"description": "This demo should be played in full-screen for everything to work correctly. If you are having issues controlling, ensure to click on the application window to let it access which keys you are pressing.\nImportant Controls:\n- Open the settings menu using the 'P' or 'Start Button' keys.\n- Change the current controller type using the 'O' or 'Right Stick' keys.\n- All other controls can be seen in the settings menu.\n\n-----------------\nThis is a demo of the Robotic Assisted Feeding project at Cleveland State University.\n\nThis work is supported by NSF grant 1950558.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de7304c6-2bf4-44f2-a678-8c39e86477c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2d758d33-f2cd-4b21-bff2-e9d2ec7ea51a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2d758d33-f2cd-4b21-bff2-e9d2ec7ea51a",
+	"unityPlayUrl": "https://play.unity.com/en/games/2d758d33-f2cd-4b21-bff2-e9d2ec7ea51a/chms-raf-project-demo"
+}

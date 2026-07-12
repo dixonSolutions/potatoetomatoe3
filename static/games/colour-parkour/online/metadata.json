@@ -1,0 +1,14 @@
+{
+	"id": "colour-parkour",
+	"name": "Colour Parkour",
+	"author": "gp9901",
+	"description": "We are team: Professional Nappers. \n\nWe developed a 3D level-based game for the course CSCI 526.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ed3c5573-26d8-4699-975f-7722b968edf2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e11d7d1a-6808-4194-82d3-38923888464e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e11d7d1a-6808-4194-82d3-38923888464e",
+	"unityPlayUrl": "https://play.unity.com/en/games/e11d7d1a-6808-4194-82d3-38923888464e/colour-parkour"
+}

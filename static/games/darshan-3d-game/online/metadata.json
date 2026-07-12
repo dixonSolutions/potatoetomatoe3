@@ -1,0 +1,14 @@
+{
+	"id": "darshan-3d-game",
+	"name": "Darshan 3D Game",
+	"author": "darshanshaastri",
+	"description": "Play Darshan 3D Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6eb973d0-4df1-4723-a630-40dfd0bbe7a8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8f8769ea-2456-4fb7-a5a4-257080014f29/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8f8769ea-2456-4fb7-a5a4-257080014f29",
+	"unityPlayUrl": "https://play.unity.com/en/games/8f8769ea-2456-4fb7-a5a4-257080014f29/darshan-3d-game"
+}

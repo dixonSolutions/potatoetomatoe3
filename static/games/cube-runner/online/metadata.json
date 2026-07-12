@@ -1,0 +1,14 @@
+{
+	"id": "cube-runner",
+	"name": "Cube Runner",
+	"author": "avirock912",
+	"description": "Cube Runner is a 3D game which is made using Unity Game Engine and all the scripts are written in C# in Visual Studio. This game is supported only on PC. It is a runner game like sonic and somewhat similar to Temple Run and Subway Surfers but with a few twist, It is not a endless game which means you can win in this game at one point of time. There is a reason behind not making it an endless game which is every player gets the same duration and during that duration you have to score the highest point. You can score points by collecting the red cubes, more the number of cubes you collect more will be score. Watch out the other cubes because as soon as you strike with them the game gets over. Enjoy The Game:)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9db702d4-4f82-4ad8-916f-7237cd8dc82d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ad571428-9e0b-4d57-98a8-468737584316/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ad571428-9e0b-4d57-98a8-468737584316",
+	"unityPlayUrl": "https://play.unity.com/en/games/ad571428-9e0b-4d57-98a8-468737584316/cube-runner"
+}

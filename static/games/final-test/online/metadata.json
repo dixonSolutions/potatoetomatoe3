@@ -1,0 +1,14 @@
+{
+	"id": "final-test",
+	"name": "final Test",
+	"author": "zhang980121",
+	"description": "Play final Test on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/574a9fac-e190-4e3a-b2a0-4bd3c07b8df2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "574a9fac-e190-4e3a-b2a0-4bd3c07b8df2",
+	"unityPlayUrl": "https://play.unity.com/en/games/574a9fac-e190-4e3a-b2a0-4bd3c07b8df2/final-test"
+}

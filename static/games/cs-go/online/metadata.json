@@ -1,0 +1,14 @@
+{
+	"id": "cs-go",
+	"name": "CS GO",
+	"author": "Invokerjke25",
+	"description": "Play CS GO on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/653a5448-4725-450f-ac03-4a30338e177f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0390b97d-b0fc-41cc-8d32-2d6853a307a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0390b97d-b0fc-41cc-8d32-2d6853a307a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/0390b97d-b0fc-41cc-8d32-2d6853a307a0/cs-go"
+}

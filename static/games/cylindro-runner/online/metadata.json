@@ -1,0 +1,14 @@
+{
+	"id": "cylindro-runner",
+	"name": "Cylindro Runner",
+	"author": "chaitupendyala",
+	"description": "Endless runner on a cylinder with color and shape switch.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5d72ac8-fd69-4cf1-9d9e-efb784ae6375/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/134fac1b-0cb1-43f8-9110-cf5ab9b846fd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "134fac1b-0cb1-43f8-9110-cf5ab9b846fd",
+	"unityPlayUrl": "https://play.unity.com/en/games/134fac1b-0cb1-43f8-9110-cf5ab9b846fd/cylindro-runner"
+}

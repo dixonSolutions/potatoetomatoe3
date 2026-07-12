@@ -1,0 +1,14 @@
+{
+	"id": "frog-game",
+	"name": "Frog Game",
+	"author": "Unity Play",
+	"description": "Space or Left click: to jump Shift or Right click: to use the ability R to reset to the last checkpoint E: to open menu P: to pause the Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1272eda5-9edc-4b1a-9244-f007a70c4bd1/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fccdcf60-ab57-4af3-aaff-30669b29486d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fccdcf60-ab57-4af3-aaff-30669b29486d",
+	"unityPlayUrl": "https://play.unity.com/en/games/fccdcf60-ab57-4af3-aaff-30669b29486d/frog-game"
+}

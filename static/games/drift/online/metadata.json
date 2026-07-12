@@ -1,0 +1,14 @@
+{
+	"id": "drift",
+	"name": "drift",
+	"author": "oraziodavanzo",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c65c4420-1509-4fb2-9efd-4347a8cb1ad5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2085f4f7-555c-4550-a094-93933d1bdb97/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2085f4f7-555c-4550-a094-93933d1bdb97",
+	"unityPlayUrl": "https://play.unity.com/en/games/2085f4f7-555c-4550-a094-93933d1bdb97/drift"
+}

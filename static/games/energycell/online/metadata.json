@@ -1,0 +1,14 @@
+{
+	"id": "energycell",
+	"name": "Energycell",
+	"author": "matbout",
+	"description": "Un chasseur de prime s\u2019\u00e9crase sur une plan\u00e8te qui lui est inconnue. Sans autre option, il d\u00e9cide d\u2019aller chasser la seule personne qui a sa t\u00eate \u00e0 prix: le scientifique fou Zakhar. Il va devoir sillonner une dimension peu connue pour atteindre son objectif. Devant ce d\u00e9fi, allez-vous vaincre le docteur Zakhar et permettre \u00e0 Bob de se sortir de ce p\u00e9trin ou allez-vous \u00e9chouer mis\u00e9rablement et devenir un autre cobaye pour les exp\u00e9riences malsaines de Zakhar?\n\nContr\u00f4les\n- Clavier et Souris\n--- Bouger : WASD\n--- Sauter : Espace\n--- Viser : Souris\n (D\u00e9bloqu\u00e9s plus tard dans le jeu)\n--- Tirer : Clic Gauche\n--- Changer de dimension : Shift\n-Manette\n--- Bouger : Stick Gauche ou Croix Directionnelle\n--- Sauter : A\n--- Viser : Stick Droit\n (D\u00e9bloqu\u00e9s plus tard dans le jeu)\n--- Tirer : Gachette Droite\n--- Changer de dimension : Gachette Gauche\n\nJeu r\u00e9alis\u00e9 dans le cadre du Projet de d\u00e9veloppement de jeux vid\u00e9o au C\u00e9gep de Sainte-Foy.\n\nAuteurs :\n- Mathieu Boutet\n- J\u00e9r\u00e9my Faucher\n- Dave Ouellet\n- Mickael Chabot\n- Samuel M\u00e9nard\n- Rebecca Brassard",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d4ea5a01-697a-4b73-a45b-03b868186dda/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06415a3a-3bd5-4864-be10-09725290b88c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06415a3a-3bd5-4864-be10-09725290b88c",
+	"unityPlayUrl": "https://play.unity.com/en/games/06415a3a-3bd5-4864-be10-09725290b88c/energycell"
+}

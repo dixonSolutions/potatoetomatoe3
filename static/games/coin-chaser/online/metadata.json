@@ -1,0 +1,14 @@
+{
+	"id": "coin-chaser",
+	"name": "Coin Chaser",
+	"author": "Sannie05",
+	"description": "A coin chaser game where the goal is to pick up all the coins to win.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f597b400-497a-4d45-ae22-59b282ad91af/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06a445c0-ecf0-4abd-9c41-339dcd18a816/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06a445c0-ecf0-4abd-9c41-339dcd18a816",
+	"unityPlayUrl": "https://play.unity.com/en/games/06a445c0-ecf0-4abd-9c41-339dcd18a816/coin-chaser"
+}

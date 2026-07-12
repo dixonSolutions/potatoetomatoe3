@@ -1,0 +1,14 @@
+{
+	"id": "counting-prototype-chicken-chaser",
+	"name": "Counting Prototype: Chicken Chaser",
+	"author": "pocketlint60",
+	"description": "Pick up the escaping chickens and toss them back in the pen! You earn points over time but be careful: you lose one second off the clock for every chicken running loose!\n\nControls:\n\nArrows - Movement\nSpace - Throw\n\nThis was made for the \"counting prototype\" checkpoint in Unity's Junior Programmer learning path.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06b73e3b-4e28-4a08-a5d9-63874527421a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06b73e3b-4e28-4a08-a5d9-63874527421a",
+	"unityPlayUrl": "https://play.unity.com/en/games/06b73e3b-4e28-4a08-a5d9-63874527421a/counting-prototype-chicken-chaser"
+}

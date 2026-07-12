@@ -1,0 +1,14 @@
+{
+	"id": "cooking-simulator",
+	"name": "Cooking Simulator",
+	"author": "RespectableDot",
+	"description": "This is a fast-paced cooking game inspired by overcooked.\nFeel free to give feedback.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e000d236-39d4-41b0-b473-af87fcba7335/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22f136fa-1d33-4e57-929e-96a785fc8010/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "22f136fa-1d33-4e57-929e-96a785fc8010",
+	"unityPlayUrl": "https://play.unity.com/en/games/22f136fa-1d33-4e57-929e-96a785fc8010/cooking-simulator"
+}

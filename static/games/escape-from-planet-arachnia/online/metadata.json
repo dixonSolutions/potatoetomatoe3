@@ -1,0 +1,14 @@
+{
+	"id": "escape-from-planet-arachnia",
+	"name": "Escape from Planet Arachnia",
+	"author": "poorlydrawn",
+	"description": "Made with the Lego Microgame pack for the Lego Unity competition. WASD to move, Scroll Wheel to zoom. Left click to place bricks, select turrets, and shoot. Right click to rotate bricks.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/45b047f4-470d-4357-99b7-0df42152051f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fc91f5d-f82c-4017-ac61-fc935ae71b9c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fc91f5d-f82c-4017-ac61-fc935ae71b9c",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fc91f5d-f82c-4017-ac61-fc935ae71b9c/escape-from-planet-arachnia"
+}

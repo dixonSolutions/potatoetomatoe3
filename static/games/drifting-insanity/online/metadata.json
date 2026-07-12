@@ -1,0 +1,14 @@
+{
+	"id": "drifting-insanity",
+	"name": "Drifting Insanity",
+	"author": "hl2616",
+	"description": "My final karting microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ba92230-708a-4b6b-a229-ee8dffaa146c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3ba92230-708a-4b6b-a229-ee8dffaa146c",
+	"unityPlayUrl": "https://play.unity.com/en/games/3ba92230-708a-4b6b-a229-ee8dffaa146c/drifting-insanity"
+}

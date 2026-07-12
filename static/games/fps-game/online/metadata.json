@@ -1,0 +1,14 @@
+{
+	"id": "fps-game",
+	"name": "FPS Game",
+	"author": "alexoh205",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72367ed6-5daf-4ab4-9796-90e302edfde2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "72367ed6-5daf-4ab4-9796-90e302edfde2",
+	"unityPlayUrl": "https://play.unity.com/en/games/72367ed6-5daf-4ab4-9796-90e302edfde2/fps-game"
+}

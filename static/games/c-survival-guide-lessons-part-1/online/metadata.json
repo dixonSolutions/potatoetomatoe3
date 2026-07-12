@@ -1,0 +1,14 @@
+{
+	"id": "c-survival-guide-lessons-part-1",
+	"name": "C# Survival Guide Lessons (Part 1)",
+	"author": "NoahTH",
+	"description": "Press \"P\" to pause the game, and \"R\" to resume it. Pressing \"Space\" will simulate an exploding crate on the left. This project shows off the first hour of lessons provided in the C# Survival Guide tutorials.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d4de9e0c-50b0-4f0d-bf71-b00b5d590643/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3442042f-c2d7-4568-b0d5-a9f709e7f98e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3442042f-c2d7-4568-b0d5-a9f709e7f98e",
+	"unityPlayUrl": "https://play.unity.com/en/games/3442042f-c2d7-4568-b0d5-a9f709e7f98e/c-survival-guide-lessons-part-1"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "clean-multiplayer-lite-webgl-demo",
+	"name": "Clean Multiplayer Lite - WebGL Demo",
+	"author": "Konstantin100",
+	"description": "This is the WebGL demo for the asset Clean Multiplayer Lite: https://assetstore.unity.com/packages/templates/packs/clean-multiplayer-lite-190640?source=share-platform#description",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c5fb4602-4dbc-4191-8fd4-4927fdc0e35b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d18ed60c-a7bc-4f4a-940f-52532aa824cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d18ed60c-a7bc-4f4a-940f-52532aa824cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/d18ed60c-a7bc-4f4a-940f-52532aa824cd/clean-multiplayer-lite-webgl-demo"
+}

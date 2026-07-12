@@ -1,0 +1,14 @@
+{
+	"id": "demobasictwr",
+	"name": "DemoBasicTWR",
+	"author": "FBNL",
+	"description": "! Pensez bien \u00e0 activer le son !\n\nLe programme ci dessus s'adresse en priorit\u00e9 aux \u00e9l\u00e8ves en cours de phase BASIC TWR. Des rappels sont affich\u00e9s dans le menu accessible via la touche \"echap\" une fois la simulation lanc\u00e9e.\n\nTout autre utilisateur est le bienvenu, et pourra tenter d'apprendre \"sur le tas\".\n\nDans la demo ci dessus :\n\n-scenario d'une dur\u00e9e de 20 min,\n-4 trafics pioch\u00e9s al\u00e9atoirement dans une base de donn\u00e9e,\n-creation, d\u00e9placement et remplissage des strips par l'utilisateur,\n-communications contr\u00f4leur par l'utilisateur,\n-retour sur la performance \u00e0 l'issue des 20 min.\n\nGlobalement, la demo pr\u00e9sente des milliers de scenario en fonction de quel trafic apparait \u00e0 quel moment, et de comment il est trait\u00e9 par l'utilisateur.\n\nA des fins d'am\u00e9lioration de l'outil, merci par avance pour votre \u00e9ventuel retour.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9ba148d7-ba75-4881-8252-6eb159b98e18/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03031523-f259-46a4-a598-143154c1f3f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03031523-f259-46a4-a598-143154c1f3f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/03031523-f259-46a4-a598-143154c1f3f9/demobasictwr"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "five-nights-at-diddys",
+	"name": "five nights at diddys",
+	"author": "kaneriviere",
+	"description": "first game!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/89c1a8a4-3b1f-4207-8d78-67b2b220fa8e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "89c1a8a4-3b1f-4207-8d78-67b2b220fa8e",
+	"unityPlayUrl": "https://play.unity.com/en/games/89c1a8a4-3b1f-4207-8d78-67b2b220fa8e/five-nights-at-diddys"
+}

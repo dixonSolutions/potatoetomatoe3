@@ -1,0 +1,14 @@
+{
+	"id": "flight-sim-beta",
+	"name": "Flight Sim (Beta)",
+	"author": "Unity Play",
+	"description": "Please report bugs, recommendations and others",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3f2820ad-d7c9-4418-be03-ba88b0bff971/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/76dc2bde-8976-48ee-a4c4-38f6979feb22/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "76dc2bde-8976-48ee-a4c4-38f6979feb22",
+	"unityPlayUrl": "https://play.unity.com/en/games/76dc2bde-8976-48ee-a4c4-38f6979feb22/flight-sim-beta"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "edge-rider",
+	"name": "Edge Rider",
+	"author": "unity_100032146",
+	"description": "Catch an edge and collect coins! Avoid the kill bricks and the floor is lava!\n\nControls:\nWASD\nShiftlock",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/142048ee-8110-4b85-99eb-4272f9af67c0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "142048ee-8110-4b85-99eb-4272f9af67c0",
+	"unityPlayUrl": "https://play.unity.com/en/games/142048ee-8110-4b85-99eb-4272f9af67c0/edge-rider"
+}

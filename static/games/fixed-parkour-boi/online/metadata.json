@@ -1,0 +1,14 @@
+{
+	"id": "fixed-parkour-boi",
+	"name": "fixed parkour boi",
+	"author": "Sham_Playz",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99edab33-f972-4115-a6d4-a727959ebc65/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3f08fc7a-97dc-439d-85d9-18502e9a2916/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3f08fc7a-97dc-439d-85d9-18502e9a2916",
+	"unityPlayUrl": "https://play.unity.com/en/games/3f08fc7a-97dc-439d-85d9-18502e9a2916/fixed-parkour-boi"
+}

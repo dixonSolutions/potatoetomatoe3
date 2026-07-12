@@ -1,0 +1,14 @@
+{
+	"id": "code-monkey-awesome-fps-game",
+	"name": "Code Monkey Awesome FPS Game",
+	"author": "CodeMonkeyYT",
+	"description": "Here's my awesome game built from the FPS Microgame! \nLearn how the game was made here: https://bit.ly/2y6M4zp",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c69fa617-2597-42e1-803a-c040d9041362/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48e7d7f7-4aa1-42da-87d2-b817e02b0854/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48e7d7f7-4aa1-42da-87d2-b817e02b0854",
+	"unityPlayUrl": "https://play.unity.com/en/games/48e7d7f7-4aa1-42da-87d2-b817e02b0854/code-monkey-awesome-fps-game"
+}

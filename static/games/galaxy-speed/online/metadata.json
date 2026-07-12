@@ -1,0 +1,14 @@
+{
+	"id": "galaxy-speed",
+	"name": "Galaxy Speed",
+	"author": "mnguyen9797",
+	"description": "Zoom to the finish line with a gravity car. Experience 2 different levels of difficulty. There are objects that can help you pass obstacles, and items that can harm you. Oh- and there is a time limit!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a71a9cc-2acf-42be-bed5-5888fa474f45/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/79869ee3-92d2-4f33-a1bf-15ba61e32fcc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "79869ee3-92d2-4f33-a1bf-15ba61e32fcc",
+	"unityPlayUrl": "https://play.unity.com/en/games/79869ee3-92d2-4f33-a1bf-15ba61e32fcc/galaxy-speed"
+}

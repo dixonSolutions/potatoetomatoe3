@@ -1,0 +1,14 @@
+{
+	"id": "first-tut-build",
+	"name": "first-tut-build",
+	"author": "DropCat33",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01b62f80-03cf-43b7-aea5-fbed3a1faacb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01b62f80-03cf-43b7-aea5-fbed3a1faacb",
+	"unityPlayUrl": "https://play.unity.com/en/games/01b62f80-03cf-43b7-aea5-fbed3a1faacb/first-tut-build"
+}

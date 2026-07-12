@@ -1,0 +1,14 @@
+{
+	"id": "coin-drop",
+	"name": "Coin drop",
+	"author": "Bizzymcflurry",
+	"description": "school project",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e02302ea-3ffc-4cc9-8068-4e7d5ba42ac8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6ca7bec5-3b46-4253-b86e-77cc4ddb9de9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6ca7bec5-3b46-4253-b86e-77cc4ddb9de9",
+	"unityPlayUrl": "https://play.unity.com/en/games/6ca7bec5-3b46-4253-b86e-77cc4ddb9de9/coin-drop"
+}

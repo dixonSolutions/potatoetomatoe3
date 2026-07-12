@@ -1,0 +1,14 @@
+{
+	"id": "flycube",
+	"name": "FlyCube",
+	"author": "RageFireXD",
+	"description": "My First Game(Next Update maybe on Sunday or next Monday)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37cfe530-2f97-49b9-813d-9a0ac599a13b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d79a0536-7631-4c03-8dc7-46bfc9c2c48b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d79a0536-7631-4c03-8dc7-46bfc9c2c48b",
+	"unityPlayUrl": "https://play.unity.com/en/games/d79a0536-7631-4c03-8dc7-46bfc9c2c48b/flycube"
+}

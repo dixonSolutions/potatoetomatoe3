@@ -1,0 +1,14 @@
+{
+	"id": "cod-warzone-2",
+	"name": "COD WARZONE 2",
+	"author": "TiMtY7",
+	"description": "My latest microgame. OMG HYPE HYPE HYPE",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef3427ee-a474-46af-b347-9d75d760dd97/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a662f701-f74c-40e9-b322-7fa675d70219/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a662f701-f74c-40e9-b322-7fa675d70219",
+	"unityPlayUrl": "https://play.unity.com/en/games/a662f701-f74c-40e9-b322-7fa675d70219/cod-warzone-2"
+}

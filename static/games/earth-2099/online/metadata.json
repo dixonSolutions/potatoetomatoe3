@@ -1,0 +1,14 @@
+{
+	"id": "earth-2099",
+	"name": "Earth 2099",
+	"author": "TWalton97",
+	"description": "Created by: Trevor Walton, Daniel Doherty, Riley Patterson\nLeft\nRight\nW \u2013 Climb Ladders\nF \u2013 Shoot\nSpace \u2013 Jump\nSpace x2- Double Jump\nA left\nD right",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/168ee2ae-a181-4264-827b-bb2f55247c1d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "168ee2ae-a181-4264-827b-bb2f55247c1d",
+	"unityPlayUrl": "https://play.unity.com/en/games/168ee2ae-a181-4264-827b-bb2f55247c1d/earth-2099"
+}

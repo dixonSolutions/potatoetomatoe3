@@ -1,0 +1,14 @@
+{
+	"id": "city-runner",
+	"name": "City Runner",
+	"author": "unity_24avilesv",
+	"description": "Use W,A,S,D or arrow keys to move the player, space bar to jump. Your goal is to reach the end without touching the ground.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01691380-3339-499b-b4b2-a4ae84ac70fc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01691380-3339-499b-b4b2-a4ae84ac70fc",
+	"unityPlayUrl": "https://play.unity.com/en/games/01691380-3339-499b-b4b2-a4ae84ac70fc/city-runner"
+}

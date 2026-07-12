@@ -1,0 +1,14 @@
+{
+	"id": "escape-from-the-underworld",
+	"name": "Escape from the Underworld",
+	"author": "willhammond",
+	"description": "Try to escape from the underworld. Watch out for lava! Use arrow keys to move and space to jump.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ac837b10-9748-4eb7-9504-bd0347248765/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ac837b10-9748-4eb7-9504-bd0347248765",
+	"unityPlayUrl": "https://play.unity.com/en/games/ac837b10-9748-4eb7-9504-bd0347248765/escape-from-the-underworld"
+}

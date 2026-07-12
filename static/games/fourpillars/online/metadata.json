@@ -1,0 +1,14 @@
+{
+	"id": "fourpillars",
+	"name": "Four_Pillars",
+	"author": "nareshkumarpeddinti",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b3c4ff49-4806-4f15-9f30-df071fcec619/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b05a4c89-318c-4af3-9d76-9e7f718adc01/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b05a4c89-318c-4af3-9d76-9e7f718adc01",
+	"unityPlayUrl": "https://play.unity.com/en/games/b05a4c89-318c-4af3-9d76-9e7f718adc01/fourpillars"
+}

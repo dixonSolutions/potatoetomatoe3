@@ -1,0 +1,14 @@
+{
+	"id": "comsic-sorfvm",
+	"name": "Comsic sorfvm",
+	"author": "robloxpeoplesplace",
+	"description": "The hardest part was getting webgl to work",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a2852419-dab0-4a3e-b4fa-ac16ce7a8aed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a2852419-dab0-4a3e-b4fa-ac16ce7a8aed",
+	"unityPlayUrl": "https://play.unity.com/en/games/a2852419-dab0-4a3e-b4fa-ac16ce7a8aed/comsic-sorfvm"
+}

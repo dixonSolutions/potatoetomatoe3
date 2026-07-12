@@ -1,0 +1,14 @@
+{
+	"id": "escape-the-room",
+	"name": "Escape the Room!",
+	"author": "coder_58",
+	"description": "This is an FPS game. Use arrow keys/WASD to move and mouse to look around. Hold left shift to sprint. \n\nThe rules are pretty self-explanatory: escape the room!\n\nTo get started, go to the green book and click on it for the first clue. From there, it\u2019s pretty easy. \n\nPro tips:\n- to collect items, try actually going to them \n- sprinting will be useful at a later point in the game :)\n- try moving closer to objects to click them (you may have to click several times on an object for something to happen, IDK why)\n\nThe goal of this game is to, of course, escape the room, but also reach the glass-walled platform before the timer runs out. Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/287edfe8-5bf4-4ab2-aaed-a2882b6168f5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17848484-c79c-4297-b74b-a7cb02f7efd3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17848484-c79c-4297-b74b-a7cb02f7efd3",
+	"unityPlayUrl": "https://play.unity.com/en/games/17848484-c79c-4297-b74b-a7cb02f7efd3/escape-the-room"
+}

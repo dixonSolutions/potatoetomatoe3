@@ -1,0 +1,14 @@
+{
+	"id": "frogman",
+	"name": "FrogMan",
+	"author": "mlange0132",
+	"description": "Get frog man home safe",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18edbcc5-bd36-4ac3-9c43-b267b4752111/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18edbcc5-bd36-4ac3-9c43-b267b4752111",
+	"unityPlayUrl": "https://play.unity.com/en/games/18edbcc5-bd36-4ac3-9c43-b267b4752111/frogman"
+}

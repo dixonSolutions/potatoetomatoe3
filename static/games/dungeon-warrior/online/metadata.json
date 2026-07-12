@@ -1,0 +1,14 @@
+{
+	"id": "dungeon-warrior",
+	"name": "Dungeon Warrior",
+	"author": "Unity Play",
+	"description": "A First Person Endless Slasher. \n\nInspired by Shadow Warrior 2's melee combat.\n\nMade by Maksim \"BooLeet\" Chmutov",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "first-person-shooter",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27c55896-dc36-422e-b1cd-cd232dd03176/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "27c55896-dc36-422e-b1cd-cd232dd03176",
+	"unityPlayUrl": "https://play.unity.com/en/games/27c55896-dc36-422e-b1cd-cd232dd03176/dungeon-warrior"
+}

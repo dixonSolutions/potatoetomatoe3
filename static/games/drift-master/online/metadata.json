@@ -1,0 +1,14 @@
+{
+	"id": "drift-master",
+	"name": "Drift Master",
+	"author": "Marriottm",
+	"description": "Drift",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/49f927cd-d174-4f51-9c09-5c64731d8ae0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/32b77aa9-acff-4b93-9874-d8a33fed31b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "32b77aa9-acff-4b93-9874-d8a33fed31b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/32b77aa9-acff-4b93-9874-d8a33fed31b7/drift-master"
+}

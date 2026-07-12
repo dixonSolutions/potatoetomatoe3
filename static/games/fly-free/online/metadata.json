@@ -1,0 +1,14 @@
+{
+	"id": "fly-free",
+	"name": "Fly Free",
+	"author": "GalinaZh",
+	"description": "Fly free up and down, left or right using the arrow keys. Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a8a7440-76a8-42b5-8744-569bdde8f6f9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/64697957-b7c8-4e36-a23b-3709a4aa6380/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "64697957-b7c8-4e36-a23b-3709a4aa6380",
+	"unityPlayUrl": "https://play.unity.com/en/games/64697957-b7c8-4e36-a23b-3709a4aa6380/fly-free"
+}

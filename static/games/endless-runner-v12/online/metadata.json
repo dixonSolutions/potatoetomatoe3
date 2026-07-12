@@ -1,0 +1,14 @@
+{
+	"id": "endless-runner-v12",
+	"name": "Endless Runner V1.2",
+	"author": "Twlilight",
+	"description": "Move left and right to collect coins. The more you play, the higher the speed gets, the harder it is (If you reach speed 30 you are really good at this game). You can also jump with space!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b0037e8-07a9-4c55-a816-e044a28d96c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2b0037e8-07a9-4c55-a816-e044a28d96c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/2b0037e8-07a9-4c55-a816-e044a28d96c2/endless-runner-v12"
+}

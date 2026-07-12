@@ -1,0 +1,14 @@
+{
+	"id": "elderwood",
+	"name": "Elderwood",
+	"author": "JustinH_",
+	"description": "\"Nature is in danger. A foreign army has slowly taken over the forest and the surrounding area. Fulfill the role of a druid and protect this mystical forest from the invaders. Track down the mysterious general that has been haunting the school to eElderwood certainly is an unique experience.\n\nControls:\n- 'w,a,s,d' to move around.\n- Click and drag right mouse button to move the camera.\n- Press '1' to channel the strenght of a bear, knocking back enemies.\n- Press '2' to channel the might of a phoenix, crossing a short distance in the blink of an eye.\n- Press 'Left Shift' to channel your healing ability, this only works in combat.\n- Your health is visible in the top-left corner of the screen, when it reaches '0', the game is over.\n- A mini-map will be at display in the bottom-left corner of the screen, showing you the interesting locations.\n- Press 'Escape/Esc' to bring up a pause menu, allowing you to go to the main menu or to continue your fantasy experience.\n\nGood luck on your journey!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/043ae0e5-8314-4de8-94bc-cd1b2fac6792/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "043ae0e5-8314-4de8-94bc-cd1b2fac6792",
+	"unityPlayUrl": "https://play.unity.com/en/games/043ae0e5-8314-4de8-94bc-cd1b2fac6792/elderwood"
+}

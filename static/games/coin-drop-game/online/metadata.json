@@ -1,0 +1,14 @@
+{
+	"id": "coin-drop-game",
+	"name": "Coin Drop Game",
+	"author": "Obabobatuneday",
+	"description": "This game is made for Game Dev Class. Music and sprites made by me.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7943ec87-3aeb-4bb8-81ab-308aaa598688/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/254fbf4a-2823-49f4-9f18-c149bd6971eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "254fbf4a-2823-49f4-9f18-c149bd6971eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/254fbf4a-2823-49f4-9f18-c149bd6971eb/coin-drop-game"
+}

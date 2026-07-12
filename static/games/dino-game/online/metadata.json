@@ -1,0 +1,14 @@
+{
+	"id": "dino-game",
+	"name": "Dino game",
+	"author": "unity_100032202",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/44411411-2d5f-4145-966a-0f4174958c7d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/032b1bdf-e559-4389-b2be-445013ae1071/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "032b1bdf-e559-4389-b2be-445013ae1071",
+	"unityPlayUrl": "https://play.unity.com/en/games/032b1bdf-e559-4389-b2be-445013ae1071/dino-game"
+}

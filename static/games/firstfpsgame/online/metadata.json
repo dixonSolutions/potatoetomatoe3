@@ -1,0 +1,14 @@
+{
+	"id": "firstfpsgame",
+	"name": "FirstFPSgame",
+	"author": "unity_Wn52mhAmrm91hQ",
+	"description": "Play FirstFPSgame on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a0400563-564a-40df-9f01-e7d420a1f7cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ce3c7148-51cb-4264-ab7f-5855f8cf50d4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ce3c7148-51cb-4264-ab7f-5855f8cf50d4",
+	"unityPlayUrl": "https://play.unity.com/en/games/ce3c7148-51cb-4264-ab7f-5855f8cf50d4/firstfpsgame"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "flight-sim-0",
+	"name": "Flight Sim 0",
+	"author": "mferraro89",
+	"description": "Play Flight Sim 0 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e576878c-b6b6-4ce5-851e-8c004e16a8ce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8837c17e-3616-4ad8-8f2c-7f9f3341f101/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8837c17e-3616-4ad8-8f2c-7f9f3341f101",
+	"unityPlayUrl": "https://play.unity.com/en/games/8837c17e-3616-4ad8-8f2c-7f9f3341f101/flight-sim-0"
+}

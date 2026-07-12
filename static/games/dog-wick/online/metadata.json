@@ -1,0 +1,14 @@
+{
+	"id": "dog-wick",
+	"name": "Dog Wick",
+	"author": "Star_Donuts",
+	"description": "Informational Sources:                                           https://www.youtube.com/watch?v=fuGQFdhSPg4&ab_channel=CodeMonkey\nUsed this to implement rotational aiming\nhttps://www.youtube.com/watch?v=LNLVOjbrQj4&ab_channel=Brackeys\nUsed this as a resource for instantiating bullets at the correct position\n\nAssets Used:\n2D Dungeon Pixel Art Tileset by Zhivko Minchev:\nhttps://assetstore.unity.com/packages/2d/environments/2d-dungeon-pixel-art-tileset-171343\nFree Pixel Font - Thalia by Tiny Worlds:\nhttps://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059#reviews\nBackground Music:\nCredit to https://www.FesliyanStudios.com for the background music.\nVictory Theme:\nCredit to Jim Hall from freemusicarchive.org: https://freemusicarchive.org/music/jim-hall",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7b5930f5-fbc8-459e-8e59-d74eb277ca56/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7b5930f5-fbc8-459e-8e59-d74eb277ca56",
+	"unityPlayUrl": "https://play.unity.com/en/games/7b5930f5-fbc8-459e-8e59-d74eb277ca56/dog-wick"
+}

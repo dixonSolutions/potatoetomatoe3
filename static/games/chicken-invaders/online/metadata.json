@@ -1,0 +1,14 @@
+{
+	"id": "chicken-invaders",
+	"name": "Chicken Invaders",
+	"author": "ReSY",
+	"description": "Play Chicken Invaders on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6abdddeb-c9df-4e7d-b330-03436c030795/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5ca68241-ae6e-4a44-a6e4-f4d6205f67cb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5ca68241-ae6e-4a44-a6e4-f4d6205f67cb",
+	"unityPlayUrl": "https://play.unity.com/en/games/5ca68241-ae6e-4a44-a6e4-f4d6205f67cb/chicken-invaders"
+}

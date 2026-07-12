@@ -1,0 +1,14 @@
+{
+	"id": "drift-race-3d",
+	"name": "Drift Race 3D",
+	"author": "Talha_38",
+	"description": "Play Drift Race 3D on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/314c988d-bc68-45df-90f5-2a93b6861773/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e6af8d3-576f-41c2-9bea-fb3d7e844749/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e6af8d3-576f-41c2-9bea-fb3d7e844749",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e6af8d3-576f-41c2-9bea-fb3d7e844749/drift-race-3d"
+}

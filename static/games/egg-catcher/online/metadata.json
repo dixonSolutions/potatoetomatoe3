@@ -1,0 +1,14 @@
+{
+	"id": "egg-catcher",
+	"name": "Egg Catcher",
+	"author": "Unity Play",
+	"description": "Challenge: Counting Prototype\n\nUnity learn: https://learn.unity.com/tutorial/counting-prototype\n\nEgg catcher game is a game that involves catching falling eggs. Every egg give you 1 point, but sometimes shit happens if you catch it so you loss 5 points.\n\nEach new level increase the rate spawn of egg.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b95a404a-a3df-4591-8e3e-77b2a4e7d227/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5c4c9b8c-d824-409c-a825-6a53572ee738/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5c4c9b8c-d824-409c-a825-6a53572ee738",
+	"unityPlayUrl": "https://play.unity.com/en/games/5c4c9b8c-d824-409c-a825-6a53572ee738/egg-catcher"
+}

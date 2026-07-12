@@ -1,0 +1,14 @@
+{
+	"id": "connectwebgl",
+	"name": "connectwebgl",
+	"author": "ruydiy",
+	"description": "Play connectwebgl on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0fc514c6-5909-4bd5-b40b-616c6f53acfd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0fc514c6-5909-4bd5-b40b-616c6f53acfd",
+	"unityPlayUrl": "https://play.unity.com/en/games/0fc514c6-5909-4bd5-b40b-616c6f53acfd/connectwebgl"
+}

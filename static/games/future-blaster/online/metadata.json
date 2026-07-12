@@ -1,0 +1,14 @@
+{
+	"id": "future-blaster",
+	"name": "future blaster",
+	"author": "GIGDstudio",
+	"description": "My latest game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/897244f3-398e-47cb-91ce-daecc6e4b8a5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0416e6d9-7a30-4d4f-bce5-919817ddcc30/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0416e6d9-7a30-4d4f-bce5-919817ddcc30",
+	"unityPlayUrl": "https://play.unity.com/en/games/0416e6d9-7a30-4d4f-bce5-919817ddcc30/future-blaster"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dont-fall-lava",
+	"name": "Don't Fall Lava",
+	"author": "bjjerk",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/279edda3-5acf-449d-aff5-9abb0709368a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "279edda3-5acf-449d-aff5-9abb0709368a",
+	"unityPlayUrl": "https://play.unity.com/en/games/279edda3-5acf-449d-aff5-9abb0709368a/dont-fall-lava"
+}

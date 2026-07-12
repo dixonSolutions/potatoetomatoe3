@@ -1,0 +1,14 @@
+{
+	"id": "counting-prototype",
+	"name": "Counting Prototype",
+	"author": "ErenDere",
+	"description": "Mouse click on balls adds force away the direction of their surface normals. Vertical and horizontal inputs change camera view. There are boxes with different colors and we try to throw balls into them. Box and Ball colors should match in order to increase score.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ed1d0ff-5fae-45af-a628-e1d8025c5d50/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ed1d0ff-5fae-45af-a628-e1d8025c5d50",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ed1d0ff-5fae-45af-a628-e1d8025c5d50/counting-prototype"
+}

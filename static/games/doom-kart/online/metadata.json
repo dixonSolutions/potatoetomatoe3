@@ -1,0 +1,14 @@
+{
+	"id": "doom-kart",
+	"name": "Doom Kart",
+	"author": "Mika-Isomaa",
+	"description": "Play Doom Kart on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/730cb65a-d6f8-445e-8d69-d8d86900385c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5c4df9f2-a398-441c-b023-d6f1ea4fd6b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5c4df9f2-a398-441c-b023-d6f1ea4fd6b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/5c4df9f2-a398-441c-b023-d6f1ea4fd6b0/doom-kart"
+}

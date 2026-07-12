@@ -1,0 +1,14 @@
+{
+	"id": "frogs-eat-oranges",
+	"name": "Frogs Eat Oranges?",
+	"author": "winterbrinemc",
+	"description": "Husky Game Development Unity Tutorial Game - Cale McDonnnell                        \nA - Move left, D - Move right, Space - Jump, R - Restart game                                                                                          \nCollect all 4 oranges to win!\nPlay with sound to feel epic.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/09136693-e8a6-444f-9a47-e406b6eaec0a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1bce797e-f819-46c3-859d-c329a5953ccd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1bce797e-f819-46c3-859d-c329a5953ccd",
+	"unityPlayUrl": "https://play.unity.com/en/games/1bce797e-f819-46c3-859d-c329a5953ccd/frogs-eat-oranges"
+}

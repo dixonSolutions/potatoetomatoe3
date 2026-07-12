@@ -1,0 +1,14 @@
+{
+	"id": "cleanroom-attire-and-mask-alignment-simulator",
+	"name": "Cleanroom Attire and Mask Alignment Simulator",
+	"author": "Jianyu07",
+	"description": "This game aims to illustrate the gowning protocol for entering a cleanroom and the essential mask alignment component of photolithography.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dcd1ace5-eb18-48fe-a9c0-46ece45e0b56/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dcd1ace5-eb18-48fe-a9c0-46ece45e0b56",
+	"unityPlayUrl": "https://play.unity.com/en/games/dcd1ace5-eb18-48fe-a9c0-46ece45e0b56/cleanroom-attire-and-mask-alignment-simulator"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "desert-tanks",
+	"name": "Desert Tanks",
+	"author": "MykeBlack",
+	"description": "2 Player tank battle game, use 2 game pads or keys: WASD+Space for p1 and cursor keys and enter for P2.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7fee4a70-fce5-4d07-b235-022bd38872db/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75377c77-f14d-4d39-9951-c02018bd73c9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75377c77-f14d-4d39-9951-c02018bd73c9",
+	"unityPlayUrl": "https://play.unity.com/en/games/75377c77-f14d-4d39-9951-c02018bd73c9/desert-tanks"
+}

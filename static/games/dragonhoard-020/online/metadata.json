@@ -1,0 +1,14 @@
+{
+	"id": "dragonhoard-020",
+	"name": "Dragonhoard! 0.2.0",
+	"author": "LukeChandler",
+	"description": "Press R to restart a level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8351f25b-2a3f-498c-b132-a28d7f107d85/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a5a092b4-252e-4e6a-ac1b-116550914e1a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a5a092b4-252e-4e6a-ac1b-116550914e1a",
+	"unityPlayUrl": "https://play.unity.com/en/games/a5a092b4-252e-4e6a-ac1b-116550914e1a/dragonhoard-020"
+}

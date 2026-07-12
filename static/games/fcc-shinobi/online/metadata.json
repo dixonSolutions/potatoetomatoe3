@@ -1,0 +1,14 @@
+{
+	"id": "fcc-shinobi",
+	"name": "FCC Shinobi",
+	"author": "uncledoughnut",
+	"description": "A handcrafted financial crimes compliance (FCC) risk management game that challenges you to manage business risk and regulatory risk with a limited amount of resources.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bed7ca6e-7347-42f3-9f4a-c6d0efab8f26/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/099cbc3b-7b41-4f57-9056-9dc691f53641/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "099cbc3b-7b41-4f57-9056-9dc691f53641",
+	"unityPlayUrl": "https://play.unity.com/en/games/099cbc3b-7b41-4f57-9056-9dc691f53641/fcc-shinobi"
+}

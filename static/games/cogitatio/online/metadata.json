@@ -1,0 +1,14 @@
+{
+	"id": "cogitatio",
+	"name": "Cogitatio",
+	"author": "katona187",
+	"description": "Play Cogitatio on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/95a9ab9c-8672-4594-9d74-3ca4837b0796/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0285873f-6e40-4417-9b52-5b76ba68ffed/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0285873f-6e40-4417-9b52-5b76ba68ffed",
+	"unityPlayUrl": "https://play.unity.com/en/games/0285873f-6e40-4417-9b52-5b76ba68ffed/cogitatio"
+}

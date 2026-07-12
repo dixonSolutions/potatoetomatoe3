@@ -1,0 +1,14 @@
+{
+	"id": "fps-webgl-demo",
+	"name": "FPS WebGL Demo",
+	"author": "Unity Play",
+	"description": "Play FPS WebGL Demo on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6b630a10-37f9-425d-b260-c8369b7383fc/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/90e50848-823a-42a8-9d24-b25a7f60c47a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "90e50848-823a-42a8-9d24-b25a7f60c47a",
+	"unityPlayUrl": "https://play.unity.com/en/games/90e50848-823a-42a8-9d24-b25a7f60c47a/fps-webgl-demo"
+}

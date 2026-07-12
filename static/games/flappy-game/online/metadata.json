@@ -1,0 +1,14 @@
+{
+	"id": "flappy-game",
+	"name": "Flappy Game",
+	"author": "ka6771539",
+	"description": "when you get 60 coin you can return and click level 2 and so in level 3 .Before you open the game you should open the game sound .I hope you like it",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/42546156-158b-48f8-9e24-e27105d976c3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c96db8d2-6bdf-4775-9225-416459b7b201/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c96db8d2-6bdf-4775-9225-416459b7b201",
+	"unityPlayUrl": "https://play.unity.com/en/games/c96db8d2-6bdf-4775-9225-416459b7b201/flappy-game"
+}

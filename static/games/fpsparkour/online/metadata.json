@@ -1,0 +1,14 @@
+{
+	"id": "fpsparkour",
+	"name": "FPS+parkour",
+	"author": "leinad_677-twitch",
+	"description": "Play FPS+parkour on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c208b432-322d-40f9-840d-0e9a7b2f3aeb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a8d895cd-141f-4467-b4c8-6b378dab2d70/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a8d895cd-141f-4467-b4c8-6b378dab2d70",
+	"unityPlayUrl": "https://play.unity.com/en/games/a8d895cd-141f-4467-b4c8-6b378dab2d70/fpsparkour"
+}

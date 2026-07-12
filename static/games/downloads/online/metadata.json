@@ -1,0 +1,14 @@
+{
+	"id": "downloads",
+	"name": "Downloads",
+	"author": "khoipham999x",
+	"description": "Play Downloads on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1fc8beb4-3ee0-4e56-88c6-6e74fa9d5b3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1fc8beb4-3ee0-4e56-88c6-6e74fa9d5b3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/1fc8beb4-3ee0-4e56-88c6-6e74fa9d5b3f/downloads"
+}

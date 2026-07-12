@@ -1,0 +1,14 @@
+{
+	"id": "dungeon-pachinko",
+	"name": "Dungeon Pachinko",
+	"author": "dekatron1",
+	"description": "Collect coins in the dungeon!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/baf435b3-477a-4f81-9c72-fa46ea0ce4a7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/038b94e1-932f-49e3-9044-0d8273e8bb0c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "038b94e1-932f-49e3-9044-0d8273e8bb0c",
+	"unityPlayUrl": "https://play.unity.com/en/games/038b94e1-932f-49e3-9044-0d8273e8bb0c/dungeon-pachinko"
+}

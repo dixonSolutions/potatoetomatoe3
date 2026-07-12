@@ -1,0 +1,14 @@
+{
+	"id": "flappy-snowman",
+	"name": "Flappy Snowman",
+	"author": "m1chan",
+	"description": "Flap and collect presents!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06557e21-a6ed-407b-8ee8-254d2c6fc183/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06557e21-a6ed-407b-8ee8-254d2c6fc183",
+	"unityPlayUrl": "https://play.unity.com/en/games/06557e21-a6ed-407b-8ee8-254d2c6fc183/flappy-snowman"
+}

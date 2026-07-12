@@ -1,0 +1,14 @@
+{
+	"id": "deathshot",
+	"name": "DeathShot",
+	"author": "Maximum70823",
+	"description": "A fun multiplayer fps game!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c922af9d-d6d9-444e-b4e6-64e5bbc7f6b2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d447465-737e-426d-b9a4-3a423d4ac571/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d447465-737e-426d-b9a4-3a423d4ac571",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d447465-737e-426d-b9a4-3a423d4ac571/deathshot"
+}

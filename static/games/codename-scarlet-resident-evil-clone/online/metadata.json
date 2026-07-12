@@ -1,0 +1,14 @@
+{
+	"id": "codename-scarlet-resident-evil-clone",
+	"name": "Codename Scarlet - Resident Evil Clone",
+	"author": "vendaar",
+	"description": "Early Prototype of my Resident Evil Clone. For the graphic settings to work you have to apply and reload the game. It's an issue with the WebGL Build im about to fix.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f1086171-1b42-4168-ae7a-7b080ff56d63/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b4a1103-8f24-4226-878b-b0e122566b2b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b4a1103-8f24-4226-878b-b0e122566b2b",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b4a1103-8f24-4226-878b-b0e122566b2b/codename-scarlet-resident-evil-clone"
+}

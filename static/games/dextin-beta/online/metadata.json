@@ -1,0 +1,14 @@
+{
+	"id": "dextin-beta",
+	"name": "Dextin (Beta)",
+	"author": "mithintipremgopal7",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fe38f97c-e503-4f54-a411-65e26334877b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c3d98e3-3291-4e20-9b00-37d709ae78e8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c3d98e3-3291-4e20-9b00-37d709ae78e8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c3d98e3-3291-4e20-9b00-37d709ae78e8/dextin-beta"
+}

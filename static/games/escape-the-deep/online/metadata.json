@@ -1,0 +1,14 @@
+{
+	"id": "escape-the-deep",
+	"name": "Escape The Deep",
+	"author": "unity_100028132",
+	"description": "Use A/D and spacebar to move, R to reset a level.\nspacebar/shift to swim up and down respectively.\n\nUse ESC to open Pause/Save menu",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1f5c417e-c672-4475-b7ab-9d5c3fad9c44/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3746954b-8e48-4542-b718-de8a18b92bb8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3746954b-8e48-4542-b718-de8a18b92bb8",
+	"unityPlayUrl": "https://play.unity.com/en/games/3746954b-8e48-4542-b718-de8a18b92bb8/escape-the-deep"
+}

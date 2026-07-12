@@ -1,0 +1,14 @@
+{
+	"id": "fps-webgl-game",
+	"name": "FPS WebGl Game",
+	"author": "NickStark6",
+	"description": "Play FPS WebGl Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e32bf262-211e-49ed-9a9f-8e0b00ce7aa9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/729d1f4c-94c4-4548-9739-20670e58dee1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "729d1f4c-94c4-4548-9739-20670e58dee1",
+	"unityPlayUrl": "https://play.unity.com/en/games/729d1f4c-94c4-4548-9739-20670e58dee1/fps-webgl-game"
+}

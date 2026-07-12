@@ -1,0 +1,14 @@
+{
+	"id": "danaavrakt",
+	"name": "Danaavrakt",
+	"author": "hoaus",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/398701be-c66e-479a-ac74-82ac81e5184e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0453a43e-2f74-4193-bc30-cf64dd1928fc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0453a43e-2f74-4193-bc30-cf64dd1928fc",
+	"unityPlayUrl": "https://play.unity.com/en/games/0453a43e-2f74-4193-bc30-cf64dd1928fc/danaavrakt"
+}

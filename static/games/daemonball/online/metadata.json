@@ -1,0 +1,14 @@
+{
+	"id": "daemonball",
+	"name": "Daemonball",
+	"author": "KaipiDB",
+	"description": "Daemonball is just like soccer... except you can kick the other players. Play as Daemonball's rising star Sir Dogbreath as he slashes, dashes and kicks his way to the top of the National Daemonball League. PS: Feel free to reload the page if any issues arise.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2b0ba7c5-926d-4f00-a5fe-81324fff9e57/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2b0ba7c5-926d-4f00-a5fe-81324fff9e57",
+	"unityPlayUrl": "https://play.unity.com/en/games/2b0ba7c5-926d-4f00-a5fe-81324fff9e57/daemonball"
+}

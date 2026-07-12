@@ -1,0 +1,14 @@
+{
+	"id": "fishingweb",
+	"name": "FishingWeb",
+	"author": "GDMtutor",
+	"description": "Fishing game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56990b72-2371-4770-b122-152efe8024c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56990b72-2371-4770-b122-152efe8024c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/56990b72-2371-4770-b122-152efe8024c2/fishingweb"
+}

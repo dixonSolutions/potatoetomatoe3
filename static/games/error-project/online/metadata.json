@@ -1,0 +1,14 @@
+{
+	"id": "error-project",
+	"name": "Error Project",
+	"author": "Victor_Savitskiy",
+	"description": "Congrats! All errors fixed!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8bdab1e5-6e9c-4b8d-9d00-1ad23a875a1d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04613681-d073-4423-a6ca-953e95083c74/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04613681-d073-4423-a6ca-953e95083c74",
+	"unityPlayUrl": "https://play.unity.com/en/games/04613681-d073-4423-a6ca-953e95083c74/error-project"
+}

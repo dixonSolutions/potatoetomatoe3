@@ -1,0 +1,14 @@
+{
+	"id": "dice-of-randomness-incomplete",
+	"name": "Dice of Randomness (INCOMPLETE)",
+	"author": "CheezyTatoSoup",
+	"description": "This game is a concept remake of another game I enjoy. This project is NOT balanced at all. Currently creating the core, and expanding from there once the base is set. Gamestyle is Tower defense, with towers created in random spots, from a set list of 5 die (your deck). those 5 are chosen at random from a list of 12 that I have completed so far. Enemies grow slowly over time, soon bosses will be implemented, as well as actual rounds that determine enemy health etc etc... Keep an eye open for further updates on this by me!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9f274c42-6db1-40ca-bbab-d521d3762629/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05822f7d-15b0-492f-8dde-3140d24336e5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05822f7d-15b0-492f-8dde-3140d24336e5",
+	"unityPlayUrl": "https://play.unity.com/en/games/05822f7d-15b0-492f-8dde-3140d24336e5/dice-of-randomness-incomplete"
+}

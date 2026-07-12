@@ -1,0 +1,14 @@
+{
+	"id": "floor-is-lava-challenge",
+	"name": "Floor is lava challenge",
+	"author": "Evgeny_K",
+	"description": "First challenge in the Unity Learning. I've used some free assets from the store and tried to keep the ball on the platform in the end of the scene.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c3e257c6-05fd-4b87-b697-125afae5820c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/135a560a-6fa5-489a-82bc-3fce89aee8c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "135a560a-6fa5-489a-82bc-3fce89aee8c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/135a560a-6fa5-489a-82bc-3fce89aee8c7/floor-is-lava-challenge"
+}

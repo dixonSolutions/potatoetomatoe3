@@ -1,0 +1,14 @@
+{
+	"id": "crazycart-halloween",
+	"name": "CrazyCart-Halloween",
+	"author": "DCTechnologies",
+	"description": "Play CrazyCart-Halloween on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a07d2fa7-dc45-4633-8859-22c72556c1a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3d270b84-a231-4269-b51c-ee2e70b4fbc5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3d270b84-a231-4269-b51c-ee2e70b4fbc5",
+	"unityPlayUrl": "https://play.unity.com/en/games/3d270b84-a231-4269-b51c-ee2e70b4fbc5/crazycart-halloween"
+}

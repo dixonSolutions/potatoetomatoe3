@@ -1,0 +1,14 @@
+{
+	"id": "cubeleon-run",
+	"name": "cubeleon run",
+	"author": "joaomcl",
+	"description": "game inspired by chameleon-run",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f83c99e-0ade-4837-9054-ea12a6c6f258/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18a569f6-6b5d-4912-9b18-95a08194e566/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18a569f6-6b5d-4912-9b18-95a08194e566",
+	"unityPlayUrl": "https://play.unity.com/en/games/18a569f6-6b5d-4912-9b18-95a08194e566/cubeleon-run"
+}

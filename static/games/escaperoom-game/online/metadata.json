@@ -1,0 +1,14 @@
+{
+	"id": "escaperoom-game",
+	"name": "Escaperoom Game",
+	"author": "julianterveldee",
+	"description": "Versie 5",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04349b67-7075-4e3d-80d3-b64f955bce35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04349b67-7075-4e3d-80d3-b64f955bce35",
+	"unityPlayUrl": "https://play.unity.com/en/games/04349b67-7075-4e3d-80d3-b64f955bce35/escaperoom-game"
+}

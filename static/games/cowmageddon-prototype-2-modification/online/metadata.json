@@ -1,0 +1,14 @@
+{
+	"id": "cowmageddon-prototype-2-modification",
+	"name": "Cowmageddon (Prototype 2 modification)",
+	"author": "r4t00b1",
+	"description": "for whatever reason building with webgl hid some UI elements, like the cow counter",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/32802024-6d01-4c35-87e3-d1364914ba8f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ae3e59a6-cb9b-4e1d-92b7-e3d4e7a7967f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ae3e59a6-cb9b-4e1d-92b7-e3d4e7a7967f",
+	"unityPlayUrl": "https://play.unity.com/en/games/ae3e59a6-cb9b-4e1d-92b7-e3d4e7a7967f/cowmageddon-prototype-2-modification"
+}

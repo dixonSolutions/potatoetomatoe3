@@ -1,0 +1,14 @@
+{
+	"id": "first-person-shooter-demo",
+	"name": "First Person Shooter Demo",
+	"author": "dongrewaqar",
+	"description": "Play First Person Shooter Demo on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a54d79fc-d5f3-4049-9d9b-144d2c64af75/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18c4e2af-c8f8-47fb-bece-7505f3635942/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18c4e2af-c8f8-47fb-bece-7505f3635942",
+	"unityPlayUrl": "https://play.unity.com/en/games/18c4e2af-c8f8-47fb-bece-7505f3635942/first-person-shooter-demo"
+}

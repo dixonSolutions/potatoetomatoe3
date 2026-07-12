@@ -1,0 +1,14 @@
+{
+	"id": "function-dungeon",
+	"name": "Function Dungeon",
+	"author": "KevinHooij",
+	"description": "WebGL Build for the game Function Dungeon, December build.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc4a4118-c147-4135-9e4d-14392dd97bb9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/016e6b55-7124-4bad-903e-c5a0b6aa0921/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "016e6b55-7124-4bad-903e-c5a0b6aa0921",
+	"unityPlayUrl": "https://play.unity.com/en/games/016e6b55-7124-4bad-903e-c5a0b6aa0921/function-dungeon"
+}

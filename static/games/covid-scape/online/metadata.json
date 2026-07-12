@@ -1,0 +1,14 @@
+{
+	"id": "covid-scape",
+	"name": "Covid Scape",
+	"author": "Rayzler",
+	"description": "This is my first video game.\nYou just have to dodge the virus for as long as you can.\n\n.exe version:\nhttps://www.mediafire.com/file/xqrsw267kolqskm/Covid_Scape.exe/file\n\nAndroid version:\nhttps://www.mediafire.com/file/tlnc6als77u6jhs/Covid_Scape_Mobile.apk/file",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f560c4f8-96fd-4f1b-b8f6-a053e2254d48/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f836e306-d8b5-43a9-a9f5-e8ae7136cfbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f836e306-d8b5-43a9-a9f5-e8ae7136cfbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/f836e306-d8b5-43a9-a9f5-e8ae7136cfbf/covid-scape"
+}

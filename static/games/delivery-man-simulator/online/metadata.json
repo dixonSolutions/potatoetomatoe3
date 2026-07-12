@@ -1,0 +1,14 @@
+{
+	"id": "delivery-man-simulator",
+	"name": "Delivery Man Simulator",
+	"author": "Kong_yan_",
+	"description": "4:45",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58d8f6b6-778d-412f-b904-34089074b91c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58d8f6b6-778d-412f-b904-34089074b91c",
+	"unityPlayUrl": "https://play.unity.com/en/games/58d8f6b6-778d-412f-b904-34089074b91c/delivery-man-simulator"
+}

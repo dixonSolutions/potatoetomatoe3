@@ -1,0 +1,14 @@
+{
+	"id": "floatforce",
+	"name": "FloatForce",
+	"author": "steijnS",
+	"description": "Arena space shooter prototype",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b03f10df-3bf1-4255-9545-48abb43b6a84/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bcc672b-3579-4b08-ab70-1f73b0863a52/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bcc672b-3579-4b08-ab70-1f73b0863a52",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bcc672b-3579-4b08-ab70-1f73b0863a52/floatforce"
+}

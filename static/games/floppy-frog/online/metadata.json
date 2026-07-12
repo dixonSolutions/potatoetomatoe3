@@ -1,0 +1,14 @@
+{
+	"id": "floppy-frog",
+	"name": "Floppy Frog",
+	"author": "KimVStudio",
+	"description": "Floppy Frog\nVersion : Pre-Alpha 1.2\n--\nControls : \nSPACE - Jump \n--\nSupported platforms : \nWeb",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0d70c37e-d519-468d-9a88-bf58bbb15680/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/037363cf-5e15-4d1f-85c2-7b95ee4c75c7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "037363cf-5e15-4d1f-85c2-7b95ee4c75c7",
+	"unityPlayUrl": "https://play.unity.com/en/games/037363cf-5e15-4d1f-85c2-7b95ee4c75c7/floppy-frog"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "evasive-flaps",
+	"name": "Evasive Flaps",
+	"author": "Gamermakerjoe",
+	"description": "Press \"up arrow\" or \"space\" to jump. \"w\" to dash in single player. In multiplayer \"w\" is for player 1. Don't touch spikes. To pause, press \"p\".\n\nNEW UPDATE: \n-Tutorial\n-Dialogue\n-Auto Save System",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8fe05a2b-19e7-47e5-99c2-f707c1edff33/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/101f574c-71c9-472f-a963-00308c3015b4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "101f574c-71c9-472f-a963-00308c3015b4",
+	"unityPlayUrl": "https://play.unity.com/en/games/101f574c-71c9-472f-a963-00308c3015b4/evasive-flaps"
+}

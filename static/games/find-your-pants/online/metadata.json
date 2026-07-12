@@ -1,0 +1,14 @@
+{
+	"id": "find-your-pants",
+	"name": "Find Your Pants!",
+	"author": "Mansupe",
+	"description": "PRESS R TO QUICK RESTART GAME                                                                      -------------------------------------                                                                   You wake up only to find yourself infront of a mysterious mountain in a mysterious landscape, and most importantly, without your pants. Climb the mountain using user-friendly controls and reach the top to claim your well deserved pair of pants!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1eb01559-b5bf-4a42-bccc-0dbdfcfabd1e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1eb01559-b5bf-4a42-bccc-0dbdfcfabd1e",
+	"unityPlayUrl": "https://play.unity.com/en/games/1eb01559-b5bf-4a42-bccc-0dbdfcfabd1e/find-your-pants"
+}

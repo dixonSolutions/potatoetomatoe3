@@ -1,0 +1,14 @@
+{
+	"id": "chocolate-factory-game",
+	"name": "Chocolate Factory Game",
+	"author": "Dorzoro",
+	"description": "First functional prototype to showcase the basic gameplay loop. Includes a very basic factory management sim with a couple of example upgrades and the ability to set the sell price.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4856e3a9-3d44-42f1-b8b2-7ba2e2909abe/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0469222a-31d7-4e73-935f-1a450a8dc174/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0469222a-31d7-4e73-935f-1a450a8dc174",
+	"unityPlayUrl": "https://play.unity.com/en/games/0469222a-31d7-4e73-935f-1a450a8dc174/chocolate-factory-game"
+}

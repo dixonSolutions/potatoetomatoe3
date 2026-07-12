@@ -1,0 +1,14 @@
+{
+	"id": "flappy-sleepy-bird",
+	"name": "Flappy Sleepy Bird",
+	"author": "hebory",
+	"description": "Flappy Bird-like game. https://play.google.com/store/apps/details?id=com.sleepyfinger.flappysleepybird",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d914d1f0-ba87-4c77-86d2-b405006c5b0d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/90fe5923-1b6e-47cb-8de3-680a0019ff50/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "90fe5923-1b6e-47cb-8de3-680a0019ff50",
+	"unityPlayUrl": "https://play.unity.com/en/games/90fe5923-1b6e-47cb-8de3-680a0019ff50/flappy-sleepy-bird"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "extreme-karting",
+	"name": "Extreme Karting",
+	"author": "nogueiraantonio",
+	"description": "Play Extreme Karting on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/769fbd0f-e15c-4161-95d8-6b131d574ca1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ae567cf-c4d1-4a01-93f3-aa54b995d8fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ae567cf-c4d1-4a01-93f3-aa54b995d8fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ae567cf-c4d1-4a01-93f3-aa54b995d8fa/extreme-karting"
+}

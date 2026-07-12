@@ -1,0 +1,14 @@
+{
+	"id": "chicken-attack",
+	"name": "Chicken Attack",
+	"author": "ameithor",
+	"description": "Chicken has escaped and now are attacking from the forest!!! Let's STOP them.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee8ef965-191b-4d7c-aa59-3f74531655a4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/162b7bac-1497-4bf9-aa46-7e5ccd7bcfbf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "162b7bac-1497-4bf9-aa46-7e5ccd7bcfbf",
+	"unityPlayUrl": "https://play.unity.com/en/games/162b7bac-1497-4bf9-aa46-7e5ccd7bcfbf/chicken-attack"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "diffracto",
+	"name": "Diffracto",
+	"author": "Unity Play",
+	"description": "Cast and reflect beams to destroy your enemies. But conserve your energy or be destroyed by the endless mobs!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff569abc-0128-4c26-9b36-947b96ecf7f8/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6cc280ac-1a57-4019-86c8-c49f0b3f0f38/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6cc280ac-1a57-4019-86c8-c49f0b3f0f38",
+	"unityPlayUrl": "https://play.unity.com/en/games/6cc280ac-1a57-4019-86c8-c49f0b3f0f38/diffracto"
+}

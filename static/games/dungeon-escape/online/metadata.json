@@ -1,0 +1,14 @@
+{
+	"id": "dungeon-escape",
+	"name": "Dungeon Escape",
+	"author": "skeletonplaysgame",
+	"description": "TESTING MY FIRST GAME | Movement: W, S, A, D | Fire: L / Mouse Left | Jump: Space | Jump Down Platform: S",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/82f03299-523b-4f98-b688-05a256ee106b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/195df729-bc08-486a-ab68-f3fb1149a45b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "195df729-bc08-486a-ab68-f3fb1149a45b",
+	"unityPlayUrl": "https://play.unity.com/en/games/195df729-bc08-486a-ab68-f3fb1149a45b/dungeon-escape"
+}

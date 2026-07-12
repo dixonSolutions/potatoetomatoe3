@@ -1,0 +1,14 @@
+{
+	"id": "couchferret-slick-fps",
+	"name": "CouchFerret Slick FPS",
+	"author": "CouchFerret",
+	"description": "Play CouchFerret Slick FPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/34c80d0c-c1ed-4572-8e35-da6690e410fc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5ef39cfc-42f2-48a2-be84-74f639094486/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5ef39cfc-42f2-48a2-be84-74f639094486",
+	"unityPlayUrl": "https://play.unity.com/en/games/5ef39cfc-42f2-48a2-be84-74f639094486/couchferret-slick-fps"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "drive-smash-boom",
+	"name": "Drive, Smash, Boom!",
+	"author": "FluffballGames",
+	"description": "Welcome to Drive, Smash, Boom! Drive, Smash, Boom! is a local multiplayer action game. It's like the 2D platformer brawling games but 3D and with cars!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/17e515ae-0583-4ad9-8a0c-e0deb15384c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "17e515ae-0583-4ad9-8a0c-e0deb15384c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/17e515ae-0583-4ad9-8a0c-e0deb15384c1/drive-smash-boom"
+}

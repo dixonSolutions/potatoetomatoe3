@@ -1,0 +1,14 @@
+{
+	"id": "flappy",
+	"name": "Flappy",
+	"author": "rle80085",
+	"description": "BUY 2% ON SUNDAY ON GOOGLE PLAY EZE GAME",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/93c059e9-e564-4b63-8ccf-d5c771a206f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "93c059e9-e564-4b63-8ccf-d5c771a206f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/93c059e9-e564-4b63-8ccf-d5c771a206f9/flappy"
+}

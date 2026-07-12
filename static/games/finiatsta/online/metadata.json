@@ -1,0 +1,14 @@
+{
+	"id": "finiatsta",
+	"name": "Finiatsta",
+	"author": "Fyese",
+	"description": "Play Finiatsta on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f81f08d7-fe1f-40e5-b62b-cad1c8b3af57/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/136f78c2-b498-442d-b9d4-b5151e3f8e96/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "136f78c2-b498-442d-b9d4-b5151e3f8e96",
+	"unityPlayUrl": "https://play.unity.com/en/games/136f78c2-b498-442d-b9d4-b5151e3f8e96/finiatsta"
+}

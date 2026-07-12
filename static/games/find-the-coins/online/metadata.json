@@ -1,0 +1,14 @@
+{
+	"id": "find-the-coins",
+	"name": "Find the coins",
+	"author": "hikarun15",
+	"description": "You steer the car and get the coins. According to the colors of coins, points are different. Time limit is two minutes.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6d636ecc-107c-4a58-85a0-0e4b5596c5e9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/21e2c39b-29f5-40c7-a366-be04b731acd7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "21e2c39b-29f5-40c7-a366-be04b731acd7",
+	"unityPlayUrl": "https://play.unity.com/en/games/21e2c39b-29f5-40c7-a366-be04b731acd7/find-the-coins"
+}

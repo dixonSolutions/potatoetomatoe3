@@ -1,0 +1,14 @@
+{
+	"id": "cs-go-2",
+	"name": "CS GO 2",
+	"author": "Catalinhovic",
+	"description": "Play CS GO 2 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ee771040-146c-4e7b-8d70-f0e5f3b0e46b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4c549f18-ef85-4673-8095-7f66e53002c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4c549f18-ef85-4673-8095-7f66e53002c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/4c549f18-ef85-4673-8095-7f66e53002c3/cs-go-2"
+}

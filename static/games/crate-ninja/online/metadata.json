@@ -1,0 +1,14 @@
+{
+	"id": "crate-ninja",
+	"name": "Crate Ninja",
+	"author": "Azalore",
+	"description": "3D physics game. Click boxes to destroy them but don't click the bombs!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b9f6899e-4f94-4b8e-bcac-4fde413ef1c8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/36c2e133-b5e6-4911-9cc0-22fd490c9047/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "36c2e133-b5e6-4911-9cc0-22fd490c9047",
+	"unityPlayUrl": "https://play.unity.com/en/games/36c2e133-b5e6-4911-9cc0-22fd490c9047/crate-ninja"
+}

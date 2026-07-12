@@ -1,0 +1,14 @@
+{
+	"id": "dfl2-demo",
+	"name": "DFL2 Demo",
+	"author": "Dhs5",
+	"description": "Demo of the final version of DFL2 !\nComplete game now available on Steam : https://store.steampowered.com/app/2227340/DFL2\nAvailable on Play Store : https://play.google.com/store/apps/details?id=com.DefaultCompany.DFL2_Mobile&gl=FR\nDemo : No shadows and lower quality textures to offer a super optimized gaming experience to everyone here !\nWatch the official trailer now on Youtube : https://youtu.be/KAluI7LPXGk",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cada818a-3879-4400-bae8-dafbc77c909c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/df1cdcea-dda5-409f-afec-108be08b228c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "df1cdcea-dda5-409f-afec-108be08b228c",
+	"unityPlayUrl": "https://play.unity.com/en/games/df1cdcea-dda5-409f-afec-108be08b228c/dfl2-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "divine-light",
+	"name": "Divine Light",
+	"author": "SirSiLves",
+	"description": "FFHS - School Project",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/309f184f-a088-4a91-b00f-984e72f37845/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "309f184f-a088-4a91-b00f-984e72f37845",
+	"unityPlayUrl": "https://play.unity.com/en/games/309f184f-a088-4a91-b00f-984e72f37845/divine-light"
+}

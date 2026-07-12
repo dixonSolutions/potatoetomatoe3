@@ -1,0 +1,14 @@
+{
+	"id": "dragon-hoard",
+	"name": "Dragon Hoard",
+	"author": "LEGO_Monkey",
+	"description": "Explore your own fantasy world in this epic game, as you find your way through ruined towns, hot deserts, overgrown jungles, scorching volcanoes and crumbling castles.\n\n\nAvoid the numerous traps, cannonballs and dangerous monsters as you jump around this floating land to make your way to the dragons stolen hoard.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a970e5e-4c47-4c2f-9bf3-a289937b5226/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2c33b762-e818-4c2b-ad40-eeede1d2ae3f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2c33b762-e818-4c2b-ad40-eeede1d2ae3f",
+	"unityPlayUrl": "https://play.unity.com/en/games/2c33b762-e818-4c2b-ad40-eeede1d2ae3f/dragon-hoard"
+}

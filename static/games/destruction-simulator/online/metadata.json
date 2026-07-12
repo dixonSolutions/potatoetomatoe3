@@ -1,0 +1,14 @@
+{
+	"id": "destruction-simulator",
+	"name": "Destruction Simulator",
+	"author": "Electric_Mind",
+	"description": "A game where you can spawn objects. Try pressing different keys on your keyboard to create things.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/861c3138-b011-4835-856b-49fdfcf6ac21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/64365af2-f059-4d9a-863b-9b7348b3fa12/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "64365af2-f059-4d9a-863b-9b7348b3fa12",
+	"unityPlayUrl": "https://play.unity.com/en/games/64365af2-f059-4d9a-863b-9b7348b3fa12/destruction-simulator"
+}

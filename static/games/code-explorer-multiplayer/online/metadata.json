@@ -1,0 +1,14 @@
+{
+	"id": "code-explorer-multiplayer",
+	"name": "Code Explorer Multiplayer",
+	"author": "Lauren_123",
+	"description": "Die Mehrspieler-Version von Code Explorer, einem Programmier-Lernspiel. Diese Version wurde im Rahmen meiner Bachelor's Thesis entwickelt.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ca44d36-99e5-4c11-b87a-0c7a76ce9a4f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/67c046e7-f94b-4e68-8167-2dc67eb50560/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "67c046e7-f94b-4e68-8167-2dc67eb50560",
+	"unityPlayUrl": "https://play.unity.com/en/games/67c046e7-f94b-4e68-8167-2dc67eb50560/code-explorer-multiplayer"
+}

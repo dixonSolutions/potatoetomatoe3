@@ -1,0 +1,14 @@
+{
+	"id": "endless-runner",
+	"name": "ENDLESS RUNNER",
+	"author": "sabir_gamedev",
+	"description": "Developed a 2D type game with simple but addictive gameplay. \nPress Up and Down arrow keys to play.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc04d023-3ac4-4165-b92c-6922642be77b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1ae217ff-516b-45cf-812e-03ead0500660/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1ae217ff-516b-45cf-812e-03ead0500660",
+	"unityPlayUrl": "https://play.unity.com/en/games/1ae217ff-516b-45cf-812e-03ead0500660/endless-runner"
+}

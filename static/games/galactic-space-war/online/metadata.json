@@ -1,0 +1,14 @@
+{
+	"id": "galactic-space-war",
+	"name": "Galactic Space War",
+	"author": "dimitrimarshall2013",
+	"description": "2D space shooter arcade game! \nThis is a work in progress by Dimitri Marshall.\nLast updated March 14, 2026.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6ce177b5-4ecf-478b-8015-1c50d73cf730/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11b59579-98a9-481b-9e46-97cabc3b88e1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11b59579-98a9-481b-9e46-97cabc3b88e1",
+	"unityPlayUrl": "https://play.unity.com/en/games/11b59579-98a9-481b-9e46-97cabc3b88e1/galactic-space-war"
+}

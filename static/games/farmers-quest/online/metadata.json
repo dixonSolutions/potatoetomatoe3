@@ -1,0 +1,14 @@
+{
+	"id": "farmers-quest",
+	"name": "Farmer's Quest",
+	"author": "rishitsood",
+	"description": "An action packed adventure of a farmer rebellion.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5617266c-44fe-4a55-89de-4defa283f242/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f87f63e2-7987-476f-b34d-9584330f8305/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f87f63e2-7987-476f-b34d-9584330f8305",
+	"unityPlayUrl": "https://play.unity.com/en/games/f87f63e2-7987-476f-b34d-9584330f8305/farmers-quest"
+}

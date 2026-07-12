@@ -1,0 +1,14 @@
+{
+	"id": "containment-protocol",
+	"name": "Containment protocol",
+	"author": "Voltage_69",
+	"description": "Containment Protocol is a fast-paced arcade puzzle shooter where you aim color-matched shots to trigger chain reactions, stop a spreading virus, and survive as long as possible inside the containment.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a2463054-3f83-4cce-b2b5-6e7569b4112a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/14474e1d-9fdc-4e94-ae85-6f2f572d4c44/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "14474e1d-9fdc-4e94-ae85-6f2f572d4c44",
+	"unityPlayUrl": "https://play.unity.com/en/games/14474e1d-9fdc-4e94-ae85-6f2f572d4c44/containment-protocol"
+}

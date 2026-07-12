@@ -1,0 +1,14 @@
+{
+	"id": "foxrunner",
+	"name": "Foxrunner",
+	"author": "AxodoTV",
+	"description": "Have Fun :D (or not).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8d5e77c2-ae42-4d89-b83d-1e52119e4c23/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5660fac1-f3d9-4544-bd16-865c1e3ee77b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5660fac1-f3d9-4544-bd16-865c1e3ee77b",
+	"unityPlayUrl": "https://play.unity.com/en/games/5660fac1-f3d9-4544-bd16-865c1e3ee77b/foxrunner"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "curbrickulum",
+	"name": "Curbrickulum",
+	"author": "Its_A_MrE",
+	"description": "WIP Prototype to go with curriculum I am developing to teach beahaviour bricks utilizing the Creative LEGO Brick Set: https://education.lego.com/en-us/products/creative-lego-brick-set-by-lego-education/45020.\n\nThis work is inspired by my kids (designers of Oh, Beehave!) and how intuitive the concept is to them. The ceiling is high and the walls are wide with the LEGO Microgame already. This is an attempt to help lower the floor.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/55c8d46d-9de7-4a75-a7a6-e2e22af876dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1950d5cd-8a88-45a8-96af-09f5a8b371f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1950d5cd-8a88-45a8-96af-09f5a8b371f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/1950d5cd-8a88-45a8-96af-09f5a8b371f7/curbrickulum"
+}

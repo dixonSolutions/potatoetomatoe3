@@ -1,0 +1,14 @@
+{
+	"id": "franks-adventure",
+	"name": "Frank's Adventure",
+	"author": "hengguojun25",
+	"description": "Frank's Adventure is a 2D adventure RPG game that teaches children basic programming concepts. Complete exciting quests, engage in monster battles and explore the beautiful world of Comland! Comes in 6 unique original maps, with one based in Singapore!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/deb2e357-83ec-4c28-b94b-557769a6c66e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/efcf4af2-259a-4097-8b33-f49fe015d712/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "efcf4af2-259a-4097-8b33-f49fe015d712",
+	"unityPlayUrl": "https://play.unity.com/en/games/efcf4af2-259a-4097-8b33-f49fe015d712/franks-adventure"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "frog-rescue",
+	"name": "Frog Rescue",
+	"author": "hippysniper",
+	"description": "Looks like someone has dropped a battery in Mr Frogs Pond. Rescue him by jumping from lilly pad to lilly pad to get him to safety. Don't touch the water its a little zappy! Try and your high score for jumping lilies longer then anyone else - current high score is 27  -ThatStuckBrick",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5b664752-1f1a-4402-9b28-7b49fb4d8545/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d1574af-ac6e-4a84-bb94-e4054b83d2a4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d1574af-ac6e-4a84-bb94-e4054b83d2a4",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d1574af-ac6e-4a84-bb94-e4054b83d2a4/frog-rescue"
+}

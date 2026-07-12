@@ -1,0 +1,14 @@
+{
+	"id": "flappy-pcock",
+	"name": "Flappy pCock",
+	"author": "JonFavale",
+	"description": "pCock themed flappy bird remake.\n\nTelegram: https://t.me/Flappy_pCock\n\nReport bugs to Telegram or X DM's @jonfavale\n\nCA: 0xCE80eDf0E34eAB96038909411B2abEbD0b1aBE1F",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4c95a710-8ca7-4d01-9b1b-c6ec51106c22/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ef2f3ede-8c71-4834-9308-b2dcb76765bc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ef2f3ede-8c71-4834-9308-b2dcb76765bc",
+	"unityPlayUrl": "https://play.unity.com/en/games/ef2f3ede-8c71-4834-9308-b2dcb76765bc/flappy-pcock"
+}

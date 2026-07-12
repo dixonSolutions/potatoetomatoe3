@@ -1,0 +1,14 @@
+{
+	"id": "cool-tank-game",
+	"name": "Cool Tank Game",
+	"author": "RoelYoon",
+	"description": "Controls: \n\nWASD \u2014 Movement\nShoot \u2014 Space Bar\nR (Uses 30% energy) \u2014 R\n\nMore features coming soon!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cd1f7dc8-f298-4d22-974b-5f252d55511e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04ed4106-75a0-455d-9546-c21059db44fd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04ed4106-75a0-455d-9546-c21059db44fd",
+	"unityPlayUrl": "https://play.unity.com/en/games/04ed4106-75a0-455d-9546-c21059db44fd/cool-tank-game"
+}

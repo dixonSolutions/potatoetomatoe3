@@ -1,0 +1,14 @@
+{
+	"id": "dome-daze",
+	"name": "Dome Daze",
+	"author": "PittsburghNice",
+	"description": "Play Dome Daze on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb648abd-2cc1-4ee7-8f70-09a68bbdc273/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fda82ae4-1047-445b-91d5-8c528cc4e1eb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fda82ae4-1047-445b-91d5-8c528cc4e1eb",
+	"unityPlayUrl": "https://play.unity.com/en/games/fda82ae4-1047-445b-91d5-8c528cc4e1eb/dome-daze"
+}

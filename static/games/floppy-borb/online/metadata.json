@@ -1,0 +1,14 @@
+{
+	"id": "floppy-borb",
+	"name": "Floppy Borb",
+	"author": "fgeitas",
+	"description": "Following Mark Brown's from Game Maker's Toolkit tutorial , I''ve completed a flappy bird clone with some extra stuff.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bde2b582-687d-4dce-ab93-ffd089caaa3c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09523704-e718-4b6b-9017-43bfa3976f2b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09523704-e718-4b6b-9017-43bfa3976f2b",
+	"unityPlayUrl": "https://play.unity.com/en/games/09523704-e718-4b6b-9017-43bfa3976f2b/floppy-borb"
+}

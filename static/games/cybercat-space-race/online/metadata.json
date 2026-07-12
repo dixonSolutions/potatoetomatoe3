@@ -1,0 +1,14 @@
+{
+	"id": "cybercat-space-race",
+	"name": "CyberCat Space Race",
+	"author": "Al3yna",
+	"description": "Exploring the karting microgame with custom music, course, character, and environment. Fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ec38ab78-de0a-43c6-9474-83dd6e4e3c8e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/020cdebb-57a6-425a-91f4-a7b7155bb160/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "020cdebb-57a6-425a-91f4-a7b7155bb160",
+	"unityPlayUrl": "https://play.unity.com/en/games/020cdebb-57a6-425a-91f4-a7b7155bb160/cybercat-space-race"
+}

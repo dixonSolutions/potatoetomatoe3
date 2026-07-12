@@ -1,0 +1,14 @@
+{
+	"id": "epam-vr-museum",
+	"name": "EPAM VR Museum",
+	"author": "Ilya_Kanavalau",
+	"description": "Immersive concept to explore EPAM history",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0f809361-a6f7-47a6-ae82-6bc102879e95/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1515f70d-0835-4370-a190-418583293fb0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1515f70d-0835-4370-a190-418583293fb0",
+	"unityPlayUrl": "https://play.unity.com/en/games/1515f70d-0835-4370-a190-418583293fb0/epam-vr-museum"
+}

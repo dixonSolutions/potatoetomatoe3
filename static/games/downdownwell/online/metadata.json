@@ -1,0 +1,14 @@
+{
+	"id": "downdownwell",
+	"name": "DownDownWell",
+	"author": "brandonapple1218",
+	"description": "Play DownDownWell on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/111ce91b-6e3c-4eea-a374-9157b1ad95b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "111ce91b-6e3c-4eea-a374-9157b1ad95b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/111ce91b-6e3c-4eea-a374-9157b1ad95b2/downdownwell"
+}

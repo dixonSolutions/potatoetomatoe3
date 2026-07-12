@@ -1,0 +1,14 @@
+{
+	"id": "find-duos",
+	"name": "Find Duos",
+	"author": "talatuccar",
+	"description": "Puzzle Game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ef127d3d-9287-4c64-a8ea-604b60086a5d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2766b546-090f-4cdb-a927-0cc8ffcdbfc9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2766b546-090f-4cdb-a927-0cc8ffcdbfc9",
+	"unityPlayUrl": "https://play.unity.com/en/games/2766b546-090f-4cdb-a927-0cc8ffcdbfc9/find-duos"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "crosses-tower",
+	"name": "Crosses Tower",
+	"author": "Trapper-n",
+	"description": "Play Crosses Tower on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/65b5bc0c-0933-45c5-bfb6-0093daadbc4c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8dffa03c-124c-43bb-8575-86dddaf6554a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8dffa03c-124c-43bb-8575-86dddaf6554a",
+	"unityPlayUrl": "https://play.unity.com/en/games/8dffa03c-124c-43bb-8575-86dddaf6554a/crosses-tower"
+}

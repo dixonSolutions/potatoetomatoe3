@@ -1,0 +1,14 @@
+{
+	"id": "falcon-9-takeoff-landing-space-x",
+	"name": "Falcon 9 (Takeoff / Landing) [Space X]",
+	"author": "volker-nyc",
+	"description": "A fun micro game: Space bar (Start Rocket), S (Turn off Rocket). Special thanks to Christopher Remde  for 3D model \"Falcon 9 (After landing)\" and Stanley Creative \"Falcon 9 - Space X\". Done with free Unity Assets. Thanks to the great coding teachers and Lara.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/429ab4b5-bbd8-41f8-8367-fd62b0d1b821/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34d6a771-6e24-4a60-bae5-ff6b4448ea4f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34d6a771-6e24-4a60-bae5-ff6b4448ea4f",
+	"unityPlayUrl": "https://play.unity.com/en/games/34d6a771-6e24-4a60-bae5-ff6b4448ea4f/falcon-9-takeoff-landing-space-x"
+}

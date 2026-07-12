@@ -1,0 +1,14 @@
+{
+	"id": "final-project-creative-core-enter-the-portal",
+	"name": "Final project: Creative Core - Enter The Portal",
+	"author": "Amario92",
+	"description": "My final project for the Creative Core Unity course. It features and showcases many of the things I learned during the course.\nAlthough this project took me a long time to create, there are still things I wish I could've done better and things that I could've implemented to enrich the user experience.\nHowever, I'm glad it's done!\n\nWebGL has a bug at the start of the game that prevents you from looking around. Simply start the game then exit fullscreen and then fullscreen again and click the mouse to remove the cursor!\n\nThe project is called 'Enter The Portal' and it's a 3D platformer. There are two levels with one bonus level where I tweaked the camera angle to give the user a different perspective.\nSimply guide the character through the portal to progress to the next level.\nI wanted to make fun-looking levels for the user to explore and feel at ease with.\n\nI did make a third level but the scope and vision of it changed as it became too big!\n\nThe assets were from the asset store and the music was from opengameart.org \n\n\nSeamless Bouncy Menu Loop \n\nhttps://opengameart.org/content/seamless-bouncy-menu-loop \n\nOtherworldly Oceanside - Day 7 \n\nZane Little Music \n\nWild Land (Soundtrack) \n\nFato Shadow \n\nUp in the Sky \n\nMemoraphile @ You're Perfect Studio \n\nRPG Town/Travel or Credits Song \n\nPatrick Maney \nSome of the sounds in this project were created by David Mckee (ViRiX) soundcloud.com/virix",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9988cd90-8317-4bf9-b21e-448883d1f48f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/72b00f6f-2877-4388-b46f-4d2dfa35eead/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "72b00f6f-2877-4388-b46f-4d2dfa35eead",
+	"unityPlayUrl": "https://play.unity.com/en/games/72b00f6f-2877-4388-b46f-4d2dfa35eead/final-project-creative-core-enter-the-portal"
+}

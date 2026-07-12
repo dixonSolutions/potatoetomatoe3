@@ -1,0 +1,14 @@
+{
+	"id": "epic-pinball",
+	"name": "Epic Pinball",
+	"author": "unity_3C04473B6EA760FCE089",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/014b8395-ff40-49f6-985d-f1cb742a42e8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5dda0473-824f-43eb-ac44-0bbcb201bb73/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5dda0473-824f-43eb-ac44-0bbcb201bb73",
+	"unityPlayUrl": "https://play.unity.com/en/games/5dda0473-824f-43eb-ac44-0bbcb201bb73/epic-pinball"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cubical-mvp",
+	"name": "Cubical - MVP",
+	"author": "Terkish1987",
+	"description": "Collect the stars to unlock the exit, avoid the bombs and spikes, and find the exit. Use arrows to move.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a6ebccaa-f48e-444c-9a53-1082a9840843/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ab4272a-3e7b-4f47-a764-565194406604/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ab4272a-3e7b-4f47-a764-565194406604",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ab4272a-3e7b-4f47-a764-565194406604/cubical-mvp"
+}

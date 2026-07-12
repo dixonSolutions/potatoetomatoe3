@@ -1,0 +1,14 @@
+{
+	"id": "fps-demo",
+	"name": "FPS Demo",
+	"author": "mhfalken",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9398f37f-308b-4c11-9427-b07c53e69eaf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/128d209c-aca9-4249-bc28-eafe94c214c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "128d209c-aca9-4249-bc28-eafe94c214c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/128d209c-aca9-4249-bc28-eafe94c214c2/fps-demo"
+}

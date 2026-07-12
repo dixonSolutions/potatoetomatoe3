@@ -1,0 +1,14 @@
+{
+	"id": "defend-the-town-v10",
+	"name": "Defend the Town! v1.0",
+	"author": "ktyshchenko",
+	"description": "Stop the trolls from invading your city! Use arrows to move and space bar to throw a sword. Collect power-ups - stun enemies (blue) or fill up your lives (red)! (July 26th, 2020 update - add v1.0 to the name)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/76d741b9-ae5b-4a0d-82c5-c049c3913e06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/440ab962-0c20-4e3b-818a-ec54672e9c7d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "440ab962-0c20-4e3b-818a-ec54672e9c7d",
+	"unityPlayUrl": "https://play.unity.com/en/games/440ab962-0c20-4e3b-818a-ec54672e9c7d/defend-the-town-v10"
+}

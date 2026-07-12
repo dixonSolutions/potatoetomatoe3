@@ -1,0 +1,14 @@
+{
+	"id": "cliff-survival",
+	"name": "Cliff Survival",
+	"author": "Puhal",
+	"description": "Survive as long as possible while an increasing and incoming number of waves will try to knock you off. Grab powerups and stay alive! CONTROLS: WASD/Arrow Keys/LeftJoystick* - Movement, Mouse Wheel UpDown/RightJoystick* - Rotate Camera. *Available only for mobile devices.\nUPDATE - Added a leaderboard. If you get a higher score, it will change your previous score, instead of creating a new entry.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/14eb475d-771b-4d9a-806e-14cd36e179f9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a6a4ff0e-df06-47bb-81d4-bd4453239d40/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a6a4ff0e-df06-47bb-81d4-bd4453239d40",
+	"unityPlayUrl": "https://play.unity.com/en/games/a6a4ff0e-df06-47bb-81d4-bd4453239d40/cliff-survival"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "craft-bee",
+	"name": "Craft Bee",
+	"author": "whiteblackhorizon",
+	"description": "Flappy Bee in Minecraft : )",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fa4538ca-a782-48e1-b4c8-ccfb7fe62bdc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6b3a67ac-2836-40d8-864e-39ec00a3fa9b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6b3a67ac-2836-40d8-864e-39ec00a3fa9b",
+	"unityPlayUrl": "https://play.unity.com/en/games/6b3a67ac-2836-40d8-864e-39ec00a3fa9b/craft-bee"
+}

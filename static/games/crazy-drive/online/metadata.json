@@ -1,0 +1,14 @@
+{
+	"id": "crazy-drive",
+	"name": "Crazy Drive",
+	"author": "andyjiangpeigeng",
+	"description": "Control: Use keys \"WSAD\" to control red car and arrow key to control blue car. Switch camera using key \"C\" or \"M\". To reset position use key \"R\". Enjoy and please leave any comments if you can, thank you.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0b0d30c8-3aea-4bb2-b38a-51738e31ef3b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d0600c30-c637-4146-bad9-a3d4ad3a9788/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d0600c30-c637-4146-bad9-a3d4ad3a9788",
+	"unityPlayUrl": "https://play.unity.com/en/games/d0600c30-c637-4146-bad9-a3d4ad3a9788/crazy-drive"
+}

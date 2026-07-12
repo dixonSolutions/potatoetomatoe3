@@ -1,0 +1,14 @@
+{
+	"id": "dont-trust-colors",
+	"name": "Don't Trust Colors",
+	"author": "ahmethocam",
+	"description": "This is my personel project for Unity Learn\n\nThe game goal is collecting color balls that mission wants.\nYou have to collect balls which color is same wtih your cubes color.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b33da344-6613-4bf6-8458-9b4b6b522964/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2a7544e1-d6bb-4a6e-a101-7b3ef0c8a19e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2a7544e1-d6bb-4a6e-a101-7b3ef0c8a19e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2a7544e1-d6bb-4a6e-a101-7b3ef0c8a19e/dont-trust-colors"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "endless-run",
+	"name": "Endless Run",
+	"author": "sanamchaudhary002",
+	"description": "use up,right and left arrow to control the character. I added the music but its not playing in here.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/32a84c77-8d60-4b1c-9459-adb7305404b6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/47105303-c3a9-4b75-823f-d954e802c36f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "47105303-c3a9-4b75-823f-d954e802c36f",
+	"unityPlayUrl": "https://play.unity.com/en/games/47105303-c3a9-4b75-823f-d954e802c36f/endless-run"
+}

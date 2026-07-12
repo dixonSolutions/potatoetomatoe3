@@ -1,0 +1,14 @@
+{
+	"id": "dig-deep",
+	"name": "Dig Deep",
+	"author": "JeffyJefff755",
+	"description": "work in progress tech demo for the FLL 25-26 season - Please report any bugs here: https://forms.office.com/e/Tkd3FyndbH",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/96d1a86a-c03b-491e-ae64-02a28eba1e84/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1656fca2-04b4-4379-b360-4361ca31a164/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1656fca2-04b4-4379-b360-4361ca31a164",
+	"unityPlayUrl": "https://play.unity.com/en/games/1656fca2-04b4-4379-b360-4361ca31a164/dig-deep"
+}

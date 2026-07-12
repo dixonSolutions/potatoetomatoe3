@@ -1,0 +1,14 @@
+{
+	"id": "destroy-the-towers",
+	"name": "Destroy the Towers",
+	"author": "dogtophat",
+	"description": "Left/Right Up/Down to aim, space to fire, knock down the towers.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f254961c-c4a0-4268-af03-76d445c17c1a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/055b7482-5f14-45a8-9eaf-a11bcb25a45b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "055b7482-5f14-45a8-9eaf-a11bcb25a45b",
+	"unityPlayUrl": "https://play.unity.com/en/games/055b7482-5f14-45a8-9eaf-a11bcb25a45b/destroy-the-towers"
+}

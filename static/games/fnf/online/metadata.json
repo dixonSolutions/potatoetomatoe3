@@ -1,0 +1,14 @@
+{
+	"id": "fnf",
+	"name": "fnf",
+	"author": "elijah90703",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/953f8410-4cf9-43cb-906a-f838c908e2bc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a83d68ba-634f-4c32-8459-fbfc97af574a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a83d68ba-634f-4c32-8459-fbfc97af574a",
+	"unityPlayUrl": "https://play.unity.com/en/games/a83d68ba-634f-4c32-8459-fbfc97af574a/fnf"
+}

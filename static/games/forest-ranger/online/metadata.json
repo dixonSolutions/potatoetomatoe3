@@ -1,0 +1,14 @@
+{
+	"id": "forest-ranger",
+	"name": "Forest Ranger",
+	"author": "JTWest",
+	"description": "Your forest was invaded by robots, now destroy all of them and save the forest.                                                                                                                                          I hope you enjoy.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00cd3200-30ff-44b8-83ff-baff417fb1ff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a372b071-8a89-4612-906c-85b9af0d0e21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a372b071-8a89-4612-906c-85b9af0d0e21",
+	"unityPlayUrl": "https://play.unity.com/en/games/a372b071-8a89-4612-906c-85b9af0d0e21/forest-ranger"
+}

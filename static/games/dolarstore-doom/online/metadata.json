@@ -1,0 +1,14 @@
+{
+	"id": "dolarstore-doom",
+	"name": "dolarstore doom",
+	"author": "cardboarddan",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f824b804-8290-49c1-a225-1a0a2c8308d7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/461ff184-09f6-4393-ad2b-a3fa8dab053c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "461ff184-09f6-4393-ad2b-a3fa8dab053c",
+	"unityPlayUrl": "https://play.unity.com/en/games/461ff184-09f6-4393-ad2b-a3fa8dab053c/dolarstore-doom"
+}

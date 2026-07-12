@@ -1,0 +1,14 @@
+{
+	"id": "covid-kart",
+	"name": "Covid Kart",
+	"author": "roesler13",
+	"description": "Stay away from the other karts. Hit the toilet paper at houses for bonus points!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e229027c-a007-459a-8724-a25351baa795/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e5d8586-0294-4760-9fef-9f1d38436eb5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e5d8586-0294-4760-9fef-9f1d38436eb5",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e5d8586-0294-4760-9fef-9f1d38436eb5/covid-kart"
+}

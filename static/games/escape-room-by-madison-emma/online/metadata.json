@@ -1,0 +1,14 @@
+{
+	"id": "escape-room-by-madison-emma",
+	"name": "Escape Room by Madison & Emma",
+	"author": "bcollins94",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9c3d7837-ef61-4f98-8a70-92ae0739aa76/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9c3d7837-ef61-4f98-8a70-92ae0739aa76",
+	"unityPlayUrl": "https://play.unity.com/en/games/9c3d7837-ef61-4f98-8a70-92ae0739aa76/escape-room-by-madison-emma"
+}

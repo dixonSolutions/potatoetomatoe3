@@ -1,0 +1,14 @@
+{
+	"id": "counter-shooter",
+	"name": "Counter Shooter",
+	"author": "Unity Play",
+	"description": "Updated! You can Play the Game on mobile here: https://micaco-games.itch.io/counter-shooter. I used this project to make my first microgame using what I learned in create with code, lots of other tutotials and googleing like a mad man. Sprites and animations are made by me. I also made the music modifiying some free samples. Sound FX are from a free pakage in the assets store. I learned alot and can't wait to continue with the program. Enjoy the journey!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0322ef00-c7a3-4080-93bc-956b3fe805cf/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99442cdb-17dc-4968-8a5e-011df29db129/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "99442cdb-17dc-4968-8a5e-011df29db129",
+	"unityPlayUrl": "https://play.unity.com/en/games/99442cdb-17dc-4968-8a5e-011df29db129/counter-shooter"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "dog-game-3d",
+	"name": "DOG GAME 3D",
+	"author": "DeclanW",
+	"description": "The bestest game you will ever played.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2493ef44-de23-4c0b-9791-4bc68a1faec3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0da9a387-5dfe-4f23-a664-2f65dba53c3e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0da9a387-5dfe-4f23-a664-2f65dba53c3e",
+	"unityPlayUrl": "https://play.unity.com/en/games/0da9a387-5dfe-4f23-a664-2f65dba53c3e/dog-game-3d"
+}

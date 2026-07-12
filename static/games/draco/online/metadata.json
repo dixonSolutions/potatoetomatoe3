@@ -1,0 +1,14 @@
+{
+	"id": "draco",
+	"name": "Draco",
+	"author": "stolpovski",
+	"description": "Play Draco on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/56c1da3d-0a4c-4119-8ed1-784fdbec0fc1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/32e6c3eb-a744-49ac-b6fe-a27d5ed8b0f2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "32e6c3eb-a744-49ac-b6fe-a27d5ed8b0f2",
+	"unityPlayUrl": "https://play.unity.com/en/games/32e6c3eb-a744-49ac-b6fe-a27d5ed8b0f2/draco"
+}

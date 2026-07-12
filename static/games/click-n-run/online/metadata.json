@@ -1,0 +1,14 @@
+{
+	"id": "click-n-run",
+	"name": "Click N Run",
+	"author": "ArcticWinds",
+	"description": "The fully functioning updated version of the game!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3a6dfe2a-11de-4607-8a5e-3d288f592701/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3a6dfe2a-11de-4607-8a5e-3d288f592701",
+	"unityPlayUrl": "https://play.unity.com/en/games/3a6dfe2a-11de-4607-8a5e-3d288f592701/click-n-run"
+}

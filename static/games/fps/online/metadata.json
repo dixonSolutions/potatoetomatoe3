@@ -1,0 +1,14 @@
+{
+	"id": "fps",
+	"name": "FPS",
+	"author": "SAI_SRI_RAM_2007",
+	"description": "Awesome FPS by Sai Sri Ram",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/68192326-99c4-41a2-aa39-61732138af5e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1a51c4b5-3ff5-488f-817a-d1c810dc6b86/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1a51c4b5-3ff5-488f-817a-d1c810dc6b86",
+	"unityPlayUrl": "https://play.unity.com/en/games/1a51c4b5-3ff5-488f-817a-d1c810dc6b86/fps"
+}

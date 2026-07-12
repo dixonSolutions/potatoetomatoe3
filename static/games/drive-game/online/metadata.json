@@ -1,0 +1,14 @@
+{
+	"id": "drive-game",
+	"name": "Drive Game",
+	"author": "Ryugo_T",
+	"description": "\u30fb\u5341\u5b57\u30ad\u30fc\u3067\u79fb\u52d5\uff08\u2191\u3067\u52a0\u901f\u3001\u2193\u3067\u6e1b\u901f\u3001\u2192\u3067\u53f3\u306b\u30ab\u30fc\u30d6\u3001\u2190\u3067\u5de6\u306b\u30ab\u30fc\u30d6\uff09\n\u30fb\u969c\u5bb3\u7269\u3092\u907f\u3051\u306a\u304c\u3089\u30b4\u30fc\u30eb\u3092\u76ee\u6307\u3057\u307e\u3057\u3087\u3046\u3001\u969c\u5bb3\u7269\u306b\u5f53\u305f\u308b\u3068HP\u304c\u6e1b\u5c11\u3057\uff10\u306b\u306a\u3063\u305f\u3089\u30b2\u30fc\u30e0\u30aa\u30fc\u30d0\u30fc\u3067\u3059\n\n\u4f7f\u7528\u97f3\u6e90\u2192\u52b9\u679c\u97f3\u30e9\u30dc\u69d8(https://soundeffect-lab.info/)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/37760eeb-91d5-4071-9602-560f7193d30c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/16a4b3c8-2862-4558-ab31-0d7ec37e673b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "16a4b3c8-2862-4558-ab31-0d7ec37e673b",
+	"unityPlayUrl": "https://play.unity.com/en/games/16a4b3c8-2862-4558-ab31-0d7ec37e673b/drive-game"
+}

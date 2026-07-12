@@ -1,0 +1,14 @@
+{
+	"id": "cyber-gladiator",
+	"name": "Cyber Gladiator",
+	"author": "CookieDoughDev",
+	"description": "Our attempt at making a modern/futuristic version of the ancient gladiator games. Created by: Daniel Kull, Rasmus Granath.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5aa1e4c1-e9b2-4725-ab55-5ae1de7f5e72/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/018e0841-9180-49cd-b4f9-e109f4bca18f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "018e0841-9180-49cd-b4f9-e109f4bca18f",
+	"unityPlayUrl": "https://play.unity.com/en/games/018e0841-9180-49cd-b4f9-e109f4bca18f/cyber-gladiator"
+}

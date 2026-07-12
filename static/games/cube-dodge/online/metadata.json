@@ -1,0 +1,14 @@
+{
+	"id": "cube-dodge",
+	"name": "Cube Dodge",
+	"author": "packed10000",
+	"description": "Cube Dodge is a game where you keep moving and can turn left and right to avoid obstacles.  In the very bottom right of the screen you can press it to full screen, or leave it the way it is, up to you. This game was heavily inspired by Brackeys. And finally, thank you for playing!\nYou can also play on Itch.IO if you prefer or would like to support me more!: https://packed1000.itch.io/cube-dodge                                                                                     -\nMade by Packed1000\n\nYouTube: https://www.youtube.com/channel/UCinQaPxz_KdbL7JRXTrlN0g\n\nTwitter: https://twitter.com/packed1000\n\nBrackeys YouTube: https://www.youtube.com/user/Brackeys",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dc867e86-4006-47a0-820e-71e1265e327c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0787a78d-6dbc-49a7-9e4d-fc8994e2ee23/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0787a78d-6dbc-49a7-9e4d-fc8994e2ee23",
+	"unityPlayUrl": "https://play.unity.com/en/games/0787a78d-6dbc-49a7-9e4d-fc8994e2ee23/cube-dodge"
+}

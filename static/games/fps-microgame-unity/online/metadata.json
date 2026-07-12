@@ -1,0 +1,14 @@
+{
+	"id": "fps-microgame-unity",
+	"name": "FPS Microgame Unity",
+	"author": "slitle",
+	"description": "FPS Microgame Unity",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25338666-e972-4ace-a524-8bef9a169b9e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25338666-e972-4ace-a524-8bef9a169b9e",
+	"unityPlayUrl": "https://play.unity.com/en/games/25338666-e972-4ace-a524-8bef9a169b9e/fps-microgame-unity"
+}

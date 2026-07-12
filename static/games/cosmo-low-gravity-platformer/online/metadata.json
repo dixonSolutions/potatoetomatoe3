@@ -1,0 +1,14 @@
+{
+	"id": "cosmo-low-gravity-platformer",
+	"name": "Cosmo: low-gravity platformer",
+	"author": "Zer0Axis",
+	"description": "A challenging low-gravity platformer with some jokes instead of air control :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a8cf8cdd-c2b3-4707-af5d-530e1849a3b1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34cd3852-0428-4686-98fe-cb7e24369c1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34cd3852-0428-4686-98fe-cb7e24369c1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/34cd3852-0428-4686-98fe-cb7e24369c1c/cosmo-low-gravity-platformer"
+}

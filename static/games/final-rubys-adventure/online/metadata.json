@@ -1,0 +1,14 @@
+{
+	"id": "final-rubys-adventure",
+	"name": "Final | Ruby's Adventure",
+	"author": "Tsunderiite",
+	"description": "WASD to move, X to interact, C to shoot. Talk to Jambi the Frog for your quest. R to restart.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0211ecf3-5393-4d26-a819-f24870e13318/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0211ecf3-5393-4d26-a819-f24870e13318",
+	"unityPlayUrl": "https://play.unity.com/en/games/0211ecf3-5393-4d26-a819-f24870e13318/final-rubys-adventure"
+}

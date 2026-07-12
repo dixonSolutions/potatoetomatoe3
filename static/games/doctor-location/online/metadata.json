@@ -1,0 +1,14 @@
+{
+	"id": "doctor-location",
+	"name": "Doctor Location",
+	"author": "karthikc_unity",
+	"description": "Play Doctor Location Game and dive deep or try several different village topologies!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b743b34-58e6-4b9c-aadf-26e9dda3077c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b743b34-58e6-4b9c-aadf-26e9dda3077c",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b743b34-58e6-4b9c-aadf-26e9dda3077c/doctor-location"
+}

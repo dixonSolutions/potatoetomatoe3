@@ -1,0 +1,14 @@
+{
+	"id": "dark-pursuit",
+	"name": "Dark Pursuit",
+	"author": "Concerfate",
+	"description": "Pretty nice game ig",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9fc11ac2-9e75-4de3-868d-b8b4f992de87/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2fc12ca5-16be-4bb9-988c-6be6f3f5aa1f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2fc12ca5-16be-4bb9-988c-6be6f3f5aa1f",
+	"unityPlayUrl": "https://play.unity.com/en/games/2fc12ca5-16be-4bb9-988c-6be6f3f5aa1f/dark-pursuit"
+}

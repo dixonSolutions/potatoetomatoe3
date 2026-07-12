@@ -1,0 +1,14 @@
+{
+	"id": "covid-td-build",
+	"name": "Covid TD build",
+	"author": "bfbartholomew",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ab22539d-a5fb-4d90-a03a-949719a59022/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cfa450c-3673-466e-8443-14b40df9bacc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cfa450c-3673-466e-8443-14b40df9bacc",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cfa450c-3673-466e-8443-14b40df9bacc/covid-td-build"
+}

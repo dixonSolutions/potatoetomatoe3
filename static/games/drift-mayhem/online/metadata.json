@@ -1,0 +1,14 @@
+{
+	"id": "drift-mayhem",
+	"name": "Drift Mayhem",
+	"author": "Keijiro-UTJ",
+	"description": "Use the \"lock-on and drift\" action to eliminate the enemies.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/43552608-5f43-4315-b673-1ae2175c90ca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "43552608-5f43-4315-b673-1ae2175c90ca",
+	"unityPlayUrl": "https://play.unity.com/en/games/43552608-5f43-4315-b673-1ae2175c90ca/drift-mayhem"
+}

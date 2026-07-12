@@ -1,0 +1,14 @@
+{
+	"id": "epic-kart-race",
+	"name": "Epic Kart Race",
+	"author": "captingarrett1",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c5479fd3-381b-40aa-b073-21c75144c667/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/58de9cdf-df41-46be-b77e-5dac8ed19934/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "58de9cdf-df41-46be-b77e-5dac8ed19934",
+	"unityPlayUrl": "https://play.unity.com/en/games/58de9cdf-df41-46be-b77e-5dac8ed19934/epic-kart-race"
+}

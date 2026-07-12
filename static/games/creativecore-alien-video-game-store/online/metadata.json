@@ -1,0 +1,14 @@
+{
+	"id": "creativecore-alien-video-game-store",
+	"name": "CreativeCore - Alien video game store",
+	"author": "ParkCJ",
+	"description": "CreativeCore - Alien video game store",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/458dac51-8dbd-4755-918c-3eb57b8c1b59/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/575f44be-23b3-4e70-8001-2820a16f90ca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "575f44be-23b3-4e70-8001-2820a16f90ca",
+	"unityPlayUrl": "https://play.unity.com/en/games/575f44be-23b3-4e70-8001-2820a16f90ca/creativecore-alien-video-game-store"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "final-submission-for-creative-core-pathway-on-unity-learn",
+	"name": "Final submission for Creative Core Pathway on Unity Learn",
+	"author": "codespree",
+	"description": "This interactive animation uses all the techniques taught in the course: Shaders are used in the Ethereal material of the Creator and triangular alter. 3 point lighting is used to light the Maintainer. Cameras and spheres are animated using key point animation. Particle effects are used to emit life particles from the Creator sphere. Post-processing is used especially for Bloom and shine. Spatial Audio is used as the Maintainer walks away. UI is used to display instructions to the User. The alter triangles are created using Probuilder.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86f39bf1-2e22-428e-919b-613cf933ad21/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46af224c-1b6a-432f-8b8b-ca139f0246e9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46af224c-1b6a-432f-8b8b-ca139f0246e9",
+	"unityPlayUrl": "https://play.unity.com/en/games/46af224c-1b6a-432f-8b8b-ca139f0246e9/final-submission-for-creative-core-pathway-on-unity-learn"
+}

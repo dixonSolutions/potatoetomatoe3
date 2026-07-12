@@ -1,0 +1,14 @@
+{
+	"id": "foodcluster-webgl-build-publisher",
+	"name": "FoodCluster webgl build (publisher)",
+	"author": "t4660",
+	"description": "a",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/18219ffb-6988-4ae3-98fb-8a14935b92b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "18219ffb-6988-4ae3-98fb-8a14935b92b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/18219ffb-6988-4ae3-98fb-8a14935b92b0/foodcluster-webgl-build-publisher"
+}

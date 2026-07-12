@@ -1,0 +1,14 @@
+{
+	"id": "doom-unity-e1m1",
+	"name": "DOOM Unity - E1M1",
+	"author": "Vittorazo",
+	"description": "Play DOOM Unity - E1M1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/edda1352-1102-4e6d-8977-b42f13c824a4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56304fcc-e8bf-4518-a41c-b58a930f3e7e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56304fcc-e8bf-4518-a41c-b58a930f3e7e",
+	"unityPlayUrl": "https://play.unity.com/en/games/56304fcc-e8bf-4518-a41c-b58a930f3e7e/doom-unity-e1m1"
+}

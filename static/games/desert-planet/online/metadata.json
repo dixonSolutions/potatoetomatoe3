@@ -1,0 +1,14 @@
+{
+	"id": "desert-planet",
+	"name": "Desert Planet",
+	"author": "mmatuczinski",
+	"description": "Find the rocket to escape the desert mining planet. My first game made with Unity FPS microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4143a3f9-910a-4039-8930-7f1cdfb77ba7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fa67b820-4d03-4b73-aba5-85f1f128f7b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fa67b820-4d03-4b73-aba5-85f1f128f7b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/fa67b820-4d03-4b73-aba5-85f1f128f7b2/desert-planet"
+}

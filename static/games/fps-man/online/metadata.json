@@ -1,0 +1,14 @@
+{
+	"id": "fps-man",
+	"name": "FPS Man",
+	"author": "Ultraman12342",
+	"description": "Play FPS Man on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/074c1475-71b3-4e74-9909-a686fcbf74cf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a96ad70-f90e-4321-9abe-2337e87d644a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a96ad70-f90e-4321-9abe-2337e87d644a",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a96ad70-f90e-4321-9abe-2337e87d644a/fps-man"
+}

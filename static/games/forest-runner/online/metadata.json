@@ -1,0 +1,14 @@
+{
+	"id": "forest-runner",
+	"name": "Forest Runner",
+	"author": "Eshu_Gupta",
+	"description": "Hello, this is the first game I published.....Tap Space to jump & left shift to increase speed & score as high as u want.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3eeda2aa-9c7e-42e3-b626-e837aee84481/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/04394224-6342-4574-a671-afeab78c7620/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "04394224-6342-4574-a671-afeab78c7620",
+	"unityPlayUrl": "https://play.unity.com/en/games/04394224-6342-4574-a671-afeab78c7620/forest-runner"
+}

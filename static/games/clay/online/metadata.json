@@ -1,0 +1,14 @@
+{
+	"id": "clay",
+	"name": "CLAY",
+	"author": "johnnyjacques",
+	"description": "A game for those who were told that they don't fit the mold.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/964e8639-b717-4490-8467-13e8cb0e0491/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b34ec2c5-8c18-4d31-a46f-f5d24b37d089/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b34ec2c5-8c18-4d31-a46f-f5d24b37d089",
+	"unityPlayUrl": "https://play.unity.com/en/games/b34ec2c5-8c18-4d31-a46f-f5d24b37d089/clay"
+}

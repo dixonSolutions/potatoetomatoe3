@@ -1,0 +1,14 @@
+{
+	"id": "fogchain-v1",
+	"name": "FogChain V1",
+	"author": "unity_dsBQEixskJNRVA",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75a1ab56-9e38-435a-b4c4-b574c961ba42/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75a1ab56-9e38-435a-b4c4-b574c961ba42",
+	"unityPlayUrl": "https://play.unity.com/en/games/75a1ab56-9e38-435a-b4c4-b574c961ba42/fogchain-v1"
+}

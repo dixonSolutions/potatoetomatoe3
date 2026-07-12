@@ -1,0 +1,14 @@
+{
+	"id": "dash-v20",
+	"name": "Dash V2.0",
+	"author": "Electric_Mind",
+	"description": "Welcome to Dash: A game where you dodge obstacles by moving left and right. You play as a red cube. Use \"a\" and \"d\" to move. Try to get all the coins in each level. (3 in each except for the last level.) In 2.0, there are now coins, sound-effects, and more! Thanks to Brakeys for the tutorial.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb3e26b1-6ee7-4664-a9ba-d0f41b5c9328/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e95ab9d-22d7-4ec3-b625-e5ba6c603359/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e95ab9d-22d7-4ec3-b625-e5ba6c603359",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e95ab9d-22d7-4ec3-b625-e5ba6c603359/dash-v20"
+}

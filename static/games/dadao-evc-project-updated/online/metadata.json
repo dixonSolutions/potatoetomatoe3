@@ -1,0 +1,14 @@
+{
+	"id": "dadao-evc-project-updated",
+	"name": "Dadao - EVC Project (Updated)",
+	"author": "Raundt",
+	"description": "Move with WASD or Arrow Keys, Jump with Spacebar and Slide with holding S or DOWN while running to get a movement speed multiplier. Avoid enemies (cant be killed for now). \n\nDadao is a project I develop for an university subject called EVC. I work alone on it and have other subjects that require a lot of attention, so I can only slowly improve on it, but nevertheless any feedback is welcome and I already improved on the feedback I\u2019ve got. Dadao now consists of 9 levels with increasing difficulty. All of them are possible if you get the right mechanic. Have fun!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/563351b6-bfad-4732-a3e3-fcdd99fbd016/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a2d01ac8-f67e-4917-9258-19695386e7c4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a2d01ac8-f67e-4917-9258-19695386e7c4",
+	"unityPlayUrl": "https://play.unity.com/en/games/a2d01ac8-f67e-4917-9258-19695386e7c4/dadao-evc-project-updated"
+}

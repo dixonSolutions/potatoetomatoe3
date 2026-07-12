@@ -1,0 +1,14 @@
+{
+	"id": "coconut-mall-beta",
+	"name": "Coconut Mall Beta",
+	"author": "Scotsgamez",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6a461e1b-e50f-4a19-9a7d-b522cbaab0ac/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ceea67f-2610-467d-a936-40bf5bc59fdc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ceea67f-2610-467d-a936-40bf5bc59fdc",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ceea67f-2610-467d-a936-40bf5bc59fdc/coconut-mall-beta"
+}

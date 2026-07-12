@@ -1,0 +1,14 @@
+{
+	"id": "dev2d-delivery-1",
+	"name": "Dev2D Delivery 1",
+	"author": "Lasse-Loepfe",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02b402ff-09c1-470a-9782-98239fa226e7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02b402ff-09c1-470a-9782-98239fa226e7",
+	"unityPlayUrl": "https://play.unity.com/en/games/02b402ff-09c1-470a-9782-98239fa226e7/dev2d-delivery-1"
+}

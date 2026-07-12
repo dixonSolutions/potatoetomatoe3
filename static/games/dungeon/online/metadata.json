@@ -1,0 +1,14 @@
+{
+	"id": "dungeon",
+	"name": "Dungeon",
+	"author": "NVLok",
+	"description": "My second game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0277107f-ccf9-426a-8905-8f5b7dc94461/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0277107f-ccf9-426a-8905-8f5b7dc94461",
+	"unityPlayUrl": "https://play.unity.com/en/games/0277107f-ccf9-426a-8905-8f5b7dc94461/dungeon"
+}

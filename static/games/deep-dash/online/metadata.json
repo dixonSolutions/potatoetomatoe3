@@ -1,0 +1,14 @@
+{
+	"id": "deep-dash",
+	"name": "Deep Dash",
+	"author": "sneakyanteater",
+	"description": "Dash around as a squid, catching small fish and avoiding big ones!\n\nTurn the squid with left and right and launch yourself forward with the spacebar.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/63247e80-6346-47a7-aab0-2559ebc084cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5d3e9048-8899-4190-9712-38c3607899aa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5d3e9048-8899-4190-9712-38c3607899aa",
+	"unityPlayUrl": "https://play.unity.com/en/games/5d3e9048-8899-4190-9712-38c3607899aa/deep-dash"
+}

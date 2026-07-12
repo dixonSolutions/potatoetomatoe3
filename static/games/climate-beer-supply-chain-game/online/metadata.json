@@ -1,0 +1,14 @@
+{
+	"id": "climate-beer-supply-chain-game",
+	"name": "Climate Beer Supply Chain Game",
+	"author": "sevilboaz",
+	"description": "In this serious game, you take charge of designing and managing a beer supply chain from the suppliers to the customer. Design the most efficient SC while adapting to unexpected climate disasters.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/247997b7-4046-4719-81df-0463fac7580b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/56726eb8-d5f2-4b5d-950e-7284db3b1183/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "56726eb8-d5f2-4b5d-950e-7284db3b1183",
+	"unityPlayUrl": "https://play.unity.com/en/games/56726eb8-d5f2-4b5d-950e-7284db3b1183/climate-beer-supply-chain-game"
+}

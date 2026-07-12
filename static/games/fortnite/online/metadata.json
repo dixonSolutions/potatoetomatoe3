@@ -1,0 +1,14 @@
+{
+	"id": "fortnite",
+	"name": "fortnite",
+	"author": "adrianold3n",
+	"description": "Play fortnite on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5903af23-ca32-4b34-8cec-8ffb1334fcb0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5f47fd61-5c80-427f-aaac-6981857bdd51/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5f47fd61-5c80-427f-aaac-6981857bdd51",
+	"unityPlayUrl": "https://play.unity.com/en/games/5f47fd61-5c80-427f-aaac-6981857bdd51/fortnite"
+}

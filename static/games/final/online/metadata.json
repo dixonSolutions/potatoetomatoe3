@@ -1,0 +1,14 @@
+{
+	"id": "final",
+	"name": "FINAL",
+	"author": "Ellary",
+	"description": "Play FINAL on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/91831c01-4f9e-4daf-baf7-24b1687cfe76/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f19c2924-2bd9-4ce4-b052-bca61039b5de/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f19c2924-2bd9-4ce4-b052-bca61039b5de",
+	"unityPlayUrl": "https://play.unity.com/en/games/f19c2924-2bd9-4ce4-b052-bca61039b5de/final"
+}

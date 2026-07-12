@@ -1,0 +1,14 @@
+{
+	"id": "emperors-of-byzantium",
+	"name": "EMPERORS OF BYZANTIUM",
+	"author": "TechIsArt",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a705133e-e17d-4c26-9e89-624e2083b914/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/056dc1cd-bfa6-4d18-9a70-22b00087a9f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "056dc1cd-bfa6-4d18-9a70-22b00087a9f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/056dc1cd-bfa6-4d18-9a70-22b00087a9f7/emperors-of-byzantium"
+}

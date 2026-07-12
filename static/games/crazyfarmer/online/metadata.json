@@ -1,0 +1,14 @@
+{
+	"id": "crazyfarmer",
+	"name": "CrazyFarmer",
+	"author": "Evgeny123456",
+	"description": "Play CrazyFarmer on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2f40043f-5ae1-4594-94f1-3577f37cef50/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6eeb6662-1972-4bc8-98e1-dd5a0d975f10/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6eeb6662-1972-4bc8-98e1-dd5a0d975f10",
+	"unityPlayUrl": "https://play.unity.com/en/games/6eeb6662-1972-4bc8-98e1-dd5a0d975f10/crazyfarmer"
+}

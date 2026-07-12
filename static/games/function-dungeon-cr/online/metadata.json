@@ -1,0 +1,14 @@
+{
+	"id": "function-dungeon-cr",
+	"name": "Function-Dungeon-CR",
+	"author": "andersbouwer",
+	"description": "Function Dungeon Game (with questions and dialogue translated into Croatian). Game Development by Kevin Hooijschuur. Math Content and Question Design by Sonia Palha and Daan van Smaalen. Music composed, performed and produced by Anders Bouwer. Croatian Translations by Department of Mathematics, J. J. Strossmayer University of Osijek, Croatia. Game Design Team: Kevin Hooijschuur, Sonia Palha and Anders Bouwer, Amsterdam University of Applied Sciences, Amsterdam, The Netherlands. Developed in the context of the European Erasmus+ project GAMMA (GAMe-based Learning in MAthematics). Project website: http://www.project-gamma.eu/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/704bd7b0-274e-4e19-beee-a2b9de5b5f61/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d4e649aa-033d-48b9-9016-2a8147820a77/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d4e649aa-033d-48b9-9016-2a8147820a77",
+	"unityPlayUrl": "https://play.unity.com/en/games/d4e649aa-033d-48b9-9016-2a8147820a77/function-dungeon-cr"
+}

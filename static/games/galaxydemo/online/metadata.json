@@ -1,0 +1,14 @@
+{
+	"id": "galaxydemo",
+	"name": "GalaxyDemo",
+	"author": "endorphino",
+	"description": "BGM: https://youtu.be/SBQznj7-c8I?feature=shared",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c6ccd2ca-a1a8-4194-bf29-a44d9c99ef21/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c6ccd2ca-a1a8-4194-bf29-a44d9c99ef21",
+	"unityPlayUrl": "https://play.unity.com/en/games/c6ccd2ca-a1a8-4194-bf29-a44d9c99ef21/galaxydemo"
+}

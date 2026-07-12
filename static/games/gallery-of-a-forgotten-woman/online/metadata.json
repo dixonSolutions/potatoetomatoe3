@@ -1,0 +1,14 @@
+{
+	"id": "gallery-of-a-forgotten-woman",
+	"name": "Gallery of a forgotten woman",
+	"author": "Evelina_is_weird",
+	"description": "A short puzzle game in an art gallery with paintings depicting a short story that you piece together. (Huge thanks to Carter for collaborating with me on this and doing the coding)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/041ec180-09e0-421f-8ce8-1df0b7d1bf5c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "041ec180-09e0-421f-8ce8-1df0b7d1bf5c",
+	"unityPlayUrl": "https://play.unity.com/en/games/041ec180-09e0-421f-8ce8-1df0b7d1bf5c/gallery-of-a-forgotten-woman"
+}

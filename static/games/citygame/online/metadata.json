@@ -1,0 +1,14 @@
+{
+	"id": "citygame",
+	"name": "CityGame",
+	"author": "Kalo2021",
+	"description": "Pretty cool game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5c2d9799-33d7-4066-b313-6622c65fb698/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8464602a-8b8b-4a79-a44c-9369bdfc63a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8464602a-8b8b-4a79-a44c-9369bdfc63a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/8464602a-8b8b-4a79-a44c-9369bdfc63a0/citygame"
+}

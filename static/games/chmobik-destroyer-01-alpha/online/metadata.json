@@ -1,0 +1,14 @@
+{
+	"id": "chmobik-destroyer-01-alpha",
+	"name": "Chmobik Destroyer 0.1 ALPHA",
+	"author": "tolian500",
+	"description": "Last updates: \n- Menu added\n- Enemy changed to Low poly (44k vertices to 1,1k)\n- Endless game (simple mode)\n- Few enemy behaviours\n- Drones can take few shoots before get destroyed\n- Drone has self detonation after landing\n- 3 Drone Types with different settings\n- Drone colour customization\n- High score desk added\n- New bomb model + fixed behaviour\n- Endless ground added\n- Few camera fixes",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/00e12555-d47f-4a34-8a84-616b4e022324/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62cb72ca-4860-4e90-a083-933abc5caca0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62cb72ca-4860-4e90-a083-933abc5caca0",
+	"unityPlayUrl": "https://play.unity.com/en/games/62cb72ca-4860-4e90-a083-933abc5caca0/chmobik-destroyer-01-alpha"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "clydes-pavlovs-shack",
+	"name": "Clyde's Pavlov's shack",
+	"author": "Ben_Dover5",
+	"description": "first person shooter firing range target practice",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5df8009-11fb-4986-ba01-f4682765436a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/174ab081-bcc4-4084-8515-32e807417478/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "174ab081-bcc4-4084-8515-32e807417478",
+	"unityPlayUrl": "https://play.unity.com/en/games/174ab081-bcc4-4084-8515-32e807417478/clydes-pavlovs-shack"
+}

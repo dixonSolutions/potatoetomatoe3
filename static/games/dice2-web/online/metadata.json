@@ -1,0 +1,14 @@
+{
+	"id": "dice2-web",
+	"name": "Dice2 Web",
+	"author": "owlpds",
+	"description": "Play Dice2 Web on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fe22cbc5-3edd-43a2-bd13-a35363384ba4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb502596-d3ff-4681-9ae8-1f1bb765de1b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb502596-d3ff-4681-9ae8-1f1bb765de1b",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb502596-d3ff-4681-9ae8-1f1bb765de1b/dice2-web"
+}

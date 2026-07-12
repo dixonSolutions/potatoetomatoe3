@@ -1,0 +1,14 @@
+{
+	"id": "crashy-truck",
+	"name": "Crashy Truck",
+	"author": "C0descr1pt",
+	"description": "Play tag or just crash into objects .With Local Multiplayer Split screen. Left Player use wasd right player use arrows",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c92de145-d8c5-42cc-aa5e-7949fd0c61aa/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9f702bfe-e5d7-4001-9c50-feb19a572fd6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9f702bfe-e5d7-4001-9c50-feb19a572fd6",
+	"unityPlayUrl": "https://play.unity.com/en/games/9f702bfe-e5d7-4001-9c50-feb19a572fd6/crashy-truck"
+}

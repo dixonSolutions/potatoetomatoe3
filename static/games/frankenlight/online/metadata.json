@@ -1,0 +1,14 @@
+{
+	"id": "frankenlight",
+	"name": "FrankenLight",
+	"author": "Pericky",
+	"description": "Help Victor Frankenstein learn the secrets of life and death: In the novel \"Frankenstein\", Mary Shelley often symbolizes light as a symbol of knowledge. As light can shed light on darkness enabling us to see and understand more of our surroundings/world, knowledge also helps us understand the world and the unexplored/unknown darkness. Unfortunately, too much light can also blind, making one ignorant of their surroundings. In Walton and Victor's case, they had too much knowledge and failed to see the consequences and were ignorant of what their actions could do. Therefore the main idea of my game is to use scrolls/knowledge/light for good like helping you advance in the game, but be careful of not getting too ambitious and try to get too many scrolls because you may become ignorant of your surroundings and fall to your death. Use a and d to move left and right, space to jump. Let the scrolls guide you through the dark unknown and find the secrets of life and death. Good Luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8176a73f-fe41-4aa5-92ce-2e3a34194382/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1868b868-4fdf-4795-a0ea-ef42f0cfd682/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1868b868-4fdf-4795-a0ea-ef42f0cfd682",
+	"unityPlayUrl": "https://play.unity.com/en/games/1868b868-4fdf-4795-a0ea-ef42f0cfd682/frankenlight"
+}

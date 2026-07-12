@@ -1,0 +1,14 @@
+{
+	"id": "downtown-drift",
+	"name": "Downtown Drift",
+	"author": "lweaverndhs",
+	"description": "Play Downtown Drift on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5770bbf1-13be-493f-bcbb-eb952bccf2a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5770bbf1-13be-493f-bcbb-eb952bccf2a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/5770bbf1-13be-493f-bcbb-eb952bccf2a7/downtown-drift"
+}

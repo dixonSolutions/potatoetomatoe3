@@ -1,0 +1,14 @@
+{
+	"id": "final-game",
+	"name": "final game",
+	"author": "estout61674",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/39385e9b-0487-4c82-8b4a-1dd02dee6972/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/99354562-6314-4caa-9bd7-b0e485f80dd3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "99354562-6314-4caa-9bd7-b0e485f80dd3",
+	"unityPlayUrl": "https://play.unity.com/en/games/99354562-6314-4caa-9bd7-b0e485f80dd3/final-game"
+}

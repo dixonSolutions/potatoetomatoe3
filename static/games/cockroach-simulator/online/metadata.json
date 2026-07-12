@@ -1,0 +1,14 @@
+{
+	"id": "cockroach-simulator",
+	"name": "Cockroach Simulator",
+	"author": "RUDolboebPL",
+	"description": "You are a cockroach ! You're hungry, you must eat all the food from the tables. But there is a human , who tries to catch you...... you have double jump ability , and also try to jump on a chair. Left shift to sprint",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d549e1ec-9891-4a82-aaec-3751ca4ceea6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5057f75a-57f3-4f80-87b3-7ba2c48e03cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5057f75a-57f3-4f80-87b3-7ba2c48e03cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/5057f75a-57f3-4f80-87b3-7ba2c48e03cf/cockroach-simulator"
+}

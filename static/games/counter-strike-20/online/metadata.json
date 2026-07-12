@@ -1,0 +1,14 @@
+{
+	"id": "counter-strike-20",
+	"name": "Counter Strike 2.0",
+	"author": "Not_Daniel",
+	"description": "Play Counter Strike 2.0 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0990e05a-8e43-4e23-b961-209acc6cfb53/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6a1a2a96-8c02-416b-be2b-084244b0b2fc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6a1a2a96-8c02-416b-be2b-084244b0b2fc",
+	"unityPlayUrl": "https://play.unity.com/en/games/6a1a2a96-8c02-416b-be2b-084244b0b2fc/counter-strike-20"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cinder-024",
+	"name": "Cinder-0.2.4",
+	"author": "unity_6D274F020E0D76FA5AFA",
+	"description": "Cinder-0.2.4 build",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/089c8fd9-90a6-4b96-b260-fc9bc12dc86f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "089c8fd9-90a6-4b96-b260-fc9bc12dc86f",
+	"unityPlayUrl": "https://play.unity.com/en/games/089c8fd9-90a6-4b96-b260-fc9bc12dc86f/cinder-024"
+}

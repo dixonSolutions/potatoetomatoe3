@@ -1,0 +1,14 @@
+{
+	"id": "ftp-sniper",
+	"name": "ftp sniper",
+	"author": "george0108",
+	"description": "Play ftp sniper on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f3703a81-d3ea-473d-948d-a0bd2c417863/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/79ae82bc-cee7-443f-8081-4375b4ae3042/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "79ae82bc-cee7-443f-8081-4375b4ae3042",
+	"unityPlayUrl": "https://play.unity.com/en/games/79ae82bc-cee7-443f-8081-4375b4ae3042/ftp-sniper"
+}

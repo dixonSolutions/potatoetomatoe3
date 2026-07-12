@@ -1,0 +1,14 @@
+{
+	"id": "compressed-eye",
+	"name": "Compressed Eye",
+	"author": "Harriskirstyn",
+	"description": "Play Compressed Eye on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/037640b0-a222-4562-a448-bc0ea91267e8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "037640b0-a222-4562-a448-bc0ea91267e8",
+	"unityPlayUrl": "https://play.unity.com/en/games/037640b0-a222-4562-a448-bc0ea91267e8/compressed-eye"
+}

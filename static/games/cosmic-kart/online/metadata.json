@@ -1,0 +1,14 @@
+{
+	"id": "cosmic-kart",
+	"name": "Cosmic Kart",
+	"author": "AnayV",
+	"description": "Extra controls: In the game, press R to reset kart.In Asteroids and The Set-Up press N to go back to Intro Menu.Itch.io(https://anayvalath.itch.io/cosmic-kart)Simmer.io(https://simmer.io/@anayvalath7/cosmic)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fd306e0e-1ed3-49c4-a9e5-a43e4bddadff/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c1bd3f45-a442-4e33-a40b-cecff3687647/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c1bd3f45-a442-4e33-a40b-cecff3687647",
+	"unityPlayUrl": "https://play.unity.com/en/games/c1bd3f45-a442-4e33-a40b-cecff3687647/cosmic-kart"
+}

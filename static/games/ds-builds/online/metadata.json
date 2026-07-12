@@ -1,0 +1,14 @@
+{
+	"id": "ds-builds",
+	"name": "DS Builds",
+	"author": "euphoriq-elephant",
+	"description": "Make a dot disappear by jumping over it in a left/right/up/down move onto an empty square",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e6fff11-f972-4c75-ba39-87cda767f02b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e6fff11-f972-4c75-ba39-87cda767f02b",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e6fff11-f972-4c75-ba39-87cda767f02b/ds-builds"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "domino-destroyer",
+	"name": "Domino Destroyer",
+	"author": "Link144",
+	"description": "My latest Project is a destructive game where you throw balls and have to knock as many as possible of the platform to win ENJOY!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8e596475-289c-4402-81e2-c9bb52d0f40e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/203c2dde-f403-4ec5-81a8-38f7418ed994/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "203c2dde-f403-4ec5-81a8-38f7418ed994",
+	"unityPlayUrl": "https://play.unity.com/en/games/203c2dde-f403-4ec5-81a8-38f7418ed994/domino-destroyer"
+}

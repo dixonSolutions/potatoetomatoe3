@@ -1,0 +1,14 @@
+{
+	"id": "digicity",
+	"name": "DigiCity",
+	"author": "thomvare",
+	"description": "Digicity is a game by Innovation Hive",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1618acaa-5bc1-448d-a380-8411581aac90/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1618acaa-5bc1-448d-a380-8411581aac90",
+	"unityPlayUrl": "https://play.unity.com/en/games/1618acaa-5bc1-448d-a380-8411581aac90/digicity"
+}

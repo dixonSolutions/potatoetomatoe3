@@ -1,0 +1,14 @@
+{
+	"id": "crash-city",
+	"name": "Crash City",
+	"author": "TheEarlyWorm",
+	"description": "Aiden's latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0102ffb9-ce8f-4aff-b332-0221dd9c7772/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/42bac688-1a88-437c-966c-f97c71a5c906/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "42bac688-1a88-437c-966c-f97c71a5c906",
+	"unityPlayUrl": "https://play.unity.com/en/games/42bac688-1a88-437c-966c-f97c71a5c906/crash-city"
+}

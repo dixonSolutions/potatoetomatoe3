@@ -1,0 +1,14 @@
+{
+	"id": "feed-the-dogs-29224",
+	"name": "Feed the Dogs 29.2.24",
+	"author": "rmcc1983",
+	"description": "This started as a junior programmer pathway tutorial but I have built on it!\n\nRead the story & instructions. Choose your character.  Choose your difficulty level to change starting lives, amounts of food, spawn start delay, spawn interval, powerup duration and what visual assistance you have - tooltips will help you decide. Enter your name to personalise displays. Move using WASD, arrow keys or the D-pad or left stick of a gamepad.  Feed the border collies bones using 8 (PS4 square), German Shepherds steaks using 9 (PS4 cross), and St Bernards cookies using 0 (PS4 circle).  German Shepherds need 1 piece of food, Collies need 2, St Bernards need 3...unless you miss too many dogs, in which case each subsequent dog will require an extra piece of food.  Keep missing, and eventually the dogs will require yet another piece.  Collect the star powerup to temporarily get sandwiches which they can all eat, and it only takes one to feed them (throw using backspace or PS4 triangle). Collect the shield powerup to be temporarily safe from dogs crashing into you. Collect hearts for extra lives. Mouse over the dogs, food etc in game for tooltips (and enjoy the custom mouse pointer)!  Pause using P (or PS4 R1), quit using escape.  The more dogs you feed, the faster they run! Don't let the dogs hit you, and don't feed them the wrong food - you will lose lives! Survive 2 minutes to win.\n\nGamepads are supported (I have tested with PS4 controller on WebGL) and the WebGL game can be played on mobile devices as I have added touch controls (including a virtual keyboard).\n\n\n\nIf you would like to complete my feedback form, please go to https://forms.office.com/r/ATTPTGmjPN?origin=lprLink\n\n\n\nI am trying to learn, so constructive feedback very welcome. Please be kind!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/db5ac488-a2f2-4cd3-a9c1-0f47a133fc2b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1f0f256e-06ed-42d7-8d61-d3deff7d0691/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1f0f256e-06ed-42d7-8d61-d3deff7d0691",
+	"unityPlayUrl": "https://play.unity.com/en/games/1f0f256e-06ed-42d7-8d61-d3deff7d0691/feed-the-dogs-29224"
+}

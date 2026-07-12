@@ -1,0 +1,14 @@
+{
+	"id": "cricketclash",
+	"name": "CricketClash",
+	"author": "letuandat556",
+	"description": "temp",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02f87368-a641-48c1-b45f-8796404f939f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02f87368-a641-48c1-b45f-8796404f939f",
+	"unityPlayUrl": "https://play.unity.com/en/games/02f87368-a641-48c1-b45f-8796404f939f/cricketclash"
+}

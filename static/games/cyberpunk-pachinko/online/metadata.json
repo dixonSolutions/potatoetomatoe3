@@ -1,0 +1,14 @@
+{
+	"id": "cyberpunk-pachinko",
+	"name": "Cyberpunk Pachinko",
+	"author": "NathanThomson",
+	"description": "Drop the balls to see where you'll end up tonight!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bb1e33ac-0b1c-488e-a428-1e5d380e92c8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03661ba3-c62d-439f-8fb6-909e94ae5945/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03661ba3-c62d-439f-8fb6-909e94ae5945",
+	"unityPlayUrl": "https://play.unity.com/en/games/03661ba3-c62d-439f-8fb6-909e94ae5945/cyberpunk-pachinko"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "countinggun",
+	"name": "Counting&Gun",
+	"author": "nik5140",
+	"description": "My latest microgame. Use mouse (up & down) to control angle of guns. Use Space to shoot. The more bullets in a box the higher Score!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e805119-efad-4508-a461-eca88d005c87/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9434323c-5bdd-432e-b668-23bbe206a43b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9434323c-5bdd-432e-b668-23bbe206a43b",
+	"unityPlayUrl": "https://play.unity.com/en/games/9434323c-5bdd-432e-b668-23bbe206a43b/countinggun"
+}

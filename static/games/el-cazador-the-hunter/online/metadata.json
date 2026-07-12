@@ -1,0 +1,14 @@
+{
+	"id": "el-cazador-the-hunter",
+	"name": "El Cazador (The Hunter)",
+	"author": "AlejandroHaibi",
+	"description": "Play El Cazador (The Hunter) on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/22a22ef8-6ff0-464f-baf3-a329418efa11/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5e5b4fa9-8747-4e64-8ceb-de80e37d5493/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5e5b4fa9-8747-4e64-8ceb-de80e37d5493",
+	"unityPlayUrl": "https://play.unity.com/en/games/5e5b4fa9-8747-4e64-8ceb-de80e37d5493/el-cazador-the-hunter"
+}

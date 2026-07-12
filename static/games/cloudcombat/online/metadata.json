@@ -1,0 +1,14 @@
+{
+	"id": "cloudcombat",
+	"name": "CloudCombat",
+	"author": "XiaoHuangMaoLeonTheDeveloper",
+	"description": "CloudCombat is a microgame in which 2 players can fight against each other through staining the cloud blocks in the battleground. Players are allowed to change their forms in liquid state and solid state. During liquid state, you can stain cloud blocks; During solid state, you cannot stain more clouds but you are able to freeze cloud blocks that is stained by youself. Once another player touch frozen cloud block, they will be froze and become unable to move for a period of time. When pick up a rainbow object, you will enter rainbow state, during which you can move faster and launch a auto-attack riainbow rocket. The rocket explodes when flying for a short distance but once it hits other player, it kills ohter player and all the clouds stained by your antagonist will return to unstained. PlayerA(Orange):WASD to move, J to dash, K to transform, space to launch rainbow rocket; PlayerB(Blue):\u2191\u2193\u2190\u2192 to move, numpad 1 to dash, numpad 2 to transform, numpad 0 to launch rainbow rocket;",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/014b7f0f-3169-4859-8230-d92d63ff2920/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1aa88866-4cc6-4f07-a7c3-b96ef67e87b2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1aa88866-4cc6-4f07-a7c3-b96ef67e87b2",
+	"unityPlayUrl": "https://play.unity.com/en/games/1aa88866-4cc6-4f07-a7c3-b96ef67e87b2/cloudcombat"
+}

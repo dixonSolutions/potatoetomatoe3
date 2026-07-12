@@ -1,0 +1,14 @@
+{
+	"id": "fps-training-game",
+	"name": "FPS training game",
+	"author": "rogstrixs321",
+	"description": "My first game ever!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2bdaf75a-8166-470f-aacb-07e69d177a10/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8238ba86-d60d-4f50-a3c6-ad1b1f798875/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8238ba86-d60d-4f50-a3c6-ad1b1f798875",
+	"unityPlayUrl": "https://play.unity.com/en/games/8238ba86-d60d-4f50-a3c6-ad1b1f798875/fps-training-game"
+}

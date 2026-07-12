@@ -1,0 +1,14 @@
+{
+	"id": "crossy-mine",
+	"name": "Crossy Mine",
+	"author": "sobierala",
+	"description": "Microgame based on Crossy Road",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d8294c33-a696-4203-be17-8ce6e123fc9a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f42af83f-1371-4211-93c4-2760f59d609f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f42af83f-1371-4211-93c4-2760f59d609f",
+	"unityPlayUrl": "https://play.unity.com/en/games/f42af83f-1371-4211-93c4-2760f59d609f/crossy-mine"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "clerk-dash-microgame",
+	"name": "Clerk Dash Microgame",
+	"author": "juanedmendo",
+	"description": "https://play.unity.com/mg/other/build...\nKeyboard: Space= Jump; V= Dash; B= Drop Bomb. Mouse: Left Click = jump; Right Click = Drop Bomb; Click Mouse Wheel = Dash. I've made some improvements and glitch fixes to this version.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a8dbb554-c15f-4854-a3a4-6656201c1242/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0a7fdc9b-7977-4de8-a506-3324d471038c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0a7fdc9b-7977-4de8-a506-3324d471038c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0a7fdc9b-7977-4de8-a506-3324d471038c/clerk-dash-microgame"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "flappy-plane",
+	"name": "Flappy Plane",
+	"author": "Axe54",
+	"description": "This game is a local 2-player airplane game. Much like Flappy Bird, the airplane can only travel vertically while overcoming obstacles (i.e. walls). The player (s) can toggle viewpoints from the pilot's seat or from a 3rd person standpoint. Player 1 controls: W (tilt plane down), S (tilt plane up), F (toggle view point). Player 2 controls: Up Key (tilt plane down), Down (tilt plane up), K (toggle view point).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6619172c-6c17-4a89-b9f8-e0c22fd5cfce/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d4d215de-c3fc-4a65-b110-060aaa31bf60/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d4d215de-c3fc-4a65-b110-060aaa31bf60",
+	"unityPlayUrl": "https://play.unity.com/en/games/d4d215de-c3fc-4a65-b110-060aaa31bf60/flappy-plane"
+}

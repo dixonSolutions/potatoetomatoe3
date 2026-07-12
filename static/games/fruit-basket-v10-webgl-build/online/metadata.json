@@ -1,0 +1,14 @@
+{
+	"id": "fruit-basket-v10-webgl-build",
+	"name": "Fruit Basket V1.0 (WebGL Build)",
+	"author": "jjkay03",
+	"description": "https://github.com/jjkay03/Fruit-Basket",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/40408bfd-2823-4954-9f39-38046652fa69/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/46e468f5-8d79-41ab-ae04-687cc85add90/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "46e468f5-8d79-41ab-ae04-687cc85add90",
+	"unityPlayUrl": "https://play.unity.com/en/games/46e468f5-8d79-41ab-ae04-687cc85add90/fruit-basket-v10-webgl-build"
+}

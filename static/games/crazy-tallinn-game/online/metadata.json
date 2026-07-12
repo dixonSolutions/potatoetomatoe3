@@ -1,0 +1,14 @@
+{
+	"id": "crazy-tallinn-game",
+	"name": "Crazy Tallinn game",
+	"author": "lockey2021",
+	"description": "Car game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2e7d3d4e-135c-4ba9-be7a-8d7690e49359/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/574c159e-b1ae-4fa3-95c9-da4d73cfab4d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "574c159e-b1ae-4fa3-95c9-da4d73cfab4d",
+	"unityPlayUrl": "https://play.unity.com/en/games/574c159e-b1ae-4fa3-95c9-da4d73cfab4d/crazy-tallinn-game"
+}

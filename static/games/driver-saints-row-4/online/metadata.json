@@ -1,0 +1,14 @@
+{
+	"id": "driver-saints-row-4",
+	"name": "Driver - Saints Row 4",
+	"author": "edtechtris",
+	"description": "Followed Create with Code by Unity and replaced some of the assets with some inspiration from Saints Row 4\n\nCreated for Spring 2022 Universe Intro to C# and Unity\nEnvironment from package files included with Unity's Create with Code free online course \nProfessor Genki model made in ShapesXR, exported through Blender to .fbx, then added to Unity with sphere collider\nCar is free asset from Unity Asset Store",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b2f7aec3-8172-42e5-953b-1cfe471a7101/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00d99ca5-b29e-46a1-a403-490004d61d38/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00d99ca5-b29e-46a1-a403-490004d61d38",
+	"unityPlayUrl": "https://play.unity.com/en/games/00d99ca5-b29e-46a1-a403-490004d61d38/driver-saints-row-4"
+}

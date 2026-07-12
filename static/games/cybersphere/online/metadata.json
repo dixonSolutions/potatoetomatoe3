@@ -1,0 +1,14 @@
+{
+	"id": "cybersphere",
+	"name": "CyberSphere",
+	"author": "theNfan",
+	"description": "CyberSphere was created as Prototype 4 with bonus features and a lot more for the Junior Programmer Pathway.\n\n- Controls: Gamepad (recommended) or Cursor Keys/WASD and CTRL. P or Pause to pause the game\n- Three levels of enemies\n- Bosses...who fight back\n- Bounce attack, smash attack and target seeking missiles\n- Physics\n- Lightning\n- Texturing\n- Particle effects\n- Sound effects\n- Background music\n\nUsed assets:\n- https://freesound.org/people/aerror/sounds/350748/\n- https://freesound.org/people/SquirmTheVerm/sounds/260778\n- https://www.fontriver.com/font/cyberdyne/\n- https://assetstore.unity.com/packages/audio/music/sci-fi-music-pack-1-105576\n- https://assetstore.unity.com/packages/audio/sound-fx/space-sfx-102218-131463\n- https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-sfx-package-184029\n- https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-particle-pack-127325\n- https://assetstore.unity.com/packages/2d/textures-materials/metals/yughues-free-metal-materials-12949\n- https://voicegenerator.io\n- ...and the assets provided with the Unity course (island model, item models, ball textures)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/af4bad80-9347-4f10-867e-b8958c032cdb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e02df8fc-bb23-45f4-aa1e-6ac1f606e6ab/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e02df8fc-bb23-45f4-aa1e-6ac1f606e6ab",
+	"unityPlayUrl": "https://play.unity.com/en/games/e02df8fc-bb23-45f4-aa1e-6ac1f606e6ab/cybersphere"
+}

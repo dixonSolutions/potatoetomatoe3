@@ -1,0 +1,14 @@
+{
+	"id": "epic-sicko-mode-game",
+	"name": "Epic Sicko Mode Game",
+	"author": "RogueFiend",
+	"description": "Play Epic Sicko Mode Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/13b2c266-4737-4fae-967b-34becf81177d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1c1588ba-4812-44c7-be01-fe8f5a3ec718/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1c1588ba-4812-44c7-be01-fe8f5a3ec718",
+	"unityPlayUrl": "https://play.unity.com/en/games/1c1588ba-4812-44c7-be01-fe8f5a3ec718/epic-sicko-mode-game"
+}

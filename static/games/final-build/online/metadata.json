@@ -1,0 +1,14 @@
+{
+	"id": "final-build",
+	"name": "Final Build",
+	"author": "M3trocity",
+	"description": "My latest microgame. The Best Game Ever ... your welcome.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c2ab8ed2-2bc5-4367-8a95-ffc5a43a0dc8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/05224595-f2b1-423b-bc9e-db24b1e35544/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "05224595-f2b1-423b-bc9e-db24b1e35544",
+	"unityPlayUrl": "https://play.unity.com/en/games/05224595-f2b1-423b-bc9e-db24b1e35544/final-build"
+}

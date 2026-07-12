@@ -1,0 +1,14 @@
+{
+	"id": "epic-bot-battle",
+	"name": "Epic Bot Battle",
+	"author": "FirePegasus2670",
+	"description": "Play Epic Bot Battle on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3bc7b2c2-6275-4de3-86a1-050e470aba1f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9dfe192e-7186-4780-a529-a98dac5a7783/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9dfe192e-7186-4780-a529-a98dac5a7783",
+	"unityPlayUrl": "https://play.unity.com/en/games/9dfe192e-7186-4780-a529-a98dac5a7783/epic-bot-battle"
+}

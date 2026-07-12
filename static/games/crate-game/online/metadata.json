@@ -1,0 +1,14 @@
+{
+	"id": "crate-game",
+	"name": "Crate Game",
+	"author": "FireWarden",
+	"description": "Avoid falling crates and get out of the pit to advance to the next level. Has 4 levels currently. Pressing N will skip to the next level.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2d4ef4cc-7751-4dc7-8e6a-9d103bdac27e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d25e028a-4e80-4798-8ed6-f62349314954/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d25e028a-4e80-4798-8ed6-f62349314954",
+	"unityPlayUrl": "https://play.unity.com/en/games/d25e028a-4e80-4798-8ed6-f62349314954/crate-game"
+}

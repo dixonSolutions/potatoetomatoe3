@@ -1,0 +1,14 @@
+{
+	"id": "final-project-for-the-creative-core-pathway",
+	"name": "Final Project for the Creative Core Pathway",
+	"author": "Yrisel",
+	"description": "My final project for the Creative Core Pathway.\n\nIt was quite a long 2 weeks (free time) journey for this project alone (aside from the whole pathway experience), learning lots of stuff, from skyboxes, water, underwater, props, animations, lighting and materials, object pooling, etc.\n\nI enjoyed this learning experience a lot. I'm looking forward for my next challenges.\n\nNotes: I was running out of time to deliver this final project. Sadly, there were things that I didn't managed to add to the project. But there are a lot of others that did managed to get into the final release like:\n\n- Dynamic skyboxes\n- Time of day\n- Lights turn on and off depending on the time\n- Dolphins spawn at random (pre-determined) locations. Yes, there are dolphins roaming in the water :D\n- Sounds! Waves, footsteps and background noise.\n- Water, underwater effects, waterfalls!\n- UI\n\nAnd more!\n\nI hope you enjoy this project as much as I do, and did developing it.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/423cb240-189a-4f83-a7d7-23ff6fc12cfb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7a7caa32-2aa9-4a65-bb09-beb049923711/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7a7caa32-2aa9-4a65-bb09-beb049923711",
+	"unityPlayUrl": "https://play.unity.com/en/games/7a7caa32-2aa9-4a65-bb09-beb049923711/final-project-for-the-creative-core-pathway"
+}

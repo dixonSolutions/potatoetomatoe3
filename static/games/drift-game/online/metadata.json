@@ -1,0 +1,14 @@
+{
+	"id": "drift-game",
+	"name": "Drift game",
+	"author": "Unity Play",
+	"description": "my project for matura",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/13cbef18-4b86-4b87-90d1-2fc30d29b62f/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75f01429-6958-472e-a91e-dbb5f1cc8cd7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75f01429-6958-472e-a91e-dbb5f1cc8cd7",
+	"unityPlayUrl": "https://play.unity.com/en/games/75f01429-6958-472e-a91e-dbb5f1cc8cd7/drift-game"
+}

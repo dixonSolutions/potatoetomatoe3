@@ -1,0 +1,14 @@
+{
+	"id": "fortnite-but-better-by-potato",
+	"name": "Fortnite but Better by Potato",
+	"author": "RaspberryPiDude314",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9774de58-45cf-4e46-8ec3-1a83ce7100f2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/269d0fc0-bdc8-4d10-88e8-89fb0c9ce0f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "269d0fc0-bdc8-4d10-88e8-89fb0c9ce0f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/269d0fc0-bdc8-4d10-88e8-89fb0c9ce0f9/fortnite-but-better-by-potato"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "fpsgo",
+	"name": "FPSGO",
+	"author": "Nickisawake",
+	"description": "Play FPSGO on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/12ec0cf1-4f34-45a6-92e7-1d6f04493d78/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/62b50b22-fdb0-494e-8c67-95c0e38e2cac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "62b50b22-fdb0-494e-8c67-95c0e38e2cac",
+	"unityPlayUrl": "https://play.unity.com/en/games/62b50b22-fdb0-494e-8c67-95c0e38e2cac/fpsgo"
+}

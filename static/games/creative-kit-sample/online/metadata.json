@@ -1,0 +1,14 @@
+{
+	"id": "creative-kit-sample",
+	"name": "Creative Kit Sample",
+	"author": "MuammerBal",
+	"description": "Just a Creative Kit tutorial build. A new potion and equipment added to increase health, strength and agility.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/016fd239-a52d-49ef-9763-e7d86276c744/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3274f4fa-6cf0-47a9-a518-c87bceefbc17/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3274f4fa-6cf0-47a9-a518-c87bceefbc17",
+	"unityPlayUrl": "https://play.unity.com/en/games/3274f4fa-6cf0-47a9-a518-c87bceefbc17/creative-kit-sample"
+}

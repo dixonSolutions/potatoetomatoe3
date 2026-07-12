@@ -1,0 +1,14 @@
+{
+	"id": "drift-haven",
+	"name": "Drift Haven",
+	"author": "ChonkyGob",
+	"description": "MY first prototype/microgame",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/59c42ba7-f799-429c-b2d9-83021e8d5b5f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0afb3902-49ef-4982-a5df-a33fec49dd14/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0afb3902-49ef-4982-a5df-a33fec49dd14",
+	"unityPlayUrl": "https://play.unity.com/en/games/0afb3902-49ef-4982-a5df-a33fec49dd14/drift-haven"
+}

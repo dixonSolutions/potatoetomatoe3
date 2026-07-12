@@ -1,0 +1,14 @@
+{
+	"id": "example-of-using-web-bluetooth-api-to-read-bicycle-speedcadence-sensor",
+	"name": "Example of using Web-bluetooth API to read bicycle speed/cadence sensor",
+	"author": "naber78",
+	"description": "Works in Chrome browser. Tested with Magne S3 sensor. Due to security limitation it won't work in iframe. To run open the frame in separted window,  right click->view source of frame-> delete \"view-soruce:\" in address-bar.  Hit connect, pair with sensor and then press start.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7ca5d3c7-7f57-4b6d-a502-3404025edc15/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7ca5d3c7-7f57-4b6d-a502-3404025edc15",
+	"unityPlayUrl": "https://play.unity.com/en/games/7ca5d3c7-7f57-4b6d-a502-3404025edc15/example-of-using-web-bluetooth-api-to-read-bicycle-speedcadence-sensor"
+}

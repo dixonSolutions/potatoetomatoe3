@@ -1,0 +1,14 @@
+{
+	"id": "driving-101",
+	"name": "Driving 101",
+	"author": "jcloesch",
+	"description": "My latest version of the Karting Microgame. It is the result of my having fun building. There is more to come. I have a lot of improvements planned. Feel free to comment with suggestions. Also, let me know if you find out how to get to the hidden track.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a50612a2-c753-475e-b581-77286c79290d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f671877-ef5b-4d4a-87a2-796d953bcdb3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f671877-ef5b-4d4a-87a2-796d953bcdb3",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f671877-ef5b-4d4a-87a2-796d953bcdb3/driving-101"
+}

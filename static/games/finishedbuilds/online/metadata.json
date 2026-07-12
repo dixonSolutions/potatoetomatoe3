@@ -1,0 +1,14 @@
+{
+	"id": "finishedbuilds",
+	"name": "__FinishedBuilds",
+	"author": "timespacetime",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7a99b929-d86f-4b70-8170-07de232d2718/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11f33512-128d-4d37-ae06-ac9ec3ce3309/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11f33512-128d-4d37-ae06-ac9ec3ce3309",
+	"unityPlayUrl": "https://play.unity.com/en/games/11f33512-128d-4d37-ae06-ac9ec3ce3309/finishedbuilds"
+}

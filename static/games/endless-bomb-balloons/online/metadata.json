@@ -1,0 +1,14 @@
+{
+	"id": "endless-bomb-balloons",
+	"name": "Endless bomb-balloons",
+	"author": "KokodokoGames",
+	"description": "Jump over the bombs and fences or see if you can duck under the balloons.        Unity Create with Code course. Uses particles, canvas, UI, floating math, new inputsystem.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0dd09ed9-4955-4492-882d-ed8971f6c2b6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03683b8d-9a46-481a-99e8-40c87930b5c2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03683b8d-9a46-481a-99e8-40c87930b5c2",
+	"unityPlayUrl": "https://play.unity.com/en/games/03683b8d-9a46-481a-99e8-40c87930b5c2/endless-bomb-balloons"
+}

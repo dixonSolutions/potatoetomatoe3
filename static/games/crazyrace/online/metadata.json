@@ -1,0 +1,14 @@
+{
+	"id": "crazyrace",
+	"name": "CrazyRace",
+	"author": "alaredo2003",
+	"description": "Play CrazyRace on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5f0d1799-cc22-40f4-965a-e3c57472c932/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3805845d-967d-4f18-8766-38d40df9c0dd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3805845d-967d-4f18-8766-38d40df9c0dd",
+	"unityPlayUrl": "https://play.unity.com/en/games/3805845d-967d-4f18-8766-38d40df9c0dd/crazyrace"
+}

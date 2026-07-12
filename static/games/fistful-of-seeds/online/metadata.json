@@ -1,0 +1,14 @@
+{
+	"id": "fistful-of-seeds",
+	"name": "Fistful of Seeds",
+	"author": "DshDD97",
+	"description": "A fps game with farming and crafting mechanics. Very early prototype.\nThe goal of the prototype will be getting the second weapon (and walk around).\nA project for Brackey Game Jam 2022.1.\n\nSolo project. Asset Credits to\u200b https://syntystore.com/\u200b\nContact syc418@gmail.com if any issue/violation/etc.\nPlease comment on https://syc418.itch.io/fistful-of-seeds if you like.\n\nStory:\nYour boss sent you to explode a dead planet, collect any materials, besides theose walking ones.\n\nControl:\n\tWASD to move, \n\tmouse to look around and shoot, \n\tspace to jump\n\tE to interact, \n\tB to bagpack",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/fadef711-a7f1-40e1-8528-33d214a0f391/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/68f2914b-e510-40f4-bd07-2f2333a0dab3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "68f2914b-e510-40f4-bd07-2f2333a0dab3",
+	"unityPlayUrl": "https://play.unity.com/en/games/68f2914b-e510-40f4-bd07-2f2333a0dab3/fistful-of-seeds"
+}

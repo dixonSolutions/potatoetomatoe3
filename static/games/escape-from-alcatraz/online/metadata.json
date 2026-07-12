@@ -1,0 +1,14 @@
+{
+	"id": "escape-from-alcatraz",
+	"name": "Escape from Alcatraz!",
+	"author": "knightmarerip",
+	"description": "Find the portal to freedom! Additional weapons can be found lying around. So keep your eyes peeled!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/19bf5115-e5a9-4468-8c91-74789814ee06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/35272dd0-2430-4bd0-a4d8-b909ee52533a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "35272dd0-2430-4bd0-a4d8-b909ee52533a",
+	"unityPlayUrl": "https://play.unity.com/en/games/35272dd0-2430-4bd0-a4d8-b909ee52533a/escape-from-alcatraz"
+}

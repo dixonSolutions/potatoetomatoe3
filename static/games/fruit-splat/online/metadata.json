@@ -1,0 +1,14 @@
+{
+	"id": "fruit-splat",
+	"name": "Fruit Splat",
+	"author": "Kayumus",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf7f895e-32f3-4ff0-8363-8ff1abaf185a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01d67e45-b5c9-4e35-b308-a436d6c37d64/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01d67e45-b5c9-4e35-b308-a436d6c37d64",
+	"unityPlayUrl": "https://play.unity.com/en/games/01d67e45-b5c9-4e35-b308-a436d6c37d64/fruit-splat"
+}

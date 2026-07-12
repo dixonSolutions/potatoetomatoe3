@@ -1,0 +1,14 @@
+{
+	"id": "fractals",
+	"name": "Fractals",
+	"author": "SpritZ098",
+	"description": "W - P1 Jump\nA - P1 Move Left\nD - P1 Move Right\n\nUp Arrow - P2 Jump\nLeft Arrow - P2 Move Left\nRight Arrow - P2 Move Right\n\nR - Reset\nM - Main Menu",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eb21e3f1-af19-4f83-be9e-8f3ee7d8075f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2edeb1e7-f453-4090-8df1-27f6c9924f53/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2edeb1e7-f453-4090-8df1-27f6c9924f53",
+	"unityPlayUrl": "https://play.unity.com/en/games/2edeb1e7-f453-4090-8df1-27f6c9924f53/fractals"
+}

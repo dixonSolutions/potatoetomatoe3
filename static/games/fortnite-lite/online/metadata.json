@@ -1,0 +1,14 @@
+{
+	"id": "fortnite-lite",
+	"name": "Fortnite Lite",
+	"author": "unity_Z4WNpsnVllyhxA",
+	"description": "Play Fortnite Lite on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e69acdeb-486f-47a8-b2dc-9a552ebff0d7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6e0c0fb8-1dc5-44a5-ace2-565299a34390/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6e0c0fb8-1dc5-44a5-ace2-565299a34390",
+	"unityPlayUrl": "https://play.unity.com/en/games/6e0c0fb8-1dc5-44a5-ace2-565299a34390/fortnite-lite"
+}

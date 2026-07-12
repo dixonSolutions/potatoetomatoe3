@@ -1,0 +1,14 @@
+{
+	"id": "fps-shooter-20",
+	"name": "FPS Shooter 2.0",
+	"author": "DragonFace01",
+	"description": "The updated version of my FPS shooter with input from MrHamDev.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f4cb10e2-2613-4299-b342-5462a1a58757/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/15ab8931-0a24-4047-8d2e-6d09f5ed9bac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "15ab8931-0a24-4047-8d2e-6d09f5ed9bac",
+	"unityPlayUrl": "https://play.unity.com/en/games/15ab8931-0a24-4047-8d2e-6d09f5ed9bac/fps-shooter-20"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ctv2",
+	"name": "CT__v2",
+	"author": "hcisgist",
+	"description": "for mTurk",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e2b1f51e-92d2-42f5-b752-7ab0e1688b6c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e2b1f51e-92d2-42f5-b752-7ab0e1688b6c",
+	"unityPlayUrl": "https://play.unity.com/en/games/e2b1f51e-92d2-42f5-b752-7ab0e1688b6c/ctv2"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "drag-drift-and-crash",
+	"name": "Drag, Drift and Crash!",
+	"author": "Blender_Fox1234",
+	"description": "This is the modified project I made for Unity Create With Code Spring 2021 Unit 1. You are stuck on a Mountainous Road,  there are obstacles in your way, and other vehicles are coming your way as well. What do you do? You Drag, Drift and Crash!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aca5ae50-f46b-48df-8312-f13acbf25a0a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/613a3ab8-040c-43bf-823d-8ff7241fbe16/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "613a3ab8-040c-43bf-823d-8ff7241fbe16",
+	"unityPlayUrl": "https://play.unity.com/en/games/613a3ab8-040c-43bf-823d-8ff7241fbe16/drag-drift-and-crash"
+}
