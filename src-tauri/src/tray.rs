@@ -150,10 +150,22 @@ pub fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
   #[cfg(target_os = "linux")]
   {
-    if let Ok(runtime) = std::env::var("XDG_RUNTIME_DIR") {
-      if !runtime.is_empty() {
-        builder = builder.temp_dir_path(std::path::PathBuf::from(runtime).join("potato-tomato-tray"));
-      }
+    // Prefer a host-visible path so StatusNotifier can load the icon PNG.
+    // Flatpak grants xdg-run/potato-tomato-tray; AppLocalData (~/.var/app/…) is
+    // also host-readable when XDG_RUNTIME_DIR is private to the sandbox.
+    let tray_dir = app
+      .path()
+      .app_local_data_dir()
+      .ok()
+      .map(|d| d.join("tray-icon"))
+      .or_else(|| {
+        std::env::var_os("XDG_RUNTIME_DIR").filter(|v| !v.is_empty()).map(|runtime| {
+          std::path::PathBuf::from(runtime).join("potato-tomato-tray")
+        })
+      });
+    if let Some(dir) = tray_dir {
+      let _ = std::fs::create_dir_all(&dir);
+      builder = builder.temp_dir_path(dir);
     }
   }
 

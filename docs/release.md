@@ -39,6 +39,7 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | GitHub Pages | `/flatpak/summary` 404 | Usually a web-only `pages.yml` deploy wiped the OSTree tree, or release deploy had not finished yet. Prefer `release.yml` for Pages; keep `pages.yml` manual-only. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
 | Remote install | Prefer one-file bundle | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken |
 | Flatpak runtime | `Game not in catalog` / `puller catalog is empty` | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`. |
+| Flatpak run | `Failed to load ayatana-appindicator3` panic | Bundle `shared-modules/libayatana-appindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak. |
 
 ## Manual web-only deploy
 
@@ -46,9 +47,11 @@ Use `.github/workflows/pages.yml` or `.github/workflows/deploy.yml` via **workfl
 
 ## Local Flatpak build
 
-Requires Flathub and GNOME 50 runtime/SDK for packaging:
+Requires Flathub and GNOME 50 runtime/SDK for packaging. AppIndicator is built from the
+`flatpak/shared-modules` submodule (required — GNOME Platform does not ship it):
 
 ```bash
+git submodule update --init --recursive
 flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
 pnpm puller:bundle:linux
 pnpm tauri:build:flatpak
@@ -56,6 +59,9 @@ pnpm flatpak:build    # package only
 pnpm flatpak:install  # package + install to user
 pnpm flatpak:run      # run installed app
 ```
+
+CI caches the Rust `src-tauri` target via `Swatinem/rust-cache` so subsequent workflow runs
+skip most crate recompilation.
 
 ## Tauri binary (without Flatpak)
 

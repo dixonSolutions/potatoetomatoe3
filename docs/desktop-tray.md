@@ -35,13 +35,27 @@ sudo apt install libayatana-appindicator3-dev
 
 ## Flatpak
 
-`flatpak/com.potatotomato.games.yml` talks to:
+The Flatpak runtime does **not** ship AppIndicator. The manifest builds it from
+Flathub [shared-modules](https://github.com/flathub/shared-modules) (`flatpak/shared-modules`
+git submodule) and talks to:
 
 - `org.kde.StatusNotifierWatcher`
 - `com.canonical.AppMenu.Registrar`
 - `com.canonical.indicator.application`
 
+Tray icon PNGs are written under app local data (or `$XDG_RUNTIME_DIR/potato-tomato-tray`
+with `--filesystem=xdg-run/potato-tomato-tray:create`) so the host StatusNotifier can read them.
+
+After clone, initialize the submodule once:
+
+```bash
+git submodule update --init --recursive
+```
+
 GNOME users still need a tray extension (e.g. AppIndicator and KStatusNotifierItem Support).
+
+If AppIndicator is still missing at runtime, tray init is caught and the windowed app continues
+(close-to-tray will hide without a quit path from the notification area).
 
 ## Code map
 

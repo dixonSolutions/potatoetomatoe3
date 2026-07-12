@@ -15,8 +15,12 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.AppMenu.Registrar
   - --talk-name=com.canonical.indicator.application
+  # Host can read tray icon PNG written under $XDG_RUNTIME_DIR/potato-tomato-tray
+  - --filesystem=xdg-run/potato-tomato-tray:create
 
 modules:
+  # Required at runtime by tray-icon / libappindicator-sys (not in GNOME Platform)
+  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
   - name: potato-tomato
     buildsystem: simple
     build-commands:

@@ -90,8 +90,10 @@ flatpak run com.potatotomato.games
 Build the Tauri app and puller sidecar on the host first, then package with Flatpak:
 
 ```bash
-git clone https://github.com/dixonSolutions/potatoetomatoe3.git
+git clone --recurse-submodules https://github.com/dixonSolutions/potatoetomatoe3.git
 cd potatoetomatoe3
+# If you already cloned without submodules:
+git submodule update --init --recursive
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50

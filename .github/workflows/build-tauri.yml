@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
+          submodules: recursive
 
       - name: Install Flatpak
         run: |
@@ -33,6 +34,11 @@ jobs:
             pkg-config libssl-dev
 
       - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+          cache-on-failure: true
 
       - uses: pnpm/action-setup@v4
         with:

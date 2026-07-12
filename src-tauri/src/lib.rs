@@ -209,8 +209,16 @@ pub fn run() {
         )?;
       }
       spawn_puller(app.handle());
-      if let Err(e) = tray::build_tray(app.handle()) {
-        log::warn!("system tray unavailable: {e}");
+      // libappindicator-sys panics (does not return Err) when the .so is missing
+      // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
+      match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        tray::build_tray(app.handle())
+      })) {
+        Ok(Ok(())) => {}
+        Ok(Err(e)) => log::warn!("system tray unavailable: {e}"),
+        Err(_) => log::warn!(
+          "system tray unavailable: appindicator library missing or panic during init"
+        ),
       }
       Ok(())
     })
