@@ -1,0 +1,14 @@
+{
+	"id": "cards-3d",
+	"name": "Cards 3D",
+	"author": "motoBTS",
+	"description": "Play Cards 3D on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9cea0575-c60e-4c9e-a493-7e1505ce2c08/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8c70fac7-b54a-4830-b9e3-cf962b8c9805/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8c70fac7-b54a-4830-b9e3-cf962b8c9805",
+	"unityPlayUrl": "https://play.unity.com/en/games/8c70fac7-b54a-4830-b9e3-cf962b8c9805/cards-3d"
+}

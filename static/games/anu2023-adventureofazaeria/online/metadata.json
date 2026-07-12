@@ -1,0 +1,14 @@
+{
+	"id": "anu2023-adventureofazaeria",
+	"name": "ANU2023 AdventureOfAzaeria",
+	"author": "archiesunityprofile",
+	"description": "Our game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3840ecad-a128-4414-a96c-3cf895a6268a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3840ecad-a128-4414-a96c-3cf895a6268a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3840ecad-a128-4414-a96c-3cf895a6268a/anu2023-adventureofazaeria"
+}

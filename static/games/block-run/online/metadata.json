@@ -1,0 +1,14 @@
+{
+	"id": "block-run",
+	"name": "Block Run",
+	"author": "guigsc",
+	"description": "A isometric endless runner where the cube may never fall",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3a3b379c-1382-4f00-85af-d469132e35ae/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2165a59c-2885-4a6a-958f-07c3cfbe13e0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2165a59c-2885-4a6a-958f-07c3cfbe13e0",
+	"unityPlayUrl": "https://play.unity.com/en/games/2165a59c-2885-4a6a-958f-07c3cfbe13e0/block-run"
+}

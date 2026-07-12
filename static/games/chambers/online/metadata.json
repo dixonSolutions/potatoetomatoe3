@@ -1,0 +1,14 @@
+{
+	"id": "chambers",
+	"name": "Chambers",
+	"author": "NachSN",
+	"description": "Chambers is a simple deckbuilder heavily inspired by slay the spire.\nChambers is made as a showcase of building some of the systems in slay the spire and may lack the fun-gameplay aspect.\n\nTry to survive for as long as you can by adding new strong cards or removing bad cards from your deck in the shop. Press H for help if you're ever stuck.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e323e857-65a8-4e11-a4a9-cd367d06fff1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3972ee16-54f7-4d1c-9477-f5793e4b2ed0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3972ee16-54f7-4d1c-9477-f5793e4b2ed0",
+	"unityPlayUrl": "https://play.unity.com/en/games/3972ee16-54f7-4d1c-9477-f5793e4b2ed0/chambers"
+}

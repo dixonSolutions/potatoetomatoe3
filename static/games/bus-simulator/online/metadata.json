@@ -1,0 +1,14 @@
+{
+	"id": "bus-simulator",
+	"name": "Bus Simulator",
+	"author": "CH_HASSAAN",
+	"description": "In School Bus Simulator, you take on the role of a school bus driver with the important task of picking up students and getting them safely to school. Your goal is to find children at three different bus stops, stop the bus at each station, and pick them up to win the game. Pay attention to your surroundings and be cautious of collisions along the way.\n\nControls:\n\nMovement: Use your Arrow keys or W A S D to drive the bus.\nStop & Pick Up: Press Space to stop the bus and pick up students at each bus stop.\n\nHow to Play:\n\nPick Up Students: Locate the bus stops and stop the bus at each station (floor). Press Space to pick up the children waiting at each stop.\nComplete the Route: Successfully pick up all students from the three bus stops and deliver them to school to win the game.\nAvoid Collisions: Be careful while driving to avoid collisions with obstacles and other vehicles.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e7e1d55-cb64-46a9-93de-5019ca998173/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/be0b9799-9c8b-4d6c-9b8e-18943a887e66/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "be0b9799-9c8b-4d6c-9b8e-18943a887e66",
+	"unityPlayUrl": "https://play.unity.com/en/games/be0b9799-9c8b-4d6c-9b8e-18943a887e66/bus-simulator"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "109",
+	"name": "1.0.9",
+	"author": "TheFortuitous",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06a6ad25-f193-49c2-973b-430f8492b91e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06a6ad25-f193-49c2-973b-430f8492b91e",
+	"unityPlayUrl": "https://play.unity.com/en/games/06a6ad25-f193-49c2-973b-430f8492b91e/109"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "carnival",
+	"name": "CaR_Nival",
+	"author": "SelvaK15",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7cf3bab2-5b2e-4b03-b036-0b329d9dffe3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f685c2d-5d46-4ab8-8848-a2573151d7e8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f685c2d-5d46-4ab8-8848-a2573151d7e8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f685c2d-5d46-4ab8-8848-a2573151d7e8/carnival"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "block-blast",
+	"name": "Block blast",
+	"author": "Dr_Licus",
+	"description": "Stack the blocks and dive into zen! A calming puzzle for relaxation, meditation, and mind training. The perfect stress reliever!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bd20bfe9-89ac-42f0-a81a-e23ac6bb442f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/64b9d8e0-9456-455c-ad55-d7c2967997ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "64b9d8e0-9456-455c-ad55-d7c2967997ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/64b9d8e0-9456-455c-ad55-d7c2967997ad/block-blast"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "car-parking-simulation",
+	"name": "Car Parking Simulation",
+	"author": "dani737",
+	"description": "Refine project directories, Size Optimization, Bugs Fixing\nUI Scenes optimization\nCreate New UI Animations (Main Menu, Level Selection, Settings, Exit Dialogue, Garage)\nUpgrade garage\nMinimization of 20 level scenes to 1 scene.\nAdd Button Sounds on UI Button Clicks, Panel Transitions and background music.\nAll UI Issues fixed and improved with added sound effects and animations\nFix All Level Images, remove 20 Images and replace them with 1 Image and texts",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5d7e4596-b672-434b-812e-8d146ba3b8e5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dd4e0686-7167-4cd2-bb94-2e0f1cebddff/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dd4e0686-7167-4cd2-bb94-2e0f1cebddff",
+	"unityPlayUrl": "https://play.unity.com/en/games/dd4e0686-7167-4cd2-bb94-2e0f1cebddff/car-parking-simulation"
+}

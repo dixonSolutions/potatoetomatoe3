@@ -1,0 +1,14 @@
+{
+	"id": "bleach-demo",
+	"name": "Bleach - DEMO",
+	"author": "J4s_",
+	"description": "This is the playtest demo for my platformer game concept, Bleach. Give it a shot, feedback on existing features, control adjustments, etc would be greatly appreciated.\nI like Bleach man :)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f0e66dd0-f25f-4e1a-863c-6707c17fb51a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0068487d-f127-45a6-b6e0-496dfeefaa5c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0068487d-f127-45a6-b6e0-496dfeefaa5c",
+	"unityPlayUrl": "https://play.unity.com/en/games/0068487d-f127-45a6-b6e0-496dfeefaa5c/bleach-demo"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "astro-assault",
+	"name": "Astro Assault",
+	"author": "BepsiKohler",
+	"description": "Two players - one keyboard!\n\nControls:\n- Press [CTRL] to toggle a list of key bindings\n- Don't forget to activate [NumLock]",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d11e6fb8-978c-465f-a2cf-6a1a77869f33/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d948afc-f9bd-41a3-9475-616487c7f126/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d948afc-f9bd-41a3-9475-616487c7f126",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d948afc-f9bd-41a3-9475-616487c7f126/astro-assault"
+}

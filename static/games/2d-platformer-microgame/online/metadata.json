@@ -1,0 +1,14 @@
+{
+	"id": "2d-platformer-microgame",
+	"name": "2D Platformer Microgame",
+	"author": "PajamaJohn",
+	"description": "This is 2D Platformer microgame that I played around by adding some mods (from mod tutorials) and minor tweaks.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/983310e4-3731-49b2-8290-7298e48547e9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d583c900-36e2-4137-a5a7-b6e5011f1a13/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d583c900-36e2-4137-a5a7-b6e5011f1a13",
+	"unityPlayUrl": "https://play.unity.com/en/games/d583c900-36e2-4137-a5a7-b6e5011f1a13/2d-platformer-microgame"
+}

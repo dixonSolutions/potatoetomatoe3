@@ -1,0 +1,14 @@
+{
+	"id": "blending-run",
+	"name": "Blending Run!",
+	"author": "Jgeoroo",
+	"description": "\uc6b0\ub9ac\uc758 \ub3d9\ubc29\uc740 \uc5b4\ub514\uc5d0...",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/27e88477-f4cc-4489-8e78-e0f56a2d98dc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "27e88477-f4cc-4489-8e78-e0f56a2d98dc",
+	"unityPlayUrl": "https://play.unity.com/en/games/27e88477-f4cc-4489-8e78-e0f56a2d98dc/blending-run"
+}

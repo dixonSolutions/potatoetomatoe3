@@ -1,0 +1,14 @@
+{
+	"id": "car-game-multiplayer",
+	"name": "Car game multiplayer",
+	"author": "almenfredrik",
+	"description": "Wanted some more things done, but uploaded the first version",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/090acc59-2902-4fb4-812e-016b73cca224/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "090acc59-2902-4fb4-812e-016b73cca224",
+	"unityPlayUrl": "https://play.unity.com/en/games/090acc59-2902-4fb4-812e-016b73cca224/car-game-multiplayer"
+}

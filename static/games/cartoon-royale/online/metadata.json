@@ -1,0 +1,14 @@
+{
+	"id": "cartoon-royale",
+	"name": "Cartoon Royale",
+	"author": "cbsmakerspace",
+	"description": "Play Cartoon Royale on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f241a3b3-c632-43d4-910c-5412b34fb35e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8b178722-154f-4eec-8acb-8fb8b9a1c71a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8b178722-154f-4eec-8acb-8fb8b9a1c71a",
+	"unityPlayUrl": "https://play.unity.com/en/games/8b178722-154f-4eec-8acb-8fb8b9a1c71a/cartoon-royale"
+}

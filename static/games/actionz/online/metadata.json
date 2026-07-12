@@ -1,0 +1,14 @@
+{
+	"id": "actionz",
+	"name": "ActionZ",
+	"author": "TobywithDino",
+	"description": "This is my first game, and it has cost me a lot of time and effort. ActionZ\uff1aThree different guns(you can find the other three in the map). Only two monsters for now :/ ,but they have random speed and health. Score system, you can challenge yourself by hitting the best score.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/de62707d-74f8-4a81-bf2c-d57ead099de7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ef7a71af-9848-4b0b-b602-b82cffff20d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ef7a71af-9848-4b0b-b602-b82cffff20d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/ef7a71af-9848-4b0b-b602-b82cffff20d8/actionz"
+}

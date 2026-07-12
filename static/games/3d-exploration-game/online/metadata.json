@@ -1,0 +1,14 @@
+{
+	"id": "3d-exploration-game",
+	"name": "3D Exploration Game",
+	"author": "Deva2207",
+	"description": "This is a simple 3D PC Exploration Game made with some assets available in Unity asset store with Beautiful Forest and nice Ambiance Music.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/41952cb2-e86a-4437-837b-687688711c36/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5c443840-68fe-486f-a948-a66f8d27cd63/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5c443840-68fe-486f-a948-a66f8d27cd63",
+	"unityPlayUrl": "https://play.unity.com/en/games/5c443840-68fe-486f-a948-a66f8d27cd63/3d-exploration-game"
+}

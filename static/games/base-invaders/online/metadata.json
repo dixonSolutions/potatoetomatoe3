@@ -1,0 +1,14 @@
+{
+	"id": "base-invaders",
+	"name": "Base Invaders",
+	"author": "Binoomaul",
+	"description": "Welcome to Base Invaders! Your base has been taken over by alien robots! You must defeat all of them in order to regain control of your base. The weapons you get are: a sniper rifle, a shotgun, a disk launcher, a rocket launcher, and a burst rifle. You also get a jetpack! Use all of them to defeat the bots and win the game! Have fun!                                                                                                                                                          NOTE:  DO NOT PLAY IN FULLSCREEN!    If you have any questions or comments, write them down below!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0b3ba1d5-c37b-441a-aae9-13c3c484159b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/133d434d-1c16-4956-8e2f-83b6fa5947d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "133d434d-1c16-4956-8e2f-83b6fa5947d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/133d434d-1c16-4956-8e2f-83b6fa5947d8/base-invaders"
+}

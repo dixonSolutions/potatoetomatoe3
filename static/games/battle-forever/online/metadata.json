@@ -1,0 +1,14 @@
+{
+	"id": "battle-forever",
+	"name": "Battle forever",
+	"author": "FasciNated132",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2e75ecd6-9b64-4425-b86c-97759b590da6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e026fd5-487f-4e94-ad04-5f54210877d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e026fd5-487f-4e94-ad04-5f54210877d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e026fd5-487f-4e94-ad04-5f54210877d8/battle-forever"
+}

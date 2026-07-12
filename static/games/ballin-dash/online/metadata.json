@@ -1,0 +1,14 @@
+{
+	"id": "ballin-dash",
+	"name": "Ballin Dash",
+	"author": "Unity Play",
+	"description": "Get ready for an adrenaline-pumping, fast-paced top-down shooter experience with Ballin Dash! \n\nControls:\n\n-Move : W | S | A | D\n\n-AIM : Mouse \n\n-Shoot : Left Mouse Click \n\n-Dodge : Right Mouse Click",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aa393f8a-ab6b-46f1-9bf4-09a48572a30e/content",
+	"category": "showcase-winners",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fc932f5-0e32-4aed-a12a-f317da03c40d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fc932f5-0e32-4aed-a12a-f317da03c40d",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fc932f5-0e32-4aed-a12a-f317da03c40d/ballin-dash"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "beach-run",
+	"name": "Beach Run",
+	"author": "Scaramooshe",
+	"description": "Run across the beach and collect coins while avoiding obstacles! \n\nControls:\nWASD or Arrow Keys",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc0832c6-4668-423b-9f0e-c480095183cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0f1a28ea-eaaa-4d83-a4cf-a135530fe97f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0f1a28ea-eaaa-4d83-a4cf-a135530fe97f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0f1a28ea-eaaa-4d83-a4cf-a135530fe97f/beach-run"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "calc-game",
+	"name": "Calc Game",
+	"author": "feel-ix-343",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bf24308e-4cd3-4bad-8c46-cef09b21bd5d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bf24308e-4cd3-4bad-8c46-cef09b21bd5d",
+	"unityPlayUrl": "https://play.unity.com/en/games/bf24308e-4cd3-4bad-8c46-cef09b21bd5d/calc-game"
+}

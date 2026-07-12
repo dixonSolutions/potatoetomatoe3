@@ -1,0 +1,14 @@
+{
+	"id": "astro",
+	"name": "Astro",
+	"author": "rodriler",
+	"description": "Astro is an endless runner where you travel through the Milky Way Galaxy, seeking to get the highest score possible while evading all obstacles in your way. As you advance through different planets and achieve higher scores, you will encounter more hurdles to avoid while maintaining your fuel for your jetpack. This game is purely a passion project, and actually my first game so any criticism or advice is greatly appreciated.                                                       \n                                                                                                                           \n                                                                                                                           The controls are simple, with A and D used to go left and right, and space being used to use your jetpack!\n\nSince this game is on a browser, the quality overall isn't up to par with the actual application version, so if you would like the better and official Astro it'll be here at my itch.io page: https://rodriler.itch.io/astro. Just scroll a little down, click download, and unzip/extract the files. With that, you'll have the official version of Astro!                                                                                                        \n                                                                                                                       \nCheck out Astro on simmer.io: https://simmer.io/@rodriler/astro\n\nNormally to pause you would press Escape, but the browser kind of interferes with key, so I also allowed Tab to be used to pause or unpause for the browser version.\n\nI used some assets, so they'll be below: \n\nSpace SFX - 102218 (GWriterStudio) \n\nUniverse Sounds Free Pack (Marcin Klosowski) \n\nFREE Casual Game SFX Pack(Dustyroom) \n\nFree Sound Effects Pack(Olivier Girardot) \n\nCustomizable Planet Shaders(Proxy) \n\nFree Pixel Font - Thaleah(Tiny Worlds) \n\nFree UI Click Sound Pack(SwishSwoosh)\n\n Sherbb's Particle Collection(",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/24c4c110-9bc4-4a73-8d10-32fea53faa82/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/53d5bb97-e5aa-4572-89e7-98c28b6052cc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "53d5bb97-e5aa-4572-89e7-98c28b6052cc",
+	"unityPlayUrl": "https://play.unity.com/en/games/53d5bb97-e5aa-4572-89e7-98c28b6052cc/astro"
+}

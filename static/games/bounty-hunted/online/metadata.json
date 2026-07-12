@@ -1,0 +1,14 @@
+{
+	"id": "bounty-hunted",
+	"name": "Bounty Hunted",
+	"author": "Zayzay9",
+	"description": "Latest game by Bitwk Studios.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a58fb20-c5a6-4d04-8e2a-d7299f739c75/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e01d6acb-f7b9-4736-b84e-b60891903c1a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e01d6acb-f7b9-4736-b84e-b60891903c1a",
+	"unityPlayUrl": "https://play.unity.com/en/games/e01d6acb-f7b9-4736-b84e-b60891903c1a/bounty-hunted"
+}

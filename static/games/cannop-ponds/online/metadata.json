@@ -1,0 +1,14 @@
+{
+	"id": "cannop-ponds",
+	"name": "Cannop Ponds",
+	"author": "Rakshith_Kumar_G",
+	"description": "Play Cannop Ponds on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9406d8f5-ad3a-49a3-b8e3-40d60525fdbb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9406d8f5-ad3a-49a3-b8e3-40d60525fdbb",
+	"unityPlayUrl": "https://play.unity.com/en/games/9406d8f5-ad3a-49a3-b8e3-40d60525fdbb/cannop-ponds"
+}

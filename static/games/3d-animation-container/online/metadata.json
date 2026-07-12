@@ -1,0 +1,14 @@
+{
+	"id": "3d-animation-container",
+	"name": "[3D Animation] Container",
+	"author": "icerayzer",
+	"description": "My first Animation in Unity. Inspired from the Supercell Chest.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b74b9fc6-a17d-4752-bedc-330aff20292c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/063e0660-4b2a-4fe6-a046-ea3d0a535a14/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "063e0660-4b2a-4fe6-a046-ea3d0a535a14",
+	"unityPlayUrl": "https://play.unity.com/en/games/063e0660-4b2a-4fe6-a046-ea3d0a535a14/3d-animation-container"
+}

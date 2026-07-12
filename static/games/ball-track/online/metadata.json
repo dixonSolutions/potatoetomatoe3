@@ -1,0 +1,14 @@
+{
+	"id": "ball-track",
+	"name": "Ball Track",
+	"author": "Garrett23",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9089d3fa-cfae-4582-91f9-ca8d4df33c5a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01f9e790-81d2-4c13-b2b4-f4506be144f1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01f9e790-81d2-4c13-b2b4-f4506be144f1",
+	"unityPlayUrl": "https://play.unity.com/en/games/01f9e790-81d2-4c13-b2b4-f4506be144f1/ball-track"
+}

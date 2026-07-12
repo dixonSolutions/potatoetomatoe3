@@ -1,0 +1,14 @@
+{
+	"id": "bot-kill",
+	"name": "Bot Kill",
+	"author": "RT_",
+	"description": "My latest microgame. Shoot to kill the bots, collect health and weapons on the way, kill all the enemies. Use Jetpack to access the places you cant walk to. Have fun exploring.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5d792b63-848c-4074-b7e4-68f6df1a3a06/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/85c7d635-c7dd-43af-bba3-3c6458a33492/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "85c7d635-c7dd-43af-bba3-3c6458a33492",
+	"unityPlayUrl": "https://play.unity.com/en/games/85c7d635-c7dd-43af-bba3-3c6458a33492/bot-kill"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "cars-alpha",
+	"name": "cars alpha",
+	"author": "mattiabalzi",
+	"description": "cars in version alpha ;)",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e3920c93-7697-4fe6-9965-90a7140d96ce/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e3920c93-7697-4fe6-9965-90a7140d96ce",
+	"unityPlayUrl": "https://play.unity.com/en/games/e3920c93-7697-4fe6-9965-90a7140d96ce/cars-alpha"
+}

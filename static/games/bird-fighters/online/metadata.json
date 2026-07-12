@@ -1,0 +1,14 @@
+{
+	"id": "bird-fighters",
+	"name": "Bird Fighters",
+	"author": "puniwitharana",
+	"description": "Bird fighters !!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1ef368d9-d8ef-46af-8bf4-c5f614fa2cd5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cad32c2-bdd4-4f65-bc0e-ca8f2d4f15a8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cad32c2-bdd4-4f65-bc0e-ca8f2d4f15a8",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cad32c2-bdd4-4f65-bc0e-ca8f2d4f15a8/bird-fighters"
+}

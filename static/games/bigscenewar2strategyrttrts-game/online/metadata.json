@@ -1,0 +1,14 @@
+{
+	"id": "bigscenewar2strategyrttrts-game",
+	"name": "BigSceneWar2(Strategy/RTT/RTS game)",
+	"author": "DarkMatter_Mai",
+	"description": "This is redesign the BigSceneWar that RTT/RTS game.It is Corps to control soldier and attack other enemy Corps. The 3D model use the blender. The game use Unity plugin NavMeshAgent(A*pathfinding) to finish",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/eba487cc-dc14-4e9a-b4d2-e0575814a45f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4eb4e13c-0e56-409f-a7a1-237c9219551e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4eb4e13c-0e56-409f-a7a1-237c9219551e",
+	"unityPlayUrl": "https://play.unity.com/en/games/4eb4e13c-0e56-409f-a7a1-237c9219551e/bigscenewar2strategyrttrts-game"
+}

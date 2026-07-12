@@ -1,0 +1,14 @@
+{
+	"id": "build4",
+	"name": "Build4",
+	"author": "businessyuen",
+	"description": "Play Build4 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/68edd43e-3e55-4fb9-9872-bafeb39d585b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/066b9926-d445-46ce-9d1b-9ede4dd70f98/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "066b9926-d445-46ce-9d1b-9ede4dd70f98",
+	"unityPlayUrl": "https://play.unity.com/en/games/066b9926-d445-46ce-9d1b-9ede4dd70f98/build4"
+}

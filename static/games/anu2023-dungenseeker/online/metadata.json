@@ -1,0 +1,14 @@
+{
+	"id": "anu2023-dungenseeker",
+	"name": "ANU2023 Dungen_Seeker",
+	"author": "Ben647",
+	"description": "This game is called Dungeon Seeker where the player should escape the dungeon. First play might have some delay about a minute so please be patient or if you found yourself stuck at 90%, please refresh the page.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a3e860a5-1650-49cf-ab11-7edaee6dfc81/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/39f0e674-5966-4d8e-9f43-206e4072d787/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "39f0e674-5966-4d8e-9f43-206e4072d787",
+	"unityPlayUrl": "https://play.unity.com/en/games/39f0e674-5966-4d8e-9f43-206e4072d787/anu2023-dungenseeker"
+}

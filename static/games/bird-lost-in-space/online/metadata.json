@@ -1,0 +1,14 @@
+{
+	"id": "bird-lost-in-space",
+	"name": "Bird-Lost in space",
+	"author": "samar_k90972",
+	"description": "My first 2D game - updated version. Enjoy and waiting for your feedback. Controls :                                                                                                                   Tap on mouse to play :D\nPlayStore Version : https://play.google.com/store/apps/details?id=com.DefaultCompany.BirdLostinspace",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4df19229-dd82-49d2-9209-5407eae73695/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0ba5056d-5a28-4ebf-b3f9-457dfca070ad/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0ba5056d-5a28-4ebf-b3f9-457dfca070ad",
+	"unityPlayUrl": "https://play.unity.com/en/games/0ba5056d-5a28-4ebf-b3f9-457dfca070ad/bird-lost-in-space"
+}

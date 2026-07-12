@@ -1,0 +1,14 @@
+{
+	"id": "bomdarbment",
+	"name": "Bomdarbment",
+	"author": "victorleitao",
+	"description": "Cloning a level of Stumble Guys for learning purposes. Play with AWDS/arrowkeys and Space/G. Control camera with mouse.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/21d07287-65bf-46d0-a2d1-9f0a89e16dea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fe0eb66d-821d-43a1-8b05-2a4fdffa5d15/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fe0eb66d-821d-43a1-8b05-2a4fdffa5d15",
+	"unityPlayUrl": "https://play.unity.com/en/games/fe0eb66d-821d-43a1-8b05-2a4fdffa5d15/bomdarbment"
+}

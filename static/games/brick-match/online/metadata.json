@@ -1,0 +1,14 @@
+{
+	"id": "brick-match",
+	"name": "Brick Match",
+	"author": "WalkondoGames",
+	"description": "Brick Match is my submission for the Lego Idea contest Build your own game! Aim well, to match the Lego Bricks and reach the highest score. \nLego Ideas user name: GabKremo",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99ea6f81-5d48-498a-9f7d-f1e32ce942c4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5b0be988-634e-4794-bd29-65bdc4daf710/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5b0be988-634e-4794-bd29-65bdc4daf710",
+	"unityPlayUrl": "https://play.unity.com/en/games/5b0be988-634e-4794-bd29-65bdc4daf710/brick-match"
+}

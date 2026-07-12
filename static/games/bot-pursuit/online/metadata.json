@@ -1,0 +1,14 @@
+{
+	"id": "bot-pursuit",
+	"name": "Bot Pursuit",
+	"author": "Unity Play",
+	"description": "Fight to reclaim the solar system from an army of robots in this aerial combat game! The game features three missions to complete, as well as three different ships to choose from.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/571bc849-6094-4e06-a5a6-26c19f9c300d/content",
+	"category": "action",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dbf05cd6-501d-43ff-a1e0-c47d363f259a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dbf05cd6-501d-43ff-a1e0-c47d363f259a",
+	"unityPlayUrl": "https://play.unity.com/en/games/dbf05cd6-501d-43ff-a1e0-c47d363f259a/bot-pursuit"
+}

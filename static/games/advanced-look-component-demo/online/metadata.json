@@ -1,0 +1,14 @@
+{
+	"id": "advanced-look-component-demo",
+	"name": "Advanced Look Component Demo",
+	"author": "samson96",
+	"description": "Playable demo",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/86ef588b-3189-4b9f-bdc4-fc8074587d10/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/96e353d1-b91d-4d76-bffc-8cd919bad7df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "96e353d1-b91d-4d76-bffc-8cd919bad7df",
+	"unityPlayUrl": "https://play.unity.com/en/games/96e353d1-b91d-4d76-bffc-8cd919bad7df/advanced-look-component-demo"
+}

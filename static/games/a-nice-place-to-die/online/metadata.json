@@ -1,0 +1,14 @@
+{
+	"id": "a-nice-place-to-die",
+	"name": "A Nice Place to Die",
+	"author": "Berto101",
+	"description": "CW: Blood, death, spiders\nBy Albert Larose\nControls:\nMove - WASD\nPickup/Drop - E\nUse/Attack - Left Mouse\nSit (ends run) - F",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9e01397a-0549-4717-9638-59606fd60c39/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1e532162-bd09-4b25-a1bb-4e5068b5e23a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1e532162-bd09-4b25-a1bb-4e5068b5e23a",
+	"unityPlayUrl": "https://play.unity.com/en/games/1e532162-bd09-4b25-a1bb-4e5068b5e23a/a-nice-place-to-die"
+}

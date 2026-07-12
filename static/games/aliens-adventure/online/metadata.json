@@ -1,0 +1,14 @@
+{
+	"id": "aliens-adventure",
+	"name": "aliens adventure",
+	"author": "maatiainen045",
+	"description": "little alien solves box puzzles and collects coins",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8098f18c-9375-430b-bcba-14e7ae6d2bee/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8098f18c-9375-430b-bcba-14e7ae6d2bee",
+	"unityPlayUrl": "https://play.unity.com/en/games/8098f18c-9375-430b-bcba-14e7ae6d2bee/aliens-adventure"
+}

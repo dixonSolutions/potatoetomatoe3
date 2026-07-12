@@ -1,0 +1,14 @@
+{
+	"id": "boro-na-10",
+	"name": "BoRo na 10",
+	"author": "RhaX",
+	"description": "Play BoRo na 10 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5349dba5-1b21-4b44-98ea-fc686f5d890a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03b520d6-0b8b-4ea3-847f-66d40feff0ef/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03b520d6-0b8b-4ea3-847f-66d40feff0ef",
+	"unityPlayUrl": "https://play.unity.com/en/games/03b520d6-0b8b-4ea3-847f-66d40feff0ef/boro-na-10"
+}

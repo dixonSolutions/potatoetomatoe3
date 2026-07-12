@@ -1,0 +1,14 @@
+{
+	"id": "age-of-war-remake",
+	"name": "Age Of War Remake",
+	"author": "MrPio",
+	"description": "A 3D Multiplayer remake of the famous Flash game \"Age of War\" from our childhood! \nA game by Louissi.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f21d2fc7-11a6-4c12-8e4a-8e9bd19fa59a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/8855a17f-c0de-4228-b5c1-584523992a17/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "8855a17f-c0de-4228-b5c1-584523992a17",
+	"unityPlayUrl": "https://play.unity.com/en/games/8855a17f-c0de-4228-b5c1-584523992a17/age-of-war-remake"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "an-archers-fate",
+	"name": "An Archers Fate",
+	"author": "chrissmits",
+	"description": "Defend your forest village as a young frog archer. Survive endless enemy waves, set traps, and master elemental arrows to hold back the darkness threatening your home.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a4666d1f-9800-4897-a0a9-7dca24ef2d60/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4b8f28ed-db45-4a3f-a575-0582ea8b6b23/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4b8f28ed-db45-4a3f-a575-0582ea8b6b23",
+	"unityPlayUrl": "https://play.unity.com/en/games/4b8f28ed-db45-4a3f-a575-0582ea8b6b23/an-archers-fate"
+}

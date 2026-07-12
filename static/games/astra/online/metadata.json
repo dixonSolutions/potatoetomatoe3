@@ -1,0 +1,14 @@
+{
+	"id": "astra",
+	"name": "Astra",
+	"author": "Unity Play",
+	"description": "This is a 2d platformer where your character is stranded on an alien planet and must collect crystals to repair his ship. Controls: WASD: movement, Space: jump, Enter: shoot, Shift: actions.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/790b2a03-cb1c-4619-b359-2564c4216bad/content",
+	"category": "2d-platformer",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09aa8282-7ef0-4f6e-9794-b83dbb2eebf6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09aa8282-7ef0-4f6e-9794-b83dbb2eebf6",
+	"unityPlayUrl": "https://play.unity.com/en/games/09aa8282-7ef0-4f6e-9794-b83dbb2eebf6/astra"
+}

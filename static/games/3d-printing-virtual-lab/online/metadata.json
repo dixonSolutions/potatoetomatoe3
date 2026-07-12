@@ -1,0 +1,14 @@
+{
+	"id": "3d-printing-virtual-lab",
+	"name": "3D-printing virtual lab",
+	"author": "akabedev",
+	"description": "You need to find the working combination of parameters for your task. The message at the end of the production will either confirm you have achieved your goal, or it will comment on the issue. Good luck! Please feel free to leave any feedback!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/295bec36-1d42-4537-a956-13cda0025347/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "295bec36-1d42-4537-a956-13cda0025347",
+	"unityPlayUrl": "https://play.unity.com/en/games/295bec36-1d42-4537-a956-13cda0025347/3d-printing-virtual-lab"
+}

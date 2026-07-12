@@ -1,0 +1,14 @@
+{
+	"id": "benthos",
+	"name": "Benthos",
+	"author": "Baconfry39",
+	"description": "Controls:\nleft click / S - select\nright click / esc - cancel\nA - cycle through available units\nD - end unit's turn without attacking\nspace - delay turn to match a chosen ally\n\ntilesets from Pokemon MD",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/11d3f859-91c8-493f-a93c-8979c6edf659/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d4e9c561-7c2d-4ce2-bd95-b3f9b65adb1a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d4e9c561-7c2d-4ce2-bd95-b3f9b65adb1a",
+	"unityPlayUrl": "https://play.unity.com/en/games/d4e9c561-7c2d-4ce2-bd95-b3f9b65adb1a/benthos"
+}

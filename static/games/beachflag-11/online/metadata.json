@@ -1,0 +1,14 @@
+{
+	"id": "beachflag-11",
+	"name": "BeachFlag 1.1",
+	"author": "mKosa",
+	"description": "My latest microgame. Added one more player.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/115b838e-6136-4e0a-9d51-f5a9a7943f43/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3cd2c1d6-aad8-46fb-af55-f9f27d417b68/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3cd2c1d6-aad8-46fb-af55-f9f27d417b68",
+	"unityPlayUrl": "https://play.unity.com/en/games/3cd2c1d6-aad8-46fb-af55-f9f27d417b68/beachflag-11"
+}

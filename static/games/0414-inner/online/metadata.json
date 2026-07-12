@@ -1,0 +1,14 @@
+{
+	"id": "0414-inner",
+	"name": "0414-Inner",
+	"author": "yokitc",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e5497b76-c7af-40f9-9df0-b2fb036504ea/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d454397d-a275-4dd1-acbb-14ae31ee6119/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d454397d-a275-4dd1-acbb-14ae31ee6119",
+	"unityPlayUrl": "https://play.unity.com/en/games/d454397d-a275-4dd1-acbb-14ae31ee6119/0414-inner"
+}

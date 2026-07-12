@@ -1,0 +1,14 @@
+{
+	"id": "adventure-kart",
+	"name": "Adventure Kart",
+	"author": "phumutta",
+	"description": "Create by Nattapon phumutta 6030300334",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/743d3c78-01bc-407c-a177-f0a54fa0105a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/318f45d8-dec6-4f0f-bdcd-6d2644e7afb9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "318f45d8-dec6-4f0f-bdcd-6d2644e7afb9",
+	"unityPlayUrl": "https://play.unity.com/en/games/318f45d8-dec6-4f0f-bdcd-6d2644e7afb9/adventure-kart"
+}

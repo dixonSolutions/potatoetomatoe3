@@ -1,0 +1,14 @@
+{
+	"id": "among-us-3d",
+	"name": "among us 3d",
+	"author": "BadCatGameStudios",
+	"description": "sus sus among us",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/35cc5e74-1028-445d-9514-679e096afedc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "35cc5e74-1028-445d-9514-679e096afedc",
+	"unityPlayUrl": "https://play.unity.com/en/games/35cc5e74-1028-445d-9514-679e096afedc/among-us-3d"
+}

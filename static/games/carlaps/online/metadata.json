@@ -1,0 +1,14 @@
+{
+	"id": "carlaps",
+	"name": "CarLaps",
+	"author": "al_fat",
+	"description": "Simple car simulator. (Based on https://learn.unity.com/project/parents-and-kids-code-together)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6338482b-265e-4836-abd7-01f31d0e8ddd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/40adf1b1-6142-40d0-b164-bc2e905c58db/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "40adf1b1-6142-40d0-b164-bc2e905c58db",
+	"unityPlayUrl": "https://play.unity.com/en/games/40adf1b1-6142-40d0-b164-bc2e905c58db/carlaps"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "awesome-fps-shooter",
+	"name": "Awesome Fps Shooter",
+	"author": "thespeedcoder365",
+	"description": "My latest microgame. BETA",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e1dc1d7d-cbfd-479b-97c0-8dc9dd23d5fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e1dc1d7d-cbfd-479b-97c0-8dc9dd23d5fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/e1dc1d7d-cbfd-479b-97c0-8dc9dd23d5fa/awesome-fps-shooter"
+}

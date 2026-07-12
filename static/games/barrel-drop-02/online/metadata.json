@@ -1,0 +1,14 @@
+{
+	"id": "barrel-drop-02",
+	"name": "Barrel Drop 0.2",
+	"author": "Mantheous",
+	"description": "The object of the game is to get the red barrel into the dump truck. Most objects can be clicked on and destroyed.\nIt should be noted that the chains have the same weight as the boxes so they have a significant impact on the physics of things even though they don't collide with anything\nSecond build of Barrel Drop. Two new levels and mechanics. Spikes and bombs. If you are really a pro wait around at the end scene.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c9eab2cc-b7df-47ac-aa9d-98f6cba457e7/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ef28f753-2b3f-4d4a-97ca-12b2a11a0247/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ef28f753-2b3f-4d4a-97ca-12b2a11a0247",
+	"unityPlayUrl": "https://play.unity.com/en/games/ef28f753-2b3f-4d4a-97ca-12b2a11a0247/barrel-drop-02"
+}

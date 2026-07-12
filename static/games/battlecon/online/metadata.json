@@ -1,0 +1,14 @@
+{
+	"id": "battlecon",
+	"name": "BattleCon",
+	"author": "EffectsHouse",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/95ed99e3-bcfa-4f57-b676-746458428740/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/00558e56-6aca-43ec-b147-aa2bb1bd397c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "00558e56-6aca-43ec-b147-aa2bb1bd397c",
+	"unityPlayUrl": "https://play.unity.com/en/games/00558e56-6aca-43ec-b147-aa2bb1bd397c/battlecon"
+}

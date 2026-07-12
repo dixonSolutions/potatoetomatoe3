@@ -1,0 +1,14 @@
+{
+	"id": "aracnia",
+	"name": "Aracnia",
+	"author": "SyfyKitty",
+	"description": "Created for the Unity Junior Programmer: Counting Prototype project. The Counter is in the top right of the UI for counting the number of kills. Right click to aim, Left click to shoot. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9e43847d-c6c4-4f85-8e37-60f192ae156e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1f41e13a-c85b-4350-a22c-c605bffc4e2f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1f41e13a-c85b-4350-a22c-c605bffc4e2f",
+	"unityPlayUrl": "https://play.unity.com/en/games/1f41e13a-c85b-4350-a22c-c605bffc4e2f/aracnia"
+}

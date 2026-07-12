@@ -1,0 +1,14 @@
+{
+	"id": "ball-sprinter-3d-niveau-3",
+	"name": "Ball Sprinter 3D : Niveau 3",
+	"author": "Pierre-Gaspard",
+	"description": "On ne voie pas le bouton PLAY. Cliquer en bat du jeux. \nFl\u00e8che pour se d\u00e9placer et PAS de le Dash / touche R pour recommencer du d\u00e9but.\nVous avez 10 minute pour faire le parcours. \nNiveau 1:\nhttps://play.unity.com/mg/other/my-new-microgame-7404\nNiveau 2:\nhttps://play.unity.com/mg/other/my-new-microgame-7404",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4ab71171-acb2-4501-897e-b4777f622f93/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01e51e88-5fd2-40f6-87ad-14bdb2433555/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01e51e88-5fd2-40f6-87ad-14bdb2433555",
+	"unityPlayUrl": "https://play.unity.com/en/games/01e51e88-5fd2-40f6-87ad-14bdb2433555/ball-sprinter-3d-niveau-3"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "bee-with-a-gun",
+	"name": "Bee with a gun",
+	"author": "SomeKnight20",
+	"description": "its a game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a1d1ea48-a446-4789-bd67-5a0dcb27078b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/138ad320-d920-4cbb-9695-9f852a28f8cf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "138ad320-d920-4cbb-9695-9f852a28f8cf",
+	"unityPlayUrl": "https://play.unity.com/en/games/138ad320-d920-4cbb-9695-9f852a28f8cf/bee-with-a-gun"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "car-playground",
+	"name": "Car Playground",
+	"author": "Toothless1",
+	"description": "This is my newest and best game that I have made from pre-made assets. I think it is phone friendly but I am not 100% sure.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0b7232d9-35cd-4a0a-8d83-82cf489483a6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/91f4f624-3f67-45e4-b9c0-020f6b314e35/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "91f4f624-3f67-45e4-b9c0-020f6b314e35",
+	"unityPlayUrl": "https://play.unity.com/en/games/91f4f624-3f67-45e4-b9c0-020f6b314e35/car-playground"
+}

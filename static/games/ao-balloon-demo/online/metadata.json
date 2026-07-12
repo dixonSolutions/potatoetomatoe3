@@ -1,0 +1,14 @@
+{
+	"id": "ao-balloon-demo",
+	"name": "AO Balloon Demo",
+	"author": "billcrowther",
+	"description": "A simple lighter-than-air balloon attached to a ballast weight with a simple string model. The balloon has AOBuoyancy forces and AODrag acting on it. The environment uses an AOFluidZone to set the density of the surrounding air, and an AOFluidEffector to set up a simple wind model. The balloon has a custom BallloonController script running on it that allows the user to inflate or deflate the balloon. The user can also change the wind speed and change the length of the string during the game. www.aerodynamicobjects.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/16cb9504-069f-415a-a4a3-d00e06901464/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f35bac5-11ad-4f2c-ae75-3dffb9fdcc23/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f35bac5-11ad-4f2c-ae75-3dffb9fdcc23",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f35bac5-11ad-4f2c-ae75-3dffb9fdcc23/ao-balloon-demo"
+}

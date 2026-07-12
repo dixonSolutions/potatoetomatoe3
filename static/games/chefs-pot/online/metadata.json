@@ -1,0 +1,14 @@
+{
+	"id": "chefs-pot",
+	"name": "Chefs Pot",
+	"author": "Tamara_Blagojevic",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/005a765f-c94c-429c-bc08-82a5b7777d00/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48968b55-a0c6-45bc-8e6b-44368f252a89/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48968b55-a0c6-45bc-8e6b-44368f252a89",
+	"unityPlayUrl": "https://play.unity.com/en/games/48968b55-a0c6-45bc-8e6b-44368f252a89/chefs-pot"
+}

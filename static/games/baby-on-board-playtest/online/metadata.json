@@ -1,0 +1,14 @@
+{
+	"id": "baby-on-board-playtest",
+	"name": "Baby On Board (Playtest)",
+	"author": "btsai",
+	"description": "Supports keyboard and mouse or controller. Questionnaire after playing: https://docs.google.com/forms/d/e/1FAIpQLSdmj3eNLByO8-LFBzNH2KgXnKiz77lSbXqz26DXZ3B1Wf7Xyg/viewform?usp=sf_link",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/57ac2a67-05f0-4714-ba7d-6a711db90d22/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "57ac2a67-05f0-4714-ba7d-6a711db90d22",
+	"unityPlayUrl": "https://play.unity.com/en/games/57ac2a67-05f0-4714-ba7d-6a711db90d22/baby-on-board-playtest"
+}

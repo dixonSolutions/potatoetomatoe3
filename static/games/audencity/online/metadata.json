@@ -1,0 +1,14 @@
+{
+	"id": "audencity",
+	"name": "audencity",
+	"author": "EvelinaKov",
+	"description": "audencity - Vilniaus senamies\u010dio tankio analiz\u0117. \u0160ioje analiz\u0117je tankis yra nagrin\u0117jamas per autenti\u0161kum\u0105 (teritorijos istorin\u0119 kait\u0105) ir efektyvum\u0105 (teritorijos naudojim\u0105). \u0160i simuliacija yra inovatyvus \u012frankis padedantis nuspr\u0119sti, kuriose Vilniaus senamies\u010dio dalyse yra vertinga atkurti autenti\u0161k\u0105 tank\u012f, o kuriose padidinti efektyvum\u0105.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d28e9fc4-bb25-4e17-a56e-ed94e78326d8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bf019fe-c692-43f0-8b13-605c5f394529/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bf019fe-c692-43f0-8b13-605c5f394529",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bf019fe-c692-43f0-8b13-605c5f394529/audencity"
+}

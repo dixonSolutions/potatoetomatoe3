@@ -1,0 +1,14 @@
+{
+	"id": "canyon-rush",
+	"name": "Canyon Rush",
+	"author": "PageO",
+	"description": "Prototype 1 game for Create From Code 2020 Week 1.\nI have uses snow, rain, fire, and smoke particle systems I created in the particle system tutorial.\nAlso, I have linked assets I used they are all free.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/53109269-b6c2-46e6-b3b5-0523f6fb7354/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/982020ed-dbf0-4caf-9dae-c0528d921649/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "982020ed-dbf0-4caf-9dae-c0528d921649",
+	"unityPlayUrl": "https://play.unity.com/en/games/982020ed-dbf0-4caf-9dae-c0528d921649/canyon-rush"
+}

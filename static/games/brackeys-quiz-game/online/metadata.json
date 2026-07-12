@@ -1,0 +1,14 @@
+{
+	"id": "brackeys-quiz-game",
+	"name": "Brackeys Quiz Game",
+	"author": "silver-hornet",
+	"description": "Quiz game prototype created during Brackey's \"How to make a quiz game\" tutorial series on YouTube: https://www.youtube.com/watch?v=g_Ff1SPhidg&list=PLPV2KyIb3jR7ucA2yo5pjvKY0cJmNTq2L&index=1",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9d89335f-4c82-435b-8a87-4990b739cb0b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/071e8296-6414-421f-b438-28ea34d597f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "071e8296-6414-421f-b438-28ea34d597f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/071e8296-6414-421f-b438-28ea34d597f0/brackeys-quiz-game"
+}

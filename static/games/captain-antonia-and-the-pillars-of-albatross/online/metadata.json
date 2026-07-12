@@ -1,0 +1,14 @@
+{
+	"id": "captain-antonia-and-the-pillars-of-albatross",
+	"name": "Captain Antonia and the Pillars of Albatross",
+	"author": "CrypticAlbatross",
+	"description": "My (CrypticAlbatross) submission to the LEGO \"Build Your Own Game\" contest.\n\nThe Pillar Islands of Albatross are slowly crumbling into the sea as earthquakes and maelstroms rattle the world. To reverse the tide of destruction and save the people of Albatross, the explorer Captain Antonia must recover technological relics of a bygone civilization.\n\nGameplay features.\n\u2022\tThe game uses procedural generation for much of its content. From the menu you can always restart a level with a different seed. Unless you use the same seed number, every playthrough is different, some more challenging than others!\n\u2022\tYou can switch between four different cameras: far, near, first-person, and cinematic.\n\u2022\tFive levels: prologue, the Voxelwood Forest, the Cubic Caldera, the Fractal Canyon, and Scholar's Island.\n\nOther details:\n\u2022\tI created the music using Reaper digital audio workstation.\n\u2022\tI created all LEGO models using the LEGO editor asset on Unity.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/e3e32845-c630-4285-970c-3ba20337504a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6e802a72-80a2-4523-b5c4-4178723b3eca/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6e802a72-80a2-4523-b5c4-4178723b3eca",
+	"unityPlayUrl": "https://play.unity.com/en/games/6e802a72-80a2-4523-b5c4-4178723b3eca/captain-antonia-and-the-pillars-of-albatross"
+}

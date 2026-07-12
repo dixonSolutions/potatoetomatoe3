@@ -1,0 +1,14 @@
+{
+	"id": "cat-kart",
+	"name": "Cat Kart",
+	"author": "PuppyNator",
+	"description": "Hi! I'm Megakitty. I made another racing minigame called Kitty Kart so please don't think I copied it. I spent a lot of time on this. I hope you enjoy it!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/57bc84c9-ff83-4c03-bbb9-c591ee8ddf04/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/588f97c5-b979-4f9e-a3e5-9197b82d99e3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "588f97c5-b979-4f9e-a3e5-9197b82d99e3",
+	"unityPlayUrl": "https://play.unity.com/en/games/588f97c5-b979-4f9e-a3e5-9197b82d99e3/cat-kart"
+}

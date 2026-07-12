@@ -1,0 +1,14 @@
+{
+	"id": "by-land-and-by-air",
+	"name": "By Land and by Air",
+	"author": "marchmiskin",
+	"description": "Travel through a five-part course by car and by plane, either by yourself or racing an opponent.\n\nI combined all the Prototype 1 bonus features and the plane challenge into one game and added some other features like a game over screen and the ability to select one or two players.  Honestly, I probably got a little carried away and probably spent way too much time on this, but I did learn a lot by doing it, and now know how to do several things in Unity I hadn't known before.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/852a9081-e8df-44bd-a336-2265d6c051b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1d0729a0-60cc-4878-a468-dd87ad209c4b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1d0729a0-60cc-4878-a468-dd87ad209c4b",
+	"unityPlayUrl": "https://play.unity.com/en/games/1d0729a0-60cc-4878-a468-dd87ad209c4b/by-land-and-by-air"
+}

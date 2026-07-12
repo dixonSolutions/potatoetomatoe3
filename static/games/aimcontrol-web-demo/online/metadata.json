@@ -1,0 +1,14 @@
+{
+	"id": "aimcontrol-web-demo",
+	"name": "AimControl web demo",
+	"author": "forMortalII",
+	"description": "Small web demo to introduce you AimControl",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1faf7cb3-168a-4a79-bdc5-9f47c82781be/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1faf7cb3-168a-4a79-bdc5-9f47c82781be",
+	"unityPlayUrl": "https://play.unity.com/en/games/1faf7cb3-168a-4a79-bdc5-9f47c82781be/aimcontrol-web-demo"
+}

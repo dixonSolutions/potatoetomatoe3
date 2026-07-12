@@ -1,0 +1,14 @@
+{
+	"id": "aether-dash-v21",
+	"name": "Aether Dash V2.1",
+	"author": "rayanabdul",
+	"description": "A fun platformer game that goes through clouds, space, and abyss with each a boss!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03e6efe2-7bef-4cdc-941d-6c8ec4c75323/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03e6efe2-7bef-4cdc-941d-6c8ec4c75323",
+	"unityPlayUrl": "https://play.unity.com/en/games/03e6efe2-7bef-4cdc-941d-6c8ec4c75323/aether-dash-v21"
+}

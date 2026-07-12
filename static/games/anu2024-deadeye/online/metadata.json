@@ -1,0 +1,14 @@
+{
+	"id": "anu2024-deadeye",
+	"name": "ANU2024 Deadeye",
+	"author": "Ainz_X",
+	"description": "Use W, A, S and D to control movement. Mouse to control the direction of shooting, long press the left button to shoot. There are enemies on the ground and in the air. You need to press Q to raise the gun, E to lower the gun and R to change the bullets. For easy testing, press L to win, K to lose, P to pause, then press P resume, and M to give yourself 10 HP. \nExperience balls and props will be randomly generated in the scene, and you can get them automatically by walking up to them. When the experience is full, you can upgrade and select the attribute to upgrade. \nTentatively, if you get 10,000 points, you win, and if your HP is <0, you lose.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9b959be9-b404-4eb4-a77a-56648bf1e495/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/791c6165-95fd-48e5-a02b-1328b05e095f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "791c6165-95fd-48e5-a02b-1328b05e095f",
+	"unityPlayUrl": "https://play.unity.com/en/games/791c6165-95fd-48e5-a02b-1328b05e095f/anu2024-deadeye"
+}

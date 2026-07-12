@@ -1,0 +1,14 @@
+{
+	"id": "angry-birds-prototype",
+	"name": "Angry Birds Prototype",
+	"author": "Gramatik1",
+	"description": "Each bird has its own abilities.\nTo activate the ability, press \"Space\" on your keyboard.\nThe maximum number of attempts per round is 3, i.e. 3 birds per round.\nThe scoring is as follows:\n1. At the beginning of the round you are given 300 points\n2. For each throw by the bird, you subtract 100 from the original 300\n3. For each enemy 200 points are given\n4. For the final boss 500 (initially 600 for each roll -200)\nby Andrew A",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e0dfed0-191a-4f35-a7fc-c7f0606a87a9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/09864c11-5f62-4a0e-8196-47db9a4e2be8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "09864c11-5f62-4a0e-8196-47db9a4e2be8",
+	"unityPlayUrl": "https://play.unity.com/en/games/09864c11-5f62-4a0e-8196-47db9a4e2be8/angry-birds-prototype"
+}

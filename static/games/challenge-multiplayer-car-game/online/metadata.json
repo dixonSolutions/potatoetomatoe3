@@ -1,0 +1,14 @@
+{
+	"id": "challenge-multiplayer-car-game",
+	"name": "Challenge: Multiplayer Car Game",
+	"author": "Kuraviso",
+	"description": "In this microgame i've learned how to add simple player controls and how to implement different cameras, implement local multiplayer and much more!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1b2835db-6551-4a3c-be3b-5e3fa5f90f71/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/57850a12-707d-48b9-8c45-42f8d5c30887/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "57850a12-707d-48b9-8c45-42f8d5c30887",
+	"unityPlayUrl": "https://play.unity.com/en/games/57850a12-707d-48b9-8c45-42f8d5c30887/challenge-multiplayer-car-game"
+}

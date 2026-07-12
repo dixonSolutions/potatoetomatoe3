@@ -1,0 +1,14 @@
+{
+	"id": "blue-planet",
+	"name": "Blue planet",
+	"author": "toly98",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03241290-3c26-47a5-b979-cdb42545060f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03241290-3c26-47a5-b979-cdb42545060f",
+	"unityPlayUrl": "https://play.unity.com/en/games/03241290-3c26-47a5-b979-cdb42545060f/blue-planet"
+}

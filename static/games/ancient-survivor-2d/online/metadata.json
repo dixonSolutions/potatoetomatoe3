@@ -1,0 +1,14 @@
+{
+	"id": "ancient-survivor-2d",
+	"name": "Ancient Survivor 2D",
+	"author": "vasco2000",
+	"description": "Try and test my first platform game, collecting all coins between enemies. Development still on going .. Use keyboard (arrows left, right, up to jump, spacebar to fire) or touch screen virtual mobile joystick in full screen mode. Enjoy!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/345c3876-6f98-4ce1-ad00-428e8b5e03a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4f794362-0601-4bde-80d3-4e400ff5a8a7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4f794362-0601-4bde-80d3-4e400ff5a8a7",
+	"unityPlayUrl": "https://play.unity.com/en/games/4f794362-0601-4bde-80d3-4e400ff5a8a7/ancient-survivor-2d"
+}

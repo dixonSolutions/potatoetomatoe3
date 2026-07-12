@@ -1,0 +1,14 @@
+{
+	"id": "big-balls",
+	"name": "BIG BALLS",
+	"author": "ducclucc5",
+	"description": "WASD or arrow keys to move and SPACE to shoot. NEW UPDATE: Bug fixes: camera bug (fast rotating camera when hitting the side of the bridge), Level crossing bug (Transitioning from the bridge level to a normal level made you stuck if going too slow. Revamped mode select, Super easy mode has been added, the enemies run away from you at 2X speed and there is no drift or turrets.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/63e6a77f-77f3-4ea1-9550-b7250f625142/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e6490748-7b8a-4a99-8090-11c36a9b93fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e6490748-7b8a-4a99-8090-11c36a9b93fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/e6490748-7b8a-4a99-8090-11c36a9b93fa/big-balls"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "boxplatformer-v165",
+	"name": "BoxPlatformer V1.65",
+	"author": "meepsthesackbot",
+	"description": "Jump through procedurally generated worlds as a box (its a box because I can't do art)! Controls are WASD or arrows, r to reset, and I think you can figure out the rest. Update log here : https://bit.ly/45HMLKY and bug fix form here : https://forms.gle/AWG5AsSXk6J4hPVk9",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6e35808b-67f1-465e-bd93-46d702581196/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/51a01ec8-62e9-4ae9-8c77-c38e3cf018ec/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "51a01ec8-62e9-4ae9-8c77-c38e3cf018ec",
+	"unityPlayUrl": "https://play.unity.com/en/games/51a01ec8-62e9-4ae9-8c77-c38e3cf018ec/boxplatformer-v165"
+}

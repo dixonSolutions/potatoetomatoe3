@@ -1,0 +1,14 @@
+{
+	"id": "banana-allergi",
+	"name": "Banana Allergi",
+	"author": "Bastoner",
+	"description": "Help this funny monkey to avoid all bananas for as much as you can!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/793617bb-095b-46d0-a019-4de3514f94cc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5eab25a8-8572-497e-afa6-ab4efb974941/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5eab25a8-8572-497e-afa6-ab4efb974941",
+	"unityPlayUrl": "https://play.unity.com/en/games/5eab25a8-8572-497e-afa6-ab4efb974941/banana-allergi"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "backjox-games-v2",
+	"name": "BackJox Games V2",
+	"author": "shanmemon",
+	"description": "good game.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/48b19729-115f-423d-b21c-82ffb55cdee3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "48b19729-115f-423d-b21c-82ffb55cdee3",
+	"unityPlayUrl": "https://play.unity.com/en/games/48b19729-115f-423d-b21c-82ffb55cdee3/backjox-games-v2"
+}

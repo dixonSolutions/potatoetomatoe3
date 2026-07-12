@@ -1,0 +1,14 @@
+{
+	"id": "a021",
+	"name": "A0.21",
+	"author": "Patagonia01",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/f667ad8d-e636-4637-bc4f-d5d261bc5bbb/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "f667ad8d-e636-4637-bc4f-d5d261bc5bbb",
+	"unityPlayUrl": "https://play.unity.com/en/games/f667ad8d-e636-4637-bc4f-d5d261bc5bbb/a021"
+}

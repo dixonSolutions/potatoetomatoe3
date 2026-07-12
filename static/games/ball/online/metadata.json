@@ -1,0 +1,14 @@
+{
+	"id": "ball",
+	"name": "Ball!",
+	"author": "Oskarsavolam",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b7c31c44-0b7d-4001-9089-450d82a27c1f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/34881741-143c-4e0b-a290-e7088cac60b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "34881741-143c-4e0b-a290-e7088cac60b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/34881741-143c-4e0b-a290-e7088cac60b0/ball"
+}

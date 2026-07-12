@@ -1,0 +1,14 @@
+{
+	"id": "aids",
+	"name": "A.I.D.S",
+	"author": "Zuzelo",
+	"description": "Artificial Intelligence Drifting Simulator",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2685007a-57c7-4fa0-a0d6-e1313e8e3515/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b80476d3-865b-44a7-80d9-a842c81854f7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b80476d3-865b-44a7-80d9-a842c81854f7",
+	"unityPlayUrl": "https://play.unity.com/en/games/b80476d3-865b-44a7-80d9-a842c81854f7/aids"
+}

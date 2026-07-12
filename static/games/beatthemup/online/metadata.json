@@ -1,0 +1,14 @@
+{
+	"id": "beatthemup",
+	"name": "BeatThemUp",
+	"author": "Raheelahmed1225",
+	"description": "Multiplayer Racing Game using photon with 2 game modes Race game and Death Race game in which you need to kill the other player. This project is buggy and lacking in game play, any feedback would be best for game.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/60cf7ce1-726c-4bd8-9c6e-e942f622a660/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9af8606d-b767-4a39-90e7-237df81d0d6c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9af8606d-b767-4a39-90e7-237df81d0d6c",
+	"unityPlayUrl": "https://play.unity.com/en/games/9af8606d-b767-4a39-90e7-237df81d0d6c/beatthemup"
+}

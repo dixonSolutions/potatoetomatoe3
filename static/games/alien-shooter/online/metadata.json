@@ -1,0 +1,14 @@
+{
+	"id": "alien-shooter",
+	"name": "Alien Shooter",
+	"author": "rishanjraj",
+	"description": "Play Alien Shooter on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1b660f33-6cfe-4873-9954-b4c64ce6ff3e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4e10d155-59ac-49b7-88da-ad21bcc04bd1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4e10d155-59ac-49b7-88da-ad21bcc04bd1",
+	"unityPlayUrl": "https://play.unity.com/en/games/4e10d155-59ac-49b7-88da-ad21bcc04bd1/alien-shooter"
+}

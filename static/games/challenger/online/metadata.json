@@ -1,0 +1,14 @@
+{
+	"id": "challenger",
+	"name": "Challenger",
+	"author": "ZBensinger_NDHS",
+	"description": "Good luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6dcfc799-6262-4eab-846a-37387c2ee8f0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1350026f-e839-404e-8182-b1ac9d7f856d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1350026f-e839-404e-8182-b1ac9d7f856d",
+	"unityPlayUrl": "https://play.unity.com/en/games/1350026f-e839-404e-8182-b1ac9d7f856d/challenger"
+}

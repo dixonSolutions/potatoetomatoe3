@@ -1,0 +1,14 @@
+{
+	"id": "bomblastic",
+	"name": "Bomblastic",
+	"author": "Unity Play",
+	"description": "Join Benton, the brave protagonist, on an exciting single-player adventure to find his way back home! Lost in a mysterious world, Benton must navigate through a series of challenging levels filled with unique obstacles and formidable enemies.\n\nYour mission is to guide Benton through this adventurous journey, deciphering hints that will help you overcome each level's trials. To unlock the exit portal and advance, you'll need to collect three essential keys scattered throughout the environment.\n\nAre you ready to embark on this thrilling quest and help Benton find his way home? Test your skills, solve puzzles, and conquer enemies in this captivating adventure!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9aa04fd2-1971-4c9f-b1cf-3b753cd6ea5b/content",
+	"category": "adventure",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/86edc36c-676c-45cf-9e90-ad7070569601/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "86edc36c-676c-45cf-9e90-ad7070569601",
+	"unityPlayUrl": "https://play.unity.com/en/games/86edc36c-676c-45cf-9e90-ad7070569601/bomblastic"
+}

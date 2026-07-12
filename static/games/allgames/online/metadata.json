@@ -1,0 +1,14 @@
+{
+	"id": "allgames",
+	"name": "AllGames",
+	"author": "AonaS",
+	"description": "Play AllGames on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/26cb6d57-cee2-451d-a0cd-ec630dec6e7e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "26cb6d57-cee2-451d-a0cd-ec630dec6e7e",
+	"unityPlayUrl": "https://play.unity.com/en/games/26cb6d57-cee2-451d-a0cd-ec630dec6e7e/allgames"
+}

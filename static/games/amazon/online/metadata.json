@@ -1,0 +1,14 @@
+{
+	"id": "amazon",
+	"name": "AMAZON",
+	"author": "Dhananjay2981",
+	"description": "AMAZON is a first person controller shooting game. Find all the enemies and eliminate them within the given time limit. All the best. Hope you like it. ENJOY!!!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/c5be9b92-579d-4e11-81a3-30b8f318209f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/694ef376-c9d1-40e5-aa1c-93f1b1c39118/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "694ef376-c9d1-40e5-aa1c-93f1b1c39118",
+	"unityPlayUrl": "https://play.unity.com/en/games/694ef376-c9d1-40e5-aa1c-93f1b1c39118/amazon"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "brawlhalla-2",
+	"name": "Brawlhalla 2",
+	"author": "Damickos",
+	"description": "very simple fps with 1 level",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/94e123ef-076e-43db-821a-7134fa791380/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/55e1af1a-e6b1-4ff3-9bc5-10d82cfc7fb7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "55e1af1a-e6b1-4ff3-9bc5-10d82cfc7fb7",
+	"unityPlayUrl": "https://play.unity.com/en/games/55e1af1a-e6b1-4ff3-9bc5-10d82cfc7fb7/brawlhalla-2"
+}

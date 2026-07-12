@@ -1,0 +1,14 @@
+{
+	"id": "basic-world",
+	"name": "Basic World",
+	"author": "rgsline09",
+	"description": "Basic World jump jump win",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/73a2057e-f073-4320-a215-707860ad6746/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0353966a-58eb-484d-8253-72203bc368b9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0353966a-58eb-484d-8253-72203bc368b9",
+	"unityPlayUrl": "https://play.unity.com/en/games/0353966a-58eb-484d-8253-72203bc368b9/basic-world"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "3d-stealth-game-haunted-house",
+	"name": "3D Stealth Game: Haunted House",
+	"author": "Unity-Learning-Team",
+	"description": "Play an extended version of the Stealth Game: Haunted House, available on Unity Learn. This version includes a main menu, key and door obstacles, and more!\n\nHow to Play:\nUse the Arrow Keys to navigate",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b76a357d-8181-404d-833e-8175362a2eaf/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c814417a-b8ef-4161-b050-aedfe962a875/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c814417a-b8ef-4161-b050-aedfe962a875",
+	"unityPlayUrl": "https://play.unity.com/en/games/c814417a-b8ef-4161-b050-aedfe962a875/3d-stealth-game-haunted-house"
+}

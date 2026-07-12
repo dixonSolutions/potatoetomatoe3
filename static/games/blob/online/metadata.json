@@ -1,0 +1,14 @@
+{
+	"id": "blob",
+	"name": "Blob",
+	"author": "elTroller333",
+	"description": "Play blob here and enjoy your time. Right now there is only 1 level but we will add more soon :) Our discord: https://discord.gg/SrfpH87",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/82d144a4-d631-4768-96da-438cb51b0fe1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e96aee9b-08d9-4562-a17a-60b7dee6b5fa/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e96aee9b-08d9-4562-a17a-60b7dee6b5fa",
+	"unityPlayUrl": "https://play.unity.com/en/games/e96aee9b-08d9-4562-a17a-60b7dee6b5fa/blob"
+}

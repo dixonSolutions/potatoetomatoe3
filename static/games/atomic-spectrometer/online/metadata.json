@@ -1,0 +1,14 @@
+{
+	"id": "atomic-spectrometer",
+	"name": "Atomic Spectrometer",
+	"author": "Dreambrother",
+	"description": "This is a simulation of an atomic spectrometer to be used by students at the University of Tokyo while access to laboratories is impossible due to the spread of the novel coronavirus. For instructions on use, please download the tutorial sheet from ITC-LMS.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/09fed82f-e34e-4631-87a2-4e718ba85fee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ccd18e91-cdb8-4c71-b25f-fb022e05fea3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ccd18e91-cdb8-4c71-b25f-fb022e05fea3",
+	"unityPlayUrl": "https://play.unity.com/en/games/ccd18e91-cdb8-4c71-b25f-fb022e05fea3/atomic-spectrometer"
+}

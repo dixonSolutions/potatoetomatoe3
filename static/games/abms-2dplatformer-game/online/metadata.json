@@ -1,0 +1,14 @@
+{
+	"id": "abms-2dplatformer-game",
+	"name": "Abm's 2D_Platformer Game",
+	"author": "ABM_ABOLFAZL",
+	"description": "Play Abm's 2D_Platformer Game on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2da74bc1-e4fc-4d33-914b-bc72fe1226a8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/051e9de5-bc25-4ea8-b232-eea7841efe86/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "051e9de5-bc25-4ea8-b232-eea7841efe86",
+	"unityPlayUrl": "https://play.unity.com/en/games/051e9de5-bc25-4ea8-b232-eea7841efe86/abms-2dplatformer-game"
+}

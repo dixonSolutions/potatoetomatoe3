@@ -1,0 +1,14 @@
+{
+	"id": "air-force-knockout",
+	"name": "Air force knockout",
+	"author": "sebbyssbart",
+	"description": "https://scodegames.com/",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cc8ce4fe-426c-44b3-b4a6-ee283455a908/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d077c33a-ffdd-41a6-ae36-99e51f74a37f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d077c33a-ffdd-41a6-ae36-99e51f74a37f",
+	"unityPlayUrl": "https://play.unity.com/en/games/d077c33a-ffdd-41a6-ae36-99e51f74a37f/air-force-knockout"
+}

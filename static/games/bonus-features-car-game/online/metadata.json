@@ -1,0 +1,14 @@
+{
+	"id": "bonus-features-car-game",
+	"name": "Bonus Features Car Game",
+	"author": "DelgadoUprep",
+	"description": "I added more cars with random AI, improved camera and player controller to work with mouse and keyboard. I also made some music in GroovePad.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/dfd6c203-c15a-4520-95d0-3b45fff59c93/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b222eb45-b5ba-453f-aa59-aeecf4349e76/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b222eb45-b5ba-453f-aa59-aeecf4349e76",
+	"unityPlayUrl": "https://play.unity.com/en/games/b222eb45-b5ba-453f-aa59-aeecf4349e76/bonus-features-car-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "ball-run",
+	"name": "Ball Run",
+	"author": "Games1O1",
+	"description": "TSA VideoGame Design 2025 submission.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d0dbe488-c372-42b7-9828-a600288dbc93/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d0dbe488-c372-42b7-9828-a600288dbc93",
+	"unityPlayUrl": "https://play.unity.com/en/games/d0dbe488-c372-42b7-9828-a600288dbc93/ball-run"
+}

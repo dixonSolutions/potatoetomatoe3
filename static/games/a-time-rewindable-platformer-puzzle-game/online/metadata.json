@@ -1,0 +1,14 @@
+{
+	"id": "a-time-rewindable-platformer-puzzle-game",
+	"name": "A time rewindable platformer puzzle game",
+	"author": "SheepWings",
+	"description": "Total 6 levels\nSwitch Time Flow: R\nLift and Drop crate, Trigger crank: L\nMovement: WSAD \nJump: Space\nEnter the next room: K",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf9e69c4-f286-4678-86a6-63a12d31c7a9/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b4156279-7d48-492e-8c78-907fadf8752f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b4156279-7d48-492e-8c78-907fadf8752f",
+	"unityPlayUrl": "https://play.unity.com/en/games/b4156279-7d48-492e-8c78-907fadf8752f/a-time-rewindable-platformer-puzzle-game"
+}

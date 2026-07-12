@@ -1,0 +1,14 @@
+{
+	"id": "aang-vs-ozai",
+	"name": "Aang vs Ozai",
+	"author": "SabrinaBP",
+	"description": "An Avatar: The Last Airbender themed spin on Prototype 4, with all bonus features included and a 'Continue' button. Made for Unit 4 of the Create with Code course.\nEDIT: You can use the arrow keys as well as WASD. For some reason the arrow symbols in the UI don't appear in the WebGL version, though they did in Unity.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/902ab359-1684-44f8-99d0-287fb65cc53e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01555da8-65bd-40a1-8539-7c8e330c42b7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01555da8-65bd-40a1-8539-7c8e330c42b7",
+	"unityPlayUrl": "https://play.unity.com/en/games/01555da8-65bd-40a1-8539-7c8e330c42b7/aang-vs-ozai"
+}

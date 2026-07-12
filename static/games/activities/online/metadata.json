@@ -1,0 +1,14 @@
+{
+	"id": "activities",
+	"name": "Activities",
+	"author": "ZenryokuStudio",
+	"description": "English activities",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0d021a28-ee63-42fa-a7ab-6766b503f550/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0d021a28-ee63-42fa-a7ab-6766b503f550",
+	"unityPlayUrl": "https://play.unity.com/en/games/0d021a28-ee63-42fa-a7ab-6766b503f550/activities"
+}

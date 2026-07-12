@@ -1,0 +1,14 @@
+{
+	"id": "campus-clues",
+	"name": "Campus Clues",
+	"author": "markandriedelacruz25",
+	"description": "This game helps new and transfer students explore the campus and learn about offices and their services. \n\nFor the best experience, play in full-screen. If it turns black, click anywhere to continue.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/038dc0c2-29d9-40a0-bb50-062270e736df/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "038dc0c2-29d9-40a0-bb50-062270e736df",
+	"unityPlayUrl": "https://play.unity.com/en/games/038dc0c2-29d9-40a0-bb50-062270e736df/campus-clues"
+}

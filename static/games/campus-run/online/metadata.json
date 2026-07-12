@@ -1,0 +1,14 @@
+{
+	"id": "campus-run",
+	"name": "Campus Run",
+	"author": "KungFuRobbe",
+	"description": "An endless runner student project for gamified learning",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a9103152-97b9-47ed-970e-f22ed1059a3d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a9103152-97b9-47ed-970e-f22ed1059a3d",
+	"unityPlayUrl": "https://play.unity.com/en/games/a9103152-97b9-47ed-970e-f22ed1059a3d/campus-run"
+}

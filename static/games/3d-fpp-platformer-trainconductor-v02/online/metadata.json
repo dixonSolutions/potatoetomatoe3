@@ -1,0 +1,14 @@
+{
+	"id": "3d-fpp-platformer-trainconductor-v02",
+	"name": "3D FPP Platformer - TrainConductor v0.2",
+	"author": "WandererStudio",
+	"description": "PC Version: https://wandererstudio.itch.io/train-conductor\n\nOverview:\nTRAIN CONDUCTOR is an action game set in a fantasy version of Victorian Europe. The player takes on the role of the \u201cTrain Conductor\u201d and gets to protect the mysterious train, discover supernatural activities and creepy passengers.\n\nThe game is still in development. This is only a Prototype to show you the feel of what we want to present in the future. Please tune in for more update.\n\nControls:\nMOVEMENT: [WASD]\nJUMP: [Space]\nDASH: [Left Shift]\nINTERACT: Press [E] to interact with ruby and door\nATTACK: [LMB] (Left mouse button)\nSLOW TIME: [Q]\n\nGameplay:\nYour mission is to touch three ruby gems in order to unlock the final door. Feel free to kill everything on your path.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/27561785-dece-4cb0-b510-deee8482986f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3ec3d23e-4c5d-46e5-bc06-e767c0eeeb1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3ec3d23e-4c5d-46e5-bc06-e767c0eeeb1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/3ec3d23e-4c5d-46e5-bc06-e767c0eeeb1c/3d-fpp-platformer-trainconductor-v02"
+}

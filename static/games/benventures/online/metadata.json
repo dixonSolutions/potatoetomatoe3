@@ -1,0 +1,14 @@
+{
+	"id": "benventures",
+	"name": "Benventures",
+	"author": "Bigbigvagg",
+	"description": "This is my first game. It is a parkour, riddle and action game. The concept is very simple you are a bean and lost your can. Your objective is to find your way back to the can and survive the deadly obstacles. Quote: As wise man once said \"Beans\" - Dani.    Version 1.1: Changed level 2 a little so that the game is lighter and loads faster.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0ab95074-3ad4-40ab-a2ce-ed297a36bb9d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/22438d29-a7a9-418e-a571-1b0c2c9a2859/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "22438d29-a7a9-418e-a571-1b0c2c9a2859",
+	"unityPlayUrl": "https://play.unity.com/en/games/22438d29-a7a9-418e-a571-1b0c2c9a2859/benventures"
+}

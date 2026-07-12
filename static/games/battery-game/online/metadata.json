@@ -1,0 +1,14 @@
+{
+	"id": "battery-game",
+	"name": "battery-game",
+	"author": "vantheart1st",
+	"description": "By Van Yang",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d0ffc2fe-6891-49d8-adec-22bc1a829d19/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d0ffc2fe-6891-49d8-adec-22bc1a829d19",
+	"unityPlayUrl": "https://play.unity.com/en/games/d0ffc2fe-6891-49d8-adec-22bc1a829d19/battery-game"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "bunny-ball-game",
+	"name": "Bunny Ball Game",
+	"author": "Kapuniai42",
+	"description": "Controls: Press W,A,S,D to move Ball & Space to Boost Jump, Objective: Collect the Key to Win! Hint: You need to Collect Carrots to Jump!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0af68983-7510-41a2-81c8-92e4deeeb218/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/644010b3-3a78-4124-8c69-7b2527da9697/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "644010b3-3a78-4124-8c69-7b2527da9697",
+	"unityPlayUrl": "https://play.unity.com/en/games/644010b3-3a78-4124-8c69-7b2527da9697/bunny-ball-game"
+}

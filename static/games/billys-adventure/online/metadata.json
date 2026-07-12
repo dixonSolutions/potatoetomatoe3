@@ -1,0 +1,14 @@
+{
+	"id": "billys-adventure",
+	"name": "Billy's Adventure",
+	"author": "KevinDevYT",
+	"description": "Alto's Adventure Scuffed Edition made in 2 days",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9dc701c6-ef4d-4bb2-8eca-de5a0453a5d8/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/69f3b0ce-6213-4f95-bf8f-e9580619bb2d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "69f3b0ce-6213-4f95-bf8f-e9580619bb2d",
+	"unityPlayUrl": "https://play.unity.com/en/games/69f3b0ce-6213-4f95-bf8f-e9580619bb2d/billys-adventure"
+}

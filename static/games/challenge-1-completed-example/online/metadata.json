@@ -1,0 +1,14 @@
+{
+	"id": "challenge-1-completed-example",
+	"name": "Challenge 1- completed example",
+	"author": "vj_anomolee",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8a389795-6a94-4408-99aa-c3412dac4f9f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1de26ce6-30be-4f31-8399-5d13676284cd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1de26ce6-30be-4f31-8399-5d13676284cd",
+	"unityPlayUrl": "https://play.unity.com/en/games/1de26ce6-30be-4f31-8399-5d13676284cd/challenge-1-completed-example"
+}

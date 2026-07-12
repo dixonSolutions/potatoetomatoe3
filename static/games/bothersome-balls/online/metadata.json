@@ -1,0 +1,14 @@
+{
+	"id": "bothersome-balls",
+	"name": "Bothersome Balls",
+	"author": "EeJayEn",
+	"description": "Collect the pickups to activate abilities!                                                             Move forwards and backwards and rotate the camera with W/A/S/D or the arrow keys. Hold Left Shift to rotate the camera faster and press Space to activate certain abilities!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/bc327cf1-5195-4b85-bde4-7b47a2aa6565/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/75a71d5a-4ec0-4eed-82eb-376577125c1c/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "75a71d5a-4ec0-4eed-82eb-376577125c1c",
+	"unityPlayUrl": "https://play.unity.com/en/games/75a71d5a-4ec0-4eed-82eb-376577125c1c/bothersome-balls"
+}

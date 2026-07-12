@@ -1,0 +1,14 @@
+{
+	"id": "behavior-bricks-lego-crane-game",
+	"name": "Behavior Bricks: Lego Crane Game",
+	"author": "Sabresword",
+	"description": "This is a game created for the \"LEGO\u00ae NINJAGO\u00ae & 1-Button Game Challenge\". Its a single button Crane game where you hold and release the Up button to move left, forward and then down. Try to win all ten prizes! Created By JohnnyBrickster.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3d58af5c-29af-4ad1-b845-a9e7017cf007/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4cb87d88-2950-486e-a1c7-d2c01f53ea9b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4cb87d88-2950-486e-a1c7-d2c01f53ea9b",
+	"unityPlayUrl": "https://play.unity.com/en/games/4cb87d88-2950-486e-a1c7-d2c01f53ea9b/behavior-bricks-lego-crane-game"
+}

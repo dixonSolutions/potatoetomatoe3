@@ -1,0 +1,14 @@
+{
+	"id": "cafe-tycoon",
+	"name": "Caf\u00e9 Tycoon",
+	"author": "Zorgger",
+	"description": "Expandable proof of concept.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/503946a3-5c89-4992-953c-07df6ee28fbc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/841f3ad1-2beb-48f8-8341-b4f5d9939cd1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "841f3ad1-2beb-48f8-8341-b4f5d9939cd1",
+	"unityPlayUrl": "https://play.unity.com/en/games/841f3ad1-2beb-48f8-8341-b4f5d9939cd1/cafe-tycoon"
+}

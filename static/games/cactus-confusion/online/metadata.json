@@ -1,0 +1,14 @@
+{
+	"id": "cactus-confusion",
+	"name": "Cactus Confusion",
+	"author": "GregoryLane",
+	"description": "Made using the Creator Kit: Beginner Code tutorial (https://learn.unity.com/project/creator-kit-beginner-code), and following the Cactus Mod (https://www.youtube.com/watch?v=a6lpcR47sDE). Point to click and navigate this wild west town! In the lawless west one question remains - will you search the lands in riches for yourself, or will you be loyal to your cactus brethren?",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/626a9c62-3f75-4eeb-933f-7350d64f03a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ecf0fe96-071a-4d4a-9825-1263572a7a16/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ecf0fe96-071a-4d4a-9825-1263572a7a16",
+	"unityPlayUrl": "https://play.unity.com/en/games/ecf0fe96-071a-4d4a-9825-1263572a7a16/cactus-confusion"
+}

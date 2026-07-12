@@ -1,0 +1,14 @@
+{
+	"id": "chalet",
+	"name": "Chalet",
+	"author": "Tianatis",
+	"description": "Essentials Audio Project",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9e9ef42b-1d9b-49cf-beb0-d60fad2cf661/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6ebc692b-ba36-4f7e-a486-1f515bc6a853/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6ebc692b-ba36-4f7e-a486-1f515bc6a853",
+	"unityPlayUrl": "https://play.unity.com/en/games/6ebc692b-ba36-4f7e-a486-1f515bc6a853/chalet"
+}

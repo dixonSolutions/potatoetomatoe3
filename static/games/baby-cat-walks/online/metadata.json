@@ -1,0 +1,14 @@
+{
+	"id": "baby-cat-walks",
+	"name": "Baby Cat Walks",
+	"author": "Pika-14",
+	"description": "Operating manual\n\u3000Up arrow : forward\n\u3000Down arrow : backward\n\u3000Left arrow : Rotate to the left\n\u3000Right arrow : Rotate to the right\n\u3000Space : Jump\n\nVisual scripting in unity version 2021.1. Did not work. (A lot of errors were displayed in the console.)\nSo I created it with unity version 2020.3. And Bolt.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cf767924-9009-48fe-88d3-3ac624e6bc32/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a5b53f3b-639f-4bc1-a3a3-545f2e07d8f9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a5b53f3b-639f-4bc1-a3a3-545f2e07d8f9",
+	"unityPlayUrl": "https://play.unity.com/en/games/a5b53f3b-639f-4bc1-a3a3-545f2e07d8f9/baby-cat-walks"
+}

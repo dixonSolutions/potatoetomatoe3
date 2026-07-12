@@ -1,0 +1,14 @@
+{
+	"id": "360-virtual-tour",
+	"name": "360 Virtual Tour",
+	"author": "akasheroor1",
+	"description": "This is a 360 Virtual tour application",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4ef393f1-8ee9-4a37-b0b2-81aa1ac4f5d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4ef393f1-8ee9-4a37-b0b2-81aa1ac4f5d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/4ef393f1-8ee9-4a37-b0b2-81aa1ac4f5d8/360-virtual-tour"
+}

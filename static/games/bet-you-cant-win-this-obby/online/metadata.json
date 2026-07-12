@@ -1,0 +1,14 @@
+{
+	"id": "bet-you-cant-win-this-obby",
+	"name": "Bet You Can't Win This Obby",
+	"author": "KaKaChiKo",
+	"description": "Try to win this obby with friends",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/af88a738-88c4-428d-b885-3ef12baa1c99/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/dc2aa176-4bea-4c29-90f1-54a0ac5d4412/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "dc2aa176-4bea-4c29-90f1-54a0ac5d4412",
+	"unityPlayUrl": "https://play.unity.com/en/games/dc2aa176-4bea-4c29-90f1-54a0ac5d4412/bet-you-cant-win-this-obby"
+}

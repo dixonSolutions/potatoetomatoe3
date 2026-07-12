@@ -1,0 +1,14 @@
+{
+	"id": "astrotour-demo",
+	"name": "AstroTour Demo",
+	"author": "safbaig5",
+	"description": "Venture Plaza not complete/playable. Play in fullscreen for best experience.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/117a1c70-6e9d-4298-94f0-9febbab64874/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/88f9e180-24b6-4466-be51-0cd402496f47/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "88f9e180-24b6-4466-be51-0cd402496f47",
+	"unityPlayUrl": "https://play.unity.com/en/games/88f9e180-24b6-4466-be51-0cd402496f47/astrotour-demo"
+}

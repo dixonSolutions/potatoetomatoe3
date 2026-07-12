@@ -1,0 +1,14 @@
+{
+	"id": "bteam",
+	"name": "Bteam",
+	"author": "roki20000713",
+	"description": "a!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/742c7d94-374d-4772-a486-9f0b08e50f9d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "742c7d94-374d-4772-a486-9f0b08e50f9d",
+	"unityPlayUrl": "https://play.unity.com/en/games/742c7d94-374d-4772-a486-9f0b08e50f9d/bteam"
+}

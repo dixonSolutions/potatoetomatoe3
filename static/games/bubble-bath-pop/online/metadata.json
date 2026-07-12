@@ -1,0 +1,14 @@
+{
+	"id": "bubble-bath-pop",
+	"name": "Bubble Bath Pop!",
+	"author": "Unity Play",
+	"description": "A casual physics-based block breaker game with a twist! Match the bubble colors to the blocks to do extra damage, and earn powerups for an extra boost!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/722692b6-b419-4445-b5b3-cddb1d0a4e37/content",
+	"category": "casual-and-puzzle",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/389c5a31-4ecc-47ff-9eb5-ad562366e3af/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "389c5a31-4ecc-47ff-9eb5-ad562366e3af",
+	"unityPlayUrl": "https://play.unity.com/en/games/389c5a31-4ecc-47ff-9eb5-ad562366e3af/bubble-bath-pop"
+}

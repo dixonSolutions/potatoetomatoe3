@@ -1,0 +1,14 @@
+{
+	"id": "atomgamejamoyun1",
+	"name": "atom_game_jam_oyun_1",
+	"author": "barbarosisik",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/8879ab7a-4638-4b25-be35-4e7ae313b345/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/867b3a6a-5aae-4632-865d-175208306509/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "867b3a6a-5aae-4632-865d-175208306509",
+	"unityPlayUrl": "https://play.unity.com/en/games/867b3a6a-5aae-4632-865d-175208306509/atomgamejamoyun1"
+}

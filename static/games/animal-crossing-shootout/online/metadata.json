@@ -1,0 +1,14 @@
+{
+	"id": "animal-crossing-shootout",
+	"name": "Animal Crossing Shootout",
+	"author": "vendaar",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/123c28e7-a63d-4069-8fda-dc6a7b53dc71/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "123c28e7-a63d-4069-8fda-dc6a7b53dc71",
+	"unityPlayUrl": "https://play.unity.com/en/games/123c28e7-a63d-4069-8fda-dc6a7b53dc71/animal-crossing-shootout"
+}

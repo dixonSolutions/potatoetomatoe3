@@ -1,0 +1,14 @@
+{
+	"id": "astratest",
+	"name": "Astra_test",
+	"author": "chexare",
+	"description": "Third test",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/06564bce-1818-4f8b-af5b-3cd139436369/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "06564bce-1818-4f8b-af5b-3cd139436369",
+	"unityPlayUrl": "https://play.unity.com/en/games/06564bce-1818-4f8b-af5b-3cd139436369/astratest"
+}

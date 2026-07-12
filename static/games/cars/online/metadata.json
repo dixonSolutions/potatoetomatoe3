@@ -1,0 +1,14 @@
+{
+	"id": "cars",
+	"name": "Cars",
+	"author": "BeekeeperOn",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/65d6843a-17bc-499c-83e7-9e6709c340db/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "65d6843a-17bc-499c-83e7-9e6709c340db",
+	"unityPlayUrl": "https://play.unity.com/en/games/65d6843a-17bc-499c-83e7-9e6709c340db/cars"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "carter-mccarty-kart",
+	"name": "Carter McCarty Kart",
+	"author": "theosname",
+	"description": "Took the source game, finished the track, and modified the cart physics.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/18d08e58-b74f-4e9b-8191-0ab68c9d8377/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0728f33b-50ad-4e83-bc42-40d0f691b739/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0728f33b-50ad-4e83-bc42-40d0f691b739",
+	"unityPlayUrl": "https://play.unity.com/en/games/0728f33b-50ad-4e83-bc42-40d0f691b739/carter-mccarty-kart"
+}

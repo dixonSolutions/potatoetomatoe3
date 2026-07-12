@@ -1,0 +1,14 @@
+{
+	"id": "amc-art-hunt-challenge-gallery",
+	"name": "AMC Art Hunt Challenge Gallery",
+	"author": "AMC_Studio",
+	"description": "AMC Art Hunt Challenge Gallery",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/73c88c96-9fcf-43d7-97e6-5563590f6ff6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c143ff81-40c6-4ef4-b05d-042264ca4b77/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c143ff81-40c6-4ef4-b05d-042264ca4b77",
+	"unityPlayUrl": "https://play.unity.com/en/games/c143ff81-40c6-4ef4-b05d-042264ca4b77/amc-art-hunt-challenge-gallery"
+}

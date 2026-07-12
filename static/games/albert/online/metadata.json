@@ -1,0 +1,14 @@
+{
+	"id": "albert",
+	"name": "Albert",
+	"author": "Unity Play",
+	"description": "Venture through a new land with Albert as he is looking for a new beginning and an escape from his past. The game won \"best narrative\" and was nominated for \"game of the year\" at the Norwegian Game Awards of 2020. It is the first game we've built, and was made over a period of two months. Created by Bao Nguyen and Sondre Kvam. Sound composed by Sander J. Skjegstad.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/27c9dd70-88e8-4ba1-8e56-a0bd07bb282c/content",
+	"category": "featured-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/7176db21-7041-449d-932c-9a0ea1cb4609/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "7176db21-7041-449d-932c-9a0ea1cb4609",
+	"unityPlayUrl": "https://play.unity.com/en/games/7176db21-7041-449d-932c-9a0ea1cb4609/albert"
+}

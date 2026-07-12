@@ -1,0 +1,14 @@
+{
+	"id": "abyss",
+	"name": "ABYSS",
+	"author": "GraceGforJIA",
+	"description": "My latest microgame.0618_02",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/008ee743-4e61-4862-aa92-3cbca51a956a/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bad3f51d-9f1e-4a39-9fb1-9461c473e9a0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bad3f51d-9f1e-4a39-9fb1-9461c473e9a0",
+	"unityPlayUrl": "https://play.unity.com/en/games/bad3f51d-9f1e-4a39-9fb1-9461c473e9a0/abyss"
+}

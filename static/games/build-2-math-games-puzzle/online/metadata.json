@@ -1,0 +1,14 @@
+{
+	"id": "build-2-math-games-puzzle",
+	"name": "build-2-math-games-puzzle",
+	"author": "devxis",
+	"description": "Play build-2-math-games-puzzle on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fc3f3e4f-9e56-41e7-86e7-af46d7770a12/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fc3f3e4f-9e56-41e7-86e7-af46d7770a12",
+	"unityPlayUrl": "https://play.unity.com/en/games/fc3f3e4f-9e56-41e7-86e7-af46d7770a12/build-2-math-games-puzzle"
+}

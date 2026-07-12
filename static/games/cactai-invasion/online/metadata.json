@@ -1,0 +1,14 @@
+{
+	"id": "cactai-invasion",
+	"name": "Cactai invasion",
+	"author": "zzarcon",
+	"description": "Stop the catai at the bank and the crash site!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cb1b08c3-f875-4fce-8e45-98d3d572dc4b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/94e83c8a-4e10-4017-95da-3dbd1e9aac67/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "94e83c8a-4e10-4017-95da-3dbd1e9aac67",
+	"unityPlayUrl": "https://play.unity.com/en/games/94e83c8a-4e10-4017-95da-3dbd1e9aac67/cactai-invasion"
+}

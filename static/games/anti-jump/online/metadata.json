@@ -1,0 +1,14 @@
+{
+	"id": "anti-jump",
+	"name": "Anti Jump!",
+	"author": "awesomecodingfiles",
+	"description": "A normal 3d platformer... but with a twist: you can't jump! WASD keys to move; strategically beat all the levels to win!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d31652eb-4b85-4f02-9424-f54ec20a3363/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b030cea1-5f2e-4cb2-89dc-50fee559fd44/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b030cea1-5f2e-4cb2-89dc-50fee559fd44",
+	"unityPlayUrl": "https://play.unity.com/en/games/b030cea1-5f2e-4cb2-89dc-50fee559fd44/anti-jump"
+}

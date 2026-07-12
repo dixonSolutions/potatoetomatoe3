@@ -1,0 +1,14 @@
+{
+	"id": "car-simulator",
+	"name": "Car Simulator",
+	"author": "sercancelik",
+	"description": "Simple local multiplayer car simulator.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6573e1fc-b2f7-49f4-97e3-9da275a5abe5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6573e1fc-b2f7-49f4-97e3-9da275a5abe5",
+	"unityPlayUrl": "https://play.unity.com/en/games/6573e1fc-b2f7-49f4-97e3-9da275a5abe5/car-simulator"
+}

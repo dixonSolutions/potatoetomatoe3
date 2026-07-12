@@ -1,0 +1,14 @@
+{
+	"id": "2-player-race",
+	"name": "2 player race",
+	"author": "Boatartist",
+	"description": "Made using assets from the unity junior programmer pathway. This is a two-player game where the left car is controlled by wasd and the right car uses the arrow keys. Who can reach the end first? Try to avoid obstacles and falling off the edge.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/5daeb72b-ffad-4ca1-98bd-aaa14d70b2d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bb227b33-13a9-4831-8bf3-701754b24bf2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bb227b33-13a9-4831-8bf3-701754b24bf2",
+	"unityPlayUrl": "https://play.unity.com/en/games/bb227b33-13a9-4831-8bf3-701754b24bf2/2-player-race"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "bonus-feature-5",
+	"name": "Bonus Feature 5",
+	"author": "truestone",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0e92faac-28c3-47d1-a669-ffc098c6d9a1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0c42928a-e34f-4744-80f7-fdbb520c16c8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0c42928a-e34f-4744-80f7-fdbb520c16c8",
+	"unityPlayUrl": "https://play.unity.com/en/games/0c42928a-e34f-4744-80f7-fdbb520c16c8/bonus-feature-5"
+}

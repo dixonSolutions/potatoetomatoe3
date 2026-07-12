@@ -1,0 +1,14 @@
+{
+	"id": "cheesey-mousey",
+	"name": "Cheesey Mousey",
+	"author": "WIIASD",
+	"description": "\u63a7\u5236\uff1aWASD\u6216\u65b9\u5411\u952e\u79fb\u52a8\uff0cX\u6216K\u8df3\u8dc3\uff0c\u5de6SHIFT\u6362\u8272\uff0cL\u6216Z\u51b2\u523a\nWASD or arrow keys to Move, X or K to Jump, Left Shift to Switch Colors and L or Z to Dash\nWalkThrough: https://youtu.be/LeGBQDYybvw",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/308aefef-d3d6-4526-a442-638979e75bad/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cfd16da8-4b44-4047-acc5-a5bbf5a0c8f2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cfd16da8-4b44-4047-acc5-a5bbf5a0c8f2",
+	"unityPlayUrl": "https://play.unity.com/en/games/cfd16da8-4b44-4047-acc5-a5bbf5a0c8f2/cheesey-mousey"
+}

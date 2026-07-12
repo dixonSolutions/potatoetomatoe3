@@ -1,0 +1,14 @@
+{
+	"id": "2d-adventure-game-robot-repair",
+	"name": "2D Adventure Game: Robot Repair",
+	"author": "Unity-Learning-Team",
+	"description": "Play through the three different themes from the demo of Unity Learn's 2D Adventure Game: Robot Repair course! \n\nControls: \nArrow Keys - movement \nX - interact with an NPC\nC - shoot cogs",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/cdcf2ec4-1f41-4f68-8c34-72c3488fbfc6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a6de1457-bb84-4c2d-88c7-21e0111a4d62/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a6de1457-bb84-4c2d-88c7-21e0111a4d62",
+	"unityPlayUrl": "https://play.unity.com/en/games/a6de1457-bb84-4c2d-88c7-21e0111a4d62/2d-adventure-game-robot-repair"
+}

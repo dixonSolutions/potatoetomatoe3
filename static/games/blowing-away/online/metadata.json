@@ -1,0 +1,14 @@
+{
+	"id": "blowing-away",
+	"name": "Blowing Away",
+	"author": "lioryishay",
+	"description": "left leafblower: left arrow / left mouse button\nright leafblower: right arrow / right mouse button\nup: both right and left at the same time / space button",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5145622e-b87c-402a-b155-42c1e3e06941/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5145622e-b87c-402a-b155-42c1e3e06941",
+	"unityPlayUrl": "https://play.unity.com/en/games/5145622e-b87c-402a-b155-42c1e3e06941/blowing-away"
+}

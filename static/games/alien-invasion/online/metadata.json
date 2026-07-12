@@ -1,0 +1,14 @@
+{
+	"id": "alien-invasion",
+	"name": "Alien Invasion",
+	"author": "Drew151",
+	"description": "You are a robot who is trying to defend your home from the aliens that are invading your land.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/230a8507-5e79-4a6a-9e5a-dc6c7001d504/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "230a8507-5e79-4a6a-9e5a-dc6c7001d504",
+	"unityPlayUrl": "https://play.unity.com/en/games/230a8507-5e79-4a6a-9e5a-dc6c7001d504/alien-invasion"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "boomer",
+	"name": "BOOMER!",
+	"author": "TommyKarate",
+	"description": "PRESS SPACE TO MOVE! Avoid spikes, pick up your cigs, be the Boomer! Music by Georden Endres",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/32464310-6dde-48fc-ba06-2590b0a6d9e1/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0bbf39af-d72e-4e46-88c0-054869fd0ba7/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0bbf39af-d72e-4e46-88c0-054869fd0ba7",
+	"unityPlayUrl": "https://play.unity.com/en/games/0bbf39af-d72e-4e46-88c0-054869fd0ba7/boomer"
+}

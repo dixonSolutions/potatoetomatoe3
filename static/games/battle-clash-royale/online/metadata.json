@@ -1,0 +1,14 @@
+{
+	"id": "battle-clash-royale",
+	"name": "battle clash royale",
+	"author": "masetheace6",
+	"description": "Play battle clash royale on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a1532fe5-7d76-4658-9375-cc2dd2ad109d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5ad8112c-b67b-48a6-8b43-a8e2b18cc100/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5ad8112c-b67b-48a6-8b43-a8e2b18cc100",
+	"unityPlayUrl": "https://play.unity.com/en/games/5ad8112c-b67b-48a6-8b43-a8e2b18cc100/battle-clash-royale"
+}

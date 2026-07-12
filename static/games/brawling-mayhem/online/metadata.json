@@ -1,0 +1,14 @@
+{
+	"id": "brawling-mayhem",
+	"name": "Brawling Mayhem",
+	"author": "frrancisco690",
+	"description": "Our final game. Please play in full screen.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/038782f6-f020-434f-a50d-f585f177f36c/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/19f367fb-69fa-4095-977e-8521befaccac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "19f367fb-69fa-4095-977e-8521befaccac",
+	"unityPlayUrl": "https://play.unity.com/en/games/19f367fb-69fa-4095-977e-8521befaccac/brawling-mayhem"
+}

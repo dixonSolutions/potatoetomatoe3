@@ -1,0 +1,14 @@
+{
+	"id": "aero-volumetric-fog-and-mist",
+	"name": "AERO - Volumetric Fog and Mist",
+	"author": "Mirza-Beig",
+	"description": "Volumetric fog for Unity URP.\n\nCONTROLS:\n\n- Rotation Orbit Camera: tap/click and drag.\n- Zoom In/Out: mouse wheel.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f977284c-6845-449f-a928-d8624efc75c2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/a36c221f-e468-41bb-821c-627340858cbd/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "a36c221f-e468-41bb-821c-627340858cbd",
+	"unityPlayUrl": "https://play.unity.com/en/games/a36c221f-e468-41bb-821c-627340858cbd/aero-volumetric-fog-and-mist"
+}

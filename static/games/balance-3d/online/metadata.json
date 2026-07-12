@@ -1,0 +1,14 @@
+{
+	"id": "balance-3d",
+	"name": "Balance 3D",
+	"author": "Bajwagame",
+	"description": "Ball balancing pathway game task",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/6c0c2d7b-0203-4429-98e9-304b6e6dd5c1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "6c0c2d7b-0203-4429-98e9-304b6e6dd5c1",
+	"unityPlayUrl": "https://play.unity.com/en/games/6c0c2d7b-0203-4429-98e9-304b6e6dd5c1/balance-3d"
+}

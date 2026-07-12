@@ -1,0 +1,14 @@
+{
+	"id": "aquatic-adventure",
+	"name": "Aquatic Adventure",
+	"author": "stlthmstr",
+	"description": "Your crystal scanner has detected 21 unique energy signatures in a strange underwater area.\nAs you investigate the signals, beware of territorial sharks and other colossal sea creatures.\nExplore submarine bases, undiscovered ruins, giant fossils, sunken ships, legendary castles and more!\n\n\nFeaturing:\n-A large, open aquascape to traverse, full of relaxing sights and sounds\n-Hundreds of lively aquatic animals like colorful fish, sharks, and jellyfish, to name a few\n-Procedurally-generated content including flora, fauna, and other elements\n-Secret areas for you to find\n-Hidden scuba gear upgrades to collect, including something to help you search higher places\n-Several unlockable vehicles to pilot, in addition to your undersea scooter\n-Many interactive pieces secretly dispersed to test your knowledge of classic sets\n\n\nPlayer Controls:\n-Move your character with \u2018WASD\u2019 keys\n-Look around by moving your mouse\n-Jump with the space bar\n-Press \u2018E\u2019 to interact with certain objects\n-Scuba suit upgrades will reveal additional controls if unlocked\n\n\nVehicle Controls:\n-Vehicles are steered by looking in the direction you want go with your mouse\n-Simply stand on a vehicle to start accelerating\n-No need to worry, vehicles have automatic collision avoidance too\n-After unlocking a new vehicle, a visual cue will display where to stand to control it\n\n\nLinks:\n-PC Download: https://drive.google.com/file/d/1vB-vpf8BAvZoHCg0ihGkbD4bb2_TbUPD/view?usp=sharing\n\n\nI hope you enjoy my oceanic game! How many secrets have you found so far?\n\n\nNote:\n-The Unity Play build will take a while to load the first time. This is a highly-detailed microgame, which runs reasonably on WebGL using modern hardware, including a dedicated GPU.\n-If you are on a Windows computer, and want a better experience, please try the PC download linked above.\n\n\nThank you for playing!\n\n\nLEGO Ideas username: Shark Scout",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a5ee4949-2f13-4c95-9824-b7fa305f07d6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/63d431bc-110a-40c0-a6e5-b5bb4c4beba1/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "63d431bc-110a-40c0-a6e5-b5bb4c4beba1",
+	"unityPlayUrl": "https://play.unity.com/en/games/63d431bc-110a-40c0-a6e5-b5bb4c4beba1/aquatic-adventure"
+}

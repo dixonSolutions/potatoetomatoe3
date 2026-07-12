@@ -1,0 +1,14 @@
+{
+	"id": "altmanvillage",
+	"name": "AltmanVillage",
+	"author": "jonwakelin",
+	"description": "Play AltmanVillage on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3fdb7ff1-6b23-4de4-8827-7292fc851089/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3fdb7ff1-6b23-4de4-8827-7292fc851089",
+	"unityPlayUrl": "https://play.unity.com/en/games/3fdb7ff1-6b23-4de4-8827-7292fc851089/altmanvillage"
+}

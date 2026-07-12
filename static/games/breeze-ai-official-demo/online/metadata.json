@@ -1,0 +1,14 @@
+{
+	"id": "breeze-ai-official-demo",
+	"name": "Breeze AI Official Demo",
+	"author": "keremerol125",
+	"description": "Breeze AI Official Boxing AI Demo Game",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e48eb782-54f8-4a29-8377-18bd66c731c3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e48eb782-54f8-4a29-8377-18bd66c731c3",
+	"unityPlayUrl": "https://play.unity.com/en/games/e48eb782-54f8-4a29-8377-18bd66c731c3/breeze-ai-official-demo"
+}

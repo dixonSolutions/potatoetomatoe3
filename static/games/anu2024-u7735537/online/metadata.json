@@ -1,0 +1,14 @@
+{
+	"id": "anu2024-u7735537",
+	"name": "ANU2024 u7735537",
+	"author": "SurgeisaGameDev",
+	"description": "WASD to move\nMouse to look\nShift to sprint\nR to switch to different characters\n\nFaster heartbeat mean the enemy is closer, don't let it catch you.\nGet all collectibles to win!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/99f0676c-8505-417a-a77a-ce784ee0458b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2bb8b71d-1ad4-45b9-a295-817265e0a4d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2bb8b71d-1ad4-45b9-a295-817265e0a4d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/2bb8b71d-1ad4-45b9-a295-817265e0a4d2/anu2024-u7735537"
+}

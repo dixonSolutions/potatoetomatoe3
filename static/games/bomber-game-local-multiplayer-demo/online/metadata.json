@@ -1,0 +1,14 @@
+{
+	"id": "bomber-game-local-multiplayer-demo",
+	"name": "Bomber Game Local Multiplayer DEMO",
+	"author": "xif24",
+	"description": "Player 1 Controllers: WASD Space\nPlayer 2 Controllers: Arrow keys Enter\n\nInspired on Bomber-man. Is a DEMO of a local player game. This game is open source with a GPL-3.0 license and Non-profit intended.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/384711c1-c0dd-4265-b3ce-8757da48cd70/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "384711c1-c0dd-4265-b3ce-8757da48cd70",
+	"unityPlayUrl": "https://play.unity.com/en/games/384711c1-c0dd-4265-b3ce-8757da48cd70/bomber-game-local-multiplayer-demo"
+}

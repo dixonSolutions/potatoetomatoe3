@@ -1,0 +1,14 @@
+{
+	"id": "3d-essentials-rolling-balls-04a",
+	"name": "3D Essentials - Rolling Balls 0.4a",
+	"author": "danvxc",
+	"description": "NOW WITH - Real-Realtime ball reflections, better shadows, why are there three tables in that kitchen??? The back wall is now bouncy and I've changed the camera angle again!\n\nRealtime GI, Reflection Probes, Probuilder, RT Enlighten... a ton of other stuff! All made for practice! Fixed to run at 60fps. I cannot get this WebGL version to run on iPhone for some reason.\n\nFull scope of changes made:\n\n- Changed speed that the ball rolls in the Project Physics settings\n- Changed all lights to be realtime to reduce lightmap size (unsuccessfully)\n- Messed with volumetrics to add a fog effect\n- Probuilder was used to create the cage, including mirroring, smoothing, merging, combining normals, etc.\n- Enlighten was used to add indirect bounce lighting without using baked light/shadowmaps\n- External assets used were the house (+ contents), lightbox\n- Cinemachine was used to add the tracking / switching cam (the trick is to use a third \"camera\" object that uses the CineMachine brain script!)\n- FastTree was used to make 5000 trees, which was then culled down to approx. 100 because 5000 is STUPID.\n- Other stuff I've forgotten!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/27507dfa-6cab-45f5-b51a-d9734168ff11/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0e88d504-acde-436d-9770-90b5a0e9509f/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0e88d504-acde-436d-9770-90b5a0e9509f",
+	"unityPlayUrl": "https://play.unity.com/en/games/0e88d504-acde-436d-9770-90b5a0e9509f/3d-essentials-rolling-balls-04a"
+}

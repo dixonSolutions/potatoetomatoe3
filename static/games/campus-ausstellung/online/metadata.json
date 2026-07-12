@@ -1,0 +1,14 @@
+{
+	"id": "campus-ausstellung",
+	"name": "Campus Ausstellung",
+	"author": "switchfoot",
+	"description": "Bewegen mit den Pfeiltasten.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4a068c3a-3201-41d8-8be6-c1556a37ca04/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4fc7d4fd-dede-4b63-bbbe-1ee06f253096/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4fc7d4fd-dede-4b63-bbbe-1ee06f253096",
+	"unityPlayUrl": "https://play.unity.com/en/games/4fc7d4fd-dede-4b63-bbbe-1ee06f253096/campus-ausstellung"
+}

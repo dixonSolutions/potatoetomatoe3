@@ -1,0 +1,14 @@
+{
+	"id": "anu2023-penance",
+	"name": "ANU2023 Penance",
+	"author": "clarkliu97",
+	"description": "In the dark and foreboding world of \"Penance\", you awaken to find yourself trapped within a labyrinthine nightmare. With no memory of how you got there or why, your only instinct is to escape, but the maze is filled with menacing monsters and unsolved mysteries.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/3784c7bd-f069-46b0-aa2a-2557031a08d2/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c1b8dcbe-4b40-4108-b2f9-574aa39fd267/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c1b8dcbe-4b40-4108-b2f9-574aa39fd267",
+	"unityPlayUrl": "https://play.unity.com/en/games/c1b8dcbe-4b40-4108-b2f9-574aa39fd267/anu2023-penance"
+}

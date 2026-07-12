@@ -1,0 +1,14 @@
+{
+	"id": "castaway-crates",
+	"name": "Castaway Crates",
+	"author": "jlaird_unity527",
+	"description": "A narrative game powered by ChatGPT3.5, with images by Midjourney. Deliver items to help a shipwrecked survivor overcome the problems of their island existence and survive until rescue!\n\nUses a series of prompts to describe applying a set of random items to solve silly problems, and to evaluate the effectiveness of each item. It\u2019s not currently possible to lose; play this game either as a toy (generate journal entries that are as ridiculous as possible!) or try to play optimally and earn as many \u201cpositive\u201d responses as possible.\n\n\nCreated for Ludum Dare 53, theme \u201cDelivery.\u201d Updated slightly so that prompt text reflects how appropriate the item chosen is.\n\n\n(Please be patient\u2026 GPT responses can take a few seconds to appear.)",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/2ed677e5-4c24-4ce3-92c2-3ea88777a7fd/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4634c160-ba7a-4559-a72a-823bfba24ae4/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4634c160-ba7a-4559-a72a-823bfba24ae4",
+	"unityPlayUrl": "https://play.unity.com/en/games/4634c160-ba7a-4559-a72a-823bfba24ae4/castaway-crates"
+}

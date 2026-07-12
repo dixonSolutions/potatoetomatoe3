@@ -1,0 +1,14 @@
+{
+	"id": "bad-man",
+	"name": "BAD MAN",
+	"author": "joashosborne",
+	"description": "3rd person, side scroller, story based, single player, gangster story.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9ba88683-f065-449e-916e-f470816a335b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5aab01a3-3879-4c9f-b540-9e4561ef21c0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5aab01a3-3879-4c9f-b540-9e4561ef21c0",
+	"unityPlayUrl": "https://play.unity.com/en/games/5aab01a3-3879-4c9f-b540-9e4561ef21c0/bad-man"
+}

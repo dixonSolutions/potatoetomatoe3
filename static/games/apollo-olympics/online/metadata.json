@@ -1,0 +1,14 @@
+{
+	"id": "apollo-olympics",
+	"name": "Apollo Olympics",
+	"author": "BIG-Cosmos",
+	"description": "Customize your spaceship and race across the Solar System in the first-ever Apollo Olympics! Evade deadly asteroids, outmaneuver relentless space pirates, and collect space debris along the way!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/6c037e63-717f-490e-82de-42f4d485e0de/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e94cdb51-c81f-47d7-83f7-80d7aa440c4e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e94cdb51-c81f-47d7-83f7-80d7aa440c4e",
+	"unityPlayUrl": "https://play.unity.com/en/games/e94cdb51-c81f-47d7-83f7-80d7aa440c4e/apollo-olympics"
+}

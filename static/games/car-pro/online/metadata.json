@@ -1,0 +1,14 @@
+{
+	"id": "car-pro",
+	"name": "Car Pro",
+	"author": "hinal_2402",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/26752dae-c2f8-4cc3-a757-6e539874f045/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "26752dae-c2f8-4cc3-a757-6e539874f045",
+	"unityPlayUrl": "https://play.unity.com/en/games/26752dae-c2f8-4cc3-a757-6e539874f045/car-pro"
+}

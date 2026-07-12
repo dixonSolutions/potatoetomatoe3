@@ -1,0 +1,14 @@
+{
+	"id": "ball-roller",
+	"name": "Ball Roller",
+	"author": "codeninjassouthjordan",
+	"description": "What you are supposed to do is control a ball then try to get to the end of the level as fast as you can.  Each level has a different looking map and twist which can make it harder or help you.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/01f713df-9c5d-4275-9b3f-504fb7617f0e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "01f713df-9c5d-4275-9b3f-504fb7617f0e",
+	"unityPlayUrl": "https://play.unity.com/en/games/01f713df-9c5d-4275-9b3f-504fb7617f0e/ball-roller"
+}

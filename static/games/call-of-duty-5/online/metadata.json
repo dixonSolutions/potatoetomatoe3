@@ -1,0 +1,14 @@
+{
+	"id": "call-of-duty-5",
+	"name": "Call of Duty 5",
+	"author": "The_social_programmer",
+	"description": "Play Call of Duty 5 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/811e9fb4-3cb7-4ca0-a5e0-a420983659ee/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/4a6ce320-1eb8-4855-b916-d24510bf572d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "4a6ce320-1eb8-4855-b916-d24510bf572d",
+	"unityPlayUrl": "https://play.unity.com/en/games/4a6ce320-1eb8-4855-b916-d24510bf572d/call-of-duty-5"
+}

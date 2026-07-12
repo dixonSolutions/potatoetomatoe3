@@ -1,0 +1,14 @@
+{
+	"id": "capsule-guy",
+	"name": "Capsule Guy",
+	"author": "Kapuniai42",
+	"description": "Controls: W,A,S,D to move player, Press Space to shoot. Objective is to Collect 12 or 600 points of Red Balls & bring them back to the finish area in Red before the Time Runs Out! Also Collecting Green Balls adds 10 seconds added to your Time. Good Luck!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b03b7612-7408-4339-8202-af485ae16a98/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/e4fc53e4-faf6-483a-bd25-daaad87cc05d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "e4fc53e4-faf6-483a-bd25-daaad87cc05d",
+	"unityPlayUrl": "https://play.unity.com/en/games/e4fc53e4-faf6-483a-bd25-daaad87cc05d/capsule-guy"
+}

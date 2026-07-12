@@ -1,0 +1,14 @@
+{
+	"id": "a-stroll-in-the-shire",
+	"name": "A Stroll in the Shire",
+	"author": "theNfan",
+	"description": "A Stroll in the Shire is a microgame implementing a classic action adventure boss fight.\n\nControls:\nGamepad (recommended): X attack, A block, left stick and d-pad to move (XBox controller layout)\nKeyboard: CTRL attack, ALT block, WASD or cursor keys to move\n\nEffort was about one month (full time)\n\nUsed assets (as the Made with... column randomly drops items):\nhttps://assetstore.unity.com/packages/2d/gui/icons/2d-pixel-item-asset-pack-99645\nhttps://assetstore.unity.com/packages/audio/sound-fx/weapons/demo-ancient-magic-pack-free-175093\nhttps://assetstore.unity.com/packages/3d/characters/animals/animated-low-poly-animals-93889\nhttps://assetstore.unity.com/packages/3d/props/simple-gems-ultimate-animated-customizable-pack-73764\nhttps://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116\nhttps://assetstore.unity.com/packages/audio/sound-fx/fantasy-sfx-32833\nhttps://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811\nhttps://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776\nhttps://assetstore.unity.com/packages/vfx/particles/cartoon-fx-free-109565\nhttps://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/mini-legion-footman-pbr-hp-polyart-86576\nhttps://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/mini-legion-lich-pbr-hp-polyart-91497\nhttps://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-hero-pbr-hp-polyart-121480\nhttps://assetstore.unity.com/packages/3d/environments/landscapes/rpg-poly-pack-lite-148410\nhttps://assetstore.unity.com/packages/audio/sound-fx/soundbits-free-sound-fx-collection-31837\nhttps://assetstore.unity.com/packages/audio/music/the-hero-s-path-free-16bit-adventure-game-music-204232\nhttps://assetstore.unity.com/packages/audio/sound-fx/halftone-sound-effects-pack-lite-178439\nhttps://assetstore.unity.com/packages/tools/gui/simple-heart-health-system-120676\n\nhttps://www.1001freefonts.com/fairy-godmother.font\nhttps://www.cufonfonts.com/font/fixeds",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/635eca84-c067-4e75-ac60-1b83305f9c64/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/187598fe-16b7-43d0-98e3-b8a756a2b1f0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "187598fe-16b7-43d0-98e3-b8a756a2b1f0",
+	"unityPlayUrl": "https://play.unity.com/en/games/187598fe-16b7-43d0-98e3-b8a756a2b1f0/a-stroll-in-the-shire"
+}

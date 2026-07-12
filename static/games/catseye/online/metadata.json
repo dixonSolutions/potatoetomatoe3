@@ -1,0 +1,14 @@
+{
+	"id": "catseye",
+	"name": "Catseye",
+	"author": "Nelsonas",
+	"description": "ascend the tower to escape the abyss",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0cd8ca9a-5566-4bdf-aba7-6021392c6b02/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0cd8ca9a-5566-4bdf-aba7-6021392c6b02",
+	"unityPlayUrl": "https://play.unity.com/en/games/0cd8ca9a-5566-4bdf-aba7-6021392c6b02/catseye"
+}

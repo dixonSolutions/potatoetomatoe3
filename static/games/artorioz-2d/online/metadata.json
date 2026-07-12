@@ -1,0 +1,14 @@
+{
+	"id": "artorioz-2d",
+	"name": "ArtorioZ 2D",
+	"author": "dlonnolb",
+	"description": "Juego con dos pantallas y boss final",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d8e2197a-2181-4b18-9aaa-e91ab609d125/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/9d9af1f2-ec42-44e5-8675-f7fe701b4686/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "9d9af1f2-ec42-44e5-8675-f7fe701b4686",
+	"unityPlayUrl": "https://play.unity.com/en/games/9d9af1f2-ec42-44e5-8675-f7fe701b4686/artorioz-2d"
+}

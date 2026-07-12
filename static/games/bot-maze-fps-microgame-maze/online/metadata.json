@@ -1,0 +1,14 @@
+{
+	"id": "bot-maze-fps-microgame-maze",
+	"name": "Bot Maze - FPS Microgame Maze",
+	"author": "Oddbomb",
+	"description": "My first test with the FPS microgame, using a maze I created to add a different element to the microgame as you attempt to destroy all of the robots.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/af85fe91-0250-42b2-b33c-31fedfe833ad/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/16dd368a-f814-4443-aa72-17b07ae578b5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "16dd368a-f814-4443-aa72-17b07ae578b5",
+	"unityPlayUrl": "https://play.unity.com/en/games/16dd368a-f814-4443-aa72-17b07ae578b5/bot-maze-fps-microgame-maze"
+}

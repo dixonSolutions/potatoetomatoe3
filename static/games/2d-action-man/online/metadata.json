@@ -1,0 +1,14 @@
+{
+	"id": "2d-action-man",
+	"name": "2D-Action-Man",
+	"author": "Glubscher",
+	"description": "My latest microgame.\n------------------------ NEW: -------------------------------- \nSPACE SHOOTER!!! LOOK ON MY ACCOUNT!!!\nIt is a cool micro game in space with three levels.\nPlay it now!!!",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/523debce-4411-4a2c-8719-0ad345321f8d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "523debce-4411-4a2c-8719-0ad345321f8d",
+	"unityPlayUrl": "https://play.unity.com/en/games/523debce-4411-4a2c-8719-0ad345321f8d/2d-action-man"
+}

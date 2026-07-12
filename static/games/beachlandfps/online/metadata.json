@@ -1,0 +1,14 @@
+{
+	"id": "beachlandfps",
+	"name": "BeachLandFPS",
+	"author": "ABM_ABOLFAZL",
+	"description": "Play BeachLandFPS on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/4e0aec81-3cc8-48ad-bfe3-3018831b5437/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/eb4c17c5-7697-41b3-a7a6-2ef42cc86b42/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "eb4c17c5-7697-41b3-a7a6-2ef42cc86b42",
+	"unityPlayUrl": "https://play.unity.com/en/games/eb4c17c5-7697-41b3-a7a6-2ef42cc86b42/beachlandfps"
+}

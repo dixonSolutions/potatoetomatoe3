@@ -1,0 +1,14 @@
+{
+	"id": "bingo-cash-blitz",
+	"name": "Bingo cash blitz",
+	"author": "someone531669",
+	"description": "abc",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2790d68a-5b30-43be-8f73-2b0c730cc0b0/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2790d68a-5b30-43be-8f73-2b0c730cc0b0",
+	"unityPlayUrl": "https://play.unity.com/en/games/2790d68a-5b30-43be-8f73-2b0c730cc0b0/bingo-cash-blitz"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "adventure-to-happy-land",
+	"name": "Adventure to Happy Land!",
+	"author": "TkyoZero",
+	"description": "2D Platformer Microgame. Happy Land!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/03d40458-f287-4604-86f4-10ffc35f2495/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/219cf578-fc6c-45ee-a2e4-2c527d43109e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "219cf578-fc6c-45ee-a2e4-2c527d43109e",
+	"unityPlayUrl": "https://play.unity.com/en/games/219cf578-fc6c-45ee-a2e4-2c527d43109e/adventure-to-happy-land"
+}

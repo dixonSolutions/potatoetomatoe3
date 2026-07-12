@@ -1,0 +1,14 @@
+{
+	"id": "bullet-time-pizza",
+	"name": "Bullet-time pizza",
+	"author": "kerria",
+	"description": "Activate bullet-time mode by pressing X. Now you can shoot bigger pizzas by holding spacebar before releasing it. Made with Time.timeScale",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/64f2799e-cc90-4e86-8987-2727e6103d85/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11ea76d0-343e-482a-937b-10d8394a615b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11ea76d0-343e-482a-937b-10d8394a615b",
+	"unityPlayUrl": "https://play.unity.com/en/games/11ea76d0-343e-482a-937b-10d8394a615b/bullet-time-pizza"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "camp-adventures",
+	"name": "Camp Adventures",
+	"author": "dencheg09",
+	"description": "Become a camp champion! Find all the animals, finish the kayaking route and repeat the victory dance! Camp Adventures begin! All movable parts are moving using behaviour actions. For example, an arrow in a victory dance has 5 behaviour actions! Check it yourself!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7fe0c7dd-25d5-47d1-9ac3-b3a06a46cb96/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3869d5ee-76e0-47c7-bf07-7b1b4a144784/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3869d5ee-76e0-47c7-bf07-7b1b4a144784",
+	"unityPlayUrl": "https://play.unity.com/en/games/3869d5ee-76e0-47c7-bf07-7b1b4a144784/camp-adventures"
+}

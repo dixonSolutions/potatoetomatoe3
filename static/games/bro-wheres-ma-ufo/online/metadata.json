@@ -1,0 +1,14 @@
+{
+	"id": "bro-wheres-ma-ufo",
+	"name": "Bro, where's ma ufo?",
+	"author": "Unity Play",
+	"description": "My first Unity Build. Enjoy!\n\n1) Lower the volume (Unity 3D game audio has limitations in browser)\n2) Use FULLSCREEN for LAST SCENE \n\nControls:-\nLookaround: Mouse\nMovement:   W A S D\nJump:            Space\nQuit:              Esc\n\nErrors:-\n1) 3D audio doesnt work because of Unity(Engine) ~ WebGL (browser) limitations\n2) Compresssed Xenomorph images due to smaller browser resolution",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70b4eef3-52f1-4ca4-8510-4557226b2327/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/97870a26-3f74-4876-a7cc-068b549da4ae/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "97870a26-3f74-4876-a7cc-068b549da4ae",
+	"unityPlayUrl": "https://play.unity.com/en/games/97870a26-3f74-4876-a7cc-068b549da4ae/bro-wheres-ma-ufo"
+}

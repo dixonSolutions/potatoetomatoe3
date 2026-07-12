@@ -1,0 +1,14 @@
+{
+	"id": "charles-rollaball-game",
+	"name": "Charles Rollaball Game",
+	"author": "morelandclass",
+	"description": "Game developed in Unity Game Design Class Fall 2024 v3",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2493fd88-c198-42cd-b75b-b45c794ca278/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2493fd88-c198-42cd-b75b-b45c794ca278",
+	"unityPlayUrl": "https://play.unity.com/en/games/2493fd88-c198-42cd-b75b-b45c794ca278/charles-rollaball-game"
+}

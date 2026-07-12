@@ -1,0 +1,14 @@
+{
+	"id": "ball-runner",
+	"name": "Ball Runner",
+	"author": "NexusCodeStudios_",
+	"description": "It is a endless ball runner game for for mobile phones",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f58d2e0f-fb45-4751-9a38-ca4d251a1c1e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1c49b671-7213-44a6-8319-d69630bb0741/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1c49b671-7213-44a6-8319-d69630bb0741",
+	"unityPlayUrl": "https://play.unity.com/en/games/1c49b671-7213-44a6-8319-d69630bb0741/ball-runner"
+}

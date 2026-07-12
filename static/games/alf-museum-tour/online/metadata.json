@@ -1,0 +1,14 @@
+{
+	"id": "alf-museum-tour",
+	"name": "Alf Museum Tour",
+	"author": "xcleonardo",
+	"description": "A tour of the Alf Museum",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b6e9d366-e652-4f62-91e7-f59d848ffba3/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/186ced5b-e30d-4316-9d11-e8cccabdcb89/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "186ced5b-e30d-4316-9d11-e8cccabdcb89",
+	"unityPlayUrl": "https://play.unity.com/en/games/186ced5b-e30d-4316-9d11-e8cccabdcb89/alf-museum-tour"
+}

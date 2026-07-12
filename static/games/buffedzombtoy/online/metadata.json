@@ -1,0 +1,14 @@
+{
+	"id": "buffedzombtoy",
+	"name": "(Buffed)ZombToy",
+	"author": "BrendanS2",
+	"description": "This game involves shooting and action packed into it.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/d41e87da-2d7d-49a3-84b7-9c3b2da1667b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "d41e87da-2d7d-49a3-84b7-9c3b2da1667b",
+	"unityPlayUrl": "https://play.unity.com/en/games/d41e87da-2d7d-49a3-84b7-9c3b2da1667b/buffedzombtoy"
+}

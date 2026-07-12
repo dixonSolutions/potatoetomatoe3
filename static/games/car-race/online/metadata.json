@@ -1,0 +1,14 @@
+{
+	"id": "car-race",
+	"name": "Car Race",
+	"author": "class1coder",
+	"description": "Play Car Race on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/988fd300-1668-46ff-b3f8-53c1b758db4d/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3f27e2a1-719c-4006-8fe3-4c19c5b38982/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3f27e2a1-719c-4006-8fe3-4c19c5b38982",
+	"unityPlayUrl": "https://play.unity.com/en/games/3f27e2a1-719c-4006-8fe3-4c19c5b38982/car-race"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "3dcr-generator-beta",
+	"name": "3DCR Generator - Beta",
+	"author": "jcavi",
+	"description": "Interacting with the Game:\n\nNote: If the keyboard controls do not work, click the mouse within the game view.\n\nSwitch views using the 1, 2, and 3 keys.\n\nIn View 1: Use WASD keys to move the character back, forward, left, and right. To perform an activity, position the targeting reticle over the desired element and click the left mouse button.\n\nIn View 2: Use WS keys to move the character back and forward, and AD keys to rotate the character on its own axis. To execute an activity, place the mouse pointer over the desired element and click the left mouse button.\n\nIn View 3: Use WASD keys to control the camera's movement back, forward, left, and right. To preview the execution of an activity, position the mouse pointer over the desired element.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/036f5d66-b931-4892-91c8-320df2be6dcc/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "036f5d66-b931-4892-91c8-320df2be6dcc",
+	"unityPlayUrl": "https://play.unity.com/en/games/036f5d66-b931-4892-91c8-320df2be6dcc/3dcr-generator-beta"
+}

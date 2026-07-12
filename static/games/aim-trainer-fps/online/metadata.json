@@ -1,0 +1,14 @@
+{
+	"id": "aim-trainer-fps",
+	"name": "aim trainer fps",
+	"author": "heroqwerty102",
+	"description": "Play aim trainer fps on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b427bb56-a2fe-4e39-908f-7f746c8fa62b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/c5da55d6-5dcf-445d-a729-f565e11cbd24/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "c5da55d6-5dcf-445d-a729-f565e11cbd24",
+	"unityPlayUrl": "https://play.unity.com/en/games/c5da55d6-5dcf-445d-a729-f565e11cbd24/aim-trainer-fps"
+}

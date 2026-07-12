@@ -1,0 +1,14 @@
+{
+	"id": "ball-sprinter-3d-city-adventure",
+	"name": "Ball Sprinter 3D: City Adventure",
+	"author": "Alex4791",
+	"description": "Note: This game does not seem to be exported properly in WebGL format. I will look into this error as soon as possible. Hope to make this work online soon!\n\nWelcome to an exploration of a forward moving ball object in a road filled with squared and rectangular objects all in the way! Navigate your journey through cities, glaciers, forests and more better seen than said. Collect pick ups of varying points to increase your high score. Discover ways to control and master the endless forward running speed by timing the left and right movements to your convenience at play. Certain white objects or other speed bump lookalikes help reduce an outburst of uncontrollable fastness. Every rate of speed affects the game's progress indefinitely. Avoid brown colored obstacles at all costs! A single collision and the game is done for. The adventure holding its own provides different ways to be overcome. Look out for special openings and tactics to your ever evolving advantage!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/ff8aac23-511b-4146-84b7-82fa745b91dc/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3b9937f2-30ed-450c-b4e6-2eca47ab7c2a/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3b9937f2-30ed-450c-b4e6-2eca47ab7c2a",
+	"unityPlayUrl": "https://play.unity.com/en/games/3b9937f2-30ed-450c-b4e6-2eca47ab7c2a/ball-sprinter-3d-city-adventure"
+}

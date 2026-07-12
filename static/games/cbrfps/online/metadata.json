@@ -1,0 +1,14 @@
+{
+	"id": "cbrfps",
+	"name": "CBR_FPS",
+	"author": "richardzhang1877",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9455f1d2-25a2-4de0-bd0e-a6a92d05d876/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/11f673d6-8bea-4fd1-8be3-afb126cd773d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "11f673d6-8bea-4fd1-8be3-afb126cd773d",
+	"unityPlayUrl": "https://play.unity.com/en/games/11f673d6-8bea-4fd1-8be3-afb126cd773d/cbrfps"
+}

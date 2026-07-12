@@ -1,0 +1,14 @@
+{
+	"id": "akama-21",
+	"name": "AKAMA 2.1",
+	"author": "readingmaster77",
+	"description": "Fight robots, collect new guns, and more!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/23f80a75-f60f-4353-be03-1165355afa4b/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/3e40c66b-95b6-4960-b3c8-7f9a25b07116/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "3e40c66b-95b6-4960-b3c8-7f9a25b07116",
+	"unityPlayUrl": "https://play.unity.com/en/games/3e40c66b-95b6-4960-b3c8-7f9a25b07116/akama-21"
+}

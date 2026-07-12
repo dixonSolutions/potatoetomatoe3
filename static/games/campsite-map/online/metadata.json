@@ -1,0 +1,14 @@
+{
+	"id": "campsite-map",
+	"name": "Campsite Map",
+	"author": "RyNo12",
+	"description": "W,A,S,D - Left Shift to move faster",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f497663a-1939-4d26-bad8-4ad9835006b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25e46000-b7e1-49f6-a01d-afb06f60328b/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25e46000-b7e1-49f6-a01d-afb06f60328b",
+	"unityPlayUrl": "https://play.unity.com/en/games/25e46000-b7e1-49f6-a01d-afb06f60328b/campsite-map"
+}

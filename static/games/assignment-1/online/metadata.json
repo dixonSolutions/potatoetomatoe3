@@ -1,0 +1,14 @@
+{
+	"id": "assignment-1",
+	"name": "Assignment-1",
+	"author": "HimsleyChan",
+	"description": "Play Assignment-1 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f42ac730-a66f-4940-9e03-0e3de32242f5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/25b0d843-4d2f-4a70-b3cc-9d27d7d2b0d2/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "25b0d843-4d2f-4a70-b3cc-9d27d7d2b0d2",
+	"unityPlayUrl": "https://play.unity.com/en/games/25b0d843-4d2f-4a70-b3cc-9d27d7d2b0d2/assignment-1"
+}

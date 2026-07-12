@@ -1,0 +1,14 @@
+{
+	"id": "build5",
+	"name": "build5",
+	"author": "xtiger13",
+	"description": "Play build5 on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/03815436-02e2-4a24-8957-ee8de880dfcf/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "03815436-02e2-4a24-8957-ee8de880dfcf",
+	"unityPlayUrl": "https://play.unity.com/en/games/03815436-02e2-4a24-8957-ee8de880dfcf/build5"
+}

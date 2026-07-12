@@ -1,0 +1,14 @@
+{
+	"id": "bubble-gum-game",
+	"name": "Bubble Gum Game",
+	"author": "ashleynoren",
+	"description": "Don't get gum on the bottom of the shoes! Use the right arrow key to roll away, but don't worry-if you get hit, you have a second life as a bubble!",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/1a791e98-b753-4ffe-b9e5-4fddb8a8c21e/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/02090ef3-851a-461b-a44f-dd5acdcb0de3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "02090ef3-851a-461b-a44f-dd5acdcb0de3",
+	"unityPlayUrl": "https://play.unity.com/en/games/02090ef3-851a-461b-a44f-dd5acdcb0de3/bubble-gum-game"
+}

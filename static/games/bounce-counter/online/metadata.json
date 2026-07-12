@@ -1,0 +1,14 @@
+{
+	"id": "bounce-counter",
+	"name": "Bounce Counter",
+	"author": "wattuu",
+	"description": "Use the up and down arrow keys to change the launch angle, then press spacebar to launch a ball. If you get it in the pipe, you score based on the number of times the ball bounced that shot. If you don't think a shot will land in the pipe, press 'r' to reset it.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/0b931f91-0c65-45df-932a-df91ff5f1b0d/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "0b931f91-0c65-45df-932a-df91ff5f1b0d",
+	"unityPlayUrl": "https://play.unity.com/en/games/0b931f91-0c65-45df-932a-df91ff5f1b0d/bounce-counter"
+}

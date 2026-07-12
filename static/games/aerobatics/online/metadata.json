@@ -1,0 +1,14 @@
+{
+	"id": "aerobatics",
+	"name": "Aerobatics",
+	"author": "PMihailo05",
+	"description": "Play Aerobatics on Potato Tomato (mirrored from Unity Play).",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/9e7fd9aa-1dbe-4d93-b2b5-9d6a7de43911/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2e301bb1-1702-45f7-9fca-de2c2bef585e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2e301bb1-1702-45f7-9fca-de2c2bef585e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2e301bb1-1702-45f7-9fca-de2c2bef585e/aerobatics"
+}

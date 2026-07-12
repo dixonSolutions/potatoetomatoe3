@@ -1,0 +1,14 @@
+{
+	"id": "adventurers-the-lost-tomb",
+	"name": "Adventurers: The Lost Tomb",
+	"author": "karbin5555",
+	"description": "Help Johnny Thunder on his latest adventure! Navigate through the chambers of the Lost Tomb dodging deadly traps, collecting priceless artifacts, and solving ancient puzzles.\n\nHow to play:\n- Move with WASD or arrow keys\n- First collect all of the golden statues in a level\n- Then find the map at the end of each level\n- Complete all 7 levels",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/7e07e23f-e7af-4c2e-9d89-ecb79dc73f28/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/109c384b-79ec-44dc-887b-bb11c7e9d2b8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "109c384b-79ec-44dc-887b-bb11c7e9d2b8",
+	"unityPlayUrl": "https://play.unity.com/en/games/109c384b-79ec-44dc-887b-bb11c7e9d2b8/adventurers-the-lost-tomb"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "601-final-wtsa-game-release",
+	"name": "6.0.1-FINAL WTSA GAME RELEASE",
+	"author": "Red-Winter-Studios",
+	"description": "Controls:\nUp= shoot\nW/S= Change Pitch\nA/D= Change Yaw\nLeft/Right= Change roll\nInstructions: Press the blue play button. It will take a moment to connect to the server, and after that you will spawn int. In the bottom right is your health. Fly around the arena and shoot down enemy players, but don't leave the arena or loose your health because you will die! If you die, click the black respawn button to load back in.\n\nCREDITS:\nTrees are made by Pixel games. they can be found at: https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-9-rainbow-tree-54622\nTextures come from Nobiax / Yughues. they can be found at: https://assetstore.unity.com/packages/2d/textures-materials/floors/yughues-free-ground-materials-13001\nserver is hosted by photon PUN.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/203a3535-ab21-48dc-84cb-d34c9597fda6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "203a3535-ab21-48dc-84cb-d34c9597fda6",
+	"unityPlayUrl": "https://play.unity.com/en/games/203a3535-ab21-48dc-84cb-d34c9597fda6/601-final-wtsa-game-release"
+}

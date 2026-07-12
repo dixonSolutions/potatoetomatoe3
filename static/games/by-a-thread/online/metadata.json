@@ -1,0 +1,14 @@
+{
+	"id": "by-a-thread",
+	"name": "By a Thread",
+	"author": "nsaravan",
+	"description": "Team: SpyKidz\nChanges(4/25): Fixed multiple coin, jump, and visual bugs, Added Animations, Added background pictures, Added sound effects.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/db30a13e-93fd-41fc-81af-1209cf66d4e4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/bfa5a3bb-e228-4c04-8cee-3a4ee8a9b8c5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "bfa5a3bb-e228-4c04-8cee-3a4ee8a9b8c5",
+	"unityPlayUrl": "https://play.unity.com/en/games/bfa5a3bb-e228-4c04-8cee-3a4ee8a9b8c5/by-a-thread"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "black-and-white",
+	"name": "Black And White",
+	"author": "Jyangb1y",
+	"description": "Black And White",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5d7116f5-5be9-46e6-ab80-e2842f0c97d9/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5d7116f5-5be9-46e6-ab80-e2842f0c97d9",
+	"unityPlayUrl": "https://play.unity.com/en/games/5d7116f5-5be9-46e6-ab80-e2842f0c97d9/black-and-white"
+}

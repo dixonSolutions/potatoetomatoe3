@@ -1,0 +1,14 @@
+{
+	"id": "astrowars",
+	"name": "AstroWars",
+	"author": "JayBitcoins",
+	"description": "war game",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/0d108b54-673c-4c4a-8a13-96c728c10767/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/136e7e79-f4b5-482b-b179-d7637e691c45/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "136e7e79-f4b5-482b-b179-d7637e691c45",
+	"unityPlayUrl": "https://play.unity.com/en/games/136e7e79-f4b5-482b-b179-d7637e691c45/astrowars"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "air-hockey",
+	"name": "Air Hockey",
+	"author": "yodda",
+	"description": "Air hockey  Game to kill time. \nBrowser Only WebGL.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/b68c3882-01b9-461b-9d45-3373bc0299b5/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/5254085d-4843-46cd-adda-e1e00ed20a53/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "5254085d-4843-46cd-adda-e1e00ed20a53",
+	"unityPlayUrl": "https://play.unity.com/en/games/5254085d-4843-46cd-adda-e1e00ed20a53/air-hockey"
+}

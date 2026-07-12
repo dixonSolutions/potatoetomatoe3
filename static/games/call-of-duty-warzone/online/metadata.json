@@ -1,0 +1,14 @@
+{
+	"id": "call-of-duty-warzone",
+	"name": "Call of Duty: Warzone",
+	"author": "yungleeee",
+	"description": "My latest microgame.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/aba550ad-d10f-412c-8571-dd2302a409b0/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cf6ee0b6-8051-4a64-a1e4-1fc1f4a5e8ee/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cf6ee0b6-8051-4a64-a1e4-1fc1f4a5e8ee",
+	"unityPlayUrl": "https://play.unity.com/en/games/cf6ee0b6-8051-4a64-a1e4-1fc1f4a5e8ee/call-of-duty-warzone"
+}

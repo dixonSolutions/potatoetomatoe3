@@ -1,0 +1,14 @@
+{
+	"id": "car-jumping",
+	"name": "Car Jumping",
+	"author": "mqasimnasirg",
+	"description": "To control this game simply click left mouse button to jump the car",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/f8c41b15-fafa-40e3-a75f-9670ecb9275f/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/ff0810a6-290b-418c-ab81-58fba8e6aee3/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "ff0810a6-290b-418c-ab81-58fba8e6aee3",
+	"unityPlayUrl": "https://play.unity.com/en/games/ff0810a6-290b-418c-ab81-58fba8e6aee3/car-jumping"
+}

@@ -1,0 +1,14 @@
+{
+	"id": "build-a-berg-guitar-customizer",
+	"name": "Build-A-Berg Guitar Customizer",
+	"author": "benjaminlangels",
+	"description": "My first game. Made for Strandberg Spark.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/daa819a3-6d45-4f3d-ac59-9bfd57114da4/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/2fab0225-41ef-42c1-8c10-30a7f33e331e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "2fab0225-41ef-42c1-8c10-30a7f33e331e",
+	"unityPlayUrl": "https://play.unity.com/en/games/2fab0225-41ef-42c1-8c10-30a7f33e331e/build-a-berg-guitar-customizer"
+}

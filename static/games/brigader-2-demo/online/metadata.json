@@ -1,0 +1,14 @@
+{
+	"id": "brigader-2-demo",
+	"name": "brigader-2-demo",
+	"author": "zanebeeai",
+	"description": "basic fps\n8 maps\nhella guns n attachments",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/1dbd283f-9c59-46cc-a874-81f53c7e42b6/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "1dbd283f-9c59-46cc-a874-81f53c7e42b6",
+	"unityPlayUrl": "https://play.unity.com/en/games/1dbd283f-9c59-46cc-a874-81f53c7e42b6/brigader-2-demo"
+}

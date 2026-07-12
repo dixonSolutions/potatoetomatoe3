@@ -1,0 +1,14 @@
+{
+	"id": "blooming-sakura",
+	"name": "Blooming Sakura",
+	"author": "Unity Play",
+	"description": "Master's thesis",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/591a4c5d-00cd-428e-a063-2ce5aa66b7c3/content",
+	"category": "trending-games",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/fc1623a4-6fba-44e5-af3b-28ef033cbca5/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "fc1623a4-6fba-44e5-af3b-28ef033cbca5",
+	"unityPlayUrl": "https://play.unity.com/en/games/fc1623a4-6fba-44e5-af3b-28ef033cbca5/blooming-sakura"
+}

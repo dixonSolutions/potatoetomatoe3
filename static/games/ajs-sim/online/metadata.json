@@ -1,0 +1,14 @@
+{
+	"id": "ajs-sim",
+	"name": "AJ's Sim",
+	"author": "LightningStrike727",
+	"description": "In this arcade-y sim, you can fly, walk, cruise around a city and race to your heart's desire while collecting coins to unlock new vehicles. \n\nInspired by the Forza series and MSFS 2020.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/70efa20b-cf1d-4f3c-b025-3f0161dc62eb/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/b818f981-7947-4782-81b3-caa902014cac/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "b818f981-7947-4782-81b3-caa902014cac",
+	"unityPlayUrl": "https://play.unity.com/en/games/b818f981-7947-4782-81b3-caa902014cac/ajs-sim"
+}

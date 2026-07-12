@@ -1,0 +1,14 @@
+{
+	"id": "arcade-plane",
+	"name": "Arcade Plane",
+	"author": "aelomb2497",
+	"description": "Fly to collect the coins but not all rings are collectible! Good luck!                                                       Music credits: bensound.com, zapsplat.com",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/a2b5c90d-3ce7-4c33-b018-9c15f669c0f6/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/70f5d398-f2dc-43ba-b158-2dd1f9f4dc32/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "70f5d398-f2dc-43ba-b158-2dd1f9f4dc32",
+	"unityPlayUrl": "https://play.unity.com/en/games/70f5d398-f2dc-43ba-b158-2dd1f9f4dc32/arcade-plane"
+}

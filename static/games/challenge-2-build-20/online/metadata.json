@@ -1,0 +1,14 @@
+{
+	"id": "challenge-2-build-20",
+	"name": "Challenge 2 Build 2.0",
+	"author": "Tommytippi",
+	"description": "My latest microgame. A and D to run, W to jump! Collect coins and avoid enemies.",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/050ffa48-15f6-4608-a106-00e69c61d69e/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "050ffa48-15f6-4608-a106-00e69c61d69e",
+	"unityPlayUrl": "https://play.unity.com/en/games/050ffa48-15f6-4608-a106-00e69c61d69e/challenge-2-build-20"
+}

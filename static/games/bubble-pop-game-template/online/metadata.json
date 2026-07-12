@@ -1,0 +1,14 @@
+{
+	"id": "bubble-pop-game-template",
+	"name": "Bubble Pop - Game Template",
+	"author": "Ilumisoft",
+	"description": "Bubble Pop is an addictive hyper casual bubble game template. Select groups of two or more bubbles and pop them to increase your score. The more bubbles you can destroy at once the higher is the score revenue.",
+	"thumbnail": "https://play.unity.com/api/v1/files/file/d941e85e-3291-4b01-96a3-017da5d0b219/content",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/916e663c-8b5d-43a1-9f6a-598267ccf5d8/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "916e663c-8b5d-43a1-9f6a-598267ccf5d8",
+	"unityPlayUrl": "https://play.unity.com/en/games/916e663c-8b5d-43a1-9f6a-598267ccf5d8/bubble-pop-game-template"
+}

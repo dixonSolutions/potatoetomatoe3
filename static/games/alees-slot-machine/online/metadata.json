@@ -1,0 +1,14 @@
+{
+	"id": "alees-slot-machine",
+	"name": "alee's slot machine",
+	"author": "aleeperson",
+	"description": "simple slot game i am working on will be updated regularly",
+	"thumbnail": "https://play.unity.com/assets/default_thumbnail.png",
+	"category": "arcade",
+	"engine": "unity",
+	"onlineEmbedUrl": "https://play.unity.com/api/v1/games/game/cb300303-ed53-4a9c-a09b-ddee86d0f447/build/latest/frame",
+	"pullStrategy": "generic",
+	"sourcePortal": "unity-play",
+	"unityPlayGameId": "cb300303-ed53-4a9c-a09b-ddee86d0f447",
+	"unityPlayUrl": "https://play.unity.com/en/games/cb300303-ed53-4a9c-a09b-ddee86d0f447/alees-slot-machine"
+}
