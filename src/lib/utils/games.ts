@@ -344,6 +344,18 @@ function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): st
 	return onlineShell;
 }
 
+/** External http(s) catalog embed that cannot be same-origin without the local puller. */
+function hasExternalOnlineEmbed(metadata: GameMetadata | null): boolean {
+	const embed = metadata?.onlineEmbedUrl?.trim();
+	if (!embed) return false;
+	try {
+		const url = new URL(embed);
+		return url.protocol === 'http:' || url.protocol === 'https:';
+	} catch {
+		return false;
+	}
+}
+
 async function offlineAvailable(gameId: string): Promise<boolean> {
 	if (isBundledOfflineGame(gameId)) return true;
 	const status = await fetchGameOfflineStatus(gameId);
@@ -452,7 +464,7 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Unity online with inject:
+	 * Unity online with inject (specialized puller path):
 	 * 1) Local-app puller URL when available
 	 * 2) Optional hosted PUBLIC_PLAY_PROXY_URL (Cloudflare Worker)
 	 * 3) Public site: same-origin /api/unity-play/:id via offline-sw → local puller :18787
@@ -479,6 +491,42 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 				'info',
 				'play-url',
 				`Resolved Unity play via service-worker → local puller relay`,
+				`game=${gameId} url=${url}`
+			);
+			return url;
+		}
+	}
+
+	/*
+	 * Live relay (additional puller capability — does not download offline):
+	 * External online embeds get same-origin /api/game-live for touch + play while online.
+	 * Offline scrape remains the puller's primary job via /api/offline.
+	 */
+	if (hasExternalOnlineEmbed(metadata)) {
+		const { isPullerAvailable, pullerLiveGameUrl, sameOriginLiveGameUrl } = await import(
+			'./offline-downloader-puller'
+		);
+		if (await isPullerAvailable()) {
+			const url = pullerLiveGameUrl(gameId, base);
+			appendPlayLog(
+				'info',
+				'play-url',
+				`Resolved live relay via puller (online play; not an offline download)`,
+				`game=${gameId} url=${url}`
+			);
+			return url;
+		}
+		if (
+			isPublicSiteDeployment() &&
+			(await isPullerAvailable(true, { ignoreDeploymentGate: true }))
+		) {
+			const { ensureOfflineServiceWorker } = await import('./browser-offline-download');
+			await ensureOfflineServiceWorker();
+			const url = sameOriginLiveGameUrl(gameId, base);
+			appendPlayLog(
+				'info',
+				'play-url',
+				`Resolved live relay via service-worker → local puller`,
 				`game=${gameId} url=${url}`
 			);
 			return url;
@@ -520,6 +568,7 @@ export async function gameHasDualVersions(gameId: string): Promise<{
 export function iframeAllowForUrl(url: string): string | undefined {
 	if (
 		url.includes('/api/unity-play/') ||
+		url.includes('/api/game-live/') ||
 		url.includes('/unity/player.html') ||
 		url.includes('/unity/embed.html') ||
 		url.includes('jsdelivr.net') ||

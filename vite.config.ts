@@ -53,7 +53,8 @@ export default defineConfig({
 		host: true, // Expose to network for container compatibility
 		proxy: {
 			'/puller-games': pullerGameProxy,
-			'/api/unity-play': pullerApiProxy
+			'/api/unity-play': pullerApiProxy,
+			'/api/game-live': pullerApiProxy
 		},
 		watch: {
 			ignored: [
@@ -74,7 +75,8 @@ export default defineConfig({
 	preview: {
 		proxy: {
 			'/puller-games': pullerGameProxy,
-			'/api/unity-play': pullerApiProxy
+			'/api/unity-play': pullerApiProxy,
+			'/api/game-live': pullerApiProxy
 		}
 	},
 	test: {

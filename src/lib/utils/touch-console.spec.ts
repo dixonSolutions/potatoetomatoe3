@@ -13,6 +13,7 @@ describe('touch-input-dispatch', () => {
 		expect(isLikelyInjectableUrl('/games/shrek-escape/offline/index.html')).toBe(true);
 		expect(isLikelyInjectableUrl('/puller-games/foo/offline/index.html')).toBe(true);
 		expect(isLikelyInjectableUrl('/api/unity-play/foo')).toBe(true);
+		expect(isLikelyInjectableUrl('/api/game-live/foo')).toBe(true);
 		expect(isLikelyInjectableUrl('blob:http://localhost/abc')).toBe(true);
 	});
 
@@ -21,9 +22,11 @@ describe('touch-input-dispatch', () => {
 		expect(isLikelyInjectableUrl('/games/foo/online/index.html')).toBe(false);
 	});
 
-	it('classifies unity-play and offline URLs as touch-bridge capable', () => {
+	it('classifies unity-play, game-live, and offline URLs as touch-bridge capable', () => {
 		expect(canUseTouchBridge('/api/unity-play/mob-city')).toBe(true);
+		expect(canUseTouchBridge('/api/game-live/ovo')).toBe(true);
 		expect(canUseTouchBridge('http://127.0.0.1:18787/api/unity-play/mob-city')).toBe(true);
+		expect(canUseTouchBridge('http://127.0.0.1:18787/api/game-live/ovo')).toBe(true);
 		expect(canUseTouchBridge('/games/foo/offline/index.html')).toBe(true);
 		expect(canUseTouchBridge('/puller-games/foo/offline/index.html')).toBe(true);
 		expect(canUseTouchBridge('/browser-offline/foo/online/index.html')).toBe(true);

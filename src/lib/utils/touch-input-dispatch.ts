@@ -166,6 +166,10 @@ export function resolveInjectable(iframe: HTMLIFrameElement | null | undefined):
  * Heuristic: can the parent page likely inject into this play URL's top iframe?
  * Does not replace resolveInjectable — use both (URL hint + live probe).
  */
+function isPullerPlayProxyPath(pathname: string): boolean {
+	return pathname.includes('/api/unity-play/') || pathname.includes('/api/game-live/');
+}
+
 export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	if (!url) return false;
 	const u = url.trim();
@@ -173,7 +177,7 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	if (u.startsWith('blob:')) return true;
 	if (u.includes('/puller-games/')) return true;
 	if (u.includes('/browser-offline/')) return true;
-	if (u.includes('/api/unity-play/')) return true;
+	if (u.includes('/api/unity-play/') || u.includes('/api/game-live/')) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	// Same-origin shells that nest a cross-origin game — not injectable for the real game.
 	if (u.includes('/unity/player.html')) return false;
@@ -197,7 +201,7 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 	if (!url) return false;
 	const u = url.trim();
 	if (!u) return false;
-	if (u.includes('/api/unity-play/')) return true;
+	if (u.includes('/api/unity-play/') || u.includes('/api/game-live/')) return true;
 	if (u.includes('/puller-games/') && u.includes('/offline/')) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	if (u.includes('/browser-offline/')) return true;
@@ -207,7 +211,7 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 		if (proxy) {
 			const parsed = new URL(u, typeof window !== 'undefined' ? window.location.href : 'http://local');
 			const proxyOrigin = new URL(proxy).origin;
-			if (parsed.origin === proxyOrigin && parsed.pathname.includes('/api/unity-play/')) return true;
+			if (parsed.origin === proxyOrigin && isPullerPlayProxyPath(parsed.pathname)) return true;
 		}
 	} catch {
 		/* ignore */
@@ -218,7 +222,7 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 			/* Packaged Tauri puller on loopback */
 			if (
 				(parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost') &&
-				parsed.pathname.includes('/api/unity-play/')
+				isPullerPlayProxyPath(parsed.pathname)
 			) {
 				return true;
 			}

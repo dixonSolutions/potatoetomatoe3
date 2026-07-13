@@ -9,7 +9,7 @@
     "start": "pnpm embed-assets && tsx src/index.ts",
     "build": "pnpm embed-assets && esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/index.js --packages=external",
     "bundle:linux": "pnpm build && npx --yes @yao-pkg/pkg dist/index.js --targets node20-linux-x64 --output ../src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu",
-    "test": "tsx --test src/capture/rewrite.test.ts src/capture/frames.test.ts src/ads/apply.test.ts",
+    "test": "tsx --test src/capture/rewrite.test.ts src/capture/frames.test.ts src/ads/apply.test.ts src/live/safety.test.ts src/live/session.test.ts src/live/proxy.test.ts",
     "postinstall": "playwright install chromium || echo 'Playwright browser install skipped (run manually if needed)'"
   },
   "dependencies": {
