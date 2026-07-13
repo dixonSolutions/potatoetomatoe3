@@ -34,6 +34,18 @@ Environment variables:
 - Path traversal is rejected on static file serving
 - Writes are restricted to `<dataDir>/<gameId>/offline/` and `<dataDir>/<gameId>/data/` (browser profiles)
 
+## Offline status API (scoped)
+
+At 10k+ catalog size, the SPA never asks the puller for every game’s status.
+
+| Request | Response |
+|---------|----------|
+| `GET /api/offline/status` | Only **downloaded / in-progress / partial** games (dirs with `offline/`, plus active downloads) |
+| `GET /api/offline/status?ids=a,b,c` | Statuses for the listed ids (visible cards) |
+| `GET /api/offline/status/:id` | Single game (unchanged) |
+
+Client helpers: `fetchDownloadedStatuses()` and `fetchOfflineStatusesForIds(ids)`.
+
 ## Offline covers
 
 After a successful offline download, the puller also caches the catalog `thumbnail` (remote Unity CDN or local asset) as `offline/assets/thumbnail.*` and records it in `offline-manifest.json`. The UI prefers that local cover when the device is offline or the game is marked downloaded, so cards do not depend on the network for covers.
@@ -57,7 +69,7 @@ Default for catalog games:
 1. Read `online/index.html` iframe URL
 2. Mirror with `wget --mirror`
 3. Deep-fetch referenced assets (Unity-aware discovery in `puller/src/unity/discover-assets.ts`)
-4. For Unity WebGL builds: strip portal bloat, inject splash removal (`static/unity/inject.js`), write `asset-map.json` for local asset routing
+4. For Unity WebGL builds: strip portal bloat, inject `static/unity/inject.js` at the **start** of `<head>` (stdin stubs, focus spoof, splash removal), write `asset-map.json` for local asset routing. Vite also returns plain 404 for missing `/games/…/Build/*` assets so SPA `index.html` is never executed as JS (`SyntaxError: expected expression, got '<'`).
 
 ### Y8 catalog import
 

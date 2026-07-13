@@ -51,6 +51,7 @@ import {
 	fetchPullerDownloadProgress,
 	fetchPullerGameOfflineStatus,
 	fetchPullerOfflineStatuses,
+	fetchPullerOfflineStatusesForIds,
 	invalidatePullerOfflineStatusCache,
 	pollPullerDownloadUntilDone,
 	startPullerGameDownload,
@@ -80,7 +81,8 @@ export function bundledOfflineStatus(): Record<string, GameOfflineStatus> {
 	return out;
 }
 
-export async function fetchAllOfflineStatuses(
+/** Downloaded / in-progress / bundled only — not every catalog id. */
+export async function fetchDownloadedStatuses(
 	force = false
 ): Promise<Record<string, GameOfflineStatus>> {
 	const bundled = bundledOfflineStatus();
@@ -95,6 +97,50 @@ export async function fetchAllOfflineStatuses(
 		return { ...bundled, ...stored };
 	}
 	return bundled;
+}
+
+/** Statuses for visible / requested game ids. */
+export async function fetchOfflineStatusesForIds(
+	gameIds: string[],
+	force = false
+): Promise<Record<string, GameOfflineStatus>> {
+	const unique = [...new Set(gameIds.filter(Boolean))];
+	if (unique.length === 0) return {};
+	const bundled = bundledOfflineStatus();
+	const backend = await getOfflineBackend(force);
+
+	if (backend === 'puller') {
+		const remote = await fetchPullerOfflineStatusesForIds(unique, force);
+		const out: Record<string, GameOfflineStatus> = { ...remote };
+		for (const id of unique) {
+			if (bundled[id]) out[id] = { ...out[id], ...bundled[id], offline: true };
+		}
+		return out;
+	}
+	if (backend === 'browser') {
+		const stored = await fetchBrowserOfflineStatuses();
+		const out: Record<string, GameOfflineStatus> = {};
+		for (const id of unique) {
+			if (bundled[id]) out[id] = bundled[id];
+			else if (stored[id]) out[id] = stored[id];
+		}
+		return out;
+	}
+	const out: Record<string, GameOfflineStatus> = {};
+	for (const id of unique) {
+		if (bundled[id]) out[id] = bundled[id];
+	}
+	return out;
+}
+
+/**
+ * @deprecated Prefer `fetchDownloadedStatuses` + `fetchOfflineStatusesForIds`.
+ * Now returns downloaded/in-progress only (same as fetchDownloadedStatuses).
+ */
+export async function fetchAllOfflineStatuses(
+	force = false
+): Promise<Record<string, GameOfflineStatus>> {
+	return fetchDownloadedStatuses(force);
 }
 
 export async function fetchGameOfflineStatus(

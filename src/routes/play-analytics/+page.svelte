@@ -5,7 +5,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Switch } from '$lib/components/ui/switch';
 	import Label from '$lib/components/ui/label/label.svelte';
-	import { loadAllGames, type GameMetadata } from '$lib/utils/games';
+	import { loadAllGames, type GameIndexEntry } from '$lib/utils/games';
 	import {
 		getCategoryAffinityMap,
 		setCategoryAffinity,
@@ -22,7 +22,7 @@
 	import { initRecommendationBackend, getRecommendationBackendName } from '$lib/utils/recommendation-tf';
 	import { Cpu, Gauge, Heart, ThumbsDown, ThumbsUp } from 'lucide-svelte';
 
-	let allGames: GameMetadata[] = $state([]);
+	let allGames: GameIndexEntry[] = $state([]);
 	let categories = $state<string[]>([]);
 	let affinity = $state<Record<string, number>>({});
 	let backendLabel = $state<string>('…');

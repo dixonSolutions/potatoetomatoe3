@@ -74,7 +74,9 @@
 		PRIVACY_DISGUISE_PROVIDERS.find((p) => p.id === providerChoice) ?? PRIVACY_DISGUISE_PROVIDERS[0]
 	);
 
-	const DISGUISE_OPTIONS: { label: string; value: PrivacyDisguiseMode; hint: string }[] = [
+	const DISGUISE_OPTIONS = $derived<
+		{ label: string; value: PrivacyDisguiseMode; hint: string }[]
+	>([
 		{
 			label: 'Off',
 			value: 'off',
@@ -90,7 +92,7 @@
 			value: 'always',
 			hint: `Always show the ${activeService.label} tab title and icon whenever privacy mode is on.`
 		}
-	];
+	]);
 
 	function onProviderChange(next: string | undefined) {
 		if (!next) return;

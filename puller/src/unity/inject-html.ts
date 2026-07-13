@@ -15,9 +15,9 @@ export function buildUnityInjectScriptTag(): string {
 
 /** Portal bloat — strip before Unity loader runs. */
 const BLOAT_SCRIPT =
-	/(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication)/i;
+	/(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare)/i;
 
-const BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick)/i;
+const BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick|cloak)/i;
 
 /**
  * Strip portal SDK scripts, play-gate overlays, and duplicate loaders from mirrored HTML.
@@ -25,7 +25,7 @@ const BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick)/i;
 export function stripUnityPortalBloat(html: string): string {
 	let out = html;
 
-	// Remove script tags that load portal SDKs / ad wrappers
+	// Remove script tags that load portal SDKs / ad wrappers / tab-cloak junk
 	out = out.replace(/<script\b[^>]*\bsrc=["'][^"']*["'][^>]*>\s*<\/script>/gi, (tag) =>
 		BLOAT_SCRIPT.test(tag) ? '' : tag
 	);
@@ -44,7 +44,8 @@ export function stripUnityPortalBloat(html: string): string {
 }
 
 /**
- * Inject Unity patches + optional asset redirect map into HTML (before </head>).
+ * Inject Unity patches + optional asset redirect map into HTML.
+ * Inject MUST run before UnityLoader / createUnityInstance scripts.
  */
 export function injectUnityPatches(
 	html: string,
@@ -59,8 +60,8 @@ export function injectUnityPatches(
 
 	if (out.includes('__ptUnityInjectInstalled')) return out;
 
-	if (out.includes('</head>')) {
-		return out.replace('</head>', `${bundle}\n</head>`);
+	if (out.includes('<head')) {
+		return out.replace(/<head([^>]*)>/i, `<head$1>${bundle}`);
 	}
 	if (out.includes('<body')) {
 		return out.replace(/<body([^>]*)>/i, `<body$1>${bundle}`);

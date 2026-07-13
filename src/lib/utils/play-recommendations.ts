@@ -5,7 +5,7 @@
  * - Content-based weights (categories, authors), implicit feedback, recency, explicit category affinity.
  */
 
-import type { GameMetadata } from '$lib/utils/games';
+import type { GameIndexEntry, GameMetadata } from '$lib/utils/games';
 import type { GamePreferences } from '$lib/utils/preferences';
 import Fuse from 'fuse.js';
 import { cpuMatMulVec, scoreWithTensorFlow, initRecommendationBackend } from '$lib/utils/recommendation-tf';
@@ -17,8 +17,14 @@ const LEARN_RATE = 0.12;
 const RECENT_CAT_MAX = 8;
 const RECENT_CAT_BOOST = 0.18;
 
+/** Cap TF/CPU scoring pool — full 12k scans are too slow on home. */
+export const RECOMMEND_CANDIDATE_CAP = 800;
+
 /** Feature dimension for TF / CPU dot-product scorer */
 export const RECOMMEND_FEATURE_DIM = 8;
+
+/** Games usable for ranking (lean index or full metadata). */
+export type RecommendableGame = GameIndexEntry & Partial<Pick<GameMetadata, 'description'>>;
 
 export interface PerGameStats {
 	sessions: number;
@@ -302,7 +308,7 @@ export function getBrowseShuffleSeed(): number {
 	return parseInt(raw, 10) || 0xdec0de;
 }
 
-function likedAuthorHints(prefs: GamePreferences, byId: Map<string, GameMetadata>): Set<string> {
+function likedAuthorHints(prefs: GamePreferences, byId: Map<string, RecommendableGame>): Set<string> {
 	const authors = new Set<string>();
 	for (const id of prefs.liked) {
 		const g = byId.get(id);
@@ -328,7 +334,7 @@ const SCORE_WEIGHTS = new Float32Array([
 ]);
 
 function buildFeatureRow(
-	game: GameMetadata,
+	game: RecommendableGame,
 	analytics: PlayAnalyticsV2,
 	prefs: GamePreferences,
 	catNorm: Record<string, number>,
@@ -370,11 +376,11 @@ function buildFeatureRow(
 }
 
 function scoreGamesCpu(
-	games: GameMetadata[],
+	games: RecommendableGame[],
 	analytics: PlayAnalyticsV2,
 	prefs: GamePreferences,
-	byId: Map<string, GameMetadata>
-): { game: GameMetadata; score: number }[] {
+	byId: Map<string, RecommendableGame>
+): { game: RecommendableGame; score: number }[] {
 	const disliked = new Set(prefs.disliked);
 	const effectiveCat: Record<string, number> = { ...analytics.categoryWeights };
 	for (const id of prefs.liked) {
@@ -417,17 +423,58 @@ function scoreGamesCpu(
 }
 
 /**
+ * Prefer liked/recent categories, then deterministic fill — keeps scoring ≤ RECOMMEND_CANDIDATE_CAP.
+ */
+export function selectRecommendCandidates(
+	allGames: RecommendableGame[],
+	prefs: GamePreferences,
+	cap = RECOMMEND_CANDIDATE_CAP
+): RecommendableGame[] {
+	const analytics = loadPlayAnalytics();
+	const disliked = new Set(prefs.disliked);
+	const pool = allGames.filter((g) => !disliked.has(g.id));
+	if (pool.length <= cap) return pool;
+
+	const preferredCats = new Set<string>();
+	for (const c of analytics.recentCategories ?? []) preferredCats.add(c);
+	for (const [c, w] of Object.entries(analytics.categoryWeights)) {
+		if (w > 0.05) preferredCats.add(c);
+	}
+	const byId = new Map(pool.map((g) => [g.id, g]));
+	for (const id of prefs.liked) {
+		const g = byId.get(id);
+		if (g?.category) preferredCats.add(g.category);
+	}
+
+	const selected: RecommendableGame[] = [];
+	const have = new Set<string>();
+	for (const g of pool) {
+		if (preferredCats.has(g.category) && !have.has(g.id)) {
+			selected.push(g);
+			have.add(g.id);
+			if (selected.length >= cap) return selected;
+		}
+	}
+	for (const g of shuffleDeterministic(pool, 42_069)) {
+		if (have.has(g.id)) continue;
+		selected.push(g);
+		have.add(g.id);
+		if (selected.length >= cap) break;
+	}
+	return selected;
+}
+
+/**
  * Home page (sync): CPU-only ranking — same math as async path without TensorFlow.
  */
 export function getHomeRecommendations(
-	allGames: GameMetadata[],
+	allGames: RecommendableGame[],
 	prefs: GamePreferences,
 	limit: number
-): GameMetadata[] {
+): RecommendableGame[] {
 	const analytics = loadPlayAnalytics();
-	const disliked = new Set(prefs.disliked);
 	const byId = new Map(allGames.map((g) => [g.id, g]));
-	const candidates = allGames.filter((g) => !disliked.has(g.id));
+	const candidates = selectRecommendCandidates(allGames, prefs);
 	if (candidates.length === 0) return [];
 
 	if (learningSignalStrength(analytics, prefs) < 0.02) {
@@ -443,14 +490,13 @@ export function getHomeRecommendations(
  * Home page (async): TensorFlow matmul on GPU when available.
  */
 export async function getHomeRecommendationsAsync(
-	allGames: GameMetadata[],
+	allGames: RecommendableGame[],
 	prefs: GamePreferences,
 	limit: number
-): Promise<GameMetadata[]> {
+): Promise<RecommendableGame[]> {
 	const analytics = loadPlayAnalytics();
-	const disliked = new Set(prefs.disliked);
 	const byId = new Map(allGames.map((g) => [g.id, g]));
-	const candidates = allGames.filter((g) => !disliked.has(g.id));
+	const candidates = selectRecommendCandidates(allGames, prefs);
 	if (candidates.length === 0) return [];
 
 	if (learningSignalStrength(analytics, prefs) < 0.02) {
@@ -508,12 +554,12 @@ export async function getHomeRecommendationsAsync(
 }
 
 export function getRecommendationsForGamePage(
-	allGames: GameMetadata[],
-	current: GameMetadata,
+	allGames: RecommendableGame[],
+	current: RecommendableGame,
 	currentId: string,
 	prefs: GamePreferences,
 	limit: number
-): GameMetadata[] {
+): RecommendableGame[] {
 	const analytics = loadPlayAnalytics();
 	const disliked = new Set(prefs.disliked);
 	const byId = new Map(allGames.map((g) => [g.id, g]));
@@ -533,9 +579,8 @@ export function getRecommendationsForGamePage(
 	const fuse = new Fuse(allGames, {
 		keys: [
 			{ name: 'category', weight: 0.45 },
-			{ name: 'name', weight: 0.3 },
-			{ name: 'description', weight: 0.2 },
-			{ name: 'author', weight: 0.05 }
+			{ name: 'name', weight: 0.35 },
+			{ name: 'author', weight: 0.2 }
 		],
 		threshold: 0.42,
 		includeScore: true
@@ -547,7 +592,10 @@ export function getRecommendationsForGamePage(
 		fuseScoreById.set(r.item.id, 1 - (r.score ?? 0));
 	}
 
-	const pool = allGames.filter((g) => g.id !== currentId && !disliked.has(g.id));
+	const pool = selectRecommendCandidates(
+		allGames.filter((g) => g.id !== currentId),
+		prefs
+	);
 	const recentCats = analytics.recentCategories ?? [];
 	const recentIdx = new Map<string, number>();
 	for (let i = 0; i < recentCats.length; i++) {
@@ -596,10 +644,10 @@ export function getRecommendationsForGamePage(
 }
 
 export function getRecentlyPlayedGames(
-	allGames: GameMetadata[],
+	allGames: RecommendableGame[],
 	prefs: GamePreferences,
 	limit: number
-): GameMetadata[] {
+): RecommendableGame[] {
 	const analytics = loadPlayAnalytics();
 	const disliked = new Set(prefs.disliked);
 	const byId = new Map(allGames.map((g) => [g.id, g]));
@@ -608,7 +656,7 @@ export function getRecentlyPlayedGames(
 		.map(([id, v]) => ({ id, lastPlayed: v.lastPlayed }))
 		.sort((a, b) => b.lastPlayed - a.lastPlayed);
 
-	const out: GameMetadata[] = [];
+	const out: RecommendableGame[] = [];
 	for (const { id } of ordered) {
 		if (out.length >= limit) break;
 		const g = byId.get(id);
@@ -641,7 +689,7 @@ export function getPlaySessionsList(): { gameId: string; sessions: number; lastP
 
 /** Top-N games the async recommender would surface (for analytics UI). */
 export async function getTopRecommendedPreview(
-	allGames: GameMetadata[],
+	allGames: RecommendableGame[],
 	prefs: GamePreferences,
 	n: number
 ): Promise<{ id: string; name: string; scoreApprox: number }[]> {

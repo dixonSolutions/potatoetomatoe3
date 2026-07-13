@@ -28,17 +28,23 @@ let cachedLifecycle: TrayLifecycleState | null = null;
 
 /** Top five recently played games for the tray menu (excludes disliked). */
 export async function getTrayRecentGames(limit = 5): Promise<TrayRecentGame[]> {
-	const [allGames, prefs] = await Promise.all([loadAllGames(), Promise.resolve(getPreferences())]);
+	const prefs = getPreferences();
 	const disliked = new Set(prefs.disliked);
-	const byId = new Map(allGames.map((g) => [g.id, g]));
+	const sessions = getPlaySessionsList().filter((s) => !disliked.has(s.gameId)).slice(0, limit);
 
-	return getPlaySessionsList()
-		.filter((s) => !disliked.has(s.gameId))
-		.slice(0, limit)
-		.map((s) => ({
-			id: s.gameId,
-			name: byId.get(s.gameId)?.name?.trim() || s.gameId
-		}));
+	/* Prefer lean index names; fall back to game id */
+	let byId = new Map<string, { name?: string }>();
+	try {
+		const allGames = await loadAllGames();
+		byId = new Map(allGames.map((g) => [g.id, g]));
+	} catch {
+		/* ignore */
+	}
+
+	return sessions.map((s) => ({
+		id: s.gameId,
+		name: byId.get(s.gameId)?.name?.trim() || s.gameId
+	}));
 }
 
 export async function syncDesktopTrayRecent(): Promise<void> {

@@ -3,7 +3,13 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import { loadAllGames, resolveGameThumbnailSrc, type GameMetadata } from '$lib/utils/games';
+	import {
+		loadCatalogIndex,
+		loadCatalogManifest,
+		resolveGameThumbnailSrc,
+		type CatalogLoadProgress,
+		type GameIndexEntry
+	} from '$lib/utils/games';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
 	import * as Card from '$lib/components/ui/card';
@@ -14,19 +20,26 @@
 	import Fuse from 'fuse.js';
 	import { likeGame, removePreference } from '$lib/utils/preferences';
 	import {
-		fetchAllOfflineStatuses,
+		fetchDownloadedStatuses,
+		fetchOfflineStatusesForIds,
 		OFFLINE_STATUS_CHANGED
 	} from '$lib/utils/offline-downloader';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { WifiOff } from 'lucide-svelte';
+	import { createWindowVirtualizer } from '@tanstack/svelte-virtual';
 
 	type SortKey = 'name' | 'author' | 'category' | 'random';
 	const BROWSE_SORT_LS = 'potato-tomato-games-browse-sort';
+	const SEARCH_DEBOUNCE_MS = 150;
+	const ROW_ESTIMATE_PX = 360;
 
-	let games: GameMetadata[] = $state([]);
+	let games: GameIndexEntry[] = $state([]);
+	let catalogCategories: string[] = $state([]);
+	let catalogProgress = $state<CatalogLoadProgress | null>(null);
 	let loading = $state(true);
 	let searchQuery = $state('');
+	let debouncedSearch = $state('');
 	let selectedCategory = $state('all');
 	let sortBy = $state<SortKey>('name');
 	let sortReversed = $state(false);
@@ -36,10 +49,11 @@
 	let offlineStatusMap = $state<
 		Record<string, { offline?: boolean; offlineThumbnail?: string }>
 	>({});
-	let fuse: Fuse<GameMetadata> | null = null;
+	let fuse: Fuse<GameIndexEntry> | null = $state(null);
 	let favouriteIds = $state<Set<string>>(new Set());
+	let columnCount = $state(4);
 
-	function thumbUrl(game: GameMetadata) {
+	function thumbUrl(game: GameIndexEntry) {
 		const status = offlineStatusMap[game.id];
 		const preferOffline = !networkOnline || Boolean(status?.offline);
 		return resolveGameThumbnailSrc(game.thumbnail, {
@@ -60,10 +74,9 @@
 			likeGame(gameId);
 			favouriteIds.add(gameId);
 		}
-		favouriteIds = new Set(favouriteIds); // Trigger reactivity
+		favouriteIds = new Set(favouriteIds);
 	}
 
-	/** Client navigate — avoids static /games/{id}/ asset folders hijacking link clicks on the browse page. */
 	function openGame(gameId: string, event: MouseEvent) {
 		if (
 			event.defaultPrevented ||
@@ -79,13 +92,6 @@
 		void goto(resolve(`/games/${gameId}`));
 	}
 
-	// Pagination - load one row at a time (4 games on desktop)
-	const GAMES_PER_ROW = 4;
-	const INITIAL_ROWS = 6; // Start with 6 rows (24 games)
-	let displayedCount = $state(INITIAL_ROWS * GAMES_PER_ROW);
-	let loadMoreTrigger = $state<HTMLDivElement | undefined>(undefined);
-
-	// Derived values for Select components
 	let selectedCategoryValue = $derived({
 		value: selectedCategory,
 		label:
@@ -125,24 +131,50 @@
 		void goto(`${u.pathname}${u.search}`, { replaceState: true, keepFocus: true, noScroll: true });
 	}
 
-	async function refreshOfflineStatuses() {
-		offlineStatusMap = await fetchAllOfflineStatuses(true);
+	function rebuildFuse(list: GameIndexEntry[]) {
+		fuse = new Fuse(list, {
+			keys: ['name', 'author', 'category'],
+			threshold: 0.3,
+			includeScore: true,
+			minMatchCharLength: 2
+		});
+	}
+
+	async function refreshDownloadedStatuses() {
+		offlineStatusMap = {
+			...offlineStatusMap,
+			...(await fetchDownloadedStatuses(true))
+		};
+	}
+
+	function updateColumnCount() {
+		if (typeof window === 'undefined') return;
+		const w = window.innerWidth;
+		if (w >= 1024) columnCount = 4;
+		else if (w >= 768) columnCount = 3;
+		else if (w >= 640) columnCount = 2;
+		else columnCount = 1;
 	}
 
 	onMount(() => {
 		networkOnline = isNetworkOnline();
+		updateColumnCount();
+		const onResize = () => updateColumnCount();
+		window.addEventListener('resize', onResize);
+
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
 		});
 
 		const onOfflineStatusChanged = () => {
-			void refreshOfflineStatuses();
+			void refreshDownloadedStatuses();
 		};
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 
 		void (async () => {
 			const params = $page.url.searchParams;
 			searchQuery = params.get('q') || '';
+			debouncedSearch = searchQuery;
 			selectedCategory = params.get('category') || 'all';
 			const urlSort = params.get('sort') as SortKey | null;
 			const allowed: SortKey[] = ['name', 'author', 'category', 'random'];
@@ -158,57 +190,40 @@
 						: 'name';
 			sortReversed = params.get('reversed') === '1';
 
-			const [loadedGames] = await Promise.all([loadAllGames(), refreshOfflineStatuses()]);
-			games = loadedGames;
-
 			const prefs = getPreferences();
 			favouriteIds = new Set(prefs.liked);
 
-			fuse = new Fuse(games, {
-				keys: ['name', 'description', 'author', 'category'],
-				threshold: 0.3,
-				includeScore: true,
-				minMatchCharLength: 2
-			});
+			try {
+				const manifest = await loadCatalogManifest();
+				catalogCategories = manifest.categories;
+			} catch {
+				catalogCategories = [];
+			}
 
+			void refreshDownloadedStatuses();
+
+			await loadCatalogIndex((list, progress) => {
+				games = list;
+				catalogProgress = progress;
+				rebuildFuse(list);
+				if (loading) loading = false;
+			});
 			loading = false;
 		})();
 
 		return () => {
+			window.removeEventListener('resize', onResize);
 			detachNetwork();
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		};
 	});
 
-	// Progressive loading: observe sentinel; re-subscribe when count advances so the closure stays correct
 	$effect(() => {
-		const el = loadMoreTrigger;
-		const max = filteredGames.length;
-		void displayedCount;
-		if (!el || typeof IntersectionObserver === 'undefined' || max === 0) return;
-
-		const obs = new IntersectionObserver(
-			(entries) => {
-				if (!entries[0]?.isIntersecting) return;
-				displayedCount = Math.min(displayedCount + GAMES_PER_ROW, max);
-			},
-			{ rootMargin: '600px', threshold: 0 }
-		);
-		obs.observe(el);
-		return () => obs.disconnect();
-	});
-
-	// Reset displayed count when filters change
-	$effect(() => {
-		// Watch for filter changes
-		searchQuery;
-		selectedCategory;
-		sortBy;
-		sortReversed;
-		showFavouritesOnly;
-		showDownloadedOnly;
-		networkOnline;
-		displayedCount = INITIAL_ROWS * GAMES_PER_ROW;
+		const q = searchQuery;
+		const t = setTimeout(() => {
+			debouncedSearch = q;
+		}, SEARCH_DEBOUNCE_MS);
+		return () => clearTimeout(t);
 	});
 
 	let restrictToDownloaded = $derived(!networkOnline || showDownloadedOnly);
@@ -216,7 +231,6 @@
 	let filteredGames = $derived.by(() => {
 		let results = games;
 
-		// Apply favourites filter first
 		if (showFavouritesOnly) {
 			results = results.filter((game) => favouriteIds.has(game.id));
 		}
@@ -225,21 +239,18 @@
 			results = filterDownloadedGames(results, offlineStatusMap);
 		}
 
-		// Apply fuzzy search if query exists
-		if (searchQuery.trim() && fuse) {
-			const searchResults = fuse.search(searchQuery);
+		if (debouncedSearch.trim() && fuse) {
+			const searchResults = fuse.search(debouncedSearch);
 			const searchIds = new Set(searchResults.map((r) => r.item.id));
 			results = results.filter((game) => searchIds.has(game.id));
 		}
 
-		// Apply category filter
 		if (selectedCategory !== 'all') {
 			results = results.filter(
 				(game) => game.category?.toLowerCase() === selectedCategory.toLowerCase()
 			);
 		}
 
-		// Apply sorting
 		const sorted = [...results];
 		switch (sortBy) {
 			case 'name':
@@ -266,13 +277,52 @@
 		return sorted;
 	});
 
-	let categories = $derived(['all', ...new Set(games.map((g) => g.category).filter(Boolean))]);
+	let categories = $derived([
+		'all',
+		...(catalogCategories.length
+			? catalogCategories
+			: [...new Set(games.map((g) => g.category).filter(Boolean))].sort())
+	]);
 
-	let displayedGames = $derived(filteredGames.slice(0, displayedCount));
-	let hasMore = $derived(displayedCount < filteredGames.length);
-	let downloadedCount = $derived(
-		filterDownloadedGames(games, offlineStatusMap).length
-	);
+	let rowCount = $derived(Math.ceil(filteredGames.length / columnCount) || 0);
+
+	const rowVirtualizer = createWindowVirtualizer({
+		count: 0,
+		estimateSize: () => ROW_ESTIMATE_PX,
+		overscan: 3
+	});
+
+	$effect(() => {
+		const n = rowCount;
+		$rowVirtualizer.setOptions({ count: n });
+	});
+
+	let virtualRows = $derived($rowVirtualizer.getVirtualItems());
+	let totalSize = $derived($rowVirtualizer.getTotalSize());
+
+	$effect(() => {
+		const ids = virtualRows.flatMap((row) => {
+			const start = row.index * columnCount;
+			return filteredGames.slice(start, start + columnCount).map((g) => g.id);
+		});
+		if (ids.length === 0) return;
+		const missing = ids.filter((id) => !(id in offlineStatusMap));
+		if (missing.length === 0) return;
+		let cancelled = false;
+		const t = setTimeout(() => {
+			void fetchOfflineStatusesForIds(missing).then((map) => {
+				if (cancelled) return;
+				offlineStatusMap = { ...offlineStatusMap, ...map };
+			});
+		}, 80);
+		return () => {
+			cancelled = true;
+			clearTimeout(t);
+		};
+	});
+
+	let downloadedCount = $derived(filterDownloadedGames(games, offlineStatusMap).length);
+	let catalogLoading = $derived(catalogProgress != null && catalogProgress.complete === false);
 </script>
 
 <div class="container mx-auto px-4 py-12">
@@ -295,8 +345,8 @@
 	<div class="mb-8">
 		<h1 class="mb-4 text-4xl font-bold">All games</h1>
 		<p class="max-w-2xl text-muted-foreground">
-			Full library in default A–Z order or a session-stable shuffle. Thumbnails load in batches as
-			you scroll.
+			Full library in default A–Z order or a session-stable shuffle. The catalog loads in the
+			background so the first rows appear quickly.
 		</p>
 	</div>
 
@@ -402,71 +452,88 @@
 			</p>
 		</div>
 	{:else}
-		<div class="mb-4 text-sm text-muted-foreground">
-			Showing {displayedGames.length} of {filteredGames.length} games
+		<div class="mb-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+			<span>
+				{filteredGames.length} games
+				{#if catalogProgress}
+					· catalog {catalogProgress.loadedGames}/{catalogProgress.total}
+				{/if}
+			</span>
+			{#if catalogLoading}
+				<span class="text-xs">Loading catalog…</span>
+			{/if}
 		</div>
 
-		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-			{#each displayedGames as game (game.id)}
-				<div class="group relative">
-					<a
-						href={resolve(`/games/${game.id}`)}
-						class="block"
-						onclick={(e) => openGame(game.id, e)}
+		<div style="height: {totalSize}px; width: 100%; position: relative;">
+			{#each virtualRows as vRow (vRow.key)}
+				{@const start = vRow.index * columnCount}
+				{@const rowGames = filteredGames.slice(start, start + columnCount)}
+				<div
+					class="absolute top-0 left-0 w-full"
+					style="transform: translateY({vRow.start}px);"
+				>
+					<div
+						class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+						style="padding-bottom: 1.5rem;"
 					>
-						<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
-							<div class="relative aspect-square overflow-hidden bg-muted">
-								<img
-									src={thumbUrl(game)}
-									alt={game.name}
-									loading="lazy"
-									decoding="async"
-									class="h-full w-full object-cover transition-transform group-hover:scale-110"
-									onerror={(e) => {
-										(e.currentTarget as HTMLImageElement).src =
-											'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23ddd" width="256" height="256"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
-									}}
-								/>
-								{#if offlineStatusMap[game.id]?.offline}
-									<div
-										class="absolute top-2 left-2 z-10 flex items-center gap-1 rounded-full bg-background/80 px-2 py-1 text-[10px] font-medium backdrop-blur-sm"
-										title="Downloaded for offline play"
-									>
-										<HardDrive class="h-3 w-3" />
-										Offline
-									</div>
-								{/if}
-							</div>
-							<Card.Header>
-								<Card.Title>{game.name}</Card.Title>
-								<Card.Description>{game.description}</Card.Description>
-							</Card.Header>
-							<Card.Footer class="flex justify-between text-xs text-muted-foreground">
-								<span>By {game.author}</span>
-								<span class="rounded-full bg-primary/10 px-2 py-1 text-primary"
-									>{game.category}</span
+						{#each rowGames as game (game.id)}
+							<div class="group relative">
+								<a
+									href={resolve(`/games/${game.id}`)}
+									class="block"
+									onclick={(e) => openGame(game.id, e)}
 								>
-							</Card.Footer>
-						</Card.Root>
-					</a>
-					<button
-						type="button"
-						onclick={(e) => toggleFavourite(game.id, e)}
-						class="absolute top-2 right-2 z-20 rounded-full bg-background/80 p-2 backdrop-blur-sm transition-colors hover:bg-background"
-						title={favouriteIds.has(game.id) ? 'Remove from favourites' : 'Add to favourites'}
-					>
-						<Heart
-							class="h-5 w-5 {favouriteIds.has(game.id)
-								? 'fill-red-500 text-red-500'
-								: 'text-muted-foreground'}"
-						/>
-					</button>
+									<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
+										<div class="relative aspect-square overflow-hidden bg-muted">
+											<img
+												src={thumbUrl(game)}
+												alt={game.name}
+												loading="lazy"
+												decoding="async"
+												class="h-full w-full object-cover transition-transform group-hover:scale-110"
+												onerror={(e) => {
+													(e.currentTarget as HTMLImageElement).src =
+														'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23ddd" width="256" height="256"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
+												}}
+											/>
+											{#if offlineStatusMap[game.id]?.offline}
+												<div
+													class="absolute top-2 left-2 z-10 flex items-center gap-1 rounded-full bg-background/80 px-2 py-1 text-[10px] font-medium backdrop-blur-sm"
+													title="Downloaded for offline play"
+												>
+													<HardDrive class="h-3 w-3" />
+													Offline
+												</div>
+											{/if}
+										</div>
+										<Card.Header>
+											<Card.Title>{game.name}</Card.Title>
+										</Card.Header>
+										<Card.Footer class="flex justify-between text-xs text-muted-foreground">
+											<span>By {game.author}</span>
+											<span class="rounded-full bg-primary/10 px-2 py-1 text-primary"
+												>{game.category}</span
+											>
+										</Card.Footer>
+									</Card.Root>
+								</a>
+								<button
+									type="button"
+									onclick={(e) => toggleFavourite(game.id, e)}
+									class="absolute top-2 right-2 z-20 rounded-full bg-background/80 p-2 backdrop-blur-sm transition-colors hover:bg-background"
+									title={favouriteIds.has(game.id) ? 'Remove from favourites' : 'Add to favourites'}
+								>
+									<Heart
+										class="h-5 w-5 {favouriteIds.has(game.id)
+											? 'fill-red-500 text-red-500'
+											: 'text-muted-foreground'}"
+									/>
+								</button>
+							</div>
+						{/each}
+					</div>
 				</div>
 			{/each}
 		</div>
-
-		{#if hasMore}
-			<div bind:this={loadMoreTrigger} class="py-12"></div>
-		{/if}
 	{/if}
 </div>

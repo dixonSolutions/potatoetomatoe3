@@ -5,7 +5,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import { Switch } from '$lib/components/ui/switch';
-	import { loadAllGames } from '$lib/utils/games';
+	import { loadCatalogManifest } from '$lib/utils/games';
 	import { getTodayTotalPlayMs } from '$lib/utils/play-recommendations';
 	import { sectionMatches } from '$lib/components/settings/search';
 	import { Gauge, Heart, ThumbsDown, ThumbsUp } from 'lucide-svelte';
@@ -78,12 +78,12 @@
 			queueMicrotask(() => onReady?.());
 			return;
 		}
-		const games = await loadAllGames();
-		const uniq: Record<string, true> = {};
-		for (const g of games) {
-			if (g.category) uniq[g.category] = true;
+		try {
+			const manifest = await loadCatalogManifest();
+			categories = [...manifest.categories].sort((a, b) => a.localeCompare(b));
+		} catch {
+			categories = [];
 		}
-		categories = Object.keys(uniq).sort((a, b) => a.localeCompare(b));
 		affinity = mergeAffinityKeys(affinity);
 		loading = false;
 		queueMicrotask(() => onReady?.());
