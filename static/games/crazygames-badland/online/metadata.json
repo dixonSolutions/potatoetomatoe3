@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-badland",
+  "name": "Badland 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "In Badland, you control a mysterious creature in a dark forest. Traps and obstacles are waiting along the way, and you must reach the exit pipe to finish the level.",
+  "thumbnail": "/games/crazygames-badland/online/assets/crazygames-badland.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/badland/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/badland",
+  "crazygamesSlug": "badland"
+}

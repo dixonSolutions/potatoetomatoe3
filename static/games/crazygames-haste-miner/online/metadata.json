@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-haste-miner",
+  "name": "Haste-Miner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Haste-Miner is a 2D mining game where your main objective is to earn money and spend it to buy various upgrades. Travel to different planets to mine and discover new ores and pickaxes deep down.",
+  "thumbnail": "https://imgs.crazygames.com/haste-miner/20220224100130/haste-miner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/haste-miner/20220224100130/haste-miner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/haste-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/haste-miner",
+  "crazygamesSlug": "haste-miner"
+}

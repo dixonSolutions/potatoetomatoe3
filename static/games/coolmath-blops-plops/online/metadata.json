@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blops-plops",
+  "name": "Blops Plops - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blops Plops at Cool Math Games: Pop one to pop them all! Fill the water balloons to make crazy chain reactions!",
+  "thumbnail": "/games/coolmath-blops-plops/online/assets/coolmath-blops-plops.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22346/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blops-plops",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blops-plops"
+}

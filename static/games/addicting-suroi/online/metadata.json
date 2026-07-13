@@ -1,0 +1,14 @@
+{
+  "id": "addicting-suroi",
+  "name": "Suroi",
+  "author": "Addicting Games",
+  "description": "<p>Suroi is an open source 2D battle royale inspired by the defunct surviv.io. In Suroi, you'll spawn on an island, with nothing to your name. Break crates and other obstacles to get loot. Don't stand around for long, because a zone of deadly gas is always closing in! Your objective is to kill all the other players and be the last left alive. Complete it, and you'll be rewarded with a juicy chicken dinner! There are a wide variety of weapons to choose from, as well as several game modes in regular rotation. Invite friends and play together in duos or squads.</p>\n\n<p>Stay survivin'!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%282%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%282%29.png",
+  "thumbnailStored": "remote",
+  "category": "free-for-all-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://suroi.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/suroi"
+}

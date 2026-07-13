@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-bouncy-ball",
+  "name": "Idle Bouncy Ball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Bouncy Ball is a unique idle game where you can buy and merge balls to boost your income. Observe balls bouncing in 3D within a container by rotating and moving the camera for a dynamic view.",
+  "thumbnail": "https://imgs.crazygames.com/idle-bouncy-ball_16x9/20240314092242/idle-bouncy-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-bouncy-ball_16x9/20240314092242/idle-bouncy-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-bouncy-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-bouncy-ball",
+  "crazygamesSlug": "idle-bouncy-ball"
+}

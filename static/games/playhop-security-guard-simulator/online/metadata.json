@@ -1,0 +1,17 @@
+{
+  "id": "playhop-security-guard-simulator",
+  "name": "Security Guard Simulator",
+  "author": "Matt Corp",
+  "description": "Play Security Guard Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000195f698a616eb11df795eab57ce60/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000195f698a616eb11df795eab57ce60/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-424230.games.s3.yandex.net/424230/5l1n692dyclnki2ia0l0k3kzk325qxcu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=424230&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 424230,
+  "playhopPageUrl": "https://playhop.com/app/424230",
+  "playhopRating": 3.1,
+  "playhopRatingCount": 2307
+}

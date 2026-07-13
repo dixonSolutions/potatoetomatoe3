@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ded-pulych-jta-5",
+  "name": "Ded-Pulych: JTA 5",
+  "author": "AltTab3000",
+  "description": "Play Ded-Pulych: JTA 5 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001915104321ea208efd66e7d953e11/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001915104321ea208efd66e7d953e11/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-365104.games.s3.yandex.net/365104/xs21r2cd9bcr3haxqb5pi60jpm2shh36/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=365104&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 365104,
+  "playhopPageUrl": "https://playhop.com/app/365104",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 888
+}

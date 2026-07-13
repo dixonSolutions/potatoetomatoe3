@@ -1,0 +1,17 @@
+{
+  "id": "playhop-twilight-grid-522937",
+  "name": "Twilight Grid",
+  "author": "F0rchy",
+  "description": "Play Twilight Grid via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019ebca74e8ea721325fddde7e9eab/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019ebca74e8ea721325fddde7e9eab/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-522937.games.s3.yandex.net/522937/faop4bpmhr34fvdvm8qv35z3v8eqy2ya/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=522937&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 522937,
+  "playhopPageUrl": "https://playhop.com/app/522937",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

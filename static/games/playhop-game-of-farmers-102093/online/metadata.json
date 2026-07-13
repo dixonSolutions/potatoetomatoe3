@@ -1,0 +1,17 @@
+{
+  "id": "playhop-game-of-farmers-102093",
+  "name": "Game of Farmers",
+  "author": "AppyApp",
+  "description": "Play Game of Farmers via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017a61cfa937437386c8d93707fd26/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017a61cfa937437386c8d93707fd26/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-102093.games.s3.yandex.net/102093/hnkdhvqvyzl36y0pcyqfw7jgktp8jhkx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=102093&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 102093,
+  "playhopPageUrl": "https://playhop.com/app/102093",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 42594
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fill-the-heart",
+  "name": "Fill the Heart 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fill the Heart is a calming puzzle challenge where you slide to gather hearts of different colors, each with its own unique twist. Green hearts stop your movement, blue hearts need multiple touches, and teleporters keep you on your toes.",
+  "thumbnail": "https://imgs.crazygames.com/fill-the-heart_16x9/20250806043915/fill-the-heart_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fill-the-heart_16x9/20250806043915/fill-the-heart_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fill-the-heart/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fill-the-heart",
+  "crazygamesSlug": "fill-the-heart"
+}

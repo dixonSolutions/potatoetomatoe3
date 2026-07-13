@@ -1,0 +1,17 @@
+{
+  "id": "playhop-game-builder-bloks",
+  "name": "Game Builder Bloks",
+  "author": "Browserplay",
+  "description": "Play Game Builder Bloks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019f0439693ae6014d18dfe73f7dd5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019f0439693ae6014d18dfe73f7dd5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-458320.games.s3.yandex.net/458320/i5lmnvw3p3nao2cv4pgnouuu4jxjca7s/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=458320&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 458320,
+  "playhopPageUrl": "https://playhop.com/app/458320",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 14943
+}

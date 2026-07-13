@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-krewio",
+  "name": "Krew.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Krew.io is a unique web-based multiplayer 3D third-person shooter game. Embrace the life of a pirate as you compete against other players to claim the coveted #1 spot on the leaderboard.",
+  "thumbnail": "/games/crazygames-krewio/online/assets/crazygames-krewio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/krewio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/krewio",
+  "crazygamesSlug": "krewio"
+}

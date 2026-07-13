@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-autoland",
+  "name": "Play AutoLand Online: Upgrade and escape | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "This little robot can really jump! Upgrade your firmware with power-ups that let you double jump and shoot. Can you get to the teleporter?",
+  "thumbnail": "/games/coolmath-autoland/online/assets/coolmath-autoland.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34521/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-autoland",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-autoland"
+}

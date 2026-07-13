@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-snakes-and-ladders",
+  "name": "Snakes and Ladders 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Snakes and Ladders is a casual online game adapted from the English board game of the same name, which influenced the American version of Chutes and Ladders. This much-loved classic board game is free to play single-player or locally with friends.",
+  "thumbnail": "https://imgs.crazygames.com/snakes-and-ladders_16x9/20260506080214/snakes-and-ladders_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/snakes-and-ladders_16x9/20260506080214/snakes-and-ladders_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/snakes-and-ladders/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/snakes-and-ladders",
+  "crazygamesSlug": "snakes-and-ladders"
+}

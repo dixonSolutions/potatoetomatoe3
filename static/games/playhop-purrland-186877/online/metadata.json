@@ -1,0 +1,17 @@
+{
+  "id": "playhop-purrland-186877",
+  "name": "Purrland",
+  "author": "Erow Dev",
+  "description": "Play Purrland via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018e36aacbb530363c756af95cb447/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018e36aacbb530363c756af95cb447/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-186877.games.s3.yandex.net/186877/u78odn3lb78acowffk8l6xgxwsyz4yjm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=186877&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 186877,
+  "playhopPageUrl": "https://playhop.com/app/186877",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 10945
+}

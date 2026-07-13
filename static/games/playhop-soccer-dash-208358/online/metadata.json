@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soccer-dash-208358",
+  "name": "Soccer Dash",
+  "author": "MirraGames",
+  "description": "Play Soccer Dash via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a000001979216477febab244bd0ae1a8a2c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a000001979216477febab244bd0ae1a8a2c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-208358.games.s3.yandex.net/208358/olf8lv7ggo1c00e36sgabatfs0p2a2gj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=208358&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 208358,
+  "playhopPageUrl": "https://playhop.com/app/208358",
+  "playhopRating": 4,
+  "playhopRatingCount": 10699
+}

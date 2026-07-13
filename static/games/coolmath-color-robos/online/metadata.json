@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-robos",
+  "name": "Color Robos - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "These Color Robos are lost, time to bring them back home. Match up the robos and combine them to make the correct color combinations.",
+  "thumbnail": "/games/coolmath-color-robos/online/assets/coolmath-color-robos.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48553/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-robos",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-robos"
+}

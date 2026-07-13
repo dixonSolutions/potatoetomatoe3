@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fnf-2-player",
+  "name": "FNF 2 Player",
+  "author": "gameVgames",
+  "description": "Play FNF 2 Player via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000194d2d666fc26e83681e23ef861d6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000194d2d666fc26e83681e23ef861d6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-408932.games.s3.yandex.net/408932/75qdthsy4a8047dby7t8dei4fbg2b2cj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=408932&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 408932,
+  "playhopPageUrl": "https://playhop.com/app/408932",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 849
+}

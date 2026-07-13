@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bloons",
+  "name": "Bloons 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloons is a fun arcade game in which you need to help the monkey to pop the balloons with its darts.  Platform Web browser",
+  "thumbnail": "/games/crazygames-bloons/online/assets/crazygames-bloons.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloons/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloons",
+  "crazygamesSlug": "bloons"
+}

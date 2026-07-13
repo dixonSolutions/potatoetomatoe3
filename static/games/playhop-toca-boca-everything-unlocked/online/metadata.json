@@ -1,0 +1,17 @@
+{
+  "id": "playhop-toca-boca-everything-unlocked",
+  "name": "Toca Boca Everything Unlocked",
+  "author": "R.G. Team",
+  "description": "Play Toca Boca Everything Unlocked via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018f31c9c0d0c4df24bdfd3dd6bdde/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018f31c9c0d0c4df24bdfd3dd6bdde/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-335526.games.s3.yandex.net/335526/uqm968tch6ou8hc5nypmkx0xv6k97clp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=335526&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 335526,
+  "playhopPageUrl": "https://playhop.com/app/335526",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 37613
+}

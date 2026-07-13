@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-trump-tower-defense",
+  "name": "Trump Tower Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Trump Tower Defense is an amazing tower defense game in which you must protect the US border from evil Canadian invaders who are trying to steal your precious Trump coins. You must build an array of towers to destroy the invaders and protect your horde of coins.",
+  "thumbnail": "https://imgs.crazygames.com/trump-tower-defense.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/trump-tower-defense.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/trump-tower-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/trump-tower-defense",
+  "crazygamesSlug": "trump-tower-defense"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-deadshotio",
+  "name": "Deadshot.io",
+  "author": "Addicting Games",
+  "description": "<p>Deadshot.io is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/deadshotiogamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/deadshotiogamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://deadshot.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/deadshotio"
+}

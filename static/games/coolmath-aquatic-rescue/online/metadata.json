@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-aquatic-rescue",
+  "name": "Aquatic Rescue - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Aquatic Rescue at Cool Math Games: The creatures of the sea have been trapped in bubbles! Solve puzzles to set them free.",
+  "thumbnail": "/games/coolmath-aquatic-rescue/online/assets/coolmath-aquatic-rescue.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22137/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-aquatic-rescue",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-aquatic-rescue"
+}

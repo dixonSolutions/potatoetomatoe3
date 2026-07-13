@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-jeffs-revenge",
+  "name": "jeffs revenge",
+  "author": "CrazyGames",
+  "description": "Play jeffs revenge on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-jeffs-revenge/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jeffs-revenge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jeffs-revenge",
+  "crazygamesSlug": "jeffs-revenge"
+}

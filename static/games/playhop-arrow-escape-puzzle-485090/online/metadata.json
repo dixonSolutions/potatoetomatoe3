@@ -1,0 +1,17 @@
+{
+  "id": "playhop-arrow-escape-puzzle-485090",
+  "name": "Arrow Escape Puzzle",
+  "author": "Cocos Labs",
+  "description": "Play Arrow Escape Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019ebf5d0266aef3942ee6f3d5b44f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019ebf5d0266aef3942ee6f3d5b44f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-485090.games.s3.yandex.net/485090/ubs6j7wp3hag6unev8z6ogjoxyylcxx2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=485090&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 485090,
+  "playhopPageUrl": "https://playhop.com/app/485090",
+  "playhopRating": 4,
+  "playhopRatingCount": 342
+}

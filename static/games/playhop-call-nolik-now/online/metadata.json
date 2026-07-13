@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-nolik-now",
+  "name": "Call Nolik now!",
+  "author": "bossYG",
+  "description": "Play Call Nolik now! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000193320e4af4c20bea8e57f4721760/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000193320e4af4c20bea8e57f4721760/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-388183.games.s3.yandex.net/388183/t392npma4jwbks9j6yu4ums5e0npxita/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=388183&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 388183,
+  "playhopPageUrl": "https://playhop.com/app/388183",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 8432
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-match-arena",
+  "name": "Match Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Match Arena is a superb match-three puzzle game in which you can play multiplayer match-three mayhem with other players worldwide! During each match, you must accomplish a specific goal to win.",
+  "thumbnail": "https://imgs.crazygames.com/match-arena_16x9/20250117084233/match-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/match-arena_16x9/20250117084233/match-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/match-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/match-arena",
+  "crazygamesSlug": "match-arena"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-dice-wars",
+  "name": "Dice Wars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dice Wars is an awesome game of conquest in which you must try to take over the world using dice. This game relies heavily on luck and the roll of the dice has to be on your side but you can also use your strategic mind to put the odds in your favor.",
+  "thumbnail": "/games/crazygames-dice-wars/online/assets/crazygames-dice-wars.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dice-wars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dice-wars",
+  "crazygamesSlug": "dice-wars"
+}

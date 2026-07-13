@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cube-2048",
+  "name": "Cube 2048 - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Play Cube 2048 - Play it Online at Coolmath Games on Potato Tomato (via coolmath).",
+  "thumbnail": "/games/coolmath-cube-2048/online/assets/coolmath-cube-2048.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52895/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cube-2048",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cube-2048"
+}

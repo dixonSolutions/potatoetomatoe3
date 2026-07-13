@@ -1,0 +1,17 @@
+{
+  "id": "playhop-minimarket-421288",
+  "name": "MiniMarket",
+  "author": "DRAGONnoid Games",
+  "description": "Play MiniMarket via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b50cd21edb6bd78f51969148668/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b50cd21edb6bd78f51969148668/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-421288.games.s3.yandex.net/421288/4b8jsbmylssgcjq4h9gm2gir07kt3ms7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=421288&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 421288,
+  "playhopPageUrl": "https://playhop.com/app/421288",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 547
+}

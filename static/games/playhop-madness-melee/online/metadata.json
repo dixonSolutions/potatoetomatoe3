@@ -1,0 +1,17 @@
+{
+  "id": "playhop-madness-melee",
+  "name": "Madness Melee",
+  "author": "TaburetkaGames",
+  "description": "Play Madness Melee via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018ff207c1112d63d9e73a321619c7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018ff207c1112d63d9e73a321619c7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-346914.games.s3.yandex.net/346914/y27xbdh6immyz5yikqb7714huv2873kg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=346914&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 346914,
+  "playhopPageUrl": "https://playhop.com/app/346914",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 8915
+}

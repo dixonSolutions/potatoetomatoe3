@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-traffic-architect-tic",
+  "name": "Traffic Architect 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Traffic Architect is a 3D traffic management game where you design road networks to keep a growing city moving. Connect buildings, route cars through your roads, and earn money from every successful delivery, but do not let the traffic back up, or it is game over.",
+  "thumbnail": "https://imgs.crazygames.com/traffic-architect-tic_16x9/20260703034110/traffic-architect-tic_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/traffic-architect-tic_16x9/20260703034110/traffic-architect-tic_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/traffic-architect-tic/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/traffic-architect-tic",
+  "crazygamesSlug": "traffic-architect-tic"
+}

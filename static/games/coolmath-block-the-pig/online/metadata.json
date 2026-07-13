@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-block-the-pig",
+  "name": "Block the Pig - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Watch out, the pig is on the loose. Help prevent him from escaping by placing stone walls to cut off his path and block the pig.",
+  "thumbnail": "/games/coolmath-block-the-pig/online/assets/coolmath-block-the-pig.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48477/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-block-the-pig",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-block-the-pig"
+}

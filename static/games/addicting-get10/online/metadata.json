@@ -1,0 +1,14 @@
+{
+  "id": "addicting-get10",
+  "name": "Get10",
+  "author": "Addicting Games",
+  "description": "<p>Get10 is a mathematical puzzle game. In Get10 you'll have to make short term tactical choices as well as long term strategic choices. A grid of numbered squares from 1-3 will appear and by touching a selection of grouped numbers you will combine that number with all adjacent numbers. The selected section all become one individual tile and the new tile will be one number higher than the previous section.</p>\n\n<p>Your goal is to build your way up to unlocking a tile with a value of 10. In order to accomplish this, you'll have to think about moves a few steps ahead of time, organize the existing tiles so that they all into place in such a way that you can exploit them after they have increased their value. You must always be aware that one bad move or a series of poorly thought out choices will leave you unable to combine any tiles and thus end your game.</p>\n\n<p>Challenge yourself by trying different grids and trying to get to 10 with fewer moves than in your previous games. Get10 is an adding game, a math game, and a puzzle game that will have you scratching your head and clicking your way through multi-colored levels of mind-bending fun. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/kubrick.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/kubrick.jpg",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/get-10/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/get10"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-warcall-io",
+  "name": "WarCall.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "WarCall.io is an IO fantasy battle royale game where champions battle in a large multiplayer arena using various melee weapons.How to Play WarCall.ioFight in a fiercely competitive arenaFight against other players for gold and upgrades as the map decreases in size.",
+  "thumbnail": "https://imgs.crazygames.com/games/warcall-io/cover-1604914734657.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/warcall-io/cover-1604914734657.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/warcall-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/warcall-io",
+  "crazygamesSlug": "warcall-io"
+}

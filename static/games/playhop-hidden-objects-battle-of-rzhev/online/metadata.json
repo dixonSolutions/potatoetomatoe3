@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hidden-objects-battle-of-rzhev",
+  "name": "Hidden Objects: Battle of Rzhev",
+  "author": "BHP",
+  "description": "Play Hidden Objects: Battle of Rzhev via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019bcd5a9a2490f0b3436656cb377e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019bcd5a9a2490f0b3436656cb377e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-431563.games.s3.yandex.net/431563/05h8wg0o06qg6pcf3z7z7f88xdj18ajp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=431563&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 431563,
+  "playhopPageUrl": "https://playhop.com/app/431563",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 498
+}

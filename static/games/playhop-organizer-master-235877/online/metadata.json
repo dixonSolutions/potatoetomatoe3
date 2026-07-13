@@ -1,0 +1,17 @@
+{
+  "id": "playhop-organizer-master-235877",
+  "name": "Organizer master",
+  "author": "Ndgames777",
+  "description": "Play Organizer master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b26d26fb34e264a3094777642ce/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b26d26fb34e264a3094777642ce/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-235877.games.s3.yandex.net/235877/7pgjj4n2s6y3jehtpgnoiw7urpqlsr3y/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=235877&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 235877,
+  "playhopPageUrl": "https://playhop.com/app/235877",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 7983
+}

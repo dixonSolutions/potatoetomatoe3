@@ -1,0 +1,17 @@
+{
+  "id": "playhop-inkly-arena-528209",
+  "name": "Inkly Arena",
+  "author": "rikerdev",
+  "description": "Play Inkly Arena via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019e0e2354907099a635024cef4874/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019e0e2354907099a635024cef4874/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-528209.games.s3.yandex.net/528209/yazom871q36dmc8gipk60ttkzgp0r5gw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=528209&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 528209,
+  "playhopPageUrl": "https://playhop.com/app/528209",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 367
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ks-2-teams-264700",
+  "name": "KS 2 Teams",
+  "author": "JustPlay",
+  "description": "Play KS 2 Teams via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000018b444957e55e58e4adc1bf65a849/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000018b444957e55e58e4adc1bf65a849/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-264700.games.s3.yandex.net/264700/uyazvrfo0019zrx4mx3udor5drqfdmtz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=264700&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 264700,
+  "playhopPageUrl": "https://playhop.com/app/264700",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 37297
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-swop-shoot",
+  "name": "Swop Shoot 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Swop Shoot is a shooting game where you control these 2 stickmen as a single unit. The blue stickman can only kill the blue enemies, and the red stickman can only kill the red enemies.",
+  "thumbnail": "https://imgs.crazygames.com/swop-shoot/20220816145749/swop-shoot-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/swop-shoot/20220816145749/swop-shoot-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/swop-shoot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/swop-shoot",
+  "crazygamesSlug": "swop-shoot"
+}

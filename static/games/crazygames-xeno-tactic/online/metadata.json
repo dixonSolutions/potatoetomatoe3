@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-xeno-tactic",
+  "name": "Xeno Tactic 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Xeno Tactic is a tower defense game where you must not let your opponents walk across your base. Build some walls and towers to defend your base.",
+  "thumbnail": "https://imgs.crazygames.com/games/xeno-tactic/cover-1636107275742.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/xeno-tactic/cover-1636107275742.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/xeno-tactic/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/xeno-tactic",
+  "crazygamesSlug": "xeno-tactic"
+}

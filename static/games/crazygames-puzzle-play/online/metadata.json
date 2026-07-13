@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-puzzle-play",
+  "name": "Puzzle Play 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Puzzle Play is a fun and challenging jigsaw game that will keep you entertained for hours. Solve hundreds of jigsaw puzzles with varying difficulty levels, each more satisfying than the last.",
+  "thumbnail": "https://imgs.crazygames.com/puzzle-play/20230404143911/puzzle-play-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/puzzle-play/20230404143911/puzzle-play-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/puzzle-play/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/puzzle-play",
+  "crazygamesSlug": "puzzle-play"
+}

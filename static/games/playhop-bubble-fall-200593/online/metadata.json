@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-fall-200593",
+  "name": "Bubble Fall",
+  "author": "Citigo",
+  "description": "Play Bubble Fall via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019352c74b1325fba964dd8ea154b4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019352c74b1325fba964dd8ea154b4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-200593.games.s3.yandex.net/200593/u9utv8i0w8m3bzje1zkngo4zp3k1fe4r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=200593&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 200593,
+  "playhopPageUrl": "https://playhop.com/app/200593",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 9967
+}

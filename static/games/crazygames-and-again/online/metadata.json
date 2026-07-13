@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-and-again",
+  "name": "and Again 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "And Again is a captivating platform puzzle game that challenges your intellect across 54 creative levels. Your goal is to collect three pins to unlock each portal, with every level offering its own unique twist.",
+  "thumbnail": "https://imgs.crazygames.com/and-again_16x9/20241014085309/and-again_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/and-again_16x9/20241014085309/and-again_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/and-again/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/and-again",
+  "crazygamesSlug": "and-again"
+}

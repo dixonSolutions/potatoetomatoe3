@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-coloruid",
+  "name": "Coloruid - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Coloruid at Cool Math Games: There&#039;s all different kinds of jelly cubes! Change their color so that they match. Try and do it with as few moves as possible!",
+  "thumbnail": "/games/coolmath-coloruid/online/assets/coolmath-coloruid.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23431/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-coloruid",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-coloruid"
+}

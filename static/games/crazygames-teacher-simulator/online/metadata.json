@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-teacher-simulator",
+  "name": "Teacher Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Teacher Simulator is a fun simulation game in which you play the role of a teacher. Mark exams and ensure the kids are on their best behavior.",
+  "thumbnail": "https://imgs.crazygames.com/teacher-simulator/20220907173822/teacher-simulator-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/teacher-simulator/20220907173822/teacher-simulator-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/teacher-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/teacher-simulator",
+  "crazygamesSlug": "teacher-simulator"
+}

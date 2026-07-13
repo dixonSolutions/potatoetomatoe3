@@ -1,0 +1,17 @@
+{
+  "id": "playhop-geometry-cube-2-challenge",
+  "name": "Geometry Cube 2: Challenge",
+  "author": "IceRainWave",
+  "description": "Play Geometry Cube 2: Challenge via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019f1ada0a4f8ae85747fb6cedb6b1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019f1ada0a4f8ae85747fb6cedb6b1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-425109.games.s3.yandex.net/425109/yk3ib0smuchc6m3qymht4bzl2kwv0y1h/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=425109&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 425109,
+  "playhopPageUrl": "https://playhop.com/app/425109",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 5986
+}

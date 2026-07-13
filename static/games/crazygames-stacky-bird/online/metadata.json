@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stacky-bird",
+  "name": "Stacky Bird 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stacky Bird is a hyper-casual arcade game where you stack eggs to avoid obstacles. Lay egg towers and dash to avoid crashing your bird.",
+  "thumbnail": "https://imgs.crazygames.com/stacky-bird_16x9/20240502071013/stacky-bird_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stacky-bird_16x9/20240502071013/stacky-bird_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stacky-bird/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stacky-bird",
+  "crazygamesSlug": "stacky-bird"
+}

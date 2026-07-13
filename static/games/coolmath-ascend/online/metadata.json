@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ascend",
+  "name": "Ascend - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Ascend at Cool Math Games: There&#039;s only one direction to go... up! Jump your way past all the obstacles to reach the top.",
+  "thumbnail": "/games/coolmath-ascend/online/assets/coolmath-ascend.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25020/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ascend",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ascend"
+}

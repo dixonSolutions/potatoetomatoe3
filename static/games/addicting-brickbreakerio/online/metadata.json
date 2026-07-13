@@ -1,0 +1,14 @@
+{
+  "id": "addicting-brickbreakerio",
+  "name": "Brickbreaker.io",
+  "author": "Addicting Games",
+  "description": "<p>Brickbreaker.io is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/BRICKBREAKERIOGAMESCREEN.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/BRICKBREAKERIOGAMESCREEN.jpg",
+  "thumbnailStored": "remote",
+  "category": "free-for-all-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://brickbreaker.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/brickbreakerio"
+}

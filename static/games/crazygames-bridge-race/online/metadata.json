@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bridge-race",
+  "name": "Bridge Race 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bridge Race is a competitive casual collect building game where you gather blocks to construct your bridge while outsmarting rivals. Stay alert as other players may try to steal your progress, adding an exciting twist to the challenge.",
+  "thumbnail": "https://imgs.crazygames.com/bridge-race_16x9/20241227062023/bridge-race_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bridge-race_16x9/20241227062023/bridge-race_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bridge-race/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bridge-race",
+  "crazygamesSlug": "bridge-race"
+}

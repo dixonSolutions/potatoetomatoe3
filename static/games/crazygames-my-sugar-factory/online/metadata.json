@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-my-sugar-factory",
+  "name": "My Sugar Factory 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "My Sugar Factory is an incremental clicker game about managing your sugar factory. Start with one sugarcane bush and make millions!",
+  "thumbnail": "https://imgs.crazygames.com/my-sugar-factory/20200909064837/my-sugar-factory-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/my-sugar-factory/20200909064837/my-sugar-factory-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/my-sugar-factory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/my-sugar-factory",
+  "crazygamesSlug": "my-sugar-factory"
+}

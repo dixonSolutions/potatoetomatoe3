@@ -1,0 +1,14 @@
+{
+  "id": "addicting-gemcraft",
+  "name": "GemCraft",
+  "author": "Addicting Games",
+  "description": "<p>GemCraft is a free strategy game. Harness the awesome power of gems! Tower defense, yes. But a huge world; tons of levels to beat and many creeps to defeat!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-09-04_171934314%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-09-04_171934314%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "adventure-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/gemcraft_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/gemcraft"
+}

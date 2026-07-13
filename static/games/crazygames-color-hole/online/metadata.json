@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-hole",
+  "name": "Color Hole 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color Hole is a fun casual game where you control a hole that sucks in objects. Your task is to guide the hole to eat all the white objects while avoiding the colorful ones.",
+  "thumbnail": "https://imgs.crazygames.com/color-hole/20230506063912/color-hole-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/color-hole/20230506063912/color-hole-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-hole/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-hole",
+  "crazygamesSlug": "color-hole"
+}

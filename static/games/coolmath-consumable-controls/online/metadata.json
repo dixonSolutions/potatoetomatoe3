@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-consumable-controls",
+  "name": "Consumable Controls - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Consumable Controls at Cool Math Games: Make every move count... or else you&#039;ll be stuck without any controls!",
+  "thumbnail": "/games/coolmath-consumable-controls/online/assets/coolmath-consumable-controls.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33998/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-consumable-controls",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-consumable-controls"
+}

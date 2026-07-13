@@ -1,0 +1,17 @@
+{
+  "id": "playhop-throw-it-546551",
+  "name": "Throw It!",
+  "author": "BasementStudio",
+  "description": "Play Throw It! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019f19cb0c033ce040a3fc9c7298f2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019f19cb0c033ce040a3fc9c7298f2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-546551.games.s3.yandex.net/546551/5dwxy2ihwqmb1a2639q3voscn1um943v/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=546551&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 546551,
+  "playhopPageUrl": "https://playhop.com/app/546551",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

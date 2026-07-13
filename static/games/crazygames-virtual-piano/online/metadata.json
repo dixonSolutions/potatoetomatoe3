@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-virtual-piano",
+  "name": "Virtual Online Piano 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Virtual Online Piano is exactly what you would expect - a virtual representation of a full-sized digital keyboard that you can play to your heart&#x27;s content. This is a great way to learn music and to have some fun trying out different songs.",
+  "thumbnail": "/games/crazygames-virtual-piano/online/assets/crazygames-virtual-piano.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/virtual-piano/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/virtual-piano",
+  "crazygamesSlug": "virtual-piano"
+}

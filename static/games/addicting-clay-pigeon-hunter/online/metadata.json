@@ -1,0 +1,14 @@
+{
+  "id": "addicting-clay-pigeon-hunter",
+  "name": "Clay Pigeon Hunter",
+  "author": "Addicting Games",
+  "description": "It's a simple target shooting game. You're not really hunting anything. If you consider this hunting, you would consider reading a menu to be eating.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Clay-Pigeon-Hunter.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Clay-Pigeon-Hunter.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/claypigeonhunter_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/clay-pigeon-hunter"
+}

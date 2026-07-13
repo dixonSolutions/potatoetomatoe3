@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sneaky-sniper",
+  "name": "Sneaky Sniper",
+  "author": "Addicting Games",
+  "description": "<p>Sneaky Sniper is a free stick game. Tip toe through these missions, you guys.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Sneaky-Sniper.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Sneaky-Sniper.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/sneakysniper_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/sneaky-sniper"
+}

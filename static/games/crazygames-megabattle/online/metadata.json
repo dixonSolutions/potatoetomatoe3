@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-megabattle",
+  "name": "Megabattle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Megabattle invites players to a strategic and action-packed experience where they build powerful robots, enter the arena, and engage in thrilling battles. This game combines elements of strategy, deck-building, and roguelike mechanics, offering a unique and innovative gameplay experience.",
+  "thumbnail": "https://imgs.crazygames.com/megabattle_16x9/20240301012710/megabattle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/megabattle_16x9/20240301012710/megabattle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/megabattle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/megabattle",
+  "crazygamesSlug": "megabattle"
+}

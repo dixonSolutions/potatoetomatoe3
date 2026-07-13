@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-craft",
+  "name": "Sprunki Craft",
+  "author": "gameVgames",
+  "description": "Play Sprunki Craft via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001944fcceba61a93a509be4cd03a16/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001944fcceba61a93a509be4cd03a16/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-402128.games.s3.yandex.net/402128/gcru3o0gf494xozkjuw2qtvd18to8jah/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=402128&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 402128,
+  "playhopPageUrl": "https://playhop.com/app/402128",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 360
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-drift-runner-3d",
+  "name": "drift runner 3d",
+  "author": "CrazyGames",
+  "description": "Play drift runner 3d on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-drift-runner-3d/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drift-runner-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drift-runner-3d",
+  "crazygamesSlug": "drift-runner-3d"
+}

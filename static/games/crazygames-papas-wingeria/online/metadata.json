@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-wingeria",
+  "name": "Papa&#x27;s Wingeria 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa’s Wingeria is a casual restaurant game where you cook delicious wings for customers. Learn to serve the perfect plate of wings and purchase upgrades to improve the customer experience.",
+  "thumbnail": "/games/crazygames-papas-wingeria/online/assets/crazygames-papas-wingeria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-wingeria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-wingeria",
+  "crazygamesSlug": "papas-wingeria"
+}

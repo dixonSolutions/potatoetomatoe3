@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-tap-reveal",
+  "name": "tap reveal",
+  "author": "CrazyGames",
+  "description": "Play tap reveal on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tap-reveal/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tap-reveal",
+  "crazygamesSlug": "tap-reveal"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-frogger",
+  "name": "Frogger 🐸 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Frogger is a classic arcade game. Control the frog to navigate hazardous roads and rivers and reach the other side.",
+  "thumbnail": "https://imgs.crazygames.com/games/frogger/cover-1608649658695.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/frogger/cover-1608649658695.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/frogger/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/frogger",
+  "crazygamesSlug": "frogger"
+}

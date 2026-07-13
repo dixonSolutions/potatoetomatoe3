@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-chess-master",
+  "name": "Chess Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Chess Master is a casual 3D chess game where you need logic and smart strategies to challenge your friends or AI bots and become a true Chess Master! Release Date      September 2015 (Android)     September 2020 (iOS)     November 2022  Developer FreePDA made Chess Master.",
+  "thumbnail": "https://imgs.crazygames.com/chess-master/20221107113018/chess-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/chess-master/20221107113018/chess-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chess-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chess-master",
+  "crazygamesSlug": "chess-master"
+}

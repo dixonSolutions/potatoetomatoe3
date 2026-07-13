@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-breakout",
+  "name": "Idle Breakout 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Breakout is a clicker idle game that mirrors elements of the classic Atari arcade game, combining retro brick-smashing with incremental mechanics. When nostalgia and addictive progression loops of idle games meet, you get a game that is hard to put down, which is what makes this game one of the most popular in our collection.",
+  "thumbnail": "https://imgs.crazygames.com/games/idle-breakout/thumb-1553071737898.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/idle-breakout/thumb-1553071737898.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-breakout/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-breakout",
+  "crazygamesSlug": "idle-breakout"
+}

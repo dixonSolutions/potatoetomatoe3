@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-store-manager",
+  "name": "store manager",
+  "author": "CrazyGames",
+  "description": "Play store manager on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/store-manager/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/store-manager",
+  "crazygamesSlug": "store-manager"
+}

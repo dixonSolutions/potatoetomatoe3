@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-burdies",
+  "name": "Burdies - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Burdies at Cool Math Games: Click and drag your mouse over birds of the same type to clear them and get points! You can connect the birds horizontally, vertically, or diagonally.",
+  "thumbnail": "/games/coolmath-burdies/online/assets/coolmath-burdies.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/12531/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-burdies",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-burdies"
+}

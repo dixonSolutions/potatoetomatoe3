@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bmw-m5-g90-simulator",
+  "name": "BMW M5 G90 Simulator",
+  "author": "Narvik",
+  "description": "Play BMW M5 G90 Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000193ce60b0450752279921fd0d8681/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000193ce60b0450752279921fd0d8681/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-395398.games.s3.yandex.net/395398/rs2nw4ryz19scnrbhijib944da2fu96s/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=395398&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 395398,
+  "playhopPageUrl": "https://playhop.com/app/395398",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 410
+}

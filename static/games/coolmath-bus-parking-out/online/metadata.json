@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bus-parking-out",
+  "name": "Bus Parking Out - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Pick up passengers and take them to their location in this bus parking lot game. Bus Parking Out is a strategic game that requires quite a bit of planning.",
+  "thumbnail": "/games/coolmath-bus-parking-out/online/assets/coolmath-bus-parking-out.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/55051/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bus-parking-out",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bus-parking-out"
+}

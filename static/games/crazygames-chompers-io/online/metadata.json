@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-chompers-io",
+  "name": "Chompers.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Chompers.io is an evolution-based battle game in the .io games genre. In the game, you control a monster that can evolve as you eat food and eliminate other players.",
+  "thumbnail": "https://imgs.crazygames.com/games/chompers-io/cover-1584553166691.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/chompers-io/cover-1584553166691.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chompers-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chompers-io",
+  "crazygamesSlug": "chompers-io"
+}

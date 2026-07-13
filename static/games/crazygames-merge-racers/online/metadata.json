@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-racers",
+  "name": "Merge Racers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge Racers is an idle game in which you have to cover the entire planet with expensive cars. Buy and merge identical cars to create better ones.",
+  "thumbnail": "https://imgs.crazygames.com/merge-racers_16x9/20240315082527/merge-racers_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-racers_16x9/20240315082527/merge-racers_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-racers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-racers",
+  "crazygamesSlug": "merge-racers"
+}

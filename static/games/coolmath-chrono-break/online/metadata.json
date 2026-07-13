@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chrono-break",
+  "name": "Chrono Break - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Play with time and grab the clocks before the Chrono Break comes! Collect clocks to unlock the portals to each new puzzle. Save all the dimensions!",
+  "thumbnail": "/games/coolmath-chrono-break/online/assets/coolmath-chrono-break.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51198/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chrono-break",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chrono-break"
+}

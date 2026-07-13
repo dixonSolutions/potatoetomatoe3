@@ -1,0 +1,17 @@
+{
+  "id": "playhop-commando-force-2",
+  "name": "Commando Force 2",
+  "author": "БЛЭККФОРТ",
+  "description": "Play Commando Force 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001966260dae44f7926899cbf4fd6c9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001966260dae44f7926899cbf4fd6c9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-431857.games.s3.yandex.net/431857/d0y2hc28d4n4rkkax28im3zxdkki6jn0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=431857&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 431857,
+  "playhopPageUrl": "https://playhop.com/app/431857",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1082
+}

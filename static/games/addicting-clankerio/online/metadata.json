@@ -1,0 +1,14 @@
+{
+  "id": "addicting-clankerio",
+  "name": "Clanker.io",
+  "author": "Addicting Games",
+  "description": "<p>Clanker.io is a free IOgame. Gear up and step into the thrilling world of Clanker.io, the ultimate IOgame that mixes heart-pounding action and over-the-top combat in a colossal arena where players worldwide clash as mighty mechs! This is an adrenaline-fueled IO gaming experience like never before, as you pilot your own mechanized war machine, aiming to dominate the arena and prove yourself as the mightiest mech warrior of all time. This game has two arenas to choose from and one starter mech. You can pick up shields, health packs, and weapon upgrades as you play. This will allow you to keep a competitive edge over the enemy. Players can pick from five different main canons and three different mines, allowing for various strategies and tactics to make yourself the best clankin' mech this side of the scrap pile. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/clankerscreengame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/clankerscreengame.jpg",
+  "thumbnailStored": "remote",
+  "category": "tank-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://clanker.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/clankerio"
+}

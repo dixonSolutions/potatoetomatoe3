@@ -1,0 +1,17 @@
+{
+  "id": "playhop-toka-world-and-avatar-mix",
+  "name": "Toka World and Avatar: Mix",
+  "author": "pugovka",
+  "description": "Play Toka World and Avatar: Mix via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018f70a3d9f2e3ba6d32ddd43502d9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018f70a3d9f2e3ba6d32ddd43502d9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-339461.games.s3.yandex.net/339461/g2351n5kri24vrd7ztdzr73zt53u3w1m/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=339461&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 339461,
+  "playhopPageUrl": "https://playhop.com/app/339461",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 9034
+}

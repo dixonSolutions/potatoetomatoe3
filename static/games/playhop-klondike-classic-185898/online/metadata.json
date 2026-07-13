@@ -1,0 +1,17 @@
+{
+  "id": "playhop-klondike-classic-185898",
+  "name": "Klondike classic",
+  "author": "AVSDream",
+  "description": "Play Klondike classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001895f13d9700e8177a520c0b0e7dc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001895f13d9700e8177a520c0b0e7dc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-185898.games.s3.yandex.net/185898/0fjvcft12zbvb5k0zrwao1x821lkkycm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=185898&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 185898,
+  "playhopPageUrl": "https://playhop.com/app/185898",
+  "playhopRating": 4,
+  "playhopRatingCount": 149
+}

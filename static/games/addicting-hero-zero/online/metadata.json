@@ -1,0 +1,14 @@
+{
+  "id": "addicting-hero-zero",
+  "name": "Hero Zero",
+  "author": "Addicting Games",
+  "description": "<p>Build up your own superhero team!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/hero-zero-mmo_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/hero-zero-mmo_sp.png",
+  "thumbnailStored": "remote",
+  "category": "mmo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://iframe.herozerogame.com?ref=645-000-000-500&mode=raw&hideFooter=false",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/mmo/hero-zero"
+}

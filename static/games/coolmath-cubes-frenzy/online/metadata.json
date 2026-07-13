@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cubes-frenzy",
+  "name": "Cubes Frenzy - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cubes Frenzy at Cool Math Games: Match identical tiles together to destroy all the cubes before running out of moves. Can you find the right sequence?",
+  "thumbnail": "/games/coolmath-cubes-frenzy/online/assets/coolmath-cubes-frenzy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23054/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cubes-frenzy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cubes-frenzy"
+}

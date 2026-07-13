@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-garden-idle",
+  "name": "garden idle",
+  "author": "CrazyGames",
+  "description": "Play garden idle on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/garden-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/garden-idle",
+  "crazygamesSlug": "garden-idle"
+}

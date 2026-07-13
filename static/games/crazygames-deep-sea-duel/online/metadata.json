@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-deep-sea-duel",
+  "name": "Deep Sea Duel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Deep Sea Duel is a casual underwater game where you&#39;ll pilot your submarine into the deep sea for epic battles and thrilling quests. Your mission is to claim the title of the ocean&#39;s top fish hunter.",
+  "thumbnail": "https://imgs.crazygames.com/deep-sea-duel_16x9/20230919102413/deep-sea-duel_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/deep-sea-duel_16x9/20230919102413/deep-sea-duel_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/deep-sea-duel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/deep-sea-duel",
+  "crazygamesSlug": "deep-sea-duel"
+}

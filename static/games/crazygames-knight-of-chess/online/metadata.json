@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-knight-of-chess",
+  "name": "knight of chess",
+  "author": "CrazyGames",
+  "description": "Play knight of chess on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/knight-of-chess/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/knight-of-chess",
+  "crazygamesSlug": "knight-of-chess"
+}

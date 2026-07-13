@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fergeio",
+  "name": "Ferge.io",
+  "author": "Addicting Games",
+  "description": "<p>Ferge.io is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/fergeiogame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/fergeiogame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://ferge.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/fergeio"
+}

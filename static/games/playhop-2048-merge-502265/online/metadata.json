@@ -1,0 +1,17 @@
+{
+  "id": "playhop-2048-merge-502265",
+  "name": "2048 Merge",
+  "author": "SvanekStudio",
+  "description": "Play 2048 Merge via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019c91077a5e4d781ccd4ee6982c53/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019c91077a5e4d781ccd4ee6982c53/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-502265.games.s3.yandex.net/502265/7v1d52jaeo68updxav8jwwpuvmfff1bx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=502265&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 502265,
+  "playhopPageUrl": "https://playhop.com/app/502265",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 285
+}

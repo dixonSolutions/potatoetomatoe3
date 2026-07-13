@@ -1,0 +1,17 @@
+{
+  "id": "playhop-screw-sort-3d",
+  "name": "Screw Sort 3D",
+  "author": "TestMakers",
+  "description": "Play Screw Sort 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000197c069fecdda74b763c27e76cd6e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000197c069fecdda74b763c27e76cd6e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-419250.games.s3.yandex.net/419250/qge0ck8o0qipgkpocify74se88oghhbu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=419250&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 419250,
+  "playhopPageUrl": "https://playhop.com/app/419250",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 518
+}

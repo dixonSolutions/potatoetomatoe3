@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pool-merge-mania",
+  "name": "pool merge mania",
+  "author": "CrazyGames",
+  "description": "Play pool merge mania on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pool-merge-mania/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pool-merge-mania",
+  "crazygamesSlug": "pool-merge-mania"
+}

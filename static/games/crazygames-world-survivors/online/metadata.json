@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-world-survivors",
+  "name": "world survivors",
+  "author": "CrazyGames",
+  "description": "Play world survivors on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/world-survivors/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/world-survivors",
+  "crazygamesSlug": "world-survivors"
+}

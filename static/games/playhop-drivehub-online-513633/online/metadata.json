@@ -1,0 +1,17 @@
+{
+  "id": "playhop-drivehub-online-513633",
+  "name": "DriveHub Online",
+  "author": "Games_01",
+  "description": "Play DriveHub Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019d502b00f1b8fecd35177924d85a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019d502b00f1b8fecd35177924d85a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-513633.games.s3.yandex.net/513633/9a2j6cugsieunjdkeuslyo6p0vrgjmiu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=513633&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 513633,
+  "playhopPageUrl": "https://playhop.com/app/513633",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2017
+}

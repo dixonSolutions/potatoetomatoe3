@@ -1,0 +1,17 @@
+{
+  "id": "playhop-westland-survival",
+  "name": "Westland Survival",
+  "author": "НИВАЛ МОБАЙЛ",
+  "description": "Play Westland Survival via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019600512930ab49c4823becf0a215/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019600512930ab49c4823becf0a215/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-408697.games.s3.yandex.net/408697/kd6cmjih4qv3128zyttupi1s5h3b6wkk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=408697&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 408697,
+  "playhopPageUrl": "https://playhop.com/app/408697",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 4279
+}

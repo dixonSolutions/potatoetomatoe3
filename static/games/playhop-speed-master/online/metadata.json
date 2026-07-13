@@ -1,0 +1,17 @@
+{
+  "id": "playhop-speed-master",
+  "name": "Speed Master",
+  "author": "Famobi-Dev",
+  "description": "Play Speed Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018f585388bbab3441a6280ddfdfd6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018f585388bbab3441a6280ddfdfd6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-337616.games.s3.yandex.net/337616/36kecfg7gbhwxcdvc3oxxeuqpj9nsg4h/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=337616&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 337616,
+  "playhopPageUrl": "https://playhop.com/app/337616",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 7713
+}

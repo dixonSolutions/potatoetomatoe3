@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-super-tic-tac-toe",
+  "name": "Super Tic Tac Toe 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Super Tic Tac Toe is a classic game to a new level. With a grid of 9 smaller boards, each move guides your opponent to a specific mini-board.",
+  "thumbnail": "https://imgs.crazygames.com/super-tic-tac-toe_16x9/20230906072354/super-tic-tac-toe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/super-tic-tac-toe_16x9/20230906072354/super-tic-tac-toe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/super-tic-tac-toe/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/super-tic-tac-toe",
+  "crazygamesSlug": "super-tic-tac-toe"
+}

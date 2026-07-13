@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-blocky-trials",
+  "name": "Blocky Trials 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Prepare yourself for an intense thrill ride in Blocky Trials! Conquer difficult tracks and challenging terrain in this fast-paced, blocky style motocross game.",
+  "thumbnail": "/games/crazygames-blocky-trials/online/assets/crazygames-blocky-trials.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blocky-trials/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blocky-trials",
+  "crazygamesSlug": "blocky-trials"
+}

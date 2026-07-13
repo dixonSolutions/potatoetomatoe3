@@ -1,0 +1,14 @@
+{
+  "id": "addicting-motorcycle-tycoon",
+  "name": "Motorcycle Tycoon",
+  "author": "Addicting Games",
+  "description": "<p>Motorcycle Tycoon is a free racing game. Rule the moto world! Buy parts and hire mechanics; supervise their work to get your bikes built in time. Then hire riders and go to the track! Use your prize money to buy better parts and employees who don't lose their cool so fast. You know who I'm talking about.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/motorcycletycoon_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/motorcycletycoon_sp.png",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/motorcycletycoon.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/motorcycle-tycoon"
+}

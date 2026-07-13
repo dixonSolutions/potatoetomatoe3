@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-box-slide",
+  "name": "Box Slide - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Coast around the grid and slide every single box into the proper place. Use each box strategically to ensure that you don&#039;t get stuck.",
+  "thumbnail": "/games/coolmath-box-slide/online/assets/coolmath-box-slide.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53470/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-box-slide",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-box-slide"
+}

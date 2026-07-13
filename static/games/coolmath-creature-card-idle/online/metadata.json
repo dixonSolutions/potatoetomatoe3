@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-creature-card-idle",
+  "name": "Creature Card Idle - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Collect cards and gain resources in Create Card Idle. You&#039;ll need to use time and strategy to create the best deck possible.",
+  "thumbnail": "/games/coolmath-creature-card-idle/online/assets/coolmath-creature-card-idle.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52875/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-creature-card-idle",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-creature-card-idle"
+}

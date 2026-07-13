@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mission-parking",
+  "name": "Mission: Parking",
+  "author": "Yr.studio",
+  "description": "Play Mission: Parking via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000195ed4684e9e53ad0f2413f6689ea/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000195ed4684e9e53ad0f2413f6689ea/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-425196.games.s3.yandex.net/425196/q1q78vdrzppn8bbufi2mr170vppal16i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=425196&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 425196,
+  "playhopPageUrl": "https://playhop.com/app/425196",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 79
+}

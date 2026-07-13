@@ -1,0 +1,17 @@
+{
+  "id": "playhop-false-dream-290753",
+  "name": "False Dream",
+  "author": "DarkPlay",
+  "description": "Play False Dream via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018e21d80f891294bf8f68bb059f36/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018e21d80f891294bf8f68bb059f36/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-290753.games.s3.yandex.net/290753/m73a9co9kd02j9xd6mhdalcl3j7s9029/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=290753&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 290753,
+  "playhopPageUrl": "https://playhop.com/app/290753",
+  "playhopRating": 2.9,
+  "playhopRatingCount": 335
+}

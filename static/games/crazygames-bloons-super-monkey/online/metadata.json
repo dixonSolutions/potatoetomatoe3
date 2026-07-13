@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bloons-super-monkey",
+  "name": "Bloons Super Monkey 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloons Super Monkey is an arcade game where you play as a monkey superhero that pops as many balloons as possible! Upgrade your weapon so you can pop the balloons even more!",
+  "thumbnail": "/games/crazygames-bloons-super-monkey/online/assets/crazygames-bloons-super-monkey.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloons-super-monkey/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloons-super-monkey",
+  "crazygamesSlug": "bloons-super-monkey"
+}

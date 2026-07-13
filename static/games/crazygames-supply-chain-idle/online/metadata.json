@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-supply-chain-idle",
+  "name": "Supply Chain Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Supply Chain Idle is the fun management game in which you need to create a successful supply chain between production and distribution units. Start by placing production units that will actually make the products that will be sold.",
+  "thumbnail": "https://imgs.crazygames.com/supplychainidle.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/supplychainidle.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/supply-chain-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/supply-chain-idle",
+  "crazygamesSlug": "supply-chain-idle"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-crystal-charge",
+  "name": "Crystal Charge - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Power up the gems in Crystal Charge! Push mirrors to aim the laser beams, and make sure two different colors never cross paths!",
+  "thumbnail": "/games/coolmath-crystal-charge/online/assets/coolmath-crystal-charge.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37605/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-crystal-charge",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-crystal-charge"
+}

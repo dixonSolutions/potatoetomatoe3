@@ -1,0 +1,17 @@
+{
+  "id": "playhop-marble-beetle-199559",
+  "name": "Marble Beetle",
+  "author": "xGameDev",
+  "description": "Play Marble Beetle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001840618942c82786853090396df82/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001840618942c82786853090396df82/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-199559.games.s3.yandex.net/199559/3r43bfl5fsvhud8qxpx6l1eoh74vdbwp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=199559&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 199559,
+  "playhopPageUrl": "https://playhop.com/app/199559",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 346
+}

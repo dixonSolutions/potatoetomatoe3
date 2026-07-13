@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sticky-carnage-475353",
+  "name": "Sticky Carnage",
+  "author": "JTL STUDIO",
+  "description": "Play Sticky Carnage via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019c3df34985240f15a0136b8cb246/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019c3df34985240f15a0136b8cb246/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-475353.games.s3.yandex.net/475353/wqrcjjoyd6vjb4yj4fu2s88vubmr4xau/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=475353&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 475353,
+  "playhopPageUrl": "https://playhop.com/app/475353",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 729
+}

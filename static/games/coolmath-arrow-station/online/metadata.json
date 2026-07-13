@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-arrow-station",
+  "name": "Arrow Station - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Arrow Station at Cool Math Games: Help this lost jelly cube escape. Turn arrows, jump over gaps, break blocks, and disable laser beams quickly to clear his path.",
+  "thumbnail": "/games/coolmath-arrow-station/online/assets/coolmath-arrow-station.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/21863/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-arrow-station",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-arrow-station"
+}

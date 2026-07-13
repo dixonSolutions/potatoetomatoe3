@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-summoner-master",
+  "name": "Summoner Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Summoner Master is a captivating action game where you summon powerful creatures to help you defeat your enemies. Use your strategic skills to summon the right monster and choose the perfect time to unleash their devastating attacks.",
+  "thumbnail": "https://imgs.crazygames.com/summoner-master/20230503162836/summoner-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/summoner-master/20230503162836/summoner-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/summoner-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/summoner-master",
+  "crazygamesSlug": "summoner-master"
+}

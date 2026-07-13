@@ -1,0 +1,17 @@
+{
+  "id": "playhop-real-diving-169522",
+  "name": "Real Diving",
+  "author": "Casual AGames",
+  "description": "Play Real Diving via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000017a52fdc9479b63a393b0e8347d9e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000017a52fdc9479b63a393b0e8347d9e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-169522.games.s3.yandex.net/169522/mxbuv37btlh78bl33q04ll9a82ym4kua/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=169522&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 169522,
+  "playhopPageUrl": "https://playhop.com/app/169522",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1129
+}

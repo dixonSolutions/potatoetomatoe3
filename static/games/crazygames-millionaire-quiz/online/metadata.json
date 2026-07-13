@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-millionaire-quiz",
+  "name": "Millionaire Quiz 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Millionaire Quiz is a virtual twist on the classic TV game show, challenging you to answer 15 increasingly tough questions for a shot at the million-dollar prize. To win, you must correctly navigate through questions from various categories, each more challenging than the last.",
+  "thumbnail": "/games/crazygames-millionaire-quiz/online/assets/crazygames-millionaire-quiz.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/millionaire-quiz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/millionaire-quiz",
+  "crazygamesSlug": "millionaire-quiz"
+}

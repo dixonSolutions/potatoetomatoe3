@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lords-of-the-arena-172660",
+  "name": "Lords of the Arena",
+  "author": "Nikolay Lipin",
+  "description": "Play Lords of the Arena via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017ba0dd68b9c33a04d30d885aec5e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017ba0dd68b9c33a04d30d885aec5e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-526238.games.s3.yandex.net/526238/5ad9s0ndm8r6ivgkm6jygza4z9cg9iop/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 172660,
+  "playhopPageUrl": "https://playhop.com/app/172660",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 9404
+}

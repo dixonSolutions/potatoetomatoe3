@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-riot-escape",
+  "name": "Riot Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Riot Escape is an action game where you play as part of an escapee mob or a cop. Escapees must reach the end of the map without being stopped by the police.",
+  "thumbnail": "https://imgs.crazygames.com/riot-escape/20220331164926/riot-escape-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/riot-escape/20220331164926/riot-escape-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/riot-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/riot-escape",
+  "crazygamesSlug": "riot-escape"
+}

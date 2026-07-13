@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ocean-miner",
+  "name": "Ocean Miner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ocean Miner is an adventurous exploration game set in the depths of the ocean. Collect resources, build powerful machines, and face dangerous sea creatures.",
+  "thumbnail": "https://imgs.crazygames.com/ocean-miner_16x9/20240626040052/ocean-miner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ocean-miner_16x9/20240626040052/ocean-miner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ocean-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ocean-miner",
+  "crazygamesSlug": "ocean-miner"
+}

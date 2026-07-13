@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cubic-shop",
+  "name": "Craft market 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Craft Market is a simulation game where you build a thriving marketplace from scratch. You gather materials, craft goods, and attract curious customers to your growing stand.",
+  "thumbnail": "https://imgs.crazygames.com/cubic-shop_16x9/20250516091043/cubic-shop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cubic-shop_16x9/20250516091043/cubic-shop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubic-shop/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubic-shop",
+  "crazygamesSlug": "cubic-shop"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-vengeio",
+  "name": "Venge.io",
+  "author": "Addicting Games",
+  "description": "<p>Venge.io is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/venge.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/venge.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.venge.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/vengeio"
+}

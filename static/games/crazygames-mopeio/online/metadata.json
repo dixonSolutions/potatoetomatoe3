@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-mopeio",
+  "name": "Mope.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mope.io is a multiplayer .io game where you have to eat, evolve, and survive. Much like FlyOrDie, you survive by eating food and other animals.",
+  "thumbnail": "/games/crazygames-mopeio/online/assets/crazygames-mopeio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mopeio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mopeio",
+  "crazygamesSlug": "mopeio"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-crazy-eights",
+  "name": "Play Crazy Eights on Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Empty your hand first in this classic game of crazy eights. Play with eights wild, or add action cards like Reverse, Skip and Draw Two to spice things up.",
+  "thumbnail": "/games/coolmath-crazy-eights/online/assets/coolmath-crazy-eights.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51535/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-crazy-eights",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-crazy-eights"
+}

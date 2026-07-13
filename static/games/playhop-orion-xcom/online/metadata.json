@@ -1,0 +1,17 @@
+{
+  "id": "playhop-orion-xcom",
+  "name": "Orion XCOM",
+  "author": "Fantasy Games",
+  "description": "Play Orion XCOM via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019786e9bd7651c0be4580d8504e7e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019786e9bd7651c0be4580d8504e7e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-447059.games.s3.yandex.net/447059/4tirq9cniycymiaci875kseqkm5vx93b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=447059&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 447059,
+  "playhopPageUrl": "https://playhop.com/app/447059",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 423
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cubiko",
+  "name": "Cubiko - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Line up the blocks and make the shape shown above in Cubiko. Move grids and rows in the proper order to make the shape correctly.",
+  "thumbnail": "/games/coolmath-cubiko/online/assets/coolmath-cubiko.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48028/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cubiko",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cubiko"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-durak-classic-174460",
+  "name": "Durak classic",
+  "author": "Navogame",
+  "description": "Play Durak classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000185a66cabc91c7592725c36e48104/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000185a66cabc91c7592725c36e48104/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-174460.games.s3.yandex.net/174460/vl1ld5twlqa2sjlo3n3zz5gf2j7vrkmg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=174460&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 174460,
+  "playhopPageUrl": "https://playhop.com/app/174460",
+  "playhopRating": 4,
+  "playhopRatingCount": 42689
+}

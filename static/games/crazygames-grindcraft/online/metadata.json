@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-grindcraft",
+  "name": "GrindCraft 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "GrindCraft is a Minecraft-themed clicker game based on crafting. Collect various raw materials and climb the crafting ladder to create stronger items.",
+  "thumbnail": "/games/crazygames-grindcraft/online/assets/crazygames-grindcraft.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grindcraft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grindcraft",
+  "crazygamesSlug": "grindcraft"
+}

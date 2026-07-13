@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-balanced-running",
+  "name": "Balanced Running 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Balanced Running is a casual game where you can show your skills by making a puppet walk in a room with a hot Lava Floor. This will be a little hard at first because you should decide how long you need to hold the button very carefully.",
+  "thumbnail": "https://imgs.crazygames.com/balanced-running_16x9/20231030070308/balanced-running_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/balanced-running_16x9/20231030070308/balanced-running_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/balanced-running/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/balanced-running",
+  "crazygamesSlug": "balanced-running"
+}

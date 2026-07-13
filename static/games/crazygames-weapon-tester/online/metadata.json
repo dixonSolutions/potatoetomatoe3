@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-weapon-tester",
+  "name": "Weapon Tester 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Weapon Tester is a clicker game where you have to test different weapons to kill monsters in various locations. The weapon shop and the upgrade menu will help you with this.",
+  "thumbnail": "https://imgs.crazygames.com/weapon-tester/20211111173516/weapon-tester-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/weapon-tester/20211111173516/weapon-tester-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/weapon-tester/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/weapon-tester",
+  "crazygamesSlug": "weapon-tester"
+}

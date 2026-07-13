@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cycle-sprint-189464",
+  "name": "Cycle Sprint",
+  "author": "CodeThisLab",
+  "description": "Play Cycle Sprint via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000189badf25d3203cbc5c9bcb4549a0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000189badf25d3203cbc5c9bcb4549a0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-189464.games.s3.yandex.net/189464/wcg323budws0raxb6p1we1tf1zm4dyzn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=189464&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 189464,
+  "playhopPageUrl": "https://playhop.com/app/189464",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 1437
+}

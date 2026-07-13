@@ -1,0 +1,17 @@
+{
+  "id": "playhop-flux-puzzle-526745",
+  "name": "Flux Puzzle",
+  "author": "bayan79",
+  "description": "Play Flux Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019e1d8b7ad29701e45a5e4bbfddf4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019e1d8b7ad29701e45a5e4bbfddf4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-526745.games.s3.yandex.net/526745/zu2jot6m2u2dchd4rrqisyl38cidkb47/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=526745&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 526745,
+  "playhopPageUrl": "https://playhop.com/app/526745",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

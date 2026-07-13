@@ -1,0 +1,17 @@
+{
+  "id": "playhop-doors-castle",
+  "name": "Doors Castle",
+  "author": "AppGirl",
+  "description": "Play Doors Castle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019d4dc90475ae4262d367a1005f11/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019d4dc90475ae4262d367a1005f11/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-431552.games.s3.yandex.net/431552/8s8snjem1itmjlfeyc0llioy4sxcxsit/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=431552&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 431552,
+  "playhopPageUrl": "https://playhop.com/app/431552",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2904
+}

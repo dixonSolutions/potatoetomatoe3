@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-chaos-arena",
+  "name": "Chaos Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pull. Launch.",
+  "thumbnail": "https://imgs.crazygames.com/chaos-arena_16x9/20260528074149/chaos-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/chaos-arena_16x9/20260528074149/chaos-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chaos-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chaos-arena",
+  "crazygamesSlug": "chaos-arena"
+}

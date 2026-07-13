@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-traffic-parking",
+  "name": "Traffic Parking 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Traffic Parking is a challenging car puzzle game where you guide a vehicle home by navigating around obstacles like other cars and rocks. Strategize to clear paths and unlock tricks for tricky levels.",
+  "thumbnail": "https://imgs.crazygames.com/traffic-parking_16x9/20250213042815/traffic-parking_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/traffic-parking_16x9/20250213042815/traffic-parking_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/traffic-parking/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/traffic-parking",
+  "crazygamesSlug": "traffic-parking"
+}

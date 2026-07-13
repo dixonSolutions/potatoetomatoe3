@@ -1,0 +1,14 @@
+{
+  "id": "addicting-swap-sums",
+  "name": "Swap Sums",
+  "author": "Addicting Games",
+  "description": "<p>Swap Sums is a free math game. This game is all about zero. Zero is the only pure value in the world. It is not bigger than any other number and it is not smaller than any other number: it simply is. Pure zero as a goal may seem less than exciting but ultimately it is perfect grounds for a challenging and interesting game. In Swap Sums, you will be using your wits to apply tiles of different positive and negative values to a series of tokens with positive and negative values. Your goal is to puzzle out the order in which those tokens can be played and where they can be played to reach pure zero. The ultimate in neutrality. This is a game for puzzle masters and math masters alike. Because in the end, all puzzles are really just math, you're really just coming up with an algorithm to determine the best way to toggle resources, manipulate shapes and values and fit them in or take them out of an existing set of information. It is fun, it is so fun. You'll love it. You'll love making your way to zero. We all have to go back to zero, we've built it up to far now.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/SWAPSUMSGAME.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/SWAPSUMSGAME.jpg",
+  "thumbnailStored": "remote",
+  "category": "clicker",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/swap-sums/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/swap-sums"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-10x10",
+  "name": "10x10 🔟 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "10x10 is a fun and free 10x10 puzzle game inspired by Tetris. The field&#39;s size is 10x10, and you can freely place the assigned blocks into it.",
+  "thumbnail": "/games/crazygames-10x10/online/assets/crazygames-10x10.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/10x10/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/10x10",
+  "crazygamesSlug": "10x10"
+}

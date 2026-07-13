@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hard-wheels",
+  "name": "Hard Wheels 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Drive an awesome monster truck in Hard Wheels and overcome various challenging tracks. There are many obstacles along the way, and you will need all your driving skills to get past them.",
+  "thumbnail": "https://imgs.crazygames.com/hardwheels.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hardwheels.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hard-wheels/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hard-wheels",
+  "crazygamesSlug": "hard-wheels"
+}

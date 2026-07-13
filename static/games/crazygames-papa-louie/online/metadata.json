@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papa-louie",
+  "name": "Papa Louie: When Pizzas Attack 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa Louie: When Pizzas Attack is a platformer that lets you play as Papa Louie himself as he gets transported to worlds within pizza boxes. Your goal is to save the pizzas and free your employees and customers from captivity.",
+  "thumbnail": "/games/crazygames-papa-louie/online/assets/crazygames-papa-louie.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papa-louie/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papa-louie",
+  "crazygamesSlug": "papa-louie"
+}

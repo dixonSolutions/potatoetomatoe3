@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-infinite-launch",
+  "name": "Infinite Launch 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Infinite Launch is an action game where you can explore space and colonize planets. Create satellites so you can collect stars and use them to get a new planet.",
+  "thumbnail": "https://imgs.crazygames.com/games/infinite-launch/cover-1672076979265.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/infinite-launch/cover-1672076979265.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/infinite-launch/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/infinite-launch",
+  "crazygamesSlug": "infinite-launch"
+}

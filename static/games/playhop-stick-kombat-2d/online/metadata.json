@@ -1,0 +1,17 @@
+{
+  "id": "playhop-stick-kombat-2d",
+  "name": "Stick Kombat 2D",
+  "author": "TempoPlay",
+  "description": "Play Stick Kombat 2D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c7c3bd67c9d6ea5ebf8eeb8be0a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c7c3bd67c9d6ea5ebf8eeb8be0a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-379391.games.s3.yandex.net/379391/onluabsuco4f3t2a4vzmjrmt8urwhr8d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=379391&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 379391,
+  "playhopPageUrl": "https://playhop.com/app/379391",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 29926
+}

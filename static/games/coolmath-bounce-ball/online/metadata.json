@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bounce-ball",
+  "name": "Bounce Ball - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Tap a platform, bounce a ball. Get the ball into the blue goal using the platforms given to you. Build your path to glory in this bouncing game.",
+  "thumbnail": "/games/coolmath-bounce-ball/online/assets/coolmath-bounce-ball.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51604/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bounce-ball",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bounce-ball"
+}

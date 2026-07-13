@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-panda-170680",
+  "name": "Bubble Panda",
+  "author": "Lion Studios",
+  "description": "Play Bubble Panda via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017ac9cfd3b7f7556b3a4c47309052/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017ac9cfd3b7f7556b3a4c47309052/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-170680.games.s3.yandex.net/170680/1q1e8xp61k3e6qvxe348b6s2mpgkoe10/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=170680&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 170680,
+  "playhopPageUrl": "https://playhop.com/app/170680",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 490
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-streamer",
+  "name": "Idle Streamer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Streamer is a clicker game where you idle your way to becoming a world-famous streamer. Click to earn money, and improve your character, room, and equipment to boost your earnings!",
+  "thumbnail": "https://imgs.crazygames.com/idle-streamer/20220222150107/idle-streamer-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-streamer/20220222150107/idle-streamer-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-streamer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-streamer",
+  "crazygamesSlug": "idle-streamer"
+}

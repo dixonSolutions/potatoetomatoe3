@@ -1,0 +1,17 @@
+{
+  "id": "playhop-find-and-match",
+  "name": "Find and Match",
+  "author": "Xmiro",
+  "description": "Play Find and Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000194ad74b07108ae568eca3aa12c45/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000194ad74b07108ae568eca3aa12c45/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-381555.games.s3.yandex.net/381555/jo85rk8wbruv1ul9dfftgxs1pti43g46/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=381555&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 381555,
+  "playhopPageUrl": "https://playhop.com/app/381555",
+  "playhopRating": 4,
+  "playhopRatingCount": 1038
+}

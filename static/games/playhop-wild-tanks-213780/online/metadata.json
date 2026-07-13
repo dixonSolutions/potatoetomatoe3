@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wild-tanks-213780",
+  "name": "Wild Tanks",
+  "author": "JL studio",
+  "description": "Play Wild Tanks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018611d46d3160fe8bf4b464bb34b3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018611d46d3160fe8bf4b464bb34b3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-213780.games.s3.yandex.net/213780/nvnjq9sqqkojjwaz8iwau7im3vzi347z/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=213780&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 213780,
+  "playhopPageUrl": "https://playhop.com/app/213780",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 10674
+}

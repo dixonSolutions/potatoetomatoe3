@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mahjongg-solitaire",
+  "name": "Mahjongg Solitaire 🀄 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mahjongg Solitaire is an online mahjong puzzle board game that features traditional rules and modern visuals. There are no shuffles, and the game is timed, but the game&#x27;s pace is relaxed.",
+  "thumbnail": "https://imgs.crazygames.com/games/mahjongg-solitaire/cover_16x9-1707829450935.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/mahjongg-solitaire/cover_16x9-1707829450935.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjongg-solitaire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjongg-solitaire",
+  "crazygamesSlug": "mahjongg-solitaire"
+}

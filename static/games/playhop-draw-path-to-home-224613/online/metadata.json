@@ -1,0 +1,17 @@
+{
+  "id": "playhop-draw-path-to-home-224613",
+  "name": "Draw path to home",
+  "author": "Popik",
+  "description": "Play Draw path to home via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019e924c8711236445e32926ac9215/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019e924c8711236445e32926ac9215/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-224613.games.s3.yandex.net/224613/t5nql86lcm9u64ss3oayuajb602mqgfe/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=224613&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 224613,
+  "playhopPageUrl": "https://playhop.com/app/224613",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 34913
+}

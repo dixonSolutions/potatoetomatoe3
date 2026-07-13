@@ -1,0 +1,14 @@
+{
+  "id": "addicting-rabbit-run",
+  "name": "Rabbit Run",
+  "author": "Addicting Games",
+  "description": "<p>Rabbit Run is a free mobile game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2026-03-23_110128250%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2026-03-23_110128250%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "action",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/rabbit-run/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/rabbit-run"
+}

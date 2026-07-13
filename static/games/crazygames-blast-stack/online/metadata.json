@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-blast-stack",
+  "name": "blast stack",
+  "author": "CrazyGames",
+  "description": "Play blast stack on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blast-stack/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blast-stack",
+  "crazygamesSlug": "blast-stack"
+}

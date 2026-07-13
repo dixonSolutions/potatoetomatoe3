@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-draw-defense",
+  "name": "Draw Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Draw Defense is a casual game to defend your castle by drawing lines with the mouse to crush waves of advancing enemies. Each line drops down to eliminate foes, challenging you to place them strategically before your defenses are breached.",
+  "thumbnail": "https://imgs.crazygames.com/draw-defense_16x9/20241101102847/draw-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/draw-defense_16x9/20241101102847/draw-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/draw-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/draw-defense",
+  "crazygamesSlug": "draw-defense"
+}

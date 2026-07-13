@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bubble-sorting",
+  "name": "Bubble Sorting 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bubble Sorting is a simple logic game. Sort the bubbles into the right tubes until there is only one color per tube.",
+  "thumbnail": "https://imgs.crazygames.com/bubble-sorting/20201126134055/bubble-sorting-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bubble-sorting/20201126134055/bubble-sorting-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubble-sorting/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubble-sorting",
+  "crazygamesSlug": "bubble-sorting"
+}

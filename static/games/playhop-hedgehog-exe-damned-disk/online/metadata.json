@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hedgehog-exe-damned-disk",
+  "name": "Hedgehog.EXE: Damned disk",
+  "author": "SoftBites",
+  "description": "Play Hedgehog.EXE: Damned disk via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000197d2474526647861a31abf86f931/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000197d2474526647861a31abf86f931/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-424956.games.s3.yandex.net/424956/y76zjdvpfkxn5c2xm48gf4ixjar2pzyd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=424956&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 424956,
+  "playhopPageUrl": "https://playhop.com/app/424956",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 51
+}

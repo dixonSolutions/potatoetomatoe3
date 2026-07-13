@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-duck-hunt",
+  "name": "Duck Hunt 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Duck Hunt is a fantastic arcade game that takes inspiration from the original classic available on Nintendo game systems. You must shoot the moving ducks down with your mouse and see how many points you can score.",
+  "thumbnail": "/games/crazygames-duck-hunt/online/assets/crazygames-duck-hunt.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/duck-hunt/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/duck-hunt",
+  "crazygamesSlug": "duck-hunt"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-city-constructor",
+  "name": "City Constructor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Become a heavy machinery operator! In this game, you control excavators, cranes, trucks, and more to solve physics-based puzzles, transport cargo, and complete construction tasks.",
+  "thumbnail": "https://imgs.crazygames.com/city-constructor_16x9/20260323035948/city-constructor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/city-constructor_16x9/20260323035948/city-constructor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/city-constructor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/city-constructor",
+  "crazygamesSlug": "city-constructor"
+}

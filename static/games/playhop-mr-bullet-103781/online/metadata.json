@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mr-bullet-103781",
+  "name": "Mr Bullet",
+  "author": "truelisgames",
+  "description": "Play Mr Bullet via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a0ed118630be108d316633d5870/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a0ed118630be108d316633d5870/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-103781.games.s3.yandex.net/103781/5tuy640lgnbnmmy7ei76mm6ru3wvy3fi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=103781&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 103781,
+  "playhopPageUrl": "https://playhop.com/app/103781",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5604
+}

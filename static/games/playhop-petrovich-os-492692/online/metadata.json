@@ -1,0 +1,17 @@
+{
+  "id": "playhop-petrovich-os-492692",
+  "name": "Petrovich OS",
+  "author": "FatMax",
+  "description": "Play Petrovich OS via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c5221eda1bc5ccc13953355f92a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c5221eda1bc5ccc13953355f92a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-492692.games.s3.yandex.net/492692/3466m5sw08d432lv90j92s0qxoamn3ay/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=492692&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 492692,
+  "playhopPageUrl": "https://playhop.com/app/492692",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 14
+}

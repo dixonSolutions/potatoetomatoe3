@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-military-capitalist",
+  "name": "Military Capitalist 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Military Capitalist is a military clicker game in which you have to build your business around winning military contracts and expanding. Your goal is to become the richest military capitalist around, so this by producing military goods via professional contracts.",
+  "thumbnail": "https://imgs.crazygames.com/militarycapitalist.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/militarycapitalist.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/military-capitalist/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/military-capitalist",
+  "crazygamesSlug": "military-capitalist"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-harvest-simulator-part-2",
+  "name": "Harvest Simulator: Part 2",
+  "author": "CriattivaLabs",
+  "description": "Play Harvest Simulator: Part 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019abf0b3e4fceea4f22856cdf50b0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019abf0b3e4fceea4f22856cdf50b0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-456410.games.s3.yandex.net/456410/s3f6en1fgvby2dypeajlg8qdk6r6uoog/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=456410&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 456410,
+  "playhopPageUrl": "https://playhop.com/app/456410",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 222
+}

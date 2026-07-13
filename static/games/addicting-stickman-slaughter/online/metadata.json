@@ -1,0 +1,14 @@
+{
+  "id": "addicting-stickman-slaughter",
+  "name": "Stickman Slaughter",
+  "author": "Addicting Games",
+  "description": "<p>Stickman Slaughter is a free stick game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/stickman%20slaughter.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/stickman%20slaughter.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/stickman-slaughter/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/stickman-slaughter"
+}

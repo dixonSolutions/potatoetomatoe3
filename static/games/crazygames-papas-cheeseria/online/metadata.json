@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-cheeseria",
+  "name": "Papa&#x27;s Cheeseria 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa’s Cheeseria is a restaurant game where you build grilled cheese sandwiches for customers. Keep up your requests and deliver the perfect cheesy creations.",
+  "thumbnail": "/games/crazygames-papas-cheeseria/online/assets/crazygames-papas-cheeseria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-cheeseria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-cheeseria",
+  "crazygamesSlug": "papas-cheeseria"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hex-sense-2",
+  "name": "Hex Sense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Guide Mochi across risky hex lands to find all of his friends. His hex sense lets him read clues about how many hazards are nearby and find a safe path through the land.",
+  "thumbnail": "https://imgs.crazygames.com/hex-sense-2_16x9/20260505101443/hex-sense-2_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hex-sense-2_16x9/20260505101443/hex-sense-2_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hex-sense-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hex-sense-2",
+  "crazygamesSlug": "hex-sense-2"
+}

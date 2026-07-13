@@ -1,0 +1,14 @@
+{
+  "id": "addicting-checkers-online-foony",
+  "name": "Checkers Online Foony",
+  "author": "Addicting Games",
+  "description": "<p>Play multiplayer Checkers online! Challenge friends or players worldwide in this classic strategy board game—jump, capture, and crown your pieces to victory.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/checkers-thumbnail-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/checkers-thumbnail-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "multiplayer-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://foony.com/games/checkers?platform=addictinggames",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/checkers-online-foony"
+}

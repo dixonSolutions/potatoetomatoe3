@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-aim-trainer-idle",
+  "name": "Aim Trainer Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Aim Trainer Idle is an idle game where you shoot various targets for idle earnings. The more accurately you shoot, the more income the gun will generate.",
+  "thumbnail": "https://imgs.crazygames.com/aim-trainer-idle/20221012124446/aim-trainer-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/aim-trainer-idle/20221012124446/aim-trainer-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/aim-trainer-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/aim-trainer-idle",
+  "crazygamesSlug": "aim-trainer-idle"
+}

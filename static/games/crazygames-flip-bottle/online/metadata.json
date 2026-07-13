@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-flip-bottle",
+  "name": "Flip Bottle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Flip Bottle is a simple but challenging one-button game. Flip the bottle and make it jump from object to object to reach the final platform.",
+  "thumbnail": "https://imgs.crazygames.com/games/flip-bottle/thumb-1572369196861.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/flip-bottle/thumb-1572369196861.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flip-bottle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flip-bottle",
+  "crazygamesSlug": "flip-bottle"
+}

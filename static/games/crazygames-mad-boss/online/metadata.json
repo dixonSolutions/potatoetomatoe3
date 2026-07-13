@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-mad-boss",
+  "name": "Mad Boss 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mad Boss is a cool first person shooter title in which you have been tasked by your boss to complete a range of difficult missions. Your ultimate aim is to take out the evil terrorists but before that you must first complete a variety of training missions.",
+  "thumbnail": "/games/crazygames-mad-boss/online/assets/crazygames-mad-boss.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mad-boss/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mad-boss",
+  "crazygamesSlug": "mad-boss"
+}

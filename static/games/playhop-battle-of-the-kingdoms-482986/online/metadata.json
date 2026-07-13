@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battle-of-the-kingdoms-482986",
+  "name": "Battle of the Kingdoms",
+  "author": "DH",
+  "description": "Play Battle of the Kingdoms via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019ba98fb48591d402380c394b3eeb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019ba98fb48591d402380c394b3eeb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-482986.games.s3.yandex.net/482986/k8nbma3mtgndldbmt4eqlivtolfz9k1g/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=482986&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 482986,
+  "playhopPageUrl": "https://playhop.com/app/482986",
+  "playhopRating": 2.9,
+  "playhopRatingCount": 54
+}

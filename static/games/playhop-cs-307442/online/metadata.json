@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cs-307442",
+  "name": "CS",
+  "author": "Mango x2",
+  "description": "Play CS via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018ebf877450bd58ad08934b532d8d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018ebf877450bd58ad08934b532d8d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-307442.games.s3.yandex.net/307442/g7ppg4z5x3xjy568cixzsrnr5i5qg26b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=307442&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 307442,
+  "playhopPageUrl": "https://playhop.com/app/307442",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 2210
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-domino-classic-239966",
+  "name": "Domino Classic",
+  "author": "sb-games",
+  "description": "Play Domino Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000194a8463253b921257426e62b3abe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000194a8463253b921257426e62b3abe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-239966.games.s3.yandex.net/239966/0tyz5prqhtyd2r2v6fr5n4ezkaq4g22a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=239966&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 239966,
+  "playhopPageUrl": "https://playhop.com/app/239966",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 32959
+}

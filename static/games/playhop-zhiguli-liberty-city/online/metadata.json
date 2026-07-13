@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zhiguli-liberty-city",
+  "name": "Zhiguli: Liberty-City",
+  "author": "FainGames",
+  "description": "Play Zhiguli: Liberty-City via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019eb28b6bec49f8c6e03291d50750/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019eb28b6bec49f8c6e03291d50750/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-377541.games.s3.yandex.net/377541/48qurpl7yjflpymy0l8x36czbu07vvd0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=377541&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 377541,
+  "playhopPageUrl": "https://playhop.com/app/377541",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 505
+}

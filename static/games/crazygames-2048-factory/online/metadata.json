@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-2048-factory",
+  "name": "2048 Factory 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "2048 Factory is a fresh take on the classic puzzle game, combining endless tile merging with deep idle progression and powerful prestige systems.Slide and merge numbered tiles to create larger values and mint Coins.",
+  "thumbnail": "https://imgs.crazygames.com/2048-factory_16x9/20260609063255/2048-factory_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/2048-factory_16x9/20260609063255/2048-factory_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/2048-factory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/2048-factory",
+  "crazygamesSlug": "2048-factory"
+}

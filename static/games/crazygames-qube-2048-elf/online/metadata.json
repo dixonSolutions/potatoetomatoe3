@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-qube-2048-elf",
+  "name": "qube 2048 elf",
+  "author": "CrazyGames",
+  "description": "Play qube 2048 elf on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/qube-2048-elf/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/qube-2048-elf",
+  "crazygamesSlug": "qube-2048-elf"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-feeling-arrow",
+  "name": "Feeling Arrow 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Feeling Arrow is a casual game where you control people with arrows of feelings. You can use angry, love, sad, crazy arrows, and more!",
+  "thumbnail": "https://imgs.crazygames.com/feeling-arrow/20230206113435/feeling-arrow-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/feeling-arrow/20230206113435/feeling-arrow-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/feeling-arrow/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/feeling-arrow",
+  "crazygamesSlug": "feeling-arrow"
+}

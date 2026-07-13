@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-minimissions",
+  "name": "MiniMissions 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MiniMissions - epic battles of skill. MiniMissions is a 1 player version of 12 MiniBattles.",
+  "thumbnail": "https://imgs.crazygames.com/minimissions/20200715084021/minimissions-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/minimissions/20200715084021/minimissions-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/minimissions/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/minimissions",
+  "crazygamesSlug": "minimissions"
+}

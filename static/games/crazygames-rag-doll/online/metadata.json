@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rag-doll",
+  "name": "Rag Doll 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rag Doll is an arcade physics game to drag the ragdoll and do whatever you like with it! Developer Rag Doll is made by Namzorg.",
+  "thumbnail": "https://imgs.crazygames.com/games/rag-doll/cover-1636798447892.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/rag-doll/cover-1636798447892.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rag-doll/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rag-doll",
+  "crazygamesSlug": "rag-doll"
+}

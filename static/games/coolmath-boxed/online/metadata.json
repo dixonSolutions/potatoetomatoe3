@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-boxed",
+  "name": "Boxed - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Boxed Game at Cool Math Games: Plan ahead on this great puzzler! Seems simple enough: Make the square boxes hit the yellow circles. The first two levels are easy... The rest? Not so much!",
+  "thumbnail": "/games/coolmath-boxed/online/assets/coolmath-boxed.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/4291/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-boxed",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-boxed"
+}

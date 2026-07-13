@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-veck-io",
+  "name": "Veck io 🔫 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Veck.io is a 3D multiplayer FPS IO shooting game with nonstop action among players across the globe. Players can compete in arcade mode, team battles ranging from 1v1 to 4v4, or fast-paced Gun Game challenges.",
+  "thumbnail": "https://imgs.crazygames.com/veck-io_16x9/20251204101357/veck-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/veck-io_16x9/20251204101357/veck-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/veck-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/veck-io",
+  "crazygamesSlug": "veck-io"
+}

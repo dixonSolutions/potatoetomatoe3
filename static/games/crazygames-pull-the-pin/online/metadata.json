@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pull-the-pin",
+  "name": "Pull the Pin 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pull the Pin is a physics-based puzzle game where your goal is to guide every ball into the pipe by removing pins in the right order. Think it’s easy?",
+  "thumbnail": "https://imgs.crazygames.com/pull-the-pin_16x9/20250414080531/pull-the-pin_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pull-the-pin_16x9/20250414080531/pull-the-pin_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pull-the-pin/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pull-the-pin",
+  "crazygamesSlug": "pull-the-pin"
+}

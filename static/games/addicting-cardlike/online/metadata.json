@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cardlike",
+  "name": "CARDLIKE",
+  "author": "Addicting Games",
+  "description": "<p><strong>Cardlike </strong>is a high-stakes deck-builder that blends fast-paced gameplay with strategic depth while remaining easy to pick up.</p>\n\n<p> </p>\n\n<p>Choose your strategy by creating unique original combos and dominate using your intellect.</p>\n\n<p> </p>\n\n<p><strong>Core Gameplay</strong><br />\nMatch Card Hands - Build the ultimate hand to score big!<br />\nCrazy Combos - Discover powerful card interactions and go infinite!<br />\nOptimize - Refine your deck to surpass target scores!<br />\nWin - Outsmart the RNG and secure the run!</p>\n\n<p> </p>\n\n<p><strong>Features</strong><br />\n200+ unique cards and consumables!<br />\nInfinite replayability!<br />\n </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/logo-ag.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/logo-ag.png",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cardlike.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/cardlike"
+}

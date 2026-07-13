@@ -1,0 +1,17 @@
+{
+  "id": "playhop-classic-billiard-174393",
+  "name": "Classic Billiard",
+  "author": "Plarium Global Ltd.",
+  "description": "Play Classic Billiard via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017bf0c46f47e0eb97d43c22fec01e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017bf0c46f47e0eb97d43c22fec01e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-174393.games.s3.yandex.net/174393/20fndqikmx8po1e6q9updph4ptmlzsou/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=174393&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 174393,
+  "playhopPageUrl": "https://playhop.com/app/174393",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 1465
+}

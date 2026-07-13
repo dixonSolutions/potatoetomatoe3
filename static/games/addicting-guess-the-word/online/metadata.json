@@ -1,0 +1,14 @@
+{
+  "id": "addicting-guess-the-word",
+  "name": "Guess the Word",
+  "author": "Addicting Games",
+  "description": "<p>Challenge your vocabulary and problem-solving skills with Guess The Word! In this exciting word puzzle, guess a hidden five-letter word using color-coded hints—green for correct letters, yellow for misplaced ones, and grey for wrong letters. Refine your guesses and solve the puzzle! With a vast collection of words, this game sharpens your linguistic abilities while keeping you engaged. Whether you're a word game enthusiast or just looking for a fun brain workout, Guess The Word is the perfect choice. Play now to enhance your vocabulary, boost your pattern recognition, and enjoy hours of entertaining word-solving fun!<br />\n </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/720X468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/720X468.png",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://addictinggames.gameskite.com/play/wordle-guess-the-word-game",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/guess-the-word"
+}

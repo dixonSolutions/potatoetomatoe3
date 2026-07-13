@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-block-puzzle-master",
+  "name": "Block Blaster 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Block Blaster is a puzzle game that blends the challenge of a grid-based cube game with the addictive fun of classic block puzzles. Exercise your brain as you navigate through increasingly intricate levels, with endless opportunities to sharpen your skills and elevate your IQ score.",
+  "thumbnail": "https://imgs.crazygames.com/block-puzzle-master_16x9/20250924025352/block-puzzle-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/block-puzzle-master_16x9/20250924025352/block-puzzle-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-puzzle-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-puzzle-master",
+  "crazygamesSlug": "block-puzzle-master"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hold-the-button-531845",
+  "name": "Hold The Button",
+  "author": "Lucik",
+  "description": "Play Hold The Button via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019e5aae6288d94b117804a552cf55/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019e5aae6288d94b117804a552cf55/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-531845.games.s3.yandex.net/531845/3z8ripwg0vd9fqu006cy4cqekz21n272/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=531845&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 531845,
+  "playhopPageUrl": "https://playhop.com/app/531845",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

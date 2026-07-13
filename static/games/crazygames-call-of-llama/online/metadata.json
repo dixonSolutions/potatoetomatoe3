@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-call-of-llama",
+  "name": "Call of Llama 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Call of Llama is an amazing 2D platformer based on a post-apocalyptic world in which a Llama leader is the only hope for the planet. Using only her spit tank, she must run through multiple enemies to get as soon as possible to the end of the game.",
+  "thumbnail": "https://imgs.crazygames.com/call-of-llama-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/call-of-llama-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/call-of-llama/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/call-of-llama",
+  "crazygamesSlug": "call-of-llama"
+}

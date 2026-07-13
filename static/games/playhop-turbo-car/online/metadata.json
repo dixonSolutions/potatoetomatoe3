@@ -1,0 +1,17 @@
+{
+  "id": "playhop-turbo-car",
+  "name": "Turbo Car",
+  "author": "King Play",
+  "description": "Play Turbo Car via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019d73f01f6f4ecf047fe8f746fe2b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019d73f01f6f4ecf047fe8f746fe2b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-373787.games.s3.yandex.net/373787/2s1vom38s46ib5ryqs1y7at1srp6wi19/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=373787&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 373787,
+  "playhopPageUrl": "https://playhop.com/app/373787",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 12357
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dreamspace",
+  "name": "Dreamspace 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Drift off to sleep, but stay sharp. In Dreamspace, your cozy bed is the gateway to a wild dream realm invaded by axe-wielding ogres, buzzing nightmare bees, and endless waves of monsters.",
+  "thumbnail": "https://imgs.crazygames.com/dreamspace_16x9/20260406065739/dreamspace_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dreamspace_16x9/20260406065739/dreamspace_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dreamspace/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dreamspace",
+  "crazygamesSlug": "dreamspace"
+}

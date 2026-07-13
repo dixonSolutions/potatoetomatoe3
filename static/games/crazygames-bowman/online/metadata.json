@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bowman",
+  "name": "Bowman 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bowman is an archery game where you and an opponent take shots at each other. You win when you’ve hit the opponent fatally.",
+  "thumbnail": "/games/crazygames-bowman/online/assets/crazygames-bowman.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bowman/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bowman",
+  "crazygamesSlug": "bowman"
+}

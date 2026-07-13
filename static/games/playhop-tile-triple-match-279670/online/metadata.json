@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tile-triple-match-279670",
+  "name": "Tile Triple Match",
+  "author": "MineGame",
+  "description": "Play Tile Triple Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000193d0e232af6091b60339adc2194d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000193d0e232af6091b60339adc2194d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-279670.games.s3.yandex.net/279670/qxxf4fr8x0ljrz2f88ibzqb4l1rlgq40/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=279670&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 279670,
+  "playhopPageUrl": "https://playhop.com/app/279670",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 98
+}

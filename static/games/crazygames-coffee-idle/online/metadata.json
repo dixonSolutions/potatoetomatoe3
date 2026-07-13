@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-coffee-idle",
+  "name": "Coffee Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Coffee Idle is a casual clicker game where you start a small coffee business and transform it into a thriving hot spot, becoming the ultimate coffee mogul. Watch it flourish into a bustling empire as you upgrade your equipment and enhance your brewing techniques.",
+  "thumbnail": "https://imgs.crazygames.com/coffee-idle_16x9/20240814035852/coffee-idle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/coffee-idle_16x9/20240814035852/coffee-idle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/coffee-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/coffee-idle",
+  "crazygamesSlug": "coffee-idle"
+}

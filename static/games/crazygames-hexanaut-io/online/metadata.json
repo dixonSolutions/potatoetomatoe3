@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hexanaut-io",
+  "name": "Hexanaut.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hexanaut.io is an io game where you conquer the largest area you can. Be careful not to cut your own line and also not be cut by another player too.",
+  "thumbnail": "https://imgs.crazygames.com/hexanaut-io_16x9/20260703024240/hexanaut-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hexanaut-io_16x9/20260703024240/hexanaut-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hexanaut-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hexanaut-io",
+  "crazygamesSlug": "hexanaut-io"
+}

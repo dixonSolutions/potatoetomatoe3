@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-brain-bloxx",
+  "name": "Brain Bloxx - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "So many blocks, so little space. Place pink and yellow brain bloxx on opposite colors and don&#039;t run out of room. Keep going until you beat your high score.",
+  "thumbnail": "/games/coolmath-brain-bloxx/online/assets/coolmath-brain-bloxx.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50502/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-brain-bloxx",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-brain-bloxx"
+}

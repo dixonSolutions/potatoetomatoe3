@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connect-me-factory",
+  "name": "Connect Me Factory - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Connect Me Factory at Cool Math Games: Simple and addicting -- a great block-connecting game! Connect all the blocks, by moving or rotating them.",
+  "thumbnail": "/games/coolmath-connect-me-factory/online/assets/coolmath-connect-me-factory.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22503/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connect-me-factory",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connect-me-factory"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-close-tiles",
+  "name": "Close Tiles - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Group tiles by color until you have each color adjacent to one another. Watch out for Close Tiles that get isolated from their other members.",
+  "thumbnail": "/games/coolmath-close-tiles/online/assets/coolmath-close-tiles.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52355/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-close-tiles",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-close-tiles"
+}

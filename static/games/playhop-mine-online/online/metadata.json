@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mine-online",
+  "name": "Mine - Online",
+  "author": "Final Tale",
+  "description": "Play Mine - Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c0d93c2abb37b062028ed9a9514/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c0d93c2abb37b062028ed9a9514/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-448223.games.s3.yandex.net/448223/76yecvzga0u71bmv9fffw8y6gaeznhpz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=448223&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 448223,
+  "playhopPageUrl": "https://playhop.com/app/448223",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 29161
+}

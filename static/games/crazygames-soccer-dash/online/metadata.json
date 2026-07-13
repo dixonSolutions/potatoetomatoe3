@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-soccer-dash",
+  "name": "Soccer Dash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Soccer Dash is a casual soccer game where you play as the ball. Aim and control the soccer ball around obstacles and other players trying to obstruct you until the end.",
+  "thumbnail": "https://imgs.crazygames.com/soccer-dash_16x9/20241121072050/soccer-dash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/soccer-dash_16x9/20241121072050/soccer-dash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/soccer-dash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/soccer-dash",
+  "crazygamesSlug": "soccer-dash"
+}

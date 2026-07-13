@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-hex-empire",
+  "name": "Hex Empire 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hex Empire is the action packed turn-based strategy game in which you will try and conquer all by domination of territory. You will start with a single nation, then your goal is to strategize and dominate the map by overruling countries attacking city by city with your armies and more importantly your winning tactics.",
+  "thumbnail": "/games/crazygames-hex-empire/online/assets/crazygames-hex-empire.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hex-empire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hex-empire",
+  "crazygamesSlug": "hex-empire"
+}

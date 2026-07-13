@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bloku",
+  "name": "Bloku - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Destroy blocks and keep your stack down in Bloku. Just keep an eye on your tower; if it gets too high, then it&#039;s game over for you.",
+  "thumbnail": "/games/coolmath-bloku/online/assets/coolmath-bloku.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52695/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bloku",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bloku"
+}

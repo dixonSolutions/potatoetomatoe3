@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-silly-walker",
+  "name": "Silly Walkers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Silly Walkers is an action game where you can design and create your robot. The goal of the game is to save the town from Monsters.",
+  "thumbnail": "https://imgs.crazygames.com/silly-walker_16x9/20260220035051/silly-walker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/silly-walker_16x9/20260220035051/silly-walker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/silly-walker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/silly-walker",
+  "crazygamesSlug": "silly-walker"
+}

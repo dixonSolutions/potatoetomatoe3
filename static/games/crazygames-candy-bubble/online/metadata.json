@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-candy-bubble",
+  "name": "Candy Bubble 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Candy Bubble is a fun lollipop-based bubble shooter game. Don&#39;t be fooled though; the game is as challenging as it is colorful!",
+  "thumbnail": "/games/crazygames-candy-bubble/online/assets/crazygames-candy-bubble.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/candy-bubble/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/candy-bubble",
+  "crazygamesSlug": "candy-bubble"
+}

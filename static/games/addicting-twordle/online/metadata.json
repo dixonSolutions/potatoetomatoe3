@@ -1,0 +1,14 @@
+{
+  "id": "addicting-twordle",
+  "name": "Twordle",
+  "author": "Addicting Games",
+  "description": "<p>You've guessed one word before, but how about two? That's right this is Twordle. You're looking to guess two 5 letter words by finding letters from other 5 letter words. It's like word-ception!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Twordle.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Twordle.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/twordle/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/twordle"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-deepfall",
+  "name": "Deepfall 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Deepfallis a mining roguelite where the entire world is a falling-sand simulation.Pilot your drill-pod into a procedurally generated planet, carve tunnels toward your cursor, and haul ore back to the surface to sell.",
+  "thumbnail": "https://imgs.crazygames.com/deepfall_16x9/20260616052849/deepfall_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/deepfall_16x9/20260616052849/deepfall_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/deepfall/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/deepfall",
+  "crazygamesSlug": "deepfall"
+}

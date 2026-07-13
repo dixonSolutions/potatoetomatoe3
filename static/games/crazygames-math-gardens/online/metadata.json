@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-math-gardens",
+  "name": "Math Gardens 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Math Garden is a cheerful puzzle-and-design game where you solve quick number equations to earn stars. Use those stars to unlock renovation tasks, choose what to rebuild next, and bring each room back to life with your preferred style.",
+  "thumbnail": "https://imgs.crazygames.com/math-gardens_16x9/20251119103924/math-gardens_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/math-gardens_16x9/20251119103924/math-gardens_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/math-gardens/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/math-gardens",
+  "crazygamesSlug": "math-gardens"
+}

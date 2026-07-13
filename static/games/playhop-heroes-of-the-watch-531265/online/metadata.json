@@ -1,0 +1,17 @@
+{
+  "id": "playhop-heroes-of-the-watch-531265",
+  "name": "Heroes of the Watch",
+  "author": "Zeta_Studio",
+  "description": "Play Heroes of the Watch via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019e35f231d6f37818aadbe031c1a0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019e35f231d6f37818aadbe031c1a0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-531265.games.s3.yandex.net/531265/nop09oi2gx2ij2tlwxlcz4ro2itv8lex/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=531265&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 531265,
+  "playhopPageUrl": "https://playhop.com/app/531265",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 15
+}

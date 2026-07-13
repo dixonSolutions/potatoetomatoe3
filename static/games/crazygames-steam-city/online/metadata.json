@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-steam-city",
+  "name": "steam city",
+  "author": "CrazyGames",
+  "description": "Play steam city on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/steam-city/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/steam-city",
+  "crazygamesSlug": "steam-city"
+}

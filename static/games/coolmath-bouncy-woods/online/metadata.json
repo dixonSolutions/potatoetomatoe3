@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bouncy-woods",
+  "name": "Bouncy Woods - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Destroy every block and clear out the area in Bouncy Woods. Be efficient with your opportunities to make it far in this fun animal game.",
+  "thumbnail": "/games/coolmath-bouncy-woods/online/assets/coolmath-bouncy-woods.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54634/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bouncy-woods",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bouncy-woods"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-escape-brain-training",
+  "name": "Block Escape: Brain Training",
+  "author": "Cocos Labs",
+  "description": "Play Block Escape: Brain Training via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000193cdfede0cb7c310f6b418e6ef1e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000193cdfede0cb7c310f6b418e6ef1e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-396016.games.s3.yandex.net/396016/ts8qvmk1grn6se7rwztors99di6ap17j/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=396016&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 396016,
+  "playhopPageUrl": "https://playhop.com/app/396016",
+  "playhopRating": 2.5,
+  "playhopRatingCount": 4125
+}

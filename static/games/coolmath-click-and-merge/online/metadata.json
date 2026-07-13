@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-click-and-merge",
+  "name": "Click and Merge - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Click on blocks to double their value and merge with blocks of the same value. Continue upgrading as you attempt to get the biggest block possible.",
+  "thumbnail": "/games/coolmath-click-and-merge/online/assets/coolmath-click-and-merge.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53491/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-click-and-merge",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-click-and-merge"
+}

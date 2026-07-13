@@ -1,0 +1,14 @@
+{
+  "id": "addicting-krewio",
+  "name": "Krew.io",
+  "author": "Addicting Games",
+  "description": "<p>Krew.io is a free iogame. Yarg, matey, and welcome to the open waters. The oceans of the world are a beautiful but cruel place. Their depths hold many secrets and if you make one wrong move you might wind up a victim of the bottomless fathoms. This is where Krew.io takes place. A dangerously fun game in a dangerously fun world. You are the captain of your own private pirate ship and are tasked with the noble job of keeping your crew alive as you explore the waters and decimate any other ships out there. This is a game of daring and tactical brilliance. Will you have what it takes to devastate your opponents or will you be made to alk the plank? This is a pirate game where only the scurviest of the scurvy dogs may survive, thrive, and dominate the high seas. Don't let anyone tell you otherwise, a pirates life is the life for you, you just need to bite down and swash buckle your way through it.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/krew-io.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/krew-io.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://krew.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/krewio"
+}

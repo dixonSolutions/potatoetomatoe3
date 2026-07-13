@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tap-tap-shots",
+  "name": "TapTap Shots 🏀 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tap-Tap Shots is an addictive sports game in which you continuously tap to make your basketball jump. It is an endless basketball practice where you aim to get your ball in the net in one shot.",
+  "thumbnail": "/games/crazygames-tap-tap-shots/online/assets/crazygames-tap-tap-shots.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tap-tap-shots/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tap-tap-shots",
+  "crazygamesSlug": "tap-tap-shots"
+}

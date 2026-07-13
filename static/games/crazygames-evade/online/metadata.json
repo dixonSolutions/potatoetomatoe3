@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-evade",
+  "name": "Evade 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Evade is a casual game where you take on the challenge of dodging obstacles and controlling time to survive as long as possible. With each wave you conquer, you&#39;ll earn power-ups to enhance your abilities.",
+  "thumbnail": "https://imgs.crazygames.com/evade/20230620044344/evade-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/evade/20230620044344/evade-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/evade/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/evade",
+  "crazygamesSlug": "evade"
+}

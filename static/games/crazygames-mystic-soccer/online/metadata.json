@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mystic-soccer",
+  "name": "Mystic Soccer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mystic Soccer is a thrilling, fast-paced soccer game where you battle in 120-second matches across 1v1, 2v2, or 3v3 modes. Use intuitive controls to dribble, score, and trigger powerful special abilities.",
+  "thumbnail": "https://imgs.crazygames.com/mystic-soccer_16x9/20250714025016/mystic-soccer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mystic-soccer_16x9/20250714025016/mystic-soccer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mystic-soccer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mystic-soccer",
+  "crazygamesSlug": "mystic-soccer"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pipe-puzzle",
+  "name": "Pipe Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pipe Puzzle is a brilliant and creative puzzle game in which you must move and re-arrange a variety of pipes to create a single connection and flow of water. You are given a myriad of different shapes and sizes to work with.",
+  "thumbnail": "https://imgs.crazygames.com/games/pipe-puzzle/thumb-1551208552238.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/pipe-puzzle/thumb-1551208552238.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pipe-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pipe-puzzle",
+  "crazygamesSlug": "pipe-puzzle"
+}

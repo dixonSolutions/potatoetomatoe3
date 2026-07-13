@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-samurai-showdown",
+  "name": "Samurai Showdown 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Samurai Showdown is a unique and engaging fighting game involving legendary Samurais. An evil group of Samurais has emerged who want to overthrow the kingdom and cause havoc throughout the land.",
+  "thumbnail": "/games/crazygames-samurai-showdown/online/assets/crazygames-samurai-showdown.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/samurai-showdown/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/samurai-showdown",
+  "crazygamesSlug": "samurai-showdown"
+}

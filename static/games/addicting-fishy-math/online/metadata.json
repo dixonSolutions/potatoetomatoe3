@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fishy-math",
+  "name": "Fishy Math",
+  "author": "Addicting Games",
+  "description": "<p>Fishy Math is an educational game that mixes matching with math. Deep in the ocean, you will find beautiful schools of fish ranging in different colors. On top of fish, you will also find jellyfish, starfish, and even sea mammals that you can match. Your objective is to catch these sea creatures by using your finger or mouse and run through them and link them. Have fun during the bonus segment where you will find tons of falling jewels to match for extra points. On top of this fun online game, practice your math skills in between each session. There are math skills from kindergarten to eighth grade. There are math skills from every level from addition, subtraction, and counting, but also algebra, geometry, and graphs. Once you answer 5 questions correctly, you will be allowed another session of the matching game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/fishymathscreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/fishymathscreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/fishy-math/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/fishy-math"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-adventure-ball",
+  "name": "adventure ball",
+  "author": "CrazyGames",
+  "description": "Play adventure ball on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/adventure-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/adventure-ball",
+  "crazygamesSlug": "adventure-ball"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-puzzle-neon-adventure",
+  "name": "Block Puzzle: Neon Adventure",
+  "author": "HC Games Studio",
+  "description": "Play Block Puzzle: Neon Adventure via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001962883d8e6afbcfca81ec989441f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001962883d8e6afbcfca81ec989441f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-388254.games.s3.yandex.net/388254/bmkaxwn84loy4alfke7i0z8pc27f6mpk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=388254&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 388254,
+  "playhopPageUrl": "https://playhop.com/app/388254",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 48
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-carball-io",
+  "name": "CarBall.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "CarBall.io is an adrenaline-packed fusion of soccer and high-speed sports driving game reminiscent of Rocket League. Rev up your engines and dive into intense matches to dominate the leagues.",
+  "thumbnail": "https://imgs.crazygames.com/carball-io_16x9/20240418110827/carball-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/carball-io_16x9/20240418110827/carball-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/carball-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/carball-io",
+  "crazygamesSlug": "carball-io"
+}

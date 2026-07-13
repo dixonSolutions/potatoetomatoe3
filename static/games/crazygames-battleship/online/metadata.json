@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-battleship",
+  "name": "Battleship 🚢 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battleship is a classic two-player naval strategy game that you can play for free in your web browser. You are the commanding officer of an elite fleet of battleships at war with an equally capable enemy.",
+  "thumbnail": "/games/crazygames-battleship/online/assets/crazygames-battleship.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battleship/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battleship",
+  "crazygamesSlug": "battleship"
+}

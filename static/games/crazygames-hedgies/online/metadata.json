@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hedgies",
+  "name": "Hedgies 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hedgies is a charming farming game where a hardworking hedgehog transforms an abandoned plot into a thriving homestead. Grow crops, craft goods, and master skills like cooking and fishing.",
+  "thumbnail": "https://imgs.crazygames.com/hedgies_16x9/20250327073518/hedgies_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hedgies_16x9/20250327073518/hedgies_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hedgies/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hedgies",
+  "crazygamesSlug": "hedgies"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-2-player-tag",
+  "name": "2 Player Tag 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "2 Player Tag is an online tag game with local multiplayer. Play tag with one other person on various themed levels and make sure you&#x27;re not &quot;it&quot; by the end of the round!",
+  "thumbnail": "https://imgs.crazygames.com/2-player-tag-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/2-player-tag-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/2-player-tag/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/2-player-tag",
+  "crazygamesSlug": "2-player-tag"
+}

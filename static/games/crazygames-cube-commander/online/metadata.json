@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-cube-commander",
+  "name": "cube commander",
+  "author": "CrazyGames",
+  "description": "Play cube commander on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cube-commander/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cube-commander",
+  "crazygamesSlug": "cube-commander"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-toy-car-simulator",
+  "name": "toy car simulator",
+  "author": "CrazyGames",
+  "description": "Play toy car simulator on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-toy-car-simulator/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/toy-car-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/toy-car-simulator",
+  "crazygamesSlug": "toy-car-simulator"
+}

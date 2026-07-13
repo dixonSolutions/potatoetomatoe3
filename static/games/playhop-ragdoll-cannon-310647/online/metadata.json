@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ragdoll-cannon-310647",
+  "name": "Ragdoll Cannon",
+  "author": "BOLD CAT",
+  "description": "Play Ragdoll Cannon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018e7b14fcada9856c374f1fffa389/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018e7b14fcada9856c374f1fffa389/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-310647.games.s3.yandex.net/310647/mu5bgh8jb2xlls561la8lai4kwinaemw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=310647&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 310647,
+  "playhopPageUrl": "https://playhop.com/app/310647",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 119
+}

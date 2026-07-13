@@ -1,0 +1,17 @@
+{
+  "id": "playhop-animal-hero",
+  "name": "Animal Hero",
+  "author": "Maningame",
+  "description": "Play Animal Hero via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d72c0f36e916ef67a4be5fb9e40/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d72c0f36e916ef67a4be5fb9e40/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-470203.games.s3.yandex.net/470203/oeuw8s9rsfcwwxnh0fe2q9j89zkcgzav/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 448270,
+  "playhopPageUrl": "https://playhop.com/app/448270",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 413
+}

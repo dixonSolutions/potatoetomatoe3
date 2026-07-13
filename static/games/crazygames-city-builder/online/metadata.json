@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-city-builder",
+  "name": "City Builder 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "City Builder is a simulation game where you become the mayor of your town. Find the right valley and build everything from scratch with your own hands.",
+  "thumbnail": "https://imgs.crazygames.com/city-builder_16x9/20240226085132/city-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/city-builder_16x9/20240226085132/city-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/city-builder/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/city-builder",
+  "crazygamesSlug": "city-builder"
+}

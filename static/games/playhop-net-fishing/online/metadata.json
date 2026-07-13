@@ -1,0 +1,17 @@
+{
+  "id": "playhop-net-fishing",
+  "name": "Net Fishing",
+  "author": "Layaa",
+  "description": "Play Net Fishing via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a000001956a8d028b218ac705a9e20bdae3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a000001956a8d028b218ac705a9e20bdae3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-403630.games.s3.yandex.net/403630/s6quxkdre4pu7fln3k53z8t5h0bzhoeb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=403630&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 403630,
+  "playhopPageUrl": "https://playhop.com/app/403630",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 7637
+}

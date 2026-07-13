@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cubidle",
+  "name": "Cubidle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cubidle is an addictive Minecraft-inspired idle clicker where blocks are your currency and destruction is your path to riches. Mine resources, automate your income with TNT and fireworks, and perform powerful rebirths to unlock permanent bonuses.",
+  "thumbnail": "https://imgs.crazygames.com/cubidle_16x9/20260430030532/cubidle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cubidle_16x9/20260430030532/cubidle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubidle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubidle",
+  "crazygamesSlug": "cubidle"
+}

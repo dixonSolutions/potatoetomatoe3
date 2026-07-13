@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-shellshockersio",
+  "name": "Shell Shockers 🥚 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Shell Shockers (Shellshock.io) is a multiplayer .io FPS game featuring eggs armed with guns. You control one of these weapon-wielding eggs in one of four online game modes where the aim is to shatter your opponents with bullets and bombs.",
+  "thumbnail": "/games/crazygames-shellshockersio/online/assets/crazygames-shellshockersio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shellshockersio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shellshockersio",
+  "crazygamesSlug": "shellshockersio"
+}

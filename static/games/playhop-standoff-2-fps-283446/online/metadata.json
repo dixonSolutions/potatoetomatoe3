@@ -1,0 +1,17 @@
+{
+  "id": "playhop-standoff-2-fps-283446",
+  "name": "Standoff 2 fps",
+  "author": "DC studio",
+  "description": "Play Standoff 2 fps via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019407596b5ec76d2ccb1cb3a4dad9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019407596b5ec76d2ccb1cb3a4dad9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-283446.games.s3.yandex.net/283446/o84c10r5klznmd18kavwstsl4nx9gl8p/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=283446&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 283446,
+  "playhopPageUrl": "https://playhop.com/app/283446",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 27151
+}

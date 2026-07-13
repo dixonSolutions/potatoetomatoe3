@@ -1,0 +1,14 @@
+{
+  "id": "addicting-whizz-wordz",
+  "name": "Whizz Wordz",
+  "author": "Addicting Games",
+  "description": "<p>Whizz Wordz is a free word game. Calling all SmartyPants! Make words with random letters for a few minutes. Then eliminate a category, like '4-letter words.' Then make more words. Hard, Hard, and Harder!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/whizzwordz_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/whizzwordz_sp.png",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/whizzwordz.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/whizz-wordz"
+}

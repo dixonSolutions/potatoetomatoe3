@@ -1,0 +1,17 @@
+{
+  "id": "playhop-candy-bubble-230968",
+  "name": "Candy Bubble",
+  "author": "Famobi-Dev",
+  "description": "Play Candy Bubble via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018829b754806395ca56a4465657f3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018829b754806395ca56a4465657f3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-230968.games.s3.yandex.net/230968/gh8my1987pmwirn85tbl7zhtnx0s2g62/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=230968&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 230968,
+  "playhopPageUrl": "https://playhop.com/app/230968",
+  "playhopRating": 4,
+  "playhopRatingCount": 132
+}

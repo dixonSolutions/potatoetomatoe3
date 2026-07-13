@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bowling-challenge",
+  "name": "Bowling Challenge - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Combine precision and spin to knock down every pin in this intense Bowling Challenge. Get ready for an epic bowling showdown.",
+  "thumbnail": "/games/coolmath-bowling-challenge/online/assets/coolmath-bowling-challenge.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54689/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bowling-challenge",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bowling-challenge"
+}

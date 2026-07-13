@@ -1,0 +1,14 @@
+{
+  "id": "addicting-papas-freezeria",
+  "name": "Papa's Freezeria",
+  "author": "Addicting Games",
+  "description": "<p>Papa's Freezeria is a free resource management game. Corner the soft serve market with epic desserts! Take orders from customers, mix up basic ingredients, and add toppings and sprinkles. Use your hard-earned cash to improve your menu and restaurant. Keep customers happy, and the money will keep pouring in. With sprinkles!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/papas-freezeria_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/papas-freezeria_sp.png",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/papas-freezeria.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/papas-freezeria"
+}

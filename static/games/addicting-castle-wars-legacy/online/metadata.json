@@ -1,0 +1,14 @@
+{
+  "id": "addicting-castle-wars-legacy",
+  "name": "Castle Wars: Legacy",
+  "author": "Addicting Games",
+  "description": "<p>Castle Wars: Legacy is a free browser-based card strategy game where two players compete to destroy each other's castle. Collect and play resource, attack, defense, and magic cards each turn to build up your fortress or crush your opponent. Challenge the AI in a 6-level story campaign, climb the ELO leaderboard, compete in daily tournaments, and unlock achievements.</p>\n\n<p> </p>\n\n<p>Wall absorbs damage before your castle takes a hit. Once the wall is gone, your castle is exposed.</p>\n\n<p>Win by: destroying the opponent's castle (reduce it to 0) or being the first to reach 100 castle HP.</p>\n\n<p>Campaign — fight through 6 story levels against the AI and earn up to 3 stars per level.</p>\n\n<p>PvP — challenge real players, earn an ELO rating, and climb the leaderboard.</p>\n\n<p>Tournaments — three arenas host daily tournaments with a coin prize pool.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/cwl_promo_wizard_720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/cwl_promo_wizard_720x468.png",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cwl.proclive.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/castle-wars-legacy"
+}

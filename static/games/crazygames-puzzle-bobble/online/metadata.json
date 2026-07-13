@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-puzzle-bobble",
+  "name": "Puzzle Bobble 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Puzzle Bobble aka Bust-A-Move is a tile-matching bubble shooter game. The game features Bob and Bub from Bubble Bobble.",
+  "thumbnail": "https://imgs.crazygames.com/games/puzzle-bobble/cover-1608730683922.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/puzzle-bobble/cover-1608730683922.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/puzzle-bobble/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/puzzle-bobble",
+  "crazygamesSlug": "puzzle-bobble"
+}

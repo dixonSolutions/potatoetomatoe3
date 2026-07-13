@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bulldozer",
+  "name": "Play Bulldozer Online: Knock it all down | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bulldozer at Cool Math Games: Take control of the bulldozer and create chaos! Demolish all the blocks without driving yourself over the edge.",
+  "thumbnail": "/games/coolmath-bulldozer/online/assets/coolmath-bulldozer.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37116/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bulldozer",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bulldozer"
+}

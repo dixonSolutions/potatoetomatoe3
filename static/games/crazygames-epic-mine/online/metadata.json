@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-epic-mine",
+  "name": "epic mine",
+  "author": "CrazyGames",
+  "description": "Play epic mine on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/epic-mine/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/epic-mine",
+  "crazygamesSlug": "epic-mine"
+}

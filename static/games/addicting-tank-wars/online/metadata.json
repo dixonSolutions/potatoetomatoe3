@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tank-wars",
+  "name": "Tank Wars",
+  "author": "Addicting Games",
+  "description": "<p>Tank Wars is a free tank game. Prove that you are the superior tank pilot in Tank Wars! It’s tank vs. tank, and only one can leave the arena in one piece. The other tank will be in significantly fewer pieces—because you blew them to smithereens. In this simple battle of the tanks, choose to play against your friend, or against the AI, and then it’s just a matter of sending landing enough hits on your opponent before they can do the same to you!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/tankwars_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/tankwars_sp.png",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/tankwars.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/tank-wars"
+}

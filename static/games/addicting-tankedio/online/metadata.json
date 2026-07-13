@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tankedio",
+  "name": "Tanked.io",
+  "author": "Addicting Games",
+  "description": "<p>Tanked.io is a free tank game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/TANKEDIOGAME.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/TANKEDIOGAME.jpg",
+  "thumbnailStored": "remote",
+  "category": "tank-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://tanked.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/tankedio"
+}

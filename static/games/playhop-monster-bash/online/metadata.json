@@ -1,0 +1,17 @@
+{
+  "id": "playhop-monster-bash",
+  "name": "Monster Bash",
+  "author": "JohnnyK",
+  "description": "Play Monster Bash via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019657fb03a76791db595ee4f05afc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019657fb03a76791db595ee4f05afc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-429953.games.s3.yandex.net/429953/grtdgp4svyxygh2dh6grh9zq5yp44jpl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=429953&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 429953,
+  "playhopPageUrl": "https://playhop.com/app/429953",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1847
+}

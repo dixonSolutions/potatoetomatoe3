@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-donut-place",
+  "name": "Donut Place 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Donut Place is a fun simulation game where you take on the role of an owner and head baker tasked with building a sweet shop.You start with a small donut stand and work to expand it into a top destination by serving customers, managing staff, and upgrading your kitchen.",
+  "thumbnail": "https://imgs.crazygames.com/donut-place_16x9/20260521063756/donut-place_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/donut-place_16x9/20260521063756/donut-place_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/donut-place/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/donut-place",
+  "crazygamesSlug": "donut-place"
+}

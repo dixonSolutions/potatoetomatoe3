@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-code-maze",
+  "name": "Code Maze - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Use your coding skills to make it to the end of each level. No prior coding knowledge required to complete every single level of Code Maze.",
+  "thumbnail": "/games/coolmath-code-maze/online/assets/coolmath-code-maze.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52580/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-code-maze",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-code-maze"
+}

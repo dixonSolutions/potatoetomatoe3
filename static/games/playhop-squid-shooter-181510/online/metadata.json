@@ -1,0 +1,17 @@
+{
+  "id": "playhop-squid-shooter-181510",
+  "name": "Squid Shooter",
+  "author": "GoGoMan",
+  "description": "Play Squid Shooter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017dc8ba24db96334b8efbc6681663/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017dc8ba24db96334b8efbc6681663/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-181510.games.s3.yandex.net/181510/24wwcfajedlkxwx3j799p65qkthi1hnn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=181510&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 181510,
+  "playhopPageUrl": "https://playhop.com/app/181510",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 22531
+}

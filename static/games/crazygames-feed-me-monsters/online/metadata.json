@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-feed-me-monsters",
+  "name": "Feed Me Monsters! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Feed Me Monsters! is an action-packed adventure set in a post-apocalyptic world.",
+  "thumbnail": "https://imgs.crazygames.com/feed-me-monsters_16x9/20241009081211/feed-me-monsters_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/feed-me-monsters_16x9/20241009081211/feed-me-monsters_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/feed-me-monsters/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/feed-me-monsters",
+  "crazygamesSlug": "feed-me-monsters"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chrome",
+  "name": "Chrome - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chrome at Cool Math Games: Change colors to get the keys and unlock the rainbow door. Use your knowledge of the color combinations to mix up the right color.",
+  "thumbnail": "/games/coolmath-chrome/online/assets/coolmath-chrome.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33499/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chrome",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chrome"
+}

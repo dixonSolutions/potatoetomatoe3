@@ -1,0 +1,17 @@
+{
+  "id": "playhop-new-shift-539260",
+  "name": "New Shift",
+  "author": "3.9 Games",
+  "description": "Play New Shift via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019eabf7ea58b369b2c95bde4b16ff/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019eabf7ea58b369b2c95bde4b16ff/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-539260.games.s3.yandex.net/539260/nrv0uwoxeyfilu03j5wrsm704thf8gze/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=539260&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 539260,
+  "playhopPageUrl": "https://playhop.com/app/539260",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blob-battalion",
+  "name": "Blob Battalion 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Command your army of adorable blob warriors in this addictive merge-defense hybrid. Buy blob eggs, drag matching blobs together to evolve them through 10 powerful tiers, and watch them automatically attack waves of increasingly dangerous enemies across five lanes.",
+  "thumbnail": "https://imgs.crazygames.com/blob-battalion_16x9/20260331022947/blob-battalion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/blob-battalion_16x9/20260331022947/blob-battalion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blob-battalion/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blob-battalion",
+  "crazygamesSlug": "blob-battalion"
+}

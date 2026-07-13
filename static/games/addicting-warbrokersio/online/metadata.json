@@ -1,0 +1,14 @@
+{
+  "id": "addicting-warbrokersio",
+  "name": "Warbrokers.io",
+  "author": "Addicting Games",
+  "description": "<p>Warbrokers is a first-person shooter game. All the world is a war, and we are merely soldiers. In Warbroker.io you are a highly trained former military on a team of Jarheads looking to rip it up. Load up on guns and play with your friends in this huge online arena shoot 'em up style game. You can play classic version or arena style where it is simply kill or be killed. Scope out the area from the air and then land, gather up your weapons and start hunting. There are multiple different maps from high rises, to a small town, an airport, and even a rocket launch site. Keep your eyes open for weapons, helmets, body armor, and smoke grenades. Some levels even feature automobiles you can commandeer, drive and run down any opposing agents. Lookout for snipers and be ready to fire at a moments notice, aim for the body and you'll guarantee a hit. Try to outlive the other guys and watch your avatar rocket up the leaderboard.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/warbrokers.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/warbrokers.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://warbrokers.io/signin.php",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/warbrokersio"
+}

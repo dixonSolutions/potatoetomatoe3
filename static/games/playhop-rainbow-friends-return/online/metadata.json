@@ -1,0 +1,17 @@
+{
+  "id": "playhop-rainbow-friends-return",
+  "name": "Rainbow Friends Return",
+  "author": "OM Games",
+  "description": "Play Rainbow Friends Return via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001943171d1102004dbf695a5e62dff/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001943171d1102004dbf695a5e62dff/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-380496.games.s3.yandex.net/380496/oknjbci61yy8g7gxpl88lmij8gl57u6n/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=380496&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 380496,
+  "playhopPageUrl": "https://playhop.com/app/380496",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 30424
+}

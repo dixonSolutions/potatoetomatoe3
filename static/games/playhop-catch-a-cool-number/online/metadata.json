@@ -1,0 +1,17 @@
+{
+  "id": "playhop-catch-a-cool-number",
+  "name": "Catch a cool number!",
+  "author": "NoobRazrab",
+  "description": "Play Catch a cool number! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a00000194367e3bc2d9e84f03d853ec94cf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a00000194367e3bc2d9e84f03d853ec94cf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-336035.games.s3.yandex.net/336035/f8m2x9xr2pzlh7wt4miwe28t0fuf2rft/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=336035&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 336035,
+  "playhopPageUrl": "https://playhop.com/app/336035",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 791
+}

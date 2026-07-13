@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connect-the-roads",
+  "name": "Connect the Roads - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Connect the Roads at Cool Math Games: Put on your city planning hat and take to the streets. Slide the roads to build a path and get your car back home!",
+  "thumbnail": "/games/coolmath-connect-the-roads/online/assets/coolmath-connect-the-roads.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/27492/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connect-the-roads",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connect-the-roads"
+}

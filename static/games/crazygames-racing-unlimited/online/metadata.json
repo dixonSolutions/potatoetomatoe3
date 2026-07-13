@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-racing-unlimited",
+  "name": "Racing Unlimited 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Racing Unlimited is a driving game where you unleash the speed demon within! Choose from 15 turbocharged cars, each with unique performance.",
+  "thumbnail": "https://imgs.crazygames.com/racing-unlimited_16x9/20250113090646/racing-unlimited_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/racing-unlimited_16x9/20250113090646/racing-unlimited_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/racing-unlimited/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/racing-unlimited",
+  "crazygamesSlug": "racing-unlimited"
+}

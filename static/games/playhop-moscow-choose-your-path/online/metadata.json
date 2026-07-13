@@ -1,0 +1,17 @@
+{
+  "id": "playhop-moscow-choose-your-path",
+  "name": "Moscow - Choose your path",
+  "author": "sunkenteen Games",
+  "description": "Play Moscow - Choose your path via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a340f33743699e55a831dba77e3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a340f33743699e55a831dba77e3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-474430.games.s3.yandex.net/474430/g3zcyzx1ssu3hb67n66jrerfqn1flcul/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=474430&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 474430,
+  "playhopPageUrl": "https://playhop.com/app/474430",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 435
+}

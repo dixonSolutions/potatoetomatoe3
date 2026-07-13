@@ -1,0 +1,17 @@
+{
+  "id": "playhop-match-3-gems-219717",
+  "name": "Match 3: Gems",
+  "author": "Алексей Таранов",
+  "description": "Play Match 3: Gems via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000186c784757be69aa49e51233c8d5e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000186c784757be69aa49e51233c8d5e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-219717.games.s3.yandex.net/219717/6zaeskrzck52wsozixrfux0fs3mx0n1j/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=219717&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 219717,
+  "playhopPageUrl": "https://playhop.com/app/219717",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1884
+}

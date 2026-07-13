@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-splatmans",
+  "name": "Splatmans 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Splatmans is a casual 2-player shooting game where two stickmen duke it out in a colorful arena. Your goal in this third-person shooter game is to cover as much ground as possible before time runs out.",
+  "thumbnail": "https://imgs.crazygames.com/splatmans_16x9/20251117105203/splatmans_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/splatmans_16x9/20251117105203/splatmans_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/splatmans/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/splatmans",
+  "crazygamesSlug": "splatmans"
+}

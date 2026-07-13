@@ -1,0 +1,17 @@
+{
+  "id": "playhop-match-arena-96787",
+  "name": "Match Arena",
+  "author": "PecPoc Piggy",
+  "description": "Play Match Arena via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019469edad831925a470ce9d0afc8b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019469edad831925a470ce9d0afc8b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96787.games.s3.yandex.net/96787/8y7jx765avzxiej4lxuy21rcaqoxad6y/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96787&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96787,
+  "playhopPageUrl": "https://playhop.com/app/96787",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 21874
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hexa-go",
+  "name": "Hexa GO! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hexa GO! is a puzzle game where you drop hexagon tiles from a grid and try to clear the platform.",
+  "thumbnail": "https://imgs.crazygames.com/hexa-go_16x9/20251121155201/hexa-go_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hexa-go_16x9/20251121155201/hexa-go_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hexa-go/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hexa-go",
+  "crazygamesSlug": "hexa-go"
+}

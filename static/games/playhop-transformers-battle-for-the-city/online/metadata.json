@@ -1,0 +1,17 @@
+{
+  "id": "playhop-transformers-battle-for-the-city",
+  "name": "Transformers Battle For The City",
+  "author": "DarkPlay",
+  "description": "Play Transformers Battle For The City via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019038a5e0f3336f376b3ae5f8b4a6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019038a5e0f3336f376b3ae5f8b4a6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-350155.games.s3.yandex.net/350155/h8flmufospa1kzolg1ud94oknjr1eeto/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=350155&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 350155,
+  "playhopPageUrl": "https://playhop.com/app/350155",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1115
+}

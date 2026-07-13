@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cubes-2048-royale",
+  "name": "Cubes 2048 Royale 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cubes 2048 Royale is an addictive online multiplayer game that blends the best of Snake, 2048, and battle royale gameplay. Grow your cube by collecting numbers, merging equal values, and consuming smaller opponents.",
+  "thumbnail": "https://imgs.crazygames.com/cubes-2048-royale_16x9/20260515073810/cubes-2048-royale_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cubes-2048-royale_16x9/20260515073810/cubes-2048-royale_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubes-2048-royale/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubes-2048-royale",
+  "crazygamesSlug": "cubes-2048-royale"
+}

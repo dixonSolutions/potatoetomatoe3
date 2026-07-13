@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-goal-gang",
+  "name": "Goal Gang 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Goal Gang is online multiplayer football built for pure chaos. Take control of a single player and jump into intense action where teamwork wins games, until everything breaks loose.",
+  "thumbnail": "https://imgs.crazygames.com/goal-gang_16x9/20260609022127/goal-gang_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/goal-gang_16x9/20260609022127/goal-gang_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/goal-gang/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/goal-gang",
+  "crazygamesSlug": "goal-gang"
+}

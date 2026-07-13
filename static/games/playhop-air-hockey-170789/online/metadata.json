@@ -1,0 +1,17 @@
+{
+  "id": "playhop-air-hockey-170789",
+  "name": "Air Hockey",
+  "author": "Lion Studios",
+  "description": "Play Air Hockey via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017a9dfe0540bd0f8694c503ba68c6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017a9dfe0540bd0f8694c503ba68c6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-170789.games.s3.yandex.net/170789/8iq1vxe4msladjnxnucyvp3xoho77py2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=170789&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 170789,
+  "playhopPageUrl": "https://playhop.com/app/170789",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 197
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gang-fall-party-192103",
+  "name": "Gang Fall Party",
+  "author": "RHM Interactive",
+  "description": "Play Gang Fall Party via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000181d3daf93696d947558f5d3ea71a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000181d3daf93696d947558f5d3ea71a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-192103.games.s3.yandex.net/192103/yqo3s6hvokio4mr3n6nzw61rp12c1vrl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=192103&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 192103,
+  "playhopPageUrl": "https://playhop.com/app/192103",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1175
+}

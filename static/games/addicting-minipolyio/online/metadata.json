@@ -1,0 +1,14 @@
+{
+  "id": "addicting-minipolyio",
+  "name": "Minipoly.io",
+  "author": "Addicting Games",
+  "description": "<p>Minipoly.io is a free FPS game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/MINIOPOLYIOGAMESCREEN.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/MINIOPOLYIOGAMESCREEN.jpg",
+  "thumbnailStored": "remote",
+  "category": "arena-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://minipoly.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/minipolyio"
+}

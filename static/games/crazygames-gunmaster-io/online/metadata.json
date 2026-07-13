@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gunmaster-io",
+  "name": "GunMaster.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "GunMaster.io is an action game where you dive into the world of skill-based warfare. Choose your character, gear up, and brace yourself for an adrenaline-pumping experience.",
+  "thumbnail": "https://imgs.crazygames.com/gunmaster-io_16x9/20240122030647/gunmaster-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gunmaster-io_16x9/20240122030647/gunmaster-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gunmaster-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gunmaster-io",
+  "crazygamesSlug": "gunmaster-io"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-my-parking-lot",
+  "name": "My Parking Lot",
+  "author": "GZYomitoo",
+  "description": "Play My Parking Lot via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000190e8973d29bcd2126a5453e45b70/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000190e8973d29bcd2126a5453e45b70/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-360199.games.s3.yandex.net/360199/1bwjwxofhm2wvid1fim53kw859epcjpo/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=360199&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 360199,
+  "playhopPageUrl": "https://playhop.com/app/360199",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 71
+}

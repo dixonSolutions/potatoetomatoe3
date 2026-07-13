@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-2048-523804",
+  "name": "Solitaire 2048",
+  "author": "XDGames",
+  "description": "Play Solitaire 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019e176c776b7c4b48510b6bed3ff8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019e176c776b7c4b48510b6bed3ff8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-523804.games.s3.yandex.net/523804/7agg9wpvksix27gqel7vi6bflbpi2haq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=523804&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 523804,
+  "playhopPageUrl": "https://playhop.com/app/523804",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 19
+}

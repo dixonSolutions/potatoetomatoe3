@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-penalty-superstar",
+  "name": "Penalty Superstar 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Step up to the goal-line and become a professional goalkeeper in the fun Penalty Superstar. Controlling the goalkeeper you must save as many penalty kicks as possible and win the game for your team!",
+  "thumbnail": "/games/crazygames-penalty-superstar/online/assets/crazygames-penalty-superstar.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/penalty-superstar/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/penalty-superstar",
+  "crazygamesSlug": "penalty-superstar"
+}

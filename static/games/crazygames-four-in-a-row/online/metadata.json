@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-four-in-a-row",
+  "name": "Four in a Row 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Four in a Row is a modern strategy game that reimagines classic connections with fresh modes and lively competition. You plan every move carefully while competing against multiple opponents at once.",
+  "thumbnail": "https://imgs.crazygames.com/four-in-a-row_16x9/20251223064619/four-in-a-row_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/four-in-a-row_16x9/20251223064619/four-in-a-row_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/four-in-a-row/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/four-in-a-row",
+  "crazygamesSlug": "four-in-a-row"
+}

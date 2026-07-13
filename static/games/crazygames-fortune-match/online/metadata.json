@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-fortune-match",
+  "name": "fortune match",
+  "author": "CrazyGames",
+  "description": "Play fortune match on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fortune-match/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fortune-match",
+  "crazygamesSlug": "fortune-match"
+}

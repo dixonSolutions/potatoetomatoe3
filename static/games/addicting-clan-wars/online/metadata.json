@@ -1,0 +1,14 @@
+{
+  "id": "addicting-clan-wars",
+  "name": "Clan Wars",
+  "author": "Addicting Games",
+  "description": "<p>Clan Wars is a free strategy game. Create an army of goblins to destroy your enemy’s stronghold before they can destroy yours in Clan Wars, a strategy game of tug of war. As anyone who’s played tug of war knows, it’s all about the push and pull. Spawn units from your stronghold, and then watch as they march forever to the right of the screen—at least until they run into the enemy goblins. From there, it’s a battle to discover who’s the fairest goblin in the land.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/clanwars_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/clanwars_sp.png",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/clanwars.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/clan-wars"
+}

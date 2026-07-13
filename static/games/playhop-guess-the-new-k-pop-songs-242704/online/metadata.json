@@ -1,0 +1,17 @@
+{
+  "id": "playhop-guess-the-new-k-pop-songs-242704",
+  "name": "Guess the new K-pop songs",
+  "author": "CleverG",
+  "description": "Play Guess the new K-pop songs via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001920ac157ee46b5b6299d9596a87d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001920ac157ee46b5b6299d9596a87d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-242704.games.s3.yandex.net/242704/4mikub3togelr50a9sfohw7tgnwwgz4a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=242704&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 242704,
+  "playhopPageUrl": "https://playhop.com/app/242704",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 1400
+}

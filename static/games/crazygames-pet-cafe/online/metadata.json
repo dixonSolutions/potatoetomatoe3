@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pet-cafe",
+  "name": "pet cafe",
+  "author": "CrazyGames",
+  "description": "Play pet cafe on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pet-cafe/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pet-cafe",
+  "crazygamesSlug": "pet-cafe"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-checkers-vs-computer-201691",
+  "name": "Checkers vs Computer",
+  "author": "sb-games",
+  "description": "Play Checkers vs Computer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000195c72ddee31b2ad08041707b507a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000195c72ddee31b2ad08041707b507a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-201691.games.s3.yandex.net/201691/f830ip7huomqojtq90clas27drkwofid/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=201691&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 201691,
+  "playhopPageUrl": "https://playhop.com/app/201691",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 50644
+}

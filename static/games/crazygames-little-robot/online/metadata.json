@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-little-robot",
+  "name": "Little Robot 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Little Robot is a robot action game where you must destroy your enemies to take control of them and make them fight for you!    Check out our robot games for more bot-based action.",
+  "thumbnail": "https://imgs.crazygames.com/little-robot/20221006172536/little-robot-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/little-robot/20221006172536/little-robot-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/little-robot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/little-robot",
+  "crazygamesSlug": "little-robot"
+}

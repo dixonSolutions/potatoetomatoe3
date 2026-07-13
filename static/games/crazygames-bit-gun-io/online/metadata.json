@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bit-gun-io",
+  "name": "Bit Gun.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bit Gun.io is a fast-paced multiplayer FPS where you test your tactical skills in intense 5v5 battles. Customize your arsenal, master unique weapons, and climb the ranks in thrilling PvP combat.",
+  "thumbnail": "https://imgs.crazygames.com/bit-gun-io_16x9/20250818143525/bit-gun-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bit-gun-io_16x9/20250818143525/bit-gun-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bit-gun-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bit-gun-io",
+  "crazygamesSlug": "bit-gun-io"
+}

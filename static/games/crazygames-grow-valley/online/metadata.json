@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-grow-valley",
+  "name": "Grow Valley 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Grow Valley is a puzzle game with a turn-based system in which you need to build and develop an empty valley.  Developer Grow Valley is developed by EYEZMAZE.",
+  "thumbnail": "/games/crazygames-grow-valley/online/assets/crazygames-grow-valley.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grow-valley/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grow-valley",
+  "crazygamesSlug": "grow-valley"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-puzzle-blast-master-303169",
+  "name": "Block Puzzle - Blast Master",
+  "author": "PixelJoy",
+  "description": "Play Block Puzzle - Blast Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018e3228a5fb1b935c549b95358578/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018e3228a5fb1b935c549b95358578/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-303169.games.s3.yandex.net/303169/0lf2lherqjxrdfdk8nphqssc7kac0jzm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=303169&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 303169,
+  "playhopPageUrl": "https://playhop.com/app/303169",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1579
+}

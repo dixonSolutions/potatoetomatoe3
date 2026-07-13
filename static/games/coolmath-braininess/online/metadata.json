@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-braininess",
+  "name": "Braininess - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Clear the path to get your Braininess back! Move tile by tile and don&#039;t fall off the world. One wrong move and it&#039;s game over!",
+  "thumbnail": "/games/coolmath-braininess/online/assets/coolmath-braininess.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50857/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-braininess",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-braininess"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blockables",
+  "name": "Blockables - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Fill the grid to complete the clues and find the secret message hidden in Blockables. This crossword like game is seriously twisted.",
+  "thumbnail": "/games/coolmath-blockables/online/assets/coolmath-blockables.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54789/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blockables",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blockables"
+}

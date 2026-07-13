@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jailbreak-story-327264",
+  "name": "Jailbreak Story",
+  "author": "ADELIKDEV",
+  "description": "Play Jailbreak Story via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f14c0d4430b9030f02d8eddd4bf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f14c0d4430b9030f02d8eddd4bf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-327264.games.s3.yandex.net/327264/aufu782buc21ifh6j5rtpe64kds3f54u/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=327264&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 327264,
+  "playhopPageUrl": "https://playhop.com/app/327264",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2105
+}

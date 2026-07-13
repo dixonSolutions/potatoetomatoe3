@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-hex-color-idle",
+  "name": "Hex Color Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hex Color Idle is a unique idle game in which you must work to develop a range of hexadecimal colors. With over 16,000 different colors to make this game has endless possibilities and will keep you entertained for hours.",
+  "thumbnail": "/games/crazygames-hex-color-idle/online/assets/crazygames-hex-color-idle.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hex-color-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hex-color-idle",
+  "crazygamesSlug": "hex-color-idle"
+}

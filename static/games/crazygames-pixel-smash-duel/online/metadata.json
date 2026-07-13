@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pixel-smash-duel",
+  "name": "Pixel Smash Duel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pixel Smash Duel is a platform game where you fight against your friend or the CPU. Stay on the platform and push the opponent down with weapons.",
+  "thumbnail": "https://imgs.crazygames.com/pixel-smash-duel/20230309065424/pixel-smash-duel-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pixel-smash-duel/20230309065424/pixel-smash-duel-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixel-smash-duel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixel-smash-duel",
+  "crazygamesSlug": "pixel-smash-duel"
+}

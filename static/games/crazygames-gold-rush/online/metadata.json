@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-gold-rush",
+  "name": "gold rush",
+  "author": "CrazyGames",
+  "description": "Play gold rush on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gold-rush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gold-rush",
+  "crazygamesSlug": "gold-rush"
+}

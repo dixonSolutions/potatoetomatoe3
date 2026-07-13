@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dead-zone-quarantine-protocol-436821",
+  "name": "Dead Zone: Quarantine Protocol",
+  "author": "Ozolnieki",
+  "description": "Play Dead Zone: Quarantine Protocol via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019b9d5d38028830e9e81c493bc092/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019b9d5d38028830e9e81c493bc092/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-436821.games.s3.yandex.net/436821/e1xk0lt6q8kjbr9x5a7j3y51innxdo4g/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=436821&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 436821,
+  "playhopPageUrl": "https://playhop.com/app/436821",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 794
+}

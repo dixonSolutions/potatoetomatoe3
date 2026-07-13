@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battle-with-drones",
+  "name": "Battle with Drones",
+  "author": "Meteo",
+  "description": "Play Battle with Drones via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000194f573620c12498fd16b6dd001ff/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000194f573620c12498fd16b6dd001ff/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-407329.games.s3.yandex.net/407329/ujawnsorylku45ehmjzsujxm4kbmewkb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=407329&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 407329,
+  "playhopPageUrl": "https://playhop.com/app/407329",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1216
+}

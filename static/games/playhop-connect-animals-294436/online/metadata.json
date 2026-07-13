@@ -1,0 +1,17 @@
+{
+  "id": "playhop-connect-animals-294436",
+  "name": "Connect animals",
+  "author": "LongCourse",
+  "description": "Play Connect animals via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a00000192dd15a1d45506cf115dd8a5d9c2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a00000192dd15a1d45506cf115dd8a5d9c2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-294436.games.s3.yandex.net/294436/60e1k70vkkhhsiujo7g7oqdvna4wx7gr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=294436&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 294436,
+  "playhopPageUrl": "https://playhop.com/app/294436",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 9615
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cat-fun",
+  "name": "Cat Fun",
+  "author": "Addicting Games",
+  "description": "<p>\n\nPlay Cat Fun on Addicting Games! Tap matching kittens to clear them, create powerups, and enjoy endless fun in this colorful and adorable puzzle game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/CatFun_720X468.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/CatFun_720X468.jpg",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/cat-fun/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/cat-fun"
+}

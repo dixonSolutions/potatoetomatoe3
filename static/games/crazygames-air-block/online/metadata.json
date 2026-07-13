@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-air-block",
+  "name": "air block",
+  "author": "CrazyGames",
+  "description": "Play air block on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/air-block/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/air-block",
+  "crazygamesSlug": "air-block"
+}

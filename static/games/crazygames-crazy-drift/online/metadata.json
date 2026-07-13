@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crazy-drift",
+  "name": "Crazy Drift 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Drift is an epic driving game where you drift around tracks to build a high score. There are various tracks, playgrounds, and stunt tracks to drift around.",
+  "thumbnail": "https://imgs.crazygames.com/games/crazy-drift/cover-1655409764442.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/crazy-drift/cover-1655409764442.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-drift/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-drift",
+  "crazygamesSlug": "crazy-drift"
+}

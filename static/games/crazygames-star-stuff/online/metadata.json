@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-star-stuff",
+  "name": "Star Stuff 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Star Stuff is a charming programming puzzle game where you collaborate with quirky bots to solve the galaxy&#39;s most critical engineering challenge—repairing a star factory. Use your wits and creativity to navigate a series of clever tasks, ensuring the stars shine bright.",
+  "thumbnail": "https://imgs.crazygames.com/star-stuff_16x9/20250909020603/star-stuff_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/star-stuff_16x9/20250909020603/star-stuff_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/star-stuff/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/star-stuff",
+  "crazygamesSlug": "star-stuff"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-little-alchemy-2",
+  "name": "Little Alchemy 2 ⚗️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Little Alchemy 2 is an intuitive online crafting game developed by Recloak. The aim is to combine elements to create new ones.",
+  "thumbnail": "/games/crazygames-little-alchemy-2/online/assets/crazygames-little-alchemy-2.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/little-alchemy-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/little-alchemy-2",
+  "crazygamesSlug": "little-alchemy-2"
+}

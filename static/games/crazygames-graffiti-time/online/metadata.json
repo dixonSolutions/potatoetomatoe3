@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-graffiti-time",
+  "name": "Graffiti Time 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Graffiti Time is a platform game where Mr. Fat Cap travels the universe to paint graffiti.",
+  "thumbnail": "https://imgs.crazygames.com/graffiti-time/20230124053957/graffiti-time-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/graffiti-time/20230124053957/graffiti-time-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/graffiti-time/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/graffiti-time",
+  "crazygamesSlug": "graffiti-time"
+}

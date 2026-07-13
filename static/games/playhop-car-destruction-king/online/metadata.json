@@ -1,0 +1,17 @@
+{
+  "id": "playhop-car-destruction-king",
+  "name": "Car Destruction King",
+  "author": "Sun.Eye.App",
+  "description": "Play Car Destruction King via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a00000194e53f8486c881427215cff2d8ce/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a00000194e53f8486c881427215cff2d8ce/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-342970.games.s3.yandex.net/342970/wrox320aclxhrlno8z8fxns5qoqfdxxp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=342970&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 342970,
+  "playhopPageUrl": "https://playhop.com/app/342970",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 12424
+}

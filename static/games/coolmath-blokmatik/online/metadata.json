@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blokmatik",
+  "name": "Blokmatik - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Merge numbers together to hit the target sum in Blokmatik. Clear out your tiles quickly; it&#039;s game over once you reach the top.",
+  "thumbnail": "/games/coolmath-blokmatik/online/assets/coolmath-blokmatik.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54865/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blokmatik",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blokmatik"
+}

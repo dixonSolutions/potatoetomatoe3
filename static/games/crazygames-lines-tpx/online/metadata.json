@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-lines-tpx",
+  "name": "Lines 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Lines is a challenging and satisfying puzzle connect game where you twist and turn tiles to create continuous paths. Your goal is to rotate the tiles to form a complete line that connects the starting point to the end.",
+  "thumbnail": "https://imgs.crazygames.com/lines-tpx_16x9/20241001051605/lines-tpx_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/lines-tpx_16x9/20241001051605/lines-tpx_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lines-tpx/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lines-tpx",
+  "crazygamesSlug": "lines-tpx"
+}

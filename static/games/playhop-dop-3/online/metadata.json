@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dop-3",
+  "name": "DOP 3",
+  "author": "Игры бесплатно",
+  "description": "Play DOP 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001941246cf8fa4a0332ca0d2c08260/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001941246cf8fa4a0332ca0d2c08260/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-399672.games.s3.yandex.net/399672/brml75eo5ywpblzic0e0cm0sn9yoccdx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=399672&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 399672,
+  "playhopPageUrl": "https://playhop.com/app/399672",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 7980
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-short-backgammon-231257",
+  "name": "Short backgammon",
+  "author": "kirlanik",
+  "description": "Play Short backgammon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018838a913b763b954ea44de374993/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018838a913b763b954ea44de374993/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-231257.games.s3.yandex.net/231257/tc50pq22etxas0z7s6l2cfd06dw10wvi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=231257&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 231257,
+  "playhopPageUrl": "https://playhop.com/app/231257",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 453
+}

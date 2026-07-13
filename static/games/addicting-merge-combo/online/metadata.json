@@ -1,0 +1,14 @@
+{
+  "id": "addicting-merge-combo",
+  "name": "Merge Combo",
+  "author": "Addicting Games",
+  "description": "<p>Immerse yourself in this captivating merge puzzle game! Combine matching blocks to score points and trigger epic combos. The more blocks you merge, the bigger the numbers and combos grow! Test your strategy and aim for the highest score—how large a number can you create?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/MergeCombo_Thumbnail_720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/MergeCombo_Thumbnail_720x468.png",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://html5.gamedistribution.com/da2c7bda57344b698498d67c2625f06e/?gd_sdk_referrer_url=https://gamedistribution.com/games/merge-combo/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/merge-combo"
+}

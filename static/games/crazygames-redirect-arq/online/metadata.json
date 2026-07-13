@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-redirect-arq",
+  "name": "Redirect 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Redirect is a puzzle logic game where your task is to guide a falling ball to its destination using clever planning and strategic thinking. Rotate arrows, lines, and triangles to influence their direction, triggering intricate chain reactions.",
+  "thumbnail": "https://imgs.crazygames.com/redirect-arq_16x9/20260217033855/redirect-arq_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/redirect-arq_16x9/20260217033855/redirect-arq_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/redirect-arq/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/redirect-arq",
+  "crazygamesSlug": "redirect-arq"
+}

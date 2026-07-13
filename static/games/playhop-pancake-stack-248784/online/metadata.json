@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pancake-stack-248784",
+  "name": "Pancake Stack",
+  "author": "Linder",
+  "description": "Play Pancake Stack via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000189e319bc81d89b48b4a747f4b0bf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000189e319bc81d89b48b4a747f4b0bf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-248784.games.s3.yandex.net/248784/tb4wvhkurjwssm4fki9bwnuvymwt4l6y/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=248784&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 248784,
+  "playhopPageUrl": "https://playhop.com/app/248784",
+  "playhopRating": 4,
+  "playhopRatingCount": 2252
+}

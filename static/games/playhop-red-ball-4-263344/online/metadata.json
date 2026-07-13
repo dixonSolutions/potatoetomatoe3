@@ -1,0 +1,17 @@
+{
+  "id": "playhop-red-ball-4-263344",
+  "name": "Red Ball 4",
+  "author": "Yohoho Games",
+  "description": "Play Red Ball 4 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018b3997267ec5be585b3486187ff9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018b3997267ec5be585b3486187ff9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-263344.games.s3.yandex.net/263344/9bm4zkcbrxobzrcqdnk5ptiq688v0ce1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=263344&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 263344,
+  "playhopPageUrl": "https://playhop.com/app/263344",
+  "playhopRating": 4,
+  "playhopRatingCount": 84053
+}

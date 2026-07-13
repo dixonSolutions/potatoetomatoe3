@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tabs-276521",
+  "name": "TABS",
+  "author": "VSEGON",
+  "description": "Play TABS via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018c43872b1f16ac1f0821259486a1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018c43872b1f16ac1f0821259486a1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-276521.games.s3.yandex.net/276521/e93dg38fw63rnqoi2cvdk74zvh9njwni/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=276521&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 276521,
+  "playhopPageUrl": "https://playhop.com/app/276521",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 11575
+}

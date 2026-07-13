@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zapperio",
+  "name": "Zapper.io",
+  "author": "Addicting Games",
+  "description": "<p>Zapper.io is a free slither-style iogame. Zapper is the free iogame for people who want to get zapped, zap others, and basically just extrapolate upon the concept of zapping in a variety of ways. For instance, you play as a long electric glow bug and in this hyper-static form, you have two play modes: one where you must avoid all other players as you eat and grow or the far more deadlier option: To kill all opponents. In the avoider mode, you'll be traveling along the circuits and lines of currents which cover the arena like a giant spider-web trying to gather as much energy as possible to grow as big as you possibly can. In the arena version, everything stays the same except instead of dying when you touch an opponent you'll destroy them. Unless they destroy you first. There is an assortment of different skins you can buy in this game which will allow you to spend your hard-earned tokens on something cool like aesthetics. You can also unlock cool achievements which are affected by your size, kills, and point value. Its a lot of fun!</p>\n\n<p> </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zapped.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zapped.jpg",
+  "thumbnailStored": "remote",
+  "category": "free-for-all-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://zapper.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/zapperio"
+}

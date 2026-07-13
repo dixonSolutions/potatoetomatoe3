@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-thief-puzzle",
+  "name": "Thief Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Thief Puzzle is a clever 2D puzzle logic game that puts your problem-solving and strategy to the test. You control a sneaky thief’s hand as it reaches for valuable treasures, but the path is filled with complex traps, laser security systems, and tricky obstacles.",
+  "thumbnail": "https://imgs.crazygames.com/thief-puzzle_16x9/20240919050737/thief-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/thief-puzzle_16x9/20240919050737/thief-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/thief-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/thief-puzzle",
+  "crazygamesSlug": "thief-puzzle"
+}

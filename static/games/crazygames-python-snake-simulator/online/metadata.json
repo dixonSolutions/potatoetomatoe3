@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-python-snake-simulator",
+  "name": "python snake simulator",
+  "author": "CrazyGames",
+  "description": "Play python snake simulator on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/python-snake-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/python-snake-simulator",
+  "crazygamesSlug": "python-snake-simulator"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-culinary-atlas",
+  "name": "Culinary Atlas 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Culinary Atlas is a casual jigsaw puzzle game where every completed puzzle reveals a delicious dish from somewhere around the world. Explore different countries, discover diverse cuisines, and piece together beautifully illustrated meals inspired by global culinary traditions.",
+  "thumbnail": "https://imgs.crazygames.com/culinary-atlas_16x9/20260609081540/culinary-atlas_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/culinary-atlas_16x9/20260609081540/culinary-atlas_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/culinary-atlas/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/culinary-atlas",
+  "crazygamesSlug": "culinary-atlas"
+}

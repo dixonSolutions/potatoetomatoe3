@@ -1,0 +1,14 @@
+{
+  "id": "addicting-a-day-at-high-school",
+  "name": "A Day at High School",
+  "author": "Addicting Games",
+  "description": "<p>A Day at High School is a free escape room game. Oh, like going to school wasn't hard enough. Now you're going to make me play through the day? Fortunately, there's a payoff that's better than homework...</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/firstdayatschool.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/firstdayatschool.jpg",
+  "thumbnailStored": "remote",
+  "category": "escape-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/adayathighschool.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/glam/a-day-at-high-school"
+}

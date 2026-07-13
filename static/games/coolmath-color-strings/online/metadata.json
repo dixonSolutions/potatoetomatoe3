@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-strings",
+  "name": "Color Strings - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Rearrange the color strings to match the image. Use your visual-spatial reasoning to pull the strings into the correct positions.",
+  "thumbnail": "/games/coolmath-color-strings/online/assets/coolmath-color-strings.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52016/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-strings",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-strings"
+}

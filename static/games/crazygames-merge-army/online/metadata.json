@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-army",
+  "name": "Merge Army 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge Army is a merge battle game where you build up a mighty army for battle. Merge your units to create stronger fighters and take them into the arena.",
+  "thumbnail": "https://imgs.crazygames.com/merge-army_16x9/20260220042408/merge-army_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-army_16x9/20260220042408/merge-army_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-army/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-army",
+  "crazygamesSlug": "merge-army"
+}

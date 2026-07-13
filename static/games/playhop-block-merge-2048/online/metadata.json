@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-merge-2048",
+  "name": "Block Merge 2048",
+  "author": "Xitok",
+  "description": "Play Block Merge 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019532458f50ea8a80dda47c12efdb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019532458f50ea8a80dda47c12efdb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-395452.games.s3.yandex.net/395452/elvtt71snt2cw0orfo1oxdchtketc2ky/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=395452&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 395452,
+  "playhopPageUrl": "https://playhop.com/app/395452",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 224
+}

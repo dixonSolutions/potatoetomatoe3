@@ -1,0 +1,17 @@
+{
+  "id": "playhop-escape-from-retro-os95",
+  "name": "Escape from Retro OS95",
+  "author": "New Place",
+  "description": "Play Escape from Retro OS95 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a0c2a63b111c94e2ee1825ebca0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a0c2a63b111c94e2ee1825ebca0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-470556.games.s3.yandex.net/470556/7ydlft10mtpi9f4bdqfdfdnomruaq1tu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=470556&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 470556,
+  "playhopPageUrl": "https://playhop.com/app/470556",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 101
+}

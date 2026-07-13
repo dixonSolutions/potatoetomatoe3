@@ -1,0 +1,14 @@
+{
+  "id": "addicting-battle-snake",
+  "name": "Battle Snake",
+  "author": "Addicting Games",
+  "description": "<p>Battle snake looks more like a battle worm, until you beat a few levels and grow your snake.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Battle-Snake.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Battle-Snake.jpg",
+  "thumbnailStored": "remote",
+  "category": "snake",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/battlesnake.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/battle-snake"
+}

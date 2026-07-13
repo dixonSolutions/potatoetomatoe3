@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-baw",
+  "name": "Baw - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Control the light and darkness in Baw. Guide the characters to their matching color doors. Run and jump on the platforms without falling off.",
+  "thumbnail": "/games/coolmath-baw/online/assets/coolmath-baw.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36413/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-baw",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-baw"
+}

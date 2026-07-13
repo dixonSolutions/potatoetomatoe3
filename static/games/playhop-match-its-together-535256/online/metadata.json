@@ -1,0 +1,17 @@
+{
+  "id": "playhop-match-its-together-535256",
+  "name": "Match its together",
+  "author": "Мамонтов",
+  "description": "Play Match its together via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019f26f13e3caccaaf095522152d6a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019f26f13e3caccaaf095522152d6a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-535256.games.s3.yandex.net/535256/0pygq5v1tqsu9aecmm4125fp1mdar4p2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=535256&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 535256,
+  "playhopPageUrl": "https://playhop.com/app/535256",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

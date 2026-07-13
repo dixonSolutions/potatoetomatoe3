@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-raft-life",
+  "name": "raft life",
+  "author": "CrazyGames",
+  "description": "Play raft life on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/raft-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/raft-life",
+  "crazygamesSlug": "raft-life"
+}

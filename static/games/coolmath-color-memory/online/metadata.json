@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-memory",
+  "name": "Color Memory - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Memory at Cool Math Games: Test your memory and repeat the pattern. How many can you get before you get stumped? Simon says: Blue, Green, Red!",
+  "thumbnail": "/games/coolmath-color-memory/online/assets/coolmath-color-memory.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22697/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-memory",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-memory"
+}

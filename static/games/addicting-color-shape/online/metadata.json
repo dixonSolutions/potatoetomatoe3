@@ -1,0 +1,14 @@
+{
+  "id": "addicting-color-shape",
+  "name": "Color Shape",
+  "author": "Addicting Games",
+  "description": "<p>Color Shape is a free clicker game. Welcome to Color Shape where the only way out is up and the only thing holding you down is gravity. As you rocket through this never-ending clicker you'll have to navigate through twirling chromatic obstacles which you can only pass if you are able to match your own color to theirs and unlock the barrier. This is a game of timing, reflexes, and learning the inherent physics of a world before finally overcoming them. Color Shape is a game that breaks the mold of conventional endless clickers by offering you nested obstacles which spin inside of other, bigger obstacles thus forcing you to wait for multiple barriers to line up before you can make your move. Some of the obstacles in this game are also asymmetrical and will be offset at odd angles and with jagged and unpredictable edges. Your only ally in this game will be your will, your reflexes, and the sheer power of your clicking finger as you click-click, wait, click, wait, wait, wait, and click again to propel yourself to the top of the leaderboard.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/colorshapegame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/colorshapegame.jpg",
+  "thumbnailStored": "remote",
+  "category": "clicker",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/color-shape/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/color-shape"
+}

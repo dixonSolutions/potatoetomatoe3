@@ -1,0 +1,17 @@
+{
+  "id": "playhop-heroes-of-war-186197",
+  "name": "Heroes of War",
+  "author": "Infotex",
+  "description": "Play Heroes of War via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001956149be9a589c17359b1519362d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001956149be9a589c17359b1519362d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-186197.games.s3.yandex.net/186197/42k2gpjgfav0zqrz870d9sw2kggsq0pz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=186197&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 186197,
+  "playhopPageUrl": "https://playhop.com/app/186197",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 22184
+}

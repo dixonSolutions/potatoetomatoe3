@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-food-absorption",
+  "name": "Obby: Food Absorption",
+  "author": "Birubi",
+  "description": "Play Obby: Food Absorption via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019034e63eb087b7db88e57633c1a0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019034e63eb087b7db88e57633c1a0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-329914.games.s3.yandex.net/329914/tfg2hrxhs27m9hh1wdghxxm55bdx980t/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=329914&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 329914,
+  "playhopPageUrl": "https://playhop.com/app/329914",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 693
+}

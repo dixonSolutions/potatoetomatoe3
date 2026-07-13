@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bouncy-quest",
+  "name": "Bouncy Quest: Bounce to friendship | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The floor is made of rubber, so the only way to move is to bounce. You must go on your Bouncy Quest to find your friends and dodge the angry slimes.",
+  "thumbnail": "/games/coolmath-bouncy-quest/online/assets/coolmath-bouncy-quest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34589/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bouncy-quest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bouncy-quest"
+}

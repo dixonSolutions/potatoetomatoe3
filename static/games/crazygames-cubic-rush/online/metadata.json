@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cubic-rush",
+  "name": "Cubic Rush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cubic Rush is an amazing arcade game and an upgrade to Jet Rush. Drive your jet to avoid obstacles, which is not as easy as you think.",
+  "thumbnail": "https://imgs.crazygames.com/games/cubic-rush/cover-1591719306783.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/cubic-rush/cover-1591719306783.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubic-rush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubic-rush",
+  "crazygamesSlug": "cubic-rush"
+}

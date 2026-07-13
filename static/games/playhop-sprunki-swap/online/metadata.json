@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-swap",
+  "name": "Sprunki Swap",
+  "author": "Nssayaa",
+  "description": "Play Sprunki Swap via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019cfbe59e882bf1239a23de094685/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019cfbe59e882bf1239a23de094685/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-417364.games.s3.yandex.net/417364/rd56hxytv4pyfv69y7arynynzcu0g4uy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=417364&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 417364,
+  "playhopPageUrl": "https://playhop.com/app/417364",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 2052
+}

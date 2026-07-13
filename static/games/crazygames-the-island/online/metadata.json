@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-the-island",
+  "name": "The Island 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Island is an arcade game where something strange is happening in the world, people disappear, and then bloodthirsty zombies return. Your task is to find out what is going on and who is behind it all.",
+  "thumbnail": "https://imgs.crazygames.com/games/the-island/cover-1643791007733.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/the-island/cover-1643791007733.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-island/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-island",
+  "crazygamesSlug": "the-island"
+}

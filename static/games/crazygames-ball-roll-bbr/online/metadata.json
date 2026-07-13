@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ball-roll-bbr",
+  "name": "Ball Roll 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Slide the wooden blocks to clear a path and guide the ball to the goal. Collect stars to master each level!",
+  "thumbnail": "https://imgs.crazygames.com/ball-roll-bbr_16x9/20260409062921/ball-roll-bbr_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ball-roll-bbr_16x9/20260409062921/ball-roll-bbr_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ball-roll-bbr/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ball-roll-bbr",
+  "crazygamesSlug": "ball-roll-bbr"
+}

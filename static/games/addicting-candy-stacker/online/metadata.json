@@ -1,0 +1,14 @@
+{
+  "id": "addicting-candy-stacker",
+  "name": "Candy Stacker",
+  "author": "Addicting Games",
+  "description": "<p>Candy Stacker is an educational game that will help you with your math skills! If you need to practice your math skills but you rather play games, then try out this sticky-sweet stacker game. Your objective is to create the highest stack of sweets that you have ever seen! There is candy, ice cream, donuts, and cake for you to place on top of each other as they reach to the sky. If you get one problem wrong, then the whole delicious tower will come tumbling down. You must not admit defeat though! Play again and beat your best score every time. Math is all about repetition so play until you conquer each skill. You don’t need to be bored when it comes to math with this fun math game! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/candy%20sta%20ker.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/candy%20sta%20ker.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/candy-stacker/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/candy-stacker"
+}

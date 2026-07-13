@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-my-dinoland",
+  "name": "My Dinoland 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "My Dinoland is a simulation game where you manage your own dinosaur zoo! Breed and care for prehistoric creatures, upgrade their enclosures and create exciting attractions to draw in visitors.",
+  "thumbnail": "https://imgs.crazygames.com/my-dinoland_16x9/20250115112237/my-dinoland_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/my-dinoland_16x9/20250115112237/my-dinoland_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/my-dinoland/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/my-dinoland",
+  "crazygamesSlug": "my-dinoland"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bricks-breaker",
+  "name": "Bricks Breaker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bricks Breaker is an arcade game to destroy the numbered bricks by shooting a ball at them. Have some fun with this simple ball shooter game.",
+  "thumbnail": "https://imgs.crazygames.com/games/bricks-breaker/cover-1643974268145.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/bricks-breaker/cover-1643974268145.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bricks-breaker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bricks-breaker",
+  "crazygamesSlug": "bricks-breaker"
+}

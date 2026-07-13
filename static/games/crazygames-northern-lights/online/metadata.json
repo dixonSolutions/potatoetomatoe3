@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-northern-lights",
+  "name": "northern lights",
+  "author": "CrazyGames",
+  "description": "Play northern lights on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/northern-lights/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/northern-lights",
+  "crazygamesSlug": "northern-lights"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-sudoku-puzzle-259112",
+  "name": "Block Sudoku Puzzle",
+  "author": "Eidolon LLC",
+  "description": "Play Block Sudoku Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018ae0b2cecb1594269ae05f549242/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018ae0b2cecb1594269ae05f549242/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-259112.games.s3.yandex.net/259112/70svrxrw9udedj1qcooul3c46xon6s1y/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=259112&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 259112,
+  "playhopPageUrl": "https://playhop.com/app/259112",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 93
+}

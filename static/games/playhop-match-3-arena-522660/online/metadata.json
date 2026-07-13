@@ -1,0 +1,17 @@
+{
+  "id": "playhop-match-3-arena-522660",
+  "name": "Match-3: Arena",
+  "author": "KKX GAMES",
+  "description": "Play Match-3: Arena via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019dbf152d824c5c58d62a5b97acc0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019dbf152d824c5c58d62a5b97acc0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-522660.games.s3.yandex.net/522660/nhk9x80s8hppwvlwry9hie6zz8zy6t1a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=522660&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 522660,
+  "playhopPageUrl": "https://playhop.com/app/522660",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

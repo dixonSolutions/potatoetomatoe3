@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-flakmeister",
+  "name": "Flakmeister 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Flakmeister is a 3D defense game in which you need to defend a factory town against air raids. You are part of the Imperial Silver Army, which happens to be losing the war.",
+  "thumbnail": "/games/crazygames-flakmeister/online/assets/crazygames-flakmeister.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flakmeister/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flakmeister",
+  "crazygamesSlug": "flakmeister"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-break-free",
+  "name": "Break Free 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Break Free is a casual game that puts your stealth and timing to the test as you escape from one guarded cell after another. Strike when the guards aren’t looking, dodge traps and dogs, and collect coins with each successful breakout.",
+  "thumbnail": "https://imgs.crazygames.com/games/break-free/cover_16x9-1749009549547.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/break-free/cover_16x9-1749009549547.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/break-free/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/break-free",
+  "crazygamesSlug": "break-free"
+}

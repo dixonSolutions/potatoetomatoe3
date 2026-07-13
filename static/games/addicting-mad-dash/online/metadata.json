@@ -1,0 +1,14 @@
+{
+  "id": "addicting-mad-dash",
+  "name": "Mad Dash",
+  "author": "Addicting Games",
+  "description": "<p>Mad Dash is a free puzzle platform game.  You are a minotaur trapped in one of the last mazes in the galaxy: a maze of levels. You'll have to jump and dash over treacherous obstacles and challenges to make it through this maze. Many of the platforms are too far apart for you to make it with a simple jump. That is why the mad dash was created. The mad dash happens when players need to jump over spikes or a crevasse that their normal jump wouldn't traverse. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mad-dash-update.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mad-dash-update.png",
+  "thumbnailStored": "remote",
+  "category": "action",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/mad-dash/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/mad-dash"
+}

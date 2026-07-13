@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-156062",
+  "name": "Mahjong",
+  "author": "ГеймФорт",
+  "description": "Play Mahjong via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017835f7956bbe7b28fa5d0bc6f92c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017835f7956bbe7b28fa5d0bc6f92c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-156062.games.s3.yandex.net/156062/g4s9q2l6wbwds31dxxphczf5z8ck1153/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=156062&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 156062,
+  "playhopPageUrl": "https://playhop.com/app/156062",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 17753
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-earn-to-die",
+  "name": "Earn to Die",
+  "author": "Addicting Games",
+  "description": "<p>Earn to Die is a free platform racing game. No silly zombie is going to ruin your roadtrip across the U.S. of A! Upgrade your ride, turn up the tunes, and show em who is boss!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/earntodie_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/earntodie_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/earntodie.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/earn-to-die"
+}

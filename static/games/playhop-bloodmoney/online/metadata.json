@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bloodmoney",
+  "name": "Bloodmoney",
+  "author": "Katie Game",
+  "description": "Play Bloodmoney via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a86c1c58d6fe612e5054a71758e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a86c1c58d6fe612e5054a71758e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-463274.games.s3.yandex.net/463274/lvvcmquwvp4lvcq9zfe4iq3yqy01bldm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=463274&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 463274,
+  "playhopPageUrl": "https://playhop.com/app/463274",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 2315
+}

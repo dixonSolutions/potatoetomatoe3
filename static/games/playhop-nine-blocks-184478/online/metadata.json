@@ -1,0 +1,17 @@
+{
+  "id": "playhop-nine-blocks-184478",
+  "name": "Nine Blocks",
+  "author": "AzurGames",
+  "description": "Play Nine Blocks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018262b10f7f69426aca65a3b6daa6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018262b10f7f69426aca65a3b6daa6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-184478.games.s3.yandex.net/184478/6ypi7ya4e1k9ecalesh8db9lwp4zcybz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=184478&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 184478,
+  "playhopPageUrl": "https://playhop.com/app/184478",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 330
+}

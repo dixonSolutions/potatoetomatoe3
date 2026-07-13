@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-street-race-fury",
+  "name": "Street Race Fury 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Race your car to the finish line first by clicking whenever the meter gets in the green zone. Have fun with Street Race Fury, a cool drag racing car game!",
+  "thumbnail": "/games/crazygames-street-race-fury/online/assets/crazygames-street-race-fury.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/street-race-fury/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/street-race-fury",
+  "crazygamesSlug": "street-race-fury"
+}

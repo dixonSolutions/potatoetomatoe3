@@ -1,0 +1,14 @@
+{
+  "id": "addicting-yoga-run",
+  "name": "Yoga Run",
+  "author": "Addicting Games",
+  "description": "<p>Yoga Run is a free avoider game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/yogarungamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/yogarungamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "action",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/yoga-run/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/yoga-run"
+}

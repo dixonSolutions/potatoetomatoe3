@@ -1,0 +1,17 @@
+{
+  "id": "playhop-blade-ball-264734",
+  "name": "Blade Ball",
+  "author": "GigglePixel",
+  "description": "Play Blade Ball via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018dcc52d608613ff79c327cfb48c5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018dcc52d608613ff79c327cfb48c5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-264734.games.s3.yandex.net/264734/7r9agiyqk01jowjjpe6bmy6ihrl1b6lh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=264734&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 264734,
+  "playhopPageUrl": "https://playhop.com/app/264734",
+  "playhopRating": 4,
+  "playhopRatingCount": 3178
+}

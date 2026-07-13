@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-mine-blocks",
+  "name": "Mine Blocks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mine Blocks is a 2D Minecraft fan action game initially released in Flash. You can now play the game again, as it’s been rebuilt in HTML5 and features regular updates from the development team.",
+  "thumbnail": "/games/crazygames-mine-blocks/online/assets/crazygames-mine-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mine-blocks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mine-blocks",
+  "crazygamesSlug": "mine-blocks"
+}

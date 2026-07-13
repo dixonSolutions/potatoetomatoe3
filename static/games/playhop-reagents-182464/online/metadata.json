@@ -1,0 +1,17 @@
+{
+  "id": "playhop-reagents-182464",
+  "name": "Reagents!",
+  "author": "DRA",
+  "description": "Play Reagents! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017e540137a54e41ed173dfb343ae5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017e540137a54e41ed173dfb343ae5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-182464.games.s3.yandex.net/182464/t2sgnz5a751e4qix8l0rvxuvce73ggrh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=182464&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 182464,
+  "playhopPageUrl": "https://playhop.com/app/182464",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 29531
+}

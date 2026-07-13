@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-block-toggle",
+  "name": "Block Toggle - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Block Toggle at Cool Math Games: You can control the platforms! Turn them on and off at the right time to reach the portal safely.",
+  "thumbnail": "/games/coolmath-block-toggle/online/assets/coolmath-block-toggle.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32937/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-block-toggle",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-block-toggle"
+}

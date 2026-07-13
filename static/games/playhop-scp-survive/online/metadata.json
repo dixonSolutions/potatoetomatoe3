@@ -1,0 +1,17 @@
+{
+  "id": "playhop-scp-survive",
+  "name": "SCP: Survive",
+  "author": "Davilkus Games",
+  "description": "Play SCP: Survive via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000195fad794fad810390d6452c1789b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000195fad794fad810390d6452c1789b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-412439.games.s3.yandex.net/412439/a03t8g15lhkcqae41x05xu14jvz57dtu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=412439&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 412439,
+  "playhopPageUrl": "https://playhop.com/app/412439",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 442
+}

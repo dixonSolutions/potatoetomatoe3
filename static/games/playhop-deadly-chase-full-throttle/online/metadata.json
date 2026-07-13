@@ -1,0 +1,17 @@
+{
+  "id": "playhop-deadly-chase-full-throttle",
+  "name": "Deadly Chase: Full Throttle",
+  "author": "Solo Forge",
+  "description": "Play Deadly Chase: Full Throttle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019e167294fd176d4a14169d24cc84/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019e167294fd176d4a14169d24cc84/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-432378.games.s3.yandex.net/432378/i5h7mdw8h201oyabwg3hz9rt5ebhl2rg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=432378&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 432378,
+  "playhopPageUrl": "https://playhop.com/app/432378",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1287
+}

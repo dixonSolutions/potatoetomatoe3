@@ -1,0 +1,17 @@
+{
+  "id": "playhop-noob-tester-196901",
+  "name": "Noob tester",
+  "author": "SmellyCode",
+  "description": "Play Noob tester via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000018ac851c65d925f389fa859144ae9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000018ac851c65d925f389fa859144ae9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-196901.games.s3.yandex.net/196901/dg99xs22svcehy4ylb7tl42ygtnximo6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=196901&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 196901,
+  "playhopPageUrl": "https://playhop.com/app/196901",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1123
+}

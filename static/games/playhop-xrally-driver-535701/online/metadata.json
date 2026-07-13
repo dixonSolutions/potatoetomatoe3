@@ -1,0 +1,17 @@
+{
+  "id": "playhop-xrally-driver-535701",
+  "name": "XRally Driver",
+  "author": "ABGames89",
+  "description": "Play XRally Driver via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019e73b4fe6fcd1370365ebf683ed8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019e73b4fe6fcd1370365ebf683ed8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-535701.games.s3.yandex.net/535701/0m43bnjv9en0vo22ixvfk3kodoc96qje/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=535701&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 535701,
+  "playhopPageUrl": "https://playhop.com/app/535701",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 39
+}

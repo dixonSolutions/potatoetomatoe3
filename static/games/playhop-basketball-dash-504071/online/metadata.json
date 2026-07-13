@@ -1,0 +1,17 @@
+{
+  "id": "playhop-basketball-dash-504071",
+  "name": "Basketball Dash",
+  "author": "MirraGames",
+  "description": "Play Basketball Dash via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019cb0292909cfd237b053d493dd36/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019cb0292909cfd237b053d493dd36/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-504071.games.s3.yandex.net/504071/2ykqn57n735h0cwglc6bsnmavqlqutaa/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=504071&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 504071,
+  "playhopPageUrl": "https://playhop.com/app/504071",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 17
+}

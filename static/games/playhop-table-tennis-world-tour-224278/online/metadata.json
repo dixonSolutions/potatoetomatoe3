@@ -1,0 +1,17 @@
+{
+  "id": "playhop-table-tennis-world-tour-224278",
+  "name": "Table Tennis World Tour",
+  "author": "Famobi-Dev",
+  "description": "Play Table Tennis World Tour via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001876f765a4a759171d2e5d383f600/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001876f765a4a759171d2e5d383f600/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-224278.games.s3.yandex.net/224278/isofe4hjh35ow3v6kubp19z73bvsj39w/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=224278&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 224278,
+  "playhopPageUrl": "https://playhop.com/app/224278",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 8069
+}

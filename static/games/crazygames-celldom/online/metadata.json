@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-celldom",
+  "name": "Celldome 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Celldom is a new type of clicker game where you swipe over a &quot;board&quot; to earn income instead of clicking. Spend money on upgrading your board, both expanding it and increasing the money it brings in.",
+  "thumbnail": "https://imgs.crazygames.com/celldom_16x9/20260220040443/celldom_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/celldom_16x9/20260220040443/celldom_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/celldom/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/celldom",
+  "crazygamesSlug": "celldom"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sniper-fury",
+  "name": "Sniper Fury 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sniper Fury is a modern sniper action game focused on precision shooting and tactical decision-making. Step into the role of an elite sniper and take on high-risk missions across diverse environments such as city streets, ports, and desert battlefields.",
+  "thumbnail": "https://imgs.crazygames.com/sniper-fury_16x9/20260317093152/sniper-fury_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sniper-fury_16x9/20260317093152/sniper-fury_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sniper-fury/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sniper-fury",
+  "crazygamesSlug": "sniper-fury"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lost-empire-crystal-quest-512215",
+  "name": "Lost Empire: match-3",
+  "author": "Sublustris",
+  "description": "Play Lost Empire: match-3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019e182a081d1eecda34822ce7a736/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019e182a081d1eecda34822ce7a736/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-512215.games.s3.yandex.net/512215/dgnkyei1k7flhzj14ur2iwpx0r2ljshx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=512215&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 512215,
+  "playhopPageUrl": "https://playhop.com/app/512215",
+  "playhopRating": 4,
+  "playhopRatingCount": 220
+}

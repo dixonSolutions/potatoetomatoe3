@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-burger-stacker",
+  "name": "Burger Stacker - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Assemble burgers in the right sequence and cook them to perfection in Burger Stacker. Use your platformer games skills to get the order just right.",
+  "thumbnail": "/games/coolmath-burger-stacker/online/assets/coolmath-burger-stacker.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51760/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-burger-stacker",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-burger-stacker"
+}

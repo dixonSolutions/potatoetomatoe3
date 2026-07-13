@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-block-fuser",
+  "name": "Block Fuser 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Block Fuser is a clicker game but instead of just the regular clicking, you must combine blocks with numbers on it. There are tons of blocks, tons of upgrades, multiple prestige layers in this game.",
+  "thumbnail": "https://imgs.crazygames.com/games/block-fuser/cover-1643611806536.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/block-fuser/cover-1643611806536.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-fuser/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-fuser",
+  "crazygamesSlug": "block-fuser"
+}

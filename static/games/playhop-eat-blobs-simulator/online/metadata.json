@@ -1,0 +1,17 @@
+{
+  "id": "playhop-eat-blobs-simulator",
+  "name": "Eat Blobs Simulator",
+  "author": "Cursora Labs",
+  "description": "Play Eat Blobs Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019068e6b1a3cc280be7435d7fee8e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019068e6b1a3cc280be7435d7fee8e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-352434.games.s3.yandex.net/352434/2pyuuhzs4qu9tdm68u74z03qceor231u/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=352434&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 352434,
+  "playhopPageUrl": "https://playhop.com/app/352434",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 11138
+}

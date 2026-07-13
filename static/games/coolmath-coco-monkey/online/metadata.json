@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-coco-monkey",
+  "name": "Coco Monkey - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Coco Monkey at Cool Math Games: Sometimes if you want to get a banana, you got to break a couple coconuts.",
+  "thumbnail": "/games/coolmath-coco-monkey/online/assets/coolmath-coco-monkey.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25826/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-coco-monkey",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-coco-monkey"
+}

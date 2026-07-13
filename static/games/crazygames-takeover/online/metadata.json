@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-takeover",
+  "name": "Takeover 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Your kingdom is at war! Build up your armies, defeat your enemies, and take over their cities in this mouse-controlled real-time fantasy strategy game.",
+  "thumbnail": "/games/crazygames-takeover/online/assets/crazygames-takeover.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/takeover/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/takeover",
+  "crazygamesSlug": "takeover"
+}

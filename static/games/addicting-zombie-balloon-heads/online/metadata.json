@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombie-balloon-heads",
+  "name": "Zombie Balloon Heads",
+  "author": "Addicting Games",
+  "description": "<p>Stick figures fight zombies too! Fill zombie skulls with ink until they explodes. Find more ink, make a bigger gun, and keep on keeping on!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombieballoonheads_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombieballoonheads_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombieballoonheads.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombie-balloon-heads"
+}

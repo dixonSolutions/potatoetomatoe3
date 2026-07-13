@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sand-ball",
+  "name": "Sand Ball",
+  "author": "Addicting Games",
+  "description": "<p>Sand Ball is a free puzzle game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/sandballgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/sandballgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/sand-ball/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/sand-ball"
+}

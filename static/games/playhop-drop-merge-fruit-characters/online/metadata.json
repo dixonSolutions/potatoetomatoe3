@@ -1,0 +1,17 @@
+{
+  "id": "playhop-drop-merge-fruit-characters",
+  "name": "Drop Merge Fruit Characters",
+  "author": "Smartberry Games",
+  "description": "Play Drop Merge Fruit Characters via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b79c573c329d587deb52065a8e2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b79c573c329d587deb52065a8e2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-458312.games.s3.yandex.net/458312/wad7u9x2tdqooa0omvzoybvhtxb5s06g/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=458312&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 458312,
+  "playhopPageUrl": "https://playhop.com/app/458312",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 88
+}

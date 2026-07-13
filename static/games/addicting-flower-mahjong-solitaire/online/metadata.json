@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flower-mahjong-solitaire",
+  "name": "Flower Mahjong Solitaire",
+  "author": "Addicting Games",
+  "description": "<p>Flower Mahjong Solitaire is a free solitaire game. Flower Mahjong is a puzzle game based on one of your favorite tabletop tile games from the ancient east. This free online puzzle game is the digital version of everyones grandmas favorite way to match pieces and make it rain: mahjong. This game is true to the original mahjong rules but uses a floral style in its symbols and characters, thus transporting you from your dull workaday life to the exciting high-stakes world of a small flower shop. Like other popular mahjong games, similar tiles of certain types can be matched and don't need to be exact. For other tiles, you must select the same matching tile and it must be a tile which is not covered on more than two sides by other tiles. If you find yourself stuck, click the circular restart button, doing so will negatively impact your score so try to tough it out.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/flowermahjongsolitairegame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/flowermahjongsolitairegame.jpg",
+  "thumbnailStored": "remote",
+  "category": "card-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/flower-mahjong-solitaire/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/flower-mahjong-solitaire"
+}

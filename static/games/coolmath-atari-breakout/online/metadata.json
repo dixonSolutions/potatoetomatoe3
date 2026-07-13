@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-atari-breakout",
+  "name": "Atari Breakout – Play Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Break the boxes and don&#039;t lose the ball in four different modes of the classic Atari Breakout. What&#039;s the highest score you can get in this old-school game?",
+  "thumbnail": "/games/coolmath-atari-breakout/online/assets/coolmath-atari-breakout.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41808/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-atari-breakout",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-atari-breakout"
+}

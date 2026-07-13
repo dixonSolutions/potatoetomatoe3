@@ -1,0 +1,17 @@
+{
+  "id": "playhop-swappy-dog-224184",
+  "name": "Swappy Dog",
+  "author": "Gamematica",
+  "description": "Play Swappy Dog via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000187c21c5dfb86b1f3687aa04b9ae4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000187c21c5dfb86b1f3687aa04b9ae4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-224184.games.s3.yandex.net/224184/8tupt48ov32jcnaiydvyi7yu610khvs7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=224184&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 224184,
+  "playhopPageUrl": "https://playhop.com/app/224184",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 343
+}

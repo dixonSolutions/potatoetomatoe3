@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-take-actions",
+  "name": "Take Actions 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Take Actions is a third-person shooter packed with cinematic slow-motion combat and a gripping storyline. Fight your way out of an underground bunker, wreak havoc in a nightclub showdown, and face the ultimate boss battle.",
+  "thumbnail": "https://imgs.crazygames.com/take-actions_16x9/20251104044514/take-actions_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/take-actions_16x9/20251104044514/take-actions_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/take-actions/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/take-actions",
+  "crazygamesSlug": "take-actions"
+}

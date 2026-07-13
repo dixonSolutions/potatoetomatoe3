@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-babel-tower",
+  "name": "Babel Tower - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Build your Babel Tower up through the clouds. Mine rocks, make bricks, and build to unimaginable heights. Can you construct the world&#039;s tallest tower?",
+  "thumbnail": "/games/coolmath-babel-tower/online/assets/coolmath-babel-tower.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/47462/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-babel-tower",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-babel-tower"
+}

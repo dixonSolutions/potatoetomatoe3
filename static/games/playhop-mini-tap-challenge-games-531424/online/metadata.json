@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mini-tap-challenge-games-531424",
+  "name": "Mini Tap Challenge Games",
+  "author": "CyberNex Studios",
+  "description": "Play Mini Tap Challenge Games via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019e38d2d2340b8b0188b8bfa388cf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019e38d2d2340b8b0188b8bfa388cf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-531424.games.s3.yandex.net/531424/9vh1g4kb68e427qx0wdivxhhd1uxg17m/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=531424&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 531424,
+  "playhopPageUrl": "https://playhop.com/app/531424",
+  "playhopRating": 4,
+  "playhopRatingCount": 1500
+}

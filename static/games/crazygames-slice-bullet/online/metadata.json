@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-slice-bullet",
+  "name": "Slice Bullet 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Slice Bullet is a creative merging game where you slice bullets and fuse them into stronger forms. You’ll unlock new slots, enhance your machine, and overcome tougher levels as you progress.",
+  "thumbnail": "https://imgs.crazygames.com/slice-bullet_16x9/20250923103241/slice-bullet_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/slice-bullet_16x9/20250923103241/slice-bullet_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/slice-bullet/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/slice-bullet",
+  "crazygamesSlug": "slice-bullet"
+}

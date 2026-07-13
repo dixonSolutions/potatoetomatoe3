@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pokey-ball",
+  "name": "Pokey Ball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pokey Ball is a fast-paced challenge where you flick and launch a ball as high as possible. Master the perfect timing to reach new heights, overcoming obstacles along the way.",
+  "thumbnail": "https://imgs.crazygames.com/pokey-ball_16x9/20250304044536/pokey-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pokey-ball_16x9/20250304044536/pokey-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pokey-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pokey-ball",
+  "crazygamesSlug": "pokey-ball"
+}

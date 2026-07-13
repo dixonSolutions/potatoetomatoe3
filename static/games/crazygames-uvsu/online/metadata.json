@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-uvsu",
+  "name": "UVSU 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "UVSU is a platform puzzle game where you will play as both characters alternately: the hero and the enemies. Your goal is to reach the door when you play as a hero.",
+  "thumbnail": "https://imgs.crazygames.com/games/uvsu/cover_16x9-1694428312974.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/uvsu/cover_16x9-1694428312974.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/uvsu/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/uvsu",
+  "crazygamesSlug": "uvsu"
+}

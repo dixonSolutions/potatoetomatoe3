@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-through-the-wall",
+  "name": "through the wall",
+  "author": "CrazyGames",
+  "description": "Play through the wall on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/through-the-wall/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/through-the-wall",
+  "crazygamesSlug": "through-the-wall"
+}

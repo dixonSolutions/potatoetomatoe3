@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-poly-art-3d",
+  "name": "Poly Art 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "In Poly Art 3D, you have to recover the poly art. Just rotate the magic cloud until you will have the completed figure.",
+  "thumbnail": "https://imgs.crazygames.com/poly-art-3d-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/poly-art-3d-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/poly-art-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/poly-art-3d",
+  "crazygamesSlug": "poly-art-3d"
+}

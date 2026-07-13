@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-with-friends-online",
+  "name": "Obby with Friends Online",
+  "author": "MirraGames",
+  "description": "Play Obby with Friends Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019e5bac69d77914781e32c17925ad/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019e5bac69d77914781e32c17925ad/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-428186.games.s3.yandex.net/428186/zf2v5hwomnh02m3mnyp9flluwj7ajpes/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=428186&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 428186,
+  "playhopPageUrl": "https://playhop.com/app/428186",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5471
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-create-a-ride",
+  "name": "Create a Ride",
+  "author": "Addicting Games",
+  "description": "<p>Create a Ride is a free car game. Pimp your ride and take it out on the road in this top shop. With so many options, you can customize your car to suit your style. Will this be your dream ride?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/createaride_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/createaride_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/createaride_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/create-a-ride"
+}

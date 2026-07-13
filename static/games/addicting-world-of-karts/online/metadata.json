@@ -1,0 +1,14 @@
+{
+  "id": "addicting-world-of-karts",
+  "name": "World of Karts",
+  "author": "Addicting Games",
+  "description": "<p>World of karts is a free iogame. Sit down, buckle up, hit the gas, and let's go. World of Karts is a free racing and arena battle game where you become a cute cartoony animal style person and get behind the wheel of a bright go-kart. You can either choose to play the racing version of the game or you can go and play the battle version of the game. The racing version of the game is a straight forward racing game where you will compete with other players from around the world. In this racing game, you will also have access to randomized weapons which you can use to smash your opposing players and take command of the raceway. When you are playing the battle version of the game, it is a whole new court where you don't have to worry about racing or first place. In this version of the game you just avoid getting hit while you collect weapons to take out other players. Both versions of the game are fun and will give you a never-ending set of options for play.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/world%20of%20karts.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/world%20of%20karts.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://worldofkarts.com/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/world-of-karts"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block8-98993",
+  "name": "Block8",
+  "author": "truelisgames",
+  "description": "Play Block8 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000175cae3b7a439edc6720a16da2a9d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000175cae3b7a439edc6720a16da2a9d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-98993.games.s3.yandex.net/98993/tsprmiq53vpiaqv85zw23jl2z00se3wf/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=98993&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 98993,
+  "playhopPageUrl": "https://playhop.com/app/98993",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 7688
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-dot-king",
+  "name": "dot king",
+  "author": "CrazyGames",
+  "description": "Play dot king on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dot-king/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dot-king",
+  "crazygamesSlug": "dot-king"
+}

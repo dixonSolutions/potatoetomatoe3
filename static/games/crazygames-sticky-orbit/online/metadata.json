@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sticky-orbit",
+  "name": "Sticky Orbit 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sticky Orbit is a fast-paced physics arcade game where you leap between the gravity fields of rotating planets. Time your jumps perfectly to maintain momentum and build massive combos.",
+  "thumbnail": "https://imgs.crazygames.com/sticky-orbit_16x9/20260501072908/sticky-orbit_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sticky-orbit_16x9/20260501072908/sticky-orbit_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sticky-orbit/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sticky-orbit",
+  "crazygamesSlug": "sticky-orbit"
+}

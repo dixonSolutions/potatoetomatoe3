@@ -1,0 +1,17 @@
+{
+  "id": "playhop-good-to-drive",
+  "name": "Good to drive",
+  "author": "K.games",
+  "description": "Play Good to drive via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b2dc041ab427249a84ad1631b97/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b2dc041ab427249a84ad1631b97/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-446821.games.s3.yandex.net/446821/vzvzjdh34hsk843lwcj5qkdy2xbas8jl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=446821&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 446821,
+  "playhopPageUrl": "https://playhop.com/app/446821",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 139
+}

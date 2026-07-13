@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-helix-jump",
+  "name": "Helix Jump 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Helix Jump is a casual game with simple and addictively fun mechanics. In the game, you guide a bouncing ball continuously down a series of circular platforms until you crash.",
+  "thumbnail": "https://imgs.crazygames.com/games/helix-jump/cover_16x9-1733222901873.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/helix-jump/cover_16x9-1733222901873.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/helix-jump/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/helix-jump",
+  "crazygamesSlug": "helix-jump"
+}

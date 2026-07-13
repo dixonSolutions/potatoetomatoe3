@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sueta-online-491261",
+  "name": "Sueta Online",
+  "author": "Games_01",
+  "description": "Play Sueta Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019be6c5cf1be143c5f8eee0722274/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019be6c5cf1be143c5f8eee0722274/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-491261.games.s3.yandex.net/491261/qdno47oq0mytlcsc4wa85qwrjqo3d8gy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=491261&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 491261,
+  "playhopPageUrl": "https://playhop.com/app/491261",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 3477
+}

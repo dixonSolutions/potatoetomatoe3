@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-moto-rider-3d",
+  "name": "moto rider 3d",
+  "author": "CrazyGames",
+  "description": "Play moto rider 3d on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-moto-rider-3d/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/moto-rider-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/moto-rider-3d",
+  "crazygamesSlug": "moto-rider-3d"
+}

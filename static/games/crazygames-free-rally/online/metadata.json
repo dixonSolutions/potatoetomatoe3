@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-free-rally",
+  "name": "Free Rally 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Free Rally game - exciting rally driving experience. Free Rally is an intense and frantic 3D car driving game in which you have the freedom to explore an immense cityscape in a variety of different vehicles.",
+  "thumbnail": "/games/crazygames-free-rally/online/assets/crazygames-free-rally.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/free-rally/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/free-rally",
+  "crazygamesSlug": "free-rally"
+}

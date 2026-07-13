@@ -1,0 +1,17 @@
+{
+  "id": "playhop-galactic-conquest-526169",
+  "name": "Galactic Conquest",
+  "author": "Dazzl",
+  "description": "Play Galactic Conquest via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019dfde4c194e7254b68064aa63aef/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019dfde4c194e7254b68064aa63aef/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-526169.games.s3.yandex.net/526169/8w8tczb7i8f62wyhi5rx8fcuej3gojmb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=526169&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 526169,
+  "playhopPageUrl": "https://playhop.com/app/526169",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 22
+}

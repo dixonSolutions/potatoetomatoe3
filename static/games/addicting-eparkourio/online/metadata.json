@@ -1,0 +1,14 @@
+{
+  "id": "addicting-eparkourio",
+  "name": "eParkour.io",
+  "author": "Addicting Games",
+  "description": "<p>eParkour.io is a free iogame. Picture this: platforms, suspended in mid-air, hover above an endless expanse of the majestic ocean. Your objective? Navigate these floating islands, making spine-tingling jumps and heart-stopping leaps to reach the end of each level. In \"eParkour.io,\" you become the ultimate parkour virtuoso. Channel your inner daredevil as you jump, flip, and twist your way through a dazzling array of gravity-defying obstacles. Run along the edge of a precipice, launch yourself into the abyss, and rebound with unparalleled finesse. Your agility will be your superpower, and precision will be your ally.</p>\n\n<p>But wait, gamer-friends, that's not all! We're not content with just pushing you to the brink of your parkour prowess. We've included an epic boss battle that will leave you breathless. As you conquer the treacherous platforms, a colossal water titan awaits you at the finale. This gargantuan adversary is no pushover; you'll need lightning-fast reflexes and impeccable timing to defeat this aquatic behemoth. Will you emerge victorious or succumb to the immense power of the deep? And remember, the best part is that \"eParkour.io\" is absolutely free to play! All gamer friends should have the chance to experience the thrill of defying gravity and conquering death-defying stunts. So gather your friends, unleash your competitive spirit, and embark on this exhilarating journey together!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/final.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/final.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://eparkour.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/eparkourio"
+}

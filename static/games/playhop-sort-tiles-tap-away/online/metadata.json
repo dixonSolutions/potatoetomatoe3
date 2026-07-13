@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sort-tiles-tap-away",
+  "name": "Sort Tiles: Tap Away",
+  "author": "Center of Information Technologies",
+  "description": "Play Sort Tiles: Tap Away via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a52fdeaa3b96085e8aa3c8da4d4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a52fdeaa3b96085e8aa3c8da4d4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-385770.games.s3.yandex.net/385770/3ypdq8ujlonbeo8p5q1psrzuoyjkpizi/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 468733,
+  "playhopPageUrl": "https://playhop.com/app/468733",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1408
+}

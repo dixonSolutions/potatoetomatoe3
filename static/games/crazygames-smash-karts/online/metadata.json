@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-smash-karts",
+  "name": "Smash Karts 🏎️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Smash Karts is a 3D multiplayer IO kart battle game. Drive your go-kart, pick up weapons, and blow up other karts to win!",
+  "thumbnail": "https://imgs.crazygames.com/smash-karts_16x9/20260210123937/smash-karts_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/smash-karts_16x9/20260210123937/smash-karts_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/smash-karts/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/smash-karts",
+  "crazygamesSlug": "smash-karts"
+}

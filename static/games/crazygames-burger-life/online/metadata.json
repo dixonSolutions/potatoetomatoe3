@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-burger-life",
+  "name": "Burger Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Burger Life is a fun simulation game where you run your own burger restaurant. Sell burgers to clients, collect payments and tips, clean tables, and make sure seats are always available.",
+  "thumbnail": "https://imgs.crazygames.com/burger-life_16x9/20260220104718/burger-life_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/burger-life_16x9/20260220104718/burger-life_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/burger-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/burger-life",
+  "crazygamesSlug": "burger-life"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-park-the-bus-172254",
+  "name": "Park the Bus",
+  "author": "JustPlay",
+  "description": "Play Park the Bus via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017b0d003d9d079e0710d0d2a4315b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017b0d003d9d079e0710d0d2a4315b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-172254.games.s3.yandex.net/172254/x2ve0lhey2ycgbgiu6048n8y5qv8kt7h/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=172254&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 172254,
+  "playhopPageUrl": "https://playhop.com/app/172254",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 792
+}

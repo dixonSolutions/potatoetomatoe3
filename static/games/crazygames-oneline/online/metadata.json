@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-oneline",
+  "name": "One Line 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "One Line is a casual art drawing game where your mission is to use a single line to protect an innocent man from a series of unfortunate events. From shielding him against heavy rain to fending off aggressive bees and even angry giants, each level presents a new challenge.",
+  "thumbnail": "https://imgs.crazygames.com/oneline_16x9/20251229094327/oneline_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/oneline_16x9/20251229094327/oneline_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/oneline/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/oneline",
+  "crazygamesSlug": "oneline"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zzz-snake",
+  "name": "ZZZ Snake",
+  "author": "Addicting Games",
+  "description": "<p>ZZZ Snake is a cute action game that you can play on your computer or mobile device! Play as a cute and silly snake that wiggles back and forth either up or down the screen. Depending on what’s easier for you, select either Go Up or Go Down to navigate your snake character. Search for blocks that are the same color as your snake to increase your score. As you’re playing, the snake will change colors so be prepared and do not hit any blocks that do not match the color of the snake at that time. Your score is dependent on the numbers each block contains. Click on the trophy icon to drop down the leaderboards and see how you’re doing against your other friends. Play again to rise up the leaderboards and beat your own personal best score. This online game may seem easy but you will see it can get difficult to navigate in between all the blocks as your snake changes colors. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zz.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zz.jpg",
+  "thumbnailStored": "remote",
+  "category": "snake",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/zzz-snake/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/zzz-snake"
+}

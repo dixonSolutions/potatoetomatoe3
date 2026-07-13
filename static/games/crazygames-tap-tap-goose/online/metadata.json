@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tap-tap-goose",
+  "name": "Tap Tap Goose 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tap Tap Goose is an arcade game where you have to help a bird navigate an endless world full of challenges and obstacles. With a simple one-tap mechanic, make your way through ever-changing levels and put your skills to the test.",
+  "thumbnail": "https://imgs.crazygames.com/tap-tap-goose/20230705115546/tap-tap-goose-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tap-tap-goose/20230705115546/tap-tap-goose-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tap-tap-goose/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tap-tap-goose",
+  "crazygamesSlug": "tap-tap-goose"
+}

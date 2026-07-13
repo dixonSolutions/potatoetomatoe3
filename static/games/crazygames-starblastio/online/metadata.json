@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-starblastio",
+  "name": "StarBlast 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "StarBlast is a fun multiplayer arcade shooter set in space. Mine asteroids and fight other players in your own fully upgradable spaceship.",
+  "thumbnail": "/games/crazygames-starblastio/online/assets/crazygames-starblastio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/starblastio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/starblastio",
+  "crazygamesSlug": "starblastio"
+}

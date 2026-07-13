@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-push-push-cat",
+  "name": "push push cat",
+  "author": "CrazyGames",
+  "description": "Play push push cat on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/push-push-cat/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/push-push-cat",
+  "crazygamesSlug": "push-push-cat"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jigsaw-solitaire-488525",
+  "name": "Jigsaw Solitaire",
+  "author": "OpenMyGame",
+  "description": "Play Jigsaw Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019d53a3c4e61142bbc202a232021f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019d53a3c4e61142bbc202a232021f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-488525.games.s3.yandex.net/488525/9ec955lsukzrbhfzisa4a2y0o41wqeed/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=488525&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 488525,
+  "playhopPageUrl": "https://playhop.com/app/488525",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 6607
+}

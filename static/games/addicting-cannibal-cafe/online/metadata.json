@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cannibal-cafe",
+  "name": "Cannibal Cafe",
+  "author": "Addicting Games",
+  "description": "<p>Use your skills a sushi chef to concoct cannibal delicacies. Just don't get the proportions wrong, because too much rice in a hand roll is kind of gross.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/cannibal-cafe_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/cannibal-cafe_sp.png",
+  "thumbnailStored": "remote",
+  "category": "gross-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/cannibal-cafe.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/cannibal-cafe"
+}

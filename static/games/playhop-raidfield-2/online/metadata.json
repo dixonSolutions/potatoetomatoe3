@@ -1,0 +1,17 @@
+{
+  "id": "playhop-raidfield-2",
+  "name": "Raidfield 2",
+  "author": "FavoGames",
+  "description": "Play Raidfield 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a00000197c2eb653fcc23a0f08361306c14/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a00000197c2eb653fcc23a0f08361306c14/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-434358.games.s3.yandex.net/434358/ifa9u9l1idnvxc3tilb50r97cn3lgghs/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=434358&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 434358,
+  "playhopPageUrl": "https://playhop.com/app/434358",
+  "playhopRating": 3,
+  "playhopRatingCount": 86
+}

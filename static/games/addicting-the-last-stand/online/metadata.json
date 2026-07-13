@@ -1,0 +1,14 @@
+{
+  "id": "addicting-the-last-stand",
+  "name": "The Last Stand",
+  "author": "Addicting Games",
+  "description": "<p>The Last Stand is a free zombie shooter game. Make a stand before zombies bite into the meatier part of your skull. Use the daylight hours wisely, and prepare for the hordes who come again at night. Can you make this stand, or will you fall?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/thelaststand.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/thelaststand.jpg",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/thelaststand.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/the-last-stand"
+}

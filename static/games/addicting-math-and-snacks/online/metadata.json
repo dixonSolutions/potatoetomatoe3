@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-and-snacks",
+  "name": "Math And Snacks",
+  "author": "Addicting Games",
+  "description": "<p>Math And Snacks is a free math game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mathandsnacks.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mathandsnacks.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/mathandsnacks/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-and-snacks"
+}

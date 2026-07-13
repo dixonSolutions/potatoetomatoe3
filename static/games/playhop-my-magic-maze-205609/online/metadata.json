@@ -1,0 +1,17 @@
+{
+  "id": "playhop-my-magic-maze-205609",
+  "name": "My magic maze",
+  "author": "elsid.apps",
+  "description": "Play My magic maze via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018519f2f6b73246d590003a3c374c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018519f2f6b73246d590003a3c374c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-205609.games.s3.yandex.net/205609/hsviwz0p90mcfh22elu6eh1ykaim2k3i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=205609&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 205609,
+  "playhopPageUrl": "https://playhop.com/app/205609",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 662
+}

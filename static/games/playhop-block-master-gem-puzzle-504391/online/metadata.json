@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-master-gem-puzzle-504391",
+  "name": "Block Master Gem Puzzle",
+  "author": "EmotGame",
+  "description": "Play Block Master Gem Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019cb6c25732740fa33d74974ff35d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019cb6c25732740fa33d74974ff35d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-504391.games.s3.yandex.net/504391/77vvtdjunfip9yaqh539plmnlbtce4lv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=504391&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 504391,
+  "playhopPageUrl": "https://playhop.com/app/504391",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 254
+}

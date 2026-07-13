@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-soccer-random",
+  "name": "Soccer Random ⚽ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Soccer Random is a two-player pixel-art soccer game with limited controls but unlimited randomness. Players hop and kick on the pitch with just one click, trying to score a goal with limited movement.",
+  "thumbnail": "https://imgs.crazygames.com/games/soccer-random/cover_16x9-1732744645362.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/soccer-random/cover_16x9-1732744645362.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/soccer-random/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/soccer-random",
+  "crazygamesSlug": "soccer-random"
+}

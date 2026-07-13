@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fall-beans",
+  "name": "Fall Beans 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fall Beans (Ultimate Knockdown Guys) is a competitive multiplayer racing game with moving obstacles. Speed your way to the finish line while racing frantically against a crowd of opponents in battle-royale-style gameplay.",
+  "thumbnail": "https://imgs.crazygames.com/fall-beans/20201007171422/fall-beans-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fall-beans/20201007171422/fall-beans-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fall-beans/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fall-beans",
+  "crazygamesSlug": "fall-beans"
+}

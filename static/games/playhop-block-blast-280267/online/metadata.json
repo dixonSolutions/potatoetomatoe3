@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-blast-280267",
+  "name": "Block Blast",
+  "author": "GevKo",
+  "description": "Play Block Blast via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018ce10e56c1623e9a455dfd3f4313/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018ce10e56c1623e9a455dfd3f4313/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-280267.games.s3.yandex.net/280267/wkkc3mmzecxvpqozmiy1ru51duk9v9z3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=280267&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 280267,
+  "playhopPageUrl": "https://playhop.com/app/280267",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 218
+}

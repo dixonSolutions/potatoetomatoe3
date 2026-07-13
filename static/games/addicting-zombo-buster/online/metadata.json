@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombo-buster",
+  "name": "Zombo Buster",
+  "author": "Addicting Games",
+  "description": "<p>What's a landlord's worst nightmare? Zombies. Everyone knows that zombies make horrible tenants. Keep the zombies out of your buildings at all costs - your property values depend on it!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombo-buster_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombo-buster_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombo-buster.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombo-buster"
+}

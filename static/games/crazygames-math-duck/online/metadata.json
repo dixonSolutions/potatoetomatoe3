@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-math-duck",
+  "name": "Math Duck 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Math Duck is a fast, addictive math puzzle platformer game where the clock is counting down to test your gameplay skills as well as your math skills. Your goal is simple: solve the equation, grab the key, and reach the exit before time runs out.",
+  "thumbnail": "https://imgs.crazygames.com/math-duck_16x9/20260217034840/math-duck_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/math-duck_16x9/20260217034840/math-duck_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/math-duck/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/math-duck",
+  "crazygamesSlug": "math-duck"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mole-heist",
+  "name": "Mole Heist 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mole Heist is a fun casual arcade game where you help a friendly mole dig tunnels and find treasure. You can then use the treasure to help the mole buy new furniture for his little mole house!",
+  "thumbnail": "https://imgs.crazygames.com/mole-heist/20220523115009/mole-heist-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mole-heist/20220523115009/mole-heist-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mole-heist/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mole-heist",
+  "crazygamesSlug": "mole-heist"
+}

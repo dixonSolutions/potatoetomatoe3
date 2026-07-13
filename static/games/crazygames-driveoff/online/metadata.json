@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-driveoff",
+  "name": "DriveOff 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mayhem Battle Royale throws you into an arena where chaos reigns and traffic rules are history. Smash through rivals in all-out demolition battles or clash head-on in Face to Face races where only one car survives the collision.",
+  "thumbnail": "https://imgs.crazygames.com/driveoff_16x9/20251107051113/driveoff_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/driveoff_16x9/20251107051113/driveoff_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/driveoff/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/driveoff",
+  "crazygamesSlug": "driveoff"
+}

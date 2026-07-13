@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cube-trap",
+  "name": "Cube Trap",
+  "author": "Addicting Games",
+  "description": "<p>Cube Trap is a puzzle game. Welcome to the Cube Trap, a laser maze game about escaping from the vertical and horizontal cage that imprisons us all. In this fascinating tactical and strategic puzzle game, you are trapped within a maze and the paths are always changing. This is a 2-D top-down game where you can only pass through the walls which are the same color as your cube. You can alter the color of your cube by entering an area through a like-colored wall and using the random color power-up located within to change your color. The power-ups are also worth a different point value.<br />\n<br />\nSo, you'll be trying to maximize your points by staying alive as long as you can and picking up the different power-ups. You will die instantly if you accidentally run into a different colored wall or if you manage to puzzle your way into a corner you can't walk out of without hitting a differently colored wall. Think fast, think ahead, think hard, and think to win. Cube Trap is an easy game with few rules that can quickly turn tragic if you make poor choices: just like real life!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/cubetrapnewscreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/cubetrapnewscreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/cube-trap/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/cube-trap"
+}

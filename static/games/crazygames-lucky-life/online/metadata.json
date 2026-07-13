@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-lucky-life",
+  "name": "Lucky Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Lucky Life is a thrilling platformer survival game similar to Short Life. Traverse the short levels dodging death, and reach the finish line.",
+  "thumbnail": "https://imgs.crazygames.com/games/lucky-life/cover-1586425520503.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/lucky-life/cover-1586425520503.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lucky-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lucky-life",
+  "crazygamesSlug": "lucky-life"
+}

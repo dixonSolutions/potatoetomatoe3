@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-human-resistance",
+  "name": "human resistance",
+  "author": "CrazyGames",
+  "description": "Play human resistance on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/human-resistance/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/human-resistance",
+  "crazygamesSlug": "human-resistance"
+}

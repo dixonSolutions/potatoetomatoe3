@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zombie-cafe",
+  "name": "Zombie Cafe 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zombie Cafe is a quirky simulator that lets you run a restaurant for the undead. You’ll whip up eerie dishes, serve your zombie customers, and grow your creepy café into a thriving empire.",
+  "thumbnail": "https://imgs.crazygames.com/zombie-cafe_16x9/20251014084824/zombie-cafe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zombie-cafe_16x9/20251014084824/zombie-cafe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-cafe/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-cafe",
+  "crazygamesSlug": "zombie-cafe"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-space-flight",
+  "name": "space flight",
+  "author": "CrazyGames",
+  "description": "Play space flight on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-flight/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-flight",
+  "crazygamesSlug": "space-flight"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-baseball",
+  "name": "Baseball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Baseball is a sports game that lets you experience being part of the great American pastime as a batter, all in the comfort of your browser! There are 2 modes available to play, and both of them are just as fun as the other.",
+  "thumbnail": "https://imgs.crazygames.com/games/baseball/cover-1628720458682.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/baseball/cover-1628720458682.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/baseball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/baseball",
+  "crazygamesSlug": "baseball"
+}

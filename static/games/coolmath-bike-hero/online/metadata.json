@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bike-hero",
+  "name": "Bike Hero - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Become a Bike Hero. Hop on your motorcycle and get ready to ride. Stay on the course for as long as you can without falling off.",
+  "thumbnail": "/games/coolmath-bike-hero/online/assets/coolmath-bike-hero.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50217/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bike-hero",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bike-hero"
+}

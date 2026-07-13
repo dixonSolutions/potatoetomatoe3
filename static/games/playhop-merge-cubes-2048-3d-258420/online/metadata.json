@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-cubes-2048-3d-258420",
+  "name": "Merge cubes 2048 3D",
+  "author": "SoManyGamesBusiness",
+  "description": "Play Merge cubes 2048 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000191c87f828271838f5d8fec8043e8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000191c87f828271838f5d8fec8043e8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-258420.games.s3.yandex.net/258420/bi94sx1pwxea2r4236suao95b2dbonje/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=258420&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 258420,
+  "playhopPageUrl": "https://playhop.com/app/258420",
+  "playhopRating": 4,
+  "playhopRatingCount": 1175
+}

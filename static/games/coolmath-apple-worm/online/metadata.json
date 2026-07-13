@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-apple-worm",
+  "name": "Apple Worm - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Come play Apple Worm, where you are playing as a very hungry worm. Eat the apple and reach the portal. Sounds easy? Trust us, it&#039;s harder than it sounds.",
+  "thumbnail": "/games/coolmath-apple-worm/online/assets/coolmath-apple-worm.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49138/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-apple-worm",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-apple-worm"
+}

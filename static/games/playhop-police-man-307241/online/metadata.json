@@ -1,0 +1,17 @@
+{
+  "id": "playhop-police-man-307241",
+  "name": "Police Man",
+  "author": "GMD",
+  "description": "Play Police Man via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018e60bc814ed62e88601557fafa98/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018e60bc814ed62e88601557fafa98/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-307241.games.s3.yandex.net/307241/2rijcgo22fc2egl0xd44dy9qkrh69f5m/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=307241&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 307241,
+  "playhopPageUrl": "https://playhop.com/app/307241",
+  "playhopRating": 4,
+  "playhopRatingCount": 2607
+}

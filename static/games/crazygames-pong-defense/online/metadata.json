@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pong-defense",
+  "name": "pong defense",
+  "author": "CrazyGames",
+  "description": "Play pong defense on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pong-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pong-defense",
+  "crazygamesSlug": "pong-defense"
+}

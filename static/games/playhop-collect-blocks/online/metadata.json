@@ -1,0 +1,17 @@
+{
+  "id": "playhop-collect-blocks",
+  "name": "Collect Blocks",
+  "author": "Pon41kSSS",
+  "description": "Play Collect Blocks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019a9cc83664faaa09b6b77c787808/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019a9cc83664faaa09b6b77c787808/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-478283.games.s3.yandex.net/478283/fquywn28ct7etn2myczm3617b4k1nhsn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=478283&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 478283,
+  "playhopPageUrl": "https://playhop.com/app/478283",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 50
+}

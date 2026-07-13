@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-beaver-builder",
+  "name": "Beaver Builder 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Beaver Builder is a fun casual simulation game where you play as a beaver who needs to build dams to protect your village. It is flooding, and it&#39;s your job to save the day.",
+  "thumbnail": "https://imgs.crazygames.com/beaver-builder_16x9/20231016083932/beaver-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/beaver-builder_16x9/20231016083932/beaver-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/beaver-builder/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/beaver-builder",
+  "crazygamesSlug": "beaver-builder"
+}

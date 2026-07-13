@@ -1,0 +1,17 @@
+{
+  "id": "playhop-big-boom-building-smash",
+  "name": "Big Boom! Building Smash!",
+  "author": "Eccentric Studio",
+  "description": "Play Big Boom! Building Smash! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001936d6460da32ba1a2f34000926c9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001936d6460da32ba1a2f34000926c9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-352468.games.s3.yandex.net/352468/d52syirspehn4ww1uxosgopvg6yhue1i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=352468&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 352468,
+  "playhopPageUrl": "https://playhop.com/app/352468",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 8470
+}

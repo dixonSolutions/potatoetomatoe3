@@ -1,0 +1,17 @@
+{
+  "id": "playhop-escape-the-nightmare-394735",
+  "name": "Escape The Nightmare",
+  "author": "ASG",
+  "description": "Play Escape The Nightmare via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019c71ab739791016accbf1e76a7ef/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019c71ab739791016accbf1e76a7ef/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-394735.games.s3.yandex.net/394735/c6a2ncxhcyz8zj44ertlimdzje712lv0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=394735&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 394735,
+  "playhopPageUrl": "https://playhop.com/app/394735",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 337
+}

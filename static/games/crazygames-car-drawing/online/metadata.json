@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-car-drawing",
+  "name": "car drawing",
+  "author": "CrazyGames",
+  "description": "Play car drawing on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/car-drawing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/car-drawing",
+  "crazygamesSlug": "car-drawing"
+}

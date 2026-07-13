@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-tile-journey",
+  "name": "tile journey",
+  "author": "CrazyGames",
+  "description": "Play tile journey on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tile-journey/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tile-journey",
+  "crazygamesSlug": "tile-journey"
+}

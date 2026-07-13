@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-catch-the-treasure",
+  "name": "Play Catch the Treasure: Get your treasures",
+  "author": "Coolmath Games",
+  "description": "Countless gems and jewels are within reach! Can you get the bowl to the ground without spilling any of the precious treasure?",
+  "thumbnail": "/games/coolmath-catch-the-treasure/online/assets/coolmath-catch-the-treasure.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37964/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-catch-the-treasure",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-catch-the-treasure"
+}

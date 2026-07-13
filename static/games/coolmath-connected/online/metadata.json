@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connected",
+  "name": "Play Connected: No more loose ends | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Each tile has loose ends, and you need to bring them together! Move, rotate, and slide tiles to connect them all. Can you beat all the modes?",
+  "thumbnail": "/games/coolmath-connected/online/assets/coolmath-connected.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/35599/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connected",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connected"
+}

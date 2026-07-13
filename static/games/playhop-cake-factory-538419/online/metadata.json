@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cake-factory-538419",
+  "name": "Cake Factory",
+  "author": "BKBLTV Games",
+  "description": "Play Cake Factory via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019ef3c75d7426e32ff73055ffc5a4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019ef3c75d7426e32ff73055ffc5a4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-538419.games.s3.yandex.net/538419/xl79gpt68ylxd3l5uqydz93byxsyd0qg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=538419&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 538419,
+  "playhopPageUrl": "https://playhop.com/app/538419",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-evolution-2d-lake",
+  "name": "Evolution 2D Lake",
+  "author": "Evolution works",
+  "description": "Play Evolution 2D Lake via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000198dcd35160bed1619b063a89b312/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000198dcd35160bed1619b063a89b312/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-450820.games.s3.yandex.net/450820/xuckbcbyr3s7p6qi260ozubc9d0w8p9e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=450820&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 450820,
+  "playhopPageUrl": "https://playhop.com/app/450820",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 1054
+}

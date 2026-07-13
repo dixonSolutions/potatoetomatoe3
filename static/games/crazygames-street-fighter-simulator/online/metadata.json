@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-street-fighter-simulator",
+  "name": "street fighter simulator",
+  "author": "CrazyGames",
+  "description": "Play street fighter simulator on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/street-fighter-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/street-fighter-simulator",
+  "crazygamesSlug": "street-fighter-simulator"
+}

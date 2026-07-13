@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-return-man-2",
+  "name": "return man 2",
+  "author": "CrazyGames",
+  "description": "Play return man 2 on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-return-man-2/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/return-man-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/return-man-2",
+  "crazygamesSlug": "return-man-2"
+}

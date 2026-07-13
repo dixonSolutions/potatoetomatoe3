@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-punchers",
+  "name": "Punchers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Punchers is a 3D boxing sports action game with ragdoll physics. Use move keys to dodge enemy punches and hit back with random punch combinations.",
+  "thumbnail": "https://imgs.crazygames.com/punchers_16x9/20241223161057/punchers_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/punchers_16x9/20241223161057/punchers_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/punchers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/punchers",
+  "crazygamesSlug": "punchers"
+}

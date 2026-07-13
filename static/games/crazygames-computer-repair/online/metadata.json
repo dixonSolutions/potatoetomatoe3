@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-computer-repair",
+  "name": "Computer Repair 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Computer Repair is a fun casual game where you follow various instructions to fix computers. Complete each task successfully and earn money for the repairs!",
+  "thumbnail": "https://imgs.crazygames.com/computer-repair/20220804184139/computer-repair-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/computer-repair/20220804184139/computer-repair-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/computer-repair/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/computer-repair",
+  "crazygamesSlug": "computer-repair"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombies-vs-penguins",
+  "name": "Zombies Vs Penguins",
+  "author": "Addicting Games",
+  "description": "<p>Use precision shots to eliminate the walking dead with limited ammunition. Everything you ever learned about penguins is useless in this game. However, there are delicious sushi treats that you can grab while battling zombies. Anchovy rolls! Snow Crab sashimi! nom nom nom</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombiesvspenguins_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombiesvspenguins_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombiesvspenguins.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombies-vs-penguins"
+}

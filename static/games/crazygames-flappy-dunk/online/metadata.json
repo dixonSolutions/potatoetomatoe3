@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-flappy-dunk",
+  "name": "Flappy Dunk 🏀 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Flappy Dunk is a casual basketball game where you tap to propel the ball through hoops, earning points and unlocking new balls along the way. The game seamlessly blends simple one-touch controls with a challenging gameplay that&#39;s easy to grasp but hard to master.",
+  "thumbnail": "https://imgs.crazygames.com/flappy-dunk_16x9/20231204133706/flappy-dunk_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/flappy-dunk_16x9/20231204133706/flappy-dunk_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flappy-dunk/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flappy-dunk",
+  "crazygamesSlug": "flappy-dunk"
+}

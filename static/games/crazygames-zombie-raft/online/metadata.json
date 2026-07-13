@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-zombie-raft",
+  "name": "zombie raft",
+  "author": "CrazyGames",
+  "description": "Play zombie raft on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-raft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-raft",
+  "crazygamesSlug": "zombie-raft"
+}

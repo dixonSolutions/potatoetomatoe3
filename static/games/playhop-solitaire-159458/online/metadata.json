@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-159458",
+  "name": "Solitaire",
+  "author": "truelisgames",
+  "description": "Play Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001788220f504480d2dfb0c9e303329/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001788220f504480d2dfb0c9e303329/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-159458.games.s3.yandex.net/159458/uz85lb0rvssygxwbd614nm263yk41mbg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=159458&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 159458,
+  "playhopPageUrl": "https://playhop.com/app/159458",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 5608
+}

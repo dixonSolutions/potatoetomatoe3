@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wasteland-527531",
+  "name": "Wasteland",
+  "author": "Agerasia",
+  "description": "Play Wasteland via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e2d756dae4f7d58d4b2a192c1a4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e2d756dae4f7d58d4b2a192c1a4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-527531.games.s3.yandex.net/527531/xmu1rvj4neb9u7lon8wd1j6t5msmjyil/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=527531&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 527531,
+  "playhopPageUrl": "https://playhop.com/app/527531",
+  "playhopRating": 2.9,
+  "playhopRatingCount": 13
+}

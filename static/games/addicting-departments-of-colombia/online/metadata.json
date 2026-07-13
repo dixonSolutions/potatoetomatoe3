@@ -1,0 +1,14 @@
+{
+  "id": "addicting-departments-of-colombia",
+  "name": "Departments of Colombia",
+  "author": "Addicting Games",
+  "description": "<p>Departments of Columbia is a free geography game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/playgeographycolumbiafinal.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/playgeographycolumbiafinal.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.playgeography.com/games/departments-of-colombia/?embed",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/departments-of-colombia"
+}

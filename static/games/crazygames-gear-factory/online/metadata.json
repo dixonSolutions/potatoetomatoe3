@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gear-factory",
+  "name": "Gear Factory 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gear Factory is an idle and incremental game where you build a coin-generating machine out of interlocking gears. You start with a single spinning center gear on a small grid and grow your factory into a massive, multi-tiered engine of wealth.",
+  "thumbnail": "https://imgs.crazygames.com/gear-factory_16x9/20260706035602/gear-factory_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gear-factory_16x9/20260706035602/gear-factory_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gear-factory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gear-factory",
+  "crazygamesSlug": "gear-factory"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-turkish-draughts",
+  "name": "Turkish draughts",
+  "author": "kirlanik",
+  "description": "Play Turkish draughts via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000194b41a4b4b03a54c05a14e9c221d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000194b41a4b4b03a54c05a14e9c221d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-407362.games.s3.yandex.net/407362/wn3eu6inx7griks54szgkyg3wz39rwtm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=407362&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 407362,
+  "playhopPageUrl": "https://playhop.com/app/407362",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 53
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chat-master-206828",
+  "name": "Chat Master",
+  "author": "OPlay",
+  "description": "Play Chat Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019604fb77a0d8b125717258d00db5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019604fb77a0d8b125717258d00db5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-206828.games.s3.yandex.net/206828/sghi04u0mdm424e192r8a9wojo5661nt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=206828&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 206828,
+  "playhopPageUrl": "https://playhop.com/app/206828",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 28839
+}

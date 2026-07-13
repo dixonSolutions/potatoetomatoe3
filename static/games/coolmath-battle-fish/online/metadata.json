@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-battle-fish",
+  "name": "Battle Fish - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Battle Fish at Cool Math Games: The aquarium has been invaded by hundreds of monster fish. Help the battle fish grow and drive the enemies out in this free online HTML5 game.",
+  "thumbnail": "/games/coolmath-battle-fish/online/assets/coolmath-battle-fish.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/16386/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-battle-fish",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-battle-fish"
+}

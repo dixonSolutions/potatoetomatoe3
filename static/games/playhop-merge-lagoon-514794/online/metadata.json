@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-lagoon-514794",
+  "name": "Merge Lagoon",
+  "author": "Clever Apps Pte. Ltd.",
+  "description": "Play Merge Lagoon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d6e443e5151360f1bc072b1238d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d6e443e5151360f1bc072b1238d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-421676.games.s3.yandex.net/421676/vtqu1uzcopwavn1hbyl0zirgixsi1mbh/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 514794,
+  "playhopPageUrl": "https://playhop.com/app/514794",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 2576
+}

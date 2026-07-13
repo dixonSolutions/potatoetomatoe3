@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-build-survive",
+  "name": "Build & Survive 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Build &amp; Survive is more than just a survival game—it’s an open canvas for your creativity and resourcefulness. Whether you’re battling the wilderness, designing your perfect base, or pushing the limits of your survival skills, the game offers a rewarding and endlessly engaging experience.",
+  "thumbnail": "https://imgs.crazygames.com/build-survive_16x9/20250115091951/build-survive_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/build-survive_16x9/20250115091951/build-survive_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/build-survive/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/build-survive",
+  "crazygamesSlug": "build-survive"
+}

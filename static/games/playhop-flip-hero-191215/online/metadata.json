@@ -1,0 +1,17 @@
+{
+  "id": "playhop-flip-hero-191215",
+  "name": "Flip Hero",
+  "author": "Hihoy Games",
+  "description": "Play Flip Hero via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001817afb59ed944fb2d67914e805e5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001817afb59ed944fb2d67914e805e5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-191215.games.s3.yandex.net/191215/tl9fyknbzy2i5pbd2jq3tmn58fk9wbik/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=191215&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 191215,
+  "playhopPageUrl": "https://playhop.com/app/191215",
+  "playhopRating": 4,
+  "playhopRatingCount": 805
+}

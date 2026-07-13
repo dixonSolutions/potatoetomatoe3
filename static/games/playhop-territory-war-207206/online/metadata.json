@@ -1,0 +1,17 @@
+{
+  "id": "playhop-territory-war-207206",
+  "name": "Territory War",
+  "author": "Muhua.io",
+  "description": "Play Territory War via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000185206877b4307d597d0514507727/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000185206877b4307d597d0514507727/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-207206.games.s3.yandex.net/207206/sc183ijsd7euz1xfa9zlcd3l9o0i6wgs/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=207206&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 207206,
+  "playhopPageUrl": "https://playhop.com/app/207206",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 224
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-astral-crab",
+  "name": "Astral Crab - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "As the Astral Crab, seek enlightenment. Collect the white fragments and avoid the dangers of the universe you try to achieve inner peace.",
+  "thumbnail": "/games/coolmath-astral-crab/online/assets/coolmath-astral-crab.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/43330/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-astral-crab",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-astral-crab"
+}

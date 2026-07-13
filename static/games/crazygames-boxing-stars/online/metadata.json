@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-boxing-stars",
+  "name": "Boxing Stars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Boxing Stars is a 2D fighting game featuring several characters and tournaments to fight in. Choose your fighter and punch, dodge, and block your way to the championship.",
+  "thumbnail": "https://imgs.crazygames.com/games/boxing-stars/cover-1630096555491.jpeg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/boxing-stars/cover-1630096555491.jpeg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/boxing-stars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/boxing-stars",
+  "crazygamesSlug": "boxing-stars"
+}

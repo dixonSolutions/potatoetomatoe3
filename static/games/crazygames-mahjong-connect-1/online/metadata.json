@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mahjong-connect-1",
+  "name": "Mahjong Connect (Legacy) 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mahjong Connect is a mahjong game to match all the tiles to clear the board. Can you beat all the levels?",
+  "thumbnail": "https://imgs.crazygames.com/games/mahjong-connect-1/cover-1653404969294.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/mahjong-connect-1/cover-1653404969294.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-connect-1/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-connect-1",
+  "crazygamesSlug": "mahjong-connect-1"
+}

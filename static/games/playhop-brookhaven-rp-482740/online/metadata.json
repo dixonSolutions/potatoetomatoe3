@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brookhaven-rp-482740",
+  "name": "Brookhaven RP",
+  "author": "RomanFloppy",
+  "description": "Play Brookhaven RP via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b4cc2ea5f631489cda815e4154e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b4cc2ea5f631489cda815e4154e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-482740.games.s3.yandex.net/482740/k9e4c2dn7vhjei5acnxkpogj2es45je7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=482740&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 482740,
+  "playhopPageUrl": "https://playhop.com/app/482740",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 1372
+}

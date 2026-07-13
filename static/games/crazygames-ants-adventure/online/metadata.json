@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ants-adventure",
+  "name": "Ants Adventure 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ants Adventure is a casual game with management elements where you play as the leader of the ants who goes on a journey to colonize the entire universe. Develop your ant colony, gather resources, and buy new assistants, improving their characteristics.",
+  "thumbnail": "https://imgs.crazygames.com/ants-adventure/20230228105837/ants-adventure-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ants-adventure/20230228105837/ants-adventure-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ants-adventure/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ants-adventure",
+  "crazygamesSlug": "ants-adventure"
+}

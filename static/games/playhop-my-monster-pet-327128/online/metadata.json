@@ -1,0 +1,17 @@
+{
+  "id": "playhop-my-monster-pet-327128",
+  "name": "My Monster Pet",
+  "author": "Funtory",
+  "description": "Play My Monster Pet via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000191d26e97e027bbd559ea961ffbf2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000191d26e97e027bbd559ea961ffbf2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-327128.games.s3.yandex.net/327128/l7slqf8r332dw2c0exmuwtu0armrq20b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=327128&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 327128,
+  "playhopPageUrl": "https://playhop.com/app/327128",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 3076
+}

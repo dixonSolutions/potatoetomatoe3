@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-waffle-words",
+  "name": "Waffle Words 🔤 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Waffle Words is a puzzle game ideal for word-game fanatics. This is no edible waffle but the kind whose crevices are filled with letters waiting for hidden words that lie within to be revealed.",
+  "thumbnail": "/games/crazygames-waffle-words/online/assets/crazygames-waffle-words.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/waffle-words/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/waffle-words",
+  "crazygamesSlug": "waffle-words"
+}

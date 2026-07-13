@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gadget-universe",
+  "name": "Gadget Universe 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gadget Universe is an immersive simulation game where you step into the role of a visionary tech mogul. Make strategic business decisions, design the perfect store layout, and keep customers returning for the latest and greatest electronics.",
+  "thumbnail": "https://imgs.crazygames.com/gadget-universe_16x9/20250812041219/gadget-universe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gadget-universe_16x9/20250812041219/gadget-universe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gadget-universe/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gadget-universe",
+  "crazygamesSlug": "gadget-universe"
+}

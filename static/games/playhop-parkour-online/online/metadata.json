@@ -1,0 +1,17 @@
+{
+  "id": "playhop-parkour-online",
+  "name": "Parkour Online",
+  "author": "UT",
+  "description": "Play Parkour Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001978b56d4a5bfdf76a136e52e5635/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001978b56d4a5bfdf76a136e52e5635/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-436884.games.s3.yandex.net/436884/y8qgyl70ynlo2bl2x20d0gfmwp4wr7sj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=436884&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 436884,
+  "playhopPageUrl": "https://playhop.com/app/436884",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 13586
+}

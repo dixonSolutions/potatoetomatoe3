@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connect",
+  "name": "Connect - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Connect at Cool Math Games: Carefully plan your path through the grid. Fill it up with the colored lines and reach all the exits.",
+  "thumbnail": "/games/coolmath-connect/online/assets/coolmath-connect.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25122/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connect",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connect"
+}

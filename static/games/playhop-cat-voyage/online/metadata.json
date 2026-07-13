@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cat-voyage",
+  "name": "Cat Voyage",
+  "author": "eOt.Games",
+  "description": "Play Cat Voyage via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a00000199f2e899e4987985d1e76aa777ff/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a00000199f2e899e4987985d1e76aa777ff/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-454690.games.s3.yandex.net/454690/xawzjsd1n8i93noeedha2carvajjr6gz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=454690&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 454690,
+  "playhopPageUrl": "https://playhop.com/app/454690",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1183
+}

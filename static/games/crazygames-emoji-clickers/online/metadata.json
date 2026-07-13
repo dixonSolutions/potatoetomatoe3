@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-emoji-clickers",
+  "name": "emoji clickers",
+  "author": "CrazyGames",
+  "description": "Play emoji clickers on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/emoji-clickers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/emoji-clickers",
+  "crazygamesSlug": "emoji-clickers"
+}

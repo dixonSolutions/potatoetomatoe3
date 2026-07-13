@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-alarmy",
+  "name": "Alarmy - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Alarmy at Cool Math Games: Alarmy has crash landed on a strange world full of sleeping monsters. Help him wake them up! Clear his path by tapping on blocks to remove or activate them.",
+  "thumbnail": "/games/coolmath-alarmy/online/assets/coolmath-alarmy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/16681/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-alarmy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-alarmy"
+}

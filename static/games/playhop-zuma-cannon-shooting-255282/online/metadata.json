@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zuma-cannon-shooting-255282",
+  "name": "Zuma cannon shooting",
+  "author": "gordeichuktp",
+  "description": "Play Zuma cannon shooting via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018a77ad424dc18117f76635a6c6d3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018a77ad424dc18117f76635a6c6d3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-255282.games.s3.yandex.net/255282/rt2q605ed96c7rm75ofqkcb2wh4krc06/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=255282&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 255282,
+  "playhopPageUrl": "https://playhop.com/app/255282",
+  "playhopRating": 4,
+  "playhopRatingCount": 1854
+}

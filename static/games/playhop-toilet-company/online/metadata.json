@@ -1,0 +1,17 @@
+{
+  "id": "playhop-toilet-company",
+  "name": "Toilet Company",
+  "author": "MEMOLOGIYA",
+  "description": "Play Toilet Company via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018fe9bd411267bf1737db0af92bf2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018fe9bd411267bf1737db0af92bf2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-334864.games.s3.yandex.net/334864/xp1bbggcwx9vx6y0dbr72wirijbhot29/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=334864&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 334864,
+  "playhopPageUrl": "https://playhop.com/app/334864",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 3450
+}

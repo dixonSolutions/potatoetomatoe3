@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pizza-car",
+  "name": "Pizza Car 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pizza Car is a simulation game where you do what it takes to be the city’s ultimate pizza chef on wheels! Get behind the wheel of your pizza car and bring hot, fresh pizzas to hungry customers!",
+  "thumbnail": "https://imgs.crazygames.com/pizza-car_16x9/20250312084044/pizza-car_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pizza-car_16x9/20250312084044/pizza-car_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pizza-car/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pizza-car",
+  "crazygamesSlug": "pizza-car"
+}

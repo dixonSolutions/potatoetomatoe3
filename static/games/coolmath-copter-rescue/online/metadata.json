@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-copter-rescue",
+  "name": "Copter Rescue - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Copter Rescue at Cool Math Games: Warning: You are going to crash! Take control of the chopper and get your friends back on solid ground.",
+  "thumbnail": "/games/coolmath-copter-rescue/online/assets/coolmath-copter-rescue.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23210/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-copter-rescue",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-copter-rescue"
+}

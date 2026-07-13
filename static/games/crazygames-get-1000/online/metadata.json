@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-get-1000",
+  "name": "get 1000",
+  "author": "CrazyGames",
+  "description": "Play get 1000 on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-get-1000/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/get-1000/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/get-1000",
+  "crazygamesSlug": "get-1000"
+}

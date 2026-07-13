@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-cubefield",
+  "name": "Cubefield 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cubefield is a fast-paced endless running game that tests your ability to dodge obstacles at high speed. The challenge evolves as the levels progress, so stay alert and see how far you can travel in this endless field of cubes!",
+  "thumbnail": "/games/crazygames-cubefield/online/assets/crazygames-cubefield.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubefield/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubefield",
+  "crazygamesSlug": "cubefield"
+}

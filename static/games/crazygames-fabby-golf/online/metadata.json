@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fabby-golf",
+  "name": "Fabby Golf! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fabby Golf! is an arcade-style golf 3D game to test your golf skills.",
+  "thumbnail": "https://imgs.crazygames.com/fabby-golf_16x9/20250627100921/fabby-golf_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fabby-golf_16x9/20250627100921/fabby-golf_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fabby-golf/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fabby-golf",
+  "crazygamesSlug": "fabby-golf"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-freezeria",
+  "name": "Papa s Freezeria 🍦 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Manage an ice cream shop in Papa’s Freezeria! Make the perfect sundaes for customers enjoying summer vacation in this classic restaurant management game.",
+  "thumbnail": "/games/crazygames-papas-freezeria/online/assets/crazygames-papas-freezeria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-freezeria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-freezeria",
+  "crazygamesSlug": "papas-freezeria"
+}

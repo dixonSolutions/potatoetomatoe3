@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hidden-objects",
+  "name": "Hidden Objects 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hidden Objects is a puzzle game where the thrill of discovery meets exquisite aesthetics. Delve into beautifully crafted interiors meticulously designed to conceal an array of diverse items.",
+  "thumbnail": "https://imgs.crazygames.com/hidden-objects_16x9/20250505042911/hidden-objects_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hidden-objects_16x9/20250505042911/hidden-objects_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hidden-objects/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hidden-objects",
+  "crazygamesSlug": "hidden-objects"
+}

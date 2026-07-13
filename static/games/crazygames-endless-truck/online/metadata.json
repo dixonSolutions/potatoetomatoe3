@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-endless-truck",
+  "name": "Endless Truck 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Go on an endless truck ride in this fun driving game! Complete missions at each level.",
+  "thumbnail": "/games/crazygames-endless-truck/online/assets/crazygames-endless-truck.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/endless-truck/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/endless-truck",
+  "crazygamesSlug": "endless-truck"
+}

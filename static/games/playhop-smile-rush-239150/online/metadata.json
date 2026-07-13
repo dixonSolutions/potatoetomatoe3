@@ -1,0 +1,17 @@
+{
+  "id": "playhop-smile-rush-239150",
+  "name": "Smile Rush",
+  "author": "Linder",
+  "description": "Play Smile Rush via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018914a82cbd1784de68d8d9757252/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018914a82cbd1784de68d8d9757252/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-239150.games.s3.yandex.net/239150/8fk7tr3d1ym2l2kcizd7eso4b3cyjsdi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=239150&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 239150,
+  "playhopPageUrl": "https://playhop.com/app/239150",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 11386
+}

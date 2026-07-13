@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chat-with-my-teacher",
+  "name": "Chat with my Teacher",
+  "author": "Leonid Zakirov",
+  "description": "Play Chat with my Teacher via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000196810d9b4d5f91f7960df0902e21/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000196810d9b4d5f91f7960df0902e21/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-433158.games.s3.yandex.net/433158/gczxjv1j3ev4mxh8d3tf5mqczabso4qq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=433158&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 433158,
+  "playhopPageUrl": "https://playhop.com/app/433158",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 14363
+}

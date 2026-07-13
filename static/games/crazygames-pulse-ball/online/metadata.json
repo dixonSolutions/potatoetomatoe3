@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pulse-ball",
+  "name": "Pulse Ball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pulse Ball is a neon-lit puzzle game. Slingshot your ball through 100+ challenging levels filled with teleporters, moving platforms, black holes, and hidden traps.",
+  "thumbnail": "https://imgs.crazygames.com/pulse-ball_16x9/20260220072729/pulse-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pulse-ball_16x9/20260220072729/pulse-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pulse-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pulse-ball",
+  "crazygamesSlug": "pulse-ball"
+}

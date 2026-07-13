@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sticklets",
+  "name": "Sticklets",
+  "author": "Addicting Games",
+  "description": "<p>Sticklets is a puzzle game where you must help your characters to get to the portal at the end of each level. This is an online game that tests your cognitive skills. Help the sticklets get through various obstacles like cliffs, mountains, holes, and other dangers. You have the option to use different strategies to get to each challenge. You can use dynamite, build a ladder, build a bridge, float down with an umbrella, or drill through rock. Which tool should you use to get to the next step? On top of figuring out which tool you use, test your math skills to be able to get to the next step of this online game. This puzzle game offers math skills from preschool to the 8th grade. There is counting, addition, algebra, and geometry! Get through all 24 levels of this platform game and beat them all!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/sticklet.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/sticklet.jpg",
+  "thumbnailStored": "remote",
+  "category": "stick-figure-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/sticklets/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/sticklets"
+}

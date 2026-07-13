@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mutant-idle",
+  "name": "Mutant Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mutant Idle is an action game where you play as a professor who creates mutants to fight against the army that has a mutant captive. Defeat them to set the mutants free!",
+  "thumbnail": "https://imgs.crazygames.com/mutant-idle/20230427183217/mutant-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mutant-idle/20230427183217/mutant-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mutant-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mutant-idle",
+  "crazygamesSlug": "mutant-idle"
+}

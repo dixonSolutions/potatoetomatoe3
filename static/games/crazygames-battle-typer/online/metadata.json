@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-battle-typer",
+  "name": "Battle Typer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battle Typer is a casual typing game that caters to both beginners and seasoned typists. Offering an immersive experience, it combines entertainment with education, making it ideal for those looking to enhance their typing skills.",
+  "thumbnail": "https://imgs.crazygames.com/battle-typer_16x9/20240116032538/battle-typer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/battle-typer_16x9/20240116032538/battle-typer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battle-typer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battle-typer",
+  "crazygamesSlug": "battle-typer"
+}

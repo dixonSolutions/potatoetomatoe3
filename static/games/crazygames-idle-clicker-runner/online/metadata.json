@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-clicker-runner",
+  "name": "Idle Clicker Runner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Clicker Runner is a casual game where you build and expand running routes to generate income. Place runners on the track and watch them move along the path, earning money each time they pass through a gate.",
+  "thumbnail": "https://imgs.crazygames.com/idle-clicker-runner_16x9/20260427094024/idle-clicker-runner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-clicker-runner_16x9/20260427094024/idle-clicker-runner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-clicker-runner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-clicker-runner",
+  "crazygamesSlug": "idle-clicker-runner"
+}

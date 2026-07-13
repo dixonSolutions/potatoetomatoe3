@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bloodfang",
+  "name": "Blood Fang 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blood Fang is a fast-paced pixel art survival game where you play as a ferocious lone wolf hunting prey in an endless wilderness.Use quick-time events (QTE) to tear into deer, sheep, foxes, leopards, and bears.",
+  "thumbnail": "https://imgs.crazygames.com/bloodfang_16x9/20260511051855/bloodfang_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bloodfang_16x9/20260511051855/bloodfang_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloodfang/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloodfang",
+  "crazygamesSlug": "bloodfang"
+}

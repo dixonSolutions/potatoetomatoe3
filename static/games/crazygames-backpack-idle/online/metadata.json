@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-backpack-idle",
+  "name": "backpack idle",
+  "author": "CrazyGames",
+  "description": "Play backpack idle on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/backpack-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/backpack-idle",
+  "crazygamesSlug": "backpack-idle"
+}

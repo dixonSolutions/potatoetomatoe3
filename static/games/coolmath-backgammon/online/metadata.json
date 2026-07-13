@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-backgammon",
+  "name": "Play Backgammon Online: Board Game at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Play the classic board game of strategy and chance online. Get all your pieces around the board before your opponent can!",
+  "thumbnail": "/games/coolmath-backgammon/online/assets/coolmath-backgammon.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/21420/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-backgammon",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-backgammon"
+}

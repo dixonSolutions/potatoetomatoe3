@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-drift-hunters",
+  "name": "Drift Hunters 🚗 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Drift Hunters is a free-to-play car 3D game that lets you experience the art of drifting with an impressive range of tuned-up cars and dynamic tracks. Choose from a wide selection of customizable rides, fine-tune your engine, and hit the gas as you glide around corners and perfect your drift technique in 10 unique and challenging locations.",
+  "thumbnail": "/games/crazygames-drift-hunters/online/assets/crazygames-drift-hunters.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drift-hunters/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drift-hunters",
+  "crazygamesSlug": "drift-hunters"
+}

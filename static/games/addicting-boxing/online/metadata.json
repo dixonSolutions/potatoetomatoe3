@@ -1,0 +1,14 @@
+{
+  "id": "addicting-boxing",
+  "name": "Boxing",
+  "author": "Addicting Games",
+  "description": "For some reason, the only two boxers you have a choice of using are either Al Roker or Starr Jones parodies. No real boxers.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/boxing_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/boxing_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/boxing.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/boxing"
+}

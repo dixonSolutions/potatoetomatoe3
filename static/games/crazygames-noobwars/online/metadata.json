@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-noobwars",
+  "name": "NoobWars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "NoobWars is a casual game that you can play with your friend locally. Pay attention to the wind direction and throw a crate at your opponent.",
+  "thumbnail": "https://imgs.crazygames.com/noobwars/20230117154519/noobwars-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/noobwars/20230117154519/noobwars-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/noobwars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/noobwars",
+  "crazygamesSlug": "noobwars"
+}

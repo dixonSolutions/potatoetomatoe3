@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cities-of-babylon",
+  "name": "Cities of Babylon - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cities of Babylon at Cool Math Games: Reimagine the layouts of ancient civilizations by building towns along the rivers. Can you reach the Nile?",
+  "thumbnail": "/games/coolmath-cities-of-babylon/online/assets/coolmath-cities-of-babylon.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24959/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cities-of-babylon",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cities-of-babylon"
+}

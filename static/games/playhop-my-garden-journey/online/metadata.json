@@ -1,0 +1,17 @@
+{
+  "id": "playhop-my-garden-journey",
+  "name": "My Garden Journey",
+  "author": "CyberNex Studios",
+  "description": "Play My Garden Journey via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a5dccbea26fe294243029e5912a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a5dccbea26fe294243029e5912a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-476322.games.s3.yandex.net/476322/tib1ziuyrb8v8v2bfdf5by1krg9nmr2k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=476322&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 476322,
+  "playhopPageUrl": "https://playhop.com/app/476322",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 90
+}

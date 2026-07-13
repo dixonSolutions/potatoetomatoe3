@@ -1,0 +1,17 @@
+{
+  "id": "playhop-loto-178042",
+  "name": "Loto",
+  "author": "VolgaApps",
+  "description": "Play Loto via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019d8c888c32e4525c4d3b01f97c2c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019d8c888c32e4525c4d3b01f97c2c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-178042.games.s3.yandex.net/178042/jlhrgmilq1do32g2jnvy27uzgu81a0de/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=178042&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 178042,
+  "playhopPageUrl": "https://playhop.com/app/178042",
+  "playhopRating": 4,
+  "playhopRatingCount": 7415
+}

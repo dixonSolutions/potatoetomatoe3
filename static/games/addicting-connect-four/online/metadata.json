@@ -1,0 +1,14 @@
+{
+  "id": "addicting-connect-four",
+  "name": "Connect Four",
+  "author": "Addicting Games",
+  "description": "<p>Connect Four is the strategy game that we all know and love. It’s the future now and it makes sense why a classic like Connect Four would need to be updated. Walk into memory lane with this classic game where you play against a computer opponent in connecting, you guess it, 4 pieces before your opponent does. The pieces can be connected vertically, horizontally, and even diagonally. You have the option to play as red or yellow as well as choosing your difficulty level. In harder levels, you still have to connect 4 pieces but you will have more spaces and slots to choose from. If you lose or win, you can play another round against the bots as many times as you want. Challenge yourself by choosing more difficult levels every time you play. The bots aren’t fools so try your best to challenge it and trick it into letting you win this round. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-09-04_171736949.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-09-04_171736949.png",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/connect-four/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/connect-four"
+}

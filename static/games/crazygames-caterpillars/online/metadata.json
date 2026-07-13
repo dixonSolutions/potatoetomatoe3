@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-caterpillars",
+  "name": "Caterpillars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Caterpillars is a charming puzzle game where every level is a journey of color and transformation! Guide playful caterpillars to their matching cocoons, clear the board, and watch them prepare to become beautiful butterflies.",
+  "thumbnail": "https://imgs.crazygames.com/caterpillars_16x9/20250923083809/caterpillars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/caterpillars_16x9/20250923083809/caterpillars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/caterpillars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/caterpillars",
+  "crazygamesSlug": "caterpillars"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mad-medicine-262540",
+  "name": "Mad Medicine",
+  "author": "Lipsar Studio",
+  "description": "Play Mad Medicine via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018b28bbf1b9c99513e7fa8ac7bd05/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018b28bbf1b9c99513e7fa8ac7bd05/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-262540.games.s3.yandex.net/262540/89io2yadq5r5vcqn2hdfyj5eij4yi9up/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=262540&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 262540,
+  "playhopPageUrl": "https://playhop.com/app/262540",
+  "playhopRating": 4,
+  "playhopRatingCount": 2627
+}

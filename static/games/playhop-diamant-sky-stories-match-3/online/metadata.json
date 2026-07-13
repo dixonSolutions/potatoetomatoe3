@@ -1,0 +1,17 @@
+{
+  "id": "playhop-diamant-sky-stories-match-3",
+  "name": "Diamant Sky Stories Match 3",
+  "author": "Sateda Games",
+  "description": "Play Diamant Sky Stories Match 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019ee05d45ddaf9ca5ceaf42c8ee4e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019ee05d45ddaf9ca5ceaf42c8ee4e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-394766.games.s3.yandex.net/394766/5jpbu33r19kxjujp3sfsw3wui7c4b03d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=394766&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 394766,
+  "playhopPageUrl": "https://playhop.com/app/394766",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1250
+}

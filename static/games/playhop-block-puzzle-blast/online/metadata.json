@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-puzzle-blast",
+  "name": "Block Puzzle Blast",
+  "author": "Anna Inc",
+  "description": "Play Block Puzzle Blast via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019aaf91c5a837d27c0d61657b7ddc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019aaf91c5a837d27c0d61657b7ddc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-478932.games.s3.yandex.net/478932/k69emj83a1a0bwt6t3vmjjw34xboolia/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=478932&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 478932,
+  "playhopPageUrl": "https://playhop.com/app/478932",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 47
+}

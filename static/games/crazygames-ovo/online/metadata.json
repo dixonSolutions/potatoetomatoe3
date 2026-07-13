@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ovo",
+  "name": "OvO Game 🏃 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "OvO is a fast-paced platformer where you use precise parkour and free-running skills to complete each level. The levels feature increasingly tricky obstacles, and you’ll need to do various jumps, slides, and dives to avoid them.",
+  "thumbnail": "https://imgs.crazygames.com/games/ovo/cover-1605160387375.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/ovo/cover-1605160387375.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ovo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ovo",
+  "crazygamesSlug": "ovo"
+}

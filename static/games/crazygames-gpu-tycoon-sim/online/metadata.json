@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-gpu-tycoon-sim",
+  "name": "gpu tycoon sim",
+  "author": "CrazyGames",
+  "description": "Play gpu tycoon sim on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gpu-tycoon-sim/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gpu-tycoon-sim",
+  "crazygamesSlug": "gpu-tycoon-sim"
+}

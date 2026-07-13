@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dragon-life-simulator",
+  "name": "Dragon Life Simulator",
+  "author": "CyberGoldfinch",
+  "description": "Play Dragon Life Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199ddc51d55ce2d8d8389591cc909/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199ddc51d55ce2d8d8389591cc909/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-472429.games.s3.yandex.net/472429/cifyy4e56bj0pz7y3ijvtes0odm2z9i5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=472429&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 472429,
+  "playhopPageUrl": "https://playhop.com/app/472429",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 4681
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blcgr",
+  "name": "BLcGR - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "BLcGR at Cool Math Games: The red pixels are chasing you. Master their movements and fake them out! Touch all the green pixels to win.",
+  "thumbnail": "/games/coolmath-blcgr/online/assets/coolmath-blcgr.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22279/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blcgr",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blcgr"
+}

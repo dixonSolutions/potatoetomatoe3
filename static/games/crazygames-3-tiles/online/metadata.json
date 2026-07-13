@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-3-tiles",
+  "name": "3 tiles",
+  "author": "CrazyGames",
+  "description": "Play 3 tiles on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/3-tiles/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/3-tiles",
+  "crazygamesSlug": "3-tiles"
+}

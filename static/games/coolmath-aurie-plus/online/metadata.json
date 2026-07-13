@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-aurie-plus",
+  "name": "Aurie+ - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Aurie+ at Cool Math Games: Run and jump, with a twist! Rotate platforms to make yourself a new route. Grab gems and get to the door safely.",
+  "thumbnail": "/games/coolmath-aurie-plus/online/assets/coolmath-aurie-plus.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32975/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-aurie-plus",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-aurie-plus"
+}

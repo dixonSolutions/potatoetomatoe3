@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-extreme-pamplona",
+  "name": "Extreme Pamplona 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Extreme Pamplona is a fast-paced running game where you have to run as fast as you can, jump over obstacles, and dodge the bulls as they try to catch you. The game has multiple stages set in different locations around the world, each with its own unique obstacles and challenges.",
+  "thumbnail": "/games/crazygames-extreme-pamplona/online/assets/crazygames-extreme-pamplona.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/extreme-pamplona/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/extreme-pamplona",
+  "crazygamesSlug": "extreme-pamplona"
+}

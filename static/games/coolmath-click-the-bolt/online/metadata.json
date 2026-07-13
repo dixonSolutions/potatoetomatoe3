@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-click-the-bolt",
+  "name": "Click the Bolt - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Click the Bolt at Cool Math Games: Help the lost alien get home by clicking the bolts to drop him down the maze. Collect all the candy as you go!",
+  "thumbnail": "/games/coolmath-click-the-bolt/online/assets/coolmath-click-the-bolt.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/86/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-click-the-bolt",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-click-the-bolt"
+}

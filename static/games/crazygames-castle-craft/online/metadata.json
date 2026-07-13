@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-castle-craft",
+  "name": "Castle Craft 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Castle Craft is a mystical adventure puzzle game where you merge resources while looking for Fiona&#x27;s missing husband, Michael, all the while uncovering plenty of mysteries along the way. Begin in a fog-covered land, using ancient keys to explore hidden realms and trace the path of your lost family through different eras.",
+  "thumbnail": "https://imgs.crazygames.com/castle-craft_16x9/20250203045450/castle-craft_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/castle-craft_16x9/20250203045450/castle-craft_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/castle-craft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/castle-craft",
+  "crazygamesSlug": "castle-craft"
+}

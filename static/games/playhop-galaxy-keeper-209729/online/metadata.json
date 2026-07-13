@@ -1,0 +1,17 @@
+{
+  "id": "playhop-galaxy-keeper-209729",
+  "name": "Galaxy Keeper",
+  "author": "BigButton.co",
+  "description": "Play Galaxy Keeper via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001857cd7bff44f67982ee9fe99911e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001857cd7bff44f67982ee9fe99911e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-209729.games.s3.yandex.net/209729/x8f2uqn4bh0ghbkh6098zfvhejidv0qh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=209729&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 209729,
+  "playhopPageUrl": "https://playhop.com/app/209729",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 794
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pc-simulator",
+  "name": "PC SIMULATOR",
+  "author": "L76",
+  "description": "Play PC SIMULATOR via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001901bb69d7c5d80a2e39f251c0d20/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001901bb69d7c5d80a2e39f251c0d20/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-348969.games.s3.yandex.net/348969/9fp0zr35368anotq3ul89mk6qtbeqxhn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=348969&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 348969,
+  "playhopPageUrl": "https://playhop.com/app/348969",
+  "playhopRating": 2.4,
+  "playhopRatingCount": 419
+}

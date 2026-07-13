@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-line-rider",
+  "name": "Line Rider 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Draw a line and ride on it. That&#39;s the premise of Line Rider.",
+  "thumbnail": "/games/crazygames-line-rider/online/assets/crazygames-line-rider.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/line-rider/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/line-rider",
+  "crazygamesSlug": "line-rider"
+}

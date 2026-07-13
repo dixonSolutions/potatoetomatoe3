@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-castle-blocks",
+  "name": "Castle Blocks - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Pick a background and create your ultimate kingdom in Castle Blocks. Check out each building and pick a truly royal aesthetic.",
+  "thumbnail": "/games/coolmath-castle-blocks/online/assets/coolmath-castle-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54226/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-castle-blocks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-castle-blocks"
+}

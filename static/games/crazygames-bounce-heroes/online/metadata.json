@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-bounce-heroes",
+  "name": "bounce heroes",
+  "author": "CrazyGames",
+  "description": "Play bounce heroes on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bounce-heroes/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bounce-heroes",
+  "crazygamesSlug": "bounce-heroes"
+}

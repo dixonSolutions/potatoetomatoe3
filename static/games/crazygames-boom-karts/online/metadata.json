@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-boom-karts",
+  "name": "Boom Karts 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Boom Karts is a high-speed racing game where you face off against rivals in competitions. You’ll drift through wild tracks, launch powerful boosts, and outmaneuver opponents in thrilling races.",
+  "thumbnail": "https://imgs.crazygames.com/boom-karts_16x9/20250522041619/boom-karts_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/boom-karts_16x9/20250522041619/boom-karts_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/boom-karts/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/boom-karts",
+  "crazygamesSlug": "boom-karts"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sniper",
+  "name": "SNIPER 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SNIPER is a third-person shooter with mission-based gameplay. Hostages must be rescued.",
+  "thumbnail": "https://imgs.crazygames.com/games/sniper/cover-1599894619823.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/sniper/cover-1599894619823.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sniper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sniper",
+  "crazygamesSlug": "sniper"
+}

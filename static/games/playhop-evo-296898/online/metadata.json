@@ -1,0 +1,17 @@
+{
+  "id": "playhop-evo-296898",
+  "name": "EVO",
+  "author": "Mad Pixel",
+  "description": "Play EVO via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018dd0eaa4bf98683102f92782c2c1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018dd0eaa4bf98683102f92782c2c1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-296898.games.s3.yandex.net/296898/jy44b4c4qpkhbbzgsltf7q84bthyz2ur/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=296898&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 296898,
+  "playhopPageUrl": "https://playhop.com/app/296898",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 6103
+}

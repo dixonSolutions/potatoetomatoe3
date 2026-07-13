@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-miss-compass-now",
+  "name": "Call Miss Compass now!",
+  "author": "Синний котик",
+  "description": "Play Call Miss Compass now! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a000001934e3c00c304fcf88780879c84d4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a000001934e3c00c304fcf88780879c84d4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-389640.games.s3.yandex.net/389640/rljxl7fpqi6hh4avubiu10uay634uegq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=389640&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 389640,
+  "playhopPageUrl": "https://playhop.com/app/389640",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 2904
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-goose-idle",
+  "name": "Goose Idle",
+  "author": "Addicting Games",
+  "description": "<p>Goose Idle is a free idle game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/goose-idol-game-screen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/goose-idol-game-screen.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.modd.io/play/gooseidle",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/goose-idle"
+}

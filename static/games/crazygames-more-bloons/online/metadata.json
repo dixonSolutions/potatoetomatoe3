@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-more-bloons",
+  "name": "More Bloons 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "More Bloons is an arcade game where you must help this little monkey to pop all the balloons to finish the level. Developer Ninja Kiwi developed More Bloons.",
+  "thumbnail": "https://imgs.crazygames.com/games/more-bloons/cover-1663160311339.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/more-bloons/cover-1663160311339.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/more-bloons/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/more-bloons",
+  "crazygamesSlug": "more-bloons"
+}

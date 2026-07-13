@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-wodr",
+  "name": "WODR 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "WODR is a fresh take on word games, featuring dynamic 3D letters that spill onto your screen. Your challenge is to snap the letters onto a string, shuffle them around, and strategize to solve crossword-style puzzles.",
+  "thumbnail": "https://imgs.crazygames.com/wodr_16x9/20241002075613/wodr_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/wodr_16x9/20241002075613/wodr_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/wodr/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/wodr",
+  "crazygamesSlug": "wodr"
+}

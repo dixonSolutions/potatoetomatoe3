@@ -1,0 +1,17 @@
+{
+  "id": "playhop-squad-brawls-257661",
+  "name": "Squad Brawls",
+  "author": "PKD Studio",
+  "description": "Play Squad Brawls via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019284da71c1e00daf81ced3031377/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019284da71c1e00daf81ced3031377/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-257661.games.s3.yandex.net/257661/k1s0csix1o61g5g1fk24mptr2122fuvq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=257661&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 257661,
+  "playhopPageUrl": "https://playhop.com/app/257661",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 8837
+}

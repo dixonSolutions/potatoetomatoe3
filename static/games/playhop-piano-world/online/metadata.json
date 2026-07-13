@@ -1,0 +1,17 @@
+{
+  "id": "playhop-piano-world",
+  "name": "Piano World",
+  "author": "Rhythm Plus",
+  "description": "Play Piano World via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001970fef07fd10bce75162dacbd1c0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001970fef07fd10bce75162dacbd1c0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-421407.games.s3.yandex.net/421407/5qzlfgl277s2o9zpgvu441zljvp5t305/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=421407&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 421407,
+  "playhopPageUrl": "https://playhop.com/app/421407",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 4255
+}

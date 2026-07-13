@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cars-arena",
+  "name": "Cars Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Race off, enter the arena, and start drifting.Cars Arena is a 3D physics-based game where you and your rivals compete for space on a shrinking platform.",
+  "thumbnail": "https://imgs.crazygames.com/cars-arena_16x9/20260520052524/cars-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cars-arena_16x9/20260520052524/cars-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cars-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cars-arena",
+  "crazygamesSlug": "cars-arena"
+}

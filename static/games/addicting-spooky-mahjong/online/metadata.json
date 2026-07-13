@@ -1,0 +1,14 @@
+{
+  "id": "addicting-spooky-mahjong",
+  "name": "Spooky Mahjong",
+  "author": "Addicting Games",
+  "description": "<p>Spooky Mahjong is a mahjong game created with horror-themed tiles. If you are into creepy stories and scary movies, then you will love this puzzle game. Instead of matching traditional tiles, match tiles with images of monsters. There are ghosts, bats, mummies, devils, and witches on the tiles to match. The tiles are set against eerie background images of cemeteries, abandoned houses, pirate ships, and more. There are 30 levels of this online game for you to play! Each level is timed, and you must complete it on time to advance to the next level. With every game, you will find different patterns that will present their own challenge. If you get stuck, the game will automatically give you hints by highlighting available tiles. If you run out of moves, the game will automatically shuffle to help you out. Submit your high score to see your username at the top of the list!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/spookymahjong.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/spookymahjong.jpg",
+  "thumbnailStored": "remote",
+  "category": "scary-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/spooky-mahjong/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/spooky-mahjong"
+}

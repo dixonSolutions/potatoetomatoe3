@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-slash-royal",
+  "name": "Slash Royal 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Slash Royal is a casual survival game where you fight until you’re the last player standing. Dash around the map securing various weapons to use against your opponents.",
+  "thumbnail": "https://imgs.crazygames.com/games/slash-royal/cover-1655221266157.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/slash-royal/cover-1655221266157.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/slash-royal/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/slash-royal",
+  "crazygamesSlug": "slash-royal"
+}

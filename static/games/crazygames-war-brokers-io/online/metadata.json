@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-war-brokers-io",
+  "name": "War Brokers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "War Brokers is a fast-paced IO shooting FPS game set in a vibrant blocky universe where intense online battles await. You will compete against other players using an extensive arsenal of weapons and vehicles, allowing for diverse combat strategies.",
+  "thumbnail": "/games/crazygames-war-brokers-io/online/assets/crazygames-war-brokers-io.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/war-brokers-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/war-brokers-io",
+  "crazygamesSlug": "war-brokers-io"
+}

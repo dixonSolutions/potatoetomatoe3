@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-instant-play-229667",
+  "name": "Solitaire Instant Play",
+  "author": "FLYING SWAN GAMES LIMITED",
+  "description": "Play Solitaire Instant Play via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018907c18ecd67ae71a09f0230a129/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018907c18ecd67ae71a09f0230a129/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-229667.games.s3.yandex.net/229667/1trdqyvmsqm9jqsssf236rn6x9x11t0f/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=229667&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 229667,
+  "playhopPageUrl": "https://playhop.com/app/229667",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 826
+}

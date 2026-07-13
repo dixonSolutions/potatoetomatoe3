@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-appel",
+  "name": "Appel Game - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Step into the Appel game, the ultimate fruit-collecting adventure. Embark on a quest to gather apples while overcoming a series of challenging levels.",
+  "thumbnail": "/games/coolmath-appel/online/assets/coolmath-appel.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52458/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-appel",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-appel"
+}

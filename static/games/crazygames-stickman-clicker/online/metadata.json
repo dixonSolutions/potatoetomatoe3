@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stickman-clicker",
+  "name": "Stickman Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stickman Clicker is a clicker game where you help a stickman become a billionaire. Tap to earn money, invest in upgrades, and unlock stylish accessories.",
+  "thumbnail": "https://imgs.crazygames.com/stickman-clicker_16x9/20260317051654/stickman-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stickman-clicker_16x9/20260317051654/stickman-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stickman-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stickman-clicker",
+  "crazygamesSlug": "stickman-clicker"
+}

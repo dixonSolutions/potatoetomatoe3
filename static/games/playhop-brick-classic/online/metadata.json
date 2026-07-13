@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brick-classic",
+  "name": "Brick Classic",
+  "author": "Elshad Safarov",
+  "description": "Play Brick Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a00000190c02316e7025b1352a5020bb213/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a00000190c02316e7025b1352a5020bb213/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-358069.games.s3.yandex.net/358069/o8sukm1ia2o8hqz5kybplrxvj2qdezrz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=358069&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 358069,
+  "playhopPageUrl": "https://playhop.com/app/358069",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 141
+}

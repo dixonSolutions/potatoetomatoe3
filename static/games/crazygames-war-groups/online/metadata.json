@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-war-groups",
+  "name": "War Groups 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "War Groups is a strategic war game set in the dangerous and mysterious Zone, where your goal is to capture all sectors and eliminate your enemies. Choose from over 10 unique factions, including stalkers, bandits, military forces, and sectarians, and build your army by collecting powerful artifacts.",
+  "thumbnail": "https://imgs.crazygames.com/war-groups_16x9/20250225042244/war-groups_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/war-groups_16x9/20250225042244/war-groups_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/war-groups/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/war-groups",
+  "crazygamesSlug": "war-groups"
+}

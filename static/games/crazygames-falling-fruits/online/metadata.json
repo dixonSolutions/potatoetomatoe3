@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-falling-fruits",
+  "name": "Falling Fruits 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Falling Fruits is an incremental clicker game where you destroy falling fruit using attack towers. Earn cash from splattering the fruit to buy various upgrades and new towers.",
+  "thumbnail": "https://imgs.crazygames.com/falling-fruits/20210913105405/falling-fruits-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/falling-fruits/20210913105405/falling-fruits-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/falling-fruits/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/falling-fruits",
+  "crazygamesSlug": "falling-fruits"
+}

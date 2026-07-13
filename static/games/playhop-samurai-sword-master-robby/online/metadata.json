@@ -1,0 +1,17 @@
+{
+  "id": "playhop-samurai-sword-master-robby",
+  "name": "Samurai sword master Robby",
+  "author": "sssatoru",
+  "description": "Play Samurai sword master Robby via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001910a5d7f4c2ef194885b69929cf5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001910a5d7f4c2ef194885b69929cf5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-353490.games.s3.yandex.net/353490/6w31lzp1up78c2c51j6ppxj2utgb34e1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=353490&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 353490,
+  "playhopPageUrl": "https://playhop.com/app/353490",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 1800
+}

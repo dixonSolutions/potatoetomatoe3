@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-little-shop",
+  "name": "Little Shop 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Little Shop is a casual management game where you run your bustling store, handling everything from stocking shelves to serving customers. Grow your business by upgrading interiors, expanding space, and adapting to demand.",
+  "thumbnail": "https://imgs.crazygames.com/little-shop_16x9/20250617131418/little-shop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/little-shop_16x9/20250617131418/little-shop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/little-shop/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/little-shop",
+  "crazygamesSlug": "little-shop"
+}

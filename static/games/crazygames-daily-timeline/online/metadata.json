@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-daily-timeline",
+  "name": "Daily Timeline 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Step into the world of Daily Timeline, the ultimate brain game.Every day, you get a fresh pack of 20 unique puzzles to solve at your own pace.",
+  "thumbnail": "https://imgs.crazygames.com/daily-timeline_16x9/20260420094322/daily-timeline_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/daily-timeline_16x9/20260420094322/daily-timeline_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/daily-timeline/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/daily-timeline",
+  "crazygamesSlug": "daily-timeline"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-startup-fever",
+  "name": "StartUp Fever 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "StartUp Fever is a fun idle game where you hire workers, give them projects, collect the cash and grow your business. You will start with the paper business.",
+  "thumbnail": "https://imgs.crazygames.com/startup-fever/20221101185909/startup-fever-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/startup-fever/20221101185909/startup-fever-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/startup-fever/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/startup-fever",
+  "crazygamesSlug": "startup-fever"
+}

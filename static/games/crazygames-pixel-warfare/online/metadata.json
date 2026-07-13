@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-pixel-warfare",
+  "name": "Pixel Warfare 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pixel Warfare is an IO multiplayer shooting game featuring blocky graphics and 8-bit music, offering a retro experience. The fast-paced, tactical gameplay delivers an exciting FPS experience, with various weapons and maps that keep you on your toes.",
+  "thumbnail": "/games/crazygames-pixel-warfare/online/assets/crazygames-pixel-warfare.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixel-warfare/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixel-warfare",
+  "crazygamesSlug": "pixel-warfare"
+}

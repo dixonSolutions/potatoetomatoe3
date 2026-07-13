@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-king",
+  "name": "Color King 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color King is a puzzle game where you move and connect at least 5 of the same-colored balls to make them disappear. You can arrange them horizontally, vertically, or diagonally.",
+  "thumbnail": "https://imgs.crazygames.com/color-king_16x9/20240515035831/color-king_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/color-king_16x9/20240515035831/color-king_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-king/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-king",
+  "crazygamesSlug": "color-king"
+}

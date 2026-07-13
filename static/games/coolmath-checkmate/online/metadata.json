@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-checkmate",
+  "name": "Checkmate – Play the Online Chess Puzzle Game",
+  "author": "Coolmath Games",
+  "description": "Figure out how to Checkmate your opponent with the best moves possible in this online Chess puzzle game. Trap, pin, and corner your opponent&#039;s King.",
+  "thumbnail": "/games/coolmath-checkmate/online/assets/coolmath-checkmate.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50838/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-checkmate",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-checkmate"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-binary",
+  "name": "Play Binary Online: Flip the tiles | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "There are two sides to every tile: blue and black. Flip them over in the right order to match the patterns and light up the stars!",
+  "thumbnail": "/games/coolmath-binary/online/assets/coolmath-binary.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36478/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-binary",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-binary"
+}

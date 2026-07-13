@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tetris-with-physics",
+  "name": "Tetris with Physics 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tetris with Physics is a puzzle game in which you must stack shapes from the sky to create complete rows on the bottom. This is a new version of the classic Tetris game, this time the goal is the same but there will be an added physics function which makes the game even more difficult to master.",
+  "thumbnail": "https://imgs.crazygames.com/tetriswithphysics.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tetriswithphysics.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tetris-with-physics/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tetris-with-physics",
+  "crazygamesSlug": "tetris-with-physics"
+}

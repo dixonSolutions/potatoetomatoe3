@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-adventneon",
+  "name": "Advent NEON 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Advent NEON is a fast-paced hyperactive 2D action platformer that is inspired by classic titles, like Sonic.Punch robot cops while double-dashing and combo-ing them at lightspeed.",
+  "thumbnail": "https://imgs.crazygames.com/adventneon/20210202084011/adventneon-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/adventneon/20210202084011/adventneon-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/adventneon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/adventneon",
+  "crazygamesSlug": "adventneon"
+}

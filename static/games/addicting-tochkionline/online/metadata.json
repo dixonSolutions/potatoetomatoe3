@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tochkionline",
+  "name": "tochki.online",
+  "author": "Addicting Games",
+  "description": "<p>A remake of the famous game slain.io. A multiplayer online game in which you fight monsters and play with other players. Improve your character's characteristics and defeat everyone.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%283%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%283%29.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://tochki.online/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/tochkionline"
+}

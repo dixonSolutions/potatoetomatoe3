@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-launch-idle",
+  "name": "Launch Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Launch idle is an arcade game to launch different objects at a distance and power them up so that they fly further; and the farther the object flies, the more coins you get! You can also play the 3D version.",
+  "thumbnail": "https://imgs.crazygames.com/launch-idle/20220407114637/launch-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/launch-idle/20220407114637/launch-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/launch-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/launch-idle",
+  "crazygamesSlug": "launch-idle"
+}

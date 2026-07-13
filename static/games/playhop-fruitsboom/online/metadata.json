@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fruitsboom",
+  "name": "FruitsBoom!",
+  "author": "PGO",
+  "description": "Play FruitsBoom! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018ffd634e24d281573f006f98f7e9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018ffd634e24d281573f006f98f7e9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-347447.games.s3.yandex.net/347447/3zhaz820suql8xhr7l4nq4vrqurugkuy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=347447&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 347447,
+  "playhopPageUrl": "https://playhop.com/app/347447",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 192
+}

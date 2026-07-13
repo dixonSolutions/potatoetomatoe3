@@ -1,0 +1,14 @@
+{
+  "id": "addicting-save-the-witness",
+  "name": "Save the Witness",
+  "author": "Addicting Games",
+  "description": "One witness, many enemies. Keep your witness alive long enough to testify. And try to keep the collateral damage to a minimum, you gun-happy sniper, you!",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/savethewitness_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/savethewitness_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/savethewitness.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/save-the-witness"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zomgies",
+  "name": "ZOMGies",
+  "author": "Addicting Games",
+  "description": "<p>Why are the zombies in your pajamas? Run barefoot through the streets, blasting the undead as you go. Remember, it's ok to hate zombies. Hate them and shoot them.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zomgies_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zomgies_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zomgies_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zomgies"
+}

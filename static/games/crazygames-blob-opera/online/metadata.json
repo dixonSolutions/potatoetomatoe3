@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blob-opera",
+  "name": "Blob Opera 🎤 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blob Opera is an experimental music game developed by David Li in collaboration with Google Arts &amp; Culture. The game uses a machine learning model trained on real voices to make it easy for anyone to create amazing operatic music!",
+  "thumbnail": "https://imgs.crazygames.com/games/blob-opera/cover-1618230037270.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/blob-opera/cover-1618230037270.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blob-opera/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blob-opera",
+  "crazygamesSlug": "blob-opera"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-poxel-io",
+  "name": "Poxel.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Poxel.io is a, io fast-paced first-person shooter that throws you into intense pixelated battles across diverse maps. Choose from a wide arsenal of weapons, master different game modes, and outplay your rivals to claim the top spot.",
+  "thumbnail": "https://imgs.crazygames.com/poxel-io_16x9/20250422021430/poxel-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/poxel-io_16x9/20250422021430/poxel-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/poxel-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/poxel-io",
+  "crazygamesSlug": "poxel-io"
+}

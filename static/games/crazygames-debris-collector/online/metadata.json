@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-debris-collector",
+  "name": "debris collector",
+  "author": "CrazyGames",
+  "description": "Play debris collector on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/debris-collector/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/debris-collector",
+  "crazygamesSlug": "debris-collector"
+}

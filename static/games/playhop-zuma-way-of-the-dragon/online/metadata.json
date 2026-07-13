@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zuma-way-of-the-dragon",
+  "name": "Zuma way of the dragon",
+  "author": "elsid.apps",
+  "description": "Play Zuma way of the dragon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018fe77b6b63eac888bcd306c5d8d6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018fe77b6b63eac888bcd306c5d8d6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-345025.games.s3.yandex.net/345025/9irzim549ij0j4wg38d9lblgf8ekt33e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=345025&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 345025,
+  "playhopPageUrl": "https://playhop.com/app/345025",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1783
+}

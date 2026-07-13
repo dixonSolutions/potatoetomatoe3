@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-drive-taxi",
+  "name": "Drive Taxi 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Now drive your taxi to pick up all the passengers and deliver them to your destination. Also, pay attention to the other cars on the road.",
+  "thumbnail": "https://imgs.crazygames.com/drive-taxi-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/drive-taxi-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drive-taxi/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drive-taxi",
+  "crazygamesSlug": "drive-taxi"
+}

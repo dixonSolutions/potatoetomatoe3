@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-farming-life",
+  "name": "Farming Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Farming Life is a refreshing game where you begin anew in a quaint town with a small farm. Cultivate your land, sell your harvest at the local market, and strive to become the beloved local farmer with the most thriving farm.",
+  "thumbnail": "https://imgs.crazygames.com/games/farming-life/cover_16x9-1713425613891.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/farming-life/cover_16x9-1713425613891.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/farming-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/farming-life",
+  "crazygamesSlug": "farming-life"
+}

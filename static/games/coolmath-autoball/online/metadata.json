@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-autoball",
+  "name": "Autoball - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Watch the Autoball bounce and score on your ultimate peg blasting board. Place pegs, cannons, and upgrades on the board for the ball to hit.",
+  "thumbnail": "/games/coolmath-autoball/online/assets/coolmath-autoball.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/42406/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-autoball",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-autoball"
+}

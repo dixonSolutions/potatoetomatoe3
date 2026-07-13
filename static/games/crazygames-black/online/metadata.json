@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-black",
+  "name": "black 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Black is another color-based puzzle game for you! Can you make the screen black in all 25 levels?",
+  "thumbnail": "https://imgs.crazygames.com/black.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/black.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/black/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/black",
+  "crazygamesSlug": "black"
+}

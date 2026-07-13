@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-antiban",
+  "name": "Antiban - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Antiban at Cool Math Games: It&#039;s just like Sokoban, but reversed! Pull the blocks backwards and unlock doors to escape the dungeon.",
+  "thumbnail": "/games/coolmath-antiban/online/assets/coolmath-antiban.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25979/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-antiban",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-antiban"
+}

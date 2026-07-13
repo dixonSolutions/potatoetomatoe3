@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombeat-io",
+  "name": "Zombeat-io",
+  "author": "Addicting Games",
+  "description": "<p>Zombeat.io is a simple rock, paper, scissor-style arena game. The zombies have risen and sides are taken. The undead have all fallen into three different factions and each faction is a different color. You'll spawn as a randomly colored zombie and it is your job to hunt down and eradicate all zombies of the color below yours. In case your zombie faction is outnumbered or you are in a tight spot, don't worry. You can easily change factions by seeking out and finding a potion. These potions will allow you to change color from red to green to blue and back again. This way you'll never be at the mercy of an enemy if you don't want to. As you destroy opposing zombies your character will grow. Start off as a cute and spry child zombie and lowly kill your way up the ranks from teen to middle age, all the way until you're. shambling mass of flesh and earth fused together. A giant waking behemoth.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombeater.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombeater.jpg",
+  "thumbnailStored": "remote",
+  "category": "bloody-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://html5.gamedistribution.com/6fe94adb6ad64282a00507fcc6e685d0/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/zombeat-io"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-plug-me-recharged",
+  "name": "Plug Me Recharged 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Plug Me Recharged is a clever puzzle-platformer that turns time itself into part of the challenge. You’ll control a small plug navigating vibrant, trap-filled levels where the timer isn’t just counting down, it’s a physical object you can interact with.",
+  "thumbnail": "https://imgs.crazygames.com/plug-me-recharged_16x9/20251022063206/plug-me-recharged_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/plug-me-recharged_16x9/20251022063206/plug-me-recharged_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/plug-me-recharged/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/plug-me-recharged",
+  "crazygamesSlug": "plug-me-recharged"
+}

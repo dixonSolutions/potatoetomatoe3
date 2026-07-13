@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tenkyu-ball",
+  "name": "Tenkyu Ball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tenkyu Ball is a physics-based puzzle game where you must guide a ball to its target without letting it fall. Use precise timing, clever strategy, and quick reflexes to overcome tricky obstacles.",
+  "thumbnail": "https://imgs.crazygames.com/tenkyu-ball_16x9/20250402160714/tenkyu-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tenkyu-ball_16x9/20250402160714/tenkyu-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tenkyu-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tenkyu-ball",
+  "crazygamesSlug": "tenkyu-ball"
+}

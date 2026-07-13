@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hangman-cfc",
+  "name": "Hangman 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hangman is a puzzle word game that keeps you on your toes. Gameplay is simple: you uncover letters to save a stick figure, and see just how high a score you can get.",
+  "thumbnail": "https://imgs.crazygames.com/hangman-cfc_16x9/20260519090049/hangman-cfc_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hangman-cfc_16x9/20260519090049/hangman-cfc_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hangman-cfc/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hangman-cfc",
+  "crazygamesSlug": "hangman-cfc"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tntcraft",
+  "name": "TNTcraft 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "TNTcraft is a Bomberman-like game in a Minecraft world where your mission is to explode the zombie spawner using TNT. Make a team with an AI or play with your friend locally.",
+  "thumbnail": "https://imgs.crazygames.com/tntcraft/20221123091825/tntcraft-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tntcraft/20221123091825/tntcraft-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tntcraft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tntcraft",
+  "crazygamesSlug": "tntcraft"
+}

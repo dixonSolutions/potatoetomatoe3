@@ -1,0 +1,17 @@
+{
+  "id": "playhop-beast-battle-simulator",
+  "name": "Beast Battle Simulator",
+  "author": "Kozmos Gemes",
+  "description": "Play Beast Battle Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001987f181b9bad25194d38ff38e575/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001987f181b9bad25194d38ff38e575/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-458383.games.s3.yandex.net/458383/k95ni2f227nmjykjp3yycogtfw8g88lo/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=458383&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 458383,
+  "playhopPageUrl": "https://playhop.com/app/458383",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 250
+}

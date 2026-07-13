@@ -1,0 +1,17 @@
+{
+  "id": "playhop-city-minibus-driver-192105",
+  "name": "City Minibus Driver",
+  "author": "RHM Interactive",
+  "description": "Play City Minibus Driver via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000181f2588f269e49964e992730777c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000181f2588f269e49964e992730777c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-192105.games.s3.yandex.net/192105/4rydoiarq33yjl7191ts3grsq7s9pb9j/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=192105&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 192105,
+  "playhopPageUrl": "https://playhop.com/app/192105",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 2723
+}

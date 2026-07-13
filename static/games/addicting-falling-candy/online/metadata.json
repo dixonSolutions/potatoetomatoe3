@@ -1,0 +1,14 @@
+{
+  "id": "addicting-falling-candy",
+  "name": "Falling Candy",
+  "author": "Addicting Games",
+  "description": "<p>Falling Candy is a cute matching game for you to relax and enjoy. Similar to the game of Tetris, instead of boring old blocks, you have adorable and colorful candies to stack. The game is set against a brightly colored background of a witch's home as she waves her wand for every candy that falls down from the sky. Unlike in Tetris, the candies may fall stuck together but will separate to fill up any open spaces. Your objective is to either create a row or column of at least three matching candies. With every match, you’ll gain a point and get closer to your goal. This is an easy online game but still has enough of a challenge to get you addicted. There are 25 levels for you to pass as you climb up the leaderboards. Once you’ve solved all 25 levels, submit your score to see how you rank against other candy stackers!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/buxx.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/buxx.jpg",
+  "thumbnailStored": "remote",
+  "category": "jewel-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/falling-candy/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/falling-candy"
+}

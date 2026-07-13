@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-combine",
+  "name": "Idle Combine 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Combine is an idle game to combine different items to craft a new one. Each combined item gives more income.",
+  "thumbnail": "https://imgs.crazygames.com/idle-combine/20220708153356/idle-combine-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-combine/20220708153356/idle-combine-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-combine/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-combine",
+  "crazygamesSlug": "idle-combine"
+}

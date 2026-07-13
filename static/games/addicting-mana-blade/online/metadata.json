@@ -1,0 +1,14 @@
+{
+  "id": "addicting-mana-blade",
+  "name": "Mana Blade",
+  "author": "Addicting Games",
+  "description": "<p>Mana Blade is a 3D MMORPG in which you fight demons to protect the world. Pick a class, customize your character, and team up with friends to complete missions together.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%282%29.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%282%29.jpg",
+  "thumbnailStored": "remote",
+  "category": "mmo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://manablade.com/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/mmo/mana-blade"
+}

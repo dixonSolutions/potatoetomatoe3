@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-worms-zone",
+  "name": "Worms.Zone 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Worms Zone is an Io arcade game where you join the fight to become the biggest worm. You must eat as much food as possible to grow bigger.",
+  "thumbnail": "https://imgs.crazygames.com/worms-zone_16x9/20241128100948/worms-zone_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/worms-zone_16x9/20241128100948/worms-zone_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/worms-zone/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/worms-zone",
+  "crazygamesSlug": "worms-zone"
+}

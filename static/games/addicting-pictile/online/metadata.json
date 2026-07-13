@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pictile",
+  "name": "Pictile",
+  "author": "Addicting Games",
+  "description": "<p>Pictile is a free puzzle game. Pictile is a super high-octane game of patterns, pictures, and pushing. Pictile will test your ability to recognize a pattern and then re-create it by pushing bricks around a grid. This is way easier than it sounds especially when you consider that it's all timed. Actually, it's not timed. There is a count down, so, it's even worse,. The game will count down as you push squares around and try to match the pattern in the upper left corner. There are different colored squares and they'll start off in chaotic disarray. Your job is to think two moves ahead, three moves ahead, maybe even four moves ahead as you struggle to re-create the pattern exactly as you see it. There is no score, there are no close calls, and you can fail. In this game there is no interpretation, there is no close enough. You either get it right or you get it wrong. Harsh but fair. Also a lot of fun. If you think you can stand the test, that you're better than the rest, or you just wanna chill out and push some squares then Pictile is the game for you.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pictilegame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pictilegame.jpg",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/pictile/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/pictile"
+}

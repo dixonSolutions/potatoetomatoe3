@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-circle-puzzle",
+  "name": "Circle Puzzle - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Twist and turn the circles to get the colors in order in this circle puzzle. Make the colors line up and make each circle whole again.",
+  "thumbnail": "/games/coolmath-circle-puzzle/online/assets/coolmath-circle-puzzle.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51435/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-circle-puzzle",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-circle-puzzle"
+}

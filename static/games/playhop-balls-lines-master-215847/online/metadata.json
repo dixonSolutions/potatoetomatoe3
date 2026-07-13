@@ -1,0 +1,17 @@
+{
+  "id": "playhop-balls-lines-master-215847",
+  "name": "Balls Lines Master",
+  "author": "Алексей Таранов",
+  "description": "Play Balls Lines Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018aacfe342e4e709f75767f4eabd9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018aacfe342e4e709f75767f4eabd9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-215847.games.s3.yandex.net/215847/jzfhj2wkdvtzph9gwedblslcyait856k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=215847&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 215847,
+  "playhopPageUrl": "https://playhop.com/app/215847",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1415
+}

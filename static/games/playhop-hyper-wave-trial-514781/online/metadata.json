@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hyper-wave-trial-514781",
+  "name": "Hyper Wave Challenge",
+  "author": "IceRainWave",
+  "description": "Play Hyper Wave Challenge via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019eaf2962b8299f7ad930bb4ab268/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019eaf2962b8299f7ad930bb4ab268/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-514781.games.s3.yandex.net/514781/k9ssfozt8y44ph0sfxx7padgqm2kmjta/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=514781&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 514781,
+  "playhopPageUrl": "https://playhop.com/app/514781",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 278
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-stabfish2io",
+  "name": "Stabfish2.io",
+  "author": "Addicting Games",
+  "description": "<p>Stabfish2.io is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/stabfishgame2.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/stabfishgame2.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://stabfish2.io?p=iogs",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/stabfish2io"
+}

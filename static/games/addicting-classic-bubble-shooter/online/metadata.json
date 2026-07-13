@@ -1,0 +1,14 @@
+{
+  "id": "addicting-classic-bubble-shooter",
+  "name": "Classic Bubble Shooter",
+  "author": "Addicting Games",
+  "description": "<p>Match the bubbles! Remember that classic arcade game? It's still as relevant and fun as it was back in the day. Clear the board of all the bubbles and try to string together the largest collection of bubbles that you can. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/classic-bubble-shooter.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/classic-bubble-shooter.jpg",
+  "thumbnailStored": "remote",
+  "category": "most-addicting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/classic-bubble-shooter/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/classic-bubble-shooter"
+}

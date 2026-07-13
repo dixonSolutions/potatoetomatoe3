@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hill-masters",
+  "name": "Hill Masters 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hill Masters is a thrilling simulator where you test your driving skills across diverse vehicles, including trucks, buses, and police cars. Navigate rugged terrains and realistic traffic systems while mastering smooth controls and advanced braking techniques.",
+  "thumbnail": "https://imgs.crazygames.com/hill-masters_16x9/20241119045635/hill-masters_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hill-masters_16x9/20241119045635/hill-masters_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hill-masters/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hill-masters",
+  "crazygamesSlug": "hill-masters"
+}

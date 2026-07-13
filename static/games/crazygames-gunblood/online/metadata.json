@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-gunblood",
+  "name": "Gunblood 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "This town isn’t big enough for the two of us, so draw! If you have ever wanted to be a part of a western duel, then look no further than Gunblood!",
+  "thumbnail": "/games/crazygames-gunblood/online/assets/crazygames-gunblood.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gunblood/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gunblood",
+  "crazygamesSlug": "gunblood"
+}

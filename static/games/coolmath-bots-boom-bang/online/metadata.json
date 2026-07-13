@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bots-boom-bang",
+  "name": "Bots Boom Bang - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bots Boom Bang at Cool Math Games: This laboratory was designed for explosions! Find robots with matching patterns and smash them together.",
+  "thumbnail": "/games/coolmath-bots-boom-bang/online/assets/coolmath-bots-boom-bang.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22543/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bots-boom-bang",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bots-boom-bang"
+}

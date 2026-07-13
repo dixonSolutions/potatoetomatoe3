@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mergest-kingdom",
+  "name": "Mergest Kingdom 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mergest Kingdom is a merge puzzle and match-3 game where you create your kingdom by combining items in threes. Match resources to unlock new items, complete quests, and grow your land.",
+  "thumbnail": "https://imgs.crazygames.com/mergest-kingdom_16x9/20251124121228/mergest-kingdom_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mergest-kingdom_16x9/20251124121228/mergest-kingdom_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mergest-kingdom/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mergest-kingdom",
+  "crazygamesSlug": "mergest-kingdom"
+}

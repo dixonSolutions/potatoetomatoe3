@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-snake-io",
+  "name": "Snake io 🐍 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Snake.io is an online io game where you control a snake, striving to survive in a battlefield of other snakes. Consume colorful food to grow larger and defeat rivals to become a formidable forceOur Review“Snake.io is a frenzied battle of the snakes, full of fast-paced fights.",
+  "thumbnail": "https://imgs.crazygames.com/snake-io_16x9/20260302021932/snake-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/snake-io_16x9/20260302021932/snake-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/snake-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/snake-io",
+  "crazygamesSlug": "snake-io"
+}

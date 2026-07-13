@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tiny-ranger",
+  "name": "Tiny Ranger 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tiny Rangers is a top-down action survival game where you guide a ranger through enemy waves, collect experience gems, choose upgrades, summon companions, and defeat stage bosses. Between runs, upgrade your camp, unlock skills, equip gear, and open chests to grow stronger for the next adventure.",
+  "thumbnail": "https://imgs.crazygames.com/tiny-ranger_16x9/20260629034212/tiny-ranger_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tiny-ranger_16x9/20260629034212/tiny-ranger_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tiny-ranger/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tiny-ranger",
+  "crazygamesSlug": "tiny-ranger"
+}

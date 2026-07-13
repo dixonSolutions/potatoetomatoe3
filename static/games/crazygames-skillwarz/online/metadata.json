@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-skillwarz",
+  "name": "SkillWarz 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SkillWarz is a fast-paced first-person shooter offering advanced movement mechanics and diverse game modes like Deathmatch, Gun Game, and Skull Hunt. Navigate through dynamic day and night maps featuring bounce pads, teleports, and battle pickups.",
+  "thumbnail": "https://imgs.crazygames.com/skillwarz_16x9/20260318145302/skillwarz_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/skillwarz_16x9/20260318145302/skillwarz_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/skillwarz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/skillwarz",
+  "crazygamesSlug": "skillwarz"
+}

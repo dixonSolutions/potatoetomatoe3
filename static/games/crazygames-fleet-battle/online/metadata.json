@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fleet-battle",
+  "name": "Fleet Battle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fleet Battle is a dynamic naval combat game that brings the classic Sea Battle to life with a modern twist. Challenge the computer, random opponents, or your friends as you rise through the ranks from Seaman Recruit to Admiral.",
+  "thumbnail": "https://imgs.crazygames.com/fleet-battle_16x9/20240723042222/fleet-battle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fleet-battle_16x9/20240723042222/fleet-battle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fleet-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fleet-battle",
+  "crazygamesSlug": "fleet-battle"
+}

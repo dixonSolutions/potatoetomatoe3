@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-clickermon",
+  "name": "Clickermon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Clickermon is a clicker game where you collect, upgrade, and evolve a monster for battle. Embark on an incredible adventure through a fantastic world of creatures, battling against wild monsters and improving your strength as you progress.",
+  "thumbnail": "https://imgs.crazygames.com/clickermon/20221209135354/clickermon-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/clickermon/20221209135354/clickermon-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clickermon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clickermon",
+  "crazygamesSlug": "clickermon"
+}

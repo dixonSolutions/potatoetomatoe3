@@ -1,0 +1,14 @@
+{
+  "id": "addicting-voxiomio",
+  "name": "Voxiom.io",
+  "author": "Addicting Games",
+  "description": "No description available.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/voxiomgamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/voxiomgamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "survival-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://voxiom.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/voxiomio"
+}

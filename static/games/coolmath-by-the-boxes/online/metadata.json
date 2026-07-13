@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-by-the-boxes",
+  "name": "By the Boxes - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Sort out your fruits by the boxes. Put each fruit in its own box so it can be shipped out without running out of room for other fruits.",
+  "thumbnail": "/games/coolmath-by-the-boxes/online/assets/coolmath-by-the-boxes.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52409/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-by-the-boxes",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-by-the-boxes"
+}

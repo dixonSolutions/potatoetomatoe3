@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tentrix",
+  "name": "TenTrix 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "TenTrix is a fantastic puzzle game set on a 10x10 playing board. The objective is to fit all the pieces together in rows like Tetris, but the pieces don’t fall.",
+  "thumbnail": "/games/crazygames-tentrix/online/assets/crazygames-tentrix.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tentrix/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tentrix",
+  "crazygamesSlug": "tentrix"
+}

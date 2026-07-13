@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-compact-conflict",
+  "name": "Compact Conflict 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Compact Conflict is a risk-like strategy game made by Jakub Wasilewski. Click one of the bullets and select a soldier.",
+  "thumbnail": "/games/crazygames-compact-conflict/online/assets/crazygames-compact-conflict.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/compact-conflict/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/compact-conflict",
+  "crazygamesSlug": "compact-conflict"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-racing-limits",
+  "name": "racing limits",
+  "author": "CrazyGames",
+  "description": "Play racing limits on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/racing-limits/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/racing-limits",
+  "crazygamesSlug": "racing-limits"
+}

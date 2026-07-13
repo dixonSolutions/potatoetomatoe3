@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-junkyard-sim",
+  "name": "junkyard sim",
+  "author": "CrazyGames",
+  "description": "Play junkyard sim on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/junkyard-sim/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/junkyard-sim",
+  "crazygamesSlug": "junkyard-sim"
+}

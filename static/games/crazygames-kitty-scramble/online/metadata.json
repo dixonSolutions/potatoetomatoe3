@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kitty-scramble",
+  "name": "Kitty Scramble: Word Stacks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kitty Scramble is a word puzzle game where you guide a cute kitty to uncover hidden words on the letter-filled board. Enjoy addicting gameplay with numerous challenging puzzles that test your word skills.",
+  "thumbnail": "https://imgs.crazygames.com/kitty-scramble_16x9/20240206053210/kitty-scramble_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kitty-scramble_16x9/20240206053210/kitty-scramble_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kitty-scramble/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kitty-scramble",
+  "crazygamesSlug": "kitty-scramble"
+}

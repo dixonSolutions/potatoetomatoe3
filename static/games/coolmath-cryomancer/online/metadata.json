@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cryomancer",
+  "name": "Cryomancer - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cryomancer at Cool Math Games: Can you survive the freezing winter? Use your ice-creating powers to reach the warm caves.",
+  "thumbnail": "/games/coolmath-cryomancer/online/assets/coolmath-cryomancer.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34084/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cryomancer",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cryomancer"
+}

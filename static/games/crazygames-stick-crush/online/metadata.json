@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stick-crush",
+  "name": "Stick Crush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stick Crush is an exhilarating casual physics game that tests your reactions and skills! Start by revving your car, crashing into obstacles, and launching your stick character into the sky.",
+  "thumbnail": "https://imgs.crazygames.com/stick-crush_16x9/20240807045725/stick-crush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stick-crush_16x9/20240807045725/stick-crush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stick-crush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stick-crush",
+  "crazygamesSlug": "stick-crush"
+}

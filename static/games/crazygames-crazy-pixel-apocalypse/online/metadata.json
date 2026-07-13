@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-crazy-pixel-apocalypse",
+  "name": "Crazy Pixel Apocalypse 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Pixel Apocalypse is an intense FPS game which takes place in a cool blocky world! You can battle other players worldwide either in a team deathmatch or a normal deathmatch.",
+  "thumbnail": "/games/crazygames-crazy-pixel-apocalypse/online/assets/crazygames-crazy-pixel-apocalypse.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-pixel-apocalypse/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-pixel-apocalypse",
+  "crazygamesSlug": "crazy-pixel-apocalypse"
+}

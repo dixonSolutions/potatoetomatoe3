@@ -1,0 +1,14 @@
+{
+  "id": "addicting-squaddio",
+  "name": "Squadd.io",
+  "author": "Addicting Games",
+  "description": "<p>Squadd.io is a free iogame. Welcome to the cube arena, it is a dangerous, edgy world where only the dangerous survive. If you want to take on the world then this is the game for you because you get to customize your character, name them, arm them, and then set them loose in a world full of bots, bombs, laser-guided rockets, and real-live opponents. That is right. In this game you won't just be taking on bots programmed by some nerd, you'll be going toe to toe with the rest of the world. Other people just like you are sitting on their computer and they're playing, learning, iterating their strategy, and taking aim at everything you do. You may be smarter than one of them but are you better than all of them? Do you dare take on the entire world? Well, in Squadd.io you can, you will, and you might end up regretting it to be honest. This is a fun game with tons of upgrades, items, and abilities. Ping your friends and make it personal with a squad of your own.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/squaddio.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/squaddio.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://squadd.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/squaddio"
+}

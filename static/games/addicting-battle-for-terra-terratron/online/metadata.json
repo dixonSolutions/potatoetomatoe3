@@ -1,0 +1,14 @@
+{
+  "id": "addicting-battle-for-terra-terratron",
+  "name": "Battle for Terra: TERRAtron",
+  "author": "Addicting Games",
+  "description": "<p>The Battle for Terra is on.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/battle-for-terra-terratron_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/battle-for-terra-terratron_sp.png",
+  "thumbnailStored": "remote",
+  "category": "flying-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/battleforterraterratron.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/battle-for-terra-terratron"
+}

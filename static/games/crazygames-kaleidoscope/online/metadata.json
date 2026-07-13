@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kaleidoscope",
+  "name": "Kaleidoscope 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kaleidoscope is an online drawing tool to create your own amazing kaleidoscope shows or still images. You can also save and load your project easily!",
+  "thumbnail": "https://imgs.crazygames.com/kaleidoscope/20201111075531/kaleidoscope-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kaleidoscope/20201111075531/kaleidoscope-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kaleidoscope/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kaleidoscope",
+  "crazygamesSlug": "kaleidoscope"
+}

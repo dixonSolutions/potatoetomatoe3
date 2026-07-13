@@ -1,0 +1,17 @@
+{
+  "id": "playhop-escape-from-area-51",
+  "name": "Escape from Area 51",
+  "author": "Vlad1",
+  "description": "Play Escape from Area 51 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000197dfa9003a8d59e52d177a94ebf5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000197dfa9003a8d59e52d177a94ebf5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-452101.games.s3.yandex.net/452101/wln0bzidccziurmowo5yuz9vvnc9oxt7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=452101&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 452101,
+  "playhopPageUrl": "https://playhop.com/app/452101",
+  "playhopRating": 4,
+  "playhopRatingCount": 30
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cs-1",
+  "name": "CS 1",
+  "author": "FPSMaster",
+  "description": "Play CS 1 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001928efdc516efa303323a14cf5eef/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001928efdc516efa303323a14cf5eef/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-362399.games.s3.yandex.net/362399/enx9bop84mhmfhrpun4zab6492vlcbf7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=362399&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 362399,
+  "playhopPageUrl": "https://playhop.com/app/362399",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 17716
+}

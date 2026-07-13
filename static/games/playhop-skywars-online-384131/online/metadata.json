@@ -1,0 +1,17 @@
+{
+  "id": "playhop-skywars-online-384131",
+  "name": "SkyWars Online",
+  "author": "Газон Studio",
+  "description": "Play SkyWars Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019e2804547f6d0de3291c4973100e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019e2804547f6d0de3291c4973100e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-384131.games.s3.yandex.net/384131/puxfbm6s53zpdzcq2c934bowuvwzmj4a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=384131&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 384131,
+  "playhopPageUrl": "https://playhop.com/app/384131",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 1878
+}

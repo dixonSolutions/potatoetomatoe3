@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hex-match-3d-516838",
+  "name": "Hex Match 3D",
+  "author": "rufyk565",
+  "description": "Play Hex Match 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019db0863f388ab569bb4809bba0b6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019db0863f388ab569bb4809bba0b6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-516838.games.s3.yandex.net/516838/tz4lfd65s4onxvgq0b7sm79fkwajkbzv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=516838&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 516838,
+  "playhopPageUrl": "https://playhop.com/app/516838",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

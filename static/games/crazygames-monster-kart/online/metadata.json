@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-monster-kart",
+  "name": "Monster Kart 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Monster Kart is a kart racing game with several unique characters and a plethora of tracks. Reach the end of each track as fast as possible to unlock new karts and climb the leaderboard!",
+  "thumbnail": "https://imgs.crazygames.com/monster-kart/20220426171051/monster-kart-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/monster-kart/20220426171051/monster-kart-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/monster-kart/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/monster-kart",
+  "crazygamesSlug": "monster-kart"
+}

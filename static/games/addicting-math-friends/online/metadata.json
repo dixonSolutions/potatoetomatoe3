@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-friends",
+  "name": "Math Friends",
+  "author": "Addicting Games",
+  "description": "<p>Math Friends is a free Math Game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mathfriendsgames.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mathfriendsgames.jpg",
+  "thumbnailStored": "remote",
+  "category": "obstacle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-friends/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-friends"
+}

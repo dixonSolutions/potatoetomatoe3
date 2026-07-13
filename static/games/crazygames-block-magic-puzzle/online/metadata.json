@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-block-magic-puzzle",
+  "name": "Block Magic Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Block Magic Puzzle is a classic game similar to Tetris with a 10x10 play style. Fill the empty 8x8 tiles with the blocks until it fulls horizontally or vertically and makes them disappear.",
+  "thumbnail": "https://imgs.crazygames.com/block-magic-puzzle_16x9/20231121100740/block-magic-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/block-magic-puzzle_16x9/20231121100740/block-magic-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-magic-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-magic-puzzle",
+  "crazygamesSlug": "block-magic-puzzle"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-3d-cube-2048-181447",
+  "name": "3D Cube 2048",
+  "author": "truelisgames",
+  "description": "Play 3D Cube 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017dcd60e8b0ba76f1a322461f4aba/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017dcd60e8b0ba76f1a322461f4aba/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-181447.games.s3.yandex.net/181447/tv3l6gw70n1h5fips3n4cg321mjntwlg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=181447&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 181447,
+  "playhopPageUrl": "https://playhop.com/app/181447",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 271
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pool-club",
+  "name": "Pool Club 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pocket all stripe and solid balls before the clock runs out. Each pocketed ball adds 50 points and 5 seconds.",
+  "thumbnail": "https://imgs.crazygames.com/games/pool-club/cover-1624014574246.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/pool-club/cover-1624014574246.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pool-club/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pool-club",
+  "crazygamesSlug": "pool-club"
+}

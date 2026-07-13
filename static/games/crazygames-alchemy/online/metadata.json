@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-alchemy",
+  "name": "Alchemy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Alchemy is a puzzle game where you combine two elements to make the third one. Do some experiments to discover them all.",
+  "thumbnail": "https://imgs.crazygames.com/alchemy/20220815155026/alchemy-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/alchemy/20220815155026/alchemy-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/alchemy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/alchemy",
+  "crazygamesSlug": "alchemy"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gas-station-dcp",
+  "name": "Gas Station Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gas Station Simulator is a fast-paced simulation game where you transform a rundown station into a booming fuel empire. Fill up cars quickly to earn cash, expand with new pumps, and hire staff to keep up with demand.",
+  "thumbnail": "https://imgs.crazygames.com/gas-station-dcp_16x9/20260112035938/gas-station-dcp_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gas-station-dcp_16x9/20260112035938/gas-station-dcp_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gas-station-dcp/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gas-station-dcp",
+  "crazygamesSlug": "gas-station-dcp"
+}

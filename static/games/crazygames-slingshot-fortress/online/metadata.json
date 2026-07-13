@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-slingshot-fortress",
+  "name": "slingshot fortress",
+  "author": "CrazyGames",
+  "description": "Play slingshot fortress on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/slingshot-fortress/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/slingshot-fortress",
+  "crazygamesSlug": "slingshot-fortress"
+}

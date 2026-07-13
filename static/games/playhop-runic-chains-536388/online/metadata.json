@@ -1,0 +1,17 @@
+{
+  "id": "playhop-runic-chains-536388",
+  "name": "Runic Chains",
+  "author": "m31",
+  "description": "Play Runic Chains via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019edbd90491c818f6b1fb9b893bce/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019edbd90491c818f6b1fb9b893bce/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-536388.games.s3.yandex.net/536388/6xait3if49ajnltck6cctndbpp0vb7cc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=536388&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 536388,
+  "playhopPageUrl": "https://playhop.com/app/536388",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

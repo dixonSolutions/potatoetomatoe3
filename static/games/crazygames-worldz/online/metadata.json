@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-worldz",
+  "name": "WorldZ 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "WorldZ is a 3D survival game with Minecraft-like elements. In zombie land mode, you need to collect essential things to survive.",
+  "thumbnail": "/games/crazygames-worldz/online/assets/crazygames-worldz.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/worldz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/worldz",
+  "crazygamesSlug": "worldz"
+}

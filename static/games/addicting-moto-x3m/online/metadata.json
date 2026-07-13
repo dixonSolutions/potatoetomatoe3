@@ -1,0 +1,14 @@
+{
+  "id": "addicting-moto-x3m",
+  "name": "Moto X3M",
+  "author": "Addicting Games",
+  "description": "<p>Moto X3M is a free racing game. Do crazy tricks on some very goofy dirtbike tracks!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/moto-x3m_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/moto-x3m_sp.png",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/moto-x3m.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/moto-x3m"
+}

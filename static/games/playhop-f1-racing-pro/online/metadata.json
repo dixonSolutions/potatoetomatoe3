@@ -1,0 +1,17 @@
+{
+  "id": "playhop-f1-racing-pro",
+  "name": "F1 Racing PRO",
+  "author": "RUD Games",
+  "description": "Play F1 Racing PRO via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001962585bede87477bfaffc5cb3ce5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001962585bede87477bfaffc5cb3ce5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-420286.games.s3.yandex.net/420286/i4ql63xa4opr49vnzi6yeh3jw42zty4v/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=420286&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 420286,
+  "playhopPageUrl": "https://playhop.com/app/420286",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 189
+}

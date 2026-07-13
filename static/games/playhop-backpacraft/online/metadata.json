@@ -1,0 +1,17 @@
+{
+  "id": "playhop-backpacraft",
+  "name": "BackpaCraft",
+  "author": "DH",
+  "description": "Play BackpaCraft via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a00000194cda5d62ea0eb66b2b9f8f1bc90/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a00000194cda5d62ea0eb66b2b9f8f1bc90/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-407339.games.s3.yandex.net/407339/g87cmxat95kjwxbr6wyh00557wl39v74/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=407339&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 407339,
+  "playhopPageUrl": "https://playhop.com/app/407339",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 717
+}

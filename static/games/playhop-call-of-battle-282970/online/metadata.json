@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-of-battle-282970",
+  "name": "Call of Battle",
+  "author": "KolesoDobrogo",
+  "description": "Play Call of Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001954bf9fc9339abc6fdbfc0a5b575/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001954bf9fc9339abc6fdbfc0a5b575/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-282970.games.s3.yandex.net/282970/8u0ttylpldjpaqhrm3grkj55wkuza9vu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=282970&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 282970,
+  "playhopPageUrl": "https://playhop.com/app/282970",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 7561
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-space-swarm",
+  "name": "space swarm",
+  "author": "CrazyGames",
+  "description": "Play space swarm on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-swarm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-swarm",
+  "crazygamesSlug": "space-swarm"
+}

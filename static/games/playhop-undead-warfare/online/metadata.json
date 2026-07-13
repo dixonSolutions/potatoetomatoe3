@@ -1,0 +1,17 @@
+{
+  "id": "playhop-undead-warfare",
+  "name": "Undead Warfare",
+  "author": "Otval gaming",
+  "description": "Play Undead Warfare via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a000001905b1bc8780c96046d2213e9de0d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a000001905b1bc8780c96046d2213e9de0d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-342101.games.s3.yandex.net/342101/jz52q1nytficwujg5zgf1jj3c1v94azg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=342101&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 342101,
+  "playhopPageUrl": "https://playhop.com/app/342101",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 674
+}

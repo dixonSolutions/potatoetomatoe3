@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-punch-max",
+  "name": "Punch Max 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Punch Max is a high-energy action game starring Max, a super-powered boxer fighting to reclaim his city from lurking evil. Use Max’s unique stretching punches to strike enemies from a distance as you battle through hideouts packed with traps, gear, and fierce bosses.",
+  "thumbnail": "https://imgs.crazygames.com/punch-max_16x9/20250509081650/punch-max_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/punch-max_16x9/20250509081650/punch-max_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/punch-max/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/punch-max",
+  "crazygamesSlug": "punch-max"
+}

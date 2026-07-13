@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zombie-world",
+  "name": "Zombie World 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zombie World is an intense shooter game where your survival depends on eliminating hordes of zombies. As chaos reigns and security becomes a distant memory, test your courage and skills to shoot down the undead.",
+  "thumbnail": "https://imgs.crazygames.com/games/zombie-world/cover_16x9-1707829959035.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/zombie-world/cover_16x9-1707829959035.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-world/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-world",
+  "crazygamesSlug": "zombie-world"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-olorful-block-puzzle",
+  "name": "Сolorful Block Puzzle",
+  "author": "bee smart games",
+  "description": "Play Сolorful Block Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019266bb85315f019937fe1afe5592/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019266bb85315f019937fe1afe5592/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-329097.games.s3.yandex.net/329097/cl3rzn2i7mdh76vh0ntrscgnbwet2s5d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=329097&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 329097,
+  "playhopPageUrl": "https://playhop.com/app/329097",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 2395
+}

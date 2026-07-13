@@ -1,0 +1,17 @@
+{
+  "id": "playhop-top-driver-2-310403",
+  "name": "Top Driver 2",
+  "author": "Turbocart",
+  "description": "Play Top Driver 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000191517aa6d00e83ecfe873872aede/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000191517aa6d00e83ecfe873872aede/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-310403.games.s3.yandex.net/310403/k9jgj0rppkq4gwdz9gi6kz4kg99fwczd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=310403&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 310403,
+  "playhopPageUrl": "https://playhop.com/app/310403",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1326
+}

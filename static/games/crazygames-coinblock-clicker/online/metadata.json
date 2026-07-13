@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-coinblock-clicker",
+  "name": "CoinBlock Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "CoinBlock Clicker is a clicker game where you just need to click the CoinBlock thousands of times to get some money. Buy some upgrades, various tubes, and also minigames to add a little boost to your income!",
+  "thumbnail": "https://imgs.crazygames.com/coinblock-clicker/20220608160631/coinblock-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/coinblock-clicker/20220608160631/coinblock-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/coinblock-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/coinblock-clicker",
+  "crazygamesSlug": "coinblock-clicker"
+}

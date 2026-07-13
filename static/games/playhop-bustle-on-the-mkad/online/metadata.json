@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bustle-on-the-mkad",
+  "name": "Bustle On The MKAD",
+  "author": "MezzleN Dev",
+  "description": "Play Bustle On The MKAD via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019132a768cd9d30019ddc00e2e8eb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019132a768cd9d30019ddc00e2e8eb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-363771.games.s3.yandex.net/363771/xa4owlf14phvfi20xdcqk3ddi3oz2jhn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=363771&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 363771,
+  "playhopPageUrl": "https://playhop.com/app/363771",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5676
+}

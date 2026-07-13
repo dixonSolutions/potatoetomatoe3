@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-yokai-party",
+  "name": "Yokai Party 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Yokai Party is an idle collection game where you gather playful Yokai and watch them earn coins while you’re away. Form contracts with new Yokai to boost your earnings and grow your parade.",
+  "thumbnail": "https://imgs.crazygames.com/yokai-party_16x9/20250717103054/yokai-party_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/yokai-party_16x9/20250717103054/yokai-party_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/yokai-party/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/yokai-party",
+  "crazygamesSlug": "yokai-party"
+}

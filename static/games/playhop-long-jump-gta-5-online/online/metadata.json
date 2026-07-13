@@ -1,0 +1,17 @@
+{
+  "id": "playhop-long-jump-gta-5-online",
+  "name": "Long Jump: GTA 5 Online",
+  "author": "XXLGameDev",
+  "description": "Play Long Jump: GTA 5 Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001905ea8da86b58ba3714d9f0a9619/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001905ea8da86b58ba3714d9f0a9619/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-350057.games.s3.yandex.net/350057/wskwqgmidlzaa5j3w8iitz5p2t68ogrd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=350057&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 350057,
+  "playhopPageUrl": "https://playhop.com/app/350057",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 5942
+}

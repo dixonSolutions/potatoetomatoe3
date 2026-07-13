@@ -1,0 +1,14 @@
+{
+  "id": "addicting-hex-wars",
+  "name": "Hex Wars",
+  "author": "Addicting Games",
+  "description": "<p>Hex Wars is a free tank game. Welcome to the grid. the hex grid. A hex-based arena of grids, blocks, and tanks. You are but a cube tank that is trying to dominate the hex arena through violence, shooting, and sweet tactical maneuvering. Lead your tank to victory and decimate the opposition with judicious use of your turbo cannon, laser blaster, and iron will to survive. Because Hex Wars is an iogame, that means that you will be up against other players from around the world. A whole arena full of them. There are no teams in this game, there is just you, your blaster, and the inevitable conflict, the moment where you prove one way or another whether or not you're truly the gamer du jour or the gamer du jerk. So, slap into a hex grid in this simple but fun tank game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/neotank.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/neotank.jpg",
+  "thumbnailStored": "remote",
+  "category": "war-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://hexwars.net",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/hex-wars"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-real-warships",
+  "name": "Real Warships 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Real Warships is a 3D naval combat game that puts you at the helm of powerful battleships. Choose from a variety of warships, explore different maps, and master multiple game modes.",
+  "thumbnail": "https://imgs.crazygames.com/real-warships_16x9/20260415052646/real-warships_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/real-warships_16x9/20260415052646/real-warships_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/real-warships/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/real-warships",
+  "crazygamesSlug": "real-warships"
+}

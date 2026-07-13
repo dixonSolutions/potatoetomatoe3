@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-clide",
+  "name": "Clide - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Slide colorful cubes into matching walls in this cozy puzzle game. Use as few moves as possible to earn 3 stars in every level.",
+  "thumbnail": "/games/coolmath-clide/online/assets/coolmath-clide.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52682/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-clide",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-clide"
+}

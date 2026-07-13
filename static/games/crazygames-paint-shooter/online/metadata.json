@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-paint-shooter",
+  "name": "Paint Shooter 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Paint Shooter is an arcade shooting game to shoot as many enemies as you can using your paint gun and make them your ally. At the end of the stage, you must fight the giant guardian of the exit gate to confuse him so that he breaks down the gate and you can get out as soon as possible.",
+  "thumbnail": "https://imgs.crazygames.com/paint-shooter_16x9/20240606072922/paint-shooter_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/paint-shooter_16x9/20240606072922/paint-shooter_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/paint-shooter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/paint-shooter",
+  "crazygamesSlug": "paint-shooter"
+}

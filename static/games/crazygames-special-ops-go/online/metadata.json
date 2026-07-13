@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-special-ops-go",
+  "name": "Special Ops: GO 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Special Ops: FPS PvP War is a modern online FPS built for quick, competitive matches. Lock in your loadout, enter the arena, and prove yourself in intense real-time PvP battles.",
+  "thumbnail": "https://imgs.crazygames.com/special-ops-go_16x9/20260320090852/special-ops-go_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/special-ops-go_16x9/20260320090852/special-ops-go_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/special-ops-go/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/special-ops-go",
+  "crazygamesSlug": "special-ops-go"
+}

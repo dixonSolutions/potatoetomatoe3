@@ -1,0 +1,17 @@
+{
+  "id": "playhop-water-drop-sort",
+  "name": "Water Drop Sort",
+  "author": "Yodomi",
+  "description": "Play Water Drop Sort via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199a7c1e820f0b7829659633bc777/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199a7c1e820f0b7829659633bc777/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-453203.games.s3.yandex.net/453203/nh7ubodkfgzev7lqq9vqvwn3wm30ppq5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=453203&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 453203,
+  "playhopPageUrl": "https://playhop.com/app/453203",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 764
+}

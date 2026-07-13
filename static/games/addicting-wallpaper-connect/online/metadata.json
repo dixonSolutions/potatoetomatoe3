@@ -1,0 +1,14 @@
+{
+  "id": "addicting-wallpaper-connect",
+  "name": "Wallpaper Connect",
+  "author": "Addicting Games",
+  "description": "<p>Wallpaper Connect is a puzzle game where you must match all the tiles to win the game. This online game is set against a generic living room background along with fun music to cheer you along. The game is based on various vintage colors and patterns of wallpaper on tiles that you must match. If you get stuck, each game offers you a limited amount of hints and shuffle to help you solve that level. Use them only when you really need them. You must complete each level in a limited amount of time as well so do not take too long. There are several levels of this game that you can complete. With each level, you can expect a bigger challenge with more tiles being added. When you finish this online game, your score will automatically be submitted to the scoreboards. Go to the main menu and select High Scores to see where you rank against other puzzle players. Play through the levels again to see if you can get a better score. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/WallpaperConnect.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/WallpaperConnect.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/wallpaper-connect/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/wallpaper-connect"
+}

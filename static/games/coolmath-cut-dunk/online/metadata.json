@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cut-dunk",
+  "name": "Play Cut & Dunk: Score some hoops | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "With a basketball on a string, cut it down and hit the ring. You may have more than one ball to dunk. How many baskets can you make in Cut and Dunk?",
+  "thumbnail": "/games/coolmath-cut-dunk/online/assets/coolmath-cut-dunk.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49474/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cut-dunk",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cut-dunk"
+}

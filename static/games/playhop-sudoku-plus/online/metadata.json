@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-plus",
+  "name": "Sudoku Plus",
+  "author": "PoorSoft",
+  "description": "Play Sudoku Plus via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019902950bf74f85131fdef6c30e05/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019902950bf74f85131fdef6c30e05/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-386418.games.s3.yandex.net/386418/dgg91qu1z8d2xwoe441o0uqwgp0l1uqd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=386418&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 386418,
+  "playhopPageUrl": "https://playhop.com/app/386418",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 291
+}

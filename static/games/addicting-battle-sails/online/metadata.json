@@ -1,0 +1,14 @@
+{
+  "id": "addicting-battle-sails",
+  "name": "Battle Sails",
+  "author": "Addicting Games",
+  "description": "<p>Play as one of the four largest European powers during the Golden Age of Piracy in this turn-based strategy game. Can you conquer the Caribbean?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/battle-sails_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/battle-sails_sp.png",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/battle-sails_1.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/battle-sails"
+}

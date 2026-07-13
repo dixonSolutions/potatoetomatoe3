@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-donuteria",
+  "name": "Papa&#x27;s Donuteria 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa’s Donuteria is a casual restaurant game in which you build delicious donuts for customers. Learn how to roll and cut the dough, fry it, and serve the donuts with a variety of sweet and tasty toppings.",
+  "thumbnail": "/games/crazygames-papas-donuteria/online/assets/crazygames-papas-donuteria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-donuteria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-donuteria",
+  "crazygamesSlug": "papas-donuteria"
+}

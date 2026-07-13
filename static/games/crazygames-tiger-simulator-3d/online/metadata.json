@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tiger-simulator-3d",
+  "name": "Tiger Simulator 3D 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tiger Simulator 3D is a simulation game developed by CyberGoldFinch. Experience life as one of nature’s fiercest apex predators.",
+  "thumbnail": "/games/crazygames-tiger-simulator-3d/online/assets/crazygames-tiger-simulator-3d.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tiger-simulator-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tiger-simulator-3d",
+  "crazygamesSlug": "tiger-simulator-3d"
+}

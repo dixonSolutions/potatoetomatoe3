@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ball-drop",
+  "name": "Ball Drop - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Avoid the spikes and make the jumps in Ball Drop. Your timing will need to be on point if you want to make it far in this game.",
+  "thumbnail": "/games/coolmath-ball-drop/online/assets/coolmath-ball-drop.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54249/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ball-drop",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ball-drop"
+}

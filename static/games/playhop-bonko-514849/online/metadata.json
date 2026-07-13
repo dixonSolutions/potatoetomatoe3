@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bonko-514849",
+  "name": "Bonko",
+  "author": "HelloPlay Publishing",
+  "description": "Play Bonko via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019d663d9f3b484c31e6e563fb7561/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019d663d9f3b484c31e6e563fb7561/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-514849.games.s3.yandex.net/514849/id6abkwh7gi29hrs5fkrv6vjwa6r8ke1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=514849&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 514849,
+  "playhopPageUrl": "https://playhop.com/app/514849",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 1067
+}

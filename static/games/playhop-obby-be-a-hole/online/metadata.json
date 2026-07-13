@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-be-a-hole",
+  "name": "Obby: Be a Hole",
+  "author": "Lissnikov Games",
+  "description": "Play Obby: Be a Hole via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a00000198372fb0769e947eafa03fe6a330/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a00000198372fb0769e947eafa03fe6a330/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-441114.games.s3.yandex.net/441114/6qzq111o1trc5altxh3n6862mamcx6gv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=441114&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 441114,
+  "playhopPageUrl": "https://playhop.com/app/441114",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1016
+}

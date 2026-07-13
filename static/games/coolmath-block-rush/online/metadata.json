@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-block-rush",
+  "name": "Play Block Rush Online: Slip and slide | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Slip and slide your way to the treasure chest. Will you risk it and go for the crown first? Heavy is the block who wears the crown!",
+  "thumbnail": "/games/coolmath-block-rush/online/assets/coolmath-block-rush.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36689/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-block-rush",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-block-rush"
+}

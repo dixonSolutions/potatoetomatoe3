@@ -1,0 +1,17 @@
+{
+  "id": "playhop-openxcom-extended",
+  "name": "OpenXcom Extended",
+  "author": "ololoken",
+  "description": "Play OpenXcom Extended via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001981f3eefceda7738f250514e4dfb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001981f3eefceda7738f250514e4dfb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-434414.games.s3.yandex.net/434414/ysz2gzz35l3vlpcx8u9zhajfejub4eln/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=434414&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 434414,
+  "playhopPageUrl": "https://playhop.com/app/434414",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 99
+}

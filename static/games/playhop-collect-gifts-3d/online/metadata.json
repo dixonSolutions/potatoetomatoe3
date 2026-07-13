@@ -1,0 +1,17 @@
+{
+  "id": "playhop-collect-gifts-3d",
+  "name": "Collect gifts 3D",
+  "author": "tzuno",
+  "description": "Play Collect gifts 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000194833aa4bb5a762dfe7808416b3f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000194833aa4bb5a762dfe7808416b3f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-404411.games.s3.yandex.net/404411/t8mv6ozn0e2f7ab9wxs12pmvzb1y6t9w/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=404411&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 404411,
+  "playhopPageUrl": "https://playhop.com/app/404411",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 364
+}

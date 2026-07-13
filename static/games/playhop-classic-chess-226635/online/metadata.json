@@ -1,0 +1,17 @@
+{
+  "id": "playhop-classic-chess-226635",
+  "name": "Classic chess",
+  "author": "kirlanik",
+  "description": "Play Classic chess via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018efbdd0ce6a52825caf31cf55f6d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018efbdd0ce6a52825caf31cf55f6d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-226635.games.s3.yandex.net/226635/q4rhjhd1e7kflr4lz39gj6x4h8iguyo7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=226635&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 226635,
+  "playhopPageUrl": "https://playhop.com/app/226635",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 3886
+}

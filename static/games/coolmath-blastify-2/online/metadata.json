@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blastify-2",
+  "name": "Blastify 2 - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Click on groups of blocks to make them pop in Blastify 2. Use you moves efficiently and pop every balloon to get 3 stars in each level.",
+  "thumbnail": "/games/coolmath-blastify-2/online/assets/coolmath-blastify-2.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54831/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blastify-2",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blastify-2"
+}

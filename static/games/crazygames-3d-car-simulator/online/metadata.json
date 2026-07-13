@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-3d-car-simulator",
+  "name": "3D Car Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "3D Car Simulator is a very fun, fast-paced car driving simulator that allows you to test and show off your driving skills. Choose from one of three maps and select a rally car, a police car or an old car and hit the roads at breakneck speeds!",
+  "thumbnail": "/games/crazygames-3d-car-simulator/online/assets/crazygames-3d-car-simulator.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/3d-car-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/3d-car-simulator",
+  "crazygamesSlug": "3d-car-simulator"
+}

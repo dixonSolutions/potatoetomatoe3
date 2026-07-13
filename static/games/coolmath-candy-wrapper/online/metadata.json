@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-candy-wrapper",
+  "name": "Candy Wrapper - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Candy Wrapper at Cool Math Games: Embark on a retro quest for candy. Jump on bugs and stomp them. Find a pesky one you can&#039;t reach? Fall through the floor to teleport to the ceiling.",
+  "thumbnail": "/games/coolmath-candy-wrapper/online/assets/coolmath-candy-wrapper.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24106/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-candy-wrapper",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-candy-wrapper"
+}

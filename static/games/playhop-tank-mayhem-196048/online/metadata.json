@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tank-mayhem-196048",
+  "name": "Tank Mayhem",
+  "author": "RHM Interactive",
+  "description": "Play Tank Mayhem via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000183142166638e4d5087d7bb8a0797/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000183142166638e4d5087d7bb8a0797/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-196048.games.s3.yandex.net/196048/9b5fqsbeyydv5nixhfmv4x1ads20ci6r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=196048&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 196048,
+  "playhopPageUrl": "https://playhop.com/app/196048",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 339
+}

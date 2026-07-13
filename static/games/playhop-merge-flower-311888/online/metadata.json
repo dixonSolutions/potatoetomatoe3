@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-flower-311888",
+  "name": "Merge Flower",
+  "author": "CocosGame",
+  "description": "Play Merge Flower via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018e83a3e6f54ab1349a188b4b6a64/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018e83a3e6f54ab1349a188b4b6a64/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-311888.games.s3.yandex.net/311888/dkrerrh2s3o2bcb5xc1qh3hr0bosgtvu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=311888&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 311888,
+  "playhopPageUrl": "https://playhop.com/app/311888",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 930
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mobile-run",
+  "name": "mobile run",
+  "author": "CrazyGames",
+  "description": "Play mobile run on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mobile-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mobile-run",
+  "crazygamesSlug": "mobile-run"
+}

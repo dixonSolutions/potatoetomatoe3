@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chess-online-184980",
+  "name": "Chess online",
+  "author": "FTL HK",
+  "description": "Play Chess online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017f3a6f6f8a1b93035bd87da1c087/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017f3a6f6f8a1b93035bd87da1c087/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-184980.games.s3.yandex.net/184980/a4jb28b6vgh28007rt3qyq0q78b1kcbr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=184980&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 184980,
+  "playhopPageUrl": "https://playhop.com/app/184980",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 3145
+}

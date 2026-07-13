@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-crazysteveio",
+  "name": "CrazySteve.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "CrazySteve.io is an awesome multiplayer game based on the iconic Steve from Minecraft. In this game, Steve is holding a blasting competition and each player must work hard to try and be crowned king of the competition.",
+  "thumbnail": "/games/crazygames-crazysteveio/online/assets/crazygames-crazysteveio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazysteveio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazysteveio",
+  "crazygamesSlug": "crazysteveio"
+}

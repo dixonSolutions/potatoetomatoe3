@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-napoleon-s-square",
+  "name": "Solitaire Napoleon's Square",
+  "author": "SDK.Red",
+  "description": "Play Solitaire Napoleon's Square via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000191a221930d7064d7fe5eb2ed56c2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000191a221930d7064d7fe5eb2ed56c2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-369144.games.s3.yandex.net/369144/iz3cnrghbb9kve6arqs7jjt0q9wxe3u1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=369144&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 369144,
+  "playhopPageUrl": "https://playhop.com/app/369144",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 647
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-classic-233403",
+  "name": "Sudoku Classic",
+  "author": "Famobi-Dev",
+  "description": "Play Sudoku Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001886cbd5808ec4d8ece3588019697/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001886cbd5808ec4d8ece3588019697/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-233403.games.s3.yandex.net/233403/r9dbfc89ssdiuafhwprolx2snrk5u3ya/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=233403&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 233403,
+  "playhopPageUrl": "https://playhop.com/app/233403",
+  "playhopRating": 4,
+  "playhopRatingCount": 379
+}

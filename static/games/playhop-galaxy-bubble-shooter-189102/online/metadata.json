@@ -1,0 +1,17 @@
+{
+  "id": "playhop-galaxy-bubble-shooter-189102",
+  "name": "Galaxy Bubble Shooter",
+  "author": "GamesJS",
+  "description": "Play Galaxy Bubble Shooter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000180b0c06c8447fed61073807bff8c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000180b0c06c8447fed61073807bff8c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-189102.games.s3.yandex.net/189102/ufbs0lpajvdy28jp2huqio436fy5sa29/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=189102&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 189102,
+  "playhopPageUrl": "https://playhop.com/app/189102",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 353
+}

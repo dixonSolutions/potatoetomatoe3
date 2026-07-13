@@ -1,0 +1,14 @@
+{
+  "id": "addicting-mahjong-battle",
+  "name": "Mahjong Battle",
+  "author": "Addicting Games",
+  "description": "<p>Mahjong Battle is a puzzle game where you play against a computer bot. Instead of playing peacefully on your own like other mahjong games, this online version requires you to play against an opponent. Play quickly but efficiently. To gain a better score, match open tiles with higher values. Your objective is to get the most points at the end of the game and to pass the level. To keep track of your score, you will find this and the level in the right-hand panel. There are 3 levels of this puzzle game for you to defeat. At the end of each game, submit your score to see if you were good enough to land on the top players’ list. If you lose the level, you will have to start all over again. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mahjongbattle.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mahjongbattle.jpg",
+  "thumbnailStored": "remote",
+  "category": "mahjong-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/mahjong-battle/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/mahjong-battle"
+}

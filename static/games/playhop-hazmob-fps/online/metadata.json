@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hazmob-fps",
+  "name": "Hazmob FPS",
+  "author": "GamePush",
+  "description": "Play Hazmob FPS via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000194fe886939daa780f79acdd4a550/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000194fe886939daa780f79acdd4a550/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-492460.games.s3.yandex.net/492460/0pfcbruspesd3rjuwtqshjf27k0nq04d/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 411095,
+  "playhopPageUrl": "https://playhop.com/app/411095",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 25187
+}

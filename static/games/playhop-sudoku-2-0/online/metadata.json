@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-2-0",
+  "name": "Sudoku 2.0",
+  "author": "truelisgames",
+  "description": "Play Sudoku 2.0 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a2b5f2014301485e83b8e3610dc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a2b5f2014301485e83b8e3610dc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-393138.games.s3.yandex.net/393138/u0ko1ltudmgumtu4n9otdqkw7qhrzc1x/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=393138&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 393138,
+  "playhopPageUrl": "https://playhop.com/app/393138",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 2248
+}

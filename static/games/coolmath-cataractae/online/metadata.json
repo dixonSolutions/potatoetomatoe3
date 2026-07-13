@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cataractae",
+  "name": "Cataractae - Play it online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The water system is failing in Cataractae... Only you can deliver the purifying gem. Jump and float your way up the mountain to save the land.",
+  "thumbnail": "/games/coolmath-cataractae/online/assets/coolmath-cataractae.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37514/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cataractae",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cataractae"
+}

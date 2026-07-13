@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sketchy-towers",
+  "name": "Sketchy Towers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sketchy Towers is a unique twist on the classic Tetris game where the goal is to stack blocks to build a towering structure without letting it topple. The challenge intensifies as you try to prevent your tower from collapsing.",
+  "thumbnail": "https://imgs.crazygames.com/sketchy-towers_16x9/20240812075713/sketchy-towers_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sketchy-towers_16x9/20240812075713/sketchy-towers_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sketchy-towers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sketchy-towers",
+  "crazygamesSlug": "sketchy-towers"
+}

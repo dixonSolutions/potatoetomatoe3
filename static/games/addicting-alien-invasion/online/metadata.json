@@ -1,0 +1,14 @@
+{
+  "id": "addicting-alien-invasion",
+  "name": "Alien Invasion",
+  "author": "Addicting Games",
+  "description": "The president has sent you to destroy the dying alien race trying to land on Earth. Shoot the UFO's down before the aliens have a chance to take over.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Alien-Invasion.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Alien-Invasion.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/alieninvasion_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/alien-invasion"
+}

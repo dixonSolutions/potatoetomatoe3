@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-brain-teaser",
+  "name": "Brain Teaser 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Brain Teaser tests your thinking by providing a set of questions. You need to think out of the box if you don&#39;t want to get tricked.",
+  "thumbnail": "https://imgs.crazygames.com/brain-teaser-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/brain-teaser-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/brain-teaser/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/brain-teaser",
+  "crazygamesSlug": "brain-teaser"
+}

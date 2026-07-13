@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-age-of-heroes",
+  "name": "Age of Heroes 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Welcome to Age of Heroes, a world where heroes are born, armies march through eras, and every battle decides the fate of an empire.Lead an army, build fortresses, and guide your warriors to victory in epic battles spanning from ancient times to the future.",
+  "thumbnail": "https://imgs.crazygames.com/age-of-heroes_16x9/20260626021704/age-of-heroes_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/age-of-heroes_16x9/20260626021704/age-of-heroes_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/age-of-heroes/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/age-of-heroes",
+  "crazygamesSlug": "age-of-heroes"
+}

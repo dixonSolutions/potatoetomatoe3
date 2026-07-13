@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crazy-mechs",
+  "name": "Crazy Mechs 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Mechs is a fast-paced battle game that allows you to customize your own mecha and battle your way to the top. Win and collect parts and weapons and create a super cool and powerful mecha!",
+  "thumbnail": "https://imgs.crazygames.com/crazy-mechs_16x9/20240523044004/crazy-mechs_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/crazy-mechs_16x9/20240523044004/crazy-mechs_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-mechs/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-mechs",
+  "crazygamesSlug": "crazy-mechs"
+}

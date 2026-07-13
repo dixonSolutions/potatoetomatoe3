@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-ping-pong-chaos",
+  "name": "Ping Pong Chaos 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ping Pong Chaos is a chaotic 2-player game from the developer of Rooftop Snipers! Get ready to enter a crazy world and play insane ping pong matches against the computer or against your friends!",
+  "thumbnail": "/games/crazygames-ping-pong-chaos/online/assets/crazygames-ping-pong-chaos.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ping-pong-chaos/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ping-pong-chaos",
+  "crazygamesSlug": "ping-pong-chaos"
+}

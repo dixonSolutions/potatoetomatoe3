@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-water-jam",
+  "name": "Water Jam 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Water Jam is an addictive color-sorting puzzle game that challenges your strategy and problem-solving skills. Your task is simple: pour and sort colored water into the correct tubes, ensuring that each color matches perfectly.",
+  "thumbnail": "https://imgs.crazygames.com/water-jam_16x9/20241030064748/water-jam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/water-jam_16x9/20241030064748/water-jam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/water-jam/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/water-jam",
+  "crazygamesSlug": "water-jam"
+}

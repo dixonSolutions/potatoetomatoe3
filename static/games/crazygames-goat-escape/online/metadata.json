@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-goat-escape",
+  "name": "Goat Escape! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Three goats, one epic escape! Stack and split to slip past hazards, collect stars and conquer colorful runs!",
+  "thumbnail": "https://imgs.crazygames.com/goat-escape_16x9/20260224082517/goat-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/goat-escape_16x9/20260224082517/goat-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/goat-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/goat-escape",
+  "crazygamesSlug": "goat-escape"
+}

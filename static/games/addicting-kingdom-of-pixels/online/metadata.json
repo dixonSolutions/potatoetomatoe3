@@ -1,0 +1,14 @@
+{
+  "id": "addicting-kingdom-of-pixels",
+  "name": "Kingdom Of Pixels",
+  "author": "Addicting Games",
+  "description": "<p>League of Pixels is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/kingdomofpixels.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/kingdomofpixels.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://leagueofpixels.eu",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/kingdom-of-pixels"
+}

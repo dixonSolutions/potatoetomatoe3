@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mahjong-big",
+  "name": "mahjong big",
+  "author": "CrazyGames",
+  "description": "Play mahjong big on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-big/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-big",
+  "crazygamesSlug": "mahjong-big"
+}

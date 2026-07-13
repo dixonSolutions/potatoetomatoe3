@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-happy-burger",
+  "name": "Happy Burger 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Happy Burger is a lighthearted simulation where you join a quirky new company and master the art of burger-making. Step into the kitchen, work with your team, and turn simple ingredients into tasty creations.",
+  "thumbnail": "https://imgs.crazygames.com/happy-burger_16x9/20250820052259/happy-burger_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/happy-burger_16x9/20250820052259/happy-burger_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/happy-burger/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/happy-burger",
+  "crazygamesSlug": "happy-burger"
+}

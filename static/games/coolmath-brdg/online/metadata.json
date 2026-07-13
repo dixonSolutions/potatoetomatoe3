@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-brdg",
+  "name": "BRDG - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "BRDG at Cool Math Games: Building bridges made easy! Push the oddly shaped blocks to travel between platforms.",
+  "thumbnail": "/games/coolmath-brdg/online/assets/coolmath-brdg.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32933/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-brdg",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-brdg"
+}

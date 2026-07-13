@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-plinko-rpu",
+  "name": "PLINKO! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "PLINKO! is a deeply satisfying idle game where chunky cartoon balls bounce through a triangle of glowing pegs and land in vibrant buckets that level up the more you hit them.",
+  "thumbnail": "https://imgs.crazygames.com/plinko-rpu_16x9/20260512071211/plinko-rpu_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/plinko-rpu_16x9/20260512071211/plinko-rpu_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/plinko-rpu/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/plinko-rpu",
+  "crazygamesSlug": "plinko-rpu"
+}

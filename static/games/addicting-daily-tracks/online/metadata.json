@@ -1,0 +1,14 @@
+{
+  "id": "addicting-daily-tracks",
+  "name": "Daily Tracks",
+  "author": "Addicting Games",
+  "description": "<p>Daily Tracks is a daily challenge where your objective is to create a track based on the hints given. This is an online daily game that will help train your mind without driving you crazy. This is a unique puzzle game where you must create a track that matches the number on the grid. The track must also start and end on the indicated tiles.  Depending on what you’re feeling like you have the options of selecting either easy or hard. From each level, you have the option of selecting from 6x6, 8x8, 10X10, and 15x15. Tune in every day for a different puzzle to solve and to get your day started or to unwind from a difficult day. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-05-09_123304235.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-05-09_123304235.png",
+  "thumbnailStored": "remote",
+  "category": "daily-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/daily-tracks/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/daily-tracks"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-27-304060",
+  "name": "Solitaire 27",
+  "author": "bee smart games",
+  "description": "Play Solitaire 27 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018e615a119175d7cf239ff2426765/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018e615a119175d7cf239ff2426765/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-304060.games.s3.yandex.net/304060/1w59xxl0eue2jzhjpy8w0c4r2eao1p5s/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=304060&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 304060,
+  "playhopPageUrl": "https://playhop.com/app/304060",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 342
+}

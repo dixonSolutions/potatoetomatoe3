@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-songpop-go",
+  "name": "SongPop GO 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SongPop GO is a music trivia game for all generations.Enjoy a wide variety of music collections, including Top Hits, classic rock songs, legendary country favorites, iconic rap and hip-hop tracks, and much more.",
+  "thumbnail": "https://imgs.crazygames.com/songpop-go_16x9/20260512042333/songpop-go_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/songpop-go_16x9/20260512042333/songpop-go_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/songpop-go/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/songpop-go",
+  "crazygamesSlug": "songpop-go"
+}

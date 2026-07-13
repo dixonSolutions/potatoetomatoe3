@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-teeth-runner",
+  "name": "Teeth Runner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Teeth Runner is an arcade game to brush the teeth of humans, zombies, vampires, and muchachos. They all require different ingredients to be used for their teeth, so be careful and pick the right toothpaste for them!",
+  "thumbnail": "https://imgs.crazygames.com/teeth-runner_16x9/20231129025606/teeth-runner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/teeth-runner_16x9/20231129025606/teeth-runner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/teeth-runner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/teeth-runner",
+  "crazygamesSlug": "teeth-runner"
+}

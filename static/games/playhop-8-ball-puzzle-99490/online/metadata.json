@@ -1,0 +1,17 @@
+{
+  "id": "playhop-8-ball-puzzle-99490",
+  "name": "8 Ball Puzzle",
+  "author": "truelisgames",
+  "description": "Play 8 Ball Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000170c37b0fd77e016f730ebf8ce04f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000170c37b0fd77e016f730ebf8ce04f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-99490.games.s3.yandex.net/99490/cm5zgbzrl5f307jnt5ggvqewr0gd5ucj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=99490&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 99490,
+  "playhopPageUrl": "https://playhop.com/app/99490",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 427
+}

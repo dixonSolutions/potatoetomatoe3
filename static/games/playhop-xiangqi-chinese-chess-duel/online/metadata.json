@@ -1,0 +1,17 @@
+{
+  "id": "playhop-xiangqi-chinese-chess-duel",
+  "name": "Xiangqi: Chinese chess, duel",
+  "author": "kirlanik",
+  "description": "Play Xiangqi: Chinese chess, duel via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a000001967e46ff433b3f2b1555876379fd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a000001967e46ff433b3f2b1555876379fd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-433347.games.s3.yandex.net/433347/6i2kopv536aoiwvh22f4f0m7cude5yxt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=433347&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 433347,
+  "playhopPageUrl": "https://playhop.com/app/433347",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 19
+}

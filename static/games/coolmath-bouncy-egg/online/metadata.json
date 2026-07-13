@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bouncy-egg",
+  "name": "Bouncy Egg - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bounce the Bouncy Egg into the basket! Avoid TNT and dangerous gaps so the egg doesn&#039;t get hurt. Can you get the egg to the basket without it cracking?",
+  "thumbnail": "/games/coolmath-bouncy-egg/online/assets/coolmath-bouncy-egg.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/42839/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bouncy-egg",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bouncy-egg"
+}

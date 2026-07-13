@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-3-pandas",
+  "name": "3 Pandas - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "3 Pandas at Cool Math Games: These three panda brothers have been captured by poachers! Help them escape and make it home safely.",
+  "thumbnail": "/games/coolmath-3-pandas/online/assets/coolmath-3-pandas.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/40213/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-3-pandas",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-3-pandas"
+}

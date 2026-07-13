@@ -1,0 +1,14 @@
+{
+  "id": "addicting-burger-tycoon",
+  "name": "Burger Tycoon",
+  "author": "Addicting Games",
+  "description": "<p>Burger Tycoon is a free resource management game. In the strategy/management game, Burger Tycoon, build your own fast-food burger empire from the ground up and then give the hungry people just what they want, nice and juicy hamburgers. With as many fast food places there are in the world, you’d think that creating your own would be as easy as, well, a hamburger—boy would you be mistaken. To succeed, you have to successfully manage every step of the process, from the cow to the counter, as well as the company itself. Lose too much money and go too far into the red, and you’ll go bankrupt, and it’s game over. Succeed, and you’ll become nothing short of a Burger Tycoon.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/burgertycoon_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/burgertycoon_sp.png",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/burgertycoon_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/burger-tycoon"
+}

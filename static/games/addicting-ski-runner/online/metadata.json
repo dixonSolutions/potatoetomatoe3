@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ski-runner",
+  "name": "Ski Runner",
+  "author": "Addicting Games",
+  "description": "<p>Ski Runner is a free avoider game. What, downhill skiing isn't enough for you? OK, eat the pills for major points. Just don't let the hallucinations distract you. Ten levels of mind-bending alpine action await. Strap in, baby!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/skirunner_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/skirunner_sp.png",
+  "thumbnailStored": "remote",
+  "category": "racing-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/skirunner.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/ski-runner"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idlegun",
+  "name": "Idle Gun 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Gun is an idle clicker game where you earn coins for each shot discharged from a gun. You unlock more guns and various upgrades to speed up your earnings as you level up.",
+  "thumbnail": "https://imgs.crazygames.com/idlegun/20220420165343/idlegun-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idlegun/20220420165343/idlegun-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idlegun/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idlegun",
+  "crazygamesSlug": "idlegun"
+}

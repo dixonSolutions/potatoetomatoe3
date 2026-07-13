@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-world-cup-penalty",
+  "name": "World Cup Penalty 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "World Cup Penalty is a sports game in which you play as one of the world&#39;s soccer teams in a penalty shot match. You are given 5 chances to shoot, and 5 chances to block an opponent&#39;s shot, alternating between each other.",
+  "thumbnail": "/games/crazygames-world-cup-penalty/online/assets/crazygames-world-cup-penalty.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/world-cup-penalty/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/world-cup-penalty",
+  "crazygamesSlug": "world-cup-penalty"
+}

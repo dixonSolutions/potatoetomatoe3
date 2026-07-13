@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-brick-breaker",
+  "name": "Brick Breaker - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Brick Breaker is a classic high-paced game of brick-smashing action. Grab power-ups and extra lives before they fall. Can you set a new high score?",
+  "thumbnail": "/games/coolmath-brick-breaker/online/assets/coolmath-brick-breaker.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32428/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-brick-breaker",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-brick-breaker"
+}

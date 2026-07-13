@@ -1,0 +1,14 @@
+{
+  "id": "addicting-arch-rivals",
+  "name": "Arch Rivals",
+  "author": "Addicting Games",
+  "description": "<p>Oh Hai! Wish your archery game was rounder and funnier? Here you goes! Eliminate clowns, earn fantastic badges. Two player mode, too!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/archrivals_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/archrivals_sp.png",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/archrivals.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/arch-rivals"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-differences-online",
+  "name": "Differences online",
+  "author": "АИ ТЕХНОЛОДЖИС",
+  "description": "Play Differences online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019813f9eccfa444d35aa159ac6709/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019813f9eccfa444d35aa159ac6709/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-165389.games.s3.yandex.net/165389/x49sjl8az4mtd7jy2na8ouk6glpa6im8/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 440867,
+  "playhopPageUrl": "https://playhop.com/app/440867",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 948
+}

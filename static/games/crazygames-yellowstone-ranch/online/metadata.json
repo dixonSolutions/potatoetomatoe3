@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-yellowstone-ranch",
+  "name": "Yellowstone Ranch 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Yellowstone Ranch is a captivating farming game where you manage your cow farm, milk your cows, and sell fresh milk. Guide your cows to the milking area, drive away the wolf, expand and upgrade your farm.",
+  "thumbnail": "https://imgs.crazygames.com/yellowstone-ranch/20230530044758/yellowstone-ranch-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/yellowstone-ranch/20230530044758/yellowstone-ranch-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/yellowstone-ranch/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/yellowstone-ranch",
+  "crazygamesSlug": "yellowstone-ranch"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-colour-rush",
+  "name": "Colour Rush - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "How do you find an invisible wall? Throw paint at it. Run, jump and splat your way to the finish before you run out of paint in Colour Rush.",
+  "thumbnail": "/games/coolmath-colour-rush/online/assets/coolmath-colour-rush.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23114/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-colour-rush",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-colour-rush"
+}

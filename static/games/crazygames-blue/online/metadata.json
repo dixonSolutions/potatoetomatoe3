@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blue",
+  "name": "blue 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "After Yellow, Red, and Black, now you got Blue, another puzzle game for you! Can you make the screen blue in all 25 levels?",
+  "thumbnail": "https://imgs.crazygames.com/games/blue/thumb-1567694323445.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/blue/thumb-1567694323445.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blue/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blue",
+  "crazygamesSlug": "blue"
+}

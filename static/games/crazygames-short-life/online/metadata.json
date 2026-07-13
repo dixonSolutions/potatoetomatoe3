@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-short-life",
+  "name": "Short Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Short Life is a fun physics platform game with a unique twist. In the game, you control a ragdoll and attempt to guide him through 16 levels.",
+  "thumbnail": "/games/crazygames-short-life/online/assets/crazygames-short-life.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/short-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/short-life",
+  "crazygamesSlug": "short-life"
+}

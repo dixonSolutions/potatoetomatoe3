@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-tile-mine",
+  "name": "tile mine",
+  "author": "CrazyGames",
+  "description": "Play tile mine on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tile-mine/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tile-mine",
+  "crazygamesSlug": "tile-mine"
+}

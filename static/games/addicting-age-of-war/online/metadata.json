@@ -1,0 +1,14 @@
+{
+  "id": "addicting-age-of-war",
+  "name": "Age of War",
+  "author": "Addicting Games",
+  "description": "<p>Age of War is an epic, classic strategy game. Advance through the ages in a struggle to destroy your enemy’s base before they can destroy yours in this real-time strategy game. Spawn units that are sent to the enemy base, as your opponent does the same to you. You’ll meet in the middle of the map, and the tug of war begins. Earn gold and experience for each unit you defeat, and then use that gold to spawn even more units, or build towers to protect your base. Earn enough experience, and you’ll be able to advance to the next age, upgrading your units, your base, and your towers. There are five ages to advance through. Make your way to all of them, or see if you can defeat your opponent sooner rather than later.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/age-of-war.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/age-of-war.jpg",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/ageofwar/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/age-of-war"
+}

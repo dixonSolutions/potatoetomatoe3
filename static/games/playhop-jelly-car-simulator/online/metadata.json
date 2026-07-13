@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jelly-car-simulator",
+  "name": "Jelly Car Simulator",
+  "author": "Antar Games",
+  "description": "Play Jelly Car Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019310e08acdedb928ef3e4cfd363a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019310e08acdedb928ef3e4cfd363a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-383730.games.s3.yandex.net/383730/x9fmy0wcybj18db6oww1ujdmnw1ufrdb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=383730&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 383730,
+  "playhopPageUrl": "https://playhop.com/app/383730",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 169
+}

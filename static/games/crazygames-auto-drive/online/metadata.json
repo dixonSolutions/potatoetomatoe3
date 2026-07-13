@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-auto-drive",
+  "name": "Auto Drive 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Auto Drive is a racing game in which the cars can shoot each other. Win races and earn money to buy performance upgrades and to attach different weapons.",
+  "thumbnail": "https://imgs.crazygames.com/auto-drive_16x9/20250613031042/auto-drive_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/auto-drive_16x9/20250613031042/auto-drive_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/auto-drive/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/auto-drive",
+  "crazygamesSlug": "auto-drive"
+}

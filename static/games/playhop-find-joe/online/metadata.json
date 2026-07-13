@@ -1,0 +1,17 @@
+{
+  "id": "playhop-find-joe",
+  "name": "Find Joe",
+  "author": "Mobiloids",
+  "description": "Play Find Joe via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001963e52c39522a578137d42614f9a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001963e52c39522a578137d42614f9a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-407716.games.s3.yandex.net/407716/4l2xz5y8pyx6okkcy9bggt1u2bq0fora/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=407716&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 407716,
+  "playhopPageUrl": "https://playhop.com/app/407716",
+  "playhopRating": 4,
+  "playhopRatingCount": 1055
+}

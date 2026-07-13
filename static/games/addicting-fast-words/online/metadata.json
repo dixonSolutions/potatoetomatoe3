@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fast-words",
+  "name": "Fast Words",
+  "author": "Addicting Games",
+  "description": "<p>Fast words is a free word game. Tap to spell, spell to win, win to live. Fast Words is a mobile word game where you will be fed a word upfront and then forced to tap the individual letters of that word out of the air, in order, as they fall in front of you at a faster and faster rate. If you think spelling a word like 'VOLCANIC' is hard, just try doing it one letter at a time while each letter flutters past you at an ever-increasing speed. the hitboxes on these letters are really small, so don't get cocky. For those of you with fingers of size, you might find this game to be more complex than is warranted for such a simple concept. But the truth is that Fast Words is a game that will stick in your head and bust out of your fingers as you tippy tap your way through a drizzle of deconstructed words that fly by in a blur. The faster you're able to do it the higher your score and the better your chance of totally dominating the leader board.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/fastwordsgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/fastwordsgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/fast-words/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/fast-words"
+}

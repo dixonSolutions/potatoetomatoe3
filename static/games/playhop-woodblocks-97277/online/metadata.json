@@ -1,0 +1,17 @@
+{
+  "id": "playhop-woodblocks-97277",
+  "name": "WoodBlocks",
+  "author": "CoolGames",
+  "description": "Play WoodBlocks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018aad72e4c23a6f2008fbab0bc5e1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018aad72e4c23a6f2008fbab0bc5e1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-97277.games.s3.yandex.net/97277/q0lc1ks2986yb2m4zyf8sirvkaycr7sm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=97277&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 97277,
+  "playhopPageUrl": "https://playhop.com/app/97277",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 25483
+}

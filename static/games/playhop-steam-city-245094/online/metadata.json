@@ -1,0 +1,17 @@
+{
+  "id": "playhop-steam-city-245094",
+  "name": "Steam City",
+  "author": "FX Games, OOO",
+  "description": "Play Steam City via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019d6ca86f27f9bdf341f006b6828d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019d6ca86f27f9bdf341f006b6828d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-495232.games.s3.yandex.net/495232/mjo6k2a0i8vyjmmfg8cod2xpmzb663v8/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 245094,
+  "playhopPageUrl": "https://playhop.com/app/245094",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5448
+}

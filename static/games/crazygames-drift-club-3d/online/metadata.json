@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-drift-club-3d",
+  "name": "Drift Club 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Drift Club is an awesome driving game in which learning the art of drifting is a must if you want to do well. Each level requires you to drift through required points before racing over the finish line.",
+  "thumbnail": "https://imgs.crazygames.com/drift-club.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/drift-club.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drift-club-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drift-club-3d",
+  "crazygamesSlug": "drift-club-3d"
+}

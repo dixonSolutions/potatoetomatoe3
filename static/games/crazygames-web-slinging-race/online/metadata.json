@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-web-slinging-race",
+  "name": "web slinging race",
+  "author": "CrazyGames",
+  "description": "Play web slinging race on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/web-slinging-race/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/web-slinging-race",
+  "crazygamesSlug": "web-slinging-race"
+}

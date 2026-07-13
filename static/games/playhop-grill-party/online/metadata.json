@@ -1,0 +1,17 @@
+{
+  "id": "playhop-grill-party",
+  "name": "Grill Party!",
+  "author": "CyberNex Studios",
+  "description": "Play Grill Party! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019887627af2e0ac16294295071e00/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019887627af2e0ac16294295071e00/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-459247.games.s3.yandex.net/459247/mp2064gfou4bvowvi52txipe87dchz5r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=459247&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 459247,
+  "playhopPageUrl": "https://playhop.com/app/459247",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 23
+}

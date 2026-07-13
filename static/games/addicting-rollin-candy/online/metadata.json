@@ -1,0 +1,14 @@
+{
+  "id": "addicting-rollin-candy",
+  "name": "Rollin Candy",
+  "author": "Addicting Games",
+  "description": "<p>If you like Cut the Rope, you'll like this one! Rotate objects to pick up gold stars with your tasty peppermint candy.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/rollin-candy_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/rollin-candy_sp.png",
+  "thumbnailStored": "remote",
+  "category": "embeddable-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/rollin-candy/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/rollin-candy"
+}

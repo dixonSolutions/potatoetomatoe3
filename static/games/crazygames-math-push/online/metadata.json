@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-math-push",
+  "name": "Math Push 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Math Push is a puzzle game where you move blocks to solve math expressions. Clear the exit by solving the problem and moving on to the next level!",
+  "thumbnail": "https://imgs.crazygames.com/math-push/20220103160234/math-push-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/math-push/20220103160234/math-push-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/math-push/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/math-push",
+  "crazygamesSlug": "math-push"
+}

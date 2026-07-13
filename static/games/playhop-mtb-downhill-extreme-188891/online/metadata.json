@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mtb-downhill-extreme-188891",
+  "name": "MTB Downhill Extreme",
+  "author": "RHM Interactive",
+  "description": "Play MTB Downhill Extreme via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000181ae4cf284f0111238e164629616/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000181ae4cf284f0111238e164629616/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-188891.games.s3.yandex.net/188891/p09v5tdj3vkjda11m55ojprd2ahihwi6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=188891&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 188891,
+  "playhopPageUrl": "https://playhop.com/app/188891",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 15545
+}

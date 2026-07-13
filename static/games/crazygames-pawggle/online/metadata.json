@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pawggle",
+  "name": "Pawggle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pawggle is a casual Peggle/Pachinko-inspired puzzle game where you guide furry companions by strategically placing blue pegs. Your mission: eliminate all red pegs before running out of balls.",
+  "thumbnail": "https://imgs.crazygames.com/pawggle_16x9/20240130101643/pawggle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pawggle_16x9/20240130101643/pawggle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pawggle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pawggle",
+  "crazygamesSlug": "pawggle"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-flipsi-po-536872",
+  "name": "Flipsi Po",
+  "author": "MF Team",
+  "description": "Play Flipsi Po via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019f04bb60acf561409c45d5195074/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019f04bb60acf561409c45d5195074/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-536872.games.s3.yandex.net/536872/e2gyqwyssqxnn07qcbmz91acl2942gg6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=536872&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 536872,
+  "playhopPageUrl": "https://playhop.com/app/536872",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

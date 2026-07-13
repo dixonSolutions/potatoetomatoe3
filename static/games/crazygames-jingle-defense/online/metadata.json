@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-jingle-defense",
+  "name": "Jingle Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jingle Defense is a turn-based action strategy game where you must defend your Elves&#39; Workshop from the Evil Santa&#39;s attack. Prepare your Snowman Turrets and Christmas Tree Rockets to attack them.",
+  "thumbnail": "https://imgs.crazygames.com/jingle-defense_16x9/20240109022734/jingle-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/jingle-defense_16x9/20240109022734/jingle-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jingle-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jingle-defense",
+  "crazygamesSlug": "jingle-defense"
+}

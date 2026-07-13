@@ -1,0 +1,14 @@
+{
+  "id": "addicting-warzlol",
+  "name": "Warz.lol",
+  "author": "Addicting Games",
+  "description": "<p>Warz.lol is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/warzllolgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/warzllolgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://warz.lol",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/warzlol"
+}

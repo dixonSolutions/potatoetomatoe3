@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-path-of-survivor",
+  "name": "path of survivor",
+  "author": "CrazyGames",
+  "description": "Play path of survivor on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/path-of-survivor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/path-of-survivor",
+  "crazygamesSlug": "path-of-survivor"
+}

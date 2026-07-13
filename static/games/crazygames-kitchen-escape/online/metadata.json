@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kitchen-escape",
+  "name": "Kitchen Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kitchen Escape is an adventure escape game where you must use your logic to find the key and escape from the kitchen. Find tools to help you out, solve puzzles, and crack the passwords!",
+  "thumbnail": "https://imgs.crazygames.com/kitchen-escape/20230509045935/kitchen-escape-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kitchen-escape/20230509045935/kitchen-escape-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kitchen-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kitchen-escape",
+  "crazygamesSlug": "kitchen-escape"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-go-chicken-go",
+  "name": "Go Chicken Go 🐔 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Go Chicken Go! is a fun arcade casual game in which you need to help a bunch of chickens cross a road and river safely without getting run over.",
+  "thumbnail": "https://imgs.crazygames.com/games/go-chicken-go/thumb-1556021057799.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/go-chicken-go/thumb-1556021057799.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/go-chicken-go/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/go-chicken-go",
+  "crazygamesSlug": "go-chicken-go"
+}

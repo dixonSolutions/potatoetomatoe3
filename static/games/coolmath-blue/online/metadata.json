@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blue",
+  "name": "Blue - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Solve a completely different puzzle on each level. If you&#039;ve played Red, Yellow, or Black, you know the drill. Can you turn them all Blue?",
+  "thumbnail": "/games/coolmath-blue/online/assets/coolmath-blue.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33433/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blue",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blue"
+}

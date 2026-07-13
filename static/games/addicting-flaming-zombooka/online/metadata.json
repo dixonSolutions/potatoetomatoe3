@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flaming-zombooka",
+  "name": "Flaming Zombooka",
+  "author": "Addicting Games",
+  "description": "<p>In some situations, a bazooka might be overkill. But when it comes to eliminating zombies, you want all the extra firepower you can muster. Oh, zombies...I have something for you!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/flamingzombookas_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/flamingzombookas_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/flamingzombookas.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/flaming-zombooka"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-billiardx",
+  "name": "BilliardX 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "BilliardX is a fast-paced and skill-driven 2D billiards game designed for players who love precision and strategy. Whether you&#x27;re a casual player or a competitive shot-maker, BilliardX delivers smooth gameplay and satisfying physics that make every shot count.",
+  "thumbnail": "https://imgs.crazygames.com/billiardx_16x9/20260626023051/billiardx_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/billiardx_16x9/20260626023051/billiardx_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/billiardx/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/billiardx",
+  "crazygamesSlug": "billiardx"
+}

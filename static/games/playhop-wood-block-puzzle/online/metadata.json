@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wood-block-puzzle",
+  "name": "Wood Block Puzzle",
+  "author": "CyberNex Studios",
+  "description": "Play Wood Block Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000191927f0f14174237a40e40497202/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000191927f0f14174237a40e40497202/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-362860.games.s3.yandex.net/362860/8yo8bqifjv0i1cowvgd4jm8lt67qn0sb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=362860&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 362860,
+  "playhopPageUrl": "https://playhop.com/app/362860",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1042
+}

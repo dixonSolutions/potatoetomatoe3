@@ -1,0 +1,17 @@
+{
+  "id": "playhop-perfect-flip",
+  "name": "Perfect Flip",
+  "author": "Моя Игра",
+  "description": "Play Perfect Flip via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000194fac86f20859a47a11c81caf5cc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000194fac86f20859a47a11c81caf5cc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-399493.games.s3.yandex.net/399493/cu1ppddtlt22ug0e8nubhw1l9s9ypdt4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=399493&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 399493,
+  "playhopPageUrl": "https://playhop.com/app/399493",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 810
+}

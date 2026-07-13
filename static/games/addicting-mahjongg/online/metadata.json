@@ -1,0 +1,14 @@
+{
+  "id": "addicting-mahjongg",
+  "name": "Mahjongg",
+  "author": "Addicting Games",
+  "description": "<p>Mahjongg is a classic game of pattern recognition. Put your matching skills and strategic know-how to the test in this classic Chinese tile game. In Mahjongg, 144 tiles are placed face-up on the board, and it’s up to you to clear the board by removing pairs of matching tiles. While being easy to explain, and technically easy to play, Mahjongg isn’t quite a walk in the park. You only win if you clear the board. Run out of moves while there are still tiles to be played, and you lose.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mahjongg_0.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mahjongg_0.jpg",
+  "thumbnailStored": "remote",
+  "category": "mahjong-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/mahjongg/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/mahjongg"
+}

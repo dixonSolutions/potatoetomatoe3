@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-cannon",
+  "name": "Idle Cannon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Cannon is an incremental idle game that mixes strategic upgrades with brick-busting action for nonstop fun. Watch your cannons fire automatically as you invest smartly in power boosts, speed, and new abilities to push further.",
+  "thumbnail": "https://imgs.crazygames.com/idle-cannon_16x9/20250901024158/idle-cannon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-cannon_16x9/20250901024158/idle-cannon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-cannon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-cannon",
+  "crazygamesSlug": "idle-cannon"
+}

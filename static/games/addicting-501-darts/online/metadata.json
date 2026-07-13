@@ -1,0 +1,14 @@
+{
+  "id": "addicting-501-darts",
+  "name": "501 Darts",
+  "author": "Addicting Games",
+  "description": "<p>501 Darts is a free sports game. Are you the dart master, or do you risk people's lives with every throw? Get 501 points exactly to win. How many turns do you need?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/501-Darts.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/501-Darts.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/501darts.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/501-darts"
+}

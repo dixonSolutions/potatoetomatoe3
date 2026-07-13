@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-scoring-champion",
+  "name": "Scoring Champion 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Scoring Champion is a dynamic sports game where you take on multiple disciplines like soccer, basketball, American football, and more. Your objective is to score with precision and power, hitting targets at each level.",
+  "thumbnail": "https://imgs.crazygames.com/scoring-champion_16x9/20240830072910/scoring-champion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/scoring-champion_16x9/20240830072910/scoring-champion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/scoring-champion/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/scoring-champion",
+  "crazygamesSlug": "scoring-champion"
+}

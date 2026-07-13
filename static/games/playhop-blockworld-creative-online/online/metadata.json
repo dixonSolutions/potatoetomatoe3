@@ -1,0 +1,17 @@
+{
+  "id": "playhop-blockworld-creative-online",
+  "name": "BlockWorld: Creative Online",
+  "author": "AnomalyForge",
+  "description": "Play BlockWorld: Creative Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019dba1cfd02afa53acb41118cc009/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019dba1cfd02afa53acb41118cc009/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-459621.games.s3.yandex.net/459621/185bi6w8u1oxuvgd7qkyqf4vcz9qiih0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=459621&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 459621,
+  "playhopPageUrl": "https://playhop.com/app/459621",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 764
+}

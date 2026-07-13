@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zoo-island",
+  "name": "Zoo Island 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zoo Island is a fun and immersive zoo management game. Build and manage your own zoo choosing from a wide variety of animals.",
+  "thumbnail": "https://imgs.crazygames.com/zoo-island_16x9/20260220035212/zoo-island_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zoo-island_16x9/20260220035212/zoo-island_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zoo-island/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zoo-island",
+  "crazygamesSlug": "zoo-island"
+}

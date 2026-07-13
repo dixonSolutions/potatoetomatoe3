@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-evowarsio",
+  "name": "EvoWars.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "EvoWars.io is an IO battle game set in a top-down online battle arena. Collect orbs and battle other players to evolve your warrior.",
+  "thumbnail": "/games/crazygames-evowarsio/online/assets/crazygames-evowarsio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/evowarsio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/evowarsio",
+  "crazygamesSlug": "evowarsio"
+}

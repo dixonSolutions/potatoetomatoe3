@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tileman-io",
+  "name": "TileMan.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "TileMan.io is an awesome multiplayer IO game in which you must try to claim as much territory as possible. You start with a random block color, and you must try to convert all the blocks on the map into the same color.",
+  "thumbnail": "https://imgs.crazygames.com/tileman-io_16x9/20241129083352/tileman-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tileman-io_16x9/20241129083352/tileman-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tileman-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tileman-io",
+  "crazygamesSlug": "tileman-io"
+}

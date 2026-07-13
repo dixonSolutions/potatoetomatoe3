@@ -1,0 +1,14 @@
+{
+  "id": "addicting-neon-mahjong-3d",
+  "name": "Neon Mahjong 3D",
+  "author": "Addicting Games",
+  "description": "<p>Mahjong 33D is a 3-dimensional version of the classic game of mahjong. Instead of flat tiles, you have 4 sides of the cubed pattern that you can match with each other. The blocks are set against a bright purple background to let the tiles stand out. There are two modes: timed and untimed. In the timed version, there are 40 levels for you to play! You have a short amount of time to complete the puzzle. If you don’t complete it, you lose the level and have to start over. The untimed version is the same but you can play more casually without the stress of a time limit. You still have to solve the game in order to advance to the next level though. Submit your score to see if you’re one of the high scorers of this game! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mahjong-3d.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mahjong-3d.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/mahjong-3d/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/neon-mahjong-3d"
+}

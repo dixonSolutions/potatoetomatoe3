@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-number-line-match",
+  "name": "Number Line Match 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Number Line Match is a puzzle game where you link identical numbers or numbers that add up to 10, forming connections vertically, horizontally, and diagonally to clear them. As you deplete moves, Lines are added, removable only when all their numbers vanish.",
+  "thumbnail": "https://imgs.crazygames.com/number-line-match_16x9/20240118133658/number-line-match_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/number-line-match_16x9/20240118133658/number-line-match_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/number-line-match/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/number-line-match",
+  "crazygamesSlug": "number-line-match"
+}

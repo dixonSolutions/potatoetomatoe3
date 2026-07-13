@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-boom-cell",
+  "name": "Boom Cell 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Boom Cell is a strategic game where you grow from a single cell into a powerful cell brigade. Battle other cell armies, but stay vigilant—larger cell groups will overpower you.",
+  "thumbnail": "https://imgs.crazygames.com/boom-cell_16x9/20240522065705/boom-cell_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/boom-cell_16x9/20240522065705/boom-cell_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/boom-cell/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/boom-cell",
+  "crazygamesSlug": "boom-cell"
+}

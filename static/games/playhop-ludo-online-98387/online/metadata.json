@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ludo-online-98387",
+  "name": "Ludo Online",
+  "author": "GamesJS",
+  "description": "Play Ludo Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000187fe752b8237bc46779d142fb558/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000187fe752b8237bc46779d142fb558/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-98387.games.s3.yandex.net/98387/47gj3eqkq6uu12j0e1rznti7di0xi1u6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=98387&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 98387,
+  "playhopPageUrl": "https://playhop.com/app/98387",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1402
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-miners-adventure",
+  "name": "miners adventure",
+  "author": "CrazyGames",
+  "description": "Play miners adventure on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-miners-adventure/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/miners-adventure/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/miners-adventure",
+  "crazygamesSlug": "miners-adventure"
+}

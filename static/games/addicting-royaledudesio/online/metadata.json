@@ -1,0 +1,14 @@
+{
+  "id": "addicting-royaledudesio",
+  "name": "Royaledudes.io",
+  "author": "Addicting Games",
+  "description": "<p>Royaledudes.io is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/royaledudesgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/royaledudesgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://royaledudes.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/royaledudesio"
+}

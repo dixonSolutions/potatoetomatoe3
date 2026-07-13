@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cookie-chomp",
+  "name": "Cookie Chomp - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cookie Chomp at Cool Math Games: Similar to our B-Cubed game, but with cookies! Can you figure out how to get the monster to eat them all?",
+  "thumbnail": "/games/coolmath-cookie-chomp/online/assets/coolmath-cookie-chomp.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25052/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cookie-chomp",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cookie-chomp"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-cybershark",
+  "name": "cybershark",
+  "author": "CrazyGames",
+  "description": "Play cybershark on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cybershark/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cybershark",
+  "crazygamesSlug": "cybershark"
+}

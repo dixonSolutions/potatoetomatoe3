@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cubes-crusher",
+  "name": "Cubes Crusher 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cubes Crusher is a vibrant clicker game where you slice through colorful blocks with spinning saws to gather gold. Upgrade your tools, boost the block spawn rate, and push your setup to its limits as levels grow more intense.",
+  "thumbnail": "https://imgs.crazygames.com/cubes-crusher_16x9/20250527104739/cubes-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cubes-crusher_16x9/20250527104739/cubes-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubes-crusher/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubes-crusher",
+  "crazygamesSlug": "cubes-crusher"
+}

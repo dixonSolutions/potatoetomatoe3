@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chess-master-198058",
+  "name": "Chess Master",
+  "author": "FPDA",
+  "description": "Play Chess Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000183bdc393bb88526e134e45563bad/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000183bdc393bb88526e134e45563bad/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-198058.games.s3.yandex.net/198058/0gxpp2659i4kpozn3qe1c7yz7qm6sdzd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=198058&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 198058,
+  "playhopPageUrl": "https://playhop.com/app/198058",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 3819
+}

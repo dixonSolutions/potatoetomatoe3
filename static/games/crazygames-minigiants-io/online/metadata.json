@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-minigiants-io",
+  "name": "MiniGiants.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MiniGiants.io is a top-down multiplayer deathmatch IO game. Take control of your own MiniGiant and battle other players for rewards.",
+  "thumbnail": "https://imgs.crazygames.com/games/minigiants-io/cover_16x9-1732723093116.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/minigiants-io/cover_16x9-1732723093116.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/minigiants-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/minigiants-io",
+  "crazygamesSlug": "minigiants-io"
+}

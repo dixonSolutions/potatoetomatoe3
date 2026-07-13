@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-laser-survivor",
+  "name": "Laser Survivor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Laser Survivor is a cyberpunk roguelike shooter set in a neon-lit apocalypse where humanity’s fate hangs by a thread. Play as one of five unique heroes—each with distinct abilities—and battle endless demon hordes bursting through a dimensional rift.",
+  "thumbnail": "https://imgs.crazygames.com/laser-survivor_16x9/20251009085838/laser-survivor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/laser-survivor_16x9/20251009085838/laser-survivor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/laser-survivor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/laser-survivor",
+  "crazygamesSlug": "laser-survivor"
+}

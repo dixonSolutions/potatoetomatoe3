@@ -1,0 +1,17 @@
+{
+  "id": "playhop-the-last-day-291604",
+  "name": "The Last Day",
+  "author": "Nikzzon",
+  "description": "Play The Last Day via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018da8e14c0534933c57471eba028d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018da8e14c0534933c57471eba028d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-291604.games.s3.yandex.net/291604/u7dfpicmcf7ql5eeq97t99539aybljd4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=291604&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 291604,
+  "playhopPageUrl": "https://playhop.com/app/291604",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 309
+}

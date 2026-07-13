@@ -1,0 +1,14 @@
+{
+  "id": "addicting-unfair-mazes",
+  "name": "Unfair Mazes",
+  "author": "Addicting Games",
+  "description": "<p>Unfair Mazes is an IO puzzle game that you can play by yourself or with multiple people. Invite your friends to play this crazy puzzle game where you have to go through a ridiculous maze. Your objective is to reach the circle on the opposite end that is the same color as your character point. Flip the lines and paths to create your own path to your goal. Always look 3 steps ahead of you as you might end up in a slot that cannot be advanced or you may bump into another player and get stuck. While you’re doing all this, a bot or other player is also trying to get to their mark before you do. On top of figuring this unfair puzzle game, you have to beat your opponent as well. Play against a bot or select the multiplayer option to play against a live opponent. Join this IO game and invite your friends to see who can reach the end first!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/unfairmazesredone.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/unfairmazesredone.jpg",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://unfairmazes.com/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/unfair-mazes"
+}

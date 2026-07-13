@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hidden-objects-lost-island",
+  "name": "Hidden objects: Lost Island",
+  "author": "BHP",
+  "description": "Play Hidden objects: Lost Island via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019ef3a9bebb6d76d07c25adedad06/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019ef3a9bebb6d76d07c25adedad06/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-412484.games.s3.yandex.net/412484/6dg1xcs5oe6vun71ps69tykcvu2ils2e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=412484&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 412484,
+  "playhopPageUrl": "https://playhop.com/app/412484",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 1586
+}

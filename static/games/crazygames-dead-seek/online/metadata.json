@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-dead-seek",
+  "name": "dead seek",
+  "author": "CrazyGames",
+  "description": "Play dead seek on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dead-seek/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dead-seek",
+  "crazygamesSlug": "dead-seek"
+}

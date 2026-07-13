@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-electric-man",
+  "name": "Electric Man 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Electric Man is an awesome action game in which you must fight against opponents using punch and kick combos. This stickman Flash game is ideal for fighter fans.",
+  "thumbnail": "/games/crazygames-electric-man/online/assets/crazygames-electric-man.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/electric-man/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/electric-man",
+  "crazygamesSlug": "electric-man"
+}

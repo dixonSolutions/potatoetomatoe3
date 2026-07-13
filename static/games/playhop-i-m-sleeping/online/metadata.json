@@ -1,0 +1,17 @@
+{
+  "id": "playhop-i-m-sleeping",
+  "name": "I'm sleeping!",
+  "author": "m0r STUDIO",
+  "description": "Play I'm sleeping! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000191670d30046bba55b6e85399a5f7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000191670d30046bba55b6e85399a5f7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-366207.games.s3.yandex.net/366207/t5l9kxg38ynlwgtl3w1bcooiw4wusjeg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=366207&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 366207,
+  "playhopPageUrl": "https://playhop.com/app/366207",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 2011
+}

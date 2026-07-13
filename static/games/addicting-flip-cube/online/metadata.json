@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flip-cube",
+  "name": "Flip Cube",
+  "author": "Addicting Games",
+  "description": "<p>Flip Cube is a fast-thinking online game with a clean and simple animation. The objective is easy: don’t hit a spike. As your cube runs up your screen, spikes will appear on either side of the gray vertical line. Sometimes the game starts fast or you have many spikes to avoid, there’s no telling how difficult each game will start. The clean bright blue background creates a contrast against the orange spikes for you to easily decipher which side the cube should be on. Sometimes you don’t have time for tutorials and this is one of those online games with an easy to understand concept. Just hit play, and start playing trough trial and error. It’s an instant game that’s instant fun.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/flip-cube.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/flip-cube.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/flip-cube/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/flip-cube"
+}

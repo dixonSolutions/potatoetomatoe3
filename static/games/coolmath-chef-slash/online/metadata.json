@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chef-slash",
+  "name": "Chef Slash - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chef Slash at Cool Math Games: Sharing can be fun! Figure out how to slice the food into equal portions. Be a perfect slicer and earn three stars!",
+  "thumbnail": "/games/coolmath-chef-slash/online/assets/coolmath-chef-slash.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50794/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chef-slash",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chef-slash"
+}

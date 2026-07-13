@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-power-badminton",
+  "name": "Power Badminton 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Power Badminton is an exhilarating game where you&#39;ll face off against skilled opponents in intense badminton matches. Utilize strategic shots, activate power-ups, and outmaneuver your rival on the court.",
+  "thumbnail": "https://imgs.crazygames.com/games/power-badminton/cover_16x9-1714706052969.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/power-badminton/cover_16x9-1714706052969.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/power-badminton/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/power-badminton",
+  "crazygamesSlug": "power-badminton"
+}

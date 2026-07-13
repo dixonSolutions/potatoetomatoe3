@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mahjong-classic-webgl",
+  "name": "Mahjong Online 🀄 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mahjong Online is the classic version of the ancient board game that requires you to clear the board by matching the same patterned tiles. The rules dictate that there must be two or more of the same tiles to clear tiles from the play area and successfully win the game.",
+  "thumbnail": "https://imgs.crazygames.com/mahjongclassicwebgl.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mahjongclassicwebgl.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-classic-webgl/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-classic-webgl",
+  "crazygamesSlug": "mahjong-classic-webgl"
+}

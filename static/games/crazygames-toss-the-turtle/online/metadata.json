@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-toss-the-turtle",
+  "name": "Toss the Turtle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Toss the Turtle is a challenging launch game in which you must help our heroic turtle prove that his shell is indestructible! Our turtle wishes to prove his strength and show off his shell therefore you must attempt to launch him as far and high as possible out of an immense cannon!",
+  "thumbnail": "/games/crazygames-toss-the-turtle/online/assets/crazygames-toss-the-turtle.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/toss-the-turtle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/toss-the-turtle",
+  "crazygamesSlug": "toss-the-turtle"
+}

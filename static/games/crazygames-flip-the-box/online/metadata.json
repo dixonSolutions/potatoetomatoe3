@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-flip-the-box",
+  "name": "Flip The Box 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Flip The Box is a puzzle game where you must paint all the squares on the floor with colors using a block. This game comes with different and unique mechanics.",
+  "thumbnail": "https://imgs.crazygames.com/flip-the-box/20220921173636/flip-the-box-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/flip-the-box/20220921173636/flip-the-box-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flip-the-box/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flip-the-box",
+  "crazygamesSlug": "flip-the-box"
+}

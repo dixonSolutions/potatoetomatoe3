@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-city-blocks",
+  "name": "City Blocks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "City Blocks is a match-3 puzzle game where you merge buildings to create a city. The aim is to build a city with the highest population possible before you run out of space.",
+  "thumbnail": "https://imgs.crazygames.com/city-blocks_16x9/20260401101603/city-blocks_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/city-blocks_16x9/20260401101603/city-blocks_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/city-blocks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/city-blocks",
+  "crazygamesSlug": "city-blocks"
+}

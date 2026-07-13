@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cubeform",
+  "name": "Cubeform - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bounce along the wild and twisty tower of Cubeform. Dodge the ledges that are blocking your path for as long as you possibly can.",
+  "thumbnail": "/games/coolmath-cubeform/online/assets/coolmath-cubeform.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48415/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cubeform",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cubeform"
+}

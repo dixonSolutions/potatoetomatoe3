@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-corn-tycoon",
+  "name": "Corn Tycoon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Corn Tycoon is the ultimate farm adventure where you can grow, harvest, and sell delicious corn to become the richest farmer in town! Start by clicking on your fields to plant seeds, water them, and harvest corn.",
+  "thumbnail": "https://imgs.crazygames.com/corn-tycoon_16x9/20250303071102/corn-tycoon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/corn-tycoon_16x9/20250303071102/corn-tycoon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/corn-tycoon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/corn-tycoon",
+  "crazygamesSlug": "corn-tycoon"
+}

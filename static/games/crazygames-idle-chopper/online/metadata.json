@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-chopper",
+  "name": "Idle Chopper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Chopper is a superb game all about chopping trees! This is a fantastic idle game that you can play at your leisure – you can leave your computer and come back to the game when you wish!",
+  "thumbnail": "https://imgs.crazygames.com/idlechopperb.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idlechopperb.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-chopper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-chopper",
+  "crazygamesSlug": "idle-chopper"
+}

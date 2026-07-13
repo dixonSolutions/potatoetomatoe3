@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hole-eat-grow-attack",
+  "name": "Hole Eat Grow Attack",
+  "author": "Cursora Labs",
+  "description": "Play Hole Eat Grow Attack via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000191eaa3e8441860fd66d81f0c6a7c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000191eaa3e8441860fd66d81f0c6a7c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-371747.games.s3.yandex.net/371747/s1nxywk94287ocvjv0xw22h8boalt7ne/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=371747&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 371747,
+  "playhopPageUrl": "https://playhop.com/app/371747",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 985
+}

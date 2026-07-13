@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ram-cars",
+  "name": "Ram Cars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ram Cars is a car battle game where you drive and smash an opponent&#39;s car by drawing a line. This game offers 3D graphics, different arenas, multiple challenges, upgrades, and rewards!",
+  "thumbnail": "https://imgs.crazygames.com/ram-cars_16x9/20231023064048/ram-cars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ram-cars_16x9/20231023064048/ram-cars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ram-cars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ram-cars",
+  "crazygamesSlug": "ram-cars"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spot-the-different-151914",
+  "name": "Spot The Different",
+  "author": "GamesJS",
+  "description": "Play Spot The Different via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000177d4b74c3e086570436ae0acd317/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000177d4b74c3e086570436ae0acd317/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-151914.games.s3.yandex.net/151914/xogl8gvsotof36gfdj2rnir92drw0x5i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=151914&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 151914,
+  "playhopPageUrl": "https://playhop.com/app/151914",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 2816
+}

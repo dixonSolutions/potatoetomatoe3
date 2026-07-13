@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-balloonsio",
+  "name": "Balloons.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Balloons.io is a casual arena game in which you need to pop other balloons. In the beginning, you are armed with just a knife.",
+  "thumbnail": "/games/crazygames-balloonsio/online/assets/crazygames-balloonsio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/balloonsio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/balloonsio",
+  "crazygamesSlug": "balloonsio"
+}

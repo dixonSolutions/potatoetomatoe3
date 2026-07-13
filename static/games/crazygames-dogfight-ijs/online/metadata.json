@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dogfight-ijs",
+  "name": "Dogfight 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dogfight is a thrilling air combat game where you control a battle plane in intense aerial battles. Perform maneuvers like looping, rolling, and turning as you engage in dynamic dogfights.",
+  "thumbnail": "https://imgs.crazygames.com/dogfight-ijs_16x9/20240621051029/dogfight-ijs_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dogfight-ijs_16x9/20240621051029/dogfight-ijs_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dogfight-ijs/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dogfight-ijs",
+  "crazygamesSlug": "dogfight-ijs"
+}

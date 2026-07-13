@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bunny-hop",
+  "name": "Bunny Hop - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bunny Hop at Cool Math Games: This forest isn&#039;t as safe as it looks. Grab your dinner and hop your way to safety.",
+  "thumbnail": "/games/coolmath-bunny-hop/online/assets/coolmath-bunny-hop.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25980/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bunny-hop",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bunny-hop"
+}

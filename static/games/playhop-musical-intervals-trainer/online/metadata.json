@@ -1,0 +1,17 @@
+{
+  "id": "playhop-musical-intervals-trainer",
+  "name": "Musical Intervals Trainer",
+  "author": "Meteo",
+  "description": "Play Musical Intervals Trainer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001943d52c517cc37088ca1b0c4db64/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001943d52c517cc37088ca1b0c4db64/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-398262.games.s3.yandex.net/398262/zcb7v034dhb1m3ewvnqlhgbyciwfae8o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=398262&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 398262,
+  "playhopPageUrl": "https://playhop.com/app/398262",
+  "playhopRating": 4,
+  "playhopRatingCount": 34
+}

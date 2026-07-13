@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-big-catch",
+  "name": "big catch",
+  "author": "CrazyGames",
+  "description": "Play big catch on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/big-catch/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/big-catch",
+  "crazygamesSlug": "big-catch"
+}

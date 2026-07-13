@@ -1,0 +1,17 @@
+{
+  "id": "playhop-time-warriors",
+  "name": "Time Warriors",
+  "author": "ООО \"ХЭППИ ГЕЙМС СТУДИО\"2",
+  "description": "Play Time Warriors via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019ecfde9aa7474c5fd99f52228727/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019ecfde9aa7474c5fd99f52228727/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-492460.games.s3.yandex.net/492460/0pfcbruspesd3rjuwtqshjf27k0nq04d/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 380155,
+  "playhopPageUrl": "https://playhop.com/app/380155",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 9342
+}

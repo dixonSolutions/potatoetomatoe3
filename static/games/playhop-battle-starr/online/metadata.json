@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battle-starr",
+  "name": "Battle Starr",
+  "author": "EshackGames",
+  "description": "Play Battle Starr via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019dd3d1eae176a896e4a5f99b0838/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019dd3d1eae176a896e4a5f99b0838/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-387326.games.s3.yandex.net/387326/85yuxygg04xqkvc3hdnwh2ir8a5dnfz1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=387326&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 387326,
+  "playhopPageUrl": "https://playhop.com/app/387326",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 110113
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-maze-discover",
+  "name": "Maze Discover 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Maze Discover is a fun arcade adventure game. Dig through the land to uncover a maze filled with artifacts, gold, and secret passages.",
+  "thumbnail": "https://imgs.crazygames.com/maze-discover/20220607173628/maze-discover-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/maze-discover/20220607173628/maze-discover-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/maze-discover/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/maze-discover",
+  "crazygamesSlug": "maze-discover"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blocked-up",
+  "name": "Play Blocked Up: Unblock Yourself | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The blocks are rising! Match three of the same color to stay below the sensor and avoid getting zapped. Be careful, your blocks can crush you.",
+  "thumbnail": "/games/coolmath-blocked-up/online/assets/coolmath-blocked-up.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34531/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blocked-up",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blocked-up"
+}

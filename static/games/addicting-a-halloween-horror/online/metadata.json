@@ -1,0 +1,14 @@
+{
+  "id": "addicting-a-halloween-horror",
+  "name": "A Halloween Horror",
+  "author": "Addicting Games",
+  "description": "<p>Off in the ghost world, you must jump and dodge your way to safety. The ghosts look passive, but they kill with impunity.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ahalloweenhorror.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ahalloweenhorror.jpg",
+  "thumbnailStored": "remote",
+  "category": "seasonal",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/ahalloweenhorror.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/a-halloween-horror"
+}

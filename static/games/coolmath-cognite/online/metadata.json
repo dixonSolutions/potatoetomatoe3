@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cognite",
+  "name": "Cognite - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cognite at Cool Math Games: Everything is connected! Warp through the mirrors to escape your dreams and return home safely.",
+  "thumbnail": "/games/coolmath-cognite/online/assets/coolmath-cognite.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34727/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cognite",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cognite"
+}

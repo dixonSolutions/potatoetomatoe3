@@ -1,0 +1,14 @@
+{
+  "id": "addicting-toss-the-turtle",
+  "name": "Toss the Turtle",
+  "author": "Addicting Games",
+  "description": "<p>Toss the Turtle is a free physics game. When we say 'toss,' we actually mean 'blast out of a cannon.' Which is a great place to start. Shoot your flying turtle to keep him in the air; do a little turtle steering to go farther. And don't forget to upgrade with those sweet, sweet guns!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/tosstheturtle_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/tosstheturtle_sp.png",
+  "thumbnailStored": "remote",
+  "category": "bloody-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/tosstheturtle_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/toss-the-turtle"
+}

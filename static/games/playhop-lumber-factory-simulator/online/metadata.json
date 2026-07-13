@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lumber-factory-simulator",
+  "name": "Lumber Factory Simulator",
+  "author": "MirraGames",
+  "description": "Play Lumber Factory Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019ed069ee2c253bdd281ad626aa5d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019ed069ee2c253bdd281ad626aa5d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-340883.games.s3.yandex.net/340883/pgmnyyk4rka7585oa2ldf81c79hsylm9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=340883&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 340883,
+  "playhopPageUrl": "https://playhop.com/app/340883",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 994
+}

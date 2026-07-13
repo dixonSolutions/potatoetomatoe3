@@ -1,0 +1,17 @@
+{
+  "id": "playhop-heart-box-97751",
+  "name": "Heart Box",
+  "author": "RAD BROTHERS",
+  "description": "Play Heart Box via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018e661cce35c49b35ea22c2acda4f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018e661cce35c49b35ea22c2acda4f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-97751.games.s3.yandex.net/97751/bcm3czkghwm2y0jhwunyneoy27ps9htl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=97751&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 97751,
+  "playhopPageUrl": "https://playhop.com/app/97751",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 33295
+}

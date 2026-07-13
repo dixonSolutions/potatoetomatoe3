@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pixart-482494",
+  "name": "PixArt",
+  "author": "H5Games.Online",
+  "description": "Play PixArt via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b033c73abbe050c0288bd8bed50/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019b033c73abbe050c0288bd8bed50/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-482494.games.s3.yandex.net/482494/2jy6tcpnsqnwwfx8awyoc42gyvkc3mf7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=482494&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 482494,
+  "playhopPageUrl": "https://playhop.com/app/482494",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 54
+}

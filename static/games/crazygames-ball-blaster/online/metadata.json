@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ball-blaster",
+  "name": "Ball Blaster 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ball Blaster is an arcade game where you must defend your base from relentless balls. Take control of a powerful cannon and aim to destroy the incoming balls to protect your base.",
+  "thumbnail": "https://imgs.crazygames.com/ball-blaster/20230511103019/ball-blaster-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ball-blaster/20230511103019/ball-blaster-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ball-blaster/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ball-blaster",
+  "crazygamesSlug": "ball-blaster"
+}

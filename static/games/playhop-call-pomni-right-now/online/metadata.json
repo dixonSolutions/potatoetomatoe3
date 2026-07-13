@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-pomni-right-now",
+  "name": "Call Pomni right now!",
+  "author": "Овощ геймс",
+  "description": "Play Call Pomni right now! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000193959b5b43c49765464a54503d4a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000193959b5b43c49765464a54503d4a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-393343.games.s3.yandex.net/393343/6aww2fdjvw10dv2hgx6x4cj6l6rad1j5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=393343&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 393343,
+  "playhopPageUrl": "https://playhop.com/app/393343",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1349
+}

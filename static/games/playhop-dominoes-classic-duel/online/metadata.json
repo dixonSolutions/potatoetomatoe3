@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dominoes-classic-duel",
+  "name": "Dominoes classic, duel",
+  "author": "kirlanik",
+  "description": "Play Dominoes classic, duel via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000191b2e5974612eae3f38efcead875/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000191b2e5974612eae3f38efcead875/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-369882.games.s3.yandex.net/369882/h26wne1ykxqjz5vnj2wstf8vegqn73vi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=369882&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 369882,
+  "playhopPageUrl": "https://playhop.com/app/369882",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 165
+}

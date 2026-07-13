@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-circuit",
+  "name": "Circuit - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Circuit at Cool Math Games: Power up the electric nodes by activating the right circuits. Be careful not to overload them with too much electricity!",
+  "thumbnail": "/games/coolmath-circuit/online/assets/coolmath-circuit.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24817/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-circuit",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-circuit"
+}

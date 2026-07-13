@@ -1,0 +1,14 @@
+{
+  "id": "addicting-conquestball",
+  "name": "ConquestBall",
+  "author": "Addicting Games",
+  "description": "<p>ConquestBall is a fast-paced arcade game of strategy and precision where players battle for dominance over a dynamic grid. Hit the ball to claim squares in your paddle’s color, and collect power-ups to gain an edge. Powerful shots and scoring into your opponent's side expand your control even further, rewarding skill and timing. You can level up tiles for every consecutive hit, making every move critical. Whether against AI or a friend in local multiplayer, quick reflexes and smart play turn every round into an intense contest of wit and skill.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/AddictingGamesThumbnail.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/AddictingGamesThumbnail.png",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/conquestball/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/conquestball"
+}

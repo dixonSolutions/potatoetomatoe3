@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-adventure-jumper",
+  "name": "Adventure Jumper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Adventure Jumper is a tough-as-nails platformer that tests your timing and reflexes across three increasingly difficult levels. Jump with precision, avoid relentless enemies, and take down powerful bosses at each stage.",
+  "thumbnail": "https://imgs.crazygames.com/adventure-jumper_16x9/20251127095505/adventure-jumper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/adventure-jumper_16x9/20251127095505/adventure-jumper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/adventure-jumper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/adventure-jumper",
+  "crazygamesSlug": "adventure-jumper"
+}

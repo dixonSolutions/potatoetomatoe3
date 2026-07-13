@@ -1,0 +1,17 @@
+{
+  "id": "playhop-expert-sudoku-255135",
+  "name": "Expert Sudoku",
+  "author": "elsid.apps",
+  "description": "Play Expert Sudoku via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018a8939b082ad7ba7128861249649/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018a8939b082ad7ba7128861249649/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-255135.games.s3.yandex.net/255135/xjj9xuh1ayivtgguqdeybhwhoharxs2r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=255135&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 255135,
+  "playhopPageUrl": "https://playhop.com/app/255135",
+  "playhopRating": 4,
+  "playhopRatingCount": 292
+}

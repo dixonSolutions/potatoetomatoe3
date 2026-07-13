@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-copycat",
+  "name": "Copycat Game - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Study your enemies closely when playing the Copycat game. Master their movements. Find the perfect time to strike and reach the crystal prize.",
+  "thumbnail": "/games/coolmath-copycat/online/assets/coolmath-copycat.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/43182/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-copycat",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-copycat"
+}

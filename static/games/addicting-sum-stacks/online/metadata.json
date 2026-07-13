@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sum-stacks",
+  "name": "Sum Stacks",
+  "author": "Addicting Games",
+  "description": "<p>Sum Stacks is a free math-puzzle game. All the world is math and we are but mathematicians trying to figure out the algorithms, additions, and subtractions that make up existence. In Sum Stacks, you will use your unholy knowledge of arithmetic in order to add it up, subtract it down, and cut your way through level after level. In this game, you will be given a sum and some tablets. Your job is to use the tablets to subtract or add to a series of numbers in order to achieve the foregone sum. While simple addition and subtraction are technically easy this game takes them to places you'd never expect. In Sum Stacks you'll find yourself doing the kind of math you've never dreamed was possible. This is a game for people with a quick wit and a keen sense of value. Test your skills against the never-ending barrage of numbered tiles that demand you take them and apply them to an ever-increasing chain of un-related sums just waiting to be achieved.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/sumstacksthegame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/sumstacksthegame.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/sum-stacks/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/sum-stacks"
+}

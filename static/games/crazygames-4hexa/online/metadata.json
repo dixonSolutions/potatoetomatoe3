@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-4hexa",
+  "name": "4Hexa 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "4 Hexa is a simple yet addictive hexagon merge puzzle game! Do you enjoy colorful, number-based hexagon puzzles?",
+  "thumbnail": "https://imgs.crazygames.com/4hexa_16x9/20250910053314/4hexa_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/4hexa_16x9/20250910053314/4hexa_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/4hexa/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/4hexa",
+  "crazygamesSlug": "4hexa"
+}

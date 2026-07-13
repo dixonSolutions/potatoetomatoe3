@@ -1,0 +1,17 @@
+{
+  "id": "playhop-uncle-bo-s-mahjong",
+  "name": "Uncle Bo's Mahjong",
+  "author": "FC Games",
+  "description": "Play Uncle Bo's Mahjong via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019614ca4f4f7bfc59cfd78abf5eec/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019614ca4f4f7bfc59cfd78abf5eec/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-421906.games.s3.yandex.net/421906/xcyozbzsybss0ck7miu6un44b16avygc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=421906&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 421906,
+  "playhopPageUrl": "https://playhop.com/app/421906",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 159
+}

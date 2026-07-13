@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-playground",
+  "name": "Playground 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Playground is an action sandbox game where creativity meets destruction in an open-ended cubic sandbox! Whether you’re building grand cities, orchestrating epic battles, or just causing mayhem, the possibilities are endless!",
+  "thumbnail": "https://imgs.crazygames.com/playground_16x9/20250311120048/playground_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/playground_16x9/20250311120048/playground_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/playground/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/playground",
+  "crazygamesSlug": "playground"
+}

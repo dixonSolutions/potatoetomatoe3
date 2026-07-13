@@ -1,0 +1,14 @@
+{
+  "id": "addicting-danger-pit",
+  "name": "Danger Pit",
+  "author": "Addicting Games",
+  "description": "<p> Danger Pit is an education game that combines action and math! You have fallen into a dangerous pit full of everything horrible that you can possibly imagine. There are slime monsters, snakes, chemical toxins, and spiked traps coming towards you on a conveyor belt. Solve the math questions correctly to blast away these dangers before they reach and damage you. Each game starts with only 3 lives! However, you may find heart boosts on the conveyor belt that will give you an extra life. As you keep playing, look to the XP bar in the lefthand corner. Every time you fill this up, you level up! Go through all the levels and defeat every single creature in this dangerous pit. This is a fun and exciting way to incorporate math into your day. The math skills go from preschool to the 8th grade.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/dangerpitgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/dangerpitgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "platform",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/danger-pit/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/danger-pit"
+}

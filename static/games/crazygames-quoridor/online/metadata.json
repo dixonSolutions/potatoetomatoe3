@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-quoridor",
+  "name": "Quoridor Online 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Quoridor Online is a tabletop strategy game and is suitable for fans of chess, checkers, and corners. The game allows you to compete with other players online, and you can also play with a computer.",
+  "thumbnail": "https://imgs.crazygames.com/quoridor_16x9/20231025093254/quoridor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/quoridor_16x9/20231025093254/quoridor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/quoridor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/quoridor",
+  "crazygamesSlug": "quoridor"
+}

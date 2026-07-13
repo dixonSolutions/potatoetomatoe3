@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mergemine-idle",
+  "name": "MergeMine Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MergeMine Idle is an idle clicker game with a merge element in the game. Click on the enemies in the danger zone to earn money and use it to buy the shovels.",
+  "thumbnail": "https://imgs.crazygames.com/mergemine-idle/20230217185751/mergemine-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mergemine-idle/20230217185751/mergemine-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mergemine-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mergemine-idle",
+  "crazygamesSlug": "mergemine-idle"
+}

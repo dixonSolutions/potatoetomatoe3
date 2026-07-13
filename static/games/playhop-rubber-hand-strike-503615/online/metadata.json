@@ -1,0 +1,17 @@
+{
+  "id": "playhop-rubber-hand-strike-503615",
+  "name": "Rubber Hand Strike",
+  "author": "JTL STUDIO",
+  "description": "Play Rubber Hand Strike via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ca6575214017eb15f7738c34b0b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ca6575214017eb15f7738c34b0b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-503615.games.s3.yandex.net/503615/710etlvlg6eu4dbs5nrz84se5kdjtalf/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=503615&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 503615,
+  "playhopPageUrl": "https://playhop.com/app/503615",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 41
+}

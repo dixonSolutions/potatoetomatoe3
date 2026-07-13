@@ -1,0 +1,14 @@
+{
+  "id": "addicting-boomrockets",
+  "name": "BoomRockets",
+  "author": "Addicting Games",
+  "description": "<p>Our fireworks are so dangerous, we have to keep them online! Launch your rocket, gather fuel, money and points as you go, then let one rip with a giant explosion! Blow away that Independence day crowd with your pyro skillz! Can you impress your cranky Uncle Sam?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/boomrockets_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/boomrockets_sp.png",
+  "thumbnailStored": "remote",
+  "category": "flying-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/boomrockets.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/boomrockets"
+}

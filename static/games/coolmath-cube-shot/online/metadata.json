@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cube-shot",
+  "name": "Cube Shot - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cube Shot at Cool Math Games: Don&#039;t be square... take a shot! Study the board and plan ahead to pop all the cubes.",
+  "thumbnail": "/games/coolmath-cube-shot/online/assets/coolmath-cube-shot.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/35528/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cube-shot",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cube-shot"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tube-jumpers",
+  "name": "Tube Jumpers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tube Jumpers is a local multiplayer game that can be played with up to 4 people. In the game, you have to make sure to stay on your floating tube.",
+  "thumbnail": "/games/crazygames-tube-jumpers/online/assets/crazygames-tube-jumpers.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tube-jumpers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tube-jumpers",
+  "crazygamesSlug": "tube-jumpers"
+}

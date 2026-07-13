@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-grow-nano",
+  "name": "Grow Nano 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Grow Nano is a fun little puzzle game in which your goal is to heal a boy that is all tuckered out. You&#39;ll do this by selecting one of the 8 healing items one by one.",
+  "thumbnail": "https://imgs.crazygames.com/games/grow-nano/cover-1628904279825.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/grow-nano/cover-1628904279825.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grow-nano/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grow-nano",
+  "crazygamesSlug": "grow-nano"
+}

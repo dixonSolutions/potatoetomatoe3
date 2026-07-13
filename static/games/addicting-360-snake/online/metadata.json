@@ -1,0 +1,14 @@
+{
+  "id": "addicting-360-snake",
+  "name": "360 Snake",
+  "author": "Addicting Games",
+  "description": "<p>360 Snake is a free puzzle game. The snake is unleashed!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/360-Snake.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/360-Snake.jpg",
+  "thumbnailStored": "remote",
+  "category": "snake",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/360snake_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/360-snake"
+}

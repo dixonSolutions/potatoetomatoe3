@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dota-clicker-504192",
+  "name": "Dota Clicker",
+  "author": "TROTTOLITO",
+  "description": "Play Dota Clicker via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019e112bca77df286d032bc0aa5a5d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019e112bca77df286d032bc0aa5a5d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-504192.games.s3.yandex.net/504192/t520nfahkgsac826rgvxn0uua6iqp5np/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=504192&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 504192,
+  "playhopPageUrl": "https://playhop.com/app/504192",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 37
+}

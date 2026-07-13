@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-black-vs-blue",
+  "name": "Black vs. Blue - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Black vs Blue at Cool Math Games: Try to read the unusual shape, then make your move. Can you outwit the AI?",
+  "thumbnail": "/games/coolmath-black-vs-blue/online/assets/coolmath-black-vs-blue.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25931/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-black-vs-blue",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-black-vs-blue"
+}

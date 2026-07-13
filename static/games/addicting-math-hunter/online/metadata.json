@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-hunter",
+  "name": "Math Hunter",
+  "author": "Addicting Games",
+  "description": "<p>Math Hunter is an educational game mixed with an action matching game. Dragons have taken over the village and it is your job to capture them. However, you only capture them in matching groups. Use your finger or mouse to draw a line matching the same color and kind of dragon. The more you can match the better your score. You will see dragons of all different colors and shapes. Some are big and slow, and others small and fast. You will have lots of fun capturing the dragons as a break in between your math sessions. For the math portion, you can practice all kinds of math skills like counting, decimals, division, and even geometry! This is a great way to balance out both your gaming skills and your math skills! So check out this math game for your math skill needs. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/numberhunter.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/numberhunter.jpg",
+  "thumbnailStored": "remote",
+  "category": "educational-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-hunter/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-hunter"
+}

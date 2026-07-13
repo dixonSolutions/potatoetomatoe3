@@ -1,0 +1,14 @@
+{
+  "id": "addicting-railway-valley",
+  "name": "Railway Valley",
+  "author": "Addicting Games",
+  "description": "<p>Railway Valley is a free tycoon game. Railway Valley places you in the shoes of a railway manager, perhaps the most thankless job in the world. It’s up to you to build train tracks from one location to another, ensuring that all the trains can make in there in one piece. but if there are any obstacles in the way, those have to be cleared out first, and if there are multiple trains coming from multiple locations, you’ll need train tracks to connect everything together, and you’ll need control when the switches will swap between tracks to allow all the trains to run smoothly.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/railwayvalley_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/railwayvalley_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/railwayvalley_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/railway-valley"
+}

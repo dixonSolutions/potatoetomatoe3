@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hidden-oxygen",
+  "name": "Hidden Oxygen 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hidden Oxygen is a logical grid-based puzzle game that is inspired by Sudoku. You need to figure out the correct placements of oxygen atoms.",
+  "thumbnail": "https://imgs.crazygames.com/hidden-oxygen/20201124135132/hidden-oxygen-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hidden-oxygen/20201124135132/hidden-oxygen-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hidden-oxygen/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hidden-oxygen",
+  "crazygamesSlug": "hidden-oxygen"
+}

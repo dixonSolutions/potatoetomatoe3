@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cheese-quest",
+  "name": "Cheese Quest - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cheese Quest at Cool Math Games: Help the mouse in his quest to eat all of the cheese. Collect all of the cheese, but plan your path carefully since you can only step on each tile once.",
+  "thumbnail": "/games/coolmath-cheese-quest/online/assets/coolmath-cheese-quest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22059/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cheese-quest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cheese-quest"
+}

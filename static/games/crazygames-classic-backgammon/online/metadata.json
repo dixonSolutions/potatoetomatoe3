@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-classic-backgammon",
+  "name": "Backgammon Online 🎲 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Backgammon Online is a casual game adapted from the original board game for online players. This is a game of logic that allows you to play the classic and ancient board game of backgammon against other players worldwide.",
+  "thumbnail": "https://imgs.crazygames.com/games/classic-backgammon/cover_16x9-1707829263148.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/classic-backgammon/cover_16x9-1707829263148.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/classic-backgammon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/classic-backgammon",
+  "crazygamesSlug": "classic-backgammon"
+}

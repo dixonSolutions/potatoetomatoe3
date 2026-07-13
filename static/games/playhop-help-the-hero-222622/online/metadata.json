@@ -1,0 +1,17 @@
+{
+  "id": "playhop-help-the-hero-222622",
+  "name": "Help The Hero",
+  "author": "AA2G1LtdS",
+  "description": "Play Help The Hero via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000198d0464d198797e54c994a86d5b9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000198d0464d198797e54c994a86d5b9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-222622.games.s3.yandex.net/222622/dtty8hpewia5ax4ngexlva8l2gusqlts/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=222622&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 222622,
+  "playhopPageUrl": "https://playhop.com/app/222622",
+  "playhopRating": 4,
+  "playhopRatingCount": 14386
+}

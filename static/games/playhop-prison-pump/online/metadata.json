@@ -1,0 +1,17 @@
+{
+  "id": "playhop-prison-pump",
+  "name": "Prison Pump",
+  "author": "Nago",
+  "description": "Play Prison Pump via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019df85c180c76c588863222a4ac01/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019df85c180c76c588863222a4ac01/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-457858.games.s3.yandex.net/457858/1i5chrlkda92wv0v1pvsppwa5dr7gbaw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=457858&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 457858,
+  "playhopPageUrl": "https://playhop.com/app/457858",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 6963
+}

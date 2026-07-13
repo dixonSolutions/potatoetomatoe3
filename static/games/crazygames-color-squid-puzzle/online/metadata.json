@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-squid-puzzle",
+  "name": "Color Squid Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color Squid Puzzle is a relaxing puzzle game that challenges you to untangle and clear colorful blocks from the grid. Each level introduces new mechanics and trickier layouts, testing your logic and patience.",
+  "thumbnail": "https://imgs.crazygames.com/color-squid-puzzle_16x9/20251007063225/color-squid-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/color-squid-puzzle_16x9/20251007063225/color-squid-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-squid-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-squid-puzzle",
+  "crazygamesSlug": "color-squid-puzzle"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-lost-adventure",
+  "name": "lost adventure",
+  "author": "CrazyGames",
+  "description": "Play lost adventure on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lost-adventure/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lost-adventure",
+  "crazygamesSlug": "lost-adventure"
+}

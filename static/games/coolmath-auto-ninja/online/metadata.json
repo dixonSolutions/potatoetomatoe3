@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-auto-ninja",
+  "name": "Auto Ninja - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Run and jump your way through the course in Auto Ninja. Clear large gaps and avoid spikes to make it to the end of the level.",
+  "thumbnail": "/games/coolmath-auto-ninja/online/assets/coolmath-auto-ninja.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53497/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-auto-ninja",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-auto-ninja"
+}

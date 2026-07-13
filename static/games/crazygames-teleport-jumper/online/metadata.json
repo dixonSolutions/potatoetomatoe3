@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-teleport-jumper",
+  "name": "Teleport Jumper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Teleport Jumper is a puzzle platformer game where you use a short-range teleport to bypass obstacles and reach the exit at each level. This clever puzzle game was made by Robert Alvarez, who also has several popular puzzle games like Chessformer and Math Push.",
+  "thumbnail": "https://imgs.crazygames.com/games/teleport-jumper/cover-1678287945849.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/teleport-jumper/cover-1678287945849.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/teleport-jumper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/teleport-jumper",
+  "crazygamesSlug": "teleport-jumper"
+}

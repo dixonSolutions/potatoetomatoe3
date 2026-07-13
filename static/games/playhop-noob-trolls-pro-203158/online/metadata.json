@@ -1,0 +1,17 @@
+{
+  "id": "playhop-noob-trolls-pro-203158",
+  "name": "Noob trolls Pro",
+  "author": "GingerPlay",
+  "description": "Play Noob trolls Pro via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b4ad675808c62d671a6cf3966a1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b4ad675808c62d671a6cf3966a1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-203158.games.s3.yandex.net/203158/0nvm10sqih8ad48ifv43eybx2b0oo35l/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=203158&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 203158,
+  "playhopPageUrl": "https://playhop.com/app/203158",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 20561
+}

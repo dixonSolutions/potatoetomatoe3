@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-space-invaders",
+  "name": "Space Alien Invaders 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Space Alien Invaders is an action-packed arcade game where you control a spaceship defending Earth from alien invaders. Dodge enemy attacks while shooting laser beams to repel the UFO onslaught.",
+  "thumbnail": "/games/crazygames-space-invaders/online/assets/crazygames-space-invaders.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-invaders/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-invaders",
+  "crazygamesSlug": "space-invaders"
+}

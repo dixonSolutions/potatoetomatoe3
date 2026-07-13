@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spotanddiffers-208909",
+  "name": "Spot&Differs",
+  "author": "Cozy Games",
+  "description": "Play Spot&Differs via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a00000192adfca4bc273c14e14a5fa3cbba/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a00000192adfca4bc273c14e14a5fa3cbba/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-208909.games.s3.yandex.net/208909/qy17kvbon80pt6ayol8kpyc9zct7i7jl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=208909&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 208909,
+  "playhopPageUrl": "https://playhop.com/app/208909",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 22162
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-google-feud",
+  "name": "Google Feud 🔍 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Google Feud is a casual game where you must guess part of a Google query. There are 10 answers for each question, presented in a quiz format similar to Family Feud.",
+  "thumbnail": "/games/crazygames-google-feud/online/assets/crazygames-google-feud.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/google-feud/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/google-feud",
+  "crazygamesSlug": "google-feud"
+}

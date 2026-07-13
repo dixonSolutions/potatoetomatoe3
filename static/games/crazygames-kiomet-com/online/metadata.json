@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kiomet-com",
+  "name": "Kiomet 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kiomet is an immersive, real-time Io strategy game that challenges you to grow and defend your kingdom in a dynamic, ever-changing world. Expand your realm by strategically capturing new territories, all while defending against rival players and unpredictable threats.",
+  "thumbnail": "https://imgs.crazygames.com/kiomet-com_16x9/20260216051539/kiomet-com_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kiomet-com_16x9/20260216051539/kiomet-com_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kiomet-com/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kiomet-com",
+  "crazygamesSlug": "kiomet-com"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-vector-runner",
+  "name": "Vector Runner",
+  "author": "Addicting Games",
+  "description": "<p>Your instincts are right - if it's red and pointy, you should avoid it. But you'll need VERY fast reflexes!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/vectorrunner_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/vectorrunner_sp.png",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/vectorrunner_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/vector-runner"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-war-sea",
+  "name": "War Sea 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "War Sea is an exhilarating battle game where you take command of a battle raft to obliterate your foes. Enhance your raft&#39;s combat prowess by expanding its size, recruiting and upgrading units, and utilizing powerful bonuses.",
+  "thumbnail": "https://imgs.crazygames.com/war-sea_16x9/20230929034556/war-sea_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/war-sea_16x9/20230929034556/war-sea_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/war-sea/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/war-sea",
+  "crazygamesSlug": "war-sea"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-pomni-to-the-digital-circus",
+  "name": "Call Pomni to the Digital Circus",
+  "author": "baldunchegg",
+  "description": "Play Call Pomni to the Digital Circus via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000193a193af99f31f64f53e13b896f5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000193a193af99f31f64f53e13b896f5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-393933.games.s3.yandex.net/393933/uxk08gxky8r1mbsuftkh9dcfnytw2blw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=393933&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 393933,
+  "playhopPageUrl": "https://playhop.com/app/393933",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 291
+}

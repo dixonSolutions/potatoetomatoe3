@@ -1,0 +1,17 @@
+{
+  "id": "playhop-guess-their-answer",
+  "name": "Guess Their Answer",
+  "author": "Famobi-Dev",
+  "description": "Play Guess Their Answer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019301ac4ab538c84a7b4acf7af38d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019301ac4ab538c84a7b4acf7af38d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-385770.games.s3.yandex.net/385770/3ypdq8ujlonbeo8p5q1psrzuoyjkpizi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=385770&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 385770,
+  "playhopPageUrl": "https://playhop.com/app/385770",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 9423
+}

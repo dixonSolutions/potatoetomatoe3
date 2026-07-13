@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lines-of-balls-178772",
+  "name": "Lines of balls",
+  "author": "SRV",
+  "description": "Play Lines of balls via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000017c96951a8793c50551a7c4804b12/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000017c96951a8793c50551a7c4804b12/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-178772.games.s3.yandex.net/178772/hesori0gmnn9i2rzgbbb5iitfwbiityr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=178772&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 178772,
+  "playhopPageUrl": "https://playhop.com/app/178772",
+  "playhopRating": 3.2,
+  "playhopRatingCount": 407
+}

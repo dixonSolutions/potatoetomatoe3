@@ -1,0 +1,14 @@
+{
+  "id": "addicting-battle-club",
+  "name": "Battle Club",
+  "author": "Addicting Games",
+  "description": "<p>Battle Club is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/battleclubgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/battleclubgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://battleclub.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/battle-club"
+}

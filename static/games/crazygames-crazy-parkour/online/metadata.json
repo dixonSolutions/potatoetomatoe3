@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crazy-parkour",
+  "name": "Crazy Parkour 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Parkour is an adrenaline-pumping, action-packed game that will test your agility and endurance. Take on challenging obstacles and master the art of parkour as you jump, climb, and run through a variety of environments.",
+  "thumbnail": "https://imgs.crazygames.com/games/crazy-parkour/cover_16x9-1717691695814.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/crazy-parkour/cover_16x9-1717691695814.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-parkour/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-parkour",
+  "crazygamesSlug": "crazy-parkour"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-knockout-ctv",
+  "name": "Knockout! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Slide into chaotic multiplayer battles in Knockout!, a fast-paced arena game where a group of penguins fight to stay on the ice.Each round begins with players standing on a slippery frozen arena.",
+  "thumbnail": "https://imgs.crazygames.com/knockout-ctv_16x9/20260428091212/knockout-ctv_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/knockout-ctv_16x9/20260428091212/knockout-ctv_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/knockout-ctv/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/knockout-ctv",
+  "crazygamesSlug": "knockout-ctv"
+}

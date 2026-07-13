@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-numicolor",
+  "name": "Numicolor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries.",
+  "thumbnail": "https://imgs.crazygames.com/numicolor_16x9/20260319144356/numicolor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/numicolor_16x9/20260319144356/numicolor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/numicolor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/numicolor",
+  "crazygamesSlug": "numicolor"
+}

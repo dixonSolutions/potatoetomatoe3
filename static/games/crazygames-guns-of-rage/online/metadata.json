@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-guns-of-rage",
+  "name": "guns of rage",
+  "author": "CrazyGames",
+  "description": "Play guns of rage on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/guns-of-rage/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/guns-of-rage",
+  "crazygamesSlug": "guns-of-rage"
+}

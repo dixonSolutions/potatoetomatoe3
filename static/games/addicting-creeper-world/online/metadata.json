@@ -1,0 +1,14 @@
+{
+  "id": "addicting-creeper-world",
+  "name": "Creeper World",
+  "author": "Addicting Games",
+  "description": "<p>Creeper World is a free tower defense game. The creeps are coming! You'll need to get off this planet, but you'll have to fight your way out. Collect resources, build turrets, and capture territory: FTW!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Creeper-World.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Creeper-World.jpg",
+  "thumbnailStored": "remote",
+  "category": "tower-defense-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/creeperworld.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/creeper-world"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dinoz-203117",
+  "name": "DinoZ",
+  "author": "RHM Interactive",
+  "description": "Play DinoZ via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000184b91a058ac34a5289093dcab193/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000184b91a058ac34a5289093dcab193/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-203117.games.s3.yandex.net/203117/fo99za4567a2k9ss67o6zcxql36zmh3y/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=203117&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 203117,
+  "playhopPageUrl": "https://playhop.com/app/203117",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 740
+}

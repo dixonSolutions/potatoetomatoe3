@@ -1,0 +1,14 @@
+{
+  "id": "addicting-neon-math",
+  "name": "Neon Math",
+  "author": "Addicting Games",
+  "description": "<p>Neon Math is a puzzle game that incorporates math with a sliding puzzle! For fans, of Neon Games you may recognize their signature use of neon colors set against dark backgrounds. This online game is no exception with bright green squares set against a navy blue background. Your objective in these math puzzle game is to slide all of the squares until they reach zero. In the beginning, this will be an easy concept but the game gets more difficult with every level. There will be multiple blocks to slide and you must figure which ones to slide and in which direction. There are 40 levels of this puzzle game for you to solve! Each game is timed so don’t hesitate to make a move. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/neonmathgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/neonmathgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/neon-math/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/neon-math"
+}

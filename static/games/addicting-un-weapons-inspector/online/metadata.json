@@ -1,0 +1,14 @@
+{
+  "id": "addicting-un-weapons-inspector",
+  "name": "UN Weapons Inspector",
+  "author": "Addicting Games",
+  "description": "Try to find the weapons of mass destruction! Guess what? Youre HORRIBLE at it!",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/UN-Weapons-Inspector.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/UN-Weapons-Inspector.jpg",
+  "thumbnailStored": "remote",
+  "category": "political-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/unweaponsinspector_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/un-weapons-inspector"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-liquid-puzzle",
+  "name": "Liquid Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Liquid Puzzle is a color game to fill each glass with one colored water to complete each level. Start sorting colored water!",
+  "thumbnail": "https://imgs.crazygames.com/games/liquid-puzzle/cover-1656603384587.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/liquid-puzzle/cover-1656603384587.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/liquid-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/liquid-puzzle",
+  "crazygamesSlug": "liquid-puzzle"
+}

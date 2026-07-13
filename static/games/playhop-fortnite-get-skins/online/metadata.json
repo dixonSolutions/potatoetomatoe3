@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fortnite-get-skins",
+  "name": "Fortnite: Get skins",
+  "author": "Lazy Dev Team",
+  "description": "Play Fortnite: Get skins via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018fbab368fae155d42fc557ed214d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018fbab368fae155d42fc557ed214d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-343960.games.s3.yandex.net/343960/nwccffj5tzcmn8uorlsylgqnga1s9u4s/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=343960&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 343960,
+  "playhopPageUrl": "https://playhop.com/app/343960",
+  "playhopRating": 4,
+  "playhopRatingCount": 253
+}

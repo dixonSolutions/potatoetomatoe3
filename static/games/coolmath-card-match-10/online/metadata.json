@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-card-match-10",
+  "name": "Card Match 10 - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Clear the board out by matching tiles until they reach 10. Card Match 10 is a game that requires planning and strategy in order to succeed.",
+  "thumbnail": "/games/coolmath-card-match-10/online/assets/coolmath-card-match-10.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52986/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-card-match-10",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-card-match-10"
+}

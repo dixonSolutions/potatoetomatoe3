@@ -1,0 +1,14 @@
+{
+  "id": "addicting-draw4play",
+  "name": "Draw4Play",
+  "author": "Addicting Games",
+  "description": "<p>Get your little dude to the door. Draw a path; erase a path. Be careful; some obstacles will mess with your lines! Timing counts.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/draw4play_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/draw4play_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/draw4play.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/draw4play"
+}

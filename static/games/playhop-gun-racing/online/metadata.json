@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gun-racing",
+  "name": "Gun Racing",
+  "author": "PM Games",
+  "description": "Play Gun Racing via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000190d9624fce2e07a9649a36a425fe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000190d9624fce2e07a9649a36a425fe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-347608.games.s3.yandex.net/347608/63jfrtjsh8g61w5i6yq0tkhj4c3ymley/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=347608&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 347608,
+  "playhopPageUrl": "https://playhop.com/app/347608",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 6709
+}

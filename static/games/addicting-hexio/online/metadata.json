@@ -1,0 +1,14 @@
+{
+  "id": "addicting-hexio",
+  "name": "Hex.io",
+  "author": "Addicting Games",
+  "description": "<p>Hex.io is a free iogame. All the world is a hex grid and we are merely the bois who must click, build, and slowly develop a thriving kingdom of generators and walls. Such is existence as we know it. Ours is not to complain or to wonder why, our is simply to select the power generator to build the power generator and then surround it with a wall while we attempt to take over as much territory as possible. Hex Bois is a game of area majority and area influence. It is a game where you must flex your muscles by placing your hexes. In the game, you'll be creating hex powerplants to create an incrementally small number of points which you will then use to eventually buy a bunch more hex stuff. Will you buy another hex generator, a hex wall, a hex plant? Who is to say. The answers to such questions are hidden within your own mind and will only float to the surface in the heat of battle.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-07-28_113702438.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-07-28_113702438.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://playhex.online",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/hexio"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-case-battle",
+  "name": "Case-Battle",
+  "author": "xxploit",
+  "description": "Play Case-Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001991c2acef3051ef9e60b921e3ea3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001991c2acef3051ef9e60b921e3ea3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-434649.games.s3.yandex.net/434649/highwe7lg0dhujtyw0qty87949rbovsk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=434649&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 434649,
+  "playhopPageUrl": "https://playhop.com/app/434649",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 75774
+}

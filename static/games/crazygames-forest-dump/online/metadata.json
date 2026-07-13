@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-forest-dump",
+  "name": "Forest Dump 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Forest Dump is a casual roguelike game that takes you on a unique adventure through a quirky and polluted woodland. As a clever and resourceful fox, your mission is to clean up your corrupted forest home by flipping cards to uncover mysteries, face off against trash monsters, and collect powerful weapons to aid in your journey.",
+  "thumbnail": "https://imgs.crazygames.com/forest-dump_16x9/20240927041543/forest-dump_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/forest-dump_16x9/20240927041543/forest-dump_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/forest-dump/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/forest-dump",
+  "crazygamesSlug": "forest-dump"
+}

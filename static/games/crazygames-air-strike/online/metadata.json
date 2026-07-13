@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-air-strike",
+  "name": "air strike",
+  "author": "CrazyGames",
+  "description": "Play air strike on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/air-strike/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/air-strike",
+  "crazygamesSlug": "air-strike"
+}

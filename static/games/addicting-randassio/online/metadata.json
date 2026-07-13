@@ -1,0 +1,14 @@
+{
+  "id": "addicting-randassio",
+  "name": "Randass.io",
+  "author": "Addicting Games",
+  "description": "<p>Randass.io is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/randassgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/randassgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://randass.surge.sh/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/randassio"
+}

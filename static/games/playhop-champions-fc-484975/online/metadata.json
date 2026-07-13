@@ -1,0 +1,17 @@
+{
+  "id": "playhop-champions-fc-484975",
+  "name": "Champions FC",
+  "author": "MarketJS",
+  "description": "Play Champions FC via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b69d629f59231e9ac3ebf840132/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b69d629f59231e9ac3ebf840132/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-484975.games.s3.yandex.net/484975/b5fz4npjs09qvbjee6dul58mzvmu9mmm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=484975&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 484975,
+  "playhopPageUrl": "https://playhop.com/app/484975",
+  "playhopRating": 2.9,
+  "playhopRatingCount": 128
+}

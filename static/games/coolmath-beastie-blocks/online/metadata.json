@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-beastie-blocks",
+  "name": "Beastie Blocks - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Beastie Blocks at Cool Math Games: Match four to free the spirits! Watch the numbers closely and get a new high score before any blocks tick down to zero.",
+  "thumbnail": "/games/coolmath-beastie-blocks/online/assets/coolmath-beastie-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24996/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-beastie-blocks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-beastie-blocks"
+}

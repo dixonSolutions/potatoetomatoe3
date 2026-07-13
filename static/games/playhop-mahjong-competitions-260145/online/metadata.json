@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-competitions-260145",
+  "name": "Mahjong Competitions",
+  "author": "Baranovskaya",
+  "description": "Play Mahjong Competitions via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018b19d9b121a75e36b864d3d9f729/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018b19d9b121a75e36b864d3d9f729/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-260145.games.s3.yandex.net/260145/w7rxjz5vgx6b9o2as9wgzeuk28nyob8l/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=260145&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 260145,
+  "playhopPageUrl": "https://playhop.com/app/260145",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 2256
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tanks-island-battle",
+  "name": "Tanks: Island Battle",
+  "author": "JL studio",
+  "description": "Play Tanks: Island Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000196d82f0c19c6b032e41d1a44b86a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000196d82f0c19c6b032e41d1a44b86a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-437825.games.s3.yandex.net/437825/0r7xegahwmf4v0qu3octv19elynwvh5o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=437825&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 437825,
+  "playhopPageUrl": "https://playhop.com/app/437825",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1350
+}

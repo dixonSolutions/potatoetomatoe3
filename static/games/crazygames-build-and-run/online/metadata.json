@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-build-and-run",
+  "name": "build and run",
+  "author": "CrazyGames",
+  "description": "Play build and run on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/build-and-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/build-and-run",
+  "crazygamesSlug": "build-and-run"
+}

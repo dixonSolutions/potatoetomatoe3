@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dashcraft-io",
+  "name": "DashCraft.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "DashCraft.io is a multiplayer racing game where you can race on tracks built by other players. Choose from a range of cars, share your creations, and compete on tracks made by the community!",
+  "thumbnail": "https://imgs.crazygames.com/dashcraft-io_16x9/20240325025037/dashcraft-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dashcraft-io_16x9/20240325025037/dashcraft-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dashcraft-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dashcraft-io",
+  "crazygamesSlug": "dashcraft-io"
+}

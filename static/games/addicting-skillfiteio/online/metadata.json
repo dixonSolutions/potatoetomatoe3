@@ -1,0 +1,14 @@
+{
+  "id": "addicting-skillfiteio",
+  "name": "Skillfite.io",
+  "author": "Addicting Games",
+  "description": "<p><a href=\"http://skillfite.io/\" target=\"_blank\">Skillfite.io</a> is an io game that combines MMORPG, throwing you into live multiplayer showdowns against 100 players. Develop skills, craft gear, and team up or battle for loot. Train 5 skills, gather 17 different resources, and forge 20+ weapons and armor in this Gatarn Games-backed thrill with weekly updates. Prepare for gaming excitement!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/skillfite_screen_cover.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/skillfite_screen_cover.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://skillfite.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/skillfiteio"
+}

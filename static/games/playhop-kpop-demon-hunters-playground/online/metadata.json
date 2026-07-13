@@ -1,0 +1,17 @@
+{
+  "id": "playhop-kpop-demon-hunters-playground",
+  "name": "KPop Demon Hunters Playground",
+  "author": "Miraculum Games",
+  "description": "Play KPop Demon Hunters Playground via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019b89d5528c4e5cddf6b8eda043c7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019b89d5528c4e5cddf6b8eda043c7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-405775.games.s3.yandex.net/405775/6c5d091n52f5v1jl7709hn8ozet4hfce/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=405775&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 405775,
+  "playhopPageUrl": "https://playhop.com/app/405775",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 8509
+}

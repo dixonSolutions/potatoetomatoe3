@@ -1,0 +1,17 @@
+{
+  "id": "playhop-park-town",
+  "name": "Park Town",
+  "author": "RED BRIX WALL LLC",
+  "description": "Play Park Town via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018f9fd3d0c2d85334d5ef8ca7060a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018f9fd3d0c2d85334d5ef8ca7060a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-452491.games.s3.yandex.net/452491/9wui6xib4mhlgqv0c65votvgj1xif6rj/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 342633,
+  "playhopPageUrl": "https://playhop.com/app/342633",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2128
+}

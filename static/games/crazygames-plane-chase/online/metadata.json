@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-plane-chase",
+  "name": "plane chase",
+  "author": "CrazyGames",
+  "description": "Play plane chase on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/plane-chase/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/plane-chase",
+  "crazygamesSlug": "plane-chase"
+}

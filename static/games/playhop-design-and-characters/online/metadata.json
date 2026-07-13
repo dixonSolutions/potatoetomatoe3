@@ -1,0 +1,17 @@
+{
+  "id": "playhop-design-and-characters",
+  "name": "Design and characters",
+  "author": "Stolen Games",
+  "description": "Play Design and characters via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019d5f32dafdacff522d732cef0904/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019d5f32dafdacff522d732cef0904/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-329680.games.s3.yandex.net/329680/nfvb8outb19fkik29zn50padmrp3oxfz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=329680&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 329680,
+  "playhopPageUrl": "https://playhop.com/app/329680",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 7985
+}

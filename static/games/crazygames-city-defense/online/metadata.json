@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-city-defense",
+  "name": "City Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "City Defense is a strategy tower defense game where your goal is to protect your base from relentless enemy waves. Plan your defense by deploying different types of troops and placing obstacles in key positions to slow enemies down and control their path.",
+  "thumbnail": "https://imgs.crazygames.com/city-defense_16x9/20251205100552/city-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/city-defense_16x9/20251205100552/city-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/city-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/city-defense",
+  "crazygamesSlug": "city-defense"
+}

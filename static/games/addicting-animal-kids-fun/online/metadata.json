@@ -1,0 +1,14 @@
+{
+  "id": "addicting-animal-kids-fun",
+  "name": "Animal Kids Fun",
+  "author": "Addicting Games",
+  "description": "<p>Kids Animal Fun is a free puzzle game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/KIDSANIMALFUNGAME.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/KIDSANIMALFUNGAME.jpg",
+  "thumbnailStored": "remote",
+  "category": "clicker",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/kids-animal-fun/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/animal-kids-fun"
+}

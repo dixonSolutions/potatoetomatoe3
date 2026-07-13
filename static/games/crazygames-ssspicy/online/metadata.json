@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ssspicy",
+  "name": "SSSPICY! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SSSPICY! is an arcade game to help the hungry snake eat all the spicy pepper!",
+  "thumbnail": "https://imgs.crazygames.com/games/ssspicy/cover-1658812369424.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/ssspicy/cover-1658812369424.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ssspicy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ssspicy",
+  "crazygamesSlug": "ssspicy"
+}

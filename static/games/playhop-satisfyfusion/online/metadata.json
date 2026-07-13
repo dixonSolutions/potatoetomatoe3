@@ -1,0 +1,17 @@
+{
+  "id": "playhop-satisfyfusion",
+  "name": "SatisfyFusion",
+  "author": "Volan Interactive",
+  "description": "Play SatisfyFusion via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199e1877b7f8209b12fb30392f232/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199e1877b7f8209b12fb30392f232/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-472085.games.s3.yandex.net/472085/7dyid5qefk1fwfmld8tnrr5841inlwbj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=472085&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 472085,
+  "playhopPageUrl": "https://playhop.com/app/472085",
+  "playhopRating": 3.1,
+  "playhopRatingCount": 496
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-master-haircutter-273604",
+  "name": "Master Haircutter",
+  "author": "Kahraman Kurt",
+  "description": "Play Master Haircutter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018ce9166c51078d636b8c8db349f8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018ce9166c51078d636b8c8db349f8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-273604.games.s3.yandex.net/273604/g3angecre2vcm2uzxmtb3w654nfvx8w5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=273604&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 273604,
+  "playhopPageUrl": "https://playhop.com/app/273604",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 1714
+}

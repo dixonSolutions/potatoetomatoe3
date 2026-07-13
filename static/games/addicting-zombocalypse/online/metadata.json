@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombocalypse",
+  "name": "Zombocalypse",
+  "author": "Addicting Games",
+  "description": "<p>Zombocalypse is a free zombie game. Its you vs. a horde of hungry, hungry zombies. Your goal: Make strategic use of limited ammo and health to stay alive (and unlock more powerful weapons). Tip: Call in an airstrike when things get too bitey.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Zombocalypse.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Zombocalypse.jpg",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombacalypse_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombocalypse"
+}

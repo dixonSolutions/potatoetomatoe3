@@ -1,0 +1,14 @@
+{
+  "id": "addicting-easter-golf",
+  "name": "Easter Golf",
+  "author": "Addicting Games",
+  "description": "<p>Help the Easter Bunny collect eggs and score a Hole in One!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2026-03-23_104420324%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2026-03-23_104420324%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "seasonal",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/eastergolf.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/easter-golf"
+}

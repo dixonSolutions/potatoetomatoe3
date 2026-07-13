@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pudding-monsters",
+  "name": "Pudding Monsters 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pudding Monsters is a casual but fun game developed by ZeptoLab in which you must attempt to place all the different pudding monsters together to form one giant pudding monster!You must slide the individual puddings across the playing field to join them together.",
+  "thumbnail": "https://imgs.crazygames.com/puddingmonsters.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/puddingmonsters.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pudding-monsters/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pudding-monsters",
+  "crazygamesSlug": "pudding-monsters"
+}

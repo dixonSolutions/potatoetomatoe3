@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-ludo-party",
+  "name": "ludo party",
+  "author": "CrazyGames",
+  "description": "Play ludo party on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ludo-party/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ludo-party",
+  "crazygamesSlug": "ludo-party"
+}

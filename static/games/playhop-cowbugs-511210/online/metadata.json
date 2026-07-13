@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cowbugs-511210",
+  "name": "Cowbugs",
+  "author": "DanyellowDev",
+  "description": "Play Cowbugs via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019d440b26904fd621a32dd8d7b37b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019d440b26904fd621a32dd8d7b37b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-511210.games.s3.yandex.net/511210/0zgrgqo9rbzvw262l2w4bor4a90zy0yz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=511210&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 511210,
+  "playhopPageUrl": "https://playhop.com/app/511210",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 95
+}

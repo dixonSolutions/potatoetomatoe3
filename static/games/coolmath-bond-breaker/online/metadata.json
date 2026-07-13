@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bond-breaker",
+  "name": "Bond Breaker - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bond Breaker at Cool Math Games: Put your chemistry cap on! Control the powers of molecular attraction and repulsion to solve the challenging puzzles.",
+  "thumbnail": "/games/coolmath-bond-breaker/online/assets/coolmath-bond-breaker.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24841/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bond-breaker",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bond-breaker"
+}

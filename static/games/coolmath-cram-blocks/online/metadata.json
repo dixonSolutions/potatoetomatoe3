@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cram-blocks",
+  "name": "Cram Blocks - Play it online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Drop the different shapes in to put the block back together again in Cram Blocks. Rotate the pieces to fit into the spaces of the oddly shaped blocks.",
+  "thumbnail": "/games/coolmath-cram-blocks/online/assets/coolmath-cram-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/39097/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cram-blocks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cram-blocks"
+}

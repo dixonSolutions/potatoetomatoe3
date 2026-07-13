@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ovo-online",
+  "name": "OvO.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "OvO.io Online is the same as the OvO game you know and love, but now in multiplayer! This is a fast-paced skill-based platforming game focused on maneuvering around the levels as fast as possible.",
+  "thumbnail": "https://imgs.crazygames.com/ovo-online/20220624172306/ovo-online-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ovo-online/20220624172306/ovo-online-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ovo-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ovo-online",
+  "crazygamesSlug": "ovo-online"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fruit-clicker",
+  "name": "Fruit Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fruit Clicker is an idle game where you develop your fruit farm, buy dozens of unique upgrades, unlock new fruits, juice production, laboratory, and more! You can also create juice and get gold to expand production and become the main fruit maker in the world.",
+  "thumbnail": "https://imgs.crazygames.com/fruit-clicker/20230428041649/fruit-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fruit-clicker/20230428041649/fruit-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fruit-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fruit-clicker",
+  "crazygamesSlug": "fruit-clicker"
+}

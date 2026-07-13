@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soccer-penalty-shootout-307415",
+  "name": "Soccer: penalty shootout",
+  "author": "ГигабэйшнКорпорэйшн",
+  "description": "Play Soccer: penalty shootout via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018e4c73d462212eae260695e78cea/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018e4c73d462212eae260695e78cea/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-307415.games.s3.yandex.net/307415/7xyrdaj67zkl81zj8sd5ppxmpyg8my2b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=307415&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 307415,
+  "playhopPageUrl": "https://playhop.com/app/307415",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 4687
+}

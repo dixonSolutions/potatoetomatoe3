@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-adventure-tom",
+  "name": "Adventure Tom - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Adventure Tom at Cool Math Games: He knows how to run, but he has no idea where to go! Place walls to help Tom find the keys and unlock the hidden treasure chests.",
+  "thumbnail": "/games/coolmath-adventure-tom/online/assets/coolmath-adventure-tom.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23045/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-adventure-tom",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-adventure-tom"
+}

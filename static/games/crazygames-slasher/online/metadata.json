@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-slasher",
+  "name": "slasher",
+  "author": "CrazyGames",
+  "description": "Play slasher on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/slasher/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/slasher",
+  "crazygamesSlug": "slasher"
+}

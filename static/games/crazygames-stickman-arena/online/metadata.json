@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stickman-arena",
+  "name": "Stickman Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stickman Arena is a PVP arena battle game that offers a thrilling stick war experience. Conquer fights within the arena using a variety of weapons like pistols, bows, and guns.",
+  "thumbnail": "https://imgs.crazygames.com/stickman-arena_16x9/20260220034027/stickman-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stickman-arena_16x9/20260220034027/stickman-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stickman-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stickman-arena",
+  "crazygamesSlug": "stickman-arena"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-word-shift",
+  "name": "word shift",
+  "author": "CrazyGames",
+  "description": "Play word shift on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/word-shift/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/word-shift",
+  "crazygamesSlug": "word-shift"
+}

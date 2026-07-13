@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dialed-gg-color-516409",
+  "name": "Dialed GG Color",
+  "author": "icantpause",
+  "description": "Play Dialed GG Color via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019d7bdf2107a6252514b60f634675/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019d7bdf2107a6252514b60f634675/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-516409.games.s3.yandex.net/516409/k5l8q4e0gp3qa2j2c8tibrjumgmyvcje/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=516409&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 516409,
+  "playhopPageUrl": "https://playhop.com/app/516409",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

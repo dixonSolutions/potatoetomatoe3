@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-heart-box",
+  "name": "heart box",
+  "author": "CrazyGames",
+  "description": "Play heart box on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-heart-box/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/heart-box/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/heart-box",
+  "crazygamesSlug": "heart-box"
+}

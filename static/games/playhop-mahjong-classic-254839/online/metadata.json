@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-classic-254839",
+  "name": "Mahjong Classic",
+  "author": "Игрунка Геймс",
+  "description": "Play Mahjong Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/19298966/2a0000019cd8043d85ff047fac6c8fbd3e17/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/19298966/2a0000019cd8043d85ff047fac6c8fbd3e17/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-254839.games.s3.yandex.net/254839/q9ijvnzsh2d1dwbrwj7wtkj9eweknlkt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=254839&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 254839,
+  "playhopPageUrl": "https://playhop.com/app/254839",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 11076
+}

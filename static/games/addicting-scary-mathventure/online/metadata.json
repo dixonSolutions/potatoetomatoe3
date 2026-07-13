@@ -1,0 +1,14 @@
+{
+  "id": "addicting-scary-mathventure",
+  "name": "Scary Mathventure",
+  "author": "Addicting Games",
+  "description": "<p>Scary Mathventure is an educational game that incorporates puzzles and math practice. Sometimes studying can burn you out so it is good to take breaks here and there. This online game lets you play a level and then requires you to solve 5 math problems before unlocking the next level. There are 30 levels of Scary Mathventure for you to play. You can choose math skills that vary from preschool to 8th grade. There is addition, algebra, decimals, and fractions for you to study. The online game itself is a puzzle game where you must figure out how to remove each bomb in the picture with a limited amount of ghosts and paths. Each level comes with its own challenges like needing to grab keys in order to unlock certain doors. Do not hesitate to play this fun math game! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/scarymathventuresharpened.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/scarymathventuresharpened.jpg",
+  "thumbnailStored": "remote",
+  "category": "scary-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/scary-mathventure/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/scary-mathventure"
+}

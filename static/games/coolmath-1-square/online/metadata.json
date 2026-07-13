@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-1-square",
+  "name": "Play 1 Square: Hop and remove | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Each square has a number, and it&#039;s your job to jump on them. The goal of 1 Square is to knock them all down to zero before the rain swallows you up.",
+  "thumbnail": "/games/coolmath-1-square/online/assets/coolmath-1-square.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48234/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-1-square",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-1-square"
+}

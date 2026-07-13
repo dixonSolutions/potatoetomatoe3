@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nonogram-square",
+  "name": "Nonogram Square 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Nonogram Square is a classic picture logic puzzle game. Fill in cells using number clues for each row and column to reveal hidden pixel art pictures.",
+  "thumbnail": "https://imgs.crazygames.com/nonogram-square_16x9/20260612054213/nonogram-square_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/nonogram-square_16x9/20260612054213/nonogram-square_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nonogram-square/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nonogram-square",
+  "crazygamesSlug": "nonogram-square"
+}

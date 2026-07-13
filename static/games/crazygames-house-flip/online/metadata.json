@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-house-flip",
+  "name": "House Flip 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "House Flip is a simulation game where you navigate property listings, buy houses, and turn them into profits. Host an open house to gauge buyer interest and needs.",
+  "thumbnail": "https://imgs.crazygames.com/house-flip_16x9/20240202095312/house-flip_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/house-flip_16x9/20240202095312/house-flip_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/house-flip/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/house-flip",
+  "crazygamesSlug": "house-flip"
+}

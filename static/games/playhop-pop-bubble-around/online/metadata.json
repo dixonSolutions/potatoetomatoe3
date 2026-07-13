@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pop-bubble-around",
+  "name": "Pop bubble around",
+  "author": "low mb games",
+  "description": "Play Pop bubble around via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000198eb6db799a93bfbeaf63f3aa9a0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000198eb6db799a93bfbeaf63f3aa9a0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-460021.games.s3.yandex.net/460021/8dvkq6d5ulx8dk4u0x7ij0tjb6sk3obz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=460021&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 460021,
+  "playhopPageUrl": "https://playhop.com/app/460021",
+  "playhopRating": 4,
+  "playhopRatingCount": 611
+}

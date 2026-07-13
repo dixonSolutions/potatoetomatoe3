@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cut-the-buttons",
+  "name": "Cut the Buttons - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cut the Buttons at Cool Math Games: Snip, snip! Cut the thread to separate the colored buttons from the cloth. Leave no buttons behind!",
+  "thumbnail": "/games/coolmath-cut-the-buttons/online/assets/coolmath-cut-the-buttons.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23917/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cut-the-buttons",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cut-the-buttons"
+}

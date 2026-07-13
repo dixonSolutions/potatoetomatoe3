@@ -1,0 +1,17 @@
+{
+  "id": "playhop-avatar-world-latest-version",
+  "name": "Avatar World Latest Version",
+  "author": "R.G. Team",
+  "description": "Play Avatar World Latest Version via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001929219aeb9da08c93a0290c87b1d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001929219aeb9da08c93a0290c87b1d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-380532.games.s3.yandex.net/380532/4subykzun9wpxj5uro2136up9mvlkckz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=380532&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 380532,
+  "playhopPageUrl": "https://playhop.com/app/380532",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 8360
+}

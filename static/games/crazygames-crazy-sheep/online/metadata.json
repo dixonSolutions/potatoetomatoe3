@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crazy-sheep",
+  "name": "Crazy Sheep 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Sheep is a challenging and fun casual game where you help a clumsy sheep get safely to the other side by building a bridge from moving blocks. The game tests your reflexes and patience, as you&#39;ll need to stop the moving blocks at just the right moment to create a smooth path for the sheep to cross.",
+  "thumbnail": "https://imgs.crazygames.com/crazy-sheep_16x9/20241015030435/crazy-sheep_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/crazy-sheep_16x9/20241015030435/crazy-sheep_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-sheep/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-sheep",
+  "crazygamesSlug": "crazy-sheep"
+}

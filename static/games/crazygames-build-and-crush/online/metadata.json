@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-build-and-crush",
+  "name": "Build and Crush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Build and Crush is a multiplayer game in which you can, you guessed it, build and crush stuff. Choose your own fun!",
+  "thumbnail": "https://imgs.crazygames.com/build-and-crush_16x9/20240508095251/build-and-crush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/build-and-crush_16x9/20240508095251/build-and-crush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/build-and-crush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/build-and-crush",
+  "crazygamesSlug": "build-and-crush"
+}

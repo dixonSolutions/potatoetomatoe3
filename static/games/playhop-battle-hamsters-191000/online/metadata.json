@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battle-hamsters-191000",
+  "name": "Battle Hamsters",
+  "author": "JL studio",
+  "description": "Play Battle Hamsters via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001818bfef53574e1aec1fb437af500/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001818bfef53574e1aec1fb437af500/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-191000.games.s3.yandex.net/191000/0hcrqbcbj1ccrejy1utf6zors8fsi7v3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=191000&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 191000,
+  "playhopPageUrl": "https://playhop.com/app/191000",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 702
+}

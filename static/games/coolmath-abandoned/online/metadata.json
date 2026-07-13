@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-abandoned",
+  "name": "Abandoned - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Uncover the secrets of an Abandoned civilization and its lost technologies in a search for your missing brother. You&#039;ll need problem-solving skills to win.",
+  "thumbnail": "/games/coolmath-abandoned/online/assets/coolmath-abandoned.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26122/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-abandoned",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-abandoned"
+}

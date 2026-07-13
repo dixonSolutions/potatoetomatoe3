@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stack-colors",
+  "name": "Stack Colors 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stack colors is a hypercasual game where you move side to side to collect colored blocks. Stack as many colors as possible and kick them over the finish line with as much force as you can for a big reward multiplier!",
+  "thumbnail": "https://imgs.crazygames.com/stack-colors/20230217104512/stack-colors-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stack-colors/20230217104512/stack-colors-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stack-colors/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stack-colors",
+  "crazygamesSlug": "stack-colors"
+}

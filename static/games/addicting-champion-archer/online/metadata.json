@@ -1,0 +1,14 @@
+{
+  "id": "addicting-champion-archer",
+  "name": "Champion Archer",
+  "author": "Addicting Games",
+  "description": "<p>Champion Archer is a free stick game. Your life depends on your aim with arrows. Will you be able to slay enough stick soldiers to grab the illustrious quick shot?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/champion-archer.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/champion-archer.jpg",
+  "thumbnailStored": "remote",
+  "category": "stick-figure-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/championarcher.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/champion-archer"
+}

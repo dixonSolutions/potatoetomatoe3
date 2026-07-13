@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sponge-bob-3d",
+  "name": "Sponge Bob: 3D",
+  "author": "Project Jrn",
+  "description": "Play Sponge Bob: 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019d7d6d1c6fe74fb6804c6c34c63b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019d7d6d1c6fe74fb6804c6c34c63b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-469932.games.s3.yandex.net/469932/i9n1gsh18qujvooqynoypvuihz15xq8c/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=469932&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 469932,
+  "playhopPageUrl": "https://playhop.com/app/469932",
+  "playhopRating": 4,
+  "playhopRatingCount": 730
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-jump-guys",
+  "name": "jump guys",
+  "author": "CrazyGames",
+  "description": "Play jump guys on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jump-guys/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jump-guys",
+  "crazygamesSlug": "jump-guys"
+}

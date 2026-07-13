@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-103526",
+  "name": "Bubble",
+  "author": "Lazy games",
+  "description": "Play Bubble via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001741379e39eaad5262683845e0540/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001741379e39eaad5262683845e0540/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-103526.games.s3.yandex.net/103526/rhvf68ftfj5854aikrrpcso25eeclunj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=103526&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 103526,
+  "playhopPageUrl": "https://playhop.com/app/103526",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1738
+}

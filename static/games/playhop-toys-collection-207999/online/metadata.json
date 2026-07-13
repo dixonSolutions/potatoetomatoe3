@@ -1,0 +1,17 @@
+{
+  "id": "playhop-toys-collection-207999",
+  "name": "Toys Collection",
+  "author": "D-Games",
+  "description": "Play Toys Collection via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001855a1990c750158c40761a44328b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001855a1990c750158c40761a44328b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-207999.games.s3.yandex.net/207999/0xdqn0y2bk12jtdu9v8lxoqg5jqzd1oh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=207999&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 207999,
+  "playhopPageUrl": "https://playhop.com/app/207999",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5287
+}

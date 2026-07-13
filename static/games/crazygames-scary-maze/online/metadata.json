@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-scary-maze",
+  "name": "Scary Maze 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Scary Maze is the original, iconic Scary Maze game. Move masterfully around the retro maze levels being extra careful not to touch the edges.",
+  "thumbnail": "/games/crazygames-scary-maze/online/assets/crazygames-scary-maze.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/scary-maze/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/scary-maze",
+  "crazygamesSlug": "scary-maze"
+}

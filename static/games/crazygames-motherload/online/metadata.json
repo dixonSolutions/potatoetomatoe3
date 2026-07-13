@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-motherload",
+  "name": "Motherload 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Motherload is a classic mining game where you dig deep into the ground of an alien planet to mine various raw materials. This addictive title was released in 2004 using Flash, but you can play it here in HTML5.",
+  "thumbnail": "https://imgs.crazygames.com/games/motherload/cover-1628861944390.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/motherload/cover-1628861944390.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/motherload/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/motherload",
+  "crazygamesSlug": "motherload"
+}

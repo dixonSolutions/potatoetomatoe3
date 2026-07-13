@@ -1,0 +1,17 @@
+{
+  "id": "playhop-preference-multiplayer-225506",
+  "name": "Preference Multiplayer",
+  "author": "TDS BID",
+  "description": "Play Preference Multiplayer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018d32c7ffa8277a5a517f1c9f1528/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018d32c7ffa8277a5a517f1c9f1528/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-438766.games.s3.yandex.net/438766/c9ht2u7zh7i5awww12evi6hew8fwc3l0/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 225506,
+  "playhopPageUrl": "https://playhop.com/app/225506",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 2284
+}

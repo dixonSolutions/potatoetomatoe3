@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tower-merge",
+  "name": "Tower Merge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tower Merge is a game about merging blocks and increasing income. You start with one tower but are then able to get more towers.",
+  "thumbnail": "https://imgs.crazygames.com/tower-merge/20210924170503/tower-merge-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tower-merge/20210924170503/tower-merge-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tower-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tower-merge",
+  "crazygamesSlug": "tower-merge"
+}

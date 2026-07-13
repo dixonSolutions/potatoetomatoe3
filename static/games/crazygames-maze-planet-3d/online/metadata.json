@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-maze-planet-3d",
+  "name": "maze planet 3d",
+  "author": "CrazyGames",
+  "description": "Play maze planet 3d on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-maze-planet-3d/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/maze-planet-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/maze-planet-3d",
+  "crazygamesSlug": "maze-planet-3d"
+}

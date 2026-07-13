@@ -1,0 +1,17 @@
+{
+  "id": "playhop-slime-trading-236379",
+  "name": "Slime Trading",
+  "author": "AA2G1LtdS",
+  "description": "Play Slime Trading via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000188d2c2fe4b7cf9a48caaba4524f4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000188d2c2fe4b7cf9a48caaba4524f4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-236379.games.s3.yandex.net/236379/hghrvoykjgn744vbv2d74m1w0pq4ddef/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=236379&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 236379,
+  "playhopPageUrl": "https://playhop.com/app/236379",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 2611
+}

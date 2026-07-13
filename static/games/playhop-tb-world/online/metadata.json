@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tb-world",
+  "name": "TB World",
+  "author": "FTD",
+  "description": "Play TB World via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019cbf918b3f181e2bcec791b4d605/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019cbf918b3f181e2bcec791b4d605/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-364679.games.s3.yandex.net/364679/o62som3603z1exrskurocqhefm01il3q/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=364679&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 364679,
+  "playhopPageUrl": "https://playhop.com/app/364679",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 149860
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-a-sliding-thing",
+  "name": "A Sliding Thing - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "A Sliding Thing at Cool Math Games: Slide and score! Use the walls to change direction and roll to the hole. You&#039;ll need to figure out portals and other obstacles to get there.",
+  "thumbnail": "/games/coolmath-a-sliding-thing/online/assets/coolmath-a-sliding-thing.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/27267/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-a-sliding-thing",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-a-sliding-thing"
+}

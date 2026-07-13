@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blym",
+  "name": "BLYM - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "BLYM at Cool Math Games: Help the Blym get through each puzzling level by morphing him into blocks and using a teleporter!",
+  "thumbnail": "/games/coolmath-blym/online/assets/coolmath-blym.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/21/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blym",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blym"
+}

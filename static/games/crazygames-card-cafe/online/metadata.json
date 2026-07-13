@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-card-cafe",
+  "name": "Card Cafe 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Card Cafe is a cooking simulation and management game where everything is represented by cards. Combine cards to prepare dishes or serve customers.",
+  "thumbnail": "https://imgs.crazygames.com/card-cafe_16x9/20240605121054/card-cafe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/card-cafe_16x9/20240605121054/card-cafe_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/card-cafe/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/card-cafe",
+  "crazygamesSlug": "card-cafe"
+}

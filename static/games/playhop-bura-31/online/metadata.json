@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bura-31",
+  "name": "Bura / 31",
+  "author": "Warlock Studio",
+  "description": "Play Bura / 31 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a000001997bc309b70bdd92cb57a36c2790/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a000001997bc309b70bdd92cb57a36c2790/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-469050.games.s3.yandex.net/469050/2rl0w7tfx9mh493y5cjm83us6urk1aan/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=469050&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 469050,
+  "playhopPageUrl": "https://playhop.com/app/469050",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1624
+}

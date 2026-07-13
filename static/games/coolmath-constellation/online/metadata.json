@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-constellation",
+  "name": "Play Constellation: Let the stars shine | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The stars are growing dim... Help brighten them up! Trace the lines of the constellation to see which stars are connected and make them all glow.",
+  "thumbnail": "/games/coolmath-constellation/online/assets/coolmath-constellation.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37093/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-constellation",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-constellation"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-charge-it-2-0-175768",
+  "name": "Charge it 2.0",
+  "author": "truelisgames",
+  "description": "Play Charge it 2.0 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018ab812a8acc8333a38c1ddc43bca/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018ab812a8acc8333a38c1ddc43bca/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-175768.games.s3.yandex.net/175768/q5ep7te8i0d25jrbcqtkyu1i4nejiugn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=175768&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 175768,
+  "playhopPageUrl": "https://playhop.com/app/175768",
+  "playhopRating": 4,
+  "playhopRatingCount": 511
+}

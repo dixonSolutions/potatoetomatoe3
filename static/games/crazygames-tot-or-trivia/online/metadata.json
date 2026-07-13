@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tot-or-trivia",
+  "name": "ToT or Trivia 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "ToT or Trivia is a quiz game featuring and game modes. In both modes, you must answer correctly to climb the money ladder.",
+  "thumbnail": "https://imgs.crazygames.com/tot-or-trivia/20220617173052/tot-or-trivia-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tot-or-trivia/20220617173052/tot-or-trivia-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tot-or-trivia/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tot-or-trivia",
+  "crazygamesSlug": "tot-or-trivia"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-60-second-burger-run",
+  "name": "60 Second Burger Run - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "You only have 1 minute in 60 Second Burger Run, so you better start running. Run through the maze and obstacles to get to the burger stand.",
+  "thumbnail": "/games/coolmath-60-second-burger-run/online/assets/coolmath-60-second-burger-run.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49720/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-60-second-burger-run",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-60-second-burger-run"
+}

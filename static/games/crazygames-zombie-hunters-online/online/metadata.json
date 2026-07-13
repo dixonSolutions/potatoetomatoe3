@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-zombie-hunters-online",
+  "name": "Zombie Hunters Online 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zombie Hunters Online is a shooting horror zombie survival game where you team up with other players to take on the undead. Arm yourself with an arsenal of powerful weapons and pick up game-changing buffs scattered across the map to strengthen your chances of survival.",
+  "thumbnail": "/games/crazygames-zombie-hunters-online/online/assets/crazygames-zombie-hunters-online.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-hunters-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-hunters-online",
+  "crazygamesSlug": "zombie-hunters-online"
+}

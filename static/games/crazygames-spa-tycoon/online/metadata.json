@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-spa-tycoon",
+  "name": "Spa Empire 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Spa Empire is a vibrant idle arcade adventure where you build the ultimate relaxation haven from the ground up. Manage soothing massages, bold hair makeovers, and trendy treatments while expanding to beach retreats and forest sanctuaries.",
+  "thumbnail": "https://imgs.crazygames.com/spa-tycoon_16x9/20250730030225/spa-tycoon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/spa-tycoon_16x9/20250730030225/spa-tycoon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/spa-tycoon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/spa-tycoon",
+  "crazygamesSlug": "spa-tycoon"
+}

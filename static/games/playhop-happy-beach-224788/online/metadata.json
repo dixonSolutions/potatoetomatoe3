@@ -1,0 +1,17 @@
+{
+  "id": "playhop-happy-beach-224788",
+  "name": "Happy Beach",
+  "author": "Linder",
+  "description": "Play Happy Beach via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a000001877e9e9d2ceabae86d98a6e2fb29/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a000001877e9e9d2ceabae86d98a6e2fb29/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-224788.games.s3.yandex.net/224788/frisvfrrml0sdz5azf169uo0h7a4psdt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=224788&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 224788,
+  "playhopPageUrl": "https://playhop.com/app/224788",
+  "playhopRating": 4,
+  "playhopRatingCount": 811
+}

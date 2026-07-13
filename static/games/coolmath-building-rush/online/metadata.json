@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-building-rush",
+  "name": "Building Rush - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Building Rush at Cool Math Games: Run a construction company that buys building materials and delivers them to construction sites. Buy trucks, select your orders, and rush the goods to the building sites as quickly as possible.",
+  "thumbnail": "/games/coolmath-building-rush/online/assets/coolmath-building-rush.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/3726/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-building-rush",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-building-rush"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-gobattleio",
+  "name": "gobattleio",
+  "author": "CrazyGames",
+  "description": "Play gobattleio on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-gobattleio/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gobattleio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gobattleio",
+  "crazygamesSlug": "gobattleio"
+}

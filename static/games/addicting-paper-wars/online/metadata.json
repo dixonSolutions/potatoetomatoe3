@@ -1,0 +1,14 @@
+{
+  "id": "addicting-paper-wars",
+  "name": "Paper Wars",
+  "author": "Addicting Games",
+  "description": "<p>Paper Wars is a free tower defense game. When you are on the left page, you shoot right. On the right page, you shoot left. Get killed too soon? Get a second chance and partner with your ghost to finish the level. Select your upgrades and plunge back into intense robot and monster destruction fun time!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/paperwars_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/paperwars_sp.png",
+  "thumbnailStored": "remote",
+  "category": "fighting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/paperwars.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/paper-wars"
+}

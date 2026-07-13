@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gulper-io",
+  "name": "Gulper.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gulper.io is an online IO snake game where you compete against other players in a multiplayer battle arena. Like Slither.io, you take control of a worm and nurture it to become a healthy, strong, indestructible snake.",
+  "thumbnail": "https://imgs.crazygames.com/games/gulper-io/cover_16x9-1722864711255.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/gulper-io/cover_16x9-1722864711255.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gulper-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gulper-io",
+  "crazygamesSlug": "gulper-io"
+}

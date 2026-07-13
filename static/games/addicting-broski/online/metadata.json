@@ -1,0 +1,14 @@
+{
+  "id": "addicting-broski",
+  "name": "Broski",
+  "author": "Addicting Games",
+  "description": "<p>Broski is an endless runner game with funny-stylized pixel graphics, inspired by Chrome Dino, but you have a gun!<br />\nRun through different variants of enemies, either jump or shoot, while your speed velocity increases! Last as long as you can and reach your highest score!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/thumbnail_18.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/thumbnail_18.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/broski/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/broski"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pizza-division",
+  "name": "Pizza Division",
+  "author": "Addicting Games",
+  "description": "<p>Pizza Division is a math game for those who love pizza. Pizza is the best food all around! Have you ever wanted to make a pizza? Well, this restaurant needs your help in cutting slices. It is always hard to get all those pieces equal. Help out this restaurant by cutting the pizza into the perfect amount of slices. Finish as many slices as you can in the allotted time. The customer is waiting so you need to be fast yet efficient! Once you finish a session of the pizzeria, it’s time for some math skills! Answer 5 questions correctly to unlock the next session. There are various math skills for you to choose from like addition, multiplication geometry, percentages, and many more!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pizzagame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pizzagame.jpg",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/pizza-division/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/pizza-division"
+}

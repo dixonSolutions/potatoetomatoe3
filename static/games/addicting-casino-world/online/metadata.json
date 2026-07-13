@@ -1,0 +1,14 @@
+{
+  "id": "addicting-casino-world",
+  "name": "Casino World",
+  "author": "Addicting Games",
+  "description": "<p>Casino World is a free casino game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/casino-world.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/casino-world.jpg",
+  "thumbnailStored": "remote",
+  "category": "mmo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.casinoworld.com/fx/t?network=agaddictinggames",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/mmo/casino-world"
+}

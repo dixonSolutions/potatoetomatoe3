@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-match",
+  "name": "Mahjong Match",
+  "author": "Xmiro",
+  "description": "Play Mahjong Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a000001944a4cd3a6a5abddba9c99ed6f4c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a000001944a4cd3a6a5abddba9c99ed6f4c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-395123.games.s3.yandex.net/395123/t6yanbcgwhyyybdkqz1owfsoj9mzghko/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=395123&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 395123,
+  "playhopPageUrl": "https://playhop.com/app/395123",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 248
+}

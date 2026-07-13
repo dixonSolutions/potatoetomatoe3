@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-escape-the-dog",
+  "name": "Escape the Dog 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Escape the Dog is an arcade game where a big dog chases whoever has its bone. Be fast to get rid of the bone before the dog eats you!",
+  "thumbnail": "https://imgs.crazygames.com/escape-the-dog/20221007101154/escape-the-dog-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/escape-the-dog/20221007101154/escape-the-dog-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/escape-the-dog/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/escape-the-dog",
+  "crazygamesSlug": "escape-the-dog"
+}

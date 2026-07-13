@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nugget-royale",
+  "name": "Nugget Royale 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "NuggetRoyale.io is a competitive .io game in which you play as a chicken and battle other players. In true Battle Royale style, each match has only one winner.",
+  "thumbnail": "https://imgs.crazygames.com/nugget-royale_16x9/20260211062453/nugget-royale_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/nugget-royale_16x9/20260211062453/nugget-royale_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nugget-royale/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nugget-royale",
+  "crazygamesSlug": "nugget-royale"
+}

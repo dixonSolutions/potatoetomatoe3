@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pool-8-3d-97082",
+  "name": "Pool 8 3D",
+  "author": "truelisgames",
+  "description": "Play Pool 8 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000016b32a1f983fa786fbfc4c1485bb9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000016b32a1f983fa786fbfc4c1485bb9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-97082.games.s3.yandex.net/97082/75gtuj1oupjmryqiojwmyundovqukifn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=97082&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 97082,
+  "playhopPageUrl": "https://playhop.com/app/97082",
+  "playhopRating": 3.2,
+  "playhopRatingCount": 6469
+}

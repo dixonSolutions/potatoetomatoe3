@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pole-dance-230077",
+  "name": "Pole Dance",
+  "author": "Linder",
+  "description": "Play Pole Dance via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000188713c0b2e24dade9b951f993a55/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000188713c0b2e24dade9b951f993a55/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-230077.games.s3.yandex.net/230077/g7tlin8z3ug5rwxahfppzauak1plysrb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=230077&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 230077,
+  "playhopPageUrl": "https://playhop.com/app/230077",
+  "playhopRating": 4,
+  "playhopRatingCount": 721
+}

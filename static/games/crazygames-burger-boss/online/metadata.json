@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-burger-boss",
+  "name": "Burger Boss 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Burger Boss is a restaurant simulation game where you take charge as the boss. Build your fast food empire in this thrilling restaurant management game!",
+  "thumbnail": "https://imgs.crazygames.com/burger-boss/20230523083642/burger-boss-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/burger-boss/20230523083642/burger-boss-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/burger-boss/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/burger-boss",
+  "crazygamesSlug": "burger-boss"
+}

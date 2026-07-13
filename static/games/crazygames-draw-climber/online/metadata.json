@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-draw-climber",
+  "name": "draw climber",
+  "author": "CrazyGames",
+  "description": "Play draw climber on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/draw-climber/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/draw-climber",
+  "crazygamesSlug": "draw-climber"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cookie-match",
+  "name": "Cookie Match - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Line up the cookies and put them in place in Cookie Match. Fit the cookies in the proper spot without them getting cut up or moving too far away.",
+  "thumbnail": "/games/coolmath-cookie-match/online/assets/coolmath-cookie-match.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/43444/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cookie-match",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cookie-match"
+}

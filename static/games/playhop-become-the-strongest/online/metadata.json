@@ -1,0 +1,17 @@
+{
+  "id": "playhop-become-the-strongest",
+  "name": "Become the Strongest",
+  "author": "Average YG enjoyer",
+  "description": "Play Become the Strongest via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000190c484fc9e6430800c8c1ae27672/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000190c484fc9e6430800c8c1ae27672/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-358291.games.s3.yandex.net/358291/3yz4cdx5cwrd8pf36k54a7gssvq0iskm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=358291&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 358291,
+  "playhopPageUrl": "https://playhop.com/app/358291",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 314
+}

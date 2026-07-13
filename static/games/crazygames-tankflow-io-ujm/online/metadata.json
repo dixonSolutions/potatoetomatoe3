@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tankflow-io-ujm",
+  "name": "TankFlow.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tank Flow is a browser puzzle game. Deploy colored tanks on a conveyor belt to shoot and fill pixel art pictures.",
+  "thumbnail": "https://imgs.crazygames.com/tankflow-io-ujm_16x9/20260421105034/tankflow-io-ujm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tankflow-io-ujm_16x9/20260421105034/tankflow-io-ujm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tankflow-io-ujm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tankflow-io-ujm",
+  "crazygamesSlug": "tankflow-io-ujm"
+}

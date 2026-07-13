@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-fish-orbit",
+  "name": "fish orbit",
+  "author": "CrazyGames",
+  "description": "Play fish orbit on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fish-orbit/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fish-orbit",
+  "crazygamesSlug": "fish-orbit"
+}

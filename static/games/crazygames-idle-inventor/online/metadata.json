@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-inventor",
+  "name": "Idle Inventor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Inventor is an idle game where you can build and expand your industrial empire, becoming a titan of heavy machinery and industry. Manage 5 unique factories with various vehicles, including cars, planes, and spacecraft.",
+  "thumbnail": "https://imgs.crazygames.com/idle-inventor_16x9/20230925161528/idle-inventor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-inventor_16x9/20230925161528/idle-inventor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-inventor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-inventor",
+  "crazygamesSlug": "idle-inventor"
+}

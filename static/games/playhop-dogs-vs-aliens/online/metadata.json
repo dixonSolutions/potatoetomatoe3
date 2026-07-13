@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dogs-vs-aliens",
+  "name": "Dogs vs Aliens",
+  "author": "Квадратный Динозавр",
+  "description": "Play Dogs vs Aliens via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019f0ae44a52574ea9a22c8ece7954/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019f0ae44a52574ea9a22c8ece7954/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-346683.games.s3.yandex.net/346683/9ctup0yh34wdtlbrjb6u0lzlkeclo6wa/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=346683&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 346683,
+  "playhopPageUrl": "https://playhop.com/app/346683",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 24704
+}

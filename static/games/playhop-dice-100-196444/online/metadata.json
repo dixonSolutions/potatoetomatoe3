@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dice-100-196444",
+  "name": "Dice - 100",
+  "author": "MPD",
+  "description": "Play Dice - 100 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000185c6401a2b08ab4fa2b4e0cc62b6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000185c6401a2b08ab4fa2b4e0cc62b6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-196444.games.s3.yandex.net/196444/aflm8p4gaoe4o4n3jftp875f62vhdf9c/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=196444&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 196444,
+  "playhopPageUrl": "https://playhop.com/app/196444",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 237
+}

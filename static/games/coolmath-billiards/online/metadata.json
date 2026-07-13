@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-billiards",
+  "name": "Play Billiards Online | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Take your best shot in online Billiards against one of your friends, or try to beat the Computer. Can you pocket all your balls before your opponent wins?",
+  "thumbnail": "/games/coolmath-billiards/online/assets/coolmath-billiards.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48010/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-billiards",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-billiards"
+}

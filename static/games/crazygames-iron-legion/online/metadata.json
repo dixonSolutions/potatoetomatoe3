@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-iron-legion",
+  "name": "Iron Legion 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Iron Legion is an action tank combat game where you command powerful military vehicles in intense warfare. This game demands focus and nerve, as every decision on the battlefield determines your fate.",
+  "thumbnail": "https://imgs.crazygames.com/iron-legion_16x9/20260710061041/iron-legion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/iron-legion_16x9/20260710061041/iron-legion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/iron-legion/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/iron-legion",
+  "crazygamesSlug": "iron-legion"
+}

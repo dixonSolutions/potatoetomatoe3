@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chrono-noir",
+  "name": "Chrono Noir - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chrono Noir at Cool Math Games: If at first you don&#039;t succeed... rewind time and try again. Avoid the enemies and get to the goal.",
+  "thumbnail": "/games/coolmath-chrono-noir/online/assets/coolmath-chrono-noir.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34093/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chrono-noir",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chrono-noir"
+}

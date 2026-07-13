@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zombie-arena",
+  "name": "Zombie Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zombie Arena is an action shooting game where you need to survive the zombie waves. You can buy new weapons and also team members to help you.",
+  "thumbnail": "https://imgs.crazygames.com/zombie-arena/20220311170903/zombie-arena-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zombie-arena/20220311170903/zombie-arena-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-arena",
+  "crazygamesSlug": "zombie-arena"
+}

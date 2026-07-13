@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ultimate-sudoku-96671",
+  "name": "Ultimate Sudoku",
+  "author": "CodeThisLab",
+  "description": "Play Ultimate Sudoku via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018d7dc565b60c752f485e4396347c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018d7dc565b60c752f485e4396347c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96671.games.s3.yandex.net/96671/e94xn1edzykyzzml6s2n8xp61det58k2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96671&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96671,
+  "playhopPageUrl": "https://playhop.com/app/96671",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 12784
+}

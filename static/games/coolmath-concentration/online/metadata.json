@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-concentration",
+  "name": "Play Concentration Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Put your Concentration to the test in this classic memory card game. Play three different themes by yourself or with a friend.",
+  "thumbnail": "/games/coolmath-concentration/online/assets/coolmath-concentration.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41707/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-concentration",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-concentration"
+}

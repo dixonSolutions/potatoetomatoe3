@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-lexy",
+  "name": "Lexy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Lexy is a puzzle game where players must find words within 100 seconds. The bigger the words, the higher the score.",
+  "thumbnail": "https://imgs.crazygames.com/lexy_16x9/20230904060326/lexy_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/lexy_16x9/20230904060326/lexy_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lexy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lexy",
+  "crazygamesSlug": "lexy"
+}

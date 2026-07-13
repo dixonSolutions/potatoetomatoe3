@@ -21,8 +21,12 @@ export interface GameMetadata {
 	name: string;
 	author: string;
 	description: string;
-	/** Empty when no on-disk asset; use `resolveGameThumbnailSrc` for `<img src>`. */
+	/** Local `/games/...` path, remote https URL, or empty; use `resolveGameThumbnailSrc` for `<img src>`. */
 	thumbnail: string;
+	/** Original portal cover URL when `thumbnail` may be local or remote. */
+	thumbnailRemote?: string;
+	/** How the cover is stored in the catalog tree. */
+	thumbnailStored?: 'local' | 'remote' | 'none';
 	category: string;
 	/** Game engine — Unity titles may use an external embed for online play. */
 	engine?: GameEngine;
@@ -81,7 +85,9 @@ export function resolveGameThumbnailSrc(
 		}
 	}
 	const t = thumbnail?.trim();
-	if (!t) return MISSING_THUMB_DATA_URI;
+	if (!t || t.endsWith('/.gitkeep') || t.endsWith('.gitkeep')) return MISSING_THUMB_DATA_URI;
+	/* Absolute remote covers (budget fallback) load as-is. */
+	if (/^https?:\/\//i.test(t) || t.startsWith('data:')) return t;
 	if (t.startsWith('/')) return `${base}${t}`;
 	return t;
 }

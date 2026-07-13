@@ -1,0 +1,17 @@
+{
+  "id": "playhop-math-battle",
+  "name": "Math Battle",
+  "author": "FunArtStudio",
+  "description": "Play Math Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019a59e9c3f67735407029f8571f19/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019a59e9c3f67735407029f8571f19/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-476234.games.s3.yandex.net/476234/61a18d8s2oidxknsueeemnde0dt8wnlu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=476234&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 476234,
+  "playhopPageUrl": "https://playhop.com/app/476234",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

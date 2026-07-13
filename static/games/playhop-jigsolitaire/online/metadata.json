@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jigsolitaire",
+  "name": "Jigsolitaire",
+  "author": "DRA",
+  "description": "Play Jigsolitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019dd9cf3de6253bcac1023d15a4da/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019dd9cf3de6253bcac1023d15a4da/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-536114.games.s3.yandex.net/536114/gvmb05wjshnop9ku9izqkb564ai5ugq2/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 476950,
+  "playhopPageUrl": "https://playhop.com/app/476950",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 4674
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-archers-arena",
+  "name": "Archers' Arena!",
+  "author": "313 Games",
+  "description": "Play Archers' Arena! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019352b53af42710428fbb6d2c34b2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019352b53af42710428fbb6d2c34b2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-384563.games.s3.yandex.net/384563/edkw6rnk0p4bb4y94c2e7tyrjotvrhup/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=384563&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 384563,
+  "playhopPageUrl": "https://playhop.com/app/384563",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 5123
+}

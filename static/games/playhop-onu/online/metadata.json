@@ -1,0 +1,17 @@
+{
+  "id": "playhop-onu",
+  "name": "ONU",
+  "author": "Games Hub Studio",
+  "description": "Play ONU via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000196ebec6a61fc23c7688b96b194b4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000196ebec6a61fc23c7688b96b194b4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-438766.games.s3.yandex.net/438766/c9ht2u7zh7i5awww12evi6hew8fwc3l0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=438766&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 438766,
+  "playhopPageUrl": "https://playhop.com/app/438766",
+  "playhopRating": 3,
+  "playhopRatingCount": 22
+}

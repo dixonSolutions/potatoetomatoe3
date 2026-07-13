@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-basket-champs",
+  "name": "Basket Champs 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Basket Champs is a fun basketball game! Pick your favorite team and compete in the tournament by scoring more points than your opponents.",
+  "thumbnail": "/games/crazygames-basket-champs/online/assets/crazygames-basket-champs.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/basket-champs/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/basket-champs",
+  "crazygamesSlug": "basket-champs"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-space",
+  "name": "Space",
+  "author": "Addicting Games",
+  "description": "<p>Command your spaceship as you blaze across the cosmos, strategically capturing territory by enclosing it with your energy trail. Outmaneuver rivals by cutting across their trails, vaporizing them in spectacular collisions. Stay vigilant, outside your own territory you are vulnerable to others crossing your own trail. Expand your territory and dominate the galaxy in this thrilling game of strategy, speed, and cosmic survival.</p>\n\n<h1>Mechanics</h1>\n\n<p><strong>Objective</strong></p>\n\n<p>Capture 100% of the map as quickly as you can, killing as many enemies as possible.</p>\n\n<p><strong>Capture Territory</strong> Fly outside your territory and fly back in to capture territory. You are safe within your own territory and vulnerable outside of it.</p>\n\n<p><strong>Boost</strong></p>\n\n<p>Collect gas to fill your boost meter. You can boost on demand as long as there is gas in your tank.</p>\n\n<p><strong>Kill Enemies</strong></p>\n\n<p>Hit an enemy trail to kill them. If your trail is hit by another player or by yourself, you die.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/spacegame%20addictinggames.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/spacegame%20addictinggames.png",
+  "thumbnailStored": "remote",
+  "category": "flying-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://space.game/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/space"
+}

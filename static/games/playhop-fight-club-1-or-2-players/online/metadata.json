@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fight-club-1-or-2-players",
+  "name": "Fight Club - 1 or 2 players",
+  "author": "NANAMINER",
+  "description": "Play Fight Club - 1 or 2 players via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000195607d82bd5b0fc614420123969a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000195607d82bd5b0fc614420123969a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-412128.games.s3.yandex.net/412128/istlu2sl5iaxt4n0i39snhovfhlkdoe4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=412128&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 412128,
+  "playhopPageUrl": "https://playhop.com/app/412128",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 324
+}

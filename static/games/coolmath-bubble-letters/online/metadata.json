@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bubble-letters",
+  "name": "Bubble Letters - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Put your word skills to the test in Bubble Letters. Find words, unlock rewards, and use hints and power-ups to complete each level.",
+  "thumbnail": "/games/coolmath-bubble-letters/online/assets/coolmath-bubble-letters.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54228/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bubble-letters",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bubble-letters"
+}

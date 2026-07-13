@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jelly-2048-532236",
+  "name": "Jelly 2048",
+  "author": "Weby",
+  "description": "Play Jelly 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019f18d24c2ddca79f54fd60f2886c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019f18d24c2ddca79f54fd60f2886c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-532236.games.s3.yandex.net/532236/pom3ncc4kcff1fa1krgihck1u7fjl3x7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=532236&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 532236,
+  "playhopPageUrl": "https://playhop.com/app/532236",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

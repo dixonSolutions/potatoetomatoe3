@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wb-online-shop-simulator",
+  "name": "WB: Online Shop Simulator",
+  "author": "welwise studio",
+  "description": "Play WB: Online Shop Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019703ae92bba8a5f05cfc679dbe66/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019703ae92bba8a5f05cfc679dbe66/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-439920.games.s3.yandex.net/439920/nw940ov49qapkj9dwmw8ihj203kwsi4s/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=439920&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 439920,
+  "playhopPageUrl": "https://playhop.com/app/439920",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 299
+}

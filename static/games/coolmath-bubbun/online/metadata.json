@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bubbun",
+  "name": "BUBBUN - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bubbun at Cool Math Games: Grab your bubble gun and get going! Hop on your bubbles to grab berries and dodge spikes.",
+  "thumbnail": "/games/coolmath-bubbun/online/assets/coolmath-bubbun.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/30092/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bubbun",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bubbun"
+}

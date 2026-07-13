@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-there-is-no-game",
+  "name": "There Is No Game 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "This game… wait… is it a game? There is No Game!",
+  "thumbnail": "/games/crazygames-there-is-no-game/online/assets/crazygames-there-is-no-game.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/there-is-no-game/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/there-is-no-game",
+  "crazygamesSlug": "there-is-no-game"
+}

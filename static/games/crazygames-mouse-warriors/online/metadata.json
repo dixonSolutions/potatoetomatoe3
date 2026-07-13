@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mouse-warriors",
+  "name": "Mouse Warriors 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mouse Warriors is a 2D roguelike game where you must upgrade yourself to be much stronger to fight all the monsters in the arena. Fight waves of monsters with your mouse movement.",
+  "thumbnail": "https://imgs.crazygames.com/mouse-warriors_16x9/20240619054844/mouse-warriors_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mouse-warriors_16x9/20240619054844/mouse-warriors_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mouse-warriors/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mouse-warriors",
+  "crazygamesSlug": "mouse-warriors"
+}

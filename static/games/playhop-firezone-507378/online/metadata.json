@@ -1,0 +1,17 @@
+{
+  "id": "playhop-firezone-507378",
+  "name": "FireZone",
+  "author": "Askar-Games",
+  "description": "Play FireZone via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019d26b046e3496e2941c25415f65f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019d26b046e3496e2941c25415f65f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-507378.games.s3.yandex.net/507378/s5yx3y7gci7zwjnqs074ewsa0b97zg6o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=507378&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 507378,
+  "playhopPageUrl": "https://playhop.com/app/507378",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 53
+}

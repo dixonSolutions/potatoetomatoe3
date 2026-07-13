@@ -1,0 +1,17 @@
+{
+  "id": "playhop-2048-colored-balls-239715",
+  "name": "2048 Colored Balls",
+  "author": "MetaE",
+  "description": "Play 2048 Colored Balls via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000189269c7b90986594a0de8ffb4601/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000189269c7b90986594a0de8ffb4601/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-239715.games.s3.yandex.net/239715/7ateeoihmk7591iqxco264c787gb2vt4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=239715&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 239715,
+  "playhopPageUrl": "https://playhop.com/app/239715",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 439
+}

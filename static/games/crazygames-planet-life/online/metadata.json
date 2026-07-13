@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-planet-life",
+  "name": "Planet Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Planet Life is a fun and exciting adventure game in which you must manage resources and build new things. You take control of a planet - this planet is lonely and its wish to meet other planets and explore the universe - you must help it grow so that it can do this!",
+  "thumbnail": "https://imgs.crazygames.com/planetlife.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/planetlife.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/planet-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/planet-life",
+  "crazygamesSlug": "planet-life"
+}

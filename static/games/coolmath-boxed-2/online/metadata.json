@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-boxed-2",
+  "name": "Boxed 2 - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Boxed 2 at Cool Math Games: Master the art of box sliding. Expertly land your boxes on the marked tiles, and use the metal crates to smash through walls!",
+  "thumbnail": "/games/coolmath-boxed-2/online/assets/coolmath-boxed-2.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26151/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-boxed-2",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-boxed-2"
+}

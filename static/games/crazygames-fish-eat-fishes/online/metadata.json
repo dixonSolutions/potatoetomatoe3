@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fish-eat-fishes",
+  "name": "Fish Eat Fishes 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fish Eat Fishes is a simple game that is inspired by the classic Fish Eat Fish 3 Players game. In the game, we need to avoid bigger fishes and eat smaller fishes to finally become the biggest fish in the sea.",
+  "thumbnail": "https://imgs.crazygames.com/fisheatfishes.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fisheatfishes.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fish-eat-fishes/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fish-eat-fishes",
+  "crazygamesSlug": "fish-eat-fishes"
+}

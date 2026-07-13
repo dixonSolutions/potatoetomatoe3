@@ -1,0 +1,14 @@
+{
+  "id": "addicting-highwayman",
+  "name": "Highwayman",
+  "author": "Addicting Games",
+  "description": "<p>Attack the drivers and steal all the gold they carry. Use the gold you steal to upgrade your abilities, purchase helpers, and keep going further and further. Be careful not to fight opponents that are stronger than you. Have fun looting!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/highwayman_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/highwayman_sp.png",
+  "thumbnailStored": "remote",
+  "category": "fighting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/highwayman_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/highwayman"
+}

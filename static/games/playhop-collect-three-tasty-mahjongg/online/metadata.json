@@ -1,0 +1,17 @@
+{
+  "id": "playhop-collect-three-tasty-mahjongg",
+  "name": "Collect Three: Tasty Mahjongg!",
+  "author": "m0r STUDIO",
+  "description": "Play Collect Three: Tasty Mahjongg! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001948f662ad1f9cccd23ef093b970e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001948f662ad1f9cccd23ef093b970e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-393901.games.s3.yandex.net/393901/fmhiv8hmu5aenaqtms38g85gsii9vs67/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=393901&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 393901,
+  "playhopPageUrl": "https://playhop.com/app/393901",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 233
+}

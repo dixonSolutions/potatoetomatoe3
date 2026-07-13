@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-loot-box-hero",
+  "name": "Loot Box Hero 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Loot Box Hero is a clicker game where you earn coins by defeating enemies. Use coins for varieties of upgrades.",
+  "thumbnail": "https://imgs.crazygames.com/loot-box-hero/20221031145029/loot-box-hero-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/loot-box-hero/20221031145029/loot-box-hero-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/loot-box-hero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/loot-box-hero",
+  "crazygamesSlug": "loot-box-hero"
+}

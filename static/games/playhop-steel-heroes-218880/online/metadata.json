@@ -1,0 +1,17 @@
+{
+  "id": "playhop-steel-heroes-218880",
+  "name": "Steel Heroes",
+  "author": "Starheart Games",
+  "description": "Play Steel Heroes via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000198766ed8a52e4910280e05b9e83f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000198766ed8a52e4910280e05b9e83f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-218880.games.s3.yandex.net/218880/85sghias1mn42cg3vwdwwhphpotpbsv8/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=218880&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 218880,
+  "playhopPageUrl": "https://playhop.com/app/218880",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 389
+}

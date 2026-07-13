@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bouncy-egg",
+  "name": "Bouncy Egg 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bouncy Egg is a physics-based puzzle game where you have to move the springs, platforms, conveyer belts, and more to get your egg into the basket. The game has 40 levels to challenge your brain.",
+  "thumbnail": "https://imgs.crazygames.com/bouncy-egg/20220927154808/bouncy-egg-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bouncy-egg/20220927154808/bouncy-egg-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bouncy-egg/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bouncy-egg",
+  "crazygamesSlug": "bouncy-egg"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cheese-route",
+  "name": "Cheese Route - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cheese Route at Cool Math Games: Its mealtime! Put your architect&#039;s hat on and draw a path to serve the mouse its cheesy dinner.",
+  "thumbnail": "/games/coolmath-cheese-route/online/assets/coolmath-cheese-route.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23121/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cheese-route",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cheese-route"
+}

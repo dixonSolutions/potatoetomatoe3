@@ -1,0 +1,14 @@
+{
+  "id": "addicting-searideio",
+  "name": "Searide.io",
+  "author": "Addicting Games",
+  "description": "<p>Searide.io is a free iogame. Welcome to the sea, you are in for a dark and stormy ride. We hope you survive or at least have fun. Searide.io is an exciting iogame in the vein of Agario but with a few new mechanics that make it more exciting. First of all, you won't die if you are attacked by a larger opponent. In this game, you have a health bar that you can choose to heal or not. This allows you to take a few shots and also means that you can't expect to just run into someone smaller than you and wipe them out. You're gonna need to do a little bit more work. You can also customize which sea animal you want to be and collect power-ups to help you grow, smash open loot crates for a special ability. Please be sure to avoid the various stationary sea monsters in this game that sit quietly and wait for you to get too close. They can only do harm. Meanwhile, there are power-downs out there which look almost exactly like the power-ups. Don't be fooled into picking those up as they will only slow you down. Use your boost to get in and out of trouble and try to stay alive in this sea-themed arena spectacular.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/searideio.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/searideio.jpg",
+  "thumbnailStored": "remote",
+  "category": "free-for-all-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://searide.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/searideio"
+}

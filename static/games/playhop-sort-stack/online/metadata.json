@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sort-stack",
+  "name": "Sort Stack",
+  "author": "se",
+  "description": "Play Sort Stack via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018f33841ac7e8cdcaafca92381635/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018f33841ac7e8cdcaafca92381635/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-334461.games.s3.yandex.net/334461/ykez0uhqzdvgu0hgxhe1vri14c8uc7tr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=334461&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 334461,
+  "playhopPageUrl": "https://playhop.com/app/334461",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1754
+}

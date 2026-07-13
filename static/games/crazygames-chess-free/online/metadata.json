@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-chess-free",
+  "name": "Chess Free 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Chess Free is an online puzzle chess game where you can compete against players worldwide in exciting one-on-one matches. Challenge yourself by outsmarting opponents of various skill levels to strengthen yours.",
+  "thumbnail": "https://imgs.crazygames.com/chess-free_16x9/20260508084105/chess-free_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/chess-free_16x9/20260508084105/chess-free_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chess-free/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chess-free",
+  "crazygamesSlug": "chess-free"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-knightbit-far-lands",
+  "name": "KnightBit: Far Lands",
+  "author": "Mishmek",
+  "description": "Play KnightBit: Far Lands via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019ccd58a41428a5d906d7b4ac4464/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019ccd58a41428a5d906d7b4ac4464/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-421324.games.s3.yandex.net/421324/f7fd8yvbj43251itxhm1n4yvtcqlj8ht/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=421324&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 421324,
+  "playhopPageUrl": "https://playhop.com/app/421324",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 3224
+}

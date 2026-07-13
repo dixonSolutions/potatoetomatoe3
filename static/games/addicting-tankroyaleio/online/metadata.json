@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tankroyaleio",
+  "name": "Tankroyale.io",
+  "author": "Addicting Games",
+  "description": "<p>Tankroyale.io is a free IOGame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/tankroyale.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/tankroyale.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://tankroyale.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/tankroyaleio"
+}

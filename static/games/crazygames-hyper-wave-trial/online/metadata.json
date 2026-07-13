@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hyper-wave-trial",
+  "name": "Hyper Wave Challenge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hyper Wave Challenge is an arcade obstacle game where you control the Wave, which is a constantly moving arrow, by dodging obstacles until you reach the final portal of the level. Every level is more difficult and unpredictable, so don’t take your eyes off the game.",
+  "thumbnail": "https://imgs.crazygames.com/hyper-wave-trial_16x9/20260501032026/hyper-wave-trial_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hyper-wave-trial_16x9/20260501032026/hyper-wave-trial_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hyper-wave-trial/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hyper-wave-trial",
+  "crazygamesSlug": "hyper-wave-trial"
+}

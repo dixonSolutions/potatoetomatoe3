@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-combo-crusader",
+  "name": "Combo Crusader - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Combo Crusader at Cool Math Games: The kingdom is being attacked by hordes of monsters! Grab your sword and match monsters of the same color to defeat them. Chain lots of monsters together for a huge bonus!",
+  "thumbnail": "/games/coolmath-combo-crusader/online/assets/coolmath-combo-crusader.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/21711/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-combo-crusader",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-combo-crusader"
+}

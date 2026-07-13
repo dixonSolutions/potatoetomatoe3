@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-agario",
+  "name": "Agar io ⚫ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Agar.io is the original .io grow game. Play as a simple agar cell fighting to become the largest cell in a multiplayer game arena.",
+  "thumbnail": "/games/crazygames-agario/online/assets/crazygames-agario.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/agario/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/agario",
+  "crazygamesSlug": "agario"
+}

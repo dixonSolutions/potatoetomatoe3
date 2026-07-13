@@ -1,0 +1,14 @@
+{
+  "id": "addicting-color-tower",
+  "name": "Color Tower",
+  "author": "Addicting Games",
+  "description": "<p>Color Tower is a simple stacking game for casual game players. Enjoy this game with simplistic artwork as you stack multicolored blocks against a black background. Your goal is to stack colorful blocks all the way up to the top of the game’s view, at which point the game will reset and start you back at the bottom. The concept might be deceivingly simple but you will see that keeping the balance can be quite difficult. Just one off-balanced block can cause the whole thing to wobble. You can try to get the balance back but that one block could cause the whole thing to topple over and resetting your entire game. Think you can be the best stacker? Stack as many columns as you can to beat your own score or to beat out other players on the leaderboard in this online game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ColorTower.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ColorTower.jpg",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/color-tower/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/color-tower"
+}

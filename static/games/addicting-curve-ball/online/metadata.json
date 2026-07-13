@@ -1,0 +1,14 @@
+{
+  "id": "addicting-curve-ball",
+  "name": "Curve Ball",
+  "author": "Addicting Games",
+  "description": "<p>\n\nPlay Curve Ball on Addicting Games! Test your 3D pong skills, master the curve, and see how many levels you can clear before the blue balls run out.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/curve-ball.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/curve-ball.jpg",
+  "thumbnailStored": "remote",
+  "category": "sports",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/curveball.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/curve-ball"
+}

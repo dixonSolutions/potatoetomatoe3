@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bubble-pop-adventures",
+  "name": "Bubble Pop Adventures - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bubble Pop Adventures at Cool Math Games: The mushroom critters are trapped. Take aim, pop bubbles and set them free!",
+  "thumbnail": "/games/coolmath-bubble-pop-adventures/online/assets/coolmath-bubble-pop-adventures.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/27454/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bubble-pop-adventures",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bubble-pop-adventures"
+}

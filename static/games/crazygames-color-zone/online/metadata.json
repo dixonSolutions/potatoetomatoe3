@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-zone",
+  "name": "Color Zone 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color Zone is a vibrant strategy game where card-based combat meets territory control. Build powerful decks, deploy clever unit combos, and paint the arena in your faction’s color to seize dominance.",
+  "thumbnail": "https://imgs.crazygames.com/color-zone_16x9/20250611091146/color-zone_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/color-zone_16x9/20250611091146/color-zone_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-zone/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-zone",
+  "crazygamesSlug": "color-zone"
+}

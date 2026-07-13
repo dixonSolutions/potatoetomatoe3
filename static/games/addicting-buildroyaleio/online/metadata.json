@@ -1,0 +1,14 @@
+{
+  "id": "addicting-buildroyaleio",
+  "name": "BuildRoyale.io",
+  "author": "Addicting Games",
+  "description": "<p>BuildRoyale.io is a battle-royale IO game where you use your surroundings to build a barrier to survive. This is a massive multiplayer game where you’re dropped into game with absolutely nothing but an ax. Use the axe to defend yourself and gather materials. You’ll be able to create a barrier to protect yourself once you have enough materials. In the meantime, search for weapons and other supplies to survive because others will take advantage of your weak state and try to kill you. You must upgrade as fast as possible because your goal is to be the last player standing. Fight, gather, and build in this multiplayer battle royale game. You have the option to play solo, in a duo team, or join a team for better chances of surviving. Invite your friends or play it out alone in this epic IO game where you build and fight to survive.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/build.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/build.jpg",
+  "thumbnailStored": "remote",
+  "category": "tower-defense-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://buildroyale.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/buildroyaleio"
+}

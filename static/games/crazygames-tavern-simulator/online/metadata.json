@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tavern-simulator",
+  "name": "Tavern Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tavern Simulator is a strategic management game where you run your own tavern. Begin with a modest setup and grow your business by upgrading furniture, expanding your menu, and attracting loyal patrons.",
+  "thumbnail": "https://imgs.crazygames.com/tavern-simulator_16x9/20250212045158/tavern-simulator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tavern-simulator_16x9/20250212045158/tavern-simulator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tavern-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tavern-simulator",
+  "crazygamesSlug": "tavern-simulator"
+}

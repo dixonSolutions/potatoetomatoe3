@@ -1,0 +1,17 @@
+{
+  "id": "playhop-blocky-puzzle",
+  "name": "Blocky Puzzle",
+  "author": "2754",
+  "description": "Play Blocky Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019011cf9124b20f64e093ebeccb4e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019011cf9124b20f64e093ebeccb4e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-346893.games.s3.yandex.net/346893/1rwt46gyo58a3dh54clbqbga8q9wx80c/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=346893&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 346893,
+  "playhopPageUrl": "https://playhop.com/app/346893",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 165
+}

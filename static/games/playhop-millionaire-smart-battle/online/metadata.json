@@ -1,0 +1,17 @@
+{
+  "id": "playhop-millionaire-smart-battle",
+  "name": "Millionaire: Smart Battle!",
+  "author": "LambGameDev_",
+  "description": "Play Millionaire: Smart Battle! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a00000199d3a991d94636e4a2f08b6969f8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a00000199d3a991d94636e4a2f08b6969f8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-472112.games.s3.yandex.net/472112/sq9ail29rv00qeqf9etewsnhay7cykna/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=472112&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 472112,
+  "playhopPageUrl": "https://playhop.com/app/472112",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 92
+}

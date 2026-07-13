@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battleship-war-98912",
+  "name": "Battleship War",
+  "author": "Taber Play",
+  "description": "Play Battleship War via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000016f99944e0ced49c7ac691093dcd2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000016f99944e0ced49c7ac691093dcd2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-98912.games.s3.yandex.net/98912/xe33htka1fantex9e1uk1qxsft01wp2z/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=98912&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 98912,
+  "playhopPageUrl": "https://playhop.com/app/98912",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 16385
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cryptograms",
+  "name": "Cryptograms - Play the Online Puzzle at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Decrypt the missing letters to complete the hidden quote in Cryptograms. Be strategic with your guesses; 5 mistakes and it&#039;s game over for you.",
+  "thumbnail": "/games/coolmath-cryptograms/online/assets/coolmath-cryptograms.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53322/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cryptograms",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cryptograms"
+}

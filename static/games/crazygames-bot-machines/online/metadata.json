@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bot-machines",
+  "name": "Assault Bots 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "We&#39;d like to hear your feedback. Share your experience via this form to help us improve Assault Bots.",
+  "thumbnail": "https://imgs.crazygames.com/bot-machines_16x9/20260203220738/bot-machines_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bot-machines_16x9/20260203220738/bot-machines_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bot-machines/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bot-machines",
+  "crazygamesSlug": "bot-machines"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-skin-master",
+  "name": "Skin master",
+  "author": "MyGame",
+  "description": "Play Skin master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000192a9f0214dcce9eba23bd7f15027/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000192a9f0214dcce9eba23bd7f15027/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-381616.games.s3.yandex.net/381616/cmew189rbodmn1tl1xv6kn1wjqjfmacz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=381616&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 381616,
+  "playhopPageUrl": "https://playhop.com/app/381616",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 65
+}

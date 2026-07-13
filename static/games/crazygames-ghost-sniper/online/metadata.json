@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-ghost-sniper",
+  "name": "Ghost Sniper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ghost Sniper is a 3D sniper game. You are going to the enemy&#x27;s base in the dessert and must eliminate all of them.",
+  "thumbnail": "/games/crazygames-ghost-sniper/online/assets/crazygames-ghost-sniper.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ghost-sniper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ghost-sniper",
+  "crazygamesSlug": "ghost-sniper"
+}

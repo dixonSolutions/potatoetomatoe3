@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ice-slide",
+  "name": "Ice Slide 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ice Slide is a super satisfying sliding puzzle game where you control a cute ice cream character across a frozen grid. Your goal is simple — slide in any direction and leave a creamy trail behind.",
+  "thumbnail": "https://imgs.crazygames.com/ice-slide_16x9/20260612025321/ice-slide_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ice-slide_16x9/20260612025321/ice-slide_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ice-slide/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ice-slide",
+  "crazygamesSlug": "ice-slide"
+}

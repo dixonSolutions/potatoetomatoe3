@@ -1,0 +1,17 @@
+{
+  "id": "playhop-crash-x",
+  "name": "Crash X",
+  "author": "MZGames",
+  "description": "Play Crash X via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019bc151774786803a4acc22fc7498/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019bc151774786803a4acc22fc7498/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-417604.games.s3.yandex.net/417604/x9pn34ckhedsi1n730eom1kg9sulc8vv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=417604&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 417604,
+  "playhopPageUrl": "https://playhop.com/app/417604",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 19643
+}

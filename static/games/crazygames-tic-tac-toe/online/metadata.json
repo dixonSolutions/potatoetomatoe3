@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tic-tac-toe",
+  "name": "Tic Tac Toe Online 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tic-Tac-Toe online is a classic puzzle board game of naughts and crosses that never goes out of style! Whether you’re looking to challenge your wits against other players worldwide, test your strategy against a cunning computer opponent, or enjoy a friendly match with someone right next to you in local multiplayer, this game has you covered.",
+  "thumbnail": "/games/crazygames-tic-tac-toe/online/assets/crazygames-tic-tac-toe.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tic-tac-toe/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tic-tac-toe",
+  "crazygamesSlug": "tic-tac-toe"
+}

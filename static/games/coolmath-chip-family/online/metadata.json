@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chip-family",
+  "name": "Chip Family - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chip Family at Cool Math Game: Chew through blocks of wood to collapse the structures and help the chipmunks collect nuts for the winter.",
+  "thumbnail": "/games/coolmath-chip-family/online/assets/coolmath-chip-family.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25025/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chip-family",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chip-family"
+}

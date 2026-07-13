@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-surf",
+  "name": "SURF 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Traverse difficult and exciting levels in SURF, a cs surf inspired browser game! Use precisely timed jumps and controls to get to the end and beat the gold medal!",
+  "thumbnail": "https://imgs.crazygames.com/surf-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/surf-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/surf/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/surf",
+  "crazygamesSlug": "surf"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-racing-builder",
+  "name": "Racing Builder 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Racing Builder is a casual strategy game that combines racing and customization to deliver an exciting and fast-paced experience. In this game, your goal is to adapt your vehicle on the fly by changing wheels, modifying the body, and adding improvements, all for free, while speeding through challenging tracks to outrun your opponent at every level.",
+  "thumbnail": "https://imgs.crazygames.com/racing-builder_16x9/20241205052325/racing-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/racing-builder_16x9/20241205052325/racing-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/racing-builder/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/racing-builder",
+  "crazygamesSlug": "racing-builder"
+}

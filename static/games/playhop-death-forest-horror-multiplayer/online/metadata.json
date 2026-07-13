@@ -1,0 +1,17 @@
+{
+  "id": "playhop-death-forest-horror-multiplayer",
+  "name": "Death Forest: Horror Multiplayer",
+  "author": "REO",
+  "description": "Play Death Forest: Horror Multiplayer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001950426682bfa7344a02dfc39eb77/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001950426682bfa7344a02dfc39eb77/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-411720.games.s3.yandex.net/411720/9jwe5sod6369xfo5z8mbkir7siye1kbh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=411720&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 411720,
+  "playhopPageUrl": "https://playhop.com/app/411720",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 9880
+}

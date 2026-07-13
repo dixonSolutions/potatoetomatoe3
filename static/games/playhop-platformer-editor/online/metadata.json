@@ -1,0 +1,17 @@
+{
+  "id": "playhop-platformer-editor",
+  "name": "Platformer-Editor",
+  "author": "Kokim",
+  "description": "Play Platformer-Editor via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019ea8e887a70bae281f9a9ccc834a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019ea8e887a70bae281f9a9ccc834a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-412895.games.s3.yandex.net/412895/9dhv094ox3kepqcyxznl7oq7u5pctua3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=412895&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 412895,
+  "playhopPageUrl": "https://playhop.com/app/412895",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 3943
+}

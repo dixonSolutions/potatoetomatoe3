@@ -1,0 +1,14 @@
+{
+  "id": "addicting-hextankio",
+  "name": "Hextank.io",
+  "author": "Addicting Games",
+  "description": "<p>Hextank.io is a free IOGame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/HEXTANKIOGAMESCREEN.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/HEXTANKIOGAMESCREEN.jpg",
+  "thumbnailStored": "remote",
+  "category": "tank-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://hextank.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/hextankio"
+}

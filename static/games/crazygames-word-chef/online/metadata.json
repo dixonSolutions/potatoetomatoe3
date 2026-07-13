@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-word-chef",
+  "name": "Word Chef 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Word Chef is a classic word search puzzle game. This free word game makes learning new words fun.",
+  "thumbnail": "https://imgs.crazygames.com/word-chef/20220303174756/word-chef-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/word-chef/20220303174756/word-chef-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/word-chef/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/word-chef",
+  "crazygamesSlug": "word-chef"
+}

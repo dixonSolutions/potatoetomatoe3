@@ -1,0 +1,14 @@
+{
+  "id": "addicting-prison-escape",
+  "name": "Prison Escape",
+  "author": "Addicting Games",
+  "description": "<p>Prison Escape is a free sniper game. Head shots are the best way to take down these prisoners, which are all apparently identical twins. What female demon-spawn bore this group of psychos?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/prisonescape.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/prisonescape.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/prisonescape.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/prison-escape"
+}

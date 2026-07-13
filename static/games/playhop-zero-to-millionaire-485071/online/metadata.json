@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zero-to-millionaire-485071",
+  "name": "Zero to Millionaire!",
+  "author": "RubyGameDev",
+  "description": "Play Zero to Millionaire! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019e6eb71f52a9cc1da1fa0886587e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019e6eb71f52a9cc1da1fa0886587e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-485071.games.s3.yandex.net/485071/9pkzcseto4of0qpiof17kqyam8i4930r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=485071&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 485071,
+  "playhopPageUrl": "https://playhop.com/app/485071",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 2230
+}

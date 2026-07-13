@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stickman-clash",
+  "name": "Stickman Clash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stickman Clash is a thrilling action battle game where you battle as stickman warriors armed with an array of exciting weapons. Engage in fast-paced combat, outsmart opponents, and showcase your skills in dynamic arenas.",
+  "thumbnail": "https://imgs.crazygames.com/games/stickman-clash/cover_16x9-1746127524433.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/stickman-clash/cover_16x9-1746127524433.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stickman-clash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stickman-clash",
+  "crazygamesSlug": "stickman-clash"
+}

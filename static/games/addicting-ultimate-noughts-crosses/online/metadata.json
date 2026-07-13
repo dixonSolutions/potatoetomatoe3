@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ultimate-noughts-crosses",
+  "name": "Ultimate Noughts & Crosses",
+  "author": "Addicting Games",
+  "description": "<p>Dive into strategic battles with friends or challenge a cunning AI in Ultimate Noughts and Crosses! With local and AI modes, conquer grids and claim victory in this modern twist on the classic game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/AgThumb.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/AgThumb.png",
+  "thumbnailStored": "remote",
+  "category": "multiplayer-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/ultimate-noughts-and-crosses/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/ultimate-noughts-crosses"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-clone-or-neighbour-2",
+  "name": "Clone or neighbour? 2",
+  "author": "Bulatov",
+  "description": "Play Clone or neighbour? 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019712a94a96b879e55eb09bc7c16c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019712a94a96b879e55eb09bc7c16c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-393043.games.s3.yandex.net/393043/mo9vlogfrt5ocntoker2u0b3otrous47/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=393043&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 393043,
+  "playhopPageUrl": "https://playhop.com/app/393043",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 11076
+}

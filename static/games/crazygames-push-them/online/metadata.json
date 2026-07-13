@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-push-them",
+  "name": "Push Them! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Push Them! is a shooting game where your goal is to push the annoying red stickmen to fall into the water.",
+  "thumbnail": "https://imgs.crazygames.com/push-them/20220909164634/push-them-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/push-them/20220909164634/push-them-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/push-them/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/push-them",
+  "crazygamesSlug": "push-them"
+}

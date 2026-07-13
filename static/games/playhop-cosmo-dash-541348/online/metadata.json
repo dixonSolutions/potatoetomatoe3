@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cosmo-dash-541348",
+  "name": "Cosmo Dash",
+  "author": "XDGames",
+  "description": "Play Cosmo Dash via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019ec68d8754f9227295f4e945eabe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019ec68d8754f9227295f4e945eabe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-541348.games.s3.yandex.net/541348/uyy9agpf8e8l214m7v13ssi0aeoga8u9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=541348&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 541348,
+  "playhopPageUrl": "https://playhop.com/app/541348",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

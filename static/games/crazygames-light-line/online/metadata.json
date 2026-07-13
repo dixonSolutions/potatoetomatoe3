@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-light-line",
+  "name": "Light Line 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Light Line is a puzzle connecting game where you guide glowing lines to fill in every blank space on the screen. It is a soothing experience that combines logic and creativity, challenging you to think strategically while enjoying the satisfying flow of light.",
+  "thumbnail": "https://imgs.crazygames.com/light-line_16x9/20241120083837/light-line_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/light-line_16x9/20241120083837/light-line_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/light-line/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/light-line",
+  "crazygamesSlug": "light-line"
+}

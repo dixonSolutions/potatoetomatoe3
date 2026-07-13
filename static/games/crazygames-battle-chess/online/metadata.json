@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-battle-chess",
+  "name": "battle chess",
+  "author": "CrazyGames",
+  "description": "Play battle chess on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battle-chess/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battle-chess",
+  "crazygamesSlug": "battle-chess"
+}

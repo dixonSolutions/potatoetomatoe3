@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-farm-land",
+  "name": "Farm Land 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Farm Land is a casual farming game where you manage an island farm and purchase expansions with your earnings. Harvest the crops from your land, sell goods to the marketplace, and build a friendly little farming community!",
+  "thumbnail": "https://imgs.crazygames.com/farm-land/20230220142449/farm-land-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/farm-land/20230220142449/farm-land-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/farm-land/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/farm-land",
+  "crazygamesSlug": "farm-land"
+}

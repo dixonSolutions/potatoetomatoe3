@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gun-blast",
+  "name": "Gun Blast 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gun Blast is a fast-paced arcade shooter where every tap fires your weapon and flips it through the air, turning recoil into movement. Master ricochets, chain precise shots, and stay in control as you bounce around the screen in chaotic, skill-based action.",
+  "thumbnail": "https://imgs.crazygames.com/gun-blast_16x9/20260507091843/gun-blast_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gun-blast_16x9/20260507091843/gun-blast_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gun-blast/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gun-blast",
+  "crazygamesSlug": "gun-blast"
+}

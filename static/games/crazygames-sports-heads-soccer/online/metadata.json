@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-sports-heads-soccer",
+  "name": "Soccer Heads 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Soccer Heads is a fun two-player soccer game featuring famous UK football teams. Play solo against the computer or two-player with a friend.",
+  "thumbnail": "/games/crazygames-sports-heads-soccer/online/assets/crazygames-sports-heads-soccer.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sports-heads-soccer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sports-heads-soccer",
+  "crazygamesSlug": "sports-heads-soccer"
+}

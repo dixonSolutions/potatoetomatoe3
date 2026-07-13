@@ -1,0 +1,17 @@
+{
+  "id": "playhop-screw-jam-triple-sort",
+  "name": "Screw Jam: Triple Sort",
+  "author": "Linder",
+  "description": "Play Screw Jam: Triple Sort via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000191f3e956970bbfd4330a15d90f06/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000191f3e956970bbfd4330a15d90f06/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-343349.games.s3.yandex.net/343349/c1bvvc9uhyriwulc9wfr7yszp96p54gy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=343349&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 343349,
+  "playhopPageUrl": "https://playhop.com/app/343349",
+  "playhopRating": 4,
+  "playhopRatingCount": 1293
+}

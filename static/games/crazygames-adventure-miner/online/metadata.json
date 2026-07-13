@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-adventure-miner",
+  "name": "Adventure Miner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Adventure Miner is a casual mining game where you mine and sell ore. Explore zones filled with precious metals and mine them.",
+  "thumbnail": "https://imgs.crazygames.com/adventure-miner/20220523114744/adventure-miner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/adventure-miner/20220523114744/adventure-miner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/adventure-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/adventure-miner",
+  "crazygamesSlug": "adventure-miner"
+}

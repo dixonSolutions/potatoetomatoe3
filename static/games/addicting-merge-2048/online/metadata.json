@@ -1,0 +1,14 @@
+{
+  "id": "addicting-merge-2048",
+  "name": "Merge 2048",
+  "author": "Addicting Games",
+  "description": "<p>Merge 2048 is an addictive puzzle game where you combine matching numbered blocks to reach higher values and aim for the elusive 2048 block. Play in Classic or Shape Mode, plan your moves to avoid filling the container, and use TNT blocks to clear space. With clean visuals, smooth controls, and score tracking, it’s perfect for quick sessions or long strategic runs—easy to pick up, hard to master.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/m2048%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/m2048%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://playgama.com/export/game/merge-2048",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/merge-2048"
+}

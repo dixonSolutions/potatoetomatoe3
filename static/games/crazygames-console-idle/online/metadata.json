@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-console-idle",
+  "name": "console idle",
+  "author": "CrazyGames",
+  "description": "Play console idle on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/console-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/console-idle",
+  "crazygamesSlug": "console-idle"
+}

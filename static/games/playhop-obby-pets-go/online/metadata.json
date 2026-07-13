@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-pets-go",
+  "name": "Obby: Pets GO",
+  "author": "M8X Studio",
+  "description": "Play Obby: Pets GO via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001992c80f123e8b84e14de251d6a73/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001992c80f123e8b84e14de251d6a73/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-399940.games.s3.yandex.net/399940/nvuz271b0uh0exfasr72npppm5kn20mg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=399940&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 399940,
+  "playhopPageUrl": "https://playhop.com/app/399940",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 267
+}

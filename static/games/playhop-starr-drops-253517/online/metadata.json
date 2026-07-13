@@ -1,0 +1,17 @@
+{
+  "id": "playhop-starr-drops-253517",
+  "name": "Starr Drops",
+  "author": "PKD Studio",
+  "description": "Play Starr Drops via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019d41807e410067077092feba75e3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019d41807e410067077092feba75e3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-253517.games.s3.yandex.net/253517/o7ipb4hxmz6v8b3uhfc3blrrzqpf1h2p/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=253517&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 253517,
+  "playhopPageUrl": "https://playhop.com/app/253517",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 78499
+}

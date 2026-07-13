@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-battletabs",
+  "name": "battletabs",
+  "author": "CrazyGames",
+  "description": "Play battletabs on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battletabs/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battletabs",
+  "crazygamesSlug": "battletabs"
+}

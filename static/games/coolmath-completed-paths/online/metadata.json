@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-completed-paths",
+  "name": "Completed Paths - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Completed Paths at Cool Math Games: Light up the tiles. Arrange them in a connected line to turn them on. Can you solve these puzzles?",
+  "thumbnail": "/games/coolmath-completed-paths/online/assets/coolmath-completed-paths.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25005/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-completed-paths",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-completed-paths"
+}

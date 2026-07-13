@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-space-survivor",
+  "name": "Space Survivor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Space Survivor is a 2D action game where you must survive by killing the aliens. Start the game with one skill of your choice and progress by filling your experience bar to get new skills and upgrades.",
+  "thumbnail": "https://imgs.crazygames.com/space-survivor_16x9/20260217034824/space-survivor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/space-survivor_16x9/20260217034824/space-survivor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-survivor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-survivor",
+  "crazygamesSlug": "space-survivor"
+}

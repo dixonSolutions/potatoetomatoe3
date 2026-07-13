@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-krakax-com",
+  "name": "Krakax 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Krakax is a multiplayer game where you test your skill in archery and axe-throwing against live opponents. Select your character, choose your weapon, and embrace the challenge of hitting precise targets using unique gravitational mechanics.",
+  "thumbnail": "https://imgs.crazygames.com/krakax-com_16x9/20241031085758/krakax-com_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/krakax-com_16x9/20241031085758/krakax-com_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/krakax-com/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/krakax-com",
+  "crazygamesSlug": "krakax-com"
+}

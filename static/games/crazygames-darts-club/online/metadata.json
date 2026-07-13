@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-darts-club",
+  "name": "Darts Club 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Darts Club is a competitive game where you can sharpen your dart-throwing skills and customize your equipment. Unlock new dart parts like barrels and shafts, upgrade them to boost performance, and climb the ranks in thrilling matches.",
+  "thumbnail": "https://imgs.crazygames.com/darts-club_16x9/20240910041628/darts-club_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/darts-club_16x9/20240910041628/darts-club_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/darts-club/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/darts-club",
+  "crazygamesSlug": "darts-club"
+}

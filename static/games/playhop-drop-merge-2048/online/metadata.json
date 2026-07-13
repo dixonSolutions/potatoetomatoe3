@@ -1,0 +1,17 @@
+{
+  "id": "playhop-drop-merge-2048",
+  "name": "Drop Merge 2048",
+  "author": "Addictive Games Official",
+  "description": "Play Drop Merge 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000198422344006d96d43075bda9c40e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000198422344006d96d43075bda9c40e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-354348.games.s3.yandex.net/354348/cxyzrklqiya7o1lp0v4554ayccjqpx08/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=354348&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 354348,
+  "playhopPageUrl": "https://playhop.com/app/354348",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 725
+}

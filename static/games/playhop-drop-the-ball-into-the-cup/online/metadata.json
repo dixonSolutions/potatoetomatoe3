@@ -1,0 +1,17 @@
+{
+  "id": "playhop-drop-the-ball-into-the-cup",
+  "name": "Drop the ball into the cup",
+  "author": "GriGames",
+  "description": "Play Drop the ball into the cup via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019438823d9520be818d27f7f25fbe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019438823d9520be818d27f7f25fbe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-388462.games.s3.yandex.net/388462/3ivwi11pk2oine4d0hbueswjvp3c6gar/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=388462&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 388462,
+  "playhopPageUrl": "https://playhop.com/app/388462",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 785
+}

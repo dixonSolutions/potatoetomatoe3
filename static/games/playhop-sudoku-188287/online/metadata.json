@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-188287",
+  "name": "Sudoku",
+  "author": "Brainatee",
+  "description": "Play Sudoku via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001921001eb8179241fa96e8cf0b830/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001921001eb8179241fa96e8cf0b830/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-188287.games.s3.yandex.net/188287/orvmqyv122s33hpqnkgr633ypo2nk9zy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=188287&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 188287,
+  "playhopPageUrl": "https://playhop.com/app/188287",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 15558
+}

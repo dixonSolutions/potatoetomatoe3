@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kirka-io",
+  "name": "Kirka.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kirka.io is an online FPS game with a voxelated art style. You can play teams, solo, or parkour mode in a range of battle locations.",
+  "thumbnail": "https://imgs.crazygames.com/kirka-io_16x9/20260116015838/kirka-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kirka-io_16x9/20260116015838/kirka-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kirka-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kirka-io",
+  "crazygamesSlug": "kirka-io"
+}

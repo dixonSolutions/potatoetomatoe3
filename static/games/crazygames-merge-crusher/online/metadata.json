@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-crusher",
+  "name": "Merge Crusher 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge Crusher is an arcade game where you combine different tools to create stronger and more powerful ones. Start with basic equipment and merge them strategically to unlock better versions that can deal greater impact.",
+  "thumbnail": "https://imgs.crazygames.com/merge-crusher_16x9/20260504103356/merge-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-crusher_16x9/20260504103356/merge-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-crusher/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-crusher",
+  "crazygamesSlug": "merge-crusher"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sysadmin-linux-simulator-424982",
+  "name": "Sysadmin: Linux Simulator",
+  "author": "fond-io",
+  "description": "Play Sysadmin: Linux Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019afefa69f2f22763c6cec73e0c9a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019afefa69f2f22763c6cec73e0c9a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-424982.games.s3.yandex.net/424982/9mbdqmeonp4e568ehn2o00j198qoylyp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=424982&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 424982,
+  "playhopPageUrl": "https://playhop.com/app/424982",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 74
+}

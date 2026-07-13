@@ -1,0 +1,17 @@
+{
+  "id": "playhop-knife-hit-168007",
+  "name": "Knife Hit",
+  "author": "Five Star Games",
+  "description": "Play Knife Hit via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017a020cec05383b4ab4cf7ca72834/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017a020cec05383b4ab4cf7ca72834/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-168007.games.s3.yandex.net/168007/npt1qh2l4v9gwi4xq29wvtah9cdymcxq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=168007&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 168007,
+  "playhopPageUrl": "https://playhop.com/app/168007",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 214
+}

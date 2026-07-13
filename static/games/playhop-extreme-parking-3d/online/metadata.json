@@ -1,0 +1,17 @@
+{
+  "id": "playhop-extreme-parking-3d",
+  "name": "Extreme parking 3D",
+  "author": "Sergey Ivlev",
+  "description": "Play Extreme parking 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001908c46f87477d01c9330f1a319de/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001908c46f87477d01c9330f1a319de/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-336155.games.s3.yandex.net/336155/klcbsvqzcgd0t4nce428bubvhcbp734m/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=336155&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 336155,
+  "playhopPageUrl": "https://playhop.com/app/336155",
+  "playhopRating": 4,
+  "playhopRatingCount": 85
+}

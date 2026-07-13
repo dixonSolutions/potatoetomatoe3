@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-space-company",
+  "name": "space company",
+  "author": "CrazyGames",
+  "description": "Play space company on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-space-company/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-company/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-company",
+  "crazygamesSlug": "space-company"
+}

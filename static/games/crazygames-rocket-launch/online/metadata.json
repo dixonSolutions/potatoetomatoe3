@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-rocket-launch",
+  "name": "rocket launch",
+  "author": "CrazyGames",
+  "description": "Play rocket launch on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rocket-launch/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rocket-launch",
+  "crazygamesSlug": "rocket-launch"
+}

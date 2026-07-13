@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-blast-master-297226",
+  "name": "Block Blast Master",
+  "author": "Games 404",
+  "description": "Play Block Blast Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018ef295f02c5ddfb1dfb14a003d87/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018ef295f02c5ddfb1dfb14a003d87/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-297226.games.s3.yandex.net/297226/27pxhpck3by96a231xe2if41v5qfocsd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=297226&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 297226,
+  "playhopPageUrl": "https://playhop.com/app/297226",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 1485
+}

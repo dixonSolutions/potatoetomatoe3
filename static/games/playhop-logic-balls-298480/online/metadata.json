@@ -1,0 +1,17 @@
+{
+  "id": "playhop-logic-balls-298480",
+  "name": "Logic Balls",
+  "author": "Star Games",
+  "description": "Play Logic Balls via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018df85e69d2a5079bc4c089335f40/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018df85e69d2a5079bc4c089335f40/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-298480.games.s3.yandex.net/298480/gtmwopf1xfyuw64qh3k1sae4krs3r9w3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=298480&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 298480,
+  "playhopPageUrl": "https://playhop.com/app/298480",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 5619
+}

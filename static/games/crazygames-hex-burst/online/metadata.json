@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hex-burst",
+  "name": "Hex Burst 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hex Burst is a hex-grid puzzle experience where you drop vibrant pieces onto the board, complete rows, columns, and diagonals to clear them, and build massive combos.Game ModesEndless The classic endless challenge.",
+  "thumbnail": "https://imgs.crazygames.com/hex-burst_16x9/20260413104653/hex-burst_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hex-burst_16x9/20260413104653/hex-burst_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hex-burst/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hex-burst",
+  "crazygamesSlug": "hex-burst"
+}

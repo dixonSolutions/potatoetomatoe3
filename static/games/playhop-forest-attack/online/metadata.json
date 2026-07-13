@@ -1,0 +1,17 @@
+{
+  "id": "playhop-forest-attack",
+  "name": "Forest Attack",
+  "author": "Layaa",
+  "description": "Play Forest Attack via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019450afe7d6180b392463a4d7cfb8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019450afe7d6180b392463a4d7cfb8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-371524.games.s3.yandex.net/371524/qrm0m4xgzfeybv7vmosph2d8hmvklc0t/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=371524&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 371524,
+  "playhopPageUrl": "https://playhop.com/app/371524",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 342
+}

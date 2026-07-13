@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-comball",
+  "name": "Comball - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Try this new and unique version of Billiards in Comball, the pinball-styled game. Merge billiards together and earn points for creating new colors.",
+  "thumbnail": "/games/coolmath-comball/online/assets/coolmath-comball.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53925/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-comball",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-comball"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-krazy-kar",
+  "name": "Krazy Kar",
+  "author": "Addicting Games",
+  "description": "<p>Your car is on some wacked out planet. It’s KRAZY all right! As far as I can tell, there’s no way to wreck the car, you just put the pedal to the medal and let ‘er roar!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Krazy-Kar.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Krazy-Kar.jpg",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/krazykar_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/krazy-kar"
+}

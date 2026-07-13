@@ -1,0 +1,17 @@
+{
+  "id": "playhop-summer-sports-172536",
+  "name": "Summer Sports",
+  "author": "Gaming Entertainment",
+  "description": "Play Summer Sports via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017b03fa2cc496d25bf06c2dad312b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017b03fa2cc496d25bf06c2dad312b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-172536.games.s3.yandex.net/172536/35bsrh28hp9p5jaimjajas4kthfb2fzc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=172536&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 172536,
+  "playhopPageUrl": "https://playhop.com/app/172536",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 160
+}

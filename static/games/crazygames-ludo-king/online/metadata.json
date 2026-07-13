@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-ludo-king",
+  "name": "Ludo King 🎲 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ludo King™ is a classic board game also known as Pachisi or Parcheesi. The objective of the game is to bring all of your four colored tokens to the designated home column.",
+  "thumbnail": "/games/crazygames-ludo-king/online/assets/crazygames-ludo-king.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ludo-king/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ludo-king",
+  "crazygamesSlug": "ludo-king"
+}

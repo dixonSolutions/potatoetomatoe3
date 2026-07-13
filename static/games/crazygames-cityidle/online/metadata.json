@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cityidle",
+  "name": "City Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "City Idle is a building game where you need to build a civilization from scratch. Start by building a firepit to gather the citizens and then build huts for them to stay.",
+  "thumbnail": "https://imgs.crazygames.com/cityidle/20230329134547/cityidle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cityidle/20230329134547/cityidle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cityidle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cityidle",
+  "crazygamesSlug": "cityidle"
+}

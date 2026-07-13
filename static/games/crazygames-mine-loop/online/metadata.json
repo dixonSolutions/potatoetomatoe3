@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mine-loop",
+  "name": "Mine Loop 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mine Loop is an idle game that challenges you to dig deep and explore the earth with your train to unearth valuable ores. Transform into the premier Mine Company by collecting ores, earning money, and upgrading your operations.",
+  "thumbnail": "https://imgs.crazygames.com/mine-loop_16x9/20240220050313/mine-loop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mine-loop_16x9/20240220050313/mine-loop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mine-loop/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mine-loop",
+  "crazygamesSlug": "mine-loop"
+}

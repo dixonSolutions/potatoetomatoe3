@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-shadow-survivors",
+  "name": "shadow survivors",
+  "author": "CrazyGames",
+  "description": "Play shadow survivors on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shadow-survivors/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shadow-survivors",
+  "crazygamesSlug": "shadow-survivors"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hide-from-school-273170",
+  "name": "Hide from School",
+  "author": "Eccentric Studio",
+  "description": "Play Hide from School via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001965949d688a4151d662bc29c3616/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001965949d688a4151d662bc29c3616/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-273170.games.s3.yandex.net/273170/tzk38h5ipqf9q0qqmei7og1walbpiywn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=273170&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 273170,
+  "playhopPageUrl": "https://playhop.com/app/273170",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 39351
+}

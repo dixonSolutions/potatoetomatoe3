@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-death-chase",
+  "name": "Death Chase 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Death Chase is a battle-driving game featuring races on tracks filled with traps and obstacles. Buy upgrades and weapons for your vehicle and target other racers in the explosively chaotic Death Chase.",
+  "thumbnail": "/games/crazygames-death-chase/online/assets/crazygames-death-chase.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/death-chase/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/death-chase",
+  "crazygamesSlug": "death-chase"
+}

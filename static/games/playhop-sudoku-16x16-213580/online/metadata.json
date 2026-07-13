@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-16x16-213580",
+  "name": "Sudoku 16x16",
+  "author": "kutu",
+  "description": "Play Sudoku 16x16 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001878eadd3b37a2339d6844164f678/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001878eadd3b37a2339d6844164f678/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-213580.games.s3.yandex.net/213580/qt268fr4f0cg9z8j6w20xc495goo7ugl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=213580&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 213580,
+  "playhopPageUrl": "https://playhop.com/app/213580",
+  "playhopRating": 4,
+  "playhopRatingCount": 47
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-words",
+  "name": "Words",
+  "author": "Addicting Games",
+  "description": "<p>Words is a puzzle game where you can show off your knowledge of words. Are you a book nerd or just have a love for the English language? Check out this fun and simple online game where you put together words for points. This word game is set like a boardgame against natural and colorful backgrounds. There are 45 levels and over a hundred words for you to unscramble. Each level has its own challenge that you can find by looking in the lefthand column. You will need to cover the blue blocks, reach a specific score, and reach a specific amount of words to get to the next level. You have to do this all in a limited amount of moves. If you get stuck, you can use the shuffle button or reset button. After you’ve completed all 45 levels, your score will automatically be submitted. Click on the High Scores button to see if you made it the top of the list!</p>\n\n<div> </div>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Words.JPG",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Words.JPG",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/words-neon/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/words"
+}

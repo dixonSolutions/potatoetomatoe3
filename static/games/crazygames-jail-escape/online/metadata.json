@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-jail-escape",
+  "name": "Jail Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jail Escape is an engaging puzzle game where you solve clever challenges to break free from various environments. Use your logic and intelligence to uncover hidden clues.",
+  "thumbnail": "https://imgs.crazygames.com/jail-escape_16x9/20250224063213/jail-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/jail-escape_16x9/20250224063213/jail-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jail-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jail-escape",
+  "crazygamesSlug": "jail-escape"
+}

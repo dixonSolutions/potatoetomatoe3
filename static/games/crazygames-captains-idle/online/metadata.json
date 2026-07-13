@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-captains-idle",
+  "name": "Captains Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Captains Idle is a pirate game where you sail the seven seas as the Pirate King! Assemble your crewmates, upgrade your ship, and embark on an adventure, but beware of enemy pirate ships trying to sink you!",
+  "thumbnail": "https://imgs.crazygames.com/captains-idle/20230323175033/captains-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/captains-idle/20230323175033/captains-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/captains-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/captains-idle",
+  "crazygamesSlug": "captains-idle"
+}

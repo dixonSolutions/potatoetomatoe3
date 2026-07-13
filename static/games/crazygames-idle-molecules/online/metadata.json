@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-idle-molecules",
+  "name": "idle molecules",
+  "author": "CrazyGames",
+  "description": "Play idle molecules on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-molecules/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-molecules",
+  "crazygamesSlug": "idle-molecules"
+}

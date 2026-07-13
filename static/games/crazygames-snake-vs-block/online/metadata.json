@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-snake-vs-block",
+  "name": "Snake VS Block 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Snake VS Block is a fast-paced arcade game where you guide a growing snake to smash through waves of numbered bricks. Collect extra balls to extend your snake and ramp up the destruction.",
+  "thumbnail": "https://imgs.crazygames.com/snake-vs-block_16x9/20250528043518/snake-vs-block_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/snake-vs-block_16x9/20250528043518/snake-vs-block_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/snake-vs-block/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/snake-vs-block",
+  "crazygamesSlug": "snake-vs-block"
+}

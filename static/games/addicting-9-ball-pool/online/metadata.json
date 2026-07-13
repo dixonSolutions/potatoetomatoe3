@@ -1,0 +1,14 @@
+{
+  "id": "addicting-9-ball-pool",
+  "name": "9 Ball Pool",
+  "author": "Addicting Games",
+  "description": "<p>Enjoy fast-paced multiplayer 9 Ball Pool online. Test your aim against friends or players around the globe—shoot and sink balls from 1 to 9 in order, and sharpen your skills with every game!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/9ballthumbnail-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/9ballthumbnail-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "multiplayer-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://foony.com/games/9-ball-pool-online-billiards?platform=addictinggames",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/9-ball-pool"
+}

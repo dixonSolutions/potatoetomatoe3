@@ -1,0 +1,17 @@
+{
+  "id": "playhop-takeover-100289",
+  "name": "Takeover",
+  "author": "IriySoft",
+  "description": "Play Takeover via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017c6f7d60be0647b8df06bedf0d25/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000017c6f7d60be0647b8df06bedf0d25/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-100289.games.s3.yandex.net/100289/j1dv7vrrwfn502miy1dz58h2kgzpu0ov/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=100289&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 100289,
+  "playhopPageUrl": "https://playhop.com/app/100289",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3625
+}

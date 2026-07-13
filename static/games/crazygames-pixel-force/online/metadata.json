@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pixel-force",
+  "name": "Pixel Force 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kill your opponents with a selected weapon in deadly matches and get better scores to win. Love blocky FPS games?",
+  "thumbnail": "https://imgs.crazygames.com/games/pixel-force/thumb-1563945180784.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/pixel-force/thumb-1563945180784.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixel-force/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixel-force",
+  "crazygamesSlug": "pixel-force"
+}

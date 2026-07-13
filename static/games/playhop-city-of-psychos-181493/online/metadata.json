@@ -1,0 +1,17 @@
+{
+  "id": "playhop-city-of-psychos-181493",
+  "name": "City of Psychos",
+  "author": "BORNIS GameLab",
+  "description": "Play City of Psychos via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000186741b099c352ef2e5fc9cce234d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000186741b099c352ef2e5fc9cce234d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-181493.games.s3.yandex.net/181493/x328jlle9dbyboaikxw6pv50srr17ols/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=181493&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 181493,
+  "playhopPageUrl": "https://playhop.com/app/181493",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 4059
+}

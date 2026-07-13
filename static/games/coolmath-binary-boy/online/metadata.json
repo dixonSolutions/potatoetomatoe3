@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-binary-boy",
+  "name": "Binary Boy - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "There are two of him! The binary boys move as one, and you&#039;ll need to keep both of them safe in this dangerous one-bit world.",
+  "thumbnail": "/games/coolmath-binary-boy/online/assets/coolmath-binary-boy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52725/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-binary-boy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-binary-boy"
+}

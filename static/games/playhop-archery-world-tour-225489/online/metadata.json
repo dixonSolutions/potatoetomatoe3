@@ -1,0 +1,17 @@
+{
+  "id": "playhop-archery-world-tour-225489",
+  "name": "Archery World Tour",
+  "author": "Famobi-Dev",
+  "description": "Play Archery World Tour via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001877ec1def688783aab169bb2026e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001877ec1def688783aab169bb2026e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-225489.games.s3.yandex.net/225489/96e1p10awtwwtkiepcjihjpvm27wjxb8/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=225489&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 225489,
+  "playhopPageUrl": "https://playhop.com/app/225489",
+  "playhopRating": 4,
+  "playhopRatingCount": 3117
+}

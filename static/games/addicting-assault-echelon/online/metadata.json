@@ -1,0 +1,14 @@
+{
+  "id": "addicting-assault-echelon",
+  "name": "Assault Echelon",
+  "author": "Addicting Games",
+  "description": "<p>Take aim and take out the terrorists in an intense first-person shooter.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/assault-echelon_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/assault-echelon_sp.png",
+  "thumbnailStored": "remote",
+  "category": "fighting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/assault-echelon_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/assault-echelon"
+}

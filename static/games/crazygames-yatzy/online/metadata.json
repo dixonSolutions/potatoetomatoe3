@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-yatzy",
+  "name": "Yatzy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Yatzy is one of the popular dice games. You can play this game online for free!",
+  "thumbnail": "https://imgs.crazygames.com/games/yatzy/cover-1600355143918.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/yatzy/cover-1600355143918.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/yatzy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/yatzy",
+  "crazygamesSlug": "yatzy"
+}

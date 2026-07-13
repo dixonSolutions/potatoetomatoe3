@@ -1,0 +1,14 @@
+{
+  "id": "addicting-shards",
+  "name": "Shards",
+  "author": "Addicting Games",
+  "description": "<p>Shards is a fun paddle game where your objective is to break all of the colored blocks. This is a bright online game that uses 3D animation with transparent color. Choose from there levels of speed: slow, normal, and fast. This vertical game can be played on both mobile and desktop devices. With each game, you get 3 lives to beat each level and advance to the next one. There are multiple levels with varying difficulty for you to defeat. Once you’ve beaten all the levels, look to the leaderboard to see where you rank against other players on this online game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Shards_01.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Shards_01.png",
+  "thumbnailStored": "remote",
+  "category": "arcade-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/shards-api/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/shards"
+}

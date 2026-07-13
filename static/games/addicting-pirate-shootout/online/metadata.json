@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pirate-shootout",
+  "name": "Pirate Shootout",
+  "author": "Addicting Games",
+  "description": "<p>Pirate Shootout is a free sniper game. Beat the game and unlock Hard Mode! Take down pirates with your sniper rifle.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pirateshootout_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pirateshootout_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/pirateshootout_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/pirate-shootout"
+}

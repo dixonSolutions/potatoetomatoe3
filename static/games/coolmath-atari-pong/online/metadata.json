@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-atari-pong",
+  "name": "Play Atari Pong Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Travel back in time and battle the AI in a game of Atari Pong. The first to 11 wins. Can you come out on top in this game that&#039;s over 4 decades old?",
+  "thumbnail": "/games/coolmath-atari-pong/online/assets/coolmath-atari-pong.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41820/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-atari-pong",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-atari-pong"
+}

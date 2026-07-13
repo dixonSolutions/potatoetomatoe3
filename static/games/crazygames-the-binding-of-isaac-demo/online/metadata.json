@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-the-binding-of-isaac-demo",
+  "name": "The Binding of Isaac DEMO 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Binding of Isaac is a fun and surreal platform game in which you must control Isaac and help him through the Basement of Unknown. Isaac has been abandoned by his mother who wanted to sacrifice him - you must do whatever you can to survive and use your tears as a weapon!",
+  "thumbnail": "/games/crazygames-the-binding-of-isaac-demo/online/assets/crazygames-the-binding-of-isaac-demo.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-binding-of-isaac-demo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-binding-of-isaac-demo",
+  "crazygamesSlug": "the-binding-of-isaac-demo"
+}

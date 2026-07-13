@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-smash-defense",
+  "name": "Smash Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Smash Defense is a chaotic baseball-inspired action game where your swings decide the fate of entire worlds. Crush waves of flying monsters using your bat and evolve your ball with fiery, electric, and explosive powers.",
+  "thumbnail": "https://imgs.crazygames.com/smash-defense_16x9/20251208142019/smash-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/smash-defense_16x9/20251208142019/smash-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/smash-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/smash-defense",
+  "crazygamesSlug": "smash-defense"
+}

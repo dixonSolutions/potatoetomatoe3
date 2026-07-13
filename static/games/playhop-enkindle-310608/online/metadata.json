@@ -1,0 +1,17 @@
+{
+  "id": "playhop-enkindle-310608",
+  "name": "Enkindle",
+  "author": "ksvgamesoff",
+  "description": "Play Enkindle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018e7eab8d7576f3e5cad0db226759/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018e7eab8d7576f3e5cad0db226759/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-310608.games.s3.yandex.net/310608/9ywrfn0a65z4h0kdbo8scw8xbwi8jru5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=310608&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 310608,
+  "playhopPageUrl": "https://playhop.com/app/310608",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 71
+}

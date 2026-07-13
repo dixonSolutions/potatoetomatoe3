@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-heroes-of-the-arena",
+  "name": "Heroes of the Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Heroes of the Arena is an RPG game where you create your own hero and forge a path through battles and adventure. You’ll team up with allies, face powerful enemies, and shape your journey by enhancing skills, unlocking pets, and joining epic clan wars.",
+  "thumbnail": "https://imgs.crazygames.com/heroes-of-the-arena_16x9/20251110072525/heroes-of-the-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/heroes-of-the-arena_16x9/20251110072525/heroes-of-the-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/heroes-of-the-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/heroes-of-the-arena",
+  "crazygamesSlug": "heroes-of-the-arena"
+}

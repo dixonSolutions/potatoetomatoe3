@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-building-sort",
+  "name": "Building Sort - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Sort these buildings to restore their former glory in Building Sort. Your goal is to rearrange the building blocks until they are structurally correct.",
+  "thumbnail": "/games/coolmath-building-sort/online/assets/coolmath-building-sort.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48463/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-building-sort",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-building-sort"
+}

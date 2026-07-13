@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-peckin-pixels",
+  "name": "Peckin&#x27; Pixels 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Peckin&#39; Pixels is a casual farming game where you manage a chicken farm. Take care of your chickens and grow the business!",
+  "thumbnail": "https://imgs.crazygames.com/games/peckin-pixels/cover_16x9-1707829678148.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/peckin-pixels/cover_16x9-1707829678148.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/peckin-pixels/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/peckin-pixels",
+  "crazygamesSlug": "peckin-pixels"
+}

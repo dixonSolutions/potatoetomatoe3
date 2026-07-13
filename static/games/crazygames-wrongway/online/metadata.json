@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-wrongway",
+  "name": "Wrong Way 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Wrong Way is a thrilling driving game where you can create your own race track! Customize vehicles and build your own routes using an inventory with various objects.",
+  "thumbnail": "https://imgs.crazygames.com/games/wrongway/thumb-1571247737748.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/wrongway/thumb-1571247737748.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/wrongway/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/wrongway",
+  "crazygamesSlug": "wrongway"
+}

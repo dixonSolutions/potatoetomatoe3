@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-switch",
+  "name": "Switch! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Switch! is a fast-paced action game with one-touch gameplay.",
+  "thumbnail": "https://imgs.crazygames.com/switch_16x9/20250627100811/switch_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/switch_16x9/20250627100811/switch_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/switch/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/switch",
+  "crazygamesSlug": "switch"
+}

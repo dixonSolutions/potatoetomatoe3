@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bucket-crusher",
+  "name": "Bucket Crusher 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bucket Crusher is a satisfying casual game where you tear down walls brick by brick using a circular saw. The bricks go into your Bucket Crusher and get converted into cash for various upgrades!",
+  "thumbnail": "https://imgs.crazygames.com/bucket-crusher_16x9/20260220035716/bucket-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bucket-crusher_16x9/20260220035716/bucket-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bucket-crusher/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bucket-crusher",
+  "crazygamesSlug": "bucket-crusher"
+}

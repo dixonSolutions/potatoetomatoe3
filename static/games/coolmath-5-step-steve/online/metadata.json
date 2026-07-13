@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-5-step-steve",
+  "name": "5 Step Steve - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "You are Steve the cat. You are the last hope to rescue Captain Laika and her friends from the deep space laboratory in 5 Step Steve.",
+  "thumbnail": "/games/coolmath-5-step-steve/online/assets/coolmath-5-step-steve.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32718/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-5-step-steve",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-5-step-steve"
+}

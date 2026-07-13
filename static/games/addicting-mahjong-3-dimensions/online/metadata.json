@@ -1,0 +1,14 @@
+{
+  "id": "addicting-mahjong-3-dimensions",
+  "name": "Mahjong 3 Dimensions",
+  "author": "Addicting Games",
+  "description": "<p>Mahjong 3 Dimensions is the 3D version of your favorite mahjong game. Instead of a flat layout of mahjong tiles, this online game lets you select blocks from different sides. Each layout is unique and can be turned around to find more matching possibilities. The blocks are decorated in caveman-themed icons! You will find slabs of meat, fire torches, arrowheads, and other items from archaic times. There are 24 levels of this fun puzzle game. Each level is timed so think quickly and find the matching pairs as fast as you can. If you run out of time, you lose and not be able to advance to the next level. When you finish all 24 puzzles, submit your score to see if you have made it to the top of the list. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/3d-mahjong.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/3d-mahjong.jpg",
+  "thumbnailStored": "remote",
+  "category": "mahjong-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/mahjong-3dimensions/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/mahjong-3-dimensions"
+}

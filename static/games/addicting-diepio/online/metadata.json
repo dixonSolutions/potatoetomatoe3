@@ -1,0 +1,14 @@
+{
+  "id": "addicting-diepio",
+  "name": "diep.io",
+  "author": "Addicting Games",
+  "description": "<p>Diep.io is a free IOgame. All the world is a gridded arena, and we are merely the weaponized polygon tanks within it.  In this IOgame, you will test your skill against the might and strategy of your opponents, who themselves are real people from around the world. Diep.io is known as a survival game. It is a game where players start as a weaponized circle and slowly grind their way up by blasting different types of terrain and other opponents. The blasting equals different resources which can be spent to upgrade the player's weapons, attack values, and various player powers. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Diep_Thumbnail%20copy.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Diep_Thumbnail%20copy.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://diep.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/diepio"
+}

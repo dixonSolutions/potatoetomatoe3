@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-undead-broadcast",
+  "name": "undead broadcast",
+  "author": "CrazyGames",
+  "description": "Play undead broadcast on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/undead-broadcast/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/undead-broadcast",
+  "crazygamesSlug": "undead-broadcast"
+}

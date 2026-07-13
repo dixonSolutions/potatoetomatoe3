@@ -1,0 +1,17 @@
+{
+  "id": "playhop-modern-tanks",
+  "name": "Modern Tanks",
+  "author": "Saturn GS",
+  "description": "Play Modern Tanks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001904702ab94ab78c9d012fdf0225b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001904702ab94ab78c9d012fdf0225b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-346503.games.s3.yandex.net/346503/rfai2lzgpjtrqxblzpuwlah73q8gg1h2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=346503&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 346503,
+  "playhopPageUrl": "https://playhop.com/app/346503",
+  "playhopRating": 2.6,
+  "playhopRatingCount": 218
+}

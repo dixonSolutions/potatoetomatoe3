@@ -1,0 +1,14 @@
+{
+  "id": "addicting-diebrary",
+  "name": "Diebrary",
+  "author": "Addicting Games",
+  "description": "<p>Diebrary is a free IOgame. <span><span>Enter the Diebrary! Test your reflexes and wit in this fast-paced arena roguelike, where you must fight through thousands of hordes of enemies to make it out alive. Choose upgrades and power-ups to increase your chances of survival, then vote on new Twists to spice up your next run! Get ready for an epic adventure that will keep you on the edge of your seat every page you turn.</span></span></p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bubble-spinner_1.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bubble-spinner_1.jpg",
+  "thumbnailStored": "remote",
+  "category": "arena-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://play.diebrary.rip/?",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/diebrary"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-javelin-fighting",
+  "name": "Javelin Fighting 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Javelin Fighting is a fun 1-on-1 stickman fighting game in which you must show off your javelin throwing skills. You have been invited to attend the national javelin throwing competition and you must defeat the other combatants to show that you are the champion!",
+  "thumbnail": "/games/crazygames-javelin-fighting/online/assets/crazygames-javelin-fighting.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/javelin-fighting/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/javelin-fighting",
+  "crazygamesSlug": "javelin-fighting"
+}

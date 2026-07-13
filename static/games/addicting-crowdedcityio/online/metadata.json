@@ -1,0 +1,14 @@
+{
+  "id": "addicting-crowdedcityio",
+  "name": "Crowdedcity.io",
+  "author": "Addicting Games",
+  "description": "<p>Crowdedcity.io is a multi-player game. There really are just too many people in this world. Running around, absolutely no direction, no purpose, no reason. Just spinning their wheels and flapping their lips until they finally shuffle off this mortal coil. They need a leader. They need you. In Crowdedcity.io you'll take command of citizens who are lost, directionless and with no rudder. You must organize and manage them and use them as a force for good to run around and convert other non-believers to your side. If you're smart enough, fast enough, and powerful enough you'll take over the entire city and wield your unholy power for good.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/crowd.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/crowd.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://crowdedcity.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/crowdedcityio"
+}

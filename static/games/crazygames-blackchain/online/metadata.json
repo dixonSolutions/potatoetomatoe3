@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blackchain",
+  "name": "BlackChain 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "BlackChain is an RTS science-fiction game that is inspired by classic games, like StarCraft. The year is 2088, our solar system is being exploited by corporations and ravaged by war.",
+  "thumbnail": "https://imgs.crazygames.com/blackchain/20210126145128/blackchain-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/blackchain/20210126145128/blackchain-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blackchain/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blackchain",
+  "crazygamesSlug": "blackchain"
+}

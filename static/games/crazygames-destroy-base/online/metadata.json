@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-destroy-base",
+  "name": "Destroy Base 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Destroy Base is a shooting game where your mission is to eliminate the enemies defending their base. Rain down bullets from above on your enemies, shoot explosive barrels to blow up the buildings, and be careful not to kill the hostages!",
+  "thumbnail": "https://imgs.crazygames.com/destroy-base/20230414132334/destroy-base-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/destroy-base/20230414132334/destroy-base-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/destroy-base/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/destroy-base",
+  "crazygamesSlug": "destroy-base"
+}

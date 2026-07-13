@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-penalty-shootout-multi-league",
+  "name": "penalty shootout multi league",
+  "author": "CrazyGames",
+  "description": "Play penalty shootout multi league on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-penalty-shootout-multi-league/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/penalty-shootout-multi-league/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/penalty-shootout-multi-league",
+  "crazygamesSlug": "penalty-shootout-multi-league"
+}

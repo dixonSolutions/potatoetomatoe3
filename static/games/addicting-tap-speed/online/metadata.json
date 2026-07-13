@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tap-speed",
+  "name": "Tap Speed",
+  "author": "Addicting Games",
+  "description": "<p>Tap Speed is a free racing game. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/tap-speed.jpeg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/tap-speed.jpeg",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/tap-speed/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/tap-speed"
+}

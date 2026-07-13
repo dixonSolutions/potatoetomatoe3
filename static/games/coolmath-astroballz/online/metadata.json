@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-astroballz",
+  "name": "Astroballz - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Astroballz at Cool Math Games: It&#039;s the classic game of breakout, in outer space! Move your spaceship to knock out all the planets.",
+  "thumbnail": "/games/coolmath-astroballz/online/assets/coolmath-astroballz.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25076/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-astroballz",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-astroballz"
+}

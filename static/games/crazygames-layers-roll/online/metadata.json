@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-layers-roll",
+  "name": "Layers Roll 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Layers Roll is a fun, casual game where you roll over strips of the same color as your wheel. Add more layers and achieve your highest score while dodging obstacles.",
+  "thumbnail": "https://imgs.crazygames.com/layers-roll_16x9/20260512061906/layers-roll_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/layers-roll_16x9/20260512061906/layers-roll_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/layers-roll/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/layers-roll",
+  "crazygamesSlug": "layers-roll"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-awesome-tanks",
+  "name": "Awesome Tanks - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Hop in your tank and get rolling in Awesome Tanks. Defeat enemy tanks, collect money, and buy upgrades to improve your tank.",
+  "thumbnail": "/games/coolmath-awesome-tanks/online/assets/coolmath-awesome-tanks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48573/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-awesome-tanks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-awesome-tanks"
+}

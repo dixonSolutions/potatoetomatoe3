@@ -1,0 +1,14 @@
+{
+  "id": "addicting-shadow-snake-2",
+  "name": "Shadow Snake 2",
+  "author": "Addicting Games",
+  "description": "<p>Snakes! You already know the Snake Laws. Eat to grow. Avoid black creatures who rob your health. And do not bite your own tail! Slither to success by gobbling bits of sunlight. Will you rank as a Python, or a mere Worm?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/shadowsnake2_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/shadowsnake2_sp.png",
+  "thumbnailStored": "remote",
+  "category": "snake",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/shadowsnake2_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/shadow-snake-2"
+}

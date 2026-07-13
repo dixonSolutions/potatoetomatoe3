@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tile-building-200565",
+  "name": "Tile Building",
+  "author": "Cocos Labs",
+  "description": "Play Tile Building via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a000001843cb0fd5121dbbeaadeae09497a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a000001843cb0fd5121dbbeaadeae09497a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-200565.games.s3.yandex.net/200565/d06x6bhk5m8b91y9ypwfirg0lc924oq1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=200565&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 200565,
+  "playhopPageUrl": "https://playhop.com/app/200565",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3898
+}

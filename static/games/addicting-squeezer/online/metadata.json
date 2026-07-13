@@ -1,0 +1,14 @@
+{
+  "id": "addicting-squeezer",
+  "name": "Squeezer",
+  "author": "Addicting Games",
+  "description": "<p>Squeezer is a free clicker game where you get to play as a creepy eyeball that is traveling up a maze-like path. This is a simple online game with simple animation that changes with every session. The neon-colored background changes from purple to blue to green and other fun colors. Each time you play as a black little eyeball that you will help navigate through dangerous obstacles. However, the dangers you encounter vary from spinning spiked circles to two simple lines. Be careful not to touch any part of the obstacle or else you lose that game session. Whatever the obstacle, each one you pass earns you a point. Click on the “leaders” icon to see where you rank against other Squeezer players. Play, again and again, to beat your own score and to rise up the scoreboards. This is an easy online game that you can play from your computer or mobile device for hours and hours. No tutorial needed for this clicker game. Just start clicking away!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/eyeball.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/eyeball.jpg",
+  "thumbnailStored": "remote",
+  "category": "clicker",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/squeezer/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/squeezer"
+}

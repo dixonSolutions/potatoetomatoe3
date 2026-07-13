@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lumber-inc",
+  "name": "Lumber Inc",
+  "author": "Игровой Маркетинг",
+  "description": "Play Lumber Inc via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000194fa8531f9534d133c671a6f825b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000194fa8531f9534d133c671a6f825b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-410860.games.s3.yandex.net/410860/hl02o94ll501aq59ime29ymn4ua5euj4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=410860&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 410860,
+  "playhopPageUrl": "https://playhop.com/app/410860",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 1913
+}

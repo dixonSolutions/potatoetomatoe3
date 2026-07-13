@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-aurie",
+  "name": "Aurie - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Aurie at Cool Math Games: You have the superpower to rotate platforms 90 degrees at a time. Use it to grab gems and get to the door!",
+  "thumbnail": "/games/coolmath-aurie/online/assets/coolmath-aurie.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26219/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-aurie",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-aurie"
+}

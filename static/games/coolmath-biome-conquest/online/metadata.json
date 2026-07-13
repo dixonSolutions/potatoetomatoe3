@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-biome-conquest",
+  "name": "Biome Conquest - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Conquer the land through sheer numbers in Biome Conquest. Play against friends or the computer in this empire-expanding strategy game.",
+  "thumbnail": "/games/coolmath-biome-conquest/online/assets/coolmath-biome-conquest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49056/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-biome-conquest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-biome-conquest"
+}

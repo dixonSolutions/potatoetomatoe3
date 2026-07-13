@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pouncesh",
+  "name": "Pounce.sh",
+  "author": "Addicting Games",
+  "description": "<p>Pounce.sh is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pouncegame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pouncegame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://pounce.sh/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/pouncesh"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-year-one-rock-paper-scissors",
+  "name": "Year One Rock Paper Scissors",
+  "author": "Addicting Games",
+  "description": "NULL",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Year-One-Rock-Paper-Scissors.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Year-One-Rock-Paper-Scissors.jpg",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/yearonerockpaperscissors.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/year-one-rock-paper-scissors"
+}

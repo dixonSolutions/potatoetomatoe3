@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-jumping-clones",
+  "name": "Jumping Clones 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jumping Clones is an arcade platform game where you control more than one character at the same time. Use your logic to make them reach the exit.",
+  "thumbnail": "https://imgs.crazygames.com/jumping-clones/20220301172415/jumping-clones-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/jumping-clones/20220301172415/jumping-clones-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jumping-clones/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jumping-clones",
+  "crazygamesSlug": "jumping-clones"
+}

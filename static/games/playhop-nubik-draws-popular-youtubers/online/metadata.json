@@ -1,0 +1,17 @@
+{
+  "id": "playhop-nubik-draws-popular-youtubers",
+  "name": "Nubik Draws Popular YouTubers",
+  "author": "MinerKa",
+  "description": "Play Nubik Draws Popular YouTubers via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000196873bec9c85fb55c0cc94deb4c1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000196873bec9c85fb55c0cc94deb4c1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-429514.games.s3.yandex.net/429514/7wovbxbjwv53xizb5s04x6qvez2ly7bt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=429514&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 429514,
+  "playhopPageUrl": "https://playhop.com/app/429514",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 366
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-hanoi-3d",
+  "name": "hanoi 3d",
+  "author": "CrazyGames",
+  "description": "Play hanoi 3d on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hanoi-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hanoi-3d",
+  "crazygamesSlug": "hanoi-3d"
+}

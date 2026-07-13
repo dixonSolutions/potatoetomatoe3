@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dalgona-game",
+  "name": "Dalgona Game 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dalgona Game is a delicate test of skill where you carefully carve shapes from a nostalgic dalgona treat. With steady hands and patience, cut along the outline without breaking the shape.",
+  "thumbnail": "https://imgs.crazygames.com/dalgona-game_16x9/20241107033752/dalgona-game_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dalgona-game_16x9/20241107033752/dalgona-game_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dalgona-game/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dalgona-game",
+  "crazygamesSlug": "dalgona-game"
+}

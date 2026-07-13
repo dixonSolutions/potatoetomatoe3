@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bob-the-robber",
+  "name": "Bob the Robber - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "A corrupt mayor has taken over Bob&#039;s town in Bob the Robber. Break into the Mayor&#039;s buildings and expose him for the crook he really is.",
+  "thumbnail": "/games/coolmath-bob-the-robber/online/assets/coolmath-bob-the-robber.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49669/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bob-the-robber",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bob-the-robber"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stabfish-io",
+  "name": "Stabfish.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stabfish.io is a free IO game where you play as a deadly oceanic beast. Join a multiplayer arena of fish equipped with fatal tusks and take down your share of prey while avoiding the sharp end of another player’s stabber.",
+  "thumbnail": "https://imgs.crazygames.com/stabfish-io_16x9/20250609043827/stabfish-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stabfish-io_16x9/20250609043827/stabfish-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stabfish-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stabfish-io",
+  "crazygamesSlug": "stabfish-io"
+}

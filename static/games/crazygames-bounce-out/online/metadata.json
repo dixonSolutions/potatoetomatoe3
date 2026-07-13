@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bounce-out",
+  "name": "Bounce Out 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bounce Out is a casual game where you play as a monster who must eat all the humans in the area. Play by dragging and aiming toward the enemies.",
+  "thumbnail": "https://imgs.crazygames.com/bounce-out/20221005175322/bounce-out-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bounce-out/20221005175322/bounce-out-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bounce-out/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bounce-out",
+  "crazygamesSlug": "bounce-out"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-battery-pusher",
+  "name": "Play Battery Pusher: Bring the spark | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Push the battery back into place and restore the charge in Battery Pusher! Use rotating tiles to line up the positive and negative sides.",
+  "thumbnail": "/games/coolmath-battery-pusher/online/assets/coolmath-battery-pusher.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/39121/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-battery-pusher",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-battery-pusher"
+}

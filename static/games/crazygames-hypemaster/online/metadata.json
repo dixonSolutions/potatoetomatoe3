@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hypemaster",
+  "name": "HypeMaster 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hype Master is a dynamic social simulation where you star in a high-stakes reality TV show. Navigate gossip, form alliances, and tackle challenges to outshine rivals and win viewers&#39; hearts.",
+  "thumbnail": "https://imgs.crazygames.com/hypemaster_16x9/20240724061101/hypemaster_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hypemaster_16x9/20240724061101/hypemaster_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hypemaster/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hypemaster",
+  "crazygamesSlug": "hypemaster"
+}

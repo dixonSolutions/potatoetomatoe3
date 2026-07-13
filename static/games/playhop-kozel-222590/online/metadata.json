@@ -1,0 +1,17 @@
+{
+  "id": "playhop-kozel-222590",
+  "name": "Kozel",
+  "author": "Navogame",
+  "description": "Play Kozel via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001872040e284679c756245f6c0f56b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001872040e284679c756245f6c0f56b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-222590.games.s3.yandex.net/222590/wkzex5khhit0v3g0shhflpssi45vw2xu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=222590&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 222590,
+  "playhopPageUrl": "https://playhop.com/app/222590",
+  "playhopRating": 4,
+  "playhopRatingCount": 18276
+}

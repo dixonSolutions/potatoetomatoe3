@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crazy-miners-multiplayer",
+  "name": "Crazy Miners 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Miners is a fast-paced digging battle where you race to find the diamond hidden deep in the map! Dig through the terrain, avoid traps, collect diamond fragments to unlock new skins and power-ups, throw TNT to clear your path (or sabotage others), and be the first to claim victory!",
+  "thumbnail": "https://imgs.crazygames.com/games/crazy-miners-multiplayer/cover_16x9-1746463632250.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/crazy-miners-multiplayer/cover_16x9-1746463632250.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-miners-multiplayer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-miners-multiplayer",
+  "crazygamesSlug": "crazy-miners-multiplayer"
+}

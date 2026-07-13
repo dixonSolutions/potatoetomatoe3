@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-shot-blaster",
+  "name": "Shot Blaster 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Shot Blaster is an arcade game to create your custom gun and shot all the stickmen who are running toward you. Kill them all to complete the level!",
+  "thumbnail": "https://imgs.crazygames.com/shot-blaster_16x9/20260220042227/shot-blaster_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/shot-blaster_16x9/20260220042227/shot-blaster_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shot-blaster/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shot-blaster",
+  "crazygamesSlug": "shot-blaster"
+}

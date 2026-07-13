@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nextdoor",
+  "name": "NextDoor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "NextDoor is a side-scrolling horror cinematic game. This game is inspired and based on Junji Ito&#x27;s manga, Mimi&#x27;s Ghost Stories.",
+  "thumbnail": "https://imgs.crazygames.com/games/nextdoor/cover-1618399076819.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/nextdoor/cover-1618399076819.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nextdoor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nextdoor",
+  "crazygamesSlug": "nextdoor"
+}

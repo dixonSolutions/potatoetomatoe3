@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-black-and-white",
+  "name": "Black and White - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Two heads are better than one, especially when you control them both in Black and White. Can you split your focus and escape the room?",
+  "thumbnail": "/games/coolmath-black-and-white/online/assets/coolmath-black-and-white.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26612/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-black-and-white",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-black-and-white"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flower-dimensions",
+  "name": "Flower Dimensions",
+  "author": "Addicting Games",
+  "description": "<p>Flower Dimensions is a colorful puzzle game for our gardening-loving players. This online game is a 3-dimensional version of your favorite puzzle game,  mahjong. Rotate the screen and match together 2 open blocks until you’ve solved the entire puzzle or earned enough points to advance to the next level. The puzzle game is based on gardening icons like various flowers, gardening tools, and colorful butterflies. The 3D tower is set against a lovely and bright background based on gardening themes. You will find your level, score, and the timer on the righthand panel. You must complete each puzzle within the allotted time to get the best score possible and to advance to the next level. If you get stuck, you can take a hint or restart the level. Each level its own challenge with a different time and pattern for you to solve. Once you’ve solved all 80 levels, select the High Scores to see if your score gets you at the top with the other amazing puzzle players!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/flowerstuff.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/flowerstuff.jpg",
+  "thumbnailStored": "remote",
+  "category": "mahjong-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/flower-dimensions/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/flower-dimensions"
+}

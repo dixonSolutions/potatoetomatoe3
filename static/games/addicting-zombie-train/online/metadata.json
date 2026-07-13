@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombie-train",
+  "name": "Zombie Train",
+  "author": "Addicting Games",
+  "description": "<p>Zombie Train is a free zombie game. Hop aboard the Zombie Train and survive for as long as you can in this 2D, side-scrolling action game. You’re stuck on the Zombie Train, and the only thing to do is stop the zombies before they’re able to stop you. Fortunately, there’s a wide array of items to help you do the job, and the zombies conveniently drop money to help you afford all those items. You’ll get a brief break to collect yourself as the train moves from one station to the next, but ultimately, it’s all zombies all the time.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombie-train_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombie-train_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombie-train.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombie-train"
+}

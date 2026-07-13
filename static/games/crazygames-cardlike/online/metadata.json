@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cardlike",
+  "name": "Cardlike 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cardlike is a high-stakes deck-builder that blends fast-paced gameplay with strategic depth while remaining easy to pick up.Choose your strategy by creating unique original combos and dominate using your intellect.",
+  "thumbnail": "https://imgs.crazygames.com/cardlike_16x9/20260429034954/cardlike_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cardlike_16x9/20260429034954/cardlike_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cardlike/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cardlike",
+  "crazygamesSlug": "cardlike"
+}

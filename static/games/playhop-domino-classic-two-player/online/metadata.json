@@ -1,0 +1,17 @@
+{
+  "id": "playhop-domino-classic-two-player",
+  "name": "Domino: Classic Two - player",
+  "author": "Yodoli",
+  "description": "Play Domino: Classic Two - player via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a000001999f59bd00331140c87532fb254f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a000001999f59bd00331140c87532fb254f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-418080.games.s3.yandex.net/418080/v54sihttdk74fx7iw6632v5z28sffe9l/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=418080&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 418080,
+  "playhopPageUrl": "https://playhop.com/app/418080",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 3029
+}

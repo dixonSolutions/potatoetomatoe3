@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-goober-shot",
+  "name": "Goober Shot 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Goober Shot is an exhilarating online archery game where you compete against three other players in intense battles. Hone your skills, aim precisely, and dodge swiftly to outshoot your rivals.",
+  "thumbnail": "https://imgs.crazygames.com/goober-shot_16x9/20240708060013/goober-shot_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/goober-shot_16x9/20240708060013/goober-shot_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/goober-shot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/goober-shot",
+  "crazygamesSlug": "goober-shot"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-shape-crusher",
+  "name": "Shape Crusher 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Shape Crusher is an arcade-style shooter where you shoot various shapes and build your score. Upgrade your weapons progressively and unlock new ships with greater starting power.",
+  "thumbnail": "https://imgs.crazygames.com/shape-crusher_16x9/20241111074748/shape-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/shape-crusher_16x9/20241111074748/shape-crusher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shape-crusher/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shape-crusher",
+  "crazygamesSlug": "shape-crusher"
+}

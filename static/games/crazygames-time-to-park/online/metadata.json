@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-time-to-park",
+  "name": "Time to Park 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Time to Park is a fun and interesting car parking game. In this game, you must take control of a car from a top-down point of view and try to park it in a myriad of different spots.",
+  "thumbnail": "/games/crazygames-time-to-park/online/assets/crazygames-time-to-park.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/time-to-park/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/time-to-park",
+  "crazygamesSlug": "time-to-park"
+}

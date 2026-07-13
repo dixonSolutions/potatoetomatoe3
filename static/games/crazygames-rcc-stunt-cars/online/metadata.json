@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rcc-stunt-cars",
+  "name": "RCC Stunt Cars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "RCC Stunt Cars allows you to take control in a crazy driving game in which you are able to jump behind the wheel of an RCC stunt car and perform crazy tricks. You can speed around a city with pedal to the metal whilst back flipping through the sky.",
+  "thumbnail": "https://imgs.crazygames.com/rccstuntcars.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rccstuntcars.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rcc-stunt-cars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rcc-stunt-cars",
+  "crazygamesSlug": "rcc-stunt-cars"
+}

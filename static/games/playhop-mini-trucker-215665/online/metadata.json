@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mini-trucker-215665",
+  "name": "Mini Trucker",
+  "author": "FK Games",
+  "description": "Play Mini Trucker via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001873b5e99c0a6fc3bdf9794611a30/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001873b5e99c0a6fc3bdf9794611a30/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-215665.games.s3.yandex.net/215665/3dausm99gp6o6k4182y3lw7ng0e0is7u/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=215665&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 215665,
+  "playhopPageUrl": "https://playhop.com/app/215665",
+  "playhopRating": 4,
+  "playhopRatingCount": 8097
+}

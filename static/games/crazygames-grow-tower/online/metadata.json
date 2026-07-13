@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-grow-tower",
+  "name": "Grow Tower 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Grow Tower is another fantastic episode from the superb Grow series. This episode is a mini-series but uses the same mechanics as the other grow games.",
+  "thumbnail": "/games/crazygames-grow-tower/online/assets/crazygames-grow-tower.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grow-tower/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grow-tower",
+  "crazygamesSlug": "grow-tower"
+}

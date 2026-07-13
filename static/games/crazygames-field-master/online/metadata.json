@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-field-master",
+  "name": "Field Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Field Master is a casual farming simulator that puts you behind the wheel of powerful agricultural machines. Experience the full farming cycle as you plow vast fields with your tractor, sow seeds with precision seeders, and carefully nurture your crops as they grow.",
+  "thumbnail": "https://imgs.crazygames.com/field-master_16x9/20260428111258/field-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/field-master_16x9/20260428111258/field-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/field-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/field-master",
+  "crazygamesSlug": "field-master"
+}

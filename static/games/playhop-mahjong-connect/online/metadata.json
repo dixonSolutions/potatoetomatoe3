@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-connect",
+  "name": "Mahjong Connect",
+  "author": "DRA",
+  "description": "Play Mahjong Connect via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018ecef741cc9bc72d9cd7172cfc8c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018ecef741cc9bc72d9cd7172cfc8c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-328023.games.s3.yandex.net/328023/502jdz9fuv8f2v5g51k4jxex34mf3s75/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=328023&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 328023,
+  "playhopPageUrl": "https://playhop.com/app/328023",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 6587
+}

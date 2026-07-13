@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mk48-io",
+  "name": "Mk48.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mk48.io is an Io battleship game that thrusts you into the heart of intense multiplayer naval warfare, where only the fiercest captains have what it takes to dominate the seas. Command your vessel and level up by collecting valuable crates and sinking enemy ships, gaining power and upgrades as you rise.",
+  "thumbnail": "https://imgs.crazygames.com/mk48-io_16x9/20260219025419/mk48-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mk48-io_16x9/20260219025419/mk48-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mk48-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mk48-io",
+  "crazygamesSlug": "mk48-io"
+}

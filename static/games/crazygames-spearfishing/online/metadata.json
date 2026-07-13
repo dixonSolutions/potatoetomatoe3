@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-spearfishing",
+  "name": "Spearfishing 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Spearfishing is a realistic underwater adventure where you explore lakes, seas, and oceans in search of marine life and hidden treasures. Armed with scuba gear and an upgradeable harpoon, you’ll hunt over 30 species, from carp to sharks, while navigating coral reefs and avoiding deadly predators.",
+  "thumbnail": "https://imgs.crazygames.com/spearfishing_16x9/20250806050021/spearfishing_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/spearfishing_16x9/20250806050021/spearfishing_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/spearfishing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/spearfishing",
+  "crazygamesSlug": "spearfishing"
+}

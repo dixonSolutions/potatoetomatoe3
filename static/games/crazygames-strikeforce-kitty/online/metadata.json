@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-strikeforce-kitty",
+  "name": "StrikeForce Kitty 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "StrikeForce Kitty is a casual running game where you dress-up your cats with costumes and collect all the fish. Avoid traps to complete each level!",
+  "thumbnail": "/games/crazygames-strikeforce-kitty/online/assets/crazygames-strikeforce-kitty.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/strikeforce-kitty/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/strikeforce-kitty",
+  "crazygamesSlug": "strikeforce-kitty"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bloons-super-monkey",
+  "name": "Bloons Super Monkey",
+  "author": "Addicting Games",
+  "description": "<p>Bloons Super Monkey is a free shooter game. Our Mr. Monkey dispenses with the bow and arrow, and takes the fight to the bloons' back yard: mid-air! Blast bloons to bits, upgrade to make your monkey even more super!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bloonssupermonkey_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bloonssupermonkey_sp.png",
+  "thumbnailStored": "remote",
+  "category": "flying-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/bloonssupermonkey_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/bloons-super-monkey"
+}

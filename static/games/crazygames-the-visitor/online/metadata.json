@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-the-visitor",
+  "name": "The Visitor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Visitor is a point-and-click game in which you become an alien parasite that needs to consume the living beings to grow and dominate the world. Solve the challenge in each scene and spread the terror!",
+  "thumbnail": "https://imgs.crazygames.com/thevisitor.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/thevisitor.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-visitor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-visitor",
+  "crazygamesSlug": "the-visitor"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-endless-siege",
+  "name": "Endless Siege 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Endless Siege is a tower defense game where you survive endless waves of enemies. Deploy various defense towers in strategic locations to repel the attacking enemies.",
+  "thumbnail": "https://imgs.crazygames.com/games/endless-siege/cover-1616585352806.jpeg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/endless-siege/cover-1616585352806.jpeg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/endless-siege/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/endless-siege",
+  "crazygamesSlug": "endless-siege"
+}

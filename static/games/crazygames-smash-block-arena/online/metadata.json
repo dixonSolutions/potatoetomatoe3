@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-smash-block-arena",
+  "name": "Smash Block Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Smash Block Arena is a chaotic boxing game where you dive into ragdoll mayhem with wild physics and unpredictable brawls. Pick your blocky fighter, drag to move, and unleash outrageous punches in fast-paced arenas.",
+  "thumbnail": "https://imgs.crazygames.com/smash-block-arena_16x9/20250606154328/smash-block-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/smash-block-arena_16x9/20250606154328/smash-block-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/smash-block-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/smash-block-arena",
+  "crazygamesSlug": "smash-block-arena"
+}

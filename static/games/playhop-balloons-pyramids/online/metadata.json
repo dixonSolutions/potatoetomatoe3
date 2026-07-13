@@ -1,0 +1,17 @@
+{
+  "id": "playhop-balloons-pyramids",
+  "name": "Balloons Pyramids",
+  "author": "Ларец Кринжа",
+  "description": "Play Balloons Pyramids via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018fca922af5cd02ac70b34fdab0eb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018fca922af5cd02ac70b34fdab0eb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-344328.games.s3.yandex.net/344328/2ilo66hfo1vzpeg7cocgv0eec77v6tin/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=344328&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 344328,
+  "playhopPageUrl": "https://playhop.com/app/344328",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1792
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pixlock",
+  "name": "pixlock",
+  "author": "CrazyGames",
+  "description": "Play pixlock on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixlock/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixlock",
+  "crazygamesSlug": "pixlock"
+}

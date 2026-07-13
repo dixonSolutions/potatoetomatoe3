@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-flying-road",
+  "name": "flying road",
+  "author": "CrazyGames",
+  "description": "Play flying road on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flying-road/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flying-road",
+  "crazygamesSlug": "flying-road"
+}

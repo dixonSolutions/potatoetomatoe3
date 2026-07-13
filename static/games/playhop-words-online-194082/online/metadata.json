@@ -1,0 +1,17 @@
+{
+  "id": "playhop-words-online-194082",
+  "name": "Words Online",
+  "author": "Indiesoft",
+  "description": "Play Words Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018988623f194381fbe111c30f6adc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018988623f194381fbe111c30f6adc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-194082.games.s3.yandex.net/194082/1jv4gtg5i7n92tumwb3av2q3ihqt1t53/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=194082&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 194082,
+  "playhopPageUrl": "https://playhop.com/app/194082",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 698
+}

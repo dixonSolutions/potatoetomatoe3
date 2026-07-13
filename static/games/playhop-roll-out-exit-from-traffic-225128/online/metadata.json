@@ -1,0 +1,17 @@
+{
+  "id": "playhop-roll-out-exit-from-traffic-225128",
+  "name": "Roll Out! Exit from traffic",
+  "author": "Guate",
+  "description": "Play Roll Out! Exit from traffic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018c58c8952edbfade664b5e9eaf28/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018c58c8952edbfade664b5e9eaf28/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-225128.games.s3.yandex.net/225128/pjkcdmjjzv3pt8hv4yccerb3horelb7e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=225128&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 225128,
+  "playhopPageUrl": "https://playhop.com/app/225128",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 2713
+}

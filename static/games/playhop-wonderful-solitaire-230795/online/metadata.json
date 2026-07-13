@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wonderful-solitaire-230795",
+  "name": "Wonderful Solitaire",
+  "author": "Famobi-Dev",
+  "description": "Play Wonderful Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000188290bbf32d5674c1a50fb753cbc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000188290bbf32d5674c1a50fb753cbc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-230795.games.s3.yandex.net/230795/gs936me1tf75pre66b8j2im4u8w2ob3d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=230795&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 230795,
+  "playhopPageUrl": "https://playhop.com/app/230795",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 52
+}

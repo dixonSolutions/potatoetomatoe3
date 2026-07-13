@@ -1,0 +1,17 @@
+{
+  "id": "playhop-poker-online",
+  "name": "Poker Online",
+  "author": "PawkaWedmak",
+  "description": "Play Poker Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000198e4ce7c3b515dc237ad4a9d1615/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000198e4ce7c3b515dc237ad4a9d1615/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-442398.games.s3.yandex.net/442398/czce6u7xvzf53r13fiareha74lgeds24/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=442398&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 442398,
+  "playhopPageUrl": "https://playhop.com/app/442398",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 4194
+}

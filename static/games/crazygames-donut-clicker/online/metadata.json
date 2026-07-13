@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-donut-clicker",
+  "name": "Donut Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Donut Clicker is a clicker game where you bake donuts by clicking. You can spend your donuts to upgrade your clicking power, idle income, and buy auto-clickers.",
+  "thumbnail": "https://imgs.crazygames.com/donut-clicker/20230119162541/donut-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/donut-clicker/20230119162541/donut-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/donut-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/donut-clicker",
+  "crazygamesSlug": "donut-clicker"
+}

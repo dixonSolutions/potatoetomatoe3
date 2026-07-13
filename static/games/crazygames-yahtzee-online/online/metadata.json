@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-yahtzee-online",
+  "name": "Yahtzee Online 🎲 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Test your dice skills with Yahtzee Online. Play a fun online Yahtzee game against up to 3 opponents.",
+  "thumbnail": "https://imgs.crazygames.com/games/yahtzee-online/thumb-1576757931821.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/yahtzee-online/thumb-1576757931821.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/yahtzee-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/yahtzee-online",
+  "crazygamesSlug": "yahtzee-online"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-minesweeper-classic",
+  "name": "Minesweeper Classic",
+  "author": "Addicting Games",
+  "description": "<p>Minesweeper Classic is a puzzle game that requires thought and strategy. This is the online version of the classic PC game. While everyone says they don’t really know how to play Minesweeper, the concept is fairly simple. The objective of the puzzle game is to find all 20 mines. Use the flag to mark all the suspicious blocks. Click on the blocks you think are free of mines though. The faster you find them, the better your score. However, if you accidentally click on a mine, you will automatically lose the entire game. However, you can always restart to play a new pattern. There are 4 levels of this online game for you to conquer. Submit your score at the end of the game to see where you rank against other minesweeper players. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Minesweeperclassicgamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Minesweeperclassicgamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "strategy-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/minesweeper-classic/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/minesweeper-classic"
+}

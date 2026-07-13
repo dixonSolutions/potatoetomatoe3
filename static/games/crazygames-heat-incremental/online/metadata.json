@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-heat-incremental",
+  "name": "Heat Incremental 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Heat Incremental is a challenging strategy-puzzle game where your goal is surprisingly simple: heat up the planet. Start with basic clean energy sources, then research increasingly extreme methods to generate more heat.",
+  "thumbnail": "https://imgs.crazygames.com/heat-incremental_16x9/20250725042054/heat-incremental_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/heat-incremental_16x9/20250725042054/heat-incremental_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/heat-incremental/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/heat-incremental",
+  "crazygamesSlug": "heat-incremental"
+}

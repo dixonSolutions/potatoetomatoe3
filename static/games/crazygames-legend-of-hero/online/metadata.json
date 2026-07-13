@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-legend-of-hero",
+  "name": "legend of hero",
+  "author": "CrazyGames",
+  "description": "Play legend of hero on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/legend-of-hero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/legend-of-hero",
+  "crazygamesSlug": "legend-of-hero"
+}

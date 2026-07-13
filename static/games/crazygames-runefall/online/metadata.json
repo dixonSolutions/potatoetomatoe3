@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-runefall",
+  "name": "Runefall 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Runefall is a captivating match-3 adventure set in the medieval village of Rivermoor. You’ll join Constable Hadrick on a quest to restore the once-thriving town by gathering gold, wood, and stone through clever puzzle-solving.",
+  "thumbnail": "https://imgs.crazygames.com/runefall_16x9/20260121050324/runefall_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/runefall_16x9/20260121050324/runefall_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/runefall/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/runefall",
+  "crazygamesSlug": "runefall"
+}

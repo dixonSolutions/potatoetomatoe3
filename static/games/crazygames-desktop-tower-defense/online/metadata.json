@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-desktop-tower-defense",
+  "name": "Desktop Tower Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Desktop Tower Defense is a classic tower defense game originally released in 2007 as a Flash game. It is made by Paul Preece and has been played 100s of millions of times.",
+  "thumbnail": "/games/crazygames-desktop-tower-defense/online/assets/crazygames-desktop-tower-defense.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/desktop-tower-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/desktop-tower-defense",
+  "crazygamesSlug": "desktop-tower-defense"
+}

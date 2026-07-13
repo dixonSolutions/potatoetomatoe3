@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-fill-3d",
+  "name": "Color Fill 3D 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color Fill 3D is a casual color game where you move a block to spread color across an entire grid. Navigate carefully to avoid obstacles and enemies while planning each move strategically.",
+  "thumbnail": "https://imgs.crazygames.com/color-fill-3d_16x9/20250227024940/color-fill-3d_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/color-fill-3d_16x9/20250227024940/color-fill-3d_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-fill-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-fill-3d",
+  "crazygamesSlug": "color-fill-3d"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-duck-life-space",
+  "name": "Duck Life: Space 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Duck Life: Space is a duck racing game with a galactic story and theme. An alien from outer space has nabbed your trophy, and you need to go on a quest through space to get it back!",
+  "thumbnail": "/games/crazygames-duck-life-space/online/assets/crazygames-duck-life-space.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/duck-life-space/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/duck-life-space",
+  "crazygamesSlug": "duck-life-space"
+}

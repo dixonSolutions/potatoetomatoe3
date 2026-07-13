@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cannon-basketball",
+  "name": "Cannon Basketball - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Shoot basketballs out of a cannon to get the ball in the hoop. But you&#039;ll need to clear your path first if you hope to succeed in Cannon Basketball.",
+  "thumbnail": "/games/coolmath-cannon-basketball/online/assets/coolmath-cannon-basketball.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49004/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cannon-basketball",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cannon-basketball"
+}

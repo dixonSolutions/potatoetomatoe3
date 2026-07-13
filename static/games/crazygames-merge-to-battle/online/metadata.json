@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-to-battle",
+  "name": "Merge To Battle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge to Battle is a strategy game where the goal is to capture all the castles in your way. Unite your warriors and archers on the battlefield and fight against enemies.",
+  "thumbnail": "https://imgs.crazygames.com/merge-to-battle_16x9/20240408110904/merge-to-battle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-to-battle_16x9/20240408110904/merge-to-battle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-to-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-to-battle",
+  "crazygamesSlug": "merge-to-battle"
+}

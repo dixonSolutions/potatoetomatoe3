@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-treadmill",
+  "name": "Idle Treadmill 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Treadmill is a clicker game where you manage a treadmill packed with cars. Your task?",
+  "thumbnail": "https://imgs.crazygames.com/idle-treadmill_16x9/20240306065941/idle-treadmill_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-treadmill_16x9/20240306065941/idle-treadmill_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-treadmill/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-treadmill",
+  "crazygamesSlug": "idle-treadmill"
+}

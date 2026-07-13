@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-masked-forces",
+  "name": "Masked Forces 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Masked Forces is a 3D first person shooter that you can play in your browser for free. Get ready to enter the arena and battle with other players!",
+  "thumbnail": "/games/crazygames-masked-forces/online/assets/crazygames-masked-forces.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/masked-forces/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/masked-forces",
+  "crazygamesSlug": "masked-forces"
+}

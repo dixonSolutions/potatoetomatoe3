@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tile-jam",
+  "name": "Tile Jam 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tile Jam is a strategic puzzle game where you swap tiles to connect roads and guide a bus safely to the finish. Each move is limited, so you’ll need to think ahead and plan carefully.",
+  "thumbnail": "https://imgs.crazygames.com/tile-jam_16x9/20250926101457/tile-jam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tile-jam_16x9/20250926101457/tile-jam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tile-jam/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tile-jam",
+  "crazygamesSlug": "tile-jam"
+}

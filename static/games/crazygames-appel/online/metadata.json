@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-appel",
+  "name": "Appel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Appel is a simple and cute platforming game with a goal to collect all the golden apples.  Release Date December 2020  Developer Griffpatch developed Appel.",
+  "thumbnail": "https://imgs.crazygames.com/games/appel/cover-1620120282561.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/appel/cover-1620120282561.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/appel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/appel",
+  "crazygamesSlug": "appel"
+}

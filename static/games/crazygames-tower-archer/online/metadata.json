@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tower-archer",
+  "name": "tower archer",
+  "author": "CrazyGames",
+  "description": "Play tower archer on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-tower-archer/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tower-archer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tower-archer",
+  "crazygamesSlug": "tower-archer"
+}

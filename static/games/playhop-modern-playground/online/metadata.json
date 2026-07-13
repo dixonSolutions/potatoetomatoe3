@@ -1,0 +1,17 @@
+{
+  "id": "playhop-modern-playground",
+  "name": "Modern Playground",
+  "author": "vlvlgames",
+  "description": "Play Modern Playground via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000198fa903766da4e64f8735e8fef28/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000198fa903766da4e64f8735e8fef28/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-464458.games.s3.yandex.net/464458/g52kehe3igp1asjsdm65ah4uj59hq1dt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=464458&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 464458,
+  "playhopPageUrl": "https://playhop.com/app/464458",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 4266
+}

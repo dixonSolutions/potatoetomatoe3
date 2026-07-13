@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-battle-island",
+  "name": "Battle Island 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battle Island is an action game where you play as a monster trainer who wants to be the master of the island by beating all the other trainers! Battle with wild monsters, challenge the other trainers, earn money from battles, and use the money to build an army of powerful monsters!",
+  "thumbnail": "https://imgs.crazygames.com/battle-island/20220819114253/battle-island-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/battle-island/20220819114253/battle-island-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battle-island/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battle-island",
+  "crazygamesSlug": "battle-island"
+}

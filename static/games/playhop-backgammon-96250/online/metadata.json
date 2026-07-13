@@ -1,0 +1,17 @@
+{
+  "id": "playhop-backgammon-96250",
+  "name": "Backgammon",
+  "author": "MarketJS",
+  "description": "Play Backgammon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000016990c48a93cb2c4121490ad72f76/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000016990c48a93cb2c4121490ad72f76/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96250.games.s3.yandex.net/96250/ue203h8vff5b13qds8y5q8k3foc0g9wz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96250&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96250,
+  "playhopPageUrl": "https://playhop.com/app/96250",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 4757
+}

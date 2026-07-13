@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blocks",
+  "name": "Blocks - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blocks at Cool Math Games: The blocks are on the loose! Match three or more blocks in a row to remove the blocks. Your goal is to remove all of the blocks from the screen in this addicting free online game.",
+  "thumbnail": "/games/coolmath-blocks/online/assets/coolmath-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/3761/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blocks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blocks"
+}

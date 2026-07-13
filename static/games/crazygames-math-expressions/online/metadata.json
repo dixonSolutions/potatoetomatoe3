@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-math-expressions",
+  "name": "MATH EXPRESSions 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MATH EXPRESSions is a WORDLE-inspired game, but instead of finding a word, you need to find a math equation. It&#39;s a perfect daily warm-up routine for your brain.",
+  "thumbnail": "https://imgs.crazygames.com/math-expressions/20220916215659/math-expressions-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/math-expressions/20220916215659/math-expressions-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/math-expressions/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/math-expressions",
+  "crazygamesSlug": "math-expressions"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-xtreme-rally-494346",
+  "name": "Xtreme Rally",
+  "author": "L76",
+  "description": "Play Xtreme Rally via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019cdccff89c4001a1365d933c64e7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019cdccff89c4001a1365d933c64e7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-494346.games.s3.yandex.net/494346/nnr0axazpdonxxsrb82g58nb8ne9qkfq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=494346&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 494346,
+  "playhopPageUrl": "https://playhop.com/app/494346",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 156
+}

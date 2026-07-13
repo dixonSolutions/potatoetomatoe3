@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-gravity-arena-shooter",
+  "name": "gravity arena shooter",
+  "author": "CrazyGames",
+  "description": "Play gravity arena shooter on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gravity-arena-shooter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gravity-arena-shooter",
+  "crazygamesSlug": "gravity-arena-shooter"
+}

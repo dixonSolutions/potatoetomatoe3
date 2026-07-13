@@ -1,0 +1,17 @@
+{
+  "id": "playhop-thief-puzzle",
+  "name": "Thief Puzzle",
+  "author": "Famobi-Dev",
+  "description": "Play Thief Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000192c428f9ec12f4a50cae123df37b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000192c428f9ec12f4a50cae123df37b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-375449.games.s3.yandex.net/375449/314eqn5okbp86t842xehy664t2hwdp2b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=375449&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 375449,
+  "playhopPageUrl": "https://playhop.com/app/375449",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 9649
+}

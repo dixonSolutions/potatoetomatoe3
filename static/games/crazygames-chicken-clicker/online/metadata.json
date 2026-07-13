@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-chicken-clicker",
+  "name": "Chicken Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Chicken Clicker is a fun, clicker, idle game where you help a fearless chicken on an epic flight through infinite universes. Click to soar higher, uncover bizarre realms, and unlock unexpected surprises at every turn.",
+  "thumbnail": "https://imgs.crazygames.com/chicken-clicker_16x9/20241128031329/chicken-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/chicken-clicker_16x9/20241128031329/chicken-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chicken-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chicken-clicker",
+  "crazygamesSlug": "chicken-clicker"
+}

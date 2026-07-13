@@ -1,0 +1,14 @@
+{
+  "id": "addicting-slushio",
+  "name": "Slush.io",
+  "author": "Addicting Games",
+  "description": "<p>Slush.io is a free online race and io game. Welcome to the great big race in the sky where you can make your very own custom courses and go nuts. This is a platform based racing game where you can create your very own custom race tracks by simply drawing a few lines. You can also pick from an assortment of pre-made powerups like ramps, turbo-chargers, springs, spikes, lava, a bunch of stuff like that. It's all exactly like the kind of stuff you'd expect to see in a racing game except you're the one making it. Once you've created your own track, give it a name and then invite some of your real-life or online friends into the game to challenge them. The best part of Slush.io isn't just that you race against boring old bots or other players from around the world, no, in this game you can challenge one of your friends to a race and show them what its really all about. Settle your Facebook arguments, twitter beef, and DM drama with a quick head to head in this vicious and addictive race game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/moto.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/moto.jpg",
+  "thumbnailStored": "remote",
+  "category": "stick-figure-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://slush.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/slushio"
+}

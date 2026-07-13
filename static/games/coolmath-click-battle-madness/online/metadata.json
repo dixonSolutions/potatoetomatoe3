@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-click-battle-madness",
+  "name": "Click Battle Madness - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Click Battle Madness at Cool Math Games: Defend your castle from the invading viking hordes. Click long chains of matching tiles to unleash your powerful wizard magic!",
+  "thumbnail": "/games/coolmath-click-battle-madness/online/assets/coolmath-click-battle-madness.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22084/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-click-battle-madness",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-click-battle-madness"
+}

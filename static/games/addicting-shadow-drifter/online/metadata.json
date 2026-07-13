@@ -1,0 +1,14 @@
+{
+  "id": "addicting-shadow-drifter",
+  "name": "Shadow Drifter",
+  "author": "Addicting Games",
+  "description": "<p>The darkness is your friend and Gunbots are not, duh! Guide the Drifty Bot along the shadows and block the lights any way you can. Escape is at your hand!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/shadowdrifter_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/shadowdrifter_sp.png",
+  "thumbnailStored": "remote",
+  "category": "escape-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/shadowdrifter.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/shadow-drifter"
+}

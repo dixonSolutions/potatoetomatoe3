@@ -1,0 +1,17 @@
+{
+  "id": "playhop-horror-tale-212444",
+  "name": "Horror Tale",
+  "author": "Euphoria Games",
+  "description": "Play Horror Tale via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001862a0431c999ed8379002ffa488b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001862a0431c999ed8379002ffa488b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-212444.games.s3.yandex.net/212444/ql4onx5dgyg0ijxpfuptrk7jq7ktt2lg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=212444&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 212444,
+  "playhopPageUrl": "https://playhop.com/app/212444",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 8205
+}

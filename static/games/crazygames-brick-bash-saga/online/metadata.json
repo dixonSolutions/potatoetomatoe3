@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-brick-bash-saga",
+  "name": "Brick Bash Saga 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Brick Bash Saga is a dynamic game where you aim and throw balls to shatter bricks in unique and ever-changing layouts. Each level brings a fresh challenge, testing your precision and strategy.",
+  "thumbnail": "https://imgs.crazygames.com/brick-bash-saga_16x9/20241121075316/brick-bash-saga_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/brick-bash-saga_16x9/20241121075316/brick-bash-saga_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/brick-bash-saga/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/brick-bash-saga",
+  "crazygamesSlug": "brick-bash-saga"
+}

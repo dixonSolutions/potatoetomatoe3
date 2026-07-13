@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-bike-rider",
+  "name": "Obby Bike Rider",
+  "author": "Cursora Labs",
+  "description": "Play Obby Bike Rider via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001958a106710025c8a165196ea5f77/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001958a106710025c8a165196ea5f77/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-419385.games.s3.yandex.net/419385/h153fxyvorph4e6ckd8fp1ipyrug1rx4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=419385&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 419385,
+  "playhopPageUrl": "https://playhop.com/app/419385",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 694
+}

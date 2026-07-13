@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-spider-deluxe",
+  "name": "Solitaire Spider - Deluxe",
+  "author": "LQGAMES",
+  "description": "Play Solitaire Spider - Deluxe via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018fa57cd906f3ebf4ab57ec918795/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018fa57cd906f3ebf4ab57ec918795/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-333629.games.s3.yandex.net/333629/q38jwsmvy6bwjp40pd5o5q61wfzncr15/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=333629&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 333629,
+  "playhopPageUrl": "https://playhop.com/app/333629",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 9105
+}

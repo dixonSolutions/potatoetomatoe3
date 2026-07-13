@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-happy-wheels",
+  "name": "Happy Wheels 🛞 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Happy Wheels is a side-scrolling ragdoll physics game. Navigate through the levels using one of several unique characters without being torn limb from limb.",
+  "thumbnail": "/games/crazygames-happy-wheels/online/assets/crazygames-happy-wheels.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/happy-wheels/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/happy-wheels",
+  "crazygamesSlug": "happy-wheels"
+}

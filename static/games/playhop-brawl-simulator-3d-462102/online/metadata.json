@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brawl-simulator-3d-462102",
+  "name": "Brawl Simulator 3D",
+  "author": "Kovie",
+  "description": "Play Brawl Simulator 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019f04e23ec3cdaf10d8cbbb0f9cfa/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019f04e23ec3cdaf10d8cbbb0f9cfa/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-462102.games.s3.yandex.net/462102/v5aff26g1e9afyhfnla7jvfu7incljae/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=462102&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 462102,
+  "playhopPageUrl": "https://playhop.com/app/462102",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 109639
+}

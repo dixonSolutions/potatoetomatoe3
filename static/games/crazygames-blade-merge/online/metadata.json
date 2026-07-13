@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-blade-merge",
+  "name": "blade merge",
+  "author": "CrazyGames",
+  "description": "Play blade merge on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blade-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blade-merge",
+  "crazygamesSlug": "blade-merge"
+}

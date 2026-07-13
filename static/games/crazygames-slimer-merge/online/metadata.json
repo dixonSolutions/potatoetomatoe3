@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-slimer-merge",
+  "name": "Slimer Merge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Slimer Merge is a cozy, oddly satisfying idle merge game about discovery and progress.Merge squishy little slimers to unlock brand-new forms, upgrade their powers, and watch your collection grow.",
+  "thumbnail": "https://imgs.crazygames.com/slimer-merge_16x9/20260226063750/slimer-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/slimer-merge_16x9/20260226063750/slimer-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/slimer-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/slimer-merge",
+  "crazygamesSlug": "slimer-merge"
+}

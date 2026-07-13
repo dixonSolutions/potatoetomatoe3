@@ -1,0 +1,14 @@
+{
+  "id": "addicting-candy-connect-2",
+  "name": "Candy Connect 2",
+  "author": "Addicting Games",
+  "description": "<p>Candy connect 2 is a free puzzle game. There is a world of treats out there just waiting to be eaten. Colorful and delicious snacks that you can chow down on as long as you have the ability to recognize patterns and connect them. Candy, donuts, licorice treats, brownies and yes even ice cream. You'll have to recognize the difference between all of these candy-coated snacks if you want to make it to the top of the leaderboard in this game.</p>\n\n<p>Connecting the same colored tiles will cause them to disappear. The level is cleared when you have successfully connected all of the tiles. Your score will be based on how fast you are able to clear a level. In order to optimize your strategy, you'll want to connect tiles that open up or unlock tiles behind or beneath them. You may also have multiple tiles in the process of connecting at once so long as they can legally be connected. Try to think a few moves ahead, start on the outside and move in. Always be aware of how a move you make might alter the playing field.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-07-23_142210926%20%282%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-07-23_142210926%20%282%29.png",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/candy-connect-2/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/candy-connect-2"
+}

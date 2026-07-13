@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bad-egg",
+  "name": "Bad Egg 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bad Egg is an action game where you play as one little egg who needs to survive and kill the zombie chicken army! Collect the eggs and upgrade yourself to become stronger.",
+  "thumbnail": "https://imgs.crazygames.com/bad-egg_16x9/20250319155951/bad-egg_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bad-egg_16x9/20250319155951/bad-egg_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bad-egg/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bad-egg",
+  "crazygamesSlug": "bad-egg"
+}

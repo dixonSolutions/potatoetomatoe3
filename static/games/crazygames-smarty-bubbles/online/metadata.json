@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-smarty-bubbles",
+  "name": "Smarty Bubbles 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Smarty Bubbles is a match-3 bubble shooting game with fun and relaxing gameplay. Shoot the bubbles at the matching colors and enjoy popping them all away.",
+  "thumbnail": "/games/crazygames-smarty-bubbles/online/assets/crazygames-smarty-bubbles.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/smarty-bubbles/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/smarty-bubbles",
+  "crazygamesSlug": "smarty-bubbles"
+}

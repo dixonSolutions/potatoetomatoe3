@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-battle-for-the-galaxy",
+  "name": "Battle for the Galaxy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battle for the Galaxy is a cross-platform MMO strategy game set in space. Taking inspiration from the most celebrated sci-fi RTS games, you must build and expand your base and military force powerful enough to attack enemies, loot resources, defend your base, and earn medals.",
+  "thumbnail": "/games/crazygames-battle-for-the-galaxy/online/assets/crazygames-battle-for-the-galaxy.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battle-for-the-galaxy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battle-for-the-galaxy",
+  "crazygamesSlug": "battle-for-the-galaxy"
+}

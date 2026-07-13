@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tank-stars",
+  "name": "Tank Stars",
+  "author": "Big Game Freaks",
+  "description": "Play Tank Stars via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019f3664a77d42cfcecaca46747287/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019f3664a77d42cfcecaca46747287/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-465247.games.s3.yandex.net/465247/4scbjbb83h05s9m9xjlwjhw9vufs4k2l/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=465247&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 465247,
+  "playhopPageUrl": "https://playhop.com/app/465247",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 7665
+}

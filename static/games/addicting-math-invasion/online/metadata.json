@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-invasion",
+  "name": "Math Invasion",
+  "author": "Addicting Games",
+  "description": "<p>Math Invasion is an educational game designed to help students practice their math skills without getting bored. Math homework can sometimes be tedious, but practice makes perfect. What better way to study than by making it a fun adventure. This online game encourages you to solve math problems quickly in order to stop an alien invasion. It is your job to protect your planet as big, green, and ugly aliens are coming towards your planet to take it over. Answer the math problem correctly to shoot them down. Answer them incorrectly, and the alien gets close to destroying your planet. Look to the upper-righthand corner to see how many aliens you must defeat, and how many lives you have left. Destroy all the aliens before losing all of your lives!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/math-invasion.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/math-invasion.jpg",
+  "thumbnailStored": "remote",
+  "category": "educational-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-invasion/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-invasion"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-slap-aura-496246",
+  "name": "Slap Aura",
+  "author": "Nil",
+  "description": "Play Slap Aura via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999308/2a0000019e25e17e94ec258b0d798adf9929/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999308/2a0000019e25e17e94ec258b0d798adf9929/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-496246.games.s3.yandex.net/496246/11zxls9t8jrjtk7o7y3sgyp9o6l0muxm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=496246&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 496246,
+  "playhopPageUrl": "https://playhop.com/app/496246",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 15367
+}

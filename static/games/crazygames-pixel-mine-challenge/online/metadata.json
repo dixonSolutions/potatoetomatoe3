@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pixel-mine-challenge",
+  "name": "Pixel Mine Challenge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pixel Mine Challenge is a parkour game where the player&#39;s task is not to fall into the lava and go through all the obstacles. There are 49 levels with increasing difficulty are waiting for you.",
+  "thumbnail": "https://imgs.crazygames.com/pixel-mine-challenge/20220216105412/pixel-mine-challenge-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pixel-mine-challenge/20220216105412/pixel-mine-challenge-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixel-mine-challenge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixel-mine-challenge",
+  "crazygamesSlug": "pixel-mine-challenge"
+}

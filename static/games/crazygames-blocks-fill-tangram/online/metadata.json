@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blocks-fill-tangram",
+  "name": "Blocks Fill Tangram 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blocks Fill Tangram is a fun Tangram puzzle game with 12 journeys and 80 levels per journey, with a similar playstyle to 10x10. Fit the colorful blocks into place to win each puzzle.",
+  "thumbnail": "https://imgs.crazygames.com/games/blocks-fill-tangram/cover_16x9-1707829096283.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/blocks-fill-tangram/cover_16x9-1707829096283.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blocks-fill-tangram/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blocks-fill-tangram",
+  "crazygamesSlug": "blocks-fill-tangram"
+}

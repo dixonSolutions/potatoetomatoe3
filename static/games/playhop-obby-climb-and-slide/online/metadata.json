@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-climb-and-slide",
+  "name": "Obby: Climb and Slide",
+  "author": "Serbull",
+  "description": "Play Obby: Climb and Slide via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a000001990b3c1bc64f19b406ce2c3e7e86/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a000001990b3c1bc64f19b406ce2c3e7e86/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-464166.games.s3.yandex.net/464166/xj78nccdpe580shqjta4w6rg85jai48d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=464166&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 464166,
+  "playhopPageUrl": "https://playhop.com/app/464166",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 3300
+}

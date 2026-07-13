@@ -1,0 +1,17 @@
+{
+  "id": "playhop-stalker-artifacts",
+  "name": "STALKER: Artifacts",
+  "author": "RBG",
+  "description": "Play STALKER: Artifacts via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001937edbf745cd465621635d954dbe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001937edbf745cd465621635d954dbe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-385015.games.s3.yandex.net/385015/jsnomqqcoa9eiynrvvk6gah31pmk23xw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=385015&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 385015,
+  "playhopPageUrl": "https://playhop.com/app/385015",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 870
+}

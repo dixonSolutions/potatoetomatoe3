@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-age-of-arms",
+  "name": "Age Of Arms 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Age of Arms is a strategic defense game where you battle through different eras. Set your weapons in the enemy’s path, defeat foes, and evolve into stronger warriors in each age.",
+  "thumbnail": "https://imgs.crazygames.com/age-of-arms_16x9/20241009062030/age-of-arms_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/age-of-arms_16x9/20241009062030/age-of-arms_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/age-of-arms/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/age-of-arms",
+  "crazygamesSlug": "age-of-arms"
+}

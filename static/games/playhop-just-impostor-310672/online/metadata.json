@@ -1,0 +1,17 @@
+{
+  "id": "playhop-just-impostor-310672",
+  "name": "Just Impostor",
+  "author": "Зараза",
+  "description": "Play Just Impostor via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000197b73e3bfb626e4ad3ccbb8b34ba/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000197b73e3bfb626e4ad3ccbb8b34ba/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-310672.games.s3.yandex.net/310672/86np2kdqn2so2doi002e3vvkupe9rtot/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=310672&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 310672,
+  "playhopPageUrl": "https://playhop.com/app/310672",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 8250
+}

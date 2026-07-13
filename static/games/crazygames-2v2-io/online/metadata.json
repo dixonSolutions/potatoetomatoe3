@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-2v2-io",
+  "name": "2v2.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "2v2.io is a fast-paced building game.",
+  "thumbnail": "https://imgs.crazygames.com/2v2-io_16x9/20260302131617/2v2-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/2v2-io_16x9/20260302131617/2v2-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/2v2-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/2v2-io",
+  "crazygamesSlug": "2v2-io"
+}

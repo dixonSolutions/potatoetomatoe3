@@ -1,0 +1,17 @@
+{
+  "id": "playhop-city-tycoon-292722",
+  "name": "City Tycoon",
+  "author": "Bulba Dev",
+  "description": "Play City Tycoon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018dd1d257d907f5d0fecb3bb15243/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018dd1d257d907f5d0fecb3bb15243/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-292722.games.s3.yandex.net/292722/7ms2d7mndu0az316i0o86r8dtjgiw76e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=292722&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 292722,
+  "playhopPageUrl": "https://playhop.com/app/292722",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1656
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-b-side",
+  "name": "B Side - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "B Side at Cool Math Games: Can you zero out? Knock off blocks with addition and subtraction. Keep track of the numbers and keep your board clean.",
+  "thumbnail": "/games/coolmath-b-side/online/assets/coolmath-b-side.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23795/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-b-side",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-b-side"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-web-master",
+  "name": "Web Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Unleash your inner hero! Swing through the city, stick enemies to walls, and use your web powers to clean up the streets.",
+  "thumbnail": "https://imgs.crazygames.com/web-master_16x9/20251230100835/web-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/web-master_16x9/20251230100835/web-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/web-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/web-master",
+  "crazygamesSlug": "web-master"
+}

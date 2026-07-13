@@ -1,0 +1,14 @@
+{
+  "id": "addicting-huryio",
+  "name": "Hury.io",
+  "author": "Addicting Games",
+  "description": "<p>Hury.io is a free iogame. Run don't walk to play this unique iogame where you play as a mamma bird who is leading her hatchlings to victory by stomping out the baby-bird competition. Build your flock and strut around the farmer's yard as you dodge enemies and their babies. Power-up your team with the occasional egg upgrades that will let you build your flock and demolish the competition. You can also send off a small portion of your flock to blitz your enemies when they least expect it. Convert the followers of the opposition to be birds of your own and build your own unholy army of vicious, feathered friends. As the game goes on the arena itself will begin shrinking. You need to be aware and stay away from the edges or you will be vaporized. Use your left mouse button to cause your bird to dash at high speed. This will require energy that you can gain by eating eggs. Take control of the yard and then take control of the sky.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/birdy.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/birdy.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://hury.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/huryio"
+}

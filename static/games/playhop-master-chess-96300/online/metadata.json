@@ -1,0 +1,17 @@
+{
+  "id": "playhop-master-chess-96300",
+  "name": "Master Chess",
+  "author": "CodeThisLab",
+  "description": "Play Master Chess via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000187989d787be0f469345bab7b24fd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000187989d787be0f469345bab7b24fd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96300.games.s3.yandex.net/96300/rbj5153auy0e2a72ni8vwqfyozwt2exi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96300&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96300,
+  "playhopPageUrl": "https://playhop.com/app/96300",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 15712
+}

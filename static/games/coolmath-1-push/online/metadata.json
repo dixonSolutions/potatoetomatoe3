@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-1-push",
+  "name": "1 Push - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "One Push at Cool Math Games: Only one push? But there are so many rocks blocking your way. Make the most of your one push and capture the golden idol.",
+  "thumbnail": "/games/coolmath-1-push/online/assets/coolmath-1-push.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25805/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-1-push",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-1-push"
+}

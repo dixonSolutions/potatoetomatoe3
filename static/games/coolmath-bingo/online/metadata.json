@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bingo",
+  "name": "Bingo - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Step into the world of Bingo – a game of chance and strategy. Mark your card and be the first to shout &#039;Bingo!&#039; for board game glory.",
+  "thumbnail": "/games/coolmath-bingo/online/assets/coolmath-bingo.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50622/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bingo",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bingo"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bunny-boy-online",
+  "name": "Bunny Boy online",
+  "author": "Игры Games",
+  "description": "Play Bunny Boy online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c1f51b2cf884673998a4710e661/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c1f51b2cf884673998a4710e661/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-355229.games.s3.yandex.net/355229/4iirjzcsqqv5iq8j7qzo9nb05vx094gh/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 347774,
+  "playhopPageUrl": "https://playhop.com/app/347774",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 9115
+}

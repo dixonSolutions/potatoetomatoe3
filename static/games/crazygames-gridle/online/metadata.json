@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gridle",
+  "name": "Gridle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gridle is an incremental idle RPG where you’ll manage a powerful party to take down waves of enemies! Strategically upgrade, heal, reassign, and level up your party members to ensure maximum progress.",
+  "thumbnail": "https://imgs.crazygames.com/gridle_16x9/20250117031823/gridle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gridle_16x9/20250117031823/gridle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gridle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gridle",
+  "crazygamesSlug": "gridle"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-monster-sanctuary",
+  "name": "Monster Sanctuary 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Monster Sanctuary - tame monsters in this fantasy world. Monster Sanctuary is a 2D RPG game in which you play as a young and proud Monster Keeper!",
+  "thumbnail": "https://imgs.crazygames.com/monstersanctuary.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/monstersanctuary.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/monster-sanctuary/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/monster-sanctuary",
+  "crazygamesSlug": "monster-sanctuary"
+}

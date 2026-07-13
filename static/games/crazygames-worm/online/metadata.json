@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-worm",
+  "name": "worm",
+  "author": "CrazyGames",
+  "description": "Play worm on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/worm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/worm",
+  "crazygamesSlug": "worm"
+}

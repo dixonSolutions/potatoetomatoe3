@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bokdown",
+  "name": "Bokdown - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bokdown at Cool Math Games: The chooks are scattered around the farm! Use your all-powerful bark to round them up before nightfall.",
+  "thumbnail": "/games/coolmath-bokdown/online/assets/coolmath-bokdown.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34739/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bokdown",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bokdown"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-clockwise",
+  "name": "Clockwise - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Clockwise at Cool Math Games: Can you set the right time? Spin the gears to ring the bells and match the clock hands.",
+  "thumbnail": "/games/coolmath-clockwise/online/assets/coolmath-clockwise.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32452/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-clockwise",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-clockwise"
+}

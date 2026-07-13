@@ -1,0 +1,14 @@
+{
+  "id": "addicting-chemz",
+  "name": "Chemz",
+  "author": "Addicting Games",
+  "description": "<p>Chemz is a free iogame. This is the future where chemicals are sprayed from planes to troll the populace. Those who make the most money an have the most power are the few, brave, the only pilots who are able to troll the most citizens. Pilot your plane and fly tactically in order to leave a trail of angry red-faced citizens in your wake. There is an arena full of citizens who are there to be conquered. All you have to do is deliver the toxin. As you play the game, collect as many resources as you can to upgrade your various weapons. Collect power-ups that let you do three different things: speed up, fire missiles at competing pilots, or drop bombs to protect your crop dusted persons. As you take over more and more of the map your plane will grow in size your wingspan will get even better. This makes it easier to crop-dust but it also makes you a bigger target so you'll have to pay attention.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/chemzgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/chemzgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://chemz.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/chemz"
+}

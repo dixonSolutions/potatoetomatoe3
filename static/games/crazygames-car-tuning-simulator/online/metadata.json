@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-car-tuning-simulator",
+  "name": "Car Tuning Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Car Tuning Simulator is a fun and unique game in which you must test your skills as a car mechanic and car tuner. You have complete freedom to build the car of your dreams and design it from scratch.",
+  "thumbnail": "https://imgs.crazygames.com/cartuningsimulator.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cartuningsimulator.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/car-tuning-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/car-tuning-simulator",
+  "crazygamesSlug": "car-tuning-simulator"
+}

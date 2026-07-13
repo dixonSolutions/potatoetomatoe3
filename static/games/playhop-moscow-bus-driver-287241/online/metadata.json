@@ -1,0 +1,17 @@
+{
+  "id": "playhop-moscow-bus-driver-287241",
+  "name": "Moscow Bus Driver",
+  "author": "alexkab",
+  "description": "Play Moscow Bus Driver via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f032426ed3b9d061f9f8d5bd527/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f032426ed3b9d061f9f8d5bd527/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-287241.games.s3.yandex.net/287241/cm3hh9to7j6eafy8d843jr2r5frg4fwn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=287241&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 287241,
+  "playhopPageUrl": "https://playhop.com/app/287241",
+  "playhopRating": 4,
+  "playhopRatingCount": 32357
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-copter-io",
+  "name": "Copter.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Copter.io, also known as Copter Royale, is an epic .io game in which you fly around in a helicopter and battle other players. It&#39;s made by the same developer as Yohoho, an equally awesome pirate battle .io game.",
+  "thumbnail": "https://imgs.crazygames.com/games/copter-io/cover-1585071180766.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/copter-io/cover-1585071180766.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/copter-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/copter-io",
+  "crazygamesSlug": "copter-io"
+}

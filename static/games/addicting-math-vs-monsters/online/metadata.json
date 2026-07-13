@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-vs-monsters",
+  "name": "Math VS Monsters",
+  "author": "Addicting Games",
+  "description": "<p>Math VS Monsters is a free math game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/MATHVSMONSTERS.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/MATHVSMONSTERS.jpg",
+  "thumbnailStored": "remote",
+  "category": "war-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/mathvsmonsters/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-vs-monsters"
+}

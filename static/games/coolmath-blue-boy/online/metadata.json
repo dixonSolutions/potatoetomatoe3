@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blue-boy",
+  "name": "Blue Boy - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blue Boy at Cool Math Games: Your biggest obstacle is your past movements! Keep moving to grab the key, but avoid doubling back over your past positions.",
+  "thumbnail": "/games/coolmath-blue-boy/online/assets/coolmath-blue-boy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34544/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blue-boy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blue-boy"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-minecube",
+  "name": "Minecube 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Minecube is a casual clicker game where you mine blocks to build grand statues. Recruit miners and other helpers to mine resources faster.",
+  "thumbnail": "https://imgs.crazygames.com/minecube/20220614124805/minecube-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/minecube/20220614124805/minecube-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/minecube/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/minecube",
+  "crazygamesSlug": "minecube"
+}

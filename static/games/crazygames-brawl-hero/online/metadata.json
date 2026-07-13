@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-brawl-hero",
+  "name": "Brawl Hero 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Brawl Hero is an action game where you take charge of a heroic character to throw balls at enemies. Avoid enemies&#39; attacks, defeat all of the enemies, and level up yourself!",
+  "thumbnail": "https://imgs.crazygames.com/brawl-hero_16x9/20231123161618/brawl-hero_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/brawl-hero_16x9/20231123161618/brawl-hero_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/brawl-hero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/brawl-hero",
+  "crazygamesSlug": "brawl-hero"
+}

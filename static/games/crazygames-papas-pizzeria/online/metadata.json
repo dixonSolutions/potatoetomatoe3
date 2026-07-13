@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-pizzeria",
+  "name": "Papa&#x27;s Pizzeria 🍕 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa&#x27;s Pizzeria is back! Thanks to Ruffle, you can now play Papa&#x27;s Pizzeria for free in your web browser once again.",
+  "thumbnail": "/games/crazygames-papas-pizzeria/online/assets/crazygames-papas-pizzeria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-pizzeria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-pizzeria",
+  "crazygamesSlug": "papas-pizzeria"
+}

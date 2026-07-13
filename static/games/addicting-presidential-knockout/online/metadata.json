@@ -1,0 +1,14 @@
+{
+  "id": "addicting-presidential-knockout",
+  "name": "Presidential Knockout",
+  "author": "Addicting Games",
+  "description": "It’s Bush versus Kerry in a bare knuckle boxing match on the lawn of the White House. It’s been a long time since that election, but apparently there are still some issues between the two.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Presidential-Knockout.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Presidential-Knockout.jpg",
+  "thumbnailStored": "remote",
+  "category": "political-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/presidentialknockout.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/presidential-knockout"
+}

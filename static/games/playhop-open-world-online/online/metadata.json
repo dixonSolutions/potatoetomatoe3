@@ -1,0 +1,17 @@
+{
+  "id": "playhop-open-world-online",
+  "name": "Open World Online",
+  "author": "MirraGames",
+  "description": "Play Open World Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019d25dc83f5c6c4c5ebe54e4d6581/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019d25dc83f5c6c4c5ebe54e4d6581/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-165389.games.s3.yandex.net/165389/x49sjl8az4mtd7jy2na8ouk6glpa6im8/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 333655,
+  "playhopPageUrl": "https://playhop.com/app/333655",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 11283
+}
