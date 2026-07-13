@@ -14,17 +14,19 @@
 
 	let {
 		open = $bindable(false),
-		snapshotLines = []
+		snapshotLines = [],
+		gameId = ''
 	}: {
 		open?: boolean;
 		/** Extra context lines shown above the ring buffer (play URL, backend, etc.). */
 		snapshotLines?: string[];
+		gameId?: string;
 	} = $props();
 
 	let entries = $state<PlayLogEntry[]>([]);
 
 	function refresh() {
-		entries = [...getPlayLogEntries()].reverse();
+		entries = [...getPlayLogEntries(gameId)].reverse();
 	}
 
 	onMount(() => {
@@ -40,7 +42,7 @@
 
 	async function copyAll() {
 		const header = snapshotLines.length ? `=== Snapshot ===\n${snapshotLines.join('\n')}\n\n=== Log ===\n` : '';
-		const text = header + formatPlayLogForCopy();
+		const text = header + formatPlayLogForCopy(gameId);
 		try {
 			await navigator.clipboard.writeText(text || '(empty)');
 			toast.success('Logs copied');
@@ -50,7 +52,7 @@
 	}
 
 	function clearAll() {
-		clearPlayLog();
+		clearPlayLog(gameId);
 		refresh();
 		toast.message('Logs cleared');
 	}

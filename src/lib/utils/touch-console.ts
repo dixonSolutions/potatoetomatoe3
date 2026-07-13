@@ -47,6 +47,25 @@ export type TouchLayout = {
 	buttons: TouchButtonDef[];
 };
 
+/** Translate the entire control cluster by viewport-relative deltas. */
+export function translateTouchLayout(layout: TouchLayout, dxPct: number, dyPct: number): TouchLayout {
+	const translate = <T extends { xPct: number; yPct: number }>(control: T): T => ({
+		...control,
+		xPct: clamp01(control.xPct + dxPct),
+		yPct: clamp01(control.yPct + dyPct)
+	});
+	return {
+		...layout,
+		console: {
+			...layout.console,
+			xPct: clamp01(layout.console.xPct + dxPct),
+			yPct: clamp01(layout.console.yPct + dyPct)
+		},
+		joystick: translate(layout.joystick),
+		buttons: layout.buttons.map((button) => translate(button))
+	};
+}
+
 export type TouchDirection = 'up' | 'down' | 'left' | 'right';
 
 export type TouchKeyMapping = {
@@ -65,6 +84,8 @@ export type TouchConsoleSettings = {
 	/** Multiplier applied to control sizes (0.6–1.6). */
 	scale: number;
 	haptics: boolean;
+	/** Automatically open controls on touch-first devices without a reliable keyboard. */
+	autoEnableOnTouchOnly: boolean;
 	layouts: Record<TouchOrientation, TouchLayout>;
 	mapping: TouchKeyMapping;
 };
@@ -81,6 +102,7 @@ export type EffectiveTouchConfig = {
 	opacity: number;
 	scale: number;
 	haptics: boolean;
+	autoEnableOnTouchOnly: boolean;
 	layout: TouchLayout;
 	mapping: TouchKeyMapping;
 	hasGameOverride: boolean;
@@ -113,6 +135,10 @@ const DEFAULT_PORTRAIT: TouchLayout = {
 	]
 };
 
+export function getDefaultTouchLayout(orientation: TouchOrientation): TouchLayout {
+	return structuredClone(orientation === 'portrait' ? DEFAULT_PORTRAIT : DEFAULT_LANDSCAPE);
+}
+
 export const DEFAULT_TOUCH_MAPPING: TouchKeyMapping = {
 	directions: {
 		up: ['ArrowUp', 'KeyW'],
@@ -135,6 +161,7 @@ export const DEFAULT_TOUCH_SETTINGS: TouchConsoleSettings = {
 	opacity: 0.72,
 	scale: 1,
 	haptics: true,
+	autoEnableOnTouchOnly: true,
 	layouts: {
 		landscape: structuredClone(DEFAULT_LANDSCAPE),
 		portrait: structuredClone(DEFAULT_PORTRAIT)
@@ -238,6 +265,10 @@ function normalizeSettings(raw: Partial<TouchConsoleSettings> | null | undefined
 		opacity: clamp(typeof raw?.opacity === 'number' ? raw.opacity : DEFAULT_TOUCH_SETTINGS.opacity, 0.2, 1),
 		scale: clamp(typeof raw?.scale === 'number' ? raw.scale : DEFAULT_TOUCH_SETTINGS.scale, 0.6, 1.6),
 		haptics: typeof raw?.haptics === 'boolean' ? raw.haptics : DEFAULT_TOUCH_SETTINGS.haptics,
+		autoEnableOnTouchOnly:
+			typeof raw?.autoEnableOnTouchOnly === 'boolean'
+				? raw.autoEnableOnTouchOnly
+				: DEFAULT_TOUCH_SETTINGS.autoEnableOnTouchOnly,
 		layouts: {
 			landscape: normalizeLayout(raw?.layouts?.landscape, DEFAULT_LANDSCAPE),
 			portrait: normalizeLayout(raw?.layouts?.portrait, DEFAULT_PORTRAIT)
@@ -356,6 +387,7 @@ export function getEffectiveConfig(gameId: string | null | undefined, orientatio
 		opacity: global.opacity,
 		scale: global.scale,
 		haptics: global.haptics,
+		autoEnableOnTouchOnly: global.autoEnableOnTouchOnly,
 		layout,
 		mapping,
 		hasGameOverride: Boolean(override)

@@ -35,7 +35,10 @@ export async function getGameStatus(gameId: string): Promise<GameStatus> {
 	const partialCache = await hasPartialDownloadCache(gameId);
 	const cache = partialCache ? await countOfflineFiles(gameId) : 0;
 	const offline = await hasOfflineMirror(gameId);
-	const offlineThumbnail = offline ? ((await readOfflineThumbnailRel(gameId)) ?? undefined) : undefined;
+	let offlineThumbnail = offline ? ((await readOfflineThumbnailRel(gameId)) ?? undefined) : undefined;
+	if (offline && !offlineThumbnail) {
+		offlineThumbnail = (await ensureOfflineThumbnail(gameId)) ?? undefined;
+	}
 	return {
 		online: await hasOnlineShell(gameId),
 		offline,

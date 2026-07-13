@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: release-${{ github.ref }}
@@ -33,6 +31,17 @@ jobs:
           lfs: true
           submodules: recursive
 
+      - name: Restore Flatpak runtime and builder cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/flatpak
+            ~/.cache/ccache
+            .flatpak-builder
+          key: flatpak-gnome50-${{ runner.os }}-${{ hashFiles('flatpak/com.potatotomato.games.yml', 'flatpak/shared-modules/**') }}
+          restore-keys: |
+            flatpak-gnome50-${{ runner.os }}-
+
       - name: Install Flatpak
         run: |
           sudo apt-get update
@@ -44,7 +53,7 @@ jobs:
         run: |
           sudo apt-get install -y \
             libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf \
-            pkg-config libssl-dev
+            pkg-config libssl-dev ccache
 
       - uses: dtolnay/rust-toolchain@stable
 
@@ -85,7 +94,11 @@ jobs:
 
       - name: Build puller sidecar
         run: |
-          cd puller && npx playwright install-deps chromium
+          if ! (ldconfig -p | rg -q 'libnss3\.so' && ldconfig -p | rg -q 'libatk-1\.0\.so'); then
+            cd puller && npx playwright install-deps chromium
+          else
+            echo "Playwright system dependencies already available"
+          fi
           cd ..
           pnpm puller:bundle:linux
 
@@ -108,10 +121,11 @@ jobs:
 
       - name: Build Flatpak
         run: |
-          flatpak-builder --force-clean --user --install-deps-from=flathub \
+          flatpak-builder --user --install-deps-from=flathub \
+            --state-dir=.flatpak-builder --ccache \
             --repo=repo --default-branch=stable \
             build-flatpak flatpak/com.potatotomato.games.yml
-          flatpak build-update-repo repo --generate-static-deltas
+          flatpak build-update-repo repo
           flatpak build-bundle repo "com.potatotomato.games-${{ needs.version.outputs.version }}.flatpak" \
             com.potatotomato.games stable
 
@@ -123,63 +137,6 @@ jobs:
             com.potatotomato.games-*.flatpak
             repo/
           if-no-files-found: error
-
-  deploy-pages:
-    runs-on: ubuntu-latest
-    needs: [build-flatpak, version]
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: flatpak-bundle
-          path: flatpak-artifacts
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-
-      - name: Build site for GitHub Pages
-        run: pnpm build
-        env:
-          NODE_ENV: production
-          PUBLIC_PAGES_BASE: /potatoetomatoe3
-          GITHUB_REPOSITORY: ${{ github.repository }}
-
-      - name: Attach Flatpak OSTree repo
-        run: |
-          mkdir -p build/flatpak
-          if [ ! -d flatpak-artifacts/repo ]; then
-            echo "ERROR: flatpak-artifacts/repo missing after artifact download" >&2
-            ls -la flatpak-artifacts >&2 || true
-            exit 1
-          fi
-          cp -a flatpak-artifacts/repo/. build/flatpak/
-          if [ ! -f build/flatpak/summary ]; then
-            echo "ERROR: build/flatpak/summary missing — remote installs will fail" >&2
-            ls -la build/flatpak >&2 || true
-            exit 1
-          fi
-          echo "OK: OSTree summary ($(wc -c < build/flatpak/summary) bytes)"
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./build
-
-      - uses: actions/deploy-pages@v4
-        id: deployment
 
   publish-release:
     runs-on: ubuntu-latest

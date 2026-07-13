@@ -68,6 +68,11 @@
 		setPlayLimits
 	} from '$lib/utils/play-recommendations';
 	import { getDefaultGamePlayMode, type GamePlayMode } from '$lib/utils/game-play-mode';
+	import {
+		loadTouchConsoleSettings,
+		saveTouchConsoleSettings,
+		type TouchConsoleSettings
+	} from '$lib/utils/touch-console';
 
 	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games' | 'touch';
 
@@ -109,6 +114,7 @@
 	let analyticsAffinity = $state<Record<string, number>>({});
 	let analyticsPanelKey = $state(0);
 	let gamesDefaultPlayMode = $state<GamePlayMode>('online');
+	let touchSettingsDraft = $state<TouchConsoleSettings>(loadTouchConsoleSettings());
 
 	type SettingsBaseline = {
 		disguise: PrivacyDisguiseMode;
@@ -122,6 +128,7 @@
 		analyticsLimitEnabled: boolean;
 		analyticsLimitMin: number;
 		analyticsAffinityJson: string;
+		touchSettingsJson: string;
 	};
 
 	function stableAffinityJson(a: Record<string, number>): string {
@@ -143,7 +150,8 @@
 		volumePct: 100,
 		analyticsLimitEnabled: false,
 		analyticsLimitMin: 0,
-		analyticsAffinityJson: '[]'
+		analyticsAffinityJson: '[]',
+		touchSettingsJson: JSON.stringify(loadTouchConsoleSettings())
 	});
 
 	const globalSearchResults = $derived.by(() => computeGlobalSearchResults(settingsSearchQuery));
@@ -223,6 +231,7 @@
 		if (JSON.stringify(lockShortcutDraft) !== JSON.stringify(baseline.lockShortcut)) n++;
 		if (muteScopeChoice !== baseline.muteScope) n++;
 		if (vol !== baseline.volumePct) n++;
+		if (JSON.stringify(touchSettingsDraft) !== baseline.touchSettingsJson) n++;
 		return n;
 	});
 
@@ -238,7 +247,8 @@
 			volumePct: Number(volumeSliderPct),
 			analyticsLimitEnabled,
 			analyticsLimitMin: analyticsLimitMinutes,
-			analyticsAffinityJson: stableAffinityJson(analyticsAffinity)
+			analyticsAffinityJson: stableAffinityJson(analyticsAffinity),
+			touchSettingsJson: JSON.stringify(touchSettingsDraft)
 		};
 	}
 
@@ -316,6 +326,9 @@
 		if (Number(volumeSliderPct) !== baseline.volumePct) {
 			saveMasterVolume(Number(volumeSliderPct) / 100);
 		}
+		if (JSON.stringify(touchSettingsDraft) !== baseline.touchSettingsJson) {
+			saveTouchConsoleSettings(touchSettingsDraft);
+		}
 
 		captureBaseline();
 		message = 'Settings saved.';
@@ -379,6 +392,7 @@
 			limits.dailyGlobalLimitMs > 0 ? Math.round(limits.dailyGlobalLimitMs / 60000) : 0;
 		analyticsAffinity = { ...getCategoryAffinityMap() };
 		gamesDefaultPlayMode = getDefaultGamePlayMode();
+		touchSettingsDraft = loadTouchConsoleSettings();
 		if (panel !== 'analytics') {
 			captureBaseline();
 		}
@@ -654,6 +668,7 @@
 							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
 							onclick={() => {
 								panel = 'touch';
+								syncLocal();
 							}}
 						>
 							<Smartphone class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
@@ -897,11 +912,16 @@
 						aria-label="Search touch control settings"
 						autocomplete="off"
 					/>
+					{@render saveSplitToolbar()}
 				</div>
 			</div>
 
 			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
-				<TouchControlsSection searchQuery={settingsSearchQuery} {busy} />
+				<TouchControlsSection
+					searchQuery={settingsSearchQuery}
+					{busy}
+					bind:settings={touchSettingsDraft}
+				/>
 			</div>
 		{/if}
 	</Dialog.Content>

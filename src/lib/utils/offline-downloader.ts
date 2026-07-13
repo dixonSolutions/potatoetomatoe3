@@ -68,7 +68,11 @@ import {
 	pollBrowserDownloadUntilDone,
 	startBrowserGameDownload
 } from './browser-offline-download';
+import { importPullerOfflineCopy } from './browser-offline-download';
 import { getOfflineBackend, invalidateOfflineBackendCache } from './offline-runtime';
+
+/** Public-site downloads delegated to the puller, then imported into browser storage. */
+const browserPullerDownloads = new Set<string>();
 
 /** Games shipped with a pre-built offline copy in static/ (no downloader required). */
 export const BUNDLED_OFFLINE_GAME_IDS = ['shrek-escape'] as const;
@@ -190,6 +194,7 @@ export async function startGameDownload(
 			const { isPullerAvailable, startPullerGameDownload } =
 				await import('./offline-downloader-puller');
 			if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) {
+				browserPullerDownloads.add(gameId);
 				return startPullerGameDownload(gameId);
 			}
 			return { started: false, message: EXTERNAL_IFRAME_NEEDS_PULLER };
@@ -201,6 +206,9 @@ export async function startGameDownload(
 }
 
 export async function fetchDownloadProgress(gameId: string): Promise<DownloadProgress> {
+	if (browserPullerDownloads.has(gameId)) {
+		return fetchPullerDownloadProgress(gameId);
+	}
 	const backend = await getOfflineBackend();
 	if (backend === 'puller') return fetchPullerDownloadProgress(gameId);
 	if (backend === 'browser') return getBrowserDownloadProgress(gameId);
@@ -209,6 +217,9 @@ export async function fetchDownloadProgress(gameId: string): Promise<DownloadPro
 
 export async function deleteOfflineCopy(gameId: string): Promise<void> {
 	const backend = await getOfflineBackend(true);
+	if (browserPullerDownloads.has(gameId)) {
+		browserPullerDownloads.delete(gameId);
+	}
 	if (backend === 'puller') {
 		await deletePullerOfflineCopy(gameId);
 		return;
@@ -225,6 +236,23 @@ export async function pollDownloadUntilDone(
 	onProgress: (p: DownloadProgress) => void,
 	intervalMs = 800
 ): Promise<DownloadProgress> {
+	if (browserPullerDownloads.has(gameId)) {
+		const final = await pollPullerDownloadUntilDone(gameId, onProgress, intervalMs);
+		if (final.state !== 'done') {
+			browserPullerDownloads.delete(gameId);
+			return final;
+		}
+		try {
+			await importPullerOfflineCopy(gameId, onProgress);
+			browserPullerDownloads.delete(gameId);
+			onProgress({ state: 'done', progress: 100, message: 'Saved for browser offline play' });
+			return { state: 'done', progress: 100, message: 'Saved for browser offline play' };
+		} catch (error) {
+			browserPullerDownloads.delete(gameId);
+			const message = error instanceof Error ? error.message : 'Browser import failed';
+			return { state: 'error', progress: 0, message, error: message };
+		}
+	}
 	const backend = await getOfflineBackend(true);
 	if (backend === 'puller') {
 		return pollPullerDownloadUntilDone(gameId, onProgress, intervalMs);
@@ -241,6 +269,12 @@ export async function cancelGameDownload(
 	discardCache: boolean
 ): Promise<void> {
 	const backend = await getOfflineBackend(true);
+	if (browserPullerDownloads.has(gameId)) {
+		await cancelPullerGameDownload(gameId, discardCache);
+		browserPullerDownloads.delete(gameId);
+		if (discardCache) await deleteBrowserOfflineCopy(gameId);
+		return;
+	}
 	if (backend === 'puller') {
 		await cancelPullerGameDownload(gameId, discardCache);
 		return;

@@ -1,23 +1,18 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Switch } from '$lib/components/ui/switch';
 	import * as Select from '$lib/components/ui/select';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import { sectionMatches } from '$lib/components/settings/search';
+	import TouchConsolePreview from './TouchConsolePreview.svelte';
 	import { toast } from 'svelte-sonner';
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
 	import {
 		DEFAULT_TOUCH_MAPPING,
 		codesToLabel,
-		copyLandscapeToPortrait,
+		getDefaultTouchLayout,
 		loadTouchConsoleSettings,
-		patchTouchConsoleSettings,
-		resetLayout,
-		resetMapping,
-		saveLayout,
-		saveMapping,
 		type TouchAvailability,
 		type TouchConsoleSettings,
 		type TouchDirection,
@@ -28,13 +23,14 @@
 
 	let {
 		searchQuery,
-		busy = false
+		busy = false,
+		settings = $bindable(loadTouchConsoleSettings())
 	}: {
 		searchQuery: string;
 		busy?: boolean;
+		settings?: TouchConsoleSettings;
 	} = $props();
 
-	let settings = $state<TouchConsoleSettings>(loadTouchConsoleSettings());
 	let orientationTab = $state<TouchOrientation>('landscape');
 	let recordingTarget = $state<'up' | 'down' | 'left' | 'right' | 'a' | 'b' | 'x' | 'y' | null>(null);
 	let previewDrag = $state<{ id: string; startX: number; startY: number; origin: TouchLayout } | null>(
@@ -59,15 +55,8 @@
 		}
 	];
 
-	function reload() {
-		settings = loadTouchConsoleSettings();
-	}
-
-	function persistPatch(
-		patch: Parameters<typeof patchTouchConsoleSettings>[0],
-		message?: string
-	) {
-		settings = patchTouchConsoleSettings(patch);
+	function persistPatch(patch: Partial<TouchConsoleSettings>, message?: string) {
+		settings = { ...settings, ...patch, version: 1 };
 		if (message) toast.message(message);
 	}
 
@@ -76,8 +65,10 @@
 	}
 
 	function updateLayout(next: TouchLayout, message?: string) {
-		saveLayout(orientationTab, next);
-		reload();
+		settings = {
+			...settings,
+			layouts: { ...settings.layouts, [orientationTab]: next }
+		};
 		if (message) toast.message(message);
 	}
 
@@ -144,14 +135,9 @@
 		} else {
 			mapping.buttons[target] = codes;
 		}
-		saveMapping(mapping);
-		reload();
+		settings = { ...settings, mapping };
 		toast.success(`${target.toUpperCase()} → ${codesToLabel(codes)}`);
 	}
-
-	onMount(() => {
-		reload();
-	});
 
 	$effect(() => {
 		if (!recordingTarget) return;
@@ -173,6 +159,41 @@
 </script>
 
 <div class="space-y-6">
+	<div
+		id="settings-section-touch-preview"
+		class="sticky top-0 z-20 -mx-2 space-y-3 bg-background/95 px-2 pb-4 pt-1 backdrop-blur-md"
+	>
+		<div>
+			<p class="text-sm font-medium">Live preview</p>
+			<p class="text-xs text-muted-foreground">
+				This preview uses the same joystick and action-button components as the in-game console.
+				Unsaved size, scale, opacity, and layout changes appear here immediately.
+			</p>
+		</div>
+		<div class="flex items-center gap-2">
+			<Tabs.Root
+				value={orientationTab}
+				onValueChange={(v) => {
+					if (v === 'landscape' || v === 'portrait') orientationTab = v;
+				}}
+			>
+				<Tabs.List class="grid w-full grid-cols-2">
+					<Tabs.Trigger value="landscape">Landscape</Tabs.Trigger>
+					<Tabs.Trigger value="portrait">Portrait</Tabs.Trigger>
+				</Tabs.List>
+			</Tabs.Root>
+		</div>
+		<TouchConsolePreview
+			layout={currentLayout()}
+			opacity={settings.opacity}
+			scale={settings.scale}
+			orientation={orientationTab}
+			onStartDrag={startPreviewDrag}
+			onMoveDrag={(e, box) => movePreviewDrag(e, box)}
+			onEndDrag={endPreviewDrag}
+		/>
+	</div>
+
 	{#if sectionMatches(searchQuery, 'touch enable overlay mobile gamepad console joystick virtual controller')}
 		<div
 			id="settings-section-touch-enabled"
@@ -225,6 +246,29 @@
 			<p class="text-xs text-muted-foreground">
 				{AVAILABILITY.find((o) => o.value === settings.availability)?.hint ?? ''}
 			</p>
+		</div>
+	{/if}
+
+	{#if sectionMatches(searchQuery, 'touch auto enable default keyboard screen touch-only tablet')}
+		<div
+			id="settings-section-touch-auto-enable"
+			class="flex items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
+		>
+			<div class="min-w-0 space-y-1">
+				<Label for="touch-auto-enable" class="text-sm font-medium">Auto-enable on touch-only devices</Label>
+				<p class="text-xs text-muted-foreground">
+					Open the console by default on screen-first devices where the browser reports touch input,
+					a coarse pointer, and no hover-capable input. Devices with keyboards keep it off until enabled.
+				</p>
+			</div>
+			<Switch
+				id="touch-auto-enable"
+				checked={settings.autoEnableOnTouchOnly}
+				disabled={busy}
+				onCheckedChange={(v) =>
+					persistPatch({ autoEnableOnTouchOnly: Boolean(v) }, v ? 'Touch console auto-enable on' : 'Touch console auto-enable off')}
+				aria-label="Auto-enable touch console on touch-only devices"
+			/>
 		</div>
 	{/if}
 
@@ -290,92 +334,43 @@
 				</p>
 			</div>
 
-			<Tabs.Root
-				value={orientationTab}
-				onValueChange={(v) => {
-					if (v === 'landscape' || v === 'portrait') orientationTab = v;
-				}}
-			>
-				<Tabs.List class="grid w-full grid-cols-2">
-					<Tabs.Trigger value="landscape">Landscape</Tabs.Trigger>
-					<Tabs.Trigger value="portrait">Portrait</Tabs.Trigger>
-				</Tabs.List>
-				{#each (['landscape', 'portrait'] as const) as ori (ori)}
-					<Tabs.Content value={ori} class="space-y-3 pt-3">
-						{#if orientationTab === ori}
-							<div
-								class="relative aspect-video w-full overflow-hidden rounded-lg border bg-gradient-to-br from-slate-900 to-slate-800"
-								role="presentation"
-								onpointermove={(e) => movePreviewDrag(e, e.currentTarget)}
-								onpointerup={endPreviewDrag}
-								onpointercancel={endPreviewDrag}
-							>
-								<div
-									class="absolute rounded-xl border border-dashed border-white/25 bg-white/5"
-									style={`left:${currentLayout().console.xPct * 100}%;top:${currentLayout().console.yPct * 100}%;width:${currentLayout().console.widthPct * 100}%;height:${currentLayout().console.heightPct * 100}%;`}
-									role="button"
-									tabindex="0"
-									aria-label="Console panel"
-									onpointerdown={(e) => startPreviewDrag('console', e)}
-								></div>
-								<button
-									type="button"
-									class="absolute rounded-full border border-white/40 bg-white/20"
-									style={`left:${currentLayout().joystick.xPct * 100}%;top:${currentLayout().joystick.yPct * 100}%;width:${Math.max(18, currentLayout().joystick.size * 0.22)}px;height:${Math.max(18, currentLayout().joystick.size * 0.22)}px;`}
-									aria-label="Joystick"
-									onpointerdown={(e) => startPreviewDrag('joystick', e)}
-								></button>
-								{#each currentLayout().buttons as btn (btn.id)}
-									<button
-										type="button"
-										class="absolute grid place-items-center rounded-full border border-white/40 bg-white/15 text-[9px] font-bold text-white"
-										style={`left:${btn.xPct * 100}%;top:${btn.yPct * 100}%;width:${Math.max(14, btn.size * 0.22)}px;height:${Math.max(14, btn.size * 0.22)}px;`}
-										aria-label={btn.label}
-										onpointerdown={(e) => startPreviewDrag(btn.id, e)}
-									>
-										{btn.label}
-									</button>
-								{/each}
-							</div>
-
-							<div class="space-y-2">
-								<Label for="joy-size-{ori}">Joystick size ({currentLayout().joystick.size}px)</Label>
-								<input
-									id="joy-size-{ori}"
-									type="range"
-									min="60"
-									max="160"
-									step="2"
-									value={currentLayout().joystick.size}
-									disabled={busy}
-									class="h-2 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary"
-									oninput={(e) =>
-										onSizeChange('joystick', Number((e.currentTarget as HTMLInputElement).value))}
-								/>
-							</div>
-							{#each currentLayout().buttons as btn (btn.id)}
-								<div class="space-y-2">
-									<Label for="btn-size-{ori}-{btn.id}"
-										>Button {btn.label} ({btn.size}px)</Label
-									>
-									<input
-										id="btn-size-{ori}-{btn.id}"
-										type="range"
-										min="36"
-										max="96"
-										step="2"
-										value={btn.size}
-										disabled={busy}
-										class="h-2 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary"
-										oninput={(e) =>
-											onSizeChange(btn.id, Number((e.currentTarget as HTMLInputElement).value))}
-									/>
-								</div>
-							{/each}
-						{/if}
-					</Tabs.Content>
-				{/each}
-			</Tabs.Root>
+			<div class="space-y-2">
+				<p class="text-xs font-medium text-muted-foreground">
+					{orientationTab === 'portrait' ? 'Portrait' : 'Landscape'} control sizes
+				</p>
+				<Label for="joy-size-{orientationTab}">
+					Joystick size ({currentLayout().joystick.size}px)
+				</Label>
+				<input
+					id="joy-size-{orientationTab}"
+					type="range"
+					min="60"
+					max="160"
+					step="2"
+					value={currentLayout().joystick.size}
+					disabled={busy}
+					class="h-2 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary"
+					oninput={(e) =>
+						onSizeChange('joystick', Number((e.currentTarget as HTMLInputElement).value))}
+				/>
+			</div>
+			{#each currentLayout().buttons as btn (btn.id)}
+				<div class="space-y-2">
+					<Label for="btn-size-{orientationTab}-{btn.id}">Button {btn.label} ({btn.size}px)</Label>
+					<input
+						id="btn-size-{orientationTab}-{btn.id}"
+						type="range"
+						min="36"
+						max="96"
+						step="2"
+						value={btn.size}
+						disabled={busy}
+						class="h-2 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary"
+						oninput={(e) =>
+							onSizeChange(btn.id, Number((e.currentTarget as HTMLInputElement).value))}
+					/>
+				</div>
+			{/each}
 
 			<div class="flex flex-wrap gap-2">
 				<Button
@@ -384,8 +379,12 @@
 					size="sm"
 					disabled={busy}
 					onclick={() => {
-						copyLandscapeToPortrait();
-						reload();
+						const copied = structuredClone(settings.layouts.landscape);
+						copied.console.yPct = Math.max(copied.console.yPct, 0.62);
+						settings = {
+							...settings,
+							layouts: { ...settings.layouts, portrait: copied }
+						};
 						toast.message('Copied landscape → portrait');
 					}}
 				>
@@ -397,8 +396,13 @@
 					size="sm"
 					disabled={busy}
 					onclick={() => {
-						resetLayout(orientationTab);
-						reload();
+						settings = {
+							...settings,
+							layouts: {
+								...settings.layouts,
+								[orientationTab]: getDefaultTouchLayout(orientationTab)
+							}
+						};
 						toast.message(`Reset ${orientationTab} layout`);
 					}}
 				>
@@ -410,8 +414,13 @@
 					size="sm"
 					disabled={busy}
 					onclick={() => {
-						resetLayout();
-						reload();
+						settings = {
+							...settings,
+							layouts: {
+								landscape: getDefaultTouchLayout('landscape'),
+								portrait: getDefaultTouchLayout('portrait')
+							}
+						};
 						toast.message('Reset both layouts');
 					}}
 				>
@@ -474,8 +483,7 @@
 				size="sm"
 				disabled={busy}
 				onclick={() => {
-					resetMapping();
-					reload();
+					settings = { ...settings, mapping: structuredClone(DEFAULT_TOUCH_MAPPING) };
 					toast.message(`Mapping reset to ${codesToLabel(DEFAULT_TOUCH_MAPPING.directions.up)} / Space…`);
 				}}
 			>
@@ -484,7 +492,7 @@
 		</div>
 	{/if}
 
-	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'touch enable overlay mobile gamepad console joystick virtual controller') && !sectionMatches(searchQuery, 'touch availability auto always off mobile desktop') && !sectionMatches(searchQuery, 'touch opacity scale size haptics vibration appearance') && !sectionMatches(searchQuery, 'touch layout landscape portrait position size drag preview reset copy') && !sectionMatches(searchQuery, 'touch mapping keys remap arrows wasd space enter escape button binding')}
+	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'touch enable overlay mobile gamepad console joystick virtual controller') && !sectionMatches(searchQuery, 'touch availability auto always off mobile desktop') && !sectionMatches(searchQuery, 'touch auto enable default keyboard screen touch-only tablet') && !sectionMatches(searchQuery, 'touch opacity scale size haptics vibration appearance') && !sectionMatches(searchQuery, 'touch layout landscape portrait position size drag preview reset copy') && !sectionMatches(searchQuery, 'touch mapping keys remap arrows wasd space enter escape button binding')}
 		<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
 	{/if}
 </div>

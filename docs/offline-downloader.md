@@ -9,10 +9,16 @@ The app picks an offline backend automatically from where it is running:
 
 Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or `local-app` in `.env` if needed.
 
-The puller is a standalone Node.js backend at `puller/` that:
+The puller is the shared Node.js backend used by both local desktop and web workflows:
 
 1. **Primary:** mirrors games into `static/games/<id>/offline/` for true offline play (`/api/offline`)
 2. **Also:** live-relays external online embeds through `/api/game-live` (and Unity via `/api/unity-play`) so touch works while online — without creating an offline download
+
+The execution and storage adapters differ by host, but scrape/capture/ads logic is not duplicated:
+
+- Tauri/Flatpak runs the puller sidecar and keeps mirrors on disk.
+- The web app calls the same puller HTTP API when a local puller is available, then progressively imports completed files into IndexedDB and serves them through `/browser-offline/`.
+- Public-site web touch is intentionally limited to local/offline mirrors. Live proxy and online touch remain local-app/Tauri capabilities.
 
 ## Running
 
@@ -52,6 +58,11 @@ Client helpers: `fetchDownloadedStatuses()` and `fetchOfflineStatusesForIds(ids)
 ## Offline covers
 
 After a successful offline download, the puller also caches the catalog `thumbnail` (remote Unity CDN or local asset) as `offline/assets/thumbnail.*` and records it in `offline-manifest.json`. The UI prefers that local cover when the device is offline or the game is marked downloaded, so cards do not depend on the network for covers.
+
+For browser/PWA downloads delegated to the puller, the export API includes the cached thumbnail.
+The browser storage adapter stores that file in IndexedDB and records its path in the browser game
+metadata, so dashboard cards use a blob URL from IndexedDB instead of the catalog/network reference.
+Existing puller mirrors are repaired lazily when status is requested if their thumbnail is missing.
 
 ## Strategies
 
@@ -178,7 +189,11 @@ When the puller is unavailable but IndexedDB and service workers are supported:
 
 Per-game online/offline preference is stored in localStorage via `src/lib/utils/game-play-mode.ts`.
 
-On the game page, **View logs** opens a diagnostics dialog (play URL resolution, download events). **Relaunch** resets the player surface and remounts the iframe so you can start fresh after a bad offline load.
+On the game page, **View logs** opens diagnostics scoped to the current game only (play URL
+resolution, download events, and relaunch events). **Relaunch** resets the player surface and
+remounts the iframe so you can start fresh after a bad offline load. The in-memory ring buffer
+may contain events from multiple games during an SPA session, but the game dialog filters and
+clears only its own entries.
 
 ## GitHub Pages
 
@@ -186,7 +201,7 @@ Production builds use base path `/potatoetomatoe3` (override with `PUBLIC_PAGES_
 
 **Public URL:** `https://dixonsolutions.github.io/potatoetomatoe3/` — game pages are `…/potatoetomatoe3/games/{id}` (not `…/games/{id}` at the domain root). The build copies SPA shells into each `games/{id}/` folder so GitHub Pages deep links work beside static game assets.
 
-Deploy workflows: `.github/workflows/pages.yml` on every `main` push (web build + preserve `/flatpak/` from the latest Release artifact); `.github/workflows/release.yml` also deploys Pages with a freshly built OSTree. Manual web hotfixes: `pages.yml` or `deploy.yml` via **workflow_dispatch**.
+Deploy workflows: `.github/workflows/pages.yml` handles the fast web build on every `main` push, preserves `/flatpak/` from the latest successful Release artifact, and runs again after a successful Release to attach that exact new OSTree. `.github/workflows/release.yml` publishes the Flatpak and GitHub Release only. Manual web hotfixes: `pages.yml` or `deploy.yml` via **workflow_dispatch**.
 
 Enable Pages in the repo: **Settings → Pages → Build and deployment → GitHub Actions**.
 

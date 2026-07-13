@@ -178,7 +178,7 @@
 			`playerUrl=${gamePlayerUrl || '(empty)'}`,
 			`engine=${gameMetadata?.engine ?? '—'}`
 		];
-		appendPlayLog('info', 'ui', 'Opened play diagnostics');
+		appendPlayLog('info', 'ui', 'Opened play diagnostics', `game=${gameId}`);
 		logsOpen = true;
 	}
 
@@ -502,7 +502,7 @@
 			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
 
-		<PlayLogsDialog bind:open={logsOpen} snapshotLines={logSnapshot} />
+		<PlayLogsDialog bind:open={logsOpen} gameId={gameId} snapshotLines={logSnapshot} />
 
 		<div
 			bind:this={gameSurfaceEl}

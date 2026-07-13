@@ -25,10 +25,12 @@ flowchart TD
     translate --> dispatch
     dispatch -->|keydown/keyup with code+keyCode+bubbles+composed, canvas focused| gamedoc[Game document]
 
-    toggleBtn[Glass toggle button] --> visible[visible boolean]
+    toggleBtn[Blue glass toggle switch] --> visible[visible boolean]
     visible --> controls
 
-    settings[Settings - Touch Controls] --> store[(touch-console store: global + per-game)]
+    settings[Settings - Touch Controls] --> draft[(unsaved settings draft)]
+    draft --> saveSplit[shared settings Save / Discard]
+    saveSplit --> store[(touch-console store: global + per-game)]
     editmode[In-game hold-2s edit mode] --> store
     store --> overlay
 ```
@@ -46,7 +48,7 @@ flowchart TD
 | `/puller-games/{id}/offline/…` (dev proxy) | Same-origin | **Yes** |
 | `/browser-offline/{id}/…` | Same-origin | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; use puller full scrape) |
 | `/api/unity-play/{id}` (Vite / Pages SW relay) | Same-origin | **Yes** — inject.js in game doc |
-| `/api/game-live/{id}` (Vite / Pages SW relay) | Same-origin | **Yes** — storage bridge / Unity inject in live HTML |
+| `/api/game-live/{id}` (local app puller relay) | Same-origin | **Yes** in local app/Tauri; **not a public-site touch path** |
 | `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}` | Cross-origin Worker | **Yes** via postMessage bridge |
 | `blob:…` | Same-origin | Same as browser-offline |
 | `/unity/player.html?src=…` | Same-origin shell | **No** — nested cross-origin `#game` |
@@ -54,7 +56,7 @@ flowchart TD
 | Direct `https://…` embed | Cross-origin | **No** without local puller live relay |
 | `http://127.0.0.1:18787/api/unity-play/…` or `/api/game-live/…` (Tauri puller) | Cross-origin | **Yes** via postMessage bridge |
 
-The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an **extra** capability so mobile touch works on online-only external embeds while the puller is running — it does not replace offline scrape.
+The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an extra **local-app/Tauri** capability. On the public web app, mobile touch requires a local/offline mirror saved under `/browser-offline/` or served from same-origin game files.
 
 Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks permanent offline play. Live relay covers the “play online with touch now” case without a download.
 
@@ -86,7 +88,7 @@ If the puller is not running, the iframe shows an error page telling you to star
 
 | Action | Behavior |
 |--------|----------|
-| Gamepad toggle button | Sole show/hide entry point (when enabled / availability allows). |
+| Gamepad switch | Blue on/off switch for the console (when enabled / availability allows). |
 | Joystick | Analog stick → 8-way direction keys (Arrows + WASD by default). |
 | A / B / X / Y | Hold = keydown, release = keyup (Space / Enter / Shift / Esc by default). |
 | Hold 2s on a control | Enter drag mode (dashed highlight), move, release commits to store. |
@@ -124,6 +126,7 @@ Five-finger toggle was removed: iOS/iPadOS reserves multi-finger system gestures
   opacity: 0.72,
   scale: 1,
   haptics: true,
+  autoEnableOnTouchOnly: true,
   layouts: { landscape: TouchLayout, portrait: TouchLayout },
   mapping: {
     directions: { up, down, left, right }, // KeyboardEvent.code[]
@@ -138,12 +141,19 @@ Positions are **viewport percentages** so layouts survive screen size and orient
 
 API: [`src/lib/utils/touch-console.ts`](../src/lib/utils/touch-console.ts).
 
+Settings are edited as a draft inside the shared Settings shell. The common Save / Discard split
+control persists the complete touch configuration atomically; changing a switch, slider, mapping,
+layout, opacity, or scale does not write storage until Save is selected.
+
 ## Settings
 
 **Settings → Touch Controls** ([`TouchControlsSection.svelte`](../src/lib/components/settings/sections/touch-controls/TouchControlsSection.svelte)):
 
 - Enable / availability / opacity / scale / haptics
-- Landscape / Portrait tabs with live preview drag editor + size sliders
+- Auto-enable by default on touch-only devices; keyboard-capable devices stay off until switched on
+- Sticky Landscape / Portrait live preview built from the real `TouchJoystick` and `TouchButton`
+  components; unsaved opacity, scale, size, and position changes update it immediately
+- Separate appearance, layout, and mapping groups with virtual scrolling below the preview
 - Copy landscape → portrait, reset
 - Key mapping recorder (same pattern as Games pause shortcut)
 

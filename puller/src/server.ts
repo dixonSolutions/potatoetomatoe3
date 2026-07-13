@@ -61,6 +61,25 @@ function mimeFor(filePath: string): string {
   return map[ext] ?? 'application/octet-stream';
 }
 
+async function listFiles(root: string, current = root): Promise<string[]> {
+  let entries;
+  try {
+    entries = await fs.readdir(current, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+  const files: string[] = [];
+  for (const entry of entries) {
+    const absolute = path.join(current, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await listFiles(root, absolute)));
+    } else if (entry.isFile()) {
+      files.push(path.relative(root, absolute).split(path.sep).join('/'));
+    }
+  }
+  return files;
+}
+
 async function serveStaticGames(
   req: http.IncomingMessage,
   res: http.ServerResponse,
@@ -243,6 +262,72 @@ export function createServer(): http.Server {
           return;
         }
         sendJson(res, 200, job);
+        return;
+      }
+
+      /*
+       * Export a completed puller mirror to a web/PWA client. The puller still
+       * owns capture and rewriting; the browser only stores returned bytes.
+       */
+      const exportMatch = pathname.match(/^\/api\/offline\/([^/]+)\/export$/);
+      if (exportMatch && req.method === 'GET') {
+        const gameId = decodeURIComponent(exportMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        const status = await getGameStatus(gameId);
+        if (!status.offline) {
+          sendJson(res, 409, { error: 'Offline mirror is not complete' });
+          return;
+        }
+        const roots = [
+          path.join(GAMES_DATA_DIR, gameId, 'offline'),
+          path.join(CATALOG_DIR, gameId, 'offline')
+        ];
+        const offlineRoot = roots.find((candidate) => existsSync(candidate));
+        if (!offlineRoot) {
+          sendJson(res, 404, { error: 'Offline mirror not found' });
+          return;
+        }
+        const files = await listFiles(offlineRoot);
+        sendJson(res, 200, {
+          gameId,
+          files: await Promise.all(
+            files.map(async (relativePath) => {
+              const absolute = path.join(offlineRoot, relativePath);
+              const stat = await fs.stat(absolute);
+              return {
+                path: relativePath,
+                size: stat.size,
+                mimeType: mimeFor(absolute)
+              };
+            })
+          )
+        });
+        return;
+      }
+
+      const exportFileMatch = pathname.match(/^\/api\/offline\/([^/]+)\/export\/file$/);
+      if (exportFileMatch && req.method === 'GET') {
+        const gameId = decodeURIComponent(exportFileMatch[1]);
+        const relativePath = url.searchParams.get('path') ?? '';
+        if (!isValidGameId(gameId) || !relativePath || relativePath.includes('..')) {
+          sendJson(res, 400, { error: 'Invalid export path' });
+          return;
+        }
+        const absolute = resolveOfflineFilePath(gameId, relativePath);
+        if (!absolute || !existsSync(absolute)) {
+          sendJson(res, 404, { error: 'Export file not found' });
+          return;
+        }
+        res.writeHead(200, {
+          'Content-Type': mimeFor(absolute),
+          'Access-Control-Allow-Origin': CORS_ORIGIN,
+          'Access-Control-Allow-Private-Network': 'true',
+          'Cache-Control': 'no-store'
+        });
+        createReadStream(absolute).pipe(res);
         return;
       }
 

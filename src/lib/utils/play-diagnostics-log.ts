@@ -43,17 +43,28 @@ export function appendPlayLog(
 	emitChanged();
 }
 
-export function getPlayLogEntries(): readonly PlayLogEntry[] {
-	return entries;
+function belongsToGame(entry: PlayLogEntry, gameId?: string): boolean {
+	if (!gameId) return true;
+	return entry.detail?.includes(`game=${gameId}`) ?? false;
 }
 
-export function clearPlayLog(): void {
-	entries.length = 0;
+export function getPlayLogEntries(gameId?: string): readonly PlayLogEntry[] {
+	return gameId ? entries.filter((entry) => belongsToGame(entry, gameId)) : entries;
+}
+
+export function clearPlayLog(gameId?: string): void {
+	if (!gameId) {
+		entries.length = 0;
+	} else {
+		for (let index = entries.length - 1; index >= 0; index--) {
+			if (belongsToGame(entries[index], gameId)) entries.splice(index, 1);
+		}
+	}
 	emitChanged();
 }
 
-export function formatPlayLogForCopy(): string {
-	return entries
+export function formatPlayLogForCopy(gameId?: string): string {
+	return getPlayLogEntries(gameId)
 		.map((e) => {
 			const ts = new Date(e.at).toISOString();
 			const detail = e.detail ? `\n  ${e.detail}` : '';

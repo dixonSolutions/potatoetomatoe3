@@ -4,7 +4,8 @@ import {
 	codesToLabel,
 	formatTouchKeyCode,
 	getEffectiveConfig,
-	loadTouchConsoleSettings
+	loadTouchConsoleSettings,
+	translateTouchLayout
 } from './touch-console';
 import { KeyDispatcher, canUseTouchBridge, isLikelyInjectableUrl } from './touch-input-dispatch';
 
@@ -60,5 +61,15 @@ describe('touch-console helpers', () => {
 		const cfg = getEffectiveConfig(null, 'landscape');
 		expect(cfg.layout.joystick.size).toBeGreaterThan(0);
 		expect(cfg.mapping.buttons.a).toEqual(['Space']);
+	});
+
+	it('translates the console frame and every child control together', () => {
+		const layout = getEffectiveConfig(null, 'landscape').layout;
+		const translated = translateTouchLayout(layout, 0.1, -0.05);
+		expect(translated.console.xPct).toBeCloseTo(layout.console.xPct + 0.1);
+		expect(translated.joystick.yPct).toBeCloseTo(layout.joystick.yPct - 0.05);
+		expect(translated.buttons.map((button) => button.xPct)).toEqual(
+			layout.buttons.map((button) => button.xPct + 0.1)
+		);
 	});
 });

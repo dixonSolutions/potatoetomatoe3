@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Gamepad2, GripHorizontal } from 'lucide-svelte';
+	import { Switch } from '$lib/components/ui/switch';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
 	import {
 		TOUCH_CONSOLE_CHANGED,
 		getEffectiveConfig,
 		saveLayout,
+		translateTouchLayout,
 		type EffectiveTouchConfig,
 		type TouchLayout,
 		type TouchOrientation
@@ -15,7 +17,8 @@
 		KeyDispatcher,
 		canUseTouchBridge,
 		isLikelyInjectableUrl,
-		resolveInjectable
+		resolveInjectable,
+		isTouchOnlyDevice
 	} from '$lib/utils/touch-input-dispatch';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 
@@ -50,6 +53,7 @@
 	let editOrigin = $state<TouchLayout | null>(null);
 	let lastToggleAt = 0;
 	let privacyLocked = $state(false);
+	let autoOpenedForGame = $state('');
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
@@ -67,6 +71,10 @@
 	function refreshConfig() {
 		config = getEffectiveConfig(gameId || null, orientation);
 		layoutDraft = null;
+		if (autoOpenedForGame !== gameId) {
+			autoOpenedForGame = '';
+			visible = false;
+		}
 	}
 
 	function probeInjectable() {
@@ -75,10 +83,29 @@
 			dispatcher.setTarget(target);
 			dispatcher.setBridgeFrame(null);
 			injectable = true;
+			if (
+				started &&
+				config.autoEnableOnTouchOnly &&
+				isTouchOnlyDevice() &&
+				autoOpenedForGame !== gameId
+			) {
+				visible = true;
+				autoOpenedForGame = gameId;
+			}
 		} else if (iframe && canUseTouchBridge(playerUrl)) {
 			dispatcher.setTarget(null);
 			dispatcher.setBridgeFrame(iframe);
 			injectable = Boolean(iframe.contentWindow);
+			if (
+				injectable &&
+				started &&
+				config.autoEnableOnTouchOnly &&
+				isTouchOnlyDevice() &&
+				autoOpenedForGame !== gameId
+			) {
+				visible = true;
+				autoOpenedForGame = gameId;
+			}
 		} else {
 			dispatcher.setTarget(null);
 			dispatcher.setBridgeFrame(null);
@@ -126,8 +153,8 @@
 		const dxPct = delta.x / surfaceW;
 		const dyPct = delta.y / surfaceH;
 		if (control === 'console') {
-			next.console.xPct = clampPct(editOrigin.console.xPct + dxPct);
-			next.console.yPct = clampPct(editOrigin.console.yPct + dyPct);
+			layoutDraft = translateTouchLayout(editOrigin, dxPct, dyPct);
+			return;
 		} else if (control === 'joystick') {
 			next.joystick.xPct = clampPct(editOrigin.joystick.xPct + dxPct);
 			next.joystick.yPct = clampPct(editOrigin.joystick.yPct + dyPct);
@@ -275,28 +302,29 @@
 		class="pointer-events-none absolute inset-0 z-[15] overflow-hidden"
 		aria-hidden={!showOverlay}
 	>
-		<button
-			type="button"
-			class="pt-touch-toggle pointer-events-auto absolute top-3 right-3 z-20 flex size-11 items-center justify-center rounded-xl border border-white/25 bg-background/40 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
-			class:pt-touch-toggle--on={visible && injectable}
-			aria-pressed={visible}
-			aria-label={visible ? 'Hide touch controls' : 'Show touch controls'}
-			title="Touch controls"
-			onclick={() => toggleVisible()}
+		<div
+			class="pointer-events-auto absolute top-3 right-3 z-20 flex items-center gap-2 rounded-xl border border-white/25 bg-background/70 px-3 py-2 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
 		>
-			<Gamepad2 class="size-5" />
-		</button>
+			<Gamepad2 class="size-4 text-blue-500" aria-hidden="true" />
+			<Switch
+				checked={visible}
+				class="h-6 w-11 data-[state=checked]:bg-blue-500"
+				aria-label={visible ? 'Hide touch controls' : 'Show touch controls'}
+				title="Touch controls"
+				onCheckedChange={(checked) => {
+					if (Boolean(checked) !== visible) toggleVisible();
+				}}
+			/>
+		</div>
 
 		{#if unavailableHint && visible}
 			<div
 				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
 				role="status"
 			>
-				Touch controls need a same-origin play URL, an offline mirror, or the local puller
-				(<code class="text-[0.7rem]">/api/unity-play</code> /
-				<code class="text-[0.7rem]">/api/game-live</code>). On GitHub Pages, run
-				<code class="text-[0.7rem]">pnpm puller:start</code> so the service worker can relay.
-				Raw third-party embeds without the puller cannot receive controls.
+				Touch controls need a same-origin play URL or an offline mirror. On the web app,
+				download the game for local play first. The local desktop app can also use the puller
+				proxy for online games; raw third-party embeds cannot receive controls.
 			</div>
 		{/if}
 
@@ -401,10 +429,3 @@
 		{/if}
 	</div>
 {/if}
-
-<style>
-	.pt-touch-toggle--on {
-		border-color: rgb(74 222 128 / 0.55);
-		background: rgb(74 222 128 / 0.18);
-	}
-</style>

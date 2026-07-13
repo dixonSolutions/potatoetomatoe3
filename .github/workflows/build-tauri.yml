@@ -2,8 +2,6 @@ name: Build Flatpak
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*'
   pull_request:
@@ -20,6 +18,17 @@ jobs:
           lfs: true
           submodules: recursive
 
+      - name: Restore Flatpak runtime and builder cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/flatpak
+            ~/.cache/ccache
+            .flatpak-builder
+          key: flatpak-gnome50-${{ runner.os }}-${{ hashFiles('flatpak/com.potatotomato.games.yml', 'flatpak/shared-modules/**') }}
+          restore-keys: |
+            flatpak-gnome50-${{ runner.os }}-
+
       - name: Install Flatpak
         run: |
           sudo apt-get update
@@ -31,7 +40,7 @@ jobs:
         run: |
           sudo apt-get install -y \
             libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf \
-            pkg-config libssl-dev
+            pkg-config libssl-dev ccache
 
       - uses: dtolnay/rust-toolchain@stable
 
@@ -52,7 +61,11 @@ jobs:
       - name: Build app binaries
         run: |
           pnpm install --frozen-lockfile
-          cd puller && npx playwright install-deps chromium
+          if ! (ldconfig -p | rg -q 'libnss3\.so' && ldconfig -p | rg -q 'libatk-1\.0\.so'); then
+            cd puller && npx playwright install-deps chromium
+          else
+            echo "Playwright system dependencies already available"
+          fi
           cd ..
           pnpm puller:bundle:linux
           pnpm tauri:build:flatpak
@@ -60,7 +73,8 @@ jobs:
 
       - name: Build Flatpak
         run: |
-          flatpak-builder --force-clean --user --install-deps-from=flathub \
+          flatpak-builder --user --install-deps-from=flathub \
+            --state-dir=.flatpak-builder --ccache \
             --repo=repo --default-branch=stable \
             build-flatpak flatpak/com.potatotomato.games.yml
           flatpak build-bundle repo potato-tomato.flatpak com.potatotomato.games stable
