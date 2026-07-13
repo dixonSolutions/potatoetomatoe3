@@ -1,8 +1,12 @@
 name: Deploy GitHub Pages
 
-# Manual only — auto deploy on main races with release.yml and wipes /flatpak/
-# (OSTree summary). Prefer release.yml for Pages; use this for web-only hotfixes.
+# Fast web deploy on every main push, separate from Release/Flatpak.
+# Preserves /flatpak/ OSTree from the currently published site so this
+# workflow does not wipe remote Flatpak installs.
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -12,7 +16,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -40,6 +44,27 @@ jobs:
           PUBLIC_PAGES_BASE: /potatoetomatoe3
           PUBLIC_OFFLINE_DEPLOYMENT: public-site
           GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Preserve Flatpak OSTree from live Pages
+        run: |
+          set -euo pipefail
+          BASE="https://dixonsolutions.github.io/potatoetomatoe3/flatpak"
+          mkdir -p build/flatpak
+          if curl -fsSIL "$BASE/summary" >/dev/null 2>&1; then
+            echo "Mirroring existing OSTree from live Pages…"
+            (
+              cd build/flatpak
+              wget -q -r -np -nH --cut-dirs=2 -R "index.html*" "$BASE/"
+            )
+            if [ ! -f build/flatpak/summary ]; then
+              echo "ERROR: mirrored flatpak tree missing summary" >&2
+              ls -la build/flatpak >&2 || true
+              exit 1
+            fi
+            echo "OK: preserved OSTree summary ($(wc -c < build/flatpak/summary) bytes)"
+          else
+            echo "WARNING: no live /flatpak/summary — deploying web-only (remote Flatpak installs will break until Release finishes)"
+          fi
 
       - uses: actions/upload-pages-artifact@v3
         with:
