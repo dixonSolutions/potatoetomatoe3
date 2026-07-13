@@ -2,12 +2,16 @@
  * Service worker for browser-hosted offline games (GitHub Pages).
  * Serves files from IndexedDB at /browser-offline/{gameId}/…
  * Injects storage bridge into game HTML at /games/{id}/online|offline/…
- * Relays /api/unity-play/{id} to a locally running puller (avoids HTTPS→HTTP iframe mixed content).
+ * Relays /api/unity-play/{id} and /api/game-live/* to a locally running puller
+ * (avoids HTTPS→HTTP iframe mixed content). Offline scrape remains the puller's
+ * primary job; live relay is an additional capability when puller is running.
  */
 const DB_NAME = 'potatotomato-offline-v1';
 const DB_VERSION = 1;
 const FILES_STORE = 'files';
-const DEFAULT_PULLER_UNITY = 'http://127.0.0.1:18787/api/unity-play/';
+const DEFAULT_PULLER = 'http://127.0.0.1:18787';
+const DEFAULT_PULLER_UNITY = DEFAULT_PULLER + '/api/unity-play/';
+const DEFAULT_PULLER_LIVE = DEFAULT_PULLER + '/api/game-live/';
 
 function fileKey(gameId, filePath) {
 	return gameId + '::' + filePath;
@@ -89,20 +93,27 @@ function appBaseFromPath(pathname) {
 	if (gamesMatch) return gamesMatch[1] || '';
 	var unityMatch = pathname.match(/^(.*)\/api\/unity-play\//);
 	if (unityMatch) return unityMatch[1] || '';
+	var liveMatch = pathname.match(/^(.*)\/api\/game-live\//);
+	if (liveMatch) return liveMatch[1] || '';
 	return '';
 }
 
-function unityPlayRelayErrorHtml(gameId, reason) {
+function pullerRelayErrorHtml(kind, gameId, reason) {
 	var safeId = String(gameId || '').replace(/[<>&"]/g, '');
 	var safeReason = String(reason || 'Puller unreachable').replace(/[<>&"]/g, '');
+	var title = kind === 'live' ? 'Live game relay' : 'Unity play proxy';
+	var pathHint =
+		kind === 'live' ? '/api/game-live/' + safeId : '/api/unity-play/' + safeId;
 	return (
-		'<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Unity play proxy</title>' +
+		'<!DOCTYPE html><html><head><meta charset="utf-8"/><title>' +
+		title +
+		'</title>' +
 		'<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#111;color:#ddd;' +
 		'font:400 0.95rem/1.5 system-ui,sans-serif;padding:1.5rem;text-align:center}' +
 		'code{background:#222;padding:0.15rem 0.4rem;border-radius:4px}</style></head><body>' +
-		'<div><p><strong>Local puller required for Unity touch play</strong></p>' +
-		'<p>This page relays <code>/api/unity-play/' +
-		safeId +
+		'<div><p><strong>Local puller required for touch-enabled play</strong></p>' +
+		'<p>This page relays <code>' +
+		pathHint +
 		'</code> to <code>http://127.0.0.1:18787</code> via the service worker.</p>' +
 		'<p>On this machine run:</p><p><code>pnpm puller:start</code></p>' +
 		'<p style="opacity:.75;font-size:.85rem">' +
@@ -111,9 +122,8 @@ function unityPlayRelayErrorHtml(gameId, reason) {
 	);
 }
 
-function relayUnityPlay(gameId) {
-	var target = DEFAULT_PULLER_UNITY + encodeURIComponent(gameId);
-	return fetch(target, {
+function relayPullerHtml(targetUrl, kind, gameId) {
+	return fetch(targetUrl, {
 		method: 'GET',
 		headers: { Accept: 'text/html,*/*' },
 		mode: 'cors',
@@ -123,7 +133,7 @@ function relayUnityPlay(gameId) {
 			if (!res.ok) {
 				return res.text().then(function (body) {
 					var detail = body && body.length < 200 ? body : 'HTTP ' + res.status;
-					return new Response(unityPlayRelayErrorHtml(gameId, detail), {
+					return new Response(pullerRelayErrorHtml(kind, gameId, detail), {
 						status: 502,
 						headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
 					});
@@ -141,11 +151,52 @@ function relayUnityPlay(gameId) {
 		})
 		.catch(function (err) {
 			var msg = err && err.message ? err.message : 'Network error';
-			return new Response(unityPlayRelayErrorHtml(gameId, msg), {
+			return new Response(pullerRelayErrorHtml(kind, gameId, msg), {
 				status: 502,
 				headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
 			});
 		});
+}
+
+function relayPullerPassthrough(targetUrl, kind, gameId) {
+	return fetch(targetUrl, {
+		method: 'GET',
+		mode: 'cors',
+		credentials: 'omit'
+	})
+		.then(function (res) {
+			if (!res.ok) {
+				return res.text().then(function (body) {
+					var detail = body && body.length < 200 ? body : 'HTTP ' + res.status;
+					var ct = (res.headers.get('Content-Type') || '').toLowerCase();
+					if (ct.indexOf('text/html') === 0 || kind === 'live') {
+						return new Response(pullerRelayErrorHtml(kind, gameId, detail), {
+							status: 502,
+							headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+						});
+					}
+					return new Response(body, { status: res.status });
+				});
+			}
+			return res.arrayBuffer().then(function (buf) {
+				var headers = {
+					'Content-Type': res.headers.get('Content-Type') || 'application/octet-stream',
+					'Cache-Control': res.headers.get('Cache-Control') || 'private, max-age=60'
+				};
+				return new Response(buf, { status: res.status, headers: headers });
+			});
+		})
+		.catch(function (err) {
+			var msg = err && err.message ? err.message : 'Network error';
+			return new Response(pullerRelayErrorHtml(kind, gameId, msg), {
+				status: 502,
+				headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+			});
+		});
+}
+
+function relayUnityPlay(gameId) {
+	return relayPullerHtml(DEFAULT_PULLER_UNITY + encodeURIComponent(gameId), 'unity', gameId);
 }
 
 self.addEventListener('install', function (event) {
@@ -164,6 +215,23 @@ self.addEventListener('fetch', function (event) {
 	if (unityPlayMatch && event.request.method === 'GET') {
 		const gameId = decodeURIComponent(unityPlayMatch[1]);
 		event.respondWith(relayUnityPlay(gameId));
+		return;
+	}
+
+	const livePlayMatch = pathname.match(/\/api\/game-live\/([^/]+)(?:\/(.*))?$/);
+	if (livePlayMatch && event.request.method === 'GET') {
+		const gameId = decodeURIComponent(livePlayMatch[1]);
+		const rest = livePlayMatch[2] ? livePlayMatch[2] : '';
+		const target =
+			DEFAULT_PULLER_LIVE +
+			encodeURIComponent(gameId) +
+			(rest ? '/' + rest : '') +
+			url.search;
+		event.respondWith(
+			rest
+				? relayPullerPassthrough(target, 'live', gameId)
+				: relayPullerHtml(target, 'live', gameId)
+		);
 		return;
 	}
 

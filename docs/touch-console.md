@@ -46,14 +46,17 @@ flowchart TD
 | `/puller-games/{id}/offline/…` (dev proxy) | Same-origin | **Yes** |
 | `/browser-offline/{id}/…` | Same-origin | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; use puller full scrape) |
 | `/api/unity-play/{id}` (Vite / Pages SW relay) | Same-origin | **Yes** — inject.js in game doc |
+| `/api/game-live/{id}` (Vite / Pages SW relay) | Same-origin | **Yes** — storage bridge / Unity inject in live HTML |
 | `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}` | Cross-origin Worker | **Yes** via postMessage bridge |
 | `blob:…` | Same-origin | Same as browser-offline |
 | `/unity/player.html?src=…` | Same-origin shell | **No** — nested cross-origin `#game` |
 | `/games/{id}/online/index.html` | Same-origin shell | **No** — nested external embed |
-| Direct `https://…` embed | Cross-origin | **No** |
-| `http://127.0.0.1:18787/api/unity-play/…` (Tauri puller) | Cross-origin | **Yes** via postMessage bridge (inject in game doc) |
+| Direct `https://…` embed | Cross-origin | **No** without local puller live relay |
+| `http://127.0.0.1:18787/api/unity-play/…` or `/api/game-live/…` (Tauri puller) | Cross-origin | **Yes** via postMessage bridge |
 
-Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks more of the catalog. HTML5 portal shells that only wrap an external iframe still need a full mirror or generic embed proxy (out of scope for the Unity play proxy).
+The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an **extra** capability so mobile touch works on online-only external embeds while the puller is running — it does not replace offline scrape.
+
+Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks permanent offline play. Live relay covers the “play online with touch now” case without a download.
 
 ### Touch postMessage bridge
 
@@ -67,18 +70,18 @@ Handlers live in [`static/unity/inject.js`](../static/unity/inject.js) and [`sta
 
 Live probe: `resolveInjectable(iframe)` for same-origin; `canUseTouchBridge(playerUrl)` enables the bridge path when inject is known to be present.
 
-### Unity on GitHub Pages (local puller + Service Worker)
+### Unity / live embeds on GitHub Pages (local puller + Service Worker)
 
 HTTPS Pages must not iframe `http://127.0.0.1` (mixed content). Instead:
 
 1. On your machine: `pnpm puller:start` (listens on `127.0.0.1:18787`).
 2. Open the Pages site; the app registers [`offline-sw.js`](../static/offline-sw.js).
-3. Unity online play uses same-origin `{base}/api/unity-play/{id}`.
-4. The service worker relays that request to the local puller and returns HTML with `inject.js` — touch works.
+3. Unity online play uses same-origin `{base}/api/unity-play/{id}`; other external online embeds use `{base}/api/game-live/{id}`.
+4. The service worker relays that request to the local puller and returns HTML with the touch bridge — touch works.
 
 If the puller is not running, the iframe shows an error page telling you to start it.
 
-**Optional (no local puller):** deploy [`workers/unity-play-proxy/`](../workers/unity-play-proxy/), set Actions variable `PUBLIC_PLAY_PROXY_URL`, and Pages prefers that hosted proxy. Random visitors without puller or `PUBLIC_PLAY_PROXY_URL` cannot use touch on online Unity CDN shells.
+**Optional (Unity only, no local puller):** deploy [`workers/unity-play-proxy/`](../workers/unity-play-proxy/), set Actions variable `PUBLIC_PLAY_PROXY_URL`, and Pages prefers that hosted proxy for Unity. Live HTML5 relay always needs the local puller. Random visitors without puller or `PUBLIC_PLAY_PROXY_URL` cannot use touch on online Unity CDN shells.
 ## Gestures and UX
 
 | Action | Behavior |
@@ -178,8 +181,8 @@ Assets live in [`docs/touch-console/assets/`](./touch-console/assets/) in chrono
 - **interact.js** drag + resize for every control (position already editable; size still Settings/scale)
 - Click passthrough vs Tap Zone (opt-in full-surface Space / bound key)
 - Binding picker (key + mouseClick) and add/remove controls per game
-- Generic embed proxy for CrazyGames / Playhop shells (Unity play proxy + touch bridge already shipped)
-- Broader puller `generic` mirroring coverage
+- Broader puller `generic` mirroring coverage for permanent offline play
+- Optional hosted live-relay Worker (today `/api/game-live` needs local puller)
 - Genre / engine mapping presets + crowdsourced profiles
 - Hardware gamepad passthrough and virtual trackpad / cursor mode
 - Compact mobile game-page chrome (Play first, icon grid) from the mockup HTML

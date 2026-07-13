@@ -292,10 +292,11 @@
 				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
 				role="status"
 			>
-				Touch controls need a same-origin or proxied Unity play URL. On GitHub Pages, run
-				<code class="text-[0.7rem]">pnpm puller:start</code> locally (service worker relays) or use
-				an offline mirror / play proxy. Online portal shells that only wrap an external embed cannot
-				receive controls.
+				Touch controls need a same-origin play URL, an offline mirror, or the local puller
+				(<code class="text-[0.7rem]">/api/unity-play</code> /
+				<code class="text-[0.7rem]">/api/game-live</code>). On GitHub Pages, run
+				<code class="text-[0.7rem]">pnpm puller:start</code> so the service worker can relay.
+				Raw third-party embeds without the puller cannot receive controls.
 			</div>
 		{/if}
 

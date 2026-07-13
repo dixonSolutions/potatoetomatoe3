@@ -310,9 +310,9 @@ var init_extract = __esm({
 // src/server.ts
 init_config();
 import http from "node:http";
-import fs22 from "node:fs/promises";
-import { createReadStream, existsSync as existsSync11 } from "node:fs";
-import path24 from "node:path";
+import fs23 from "node:fs/promises";
+import { createReadStream, existsSync as existsSync12 } from "node:fs";
+import path25 from "node:path";
 
 // src/download-manager.ts
 import fs19 from "node:fs/promises";
@@ -3820,10 +3820,272 @@ async function fetchProxiedUnityHtml(gameId) {
   return html;
 }
 
-// src/browser-data.ts
+// src/live/proxy.ts
+init_config();
+
+// src/live/safety.ts
+import net from "node:net";
+var PRIVATE_IPV4 = [
+  /^127\./,
+  /^10\./,
+  /^192\.168\./,
+  /^169\.254\./,
+  /^0\./,
+  /^100\.(6[4-9]|[7-9]\d|1[0-1]\d|12[0-7])\./,
+  // CGNAT
+  /^172\.(1[6-9]|2\d|3[0-1])\./
+];
+function isBlockedHostname(hostname) {
+  const host = hostname.trim().toLowerCase().replace(/^\[|\]$/g, "");
+  if (!host) return true;
+  if (host === "localhost" || host.endsWith(".localhost") || host === "::1") return true;
+  if (host === "0.0.0.0" || host === "::") return true;
+  const ipVersion = net.isIP(host);
+  if (ipVersion === 4) {
+    return PRIVATE_IPV4.some((re) => re.test(host));
+  }
+  if (ipVersion === 6) {
+    const normalized = host.toLowerCase();
+    return normalized === "::1" || normalized.startsWith("fc") || normalized.startsWith("fd") || normalized.startsWith("fe80:");
+  }
+  return false;
+}
+function assertSafePlayUrl(raw) {
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    throw new Error("Invalid play target URL");
+  }
+  if (url.protocol !== "http:" && url.protocol !== "https:") {
+    throw new Error("Play target must be http(s)");
+  }
+  if (isBlockedHostname(url.hostname)) {
+    throw new Error("Play target host is not allowed");
+  }
+  return url;
+}
+
+// src/live/session.ts
+import { randomBytes } from "node:crypto";
+var sessions = /* @__PURE__ */ new Map();
+var SESSION_TTL_MS = 30 * 60 * 1e3;
+var MAX_SESSIONS = 64;
+function newSessionId() {
+  return randomBytes(12).toString("hex");
+}
+function expireIdle() {
+  const now = Date.now();
+  for (const [id, session] of sessions) {
+    if (now - session.lastUsedAt > SESSION_TTL_MS) {
+      sessions.delete(id);
+    }
+  }
+  while (sessions.size > MAX_SESSIONS) {
+    let oldestId = null;
+    let oldestAt = Number.POSITIVE_INFINITY;
+    for (const [id, session] of sessions) {
+      if (session.lastUsedAt < oldestAt) {
+        oldestAt = session.lastUsedAt;
+        oldestId = id;
+      }
+    }
+    if (!oldestId) break;
+    sessions.delete(oldestId);
+  }
+}
+function createLiveSession(options) {
+  expireIdle();
+  const target = new URL(options.targetUrl);
+  const baseHref = options.targetUrl;
+  const session = {
+    id: newSessionId(),
+    gameId: options.gameId,
+    targetUrl: options.targetUrl,
+    targetOrigin: target.origin,
+    baseHref,
+    createdAt: Date.now(),
+    lastUsedAt: Date.now(),
+    allowedOrigins: /* @__PURE__ */ new Set([target.origin])
+  };
+  sessions.set(session.id, session);
+  return session;
+}
+function getLiveSession(gameId, sessionId) {
+  expireIdle();
+  const session = sessions.get(sessionId);
+  if (!session || session.gameId !== gameId) return null;
+  session.lastUsedAt = Date.now();
+  return session;
+}
+function allowOrigin(session, origin) {
+  session.allowedOrigins.add(origin);
+}
+function isOriginAllowed(session, origin) {
+  return session.allowedOrigins.has(origin);
+}
+function resolveSessionAssetUrl(session, assetPath, absoluteOverride) {
+  if (absoluteOverride) {
+    const abs = new URL(absoluteOverride);
+    if (!isOriginAllowed(session, abs.origin)) {
+      throw new Error("Asset origin not allowed for this live session");
+    }
+    return abs.href;
+  }
+  const rel = assetPath.replace(/^\/+/, "");
+  return new URL(rel || ".", session.baseHref).href;
+}
+
+// src/live/target.ts
 import fs21 from "node:fs/promises";
-import path23 from "node:path";
 import { existsSync as existsSync10 } from "node:fs";
+import path23 from "node:path";
+function extractIframeSrc3(html) {
+  const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
+  for (const re of patterns) {
+    const m = html.match(re);
+    if (m?.[1]) {
+      const src = m[1].replace(/&amp;/g, "&").trim();
+      if (src.startsWith("http")) return src;
+    }
+  }
+  return null;
+}
+async function resolveLiveTargetUrl(gameId) {
+  const meta = await readGameMetadata(gameId);
+  const embed = typeof meta?.onlineEmbedUrl === "string" ? meta.onlineEmbedUrl.trim() : "";
+  if (embed) {
+    assertSafePlayUrl(embed);
+    return embed;
+  }
+  const indexPath = path23.join(catalogOnlineDir(gameId), "index.html");
+  if (!existsSync10(indexPath)) return null;
+  const html = await fs21.readFile(indexPath, "utf-8");
+  const iframeSrc = extractIframeSrc3(html);
+  if (!iframeSrc) return null;
+  assertSafePlayUrl(iframeSrc);
+  return iframeSrc;
+}
+function normalizeBaseUrl(targetUrl) {
+  const parsed = new URL(targetUrl);
+  if (!parsed.pathname.endsWith("/") && !/\.[a-z0-9]+$/i.test(parsed.pathname)) {
+    parsed.pathname = `${parsed.pathname}/`;
+  }
+  return parsed.href;
+}
+
+// src/live/proxy.ts
+var FETCH_TIMEOUT_MS = 6e4;
+var MAX_HTML_BYTES = 8 * 1024 * 1024;
+var MAX_ASSET_BYTES = 80 * 1024 * 1024;
+function looksLikeUnity(metaEngine, html) {
+  if (typeof metaEngine === "string" && metaEngine.toLowerCase() === "unity") return true;
+  return isUnityGameHtml(html);
+}
+function rewriteHtmlForLiveSession(html, session, proxyPrefix) {
+  const base = new URL(session.baseHref);
+  const toProxy = (rawUrl) => {
+    try {
+      const abs = new URL(rawUrl, base);
+      assertSafePlayUrl(abs.href);
+      allowOrigin(session, abs.origin);
+      if (abs.origin === session.targetOrigin) {
+        const rel = abs.pathname.replace(/^\//, "") + abs.search + abs.hash;
+        return `${proxyPrefix}/${rel}`;
+      }
+      const encoded = encodeURIComponent(abs.href);
+      return `${proxyPrefix}/_ext?u=${encoded}`;
+    } catch {
+      return rawUrl;
+    }
+  };
+  let out = html.replace(
+    /(src|href)=["'](?!data:|blob:|#|javascript:)([^"']+)["']/gi,
+    (_m, attr, rel) => `${attr}="${toProxy(rel)}"`
+  );
+  out = out.replace(/url\(\s*(['"]?)(?!data:|blob:)([^)'"]+)\1\s*\)/gi, (_m, _q, rel) => {
+    return `url("${toProxy(rel.trim())}")`;
+  });
+  return out;
+}
+async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
+  const targetUrl = await resolveLiveTargetUrl(gameId);
+  if (!targetUrl) return null;
+  const session = createLiveSession({
+    gameId,
+    targetUrl: normalizeBaseUrl(targetUrl)
+  });
+  session.targetUrl = targetUrl;
+  session.baseHref = targetUrl;
+  const res = await fetch(targetUrl, {
+    headers: {
+      "User-Agent": WGET_USER_AGENT,
+      Accept: "text/html,application/xhtml+xml,*/*"
+    },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    redirect: "follow"
+  });
+  if (!res.ok) return null;
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.byteLength > MAX_HTML_BYTES) {
+    throw new Error("Live HTML response too large");
+  }
+  let html = buf.toString("utf-8");
+  if (looksLikeUnity(metaEngine, html)) {
+    html = injectUnityPatches(html);
+  }
+  const proxyPrefix = proxyPrefixForGame(session.id);
+  html = rewriteHtmlForLiveSession(html, session, proxyPrefix);
+  html = injectGameStorageBridge(html, gameId);
+  const contentType = res.headers.get("content-type") || "text/html; charset=utf-8";
+  return { session, html, contentType };
+}
+async function fetchLiveAsset(gameId, sessionId, assetPath, absoluteOverride) {
+  const session = getLiveSession(gameId, sessionId);
+  if (!session) return null;
+  const remoteUrl = resolveSessionAssetUrl(session, assetPath, absoluteOverride);
+  const parsed = assertSafePlayUrl(remoteUrl);
+  if (!isOriginAllowed(session, parsed.origin)) {
+    throw new Error("Asset origin not allowed for this live session");
+  }
+  const res = await fetch(remoteUrl, {
+    headers: {
+      "User-Agent": WGET_USER_AGENT,
+      Accept: "*/*",
+      Referer: session.targetUrl
+    },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    redirect: "follow"
+  });
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.byteLength > MAX_ASSET_BYTES) {
+    throw new Error("Live asset response too large");
+  }
+  let contentType = res.headers.get("content-type") || "application/octet-stream";
+  let body = buf;
+  if (/text\/html/i.test(contentType) || /\.html?$/i.test(parsed.pathname)) {
+    let html = buf.toString("utf-8");
+    const proxyPrefix = `/api/game-live/${encodeURIComponent(gameId)}/${session.id}`;
+    if (isUnityGameHtml(html)) {
+      html = injectUnityPatches(html);
+    }
+    html = rewriteHtmlForLiveSession(html, session, proxyPrefix);
+    html = injectGameStorageBridge(html, gameId);
+    body = Buffer.from(html, "utf-8");
+    contentType = "text/html; charset=utf-8";
+  }
+  return {
+    status: res.status,
+    contentType,
+    body,
+    cacheControl: res.headers.get("cache-control") || void 0
+  };
+}
+
+// src/browser-data.ts
+import fs22 from "node:fs/promises";
+import path24 from "node:path";
+import { existsSync as existsSync11 } from "node:fs";
 
 // src/browser-data-profile.ts
 var BROWSER_PROFILE_SCHEMA_VERSION = 1;
@@ -3856,43 +4118,43 @@ var PROFILE_DISK_PATHS = {
 
 // src/browser-data.ts
 function browserDataDir(gameId) {
-  return path23.join(gameDataRoot(gameId), "data");
+  return path24.join(gameDataRoot(gameId), "data");
 }
 function dataFilePath(gameId, rel) {
-  return path23.join(browserDataDir(gameId), rel);
+  return path24.join(browserDataDir(gameId), rel);
 }
 function assertDataPath(gameId, absPath) {
-  const root = path23.resolve(browserDataDir(gameId));
-  const resolved = path23.resolve(absPath);
-  if (!resolved.startsWith(root + path23.sep) && resolved !== root) {
+  const root = path24.resolve(browserDataDir(gameId));
+  const resolved = path24.resolve(absPath);
+  if (!resolved.startsWith(root + path24.sep) && resolved !== root) {
     throw new Error("Path traversal rejected");
   }
 }
 async function readJsonFile(filePath, fallback) {
   try {
-    const raw = await fs21.readFile(filePath, "utf-8");
+    const raw = await fs22.readFile(filePath, "utf-8");
     return JSON.parse(raw);
   } catch {
     return fallback;
   }
 }
 async function writeJsonAtomic(filePath, data) {
-  const dir = path23.dirname(filePath);
-  await fs21.mkdir(dir, { recursive: true });
+  const dir = path24.dirname(filePath);
+  await fs22.mkdir(dir, { recursive: true });
   const tmp = filePath + ".tmp";
-  await fs21.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
-  await fs21.rename(tmp, filePath);
+  await fs22.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
+  await fs22.rename(tmp, filePath);
 }
 async function loadIndexedDbProfiles(gameId) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  if (!existsSync10(idbRoot)) return [];
-  const entries = await fs21.readdir(idbRoot, { withFileTypes: true });
+  if (!existsSync11(idbRoot)) return [];
+  const entries = await fs22.readdir(idbRoot, { withFileTypes: true });
   const profiles = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const dbDir = path23.join(idbRoot, entry.name);
-    const metaPath = path23.join(dbDir, "meta.json");
-    const recordsPath = path23.join(dbDir, "records.json");
+    const dbDir = path24.join(idbRoot, entry.name);
+    const metaPath = path24.join(dbDir, "meta.json");
+    const recordsPath = path24.join(dbDir, "records.json");
     try {
       const meta = await readJsonFile(
         metaPath,
@@ -3912,30 +4174,30 @@ async function loadIndexedDbProfiles(gameId) {
 }
 async function saveIndexedDbProfiles(gameId, databases) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  await fs21.mkdir(idbRoot, { recursive: true });
-  const existing = existsSync10(idbRoot) ? await fs21.readdir(idbRoot, { withFileTypes: true }) : [];
+  await fs22.mkdir(idbRoot, { recursive: true });
+  const existing = existsSync11(idbRoot) ? await fs22.readdir(idbRoot, { withFileTypes: true }) : [];
   for (const entry of existing) {
     if (entry.isDirectory()) {
-      await fs21.rm(path23.join(idbRoot, entry.name), { recursive: true, force: true });
+      await fs22.rm(path24.join(idbRoot, entry.name), { recursive: true, force: true });
     }
   }
   for (const db of databases) {
     const safeName = db.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const dbDir = path23.join(idbRoot, safeName);
+    const dbDir = path24.join(idbRoot, safeName);
     assertDataPath(gameId, dbDir);
-    await fs21.mkdir(dbDir, { recursive: true });
-    await writeJsonAtomic(path23.join(dbDir, "meta.json"), {
+    await fs22.mkdir(dbDir, { recursive: true });
+    await writeJsonAtomic(path24.join(dbDir, "meta.json"), {
       name: db.name,
       version: db.version,
       objectStores: db.objectStores
     });
-    await writeJsonAtomic(path23.join(dbDir, "records.json"), db.records);
+    await writeJsonAtomic(path24.join(dbDir, "records.json"), db.records);
   }
 }
 async function readGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
   const metaPath = dataFilePath(gameId, PROFILE_DISK_PATHS.meta);
-  if (!existsSync10(root) && !existsSync10(metaPath)) {
+  if (!existsSync11(root) && !existsSync11(metaPath)) {
     return null;
   }
   const profile = emptyGameBrowserProfile();
@@ -3969,7 +4231,7 @@ async function writeGameBrowserProfile(gameId, input) {
   }
   const root = browserDataDir(gameId);
   assertDataPath(gameId, root);
-  await fs21.mkdir(root, { recursive: true });
+  await fs22.mkdir(root, { recursive: true });
   const updatedAt = Date.now();
   const profile = {
     ...input,
@@ -3993,9 +4255,9 @@ async function writeGameBrowserProfile(gameId, input) {
 }
 async function deleteGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
-  if (!existsSync10(root)) return;
+  if (!existsSync11(root)) return;
   assertDataPath(gameId, root);
-  await fs21.rm(root, { recursive: true, force: true });
+  await fs22.rm(root, { recursive: true, force: true });
 }
 
 // src/server.ts
@@ -4011,7 +4273,7 @@ function sendJson(res, status, body) {
   res.end(payload);
 }
 function mimeFor(filePath) {
-  const ext = path24.extname(filePath).toLowerCase();
+  const ext = path25.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
     ".js": "application/javascript",
@@ -4063,13 +4325,13 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 403, { error: "Forbidden" });
     return true;
   }
-  if (!existsSync11(absPath)) {
+  if (!existsSync12(absPath)) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
   let st;
   try {
-    st = await fs22.stat(absPath);
+    st = await fs23.stat(absPath);
   } catch {
     sendJson(res, 404, { error: "Not found" });
     return true;
@@ -4086,7 +4348,7 @@ async function serveStaticGames(req, res, urlPath) {
     "Cache-Control": "public, max-age=3600"
   });
   if (isHtml) {
-    let raw = await fs22.readFile(absPath, "utf-8");
+    let raw = await fs23.readFile(absPath, "utf-8");
     if (isUnityGameHtml(raw)) {
       raw = injectUnityPatches(raw);
     }
@@ -4212,6 +4474,75 @@ function createServer() {
           "Cache-Control": "public, max-age=300"
         });
         res.end(injectGameStorageBridge(html, gameId));
+        return;
+      }
+      const liveEntryMatch = pathname.match(/^\/api\/game-live\/([^/]+)\/?$/);
+      if (liveEntryMatch && req.method === "GET") {
+        const gameId = decodeURIComponent(liveEntryMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: "Invalid game id" });
+          return;
+        }
+        if (!await isGameInCatalog(gameId)) {
+          sendJson(res, 404, { error: "Game not in catalog" });
+          return;
+        }
+        const meta = await readGameMetadata(gameId);
+        const result = await startLiveGameHtml(
+          gameId,
+          meta?.engine,
+          (sessionId) => `/api/game-live/${encodeURIComponent(gameId)}/${sessionId}`
+        );
+        if (!result) {
+          sendJson(res, 502, { error: "Could not fetch live game" });
+          return;
+        }
+        res.writeHead(200, {
+          "Content-Type": result.contentType.includes("text/html") ? "text/html; charset=utf-8" : result.contentType,
+          "Access-Control-Allow-Origin": CORS_ORIGIN,
+          "Access-Control-Allow-Private-Network": "true",
+          "Cache-Control": "private, max-age=60",
+          "X-PT-Live-Session": result.session.id
+        });
+        res.end(result.html);
+        return;
+      }
+      const liveAssetMatch = pathname.match(/^\/api\/game-live\/([^/]+)\/([^/]+)\/(.*)$/);
+      if (liveAssetMatch && req.method === "GET") {
+        const gameId = decodeURIComponent(liveAssetMatch[1]);
+        const sessionId = decodeURIComponent(liveAssetMatch[2]);
+        const assetPath = decodeURIComponent(liveAssetMatch[3] || "");
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: "Invalid game id" });
+          return;
+        }
+        if (!await isGameInCatalog(gameId)) {
+          sendJson(res, 404, { error: "Game not in catalog" });
+          return;
+        }
+        const absoluteOverride = assetPath === "_ext" ? url.searchParams.get("u") : null;
+        try {
+          const asset = await fetchLiveAsset(
+            gameId,
+            sessionId,
+            absoluteOverride ? "" : assetPath,
+            absoluteOverride
+          );
+          if (!asset) {
+            sendJson(res, 404, { error: "Live session expired or asset missing" });
+            return;
+          }
+          res.writeHead(asset.status, {
+            "Content-Type": asset.contentType,
+            "Access-Control-Allow-Origin": CORS_ORIGIN,
+            "Access-Control-Allow-Private-Network": "true",
+            "Cache-Control": asset.cacheControl || "private, max-age=300"
+          });
+          res.end(asset.body);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          sendJson(res, 502, { error: message });
+        }
         return;
       }
       const deleteMatch = pathname.match(/^\/api\/offline\/([^/]+)$/);

@@ -9,7 +9,10 @@ The app picks an offline backend automatically from where it is running:
 
 Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or `local-app` in `.env` if needed.
 
-The puller is a standalone Node.js backend at `puller/` that mirrors games into `static/games/<id>/offline/` and serves them over HTTP.
+The puller is a standalone Node.js backend at `puller/` that:
+
+1. **Primary:** mirrors games into `static/games/<id>/offline/` for true offline play (`/api/offline`)
+2. **Also:** live-relays external online embeds through `/api/game-live` (and Unity via `/api/unity-play`) so touch works while online — without creating an offline download
 
 ## Running
 
@@ -92,9 +95,17 @@ pnpm run games:import-y8 -- --limit 50 --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock + touch postMessage bridge).
+Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock + touch postMessage bridge). Non-Unity external embeds use `/api/game-live/:id` (live relay — not an offline download).
 
-**GitHub Pages:** Unity online uses same-origin `{base}/api/unity-play/:id`. [`offline-sw.js`](../static/offline-sw.js) relays to `http://127.0.0.1:18787` when you run `pnpm puller:start` locally (no hosted proxy required; avoids mixed-content). Optionally set `PUBLIC_PLAY_PROXY_URL` (Cloudflare Worker) for visitors without a local puller — see [`workers/unity-play-proxy/`](../workers/unity-play-proxy/). Without puller or that env var, the SW iframe shows an error page (touch unavailable).
+**GitHub Pages:** Unity online uses same-origin `{base}/api/unity-play/:id`; other external online embeds use `{base}/api/game-live/:id`. [`offline-sw.js`](../static/offline-sw.js) relays to `http://127.0.0.1:18787` when you run `pnpm puller:start` locally (no hosted proxy required; avoids mixed-content). Optionally set `PUBLIC_PLAY_PROXY_URL` (Cloudflare Worker) for Unity visitors without a local puller — see [`workers/unity-play-proxy/`](../workers/unity-play-proxy/). Without puller or that env var, the SW iframe shows an error page (touch unavailable).
+
+### Live online relay (additional capability)
+
+When the puller is running, catalog games with an external `onlineEmbedUrl` can play through same-origin `/api/game-live/:id`. That path:
+
+- Fetches the remote entry HTML and rewrites assets through a short-lived in-memory session
+- Injects the touch / storage bridge (and Unity patches when the HTML looks like Unity)
+- Does **not** write an offline mirror — use **Download for offline** / `/api/offline` for that
 
 Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
 
@@ -183,4 +194,4 @@ Note: private repos require a GitHub plan that includes Pages for private reposi
 
 ## Touch console
 
-Mirrored / offline play paths are what make the [universal touch console](./touch-console.md) able to inject keyboard events into the game document. Live third-party embeds and nested Unity shells remain non-injectable until a guest bridge lands.
+Mirrored / offline play paths are what make the [universal touch console](./touch-console.md) able to inject keyboard events into the game document. With the local puller running, live relay (`/api/game-live`) and Unity play (`/api/unity-play`) also enable touch for external online embeds without a permanent download.

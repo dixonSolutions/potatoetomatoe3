@@ -12,10 +12,11 @@ import {
   cancelDownload
 } from './download-manager.js';
 import { getProgressJobForGame } from './jobs.js';
-import { isValidGameId, isGameInCatalog, loadGameIds, resolveOfflineFilePath } from './catalog.js';
+import { isValidGameId, isGameInCatalog, loadGameIds, resolveOfflineFilePath, readGameMetadata } from './catalog.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
 import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
 import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
+import { fetchLiveAsset, startLiveGameHtml } from './live/proxy.js';
 import {
 	deleteGameBrowserProfile,
 	readGameBrowserProfile,
@@ -268,6 +269,85 @@ export function createServer(): http.Server {
           'Cache-Control': 'public, max-age=300'
         });
         res.end(injectGameStorageBridge(html, gameId));
+        return;
+      }
+
+      /*
+       * Live play relay (additional to offline scrape):
+       * GET /api/game-live/:gameId — entry HTML with touch bridge
+       * GET /api/game-live/:gameId/:sessionId/... — proxied assets
+       */
+      const liveEntryMatch = pathname.match(/^\/api\/game-live\/([^/]+)\/?$/);
+      if (liveEntryMatch && req.method === 'GET') {
+        const gameId = decodeURIComponent(liveEntryMatch[1]);
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        if (!(await isGameInCatalog(gameId))) {
+          sendJson(res, 404, { error: 'Game not in catalog' });
+          return;
+        }
+        const meta = await readGameMetadata(gameId);
+        const result = await startLiveGameHtml(
+          gameId,
+          meta?.engine,
+          (sessionId) => `/api/game-live/${encodeURIComponent(gameId)}/${sessionId}`
+        );
+        if (!result) {
+          sendJson(res, 502, { error: 'Could not fetch live game' });
+          return;
+        }
+        res.writeHead(200, {
+          'Content-Type': result.contentType.includes('text/html')
+            ? 'text/html; charset=utf-8'
+            : result.contentType,
+          'Access-Control-Allow-Origin': CORS_ORIGIN,
+          'Access-Control-Allow-Private-Network': 'true',
+          'Cache-Control': 'private, max-age=60',
+          'X-PT-Live-Session': result.session.id
+        });
+        res.end(result.html);
+        return;
+      }
+
+      const liveAssetMatch = pathname.match(/^\/api\/game-live\/([^/]+)\/([^/]+)\/(.*)$/);
+      if (liveAssetMatch && req.method === 'GET') {
+        const gameId = decodeURIComponent(liveAssetMatch[1]);
+        const sessionId = decodeURIComponent(liveAssetMatch[2]);
+        const assetPath = decodeURIComponent(liveAssetMatch[3] || '');
+        if (!isValidGameId(gameId)) {
+          sendJson(res, 400, { error: 'Invalid game id' });
+          return;
+        }
+        if (!(await isGameInCatalog(gameId))) {
+          sendJson(res, 404, { error: 'Game not in catalog' });
+          return;
+        }
+        const absoluteOverride =
+          assetPath === '_ext' ? url.searchParams.get('u') : null;
+        try {
+          const asset = await fetchLiveAsset(
+            gameId,
+            sessionId,
+            absoluteOverride ? '' : assetPath,
+            absoluteOverride
+          );
+          if (!asset) {
+            sendJson(res, 404, { error: 'Live session expired or asset missing' });
+            return;
+          }
+          res.writeHead(asset.status, {
+            'Content-Type': asset.contentType,
+            'Access-Control-Allow-Origin': CORS_ORIGIN,
+            'Access-Control-Allow-Private-Network': 'true',
+            'Cache-Control': asset.cacheControl || 'private, max-age=300'
+          });
+          res.end(asset.body);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          sendJson(res, 502, { error: message });
+        }
         return;
       }
 

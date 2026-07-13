@@ -330,3 +330,20 @@ export function pullerUnityPlayUrl(gameId: string, basePath = ''): string {
 	}
 	return `${getPullerBaseUrl()}/api/unity-play/${encodeURIComponent(gameId)}`;
 }
+
+/**
+ * Live play relay URL (additional puller capability — does not create an offline mirror).
+ * Dev: same-origin Vite proxy. Packaged Tauri: direct loopback.
+ */
+export function pullerLiveGameUrl(gameId: string, basePath = ''): string {
+	if (shouldUsePullerGameProxy()) {
+		return `${getPullerGameProxyPrefix(basePath).replace(/\/puller-games$/, '')}/api/game-live/${encodeURIComponent(gameId)}`;
+	}
+	return `${getPullerBaseUrl()}/api/game-live/${encodeURIComponent(gameId)}`;
+}
+
+/** Same-origin live route for GitHub Pages (service worker relays to local puller). */
+export function sameOriginLiveGameUrl(gameId: string, basePath = ''): string {
+	const base = basePath.replace(/\/$/, '');
+	return `${base}/api/game-live/${encodeURIComponent(gameId)}`.replace(/\/{2,}/g, '/');
+}
