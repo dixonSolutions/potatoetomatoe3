@@ -169,7 +169,7 @@ function relayPullerPassthrough(targetUrl, kind, gameId) {
 				return res.text().then(function (body) {
 					var detail = body && body.length < 200 ? body : 'HTTP ' + res.status;
 					var ct = (res.headers.get('Content-Type') || '').toLowerCase();
-					if (ct.indexOf('text/html') === 0 || kind === 'live') {
+					if (ct.indexOf('text/html') === 0) {
 						return new Response(pullerRelayErrorHtml(kind, gameId, detail), {
 							status: 502,
 							headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
