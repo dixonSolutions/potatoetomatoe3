@@ -26,8 +26,11 @@ describe('live/session', () => {
 			gameId: 'ovo',
 			targetUrl: 'https://games.example.com/en_US/ovo/index.html'
 		});
-		const relative = resolveSessionAssetUrl(session, 'Build/game.js');
+		const relative = resolveSessionAssetUrl(session, 'en_US/ovo/Build/game.js');
 		assert.equal(relative, 'https://games.example.com/en_US/ovo/Build/game.js');
+
+		const rootRelative = resolveSessionAssetUrl(session, 'shared/style.css');
+		assert.equal(rootRelative, 'https://games.example.com/shared/style.css');
 
 		allowOrigin(session, 'https://cdn.example.com');
 		const absolute = resolveSessionAssetUrl(

@@ -95,7 +95,8 @@ export function resolveSessionAssetUrl(
 		return abs.href;
 	}
 	const rel = assetPath.replace(/^\/+/, '');
-	return new URL(rel || '.', session.baseHref).href;
+	/* Proxy paths are origin-root pathnames from rewriteHtmlForLiveSession. */
+	return new URL(`/${rel || ''}`, session.targetOrigin).href;
 }
 
 export function liveSessionCount(): number {
