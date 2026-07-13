@@ -195,7 +195,11 @@ export async function startGameDownload(
 				await import('./offline-downloader-puller');
 			if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) {
 				browserPullerDownloads.add(gameId);
-				return startPullerGameDownload(gameId);
+				const result = await startPullerGameDownload(gameId);
+				if (!result.started) {
+					browserPullerDownloads.delete(gameId);
+				}
+				return result;
 			}
 			return { started: false, message: EXTERNAL_IFRAME_NEEDS_PULLER };
 		}

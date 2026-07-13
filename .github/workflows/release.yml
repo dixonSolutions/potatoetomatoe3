@@ -95,11 +95,10 @@ jobs:
       - name: Build puller sidecar
         run: |
           if ! (ldconfig -p | rg -q 'libnss3\.so' && ldconfig -p | rg -q 'libatk-1\.0\.so'); then
-            cd puller && npx playwright install-deps chromium
+            (cd puller && npx playwright install-deps chromium)
           else
             echo "Playwright system dependencies already available"
           fi
-          cd ..
           pnpm puller:bundle:linux
 
       - name: Build Tauri app

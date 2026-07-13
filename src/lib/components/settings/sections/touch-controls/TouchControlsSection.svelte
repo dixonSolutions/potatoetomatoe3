@@ -13,6 +13,7 @@
 		codesToLabel,
 		getDefaultTouchLayout,
 		loadTouchConsoleSettings,
+		translateTouchLayout,
 		type TouchAvailability,
 		type TouchConsoleSettings,
 		type TouchDirection,
@@ -100,8 +101,10 @@
 			next.joystick.xPct = clamp(previewDrag.origin.joystick.xPct + dxPct);
 			next.joystick.yPct = clamp(previewDrag.origin.joystick.yPct + dyPct);
 		} else if (previewDrag.id === 'console') {
-			next.console.xPct = clamp(previewDrag.origin.console.xPct + dxPct);
-			next.console.yPct = clamp(previewDrag.origin.console.yPct + dyPct);
+			const translated = translateTouchLayout(previewDrag.origin, dxPct, dyPct);
+			next.console = translated.console;
+			next.joystick = translated.joystick;
+			next.buttons = translated.buttons;
 		} else {
 			next.buttons = next.buttons.map((b) => {
 				if (b.id !== previewDrag!.id) return b;
