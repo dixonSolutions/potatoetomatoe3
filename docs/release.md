@@ -10,9 +10,9 @@ On every push to `main`:
 2. **Puller sidecar** — `pnpm puller:bundle:linux`
 3. **Flatpak build** — packages prebuilt Tauri binary + puller sidecar via `flatpak/com.potatotomato.games.yml`
 4. **GitHub Release** — attaches `com.potatotomato.games-<version>.flatpak`
-5. **GitHub Pages** — deploys web build + OSTree repo at `/flatpak/` + `.flatpakrepo` file
+5. **Pages refresh** — `pages.yml` asynchronously deploys the web build and the new OSTree repo after Release completes
 
-The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) runs on every `push` to `main` (and `workflow_dispatch`) for fast web updates, separate from the Flatpak Release. Before uploading it **copies `/flatpak/` OSTree from the latest successful Release artifact** so web-only deploys do not wipe remote Flatpak installs. `release.yml` still rebuilds Pages with a freshly built OSTree when a Release finishes.
+The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) runs on every `push` to `main` (and `workflow_dispatch`) for fast web updates. It also runs after a successful `Release` workflow and uses that exact Release artifact, so `/flatpak/` is refreshed without making Release wait for a second site build. Push-triggered Pages runs copy the latest successful Release OSTree so web-only deploys do not wipe remote Flatpak installs.
 
 ## Public Flatpak remote
 
@@ -63,8 +63,11 @@ pnpm flatpak:install  # package + install to user
 pnpm flatpak:run      # run installed app
 ```
 
-CI caches the Rust `src-tauri` target via `Swatinem/rust-cache` so subsequent workflow runs
-skip most crate recompilation.
+CI caches the Rust `src-tauri` target via `Swatinem/rust-cache`, pnpm packages, Flatpak runtimes,
+Flatpak builder state, and ccache. Subsequent workflow runs skip most crate recompilation and
+avoid rebuilding the GNOME runtime and app-indicator module from scratch. Routine CI publishes
+the OSTree without static deltas; the GitHub Release `.flatpak` bundle remains available for
+single-file installation.
 
 ## Tauri binary (without Flatpak)
 

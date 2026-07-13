@@ -8,6 +8,13 @@ on:
     branches:
       - main
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Release
+    types:
+      - completed
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -21,6 +28,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -52,10 +60,14 @@ jobs:
       - name: Preserve Flatpak OSTree from latest Release
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || '' }}
         run: |
           set -uo pipefail
           mkdir -p build/flatpak
-          RUN_ID=$(gh run list --repo "${{ github.repository }}" --workflow=release.yml --branch=main --status=success --limit 1 --json databaseId --jq '.[0].databaseId // empty' || true)
+          RUN_ID="${RELEASE_RUN_ID}"
+          if [ -z "${RUN_ID}" ]; then
+            RUN_ID=$(gh run list --repo "${{ github.repository }}" --workflow=release.yml --branch=main --status=success --limit 1 --json databaseId --jq '.[0].databaseId // empty' || true)
+          fi
           if [ -z "${RUN_ID}" ]; then
             echo "WARNING: no successful Release run — deploying web-only"
             exit 0

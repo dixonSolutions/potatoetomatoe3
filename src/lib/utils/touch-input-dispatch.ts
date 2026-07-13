@@ -1,9 +1,23 @@
+import { isPublicSiteDeployment } from './offline-deployment';
+
 /**
  * Same-origin touch → keyboard translation for game iframes.
  * Recurses nested same-origin frames (like broadcastGamePause) and stops at cross-origin boundaries.
  */
 
 import type { TouchDirection, TouchKeyCode } from '$lib/utils/touch-console';
+
+/**
+ * Cross-platform touch-first heuristic. Browsers do not expose physical
+ * keyboard presence, so combine touch capability with coarse/no-hover input.
+ */
+export function isTouchOnlyDevice(): boolean {
+	if (typeof navigator === 'undefined' || typeof window === 'undefined') return false;
+	const touchPoints = navigator.maxTouchPoints ?? 0;
+	const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches ?? false;
+	const hoverInput = window.matchMedia?.('(hover: hover)').matches ?? false;
+	return touchPoints > 0 && coarsePointer && !hoverInput;
+}
 
 export type InjectableTarget = {
 	doc: Document;
@@ -177,7 +191,11 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	if (u.startsWith('blob:')) return true;
 	if (u.includes('/puller-games/')) return true;
 	if (u.includes('/browser-offline/')) return true;
-	if (u.includes('/api/unity-play/') || u.includes('/api/game-live/')) return true;
+	if (
+		(u.includes('/api/unity-play/') || u.includes('/api/game-live/')) &&
+		!isPublicSiteDeployment()
+	)
+		return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	// Same-origin shells that nest a cross-origin game — not injectable for the real game.
 	if (u.includes('/unity/player.html')) return false;
@@ -201,7 +219,11 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 	if (!url) return false;
 	const u = url.trim();
 	if (!u) return false;
-	if (u.includes('/api/unity-play/') || u.includes('/api/game-live/')) return true;
+	if (
+		(u.includes('/api/unity-play/') || u.includes('/api/game-live/')) &&
+		!isPublicSiteDeployment()
+	)
+		return true;
 	if (u.includes('/puller-games/') && u.includes('/offline/')) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	if (u.includes('/browser-offline/')) return true;

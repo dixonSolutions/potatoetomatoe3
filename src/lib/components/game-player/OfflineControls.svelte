@@ -152,7 +152,7 @@
 		try {
 			const start = await startGameDownload(gameId);
 			if (!start.started) {
-				appendPlayLog('warn', 'download', 'Download not started', start.message);
+				appendPlayLog('warn', 'download', 'Download not started', `game=${gameId} ${start.message}`);
 				toast.error(start.message);
 				progress = { state: 'error', progress: 0, message: start.message, error: start.message };
 				dispatchOfflineStatusChanged(gameId, 'download-error');
@@ -170,13 +170,13 @@
 				dispatchOfflineStatusChanged(gameId, 'download-done');
 				onPlayUrlChange?.();
 			} else if (final.state === 'cancelled') {
-				appendPlayLog('warn', 'download', 'Download cancelled', final.message || `game=${gameId}`);
+				appendPlayLog('warn', 'download', 'Download cancelled', `game=${gameId} ${final.message ?? ''}`.trim());
 				toast.message(final.message || 'Download cancelled');
 				status = await refreshGameOfflineState(gameId);
 				dispatchOfflineStatusChanged(gameId, 'download-cancel');
 			} else if (final.state === 'error') {
 				const msg = await describePullerDownloadError(final.error);
-				appendPlayLog('error', 'download', 'Download failed', msg);
+				appendPlayLog('error', 'download', 'Download failed', `game=${gameId} ${msg}`);
 				toast.error(msg);
 				dispatchOfflineStatusChanged(gameId, 'download-error');
 				await refreshStatus();
@@ -185,7 +185,7 @@
 			if (generation !== pollGeneration) return;
 			const raw = e instanceof Error ? e.message : 'Download failed';
 			const msg = await describePullerDownloadError(raw);
-			appendPlayLog('error', 'download', 'Download threw', msg);
+			appendPlayLog('error', 'download', 'Download threw', `game=${gameId} ${msg}`);
 			toast.error(msg);
 			dispatchOfflineStatusChanged(gameId, 'download-error');
 			await refreshStatus();

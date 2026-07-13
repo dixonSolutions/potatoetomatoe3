@@ -502,7 +502,7 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	 * External online embeds get same-origin /api/game-live for touch + play while online.
 	 * Offline scrape remains the puller's primary job via /api/offline.
 	 */
-	if (hasExternalOnlineEmbed(metadata)) {
+	if (hasExternalOnlineEmbed(metadata) && !isPublicSiteDeployment()) {
 		const { isPullerAvailable, pullerLiveGameUrl, sameOriginLiveGameUrl } = await import(
 			'./offline-downloader-puller'
 		);

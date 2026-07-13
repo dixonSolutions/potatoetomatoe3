@@ -75,7 +75,8 @@
 		var patterns = [
 			/\/puller-games\/([^/]+)\//,
 			/\/browser-offline\/([^/]+)\//,
-			/\/games\/([^/]+)\/(?:offline|online)\//
+			/\/games\/([^/]+)\/(?:offline|online)\//,
+			/\/api\/(?:unity-play|game-live)\/([^/]+)/
 		];
 		for (var i = 0; i < patterns.length; i++) {
 			var match = path.match(patterns[i]);

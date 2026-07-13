@@ -3,10 +3,7 @@
  * or browser IndexedDB + service worker (GitHub Pages / static hosting).
  */
 
-export type {
-	GameOfflineStatus,
-	DownloadProgress
-} from './offline-downloader-puller';
+export type { GameOfflineStatus, DownloadProgress } from './offline-downloader-puller';
 
 export {
 	getPullerBaseUrl,
@@ -68,7 +65,42 @@ import {
 	pollBrowserDownloadUntilDone,
 	startBrowserGameDownload
 } from './browser-offline-download';
+import { importPullerOfflineCopy } from './browser-offline-download';
 import { getOfflineBackend, invalidateOfflineBackendCache } from './offline-runtime';
+
+/** Public-site downloads delegated to the puller, then imported into browser storage. */
+const BROWSER_PULLER_DOWNLOADS_KEY = 'pt-browser-puller-downloads';
+const browserPullerDownloads = new Set<string>();
+
+function hydrateBrowserPullerDownloads(): void {
+	if (typeof sessionStorage === 'undefined') return;
+	try {
+		const raw = sessionStorage.getItem(BROWSER_PULLER_DOWNLOADS_KEY);
+		if (!raw) return;
+		for (const id of JSON.parse(raw) as string[]) {
+			if (typeof id === 'string' && id) browserPullerDownloads.add(id);
+		}
+	} catch {
+		/* ignore corrupt session data */
+	}
+}
+
+function syncBrowserPullerDownloads(): void {
+	if (typeof sessionStorage === 'undefined') return;
+	sessionStorage.setItem(BROWSER_PULLER_DOWNLOADS_KEY, JSON.stringify([...browserPullerDownloads]));
+}
+
+function trackBrowserPullerDownload(gameId: string): void {
+	browserPullerDownloads.add(gameId);
+	syncBrowserPullerDownloads();
+}
+
+function untrackBrowserPullerDownload(gameId: string): void {
+	browserPullerDownloads.delete(gameId);
+	syncBrowserPullerDownloads();
+}
+
+hydrateBrowserPullerDownloads();
 
 /** Games shipped with a pre-built offline copy in static/ (no downloader required). */
 export const BUNDLED_OFFLINE_GAME_IDS = ['shrek-escape'] as const;
@@ -167,9 +199,7 @@ export async function fetchGameOfflineStatus(
 	return bundled ?? null;
 }
 
-export async function refreshGameOfflineState(
-	gameId: string
-): Promise<GameOfflineStatus | null> {
+export async function refreshGameOfflineState(gameId: string): Promise<GameOfflineStatus | null> {
 	invalidatePullerOfflineStatusCache();
 	invalidateOfflineBackendCache();
 	return fetchGameOfflineStatus(gameId, true);
@@ -182,15 +212,22 @@ export async function startGameDownload(
 	if (backend === 'puller') return startPullerGameDownload(gameId);
 
 	if (backend === 'browser') {
-		const { onlineShellHasExternalIframe, EXTERNAL_IFRAME_NEEDS_PULLER } =
-			await import('./browser-offline-download');
+		const { onlineShellHasExternalIframe, EXTERNAL_IFRAME_NEEDS_PULLER } = await import(
+			'./browser-offline-download'
+		);
 		const external = await onlineShellHasExternalIframe(gameId);
 		if (external) {
 			/* Prefer a running local puller for full iframe scrape (even on public-site). */
-			const { isPullerAvailable, startPullerGameDownload } =
-				await import('./offline-downloader-puller');
+			const { isPullerAvailable, startPullerGameDownload } = await import(
+				'./offline-downloader-puller'
+			);
 			if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) {
-				return startPullerGameDownload(gameId);
+				trackBrowserPullerDownload(gameId);
+				const result = await startPullerGameDownload(gameId);
+				if (!result.started) {
+					untrackBrowserPullerDownload(gameId);
+				}
+				return result;
 			}
 			return { started: false, message: EXTERNAL_IFRAME_NEEDS_PULLER };
 		}
@@ -201,6 +238,9 @@ export async function startGameDownload(
 }
 
 export async function fetchDownloadProgress(gameId: string): Promise<DownloadProgress> {
+	if (browserPullerDownloads.has(gameId)) {
+		return fetchPullerDownloadProgress(gameId);
+	}
 	const backend = await getOfflineBackend();
 	if (backend === 'puller') return fetchPullerDownloadProgress(gameId);
 	if (backend === 'browser') return getBrowserDownloadProgress(gameId);
@@ -209,6 +249,9 @@ export async function fetchDownloadProgress(gameId: string): Promise<DownloadPro
 
 export async function deleteOfflineCopy(gameId: string): Promise<void> {
 	const backend = await getOfflineBackend(true);
+	if (browserPullerDownloads.has(gameId)) {
+		untrackBrowserPullerDownload(gameId);
+	}
 	if (backend === 'puller') {
 		await deletePullerOfflineCopy(gameId);
 		return;
@@ -225,6 +268,23 @@ export async function pollDownloadUntilDone(
 	onProgress: (p: DownloadProgress) => void,
 	intervalMs = 800
 ): Promise<DownloadProgress> {
+	if (browserPullerDownloads.has(gameId)) {
+		const final = await pollPullerDownloadUntilDone(gameId, onProgress, intervalMs);
+		if (final.state !== 'done') {
+			untrackBrowserPullerDownload(gameId);
+			return final;
+		}
+		try {
+			await importPullerOfflineCopy(gameId, onProgress);
+			untrackBrowserPullerDownload(gameId);
+			onProgress({ state: 'done', progress: 100, message: 'Saved for browser offline play' });
+			return { state: 'done', progress: 100, message: 'Saved for browser offline play' };
+		} catch (error) {
+			untrackBrowserPullerDownload(gameId);
+			const message = error instanceof Error ? error.message : 'Browser import failed';
+			return { state: 'error', progress: 0, message, error: message };
+		}
+	}
 	const backend = await getOfflineBackend(true);
 	if (backend === 'puller') {
 		return pollPullerDownloadUntilDone(gameId, onProgress, intervalMs);
@@ -236,11 +296,14 @@ export async function pollDownloadUntilDone(
 }
 
 /** Cancel an in-progress download. When discardCache is false, partial files are kept for resume. */
-export async function cancelGameDownload(
-	gameId: string,
-	discardCache: boolean
-): Promise<void> {
+export async function cancelGameDownload(gameId: string, discardCache: boolean): Promise<void> {
 	const backend = await getOfflineBackend(true);
+	if (browserPullerDownloads.has(gameId)) {
+		await cancelPullerGameDownload(gameId, discardCache);
+		untrackBrowserPullerDownload(gameId);
+		if (discardCache) await deleteBrowserOfflineCopy(gameId);
+		return;
+	}
 	if (backend === 'puller') {
 		await cancelPullerGameDownload(gameId, discardCache);
 		return;
@@ -265,8 +328,9 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 	const backend = await getOfflineBackend();
 
 	if (backend === 'browser') {
-		const { isBrowserGameDownloaded, resolveBrowserOfflinePlayUrl } =
-			await import('./browser-offline-download');
+		const { isBrowserGameDownloaded, resolveBrowserOfflinePlayUrl } = await import(
+			'./browser-offline-download'
+		);
 		if (await isBrowserGameDownloaded(gameId)) {
 			return resolveBrowserOfflinePlayUrl(gameId);
 		}
