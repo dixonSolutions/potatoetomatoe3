@@ -166,13 +166,14 @@
 	function measureSurface() {
 		if (!surfaceEl) return;
 		const rect = surfaceEl.getBoundingClientRect();
-		surfaceW = rect.width;
-		surfaceH = rect.height;
+		const parent = surfaceEl.parentElement;
+		/* Fallback when inset-0 has not laid out yet — avoid stacking every control at (0,0). */
+		surfaceW = rect.width || parent?.clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
+		surfaceH = rect.height || parent?.clientHeight || (typeof window !== 'undefined' ? window.innerHeight : 0);
 	}
 
 	onMount(() => {
 		refreshConfig();
-		measureSurface();
 
 		const onSettings = () => refreshConfig();
 		const onPrivacy = (e: Event) => {
@@ -185,15 +186,34 @@
 		window.addEventListener(TOUCH_CONSOLE_CHANGED, onSettings);
 		window.addEventListener('potato-tomato-privacy-locked', onPrivacy);
 
-		const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => measureSurface()) : null;
-		if (surfaceEl && ro) ro.observe(surfaceEl);
-
 		return () => {
 			window.removeEventListener(TOUCH_CONSOLE_CHANGED, onSettings);
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacy);
-			ro?.disconnect();
 			dispatcher.releaseAll();
 		};
+	});
+
+	/* surfaceEl only exists after showToggle — measure/observe whenever it binds. */
+	$effect(() => {
+		const el = surfaceEl;
+		if (!el) return;
+		measureSurface();
+		const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => measureSurface()) : null;
+		ro?.observe(el);
+		const onWinResize = () => measureSurface();
+		window.addEventListener('resize', onWinResize);
+		return () => {
+			ro?.disconnect();
+			window.removeEventListener('resize', onWinResize);
+		};
+	});
+
+	/* Remeasure when the overlay actually appears (first paint after toggle). */
+	$effect(() => {
+		if (!showOverlay) return;
+		measureSurface();
+		const id = requestAnimationFrame(() => measureSurface());
+		return () => cancelAnimationFrame(id);
 	});
 
 	$effect(() => {
@@ -209,6 +229,23 @@
 		void config.enabled;
 		void config.availability;
 		probeInjectable();
+	});
+
+	/* Unity / nested shells often create the canvas after first probe — keep trying while visible. */
+	$effect(() => {
+		if (!started || !visible || !iframe) return;
+		probeInjectable();
+		const t1 = window.setTimeout(() => probeInjectable(), 400);
+		const t2 = window.setTimeout(() => probeInjectable(), 1500);
+		const t3 = window.setTimeout(() => probeInjectable(), 4000);
+		const onLoad = () => probeInjectable();
+		iframe.addEventListener('load', onLoad);
+		return () => {
+			window.clearTimeout(t1);
+			window.clearTimeout(t2);
+			window.clearTimeout(t3);
+			iframe.removeEventListener('load', onLoad);
+		};
 	});
 
 	$effect(() => {
@@ -247,7 +284,7 @@
 			</div>
 		{/if}
 
-		{#if showOverlay}
+		{#if showOverlay && surfaceW > 0 && surfaceH > 0}
 			<!-- Compact console panel (visual grouping + whole-unit drag handle) -->
 			<div
 				class="pointer-events-none absolute rounded-[26px] border border-white/20 bg-white/[0.04] shadow-[0_10px_40px_rgb(0_0_0_/0.35)]"

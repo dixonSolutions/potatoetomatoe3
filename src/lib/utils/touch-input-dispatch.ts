@@ -230,30 +230,44 @@ export class KeyDispatcher {
 		if (!t) return;
 		const key = keyFromCode(code);
 		const keyCode = keyCodeFromCode(code);
-		const init = {
+		const init: KeyboardEventInit = {
 			key,
 			code,
 			keyCode,
 			which: keyCode,
 			bubbles: true,
 			cancelable: true,
-			composed: true
-		} as KeyboardEventInit;
-		try {
-			const event = new KeyboardEvent(type, init);
-			// Some engines still read legacy fields via defineProperty on older paths.
+			composed: true,
+			view: t.win
+		};
+
+		const makeEvent = (): KeyboardEvent => {
+			/* Prefer the iframe realm's KeyboardEvent — parent-constructed events are often ignored. */
+			const winWithKE = t.win as Window & { KeyboardEvent: typeof KeyboardEvent };
+			const Ctor = winWithKE.KeyboardEvent || KeyboardEvent;
+			const event = new Ctor(type, init);
 			try {
 				Object.defineProperty(event, 'keyCode', { get: () => keyCode });
 				Object.defineProperty(event, 'which', { get: () => keyCode });
+				Object.defineProperty(event, 'charCode', { get: () => 0 });
 			} catch {
 				/* ignore */
 			}
-			const focusEl: EventTarget = t.canvas ?? t.doc.body ?? t.doc.documentElement ?? t.doc;
-			focusEl.dispatchEvent(event);
-			if (focusEl !== t.doc) {
-				t.doc.dispatchEvent(new KeyboardEvent(type, init));
+			return event;
+		};
+
+		try {
+			this.focusTarget();
+			const targets: EventTarget[] = [];
+			if (t.canvas) targets.push(t.canvas);
+			if (t.doc.body) targets.push(t.doc.body);
+			targets.push(t.doc.documentElement, t.doc, t.win);
+			const seen = new Set<EventTarget>();
+			for (const target of targets) {
+				if (!target || seen.has(target)) continue;
+				seen.add(target);
+				target.dispatchEvent(makeEvent());
 			}
-			t.win.dispatchEvent(new KeyboardEvent(type, init));
 		} catch {
 			/* ignore */
 		}
