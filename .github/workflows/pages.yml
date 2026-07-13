@@ -45,6 +45,9 @@ jobs:
           PUBLIC_PAGES_BASE: /potatoetomatoe3
           PUBLIC_OFFLINE_DEPLOYMENT: public-site
           GITHUB_REPOSITORY: ${{ github.repository }}
+          # Optional: Cloudflare Worker URL for Unity /api/unity-play (touch-injectable).
+          # Set repo Actions variable PUBLIC_PLAY_PROXY_URL (no trailing slash).
+          PUBLIC_PLAY_PROXY_URL: ${{ vars.PUBLIC_PLAY_PROXY_URL }}
 
       - name: Preserve Flatpak OSTree from latest Release
         env:

@@ -13,6 +13,7 @@
 	} from '$lib/utils/touch-console';
 	import {
 		KeyDispatcher,
+		canUseTouchBridge,
 		isLikelyInjectableUrl,
 		resolveInjectable
 	} from '$lib/utils/touch-input-dispatch';
@@ -70,13 +71,25 @@
 
 	function probeInjectable() {
 		const target = resolveInjectable(iframe);
-		dispatcher.setTarget(target);
-		injectable = Boolean(target);
+		if (target) {
+			dispatcher.setTarget(target);
+			dispatcher.setBridgeFrame(null);
+			injectable = true;
+		} else if (iframe && canUseTouchBridge(playerUrl)) {
+			dispatcher.setTarget(null);
+			dispatcher.setBridgeFrame(iframe);
+			injectable = Boolean(iframe.contentWindow);
+		} else {
+			dispatcher.setTarget(null);
+			dispatcher.setBridgeFrame(null);
+			injectable = false;
+		}
 		unavailableHint = Boolean(
 			started &&
 				config.enabled &&
 				config.availability !== 'off' &&
 				!injectable &&
+				!canUseTouchBridge(playerUrl) &&
 				(config.availability === 'always' || !isLikelyInjectableUrl(playerUrl))
 		);
 	}
@@ -279,8 +292,9 @@
 				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
 				role="status"
 			>
-				Touch controls need a same-origin (mirrored/offline) game. Download for offline or play a
-				bundled copy to enable the console.
+				Touch controls need a same-origin or proxied Unity play URL (offline mirror, puller, or
+				play proxy). Online portal shells that only wrap an external embed cannot receive
+				controls.
 			</div>
 		{/if}
 

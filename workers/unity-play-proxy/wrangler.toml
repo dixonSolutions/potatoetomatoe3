@@ -1,0 +1,12 @@
+name = "potato-tomato-unity-play-proxy"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Set via `wrangler secret` / dashboard:
+#   CATALOG_BASE = https://dixonsolutions.github.io/potatoetomatoe3
+# Optional allow-list of page origins that may embed the proxy (comma-separated).
+#   FRAME_ANCESTORS = https://dixonsolutions.github.io https://localhost:5173
+
+[vars]
+CATALOG_BASE = "https://dixonsolutions.github.io/potatoetomatoe3"
+FRAME_ANCESTORS = "https://dixonsolutions.github.io"

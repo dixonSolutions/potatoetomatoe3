@@ -42,20 +42,34 @@ flowchart TD
 
 | Play URL pattern | Top iframe vs app | Game document injectable? |
 |------------------|-------------------|---------------------------|
-| `/games/{id}/offline/…` | Same-origin | **Yes** |
+| `/games/{id}/offline/…` | Same-origin | **Yes** (DOM or postMessage bridge) |
 | `/puller-games/{id}/offline/…` (dev proxy) | Same-origin | **Yes** |
-| `/browser-offline/{id}/…` | Same-origin | **Yes** if fully mirrored; **No** if shell only wraps external iframe |
-| `/api/unity-play/{id}` (dev proxy) | Same-origin | **Yes** (Unity in top doc) |
+| `/browser-offline/{id}/…` | Same-origin | **Yes** if canvas in top doc; **No** if shell only wraps external iframe |
+| `/api/unity-play/{id}` (Vite / puller / Pages play proxy) | Same-origin or loopback | **Yes** — inject.js in game doc; DOM when same-origin, else `potato-tomato-touch-input` postMessage |
+| `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}` | Cross-origin Worker | **Yes** via postMessage bridge |
 | `blob:…` | Same-origin | Same as browser-offline |
 | `/unity/player.html?src=…` | Same-origin shell | **No** — nested cross-origin `#game` |
 | `/games/{id}/online/index.html` | Same-origin shell | **No** — nested external embed |
 | Direct `https://…` embed | Cross-origin | **No** |
-| `http://127.0.0.1:18787/…` (Tauri packaged puller) | Cross-origin | **No** via parent `contentDocument` |
+| `http://127.0.0.1:18787/api/unity-play/…` (Tauri puller) | Cross-origin | **Yes** via postMessage bridge (inject in game doc) |
 
-Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) is what unlocks control coverage for more of the catalog. A future cross-origin `postMessage` guest bridge is planned for packaged Tauri + live embeds.
+Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks more of the catalog. HTML5 portal shells that only wrap an external iframe still need a full mirror or generic embed proxy (out of scope for the Unity play proxy).
 
-Live probe: `resolveInjectable(iframe)` in [`src/lib/utils/touch-input-dispatch.ts`](../src/lib/utils/touch-input-dispatch.ts) recurses nested same-origin frames (same pattern as `broadcastGamePause`) and prefers the deepest document with a canvas.
+### Touch postMessage bridge
 
+When the parent cannot read `iframe.contentDocument` (cross-origin), [`KeyDispatcher`](../src/lib/utils/touch-input-dispatch.ts) sends:
+
+```js
+{ type: 'potato-tomato-touch-input', action: 'down'|'up'|'releaseAll', codes?: string[] }
+```
+
+Handlers live in [`static/unity/inject.js`](../static/unity/inject.js) and [`static/game-storage-bridge.child.js`](../static/game-storage-bridge.child.js). They synthesize the same rich `KeyboardEvent`s as the DOM path.
+
+Live probe: `resolveInjectable(iframe)` for same-origin; `canUseTouchBridge(playerUrl)` enables the bridge path when inject is known to be present.
+
+### Public Unity proxy (GitHub Pages)
+
+Static Pages cannot run the puller. Deploy [`workers/unity-play-proxy/`](../workers/unity-play-proxy/) (Cloudflare Worker), set Actions variable `PUBLIC_PLAY_PROXY_URL`, and the Pages build wires Unity online play to `{proxy}/api/unity-play/{id}`. See that Worker README.
 ## Gestures and UX
 
 | Action | Behavior |
@@ -155,8 +169,7 @@ Assets live in [`docs/touch-console/assets/`](./touch-console/assets/) in chrono
 - **interact.js** drag + resize for every control (position already editable; size still Settings/scale)
 - Click passthrough vs Tap Zone (opt-in full-surface Space / bound key)
 - Binding picker (key + mouseClick) and add/remove controls per game
-- Cross-origin guest `postMessage` bridge (packaged Tauri puller, live embeds, nested Unity)
-- Same-origin proxy for `/api/unity-play` outside Vite dev
+- Generic embed proxy for CrazyGames / Playhop shells (Unity play proxy + touch bridge already shipped)
 - Broader puller `generic` mirroring coverage
 - Genre / engine mapping presets + crowdsourced profiles
 - Hardware gamepad passthrough and virtual trackpad / cursor mode

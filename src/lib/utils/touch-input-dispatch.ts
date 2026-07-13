@@ -189,25 +189,97 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	return true;
 }
 
+/**
+ * URLs where inject.js (or storage bridge) runs in the top game iframe and accepts
+ * `potato-tomato-touch-input` postMessage — even when contentDocument is cross-origin.
+ */
+export function canUseTouchBridge(url: string | null | undefined): boolean {
+	if (!url) return false;
+	const u = url.trim();
+	if (!u) return false;
+	if (u.includes('/api/unity-play/')) return true;
+	if (u.includes('/puller-games/') && u.includes('/offline/')) return true;
+	if (u.includes('/games/') && u.includes('/offline/')) return true;
+	if (u.includes('/browser-offline/')) return true;
+	if (u.startsWith('blob:')) return true;
+	try {
+		const proxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(/\/$/, '');
+		if (proxy) {
+			const parsed = new URL(u, typeof window !== 'undefined' ? window.location.href : 'http://local');
+			const proxyOrigin = new URL(proxy).origin;
+			if (parsed.origin === proxyOrigin && parsed.pathname.includes('/api/unity-play/')) return true;
+		}
+	} catch {
+		/* ignore */
+	}
+	try {
+		if (typeof window !== 'undefined') {
+			const parsed = new URL(u, window.location.href);
+			/* Packaged Tauri puller on loopback */
+			if (
+				(parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost') &&
+				parsed.pathname.includes('/api/unity-play/')
+			) {
+				return true;
+			}
+		}
+	} catch {
+		/* ignore */
+	}
+	return false;
+}
+
+export type TouchBridgeMessage = {
+	type: 'potato-tomato-touch-input';
+	action: 'down' | 'up' | 'releaseAll';
+	code?: string;
+	codes?: string[];
+};
+
 export class KeyDispatcher {
 	private held = new Set<TouchKeyCode>();
 	/** Codes currently held by the joystick channel (not action buttons). */
 	private joystickHeld = new Set<TouchKeyCode>();
 	private target: InjectableTarget | null = null;
+	/** Cross-origin iframe that hosts inject.js (postMessage fallback). */
+	private bridgeFrame: HTMLIFrameElement | null = null;
 
 	setTarget(target: InjectableTarget | null): void {
 		if (this.target !== target) {
 			this.releaseAll();
 			this.target = target;
 		}
+		if (target) this.bridgeFrame = null;
+	}
+
+	setBridgeFrame(frame: HTMLIFrameElement | null): void {
+		if (this.bridgeFrame !== frame) {
+			this.releaseAll();
+			this.bridgeFrame = frame;
+		}
+		if (frame) this.target = null;
 	}
 
 	getTarget(): InjectableTarget | null {
 		return this.target;
 	}
 
+	hasDispatchPath(): boolean {
+		return Boolean(this.target || this.bridgeFrame?.contentWindow);
+	}
+
 	isHeld(code: TouchKeyCode): boolean {
 		return this.held.has(code);
+	}
+
+	private postBridge(msg: TouchBridgeMessage): void {
+		const win = this.bridgeFrame?.contentWindow;
+		if (!win) return;
+		try {
+			win.postMessage(msg, '*');
+		} catch {
+			/* ignore */
+		}
 	}
 
 	private focusTarget(): void {
@@ -226,6 +298,15 @@ export class KeyDispatcher {
 	}
 
 	private dispatch(type: 'keydown' | 'keyup', code: TouchKeyCode): void {
+		if (this.bridgeFrame?.contentWindow && !this.target) {
+			this.postBridge({
+				type: 'potato-tomato-touch-input',
+				action: type === 'keydown' ? 'down' : 'up',
+				codes: [code]
+			});
+			return;
+		}
+
 		const t = this.target;
 		if (!t) return;
 		const key = keyFromCode(code);
@@ -274,8 +355,8 @@ export class KeyDispatcher {
 	}
 
 	down(codes: TouchKeyCode[]): void {
-		if (!this.target || !codes.length) return;
-		this.focusTarget();
+		if (!this.hasDispatchPath() || !codes.length) return;
+		if (this.target) this.focusTarget();
 		for (const code of codes) {
 			if (this.held.has(code)) continue;
 			this.held.add(code);
@@ -322,10 +403,19 @@ export class KeyDispatcher {
 	}
 
 	releaseAll(): void {
-		if (!this.held.size) return;
+		if (!this.held.size) {
+			if (this.bridgeFrame?.contentWindow && !this.target) {
+				this.postBridge({ type: 'potato-tomato-touch-input', action: 'releaseAll' });
+			}
+			return;
+		}
 		const codes = [...this.held];
 		this.held.clear();
 		this.joystickHeld.clear();
+		if (this.bridgeFrame?.contentWindow && !this.target) {
+			this.postBridge({ type: 'potato-tomato-touch-input', action: 'releaseAll' });
+			return;
+		}
 		for (const code of codes) {
 			this.dispatch('keyup', code);
 		}

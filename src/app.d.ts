@@ -19,4 +19,15 @@ declare global {
 	}
 }
 
+interface ImportMetaEnv {
+	readonly PUBLIC_PLAY_PROXY_URL?: string;
+	readonly PUBLIC_DOWNLOADER_URL?: string;
+	readonly PUBLIC_OFFLINE_DEPLOYMENT?: string;
+	readonly PUBLIC_PAGES_BASE?: string;
+}
+
+interface ImportMeta {
+	readonly env: ImportMetaEnv;
+}
+
 export {};
