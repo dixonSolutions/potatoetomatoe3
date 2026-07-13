@@ -45,7 +45,13 @@ export function appendPlayLog(
 
 function belongsToGame(entry: PlayLogEntry, gameId?: string): boolean {
 	if (!gameId) return true;
-	return entry.detail?.includes(`game=${gameId}`) ?? false;
+	const detail = entry.detail;
+	if (!detail) return false;
+	const token = `game=${gameId}`;
+	const index = detail.indexOf(token);
+	if (index === -1) return false;
+	const nextChar = detail[index + token.length];
+	return nextChar === undefined || nextChar === ' ';
 }
 
 export function getPlayLogEntries(gameId?: string): readonly PlayLogEntry[] {
