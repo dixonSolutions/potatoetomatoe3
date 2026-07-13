@@ -140,7 +140,7 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		title: 'Touch Controls',
 		panel: 'touch',
 		sectionKeywords:
-			'touch mobile gamepad overlay joystick buttons virtual controller console glass five finger',
+			'touch mobile gamepad overlay joystick buttons virtual controller console glass toggle',
 		subsections: [
 			{
 				id: 'sub-touch-enabled',

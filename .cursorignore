@@ -1,0 +1,8 @@
+# Huge catalog / build trees — keep Cursor from exhausting inotify (ENOSPC on pnpm dev)
+static/games/
+build/
+.svelte-kit/
+src-tauri/target/
+node_modules/
+.flatpak-builder/
+build-flatpak/

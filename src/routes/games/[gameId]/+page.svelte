@@ -55,7 +55,9 @@
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import {
 		toggleFullscreen as toggleElementFullscreen,
-		isFullscreenElement
+		isImmersiveElement,
+		isPseudoFullscreen,
+		exitPseudoFullscreen
 	} from '$lib/utils/fullscreen';
 	import { setGameImmersive } from '$lib/utils/game-immersive';
 	import { toast } from 'svelte-sonner';
@@ -279,11 +281,18 @@
 			e.stopPropagation();
 			toggleGamePause();
 		};
+		const onEscapePseudoFullscreen = (e: KeyboardEvent) => {
+			if (e.key !== 'Escape') return;
+			if (!gameSurfaceEl || !isPseudoFullscreen(gameSurfaceEl)) return;
+			exitPseudoFullscreen(gameSurfaceEl);
+			syncGameFullscreenState();
+		};
 		window.addEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 		window.addEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		window.addEventListener('keydown', onPauseHotkey, true);
+		window.addEventListener('keydown', onEscapePseudoFullscreen, true);
 		document.addEventListener('fullscreenchange', syncGameFullscreenState);
 		document.addEventListener('webkitfullscreenchange', syncGameFullscreenState);
 
@@ -298,8 +307,12 @@
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 			window.removeEventListener('keydown', onPauseHotkey, true);
+			window.removeEventListener('keydown', onEscapePseudoFullscreen, true);
 			document.removeEventListener('fullscreenchange', syncGameFullscreenState);
 			document.removeEventListener('webkitfullscreenchange', syncGameFullscreenState);
+			if (gameSurfaceEl && isPseudoFullscreen(gameSurfaceEl)) {
+				exitPseudoFullscreen(gameSurfaceEl);
+			}
 			playerLayout.destroy();
 			setGameImmersive(false);
 		};
@@ -314,19 +327,15 @@
 	});
 
 	function syncGameFullscreenState() {
-		const immersive = isFullscreenElement(gameSurfaceEl ?? null);
+		const immersive = isImmersiveElement(gameSurfaceEl ?? null);
 		isGameFullscreen = immersive;
 		setGameImmersive(immersive);
 	}
 
 	async function toggleFullscreen() {
 		if (!gameSurfaceEl) return;
-		try {
-			await toggleElementFullscreen(gameSurfaceEl);
-			syncGameFullscreenState();
-		} catch {
-			/* Fullscreen denied or unsupported — ignore */
-		}
+		await toggleElementFullscreen(gameSurfaceEl);
+		syncGameFullscreenState();
 	}
 
 	function applyPrivacyPauseToIframe(locked: boolean) {

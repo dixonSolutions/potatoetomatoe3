@@ -386,7 +386,7 @@
 
 </script>
 
-<ModeWatcher defaultMode="dark" />
+<ModeWatcher defaultMode="system" />
 <Toaster closeButton position="top-center" />
 
 <svelte:head>

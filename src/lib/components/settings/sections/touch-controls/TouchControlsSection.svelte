@@ -199,7 +199,7 @@
 		<div id="settings-section-touch-availability" class="scroll-mt-32 space-y-2">
 			<Label>When to show the toggle</Label>
 			<p class="text-xs text-muted-foreground">
-				The in-game Gamepad button and five-finger gesture both use this setting.
+				The in-game Gamepad button toggles the overlay.
 			</p>
 			<Select.Root
 				type="single"

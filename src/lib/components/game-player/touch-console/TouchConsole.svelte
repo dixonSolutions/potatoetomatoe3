@@ -48,7 +48,6 @@
 	let editingControl = $state<'console' | 'joystick' | string | null>(null);
 	let editOrigin = $state<TouchLayout | null>(null);
 	let lastToggleAt = 0;
-	let gestureCleanup: (() => void) | null = null;
 	let privacyLocked = $state(false);
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
@@ -80,10 +79,9 @@
 				!injectable &&
 				(config.availability === 'always' || !isLikelyInjectableUrl(playerUrl))
 		);
-		attachGestureListeners();
 	}
 
-	function toggleVisible(source: 'button' | 'gesture' = 'button') {
+	function toggleVisible() {
 		const now = Date.now();
 		if (now - lastToggleAt < 300) return;
 		lastToggleAt = now;
@@ -93,57 +91,6 @@
 			editingControl = null;
 			layoutDraft = null;
 		}
-		if (source === 'gesture' && config.haptics && typeof navigator !== 'undefined') {
-			try {
-				navigator.vibrate?.(12);
-			} catch {
-				/* ignore */
-			}
-		}
-	}
-
-	function attachGestureListeners() {
-		gestureCleanup?.();
-		gestureCleanup = null;
-		const target = dispatcher.getTarget();
-		if (!target) return;
-
-		const active: Record<number, true> = {};
-		let activeCount = 0;
-		let armed = false;
-
-		const onDown = (e: PointerEvent) => {
-			if (active[e.pointerId]) return;
-			active[e.pointerId] = true;
-			activeCount += 1;
-			if (activeCount >= 5 && !armed) {
-				armed = true;
-				toggleVisible('gesture');
-			}
-		};
-		const onUp = (e: PointerEvent) => {
-			if (!active[e.pointerId]) return;
-			delete active[e.pointerId];
-			activeCount = Math.max(0, activeCount - 1);
-			if (activeCount < 5) armed = false;
-		};
-
-		const opts: AddEventListenerOptions = { capture: true, passive: true };
-		target.doc.addEventListener('pointerdown', onDown, opts);
-		target.doc.addEventListener('pointerup', onUp, opts);
-		target.doc.addEventListener('pointercancel', onUp, opts);
-		target.win.addEventListener('pointerdown', onDown, opts);
-		target.win.addEventListener('pointerup', onUp, opts);
-		target.win.addEventListener('pointercancel', onUp, opts);
-
-		gestureCleanup = () => {
-			target.doc.removeEventListener('pointerdown', onDown, opts);
-			target.doc.removeEventListener('pointerup', onUp, opts);
-			target.doc.removeEventListener('pointercancel', onUp, opts);
-			target.win.removeEventListener('pointerdown', onDown, opts);
-			target.win.removeEventListener('pointerup', onUp, opts);
-			target.win.removeEventListener('pointercancel', onUp, opts);
-		};
 	}
 
 	function pctToPx(pct: number, axis: 'x' | 'y'): number {
@@ -245,7 +192,6 @@
 			window.removeEventListener(TOUCH_CONSOLE_CHANGED, onSettings);
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacy);
 			ro?.disconnect();
-			gestureCleanup?.();
 			dispatcher.releaseAll();
 		};
 	});
@@ -285,8 +231,8 @@
 			class:pt-touch-toggle--on={visible && injectable}
 			aria-pressed={visible}
 			aria-label={visible ? 'Hide touch controls' : 'Show touch controls'}
-			title="Touch controls (or five-finger tap)"
-			onclick={() => toggleVisible('button')}
+			title="Touch controls"
+			onclick={() => toggleVisible()}
 		>
 			<Gamepad2 class="size-5" />
 		</button>
