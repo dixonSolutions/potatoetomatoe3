@@ -11,7 +11,8 @@
 		canPlayGameOffline,
 		fixMalformedGamePlayerUrl,
 		resolveGameThumbnailSrc,
-		type GameMetadata
+		type GameMetadata,
+		type GameIndexEntry
 	} from '$lib/utils/games';
 	import {
 		getPreferences,
@@ -63,7 +64,7 @@
 	import { toast } from 'svelte-sonner';
 
 	let gameMetadata: GameMetadata | null = $state(null);
-	let recommendedGames: GameMetadata[] = $state([]);
+	let recommendedGames: GameIndexEntry[] = $state([]);
 	let loading = $state(true);
 	let error = $state('');
 	let iframeElement = $state<HTMLIFrameElement | undefined>(undefined);
@@ -121,7 +122,7 @@
 
 	const playerLayout = new GamePlayerLayout();
 
-	function posterUrlFor(game: GameMetadata) {
+	function posterUrlFor(game: GameIndexEntry | GameMetadata) {
 		const preferOffline = !networkOnline;
 		return resolveGameThumbnailSrc(game.thumbnail, {
 			gameId: game.id,
@@ -226,8 +227,8 @@
 			}
 			let rec = getRecommendationsForGamePage(allGames, gameMetadata, id, prefs, 4);
 			if (!networkOnline) {
-				const { fetchAllOfflineStatuses } = await import('$lib/utils/offline-downloader');
-				const statusMap = await fetchAllOfflineStatuses(true);
+				const { fetchDownloadedStatuses } = await import('$lib/utils/offline-downloader');
+				const statusMap = await fetchDownloadedStatuses(true);
 				rec = filterDownloadedGames(rec, statusMap);
 			}
 			recommendedGames = rec;
@@ -671,7 +672,9 @@
 								</div>
 								<Card.Header>
 									<Card.Title class="text-base">{game.name}</Card.Title>
-									<Card.Description class="text-sm">{game.description}</Card.Description>
+									{#if 'description' in game && game.description}
+										<Card.Description class="text-sm">{game.description}</Card.Description>
+									{/if}
 								</Card.Header>
 								<Card.Footer class="flex justify-between text-xs text-muted-foreground">
 									<span>By {game.author}</span>

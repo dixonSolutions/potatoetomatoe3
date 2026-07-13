@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import {
 	getPullStrategy,
 	hasOfflineMirror,
@@ -6,10 +7,10 @@ import {
 	invalidateCatalogCache,
 	isValidGameId,
 	isGameInCatalog,
-	loadGameIds,
 	offlineDir,
 	type GameStatus
 } from './catalog.js';
+import { CATALOG_DIR, GAMES_DATA_DIR } from './config.js';
 import {
 	beginDownloadAbort,
 	cancelDownloadAbort,
@@ -45,31 +46,63 @@ export async function getGameStatus(gameId: string): Promise<GameStatus> {
 	};
 }
 
-export async function getAllGameStatuses(): Promise<Record<string, GameStatus>> {
-	const ids = await loadGameIds();
-	const downloading = listDownloadingGameIds();
-	const result: Record<string, GameStatus> = {};
+/**
+ * IDs that may have offline activity: downloading, or an `offline/` directory exists.
+ * Avoids full-catalog FS probes for every catalog id.
+ */
+async function listOfflineActivityIds(): Promise<string[]> {
+	const ids = new Set<string>(listDownloadingGameIds());
+	const roots = new Set<string>([GAMES_DATA_DIR, CATALOG_DIR]);
+	for (const root of roots) {
+		try {
+			const entries = await fs.readdir(root, { withFileTypes: true });
+			await Promise.all(
+				entries.map(async (entry) => {
+					if (!entry.isDirectory() || entry.name.startsWith('_') || !isValidGameId(entry.name)) {
+						return;
+					}
+					try {
+						const st = await fs.stat(path.join(root, entry.name, 'offline'));
+						if (st.isDirectory()) ids.add(entry.name);
+					} catch {
+						// no offline dir
+					}
+				})
+			);
+		} catch {
+			// root missing
+		}
+	}
+	return [...ids];
+}
 
+/** Downloaded / in-progress / partial only — not every catalog id. */
+export async function getDownloadedGameStatuses(): Promise<Record<string, GameStatus>> {
+	const ids = await listOfflineActivityIds();
+	const result: Record<string, GameStatus> = {};
 	await Promise.all(
 		ids.map(async (id) => {
-			const partialCache = await hasPartialDownloadCache(id);
-			const offline = await hasOfflineMirror(id);
-			const cacheFileCount = partialCache ? await countOfflineFiles(id) : 0;
-			const offlineThumbnail = offline
-				? ((await readOfflineThumbnailRel(id)) ?? undefined)
-				: undefined;
-			result[id] = {
-				online: await hasOnlineShell(id),
-				offline,
-				downloading: downloading.has(id),
-				partialCache: partialCache && !offline,
-				cacheFileCount: cacheFileCount > 0 ? cacheFileCount : undefined,
-				offlineThumbnail
-			};
+			result[id] = await getGameStatus(id);
 		})
 	);
-
 	return result;
+}
+
+/** Statuses for an explicit id list (visible cards). */
+export async function getGameStatusesForIds(gameIds: string[]): Promise<Record<string, GameStatus>> {
+	const result: Record<string, GameStatus> = {};
+	const unique = [...new Set(gameIds.filter((id) => isValidGameId(id)))];
+	await Promise.all(
+		unique.map(async (id) => {
+			result[id] = await getGameStatus(id);
+		})
+	);
+	return result;
+}
+
+/** @deprecated Use getDownloadedGameStatuses — full catalog scan is too slow at 10k+. */
+export async function getAllGameStatuses(): Promise<Record<string, GameStatus>> {
+	return getDownloadedGameStatuses();
 }
 
 export async function deleteOfflineGame(gameId: string): Promise<void> {

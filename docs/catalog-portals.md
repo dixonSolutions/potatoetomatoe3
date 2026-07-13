@@ -2,7 +2,24 @@
 
 Potato Tomato builds its library from multiple HTML5 portals. Imports write
 `static/games/<id>/online/` shells (iframe + `metadata.json`) and regenerate
-`games-list.json` / `games-metadata.json`.
+`games-list.json` / `games-metadata.json` / `games-index/` shards.
+
+## Catalog index (lazy load)
+
+The SPA does **not** fetch the full `games-metadata.json` (~11 MB). Instead
+`scripts/generate-games-list.js` writes a lean progressive index:
+
+| Path | Role |
+|------|------|
+| `static/games/games-index/manifest.json` | `total`, `shardSize` (500), `shardCount`, `categories[]` |
+| `static/games/games-index/shard-NNN.json` | Lean rows: `id`, `name`, `author`, `category`, `thumbnail`, optional `engine` |
+
+Client load order: manifest → shard-000 (first paint) → remaining shards (concurrency 4).
+Browse search/filter runs on loaded entries until the index is complete, then Fuse
+covers the full catalog. Full descriptions / embed URLs stay on per-game
+`online/metadata.json` for detail pages.
+
+`games-list.json` and `games-metadata.json` remain for puller / Flatpak tooling.
 
 ## Quality filter (Unity Play)
 

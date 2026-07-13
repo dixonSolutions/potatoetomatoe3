@@ -36,6 +36,28 @@ export interface GameMetadata {
 	bundledOffline?: boolean;
 }
 
+/** Lean catalog row from games-index shards (no description / embed URLs). */
+export type GameIndexEntry = Pick<
+	GameMetadata,
+	'id' | 'name' | 'author' | 'category' | 'thumbnail' | 'engine'
+>;
+
+export interface CatalogManifest {
+	version: number;
+	total: number;
+	shardSize: number;
+	shardCount: number;
+	categories: string[];
+}
+
+export type CatalogLoadProgress = {
+	loadedShards: number;
+	shardCount: number;
+	loadedGames: number;
+	total: number;
+	complete: boolean;
+};
+
 /** Neutral inline SVG — avoids a network request when `thumbnail` is missing or blank. */
 const MISSING_THUMB_DATA_URI =
 	'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23e5e5e5" width="256" height="256"/%3E%3C/svg%3E';
@@ -92,25 +114,150 @@ export function resolveGameThumbnailSrc(
 	return t;
 }
 
-let cachedGames: GameMetadata[] | null = null;
+let cachedManifest: CatalogManifest | null = null;
+const shardCache = new Map<number, GameIndexEntry[]>();
+let cachedIndex: GameIndexEntry[] | null = null;
+let indexLoadPromise: Promise<GameIndexEntry[]> | null = null;
+const indexProgressListeners = new Set<
+	(games: GameIndexEntry[], progress: CatalogLoadProgress) => void
+>();
 
-export async function loadAllGames(): Promise<GameMetadata[]> {
-	if (cachedGames) {
-		return cachedGames;
+function indexBaseUrl(): string {
+	return `${base}/games/games-index`.replace(/\/{2,}/g, '/');
+}
+
+export async function loadCatalogManifest(): Promise<CatalogManifest> {
+	if (cachedManifest) return cachedManifest;
+	const response = await fetch(`${indexBaseUrl()}/manifest.json`);
+	if (!response.ok) {
+		throw new Error(`Catalog manifest failed (${response.status})`);
 	}
+	const data = (await response.json()) as CatalogManifest;
+	cachedManifest = data;
+	return data;
+}
 
-	try {
-		const response = await fetch(`${base}/games/games-metadata.json`);
-		if (response.ok) {
-			const data: unknown = await response.json();
-			cachedGames = Array.isArray(data) ? (data as GameMetadata[]) : [];
-			return cachedGames;
+export async function loadCatalogShard(index: number): Promise<GameIndexEntry[]> {
+	const cached = shardCache.get(index);
+	if (cached) return cached;
+	const name = `shard-${String(index).padStart(3, '0')}.json`;
+	const response = await fetch(`${indexBaseUrl()}/${name}`);
+	if (!response.ok) {
+		throw new Error(`Catalog shard ${index} failed (${response.status})`);
+	}
+	const data: unknown = await response.json();
+	const shard = Array.isArray(data) ? (data as GameIndexEntry[]) : [];
+	shardCache.set(index, shard);
+	return shard;
+}
+
+async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => Promise<void>) {
+	let cursor = 0;
+	const runners = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+		while (cursor < items.length) {
+			const i = cursor++;
+			await worker(items[i]);
 		}
-	} catch (error) {
-		console.error('Failed to load games metadata:', error);
+	});
+	await Promise.all(runners);
+}
+
+function emitIndexProgress(games: GameIndexEntry[], progress: CatalogLoadProgress) {
+	for (const listener of indexProgressListeners) {
+		try {
+			listener(games, progress);
+		} catch (err) {
+			console.error('Catalog progress listener failed:', err);
+		}
+	}
+}
+
+async function loadCatalogIndexInternal(): Promise<GameIndexEntry[]> {
+	const manifest = await loadCatalogManifest();
+	const byShard = new Map<number, GameIndexEntry[]>();
+
+	const rebuild = (): GameIndexEntry[] => {
+		const out: GameIndexEntry[] = [];
+		for (let i = 0; i < manifest.shardCount; i++) {
+			const shard = byShard.get(i);
+			if (shard) out.push(...shard);
+		}
+		return out;
+	};
+
+	const report = (loadedShards: number, complete: boolean) => {
+		const games = rebuild();
+		const progress: CatalogLoadProgress = {
+			loadedShards,
+			shardCount: manifest.shardCount,
+			loadedGames: games.length,
+			total: manifest.total,
+			complete
+		};
+		emitIndexProgress(games, progress);
+		if (complete) cachedIndex = games;
+	};
+
+	byShard.set(0, await loadCatalogShard(0));
+	report(1, manifest.shardCount <= 1);
+
+	if (manifest.shardCount > 1) {
+		const rest = Array.from({ length: manifest.shardCount - 1 }, (_, i) => i + 1);
+		let loadedShards = 1;
+		await runPool(rest, 4, async (shardIndex) => {
+			byShard.set(shardIndex, await loadCatalogShard(shardIndex));
+			loadedShards += 1;
+			report(loadedShards, loadedShards >= manifest.shardCount);
+		});
 	}
 
-	return [];
+	const final = rebuild();
+	cachedIndex = final;
+	return final;
+}
+
+/**
+ * Progressive catalog index: shard 0 first (callback), then remaining shards (concurrency 4).
+ * Concurrent callers share one load; progress listeners all receive updates.
+ */
+export async function loadCatalogIndex(
+	onProgress?: (games: GameIndexEntry[], progress: CatalogLoadProgress) => void
+): Promise<GameIndexEntry[]> {
+	if (cachedIndex) {
+		onProgress?.(cachedIndex, {
+			loadedShards: cachedManifest?.shardCount ?? 1,
+			shardCount: cachedManifest?.shardCount ?? 1,
+			loadedGames: cachedIndex.length,
+			total: cachedIndex.length,
+			complete: true
+		});
+		return cachedIndex;
+	}
+
+	if (onProgress) indexProgressListeners.add(onProgress);
+	try {
+		if (!indexLoadPromise) {
+			indexLoadPromise = loadCatalogIndexInternal().finally(() => {
+				indexLoadPromise = null;
+			});
+		}
+		return await indexLoadPromise;
+	} finally {
+		if (onProgress) indexProgressListeners.delete(onProgress);
+	}
+}
+
+/**
+ * @deprecated Prefer `loadCatalogIndex` for progressive UI. Awaits the full lean index
+ * (not the legacy ~11 MB games-metadata.json).
+ */
+export async function loadAllGames(): Promise<GameIndexEntry[]> {
+	try {
+		return await loadCatalogIndex();
+	} catch (error) {
+		console.error('Failed to load games catalog index:', error);
+		return [];
+	}
 }
 
 export async function loadGameMetadata(id: string): Promise<GameMetadata | null> {

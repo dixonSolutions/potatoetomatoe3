@@ -148,6 +148,28 @@ export async function fetchPullerOfflineStatuses(
 	}
 }
 
+/** Statuses for a specific set of game ids (visible cards). Merges into status cache. */
+export async function fetchPullerOfflineStatusesForIds(
+	gameIds: string[],
+	force = false
+): Promise<Record<string, GameOfflineStatus>> {
+	const unique = [...new Set(gameIds.filter(Boolean))];
+	if (unique.length === 0) return {};
+	if (!(await isPullerAvailable(force))) return {};
+	try {
+		const params = new URLSearchParams({ ids: unique.join(',') });
+		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status?${params}`);
+		if (!res.ok) return {};
+		const data = (await res.json()) as { games?: Record<string, GameOfflineStatus> };
+		const games = data.games ?? {};
+		statusCache = { ...(statusCache ?? {}), ...games };
+		statusCacheAt = Date.now();
+		return games;
+	} catch {
+		return {};
+	}
+}
+
 export async function fetchPullerGameOfflineStatus(
 	gameId: string,
 	force = false

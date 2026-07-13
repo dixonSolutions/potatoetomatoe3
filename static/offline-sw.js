@@ -71,6 +71,9 @@ function guessMime(path) {
 function injectBridge(html, bridgeSrc) {
 	if (html.indexOf('game-storage-bridge.child.js') !== -1) return html;
 	var tag = '<script src="' + bridgeSrc + '"></script>';
+	if (html.indexOf('<head') !== -1) {
+		return html.replace(/<head([^>]*)>/i, '<head$1>' + tag);
+	}
 	if (html.indexOf('</head>') !== -1) {
 		return html.replace('</head>', tag + '</head>');
 	}

@@ -48,25 +48,27 @@
 
 	let { data, children } = $props();
 
-	const ssrPrivacyHead = $derived(
-		data.ssrPrivacyHead ?? {
-			privacyModeEnabled: false,
-			decoyTitle: null,
-			decoyFavicon: null,
-			privacySessionUnlocked: true
-		}
-	);
+	const ssrPrivacyHeadFallback = {
+		privacyModeEnabled: false,
+		decoyTitle: null as string | null,
+		decoyFavicon: null as string | null,
+		privacySessionUnlocked: true
+	};
+	const ssrPrivacyHead = $derived(data.ssrPrivacyHead ?? ssrPrivacyHeadFallback);
+
+	/** SSR snapshot for $state seeds only — do not read $derived here (captures once by design). */
+	const initialPrivacyHead = data.ssrPrivacyHead ?? ssrPrivacyHeadFallback;
 
 	/** SSR uses settings + unlock cookie so the first document request matches privacy state (no flash of full UI while locked). */
-	let privacyEnabled = $state(!!ssrPrivacyHead.privacyModeEnabled);
+	let privacyEnabled = $state(!!initialPrivacyHead.privacyModeEnabled);
 	let privacyUnlocked = $state(
-		!ssrPrivacyHead.privacyModeEnabled || !!ssrPrivacyHead.privacySessionUnlocked
+		!initialPrivacyHead.privacyModeEnabled || !!initialPrivacyHead.privacySessionUnlocked
 	);
 	let settingsOpen = $state(false);
-	let decoyTitle = $state(ssrPrivacyHead.decoyTitle ?? 'Google Docs');
+	let decoyTitle = $state(initialPrivacyHead.decoyTitle ?? 'Google Docs');
 	/** Prefer SSR disguise URL; never default to the brand logo (that caused privacy-login tab flashes). */
 	let decoyFavicon = $state(
-		ssrPrivacyHead.decoyFavicon ?? getDecoyFaviconUrl('google', 'docs')
+		initialPrivacyHead.decoyFavicon ?? getDecoyFaviconUrl('google', 'docs')
 	);
 	let privacyDisguiseMode = $state<PrivacyDisguiseMode>('focus_loss');
 	/** Tab in background — used when disguise mode is "focus loss" (Google Docs tab while away). */

@@ -3,23 +3,32 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { base, resolve } from '$app/paths';
-	import { loadAllGames, resolveGameThumbnailSrc, type GameMetadata } from '$lib/utils/games';
+	import {
+		loadCatalogIndex,
+		resolveGameThumbnailSrc,
+		type GameIndexEntry
+	} from '$lib/utils/games';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
 	import {
+		getBrowseShuffleSeed,
 		getHomeRecommendations,
 		getHomeRecommendationsAsync,
-		getRecentlyPlayedGames
+		getRecentlyPlayedGames,
+		shuffleDeterministic
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Heart, ChevronRight, WifiOff } from 'lucide-svelte';
-	import { fetchAllOfflineStatuses, OFFLINE_STATUS_CHANGED } from '$lib/utils/offline-downloader';
+	import {
+		fetchDownloadedStatuses,
+		OFFLINE_STATUS_CHANGED
+	} from '$lib/utils/offline-downloader';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 
-	let allGames: GameMetadata[] = $state([]);
-	let continueGames: GameMetadata[] = $state([]);
-	let recommendedGames: GameMetadata[] = $state([]);
-	let featuredGames: GameMetadata[] = $state([]);
+	let allGames: GameIndexEntry[] = $state([]);
+	let continueGames: GameIndexEntry[] = $state([]);
+	let recommendedGames: GameIndexEntry[] = $state([]);
+	let featuredGames: GameIndexEntry[] = $state([]);
 	/** Games list fetched; recommendations may still be computing. */
 	let libraryReady = $state(false);
 	let feedReady = $state(false);
@@ -33,7 +42,7 @@
 	const recommendedSkeletonCount = 6;
 	const featuredSkeletonCount = 8;
 
-	function thumbUrl(game: GameMetadata) {
+	function thumbUrl(game: GameIndexEntry) {
 		const status = offlineStatusMap[game.id];
 		const preferOffline = !networkOnline || Boolean(status?.offline);
 		return resolveGameThumbnailSrc(game.thumbnail, {
@@ -59,7 +68,7 @@
 		}
 	}
 
-	function applyOfflineLibraryFilter(games: GameMetadata[]): GameMetadata[] {
+	function applyOfflineLibraryFilter(games: GameIndexEntry[]): GameIndexEntry[] {
 		if (networkOnline) return games;
 		return filterDownloadedGames(games, offlineStatusMap);
 	}
@@ -70,10 +79,18 @@
 		feedReady = false;
 		try {
 			networkOnline = isNetworkOnline();
-			allGames = await loadAllGames();
-			offlineStatusMap = await fetchAllOfflineStatuses(true);
+			offlineStatusMap = await fetchDownloadedStatuses(true);
 			const prefs = getPreferences();
 			favouriteIds = [...prefs.liked];
+
+			allGames = await loadCatalogIndex((partial) => {
+				/* Paint continue/featured as soon as shard 0+ arrives */
+				if (!libraryReady && partial.length > 0) {
+					allGames = partial;
+					continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(partial, prefs, 28));
+					libraryReady = true;
+				}
+			});
 
 			continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
 			libraryReady = true;
@@ -92,10 +109,10 @@
 
 			const used = new Set([...continueGames, ...recommendedGames].map((g) => g.id));
 			featuredGames = applyOfflineLibraryFilter(
-				allGames
-					.filter((g) => !used.has(g.id))
-					.sort((a, b) => a.name.localeCompare(b.name))
-					.slice(0, 16)
+				shuffleDeterministic(
+					allGames.filter((g) => !used.has(g.id)),
+					getBrowseShuffleSeed() ^ 0xfed1
+				).slice(0, 16)
 			);
 
 			if (featuredGames.length < 8 && networkOnline) {

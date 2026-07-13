@@ -4,7 +4,8 @@ import { createReadStream, existsSync } from 'node:fs';
 import path from 'node:path';
 import { CORS_ORIGIN, CATALOG_DIR, GAMES_DATA_DIR, PORT } from './config.js';
 import {
-  getAllGameStatuses,
+  getDownloadedGameStatuses,
+  getGameStatusesForIds,
   getGameStatus,
   deleteOfflineGame,
   startDownload,
@@ -47,6 +48,8 @@ function mimeFor(filePath: string): string {
     '.webp': 'image/webp',
     '.svg': 'image/svg+xml',
     '.wasm': 'application/wasm',
+    '.unityweb': 'application/octet-stream',
+    '.data': 'application/octet-stream',
     '.br': 'application/octet-stream',
     '.mp3': 'audio/mpeg',
     '.ogg': 'audio/ogg',
@@ -100,6 +103,18 @@ async function serveStaticGames(
     return true;
   }
 
+  let st;
+  try {
+    st = await fs.stat(absPath);
+  } catch {
+    sendJson(res, 404, { error: 'Not found' });
+    return true;
+  }
+  if (!st.isFile()) {
+    sendJson(res, 404, { error: 'Not found' });
+    return true;
+  }
+
   const isHtml = /\.html?$/i.test(absPath);
 
   res.writeHead(200, {
@@ -117,7 +132,16 @@ async function serveStaticGames(
     return true;
   }
 
-  createReadStream(absPath).pipe(res);
+  const stream = createReadStream(absPath);
+  stream.on('error', (err) => {
+    console.error('[puller] read error', absPath, err.message);
+    if (!res.headersSent) {
+      sendJson(res, 500, { error: 'Read failed' });
+    } else {
+      res.destroy(err);
+    }
+  });
+  stream.pipe(res);
   return true;
 }
 
@@ -149,7 +173,17 @@ export function createServer(): http.Server {
       }
 
       if (pathname === '/api/offline/status' && req.method === 'GET') {
-        const statuses = await getAllGameStatuses();
+        const idsParam = url.searchParams.get('ids');
+        if (idsParam?.trim()) {
+          const ids = idsParam
+            .split(',')
+            .map((id) => id.trim())
+            .filter(Boolean);
+          const statuses = await getGameStatusesForIds(ids);
+          sendJson(res, 200, { games: statuses });
+          return;
+        }
+        const statuses = await getDownloadedGameStatuses();
         sendJson(res, 200, { games: statuses });
         return;
       }

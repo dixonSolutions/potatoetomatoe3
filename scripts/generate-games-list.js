@@ -122,11 +122,55 @@ function generateGamesList() {
 	);
 	console.log(`   Saved to: static/games/games-metadata.json`);
 
+	writeGamesIndex(allMetadata);
+
 	if (synthesizedCount > metadataFileCount + cacheCount) {
 		console.warn(
 			`⚠️  ${synthesizedCount} games lack metadata/thumbnails. Run: node scripts/restore-games-from-build.mjs`
 		);
 	}
+}
+
+/** Lean catalog shards for progressive client load (see docs/catalog-portals.md). */
+const INDEX_SHARD_SIZE = 500;
+
+function writeGamesIndex(allMetadata) {
+	const indexDir = join(GAMES_ROOT, 'games-index');
+	mkdirSync(indexDir, { recursive: true });
+
+	const lean = allMetadata.map((entry) => ({
+		id: entry.id,
+		name: entry.name ?? '',
+		author: entry.author ?? '',
+		category: entry.category ?? 'misc',
+		thumbnail: entry.thumbnail ?? '',
+		...(entry.engine ? { engine: entry.engine } : {})
+	}));
+
+	const categories = [
+		...new Set(lean.map((g) => g.category).filter(Boolean))
+	].sort((a, b) => a.localeCompare(b));
+
+	const shardCount = Math.max(1, Math.ceil(lean.length / INDEX_SHARD_SIZE));
+	for (let i = 0; i < shardCount; i++) {
+		const slice = lean.slice(i * INDEX_SHARD_SIZE, (i + 1) * INDEX_SHARD_SIZE);
+		const shardName = `shard-${String(i).padStart(3, '0')}.json`;
+		writeFileSync(join(indexDir, shardName), JSON.stringify(slice));
+	}
+
+	const manifest = {
+		version: 1,
+		total: lean.length,
+		shardSize: INDEX_SHARD_SIZE,
+		shardCount,
+		categories
+	};
+	writeFileSync(join(indexDir, 'manifest.json'), JSON.stringify(manifest));
+
+	console.log(
+		`✅ Generated games index: ${lean.length} games in ${shardCount} shards (${INDEX_SHARD_SIZE}/shard)`
+	);
+	console.log(`   Saved to: static/games/games-index/`);
 }
 
 generateGamesList();

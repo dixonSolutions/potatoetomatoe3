@@ -1,10 +1,120 @@
 /**
- * Injected into Unity WebGL shells before the loader runs.
- * Removes splash banners, portal loading screens, and ad SDK noise.
+ * Injected into Unity WebGL shells BEFORE the loader runs.
+ * Removes splash banners, stubs Emscripten stdin, spoofs focus-loss,
+ * and reduces ad SDK / portal noise.
  */
 (function () {
 	if (window.__ptUnityInjectInstalled) return;
 	window.__ptUnityInjectInstalled = true;
+
+	/* ——— Emscripten / Unity FS: avoid "invalid handle for stdin" aborts ——— */
+	function ptNullStdin() {
+		return null;
+	}
+	function ptNoopOut() {}
+
+	function ensureUnityModuleHooks(mod) {
+		mod = mod || {};
+		if (typeof mod.stdin !== 'function') mod.stdin = ptNullStdin;
+		if (typeof mod.stdout !== 'function') mod.stdout = ptNoopOut;
+		if (typeof mod.stderr !== 'function') mod.stderr = ptNoopOut;
+		if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';
+		return mod;
+	}
+
+	try {
+		window.Module = ensureUnityModuleHooks(window.Module || {});
+	} catch (e) {
+		/* ignore */
+	}
+
+	/* ——— Focus spoof: games stay "focused"; app pause still uses postMessage ——— */
+	(function patchFocusSpoof() {
+		if (window.__ptFocusSpoofInstalled) return;
+		window.__ptFocusSpoofInstalled = true;
+
+		/* Do NOT override Document.prototype.hasFocus — parent mute-on-focus uses it. */
+		try {
+			Object.defineProperty(Document.prototype, 'hidden', {
+				configurable: true,
+				get: function () {
+					return false;
+				}
+			});
+			Object.defineProperty(Document.prototype, 'visibilityState', {
+				configurable: true,
+				get: function () {
+					return 'visible';
+				}
+			});
+		} catch (e) {
+			/* ignore */
+		}
+
+		function swallow(ev) {
+			try {
+				ev.stopImmediatePropagation();
+				ev.stopPropagation();
+				ev.preventDefault();
+			} catch (e2) {
+				/* ignore */
+			}
+		}
+
+		/* Capture-phase: Unity never sees blur / visibilitychange (keeps in-game pause menus off). */
+		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {
+			window.addEventListener(type, swallow, true);
+			document.addEventListener(type, swallow, true);
+		});
+	})();
+
+	/* ——— Reject HTML mistaken for JS/wasm (SPA fallback / missing Build files) ——— */
+	(function patchAssetFetch() {
+		if (window.__ptUnityFetchPatched || typeof window.fetch !== 'function') return;
+		window.__ptUnityFetchPatched = true;
+		var origFetch = window.fetch.bind(window);
+		var assetRe = /\.(js|mjs|wasm|unityweb|data|json)(\?|#|$)/i;
+
+		function looksLikeHtml(text) {
+			var t = String(text || '')
+				.trim()
+				.slice(0, 64)
+				.toLowerCase();
+			return t.charAt(0) === '<' || t.indexOf('<!doctype') === 0 || t.indexOf('<html') === 0;
+		}
+
+		window.fetch = function (input, init) {
+			var url = typeof input === 'string' ? input : input && input.url;
+			var p = origFetch(input, init);
+			if (!url || !assetRe.test(url)) return p;
+			return p.then(function (res) {
+				var ct = (res.headers && res.headers.get('content-type')) || '';
+				if (/text\/html/i.test(ct)) {
+					return res.text().then(function () {
+						throw new Error(
+							'Unity asset returned HTML instead of binary/JS (missing file or SPA fallback): ' +
+								url
+						);
+					});
+				}
+				/* Opaque / no content-type: sniff a clone for script-like URLs */
+				if (!ct && /\.js(\?|#|$)/i.test(url)) {
+					return res
+						.clone()
+						.text()
+						.then(function (body) {
+							if (looksLikeHtml(body)) {
+								throw new Error(
+									'Unity script URL returned HTML (missing Build asset?): ' + url
+								);
+							}
+							return res;
+						});
+				}
+				return res;
+			});
+		};
+	})();
 
 	/* Unity "Made with Unity" banner — no-op */
 	window.unityShowBanner = function () {};
@@ -53,7 +163,7 @@
 				return;
 			}
 			_cui = function (canvas, config, onProgress) {
-				config = config || {};
+				config = ensureUnityModuleHooks(config || {});
 				if ('showBanner' in config) config.showBanner = false;
 				hideLoadingDom();
 				return fn(canvas, config, function (progress) {
@@ -67,22 +177,46 @@
 		}
 	});
 
-	/* Legacy UnityLoader.instantiate — skip TemplateData splash delay */
-	if (window.UnityLoader && typeof window.UnityLoader.instantiate === 'function') {
-		var origInstantiate = window.UnityLoader.instantiate.bind(window.UnityLoader);
-		window.UnityLoader.instantiate = function (container, url, opts) {
-			hideLoadingDom();
-			opts = opts || {};
-			if (opts.onProgress) {
-				var origProgress = opts.onProgress;
-				opts.onProgress = function (gameInstance, progress) {
-					hideLoadingDom();
-					return origProgress(gameInstance, progress);
-				};
-			}
-			return origInstantiate(container, url, opts);
-		};
+	/* Legacy UnityLoader.instantiate — trap assignment so we wrap even if inject runs first */
+	var _ul = window.UnityLoader;
+	function patchUnityLoader(UL) {
+		if (!UL || UL.__ptPatched) return UL;
+		UL.__ptPatched = true;
+		/* Skip mobile / browser warning popups (alert with "Press OK if you wish to continue"). */
+		if (typeof UL.compatibilityCheck === 'function') {
+			UL.compatibilityCheck = function (_gameInstance, onsuccess) {
+				if (typeof onsuccess === 'function') onsuccess();
+			};
+		}
+		if (typeof UL.instantiate === 'function') {
+			var origInstantiate = UL.instantiate.bind(UL);
+			UL.instantiate = function (container, url, opts) {
+				hideLoadingDom();
+				opts = opts || {};
+				opts.Module = ensureUnityModuleHooks(opts.Module || {});
+				if (opts.onProgress) {
+					var origProgress = opts.onProgress;
+					opts.onProgress = function (gameInstance, progress) {
+						hideLoadingDom();
+						return origProgress(gameInstance, progress);
+					};
+				}
+				return origInstantiate(container, url, opts);
+			};
+		}
+		return UL;
 	}
+	Object.defineProperty(window, 'UnityLoader', {
+		configurable: true,
+		enumerable: true,
+		get: function () {
+			return _ul;
+		},
+		set: function (UL) {
+			_ul = patchUnityLoader(UL);
+		}
+	});
+	if (_ul) _ul = patchUnityLoader(_ul);
 
 	/* Track every AudioContext so focus-loss mute can suspend Unity Web Audio too. */
 	var audioContexts = [];
@@ -169,6 +303,7 @@
 		} catch (e) {}
 	}
 
+	/* App-driven pause/mute — must keep working despite focus spoof */
 	window.addEventListener('message', function (ev) {
 		var data = ev && ev.data;
 		if (!data || typeof data !== 'object') return;

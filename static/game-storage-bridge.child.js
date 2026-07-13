@@ -11,6 +11,65 @@
 	var idbShimInstalled = false;
 	var pushTimer = null;
 
+	/*
+	 * Focus spoof for ALL same-origin games (not just Unity inject.js):
+	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.
+	 * Do not override hasFocus — parent mute-on-focus-loss reads it.
+	 */
+	(function patchFocusSpoof() {
+		if (window.__ptFocusSpoofInstalled) return;
+		window.__ptFocusSpoofInstalled = true;
+		try {
+			Object.defineProperty(Document.prototype, 'hidden', {
+				configurable: true,
+				get: function () {
+					return false;
+				}
+			});
+			Object.defineProperty(Document.prototype, 'visibilityState', {
+				configurable: true,
+				get: function () {
+					return 'visible';
+				}
+			});
+		} catch (e) {
+			/* ignore */
+		}
+		function swallow(ev) {
+			try {
+				ev.stopImmediatePropagation();
+				ev.stopPropagation();
+				ev.preventDefault();
+			} catch (e2) {
+				/* ignore */
+			}
+		}
+		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {
+			window.addEventListener(type, swallow, true);
+			document.addEventListener(type, swallow, true);
+		});
+	})();
+
+	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */
+	(function patchUnityModuleStdio() {
+		if (window.__ptModuleStdioInstalled) return;
+		window.__ptModuleStdioInstalled = true;
+		function nullIn() {
+			return null;
+		}
+		function noopOut() {}
+		try {
+			var mod = window.Module || {};
+			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;
+			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;
+			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;
+			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';
+			window.Module = mod;
+		} catch (e) {
+			/* ignore */
+		}
+	})();
+
 	function detectGameId() {
 		var path = location.pathname;
 		var patterns = [
