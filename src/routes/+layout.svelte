@@ -4,8 +4,8 @@
 	import { afterNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
+	import { ensureOfflineServiceWorker } from '$lib/utils/browser-offline-download';
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
-	import { ensureBrowserOfflineReady } from '$lib/utils/browser-offline-download';
 	/** Same potato-over-tomato mark as TopBar (`logo.png`). `?url` keeps SSR/client href identical. */
 	import favicon from '$lib/assets/logo.png?url';
 	import TopBar from '$lib/components/TopBar.svelte';
@@ -281,7 +281,7 @@
 		refreshPlayLimitLock();
 
 		if (isBrowserStorageSupported()) {
-			void ensureBrowserOfflineReady().catch((err) =>
+			void ensureOfflineServiceWorker().catch((err) =>
 				console.warn('Offline service worker registration failed:', err)
 			);
 		}

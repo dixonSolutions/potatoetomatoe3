@@ -452,10 +452,11 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Unity online with inject: prefer puller `/api/unity-play/:id` whenever the puller is up.
-	 * In Vite that path is same-origin (proxy). In Tauri it is http://127.0.0.1 — still gets
-	 * inject.js inside the game document (unlike /unity/player.html wrapping play.unity.com).
-	 * On GitHub Pages, PUBLIC_PLAY_PROXY_URL points at the Cloudflare Worker (same API shape).
+	 * Unity online with inject:
+	 * 1) Local-app puller URL when available
+	 * 2) Optional hosted PUBLIC_PLAY_PROXY_URL (Cloudflare Worker)
+	 * 3) Public site: same-origin /api/unity-play/:id via offline-sw → local puller :18787
+	 * 4) Else player.html shell (touch unavailable)
 	 */
 	if (metadata?.engine === 'unity') {
 		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
@@ -468,6 +469,18 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 		if (playProxy) {
 			const url = `${playProxy}/api/unity-play/${encodeURIComponent(gameId)}`;
 			appendPlayLog('info', 'play-url', `Resolved Unity play via PUBLIC_PLAY_PROXY_URL`, `game=${gameId} url=${url}`);
+			return url;
+		}
+		if (isPublicSiteDeployment()) {
+			const { ensureOfflineServiceWorker } = await import('./browser-offline-download');
+			await ensureOfflineServiceWorker();
+			const url = `${base}/api/unity-play/${encodeURIComponent(gameId)}`.replace(/\/{2,}/g, '/');
+			appendPlayLog(
+				'info',
+				'play-url',
+				`Resolved Unity play via service-worker → local puller relay`,
+				`game=${gameId} url=${url}`
+			);
 			return url;
 		}
 	}

@@ -29,7 +29,8 @@ function sendJson(res: http.ServerResponse, status: number, body: unknown): void
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': CORS_ORIGIN,
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Request-Private-Network',
+    'Access-Control-Allow-Private-Network': 'true'
   });
   res.end(payload);
 }
@@ -120,6 +121,7 @@ async function serveStaticGames(
   res.writeHead(200, {
     'Content-Type': mimeFor(absPath),
     'Access-Control-Allow-Origin': CORS_ORIGIN,
+    'Access-Control-Allow-Private-Network': 'true',
     'Cache-Control': 'public, max-age=3600'
   });
 
@@ -154,7 +156,8 @@ export function createServer(): http.Server {
       res.writeHead(204, {
         'Access-Control-Allow-Origin': CORS_ORIGIN,
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type'
+        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Request-Private-Network',
+        'Access-Control-Allow-Private-Network': 'true'
       });
       res.end();
       return;
@@ -261,6 +264,7 @@ export function createServer(): http.Server {
         res.writeHead(200, {
           'Content-Type': 'text/html; charset=utf-8',
           'Access-Control-Allow-Origin': CORS_ORIGIN,
+          'Access-Control-Allow-Private-Network': 'true',
           'Cache-Control': 'public, max-age=300'
         });
         res.end(injectGameStorageBridge(html, gameId));

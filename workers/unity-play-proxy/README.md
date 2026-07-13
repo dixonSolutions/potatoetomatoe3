@@ -13,6 +13,8 @@ Proxies Unity Play / allow-listed embed HTML so GitHub Pages can load games with
 
 ## Deploy
 
+Optional hosted path for visitors without a local puller. Prefer the Pages + `pnpm puller:start` service-worker relay for developer touch testing (see [docs/touch-console.md](../../docs/touch-console.md)).
+
 ```bash
 cd workers/unity-play-proxy
 npx wrangler deploy
