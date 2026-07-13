@@ -182,8 +182,9 @@
 				<Label for="touch-enabled" class="text-sm font-medium">Enable touch console</Label>
 				<p class="text-xs text-muted-foreground">
 					Glass on-screen joystick and buttons for mobile play. Inputs are injected only into
-					same-origin or proxied Unity play iframes (offline mirror, puller, or play proxy).
-					Online portal shells that only wrap an external embed cannot receive controls.
+					same-origin or proxied Unity play iframes (offline mirror, local puller + Pages
+					service-worker relay, or play proxy). Online portal shells that only wrap an external
+					embed cannot receive controls.
 				</p>
 			</div>
 			<Switch

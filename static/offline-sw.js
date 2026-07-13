@@ -2,10 +2,12 @@
  * Service worker for browser-hosted offline games (GitHub Pages).
  * Serves files from IndexedDB at /browser-offline/{gameId}/…
  * Injects storage bridge into game HTML at /games/{id}/online|offline/…
+ * Relays /api/unity-play/{id} to a locally running puller (avoids HTTPS→HTTP iframe mixed content).
  */
 const DB_NAME = 'potatotomato-offline-v1';
 const DB_VERSION = 1;
 const FILES_STORE = 'files';
+const DEFAULT_PULLER_UNITY = 'http://127.0.0.1:18787/api/unity-play/';
 
 function fileKey(gameId, filePath) {
 	return gameId + '::' + filePath;
@@ -85,7 +87,65 @@ function appBaseFromPath(pathname) {
 	if (offlineMatch) return offlineMatch[1] || '';
 	var gamesMatch = pathname.match(/^(.*)\/games\/[^/]+\/(?:online|offline)/);
 	if (gamesMatch) return gamesMatch[1] || '';
+	var unityMatch = pathname.match(/^(.*)\/api\/unity-play\//);
+	if (unityMatch) return unityMatch[1] || '';
 	return '';
+}
+
+function unityPlayRelayErrorHtml(gameId, reason) {
+	var safeId = String(gameId || '').replace(/[<>&"]/g, '');
+	var safeReason = String(reason || 'Puller unreachable').replace(/[<>&"]/g, '');
+	return (
+		'<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Unity play proxy</title>' +
+		'<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#111;color:#ddd;' +
+		'font:400 0.95rem/1.5 system-ui,sans-serif;padding:1.5rem;text-align:center}' +
+		'code{background:#222;padding:0.15rem 0.4rem;border-radius:4px}</style></head><body>' +
+		'<div><p><strong>Local puller required for Unity touch play</strong></p>' +
+		'<p>This page relays <code>/api/unity-play/' +
+		safeId +
+		'</code> to <code>http://127.0.0.1:18787</code> via the service worker.</p>' +
+		'<p>On this machine run:</p><p><code>pnpm puller:start</code></p>' +
+		'<p style="opacity:.75;font-size:.85rem">' +
+		safeReason +
+		'</p></div></body></html>'
+	);
+}
+
+function relayUnityPlay(gameId) {
+	var target = DEFAULT_PULLER_UNITY + encodeURIComponent(gameId);
+	return fetch(target, {
+		method: 'GET',
+		headers: { Accept: 'text/html,*/*' },
+		mode: 'cors',
+		credentials: 'omit'
+	})
+		.then(function (res) {
+			if (!res.ok) {
+				return res.text().then(function (body) {
+					var detail = body && body.length < 200 ? body : 'HTTP ' + res.status;
+					return new Response(unityPlayRelayErrorHtml(gameId, detail), {
+						status: 502,
+						headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+					});
+				});
+			}
+			return res.text().then(function (html) {
+				return new Response(html, {
+					status: 200,
+					headers: {
+						'Content-Type': 'text/html; charset=utf-8',
+						'Cache-Control': 'private, max-age=60'
+					}
+				});
+			});
+		})
+		.catch(function (err) {
+			var msg = err && err.message ? err.message : 'Network error';
+			return new Response(unityPlayRelayErrorHtml(gameId, msg), {
+				status: 502,
+				headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+			});
+		});
 }
 
 self.addEventListener('install', function (event) {
@@ -99,6 +159,13 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', function (event) {
 	const url = new URL(event.request.url);
 	const pathname = url.pathname;
+
+	const unityPlayMatch = pathname.match(/\/api\/unity-play\/([^/]+)\/?$/);
+	if (unityPlayMatch && event.request.method === 'GET') {
+		const gameId = decodeURIComponent(unityPlayMatch[1]);
+		event.respondWith(relayUnityPlay(gameId));
+		return;
+	}
 
 	const offlineMatch = pathname.match(/\/browser-offline\/([^/]+)\/(.*)$/);
 	if (offlineMatch) {

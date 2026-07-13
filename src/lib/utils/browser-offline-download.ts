@@ -133,8 +133,8 @@ async function swServesOfflineShell(playUrl: string): Promise<boolean> {
 	}
 }
 
-/** Wait until the offline service worker can intercept /browser-offline/ requests. */
-export async function ensureBrowserOfflineReady(maxWaitMs = 8000): Promise<boolean> {
+/** Wait until the offline service worker can intercept /browser-offline/ and /api/unity-play/. */
+export async function ensureOfflineServiceWorker(maxWaitMs = 8000): Promise<boolean> {
 	if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return false;
 	const scope = `${appBase()}/`;
 	try {
@@ -154,6 +154,11 @@ export async function ensureBrowserOfflineReady(maxWaitMs = 8000): Promise<boole
 	} catch {
 		return false;
 	}
+}
+
+/** @deprecated Prefer ensureOfflineServiceWorker — same registration. */
+export async function ensureBrowserOfflineReady(maxWaitMs = 8000): Promise<boolean> {
+	return ensureOfflineServiceWorker(maxWaitMs);
 }
 
 /** Resolve a playable URL for a browser-stored offline copy (SW route or blob fallback). */

@@ -45,7 +45,7 @@ flowchart TD
 | `/games/{id}/offline/…` | Same-origin | **Yes** (DOM or postMessage bridge) |
 | `/puller-games/{id}/offline/…` (dev proxy) | Same-origin | **Yes** |
 | `/browser-offline/{id}/…` | Same-origin | **Yes** if canvas in top doc; **No** if shell only wraps external iframe |
-| `/api/unity-play/{id}` (Vite / puller / Pages play proxy) | Same-origin or loopback | **Yes** — inject.js in game doc; DOM when same-origin, else `potato-tomato-touch-input` postMessage |
+| `/api/unity-play/{id}` (Vite / Pages SW relay) | Same-origin | **Yes** — inject.js in game doc |
 | `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}` | Cross-origin Worker | **Yes** via postMessage bridge |
 | `blob:…` | Same-origin | Same as browser-offline |
 | `/unity/player.html?src=…` | Same-origin shell | **No** — nested cross-origin `#game` |
@@ -67,9 +67,18 @@ Handlers live in [`static/unity/inject.js`](../static/unity/inject.js) and [`sta
 
 Live probe: `resolveInjectable(iframe)` for same-origin; `canUseTouchBridge(playerUrl)` enables the bridge path when inject is known to be present.
 
-### Public Unity proxy (GitHub Pages)
+### Unity on GitHub Pages (local puller + Service Worker)
 
-Static Pages cannot run the puller. Deploy [`workers/unity-play-proxy/`](../workers/unity-play-proxy/) (Cloudflare Worker), set Actions variable `PUBLIC_PLAY_PROXY_URL`, and the Pages build wires Unity online play to `{proxy}/api/unity-play/{id}`. See that Worker README.
+HTTPS Pages must not iframe `http://127.0.0.1` (mixed content). Instead:
+
+1. On your machine: `pnpm puller:start` (listens on `127.0.0.1:18787`).
+2. Open the Pages site; the app registers [`offline-sw.js`](../static/offline-sw.js).
+3. Unity online play uses same-origin `{base}/api/unity-play/{id}`.
+4. The service worker relays that request to the local puller and returns HTML with `inject.js` — touch works.
+
+If the puller is not running, the iframe shows an error page telling you to start it.
+
+**Optional (no local puller):** deploy [`workers/unity-play-proxy/`](../workers/unity-play-proxy/), set Actions variable `PUBLIC_PLAY_PROXY_URL`, and Pages prefers that hosted proxy. Random visitors without puller or `PUBLIC_PLAY_PROXY_URL` cannot use touch on online Unity CDN shells.
 ## Gestures and UX
 
 | Action | Behavior |
