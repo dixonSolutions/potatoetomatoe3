@@ -54,7 +54,7 @@ After a successful offline download, the puller also caches the catalog `thumbna
 
 ### `embed`
 
-Used for Unity WebGL games embedded via Google Sites (Shrek). Carried over from ShrekEscape2 `pull/`:
+Used for Unity WebGL games embedded via Google Sites (Shrek). Carried over from [ShrekEscape2 `pull/`](https://github.com/dixonSolutions/ShrekEscape2) (design reference, not a runtime dependency):
 
 1. Discover game via Playwright (FILE_URL from embed page)
 2. Download split Brotli Unity assets
@@ -62,14 +62,27 @@ Used for Unity WebGL games embedded via Google Sites (Shrek). Carried over from 
 
 Set `pullStrategy: "embed"` in `online/metadata.json` or add the game ID to `EMBED_STRATEGY_GAMES`.
 
-### `generic`
+### `generic` (full scrape)
 
-Default for catalog games:
+Default for catalog games. **Does not stop at the online shell** — mirrors the iframe game host and all reachable assets:
 
 1. Read `online/index.html` iframe URL
-2. Mirror with `wget --mirror`
-3. Deep-fetch referenced assets (Unity-aware discovery in `puller/src/unity/discover-assets.ts`)
-4. For Unity WebGL builds: strip portal bloat, inject `static/unity/inject.js` at the **start** of `<head>` (stdin stubs, focus spoof, splash removal), write `asset-map.json` for local asset routing. Vite also returns plain 404 for missing `/games/…/Build/*` assets so SPA `index.html` is never executed as JS (`SyntaxError: expected expression, got '<'`).
+2. **Primary:** Playwright opens the iframe URL, walks nested frames, and vaults every successful network response (HTML/JS/CSS/WASM/data/media/JSON) during boot (`puller/src/capture/`)
+3. Persist vault under `offline/` (`_external/<host>/…` for cross-origin assets)
+4. **Fill-in:** BFS discovery (`discover-all.ts`) + parallel wget for refs never requested during boot
+5. **Ads:** strip known ad iframes; inject offline Poki / Yandex / generic stubs (`puller/src/ads/`)
+6. Unity WebGL: `postProcessUnityOfflineMirror` (inject.js, asset-map) then ad strip
+
+**Fallback:** if Playwright cannot start, use `wget --mirror` + the same fill-in / ad / Unity post-process path (never a silent shell-only copy).
+
+### Browser IndexedDB vs puller
+
+| Backend | What gets saved | Cross-origin iframe |
+|---------|-----------------|---------------------|
+| **Puller** (local app / Tauri) | Full iframe host + assets + ad stubs | Supported (this is the full-scrape path) |
+| **Browser** (GitHub Pages) | Same-origin `/games/{id}/online/*` only | **Refused** — download fails with CTA unless a local puller is reachable (`pnpm puller:start`), then the download is routed to the puller |
+
+Shell-only “offline” copies that still load a live third-party iframe are no longer treated as successful downloads.
 
 ### Y8 catalog import
 

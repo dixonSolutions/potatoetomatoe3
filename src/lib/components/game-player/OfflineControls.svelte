@@ -26,6 +26,7 @@
 		describePullerDownloadError
 	} from '$lib/utils/offline-downloader';
 	import { getGameMeta } from '$lib/utils/browser-offline-storage';
+	import { onlineShellHasExternalIframe } from '$lib/utils/browser-offline-download';
 	import {
 		getGamePlayMode,
 		saveGamePlayMode,
@@ -94,7 +95,8 @@
 		}
 		if (backend === 'browser') {
 			const meta = await getGameMeta(gameId);
-			externalEmbedOnly = Boolean(meta?.externalIframe);
+			externalEmbedOnly =
+				Boolean(meta?.externalIframe) || (await onlineShellHasExternalIframe(gameId));
 		} else {
 			externalEmbedOnly = false;
 		}
@@ -148,7 +150,15 @@
 		appendPlayLog('info', 'download', `Starting offline download`, `game=${gameId} backend=${offlineBackend}`);
 		dispatchOfflineStatusChanged(gameId, 'download-start');
 		try {
-			await startGameDownload(gameId);
+			const start = await startGameDownload(gameId);
+			if (!start.started) {
+				appendPlayLog('warn', 'download', 'Download not started', start.message);
+				toast.error(start.message);
+				progress = { state: 'error', progress: 0, message: start.message, error: start.message };
+				dispatchOfflineStatusChanged(gameId, 'download-error');
+				await refreshStatus();
+				return;
+			}
 			const final = await pollDownloadUntilDone(gameId, (p) => {
 				if (generation === pollGeneration) progress = p;
 			});
@@ -323,15 +333,17 @@
 			<p class="text-xs text-muted-foreground">
 				Downloads are saved in this browser via IndexedDB. Same-origin game files work offline.
 			</p>
-			{#if externalEmbedOnly && status?.offline}
+			{#if externalEmbedOnly}
 				<p class="text-xs text-amber-600 dark:text-amber-400">
-					This game embeds a third-party host. Offline mode saves the local shell only — the game
-					still needs internet to load from the external host.
+					This game embeds a third-party host. Full offline requires the desktop app or a running
+					local puller (<code class="rounded bg-muted px-1">pnpm puller:start</code>) so the iframe
+					and all assets can be scraped — browser storage alone cannot mirror cross-origin hosts.
 				</p>
 			{/if}
 		{:else if offlineBackend === 'puller'}
 			<p class="text-xs text-muted-foreground">
-				Downloads are saved as game files on disk via the local puller service.
+				Downloads are saved as game files on disk via the local puller (full iframe + asset scrape,
+				ads stripped).
 			</p>
 		{/if}
 	</div>

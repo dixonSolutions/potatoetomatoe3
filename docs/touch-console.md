@@ -44,7 +44,7 @@ flowchart TD
 |------------------|-------------------|---------------------------|
 | `/games/{id}/offline/…` | Same-origin | **Yes** (DOM or postMessage bridge) |
 | `/puller-games/{id}/offline/…` (dev proxy) | Same-origin | **Yes** |
-| `/browser-offline/{id}/…` | Same-origin | **Yes** if canvas in top doc; **No** if shell only wraps external iframe |
+| `/browser-offline/{id}/…` | Same-origin | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; use puller full scrape) |
 | `/api/unity-play/{id}` (Vite / Pages SW relay) | Same-origin | **Yes** — inject.js in game doc |
 | `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}` | Cross-origin Worker | **Yes** via postMessage bridge |
 | `blob:…` | Same-origin | Same as browser-offline |

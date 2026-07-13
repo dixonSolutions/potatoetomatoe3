@@ -59,8 +59,17 @@ let pullerAvailableCache: boolean | null = null;
 let pullerAvailableCheckedAt = 0;
 const AVAILABILITY_TTL_MS = 5000;
 
-export async function isPullerAvailable(force = false): Promise<boolean> {
-	if (!shouldProbePullerBackend()) {
+/**
+ * Probe the local puller health endpoint.
+ * @param force bypass TTL cache
+ * @param options.ignoreDeploymentGate when true, probe even on public-site
+ *   (used to route external-iframe full scrapes to a running local puller)
+ */
+export async function isPullerAvailable(
+	force = false,
+	options?: { ignoreDeploymentGate?: boolean }
+): Promise<boolean> {
+	if (!options?.ignoreDeploymentGate && !shouldProbePullerBackend()) {
 		pullerAvailableCache = false;
 		pullerAvailableCheckedAt = Date.now();
 		return false;
@@ -69,6 +78,7 @@ export async function isPullerAvailable(force = false): Promise<boolean> {
 	const now = Date.now();
 	if (
 		!force &&
+		!options?.ignoreDeploymentGate &&
 		pullerAvailableCache !== null &&
 		now - pullerAvailableCheckedAt < AVAILABILITY_TTL_MS
 	) {
@@ -78,12 +88,18 @@ export async function isPullerAvailable(force = false): Promise<boolean> {
 		const res = await fetch(`${getPullerBaseUrl()}/api/offline/health`, {
 			signal: AbortSignal.timeout(2500)
 		});
-		pullerAvailableCache = res.ok;
+		if (!options?.ignoreDeploymentGate) {
+			pullerAvailableCache = res.ok;
+			pullerAvailableCheckedAt = now;
+		}
+		return res.ok;
 	} catch {
-		pullerAvailableCache = false;
+		if (!options?.ignoreDeploymentGate) {
+			pullerAvailableCache = false;
+			pullerAvailableCheckedAt = now;
+		}
+		return false;
 	}
-	pullerAvailableCheckedAt = now;
-	return pullerAvailableCache;
 }
 
 export interface PullerHealth {

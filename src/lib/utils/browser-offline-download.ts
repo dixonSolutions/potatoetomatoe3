@@ -199,6 +199,28 @@ function extractIframeSrc(html: string): string | null {
 	return null;
 }
 
+/**
+ * Peek the online shell for a cross-origin iframe (browser IndexedDB cannot full-scrape those).
+ */
+export async function onlineShellHasExternalIframe(gameId: string): Promise<boolean> {
+	try {
+		const res = await fetch(absoluteGameOnlineUrl(gameId, 'index.html'), {
+			cache: 'no-store'
+		});
+		if (!res.ok) return false;
+		const html = await res.text();
+		const iframeSrc = extractIframeSrc(html);
+		if (!iframeSrc) return false;
+		return new URL(iframeSrc).origin !== window.location.origin;
+	} catch {
+		return false;
+	}
+}
+
+/** Clear message when browser storage cannot mirror a third-party game host. */
+export const EXTERNAL_IFRAME_NEEDS_PULLER =
+	'Full offline needs the desktop app or a local puller — this game embeds a third-party host that cannot be scraped from the browser alone.';
+
 function isSameOriginAsset(gameId: string, ref: string, pageUrl: string): string | null {
 	if (!ref || ref.startsWith('data:') || ref.startsWith('blob:') || ref.startsWith('#')) {
 		return null;
@@ -310,7 +332,9 @@ export async function fetchBrowserGameOfflineStatus(gameId: string): Promise<Gam
 	const online = await checkOnlineShellExists(gameId);
 	const meta = await getGameMeta(gameId);
 	const partialCache = Boolean(meta?.partialCache) || (await hasBrowserPartialCache(gameId));
-	const offline = Boolean(meta?.downloadedAt && meta.fileCount > 0 && !meta?.partialCache);
+	const offline = Boolean(
+		meta?.downloadedAt && meta.fileCount > 0 && !meta?.partialCache && !meta?.externalIframe
+	);
 	const cacheFileCount = meta?.cachedFileCount ?? (partialCache ? await countStoredGameFiles(gameId) : 0);
 	const thumbUrl = offline ? await browserOfflineThumbnailUrl(gameId) : null;
 	return {
@@ -384,6 +408,27 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 			throw new Error('No same-origin files found for this game');
 		}
 
+		/*
+		 * Cross-origin iframe shells cannot be full-scraped from IndexedDB alone.
+		 * Refuse to mark as offline — callers should route to the puller first.
+		 */
+		if (externalIframe) {
+			await setGameMeta(gameId, {
+				downloadedAt: 0,
+				fileCount: 0,
+				downloading: false,
+				partialCache: false,
+				externalIframe: true
+			});
+			setBrowserProgress(gameId, {
+				state: 'error',
+				progress: 0,
+				message: EXTERNAL_IFRAME_NEEDS_PULLER,
+				error: EXTERNAL_IFRAME_NEEDS_PULLER
+			});
+			return;
+		}
+
 		let written = 0;
 		const total = files.size;
 		for (const [path, data] of files) {
@@ -435,10 +480,7 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 
 		await setGameMeta(gameId, meta);
 
-		const message = externalIframe
-			? 'Saved online shell (external iframe may still need network)'
-			: 'Download complete';
-		setBrowserProgress(gameId, { state: 'done', progress: 100, message });
+		setBrowserProgress(gameId, { state: 'done', progress: 100, message: 'Download complete' });
 	} catch (error) {
 		const discard = discardOnCancel.get(gameId) ?? false;
 		discardOnCancel.delete(gameId);

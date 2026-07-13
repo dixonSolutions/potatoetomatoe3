@@ -180,7 +180,23 @@ export async function startGameDownload(
 ): Promise<{ started: boolean; message: string }> {
 	const backend = await getOfflineBackend(true);
 	if (backend === 'puller') return startPullerGameDownload(gameId);
-	if (backend === 'browser') return startBrowserGameDownload(gameId);
+
+	if (backend === 'browser') {
+		const { onlineShellHasExternalIframe, EXTERNAL_IFRAME_NEEDS_PULLER } =
+			await import('./browser-offline-download');
+		const external = await onlineShellHasExternalIframe(gameId);
+		if (external) {
+			/* Prefer a running local puller for full iframe scrape (even on public-site). */
+			const { isPullerAvailable, startPullerGameDownload } =
+				await import('./offline-downloader-puller');
+			if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) {
+				return startPullerGameDownload(gameId);
+			}
+			return { started: false, message: EXTERNAL_IFRAME_NEEDS_PULLER };
+		}
+		return startBrowserGameDownload(gameId);
+	}
+
 	throw new Error('Offline downloads are not available in this environment');
 }
 

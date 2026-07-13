@@ -310,12 +310,13 @@ var init_extract = __esm({
 // src/server.ts
 init_config();
 import http from "node:http";
-import fs19 from "node:fs/promises";
+import fs22 from "node:fs/promises";
 import { createReadStream, existsSync as existsSync11 } from "node:fs";
-import path19 from "node:path";
+import path24 from "node:path";
 
 // src/download-manager.ts
-import fs16 from "node:fs/promises";
+import fs19 from "node:fs/promises";
+import path21 from "node:path";
 
 // src/catalog.ts
 init_config();
@@ -544,6 +545,7 @@ async function seedBundledOfflineFromCatalog() {
 }
 
 // src/download-manager.ts
+init_config();
 init_cancel_registry();
 
 // src/download-cache.ts
@@ -1710,12 +1712,122 @@ function buildAssetRedirectScript(routeMap) {
 
 // src/embedded/assets.generated.ts
 var UNITY_INJECT_SOURCE = `/**
- * Injected into Unity WebGL shells before the loader runs.
- * Removes splash banners, portal loading screens, and ad SDK noise.
+ * Injected into Unity WebGL shells BEFORE the loader runs.
+ * Removes splash banners, stubs Emscripten stdin, spoofs focus-loss,
+ * and reduces ad SDK / portal noise.
  */
 (function () {
 	if (window.__ptUnityInjectInstalled) return;
 	window.__ptUnityInjectInstalled = true;
+
+	/* \u2014\u2014\u2014 Emscripten / Unity FS: avoid "invalid handle for stdin" aborts \u2014\u2014\u2014 */
+	function ptNullStdin() {
+		return null;
+	}
+	function ptNoopOut() {}
+
+	function ensureUnityModuleHooks(mod) {
+		mod = mod || {};
+		if (typeof mod.stdin !== 'function') mod.stdin = ptNullStdin;
+		if (typeof mod.stdout !== 'function') mod.stdout = ptNoopOut;
+		if (typeof mod.stderr !== 'function') mod.stderr = ptNoopOut;
+		if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';
+		return mod;
+	}
+
+	try {
+		window.Module = ensureUnityModuleHooks(window.Module || {});
+	} catch (e) {
+		/* ignore */
+	}
+
+	/* \u2014\u2014\u2014 Focus spoof: games stay "focused"; app pause still uses postMessage \u2014\u2014\u2014 */
+	(function patchFocusSpoof() {
+		if (window.__ptFocusSpoofInstalled) return;
+		window.__ptFocusSpoofInstalled = true;
+
+		/* Do NOT override Document.prototype.hasFocus \u2014 parent mute-on-focus uses it. */
+		try {
+			Object.defineProperty(Document.prototype, 'hidden', {
+				configurable: true,
+				get: function () {
+					return false;
+				}
+			});
+			Object.defineProperty(Document.prototype, 'visibilityState', {
+				configurable: true,
+				get: function () {
+					return 'visible';
+				}
+			});
+		} catch (e) {
+			/* ignore */
+		}
+
+		function swallow(ev) {
+			try {
+				ev.stopImmediatePropagation();
+				ev.stopPropagation();
+				ev.preventDefault();
+			} catch (e2) {
+				/* ignore */
+			}
+		}
+
+		/* Capture-phase: Unity never sees blur / visibilitychange (keeps in-game pause menus off). */
+		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {
+			window.addEventListener(type, swallow, true);
+			document.addEventListener(type, swallow, true);
+		});
+	})();
+
+	/* \u2014\u2014\u2014 Reject HTML mistaken for JS/wasm (SPA fallback / missing Build files) \u2014\u2014\u2014 */
+	(function patchAssetFetch() {
+		if (window.__ptUnityFetchPatched || typeof window.fetch !== 'function') return;
+		window.__ptUnityFetchPatched = true;
+		var origFetch = window.fetch.bind(window);
+		var assetRe = /\\.(js|mjs|wasm|unityweb|data|json)(\\?|#|$)/i;
+
+		function looksLikeHtml(text) {
+			var t = String(text || '')
+				.trim()
+				.slice(0, 64)
+				.toLowerCase();
+			return t.charAt(0) === '<' || t.indexOf('<!doctype') === 0 || t.indexOf('<html') === 0;
+		}
+
+		window.fetch = function (input, init) {
+			var url = typeof input === 'string' ? input : input && input.url;
+			var p = origFetch(input, init);
+			if (!url || !assetRe.test(url)) return p;
+			return p.then(function (res) {
+				var ct = (res.headers && res.headers.get('content-type')) || '';
+				if (/text\\/html/i.test(ct)) {
+					return res.text().then(function () {
+						throw new Error(
+							'Unity asset returned HTML instead of binary/JS (missing file or SPA fallback): ' +
+								url
+						);
+					});
+				}
+				/* Opaque / no content-type: sniff a clone for script-like URLs */
+				if (!ct && /\\.js(\\?|#|$)/i.test(url)) {
+					return res
+						.clone()
+						.text()
+						.then(function (body) {
+							if (looksLikeHtml(body)) {
+								throw new Error(
+									'Unity script URL returned HTML (missing Build asset?): ' + url
+								);
+							}
+							return res;
+						});
+				}
+				return res;
+			});
+		};
+	})();
 
 	/* Unity "Made with Unity" banner \u2014 no-op */
 	window.unityShowBanner = function () {};
@@ -1764,7 +1876,7 @@ var UNITY_INJECT_SOURCE = `/**
 				return;
 			}
 			_cui = function (canvas, config, onProgress) {
-				config = config || {};
+				config = ensureUnityModuleHooks(config || {});
 				if ('showBanner' in config) config.showBanner = false;
 				hideLoadingDom();
 				return fn(canvas, config, function (progress) {
@@ -1778,22 +1890,292 @@ var UNITY_INJECT_SOURCE = `/**
 		}
 	});
 
-	/* Legacy UnityLoader.instantiate \u2014 skip TemplateData splash delay */
-	if (window.UnityLoader && typeof window.UnityLoader.instantiate === 'function') {
-		var origInstantiate = window.UnityLoader.instantiate.bind(window.UnityLoader);
-		window.UnityLoader.instantiate = function (container, url, opts) {
-			hideLoadingDom();
-			opts = opts || {};
-			if (opts.onProgress) {
-				var origProgress = opts.onProgress;
-				opts.onProgress = function (gameInstance, progress) {
-					hideLoadingDom();
-					return origProgress(gameInstance, progress);
-				};
-			}
-			return origInstantiate(container, url, opts);
-		};
+	/* Legacy UnityLoader.instantiate \u2014 trap assignment so we wrap even if inject runs first */
+	var _ul = window.UnityLoader;
+	function patchUnityLoader(UL) {
+		if (!UL || UL.__ptPatched) return UL;
+		UL.__ptPatched = true;
+		/* Skip mobile / browser warning popups (alert with "Press OK if you wish to continue"). */
+		if (typeof UL.compatibilityCheck === 'function') {
+			UL.compatibilityCheck = function (_gameInstance, onsuccess) {
+				if (typeof onsuccess === 'function') onsuccess();
+			};
+		}
+		if (typeof UL.instantiate === 'function') {
+			var origInstantiate = UL.instantiate.bind(UL);
+			UL.instantiate = function (container, url, opts) {
+				hideLoadingDom();
+				opts = opts || {};
+				opts.Module = ensureUnityModuleHooks(opts.Module || {});
+				if (opts.onProgress) {
+					var origProgress = opts.onProgress;
+					opts.onProgress = function (gameInstance, progress) {
+						hideLoadingDom();
+						return origProgress(gameInstance, progress);
+					};
+				}
+				return origInstantiate(container, url, opts);
+			};
+		}
+		return UL;
 	}
+	Object.defineProperty(window, 'UnityLoader', {
+		configurable: true,
+		enumerable: true,
+		get: function () {
+			return _ul;
+		},
+		set: function (UL) {
+			_ul = patchUnityLoader(UL);
+		}
+	});
+	if (_ul) _ul = patchUnityLoader(_ul);
+
+	/* Track every AudioContext so focus-loss mute can suspend Unity Web Audio too. */
+	var audioContexts = [];
+	(function patchAudioContext() {
+		if (window.__ptAudioContextPatched) return;
+		var OrigAC = window.AudioContext || window.webkitAudioContext;
+		if (!OrigAC) return;
+		window.__ptAudioContextPatched = true;
+		function PatchedAudioContext() {
+			var args = arguments;
+			var ctx;
+			try {
+				if (typeof Reflect !== 'undefined' && Reflect.construct) {
+					ctx = Reflect.construct(OrigAC, args);
+				} else {
+					ctx = new OrigAC();
+				}
+			} catch (e) {
+				ctx = new OrigAC();
+			}
+			audioContexts.push(ctx);
+			window.__ptSharedAudioCtx = ctx;
+			if (window.__ptAudioOutputMuted || window.__ptGamePaused) {
+				try {
+					ctx.suspend();
+				} catch (e2) {}
+			}
+			return ctx;
+		}
+		PatchedAudioContext.prototype = OrigAC.prototype;
+		try {
+			Object.setPrototypeOf(PatchedAudioContext, OrigAC);
+		} catch (e) {}
+		window.AudioContext = PatchedAudioContext;
+		if ('webkitAudioContext' in window) window.webkitAudioContext = PatchedAudioContext;
+	})();
+
+	function unlockAudio() {
+		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;
+		for (var i = 0; i < audioContexts.length; i++) {
+			try {
+				if (audioContexts[i].state === 'suspended') audioContexts[i].resume();
+			} catch (e) {}
+		}
+	}
+
+	function applyEffectiveAudioMute() {
+		var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;
+		for (var i = 0; i < audioContexts.length; i++) {
+			try {
+				if (effective) {
+					if (audioContexts[i].state === 'running') audioContexts[i].suspend();
+				} else if (audioContexts[i].state === 'suspended') {
+					audioContexts[i].resume();
+				}
+			} catch (e) {}
+		}
+	}
+
+	function setAudioOutputMuted(muted) {
+		window.__ptAudioOutputMuted = !!muted;
+		applyEffectiveAudioMute();
+	}
+
+	function setGamePaused(paused) {
+		window.__ptGamePaused = !!paused;
+		applyEffectiveAudioMute();
+		try {
+			var media = document.querySelectorAll('audio, video');
+			for (var i = 0; i < media.length; i++) {
+				var el = media[i];
+				if (paused) {
+					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');
+					try {
+						el.pause();
+					} catch (e) {}
+				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {
+					el.removeAttribute('data-pt-pause-was-playing');
+					try {
+						el.play();
+					} catch (e) {}
+				}
+			}
+		} catch (e) {}
+	}
+
+	/* \u2014\u2014\u2014 Touch console \u2192 synthetic keyboard (cross-origin parent uses postMessage) \u2014\u2014\u2014 */
+	var PT_KEY_CODE_TO_KEY = {
+		ArrowUp: 'ArrowUp',
+		ArrowDown: 'ArrowDown',
+		ArrowLeft: 'ArrowLeft',
+		ArrowRight: 'ArrowRight',
+		Space: ' ',
+		Enter: 'Enter',
+		Escape: 'Escape',
+		ShiftLeft: 'Shift',
+		ShiftRight: 'Shift',
+		ControlLeft: 'Control',
+		ControlRight: 'Control',
+		AltLeft: 'Alt',
+		AltRight: 'Alt',
+		Tab: 'Tab',
+		Backspace: 'Backspace'
+	};
+	var PT_KEY_CODE_TO_KEY_CODE = {
+		ArrowLeft: 37,
+		ArrowUp: 38,
+		ArrowRight: 39,
+		ArrowDown: 40,
+		Space: 32,
+		Enter: 13,
+		Escape: 27,
+		ShiftLeft: 16,
+		ShiftRight: 16,
+		ControlLeft: 17,
+		ControlRight: 17,
+		AltLeft: 18,
+		AltRight: 18,
+		Tab: 9,
+		Backspace: 8
+	};
+	var ptTouchHeld = Object.create(null);
+
+	function ptKeyFromCode(code) {
+		if (PT_KEY_CODE_TO_KEY[code]) return PT_KEY_CODE_TO_KEY[code];
+		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();
+		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);
+		return code || '';
+	}
+
+	function ptKeyCodeFromCode(code) {
+		if (PT_KEY_CODE_TO_KEY_CODE[code] != null) return PT_KEY_CODE_TO_KEY_CODE[code];
+		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);
+		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);
+		return 0;
+	}
+
+	function ptTouchFocus() {
+		try {
+			var canvas =
+				document.querySelector('canvas') ||
+				document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+		} catch (e) {}
+		try {
+			window.focus();
+		} catch (e) {}
+	}
+
+	function ptDispatchKey(type, code) {
+		if (!code) return;
+		var key = ptKeyFromCode(code);
+		var keyCode = ptKeyCodeFromCode(code);
+		var init = {
+			key: key,
+			code: code,
+			keyCode: keyCode,
+			which: keyCode,
+			bubbles: true,
+			cancelable: true,
+			composed: true,
+			view: window
+		};
+		var event;
+		try {
+			event = new KeyboardEvent(type, init);
+			try {
+				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });
+				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });
+				Object.defineProperty(event, 'charCode', { get: function () { return 0; } });
+			} catch (e) {}
+		} catch (e) {
+			return;
+		}
+		ptTouchFocus();
+		var canvas =
+			document.querySelector('canvas') ||
+			document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+		var targets = [];
+		if (canvas) targets.push(canvas);
+		if (document.body) targets.push(document.body);
+		if (document.documentElement) targets.push(document.documentElement);
+		targets.push(document, window);
+		var seen = {};
+		for (var i = 0; i < targets.length; i++) {
+			var t = targets[i];
+			if (!t || seen[t]) continue;
+			seen[t] = true;
+			try {
+				t.dispatchEvent(event);
+			} catch (e) {}
+		}
+	}
+
+	function ptTouchInputDown(codes) {
+		if (!codes || !codes.length) return;
+		ptTouchFocus();
+		for (var i = 0; i < codes.length; i++) {
+			var code = codes[i];
+			if (!code || ptTouchHeld[code]) continue;
+			ptTouchHeld[code] = true;
+			ptDispatchKey('keydown', code);
+		}
+	}
+
+	function ptTouchInputUp(codes) {
+		if (!codes || !codes.length) return;
+		for (var i = 0; i < codes.length; i++) {
+			var code = codes[i];
+			if (!code || !ptTouchHeld[code]) continue;
+			delete ptTouchHeld[code];
+			ptDispatchKey('keyup', code);
+		}
+	}
+
+	function ptTouchInputReleaseAll() {
+		var codes = Object.keys(ptTouchHeld);
+		ptTouchHeld = Object.create(null);
+		for (var i = 0; i < codes.length; i++) ptDispatchKey('keyup', codes[i]);
+	}
+
+	function handleTouchInputMessage(data) {
+		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		var action = data.action;
+		var codes = Array.isArray(data.codes)
+			? data.codes
+			: data.code
+				? [data.code]
+				: [];
+		if (action === 'down') ptTouchInputDown(codes);
+		else if (action === 'up') ptTouchInputUp(codes);
+		else if (action === 'releaseAll') ptTouchInputReleaseAll();
+	}
+
+	/* App-driven pause/mute/touch \u2014 must keep working despite focus spoof */
+	window.addEventListener('message', function (ev) {
+		var data = ev && ev.data;
+		if (!data || typeof data !== 'object') return;
+		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
+		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
+		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);
+		handleTouchInputMessage(data);
+	});
+	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
+		document.addEventListener(type, unlockAudio, true);
+	});
 
 	/* Stub portal SDKs so games do not pause on ads / login */
 	window.PokiSDK =
@@ -1863,7 +2245,7 @@ var UNITY_INJECT_SOURCE = `/**
 	setInterval(hideLoadingDom, 500);
 })();
 `;
-var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
+var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Do not override hasFocus \u2014 parent mute-on-focus-loss reads it.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;\n			if (effective) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		applyEffectiveAudioMute();\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas = document.querySelector('canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl = document.querySelector('canvas');\n		if (canvasEl) targets.push(canvasEl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
 
 // src/unity/inject-html.ts
 var cachedInjectSource = null;
@@ -1875,8 +2257,8 @@ function loadUnityInjectSource() {
 function buildUnityInjectScriptTag() {
   return `<script>${loadUnityInjectSource()}</script>`;
 }
-var BLOAT_SCRIPT = /(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication)/i;
-var BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick)/i;
+var BLOAT_SCRIPT = /(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare)/i;
+var BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick|cloak)/i;
 function stripUnityPortalBloat(html) {
   let out = html;
   out = out.replace(
@@ -1899,9 +2281,8 @@ function injectUnityPatches(html, assetRoutes = {}) {
   const bundle = `${inject}
 ${redirect}`;
   if (out.includes("__ptUnityInjectInstalled")) return out;
-  if (out.includes("</head>")) {
-    return out.replace("</head>", `${bundle}
-</head>`);
+  if (out.includes("<head")) {
+    return out.replace(/<head([^>]*)>/i, `<head$1>${bundle}`);
   }
   if (out.includes("<body")) {
     return out.replace(/<body([^>]*)>/i, `<body$1>${bundle}`);
@@ -2091,9 +2472,9 @@ async function pullEmbedGame(gameId, onProgress, signal) {
 }
 
 // src/strategies/generic.ts
-import fs14 from "node:fs/promises";
+import fs17 from "node:fs/promises";
 import { existsSync as existsSync7 } from "node:fs";
-import path15 from "node:path";
+import path19 from "node:path";
 import { spawn } from "node:child_process";
 init_cancel_registry();
 init_config();
@@ -2257,10 +2638,14 @@ async function resolveMirroredEntryHtml(out, iframeSrc) {
 }
 
 // src/generic/post-process-offline.ts
+import fs13 from "node:fs/promises";
+import path14 from "node:path";
+
+// src/ads/apply.ts
 import fs12 from "node:fs/promises";
 import path13 from "node:path";
 
-// src/generic/poki-offline-stub.ts
+// src/ads/stubs.ts
 function buildPokiOfflineStubScript() {
   return `(function(){
   var resolved = function(v){ return Promise.resolve(v); };
@@ -2279,8 +2664,90 @@ function buildPokiOfflineStubScript() {
   };
 })();`;
 }
+function buildYandexOfflineStubScript() {
+  return `(function(){
+  function createOfflinePlayer(){
+    return {
+      isAuthorized: function(){ return false; },
+      getMode: function(){ return 'lite'; },
+      getName: function(){ return ''; },
+      getUniqueID: function(){ return 'offline-local'; },
+      getPhoto: function(){ return ''; },
+      getPayingStatus: function(){ return 'unknown'; },
+      setData: function(){ return Promise.resolve(); },
+      getData: function(){ return Promise.resolve({}); }
+    };
+  }
+  window.YaGames = { init: function() {
+    return Promise.resolve({
+      environment: { app:{id:'0'}, i18n:{lang:'en',tld:'com'}, browser:{lang:'en'}, payload:null },
+      deviceInfo: {
+        type:'desktop',
+        isMobile: function(){ return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); },
+        isDesktop: function(){ return !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent); },
+        isTablet: function(){ return false; },
+        isTV: function(){ return false; }
+      },
+      screen: { fullscreen:{ status:'off', request:function(){ return Promise.resolve(); }, exit:function(){ return Promise.resolve(); } }},
+      adv: {
+        showFullscreenAdv: function(o){
+          if (o && o.callbacks && o.callbacks.onClose) o.callbacks.onClose(false);
+        },
+        showRewardedVideo: function(o){
+          if (o && o.callbacks) {
+            o.callbacks.onRewarded && o.callbacks.onRewarded();
+            o.callbacks.onClose && o.callbacks.onClose();
+          }
+        },
+        showBannerAdv:function(){}, hideBannerAdv:function(){},
+        getBannerAdvStatus:function(){ return Promise.resolve({stickyAdvIsShowing:false}); }
+      },
+      auth:{ openAuthDialog:function(){ return Promise.resolve(); } },
+      feedback:{ canReview:function(){ return Promise.resolve({value:false,reason:''}); }, requestReview:function(){ return Promise.resolve({feedbackSent:false}); } },
+      shortcut:{ canShowPrompt:function(){ return Promise.resolve({canShow:false}); }, showPrompt:function(){ return Promise.resolve({outcome:'rejected'}); } },
+      getLeaderboards:function(){ return Promise.resolve({ setLeaderboardScore:function(){ return Promise.resolve(); }, getLeaderboardDescription:function(){ return Promise.reject('no lb'); }, getLeaderboardEntries:function(){ return Promise.reject('no lb'); } }); },
+      getPayments:function(){ return Promise.resolve({ getCatalog:function(){ return Promise.resolve([]); }, getPurchases:function(){ return Promise.resolve([]); }, purchase:function(){ return Promise.reject('unavailable'); }, consumePurchase:function(){ return Promise.resolve(); } }); },
+      getPlayer: function(){ return Promise.resolve(createOfflinePlayer()); },
+      serverTime:function(){ return Date.now(); },
+      on:function(){},
+      features:{ LoadingAPI:{ready:function(){}}, GameplayAPI:{start:function(){},stop:function(){}} }
+    });
+  }};
+  window.FullAdShow = function(){};
+  window.RewardedShow = function(id){
+    if (window.myGameInstance) {
+      window.myGameInstance.SendMessage('YandexGame', 'RewardVideo', id || '0');
+      window.myGameInstance.SendMessage('YandexGame', 'CloseVideo');
+    }
+  };
+  window.StickyAdActivity = function(){};
+})();`;
+}
+function buildGenericAdStubScript() {
+  return `(function(){
+  var resolved = function(v){ return Promise.resolve(v); };
+  var noop = function(){};
+  window.__ptAdFree = true;
+  if (!window.PokiSDK) {
+    window.PokiSDK = {
+      init: function(){ return resolved(); },
+      commercialBreak: function(){ return resolved(); },
+      rewardedBreak: function(){ return resolved(false); },
+      gameLoadingStart: noop, gameLoadingFinished: noop,
+      gameplayStart: noop, gameplayStop: noop, happyTime: noop
+    };
+  }
+})();`;
+}
+
+// src/ads/apply.ts
+var AD_IFRAME_HOST = /(?:doubleclick\.net|googlesyndication\.com|googleadservices\.com|adnxs\.com|adservice\.google|facebook\.com\/tr|amazon-adsystem\.com|scorecardresearch\.com)/i;
+var SITE_ROOT_SCRIPT = /\bsrc=["'](?:\.\.\/)+([^"']+)["']/gi;
 function indexHtmlReferencesPokiSdk(html) {
-  return /poki-sdk/i.test(html);
+  return /poki-sdk|PokiSDK/i.test(html);
+}
+function indexHtmlReferencesYandexSdk(html) {
+  return /YaGames|yandex\.ru\/games|yandex-sdk|ysdk/i.test(html);
 }
 function patchPokiSdkScriptTags(html) {
   return html.replace(
@@ -2288,14 +2755,26 @@ function patchPokiSdkScriptTags(html) {
     '<script src="poki-sdk.js"></script>'
   );
 }
-
-// src/generic/post-process-offline.ts
-var SITE_ROOT_SCRIPT = /\bsrc=["'](?:\.\.\/)+([^"']+)["']/gi;
-var PORTAL_SCRIPT_STUBS = {
-  "cloak.js": "// offline noop\n",
-  "poki-sdk.js": ""
-  // filled via buildPokiOfflineStubScript when referenced
-};
+function patchYandexSdkScriptTags(html) {
+  return html.replace(
+    /<script\b[^>]*\bsrc=["'][^"']*(?:yandex|ysdk)[^"']*["'][^>]*>\s*<\/script>/gi,
+    '<script src="yandex-sdk-offline.js"></script>'
+  );
+}
+function stripAdIframes(html) {
+  return html.replace(/<iframe\b[^>]*>[\s\S]*?<\/iframe>/gi, (tag) => {
+    if (AD_IFRAME_HOST.test(tag)) return "<!-- ad iframe removed for offline -->";
+    return tag;
+  });
+}
+function injectHeadScript(html, src) {
+  const tag = `<script src="${src}"></script>`;
+  if (html.includes(src)) return html;
+  if (html.includes("</head>")) return html.replace("</head>", `${tag}
+</head>`);
+  return `${tag}
+${html}`;
+}
 async function patchSiteRootScriptTags(outDir, html) {
   const needed = /* @__PURE__ */ new Set();
   let out = html;
@@ -2306,85 +2785,68 @@ async function patchSiteRootScriptTags(outDir, html) {
   });
   for (const fileName of needed) {
     const dest = path13.join(outDir, fileName);
-    if (fileName === "poki-sdk.js") continue;
+    if (fileName === "poki-sdk.js" || fileName === "yandex-sdk-offline.js") continue;
     try {
       const stat = await fs12.stat(dest);
       if (stat.isFile() && stat.size > 0) continue;
     } catch {
     }
-    const stub = PORTAL_SCRIPT_STUBS[fileName] ?? "// offline noop\n";
-    await fs12.writeFile(dest, stub, "utf-8");
+    await fs12.writeFile(dest, "// offline noop\n", "utf-8");
   }
   return out;
 }
-async function postProcessGenericOfflineMirror(outDir, entryRel = "index.html") {
-  const entryPath = path13.join(outDir, entryRel);
+async function applyOfflineAdStripping(options) {
+  const entryRel = options.entryRel ?? "index.html";
+  const entryPath = path13.join(options.outDir, entryRel);
   let html = await fs12.readFile(entryPath, "utf-8");
-  html = await patchSiteRootScriptTags(outDir, html);
+  html = stripAdIframes(html);
+  html = await patchSiteRootScriptTags(options.outDir, html);
   if (indexHtmlReferencesPokiSdk(html)) {
-    await fs12.writeFile(path13.join(outDir, "poki-sdk.js"), buildPokiOfflineStubScript(), "utf-8");
+    await fs12.writeFile(
+      path13.join(options.outDir, "poki-sdk.js"),
+      buildPokiOfflineStubScript(),
+      "utf-8"
+    );
     html = patchPokiSdkScriptTags(html);
+    html = injectHeadScript(html, "poki-sdk.js");
   }
+  if (indexHtmlReferencesYandexSdk(html)) {
+    await fs12.writeFile(
+      path13.join(options.outDir, "yandex-sdk-offline.js"),
+      buildYandexOfflineStubScript(),
+      "utf-8"
+    );
+    html = patchYandexSdkScriptTags(html);
+    html = injectHeadScript(html, "yandex-sdk-offline.js");
+  }
+  await fs12.writeFile(
+    path13.join(options.outDir, "pt-adfree.js"),
+    buildGenericAdStubScript(),
+    "utf-8"
+  );
+  html = injectHeadScript(html, "pt-adfree.js");
   await fs12.writeFile(entryPath, html, "utf-8");
 }
 
-// src/unity/post-process-offline.ts
-init_scan_assets();
-import fs13 from "node:fs/promises";
-import { existsSync as existsSync6 } from "node:fs";
-import path14 from "node:path";
-async function listBuildFiles(outDir) {
-  const buildDir = path14.join(outDir, "Build");
-  if (!existsSync6(buildDir)) return [];
-  const entries = await fs13.readdir(buildDir);
-  return entries.map((f) => path14.posix.join("Build", f));
-}
-async function discoverExternalUnityAssets(outDir, indexHtml) {
-  const urls = new Set(scanContentForMediaUrls(indexHtml));
-  const product = inferBuildProductName(indexHtml);
-  const toScan = await listBuildFiles(outDir);
-  if (product) {
-    for (const suffix of [".framework.js", ".loader.js", ".data", ".wasm", ".data.br", ".wasm.br"]) {
-      toScan.push(path14.posix.join("Build", `${product}${suffix}`));
-    }
-  }
-  for (const rel of toScan) {
-    const filePath = path14.join(outDir, rel);
-    if (!existsSync6(filePath)) continue;
-    try {
-      const buf = await fs13.readFile(filePath);
-      if (buf.length > 16 * 1024 * 1024) continue;
-      for (const url of scanContentForMediaUrls(buf.toString("latin1"))) {
-        urls.add(url);
-      }
-    } catch {
-    }
-  }
-  return [...urls].sort();
-}
-async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.html") {
+// src/generic/post-process-offline.ts
+async function postProcessGenericOfflineMirror(outDir, entryRel = "index.html") {
+  await applyOfflineAdStripping({ outDir, entryRel });
   const entryPath = path14.join(outDir, entryRel);
-  const entryHtml = await fs13.readFile(entryPath, "utf-8");
-  if (!isUnityGameHtml(entryHtml)) {
-    return { assetRoutes: {}, externalCount: 0 };
-  }
-  const externalUrls = await discoverExternalUnityAssets(outDir, entryHtml);
-  const assetRoutes = buildAssetRouteMap(externalUrls);
-  if (externalUrls.length > 0) {
-    await fs13.writeFile(
-      path14.join(outDir, "asset-map.json"),
-      JSON.stringify(assetRoutes, null, 2)
-    );
-  }
-  const patched = injectUnityPatches(entryHtml, assetRoutes);
-  await fs13.writeFile(entryPath, patched);
-  console.log(
-    `[unity] Post-processed ${path14.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? "unknown"}`
-  );
-  return { assetRoutes, externalCount: externalUrls.length };
+  await fs13.access(entryPath);
 }
 
-// src/strategies/generic.ts
+// src/capture/session.ts
+init_cancel_registry();
+import fs15 from "node:fs/promises";
+import path17 from "node:path";
+import { chromium as chromium3 } from "playwright";
+
+// src/capture/frames.ts
+var FILE_URL_REGEX2 = /const\s+FILE_URL\s*=\s*['"]([^'"]+)['"]/;
+function parseEmbedFileUrl2(html) {
+  const match = html.match(FILE_URL_REGEX2);
+  return match?.[1] ?? null;
+}
 function extractIframeSrc(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
   for (const re of patterns) {
@@ -2396,22 +2858,389 @@ function extractIframeSrc(html) {
   }
   return null;
 }
+async function collectFrameHtml(page) {
+  const candidates = [];
+  try {
+    candidates.push(await page.content());
+  } catch {
+  }
+  for (const frame of page.frames()) {
+    try {
+      candidates.push(await frame.content());
+    } catch {
+    }
+  }
+  return candidates;
+}
+async function findEmbedFileUrl2(page) {
+  for (const html of await collectFrameHtml(page)) {
+    const url = parseEmbedFileUrl2(html);
+    if (url) return url;
+  }
+  return null;
+}
+async function listNestedIframeSrcs(page) {
+  const found = /* @__PURE__ */ new Set();
+  for (const html of await collectFrameHtml(page)) {
+    const src = extractIframeSrc(html);
+    if (src) found.add(src);
+  }
+  for (const frame of page.frames()) {
+    try {
+      const srcs = await frame.$$eval(
+        "iframe[src]",
+        (nodes) => nodes.map((n) => n.src).filter((s) => typeof s === "string" && s.startsWith("http"))
+      );
+      for (const s of srcs) found.add(s);
+    } catch {
+    }
+  }
+  return [...found];
+}
+function frameLooksLikeGame(html) {
+  return /createUnityInstance|UnityLoader|DATA_PARTS|WASM_PARTS|c2runtime|lime\.embed|PokiSDK|YaGames/i.test(
+    html
+  ) || html.length > 2e3;
+}
+async function waitForGameShell(page, timeoutMs) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    for (const frame of page.frames()) {
+      try {
+        const html = await frame.content();
+        if (frameLooksLikeGame(html)) return true;
+      } catch {
+      }
+    }
+    await page.waitForTimeout(400);
+  }
+  return false;
+}
+
+// src/capture/network-vault.ts
+import fs14 from "node:fs/promises";
+import path16 from "node:path";
+
+// src/capture/rewrite.ts
+import path15 from "node:path";
+function localPathForUrl(baseUrl, assetUrl, outDir) {
+  const base = new URL(baseUrl);
+  const abs = new URL(assetUrl, base);
+  const absPathParts = abs.pathname.split("/").filter(Boolean);
+  if (abs.origin !== base.origin) {
+    return path15.join(outDir, "_external", abs.hostname, ...absPathParts);
+  }
+  const basePath = base.pathname.endsWith("/") ? base.pathname : `${base.pathname}/`;
+  if (!abs.pathname.startsWith(basePath)) {
+    return path15.join(outDir, ...absPathParts);
+  }
+  const baseParts = base.pathname.split("/").filter(Boolean);
+  const relParts = absPathParts.slice(baseParts.length);
+  if (relParts.length === 0) return path15.join(outDir, "index.html");
+  return path15.join(outDir, ...relParts);
+}
+function relativePathForUrl(baseUrl, assetUrl, outDir) {
+  const full = localPathForUrl(baseUrl, assetUrl, outDir);
+  return path15.relative(outDir, full).split(path15.sep).join("/");
+}
+function isCapturableUrl(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "http:" || parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+// src/capture/network-vault.ts
+var SKIP_CONTENT_TYPES = /(?:text\/event-stream|application\/octet-stream;\s*charset=binary)/i;
+function shouldSkipUrl(url) {
+  if (!isCapturableUrl(url)) return true;
+  try {
+    const u = new URL(url);
+    if (/\b(doubleclick|googlesyndication|google-analytics|googletagmanager|facebook\.com\/tr)\b/i.test(
+      u.hostname
+    )) {
+      return true;
+    }
+  } catch {
+    return true;
+  }
+  return false;
+}
+function createNetworkVault() {
+  const entries = /* @__PURE__ */ new Map();
+  const handlers = /* @__PURE__ */ new WeakMap();
+  async function ingest(response) {
+    const url = response.url();
+    if (shouldSkipUrl(url)) return;
+    if (!isCapturableUrl(url)) return;
+    if (entries.has(url)) return;
+    const status = response.status();
+    if (status < 200 || status >= 400) return;
+    const contentType = response.headers()["content-type"] ?? "";
+    if (SKIP_CONTENT_TYPES.test(contentType) && contentType.includes("event-stream")) return;
+    try {
+      const body = Buffer.from(await response.body());
+      if (body.length === 0) return;
+      entries.set(url, { url, status, contentType, body });
+    } catch {
+    }
+  }
+  return {
+    entries,
+    attach(page) {
+      const handler = (response) => {
+        void ingest(response);
+      };
+      handlers.set(page, handler);
+      page.on("response", handler);
+    },
+    detach(page) {
+      const handler = handlers.get(page);
+      if (handler) {
+        page.off("response", handler);
+        handlers.delete(page);
+      }
+    },
+    async flush(outDir, baseUrl) {
+      const written = [];
+      for (const entry of entries.values()) {
+        const dest = localPathForUrl(baseUrl, entry.url, outDir);
+        await fs14.mkdir(path16.dirname(dest), { recursive: true });
+        await fs14.writeFile(dest, entry.body);
+        written.push(dest);
+      }
+      return written;
+    }
+  };
+}
+
+// src/capture/session.ts
+var CAPTURE_PAGE_TIMEOUT_MS = 6e4;
+var CAPTURE_BOOT_WAIT_MS = 12e3;
 function normalizeGameBaseUrl(iframeSrc) {
   const parsed = new URL(iframeSrc);
-  if (!parsed.pathname.endsWith("/")) {
+  if (!parsed.pathname.endsWith("/") && !/\.[a-z0-9]+$/i.test(parsed.pathname)) {
+    parsed.pathname = `${parsed.pathname}/`;
+  }
+  return parsed.href;
+}
+async function ensureEntryHtml(outDir, baseUrl, vault, page) {
+  const entryDest = localPathForUrl(baseUrl, new URL("index.html", baseUrl).href, outDir);
+  const indexCandidate = path17.join(outDir, "index.html");
+  let html = "";
+  try {
+    html = await page.content();
+  } catch {
+    html = "";
+  }
+  if (!html || html.length < 64) {
+    const fromVault = vault.entries.get(baseUrl) ?? vault.entries.get(baseUrl.replace(/\/$/, ""));
+    if (fromVault) {
+      html = fromVault.body.toString("utf-8");
+    }
+  }
+  if (!html || html.length < 64) {
+    for (const entry of vault.entries.values()) {
+      try {
+        if (new URL(entry.url).origin !== new URL(baseUrl).origin) continue;
+      } catch {
+        continue;
+      }
+      const ct = entry.contentType.toLowerCase();
+      const looksHtml = ct.includes("text/html") || /\.html?$/i.test(entry.url) || entry.body.subarray(0, 32).toString("utf8").includes("<");
+      if (looksHtml && entry.body.length >= 64) {
+        html = entry.body.toString("utf-8");
+        break;
+      }
+    }
+  }
+  if (!html || html.length < 64) {
+    throw new Error("Playwright capture finished but no HTML entry was captured");
+  }
+  await fs15.mkdir(path17.dirname(entryDest), { recursive: true });
+  await fs15.writeFile(entryDest, html, "utf-8");
+  if (path17.resolve(entryDest) !== path17.resolve(indexCandidate)) {
+    await fs15.mkdir(outDir, { recursive: true });
+    await fs15.writeFile(indexCandidate, html, "utf-8");
+    return "index.html";
+  }
+  return relativePathForUrl(baseUrl, new URL("index.html", baseUrl).href, outDir) || "index.html";
+}
+async function captureGameWithPlaywright(options) {
+  const {
+    outDir,
+    gameUrl,
+    signal,
+    onProgress,
+    bootWaitMs = CAPTURE_BOOT_WAIT_MS,
+    pageTimeoutMs = CAPTURE_PAGE_TIMEOUT_MS
+  } = options;
+  const notes = [];
+  const baseUrl = normalizeGameBaseUrl(gameUrl);
+  throwIfCancelled(signal);
+  onProgress?.(20, `Launching browser for ${baseUrl}\u2026`);
+  let browser = null;
+  const vault = createNetworkVault();
+  try {
+    browser = await chromium3.launch({ headless: true });
+    const context = await browser.newContext({
+      ignoreHTTPSErrors: true,
+      userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    });
+    const page = await context.newPage();
+    vault.attach(page);
+    const onAbort = () => {
+      void context.close().catch(() => {
+      });
+    };
+    signal?.addEventListener("abort", onAbort, { once: true });
+    throwIfCancelled(signal);
+    onProgress?.(28, "Loading game host\u2026");
+    await page.goto(baseUrl, {
+      waitUntil: "domcontentloaded",
+      timeout: pageTimeoutMs
+    });
+    const fileUrl = await findEmbedFileUrl2(page);
+    if (fileUrl) {
+      notes.push(`embed FILE_URL=${fileUrl}`);
+      onProgress?.(32, "Fetching embed FILE_URL wrapper\u2026");
+      const wrapperHtml = await page.evaluate(async (url) => {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`FILE_URL fetch failed: HTTP ${res.status}`);
+        return res.text();
+      }, fileUrl);
+      await page.goto("about:blank");
+      await page.setContent(
+        `<!DOCTYPE html><html><body style="margin:0"><iframe id="fr" style="width:100vw;height:100vh;border:none"></iframe></body></html>`
+      );
+      await page.evaluate((html) => {
+        const iframe = document.getElementById("fr");
+        iframe.contentDocument?.open();
+        iframe.contentDocument?.write(html);
+        iframe.contentDocument?.close();
+      }, wrapperHtml);
+    }
+    onProgress?.(40, "Waiting for game shell / network\u2026");
+    await waitForGameShell(page, Math.min(bootWaitMs, pageTimeoutMs));
+    await page.waitForTimeout(Math.min(bootWaitMs, 8e3));
+    const nested = await listNestedIframeSrcs(page);
+    for (const src of nested) {
+      if (src === baseUrl || src.startsWith(baseUrl)) continue;
+      notes.push(`nested iframe ${src}`);
+      try {
+        throwIfCancelled(signal);
+        onProgress?.(45, `Following nested iframe\u2026`);
+        const nestedPage = await context.newPage();
+        vault.attach(nestedPage);
+        await nestedPage.goto(src, {
+          waitUntil: "domcontentloaded",
+          timeout: pageTimeoutMs
+        });
+        await waitForGameShell(nestedPage, Math.min(bootWaitMs, 1e4));
+        await nestedPage.waitForTimeout(3e3);
+        vault.detach(nestedPage);
+        await nestedPage.close();
+      } catch (err) {
+        if (err instanceof DownloadCancelledError) throw err;
+        notes.push(`nested iframe failed: ${src}`);
+      }
+    }
+    throwIfCancelled(signal);
+    onProgress?.(50, `Saving ${vault.entries.size} captured response(s)\u2026`);
+    await fs15.mkdir(outDir, { recursive: true });
+    await vault.flush(outDir, baseUrl);
+    const entryRel = await ensureEntryHtml(outDir, baseUrl, vault, page);
+    vault.detach(page);
+    signal?.removeEventListener("abort", onAbort);
+    await context.close();
+    return {
+      baseUrl,
+      entryRel,
+      capturedUrls: [...vault.entries.keys()],
+      ok: true,
+      notes
+    };
+  } finally {
+    await browser?.close().catch(() => {
+    });
+  }
+}
+
+// src/unity/post-process-offline.ts
+init_scan_assets();
+import fs16 from "node:fs/promises";
+import { existsSync as existsSync6 } from "node:fs";
+import path18 from "node:path";
+async function listBuildFiles(outDir) {
+  const buildDir = path18.join(outDir, "Build");
+  if (!existsSync6(buildDir)) return [];
+  const entries = await fs16.readdir(buildDir);
+  return entries.map((f) => path18.posix.join("Build", f));
+}
+async function discoverExternalUnityAssets(outDir, indexHtml) {
+  const urls = new Set(scanContentForMediaUrls(indexHtml));
+  const product = inferBuildProductName(indexHtml);
+  const toScan = await listBuildFiles(outDir);
+  if (product) {
+    for (const suffix of [".framework.js", ".loader.js", ".data", ".wasm", ".data.br", ".wasm.br"]) {
+      toScan.push(path18.posix.join("Build", `${product}${suffix}`));
+    }
+  }
+  for (const rel of toScan) {
+    const filePath = path18.join(outDir, rel);
+    if (!existsSync6(filePath)) continue;
+    try {
+      const buf = await fs16.readFile(filePath);
+      if (buf.length > 16 * 1024 * 1024) continue;
+      for (const url of scanContentForMediaUrls(buf.toString("latin1"))) {
+        urls.add(url);
+      }
+    } catch {
+    }
+  }
+  return [...urls].sort();
+}
+async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.html") {
+  const entryPath = path18.join(outDir, entryRel);
+  const entryHtml = await fs16.readFile(entryPath, "utf-8");
+  if (!isUnityGameHtml(entryHtml)) {
+    return { assetRoutes: {}, externalCount: 0 };
+  }
+  const externalUrls = await discoverExternalUnityAssets(outDir, entryHtml);
+  const assetRoutes = buildAssetRouteMap(externalUrls);
+  if (externalUrls.length > 0) {
+    await fs16.writeFile(
+      path18.join(outDir, "asset-map.json"),
+      JSON.stringify(assetRoutes, null, 2)
+    );
+  }
+  const patched = injectUnityPatches(entryHtml, assetRoutes);
+  await fs16.writeFile(entryPath, patched);
+  console.log(
+    `[unity] Post-processed ${path18.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? "unknown"}`
+  );
+  return { assetRoutes, externalCount: externalUrls.length };
+}
+
+// src/strategies/generic.ts
+function normalizeGameBaseUrl2(iframeSrc) {
+  const parsed = new URL(iframeSrc);
+  if (!parsed.pathname.endsWith("/") && !/\.[a-z0-9]+$/i.test(parsed.pathname)) {
     parsed.pathname = `${parsed.pathname}/`;
   }
   return parsed.href;
 }
 async function findGameContentRoot(mirrorDir) {
   async function walk(dir) {
-    if (existsSync7(path15.join(dir, "Build")) || existsSync7(path15.join(dir, "TemplateData"))) {
+    if (existsSync7(path19.join(dir, "Build")) || existsSync7(path19.join(dir, "TemplateData"))) {
       return dir;
     }
-    const entries = await fs14.readdir(dir, { withFileTypes: true });
+    const entries = await fs17.readdir(dir, { withFileTypes: true });
     for (const e of entries) {
       if (!e.isDirectory()) continue;
-      const found = await walk(path15.join(dir, e.name));
+      const found = await walk(path19.join(dir, e.name));
       if (found) return found;
     }
     return null;
@@ -2420,21 +3249,21 @@ async function findGameContentRoot(mirrorDir) {
 }
 async function promoteGameRootToOfflineDir(mirrorDir, iframeSrc) {
   const entryPath = await resolveMirroredEntryHtml(mirrorDir, iframeSrc);
-  const contentRoot = await findGameContentRoot(mirrorDir) ?? path15.dirname(entryPath);
-  const staging = path15.join(path15.dirname(mirrorDir), `${path15.basename(mirrorDir)}.__staging__`);
-  await fs14.rm(staging, { recursive: true, force: true });
-  await fs14.mkdir(staging, { recursive: true });
-  await fs14.cp(contentRoot, staging, { recursive: true });
-  const entryName = path15.basename(entryPath);
-  const stagedEntry = path15.join(staging, entryName);
+  const contentRoot = await findGameContentRoot(mirrorDir) ?? path19.dirname(entryPath);
+  const staging = path19.join(path19.dirname(mirrorDir), `${path19.basename(mirrorDir)}.__staging__`);
+  await fs17.rm(staging, { recursive: true, force: true });
+  await fs17.mkdir(staging, { recursive: true });
+  await fs17.cp(contentRoot, staging, { recursive: true });
+  const entryName = path19.basename(entryPath);
+  const stagedEntry = path19.join(staging, entryName);
   if (!existsSync7(stagedEntry)) {
-    await fs14.rm(staging, { recursive: true, force: true });
+    await fs17.rm(staging, { recursive: true, force: true });
     throw new Error(`Could not prepare offline entry (${entryName})`);
   }
-  const entryRel = path15.relative(staging, stagedEntry).split(path15.sep).join("/");
-  await fs14.rm(mirrorDir, { recursive: true, force: true });
-  await fs14.rename(staging, mirrorDir);
-  const baseUrl = normalizeGameBaseUrl(iframeSrc);
+  const entryRel = path19.relative(staging, stagedEntry).split(path19.sep).join("/");
+  await fs17.rm(mirrorDir, { recursive: true, force: true });
+  await fs17.rename(staging, mirrorDir);
+  const baseUrl = normalizeGameBaseUrl2(iframeSrc);
   await writeOfflineManifest(mirrorDir, { entry: entryRel, mirroredFrom: iframeSrc });
   return { baseUrl, entryRel };
 }
@@ -2457,28 +3286,12 @@ async function runWget(args) {
     child.on("close", (code) => resolve(code ?? 1));
   });
 }
-function localPathForUrl(baseUrl, assetUrl, outDir) {
-  const base = new URL(baseUrl);
-  const abs = new URL(assetUrl, base);
-  const absPathParts = abs.pathname.split("/").filter(Boolean);
-  if (abs.origin !== base.origin) {
-    return path15.join(outDir, "_external", abs.hostname, ...absPathParts);
-  }
-  const basePath = base.pathname.endsWith("/") ? base.pathname : `${base.pathname}/`;
-  if (!abs.pathname.startsWith(basePath)) {
-    return path15.join(outDir, ...absPathParts);
-  }
-  const baseParts = base.pathname.split("/").filter(Boolean);
-  const relParts = absPathParts.slice(baseParts.length);
-  if (relParts.length === 0) return path15.join(outDir, "index.html");
-  return path15.join(outDir, ...relParts);
-}
 async function hasUnityLoaderOnDisk(outDir) {
-  const roots = [outDir, path15.join(outDir, "Build")];
+  const roots = [outDir, path19.join(outDir, "Build")];
   for (const root of roots) {
     if (!existsSync7(root)) continue;
     try {
-      const entries = await fs14.readdir(root);
+      const entries = await fs17.readdir(root);
       if (entries.some((name) => /^UnityLoader(?:\.[0-9.]+)?\.js$/i.test(name))) {
         return true;
       }
@@ -2509,7 +3322,7 @@ async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
         missing.push(buildJsonPath);
       } else {
         try {
-          const buildMeta = JSON.parse(await fs14.readFile(buildJsonPath, "utf-8"));
+          const buildMeta = JSON.parse(await fs17.readFile(buildJsonPath, "utf-8"));
           for (const assetUrl of expandBuildManifest(buildMeta, buildJsonUrl)) {
             const assetPath = localPathForUrl(baseUrl, assetUrl, outDir);
             if (!existsSync7(assetPath)) missing.push(assetPath);
@@ -2520,7 +3333,7 @@ async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
       }
     }
     if (requiresLegacyUnityLoaderFile(indexHtml) && !await hasUnityLoaderOnDisk(outDir)) {
-      missing.push(path15.join(outDir, "Build/UnityLoader.js"));
+      missing.push(path19.join(outDir, "Build/UnityLoader.js"));
     }
   }
   if (missing.length > 0) {
@@ -2553,34 +3366,14 @@ async function discoverAndDownloadAssets(outDir, baseUrl, entryRel, onProgress, 
   });
   throwIfCancelled(signal);
   onProgress(90, "Ensuring Unity loader assets\u2026");
-  const entryHtml = await fs14.readFile(path15.join(outDir, entryRel), "utf-8");
+  const entryHtml = await fs17.readFile(path19.join(outDir, entryRel), "utf-8");
   await ensureLegacyUnityLoader(outDir, baseUrl, entryHtml, signal);
   throwIfCancelled(signal);
   onProgress(92, "Verifying Unity / required assets\u2026");
   await validateRequiredAssets(outDir, baseUrl, entryHtml);
 }
-async function pullGenericGame(gameId, onProgress, signal) {
-  const onlineIndex = path15.join(catalogOnlineDir(gameId), "index.html");
-  const out = offlineDir(gameId);
-  throwIfCancelled(signal);
-  onProgress(5, "Reading online shell\u2026");
-  const html = await fs14.readFile(onlineIndex, "utf-8");
-  const iframeSrc = extractIframeSrc(html);
-  if (!iframeSrc) {
-    onProgress(20, "No iframe \u2014 copying online shell to offline\u2026");
-    await fs14.rm(out, { recursive: true, force: true });
-    await fs14.cp(catalogOnlineDir(gameId), out, { recursive: true });
-    await writeOfflineManifest(out, { entry: "index.html" });
-    onProgress(100, "Copied online shell");
-    return;
-  }
-  const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
-  onProgress(15, `Mirroring ${mirrorUrl}\u2026`);
-  const existingCache = await readDownloadCache(gameId);
-  if (!existingCache) {
-    await fs14.rm(out, { recursive: true, force: true });
-  }
-  await fs14.mkdir(out, { recursive: true });
+async function mirrorWithWget(out, mirrorUrl, iframeSrc, onProgress, signal) {
+  onProgress(15, `wget fallback: mirroring ${mirrorUrl}\u2026`);
   const wgetArgs = [
     "--mirror",
     "--convert-links",
@@ -2612,29 +3405,95 @@ async function pullGenericGame(gameId, onProgress, signal) {
   if (isWgetFailure(code)) {
     throw new Error(wgetExitMessage(code));
   }
-  const entryPath = path15.join(out, entryRel);
+  const entryPath = path19.join(out, entryRel);
   if (!existsSync7(entryPath)) {
     throw new Error(`Mirror completed but entry HTML missing: ${entryRel}`);
   }
+  return { baseUrl, entryRel };
+}
+async function pullGenericGame(gameId, onProgress, signal) {
+  const onlineIndex = path19.join(catalogOnlineDir(gameId), "index.html");
+  const out = offlineDir(gameId);
+  throwIfCancelled(signal);
+  onProgress(5, "Reading online shell\u2026");
+  const html = await fs17.readFile(onlineIndex, "utf-8");
+  const iframeSrc = extractIframeSrc(html);
+  if (!iframeSrc) {
+    onProgress(20, "No iframe \u2014 copying online shell to offline\u2026");
+    await fs17.rm(out, { recursive: true, force: true });
+    await fs17.cp(catalogOnlineDir(gameId), out, { recursive: true });
+    await writeOfflineManifest(out, { entry: "index.html" });
+    await postProcessGenericOfflineMirror(out, "index.html");
+    onProgress(100, "Copied online shell");
+    return;
+  }
+  const mirrorUrl = normalizeGameBaseUrl2(iframeSrc);
+  const existingCache = await readDownloadCache(gameId);
+  if (!existingCache) {
+    await fs17.rm(out, { recursive: true, force: true });
+  }
+  await fs17.mkdir(out, { recursive: true });
+  let baseUrl;
+  let entryRel;
+  let usedPlaywright = false;
+  try {
+    onProgress(12, "Full scrape via Playwright\u2026");
+    const capture = await captureGameWithPlaywright({
+      outDir: out,
+      gameUrl: iframeSrc,
+      signal,
+      onProgress
+    });
+    usedPlaywright = capture.ok;
+    baseUrl = capture.baseUrl;
+    entryRel = capture.entryRel;
+    try {
+      const promoted = await promoteGameRootToOfflineDir(out, iframeSrc);
+      baseUrl = promoted.baseUrl;
+      entryRel = promoted.entryRel;
+    } catch {
+      await writeOfflineManifest(out, {
+        entry: entryRel,
+        mirroredFrom: iframeSrc
+      });
+    }
+    if (capture.notes.length > 0) {
+      console.log(`[generic] capture notes: ${capture.notes.join("; ")}`);
+    }
+  } catch (error) {
+    if (error instanceof DownloadCancelledError) throw error;
+    console.warn(
+      `[generic] Playwright capture failed, falling back to wget:`,
+      error instanceof Error ? error.message : error
+    );
+    onProgress(14, "Playwright unavailable \u2014 using wget\u2026");
+    await fs17.rm(out, { recursive: true, force: true });
+    await fs17.mkdir(out, { recursive: true });
+    ({ baseUrl, entryRel } = await mirrorWithWget(out, mirrorUrl, iframeSrc, onProgress, signal));
+  }
   await discoverAndDownloadAssets(out, baseUrl, entryRel, onProgress, signal);
-  const entryHtml = await fs14.readFile(entryPath, "utf-8");
+  const entryHtml = await fs17.readFile(path19.join(out, entryRel), "utf-8");
   if (isUnityShell(entryHtml)) {
     throwIfCancelled(signal);
     onProgress(95, "Injecting Unity patches & asset routes\u2026");
     await postProcessUnityOfflineMirror(out, baseUrl, entryRel);
+    await postProcessGenericOfflineMirror(out, entryRel);
   } else {
     throwIfCancelled(signal);
-    onProgress(95, "Patching offline SDK & links\u2026");
+    onProgress(95, "Patching offline SDK & stripping ads\u2026");
     await postProcessGenericOfflineMirror(out, entryRel);
   }
-  onProgress(100, "Download complete");
+  onProgress(
+    100,
+    usedPlaywright ? "Download complete (Playwright full scrape)" : "Download complete (wget fallback)"
+  );
 }
 
 // src/offline-thumbnail.ts
 init_config();
-import fs15 from "node:fs/promises";
+import fs18 from "node:fs/promises";
 import { createWriteStream, existsSync as existsSync8 } from "node:fs";
-import path16 from "node:path";
+import path20 from "node:path";
 import { pipeline } from "node:stream/promises";
 import { Readable } from "node:stream";
 var UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
@@ -2666,27 +3525,27 @@ async function ensureOfflineThumbnail(gameId) {
   const thumb = typeof meta?.thumbnail === "string" ? meta.thumbnail.trim() : "";
   if (!thumb) return null;
   const outRoot = offlineDir(gameId);
-  await fs15.mkdir(outRoot, { recursive: true });
+  await fs18.mkdir(outRoot, { recursive: true });
   const existing = await readOfflineManifestFromDir(outRoot);
   if (existing?.thumbnail) {
-    const abs = path16.join(outRoot, existing.thumbnail);
+    const abs = path20.join(outRoot, existing.thumbnail);
     if (existsSync8(abs)) return existing.thumbnail;
   }
   if (thumb.startsWith("/")) {
     const relFromGames = thumb.replace(/^\/games\//, "");
     const candidates = [
-      path16.join(CATALOG_DIR, relFromGames),
-      path16.join(outRoot, "..", "online", "assets", path16.basename(thumb))
+      path20.join(CATALOG_DIR, relFromGames),
+      path20.join(outRoot, "..", "online", "assets", path20.basename(thumb))
     ];
     for (const src of candidates) {
       try {
-        const st = await fs15.stat(src);
+        const st = await fs18.stat(src);
         if (!st.isFile() || st.size < 32) continue;
-        const ext = path16.extname(src) || ".png";
+        const ext = path20.extname(src) || ".png";
         const rel = `assets/thumbnail${ext}`;
-        const dest = path16.join(outRoot, rel);
-        await fs15.mkdir(path16.dirname(dest), { recursive: true });
-        await fs15.copyFile(src, dest);
+        const dest = path20.join(outRoot, rel);
+        await fs18.mkdir(path20.dirname(dest), { recursive: true });
+        await fs18.copyFile(src, dest);
         await patchManifestThumbnail(outRoot, rel, existing?.entry ?? "index.html");
         return rel;
       } catch {
@@ -2704,8 +3563,8 @@ async function ensureOfflineThumbnail(gameId) {
     if (!res.ok || !res.body) return null;
     const ext = extensionFromUrlOrType(thumb, res.headers.get("content-type"));
     const rel = `assets/thumbnail${ext}`;
-    const dest = path16.join(outRoot, rel);
-    await fs15.mkdir(path16.dirname(dest), { recursive: true });
+    const dest = path20.join(outRoot, rel);
+    await fs18.mkdir(path20.dirname(dest), { recursive: true });
     await pipeline(Readable.fromWeb(res.body), createWriteStream(dest));
     await patchManifestThumbnail(outRoot, rel, existing?.entry ?? "index.html");
     return rel;
@@ -2717,7 +3576,7 @@ async function readOfflineThumbnailRel(gameId) {
   const outRoot = offlineDir(gameId);
   const manifest = await readOfflineManifestFromDir(outRoot);
   if (manifest?.thumbnail) {
-    const abs = path16.join(outRoot, manifest.thumbnail);
+    const abs = path20.join(outRoot, manifest.thumbnail);
     if (existsSync8(abs)) return manifest.thumbnail;
   }
   for (const name of [
@@ -2727,7 +3586,7 @@ async function readOfflineThumbnailRel(gameId) {
     "assets/thumbnail.webp",
     "assets/thumbnail.gif"
   ]) {
-    if (existsSync8(path16.join(outRoot, name))) return name;
+    if (existsSync8(path20.join(outRoot, name))) return name;
   }
   return null;
 }
@@ -2748,24 +3607,45 @@ async function getGameStatus(gameId) {
     offlineThumbnail
   };
 }
-async function getAllGameStatuses() {
-  const ids = await loadGameIds();
-  const downloading = listDownloadingGameIds();
+async function listOfflineActivityIds() {
+  const ids = new Set(listDownloadingGameIds());
+  const roots = /* @__PURE__ */ new Set([GAMES_DATA_DIR, CATALOG_DIR]);
+  for (const root of roots) {
+    try {
+      const entries = await fs19.readdir(root, { withFileTypes: true });
+      await Promise.all(
+        entries.map(async (entry) => {
+          if (!entry.isDirectory() || entry.name.startsWith("_") || !isValidGameId(entry.name)) {
+            return;
+          }
+          try {
+            const st = await fs19.stat(path21.join(root, entry.name, "offline"));
+            if (st.isDirectory()) ids.add(entry.name);
+          } catch {
+          }
+        })
+      );
+    } catch {
+    }
+  }
+  return [...ids];
+}
+async function getDownloadedGameStatuses() {
+  const ids = await listOfflineActivityIds();
   const result = {};
   await Promise.all(
     ids.map(async (id) => {
-      const partialCache = await hasPartialDownloadCache(id);
-      const offline = await hasOfflineMirror(id);
-      const cacheFileCount = partialCache ? await countOfflineFiles(id) : 0;
-      const offlineThumbnail = offline ? await readOfflineThumbnailRel(id) ?? void 0 : void 0;
-      result[id] = {
-        online: await hasOnlineShell(id),
-        offline,
-        downloading: downloading.has(id),
-        partialCache: partialCache && !offline,
-        cacheFileCount: cacheFileCount > 0 ? cacheFileCount : void 0,
-        offlineThumbnail
-      };
+      result[id] = await getGameStatus(id);
+    })
+  );
+  return result;
+}
+async function getGameStatusesForIds(gameIds) {
+  const result = {};
+  const unique = [...new Set(gameIds.filter((id) => isValidGameId(id)))];
+  await Promise.all(
+    unique.map(async (id) => {
+      result[id] = await getGameStatus(id);
     })
   );
   return result;
@@ -2776,7 +3656,7 @@ async function deleteOfflineGame(gameId) {
   if (isGameDownloading(gameId)) {
     throw new Error("Cannot delete while download is in progress");
   }
-  await fs16.rm(offlineDir(gameId), { recursive: true, force: true });
+  await fs19.rm(offlineDir(gameId), { recursive: true, force: true });
   invalidateCatalogCache();
 }
 async function startDownload(gameId) {
@@ -2836,7 +3716,7 @@ async function runDownloadJob(gameId, job, signal) {
       const fileCount = await countOfflineFiles(gameId);
       if (discardCache) {
         try {
-          await fs16.rm(offlineDir(gameId), { recursive: true, force: true });
+          await fs19.rm(offlineDir(gameId), { recursive: true, force: true });
         } catch {
         }
       } else if (fileCount > 0) {
@@ -2864,7 +3744,7 @@ async function runDownloadJob(gameId, job, signal) {
       finishedAt: Date.now()
     });
     try {
-      await fs16.rm(offlineDir(gameId), { recursive: true, force: true });
+      await fs19.rm(offlineDir(gameId), { recursive: true, force: true });
     } catch {
     }
   } finally {
@@ -2895,9 +3775,9 @@ function injectGameStorageBridge(html, _gameId, childScriptSrc) {
 }
 
 // src/unity/proxy-play.ts
-import fs17 from "node:fs/promises";
+import fs20 from "node:fs/promises";
 import { existsSync as existsSync9 } from "node:fs";
-import path17 from "node:path";
+import path22 from "node:path";
 init_config();
 function extractIframeSrc2(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i];
@@ -2914,9 +3794,9 @@ async function resolveUnityPlayUrl(gameId) {
   const meta = await readGameMetadata(gameId);
   const embed = typeof meta?.onlineEmbedUrl === "string" ? meta.onlineEmbedUrl.trim() : "";
   if (embed) return embed;
-  const indexPath = path17.join(catalogOnlineDir(gameId), "index.html");
+  const indexPath = path22.join(catalogOnlineDir(gameId), "index.html");
   if (!existsSync9(indexPath)) return null;
-  const html = await fs17.readFile(indexPath, "utf-8");
+  const html = await fs20.readFile(indexPath, "utf-8");
   return extractIframeSrc2(html);
 }
 async function fetchProxiedUnityHtml(gameId) {
@@ -2941,8 +3821,8 @@ async function fetchProxiedUnityHtml(gameId) {
 }
 
 // src/browser-data.ts
-import fs18 from "node:fs/promises";
-import path18 from "node:path";
+import fs21 from "node:fs/promises";
+import path23 from "node:path";
 import { existsSync as existsSync10 } from "node:fs";
 
 // src/browser-data-profile.ts
@@ -2976,43 +3856,43 @@ var PROFILE_DISK_PATHS = {
 
 // src/browser-data.ts
 function browserDataDir(gameId) {
-  return path18.join(gameDataRoot(gameId), "data");
+  return path23.join(gameDataRoot(gameId), "data");
 }
 function dataFilePath(gameId, rel) {
-  return path18.join(browserDataDir(gameId), rel);
+  return path23.join(browserDataDir(gameId), rel);
 }
 function assertDataPath(gameId, absPath) {
-  const root = path18.resolve(browserDataDir(gameId));
-  const resolved = path18.resolve(absPath);
-  if (!resolved.startsWith(root + path18.sep) && resolved !== root) {
+  const root = path23.resolve(browserDataDir(gameId));
+  const resolved = path23.resolve(absPath);
+  if (!resolved.startsWith(root + path23.sep) && resolved !== root) {
     throw new Error("Path traversal rejected");
   }
 }
 async function readJsonFile(filePath, fallback) {
   try {
-    const raw = await fs18.readFile(filePath, "utf-8");
+    const raw = await fs21.readFile(filePath, "utf-8");
     return JSON.parse(raw);
   } catch {
     return fallback;
   }
 }
 async function writeJsonAtomic(filePath, data) {
-  const dir = path18.dirname(filePath);
-  await fs18.mkdir(dir, { recursive: true });
+  const dir = path23.dirname(filePath);
+  await fs21.mkdir(dir, { recursive: true });
   const tmp = filePath + ".tmp";
-  await fs18.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
-  await fs18.rename(tmp, filePath);
+  await fs21.writeFile(tmp, JSON.stringify(data, null, 2), "utf-8");
+  await fs21.rename(tmp, filePath);
 }
 async function loadIndexedDbProfiles(gameId) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
   if (!existsSync10(idbRoot)) return [];
-  const entries = await fs18.readdir(idbRoot, { withFileTypes: true });
+  const entries = await fs21.readdir(idbRoot, { withFileTypes: true });
   const profiles = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const dbDir = path18.join(idbRoot, entry.name);
-    const metaPath = path18.join(dbDir, "meta.json");
-    const recordsPath = path18.join(dbDir, "records.json");
+    const dbDir = path23.join(idbRoot, entry.name);
+    const metaPath = path23.join(dbDir, "meta.json");
+    const recordsPath = path23.join(dbDir, "records.json");
     try {
       const meta = await readJsonFile(
         metaPath,
@@ -3032,24 +3912,24 @@ async function loadIndexedDbProfiles(gameId) {
 }
 async function saveIndexedDbProfiles(gameId, databases) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  await fs18.mkdir(idbRoot, { recursive: true });
-  const existing = existsSync10(idbRoot) ? await fs18.readdir(idbRoot, { withFileTypes: true }) : [];
+  await fs21.mkdir(idbRoot, { recursive: true });
+  const existing = existsSync10(idbRoot) ? await fs21.readdir(idbRoot, { withFileTypes: true }) : [];
   for (const entry of existing) {
     if (entry.isDirectory()) {
-      await fs18.rm(path18.join(idbRoot, entry.name), { recursive: true, force: true });
+      await fs21.rm(path23.join(idbRoot, entry.name), { recursive: true, force: true });
     }
   }
   for (const db of databases) {
     const safeName = db.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const dbDir = path18.join(idbRoot, safeName);
+    const dbDir = path23.join(idbRoot, safeName);
     assertDataPath(gameId, dbDir);
-    await fs18.mkdir(dbDir, { recursive: true });
-    await writeJsonAtomic(path18.join(dbDir, "meta.json"), {
+    await fs21.mkdir(dbDir, { recursive: true });
+    await writeJsonAtomic(path23.join(dbDir, "meta.json"), {
       name: db.name,
       version: db.version,
       objectStores: db.objectStores
     });
-    await writeJsonAtomic(path18.join(dbDir, "records.json"), db.records);
+    await writeJsonAtomic(path23.join(dbDir, "records.json"), db.records);
   }
 }
 async function readGameBrowserProfile(gameId) {
@@ -3089,7 +3969,7 @@ async function writeGameBrowserProfile(gameId, input) {
   }
   const root = browserDataDir(gameId);
   assertDataPath(gameId, root);
-  await fs18.mkdir(root, { recursive: true });
+  await fs21.mkdir(root, { recursive: true });
   const updatedAt = Date.now();
   const profile = {
     ...input,
@@ -3115,7 +3995,7 @@ async function deleteGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
   if (!existsSync10(root)) return;
   assertDataPath(gameId, root);
-  await fs18.rm(root, { recursive: true, force: true });
+  await fs21.rm(root, { recursive: true, force: true });
 }
 
 // src/server.ts
@@ -3125,12 +4005,13 @@ function sendJson(res, status, body) {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": CORS_ORIGIN,
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
+    "Access-Control-Allow-Headers": "Content-Type, Access-Control-Request-Private-Network",
+    "Access-Control-Allow-Private-Network": "true"
   });
   res.end(payload);
 }
 function mimeFor(filePath) {
-  const ext = path19.extname(filePath).toLowerCase();
+  const ext = path24.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
     ".js": "application/javascript",
@@ -3143,6 +4024,8 @@ function mimeFor(filePath) {
     ".webp": "image/webp",
     ".svg": "image/svg+xml",
     ".wasm": "application/wasm",
+    ".unityweb": "application/octet-stream",
+    ".data": "application/octet-stream",
     ".br": "application/octet-stream",
     ".mp3": "audio/mpeg",
     ".ogg": "audio/ogg",
@@ -3184,21 +4067,42 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
+  let st;
+  try {
+    st = await fs22.stat(absPath);
+  } catch {
+    sendJson(res, 404, { error: "Not found" });
+    return true;
+  }
+  if (!st.isFile()) {
+    sendJson(res, 404, { error: "Not found" });
+    return true;
+  }
   const isHtml = /\.html?$/i.test(absPath);
   res.writeHead(200, {
     "Content-Type": mimeFor(absPath),
     "Access-Control-Allow-Origin": CORS_ORIGIN,
+    "Access-Control-Allow-Private-Network": "true",
     "Cache-Control": "public, max-age=3600"
   });
   if (isHtml) {
-    let raw = await fs19.readFile(absPath, "utf-8");
+    let raw = await fs22.readFile(absPath, "utf-8");
     if (isUnityGameHtml(raw)) {
       raw = injectUnityPatches(raw);
     }
     res.end(injectGameStorageBridge(raw, gameId));
     return true;
   }
-  createReadStream(absPath).pipe(res);
+  const stream = createReadStream(absPath);
+  stream.on("error", (err) => {
+    console.error("[puller] read error", absPath, err.message);
+    if (!res.headersSent) {
+      sendJson(res, 500, { error: "Read failed" });
+    } else {
+      res.destroy(err);
+    }
+  });
+  stream.pipe(res);
   return true;
 }
 function createServer() {
@@ -3209,7 +4113,8 @@ function createServer() {
       res.writeHead(204, {
         "Access-Control-Allow-Origin": CORS_ORIGIN,
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Request-Private-Network",
+        "Access-Control-Allow-Private-Network": "true"
       });
       res.end();
       return;
@@ -3226,7 +4131,14 @@ function createServer() {
         return;
       }
       if (pathname === "/api/offline/status" && req.method === "GET") {
-        const statuses = await getAllGameStatuses();
+        const idsParam = url.searchParams.get("ids");
+        if (idsParam?.trim()) {
+          const ids = idsParam.split(",").map((id) => id.trim()).filter(Boolean);
+          const statuses2 = await getGameStatusesForIds(ids);
+          sendJson(res, 200, { games: statuses2 });
+          return;
+        }
+        const statuses = await getDownloadedGameStatuses();
         sendJson(res, 200, { games: statuses });
         return;
       }
@@ -3296,6 +4208,7 @@ function createServer() {
         res.writeHead(200, {
           "Content-Type": "text/html; charset=utf-8",
           "Access-Control-Allow-Origin": CORS_ORIGIN,
+          "Access-Control-Allow-Private-Network": "true",
           "Cache-Control": "public, max-age=300"
         });
         res.end(injectGameStorageBridge(html, gameId));

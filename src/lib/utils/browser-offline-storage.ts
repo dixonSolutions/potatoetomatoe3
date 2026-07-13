@@ -125,6 +125,8 @@ export async function deleteStoredGame(gameId: string): Promise<void> {
 
 export async function isBrowserGameDownloaded(gameId: string): Promise<boolean> {
 	const meta = await getGameMeta(gameId);
+	/* Shell-only mirrors of cross-origin iframes are not playable offline. */
+	if (meta?.externalIframe) return false;
 	return Boolean(meta?.downloadedAt && meta.fileCount > 0 && !meta.partialCache);
 }
 
