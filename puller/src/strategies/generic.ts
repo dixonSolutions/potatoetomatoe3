@@ -3,13 +3,14 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { readDownloadCache } from '../download-cache.js';
-import { throwIfCancelled } from '../cancel-registry.js';
+import { throwIfCancelled, DownloadCancelledError } from '../cancel-registry.js';
 import { catalogOnlineDir, offlineDir } from '../catalog.js';
 import { wgetCommonArgs } from '../config.js';
 import { discoverAllAssetUrls } from '../download/discover-all.js';
 import { downloadFilesParallel } from '../download/parallel-wget.js';
 import { resolveMirroredEntryHtml } from '../generic/entry-html.js';
 import { postProcessGenericOfflineMirror } from '../generic/post-process-offline.js';
+import { extractIframeSrc, captureGameWithPlaywright, localPathForUrl } from '../capture/session.js';
 import {
 	expandBuildManifest,
 	findUnityLoaderBuildJson,
@@ -21,21 +22,9 @@ import { writeOfflineManifest } from '../offline-manifest.js';
 import { postProcessUnityOfflineMirror } from '../unity/post-process-offline.js';
 import type { ProgressReporter } from './types.js';
 
-function extractIframeSrc(html: string): string | null {
-	const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
-	for (const re of patterns) {
-		const m = html.match(re);
-		if (m?.[1]) {
-			const src = m[1].replace(/&amp;/g, '&').trim();
-			if (src.startsWith('http')) return src;
-		}
-	}
-	return null;
-}
-
 function normalizeGameBaseUrl(iframeSrc: string): string {
 	const parsed = new URL(iframeSrc);
-	if (!parsed.pathname.endsWith('/')) {
+	if (!parsed.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(parsed.pathname)) {
 		parsed.pathname = `${parsed.pathname}/`;
 	}
 	return parsed.href;
@@ -116,26 +105,6 @@ async function runWget(args: string[]): Promise<number> {
 		child.on('error', reject);
 		child.on('close', (code) => resolve(code ?? 1));
 	});
-}
-
-function localPathForUrl(baseUrl: string, assetUrl: string, outDir: string): string {
-	const base = new URL(baseUrl);
-	const abs = new URL(assetUrl, base);
-	const absPathParts = abs.pathname.split('/').filter(Boolean);
-
-	if (abs.origin !== base.origin) {
-		return path.join(outDir, '_external', abs.hostname, ...absPathParts);
-	}
-
-	const basePath = base.pathname.endsWith('/') ? base.pathname : `${base.pathname}/`;
-	if (!abs.pathname.startsWith(basePath)) {
-		return path.join(outDir, ...absPathParts);
-	}
-
-	const baseParts = base.pathname.split('/').filter(Boolean);
-	const relParts = absPathParts.slice(baseParts.length);
-	if (relParts.length === 0) return path.join(outDir, 'index.html');
-	return path.join(outDir, ...relParts);
 }
 
 async function hasUnityLoaderOnDisk(outDir: string): Promise<boolean> {
@@ -259,36 +228,14 @@ async function discoverAndDownloadAssets(
 	await validateRequiredAssets(outDir, baseUrl, entryHtml);
 }
 
-export async function pullGenericGame(
-	gameId: string,
+async function mirrorWithWget(
+	out: string,
+	mirrorUrl: string,
+	iframeSrc: string,
 	onProgress: ProgressReporter,
 	signal?: AbortSignal
-): Promise<void> {
-	const onlineIndex = path.join(catalogOnlineDir(gameId), 'index.html');
-	const out = offlineDir(gameId);
-
-	throwIfCancelled(signal);
-	onProgress(5, 'Reading online shell…');
-	const html = await fs.readFile(onlineIndex, 'utf-8');
-	const iframeSrc = extractIframeSrc(html);
-
-	if (!iframeSrc) {
-		onProgress(20, 'No iframe — copying online shell to offline…');
-		await fs.rm(out, { recursive: true, force: true });
-		await fs.cp(catalogOnlineDir(gameId), out, { recursive: true });
-		await writeOfflineManifest(out, { entry: 'index.html' });
-		onProgress(100, 'Copied online shell');
-		return;
-	}
-
-	const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
-
-	onProgress(15, `Mirroring ${mirrorUrl}…`);
-	const existingCache = await readDownloadCache(gameId);
-	if (!existingCache) {
-		await fs.rm(out, { recursive: true, force: true });
-	}
-	await fs.mkdir(out, { recursive: true });
+): Promise<{ baseUrl: string; entryRel: string }> {
+	onProgress(15, `wget fallback: mirroring ${mirrorUrl}…`);
 
 	const wgetArgs = [
 		'--mirror',
@@ -330,18 +277,103 @@ export async function pullGenericGame(
 		throw new Error(`Mirror completed but entry HTML missing: ${entryRel}`);
 	}
 
+	return { baseUrl, entryRel };
+}
+
+/**
+ * Full-scrape generic catalog games: Playwright network vault (iframe + assets),
+ * BFS fill-in, ad strip. Falls back to wget if Playwright cannot start.
+ */
+export async function pullGenericGame(
+	gameId: string,
+	onProgress: ProgressReporter,
+	signal?: AbortSignal
+): Promise<void> {
+	const onlineIndex = path.join(catalogOnlineDir(gameId), 'index.html');
+	const out = offlineDir(gameId);
+
+	throwIfCancelled(signal);
+	onProgress(5, 'Reading online shell…');
+	const html = await fs.readFile(onlineIndex, 'utf-8');
+	const iframeSrc = extractIframeSrc(html);
+
+	if (!iframeSrc) {
+		onProgress(20, 'No iframe — copying online shell to offline…');
+		await fs.rm(out, { recursive: true, force: true });
+		await fs.cp(catalogOnlineDir(gameId), out, { recursive: true });
+		await writeOfflineManifest(out, { entry: 'index.html' });
+		await postProcessGenericOfflineMirror(out, 'index.html');
+		onProgress(100, 'Copied online shell');
+		return;
+	}
+
+	const mirrorUrl = normalizeGameBaseUrl(iframeSrc);
+	const existingCache = await readDownloadCache(gameId);
+	if (!existingCache) {
+		await fs.rm(out, { recursive: true, force: true });
+	}
+	await fs.mkdir(out, { recursive: true });
+
+	let baseUrl: string;
+	let entryRel: string;
+	let usedPlaywright = false;
+
+	try {
+		onProgress(12, 'Full scrape via Playwright…');
+		const capture = await captureGameWithPlaywright({
+			outDir: out,
+			gameUrl: iframeSrc,
+			signal,
+			onProgress
+		});
+		usedPlaywright = capture.ok;
+		baseUrl = capture.baseUrl;
+		entryRel = capture.entryRel;
+
+		// Promote Build/ roots when Unity nested under host path
+		try {
+			const promoted = await promoteGameRootToOfflineDir(out, iframeSrc);
+			baseUrl = promoted.baseUrl;
+			entryRel = promoted.entryRel;
+		} catch {
+			await writeOfflineManifest(out, {
+				entry: entryRel,
+				mirroredFrom: iframeSrc
+			});
+		}
+
+		if (capture.notes.length > 0) {
+			console.log(`[generic] capture notes: ${capture.notes.join('; ')}`);
+		}
+	} catch (error) {
+		if (error instanceof DownloadCancelledError) throw error;
+		console.warn(
+			`[generic] Playwright capture failed, falling back to wget:`,
+			error instanceof Error ? error.message : error
+		);
+		onProgress(14, 'Playwright unavailable — using wget…');
+		await fs.rm(out, { recursive: true, force: true });
+		await fs.mkdir(out, { recursive: true });
+		({ baseUrl, entryRel } = await mirrorWithWget(out, mirrorUrl, iframeSrc, onProgress, signal));
+	}
+
 	await discoverAndDownloadAssets(out, baseUrl, entryRel, onProgress, signal);
 
-	const entryHtml = await fs.readFile(entryPath, 'utf-8');
+	const entryHtml = await fs.readFile(path.join(out, entryRel), 'utf-8');
 	if (isUnityShell(entryHtml)) {
 		throwIfCancelled(signal);
 		onProgress(95, 'Injecting Unity patches & asset routes…');
 		await postProcessUnityOfflineMirror(out, baseUrl, entryRel);
+		// Still strip portal ads on Unity shells
+		await postProcessGenericOfflineMirror(out, entryRel);
 	} else {
 		throwIfCancelled(signal);
-		onProgress(95, 'Patching offline SDK & links…');
+		onProgress(95, 'Patching offline SDK & stripping ads…');
 		await postProcessGenericOfflineMirror(out, entryRel);
 	}
 
-	onProgress(100, 'Download complete');
+	onProgress(
+		100,
+		usedPlaywright ? 'Download complete (Playwright full scrape)' : 'Download complete (wget fallback)'
+	);
 }
