@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-snake-war-266004",
+  "name": "Merge Snake War",
+  "author": "Linder",
+  "description": "Play Merge Snake War via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018b61397b6247283acc9db219b2e8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018b61397b6247283acc9db219b2e8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-266004.games.s3.yandex.net/266004/kguf81pny6bbhuof2qi79ah2bdqlm58o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=266004&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 266004,
+  "playhopPageUrl": "https://playhop.com/app/266004",
+  "playhopRating": 4,
+  "playhopRatingCount": 950
+}

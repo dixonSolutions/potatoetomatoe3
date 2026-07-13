@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dark-genesis-156084",
+  "name": "Dark Genesis",
+  "author": "EspritGames",
+  "description": "Play Dark Genesis via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000187a35d85b5e884eb53ab19151e7d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000187a35d85b5e884eb53ab19151e7d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-156084.games.s3.yandex.net/156084/36oo1qs1ny2iwc4f1ywsi4rcxib0y67e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=156084&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 156084,
+  "playhopPageUrl": "https://playhop.com/app/156084",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 4498
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-qwerty-warrior",
+  "name": "QWERTY Warrior",
+  "author": "Addicting Games",
+  "description": "Spell to kill. If you can spell their name, they die. Typing doesn’t kill people, People kill people with typing skills.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/qwertywarrior_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/qwertywarrior_sp.png",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/qwertywarrior.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/qwerty-warrior"
+}

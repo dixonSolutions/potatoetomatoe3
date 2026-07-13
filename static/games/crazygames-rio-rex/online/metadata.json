@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-rio-rex",
+  "name": "rio rex",
+  "author": "CrazyGames",
+  "description": "Play rio rex on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-rio-rex/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rio-rex/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rio-rex",
+  "crazygamesSlug": "rio-rex"
+}

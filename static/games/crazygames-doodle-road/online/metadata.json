@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-doodle-road",
+  "name": "Doodle Road 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Doodle Road is an imaginative and captivating 2D casual game that combines creativity with problem-solving. In this fun browser game, your primary objective is to draw a path that will successfully guide a car from the starting point to the finish line.",
+  "thumbnail": "https://imgs.crazygames.com/doodle-road_16x9/20240912101139/doodle-road_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/doodle-road_16x9/20240912101139/doodle-road_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/doodle-road/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/doodle-road",
+  "crazygamesSlug": "doodle-road"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-word-scramble",
+  "name": "Word Scramble 🔠 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Word Scramble is a classic word game where you unscramble letters to find words. Find one word after the next and see how many you can find before the timer runs out!",
+  "thumbnail": "https://imgs.crazygames.com/games/word-scramble/cover_16x9-1706176392799.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/word-scramble/cover_16x9-1706176392799.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/word-scramble/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/word-scramble",
+  "crazygamesSlug": "word-scramble"
+}

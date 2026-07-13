@@ -1,0 +1,17 @@
+{
+  "id": "playhop-quarantine-simulator",
+  "name": "Quarantine Simulator",
+  "author": "Play More Games",
+  "description": "Play Quarantine Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a9bf15a587b50145553beecf57d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a9bf15a587b50145553beecf57d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-472597.games.s3.yandex.net/472597/kqcwb4e8d9o6wb1kkoe5nmrkhz86r9ku/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=472597&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 472597,
+  "playhopPageUrl": "https://playhop.com/app/472597",
+  "playhopRating": 4,
+  "playhopRatingCount": 1076
+}

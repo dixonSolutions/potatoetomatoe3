@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-racing-empire",
+  "name": "Racing Empire 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Racing Empire is an adrenaline-pumping game that lets you build your own racing dynasty. Earn tokens, upgrade and customize your car, and push your limits on the track.",
+  "thumbnail": "https://imgs.crazygames.com/racing-empire_16x9/20240429091650/racing-empire_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/racing-empire_16x9/20240429091650/racing-empire_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/racing-empire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/racing-empire",
+  "crazygamesSlug": "racing-empire"
+}

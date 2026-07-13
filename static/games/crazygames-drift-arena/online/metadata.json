@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-drift-arena",
+  "name": "drift arena",
+  "author": "CrazyGames",
+  "description": "Play drift arena on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drift-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drift-arena",
+  "crazygamesSlug": "drift-arena"
+}

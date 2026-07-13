@@ -1,0 +1,17 @@
+{
+  "id": "playhop-nuclear-day",
+  "name": "Nuclear Day",
+  "author": "MirraGames",
+  "description": "Play Nuclear Day via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019962f26f5d2198b986062d1bf52f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019962f26f5d2198b986062d1bf52f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-329748.games.s3.yandex.net/329748/inc053h5eu988eg9zj5cvzj9fyccsrk9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=329748&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 329748,
+  "playhopPageUrl": "https://playhop.com/app/329748",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5803
+}

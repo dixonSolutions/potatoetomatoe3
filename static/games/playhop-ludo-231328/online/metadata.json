@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ludo-231328",
+  "name": "Ludo",
+  "author": "Rendered Ideas",
+  "description": "Play Ludo via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000188afb727b0f275ec50a60fb7785b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000188afb727b0f275ec50a60fb7785b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-231328.games.s3.yandex.net/231328/4r6rcsit3r32t856vjogfx2a9qnbenbt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=231328&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 231328,
+  "playhopPageUrl": "https://playhop.com/app/231328",
+  "playhopRating": 4,
+  "playhopRatingCount": 79
+}

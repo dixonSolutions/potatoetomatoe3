@@ -1,0 +1,17 @@
+{
+  "id": "playhop-goose-bakery-530757",
+  "name": "Goose Bakery",
+  "author": "F0xGames",
+  "description": "Play Goose Bakery via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019e32338a8ae15f2788fc96baadb4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019e32338a8ae15f2788fc96baadb4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-530757.games.s3.yandex.net/530757/9b98yr4wkzfu2rnf6pinn2aidcqaazqr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=530757&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 530757,
+  "playhopPageUrl": "https://playhop.com/app/530757",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 18
+}

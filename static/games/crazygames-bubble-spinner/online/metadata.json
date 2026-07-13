@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bubble-spinner",
+  "name": "Bubble Spinner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bubble Spinner is a match-3 bubble shooter game with a twist. The bubbles are attached to a spinner that rotates when you fire bubbles at it.",
+  "thumbnail": "/games/crazygames-bubble-spinner/online/assets/crazygames-bubble-spinner.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubble-spinner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubble-spinner",
+  "crazygamesSlug": "bubble-spinner"
+}

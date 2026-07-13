@@ -1,0 +1,17 @@
+{
+  "id": "playhop-backgammon-tournament-136112",
+  "name": "Backgammon Tournament",
+  "author": "Skill Cap Games",
+  "description": "Play Backgammon Tournament via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001766b0eb57e228217d2c3e1366ffc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001766b0eb57e228217d2c3e1366ffc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-136112.games.s3.yandex.net/136112/un6ja9d90mnouq16g32dzm9y17j4asam/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=136112&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 136112,
+  "playhopPageUrl": "https://playhop.com/app/136112",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 4694
+}

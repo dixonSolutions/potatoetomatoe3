@@ -1,0 +1,14 @@
+{
+  "id": "addicting-whizz-words-deluxe",
+  "name": "Whizz Words Deluxe",
+  "author": "Addicting Games",
+  "description": "<p>Whizz Words is a free word game. To play, either select each letter with your mouse, or type them into the keyboard directly. Once you hit enter (or select the enter button), you’ll gain score based on the word’s length, but if the word’s not in the direction, then you gain nothing. There are two game modes—classic and quick. Classic has you playing 6 rounds, 2 minutes each, and you choose your score between each one. Quick is just one round that’s 3 minutes long.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/whizzwordsdeluxe_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/whizzwordsdeluxe_sp.png",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/whizzwordsdeluxe.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/whizz-words-deluxe"
+}

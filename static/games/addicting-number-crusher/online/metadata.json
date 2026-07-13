@@ -1,0 +1,14 @@
+{
+  "id": "addicting-number-crusher",
+  "name": "Number Crusher",
+  "author": "Addicting Games",
+  "description": "<p>Number Crusher is an action game combined with math practice. Studying without breaks can be hard, that is why these math games were designed to give you some fun time. Help this demolition man get through all the blocks to finish the job. Breakthrough the blocks while collecting stars and gems. You must go as fast as you can to avoid getting your character pushed to the top of the screen. Once you played a game, answer math questions to practice the skills you need to work on. There are various math skills available to practice from preschool to the eighth grade. This is a great math game to help give you bursts of lessons with breaks in between.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/numbercrushergame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/numbercrushergame.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/number-crusher/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/number-crusher"
+}

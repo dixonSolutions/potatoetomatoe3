@@ -1,0 +1,17 @@
+{
+  "id": "playhop-word-cross-262276",
+  "name": "Word cross",
+  "author": "elsid.apps",
+  "description": "Play Word cross via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000190fe335151227b32831411209f1e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000190fe335151227b32831411209f1e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-262276.games.s3.yandex.net/262276/k92l116e2dlg08lg01as2vrwhnrz0vxa/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=262276&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 262276,
+  "playhopPageUrl": "https://playhop.com/app/262276",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3088
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-4-colors-multiplayer-104528",
+  "name": "4 Colors Multiplayer",
+  "author": "CodeThisLab",
+  "description": "Play 4 Colors Multiplayer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019d05bca72920e92199d60d35a067/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019d05bca72920e92199d60d35a067/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-104528.games.s3.yandex.net/104528/bjzfgfdn1p5ak39uo96j1kspgjamlz5h/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=104528&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 104528,
+  "playhopPageUrl": "https://playhop.com/app/104528",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1018
+}

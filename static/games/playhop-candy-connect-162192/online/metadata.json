@@ -1,0 +1,17 @@
+{
+  "id": "playhop-candy-connect-162192",
+  "name": "Candy Connect",
+  "author": "GamesJS",
+  "description": "Play Candy Connect via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000178e403204ded22b163cf483e4757/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000178e403204ded22b163cf483e4757/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-162192.games.s3.yandex.net/162192/v5drrxtosu4zzt9x0zrs2ehyhnrkj2zq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=162192&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 162192,
+  "playhopPageUrl": "https://playhop.com/app/162192",
+  "playhopRating": 4,
+  "playhopRatingCount": 2425
+}

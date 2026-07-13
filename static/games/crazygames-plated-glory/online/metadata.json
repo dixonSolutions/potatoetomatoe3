@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-plated-glory",
+  "name": "plated glory",
+  "author": "CrazyGames",
+  "description": "Play plated glory on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-plated-glory/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/plated-glory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/plated-glory",
+  "crazygamesSlug": "plated-glory"
+}

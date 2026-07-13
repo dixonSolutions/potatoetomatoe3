@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fitelol",
+  "name": "Fite.LoL",
+  "author": "Addicting Games",
+  "description": "<p>A MOBA-style Battle Royale game you can play right in your browser! Pick from 4 unique characters, including a ghost that can possess different creatures. Use awesome abilities, outsmart your opponents, and take control of the battlefield in this fast-paced PvP showdown!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/fitelol_promo_720_468%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/fitelol_promo_720_468%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "arena-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://fite.lol/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/fitelol"
+}

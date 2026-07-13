@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mahjong-titans",
+  "name": "Mahjong Titans 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mahjong Titans is an iconic Mahjong game where you continually match two tiles to remove them from the board until there are none left. When you clear all the tiles, the level is complete!",
+  "thumbnail": "https://imgs.crazygames.com/games/mahjong-titans/cover-1601459208873.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/mahjong-titans/cover-1601459208873.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-titans/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-titans",
+  "crazygamesSlug": "mahjong-titans"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-runic-curse",
+  "name": "Runic Curse",
+  "author": "MirraGames",
+  "description": "Play Runic Curse via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d25daa68cb18d011caa6f6a002c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d25daa68cb18d011caa6f6a002c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-423021.games.s3.yandex.net/423021/mmds6xbohyeu0i09hgaj0kjpsk4fssjj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=423021&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 423021,
+  "playhopPageUrl": "https://playhop.com/app/423021",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 607
+}

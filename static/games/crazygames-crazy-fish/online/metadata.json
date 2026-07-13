@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crazy-fish",
+  "name": "Crazy Fish 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Fish is a fast-paced fishing challenge where you and players from around the globe cast your lines into vibrant waters filled with elusive, unpredictable fish. Your main goal is to reel in as many rare catches as possible and level up, but to succeed, you’ll need to watch for bite cues, upgrade your gear, and manage your coins.",
+  "thumbnail": "https://imgs.crazygames.com/crazy-fish_16x9/20260225170633/crazy-fish_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/crazy-fish_16x9/20260225170633/crazy-fish_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-fish/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-fish",
+  "crazygamesSlug": "crazy-fish"
+}

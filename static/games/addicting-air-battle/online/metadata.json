@@ -1,0 +1,14 @@
+{
+  "id": "addicting-air-battle",
+  "name": "Air Battle",
+  "author": "Addicting Games",
+  "description": "<p>You only have two balloons to maneuver your steamy, punky flying machine. Collect dem coins and practice spike avoision!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Air-Battle.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Air-Battle.jpg",
+  "thumbnailStored": "remote",
+  "category": "flying-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/airbattle_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/air-battle"
+}

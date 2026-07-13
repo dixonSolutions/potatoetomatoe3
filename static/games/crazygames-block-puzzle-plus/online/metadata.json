@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-block-puzzle-plus",
+  "name": "Block Puzzle Plus 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Block Puzzle Plus is a superb and challenging puzzle game with simple but thought-provoking gameplay. The game takes inspiration from the legendary game of Tetris – you must place together a series of colored blocks of different shapes.",
+  "thumbnail": "https://imgs.crazygames.com/games/block-puzzle-plus/thumb-1546854031890.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/block-puzzle-plus/thumb-1546854031890.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-puzzle-plus/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-puzzle-plus",
+  "crazygamesSlug": "block-puzzle-plus"
+}

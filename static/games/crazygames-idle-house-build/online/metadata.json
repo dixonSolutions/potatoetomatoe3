@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-house-build",
+  "name": "Idle House Build 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle House Build is a clicker game where you build houses and upgrade your abilities. Place a brick with every click and use builders to speed up the building process, allowing you to earn money while idling.",
+  "thumbnail": "https://imgs.crazygames.com/games/idle-house-build/cover_16x9-1707829326263.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/idle-house-build/cover_16x9-1707829326263.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-house-build/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-house-build",
+  "crazygamesSlug": "idle-house-build"
+}

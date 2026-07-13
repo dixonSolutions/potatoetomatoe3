@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-boxes-wizard",
+  "name": "Boxes Wizard - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "As a boxes wizard, it&#039;s up to you t solve puzzles with supreme box-swapping spells and gather the treasure! Avoid dangerous spikes and traps on your quest.",
+  "thumbnail": "/games/coolmath-boxes-wizard/online/assets/coolmath-boxes-wizard.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49140/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-boxes-wizard",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-boxes-wizard"
+}

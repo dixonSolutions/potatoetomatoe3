@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-delven",
+  "name": "delven",
+  "author": "CrazyGames",
+  "description": "Play delven on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/delven/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/delven",
+  "crazygamesSlug": "delven"
+}

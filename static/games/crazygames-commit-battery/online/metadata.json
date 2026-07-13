@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-commit-battery",
+  "name": "Commit Battery 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Commit Battery is a short incremental game where you power batteries and sell them for profit. Turn the crank, sell batteries, and prepare yourself for some surprises along the way!",
+  "thumbnail": "https://imgs.crazygames.com/commit-battery/20220105082803/commit-battery-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/commit-battery/20220105082803/commit-battery-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/commit-battery/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/commit-battery",
+  "crazygamesSlug": "commit-battery"
+}

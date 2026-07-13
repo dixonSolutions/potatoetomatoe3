@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-line-game-eeg",
+  "name": "Line Game 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Line Game is a colorful tile-matching puzzle that challenges your focus and precision. Connect matching tiles with quick, clean lines, no more than three turns per connection, to clear the board and earn rewards.",
+  "thumbnail": "https://imgs.crazygames.com/line-game-eeg_16x9/20251024023022/line-game-eeg_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/line-game-eeg_16x9/20251024023022/line-game-eeg_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/line-game-eeg/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/line-game-eeg",
+  "crazygamesSlug": "line-game-eeg"
+}

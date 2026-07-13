@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-auto-ninja",
+  "name": "Auto Ninja 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Auto Ninja is a platformer that challenges you to conquer 41 trap-filled chambers using quick reflexes and sharp thinking. You’ll leap over spikes, dodge deadly obstacles, and solve puzzles as you race to the top.",
+  "thumbnail": "https://imgs.crazygames.com/auto-ninja_16x9/20250416122513/auto-ninja_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/auto-ninja_16x9/20250416122513/auto-ninja_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/auto-ninja/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/auto-ninja",
+  "crazygamesSlug": "auto-ninja"
+}

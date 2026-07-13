@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-market-boss",
+  "name": "Market Boss 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Market Boss is a casual simulation game where you manage a supermarket. Keep the shelves stocked and expand your retail business!",
+  "thumbnail": "https://imgs.crazygames.com/market-boss/20220523115722/market-boss-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/market-boss/20220523115722/market-boss-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/market-boss/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/market-boss",
+  "crazygamesSlug": "market-boss"
+}

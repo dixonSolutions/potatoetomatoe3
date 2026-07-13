@@ -1,0 +1,17 @@
+{
+  "id": "playhop-relax-jigsaw-puzzles",
+  "name": "Relax Jigsaw Puzzles",
+  "author": "OpenMyGame",
+  "description": "Play Relax Jigsaw Puzzles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019cd2f790b10e7d11220768e15ab5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019cd2f790b10e7d11220768e15ab5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-393654.games.s3.yandex.net/393654/0w9bya53qxxzrx56wd0octxe1s6fxua7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=393654&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 393654,
+  "playhopPageUrl": "https://playhop.com/app/393654",
+  "playhopRating": 4.7,
+  "playhopRatingCount": 6038
+}

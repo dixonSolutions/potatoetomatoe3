@@ -1,0 +1,17 @@
+{
+  "id": "playhop-nubiks-alchemy-223728",
+  "name": "Nubik's Alchemy",
+  "author": "StiQ",
+  "description": "Play Nubik's Alchemy via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018778d31a16822140ac3df2f16249/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018778d31a16822140ac3df2f16249/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-223728.games.s3.yandex.net/223728/20rb24qxazt1k6bvptchyk5ky5anegts/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=223728&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 223728,
+  "playhopPageUrl": "https://playhop.com/app/223728",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 995
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tag-run",
+  "name": "Tag Run",
+  "author": "Cursora Labs",
+  "description": "Play Tag Run via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000198ef6c8e2059e747c85551cb5f2b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000198ef6c8e2059e747c85551cb5f2b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-461921.games.s3.yandex.net/461921/k8iuxxhgjs7le8e1r95g8sjvbhdn0tmu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=461921&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 461921,
+  "playhopPageUrl": "https://playhop.com/app/461921",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 266
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-my-island",
+  "name": "My Island 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "My Island is a casual simulation game where you gotta survive on the island all by yourself. The good news is, you&#39;ve got a pickaxe and axe stashed in your bag to snag resources.",
+  "thumbnail": "https://imgs.crazygames.com/my-island_16x9/20260220034043/my-island_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/my-island_16x9/20260220034043/my-island_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/my-island/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/my-island",
+  "crazygamesSlug": "my-island"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-spin-mow",
+  "name": "Spin&Mow 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Two gears, one chain, a whole jungle to mow down. Swing your saw-bot from island to island, slice grass, dodge obstacles, and climb through 20 hand-tuned stages.",
+  "thumbnail": "https://imgs.crazygames.com/spin-mow_16x9/20260608112352/spin-mow_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/spin-mow_16x9/20260608112352/spin-mow_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/spin-mow/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/spin-mow",
+  "crazygamesSlug": "spin-mow"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-uvsu-demo",
+  "name": "UVSU Demo 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "UVSU is a mind bending puzzle adventure where you outwit your past actions to reshape the future. Navigate a handcrafted clay world full of mysterious mechanics and hidden rules, where every move echoes through time.",
+  "thumbnail": "https://imgs.crazygames.com/uvsu-demo_16x9/20250801025735/uvsu-demo_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/uvsu-demo_16x9/20250801025735/uvsu-demo_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/uvsu-demo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/uvsu-demo",
+  "crazygamesSlug": "uvsu-demo"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-squid-game-all-challenges",
+  "name": "Squid Game: ALL Challenges",
+  "author": "Anegelator",
+  "description": "Play Squid Game: ALL Challenges via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019601b888abec4ecb56cf6900884a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019601b888abec4ecb56cf6900884a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-405914.games.s3.yandex.net/405914/cf1pkfrblzi0spib1i8lvmxjh9299o2l/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=405914&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 405914,
+  "playhopPageUrl": "https://playhop.com/app/405914",
+  "playhopRating": 3.2,
+  "playhopRatingCount": 2019
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sprockets-jump",
+  "name": "Sprockets Jump",
+  "author": "Addicting Games",
+  "description": "<p>Sprockets is a free mobile game. In Sprocket just like in real life you are but a node trying to blip and bloop your way out from the chaos. As the world spins around you you'll have to think fast and move faster, make tactical decisions that keep you moving so you can get to the outer ring. In Sprocket, you are trying to make your way from the center of the screen to the outer rim of a forever spiraling vortex. All you need to do in order to accomplish this is click. That is it. You just simply click once at the right time and in the right space and your bleep will bloop themselves over the edge of the spinning platform you currently occupy. The problem is that the platforms are constantly spinning and you're trying to land on a platform that is also constantly spinning. All you have to accomplish your task is your sense of timing and reflexes. This game offers you no power-ups and no upgrades. You have no stats to toggle and no way to cheat. It's just you and the vortex spinning to infinity.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/prockets.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/prockets.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/sprockets-jump/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/sprockets-jump"
+}

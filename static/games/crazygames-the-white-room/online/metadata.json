@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-the-white-room",
+  "name": "The White Room 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The White Room is an escape room game with a relaxed pace. You are locked in a room and you have to leave it using logic and the objects around you.",
+  "thumbnail": "https://imgs.crazygames.com/the-white-room/20220110062515/the-white-room-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/the-white-room/20220110062515/the-white-room-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-white-room/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-white-room",
+  "crazygamesSlug": "the-white-room"
+}

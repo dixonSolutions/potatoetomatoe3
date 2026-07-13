@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-gun-mayhem",
+  "name": "Gun Mayhem 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gun Mayhem is an awesome platform shooter game in which you must fight against AI opponents and try to dominate the arena. The aim of the game is simple – you must knock your opponent off of the arena using a variety of different weapons.",
+  "thumbnail": "/games/crazygames-gun-mayhem/online/assets/crazygames-gun-mayhem.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gun-mayhem/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gun-mayhem",
+  "crazygamesSlug": "gun-mayhem"
+}

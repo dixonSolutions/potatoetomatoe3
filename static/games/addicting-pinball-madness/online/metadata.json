@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pinball-madness",
+  "name": "Pinball Madness",
+  "author": "Addicting Games",
+  "description": "<p>Pinball Madness is a free pinball game. If you consider yourself the kind of kid who plays a mean pinball then this is the online game for you! We all know what pinball is, we all love pinball, the concept behind this game is: what if we took the pinball machines of yore and digitized them and put them in our pocket. Do you think it's crazy? Well, maybe but it's also genius! Pinball Madness is a  fast flicking game of reflexes, physics, and the never-ending struggle of gravity: You can shoot that ball up 1,000 times and it will fall back down 1,000 times. The struggle is eternal like Sisyphus who forever rolls a boulder up a mountain only to have it roll back down and start all over. But much like Sisyphus rolling that boulder up and chasing it down forever until the end of time, it helps if you consider him happy, having fun, enjoying the struggle of pushing it up the mountain, the satisfaction of reaching the top, and the surprise of it rolling down. This is basically how Pinball Madness works as well, you must forever flip the flippers on the side of the screen in a vain attempt to keep the ball from falling into the bottomless pit. While the ball is bouncing around you are also trying to roll it over diamonds and stars in order to grasp bonus points.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pinballmadnessgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pinballmadnessgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/pinball-madness/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/pinball-madness"
+}

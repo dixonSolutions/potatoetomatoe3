@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-space-io-vft",
+  "name": "Space.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Space.io is a fast-paced 3D space battle game where you jump into the cockpit of a powerful spaceship! Face off against nine enemy pilots in an intense dogfight, where only the best warrior survives.",
+  "thumbnail": "https://imgs.crazygames.com/space-io-vft_16x9/20251010083414/space-io-vft_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/space-io-vft_16x9/20251010083414/space-io-vft_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-io-vft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-io-vft",
+  "crazygamesSlug": "space-io-vft"
+}

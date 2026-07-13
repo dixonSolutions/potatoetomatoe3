@@ -1,0 +1,17 @@
+{
+  "id": "playhop-super-man-orange",
+  "name": "Super Man Orange",
+  "author": "GMD",
+  "description": "Play Super Man Orange via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019277fd80c88234b13992df916bb4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019277fd80c88234b13992df916bb4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-371879.games.s3.yandex.net/371879/27vvo681wm0bg4rgqushwtplqg0xei3a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=371879&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 371879,
+  "playhopPageUrl": "https://playhop.com/app/371879",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 631
+}

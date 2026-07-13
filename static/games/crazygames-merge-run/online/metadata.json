@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-run",
+  "name": "Merge Run 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge Run is a battle arcade game where you must choose your monsters and make them stronger to battle with the villain monsters. Evolve your monsters while you run by entering the right gate.",
+  "thumbnail": "https://imgs.crazygames.com/merge-run_16x9/20231012081056/merge-run_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-run_16x9/20231012081056/merge-run_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-run",
+  "crazygamesSlug": "merge-run"
+}

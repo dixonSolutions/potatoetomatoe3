@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-catch-the-candy",
+  "name": "Catch the Candy - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Help the little blue critter catch his candy piece. Shoot the critters arm out to latch onto candy or other objects to complete levels and advance.",
+  "thumbnail": "/games/coolmath-catch-the-candy/online/assets/coolmath-catch-the-candy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22955/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-catch-the-candy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-catch-the-candy"
+}

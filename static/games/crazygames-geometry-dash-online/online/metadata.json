@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-geometry-dash-online",
+  "name": "Geometry Game Like Geometry Dash 📐 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Geometry Game is a free side-scrolling platformer played in sync with musical rhythms. Groove your way over and under obstacles to keep the musical momentum alive.",
+  "thumbnail": "/games/crazygames-geometry-dash-online/online/assets/crazygames-geometry-dash-online.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/geometry-dash-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/geometry-dash-online",
+  "crazygamesSlug": "geometry-dash-online"
+}

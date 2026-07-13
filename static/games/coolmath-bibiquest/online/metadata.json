@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bibiquest",
+  "name": "BibiQuest - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "You&#039;ve fallen into a mysterious cave in BibiQuest. Pick up the mysterious pitchfork to help you dash and jump your way out.",
+  "thumbnail": "/games/coolmath-bibiquest/online/assets/coolmath-bibiquest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36370/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bibiquest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bibiquest"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-city-blocks",
+  "name": "City Blocks Game | Play at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Build your town in City Blocks and watch it grow. Merge buildings to make the biggest city possible. How many buildings can you fit on your land?",
+  "thumbnail": "/games/coolmath-city-blocks/online/assets/coolmath-city-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50448/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-city-blocks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-city-blocks"
+}

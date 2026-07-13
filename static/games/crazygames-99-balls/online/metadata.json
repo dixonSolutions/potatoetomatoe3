@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-99-balls",
+  "name": "99 Balls 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Are you tired of ordinary bubble shooter games? Try 99 Balls, an innovate game that mixes gameplay from Bubble Shooter and Breakout!",
+  "thumbnail": "/games/crazygames-99-balls/online/assets/crazygames-99-balls.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/99-balls/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/99-balls",
+  "crazygamesSlug": "99-balls"
+}

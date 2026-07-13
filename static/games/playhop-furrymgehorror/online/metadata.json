@@ -1,0 +1,17 @@
+{
+  "id": "playhop-furrymgehorror",
+  "name": "furryMGEHorror",
+  "author": "XAKER_PRO",
+  "description": "Play furryMGEHorror via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a1b35bb502780b7fce91279582b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a1b35bb502780b7fce91279582b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-474312.games.s3.yandex.net/474312/52fdhdku5xwhgum3ctjfd8d9e8vcs8ee/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=474312&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 474312,
+  "playhopPageUrl": "https://playhop.com/app/474312",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 99
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-polytrack",
+  "name": "PolyTrack 🏎️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "PolyTrack is a classic car racing game with a slight twist. You race a car you&#x27;ve customized, on a track you might have designed yourself.",
+  "thumbnail": "https://imgs.crazygames.com/polytrack_16x9/20260310095956/polytrack_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/polytrack_16x9/20260310095956/polytrack_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/polytrack/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/polytrack",
+  "crazygamesSlug": "polytrack"
+}

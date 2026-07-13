@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-circle-farm",
+  "name": "Circle Farm 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Circle Farm is a relaxing incremental farming experience built around a clever circular system. You manage a rotating garden, time watering cycles precisely, and watch crops flourish.",
+  "thumbnail": "https://imgs.crazygames.com/circle-farm_16x9/20260202061825/circle-farm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/circle-farm_16x9/20260202061825/circle-farm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/circle-farm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/circle-farm",
+  "crazygamesSlug": "circle-farm"
+}

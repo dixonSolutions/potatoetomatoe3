@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-master-146156",
+  "name": "Sudoku Master",
+  "author": "OpenMyGame",
+  "description": "Play Sudoku Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019d9bb2e52686dc8e853bcc1bf1d0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019d9bb2e52686dc8e853bcc1bf1d0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-146156.games.s3.yandex.net/146156/8ofukkuq8ilzkmw5uxr8e250i0hnth2v/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=146156&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 146156,
+  "playhopPageUrl": "https://playhop.com/app/146156",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 54233
+}

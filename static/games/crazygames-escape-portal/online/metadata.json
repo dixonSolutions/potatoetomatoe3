@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-escape-portal",
+  "name": "Escape Portal 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Your soul is trapped between worlds. The only way home is to activate an ancient portal...",
+  "thumbnail": "https://imgs.crazygames.com/escape-portal_16x9/20260219085128/escape-portal_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/escape-portal_16x9/20260219085128/escape-portal_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/escape-portal/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/escape-portal",
+  "crazygamesSlug": "escape-portal"
+}

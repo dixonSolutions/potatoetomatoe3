@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-boomdozer",
+  "name": "Boomdozer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Boomdozer is a demolition-powered game that delivers the pure joy of smashing and bulldozing buildings. Wield a wrecking ball to topple structures with explosive force, then roll through debris in your bulldozer and repurpose the rubble into blocks for your own mega build.",
+  "thumbnail": "https://imgs.crazygames.com/boomdozer_16x9/20251121093019/boomdozer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/boomdozer_16x9/20251121093019/boomdozer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/boomdozer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/boomdozer",
+  "crazygamesSlug": "boomdozer"
+}

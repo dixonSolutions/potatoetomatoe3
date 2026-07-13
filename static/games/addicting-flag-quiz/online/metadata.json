@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flag-quiz",
+  "name": "Flag Quiz",
+  "author": "Addicting Games",
+  "description": "<p>Do you think you know all the flags of the world? Flag Quiz will put your memory to the test. There's a few that look similar that might trip you up, but there's plenty of mnemonic techniques that will help you succeed. Too bad we can't remember them...</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/WorldFlagQuiz.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/WorldFlagQuiz.jpg",
+  "thumbnailStored": "remote",
+  "category": "mystery-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/flag-quiz/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/flag-quiz"
+}

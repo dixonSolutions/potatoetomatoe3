@@ -1,0 +1,17 @@
+{
+  "id": "playhop-animals-online-263565",
+  "name": "Animals online",
+  "author": "RK-Games",
+  "description": "Play Animals online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001949f6eb07c34718fc91ee9ae5165/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001949f6eb07c34718fc91ee9ae5165/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-263565.games.s3.yandex.net/263565/s7ijw027kk9vilaxowfs2mccqahebis1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=263565&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 263565,
+  "playhopPageUrl": "https://playhop.com/app/263565",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2006
+}

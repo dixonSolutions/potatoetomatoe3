@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cozy-tile-match-535972",
+  "name": "Cozy Tile Match",
+  "author": "Glitch Fox",
+  "description": "Play Cozy Tile Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019ee0a04c6cdf56924b22765af4a5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019ee0a04c6cdf56924b22765af4a5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-535972.games.s3.yandex.net/535972/nhcmbebqu4rbm8i6j638im9rmryhnkme/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=535972&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 535972,
+  "playhopPageUrl": "https://playhop.com/app/535972",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tic-tac-toe-vegas-208090",
+  "name": "Tic Tac Toe Vegas",
+  "author": "Hihoy Games",
+  "description": "Play Tic Tac Toe Vegas via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001853f25af78d3194a958eed7e1f63/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001853f25af78d3194a958eed7e1f63/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-208090.games.s3.yandex.net/208090/s7vczw7jrsd0t13wwt21crrh6dptzuab/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=208090&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 208090,
+  "playhopPageUrl": "https://playhop.com/app/208090",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 188
+}

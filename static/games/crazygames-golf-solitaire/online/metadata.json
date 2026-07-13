@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-golf-solitaire",
+  "name": "Golf Solitaire ⛳ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Golf Solitaire is a fun and challenging solo card game. Clear all the cards by placing them in order and returning them to the pile until none are remaining.",
+  "thumbnail": "https://imgs.crazygames.com/golf-solitaire_16x9/20250627102155/golf-solitaire_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/golf-solitaire_16x9/20250627102155/golf-solitaire_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/golf-solitaire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/golf-solitaire",
+  "crazygamesSlug": "golf-solitaire"
+}

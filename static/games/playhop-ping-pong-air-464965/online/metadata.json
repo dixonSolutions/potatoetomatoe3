@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ping-pong-air-464965",
+  "name": "Ping Pong Air",
+  "author": "wnday",
+  "description": "Play Ping Pong Air via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001991ab01d4e8aff136fc8a4acee79/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001991ab01d4e8aff136fc8a4acee79/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-464965.games.s3.yandex.net/464965/2cj7t1tshyvoocbd3ftvh2oywzs95kj6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=464965&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 464965,
+  "playhopPageUrl": "https://playhop.com/app/464965",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 129
+}

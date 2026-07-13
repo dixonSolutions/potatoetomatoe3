@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-chibi-knight",
+  "name": "Chibi Knight 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Chibi Knight is an action adventure game where you play as the Chibi Knight, a cute little knight that&#x27;s been ordered to save a kingdom. Use your sword to battle different enemies and learn magic from wizards to aid you on your quest.",
+  "thumbnail": "/games/crazygames-chibi-knight/online/assets/crazygames-chibi-knight.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chibi-knight/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chibi-knight",
+  "crazygamesSlug": "chibi-knight"
+}

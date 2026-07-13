@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zoocraft",
+  "name": "ZooCraft 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zoocraft is a casual game that provides you with the opportunity to build and manage your own zoo. The game allows you to create a vibrant and diverse world filled with a wide range of animal species.",
+  "thumbnail": "https://imgs.crazygames.com/zoocraft/20230606093709/zoocraft-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zoocraft/20230606093709/zoocraft-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zoocraft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zoocraft",
+  "crazygamesSlug": "zoocraft"
+}

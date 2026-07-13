@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brainrots-play-strike-534463",
+  "name": "Brainrots Play Strike",
+  "author": "YBGames",
+  "description": "Play Brainrots Play Strike via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019e661914d91255887070cb086016/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019e661914d91255887070cb086016/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-534463.games.s3.yandex.net/534463/jko5yoznsym25paoqnbhwucpd0k3m362/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=534463&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 534463,
+  "playhopPageUrl": "https://playhop.com/app/534463",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

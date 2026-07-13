@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-factory-industrial",
+  "name": "Factory Industrial 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Factory Industrial is a strategic building game that lets you design and automate your own island empire. You’ll construct complex production lines, optimize resources, and expand your industrial reach across stunning landscapes.",
+  "thumbnail": "https://imgs.crazygames.com/factory-industrial_16x9/20251017094441/factory-industrial_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/factory-industrial_16x9/20251017094441/factory-industrial_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/factory-industrial/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/factory-industrial",
+  "crazygamesSlug": "factory-industrial"
+}

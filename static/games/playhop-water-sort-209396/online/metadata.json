@@ -1,0 +1,17 @@
+{
+  "id": "playhop-water-sort-209396",
+  "name": "Water Sort",
+  "author": "mbkj",
+  "description": "Play Water Sort via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000185707372811fc5b3ca15f246b216/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000185707372811fc5b3ca15f246b216/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-209396.games.s3.yandex.net/209396/gnz35yoet6z271a3hnddr6qet1tmw2to/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=209396&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 209396,
+  "playhopPageUrl": "https://playhop.com/app/209396",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1376
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-crystal-alchemy-523656",
+  "name": "Crystal Alchemy",
+  "author": "St1xxSTR",
+  "description": "Play Crystal Alchemy via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019ec2bb8871939a3218f52688b13d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019ec2bb8871939a3218f52688b13d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-523656.games.s3.yandex.net/523656/krfsqrfkmo0kuez2t0yko9ptq6jvb5gm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=523656&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 523656,
+  "playhopPageUrl": "https://playhop.com/app/523656",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 30
+}

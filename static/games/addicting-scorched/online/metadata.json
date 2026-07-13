@@ -1,0 +1,14 @@
+{
+  "id": "addicting-scorched",
+  "name": "Scorched",
+  "author": "Addicting Games",
+  "description": "<p>Either these guys have really thick skin, or those bullets do only slightly more damage than firecrackers. Blast away your opponent in this parody of Tanks.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Scorched.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Scorched.jpg",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/scorched.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/scorched"
+}

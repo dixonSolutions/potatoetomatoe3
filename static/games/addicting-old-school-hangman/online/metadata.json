@@ -1,0 +1,14 @@
+{
+  "id": "addicting-old-school-hangman",
+  "name": "Old School Hangman",
+  "author": "Addicting Games",
+  "description": "<p>Old School Hangman is a free word game. We love Hangman, it is a classic game of bluffing and guessing. You must flex your ability to sus out a word based on only a few clues. If you can't do it then you will slowly manifest, piece by piece, like a corpse hanging from a noose.  Never has a trip to the gallows been more fun than with Old School Hang Man. You'll need to earn enough diamonds in order to buy a clue, but the clues themselves are increasingly vague. In the end, it will come down to the tried and true method of guessing vowels first then really common letters like R and T or like L or whatever. Only suckers guess X, Y, and z. Don't try and be cool or an edgelord by guessing these obscure barely used letters. You will not be impressing anyone. This is a game all about optimization. Just guess the vowels, use some critical thinking skills, use some deductive logic, take your time. It really isn't that hard but it is a cool challenge and honestly, it's fun. It must be fun. If it wasn't fun then people wouldn't have played the same game for like a billion years or whatever. OK, thanks for playing.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/old-school-hangman.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/old-school-hangman.jpg",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/old-school-hangman/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/old-school-hangman"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blocco",
+  "name": "Blocco - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Become a business mogul in our money game, Blocco. You&#039;re in charge of the farm, grow and sell crops to expand your business and meet your goals.",
+  "thumbnail": "/games/coolmath-blocco/online/assets/coolmath-blocco.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32707/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blocco",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blocco"
+}

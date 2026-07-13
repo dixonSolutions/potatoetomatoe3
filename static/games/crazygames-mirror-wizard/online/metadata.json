@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mirror-wizard",
+  "name": "Mirror Wizard 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mirror Wizard is a platform game where you must jump, avoid obstacles, and use your magic to flip sides in order to collect all the blue balls.  Release Date November 2022  Developer Mirror Wizard is developed by NoaDev.",
+  "thumbnail": "https://imgs.crazygames.com/mirror-wizard/20221114172708/mirror-wizard-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mirror-wizard/20221114172708/mirror-wizard-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mirror-wizard/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mirror-wizard",
+  "crazygamesSlug": "mirror-wizard"
+}

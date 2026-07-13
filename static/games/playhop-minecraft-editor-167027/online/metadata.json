@@ -1,0 +1,17 @@
+{
+  "id": "playhop-minecraft-editor-167027",
+  "name": "Minecraft Editor",
+  "author": "Northman Games",
+  "description": "Play Minecraft Editor via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000179d49e0e6034f01e7f28ed9c2ab9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000179d49e0e6034f01e7f28ed9c2ab9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-167027.games.s3.yandex.net/167027/tnn3wq0qkjwhvr1271tszdhl82lm97e6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=167027&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 167027,
+  "playhopPageUrl": "https://playhop.com/app/167027",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 8367
+}

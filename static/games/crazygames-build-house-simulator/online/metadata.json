@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-build-house-simulator",
+  "name": "Build House Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Build House Simulator is a casual building game where you embark on the ultimate home-building adventure. Your primary objective: construct houses.",
+  "thumbnail": "https://imgs.crazygames.com/build-house-simulator_16x9/20230925061701/build-house-simulator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/build-house-simulator_16x9/20230925061701/build-house-simulator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/build-house-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/build-house-simulator",
+  "crazygamesSlug": "build-house-simulator"
+}

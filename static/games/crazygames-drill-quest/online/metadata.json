@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-drill-quest",
+  "name": "Drill Quest 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Drill Quest is a casual game combining the excitement of crushing blocks, upgrading your drill, and building your city. Explore diverse locations, progressively upgrade your equipment, and choose from machines.",
+  "thumbnail": "https://imgs.crazygames.com/drill-quest_16x9/20240617055643/drill-quest_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/drill-quest_16x9/20240617055643/drill-quest_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drill-quest/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drill-quest",
+  "crazygamesSlug": "drill-quest"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-idle-clicker-530382",
+  "name": "Idle-clicker",
+  "author": "DDS Games",
+  "description": "Play Idle-clicker via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019ebdd2a487c8d7e2fd4c546fb749/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019ebdd2a487c8d7e2fd4c546fb749/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-530382.games.s3.yandex.net/530382/tld900ul19gc10b6rlv9b01xhtnc38rp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=530382&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 530382,
+  "playhopPageUrl": "https://playhop.com/app/530382",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

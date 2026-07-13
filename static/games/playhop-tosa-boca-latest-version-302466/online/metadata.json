@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tosa-boca-latest-version-302466",
+  "name": "Тоса Boca Latest Version",
+  "author": "Miraculum Games",
+  "description": "Play Тоса Boca Latest Version via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a000001979dbf4e00937507a9792abec8f5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a000001979dbf4e00937507a9792abec8f5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-302466.games.s3.yandex.net/302466/mp2qq025v2sgsk2tls4hjucgxbnuyrzh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=302466&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 302466,
+  "playhopPageUrl": "https://playhop.com/app/302466",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 18038
+}

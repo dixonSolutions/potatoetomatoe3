@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-cross",
+  "name": "Color Cross - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Cross at Cool Math Games: Now you see it, now you don&#039;t! Every time you jump the platforms change. Can you make it to the flag?",
+  "thumbnail": "/games/coolmath-color-cross/online/assets/coolmath-color-cross.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32632/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-cross",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-cross"
+}

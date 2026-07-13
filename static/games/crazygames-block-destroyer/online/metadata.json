@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-block-destroyer",
+  "name": "block destroyer",
+  "author": "CrazyGames",
+  "description": "Play block destroyer on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-destroyer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-destroyer",
+  "crazygamesSlug": "block-destroyer"
+}

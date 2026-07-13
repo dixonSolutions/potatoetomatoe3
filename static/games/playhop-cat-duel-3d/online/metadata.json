@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cat-duel-3d",
+  "name": "Cat Duel 3D",
+  "author": "EruditionGames",
+  "description": "Play Cat Duel 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019503a1ba5968b935e2691225b183/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019503a1ba5968b935e2691225b183/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-409022.games.s3.yandex.net/409022/d84ppnrbmakwaz0sa4b0fnqmmv96tep7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=409022&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 409022,
+  "playhopPageUrl": "https://playhop.com/app/409022",
+  "playhopRating": 4,
+  "playhopRatingCount": 1658
+}

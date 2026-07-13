@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flappy-cannon",
+  "name": "Flappy Cannon",
+  "author": "Addicting Games",
+  "description": "<p>Flappy Cannon is a free clicker-style idle game. Math is hard, flying is hard, clicking is hard, shooting is hard and in Flappy Cannon you will have to balance all of these hard to master skills and combine them in an elegant game of flapping, flying, shooting, and distance. This is a flappy style game with a twist. You don't just dodge the barriers you have to blast through them! But the hit point value for each barrier is listed on it so you'll have to do a quick calculation on how long it will take you to blast through the walls. And you think that is tough? Well, there is more! In this game, you'll be collecting stars that you save up and use to buy upgrades. You can either upgrade the power of your weapon or the speed at which it fires. Another interesting decision point. As you are playing keep your eyes open for power-ups which will give you a limited amount of the kind of power-ups you can buy. This is an endless racer style game so your place on the leaderboard will be based on how long you can last. So, load up on upgrades and get flapping!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/flappy-cannon_01.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/flappy-cannon_01.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/flappy-cannon/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/flappy-cannon"
+}

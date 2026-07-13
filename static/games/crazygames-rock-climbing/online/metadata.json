@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rock-climbing",
+  "name": "Rock Climbing? 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rock Climbing is a thrilling casual game where you guide a unique two-headed creature. Stay composed as you aim for your landing spot, holding and releasing the button for a strategic jump.",
+  "thumbnail": "https://imgs.crazygames.com/rock-climbing_16x9/20240201042059/rock-climbing_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rock-climbing_16x9/20240201042059/rock-climbing_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rock-climbing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rock-climbing",
+  "crazygamesSlug": "rock-climbing"
+}

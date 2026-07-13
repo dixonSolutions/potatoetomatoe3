@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battlefield-teams",
+  "name": "Battlefield Teams",
+  "author": "New Generation Games",
+  "description": "Play Battlefield Teams via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000193c1302813cba4d5e7bb39732ff0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000193c1302813cba4d5e7bb39732ff0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-390737.games.s3.yandex.net/390737/v7fdannnwnbj6k0incv6fgiss5s9u71r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=390737&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 390737,
+  "playhopPageUrl": "https://playhop.com/app/390737",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 127
+}

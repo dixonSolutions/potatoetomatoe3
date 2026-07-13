@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ragdoll-boxing-461876",
+  "name": "Ragdoll Boxing",
+  "author": "WebWizard",
+  "description": "Play Ragdoll Boxing via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019e558fb7846db9c80cf351e0aaa6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019e558fb7846db9c80cf351e0aaa6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-461876.games.s3.yandex.net/461876/6dgm1529hy8y63cu6ymkijg220d7mvq3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=461876&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 461876,
+  "playhopPageUrl": "https://playhop.com/app/461876",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

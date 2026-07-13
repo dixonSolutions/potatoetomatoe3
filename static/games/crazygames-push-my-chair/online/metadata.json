@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-push-my-chair",
+  "name": "Push My Chair 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Push My Chair is a casual game where you fight to be the last one sitting! Use your trusty fire extinguisher to blast opponents, and wheel around the office in dodgem-like chaos looking for the next attack.",
+  "thumbnail": "https://imgs.crazygames.com/push-my-chair_16x9/20241118074536/push-my-chair_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/push-my-chair_16x9/20241118074536/push-my-chair_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/push-my-chair/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/push-my-chair",
+  "crazygamesSlug": "push-my-chair"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dash-hero",
+  "name": "Dash Hero 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dash Hero is a casual game where you become a courageous hero on a quest to rescue the princess. Navigate through challenging levels, confront enemies, and showcase your skills in epic battles.",
+  "thumbnail": "https://imgs.crazygames.com/dash-hero_16x9/20240318052608/dash-hero_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dash-hero_16x9/20240318052608/dash-hero_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dash-hero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dash-hero",
+  "crazygamesSlug": "dash-hero"
+}

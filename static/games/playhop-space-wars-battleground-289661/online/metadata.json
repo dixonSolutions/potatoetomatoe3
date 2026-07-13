@@ -1,0 +1,17 @@
+{
+  "id": "playhop-space-wars-battleground-289661",
+  "name": "Space Wars Battleground",
+  "author": "GoGoMan",
+  "description": "Play Space Wars Battleground via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ab16f416000020b12a563c203d0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ab16f416000020b12a563c203d0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-289661.games.s3.yandex.net/289661/4y9k5yzre8v4owflwxfg4fwu6id5wtw6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=289661&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 289661,
+  "playhopPageUrl": "https://playhop.com/app/289661",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 7779
+}

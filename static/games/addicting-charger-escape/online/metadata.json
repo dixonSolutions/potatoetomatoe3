@@ -1,0 +1,14 @@
+{
+  "id": "addicting-charger-escape",
+  "name": "Charger Escape",
+  "author": "Addicting Games",
+  "description": "<p>Charger Escape is a free escape game. Horses don't have thumbs. That's why they need your help! Get this horse out of the stable, escape-style!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/chargerescape_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/chargerescape_sp.png",
+  "thumbnailStored": "remote",
+  "category": "glam",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/chargerescape.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/glam/charger-escape"
+}

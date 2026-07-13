@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pop-it-duel",
+  "name": "Pop It! Duel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pop It! Duel is a competitive version of Pop It!",
+  "thumbnail": "https://imgs.crazygames.com/pop-it-duel/20211113093455/pop-it-duel-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pop-it-duel/20211113093455/pop-it-duel-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pop-it-duel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pop-it-duel",
+  "crazygamesSlug": "pop-it-duel"
+}

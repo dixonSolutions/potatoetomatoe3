@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-catch-the-candy-mech",
+  "name": "Catch the Candy Mech - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Catch the Candy Mech at Cool Math Games: Help the little blue critter collect his candy in this strange mechanical world. Grab gears, boxes, and other object to pull the critter towards them.",
+  "thumbnail": "/games/coolmath-catch-the-candy-mech/online/assets/coolmath-catch-the-candy-mech.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23010/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-catch-the-candy-mech",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-catch-the-candy-mech"
+}

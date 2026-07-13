@@ -1,0 +1,14 @@
+{
+  "id": "addicting-daily-solitaire",
+  "name": "Daily Solitaire",
+  "author": "Addicting Games",
+  "description": "<p>Daily Solitaire is a solo card game. Solitaire truly is a game of kings. A game which has lived on and been passed down through the ages for generations. It requires tactical skill and long term strategic choices. You must manage your hand and the cards in your multiple lines. On your top left, you'll want to count up from Ace to King, but on your bottom rows of cards, you'll be counting down from King to Ace. The only way to finish the game is to make sure all of your cards from the draw pile and the rows are neatly accounted for in the upper left rows. Four separate stacks from Ace to King. It's up to you to get it right! Do you have the same patience and pattern recognition abilities as generations of monarchs before you? In this version, there are three different levels of difficulty, easy, medium and hard. Each comes part and parcel with its own challenges and rewards. But ultimately the game remains the same: Sort the cards in as few moves as possible into 4 separate piles of ascending suits from Ace to King. It is truly a game that tests your mind as much as your reflexes or aim. Perhaps you have some royal blood in you.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/aces.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/aces.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/shockwave-original-daily-solitaire/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/daily-solitaire"
+}

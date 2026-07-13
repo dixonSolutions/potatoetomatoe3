@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-hobo",
+  "name": "Hobo 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hobo is the first fighting game in the Hobo series. Go around the streets randomly starting fights using various combo moves.",
+  "thumbnail": "/games/crazygames-hobo/online/assets/crazygames-hobo.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hobo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hobo",
+  "crazygamesSlug": "hobo"
+}

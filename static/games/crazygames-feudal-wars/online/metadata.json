@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-feudal-wars",
+  "name": "Feudal Wars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Feudal Wars is an epic online military RTS game in which you must build and command your very own army to fight other players around the world. You must build a variety of different structures such as resource production facilities, military training facilities and research facilities - each building has a different use and will help contribute to your economy and army.",
+  "thumbnail": "/games/crazygames-feudal-wars/online/assets/crazygames-feudal-wars.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/feudal-wars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/feudal-wars",
+  "crazygamesSlug": "feudal-wars"
+}

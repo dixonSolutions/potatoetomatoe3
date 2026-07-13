@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fire-monster-shooter",
+  "name": "Fire Monster Shooter",
+  "author": "Qky games",
+  "description": "Play Fire Monster Shooter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000196faf81a043d21ebbf26375ca0d2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000196faf81a043d21ebbf26375ca0d2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-439458.games.s3.yandex.net/439458/m6k0r536el0hmt9wd4eyq0pa2ccaxjfp/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=439458&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 439458,
+  "playhopPageUrl": "https://playhop.com/app/439458",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 785
+}

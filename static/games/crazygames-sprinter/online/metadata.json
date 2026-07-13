@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-sprinter",
+  "name": "Sprinter Game 🏃‍♂️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sprinter is a simple running game from the Flash era. Beat all of your opponents in a 100-meter sprint.",
+  "thumbnail": "/games/crazygames-sprinter/online/assets/crazygames-sprinter.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sprinter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sprinter",
+  "crazygamesSlug": "sprinter"
+}

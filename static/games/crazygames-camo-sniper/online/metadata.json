@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-camo-sniper",
+  "name": "camo sniper",
+  "author": "CrazyGames",
+  "description": "Play camo sniper on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/camo-sniper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/camo-sniper",
+  "crazygamesSlug": "camo-sniper"
+}

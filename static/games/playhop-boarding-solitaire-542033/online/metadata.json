@@ -1,0 +1,17 @@
+{
+  "id": "playhop-boarding-solitaire-542033",
+  "name": "Boarding Solitaire",
+  "author": "bayan79",
+  "description": "Play Boarding Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ed7743aabaf997a74ec1a62bda6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ed7743aabaf997a74ec1a62bda6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-542033.games.s3.yandex.net/542033/euohwah2pdcof896siv8d9uf2b5nwyqu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=542033&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 542033,
+  "playhopPageUrl": "https://playhop.com/app/542033",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

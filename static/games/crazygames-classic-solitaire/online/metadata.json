@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-classic-solitaire",
+  "name": "Classic Solitaire 🃏 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Classic Solitaire game - the time-tested card game.Classic Solitaire brings all the fun and enjoyment of this iconic card game to your web browser. The rules and gameplay remain the same – you have to move your cards around and try to match them by suit and number.",
+  "thumbnail": "https://imgs.crazygames.com/games/classic-solitaire/cover-1606831793496.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/classic-solitaire/cover-1606831793496.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/classic-solitaire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/classic-solitaire",
+  "crazygamesSlug": "classic-solitaire"
+}

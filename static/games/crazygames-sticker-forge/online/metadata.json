@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sticker-forge",
+  "name": "Sticker Forge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Welcome to Sticker Forge, the satisfying puzzle game where you forge vibrant items through the power of merging! Your goal is simple but addictive: match, merge, and evolve.",
+  "thumbnail": "https://imgs.crazygames.com/sticker-forge_16x9/20260123030419/sticker-forge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sticker-forge_16x9/20260123030419/sticker-forge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sticker-forge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sticker-forge",
+  "crazygamesSlug": "sticker-forge"
+}

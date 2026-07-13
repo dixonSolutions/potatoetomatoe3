@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-planetary-defense",
+  "name": "Planetary Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Planetary Defense is a fast-paced survival shooter where you assemble a powerful battle machine using modular blocks and face relentless threats from all directions. Mix and match defense, weapon, economy, and upgrade blocks to craft a build that matches your playstyle, then put it to the test across multiple arenas with unique enemy patterns and challenges.",
+  "thumbnail": "https://imgs.crazygames.com/planetary-defense_16x9/20260113093329/planetary-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/planetary-defense_16x9/20260113093329/planetary-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/planetary-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/planetary-defense",
+  "crazygamesSlug": "planetary-defense"
+}

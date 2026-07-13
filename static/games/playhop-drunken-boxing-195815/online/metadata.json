@@ -1,0 +1,17 @@
+{
+  "id": "playhop-drunken-boxing-195815",
+  "name": "Drunken Boxing",
+  "author": "RHM Interactive",
+  "description": "Play Drunken Boxing via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001830374e353b976c830de886862fe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001830374e353b976c830de886862fe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-195815.games.s3.yandex.net/195815/f6j1weh8z3ql55grnyyafkdqe0ahekim/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=195815&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 195815,
+  "playhopPageUrl": "https://playhop.com/app/195815",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 1356
+}

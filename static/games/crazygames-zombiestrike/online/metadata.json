@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zombiestrike",
+  "name": "ZombieStrike 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zombie Strike is a single-player zombie survival game where your goal is to stay alive for as long as possible.Find new weapons, upgrade them, and improve your chances against increasingly dangerous waves of enemies.",
+  "thumbnail": "https://imgs.crazygames.com/zombiestrike_16x9/20260310115535/zombiestrike_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zombiestrike_16x9/20260310115535/zombiestrike_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombiestrike/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombiestrike",
+  "crazygamesSlug": "zombiestrike"
+}

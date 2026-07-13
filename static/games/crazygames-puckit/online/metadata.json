@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-puckit",
+  "name": "Puckit! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Puckit! is a fast-paced game where you clear the board by knocking pucks into holes or bouncing opponents out of play.",
+  "thumbnail": "https://imgs.crazygames.com/puckit_16x9/20260209104336/puckit_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/puckit_16x9/20260209104336/puckit_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/puckit/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/puckit",
+  "crazygamesSlug": "puckit"
+}

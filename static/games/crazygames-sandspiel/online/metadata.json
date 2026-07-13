@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sandspiel",
+  "name": "Sandspiel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sandspiel is a creative game where you build unique environments from elements that react with each other. Use your imagination and see what fascinating reactions you can create in this fun pixelated game!",
+  "thumbnail": "https://imgs.crazygames.com/sandspiel.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sandspiel.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sandspiel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sandspiel",
+  "crazygamesSlug": "sandspiel"
+}

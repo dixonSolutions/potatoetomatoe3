@@ -1,0 +1,17 @@
+{
+  "id": "playhop-game-store-simulator",
+  "name": "Game Store Simulator",
+  "author": "ORV Studio",
+  "description": "Play Game Store Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000190b31dfc0309af9bd73b642b4b0e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000190b31dfc0309af9bd73b642b4b0e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-357645.games.s3.yandex.net/357645/pddp474rjlqvn1bb14x0x9ty8ugwlpzw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=357645&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 357645,
+  "playhopPageUrl": "https://playhop.com/app/357645",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

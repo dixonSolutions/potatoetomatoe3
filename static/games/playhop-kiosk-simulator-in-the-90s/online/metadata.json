@@ -1,0 +1,17 @@
+{
+  "id": "playhop-kiosk-simulator-in-the-90s",
+  "name": "Kiosk simulator in the 90s",
+  "author": "NickCO GAMES",
+  "description": "Play Kiosk simulator in the 90s via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000192826faa7e32b67511f4d98d6698/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000192826faa7e32b67511f4d98d6698/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-378021.games.s3.yandex.net/378021/w5sy7rqajgx4ocpwt3zb0nwluwmkn8ah/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=378021&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 378021,
+  "playhopPageUrl": "https://playhop.com/app/378021",
+  "playhopRating": 3.1,
+  "playhopRatingCount": 925
+}

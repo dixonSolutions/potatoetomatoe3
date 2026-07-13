@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-merge-pin-idle-pinball",
+  "name": "merge pin idle pinball",
+  "author": "CrazyGames",
+  "description": "Play merge pin idle pinball on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-pin-idle-pinball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-pin-idle-pinball",
+  "crazygamesSlug": "merge-pin-idle-pinball"
+}

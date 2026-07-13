@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-agents-io",
+  "name": "Agents.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Agents.io is a thrilling multiplayer game where you engage in action-packed battles with rival gangs. As a player, you take control of your own gang and navigate through dynamic battlegrounds, aiming to eliminate rival agents and secure victory for your team.",
+  "thumbnail": "https://imgs.crazygames.com/agents-io/20230609044850/agents-io-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/agents-io/20230609044850/agents-io-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/agents-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/agents-io",
+  "crazygamesSlug": "agents-io"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bus-escape-clear-jam",
+  "name": "Bus Escape: Clear Jam",
+  "author": "MirraGames",
+  "description": "Play Bus Escape: Clear Jam via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019601aac6fd9d3d17fe3e2fc763f2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019601aac6fd9d3d17fe3e2fc763f2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-399040.games.s3.yandex.net/399040/gk3j4mlawl921ag8orpb0bw7ue2fnjms/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=399040&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 399040,
+  "playhopPageUrl": "https://playhop.com/app/399040",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 1677
+}

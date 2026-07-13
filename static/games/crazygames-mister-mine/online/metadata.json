@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-mister-mine",
+  "name": "Mr Mine ⛏️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mr. Mine is an addictive idle mining clicker arcade game that puts you in charge of building a mining empire from the ground up!",
+  "thumbnail": "/games/crazygames-mister-mine/online/assets/crazygames-mister-mine.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mister-mine/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mister-mine",
+  "crazygamesSlug": "mister-mine"
+}

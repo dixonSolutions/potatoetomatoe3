@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bucketball",
+  "name": "Bucketball: Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Toss the ball and make it a Bucketball. Make sure your ball and bucket have the same color and set your aim just right for a nice shot.",
+  "thumbnail": "/games/coolmath-bucketball/online/assets/coolmath-bucketball.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41559/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bucketball",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bucketball"
+}

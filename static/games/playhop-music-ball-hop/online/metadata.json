@@ -1,0 +1,17 @@
+{
+  "id": "playhop-music-ball-hop",
+  "name": "Music Ball Hop",
+  "author": "Rhythm Plus",
+  "description": "Play Music Ball Hop via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019eee8bfbe926edda95e0149bb925/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019eee8bfbe926edda95e0149bb925/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-455609.games.s3.yandex.net/455609/1t5sbtfxtedb937koz1srwfmnp516pxi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=455609&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 455609,
+  "playhopPageUrl": "https://playhop.com/app/455609",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 11811
+}

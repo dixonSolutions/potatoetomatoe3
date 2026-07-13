@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gangsters-squad",
+  "name": "Gangsters Squad 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gangsters Squad is an epic multiplayer third-person shooter in which you become a gangster and must compete against other players from around the world. Before you start you can customize your character and give them different clothes and appearance - make them look as dangerous and intimidating as you wish!",
+  "thumbnail": "https://imgs.crazygames.com/gangsters-squad.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gangsters-squad.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gangsters-squad/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gangsters-squad",
+  "crazygamesSlug": "gangsters-squad"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mania-sudoku-272658",
+  "name": "Mania Sudoku",
+  "author": "Pixel Forge",
+  "description": "Play Mania Sudoku via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018be7e23b0600cbcb2e7e8121853e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018be7e23b0600cbcb2e7e8121853e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-272658.games.s3.yandex.net/272658/6dvdag8b87kpcymbywgxs6lx71a9lc2n/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=272658&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 272658,
+  "playhopPageUrl": "https://playhop.com/app/272658",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 187
+}

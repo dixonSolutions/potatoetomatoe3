@@ -1,0 +1,17 @@
+{
+  "id": "playhop-quad-shooter-1-2-3-4-players",
+  "name": "Quad Shooter - 1, 2, 3, 4 players",
+  "author": "N1kOk",
+  "description": "Play Quad Shooter - 1, 2, 3, 4 players via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019577251421a2c8810228e560d85a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019577251421a2c8810228e560d85a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-409021.games.s3.yandex.net/409021/du5hf3qqfybo2mpny2v4lvv6l1kmqtzl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=409021&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 409021,
+  "playhopPageUrl": "https://playhop.com/app/409021",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 226
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-c-square",
+  "name": "Play C-Square: All the squares | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "No more red, turn these squares blue instead. C Square has three stages of difficulty and infinite puzzles, how many levels can you complete?",
+  "thumbnail": "/games/coolmath-c-square/online/assets/coolmath-c-square.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/38570/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-c-square",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-c-square"
+}

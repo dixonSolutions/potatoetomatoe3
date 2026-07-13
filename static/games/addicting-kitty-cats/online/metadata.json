@@ -1,0 +1,14 @@
+{
+  "id": "addicting-kitty-cats",
+  "name": "Kitty Cats",
+  "author": "Addicting Games",
+  "description": "<p>Kitty Cats is a free resource management game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/kittycatsgamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/kittycatsgamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/kitty-cats/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/kitty-cats"
+}

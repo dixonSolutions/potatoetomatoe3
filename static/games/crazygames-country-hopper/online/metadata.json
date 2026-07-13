@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-country-hopper",
+  "name": "Country Hopper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Country Hopper is a geography adventure game where you guide Delivery Doug across countries, finding the shortest routes between them. Test your skills by solving quick multi-hop paths and collecting jigsaw pieces that reveal stunning landmarks.",
+  "thumbnail": "https://imgs.crazygames.com/country-hopper_16x9/20241118043122/country-hopper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/country-hopper_16x9/20241118043122/country-hopper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/country-hopper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/country-hopper",
+  "crazygamesSlug": "country-hopper"
+}

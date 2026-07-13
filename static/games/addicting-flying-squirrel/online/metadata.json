@@ -1,0 +1,14 @@
+{
+  "id": "addicting-flying-squirrel",
+  "name": "Flying Squirrel",
+  "author": "Addicting Games",
+  "description": "<p>Blast a Flying Squirrel in the Chatdy Cannon!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/flyingsquirrel.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/flyingsquirrel.jpg",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/flyingsquirrel_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/flying-squirrel"
+}

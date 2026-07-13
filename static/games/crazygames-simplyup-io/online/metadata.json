@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-simplyup-io",
+  "name": "SimplyUp.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Simply Up is a competitive multiplayer parkour game where you race to scale an endless vertical world, leap by leap. Every jump tests your timing and precision, and one slip means falling with no checkpoints to save you.",
+  "thumbnail": "https://imgs.crazygames.com/simplyup-io_16x9/20250710064001/simplyup-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/simplyup-io_16x9/20250710064001/simplyup-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/simplyup-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/simplyup-io",
+  "crazygamesSlug": "simplyup-io"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-jet-rush",
+  "name": "Jet Rush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jet Rush is an awesome platform game with superb arcade-style gameplay. You control a high-tech jet plane, and you must pilot it through a series of challenging courses and obstacles.",
+  "thumbnail": "/games/crazygames-jet-rush/online/assets/crazygames-jet-rush.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jet-rush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jet-rush",
+  "crazygamesSlug": "jet-rush"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-3d-bowling",
+  "name": "3D Bowling 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "3D Bowling is a sports bowling game where you can practice your bowling skill on your own or against an opponent. The visuals of this game are so familiar, you will feel like you&#39;re wearing rented bowling shoes and about to order a pretzel and soda.",
+  "thumbnail": "https://imgs.crazygames.com/games/3d-bowling/cover-1685509607375.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/3d-bowling/cover-1685509607375.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/3d-bowling/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/3d-bowling",
+  "crazygamesSlug": "3d-bowling"
+}

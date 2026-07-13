@@ -1,0 +1,14 @@
+{
+  "id": "addicting-seagull-story",
+  "name": "Seagull Story",
+  "author": "Addicting Games",
+  "description": "<p>Happy monkey? Almost! The seagulls are ruining his little island. Seek your revenge!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/seagull-story.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/seagull-story.jpg",
+  "thumbnailStored": "remote",
+  "category": "gross-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/seagullstory.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/seagull-story"
+}

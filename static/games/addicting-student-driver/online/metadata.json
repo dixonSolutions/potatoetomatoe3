@@ -1,0 +1,14 @@
+{
+  "id": "addicting-student-driver",
+  "name": "Student Driver",
+  "author": "Addicting Games",
+  "description": "<p>The rubber hits the road on this obstacle filled physics challenger. You'll need to use all your wits in order to make it through each of these challenging levels. Just when you think you've got it figured out, there's a curveball for you. Not much different from real driving, minus the funky balancing.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/student-driver.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/student-driver.jpg",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/student-driver/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/student-driver"
+}

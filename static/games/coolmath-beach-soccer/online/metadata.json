@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-beach-soccer",
+  "name": "Beach Soccer - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Beach Soccer at Cool Math Games: Hit the beach and show off your best soccer shots! Aim your kick to get all three stars and score.",
+  "thumbnail": "/games/coolmath-beach-soccer/online/assets/coolmath-beach-soccer.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/27451/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-beach-soccer",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-beach-soccer"
+}

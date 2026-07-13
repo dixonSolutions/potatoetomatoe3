@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-portal-escape",
+  "name": "Portal Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Portal Escape is a thrilling blend of platformer and puzzle gameplay, powered by creative portal mechanics. Guide your hero through dangerous levels filled with traps and obstacles by creating portals, lifting cubes, and solving mind-bending challenges.",
+  "thumbnail": "https://imgs.crazygames.com/portal-escape_16x9/20260109103211/portal-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/portal-escape_16x9/20260109103211/portal-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/portal-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/portal-escape",
+  "crazygamesSlug": "portal-escape"
+}

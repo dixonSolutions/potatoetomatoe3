@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nitro-burnout",
+  "name": "Nitro Burnout 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Nitro Burnout is a realistic car simulator that puts you in control of precision drifting, blazing speed runs, and deep vehicle customization. You’ll master lifelike physics, swap engines, fine-tune performance, and leave your mark on every track.",
+  "thumbnail": "https://imgs.crazygames.com/nitro-burnout_16x9/20250731044728/nitro-burnout_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/nitro-burnout_16x9/20250731044728/nitro-burnout_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nitro-burnout/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nitro-burnout",
+  "crazygamesSlug": "nitro-burnout"
+}

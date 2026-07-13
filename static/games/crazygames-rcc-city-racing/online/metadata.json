@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rcc-city-racing",
+  "name": "RCC City Racing 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "RCC City Racing is a street racing game with 3D graphics. There are many different game modes to keep you entertained in this title, they range from free play where you are chased by the police around a city as they try to put a stop to joy ride at every turn to multiplayer destruction derbies.",
+  "thumbnail": "https://imgs.crazygames.com/rcccityracing.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rcccityracing.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rcc-city-racing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rcc-city-racing",
+  "crazygamesSlug": "rcc-city-racing"
+}

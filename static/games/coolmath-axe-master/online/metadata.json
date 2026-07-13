@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-axe-master",
+  "name": "Axe Master - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Whack the targets within the time frame to win at Axe Master. Each level gets progressively harder, so be precise with your tosses.",
+  "thumbnail": "/games/coolmath-axe-master/online/assets/coolmath-axe-master.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54224/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-axe-master",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-axe-master"
+}

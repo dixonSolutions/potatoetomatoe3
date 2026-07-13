@@ -1,0 +1,17 @@
+{
+  "id": "playhop-king-of-mahjong-197588",
+  "name": "King of Mahjong",
+  "author": "Stark Games LLC",
+  "description": "Play King of Mahjong via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001854a2a34707f033e08edc8b9ef35/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001854a2a34707f033e08edc8b9ef35/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-197588.games.s3.yandex.net/197588/ioqqfd4uvr3qh9wm2zfgjvmommpbkzvi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=197588&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 197588,
+  "playhopPageUrl": "https://playhop.com/app/197588",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 12086
+}

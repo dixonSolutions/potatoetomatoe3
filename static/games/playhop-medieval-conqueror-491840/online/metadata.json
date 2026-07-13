@@ -1,0 +1,17 @@
+{
+  "id": "playhop-medieval-conqueror-491840",
+  "name": "Medieval Conqueror",
+  "author": "Nemeion",
+  "description": "Play Medieval Conqueror via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c2825ac1ad367498809317ff0a2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c2825ac1ad367498809317ff0a2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-491840.games.s3.yandex.net/491840/o5rvrejeklpufkznfoecntjlf1kzt9mt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=491840&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 491840,
+  "playhopPageUrl": "https://playhop.com/app/491840",
+  "playhopRating": 2.1,
+  "playhopRatingCount": 63
+}

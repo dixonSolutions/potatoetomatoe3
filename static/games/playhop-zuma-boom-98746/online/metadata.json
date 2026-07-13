@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zuma-boom-98746",
+  "name": "Zuma Boom",
+  "author": "IriySoft",
+  "description": "Play Zuma Boom via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000016f2337ee68ddc7ddc30b43e405b0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000016f2337ee68ddc7ddc30b43e405b0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-98746.games.s3.yandex.net/98746/zrvxlscuviak3e5x798sw8jzqloiv3y2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=98746&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 98746,
+  "playhopPageUrl": "https://playhop.com/app/98746",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 2342
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-daycare-tycoon",
+  "name": "DayCare Tycoon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "DayCare Tycoon is a fun and casual business simulation game where you take charge of running and expanding a daycare facility. As the manager, your goal is to grow your business, attract more clients, and create a successful childcare empire.",
+  "thumbnail": "https://imgs.crazygames.com/daycare-tycoon_16x9/20250331144755/daycare-tycoon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/daycare-tycoon_16x9/20250331144755/daycare-tycoon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/daycare-tycoon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/daycare-tycoon",
+  "crazygamesSlug": "daycare-tycoon"
+}

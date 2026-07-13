@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-for-two",
+  "name": "Sprunki for two",
+  "author": "JqStudio",
+  "description": "Play Sprunki for two via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b1bdc95c0170cdeeb5343014417/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b1bdc95c0170cdeeb5343014417/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-445651.games.s3.yandex.net/445651/zlgh8nfnj9vro7mp75lvwy7us44oy9da/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=445651&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 445651,
+  "playhopPageUrl": "https://playhop.com/app/445651",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 173
+}

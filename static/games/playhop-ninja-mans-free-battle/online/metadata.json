@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ninja-mans-free-battle",
+  "name": "Ninja Mans Free Battle",
+  "author": "GMD",
+  "description": "Play Ninja Mans Free Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019133816021ddfc65ba5174bbefed/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019133816021ddfc65ba5174bbefed/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-357764.games.s3.yandex.net/357764/scncehrw63wl5e6dr0oazzw8lpylnvcq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=357764&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 357764,
+  "playhopPageUrl": "https://playhop.com/app/357764",
+  "playhopRating": 4,
+  "playhopRatingCount": 820
+}

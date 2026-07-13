@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-grow-island",
+  "name": "Grow Island 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Grow Island is an episode of Grow series in which you need to place the correct items in order to develop your island fully.DeveloperEYEZMAZE made this game.",
+  "thumbnail": "/games/crazygames-grow-island/online/assets/crazygames-grow-island.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grow-island/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grow-island",
+  "crazygamesSlug": "grow-island"
+}

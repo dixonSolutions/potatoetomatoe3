@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stellar-swarm",
+  "name": "Stellar Swarm 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pilot a neon starship through endless waves of geometric enemies. Choose your starting weapon, unlock new ones, upgrade your arsenal through branching skill trees, and push toward powerful evolutions.",
+  "thumbnail": "https://imgs.crazygames.com/stellar-swarm_16x9/20260320190048/stellar-swarm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stellar-swarm_16x9/20260320190048/stellar-swarm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stellar-swarm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stellar-swarm",
+  "crazygamesSlug": "stellar-swarm"
+}

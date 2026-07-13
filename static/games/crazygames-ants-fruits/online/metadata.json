@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ants-fruits",
+  "name": "Ants: Fruits 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ants: Fruits is a clicker game where you need to help a colony of ants to collect fruits. Click on the fruits to collect them faster and not wait for the ant to get to them.",
+  "thumbnail": "https://imgs.crazygames.com/ants-fruits/20230214182745/ants-fruits-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ants-fruits/20230214182745/ants-fruits-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ants-fruits/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ants-fruits",
+  "crazygamesSlug": "ants-fruits"
+}

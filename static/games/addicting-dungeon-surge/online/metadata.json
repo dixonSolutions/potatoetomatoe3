@@ -1,0 +1,14 @@
+{
+  "id": "addicting-dungeon-surge",
+  "name": "Dungeon Surge",
+  "author": "Addicting Games",
+  "description": "<p>All of our kittens have been kit-napped! Only you are noble and foolish enough to try and rescue them all. You can unlock and complete quests to earn achievements within the subterranean tunnels. Fight monsters, complete quests and rescue kittens!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/dungeon-surge_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/dungeon-surge_sp.png",
+  "thumbnailStored": "remote",
+  "category": "fighting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/dungeon-surge_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/dungeon-surge"
+}

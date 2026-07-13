@@ -1,0 +1,17 @@
+{
+  "id": "playhop-piggy-dash",
+  "name": "Piggy Dash",
+  "author": "elsid.apps",
+  "description": "Play Piggy Dash via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018f1b30c89597a523dcfa45add912/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018f1b30c89597a523dcfa45add912/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-327859.games.s3.yandex.net/327859/zm8a7xz8s97oiz0yd0pu2jp9owqqcbv1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=327859&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 327859,
+  "playhopPageUrl": "https://playhop.com/app/327859",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 3103
+}

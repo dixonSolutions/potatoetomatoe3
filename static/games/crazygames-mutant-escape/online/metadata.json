@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mutant-escape",
+  "name": "Mutant Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mutant Escape is an action game where you play as a mutant trying to escape a top-secret laboratory. Choose three powers and use them to escape this mutant prison!",
+  "thumbnail": "https://imgs.crazygames.com/mutant-escape/20221011112324/mutant-escape-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mutant-escape/20221011112324/mutant-escape-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mutant-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mutant-escape",
+  "crazygamesSlug": "mutant-escape"
+}

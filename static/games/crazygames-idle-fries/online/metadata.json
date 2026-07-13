@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-fries",
+  "name": "Idle Fries 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Fries is an idle game where you take charge of a growing restaurant. You’ll unlock fresh recipes, expand your menu, and steadily build your culinary empire with each upgrade.",
+  "thumbnail": "https://imgs.crazygames.com/idle-fries_16x9/20250926085911/idle-fries_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-fries_16x9/20250926085911/idle-fries_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-fries/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-fries",
+  "crazygamesSlug": "idle-fries"
+}

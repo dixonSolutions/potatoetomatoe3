@@ -1,0 +1,17 @@
+{
+  "id": "playhop-upgrade-stick-528230",
+  "name": "Upgrade Stick",
+  "author": "Sharkie Djedai",
+  "description": "Play Upgrade Stick via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019e22ad87f6b0f6164881327cbdf9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019e22ad87f6b0f6164881327cbdf9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-528230.games.s3.yandex.net/528230/faq35ro7oa8vsws9uyqjxmzdr27n57tq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=528230&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 528230,
+  "playhopPageUrl": "https://playhop.com/app/528230",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

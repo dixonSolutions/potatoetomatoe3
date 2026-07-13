@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-road-survival",
+  "name": "road survival",
+  "author": "CrazyGames",
+  "description": "Play road survival on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/road-survival/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/road-survival",
+  "crazygamesSlug": "road-survival"
+}

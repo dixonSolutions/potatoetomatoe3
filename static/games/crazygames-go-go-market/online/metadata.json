@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-go-go-market",
+  "name": "Go!Go! Market 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Go!Go! Market is a simulation game where you manage a growing marketplace from the ground up.",
+  "thumbnail": "https://imgs.crazygames.com/go-go-market_16x9/20250217070752/go-go-market_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/go-go-market_16x9/20250217070752/go-go-market_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/go-go-market/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/go-go-market",
+  "crazygamesSlug": "go-go-market"
+}

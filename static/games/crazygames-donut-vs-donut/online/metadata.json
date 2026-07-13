@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-donut-vs-donut",
+  "name": "Donut vs Donut 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Donut vs Donut is a fast paced local multiplayer game featuring explosive donuts. It can be played with up to 4 players and the goal is to survive as the last donut in the ring.",
+  "thumbnail": "/games/crazygames-donut-vs-donut/online/assets/crazygames-donut-vs-donut.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/donut-vs-donut/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/donut-vs-donut",
+  "crazygamesSlug": "donut-vs-donut"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ablockalypse",
+  "name": "ABLOCKALYPSE 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Aim, fire, and survive.This turn-based brick breaker with roguelike mechanics lets you unlock up to six unique ball types, choose from 21 relics that modify your build, and master a variety of unlockable abilities to dominate the grid and destroy every block before it reaches you.",
+  "thumbnail": "https://imgs.crazygames.com/ablockalypse_16x9/20260626074310/ablockalypse_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ablockalypse_16x9/20260626074310/ablockalypse_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ablockalypse/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ablockalypse",
+  "crazygamesSlug": "ablockalypse"
+}

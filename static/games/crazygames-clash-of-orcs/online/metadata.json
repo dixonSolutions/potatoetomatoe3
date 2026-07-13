@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-clash-of-orcs",
+  "name": "Clash of Orcs 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The orcs are having battles. Help your tribe survive by sending the best orc fighters to destroy the enemies!",
+  "thumbnail": "https://imgs.crazygames.com/clash-of-orcs/20220630155503/clash-of-orcs-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/clash-of-orcs/20220630155503/clash-of-orcs-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clash-of-orcs/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clash-of-orcs",
+  "crazygamesSlug": "clash-of-orcs"
+}

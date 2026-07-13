@@ -1,0 +1,14 @@
+{
+  "id": "addicting-solitaire",
+  "name": "Solitaire",
+  "author": "Addicting Games",
+  "description": "<p>Solitaire is a free solitaire game. Over a hundred years ago, this classic computer game was played with a deck of cards. No kidding. Back then, it was unusual to play a game by yourself.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Solitaire.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Solitaire.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/solitaire_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/solitaire"
+}

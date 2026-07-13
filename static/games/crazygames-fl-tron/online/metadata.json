@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-fl-tron",
+  "name": "FL Tron 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "FL Tron is an awesome arcade game that combines aspects of the iconic snake game together with the iconic Tron movies and games. During each level you must control your very own Tron style snake and try to outwite your opponent and box them in - you must try and surround them and force them to crash!",
+  "thumbnail": "/games/crazygames-fl-tron/online/assets/crazygames-fl-tron.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fl-tron/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fl-tron",
+  "crazygamesSlug": "fl-tron"
+}

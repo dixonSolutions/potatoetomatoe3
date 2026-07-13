@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blightborne",
+  "name": "Blightborne - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blightborne at Cool math Games: Only an ancient artifact can end the blight on your village&#039;s crops. Explore dungeons and battle monsters to find it!",
+  "thumbnail": "/games/coolmath-blightborne/online/assets/coolmath-blightborne.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33533/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blightborne",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blightborne"
+}

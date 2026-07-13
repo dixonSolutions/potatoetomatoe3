@@ -1,0 +1,14 @@
+{
+  "id": "addicting-gameknot-chess-puzzle",
+  "name": "Gameknot Chess Puzzle",
+  "author": "Addicting Games",
+  "description": "<p>Gameknot Chess Puzzle is a free daily Chess puzzle. All chess puzzles aim to checkmate your virtual opponent no matter what moves they make (i.e., a forced mate) in the requested number of moves. Some chess puzzles are created from actual chess games played online, and some are purely composed chess problems, sometimes even with positions that cannot be reached in a real game of chess. All chess puzzles are automatically verified, so all solutions are guaranteed to be correct and complete.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/gameknot_chess_puzzle.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/gameknot_chess_puzzle.png",
+  "thumbnailStored": "remote",
+  "category": "daily-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://gameknot.com/daily-chess-frame-easy.pl ",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/gameknot-chess-puzzle"
+}

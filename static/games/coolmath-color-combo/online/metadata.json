@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-combo",
+  "name": "Color Combo - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Fill in the shapes with a color combo. Drag each color to the goal without them overlapping. Can you unlock all the brushes?",
+  "thumbnail": "/games/coolmath-color-combo/online/assets/coolmath-color-combo.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51688/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-combo",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-combo"
+}

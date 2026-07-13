@@ -1,0 +1,17 @@
+{
+  "id": "playhop-star-catcher-538061",
+  "name": "Star Catcher",
+  "author": "spaghetti games",
+  "description": "Play Star Catcher via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019f0216ca9a8c4a3376077b4268c8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019f0216ca9a8c4a3376077b4268c8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-538061.games.s3.yandex.net/538061/89wurhxgnissrzxfjxv0f09fg0zmp2ce/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=538061&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 538061,
+  "playhopPageUrl": "https://playhop.com/app/538061",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

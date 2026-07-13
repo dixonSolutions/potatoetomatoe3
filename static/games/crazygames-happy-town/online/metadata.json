@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-happy-town",
+  "name": "Happy Town 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Happy Town invites you to step into the role of mayor and create a bustling, joyful city through the magic of merging! Combine items to unlock new objects, upgrade buildings, and fulfill tasks for residents as you expand your city and make everyone happy.",
+  "thumbnail": "https://imgs.crazygames.com/happy-town_16x9/20241107042212/happy-town_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/happy-town_16x9/20241107042212/happy-town_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/happy-town/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/happy-town",
+  "crazygamesSlug": "happy-town"
+}

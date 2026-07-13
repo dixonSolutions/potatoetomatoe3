@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-asteroids",
+  "name": "Play Atari Asteroids: A timeless classic | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The 1970s called, they have a game for you. Destroy asteroids and UFOs in this timeless classic. Can you get a high score and impress your friends?",
+  "thumbnail": "/games/coolmath-asteroids/online/assets/coolmath-asteroids.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/40444/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-asteroids",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-asteroids"
+}

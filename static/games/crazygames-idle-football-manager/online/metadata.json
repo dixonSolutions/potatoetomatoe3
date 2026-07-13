@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-football-manager",
+  "name": "Idle Soccer Manager 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Soccer Manager is an incremental game in which you manage your own soccer team. Buy players with exponentially growing stats, climb up the Ladder of Divisions, and go to new countries.",
+  "thumbnail": "https://imgs.crazygames.com/games/idle-football-manager/cover-1619542182788.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/idle-football-manager/cover-1619542182788.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-football-manager/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-football-manager",
+  "crazygamesSlug": "idle-football-manager"
+}

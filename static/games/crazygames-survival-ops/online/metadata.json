@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-survival-ops",
+  "name": "Survival Ops 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Survival Ops is an action game where you step into a world overrun by terrors. Your hero is the last line of defense!",
+  "thumbnail": "https://imgs.crazygames.com/survival-ops_16x9/20260406081047/survival-ops_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/survival-ops_16x9/20260406081047/survival-ops_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/survival-ops/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/survival-ops",
+  "crazygamesSlug": "survival-ops"
+}

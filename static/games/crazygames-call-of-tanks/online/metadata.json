@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-call-of-tanks",
+  "name": "Call of Tanks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Call of Tanks is an action game to deploy tanks on the battlefield to defeat your opponent. Deploying the right units as a perfect combination is the key to winning the battle.",
+  "thumbnail": "https://imgs.crazygames.com/call-of-tanks/20220629103650/call-of-tanks-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/call-of-tanks/20220629103650/call-of-tanks-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/call-of-tanks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/call-of-tanks",
+  "crazygamesSlug": "call-of-tanks"
+}

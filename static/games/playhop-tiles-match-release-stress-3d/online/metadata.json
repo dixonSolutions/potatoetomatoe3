@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tiles-match-release-stress-3d",
+  "name": "Tiles Match: release stress 3D",
+  "author": "Yodomi",
+  "description": "Play Tiles Match: release stress 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ad0a49464f33a3543443846ecbd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019ad0a49464f33a3543443846ecbd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-476927.games.s3.yandex.net/476927/clrxxetxu6s01mz2gxfzjl8il8nqkv6i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=476927&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 476927,
+  "playhopPageUrl": "https://playhop.com/app/476927",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1322
+}

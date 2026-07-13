@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pinball",
+  "name": "Pinball Arcade 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pinball Arcade is the classic PC game in which you get to play on a digital pinball machine. Use the left trigger and right trigger to smash the pinball around the machine collecting points as you hit the ball into bumpers, cushions and bonus holes for extra points.",
+  "thumbnail": "https://imgs.crazygames.com/pinball_16x9/20240205071911/pinball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pinball_16x9/20240205071911/pinball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pinball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pinball",
+  "crazygamesSlug": "pinball"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bar-rumble",
+  "name": "Bar Rumble 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bar Rumble is a fast-paced arcade game where you run a lively pub packed with action and strategy. You’ll mix signature cocktails, train a stellar team, and handle rowdy patrons as your bar grows from a local joint to a nightlife hotspot.",
+  "thumbnail": "https://imgs.crazygames.com/bar-rumble_16x9/20250514044248/bar-rumble_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bar-rumble_16x9/20250514044248/bar-rumble_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bar-rumble/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bar-rumble",
+  "crazygamesSlug": "bar-rumble"
+}

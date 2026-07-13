@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-my-flour-factory",
+  "name": "My Flour Factory 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "My Flour Factory is an incremental clicker game about managing your flour factory. Start by growing and selling wheat, then buy a factory and produce flour.",
+  "thumbnail": "https://imgs.crazygames.com/my-flour-factory/20220503115751/my-flour-factory-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/my-flour-factory/20220503115751/my-flour-factory-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/my-flour-factory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/my-flour-factory",
+  "crazygamesSlug": "my-flour-factory"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bs-simulator-313466",
+  "name": "BS Simulator",
+  "author": "FTD",
+  "description": "Play BS Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001914763639086c148da7b85d28f78/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001914763639086c148da7b85d28f78/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-313466.games.s3.yandex.net/313466/u9upajlb2i10v8fgdgyedbregjbhvj4y/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=313466&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 313466,
+  "playhopPageUrl": "https://playhop.com/app/313466",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 161456
+}

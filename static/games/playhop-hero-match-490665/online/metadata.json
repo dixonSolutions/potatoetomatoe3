@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hero-match-490665",
+  "name": "Hero Match",
+  "author": "AppyApp",
+  "description": "Play Hero Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019e017c4495ee23e9a2d699d2a71d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019e017c4495ee23e9a2d699d2a71d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-490665.games.s3.yandex.net/490665/36thdf0tytivs7xvnipbnusdtgky2lbn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=490665&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 490665,
+  "playhopPageUrl": "https://playhop.com/app/490665",
+  "playhopRating": 4,
+  "playhopRatingCount": 116
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-classic-bowling",
+  "name": "Classic Bowling 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Enjoy yourself with this classic bowling game. Try to hit as many pins as you can!",
+  "thumbnail": "/games/crazygames-classic-bowling/online/assets/crazygames-classic-bowling.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/classic-bowling/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/classic-bowling",
+  "crazygamesSlug": "classic-bowling"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-koxoio",
+  "name": "Koxo.io",
+  "author": "Addicting Games",
+  "description": "<p>Koxo.io is a free iogame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/koxo.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/koxo.jpg",
+  "thumbnailStored": "remote",
+  "category": "arena-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://iogames.space/koxoio",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/koxoio"
+}

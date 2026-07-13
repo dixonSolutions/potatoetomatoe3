@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brain-it-on-239644",
+  "name": "Brain It On",
+  "author": "Iwense",
+  "description": "Play Brain It On via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018e3d4e6e044205de87d6a5c4ac7d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018e3d4e6e044205de87d6a5c4ac7d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-239644.games.s3.yandex.net/239644/cl7cnca31yufqdj1dj2jnpkvsc1lb4je/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=239644&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 239644,
+  "playhopPageUrl": "https://playhop.com/app/239644",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 360
+}

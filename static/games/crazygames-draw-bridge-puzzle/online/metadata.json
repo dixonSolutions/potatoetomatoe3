@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-draw-bridge-puzzle",
+  "name": "Draw Bridge Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Draw Bridge Puzzle is a clever puzzle game where you drag to create a path and guide bikes safely to the finish line. Sketch a single, sturdy bridge over gaps and avoid collisions with other vehicles on each level.",
+  "thumbnail": "https://imgs.crazygames.com/draw-bridge-puzzle_16x9/20250829043404/draw-bridge-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/draw-bridge-puzzle_16x9/20250829043404/draw-bridge-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/draw-bridge-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/draw-bridge-puzzle",
+  "crazygamesSlug": "draw-bridge-puzzle"
+}

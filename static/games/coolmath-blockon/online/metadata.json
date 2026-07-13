@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blockon",
+  "name": "Blockon - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blockon at Cool Math Games: Get those pesky blockers out of your way! Clear a path from yellow to white in as few moves as possible.",
+  "thumbnail": "/games/coolmath-blockon/online/assets/coolmath-blockon.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33001/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blockon",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blockon"
+}

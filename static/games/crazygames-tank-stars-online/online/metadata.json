@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-tank-stars-online",
+  "name": "tank stars online",
+  "author": "CrazyGames",
+  "description": "Play tank stars online on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tank-stars-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tank-stars-online",
+  "crazygamesSlug": "tank-stars-online"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-fleeing-the-complex",
+  "name": "Fleeing the Complex 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fleeing the Complex is an amazing stick-figure escape adventure game. You are trapped inside a small prison cell, and you must escape not just your cell but the whole prison!",
+  "thumbnail": "/games/crazygames-fleeing-the-complex/online/assets/crazygames-fleeing-the-complex.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fleeing-the-complex/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fleeing-the-complex",
+  "crazygamesSlug": "fleeing-the-complex"
+}

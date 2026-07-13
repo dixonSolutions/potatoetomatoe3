@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bounce-floor",
+  "name": "Bounce Floor - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "It&#039;s up to you to stop the criminal in Bounce Floor. Interview victims and gather clues. Can you track down the thief before they run away?",
+  "thumbnail": "/games/coolmath-bounce-floor/online/assets/coolmath-bounce-floor.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24478/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bounce-floor",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bounce-floor"
+}

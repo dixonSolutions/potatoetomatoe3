@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ball-hit",
+  "name": "Ball Hit - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Getting the ball into the net is more challenging than you think in Ball Hit! Remove obstacles and bounce off platforms to get into the basket.",
+  "thumbnail": "/games/coolmath-ball-hit/online/assets/coolmath-ball-hit.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51039/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ball-hit",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ball-hit"
+}

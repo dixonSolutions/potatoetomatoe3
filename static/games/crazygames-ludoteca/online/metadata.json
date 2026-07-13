@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-ludoteca",
+  "name": "ludoteca",
+  "author": "CrazyGames",
+  "description": "Play ludoteca on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ludoteca/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ludoteca",
+  "crazygamesSlug": "ludoteca"
+}

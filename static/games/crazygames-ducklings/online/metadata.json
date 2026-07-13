@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ducklings",
+  "name": "Ducklings 🐥 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ducklings is a fun .io game where you rescue all the ducklings from the dangers of aquatic life. Dangers like reckless boat drivers that&#x27;ll row into you and end your objectives early.",
+  "thumbnail": "https://imgs.crazygames.com/ducklings/20210304172146/ducklings-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ducklings/20210304172146/ducklings-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ducklings/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ducklings",
+  "crazygamesSlug": "ducklings"
+}

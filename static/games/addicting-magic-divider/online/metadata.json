@@ -1,0 +1,14 @@
+{
+  "id": "addicting-magic-divider",
+  "name": "Magic Divider",
+  "author": "Addicting Games",
+  "description": "<p>Magic Divider is a free educational game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/magicdividergame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/magicdividergame.jpg",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/magic-divider/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/magic-divider"
+}

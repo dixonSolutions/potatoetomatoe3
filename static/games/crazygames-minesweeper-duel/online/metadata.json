@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-minesweeper-duel",
+  "name": "Minesweeper Duel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Minesweeper Duel introduces a competitive twist to the classic puzzle game. Engage in intense one-on-one matches where players alternate opening cells, scoring points based on the value of the revealed cell.",
+  "thumbnail": "https://imgs.crazygames.com/minesweeper-duel_16x9/20250925095757/minesweeper-duel_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/minesweeper-duel_16x9/20250925095757/minesweeper-duel_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/minesweeper-duel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/minesweeper-duel",
+  "crazygamesSlug": "minesweeper-duel"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ks-zone-online-456466",
+  "name": "KS Zone Online",
+  "author": "NOT_Lonely",
+  "description": "Play KS Zone Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019bc827885514afb7431c7ba95979/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019bc827885514afb7431c7ba95979/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-456466.games.s3.yandex.net/456466/5hrza1n6q9r3leyjpy3x0hzm2vaue8db/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=456466&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 456466,
+  "playhopPageUrl": "https://playhop.com/app/456466",
+  "playhopRating": 4,
+  "playhopRatingCount": 6330
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-happy-farm",
+  "name": "Happy Farm",
+  "author": "Addicting Games",
+  "description": "<p>Happy Farm is a puzzle game that is easy and fun to play! Click on 2 or more matching tiles that are connected either vertically or horizontally to make them disappear. The more matching tiles you connect, the better your score. This online game is a cute and colorful matching game that contains tiles with unique designs. There are 150 levels of this casual online game for you to play! As you unlock each level, you will also unlock boosts that will help advance your score. For instance, find an ax that you can use to remove a single tile that is blocking matching tiles. Use each boost wisely because you are only allotted a specific amount for each level. Find boosts amount the tiles as well like a rocket that can blow out a column or row. Submit your score to see where you rank against other players!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/happyfarm.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/happyfarm.jpg",
+  "thumbnailStored": "remote",
+  "category": "jewel-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/happy-farm/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/happy-farm"
+}

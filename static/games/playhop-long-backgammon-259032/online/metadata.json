@@ -1,0 +1,17 @@
+{
+  "id": "playhop-long-backgammon-259032",
+  "name": "Long backgammon",
+  "author": "Game4you",
+  "description": "Play Long backgammon via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018c8b407a280b03537623b72d964f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018c8b407a280b03537623b72d964f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-259032.games.s3.yandex.net/259032/pteo0zq8vyig2yfn9hszjngfhemy9e3z/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=259032&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 259032,
+  "playhopPageUrl": "https://playhop.com/app/259032",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 14705
+}

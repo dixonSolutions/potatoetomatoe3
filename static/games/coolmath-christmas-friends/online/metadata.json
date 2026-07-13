@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-christmas-friends",
+  "name": "Christmas Friends - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Christmas Friends at Cool Math Games: The Christmas elves need help staying in touch with their friends! Arrange elves, reindeer, snowmen and more in time for the holidays!",
+  "thumbnail": "/games/coolmath-christmas-friends/online/assets/coolmath-christmas-friends.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22642/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-christmas-friends",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-christmas-friends"
+}

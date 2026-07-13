@@ -1,0 +1,17 @@
+{
+  "id": "playhop-turbo-bmw-m5-cs",
+  "name": "Turbo BMW M5 CS",
+  "author": "AltTab3000",
+  "description": "Play Turbo BMW M5 CS via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000196457adf9380f98a59e3f39f0ae0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000196457adf9380f98a59e3f39f0ae0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-428213.games.s3.yandex.net/428213/vrd8jtu1tjlyrk5q16cfrt86cguq41df/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=428213&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 428213,
+  "playhopPageUrl": "https://playhop.com/app/428213",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 4721
+}

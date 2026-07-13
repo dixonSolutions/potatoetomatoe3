@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-garage-parking",
+  "name": "Garage Parking 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Garage Parking is an awesome and unique driving game in which you must test your parking and driving skills in a series of multi-story car parks! You must hop into your vehicle and race around the parking lots carefully to avoid taking any damage.",
+  "thumbnail": "/games/crazygames-garage-parking/online/assets/crazygames-garage-parking.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/garage-parking/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/garage-parking",
+  "crazygamesSlug": "garage-parking"
+}

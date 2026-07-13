@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-bar-master",
+  "name": "bar master",
+  "author": "CrazyGames",
+  "description": "Play bar master on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bar-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bar-master",
+  "crazygamesSlug": "bar-master"
+}

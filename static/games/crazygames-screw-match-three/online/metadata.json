@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-screw-match-three",
+  "name": "Screw Match Three 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Screw Match Three is a puzzle game where your goal is to unscrew and match three of the same color screws to make them disappear. Clear the board by removing the screws in the right order.",
+  "thumbnail": "https://imgs.crazygames.com/screw-match-three_16x9/20240705124513/screw-match-three_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/screw-match-three_16x9/20240705124513/screw-match-three_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/screw-match-three/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/screw-match-three",
+  "crazygamesSlug": "screw-match-three"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-conjugate",
+  "name": "Conjugate - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Conjugate at Cool Math Games: Lights out! Can you find your way in the dark? Finish each level twice.",
+  "thumbnail": "/games/coolmath-conjugate/online/assets/coolmath-conjugate.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25670/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-conjugate",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-conjugate"
+}

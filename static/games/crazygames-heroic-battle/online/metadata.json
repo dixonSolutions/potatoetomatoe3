@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-heroic-battle",
+  "name": "Heroic Battle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Heroic Battle is not like any other browser game - this fantastic game combines elements of an idle game together with strategy and RTS features. You control a castle and it is up to you to build and train an army to defeat the hordes of monsters that try to destroy you.",
+  "thumbnail": "/games/crazygames-heroic-battle/online/assets/crazygames-heroic-battle.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/heroic-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/heroic-battle",
+  "crazygamesSlug": "heroic-battle"
+}

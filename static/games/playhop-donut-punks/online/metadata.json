@@ -1,0 +1,17 @@
+{
+  "id": "playhop-donut-punks",
+  "name": "Donut Punks",
+  "author": "LuckYouGames",
+  "description": "Play Donut Punks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a00000199d9c72b4726c483821af1768f12/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a00000199d9c72b4726c483821af1768f12/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-428398.games.s3.yandex.net/428398/q3xiqik0yac90qiouyhiuhbbyl6u9olo/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=428398&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 428398,
+  "playhopPageUrl": "https://playhop.com/app/428398",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 621
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-cubie-jump",
+  "name": "cubie jump",
+  "author": "CrazyGames",
+  "description": "Play cubie jump on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubie-jump/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubie-jump",
+  "crazygamesSlug": "cubie-jump"
+}

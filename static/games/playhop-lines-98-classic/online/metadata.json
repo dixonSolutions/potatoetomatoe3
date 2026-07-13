@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lines-98-classic",
+  "name": "Lines 98 Classic",
+  "author": "FTD",
+  "description": "Play Lines 98 Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000197603af00d057ef9f2d625b84707/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000197603af00d057ef9f2d625b84707/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-442654.games.s3.yandex.net/442654/udttg37qul89qyt5hwie1n6hzubysosv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=442654&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 442654,
+  "playhopPageUrl": "https://playhop.com/app/442654",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1002
+}

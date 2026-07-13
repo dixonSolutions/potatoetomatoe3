@@ -1,0 +1,14 @@
+{
+  "id": "addicting-18-holes",
+  "name": "18 Holes",
+  "author": "Addicting Games",
+  "description": "<p>18 Holes is a cute golfing game that is also a good way to practice math! Split up practicing your math games with this cute shooter game. This is a platform game that requires you to get the ball in the hole but also to grab the stars along the way. The more stars you get, the better your score. There are obstacles in the way preventing you from getting all 3 stars so think strategically. You are also limited in the number of hits you can do per level. In between each level, you will have time to practice your math skills by answering 5 correctly before you can play again. This way you break up your studying time without burning yourself out. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/18holesgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/18holesgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "sports",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/18holes/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/18-holes"
+}

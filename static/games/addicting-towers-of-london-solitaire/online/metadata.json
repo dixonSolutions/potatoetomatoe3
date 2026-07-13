@@ -1,0 +1,14 @@
+{
+  "id": "addicting-towers-of-london-solitaire",
+  "name": "Towers of London Solitaire",
+  "author": "Addicting Games",
+  "description": "<p>Card games are a dime a dozen, but how many of them take you to 'jolly ol' England?' Only Towers of London Solitaire can do that! Well... not really, it doesn't buy you plane tickets or a put you up in a nice hotel. But it can provide hours of card game fun!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/tower-of-london.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/tower-of-london.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/tower-of-london-solitaire/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/towers-of-london-solitaire"
+}

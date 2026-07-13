@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-sudden-attack",
+  "name": "Sudden Attack 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sudden Attack is an epic first person shooter game in which you must help your search party survive as it is ambushed by a horde of mutated monsters. Now is the time to show your steel and put all your elite soldier training into practice.",
+  "thumbnail": "/games/crazygames-sudden-attack/online/assets/crazygames-sudden-attack.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sudden-attack/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sudden-attack",
+  "crazygamesSlug": "sudden-attack"
+}

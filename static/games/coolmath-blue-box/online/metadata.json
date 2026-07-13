@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blue-box",
+  "name": "Blue Box - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blue Box at Cool Math Games: Hit the blue blocks in the right order to destroy them all and make it to the red block. Don&#039;t fall off of the screen!",
+  "thumbnail": "/games/coolmath-blue-box/online/assets/coolmath-blue-box.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/14071/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blue-box",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blue-box"
+}

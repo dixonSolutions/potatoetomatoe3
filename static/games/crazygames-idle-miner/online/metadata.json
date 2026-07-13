@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-miner",
+  "name": "Idle Miner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Miner is an idle game about a cat who loves mining and getting different resources. There are 25 different resources; you can sell them or use them for crafting better pickaxes.",
+  "thumbnail": "https://imgs.crazygames.com/idle-miner/20211023070302/idle-miner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-miner/20211023070302/idle-miner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-miner",
+  "crazygamesSlug": "idle-miner"
+}

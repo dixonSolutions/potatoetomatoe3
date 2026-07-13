@@ -1,0 +1,14 @@
+{
+  "id": "addicting-numbermerge",
+  "name": "NumberMerge",
+  "author": "Addicting Games",
+  "description": "<p>NumberMerge is a casual game that lets you eliminate numbers.  The goal is to combine larger numbers by clicking on adjacent numbers in the main game board, thereby eliminating them and combining new numbers twice as large.  When there are no more than two consecutive numbers on the board, the game ends. The overall style of the game is casual.  It features lively colors, complemented by a visual style full of beach elements, as well as background music and splashing water sound effects, creating a leisurely and immersive beach walk experience for players.  Sometimes catch a hot air balloon flying in the sky, there will be a surprise!  The gameplay is simple and fun, allowing players to enjoy a moment of relaxation in their busy lives.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/NumberMerge_Game%20thumbnail.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/NumberMerge_Game%20thumbnail.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/numbermerge/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/numbermerge"
+}

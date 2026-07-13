@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-daily-puzzle",
+  "name": "daily puzzle",
+  "author": "CrazyGames",
+  "description": "Play daily puzzle on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/daily-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/daily-puzzle",
+  "crazygamesSlug": "daily-puzzle"
+}

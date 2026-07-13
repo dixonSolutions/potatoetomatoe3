@@ -1,0 +1,14 @@
+{
+  "id": "addicting-boomshine",
+  "name": "Boomshine",
+  "author": "Addicting Games",
+  "description": "<p>Boomshine is a free puzzle game. Action, reaction, bubbles floating and popping. Trip out with a flashlight in a room full of colors. Can you make them all go boom?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/boomshine_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/boomshine_sp.png",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/boomshine.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/boomshine"
+}

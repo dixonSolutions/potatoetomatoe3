@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-air-nomad",
+  "name": "Air Nomad - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Air Nomad at Cool Math Games: Float and fly between dangerous spikes! Use your wind powers to turn on fans and reach new heights.",
+  "thumbnail": "/games/coolmath-air-nomad/online/assets/coolmath-air-nomad.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32672/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-air-nomad",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-air-nomad"
+}

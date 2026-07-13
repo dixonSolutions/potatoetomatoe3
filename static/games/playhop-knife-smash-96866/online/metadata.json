@@ -1,0 +1,17 @@
+{
+  "id": "playhop-knife-smash-96866",
+  "name": "Knife Smash",
+  "author": "Inlogic",
+  "description": "Play Knife Smash via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000016a2ad001960a5d4e758aabb1c4bf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000016a2ad001960a5d4e758aabb1c4bf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96866.games.s3.yandex.net/96866/v3gdpye9y88cv8683kypkc6kjthm8g17/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96866&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96866,
+  "playhopPageUrl": "https://playhop.com/app/96866",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 6443
+}

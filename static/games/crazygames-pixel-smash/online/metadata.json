@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pixel-smash",
+  "name": "pixel smash",
+  "author": "CrazyGames",
+  "description": "Play pixel smash on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixel-smash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixel-smash",
+  "crazygamesSlug": "pixel-smash"
+}

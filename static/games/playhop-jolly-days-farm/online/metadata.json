@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jolly-days-farm",
+  "name": "Jolly Days Farm",
+  "author": "HeroCraft Global",
+  "description": "Play Jolly Days Farm via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001965dcbb99e0c4b990cdfc4396d6f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001965dcbb99e0c4b990cdfc4396d6f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-333359.games.s3.yandex.net/333359/1ygtwm5pbuidaq9wellixieuxdsxg98e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=333359&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 333359,
+  "playhopPageUrl": "https://playhop.com/app/333359",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 4171
+}

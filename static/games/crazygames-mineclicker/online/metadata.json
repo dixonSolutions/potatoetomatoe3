@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mineclicker",
+  "name": "MineClicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MineClicker is a non-endless clicker game set in the Minecraft universe. Click to kill mobs and mine blocks.",
+  "thumbnail": "https://imgs.crazygames.com/mineclicker/20201110134116/mineclicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mineclicker/20201110134116/mineclicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mineclicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mineclicker",
+  "crazygamesSlug": "mineclicker"
+}

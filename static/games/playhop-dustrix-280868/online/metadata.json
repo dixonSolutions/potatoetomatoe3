@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dustrix-280868",
+  "name": "Dustrix",
+  "author": "truelisgames",
+  "description": "Play Dustrix via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000191c3605b2ff1a3396477da62af9a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000191c3605b2ff1a3396477da62af9a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-280868.games.s3.yandex.net/280868/pmdbjk39e9hdg3i1dm8lxu3s81f30nm9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=280868&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 280868,
+  "playhopPageUrl": "https://playhop.com/app/280868",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 3375
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-truck-space",
+  "name": "Truck Space 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Truck Space is a truck simulation game where you drive a large truck and park it in the marked parking area. Complete the task in the shortest time to earn a higher score and unlock various achievements.",
+  "thumbnail": "https://imgs.crazygames.com/games/truck-space/cover-1664966937516.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/truck-space/cover-1664966937516.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/truck-space/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/truck-space",
+  "crazygamesSlug": "truck-space"
+}

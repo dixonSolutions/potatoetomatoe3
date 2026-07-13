@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-atari-breakout",
+  "name": "Atari Breakout 🧱 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Atari Breakout is an updated version of the legendary Breakout game by Atari. The aim of the game is to bat the ball at the colored blocks until there are none left, while making sure the ball does not pass your paddle.",
+  "thumbnail": "/games/crazygames-atari-breakout/online/assets/crazygames-atari-breakout.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/atari-breakout/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/atari-breakout",
+  "crazygamesSlug": "atari-breakout"
+}

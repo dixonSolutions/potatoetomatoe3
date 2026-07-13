@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-find-the-alien",
+  "name": "Find The Alien 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Find the Alien is a casual game that challenges you to search your surroundings for hidden alien impostors and zap them before they can complete their invasion. Aliens have infiltrated Earth, and it’s up to you to track them down and eliminate them.",
+  "thumbnail": "https://imgs.crazygames.com/find-the-alien_16x9/20251205030911/find-the-alien_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/find-the-alien_16x9/20251205030911/find-the-alien_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/find-the-alien/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/find-the-alien",
+  "crazygamesSlug": "find-the-alien"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fashion-expo",
+  "name": "Fashion Expo",
+  "author": "Addicting Games",
+  "description": "<p>Fashion Expo is a free tycoon game. Do you has style? Select your models and dress them as instructed: casual, professional and fancy. Then see what the critics say!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/fashionexpo_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/fashionexpo_sp.png",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/fashionexpo_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/glam/fashion-expo"
+}

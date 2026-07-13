@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-skydom",
+  "name": "Skydom 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Skydom is a fun and puzzle match-3 game. The game features a more classical map progression while keeping unique features from other match-3 games.",
+  "thumbnail": "https://imgs.crazygames.com/skydom_16x9/20250116063241/skydom_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/skydom_16x9/20250116063241/skydom_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/skydom/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/skydom",
+  "crazygamesSlug": "skydom"
+}

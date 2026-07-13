@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cannon-ball",
+  "name": "Cannon Ball",
+  "author": "Addicting Games",
+  "description": "<p>Take turns lobbing cannon balls at each other’s castles, until one of you is blown back to serfdom.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-09-04_170846748%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-09-04_170846748%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/cannonball_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/cannon-ball"
+}

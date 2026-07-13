@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-big-tower-tiny-square",
+  "name": "Big Tower Tiny Square 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Big Tower Tiny Square is a precision platformer created by Evil Objective. Dodge bullets and leap over lava pits as you make your way to the top of the tower to save your pineapple.",
+  "thumbnail": "/games/crazygames-big-tower-tiny-square/online/assets/crazygames-big-tower-tiny-square.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/big-tower-tiny-square/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/big-tower-tiny-square",
+  "crazygamesSlug": "big-tower-tiny-square"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-b-cubed",
+  "name": "B-Cubed - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Slide the gold cube to the final red square. Pass over every other square on your way in B-cubed. It starts easy, but the difficulty increases quickly.",
+  "thumbnail": "/games/coolmath-b-cubed/online/assets/coolmath-b-cubed.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48834/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-b-cubed",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-b-cubed"
+}

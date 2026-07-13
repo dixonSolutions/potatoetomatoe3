@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-number-masters",
+  "name": "Number Masters 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Number Masters is a math game where you can challenge yourself to beat everyone in the game. Answer the questions right and quickly so you can climb up the stairs to avoid the sea monster!",
+  "thumbnail": "https://imgs.crazygames.com/number-masters_16x9/20260220040357/number-masters_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/number-masters_16x9/20260220040357/number-masters_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/number-masters/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/number-masters",
+  "crazygamesSlug": "number-masters"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-real-city-bikes-523987",
+  "name": "Real City Bikes",
+  "author": "GameDistribution",
+  "description": "Play Real City Bikes via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019dda04154807111c102ae489c859/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019dda04154807111c102ae489c859/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-523987.games.s3.yandex.net/523987/d3xibnanhqlppkxc6zhtwvfvj6o2q5ey/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=523987&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 523987,
+  "playhopPageUrl": "https://playhop.com/app/523987",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 236
+}

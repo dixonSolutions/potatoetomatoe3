@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-7-segments-journey",
+  "name": "7 Segments Journey - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "2048 meets sokoban in 7 Segments Journey. Slide and merge numbered cubes to reach the highest number in this unique genre mashup.",
+  "thumbnail": "/games/coolmath-7-segments-journey/online/assets/coolmath-7-segments-journey.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48973/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-7-segments-journey",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-7-segments-journey"
+}

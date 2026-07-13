@@ -1,0 +1,14 @@
+{
+  "id": "addicting-kartinglol",
+  "name": "Karting.lol",
+  "author": "Addicting Games",
+  "description": "<p>Karting.lol is a free racing game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/kartinglolgamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/kartinglolgamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://karting.lol",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/kartinglol"
+}

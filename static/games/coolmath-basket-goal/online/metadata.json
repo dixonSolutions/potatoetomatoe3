@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-basket-goal",
+  "name": "Basket Goal - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Slide all the balls into the basket. Don&#039;t get the ball stuck between a block and a hard wall! Can you get nothing but net in Basket Goal?",
+  "thumbnail": "/games/coolmath-basket-goal/online/assets/coolmath-basket-goal.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/47717/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-basket-goal",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-basket-goal"
+}

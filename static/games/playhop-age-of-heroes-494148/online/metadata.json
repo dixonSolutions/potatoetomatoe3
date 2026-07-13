@@ -1,0 +1,17 @@
+{
+  "id": "playhop-age-of-heroes-494148",
+  "name": "Age of Heroes",
+  "author": "Serbull Studio",
+  "description": "Play Age of Heroes via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019d87d8b01d245e7445ffa012aabf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019d87d8b01d245e7445ffa012aabf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-494148.games.s3.yandex.net/494148/t7ufc4sujoeqk8q361fd70myzl05fos9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=494148&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 494148,
+  "playhopPageUrl": "https://playhop.com/app/494148",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3116
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chasing-traffic-377367",
+  "name": "Chasing traffic",
+  "author": "MZGames",
+  "description": "Play Chasing traffic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b3093557e0ca9f3e5589bad419e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b3093557e0ca9f3e5589bad419e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-377367.games.s3.yandex.net/377367/uo010ofvmj0tgtuzt4n8nfv9vjxtxxk9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=377367&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 377367,
+  "playhopPageUrl": "https://playhop.com/app/377367",
+  "playhopRating": 4,
+  "playhopRatingCount": 7254
+}

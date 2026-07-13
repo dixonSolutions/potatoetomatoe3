@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-the-numbers",
+  "name": "Merge the Numbers 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge the Numbers is a logic game based on connecting numbers. Merge the numbers and reach the highest score!",
+  "thumbnail": "https://imgs.crazygames.com/games/merge-the-numbers/cover_16x9-1707829510642.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/merge-the-numbers/cover_16x9-1707829510642.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-the-numbers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-the-numbers",
+  "crazygamesSlug": "merge-the-numbers"
+}

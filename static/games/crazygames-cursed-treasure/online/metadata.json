@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-cursed-treasure",
+  "name": "Cursed Treasure 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cursed Treasure Game - epic tower defense! This is the first episode of Cursed Treasure.",
+  "thumbnail": "/games/crazygames-cursed-treasure/online/assets/crazygames-cursed-treasure.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cursed-treasure/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cursed-treasure",
+  "crazygamesSlug": "cursed-treasure"
+}

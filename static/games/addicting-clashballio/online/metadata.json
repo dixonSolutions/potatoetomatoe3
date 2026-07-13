@@ -1,0 +1,14 @@
+{
+  "id": "addicting-clashballio",
+  "name": "ClashBall.io",
+  "author": "Addicting Games",
+  "description": "<p><b>ClashBall.io</b> is an exciting, competitive, fast-paced multiplayer game that requires precise timing, sharp focus and strategic gameplay.<br />\nSet in a dynamic, enclosed arena, players must avoid a dangerous homing ball that relentlessly chases them, knocking them out with a hit.<br />\nThe ball will turn red when it's targeting you. Slash it with your weapon at the right time to deflect it toward an opponent, but be warned: each deflection causes the ball to accelerate, making it even harder to dodge.<br />\nLevel up to unlock unique abilities that give you the edge in battle. Use your special power wisely to outsmart and eliminate your rivals.<br />\nThe ultimate goal? Be the last player standing to claim victory!<br />\nEarn coins, open skin boxes and unlock a variety of outfits, hats, hairstyles and swords. Customize your character and show off your champion status in style!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ag-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ag-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://clashball.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/clashballio"
+}

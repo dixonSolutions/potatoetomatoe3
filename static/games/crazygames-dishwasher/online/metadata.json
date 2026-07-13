@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dishwasher",
+  "name": "Dishwasher 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dishwasher is an engaging and light-hearted game where you become the ultimate dishwasher organizer! Your task is to strategically place dishes of different sizes and shapes, such as plates, glasses, cutlery, and pans, into the dishwasher.",
+  "thumbnail": "https://imgs.crazygames.com/dishwasher_16x9/20241211074553/dishwasher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dishwasher_16x9/20241211074553/dishwasher_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dishwasher/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dishwasher",
+  "crazygamesSlug": "dishwasher"
+}

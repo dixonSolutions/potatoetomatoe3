@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-push",
+  "name": "Color Push: Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "In Color Push, bring blocks to the light! Some blocks are a bit complex, so pay attention to the arrows on each block or if they have any at all.",
+  "thumbnail": "/games/coolmath-color-push/online/assets/coolmath-color-push.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37626/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-push",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-push"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-beaver-weaver",
+  "name": "Beaver Weaver 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Beaver Weaver is a cross-stitching game where you choose a color and start to stitch it on the canvas. Help Gloria the beaver and her grandson Mikey finish the stitch and get coins to unlock more pictures.",
+  "thumbnail": "https://imgs.crazygames.com/beaver-weaver/20230117052732/beaver-weaver-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/beaver-weaver/20230117052732/beaver-weaver-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/beaver-weaver/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/beaver-weaver",
+  "crazygamesSlug": "beaver-weaver"
+}

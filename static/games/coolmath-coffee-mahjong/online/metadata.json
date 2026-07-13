@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-coffee-mahjong",
+  "name": "Coffee Mahjong - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Coffee Mahjong at Cool Math Games: Grab a cup of joe and your favorite breakfast snack! Give your mind a jolt by matching these tasty treats.",
+  "thumbnail": "/games/coolmath-coffee-mahjong/online/assets/coolmath-coffee-mahjong.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24857/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-coffee-mahjong",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-coffee-mahjong"
+}

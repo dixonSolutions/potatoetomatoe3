@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-magic-hands",
+  "name": "Magic Hands 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Magic Hands is a fun, casual game where you cast spells on the approaching enemies. Use different key combos to create magic spells and clear the enemies from each level!",
+  "thumbnail": "https://imgs.crazygames.com/magic-hands_16x9/20260120122716/magic-hands_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/magic-hands_16x9/20260120122716/magic-hands_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/magic-hands/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/magic-hands",
+  "crazygamesSlug": "magic-hands"
+}

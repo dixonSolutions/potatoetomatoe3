@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chessformer",
+  "name": "Chessformer - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chessformer is an all-new way to think about Chess. Take your pieces off the board and move them past obstacles to capture the red king.",
+  "thumbnail": "/games/coolmath-chessformer/online/assets/coolmath-chessformer.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/35259/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chessformer",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chessformer"
+}

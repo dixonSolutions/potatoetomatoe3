@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-robot-unicorn-attack",
+  "name": "Robot Unicorn Attack 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Robot Unicorn Attack is an epic fantasy platform game developed by Adult Swim. Leap and dash your way through this classic title as a beautiful robot unicorn chasing its dreams.",
+  "thumbnail": "/games/crazygames-robot-unicorn-attack/online/assets/crazygames-robot-unicorn-attack.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/robot-unicorn-attack/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/robot-unicorn-attack",
+  "crazygamesSlug": "robot-unicorn-attack"
+}

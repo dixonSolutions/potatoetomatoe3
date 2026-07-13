@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fortnite-mega-puzzle",
+  "name": "Fortnite Mega Puzzle",
+  "author": "Games_Craft",
+  "description": "Play Fortnite Mega Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019311df1aa339321849eab90ce9ce/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019311df1aa339321849eab90ce9ce/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-386585.games.s3.yandex.net/386585/t1wzdc3kidha8ci77zyrqipn3o539lsx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=386585&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 386585,
+  "playhopPageUrl": "https://playhop.com/app/386585",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 30
+}

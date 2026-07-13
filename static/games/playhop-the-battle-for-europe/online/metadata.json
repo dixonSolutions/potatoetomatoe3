@@ -1,0 +1,17 @@
+{
+  "id": "playhop-the-battle-for-europe",
+  "name": "The Battle for Europe",
+  "author": "DH",
+  "description": "Play The Battle for Europe via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f3f924d1330520d0998351eb14b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f3f924d1330520d0998351eb14b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-462309.games.s3.yandex.net/462309/b0a2um2f9yx5e58akzv8b1u1yts3tlr3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=462309&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 462309,
+  "playhopPageUrl": "https://playhop.com/app/462309",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 3336
+}

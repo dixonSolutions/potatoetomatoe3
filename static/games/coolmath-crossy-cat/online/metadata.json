@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-crossy-cat",
+  "name": "Crossy Cat - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Crossy Cat at Cool Math Games: Feed your appetite with a healthy dose of fresh fish. Jump across the river to catch your dinner. But watch out for those pesky blocks!",
+  "thumbnail": "/games/coolmath-crossy-cat/online/assets/coolmath-crossy-cat.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26041/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-crossy-cat",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-crossy-cat"
+}

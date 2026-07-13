@@ -1,0 +1,17 @@
+{
+  "id": "playhop-number-match-279459",
+  "name": "Number Match",
+  "author": "Mewton Games",
+  "description": "Play Number Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018d7acb7d7815e392c613109dbd4e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018d7acb7d7815e392c613109dbd4e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-279459.games.s3.yandex.net/279459/8b56akaj3zpgm8woaqoyl1m1avyv196t/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=279459&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 279459,
+  "playhopPageUrl": "https://playhop.com/app/279459",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 294
+}

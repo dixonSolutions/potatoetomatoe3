@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bmw-m5-285981",
+  "name": "BMW M5",
+  "author": "AST GAMES",
+  "description": "Play BMW M5 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018cf43cbc38a7bc7f76afd3851a3c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018cf43cbc38a7bc7f76afd3851a3c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-285981.games.s3.yandex.net/285981/tpyp5ky59kv8o8561v9p561pbbu8m4si/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=285981&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 285981,
+  "playhopPageUrl": "https://playhop.com/app/285981",
+  "playhopRating": 4,
+  "playhopRatingCount": 1720
+}

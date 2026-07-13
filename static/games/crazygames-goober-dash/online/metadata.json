@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-goober-dash",
+  "name": "goober dash",
+  "author": "CrazyGames",
+  "description": "Play goober dash on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/goober-dash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/goober-dash",
+  "crazygamesSlug": "goober-dash"
+}

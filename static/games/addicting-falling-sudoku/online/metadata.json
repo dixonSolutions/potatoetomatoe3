@@ -1,0 +1,14 @@
+{
+  "id": "addicting-falling-sudoku",
+  "name": "Falling Sudoku",
+  "author": "Addicting Games",
+  "description": "<p>Falling Sudoku is an online sudoku game with a mix of falling blocks. If you are bored of the same old sudoku games then try this online game for more of a challenge. You will receive random blocks of blank blocks or numbered blocks and you must stack them according to sudoku rules. To help you out, you can see the upcoming blocks to make sure you do not run out of legal spaces. You only get 3 chances to make a mistake, otherwise, you lose the game. There are 3 levels of this game for you to play and win! Golden blocks increase your score so use them correctly! When you finish all 3 levels, submit your score to see where you rank against other online players. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-07-28_112448285%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-07-28_112448285%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/falling-sudoku/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/falling-sudoku"
+}

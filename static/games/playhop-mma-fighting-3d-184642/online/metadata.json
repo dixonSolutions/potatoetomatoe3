@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mma-fighting-3d-184642",
+  "name": "MMA fighting 3D",
+  "author": "DragonMike",
+  "description": "Play MMA fighting 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018b5ce8d9a690f1db431346b4a08e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018b5ce8d9a690f1db431346b4a08e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-184642.games.s3.yandex.net/184642/4vc1gnlg4vl8r8x4lcwnf2ahc631mo6p/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=184642&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 184642,
+  "playhopPageUrl": "https://playhop.com/app/184642",
+  "playhopRating": 4,
+  "playhopRatingCount": 15181
+}

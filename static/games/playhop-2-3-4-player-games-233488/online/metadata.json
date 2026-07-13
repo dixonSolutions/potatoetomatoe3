@@ -1,0 +1,17 @@
+{
+  "id": "playhop-2-3-4-player-games-233488",
+  "name": "2-3-4 Player Games",
+  "author": "RHM Interactive",
+  "description": "Play 2-3-4 Player Games via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018ddf3cca3392f9f117c96f0d6aea/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018ddf3cca3392f9f117c96f0d6aea/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-233488.games.s3.yandex.net/233488/le1s8x45mgvajw3lvv9fv7ybm2l55ppj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=233488&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 233488,
+  "playhopPageUrl": "https://playhop.com/app/233488",
+  "playhopRating": 4,
+  "playhopRatingCount": 1101
+}

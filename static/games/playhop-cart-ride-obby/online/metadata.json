@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cart-ride-obby",
+  "name": "Cart Ride Obby",
+  "author": "MaxDigitArt",
+  "description": "Play Cart Ride Obby via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a9b2f782947987643fcc37f11cb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019a9b2f782947987643fcc37f11cb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://playhop.com/app/422891",
+  "pullStrategy": "generic",
+  "playhopAppId": 422891,
+  "playhopPageUrl": "https://playhop.com/app/422891",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 8052
+}

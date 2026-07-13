@@ -1,0 +1,17 @@
+{
+  "id": "playhop-riot-block-c-535875",
+  "name": "Riot Block C",
+  "author": "3.9 Games",
+  "description": "Play Riot Block C via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019e79f1f2b3737de622d911781b3b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019e79f1f2b3737de622d911781b3b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-535875.games.s3.yandex.net/535875/u7gs9fdei9whxf3d0hk1r73g5fqtt5ob/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=535875&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 535875,
+  "playhopPageUrl": "https://playhop.com/app/535875",
+  "playhopRating": 4,
+  "playhopRatingCount": 14
+}

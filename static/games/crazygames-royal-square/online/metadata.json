@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-royal-square",
+  "name": "Royal Square 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Royal Square is a clever puzzle game that challenges you to merge matching numbers into larger tiles. Inspired by classics like 2048, it offers endless opportunities to test your strategy and focus.",
+  "thumbnail": "https://imgs.crazygames.com/royal-square_16x9/20251110113906/royal-square_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/royal-square_16x9/20251110113906/royal-square_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/royal-square/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/royal-square",
+  "crazygamesSlug": "royal-square"
+}

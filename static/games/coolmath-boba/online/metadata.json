@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-boba",
+  "name": "BOBA - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "There&#039;s only one way to stay safe in BOBA: get inside the giant bubbles. Run and jump, grab the keys, dodge giant saws, and get to the door.",
+  "thumbnail": "/games/coolmath-boba/online/assets/coolmath-boba.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37819/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-boba",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-boba"
+}

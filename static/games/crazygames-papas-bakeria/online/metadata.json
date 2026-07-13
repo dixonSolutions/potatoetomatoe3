@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-bakeria",
+  "name": "Papa&#x27;s Bakeria 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa’s back with a brand new pie shop - Papa’s Bakeria! As your newly employed baker, your task is to bake various exquisite baked goods for customers.",
+  "thumbnail": "/games/crazygames-papas-bakeria/online/assets/crazygames-papas-bakeria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-bakeria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-bakeria",
+  "crazygamesSlug": "papas-bakeria"
+}

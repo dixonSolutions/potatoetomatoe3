@@ -1,0 +1,17 @@
+{
+  "id": "playhop-poker-squares",
+  "name": "Poker squares",
+  "author": "Dragosha",
+  "description": "Play Poker squares via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a000001930ba6a41087e2395aaa1d51f8a3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a000001930ba6a41087e2395aaa1d51f8a3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-373038.games.s3.yandex.net/373038/sjkvh5ljeoiflmm7wm1q1jifek5t0qqg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=373038&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 373038,
+  "playhopPageUrl": "https://playhop.com/app/373038",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 65
+}

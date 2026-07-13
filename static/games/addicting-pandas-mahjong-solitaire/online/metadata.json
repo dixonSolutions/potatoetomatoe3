@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pandas-mahjong-solitaire",
+  "name": "Pandas Mahjong Solitaire",
+  "author": "Addicting Games",
+  "description": "<p>Pandas Mahjong Solitaire  is a free solitaire game. Panda loves it when you match tiles. And he gets bored when you dont! Play the flossiest mah jongg game around, my peoples. Charm the Panda!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Pandas-Mahjong-Solitaire.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Pandas-Mahjong-Solitaire.jpg",
+  "thumbnailStored": "remote",
+  "category": "card-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/pandasmahjongsolitaire.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/pandas-mahjong-solitaire"
+}

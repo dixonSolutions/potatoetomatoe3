@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-clash-of-vikings",
+  "name": "Clash of Vikings | Like Clash Royale 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Clash of Vikings is a strategic battle game where you summon Vikings to fight a single enemy. The game is inspired by the mobile smash hit Clash Royale.",
+  "thumbnail": "/games/crazygames-clash-of-vikings/online/assets/crazygames-clash-of-vikings.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clash-of-vikings/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clash-of-vikings",
+  "crazygamesSlug": "clash-of-vikings"
+}

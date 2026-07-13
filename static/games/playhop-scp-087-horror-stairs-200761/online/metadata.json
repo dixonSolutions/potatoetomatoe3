@@ -1,0 +1,17 @@
+{
+  "id": "playhop-scp-087-horror-stairs-200761",
+  "name": "SCP-087:Horror Stairs",
+  "author": "FPDA",
+  "description": "Play SCP-087:Horror Stairs via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001843e7d22d1f6af395a2f3e78bfc8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001843e7d22d1f6af395a2f3e78bfc8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-200761.games.s3.yandex.net/200761/g7h00i0f1xi3829p5yflhl1bwrlf9whl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=200761&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 200761,
+  "playhopPageUrl": "https://playhop.com/app/200761",
+  "playhopRating": 3,
+  "playhopRatingCount": 725
+}

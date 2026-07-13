@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-tanks-merge",
+  "name": "tanks merge",
+  "author": "CrazyGames",
+  "description": "Play tanks merge on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tanks-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tanks-merge",
+  "crazygamesSlug": "tanks-merge"
+}

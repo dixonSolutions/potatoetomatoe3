@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-just-hit-the-button",
+  "name": "Just Hit the Button 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Just Hit the Button is an incredibly simple arcade game where the only task is to press the buttons. It sounds easy, right?",
+  "thumbnail": "https://imgs.crazygames.com/just-hit-the-button/20230728104234/just-hit-the-button-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/just-hit-the-button/20230728104234/just-hit-the-button-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/just-hit-the-button/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/just-hit-the-button",
+  "crazygamesSlug": "just-hit-the-button"
+}

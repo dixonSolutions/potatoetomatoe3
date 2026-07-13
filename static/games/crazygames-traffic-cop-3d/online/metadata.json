@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-traffic-cop-3d",
+  "name": "Traffic Cop 3D 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Traffic Cop 3D is a casual game where you play as a police officer enforcing the law of the road. Scan nearby drivers and use intel from the police database to decide whether you should pull them over, or let them go, all while progressing through the story and increasing your duties as a cop.",
+  "thumbnail": "https://imgs.crazygames.com/traffic-cop-3d/20230504084423/traffic-cop-3d-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/traffic-cop-3d/20230504084423/traffic-cop-3d-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/traffic-cop-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/traffic-cop-3d",
+  "crazygamesSlug": "traffic-cop-3d"
+}

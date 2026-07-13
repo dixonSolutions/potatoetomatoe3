@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pizza-inc",
+  "name": "Pizza Inc. 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Build your own pizza empire in this fun idle tycoon game! Hire bill counters and servers, unlock new spaces and shops, upgrade staff skills, and automate production to boost profits.",
+  "thumbnail": "https://imgs.crazygames.com/pizza-inc_16x9/20260611025728/pizza-inc_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pizza-inc_16x9/20260611025728/pizza-inc_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pizza-inc/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pizza-inc",
+  "crazygamesSlug": "pizza-inc"
+}

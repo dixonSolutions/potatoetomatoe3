@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-diepio",
+  "name": "Diep io 🔫 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Diep.io is a survival .io game where you control a circle armed with a cannon. The aim is simple: move around the map and destroy the other players whilst improving and upgrading your own circle.",
+  "thumbnail": "/games/crazygames-diepio/online/assets/crazygames-diepio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/diepio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/diepio",
+  "crazygamesSlug": "diepio"
+}

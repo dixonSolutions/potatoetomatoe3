@@ -1,0 +1,17 @@
+{
+  "id": "playhop-snake-2048",
+  "name": "Snake 2048",
+  "author": "TurtleGamesStudio",
+  "description": "Play Snake 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001931ba78f4661d67e52033646b557/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001931ba78f4661d67e52033646b557/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-386730.games.s3.yandex.net/386730/na7sy7nwf4t9tol3p12gkfdcc8vjedtl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=386730&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 386730,
+  "playhopPageUrl": "https://playhop.com/app/386730",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 4982
+}

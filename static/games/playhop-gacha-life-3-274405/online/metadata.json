@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gacha-life-3-274405",
+  "name": "Gacha Life 3",
+  "author": "TempoPlay",
+  "description": "Play Gacha Life 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a000001904f76ac437ee48cf4fe5166f555/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a000001904f76ac437ee48cf4fe5166f555/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-274405.games.s3.yandex.net/274405/6ycxq9244k7om4avcy1foo7i1mk7ip2t/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=274405&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 274405,
+  "playhopPageUrl": "https://playhop.com/app/274405",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 17705
+}

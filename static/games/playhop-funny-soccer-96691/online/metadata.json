@@ -1,0 +1,17 @@
+{
+  "id": "playhop-funny-soccer-96691",
+  "name": "Funny Soccer",
+  "author": "CodeThisLab",
+  "description": "Play Funny Soccer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000184439d9e4406ee6492df18361007/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000184439d9e4406ee6492df18361007/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96691.games.s3.yandex.net/96691/nrf97j9sdwcidaynao0odpviinizoxzi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96691&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96691,
+  "playhopPageUrl": "https://playhop.com/app/96691",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 420
+}

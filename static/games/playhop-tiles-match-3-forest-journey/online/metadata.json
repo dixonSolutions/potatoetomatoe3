@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tiles-match-3-forest-journey",
+  "name": "Tiles Match 3: Forest Journey",
+  "author": "Bonus",
+  "description": "Play Tiles Match 3: Forest Journey via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a00000199ebb09ed998325c8c5c4d203946/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a00000199ebb09ed998325c8c5c4d203946/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-378729.games.s3.yandex.net/378729/676hzgwe69u2nimnnklzjfuhcdrr9ise/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=378729&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 378729,
+  "playhopPageUrl": "https://playhop.com/app/378729",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 350
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-card-shuffle-sort",
+  "name": "Card Shuffle Sort 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Card Shuffle Sort is a smart and calming puzzle game that challenges you to strategically rearrange cards by color. With increasing difficulty, each level tests your organization and problem-solving skills.",
+  "thumbnail": "https://imgs.crazygames.com/card-shuffle-sort_16x9/20240827032645/card-shuffle-sort_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/card-shuffle-sort_16x9/20240827032645/card-shuffle-sort_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/card-shuffle-sort/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/card-shuffle-sort",
+  "crazygamesSlug": "card-shuffle-sort"
+}

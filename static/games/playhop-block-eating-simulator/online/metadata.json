@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-eating-simulator",
+  "name": "Block Eating Simulator",
+  "author": "Cursora Labs",
+  "description": "Play Block Eating Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000190c5a10faa6891cff5db17d181d3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000190c5a10faa6891cff5db17d181d3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-358278.games.s3.yandex.net/358278/zhe7pd7cruuf9rwzwzphanqjbaj32uby/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=358278&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 358278,
+  "playhopPageUrl": "https://playhop.com/app/358278",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 5024
+}

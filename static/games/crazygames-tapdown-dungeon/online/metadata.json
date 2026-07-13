@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tapdown-dungeon",
+  "name": "Tapdown Dungeon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tapdown Dungeon is a strategic puzzle adventure where every click reveals a new risk or reward. Uncover hidden tiles to find treasure, powerful gear, and lurking monsters.",
+  "thumbnail": "https://imgs.crazygames.com/tapdown-dungeon_16x9/20250912091701/tapdown-dungeon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tapdown-dungeon_16x9/20250912091701/tapdown-dungeon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tapdown-dungeon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tapdown-dungeon",
+  "crazygamesSlug": "tapdown-dungeon"
+}

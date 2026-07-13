@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cryptoword",
+  "name": "Cryptoword 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cryptoword is a word game that takes you on an epic journey through enchanted realms. Tackle challenging puzzles, face formidable foes, and discover hidden treasures.",
+  "thumbnail": "https://imgs.crazygames.com/cryptoword_16x9/20240626053927/cryptoword_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cryptoword_16x9/20240626053927/cryptoword_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cryptoword/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cryptoword",
+  "crazygamesSlug": "cryptoword"
+}

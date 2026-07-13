@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connection",
+  "name": "Play Connection: Trace the constellations! | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Light up the night sky by drawing the constellations! Can you solve these puzzles and connect all the stars without getting your lines crossed?",
+  "thumbnail": "/games/coolmath-connection/online/assets/coolmath-connection.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32751/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connection",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connection"
+}

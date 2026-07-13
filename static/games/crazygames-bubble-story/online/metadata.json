@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-bubble-story",
+  "name": "bubble story",
+  "author": "CrazyGames",
+  "description": "Play bubble story on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubble-story/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubble-story",
+  "crazygamesSlug": "bubble-story"
+}

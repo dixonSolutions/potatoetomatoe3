@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chicken-chase",
+  "name": "Chicken Chase",
+  "author": "Develop Studio Pro",
+  "description": "Play Chicken Chase via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000195d7db1d8cc05f60e81149446367/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000195d7db1d8cc05f60e81149446367/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-420691.games.s3.yandex.net/420691/19i8bqltkw57mxr3jrxaft9wzbhevu10/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=420691&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 420691,
+  "playhopPageUrl": "https://playhop.com/app/420691",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 2028
+}

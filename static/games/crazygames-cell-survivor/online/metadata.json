@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cell-survivor",
+  "name": "Cell Survivor 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cell Survivor is a fast-paced survivor roguelite where you control an evolving cell fighting against endless hostile organisms in a dangerous microscopic universe. Build powerful combinations with abilities, relics, synergies, overdrives, and auras while surviving increasingly intense waves of enemies and bosses.",
+  "thumbnail": "https://imgs.crazygames.com/cell-survivor_16x9/20260629100800/cell-survivor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cell-survivor_16x9/20260629100800/cell-survivor_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cell-survivor/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cell-survivor",
+  "crazygamesSlug": "cell-survivor"
+}

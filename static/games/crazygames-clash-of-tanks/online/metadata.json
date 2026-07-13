@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-clash-of-tanks",
+  "name": "Clash of Tanks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Get ready for battle in this awesome RTS tank game. In Clash of Tanks, you become the army commander.",
+  "thumbnail": "https://imgs.crazygames.com/games/clash-of-tanks/cover-1642405441541.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/clash-of-tanks/cover-1642405441541.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clash-of-tanks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clash-of-tanks",
+  "crazygamesSlug": "clash-of-tanks"
+}

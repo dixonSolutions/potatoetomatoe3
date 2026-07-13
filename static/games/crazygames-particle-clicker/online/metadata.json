@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-particle-clicker",
+  "name": "Particle Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Particle Clicker is an idle game made by CERN which is modeled on Cookie Clicker. Clicking the particle lets you run tests and provides you with data.",
+  "thumbnail": "/games/crazygames-particle-clicker/online/assets/crazygames-particle-clicker.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/particle-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/particle-clicker",
+  "crazygamesSlug": "particle-clicker"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-madness-project-nexus",
+  "name": "Madness Project Nexus 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "To defeat Project Nexus and the Nexus Training Program, the first step is to break your agents out of jail in this stylish and violent shoot-and-hack &#39;em-up. Use the keyboard to move and the mouse to aim.",
+  "thumbnail": "/games/crazygames-madness-project-nexus/online/assets/crazygames-madness-project-nexus.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/madness-project-nexus/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/madness-project-nexus",
+  "crazygamesSlug": "madness-project-nexus"
+}

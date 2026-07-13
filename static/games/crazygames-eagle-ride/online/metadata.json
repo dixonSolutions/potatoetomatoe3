@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-eagle-ride",
+  "name": "Eagle Ride 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Eagle Ride is a very challenging flying game where you ride a fast-flying eagle, avoiding trees. Thankfully, it is a bright day with only a little bit of fog so that you can see very clearly.",
+  "thumbnail": "/games/crazygames-eagle-ride/online/assets/crazygames-eagle-ride.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/eagle-ride/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/eagle-ride",
+  "crazygamesSlug": "eagle-ride"
+}

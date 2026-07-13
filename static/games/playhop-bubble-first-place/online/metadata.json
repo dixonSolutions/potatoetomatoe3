@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-first-place",
+  "name": "Bubble First Place",
+  "author": "PM Games",
+  "description": "Play Bubble First Place via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000192a3b195bb3db4b7b23399a0a991/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000192a3b195bb3db4b7b23399a0a991/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-365107.games.s3.yandex.net/365107/fpn6l1rmtoa4ngak6v1iriculapk8lsb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=365107&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 365107,
+  "playhopPageUrl": "https://playhop.com/app/365107",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 156
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mask-evolution-268553",
+  "name": "Mask Evolution",
+  "author": "Linder",
+  "description": "Play Mask Evolution via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018b94acaaefeeb99d9e6a3ab3469a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018b94acaaefeeb99d9e6a3ab3469a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-268553.games.s3.yandex.net/268553/0dy17yhj4xylrc79spi4vvzjdtz9jyd7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=268553&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 268553,
+  "playhopPageUrl": "https://playhop.com/app/268553",
+  "playhopRating": 4,
+  "playhopRatingCount": 410
+}

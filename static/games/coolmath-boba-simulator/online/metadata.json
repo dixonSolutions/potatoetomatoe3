@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-boba-simulator",
+  "name": "Boba Simulator - Play the Boba Game at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "You&#039;ve opened your own boba shop in Boba Simulator. Stock up on supplies, mix your boba recipe, and upgrade your small store in this fun boba game.",
+  "thumbnail": "/games/coolmath-boba-simulator/online/assets/coolmath-boba-simulator.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49889/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-boba-simulator",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-boba-simulator"
+}

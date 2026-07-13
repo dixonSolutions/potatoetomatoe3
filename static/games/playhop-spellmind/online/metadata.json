@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spellmind",
+  "name": "Spellmind",
+  "author": "DPGames",
+  "description": "Play Spellmind via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019647ca3fec6a812c8dca16c717b0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019647ca3fec6a812c8dca16c717b0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-484846.games.s3.yandex.net/484846/0mytj4mt9b5a82pth8imnw61mvmex5zp/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 412523,
+  "playhopPageUrl": "https://playhop.com/app/412523",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 755
+}

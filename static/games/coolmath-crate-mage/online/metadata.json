@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-crate-mage",
+  "name": "Crate Mage - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Become a Crate Mage and use your magical powers to move the boxes and escape the dungeon. Plan your path carefully so you don&#039;t get boxed into a corner.",
+  "thumbnail": "/games/coolmath-crate-mage/online/assets/coolmath-crate-mage.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/39697/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-crate-mage",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-crate-mage"
+}

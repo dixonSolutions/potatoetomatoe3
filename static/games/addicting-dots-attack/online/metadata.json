@@ -1,0 +1,14 @@
+{
+  "id": "addicting-dots-attack",
+  "name": "Dots Attack",
+  "author": "Addicting Games",
+  "description": "<p>Dots Attack is a simple puzzle game that you can play on your phone or computer! No tutorial needed for this instant online game. This is a simple game with clean animation showing either a pink or blue dot against a white starry background. Use your mouse or finger, to click on the screen to change the color of the dot to match the one that is attacking it. As long they match when they are connecting, then you got it right! This online game will speed up making the switch more and more difficult. Test your reflexes with this quick online game until you slip up. If you think you are playing well and have an awesome score, select the leaderboard icon to see if you made the list with other top players. Play again to beat your own best score and do not stop until you are at the top of the leaderboards! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/dotsattack.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/dotsattack.jpg",
+  "thumbnailStored": "remote",
+  "category": "running",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/dots-attack/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/dots-attack"
+}

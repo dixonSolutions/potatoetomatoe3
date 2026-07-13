@@ -1,0 +1,14 @@
+{
+  "id": "addicting-adventure-factory",
+  "name": "Adventure Factory",
+  "author": "Addicting Games",
+  "description": "<p>Create your very own adventure game and challenge your friends to beat it. Easy step by step game editor lets you make your very own game and then you have to try to beat it!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/adventurefactory_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/adventurefactory_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/adventurefactory.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/adventure-factory"
+}

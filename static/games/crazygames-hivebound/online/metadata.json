@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hivebound",
+  "name": "Hivebound 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hivebound is a 2D top-down idle strategy game where you build and manage a thriving insect colony. Command unique hive producers, from the industrious Worker Ant to the Silk Weaver Beetle and Heavy Carrier Ant, each harvesting raw materials and feeding them through an evolving chain of hive factories.",
+  "thumbnail": "https://imgs.crazygames.com/hivebound_16x9/20260617105342/hivebound_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hivebound_16x9/20260617105342/hivebound_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hivebound/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hivebound",
+  "crazygamesSlug": "hivebound"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-epic-battle-super-fighters",
+  "name": "Epic Battle: Super Fighters",
+  "author": "RBG",
+  "description": "Play Epic Battle: Super Fighters via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019ea1a6aa684d2d580b01b4d86b51/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019ea1a6aa684d2d580b01b4d86b51/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-328658.games.s3.yandex.net/328658/w9mdfhs6iswmkm3i5num1opyzlh6e4au/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=328658&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 328658,
+  "playhopPageUrl": "https://playhop.com/app/328658",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 5397
+}

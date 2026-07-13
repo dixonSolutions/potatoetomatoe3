@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-slice-it-all",
+  "name": "Slice It All! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Slice It All! is a thrilling game where you flip a sharp knife to slice through obstacles with precision.",
+  "thumbnail": "https://imgs.crazygames.com/slice-it-all_16x9/20250217163659/slice-it-all_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/slice-it-all_16x9/20250217163659/slice-it-all_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/slice-it-all/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/slice-it-all",
+  "crazygamesSlug": "slice-it-all"
+}

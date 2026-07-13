@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-conveyor-idle",
+  "name": "Conveyor Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Conveyor Idle is an idle factory-building game where you create and optimize your own conveyor belt system to transform raw materials into increasingly valuable products.Design efficient production lines, process resources, and expand your factory as your profits grow.",
+  "thumbnail": "https://imgs.crazygames.com/conveyor-idle_16x9/20260524111224/conveyor-idle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/conveyor-idle_16x9/20260524111224/conveyor-idle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/conveyor-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/conveyor-idle",
+  "crazygamesSlug": "conveyor-idle"
+}

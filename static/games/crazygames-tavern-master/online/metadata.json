@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tavern-master",
+  "name": "Tavern Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tavern Master is an arcade game to manage your own medieval tavern. Buy all the equipment, serve the customers, and expand your tavern!",
+  "thumbnail": "https://imgs.crazygames.com/tavern-master/20210201161855/tavern-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tavern-master/20210201161855/tavern-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tavern-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tavern-master",
+  "crazygamesSlug": "tavern-master"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tracked-vehicles-227844",
+  "name": "Tracked vehicles",
+  "author": "VSEGON",
+  "description": "Play Tracked vehicles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000187e4e8a72fe5370c8291faa5f1af/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000187e4e8a72fe5370c8291faa5f1af/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-227844.games.s3.yandex.net/227844/c9don7apu9bk6250h88qqmyhgj77mm2n/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=227844&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 227844,
+  "playhopPageUrl": "https://playhop.com/app/227844",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2534
+}

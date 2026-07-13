@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cookie-clicker-192443",
+  "name": "Cookie Clicker",
+  "author": "Sunnyverse Games",
+  "description": "Play Cookie Clicker via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000188fc190d8165f31518cb4d41f1e9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000188fc190d8165f31518cb4d41f1e9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-192443.games.s3.yandex.net/192443/nf5tnxrwhe22m50osm44pfdsjsqzfk7q/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=192443&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 192443,
+  "playhopPageUrl": "https://playhop.com/app/192443",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 274
+}

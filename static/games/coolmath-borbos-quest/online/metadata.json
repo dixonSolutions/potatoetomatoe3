@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-borbos-quest",
+  "name": "Borbo&#039;s Quest - Play it online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "In Borbo&#039;s Quest, your mother baked you a delicious birthday cake, but it was stolen. Track down Nasty Cake Jake and take it back.",
+  "thumbnail": "/games/coolmath-borbos-quest/online/assets/coolmath-borbos-quest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/39257/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-borbos-quest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-borbos-quest"
+}

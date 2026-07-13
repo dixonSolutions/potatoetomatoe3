@@ -1,0 +1,17 @@
+{
+  "id": "playhop-stickman-jump-175658",
+  "name": "Stickman Jump",
+  "author": "Plarium Global Ltd.",
+  "description": "Play Stickman Jump via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017bb14d5b9ada01b52685e9cfd38a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017bb14d5b9ada01b52685e9cfd38a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-175658.games.s3.yandex.net/175658/pvfrzqch00hoy4iw5ob0dj65avxu2zmv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=175658&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 175658,
+  "playhopPageUrl": "https://playhop.com/app/175658",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 777
+}

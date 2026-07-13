@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-buttons",
+  "name": "Buttons 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Experience a tactile plinko adventure in a hand-drawn scrapbook world with satisfying physics.Battle grumpy felt monsters and enjoy a uniquely crafted visual style as you progress through the game.",
+  "thumbnail": "https://imgs.crazygames.com/buttons_16x9/20260520042243/buttons_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/buttons_16x9/20260520042243/buttons_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/buttons/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/buttons",
+  "crazygamesSlug": "buttons"
+}

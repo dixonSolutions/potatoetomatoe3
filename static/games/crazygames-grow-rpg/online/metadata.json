@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-grow-rpg",
+  "name": "Grow RPG 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Grow RPG is a cool turn based RPG game in which you must build up your kingdom and fight against the evil demon who is trying to destroy your world. Each turn you must place an object in your world such as a tree, a house, some stone, a chest or water for example.",
+  "thumbnail": "/games/crazygames-grow-rpg/online/assets/crazygames-grow-rpg.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grow-rpg/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grow-rpg",
+  "crazygamesSlug": "grow-rpg"
+}

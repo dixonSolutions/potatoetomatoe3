@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombie-situation",
+  "name": "Zombie Situation",
+  "author": "Addicting Games",
+  "description": "<p>Zombie Situation is a free tower defense game. Is your neighborhood overrun with zombies? Again? Move from your living room to the street, hook up with some friends and face down the undead apocalypse with a buttload of increasingly fantastic firearms.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombiesituation_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombiesituation_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombiesituation.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombie-situation"
+}

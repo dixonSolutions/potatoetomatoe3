@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pit-stop-helper",
+  "name": "Pit Stop Helper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pit Stop Helper is a casual game where you bring gallons of gas from the production machine to the waiting vehicles. Unlock the first-level go-kart vehicle with provided base money.",
+  "thumbnail": "https://imgs.crazygames.com/pit-stop-helper/20230310110254/pit-stop-helper-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pit-stop-helper/20230310110254/pit-stop-helper-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pit-stop-helper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pit-stop-helper",
+  "crazygamesSlug": "pit-stop-helper"
+}

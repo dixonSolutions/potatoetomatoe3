@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gomoku-five-stones-in-a-row-303086",
+  "name": "Gomoku: five stones in a row",
+  "author": "kirlanik",
+  "description": "Play Gomoku: five stones in a row via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018e1cbf343e5b31d8e1972cea10f5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018e1cbf343e5b31d8e1972cea10f5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-303086.games.s3.yandex.net/303086/klad1635ywsml42ruy9fzjgz52iv5r6l/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=303086&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 303086,
+  "playhopPageUrl": "https://playhop.com/app/303086",
+  "playhopRating": 4,
+  "playhopRatingCount": 90
+}

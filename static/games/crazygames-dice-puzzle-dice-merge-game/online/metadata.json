@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dice-puzzle-dice-merge-game",
+  "name": "Dice Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dice Puzzle is a puzzle game where your task is to strategically place numbered cubes on the board, aiming to merge three adjacent cubes with the same number. As they combine, their value increases.",
+  "thumbnail": "https://imgs.crazygames.com/dice-puzzle---dice-merge-game_16x9/20231122045012/dice-puzzle---dice-merge-game_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dice-puzzle---dice-merge-game_16x9/20231122045012/dice-puzzle---dice-merge-game_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dice-puzzle---dice-merge-game/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dice-puzzle---dice-merge-game",
+  "crazygamesSlug": "dice-puzzle-dice-merge-game"
+}

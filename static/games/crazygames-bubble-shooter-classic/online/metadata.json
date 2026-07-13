@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bubble-shooter-classic",
+  "name": "Bubble Shooter 🫧 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bubble Shooter is a popular casual game that combines simple mechanics with an addictive rewards system. Based on the arcade classic Puzzle Bobble (1994), Bubble Shooter challenges players to aim and shoot a bubble cannon to clear as many colorful bubbles off the screen as possible.",
+  "thumbnail": "https://imgs.crazygames.com/games/bubble-shooter-classic/cover-1643212218101.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/bubble-shooter-classic/cover-1643212218101.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubble-shooter-classic/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubble-shooter-classic",
+  "crazygamesSlug": "bubble-shooter-classic"
+}

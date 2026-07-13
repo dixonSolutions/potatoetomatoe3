@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ace-of-hearts",
+  "name": "Ace of Hearts",
+  "author": "Addicting Games",
+  "description": "<p>Ace of Hearts is a card game with a Valentine’s Day theme! The day of lovers and friendship is full of love and happiness. Pink, gold, hearts, and everything lovey-dovey is here! Play this solitaire game based on the day of love whether you’re in a relationship or happily single. There are 3 levels of this holiday game. Each game is timed so you must act quickly and solve the card game before you run out of time. Unlike other solitaire games, you must create one single foundation regardless of suit. Start from Ace to King, and then start it again until you have used up all the cards. This makes the game more challenging as you struggle to find the right cards. If you run out of time or your run out of cards, you lose the game and have to start over from level 1. Submit your score at the end of the game to see how well you did compare to other card players. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ace-of-hearts.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ace-of-hearts.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/ace-of-hearts/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/ace-of-hearts"
+}

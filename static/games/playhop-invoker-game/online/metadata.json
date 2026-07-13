@@ -1,0 +1,17 @@
+{
+  "id": "playhop-invoker-game",
+  "name": "Invoker Game",
+  "author": "FlorichDev",
+  "description": "Play Invoker Game via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a00000195ecf9d949e33d521f8f312560d0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a00000195ecf9d949e33d521f8f312560d0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-425173.games.s3.yandex.net/425173/p1s3reeaptl4j6eefssh4366qoh47h7m/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=425173&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 425173,
+  "playhopPageUrl": "https://playhop.com/app/425173",
+  "playhopRating": 4.7,
+  "playhopRatingCount": 26
+}

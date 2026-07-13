@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-super-hot",
+  "name": "SuperHot 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SuperHot is an excellent FPS game where time only moves when you move. This unique concept gives SuperHot suspense and action like no other game.",
+  "thumbnail": "/games/crazygames-super-hot/online/assets/crazygames-super-hot.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/super-hot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/super-hot",
+  "crazygamesSlug": "super-hot"
+}

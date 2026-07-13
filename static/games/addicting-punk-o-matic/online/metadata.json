@@ -1,0 +1,14 @@
+{
+  "id": "addicting-punk-o-matic",
+  "name": "Punk-O-Matic",
+  "author": "Addicting Games",
+  "description": "<p>If you can't be bothered to learn three chords but you want to make your own punk music, this is the game for you. Like having real punks in your garage without the BO.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/punkomatic_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/punkomatic_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/punkomatic.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/punk-o-matic"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-flywheel-incremental",
+  "name": "Flywheel Incremental: Reforged 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Flywheel Incremental: Reforged is an idle clicker game where your main goal is to reach the highest possible RPM (rotations per minute) by clicking on the flywheel.\r  \r To achieve this, you&#39;ll need to purchase engines that help you spin the flywheel faster and upgrade the flywheel itself to increase your income.",
+  "thumbnail": "https://imgs.crazygames.com/flywheel-incremental_16x9/20251117160448/flywheel-incremental_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/flywheel-incremental_16x9/20251117160448/flywheel-incremental_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flywheel-incremental/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flywheel-incremental",
+  "crazygamesSlug": "flywheel-incremental"
+}

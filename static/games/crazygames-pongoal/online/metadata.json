@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pongoal",
+  "name": "Pongoal 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pongoal is a casual pong game with a soccer theme. Score goals against the opponent goalkeeper to secure a match win.",
+  "thumbnail": "https://imgs.crazygames.com/pongoal/20221107171329/pongoal-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pongoal/20221107171329/pongoal-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pongoal/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pongoal",
+  "crazygamesSlug": "pongoal"
+}

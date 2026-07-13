@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-lost-dungeon",
+  "name": "Lost Dungeon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Lost Dungeon is an action-packed adventure where you descend into a mysterious and dangerous dungeon, facing waves of evil enemies that stand in your way. Each step deeper brings tougher battles, testing your skills and strategy.",
+  "thumbnail": "https://imgs.crazygames.com/lost-dungeon_16x9/20260210035306/lost-dungeon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/lost-dungeon_16x9/20260210035306/lost-dungeon_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lost-dungeon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lost-dungeon",
+  "crazygamesSlug": "lost-dungeon"
+}

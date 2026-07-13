@@ -1,0 +1,14 @@
+{
+  "id": "addicting-typeracer",
+  "name": "Typeracer",
+  "author": "Addicting Games",
+  "description": "<p>TypeRacer - the global typing competition. A classic browser game since 2008! Race opponents from all over the world against the ultimate typing battle! Matchmake around your skill level, customize your race car and more. Perfect for all ages learning to type! This game combines the excitement of global competition with the fundamentals of typing. After your first race, you will obtain a skill level and matchmake with opponents around your level to keep your races fun and balanced.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/type-racer.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/type-racer.png",
+  "thumbnailStored": "remote",
+  "category": "mmo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://play.typeracer.com/?theme=redesigndark",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/mmo/typeracer"
+}

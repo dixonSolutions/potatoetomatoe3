@@ -1,0 +1,14 @@
+{
+  "id": "addicting-toms-adventure",
+  "name": "Tom's Adventure",
+  "author": "Addicting Games",
+  "description": "<p>Embark on an epic pixelated quest in Tom's Adventure Alien Invasion, a thrilling browser game that pits you against alien foes in a retro-style platformer. As Tom, your mission is to navigate through challenging levels, facing off against a variety of quirky alien enemies along the way. Jump and dodge your way to victory in this action-packed adventure filled with nostalgic pixel art and dynamic gameplay.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/TomsAdventure.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/TomsAdventure.jpg",
+  "thumbnailStored": "remote",
+  "category": "adventure-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/toms-adventure/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/toms-adventure"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ccmmyy",
+  "name": "Play CCMMYY: Mix, match, and push | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "You have three colors at your disposal: cyan, yellow, and magenta. Mix and match them all to push the blocks back into place in ccmmyy.",
+  "thumbnail": "/games/coolmath-ccmmyy/online/assets/coolmath-ccmmyy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37160/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ccmmyy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ccmmyy"
+}

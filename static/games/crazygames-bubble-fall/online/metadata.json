@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-bubble-fall",
+  "name": "bubble fall",
+  "author": "CrazyGames",
+  "description": "Play bubble fall on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubble-fall/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubble-fall",
+  "crazygamesSlug": "bubble-fall"
+}

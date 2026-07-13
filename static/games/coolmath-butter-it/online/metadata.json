@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-butter-it",
+  "name": "BUTTER IT - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Slide that butter around the griddle and get it on the bread! The butter melts away as it slides, so make sure each slice is buttered.",
+  "thumbnail": "/games/coolmath-butter-it/online/assets/coolmath-butter-it.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/42661/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-butter-it",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-butter-it"
+}

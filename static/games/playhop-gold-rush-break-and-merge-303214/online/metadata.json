@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gold-rush-break-and-merge-303214",
+  "name": "Gold Rush Break & Merge",
+  "author": "Vladislav Wise",
+  "description": "Play Gold Rush Break & Merge via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018e33d47b477621abec03ce790cf6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018e33d47b477621abec03ce790cf6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-303214.games.s3.yandex.net/303214/mkd078t1pk8vzz261d3kebbz4zce0z7v/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=303214&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 303214,
+  "playhopPageUrl": "https://playhop.com/app/303214",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 3804
+}

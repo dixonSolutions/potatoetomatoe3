@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-glove-power",
+  "name": "Glove Power 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Glove Power is a casual game where you run through an obstacle course collecting gems and dodging obstacles. Use as many powers as possible and reach the end to receive a bonus!",
+  "thumbnail": "https://imgs.crazygames.com/glove-power/20220831094323/glove-power-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/glove-power/20220831094323/glove-power-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/glove-power/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/glove-power",
+  "crazygamesSlug": "glove-power"
+}

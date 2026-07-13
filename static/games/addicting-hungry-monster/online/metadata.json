@@ -1,0 +1,14 @@
+{
+  "id": "addicting-hungry-monster",
+  "name": "Hungry Monster",
+  "author": "Addicting Games",
+  "description": "<p>Hungry Monsters is a cute puzzle game where your objective is to feed a hungry monster! There is an adorable purple monster that is waiting to be fed in this fun matching game.  To feed the monster, there are several jewel-colored candies that you can tumble through to its mouth. Match 3 of the same colored candies to increase your score and to feed the hungry monster. However, if you want to increase your time, pay attention to what candies the purple monster is asking for and give him those as well. The purple bar next to the monster is your timer and once it runs out, the game ends. Click on the replay button to play around round in this cute matching game. select the leaderboard icon from the main menu to see if your best score landed on the leaderboard and to see where it stands against other puzzle players. Play again to rise up the leaderboards and feed the purple hungry monster in this online game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/hungrymonstergame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/hungrymonstergame.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/hungry-monster/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/hungry-monster"
+}

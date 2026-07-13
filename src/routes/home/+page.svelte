@@ -8,12 +8,10 @@
 	import {
 		getHomeRecommendations,
 		getHomeRecommendationsAsync,
-		getRecentlyPlayedGames,
-		getLocalDisplayStats,
-		getPlaySessions
+		getRecentlyPlayedGames
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { Heart, ThumbsUp, Users, ChevronRight, WifiOff } from 'lucide-svelte';
+	import { Heart, ChevronRight, WifiOff } from 'lucide-svelte';
 	import { fetchAllOfflineStatuses, OFFLINE_STATUS_CHANGED } from '$lib/utils/offline-downloader';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
@@ -47,11 +45,6 @@
 
 	function placeholderDataUrl() {
 		return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23222" width="256" height="256"/%3E%3Ctext fill="%23666" font-family="sans-serif" font-size="20" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
-	}
-
-	function statsFor(game: GameMetadata) {
-		const sessions = getPlaySessions(game.id);
-		return getLocalDisplayStats(game.id, sessions);
 	}
 
 	function toggleFavourite(gameId: string, event: MouseEvent) {
@@ -252,7 +245,6 @@
 					class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11 gap-1.5 sm:gap-2"
 				>
 					{#each continueGames as game (game.id)}
-						{@const s = statsFor(game)}
 						<a
 							href={resolve(`/games/${game.id}`)}
 							data-sveltekit-preload-data="hover"
@@ -271,20 +263,8 @@
 									}}
 								/>
 							</div>
-							<div class="px-1 pb-1.5 pt-1 min-h-[3.25rem]">
+							<div class="px-1 pb-1.5 pt-1">
 								<p class="text-[11px] sm:text-xs font-medium leading-tight line-clamp-2">{game.name}</p>
-								<p
-									class="text-[10px] text-muted-foreground tabular-nums mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0"
-								>
-									<span class="inline-flex items-center gap-0.5">
-										<ThumbsUp class="h-3 w-3 shrink-0 opacity-85" aria-hidden="true" />
-										{s.ratingPct}%
-									</span>
-									<span class="inline-flex items-center gap-0.5">
-										<Users class="h-3 w-3 shrink-0 opacity-85" aria-hidden="true" />
-										{s.activeLabel}
-									</span>
-								</p>
 							</div>
 						</a>
 					{/each}
@@ -333,7 +313,6 @@
 						class="flex gap-3 md:gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]"
 					>
 						{#each recommendedGames as game (game.id)}
-							{@const s = statsFor(game)}
 							<div
 								class="snap-start shrink-0 w-[min(280px,78vw)] sm:w-[260px] md:w-[280px] group"
 							>
@@ -366,20 +345,8 @@
 												/>
 											</button>
 										</div>
-										<div class="p-2.5 space-y-1">
+										<div class="p-2.5">
 											<p class="font-medium text-sm leading-snug line-clamp-2">{game.name}</p>
-											<div
-												class="flex items-center gap-3 text-[11px] text-muted-foreground tabular-nums"
-											>
-												<span class="inline-flex items-center gap-0.5">
-													<ThumbsUp class="h-3 w-3 opacity-80" aria-hidden="true" />
-													{s.ratingPct}% rating
-												</span>
-												<span class="inline-flex items-center gap-0.5">
-													<Users class="h-3 w-3 opacity-80" aria-hidden="true" />
-													{s.activeLabel}
-												</span>
-											</div>
 										</div>
 									</div>
 								</a>
@@ -425,7 +392,6 @@
 					class="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth [scrollbar-width:thin]"
 				>
 					{#each featuredGames as game (game.id)}
-						{@const s = statsFor(game)}
 						<div class="snap-start shrink-0 w-[min(200px,42vw)] sm:w-[200px] group">
 							<a href={resolve(`/games/${game.id}`)} data-sveltekit-preload-data="hover" class="block">
 								<div
@@ -456,15 +422,8 @@
 											/>
 										</button>
 									</div>
-									<div class="p-2 space-y-0.5">
+									<div class="p-2">
 										<p class="text-xs font-medium line-clamp-2 leading-snug">{game.name}</p>
-										<div class="text-[10px] text-muted-foreground flex gap-2 tabular-nums">
-											<span class="inline-flex items-center gap-0.5">
-												<ThumbsUp class="h-3 w-3" />
-												{s.ratingPct}%
-											</span>
-											<span>{s.activeLabel}</span>
-										</div>
 									</div>
 								</div>
 							</a>

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blocky-highway-racer",
+  "name": "Blocky Traffic Racing 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blocky Traffic Racing is a fast-paced traffic racing game on a busy blocky highway. How far can you go?",
+  "thumbnail": "https://imgs.crazygames.com/blocky-highway-racer-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/blocky-highway-racer-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blocky-highway-racer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blocky-highway-racer",
+  "crazygamesSlug": "blocky-highway-racer"
+}

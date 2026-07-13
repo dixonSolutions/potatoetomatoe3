@@ -1,0 +1,17 @@
+{
+  "id": "playhop-color-block-jam",
+  "name": "Color Block Jam",
+  "author": "DRA",
+  "description": "Play Color Block Jam via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199c9901fb8bd7f1e2cf8587e900f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199c9901fb8bd7f1e2cf8587e900f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-419754.games.s3.yandex.net/419754/aydw55mdy9cbnqxag88c2tai9pqzgdog/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=419754&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 419754,
+  "playhopPageUrl": "https://playhop.com/app/419754",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 3635
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-super-stickmaxy-295285",
+  "name": "Super Stickmaxy",
+  "author": "GMD",
+  "description": "Play Super Stickmaxy via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018dc7b54e46a72c8e90902bebdb08/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018dc7b54e46a72c8e90902bebdb08/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-295285.games.s3.yandex.net/295285/cuus1n5ilcrk1nj5xdfjlbp36t1skiny/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=295285&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 295285,
+  "playhopPageUrl": "https://playhop.com/app/295285",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1730
+}

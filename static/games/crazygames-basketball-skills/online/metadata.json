@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-basketball-skills",
+  "name": "Basketball Skills 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Basketball Skills is the basketball arcade game in which you must try to score baskets in all the different game modes available. You can play either arcade, time attack, and distance mode.",
+  "thumbnail": "https://imgs.crazygames.com/games/basketball-skills/cover_16x9-1734346245128.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/basketball-skills/cover_16x9-1734346245128.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/basketball-skills/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/basketball-skills",
+  "crazygamesSlug": "basketball-skills"
+}

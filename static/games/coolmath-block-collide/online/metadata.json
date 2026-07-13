@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-block-collide",
+  "name": "Block Collide - Play it online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Push the blocks along the lines without them colliding into each other in Block Collide. When you see all the green checks, that means you did it right.",
+  "thumbnail": "/games/coolmath-block-collide/online/assets/coolmath-block-collide.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/40357/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-block-collide",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-block-collide"
+}

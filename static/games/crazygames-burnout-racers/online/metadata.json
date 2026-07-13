@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-burnout-racers",
+  "name": "burnout racers",
+  "author": "CrazyGames",
+  "description": "Play burnout racers on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/burnout-racers/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/burnout-racers",
+  "crazygamesSlug": "burnout-racers"
+}

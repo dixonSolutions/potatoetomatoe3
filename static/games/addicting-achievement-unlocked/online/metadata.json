@@ -1,0 +1,14 @@
+{
+  "id": "addicting-achievement-unlocked",
+  "name": "Achievement Unlocked",
+  "author": "Addicting Games",
+  "description": "<p>You can't make a move without earning an award in this game. On the other hand, you can't level up without earning EVERY achievement! Fortunately, hints abound and lives are plentiful. Get Your Badge On, Baby!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/AchievementUnlocked.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/AchievementUnlocked.jpg",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/achievementunlocked.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/achievement-unlocked"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rainbow-snake",
+  "name": "Rainbow Snake 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rainbow Snake is a puzzle game where you must move the colored snakes through the board so they can stay on top of the same colored tiles. You can drag the snake&#39;s head or tail to move them around.",
+  "thumbnail": "https://imgs.crazygames.com/rainbow-snake_16x9/20231030101240/rainbow-snake_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rainbow-snake_16x9/20231030101240/rainbow-snake_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rainbow-snake/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rainbow-snake",
+  "crazygamesSlug": "rainbow-snake"
+}

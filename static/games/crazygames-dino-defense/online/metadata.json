@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-dino-defense",
+  "name": "dino defense",
+  "author": "CrazyGames",
+  "description": "Play dino defense on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dino-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dino-defense",
+  "crazygamesSlug": "dino-defense"
+}

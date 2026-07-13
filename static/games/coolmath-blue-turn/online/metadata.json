@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blue-turn",
+  "name": "Blue Turn - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blue Turn at Cool Math Games: Is blue your favorite color? Use your flips wisely and turn every last tile blue.",
+  "thumbnail": "/games/coolmath-blue-turn/online/assets/coolmath-blue-turn.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22393/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blue-turn",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blue-turn"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-war-lands",
+  "name": "War Lands 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "War Lands is an ARPG-style game with roguelike gameplay. Battle your way through a series of levels picking up buffs and loot, all while decimating hordes of enemies.",
+  "thumbnail": "https://imgs.crazygames.com/games/war-lands/thumb-1592926590210.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/war-lands/thumb-1592926590210.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/war-lands/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/war-lands",
+  "crazygamesSlug": "war-lands"
+}

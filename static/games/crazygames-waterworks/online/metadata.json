@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-waterworks",
+  "name": "Waterworks! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Waterworks! is a card-based strategy game with a mission to maintain good water supply and develop the medieval town of Grudziadz.",
+  "thumbnail": "https://imgs.crazygames.com/games/waterworks/cover-1596168956248.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/waterworks/cover-1596168956248.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/waterworks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/waterworks",
+  "crazygamesSlug": "waterworks"
+}

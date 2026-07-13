@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cypher-code-breaker",
+  "name": "Cypher - Code Breaker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cypher - Code Breaker is a brain-teasing logic game where you decipher hidden digits using clever clues and formulas. Each symbol masks a number, and your job is to reveal the correct combination without guessing.",
+  "thumbnail": "https://imgs.crazygames.com/cypher---code-breaker_16x9/20250506102332/cypher---code-breaker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cypher---code-breaker_16x9/20250506102332/cypher---code-breaker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cypher---code-breaker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cypher---code-breaker",
+  "crazygamesSlug": "cypher-code-breaker"
+}

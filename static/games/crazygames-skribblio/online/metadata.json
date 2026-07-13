@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-skribblio",
+  "name": "Skribbl io ✍️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Skribbl.io is one of the most popular IO art drawing games out there. If you&#x27;ve ever enjoyed games like Pictionary, this one is right up your alley.",
+  "thumbnail": "/games/crazygames-skribblio/online/assets/crazygames-skribblio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/skribblio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/skribblio",
+  "crazygamesSlug": "skribblio"
+}

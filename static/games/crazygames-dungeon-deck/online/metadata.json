@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dungeon-deck",
+  "name": "Dungeon Deck 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dungeon Deck is a card battle game where strategy is key to victory. This is a unique take on the roguelike dungeon crawler!",
+  "thumbnail": "https://imgs.crazygames.com/dungeon-deck_16x9/20240925082141/dungeon-deck_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dungeon-deck_16x9/20240925082141/dungeon-deck_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dungeon-deck/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dungeon-deck",
+  "crazygamesSlug": "dungeon-deck"
+}

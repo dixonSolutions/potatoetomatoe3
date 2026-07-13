@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-beavus",
+  "name": "Beavus - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Beavus at Cool Math Games: This game will mess with your head a bit! You can do one thing with Beavus and that&#039;s click to make him jump. Run into stuff to make him change directions. Once you start playing, it&#039;s hard to stop!",
+  "thumbnail": "/games/coolmath-beavus/online/assets/coolmath-beavus.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25262/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-beavus",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-beavus"
+}

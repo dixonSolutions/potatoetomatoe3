@@ -1,0 +1,14 @@
+{
+  "id": "addicting-mahjong-card-solitaire",
+  "name": "Mahjong Card Solitaire",
+  "author": "Addicting Games",
+  "description": "<p>Mahjong Card Solitaire is a combination of mahjong and solitaire! This online game is a unique take on the classic mahjong game. Instead of traditional mahjong tiles, this online game uses the standard solitaire card. Not only must you match the number but you need to also match the suit. You cannot match numbers only if they are of different suits. There are 10 levels of this mahjong game for you to solve! Each level is timed, so match all of the tiles to be able to unlock the next level. If you don’t make it on time, you will have to start over!  If you get stuck, look at your available options on the upper right panel. You can take a hint, shuffle, or undo the last move. Submit your final score to the leaderboards to see where you rank against other puzzle players. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mahjong-card-solitaire.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mahjong-card-solitaire.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/mahjong-card-solitaire/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/mahjong-card-solitaire"
+}

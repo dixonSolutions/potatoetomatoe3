@@ -1,0 +1,14 @@
+{
+  "id": "addicting-balls-and-bricks",
+  "name": "Balls And Bricks",
+  "author": "Addicting Games",
+  "description": "<p>Balls And Bricks is a free shooter game. Take aim and blast away in this exciting, fast-paced shooter game where you'll be tasked with the goal of blasting your way through as many bricks with as few balls as possible. Use geometry to your advantage and bank your shots at exactly the right angle to maximize your total output. In this game, you'll have to choose between earning new balls or smashing the descending bricks. You are using the power of physics and geometry to bounce balls, bank them off walls, and snipe them in between crevasses in order to break as many bricks as possible. Each of the bricks has a numerical value on them which is their hit point counter. You will need to use your stream of balls to hit the brick that many times before it disappears. Collect balls, bank your shots, and use geometry and physics to blast your way to the top of the leader board in this fun and challenging shooter game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ballsandbricksscreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ballsandbricksscreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "clicker",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/balls-and-bricks/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/balls-and-bricks"
+}

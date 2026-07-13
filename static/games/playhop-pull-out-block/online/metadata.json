@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pull-out-block",
+  "name": "Pull-out block",
+  "author": "Doto Play Games",
+  "description": "Play Pull-out block via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a000001933dc90bdc1af8650e82888b02f4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a000001933dc90bdc1af8650e82888b02f4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-388553.games.s3.yandex.net/388553/1bto0vev5yj2anifrc6cptms6bd1k6b4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=388553&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 388553,
+  "playhopPageUrl": "https://playhop.com/app/388553",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 61
+}

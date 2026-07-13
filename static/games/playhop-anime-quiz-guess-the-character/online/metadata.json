@@ -1,0 +1,17 @@
+{
+  "id": "playhop-anime-quiz-guess-the-character",
+  "name": "Anime Quiz: Guess the Character",
+  "author": "PlayWithKitty",
+  "description": "Play Anime Quiz: Guess the Character via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000192ca202982915dd9b7b607ca744d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000192ca202982915dd9b7b607ca744d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-377266.games.s3.yandex.net/377266/tsusa8n0tlttfmeiuhkz87zn5uebxkzz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=377266&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 377266,
+  "playhopPageUrl": "https://playhop.com/app/377266",
+  "playhopRating": 4,
+  "playhopRatingCount": 245
+}

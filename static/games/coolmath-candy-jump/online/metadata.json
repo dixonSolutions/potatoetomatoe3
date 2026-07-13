@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-candy-jump",
+  "name": "Candy Jump - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Wait...Not yet...Go! Candy Jump your way through the obstacles at the perfect time. Be warned though, this game is made for highly skilled players only.",
+  "thumbnail": "/games/coolmath-candy-jump/online/assets/coolmath-candy-jump.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/47963/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-candy-jump",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-candy-jump"
+}

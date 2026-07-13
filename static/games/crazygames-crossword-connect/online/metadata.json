@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-crossword-connect",
+  "name": "Crossword Connect 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Connect the letters to solve the crossword. Find bonus words to earn extra points and use the hints if you get stuck.",
+  "thumbnail": "https://imgs.crazygames.com/crossword-connect/20220815135414/crossword-connect-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/crossword-connect/20220815135414/crossword-connect-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crossword-connect/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crossword-connect",
+  "crazygamesSlug": "crossword-connect"
+}

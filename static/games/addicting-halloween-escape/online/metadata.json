@@ -1,0 +1,14 @@
+{
+  "id": "addicting-halloween-escape",
+  "name": "Halloween Escape",
+  "author": "Addicting Games",
+  "description": "<p>Halloween Escape is a free escape game. Did you need a reason to escape? This joint is full of ghosts and other spooky stuff. Bloody axes? No Like! Please to go home!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/halloweenescape_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/halloweenescape_sp.png",
+  "thumbnailStored": "remote",
+  "category": "bloody-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/halloweenescape.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/halloween-escape"
+}

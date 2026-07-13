@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-arrow-exit-puzzle",
+  "name": "Arrow Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Arrow Escape is a puzzle logic game where you need to clear a board full of arrows by tapping each one until it slides off the board in the direction it points. It is a simple task at first, but as the game progresses, there will be more and more obstacles blocking you from clearing the board.",
+  "thumbnail": "https://imgs.crazygames.com/arrow-exit-puzzle_16x9/20260115072133/arrow-exit-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/arrow-exit-puzzle_16x9/20260115072133/arrow-exit-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/arrow-exit-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/arrow-exit-puzzle",
+  "crazygamesSlug": "arrow-exit-puzzle"
+}

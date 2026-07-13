@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-eternal-road",
+  "name": "eternal road",
+  "author": "CrazyGames",
+  "description": "Play eternal road on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/eternal-road/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/eternal-road",
+  "crazygamesSlug": "eternal-road"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tangle-master",
+  "name": "Tangle Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tangle Master is a colorful puzzle game that tests your logic and timing as you work to untangle twisted ropes. You’ll need to plan every move wisely, because your chances are limited.",
+  "thumbnail": "https://imgs.crazygames.com/tangle-master_16x9/20250421050537/tangle-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tangle-master_16x9/20250421050537/tangle-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tangle-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tangle-master",
+  "crazygamesSlug": "tangle-master"
+}

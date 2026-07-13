@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-coin-clicker",
+  "name": "Coin Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Coin Clicker is an idle game where you click to get all the coins and buy upgrades to reach the maximum level!  Release Date August 2022  Developer Coin Clicker is made by isotronic.",
+  "thumbnail": "https://imgs.crazygames.com/coin-clicker/20220811081002/coin-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/coin-clicker/20220811081002/coin-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/coin-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/coin-clicker",
+  "crazygamesSlug": "coin-clicker"
+}

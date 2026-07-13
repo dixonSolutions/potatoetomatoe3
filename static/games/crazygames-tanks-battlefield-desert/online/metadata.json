@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tanks-battlefield-desert",
+  "name": "tanks battlefield desert",
+  "author": "CrazyGames",
+  "description": "Play tanks battlefield desert on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-tanks-battlefield-desert/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tanks-battlefield-desert/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tanks-battlefield-desert",
+  "crazygamesSlug": "tanks-battlefield-desert"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-jelly-math-run",
+  "name": "Jelly Math Run",
+  "author": "Addicting Games",
+  "description": "<p>Jelly Math Run is a math game combined with a puzzle game! This little jelly is looking for a portal to get back home. To help them out, click towards every block until every single one disappears. Once they do, the final one with transport the jelly back through a portal. There are 36 levels to this online game and plenty of math skills to practice. If you have mastered one skill already, you can change your skill mid-game or after the next level. There different skills to choose from like decimals, geometry, algebra, and multiplication. The math skills range from preschool to the eighth grade. You must answer 5 correctly in order to unlock the next level of the puzzle game. This is a great way to break up your studying time with a fun puzzle game to play.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/jellmathrungame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/jellmathrungame.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/jelly-math-run/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/jelly-math-run"
+}

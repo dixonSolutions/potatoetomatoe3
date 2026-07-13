@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ball-surfer-3d",
+  "name": "Ball Surfer 3D - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Roll and jump through a cybernetic cityscape. Use your power-ups to dodge boxes and grab gems. Surf as far as you can in Ball Surfer 3D.",
+  "thumbnail": "/games/coolmath-ball-surfer-3d/online/assets/coolmath-ball-surfer-3d.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50043/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ball-surfer-3d",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ball-surfer-3d"
+}

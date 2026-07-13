@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bloons-tower-defense-2",
+  "name": "Bloons Tower Defense 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloons Tower Defense 2 is a popular tower defense game originally released in Flash by Ninja Kiwi. Strategically place your defenses, upgrade your units, and stop all balloons from passing through.",
+  "thumbnail": "/games/crazygames-bloons-tower-defense-2/online/assets/crazygames-bloons-tower-defense-2.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloons-tower-defense-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloons-tower-defense-2",
+  "crazygamesSlug": "bloons-tower-defense-2"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-classic-klondike-180471",
+  "name": "Solitaire Classic Klondike",
+  "author": "Citigo",
+  "description": "Play Solitaire Classic Klondike via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018893a763363de3468a21ce9c0dd1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018893a763363de3468a21ce9c0dd1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-180471.games.s3.yandex.net/180471/x5npr8l9u63vko1bkesqkty7veq654qw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=180471&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 180471,
+  "playhopPageUrl": "https://playhop.com/app/180471",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 3596
+}

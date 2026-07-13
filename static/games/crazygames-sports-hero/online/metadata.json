@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-sports-hero",
+  "name": "Sports Hero 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Get ready to compete in the Rio Olympics in Sports Hero. Choose your country, pick a discipline (unlock new ones as you achieve good results), and get ready to start battling.",
+  "thumbnail": "/games/crazygames-sports-hero/online/assets/crazygames-sports-hero.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sports-hero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sports-hero",
+  "crazygamesSlug": "sports-hero"
+}

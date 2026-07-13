@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pocketro",
+  "name": "pocketro",
+  "author": "CrazyGames",
+  "description": "Play pocketro on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pocketro/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pocketro",
+  "crazygamesSlug": "pocketro"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-master-chess",
+  "name": "Master Chess 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Master Chess is an online casual chess game with single and multiplayer options. If you want to show off your chess skills, try out this digital tabletop online browser version.",
+  "thumbnail": "https://imgs.crazygames.com/games/master-chess/cover-1624894080822.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/master-chess/cover-1624894080822.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/master-chess/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/master-chess",
+  "crazygamesSlug": "master-chess"
+}

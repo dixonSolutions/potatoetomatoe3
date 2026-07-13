@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mystery-forest-match-3",
+  "name": "Mystery Forest Match 3",
+  "author": "AnimaGames",
+  "description": "Play Mystery Forest Match 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019cbd1225878460116cc2332c7a33/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019cbd1225878460116cc2332c7a33/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-377121.games.s3.yandex.net/377121/tg3vygv1t39wnjgox5bzrdwbgo4pay4q/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=377121&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 377121,
+  "playhopPageUrl": "https://playhop.com/app/377121",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1637
+}

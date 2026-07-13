@@ -1,0 +1,17 @@
+{
+  "id": "playhop-foosball-96247",
+  "name": "Foosball",
+  "author": "CodeThisLab",
+  "description": "Play Foosball via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/19298966/2a0000019db09ea6288b29b4ab0405d2c449/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/19298966/2a0000019db09ea6288b29b4ab0405d2c449/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96247.games.s3.yandex.net/96247/i22q02kgfw09l7k66wrjsdqaaoarvybm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96247&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96247,
+  "playhopPageUrl": "https://playhop.com/app/96247",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 561
+}

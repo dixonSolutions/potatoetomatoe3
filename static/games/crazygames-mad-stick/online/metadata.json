@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mad-stick",
+  "name": "mad stick",
+  "author": "CrazyGames",
+  "description": "Play mad stick on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mad-stick/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mad-stick",
+  "crazygamesSlug": "mad-stick"
+}

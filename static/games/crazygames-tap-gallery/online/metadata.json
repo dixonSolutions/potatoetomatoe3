@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tap-gallery",
+  "name": "Tap Gallery 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tap Gallery is a relaxing and addictive puzzle game where you tap tiles to clear blocks and reveal beautiful images. Combining tile puzzles, block puzzles, Tetris-style logic, and brain-training challenges, Tap Gallery is perfect for casual play, stress relief, and moments of relaxation.",
+  "thumbnail": "https://imgs.crazygames.com/tap-gallery_16x9/20260629101047/tap-gallery_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tap-gallery_16x9/20260629101047/tap-gallery_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tap-gallery/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tap-gallery",
+  "crazygamesSlug": "tap-gallery"
+}

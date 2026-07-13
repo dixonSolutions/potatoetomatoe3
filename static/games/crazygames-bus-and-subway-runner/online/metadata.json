@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bus-and-subway-runner",
+  "name": "Bus and Subway Runner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bus and Subway Runner is a cool endless runner game in which you run through… wait for it… a subway while avoiding buses! You are enjoying a beautiful sunny day in the city on your hoverboard, but a police car spots you and starts to chase you!",
+  "thumbnail": "/games/crazygames-bus-and-subway-runner/online/assets/crazygames-bus-and-subway-runner.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bus-and-subway-runner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bus-and-subway-runner",
+  "crazygamesSlug": "bus-and-subway-runner"
+}

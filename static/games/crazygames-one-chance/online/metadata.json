@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-one-chance",
+  "name": "One Chance 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "One Chance is an adventure story game that puts you in the shoes of scientist John Pilgrim, whose breakthrough cure for cancer has triggered a global catastrophe. In just six days, a deadly virus will wipe out all life on Earth.",
+  "thumbnail": "https://imgs.crazygames.com/games/one-chance/cover-1635941011516.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/one-chance/cover-1635941011516.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/one-chance/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/one-chance",
+  "crazygamesSlug": "one-chance"
+}

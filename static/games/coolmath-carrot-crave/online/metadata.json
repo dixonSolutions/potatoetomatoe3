@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-carrot-crave",
+  "name": "Carrot Crave - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Help an energetic bunny race to the finish and satisfy their carrot crave. Includes plenty of puzzles for all ages and appealing cartoon visuals.",
+  "thumbnail": "/games/coolmath-carrot-crave/online/assets/coolmath-carrot-crave.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/4971/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-carrot-crave",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-carrot-crave"
+}

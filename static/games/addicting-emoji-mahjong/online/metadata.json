@@ -1,0 +1,14 @@
+{
+  "id": "addicting-emoji-mahjong",
+  "name": "Emoji Mahjong",
+  "author": "Addicting Games",
+  "description": "<p>Emoji Mahjong is an online mahjong game based on your favorite emojis! The world is changing and so is language. These days people communicate the best with emojis that help express emotion and actions. There are smile faces, angry faces, sad faces, and funny faces! You can even find monkey and cat emojis. This online puzzle game incorporates emoji tiles with emoji-based patterns for you to play with and solve. In the right-hand panel, you’ll find your level, score, and a timer. If you get stuck on a pattern, you have the option to use a hint or shuffle. However, these options will lower your score so use them rarely and wisely. There are 80 levels of various emoji-based patterns for you to solve! When you finish all 80 levels, check the High Scores board to see if you made it to the top of the list! Check out this emoji-based mahjong game that you can play for hours!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/EmojiMahjong.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/EmojiMahjong.jpg",
+  "thumbnailStored": "remote",
+  "category": "mahjong-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/emoji-mahjong/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/emoji-mahjong"
+}

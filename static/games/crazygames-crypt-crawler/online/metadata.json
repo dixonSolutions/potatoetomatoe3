@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-crypt-crawler",
+  "name": "crypt crawler",
+  "author": "CrazyGames",
+  "description": "Play crypt crawler on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crypt-crawler/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crypt-crawler",
+  "crazygamesSlug": "crypt-crawler"
+}

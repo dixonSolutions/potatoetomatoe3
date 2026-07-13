@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-clicker-heroes",
+  "name": "Clicker Heroes 🖱️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Clicker Heroes is an original idle clicker game. Go on an epic adventure and slay monsters, upgrade heroes with the gold you collect, find treasures, and kill bosses.",
+  "thumbnail": "/games/crazygames-clicker-heroes/online/assets/crazygames-clicker-heroes.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clicker-heroes/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clicker-heroes",
+  "crazygamesSlug": "clicker-heroes"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-piece-the-pattern-528413",
+  "name": "Piece the Pattern",
+  "author": "verd1s",
+  "description": "Play Piece the Pattern via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019e2bba34b5031e721ea4e948ba8e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019e2bba34b5031e721ea4e948ba8e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-528413.games.s3.yandex.net/528413/boglb50g9hrj5cp6czxm14e3efbzthi2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=528413&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 528413,
+  "playhopPageUrl": "https://playhop.com/app/528413",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

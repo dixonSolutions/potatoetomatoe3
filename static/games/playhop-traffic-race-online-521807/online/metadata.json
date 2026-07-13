@@ -1,0 +1,17 @@
+{
+  "id": "playhop-traffic-race-online-521807",
+  "name": "Traffic Race Online",
+  "author": "fog3r",
+  "description": "Play Traffic Race Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019db55ceca0b3523cfc05925cfca7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019db55ceca0b3523cfc05925cfca7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-521807.games.s3.yandex.net/521807/tb5mjuu7jidyv4l7laul4ygaocxzgyvb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=521807&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 521807,
+  "playhopPageUrl": "https://playhop.com/app/521807",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 329
+}

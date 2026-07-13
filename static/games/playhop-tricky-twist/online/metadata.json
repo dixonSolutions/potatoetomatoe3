@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tricky-twist",
+  "name": "Tricky Twist",
+  "author": "C Games",
+  "description": "Play Tricky Twist via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a00000197bae130b717ab310d3d3e6a294a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a00000197bae130b717ab310d3d3e6a294a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-415530.games.s3.yandex.net/415530/2lnew7gm0y0761td4cl91sjplwl58zxg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=415530&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 415530,
+  "playhopPageUrl": "https://playhop.com/app/415530",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 20202
+}

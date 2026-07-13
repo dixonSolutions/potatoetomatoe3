@@ -1,0 +1,14 @@
+{
+  "id": "addicting-keymashio",
+  "name": "Keymash.io",
+  "author": "Addicting Games",
+  "description": "<p><a href=\"http://keymash.io/\">Keymash.io</a>: The Ultimate Typing Game for Speed and Skill</p>\n\n<p>Level up your typing game with <a href=\"http://keymash.io/\">Keymash.io</a>, a modern, fully customizable and massively multiplayer typing website designed by typing enthusiasts for the ultimate typing experience. Inspired by the beloved TypeRacer, <a href=\"http://keymash.io/\">Keymash.io</a> sets itself apart with its exceptional customizability and ultra-smooth fluid typing interface. Jump right in to a modern global multiplayer typing game, engage with typists globally that challenge your speed and accuracy. Perfect for both pros to beginners, <a href=\"http://keymash.io/\">Keymash.io</a> is not just a game - it's a community and a tool for honing your typing skills in a fun, interactive environment.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/keymash-io.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/keymash-io.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://keymash.io/?embed=true",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/keymashio"
+}

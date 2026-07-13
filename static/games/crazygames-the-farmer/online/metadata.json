@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-the-farmer",
+  "name": "The Farmer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Farmer is a farm management game that lets you take care of a farm by planting different fruits and vegetables, as well as taking care of chickens for their eggs. You make money off of the land, and you use that money to make the land prosper - which in turn makes more money for you.",
+  "thumbnail": "https://imgs.crazygames.com/games/the-farmer/cover-1629155461297.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/the-farmer/cover-1629155461297.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-farmer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-farmer",
+  "crazygamesSlug": "the-farmer"
+}

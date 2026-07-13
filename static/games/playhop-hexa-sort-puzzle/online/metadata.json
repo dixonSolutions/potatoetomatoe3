@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hexa-sort-puzzle",
+  "name": "Hexa Sort Puzzle",
+  "author": "Addictive Games Official",
+  "description": "Play Hexa Sort Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000194f05e6bafd44008a727dd736a36/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000194f05e6bafd44008a727dd736a36/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-382009.games.s3.yandex.net/382009/tuw97qfncvbnmsilnswjjdxlla8b2vof/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=382009&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 382009,
+  "playhopPageUrl": "https://playhop.com/app/382009",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 23908
+}

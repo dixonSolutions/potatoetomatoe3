@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stack-it",
+  "name": "STACK.it 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "STACK.it is a mesmerizing merging game where you swipe or use arrow keys to create stacks. Watch as smaller stacks leap onto larger ones, triggering explosive-size upgrades when they match.",
+  "thumbnail": "https://imgs.crazygames.com/stack-it_16x9/20230921032106/stack-it_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stack-it_16x9/20230921032106/stack-it_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stack-it/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stack-it",
+  "crazygamesSlug": "stack-it"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-bang-bang-283543",
+  "name": "Mahjong Bang Bang",
+  "author": "se",
+  "description": "Play Mahjong Bang Bang via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018cc59ea679789351ab04a19a8a3c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018cc59ea679789351ab04a19a8a3c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-283543.games.s3.yandex.net/283543/chcetgtvruem7o05goa311d004ess7r3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=283543&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 283543,
+  "playhopPageUrl": "https://playhop.com/app/283543",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 9274
+}

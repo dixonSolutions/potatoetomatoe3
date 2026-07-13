@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cookie-clicker",
+  "name": "Cookie Clicker",
+  "author": "Coolmath Games",
+  "description": "Cookie Clicker is an iconic clicker game with the goal of baking as many cookies as possible. Upgrade your resources to bake more and more sweet treats.",
+  "thumbnail": "/games/coolmath-cookie-clicker/online/assets/coolmath-cookie-clicker.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/55844/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cookie-clicker",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cookie-clicker"
+}

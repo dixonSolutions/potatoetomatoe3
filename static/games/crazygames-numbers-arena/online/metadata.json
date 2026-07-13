@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-numbers-arena",
+  "name": "Numbers Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Numbers Arena is a math, snake, and merge game altogether in one game. The green number means pluses, the red number means minus, and the yellow x2 is to multiply your number.",
+  "thumbnail": "https://imgs.crazygames.com/numbers-arena_16x9/20231006022522/numbers-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/numbers-arena_16x9/20231006022522/numbers-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/numbers-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/numbers-arena",
+  "crazygamesSlug": "numbers-arena"
+}

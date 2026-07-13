@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hotel-life",
+  "name": "Hotel Life",
+  "author": "Eidolon LLC",
+  "description": "Play Hotel Life via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001951415a1c243405ca7571ab2bb74/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001951415a1c243405ca7571ab2bb74/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-389252.games.s3.yandex.net/389252/8np8wmw09ngw3lxfvholpbf7bg2y9sys/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 352646,
+  "playhopPageUrl": "https://playhop.com/app/352646",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 2908
+}

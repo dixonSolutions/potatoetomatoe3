@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-bot-bumper",
+  "name": "bot bumper",
+  "author": "CrazyGames",
+  "description": "Play bot bumper on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bot-bumper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bot-bumper",
+  "crazygamesSlug": "bot-bumper"
+}

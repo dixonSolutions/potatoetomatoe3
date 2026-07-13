@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-idle-ants",
+  "name": "Idle Ants 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Ants is a fun idle game in which you must create and manage your very own Ant colony! To start with, you must create your first ant!",
+  "thumbnail": "/games/crazygames-idle-ants/online/assets/crazygames-idle-ants.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-ants/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-ants",
+  "crazygamesSlug": "idle-ants"
+}

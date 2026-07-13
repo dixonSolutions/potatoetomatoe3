@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-choppy-orc",
+  "name": "Choppy Orc - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Grab your magic axe and free the captives in Choppy Orc. Dodge traps and defeat the enemies lurking in the caves to make it to the end of the game.",
+  "thumbnail": "/games/coolmath-choppy-orc/online/assets/coolmath-choppy-orc.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25359/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-choppy-orc",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-choppy-orc"
+}

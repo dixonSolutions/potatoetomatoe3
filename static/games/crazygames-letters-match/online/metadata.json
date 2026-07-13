@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-letters-match",
+  "name": "Letters Match 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Letters Match is a puzzle game where you combine identical letters or magic words to clear them from the field. It blends elements of matching games, word searches, and field-clearing challenges.",
+  "thumbnail": "https://imgs.crazygames.com/letters-match_16x9/20240515030654/letters-match_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/letters-match_16x9/20240515030654/letters-match_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/letters-match/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/letters-match",
+  "crazygamesSlug": "letters-match"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ember-ruin",
+  "name": "Ember Ruin 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ember Ruin is a dark-fantasy RPG where you step into a cursed, crumbling world overrun by chaos and powerful foes. Assemble heroes, battle monstrous enemies, and take on challenging bosses as you uncover the secrets hidden within the ruins.",
+  "thumbnail": "https://imgs.crazygames.com/ember-ruin_16x9/20260204074706/ember-ruin_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ember-ruin_16x9/20260204074706/ember-ruin_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ember-ruin/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ember-ruin",
+  "crazygamesSlug": "ember-ruin"
+}

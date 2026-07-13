@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sticky-fruits",
+  "name": "Sticky Fruits 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sticky Fruits is a fun arcade game where you must destroy as many fruits as possible and get the highest score. Burst delicious fruits with a simple click.",
+  "thumbnail": "https://imgs.crazygames.com/sticky-fruits_16x9/20240226080255/sticky-fruits_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sticky-fruits_16x9/20240226080255/sticky-fruits_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sticky-fruits/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sticky-fruits",
+  "crazygamesSlug": "sticky-fruits"
+}

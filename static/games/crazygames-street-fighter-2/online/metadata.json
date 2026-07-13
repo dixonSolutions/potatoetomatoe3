@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-street-fighter-2",
+  "name": "Street Fighter 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Street Fighter 2 is a classic fighting game featuring the epic Ryu vs Sagat fight. Use a combination of hadoukens and shoryukens to beat Sagat into submission.",
+  "thumbnail": "/games/crazygames-street-fighter-2/online/assets/crazygames-street-fighter-2.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/street-fighter-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/street-fighter-2",
+  "crazygamesSlug": "street-fighter-2"
+}

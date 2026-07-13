@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-shooterz",
+  "name": "ShooterZ 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "ShooterZ is an awesome first person shooter game set in the blocky and pixelated world of Minecraft! You can choose any one of the fun characters in the game to play is and try to survive against hordes of pixelated zombies!",
+  "thumbnail": "https://imgs.crazygames.com/shooterz.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/shooterz.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shooterz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shooterz",
+  "crazygamesSlug": "shooterz"
+}

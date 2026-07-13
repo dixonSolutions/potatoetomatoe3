@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bloxorz",
+  "name": "Bloxorz - Play Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Toss and turn all around the map in Bloxorz, the legendary block-flipping game. Make it through all 33 levels to become master of the rectangular brick.",
+  "thumbnail": "/games/coolmath-bloxorz/online/assets/coolmath-bloxorz.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48807/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bloxorz",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bloxorz"
+}

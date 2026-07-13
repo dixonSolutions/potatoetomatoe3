@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-broken-tv",
+  "name": "Broken TV - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Broken TV at Cool Math Games: What&#039;s wrong with this wacky TV? Unscramble the puzzle to see the true image.",
+  "thumbnail": "/games/coolmath-broken-tv/online/assets/coolmath-broken-tv.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32463/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-broken-tv",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-broken-tv"
+}

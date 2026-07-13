@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-beam",
+  "name": "Beam 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Beam is a fantastic puzzle game with a mission to guide the beam from the entrance to the exit points.  Release Date May 2020  Developer Beam was developed by goldenPiGames.",
+  "thumbnail": "https://imgs.crazygames.com/games/beam/cover-1617907659300.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/beam/cover-1617907659300.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/beam/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/beam",
+  "crazygamesSlug": "beam"
+}

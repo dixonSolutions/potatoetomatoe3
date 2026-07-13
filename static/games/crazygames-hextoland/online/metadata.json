@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hextoland",
+  "name": "Hexo Land 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hexo Land is a game where you create and expand your own island in the vast ocean. Use trade ships to acquire unique hexagon blocks, strategically growing and enhancing your island’s features.",
+  "thumbnail": "https://imgs.crazygames.com/hextoland_16x9/20241118094523/hextoland_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hextoland_16x9/20241118094523/hextoland_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hextoland/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hextoland",
+  "crazygamesSlug": "hextoland"
+}

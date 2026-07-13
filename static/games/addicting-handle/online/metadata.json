@@ -1,0 +1,14 @@
+{
+  "id": "addicting-handle",
+  "name": "Handle",
+  "author": "Addicting Games",
+  "description": "<p>Mix Wordle with cards and what do you get? Handle! Click through all the cards in a deck and figure out what hand the dealer is keeping from you!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Handle.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Handle.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/handle/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/handle"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-cowz-io",
+  "name": "cowz io",
+  "author": "CrazyGames",
+  "description": "Play cowz io on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cowz-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cowz-io",
+  "crazygamesSlug": "cowz-io"
+}

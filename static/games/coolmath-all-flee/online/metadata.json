@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-all-flee",
+  "name": "All Flee - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Make for the exit, but make sure they all flee! That&#039;s easier said than done when every one of your clones moves at the same time!",
+  "thumbnail": "/games/coolmath-all-flee/online/assets/coolmath-all-flee.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50719/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-all-flee",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-all-flee"
+}

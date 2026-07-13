@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bubble-invasion",
+  "name": "Play Bubble Invasion: Gotta pop &#039;em all | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The bubbles are overflowing! Pop them by matching three of the same color and pop the rainbow bubble to clear the level. How fast can you go?",
+  "thumbnail": "/games/coolmath-bubble-invasion/online/assets/coolmath-bubble-invasion.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37431/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bubble-invasion",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bubble-invasion"
+}

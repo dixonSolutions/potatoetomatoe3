@@ -1,0 +1,17 @@
+{
+  "id": "playhop-supercity-3d-460507",
+  "name": "SuperCity 3D",
+  "author": "StarGames studio",
+  "description": "Play SuperCity 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d8a9d1f67b1a33b82e5734d96c0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019d8a9d1f67b1a33b82e5734d96c0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-460507.games.s3.yandex.net/460507/85m580u4vkrtgpjm5nxmipozefchdwhr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=460507&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 460507,
+  "playhopPageUrl": "https://playhop.com/app/460507",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 143
+}

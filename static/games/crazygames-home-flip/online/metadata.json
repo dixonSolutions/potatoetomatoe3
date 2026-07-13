@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-home-flip",
+  "name": "Home Flip 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Home Flip is a casual arcade game where you are too tired to walk but you need to get to your comfy bed. Leap and somersault through your house, dodging obstacles like tables, chairs, and lamps on your way to bed.",
+  "thumbnail": "https://imgs.crazygames.com/home-flip_16x9/20231004111234/home-flip_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/home-flip_16x9/20231004111234/home-flip_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/home-flip/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/home-flip",
+  "crazygamesSlug": "home-flip"
+}

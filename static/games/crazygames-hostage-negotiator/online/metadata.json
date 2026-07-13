@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hostage-negotiator",
+  "name": "Hostage Negotiator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hostage Negotiator is a casual quiz game where you step into the intense and high-stakes world of hostage negotiation. The fate of innocent lives rests in your hands as you navigate complex scenarios, make crucial decisions, and try to save everyone caught in a terrible situation.",
+  "thumbnail": "https://imgs.crazygames.com/hostage-negotiator_16x9/20240906120529/hostage-negotiator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hostage-negotiator_16x9/20240906120529/hostage-negotiator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hostage-negotiator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hostage-negotiator",
+  "crazygamesSlug": "hostage-negotiator"
+}

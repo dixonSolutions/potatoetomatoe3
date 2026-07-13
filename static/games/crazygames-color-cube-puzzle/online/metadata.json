@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-cube-puzzle",
+  "name": "Color Cube Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color Cube Puzzle is a relaxing logic puzzle game where careful planning and smart moves are the key to success.Move different shapes onto the cube conveyors and match them with cubes of the same color.",
+  "thumbnail": "https://imgs.crazygames.com/color-cube-puzzle_16x9/20260508060648/color-cube-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/color-cube-puzzle_16x9/20260508060648/color-cube-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-cube-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-cube-puzzle",
+  "crazygamesSlug": "color-cube-puzzle"
+}

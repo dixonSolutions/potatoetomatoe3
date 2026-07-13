@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dragon-joust",
+  "name": "Dragon Joust (.io) 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dragon Joust is a .io game where you must hop aboard your dragon and joust! As you knock enemies off their dragons, you can collect the loot they drop.",
+  "thumbnail": "https://imgs.crazygames.com/dragon-joust/20221202190705/dragon-joust-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dragon-joust/20221202190705/dragon-joust-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dragon-joust/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dragon-joust",
+  "crazygamesSlug": "dragon-joust"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-derbycrash",
+  "name": "Derby Crash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Derby Crash is a 3D car driving game inspired by the world of demolition derbies. In this motorsport, multiple drivers compete by crashing their vehicles into each other.",
+  "thumbnail": "https://imgs.crazygames.com/games/derbycrash/cover_16x9-1748944881794.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/derbycrash/cover_16x9-1748944881794.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/derbycrash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/derbycrash",
+  "crazygamesSlug": "derbycrash"
+}

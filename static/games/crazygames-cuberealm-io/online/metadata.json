@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cuberealm-io",
+  "name": "CubeRealm.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "CubeRealm.io is a captivating online block game inspired by classics like Minecraft and Terraria. In this immersive world, you’ll gather resources, craft tools, and explore diverse biomes from skylands to deep underground caverns.",
+  "thumbnail": "https://imgs.crazygames.com/cuberealm-io_16x9/20260220025908/cuberealm-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cuberealm-io_16x9/20260220025908/cuberealm-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cuberealm-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cuberealm-io",
+  "crazygamesSlug": "cuberealm-io"
+}

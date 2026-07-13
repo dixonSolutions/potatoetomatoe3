@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-road-turn",
+  "name": "Road Turn 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "In Road Turn, a fun one-button car game, your job is to direct the traffic. Prevent traffic accidents by controlling when the cars can turn onto the highway.",
+  "thumbnail": "https://imgs.crazygames.com/road-turn-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/road-turn-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/road-turn/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/road-turn",
+  "crazygamesSlug": "road-turn"
+}

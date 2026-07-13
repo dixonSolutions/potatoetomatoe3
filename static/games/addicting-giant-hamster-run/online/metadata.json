@@ -1,0 +1,14 @@
+{
+  "id": "addicting-giant-hamster-run",
+  "name": "Giant Hamster Run",
+  "author": "Addicting Games",
+  "description": "<p>You're a tiny hamster turned into a giant hamster. Suddenly, everything seems so small. Run along the city streets. Switch lanes, jump and slide to avoid obstacles such as roadblocks and police cars. Collect coins and cookies along the way. Use coins to purchase cool items, such as a skateboard, rocket pack and yes, a magic carpet!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/giant-hamster-run_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/giant-hamster-run_sp.png",
+  "thumbnailStored": "remote",
+  "category": "embeddable-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/giant-hamster-run/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/giant-hamster-run"
+}

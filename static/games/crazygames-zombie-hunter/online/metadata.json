@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-zombie-hunter",
+  "name": "zombie hunter",
+  "author": "CrazyGames",
+  "description": "Play zombie hunter on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-hunter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-hunter",
+  "crazygamesSlug": "zombie-hunter"
+}

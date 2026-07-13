@@ -1,0 +1,17 @@
+{
+  "id": "playhop-flicking-soccer-96690",
+  "name": "Flicking Soccer",
+  "author": "CodeThisLab",
+  "description": "Play Flicking Soccer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018b27de901e265fdc6030443e847e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018b27de901e265fdc6030443e847e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96690.games.s3.yandex.net/96690/1cgneu45chj7pd16hosi4om46j9680vn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96690&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96690,
+  "playhopPageUrl": "https://playhop.com/app/96690",
+  "playhopRating": 2.8,
+  "playhopRatingCount": 773
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-basket-monsterz",
+  "name": "basket monsterz",
+  "author": "CrazyGames",
+  "description": "Play basket monsterz on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-basket-monsterz/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/basket-monsterz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/basket-monsterz",
+  "crazygamesSlug": "basket-monsterz"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wood-cutting-193649",
+  "name": "Wood Cutting",
+  "author": "Cocos Labs",
+  "description": "Play Wood Cutting via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018271376d97201d1725644177da53/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018271376d97201d1725644177da53/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-193649.games.s3.yandex.net/193649/yjsam1709a5fd0lq9cm2pvv1pt0ei65k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=193649&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 193649,
+  "playhopPageUrl": "https://playhop.com/app/193649",
+  "playhopRating": 3.2,
+  "playhopRatingCount": 7231
+}

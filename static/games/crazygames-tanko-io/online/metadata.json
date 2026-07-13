@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tanko-io",
+  "name": "Tanko.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tanko.io is a tank battle .io game where two teams of 5 players go head to head in all out warfare. The objective of the game is to destroy the opposing teams base by depleting its health with your artillery strikes.",
+  "thumbnail": "https://imgs.crazygames.com/tanko-io.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tanko-io.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tanko-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tanko-io",
+  "crazygamesSlug": "tanko-io"
+}

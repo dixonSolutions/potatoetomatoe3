@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-collapstle",
+  "name": "Collapstle - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Play Collapstle - Play it Online at Coolmath Games on Potato Tomato (via coolmath).",
+  "thumbnail": "/games/coolmath-collapstle/online/assets/coolmath-collapstle.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49390/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-collapstle",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-collapstle"
+}

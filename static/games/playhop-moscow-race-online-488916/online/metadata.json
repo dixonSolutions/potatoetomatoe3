@@ -1,0 +1,17 @@
+{
+  "id": "playhop-moscow-race-online-488916",
+  "name": "Moscow Race Online",
+  "author": "RKCorp",
+  "description": "Play Moscow Race Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019dc5ef37b4f4e8d26a5d074d9ba8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019dc5ef37b4f4e8d26a5d074d9ba8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-488916.games.s3.yandex.net/488916/8dvsmajrutr806946vqy674u1jmkjxvr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=488916&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 488916,
+  "playhopPageUrl": "https://playhop.com/app/488916",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1299
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-soccer-merge",
+  "name": "Soccer Merge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Soccer Merge is a fun and casual football game where you combine strategy and skill to build the ultimate team. The goal of the game is to earn money by winning competitions, attract the best players to your side, and create your ideal football team.",
+  "thumbnail": "https://imgs.crazygames.com/soccer-merge_16x9/20241106070215/soccer-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/soccer-merge_16x9/20241106070215/soccer-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/soccer-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/soccer-merge",
+  "crazygamesSlug": "soccer-merge"
+}

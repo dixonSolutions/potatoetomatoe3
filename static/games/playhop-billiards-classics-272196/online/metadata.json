@@ -1,0 +1,17 @@
+{
+  "id": "playhop-billiards-classics-272196",
+  "name": "Billiards Classics",
+  "author": "Th0mas",
+  "description": "Play Billiards Classics via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018c3f6ee9d1c6ebb96efe1c01f859/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018c3f6ee9d1c6ebb96efe1c01f859/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-272196.games.s3.yandex.net/272196/7tqto2stouetogg5xn1hfg6w55pk2yse/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=272196&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 272196,
+  "playhopPageUrl": "https://playhop.com/app/272196",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 157
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-jump-and-hover",
+  "name": "Jump and Hover 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jump and Hover is a puzzle platform game where you can hover midair but only for a short time. Recharge your hover energy by landing on the ground or touching a battery.",
+  "thumbnail": "https://imgs.crazygames.com/jump-and-hover/20211202100728/jump-and-hover-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/jump-and-hover/20211202100728/jump-and-hover-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jump-and-hover/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jump-and-hover",
+  "crazygamesSlug": "jump-and-hover"
+}

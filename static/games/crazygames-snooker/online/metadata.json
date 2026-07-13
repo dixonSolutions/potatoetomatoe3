@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-snooker",
+  "name": "Snooker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Snooker is a cue sport played with 15 red balls, six colored balls, and one white cue ball. At the start of the game, the red balls are arranged in a triangle, the colored balls are placed on their marked spots, and the cue ball begins inside the D, the half-moon area used for the opening break.",
+  "thumbnail": "https://imgs.crazygames.com/snooker_16x9/20260130080858/snooker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/snooker_16x9/20260130080858/snooker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/snooker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/snooker",
+  "crazygamesSlug": "snooker"
+}

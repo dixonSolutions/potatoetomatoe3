@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-forge-and-fortune",
+  "name": "Forge & Fortune 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Forge & Fortune is an incremental crafting and adventuring game in which you can play directly in your browser!  Release Date June 2020  Platform Web browser",
+  "thumbnail": "https://imgs.crazygames.com/forge-and-fortune/20201211070303/forge-and-fortune-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/forge-and-fortune/20201211070303/forge-and-fortune-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/forge-and-fortune/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/forge-and-fortune",
+  "crazygamesSlug": "forge-and-fortune"
+}

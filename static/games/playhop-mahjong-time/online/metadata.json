@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-time",
+  "name": "Mahjong Time",
+  "author": "Xmiro",
+  "description": "Play Mahjong Time via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018fce7ae1e4a1892591f85e835b67/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018fce7ae1e4a1892591f85e835b67/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-340757.games.s3.yandex.net/340757/zfzgu4me9jk4n33u34ex1iis4jvv789k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=340757&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 340757,
+  "playhopPageUrl": "https://playhop.com/app/340757",
+  "playhopRating": 4,
+  "playhopRatingCount": 130
+}

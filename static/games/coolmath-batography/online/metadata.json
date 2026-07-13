@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-batography",
+  "name": "Batography: Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The moon is ever-changing, but that doesn&#039;t mean you can&#039;t take photos. Become a Batography expert, help the neighbors, and see the full moon.",
+  "thumbnail": "/games/coolmath-batography/online/assets/coolmath-batography.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41850/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-batography",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-batography"
+}

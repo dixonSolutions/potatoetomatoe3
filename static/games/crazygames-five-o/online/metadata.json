@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-five-o",
+  "name": "Five-O 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Five-O puts a numerical twist on the classic crossword board game! Instead of letters, you place number tiles, forming sequences that must add up to multiples of five, with no more than five tiles per sequence.",
+  "thumbnail": "https://imgs.crazygames.com/five-o_16x9/20250206063438/five-o_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/five-o_16x9/20250206063438/five-o_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/five-o/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/five-o",
+  "crazygamesSlug": "five-o"
+}

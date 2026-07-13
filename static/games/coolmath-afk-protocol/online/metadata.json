@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-afk-protocol",
+  "name": "AFK Protocol - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Help the AFK player get to the exit! Slingshot and slide your character to the exit using the level&#039;s rubbery walls. Can you beat the AFK protocol?",
+  "thumbnail": "/games/coolmath-afk-protocol/online/assets/coolmath-afk-protocol.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50650/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-afk-protocol",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-afk-protocol"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mecha-run",
+  "name": "Mecha Run 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mecha Run is a casual game where you control a mecha robot through a series of obstacles to the finish line. You can control your character using a keyboard or change the control mode to use your mouse instead.",
+  "thumbnail": "https://imgs.crazygames.com/mecha-run/20230424171326/mecha-run-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mecha-run/20230424171326/mecha-run-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mecha-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mecha-run",
+  "crazygamesSlug": "mecha-run"
+}

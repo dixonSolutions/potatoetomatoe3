@@ -1,0 +1,17 @@
+{
+  "id": "playhop-slime-yum-513460",
+  "name": "Slime Yum!",
+  "author": "NANAMINER",
+  "description": "Play Slime Yum! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019d6e9e937fa30445762f134efca8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019d6e9e937fa30445762f134efca8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-513460.games.s3.yandex.net/513460/1riuhjuhacqzslcf0xa372me2c9h250o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=513460&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 513460,
+  "playhopPageUrl": "https://playhop.com/app/513460",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 62
+}

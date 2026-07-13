@@ -1,0 +1,14 @@
+{
+  "id": "addicting-4-in-a-row",
+  "name": "4 in a Row",
+  "author": "Addicting Games",
+  "description": "<p>Play multiplayer 4 in a Row online! Challenge friends or opponents worldwide—drop your discs strategically and connect four vertically, horizontally, or diagonally to win.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/4inarow-thumbnail-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/4inarow-thumbnail-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "multiplayer-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://foony.com/games/4-in-a-row-connect?platform=addictinggames",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/4-in-a-row"
+}

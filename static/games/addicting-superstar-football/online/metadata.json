@@ -1,0 +1,14 @@
+{
+  "id": "addicting-superstar-football",
+  "name": "Superstar Football",
+  "author": "Addicting Games",
+  "description": "<p>Superstar Footballis a free sports game. You want a football game? We deliver! Build a team from scratch; buy better players as you start winning. Use Star Power to make your team play its best! Check out new features like extra fields, new plays and weather!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/superstarfootball_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/superstarfootball_sp.png",
+  "thumbnailStored": "remote",
+  "category": "sports",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/superstarfootball.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/superstar-football"
+}

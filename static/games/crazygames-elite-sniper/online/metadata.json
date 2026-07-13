@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-elite-sniper",
+  "name": "elite sniper",
+  "author": "CrazyGames",
+  "description": "Play elite sniper on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/elite-sniper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/elite-sniper",
+  "crazygamesSlug": "elite-sniper"
+}

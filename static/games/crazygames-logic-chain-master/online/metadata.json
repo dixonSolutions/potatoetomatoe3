@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-logic-chain-master",
+  "name": "Logic Chain Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Logic Chain Master is a new minimalist puzzle game with simple rules and endless possibilities. Connect not just numbers, but your logic and courage!",
+  "thumbnail": "https://imgs.crazygames.com/logic-chain-master_16x9/20260423070730/logic-chain-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/logic-chain-master_16x9/20260423070730/logic-chain-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/logic-chain-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/logic-chain-master",
+  "crazygamesSlug": "logic-chain-master"
+}

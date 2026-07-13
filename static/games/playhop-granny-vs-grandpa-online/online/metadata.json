@@ -1,0 +1,17 @@
+{
+  "id": "playhop-granny-vs-grandpa-online",
+  "name": "Granny vs Grandpa Online",
+  "author": "Barabaha",
+  "description": "Play Granny vs Grandpa Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019352a308c91a7e05b8b2b5455c4e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019352a308c91a7e05b8b2b5455c4e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-389848.games.s3.yandex.net/389848/msbgqvtmjwmws86souhu6azle2af9fkk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=389848&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 389848,
+  "playhopPageUrl": "https://playhop.com/app/389848",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 1033
+}

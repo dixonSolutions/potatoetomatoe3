@@ -1,0 +1,14 @@
+{
+  "id": "addicting-santa-run",
+  "name": "Santa Run",
+  "author": "Addicting Games",
+  "description": "<p>Santa Run is an endless runner game where Santa Claus is the main character. Santa’s running behind on schedule and he needs to get these toys to all the good boys and girls. Help Santa Claus run across from building to building as he avoids dangerous obstacles like icicles and towers. Do not fall in between buildings or else Santa will get hurt and Christmas will be over! Santa also needs to hop over chimneys to drop off the presents so make sure not to miss a single one. At the end of each game session, you’ll see your most recent score and your best one. Play again to beat your previous score and to rise up the leaderboards. Click on the leaderboards icon in the lower right-hand corner to see where you stand with other Santa runners in this online game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-12-01_104944349.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-12-01_104944349.png",
+  "thumbnailStored": "remote",
+  "category": "obstacle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/santa-run/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/santa-run"
+}

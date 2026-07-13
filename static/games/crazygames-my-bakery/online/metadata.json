@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-my-bakery",
+  "name": "My bakery 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Build your confectionery empire in Family Bakery. Bake delicious treats, serve guests, and decorate your café in this cozy simulator designed for everyone.",
+  "thumbnail": "https://imgs.crazygames.com/my-bakery_16x9/20260417023910/my-bakery_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/my-bakery_16x9/20260417023910/my-bakery_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/my-bakery/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/my-bakery",
+  "crazygamesSlug": "my-bakery"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-junglix-485825",
+  "name": "Junglix",
+  "author": "H5Games.Online",
+  "description": "Play Junglix via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b63f8e7cd252889be635740dbb5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b63f8e7cd252889be635740dbb5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-485825.games.s3.yandex.net/485825/e9gt9ulb75uhuaksl6tk7vvis3mayfzt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=485825&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 485825,
+  "playhopPageUrl": "https://playhop.com/app/485825",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 98
+}

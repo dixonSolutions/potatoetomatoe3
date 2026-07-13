@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ait-battle-141588",
+  "name": "Ait Battle",
+  "author": "JustSomeGames",
+  "description": "Play Ait Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000186d2284f7f4c6aa4fc014f12fbfe/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000186d2284f7f4c6aa4fc014f12fbfe/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-141588.games.s3.yandex.net/141588/itepw4jpjvyi6xvmftlksy3xafwo38ta/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=141588&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 141588,
+  "playhopPageUrl": "https://playhop.com/app/141588",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 10747
+}

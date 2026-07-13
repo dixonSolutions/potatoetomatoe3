@@ -1,0 +1,14 @@
+{
+  "id": "addicting-oceanboundio",
+  "name": "oceanbound.io",
+  "author": "Addicting Games",
+  "description": "<p><strong>oceanbound.io</strong> is a top-down online naval combat game where players command customizable ships in a vast, minimalist ocean world. Collect experience by destroying objects like crates, lilypads, and wrecks, then upgrade your ship’s individual components.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/game_banner_720x468%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/game_banner_720x468%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "new-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://oceanbound.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/oceanboundio"
+}

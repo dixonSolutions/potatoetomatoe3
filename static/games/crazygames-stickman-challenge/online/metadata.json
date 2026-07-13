@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-stickman-challenge",
+  "name": "stickman challenge",
+  "author": "CrazyGames",
+  "description": "Play stickman challenge on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stickman-challenge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stickman-challenge",
+  "crazygamesSlug": "stickman-challenge"
+}

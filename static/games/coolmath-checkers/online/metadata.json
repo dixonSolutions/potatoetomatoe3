@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-checkers",
+  "name": "Play Checkers Online Game | Free at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Play online checkers game vs. the computer, against a friend, or an opponent in online matchmaking. This game will push your cognitive abilities to the max.",
+  "thumbnail": "/games/coolmath-checkers/online/assets/coolmath-checkers.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/55638/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-checkers",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-checkers"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pass-the-bomb",
+  "name": "Pass The Bomb 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pass the Bomb is a thrilling arcade game that places players in a high-stakes, time-sensitive situation. The objective is simple yet heart-pounding: pass a bomb from one player to another.",
+  "thumbnail": "https://imgs.crazygames.com/pass-the-bomb_16x9/20231025145821/pass-the-bomb_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pass-the-bomb_16x9/20231025145821/pass-the-bomb_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pass-the-bomb/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pass-the-bomb",
+  "crazygamesSlug": "pass-the-bomb"
+}

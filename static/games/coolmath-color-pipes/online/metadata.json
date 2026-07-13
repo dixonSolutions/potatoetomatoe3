@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-pipes",
+  "name": "Color Pipes - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Pipes at Cool Math Games: Can you get all the pipes connected? Find the right paths to fill in all the tiles without any overlaps.",
+  "thumbnail": "/games/coolmath-color-pipes/online/assets/coolmath-color-pipes.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/27491/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-pipes",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-pipes"
+}

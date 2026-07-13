@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-greedy-dwarves",
+  "name": "Greedy Dwarves 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Manage a dwarven mine and get all possible coins by selling the gold you extract.  Game Information    Mine cart wait: reduce the waiting time of the minecart   Gold x Click: increase the gold extracted with each click   New gallery: unlock a new gallery   Mine capacity: increase the capacity of the elevator and the minecart   Gold price: increase the coins earned for each gram of gold   Elevator wait: reduce the waiting time of the elevator   Add dwarf: hire a new dwarf for your mine   Dwarf extract: increase the amount of gold extracted by the dwarves   Dwarf speed: increase movement speed of dwarves   Auto extract: automatic gold extraction   Evolve dwarf: evolve a dwarf to the next level   Release Date January 2020  Developer Greedy Dwarves was made by BEAVER PROJECT.",
+  "thumbnail": "https://imgs.crazygames.com/greedy-dwarves-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/greedy-dwarves-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/greedy-dwarves/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/greedy-dwarves",
+  "crazygamesSlug": "greedy-dwarves"
+}

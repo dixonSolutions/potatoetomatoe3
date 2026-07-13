@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-shootup-io",
+  "name": "Shootup.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Shootup.io is a multiplayer zombie shooter game. You are in a mysterious town full of infected zombies.",
+  "thumbnail": "https://imgs.crazygames.com/games/shootup-io/cover-1591189263817.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/shootup-io/cover-1591189263817.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shootup-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shootup-io",
+  "crazygamesSlug": "shootup-io"
+}

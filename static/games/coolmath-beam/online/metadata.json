@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-beam",
+  "name": "Beam - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Beam at Cool Math Games: Guide your laser through 7 different mini-games! Bounce off walls, escape a maze, do whatever it takes to reach the other side.",
+  "thumbnail": "/games/coolmath-beam/online/assets/coolmath-beam.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33831/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-beam",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-beam"
+}

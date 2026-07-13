@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-the-spear-stickman",
+  "name": "The Spear Stickman 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Spear Stickman is a fun and fast-paced stick game of brutal spear throwing combat. You control a stickman armed only with a spear - you must kill the other stickmen who appear at random on different platforms and attempt to kill you.",
+  "thumbnail": "/games/crazygames-the-spear-stickman/online/assets/crazygames-the-spear-stickman.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-spear-stickman/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-spear-stickman",
+  "crazygamesSlug": "the-spear-stickman"
+}

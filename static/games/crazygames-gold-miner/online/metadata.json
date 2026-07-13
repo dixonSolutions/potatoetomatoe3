@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-gold-miner",
+  "name": "Gold Miner ⛏️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gold Miner is a classic casual mining game that has captivated players for years. In this timeless adventure, you&#39;ll look to collect gold, stones, and minerals to reach your daily goal and accumulate wealth beyond your wildest dreams.",
+  "thumbnail": "/games/crazygames-gold-miner/online/assets/crazygames-gold-miner.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gold-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gold-miner",
+  "crazygamesSlug": "gold-miner"
+}

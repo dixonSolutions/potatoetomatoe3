@@ -1,0 +1,17 @@
+{
+  "id": "playhop-moon-lander-224958",
+  "name": "Moon Lander",
+  "author": "Иван Кулибинъ",
+  "description": "Play Moon Lander via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c0ee72d4356f2c7b42dc9759a3c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c0ee72d4356f2c7b42dc9759a3c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-224958.games.s3.yandex.net/224958/iseh7qjpevzswafxs1ke362j3k61iwkd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=224958&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 224958,
+  "playhopPageUrl": "https://playhop.com/app/224958",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 1219
+}

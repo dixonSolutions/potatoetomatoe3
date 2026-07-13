@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-sushi-go-round",
+  "name": "Sushi Go Round 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sushi Go Round is an arcade game where you play as the chef at a sushi bar. Keep customers happy by serving the dishes they want.",
+  "thumbnail": "/games/crazygames-sushi-go-round/online/assets/crazygames-sushi-go-round.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sushi-go-round/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sushi-go-round",
+  "crazygamesSlug": "sushi-go-round"
+}

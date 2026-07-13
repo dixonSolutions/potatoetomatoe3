@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-music-rush",
+  "name": "Music Rush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Music Rush is a casual rhythmic game where you journey through your music career alongside iconic stars. With 15 original songs spanning genres: electronic, rock, disco, pop, k-pop, classic, samba, latina, reggae, rap, medieval, dungeon, and country, discover your musical niche.",
+  "thumbnail": "https://imgs.crazygames.com/music-rush_16x9/20240220054840/music-rush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/music-rush_16x9/20240220054840/music-rush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/music-rush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/music-rush",
+  "crazygamesSlug": "music-rush"
+}

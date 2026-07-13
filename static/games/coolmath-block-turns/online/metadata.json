@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-block-turns",
+  "name": "Block Turns - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Block Turns at Cool Math Games: Which way are you pointing? Use your turn blocks to get all the arrows synced up.",
+  "thumbnail": "/games/coolmath-block-turns/online/assets/coolmath-block-turns.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24873/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-block-turns",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-block-turns"
+}

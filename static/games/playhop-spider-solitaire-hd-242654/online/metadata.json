@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-solitaire-hd-242654",
+  "name": "Spider Solitaire HD",
+  "author": "mbkj",
+  "description": "Play Spider Solitaire HD via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018968bc068d7c329f00be915bcff9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018968bc068d7c329f00be915bcff9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-242654.games.s3.yandex.net/242654/pzqirr2wf9kivi4goup7scb1j9a71csr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=242654&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 242654,
+  "playhopPageUrl": "https://playhop.com/app/242654",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1000
+}

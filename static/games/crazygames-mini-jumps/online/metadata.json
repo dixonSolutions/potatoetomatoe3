@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mini-jumps",
+  "name": "Mini Jumps 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mini Jumps is a one-button jumping game to jump over the platforms to reach the goal.  Release Date January 2021  Developer Mini Jumps is developed by NoaDev.",
+  "thumbnail": "https://imgs.crazygames.com/mini-jumps/20221201103128/mini-jumps-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mini-jumps/20221201103128/mini-jumps-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mini-jumps/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mini-jumps",
+  "crazygamesSlug": "mini-jumps"
+}

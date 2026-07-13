@@ -1,0 +1,14 @@
+{
+  "id": "addicting-foon-o",
+  "name": "Foon-o",
+  "author": "Addicting Games",
+  "description": "<p>Foon-o is the ultimate online multiplayer card game inspired by Uno and Crazy Eights, blending the fast-paced fun and strategic twists of classics. Race to clear your hand first while outsmarting friends, family, and players around the world. Each match hones your skills, fuels your competitive spirit, and keeps you coming back for more. Ready to flip cards, match colors, and make daring moves? Jump in now and experience why Foon-o is the go-to choice for nonstop, luck-meets-skill excitement!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Foono-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Foono-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://foony.com/games/foono-online-card-game?platform=addictinggames",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/foon-o"
+}

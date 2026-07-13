@@ -1,0 +1,17 @@
+{
+  "id": "playhop-color-your-favorite-character-290808",
+  "name": "Color Your Favorite Character",
+  "author": "Game Camp",
+  "description": "Play Color Your Favorite Character via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018e98ccb0b8194b13886450edf56f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018e98ccb0b8194b13886450edf56f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-290808.games.s3.yandex.net/290808/54ac6t0nlz26v1tag4kh1fu1f0qy6ybb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=290808&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 290808,
+  "playhopPageUrl": "https://playhop.com/app/290808",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 81
+}

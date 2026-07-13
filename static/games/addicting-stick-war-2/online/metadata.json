@@ -1,0 +1,14 @@
+{
+  "id": "addicting-stick-war-2",
+  "name": "Stick War 2",
+  "author": "Addicting Games",
+  "description": "<p>Turn-based stick-figure warfare for the ages!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/stick-war-2_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/stick-war-2_sp.png",
+  "thumbnailStored": "remote",
+  "category": "fighting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/stick-war-2_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/stick-war-2"
+}

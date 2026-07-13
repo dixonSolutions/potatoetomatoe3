@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-operator",
+  "name": "Operator: Emergency Dispatcher 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "You are the emergency dispatcher of a busy neighborhood.Send police officers, ambulances, and firefighters to incidents across the city.",
+  "thumbnail": "https://imgs.crazygames.com/operator_16x9/20260608020551/operator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/operator_16x9/20260608020551/operator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/operator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/operator",
+  "crazygamesSlug": "operator"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jewels-classic-189051",
+  "name": "Jewels Classic",
+  "author": "Citigo",
+  "description": "Play Jewels Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000180ad1af82b310af7f5c349d1a28a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000180ad1af82b310af7f5c349d1a28a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-189051.games.s3.yandex.net/189051/sekyidvmqzuzjrlcv232qr5mz0a8e22o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=189051&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 189051,
+  "playhopPageUrl": "https://playhop.com/app/189051",
+  "playhopRating": 4,
+  "playhopRatingCount": 1134
+}

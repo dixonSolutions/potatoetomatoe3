@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-road-master",
+  "name": "Road Master 3D 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Road Master 3D is a dynamic construction game where you take charge of creating and expanding city infrastructure. Dig through the terrain, break pavement, and construct roads to transform your surroundings.",
+  "thumbnail": "https://imgs.crazygames.com/road-master_16x9/20241211045650/road-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/road-master_16x9/20241211045650/road-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/road-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/road-master",
+  "crazygamesSlug": "road-master"
+}

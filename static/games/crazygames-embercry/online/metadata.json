@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-embercry",
+  "name": "embercry",
+  "author": "CrazyGames",
+  "description": "Play embercry on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/embercry/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/embercry",
+  "crazygamesSlug": "embercry"
+}

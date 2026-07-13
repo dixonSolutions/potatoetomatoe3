@@ -1,0 +1,17 @@
+{
+  "id": "playhop-football-career-simulator",
+  "name": "Football Career Simulator",
+  "author": "Arctic Fox Games",
+  "description": "Play Football Career Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000198326d0cc4708d3bc32492af1fdd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000198326d0cc4708d3bc32492af1fdd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-427424.games.s3.yandex.net/427424/cst5odlqpq8yw8w5igoe37kd90ju02cw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=427424&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 427424,
+  "playhopPageUrl": "https://playhop.com/app/427424",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 2224
+}

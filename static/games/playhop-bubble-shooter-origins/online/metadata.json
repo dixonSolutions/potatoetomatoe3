@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-shooter-origins",
+  "name": "Bubble Shooter Origins",
+  "author": "FTD",
+  "description": "Play Bubble Shooter Origins via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000193f920fd23648eee0edd2b4b6ef4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000193f920fd23648eee0edd2b4b6ef4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-390459.games.s3.yandex.net/390459/rsqpzspchbmdylg0wff514t2kz18e7kh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=390459&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 390459,
+  "playhopPageUrl": "https://playhop.com/app/390459",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 1732
+}

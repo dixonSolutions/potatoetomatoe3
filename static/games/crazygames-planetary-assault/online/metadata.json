@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-planetary-assault",
+  "name": "Planetary Assault 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Planetary Assault is an idle clicker game where your rockets automatically bombard a planet. Upgrade your rockets to boost their power and earn more gold.",
+  "thumbnail": "https://imgs.crazygames.com/planetary-assault_16x9/20240701070549/planetary-assault_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/planetary-assault_16x9/20240701070549/planetary-assault_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/planetary-assault/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/planetary-assault",
+  "crazygamesSlug": "planetary-assault"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-find-bird",
+  "name": "find bird",
+  "author": "CrazyGames",
+  "description": "Play find bird on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/find-bird/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/find-bird",
+  "crazygamesSlug": "find-bird"
+}

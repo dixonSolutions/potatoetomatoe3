@@ -1,0 +1,14 @@
+{
+  "id": "addicting-last-town",
+  "name": "Last Town",
+  "author": "Addicting Games",
+  "description": "<p>Last Town is a free tower defense game. Defend your town against zombie attacks in this Plants vs. Zombies-style game!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/last-town_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/last-town_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/last-town.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/last-town"
+}

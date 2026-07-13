@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-physics-miner",
+  "name": "Physics Miner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Physics Miner is an adventure game where you mine, destroy, and create chaos using realistic physics in a world that&#39;s constantly evolving. If you enjoy destruction and exploration, this game will keep you hooked with its endless variety of dynamic environments and power-ups.",
+  "thumbnail": "https://imgs.crazygames.com/physics-miner_16x9/20250320083015/physics-miner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/physics-miner_16x9/20250320083015/physics-miner_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/physics-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/physics-miner",
+  "crazygamesSlug": "physics-miner"
+}

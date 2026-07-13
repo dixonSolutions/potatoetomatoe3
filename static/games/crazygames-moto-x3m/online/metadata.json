@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-moto-x3m",
+  "name": "Moto X3M 🏍️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Moto X3M is a driving bike game that takes dirt bike racing to the next level. It combines high-speed thrills with a test of precision and timing across 22 adrenaline-filled levels.",
+  "thumbnail": "/games/crazygames-moto-x3m/online/assets/crazygames-moto-x3m.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/moto-x3m/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/moto-x3m",
+  "crazygamesSlug": "moto-x3m"
+}

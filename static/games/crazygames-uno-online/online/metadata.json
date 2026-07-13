@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-uno-online",
+  "name": "Four Colors | Like UNO Online🃏Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Four Colors lets you play the popular card game for free in your web browser. Your objective is to be the first player with no cards, similar to other Crazy Eights-style card games.",
+  "thumbnail": "/games/crazygames-uno-online/online/assets/crazygames-uno-online.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/uno-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/uno-online",
+  "crazygamesSlug": "uno-online"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bump-bump-bump",
+  "name": "Bump Bump Bump - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bump Bump Bump at Cool Math Games: Boing! Build a bouncing contraption to send your pinballs flying around. Aim carefully and hit the target.",
+  "thumbnail": "/games/coolmath-bump-bump-bump/online/assets/coolmath-bump-bump-bump.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23057/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bump-bump-bump",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bump-bump-bump"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-settlers-of-albion",
+  "name": "Settlers of Albion 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Settlers of Albion is a turn-based defense strategy game about colonizing far-away lands. The goal of the game is to build settlements, upgrade them and defend them against waves of enemies.",
+  "thumbnail": "https://imgs.crazygames.com/settlers-of-albion/20200825111826/settlers-of-albion-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/settlers-of-albion/20200825111826/settlers-of-albion-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/settlers-of-albion/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/settlers-of-albion",
+  "crazygamesSlug": "settlers-of-albion"
+}

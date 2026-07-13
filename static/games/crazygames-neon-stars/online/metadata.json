@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-neon-stars",
+  "name": "Neon Stars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Neon Stars is a casual game where every attack on your ship is a sudden test of reflexes. Amidst the endless expanse of shimmering stars, you must swiftly prepare your weapons for battle.",
+  "thumbnail": "https://imgs.crazygames.com/neon-stars_16x9/20240405170531/neon-stars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/neon-stars_16x9/20240405170531/neon-stars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/neon-stars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/neon-stars",
+  "crazygamesSlug": "neon-stars"
+}

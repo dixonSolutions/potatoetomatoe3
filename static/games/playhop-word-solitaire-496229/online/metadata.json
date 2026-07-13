@@ -1,0 +1,17 @@
+{
+  "id": "playhop-word-solitaire-496229",
+  "name": "Word Solitaire",
+  "author": "OpenMyGame",
+  "description": "Play Word Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019c5209e1678804345e204c6c6de7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000019c5209e1678804345e204c6c6de7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-496229.games.s3.yandex.net/496229/s3mciazffzvp6g9s0gh5298hm762frsr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=496229&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 496229,
+  "playhopPageUrl": "https://playhop.com/app/496229",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 1806
+}

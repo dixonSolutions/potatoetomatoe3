@@ -1,0 +1,17 @@
+{
+  "id": "playhop-classic-puzzles",
+  "name": "Classic Puzzles",
+  "author": "MishkaCompany",
+  "description": "Play Classic Puzzles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a7d46fd6fd6d4501aff46fc4d96/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a7d46fd6fd6d4501aff46fc4d96/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-391157.games.s3.yandex.net/391157/pp1lfzfby4e82i9yzg0781my1g7r0bvn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=391157&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 391157,
+  "playhopPageUrl": "https://playhop.com/app/391157",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 684
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pufflings-538841",
+  "name": "Pufflings",
+  "author": "romain.v0roshilov",
+  "description": "Play Pufflings via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019ec05b318649a7b0dd3751385a56/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019ec05b318649a7b0dd3751385a56/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-538841.games.s3.yandex.net/538841/vtgkqwdhzigh3dirov7lcv5fzexkhvmz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=538841&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 538841,
+  "playhopPageUrl": "https://playhop.com/app/538841",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

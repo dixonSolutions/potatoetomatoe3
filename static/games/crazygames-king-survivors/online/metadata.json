@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-king-survivors",
+  "name": "King Survivors 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "King Survivors is a roguelike game where you, as the valiant king, must form a skilled team of heroes to battle fearsome enemies. In this epic adventure, lead your heroes strategically and make critical decisions to save the kingdom.",
+  "thumbnail": "https://imgs.crazygames.com/king-survivors_16x9/20240805081621/king-survivors_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/king-survivors_16x9/20240805081621/king-survivors_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/king-survivors/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/king-survivors",
+  "crazygamesSlug": "king-survivors"
+}

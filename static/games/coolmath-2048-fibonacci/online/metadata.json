@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-2048-fibonacci",
+  "name": "2048: Fibonacci - Play Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Add like numbers to win in 2048: Fibonacci. It&#039;s like 2048, but with a slight twist. Just make sure that you don&#039;t spiral out of control.",
+  "thumbnail": "/games/coolmath-2048-fibonacci/online/assets/coolmath-2048-fibonacci.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/4241/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-2048-fibonacci",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-2048-fibonacci"
+}

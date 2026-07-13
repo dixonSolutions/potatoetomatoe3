@@ -1,0 +1,17 @@
+{
+  "id": "playhop-corners-99549",
+  "name": "Corners",
+  "author": "Oldshelf",
+  "description": "Play Corners via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017a5b16c6f3dc9a4a226a02d35b52/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017a5b16c6f3dc9a4a226a02d35b52/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-99549.games.s3.yandex.net/99549/u4she4ikmmq3suaansewuq3xfhqrhvpt/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=99549&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 99549,
+  "playhopPageUrl": "https://playhop.com/app/99549",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 26517
+}

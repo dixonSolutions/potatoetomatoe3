@@ -1,0 +1,17 @@
+{
+  "id": "playhop-club-guard",
+  "name": "Club Guard",
+  "author": "MK",
+  "description": "Play Club Guard via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999308/2a0000019ea3247f1caf7d25d5af7e1c49f3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999308/2a0000019ea3247f1caf7d25d5af7e1c49f3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-420444.games.s3.yandex.net/420444/shpcx08stf2vk4vd84bjelgqlktfu2en/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=420444&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 420444,
+  "playhopPageUrl": "https://playhop.com/app/420444",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 910
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zoo-boom-165392",
+  "name": "Zoo Boom",
+  "author": "Famobi-Dev",
+  "description": "Play Zoo Boom via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017c5a6f731d3a1c74ffd7b7353529/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017c5a6f731d3a1c74ffd7b7353529/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-165392.games.s3.yandex.net/165392/m60jp82wntme080zw79wtaufj8czd224/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=165392&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 165392,
+  "playhopPageUrl": "https://playhop.com/app/165392",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 11587
+}

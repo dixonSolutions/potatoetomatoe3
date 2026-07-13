@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rogue-tower",
+  "name": "Rogue Tower 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rogue Tower is an action game to conquer the tower by defeating all the monsters on 100 floors. Earn gold and gem by defeating the monsters and use them to level up your character and also upgrade the potions.",
+  "thumbnail": "https://imgs.crazygames.com/rogue-tower/20220518115930/rogue-tower-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rogue-tower/20220518115930/rogue-tower-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rogue-tower/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rogue-tower",
+  "crazygamesSlug": "rogue-tower"
+}

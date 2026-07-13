@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cactu-sama",
+  "name": "Cactu-Sama - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cactu-Sama at Cool Math Games: This cactus has come alive! It can walk, climb and drop. It has just one weakness... water!",
+  "thumbnail": "/games/coolmath-cactu-sama/online/assets/coolmath-cactu-sama.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32888/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cactu-sama",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cactu-sama"
+}

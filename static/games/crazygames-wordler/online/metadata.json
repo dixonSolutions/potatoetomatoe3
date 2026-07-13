@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-wordler",
+  "name": "Wordler 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Wordler is a puzzle word game that puts your vocabulary and problem-solving skills to the ultimate test. With just six attempts to uncover a hidden five-letter word, every guess brings you closer to victory, or closer to defeat.",
+  "thumbnail": "https://imgs.crazygames.com/wordler_16x9/20241122084206/wordler_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/wordler_16x9/20241122084206/wordler_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/wordler/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/wordler",
+  "crazygamesSlug": "wordler"
+}

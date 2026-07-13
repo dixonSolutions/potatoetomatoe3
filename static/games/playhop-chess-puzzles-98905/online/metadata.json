@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chess-puzzles-98905",
+  "name": "Chess puzzles",
+  "author": "e520.ru",
+  "description": "Play Chess puzzles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000187c24eea0e24c02d5df2c9585471/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000187c24eea0e24c02d5df2c9585471/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-98905.games.s3.yandex.net/98905/50wuxdwagx0xxfy2mrjiluru9m52mybd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=98905&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 98905,
+  "playhopPageUrl": "https://playhop.com/app/98905",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 5392
+}

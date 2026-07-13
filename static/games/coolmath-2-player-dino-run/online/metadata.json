@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-2-player-dino-run",
+  "name": "2 Player Dino Run - Play Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Have some prehistoric fun as you stampede your way through the cacti and pterodactyls in the 2 Player Dino Run competition.",
+  "thumbnail": "/games/coolmath-2-player-dino-run/online/assets/coolmath-2-player-dino-run.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52622/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-2-player-dino-run",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-2-player-dino-run"
+}

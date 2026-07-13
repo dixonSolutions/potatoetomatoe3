@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-time-control",
+  "name": "Time Control! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Time Control! is a casual game where you can manipulate time.",
+  "thumbnail": "https://imgs.crazygames.com/time-control/20221010142520/time-control-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/time-control/20221010142520/time-control-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/time-control/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/time-control",
+  "crazygamesSlug": "time-control"
+}

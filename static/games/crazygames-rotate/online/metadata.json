@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rotate",
+  "name": "Rotate 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rotate is a platformer game in which you must navigate difficult levels in 360 degrees. Use the manipulation of gravity in all 4 directions by rotating the entire level in the direction that you require.",
+  "thumbnail": "https://imgs.crazygames.com/rotate.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rotate.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rotate/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rotate",
+  "crazygamesSlug": "rotate"
+}

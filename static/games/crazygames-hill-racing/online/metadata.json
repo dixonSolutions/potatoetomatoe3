@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-hill-racing",
+  "name": "hill racing",
+  "author": "CrazyGames",
+  "description": "Play hill racing on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hill-racing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hill-racing",
+  "crazygamesSlug": "hill-racing"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-gangsta-bean",
+  "name": "Gangsta Bean",
+  "author": "Addicting Games",
+  "description": "<p>Gangsta Bean is a free side-scrolling game. One Bad Bean is going to face down an army of evil food. Do you fight?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/gangstabean_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/gangstabean_sp.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/gangstabean.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/gangsta-bean"
+}

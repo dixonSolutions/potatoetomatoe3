@@ -1,0 +1,17 @@
+{
+  "id": "playhop-journey-beyond-horizons",
+  "name": "Journey beyond horizons",
+  "author": "MadStorm",
+  "description": "Play Journey beyond horizons via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199a63de9d16f0f536d2b0da2ed36/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a00000199a63de9d16f0f536d2b0da2ed36/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-454590.games.s3.yandex.net/454590/5e1zckbuei45n7jhcvweq5ab6ioqsv3i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=454590&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 454590,
+  "playhopPageUrl": "https://playhop.com/app/454590",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 1035
+}

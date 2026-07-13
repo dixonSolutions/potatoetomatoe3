@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stunt-racer",
+  "name": "Stunt Racer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stunt Racer is an action-packed driving game where you push your car to the limit on challenging stunt tracks. Choose from 8 unique cars, customize your ride, and burn nitro through jumps, turns, and high-speed stunts.",
+  "thumbnail": "https://imgs.crazygames.com/stunt-racer_16x9/20260605073905/stunt-racer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stunt-racer_16x9/20260605073905/stunt-racer_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stunt-racer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stunt-racer",
+  "crazygamesSlug": "stunt-racer"
+}

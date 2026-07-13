@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-trials-ride",
+  "name": "trials ride",
+  "author": "CrazyGames",
+  "description": "Play trials ride on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/trials-ride/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/trials-ride",
+  "crazygamesSlug": "trials-ride"
+}

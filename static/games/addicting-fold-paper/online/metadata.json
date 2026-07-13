@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fold-paper",
+  "name": "Fold Paper",
+  "author": "Addicting Games",
+  "description": "<p>Fold Paper is a free puzzle game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Fold_Paper_screen.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Fold_Paper_screen.png",
+  "thumbnailStored": "remote",
+  "category": "balance",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/fold-paper/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/fold-paper"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-red-escape",
+  "name": "Red Escape",
+  "author": "Addicting Games",
+  "description": "<p>Escape from three rooms using logic and the tools you find, solve puzzles use passwords, find hidden clues to escape.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/addict.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/addict.png",
+  "thumbnailStored": "remote",
+  "category": "escape-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/red-escape/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/red-escape"
+}

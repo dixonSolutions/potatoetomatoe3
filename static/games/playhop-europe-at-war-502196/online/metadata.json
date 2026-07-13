@@ -1,0 +1,17 @@
+{
+  "id": "playhop-europe-at-war-502196",
+  "name": "Europe at War",
+  "author": "EwGa",
+  "description": "Play Europe at War via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019ecc64260bb0fbe409b9388f4547/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019ecc64260bb0fbe409b9388f4547/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-502196.games.s3.yandex.net/502196/r7tyq59d6awm8lzas9tne96y8u7hyno1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=502196&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 502196,
+  "playhopPageUrl": "https://playhop.com/app/502196",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 202
+}

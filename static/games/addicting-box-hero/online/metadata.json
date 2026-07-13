@@ -1,0 +1,14 @@
+{
+  "id": "addicting-box-hero",
+  "name": "Box Hero",
+  "author": "Addicting Games",
+  "description": "<p>Box Hero is a free avoider game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/boxherogame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/boxherogame.jpg",
+  "thumbnailStored": "remote",
+  "category": "action",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/box-hero/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/box-hero"
+}

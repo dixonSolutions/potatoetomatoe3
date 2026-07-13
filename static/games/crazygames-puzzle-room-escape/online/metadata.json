@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-puzzle-room-escape",
+  "name": "puzzle room escape",
+  "author": "CrazyGames",
+  "description": "Play puzzle room escape on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/puzzle-room-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/puzzle-room-escape",
+  "crazygamesSlug": "puzzle-room-escape"
+}

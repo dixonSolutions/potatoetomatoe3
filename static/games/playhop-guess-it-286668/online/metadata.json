@@ -1,0 +1,17 @@
+{
+  "id": "playhop-guess-it-286668",
+  "name": "Guess It",
+  "author": "Linder",
+  "description": "Play Guess It via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018d024a942269724520472d46dc80/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018d024a942269724520472d46dc80/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-286668.games.s3.yandex.net/286668/w4gqk2rehw8wxjbmxad1r39twako9qdc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=286668&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 286668,
+  "playhopPageUrl": "https://playhop.com/app/286668",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 1501
+}

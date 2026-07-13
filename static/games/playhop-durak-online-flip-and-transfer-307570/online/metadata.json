@@ -1,0 +1,17 @@
+{
+  "id": "playhop-durak-online-flip-and-transfer-307570",
+  "name": "Durak Online: Flip and Transfer",
+  "author": "GeeKid - школа программирования",
+  "description": "Play Durak Online: Flip and Transfer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018e506442263986ef19357c5e50bb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018e506442263986ef19357c5e50bb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-307570.games.s3.yandex.net/307570/89ax52ljvm6dhzih29lqged5n9cjgsa9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=307570&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 307570,
+  "playhopPageUrl": "https://playhop.com/app/307570",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 259
+}

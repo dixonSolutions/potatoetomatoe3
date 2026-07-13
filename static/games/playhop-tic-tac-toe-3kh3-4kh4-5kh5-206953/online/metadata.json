@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tic-tac-toe-3kh3-4kh4-5kh5-206953",
+  "name": "Tic-Tac-Toe 3х3,4х4,5х5",
+  "author": "sb-games",
+  "description": "Play Tic-Tac-Toe 3х3,4х4,5х5 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001946dea659342b2c067fcb03d7a25/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001946dea659342b2c067fcb03d7a25/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-206953.games.s3.yandex.net/206953/ihckvdriuc1tpzhigyci7erb3qhu68tf/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=206953&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 206953,
+  "playhopPageUrl": "https://playhop.com/app/206953",
+  "playhopRating": 4,
+  "playhopRatingCount": 5220
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-grand-stunt-auto",
+  "name": "Grand Stunt Auto 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Grand Stunt Auto is a realistic driving game that has awesome physics and beautiful 3D graphics. In this game, you can test your driving and stunt skills and try to gain the crown of being the top stunt driver.",
+  "thumbnail": "https://imgs.crazygames.com/grand-stunt-auto.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/grand-stunt-auto.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grand-stunt-auto/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grand-stunt-auto",
+  "crazygamesSlug": "grand-stunt-auto"
+}

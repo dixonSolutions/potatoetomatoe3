@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-trivia-tec",
+  "name": "Trivia 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Your mission? Answer more questions correctly than your opponent, or simply challenge yourself in solo mode!",
+  "thumbnail": "https://imgs.crazygames.com/trivia-tec_16x9/20260224094032/trivia-tec_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/trivia-tec_16x9/20260224094032/trivia-tec_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/trivia-tec/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/trivia-tec",
+  "crazygamesSlug": "trivia-tec"
+}

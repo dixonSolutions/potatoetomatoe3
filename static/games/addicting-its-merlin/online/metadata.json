@@ -1,0 +1,14 @@
+{
+  "id": "addicting-its-merlin",
+  "name": "It's Merlin",
+  "author": "Addicting Games",
+  "description": "<p>We like Rogue-likes around here especially when one of the most famous wizards of all time are involved. No, not Gandalf or Harry Potter. It's MERLIN! Defeat waves of enemies and choose your upgrade path as you go, every run will be different. Find the best upgrades you can and good luck with the magic!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/itsMerlin.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/itsMerlin.jpg",
+  "thumbnailStored": "remote",
+  "category": "roguelite",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/its-merlin/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/its-merlin"
+}

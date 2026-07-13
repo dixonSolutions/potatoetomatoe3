@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-number-shoot",
+  "name": "number shoot",
+  "author": "CrazyGames",
+  "description": "Play number shoot on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/number-shoot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/number-shoot",
+  "crazygamesSlug": "number-shoot"
+}

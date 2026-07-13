@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chicken-hike",
+  "name": "Chicken Hike - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chicken Hike at Cool Math Games: Show this little chicken the way forward! Draw a path to guide it to the door safely.",
+  "thumbnail": "/games/coolmath-chicken-hike/online/assets/coolmath-chicken-hike.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34115/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chicken-hike",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chicken-hike"
+}

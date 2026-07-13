@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-2048-sorting-puzzle",
+  "name": "2048 Sorting Puzzle - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Merge and sort the numbers to get bigger and bigger sums in 2048 Sorting Puzzle. Add them up all until there&#039;s only one ball left.",
+  "thumbnail": "/games/coolmath-2048-sorting-puzzle/online/assets/coolmath-2048-sorting-puzzle.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/47418/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-2048-sorting-puzzle",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-2048-sorting-puzzle"
+}

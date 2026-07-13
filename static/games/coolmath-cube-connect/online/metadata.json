@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cube-connect",
+  "name": "Cube Connect - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Create your path and roll on through in Cube Connect. You&#039;ll have to think fast, you only have 5 seconds to complete the puzzle.",
+  "thumbnail": "/games/coolmath-cube-connect/online/assets/coolmath-cube-connect.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52406/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cube-connect",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cube-connect"
+}

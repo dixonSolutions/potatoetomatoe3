@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-war-of-mine",
+  "name": "War of Mine 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "War of Mine is a captivating 2D side-camera game inspired by the iconic Minecraft theme, reimagined with unique gameplay mechanics and a strategic progression system. As a resourceful adventurer, you’ll embark on an epic journey through diverse maps and levels, battling waves of enemies in an auto-battle system where tactical preparation and smart upgrades are the keys to survival.",
+  "thumbnail": "https://imgs.crazygames.com/war-of-mine_16x9/20250411091501/war-of-mine_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/war-of-mine_16x9/20250411091501/war-of-mine_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/war-of-mine/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/war-of-mine",
+  "crazygamesSlug": "war-of-mine"
+}

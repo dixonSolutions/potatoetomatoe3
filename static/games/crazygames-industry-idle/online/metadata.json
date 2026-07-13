@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-industry-idle",
+  "name": "Industry Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Industry Idle is an idle game where you need to build factories, produce some resources, and also do market trading. There are more than 130 different factories that you can build and manage and more than 150 different resources you can produce.",
+  "thumbnail": "https://imgs.crazygames.com/industry-idle/20220428104600/industry-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/industry-idle/20220428104600/industry-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/industry-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/industry-idle",
+  "crazygamesSlug": "industry-idle"
+}

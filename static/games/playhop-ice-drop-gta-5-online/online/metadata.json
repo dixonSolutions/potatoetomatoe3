@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ice-drop-gta-5-online",
+  "name": "Ice drop: GTA 5 Online",
+  "author": "MezzleN Dev",
+  "description": "Play Ice drop: GTA 5 Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000018f432a00e58e4670e9e60945124d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000018f432a00e58e4670e9e60945124d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-335552.games.s3.yandex.net/335552/35df5taldv2z1zkjsflxu6h1r6mq2wwk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=335552&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 335552,
+  "playhopPageUrl": "https://playhop.com/app/335552",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 2987
+}

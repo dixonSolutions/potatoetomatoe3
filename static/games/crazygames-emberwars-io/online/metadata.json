@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-emberwars-io",
+  "name": "EmberWars.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battle monsters, collect powerful loot, and fight other players in a fast-paced open-world fantasy PvP game.Level up your character with unique abilities, explore dangerous regions filled with stronger enemies and better rewards, and survive intense battles as you build your gear and increase your net worth.",
+  "thumbnail": "https://imgs.crazygames.com/emberwars-io_16x9/20260601033554/emberwars-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/emberwars-io_16x9/20260601033554/emberwars-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/emberwars-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/emberwars-io",
+  "crazygamesSlug": "emberwars-io"
+}

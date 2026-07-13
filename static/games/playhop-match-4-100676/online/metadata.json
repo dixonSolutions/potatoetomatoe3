@@ -1,0 +1,17 @@
+{
+  "id": "playhop-match-4-100676",
+  "name": "Match 4",
+  "author": "Onduck Games",
+  "description": "Play Match 4 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001727c19a93a244950eeebad0cf7f9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001727c19a93a244950eeebad0cf7f9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-100676.games.s3.yandex.net/100676/j8odchfzp1pxchnn6fjesery33hsbyv8/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=100676&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 100676,
+  "playhopPageUrl": "https://playhop.com/app/100676",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1311
+}

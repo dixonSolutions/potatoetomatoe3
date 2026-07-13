@@ -1,0 +1,14 @@
+{
+  "id": "addicting-airport-tycoon",
+  "name": "Airport Tycoon",
+  "author": "Addicting Games",
+  "description": "<p>Forget scanners and searches. This is all about flying! Match passengers and routes; dispatch aircraft and make a profit! Loads of levels to explore as your airport skills improve. Don't forget to invest in upgrades, like faster jets and swankier lounges!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/airporttycoon_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/airporttycoon_sp.png",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/airporttycoon.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/airport-tycoon"
+}

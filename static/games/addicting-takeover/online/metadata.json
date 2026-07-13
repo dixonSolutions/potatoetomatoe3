@@ -1,0 +1,14 @@
+{
+  "id": "addicting-takeover",
+  "name": "Takeover",
+  "author": "Addicting Games",
+  "description": "<p>Takeover is a free strategy game. Train swordsmen, archers, knights, and other units to capture towns and castles. Bring glory and peace to the empire.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/takeover_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/takeover_sp.png",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/takeover_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/takeover"
+}

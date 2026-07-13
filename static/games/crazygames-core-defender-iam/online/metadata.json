@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-core-defender-iam",
+  "name": "Core Defender 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tower defense with base-building elements",
+  "thumbnail": "https://imgs.crazygames.com/core-defender-iam_16x9/20260213035037/core-defender-iam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/core-defender-iam_16x9/20260213035037/core-defender-iam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/core-defender-iam/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/core-defender-iam",
+  "crazygamesSlug": "core-defender-iam"
+}

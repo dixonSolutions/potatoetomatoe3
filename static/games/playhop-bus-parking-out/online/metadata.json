@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bus-parking-out",
+  "name": "Bus Parking Out",
+  "author": "Inlogic",
+  "description": "Play Bus Parking Out via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019450530aa945777bf444245e0bf2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019450530aa945777bf444245e0bf2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-402439.games.s3.yandex.net/402439/6qpo9j7fxrz3ijx23i8ajroafjlotf7d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=402439&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 402439,
+  "playhopPageUrl": "https://playhop.com/app/402439",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 420
+}

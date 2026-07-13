@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-hit-classic",
+  "name": "Bubble Hit Classic",
+  "author": "DRA",
+  "description": "Play Bubble Hit Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000193ff11ee2feb8ec8b21994a3f0fd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000193ff11ee2feb8ec8b21994a3f0fd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-398765.games.s3.yandex.net/398765/tu03j7igkay8363d03kdmcg3by5amav1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=398765&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 398765,
+  "playhopPageUrl": "https://playhop.com/app/398765",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2577
+}

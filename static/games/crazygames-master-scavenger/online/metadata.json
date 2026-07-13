@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-master-scavenger",
+  "name": "Master Scavenger 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Turn trash into treasure with Master Scavenger. Dive into massive scrap piles using your trusty magnet and collect the most valuable items before time runs out.",
+  "thumbnail": "https://imgs.crazygames.com/master-scavenger_16x9/20260709013923/master-scavenger_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/master-scavenger_16x9/20260709013923/master-scavenger_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/master-scavenger/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/master-scavenger",
+  "crazygamesSlug": "master-scavenger"
+}

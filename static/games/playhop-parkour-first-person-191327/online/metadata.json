@@ -1,0 +1,17 @@
+{
+  "id": "playhop-parkour-first-person-191327",
+  "name": "PARKOUR First-Person",
+  "author": "BORNIS GameLab",
+  "description": "Play PARKOUR First-Person via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000184dd56b222981be08399e554d9fd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000184dd56b222981be08399e554d9fd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-191327.games.s3.yandex.net/191327/s7xcfo61n8e0le2me3p1n14ik2oxcrpo/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=191327&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 191327,
+  "playhopPageUrl": "https://playhop.com/app/191327",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 13731
+}

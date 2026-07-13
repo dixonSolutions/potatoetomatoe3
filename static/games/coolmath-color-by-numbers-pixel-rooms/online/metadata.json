@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-by-numbers-pixel-rooms",
+  "name": "Color by Numbers: Pixel Rooms - Play at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Fill in all of the items available in Color by Number: Pixel Rooms. One by one, you will slowly draw each object until the entire house is full.",
+  "thumbnail": "/games/coolmath-color-by-numbers-pixel-rooms/online/assets/coolmath-color-by-numbers-pixel-rooms.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51920/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-by-numbers-pixel-rooms",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-by-numbers-pixel-rooms"
+}

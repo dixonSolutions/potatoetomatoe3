@@ -1,0 +1,17 @@
+{
+  "id": "playhop-create-your-own-game",
+  "name": "Create your own game",
+  "author": "SweeftKey666",
+  "description": "Play Create your own game via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b08a639d90d615ec0b2cb0af8e9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019b08a639d90d615ec0b2cb0af8e9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-480598.games.s3.yandex.net/480598/gmtxrmsppm0rrt5kayfoz076wjmtp6xh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=480598&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 480598,
+  "playhopPageUrl": "https://playhop.com/app/480598",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 69
+}

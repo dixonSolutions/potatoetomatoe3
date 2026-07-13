@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-stacker",
+  "name": "Math Stacker",
+  "author": "Addicting Games",
+  "description": "<p>Math Stacker is an action game combined with math! There is no need to choose between games and studying math. You can do both at the same time. Math Stacker lets you practice math skills in between fun sessions of a stacking game. With the stacking game, colorful blocks with funny facial expressions fall from the sky. When you see a group of 3 or more blocks with the same color, then click on them to make them disappear. Ideally, you want to prevent the blocks from stacking too high or you lose the game. The more blocks you match the better your score. After you play a session, you can solve some math skills to unlock the next game session. There are several skills to practice like fractions, multiplication, addition, division, and decimals. Answer 5 correctly to get to the next game! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/math-stacker.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/math-stacker.jpg",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-stacker/index.html ",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/math-stacker"
+}

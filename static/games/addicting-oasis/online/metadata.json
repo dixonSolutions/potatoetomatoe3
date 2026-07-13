@@ -1,0 +1,14 @@
+{
+  "id": "addicting-oasis",
+  "name": "Oasis",
+  "author": "Addicting Games",
+  "description": "<p>Oasis is a free platform game. Oasis is an adventure game that will let you walk through walls on your way to excitement untold. It is a platformer, it is a puzzle, it is a platformer puzzler. It is everything you have ever wanted in a free online video game. You run, jump, and slide through walls. There is literally nothing else to do in a game. This is a fun platform puzzler for those who love both platforms and puzzlers. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/oasisgamescreen.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/oasisgamescreen.png",
+  "thumbnailStored": "remote",
+  "category": "adventure-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/oasis/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/oasis"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-blockcraft-544718",
+  "name": "BlockCraft",
+  "author": "AM",
+  "description": "Play BlockCraft via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019f37d23f38d0d599328aa85cdfaf/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019f37d23f38d0d599328aa85cdfaf/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-544718.games.s3.yandex.net/544718/zfi8x6qpsj9lpwspc6ef8gasadbi2ita/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=544718&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 544718,
+  "playhopPageUrl": "https://playhop.com/app/544718",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 170
+}

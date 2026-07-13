@@ -1,0 +1,17 @@
+{
+  "id": "playhop-throne-tactics",
+  "name": "Throne Tactics",
+  "author": "Magenta Games",
+  "description": "Play Throne Tactics via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019be6af627c0c04e5bcd071cbc1c1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019be6af627c0c04e5bcd071cbc1c1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-472145.games.s3.yandex.net/472145/tohzothp1pj06w589h4wu8ocdcrx9h84/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=472145&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 472145,
+  "playhopPageUrl": "https://playhop.com/app/472145",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 655
+}

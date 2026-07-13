@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombie-demolisher",
+  "name": "Zombie Demolisher",
+  "author": "Addicting Games",
+  "description": "<p>There's more to killing zombies than just machetes and shotguns and chainsaws... Try a wrecking ball for a change!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombie-demolisher_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombie-demolisher_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombie-demolisher.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombie-demolisher"
+}

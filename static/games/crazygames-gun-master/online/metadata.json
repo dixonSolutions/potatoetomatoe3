@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gun-master",
+  "name": "Gun Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gun Master is a 2D shooting game that tests your reflexes and judgment. Each level pits you against multiple opponents that you must out-shoot to continue.",
+  "thumbnail": "https://imgs.crazygames.com/gun-master/20210602102349/gun-master-thumb?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gun-master/20210602102349/gun-master-thumb?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gun-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gun-master",
+  "crazygamesSlug": "gun-master"
+}

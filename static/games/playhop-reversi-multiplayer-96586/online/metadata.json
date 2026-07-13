@@ -1,0 +1,17 @@
+{
+  "id": "playhop-reversi-multiplayer-96586",
+  "name": "Reversi Multiplayer",
+  "author": "CodeThisLab",
+  "description": "Play Reversi Multiplayer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019d718750029343f909ca2ed28d94/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019d718750029343f909ca2ed28d94/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96586.games.s3.yandex.net/96586/s1rjmrbc9nquzzx742xpqcwngqixni2i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96586&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96586,
+  "playhopPageUrl": "https://playhop.com/app/96586",
+  "playhopRating": 4,
+  "playhopRatingCount": 308
+}

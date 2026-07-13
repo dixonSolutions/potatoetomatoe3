@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-below-the-ocean",
+  "name": "Below the Ocean - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Dive into a world below the ocean! Avoid spikes, pop into bubbles, and wall jump to find the gas tank checkpoints! Don&#039;t overextend your oxygen line.",
+  "thumbnail": "/games/coolmath-below-the-ocean/online/assets/coolmath-below-the-ocean.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50808/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-below-the-ocean",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-below-the-ocean"
+}

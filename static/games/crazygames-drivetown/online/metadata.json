@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-drivetown",
+  "name": "drivetown",
+  "author": "CrazyGames",
+  "description": "Play drivetown on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drivetown/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drivetown",
+  "crazygamesSlug": "drivetown"
+}

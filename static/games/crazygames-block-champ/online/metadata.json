@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-block-champ",
+  "name": "Block Champ 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Block Champ is a 10x10-style Tetris game with a few unique twists and turns. Create horizontal and vertical rows of blocks to clear them from the game and increase your score.",
+  "thumbnail": "https://imgs.crazygames.com/games/block-champ/cover_16x9-1707829050055.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/block-champ/cover_16x9-1707829050055.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-champ/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-champ",
+  "crazygamesSlug": "block-champ"
+}

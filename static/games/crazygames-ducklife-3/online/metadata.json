@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-ducklife-3",
+  "name": "Duck Life 3 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Duck Life 3 is a duck racing game featuring genetically modified ducks that evolve as you progress. Choose from one of four duck breeds and evolve as you complete each league.",
+  "thumbnail": "/games/crazygames-ducklife-3/online/assets/crazygames-ducklife-3.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ducklife-3/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ducklife-3",
+  "crazygamesSlug": "ducklife-3"
+}

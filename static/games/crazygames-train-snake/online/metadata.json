@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-train-snake",
+  "name": "Crazy Train Snake 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "In Train Snake, you need to pick-up passengers and deliver them safely to their destinations without hitting any obstacle.  Release Date September 2019 (iOS).",
+  "thumbnail": "https://imgs.crazygames.com/games/train-snake/thumb-1573116457726.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/train-snake/thumb-1573116457726.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/train-snake/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/train-snake",
+  "crazygamesSlug": "train-snake"
+}

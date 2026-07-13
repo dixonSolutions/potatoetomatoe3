@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soccer-league-195671",
+  "name": "Soccer League",
+  "author": "Ohayo",
+  "description": "Play Soccer League via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000185a19678326f7039b4c4ebe5992d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000185a19678326f7039b4c4ebe5992d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-195671.games.s3.yandex.net/195671/r75l48ddnqnjzn5o7yi5zqgs9xwy7mua/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=195671&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 195671,
+  "playhopPageUrl": "https://playhop.com/app/195671",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 2988
+}

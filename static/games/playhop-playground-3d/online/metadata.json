@@ -1,0 +1,17 @@
+{
+  "id": "playhop-playground-3d",
+  "name": "Playground 3D",
+  "author": "Forty Four Active",
+  "description": "Play Playground 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019d40255831575c496c1eb4cfc179/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019d40255831575c496c1eb4cfc179/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-475634.games.s3.yandex.net/475634/jpgn0fdktq9iup27jdoo5ujpeajl3wgi/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=475634&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 475634,
+  "playhopPageUrl": "https://playhop.com/app/475634",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 3878
+}

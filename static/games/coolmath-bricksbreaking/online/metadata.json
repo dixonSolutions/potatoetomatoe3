@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bricksbreaking",
+  "name": "Play Bricks Breaking | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "In this free brick breaking game, click on groups of bricks that are the same color to get rid of them and plan ahead to delete huge chunks at once.",
+  "thumbnail": "/games/coolmath-bricksbreaking/online/assets/coolmath-bricksbreaking.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24903/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bricksbreaking",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bricksbreaking"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-burnout-drift",
+  "name": "Burnout Drift 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Burnout Drift is a drifting game in our driving category featuring a range of custom cars and tracks. Choose your ride, take it to the streets, and earn money for your drifting skills.",
+  "thumbnail": "/games/crazygames-burnout-drift/online/assets/crazygames-burnout-drift.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/burnout-drift/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/burnout-drift",
+  "crazygamesSlug": "burnout-drift"
+}

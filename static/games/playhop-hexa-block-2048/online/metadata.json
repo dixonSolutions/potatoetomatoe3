@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hexa-block-2048",
+  "name": "Hexa Block 2048",
+  "author": "Addictive Games Official",
+  "description": "Play Hexa Block 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019341e4d28d0a7373cd059d75ddda/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019341e4d28d0a7373cd059d75ddda/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-388224.games.s3.yandex.net/388224/u78a40al85n0v2x90e2l4u3t58nh3hxw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=388224&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 388224,
+  "playhopPageUrl": "https://playhop.com/app/388224",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 6808
+}

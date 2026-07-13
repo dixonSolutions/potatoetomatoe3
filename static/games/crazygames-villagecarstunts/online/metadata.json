@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-villagecarstunts",
+  "name": "Village Car Stunts 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "In Village Car Stunts, you have the opportunity to drive various awesome cars and enjoy the beautiful village! It is traffic-free, and you can speed up to the max to pump the adrenaline.",
+  "thumbnail": "https://imgs.crazygames.com/villagecarstunts.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/villagecarstunts.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/villagecarstunts/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/villagecarstunts",
+  "crazygamesSlug": "villagecarstunts"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-vein-rush",
+  "name": "Vein Rush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Descend into the depths of a fully destructible voxel world in Vein Rush.Mine rare ores, manage your inventory, and upgrade your pickaxe to break through tougher rock layers.",
+  "thumbnail": "https://imgs.crazygames.com/vein-rush_16x9/20260710042310/vein-rush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/vein-rush_16x9/20260710042310/vein-rush_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/vein-rush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/vein-rush",
+  "crazygamesSlug": "vein-rush"
+}

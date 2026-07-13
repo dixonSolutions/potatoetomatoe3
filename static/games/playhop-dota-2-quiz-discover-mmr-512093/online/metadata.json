@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dota-2-quiz-discover-mmr-512093",
+  "name": "Dota 2: Quiz - Discover MMR",
+  "author": "DevNoPay",
+  "description": "Play Dota 2: Quiz - Discover MMR via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019da39c9eabc37c30c5823ecbd4c4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019da39c9eabc37c30c5823ecbd4c4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-512093.games.s3.yandex.net/512093/2rcbysc28fx6undr7hmkempu8ivirgic/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=512093&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 512093,
+  "playhopPageUrl": "https://playhop.com/app/512093",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cars-merge",
+  "name": "Cars Merge - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Round and round the track they go. Where they stop, no one knows. Every lap, they&#039;ll earn gold. Merge cars to earn even more.",
+  "thumbnail": "/games/coolmath-cars-merge/online/assets/coolmath-cars-merge.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53955/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cars-merge",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cars-merge"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-archery-master",
+  "name": "Archery Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Archery Master is a 3D sports game that delivers a realistic archery experience, amazing animation, and simple controls. Shoot an arrow at the target to pass the level.",
+  "thumbnail": "https://imgs.crazygames.com/archery-master/20221117141013/archery-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/archery-master/20221117141013/archery-master-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/archery-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/archery-master",
+  "crazygamesSlug": "archery-master"
+}

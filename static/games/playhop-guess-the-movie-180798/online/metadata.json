@@ -1,0 +1,17 @@
+{
+  "id": "playhop-guess-the-movie-180798",
+  "name": "Guess the movie",
+  "author": "Teston",
+  "description": "Play Guess the movie via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000186ef04ef99eb371849d642c404ab/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000186ef04ef99eb371849d642c404ab/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-180798.games.s3.yandex.net/180798/n8e2d0iudvbgc5qf753zzk8mlqv2luv4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=180798&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 180798,
+  "playhopPageUrl": "https://playhop.com/app/180798",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 4920
+}

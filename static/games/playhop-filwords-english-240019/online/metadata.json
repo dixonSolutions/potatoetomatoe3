@@ -1,0 +1,17 @@
+{
+  "id": "playhop-filwords-english-240019",
+  "name": "Filwords English",
+  "author": "sb-games",
+  "description": "Play Filwords English via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001894e1cfa92b7bcb33f10c011d186/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001894e1cfa92b7bcb33f10c011d186/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-240019.games.s3.yandex.net/240019/0gbbq5aysuptx6emdnbh14xutqd3mtv5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=240019&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 240019,
+  "playhopPageUrl": "https://playhop.com/app/240019",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 468
+}

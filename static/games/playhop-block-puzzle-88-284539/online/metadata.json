@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-puzzle-88-284539",
+  "name": "Block Puzzle 88",
+  "author": "mbkj",
+  "description": "Play Block Puzzle 88 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018cd75fc42acb43a11da342d6bdcc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018cd75fc42acb43a11da342d6bdcc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-284539.games.s3.yandex.net/284539/kv37ars6667vyz4lbvonxhvfx8mrrun7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=284539&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 284539,
+  "playhopPageUrl": "https://playhop.com/app/284539",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 1012
+}

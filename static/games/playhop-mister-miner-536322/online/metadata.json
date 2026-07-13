@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mister-miner-536322",
+  "name": "Mister miner",
+  "author": "Snchos88",
+  "description": "Play Mister miner via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019e7de71eb28a2d2ebcc39bca2613/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019e7de71eb28a2d2ebcc39bca2613/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-536322.games.s3.yandex.net/536322/jjmfzry3d9b4mvzat1vv9pmapt98ftwn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=536322&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 536322,
+  "playhopPageUrl": "https://playhop.com/app/536322",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

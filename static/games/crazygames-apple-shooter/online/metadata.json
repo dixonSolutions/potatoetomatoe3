@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-apple-shooter",
+  "name": "Apple Shooter 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Apple Shooter is a shooting archery game, your objective is simple: complete each level by shooting all of the apples placed on your friend&#39;s head. This flash game is all about testing your aim, precision, and nerves as you take on the role of an archer with a bow and arrow.",
+  "thumbnail": "/games/crazygames-apple-shooter/online/assets/crazygames-apple-shooter.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/apple-shooter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/apple-shooter",
+  "crazygamesSlug": "apple-shooter"
+}

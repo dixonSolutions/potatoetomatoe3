@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-bubblegum-simulator",
+  "name": "Obby: Bubblegum Simulator",
+  "author": "BANZAI",
+  "description": "Play Obby: Bubblegum Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019ec2e28721c324be700d0b812aa5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019ec2e28721c324be700d0b812aa5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-456928.games.s3.yandex.net/456928/syyrwzveyxbznxaze1kawn3c7w4obxqq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=456928&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 456928,
+  "playhopPageUrl": "https://playhop.com/app/456928",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 1253
+}

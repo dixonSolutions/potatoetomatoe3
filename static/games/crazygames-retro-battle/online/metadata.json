@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-retro-battle",
+  "name": "Retro Battle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Retro Gamer is a casual game featuring several fun retro minigames. Challenge your opponents in the street to various 2-player battles on retro gaming classics.",
+  "thumbnail": "https://imgs.crazygames.com/retro-battle/20220624120612/retro-battle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/retro-battle/20220624120612/retro-battle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/retro-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/retro-battle",
+  "crazygamesSlug": "retro-battle"
+}

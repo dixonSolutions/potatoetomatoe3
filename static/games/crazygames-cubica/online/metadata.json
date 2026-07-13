@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cubica",
+  "name": "Cubica 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Get lost in a tranquil atmosphere with Cubica, a fun puzzle game designed to relax with a simple brain teaser. It is very simple.",
+  "thumbnail": "https://imgs.crazygames.com/cubica_16x9/20260223043623/cubica_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cubica_16x9/20260223043623/cubica_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cubica/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cubica",
+  "crazygamesSlug": "cubica"
+}

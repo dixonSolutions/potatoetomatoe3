@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bloons-insanity",
+  "name": "Bloons Insanity",
+  "author": "Addicting Games",
+  "description": "<p>This may be the puzzle pack that defeats the Bloons Monkey. Each puzzle is more hideous, more insidious, more ballonidious than the last!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bloonsinsanity_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bloonsinsanity_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/bloonsinsanity_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/bloons-insanity"
+}

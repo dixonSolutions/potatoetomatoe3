@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gearshift-one",
+  "name": "Gearshift One 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gearshift One is an immersive vehicle customization game that puts you in the driver&#39;s seat of your own mechanical playground. Experiment with every aspect of your vehicles, from electronics to mechanics, and unleash your inner engineer.",
+  "thumbnail": "https://imgs.crazygames.com/gearshift-one_16x9/20240426030640/gearshift-one_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/gearshift-one_16x9/20240426030640/gearshift-one_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gearshift-one/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gearshift-one",
+  "crazygamesSlug": "gearshift-one"
+}

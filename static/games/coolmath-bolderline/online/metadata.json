@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bolderline",
+  "name": "Bolderline - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bolderline at Cool Math Games: Get ready to rotate! Move the squares quickly to recreate the falling shapes. Don&#039;t fall behind or else they will stack up fast!",
+  "thumbnail": "/games/coolmath-bolderline/online/assets/coolmath-bolderline.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24820/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bolderline",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bolderline"
+}

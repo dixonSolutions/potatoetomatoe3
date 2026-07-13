@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-risehero",
+  "name": "risehero",
+  "author": "CrazyGames",
+  "description": "Play risehero on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/risehero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/risehero",
+  "crazygamesSlug": "risehero"
+}

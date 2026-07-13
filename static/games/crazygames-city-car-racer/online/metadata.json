@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-city-car-racer",
+  "name": "City Car Racer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "City Car Racer is a fun and exciting driving game in which you must race through a series of busy city streets and try to avoid the oncoming traffic! Drive your car down the roads and weave in and out of the other vehicles - try to take minimal damage and avoid any huge collisions otherwise your car will explode!",
+  "thumbnail": "/games/crazygames-city-car-racer/online/assets/crazygames-city-car-racer.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/city-car-racer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/city-car-racer",
+  "crazygamesSlug": "city-car-racer"
+}

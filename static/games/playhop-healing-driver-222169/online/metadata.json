@@ -1,0 +1,17 @@
+{
+  "id": "playhop-healing-driver-222169",
+  "name": "Healing Driver",
+  "author": "Lipsar Studio",
+  "description": "Play Healing Driver via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001873211f8145108cb4fe7ec999227/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001873211f8145108cb4fe7ec999227/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-222169.games.s3.yandex.net/222169/2b68p5c54r464u590ljugrfiztpvdsnv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=222169&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 222169,
+  "playhopPageUrl": "https://playhop.com/app/222169",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 4763
+}

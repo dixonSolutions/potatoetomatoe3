@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-2048-x2-legend",
+  "name": "2048 X2 Legend 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The elusive 2048 block is almost within your reach. Combine and count up your blocks as you climb toward higher and higher scores, sharpening your mind with every move.",
+  "thumbnail": "https://imgs.crazygames.com/2048-x2-legend_16x9/20251205042220/2048-x2-legend_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/2048-x2-legend_16x9/20251205042220/2048-x2-legend_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/2048-x2-legend/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/2048-x2-legend",
+  "crazygamesSlug": "2048-x2-legend"
+}

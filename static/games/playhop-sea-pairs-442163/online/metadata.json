@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sea-pairs-442163",
+  "name": "Sea pairs",
+  "author": "Amsssv",
+  "description": "Play Sea pairs via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019d1b007e9f8befd9140952eb9ffd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000019d1b007e9f8befd9140952eb9ffd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-442163.games.s3.yandex.net/442163/ayr2el93gwhnvklydsa8k370u5gr9ahh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=442163&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 442163,
+  "playhopPageUrl": "https://playhop.com/app/442163",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-exit-8-278615",
+  "name": "Exit 8",
+  "author": "DarkPlay",
+  "description": "Play Exit 8 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018ce967e63bb604ea604ecdb89907/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018ce967e63bb604ea604ecdb89907/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-278615.games.s3.yandex.net/278615/mxysyobd9u5pbwlo1kpu9vh2l5z02dyh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=278615&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 278615,
+  "playhopPageUrl": "https://playhop.com/app/278615",
+  "playhopRating": 3.1,
+  "playhopRatingCount": 1996
+}

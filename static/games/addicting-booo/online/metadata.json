@@ -1,0 +1,14 @@
+{
+  "id": "addicting-booo",
+  "name": "Boo!",
+  "author": "Addicting Games",
+  "description": "<p>Boo is a free puzzle game. We hope you can follow instructions and follow your gut. In Boo! you'll be competing with yourself to decorate your pumpkin in the most accurate way possible. You'll need to carefully match the designs on the right-hand side of the screen through a series of complicated filtering and masking. This game is a lot of fun but it is really hard. You'll need to think like an artist and an engineer if you want to perfectly match the pumpkins and save Halloween. This game requires you to use different masking agents like hats, masks, eye-patches, and fake teeth in order to cover up the pumpkin and preserve the paint underneath it while you are adding a new color on top of it. It all must be done in layers and those layers must be precise or you'll never win. Just like in life, this game is complicated but rewarding. A splish splash of spectacular tricking, some treating and a lot of ghoulishly cute jack-o-lantern designs for your friends and you to enjoy.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/booscreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/booscreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/boo/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/booo"
+}

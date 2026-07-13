@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-candy-pool",
+  "name": "Candy Pool - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Candy Pool at Cool Math Games: Ready, aim, shoot! Line up your shot and knock off all the colored candy with as few shots as possible.",
+  "thumbnail": "/games/coolmath-candy-pool/online/assets/coolmath-candy-pool.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/21116/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-candy-pool",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-candy-pool"
+}

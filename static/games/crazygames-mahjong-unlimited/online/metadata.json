@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mahjong-unlimited",
+  "name": "mahjong unlimited",
+  "author": "CrazyGames",
+  "description": "Play mahjong unlimited on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-unlimited/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-unlimited",
+  "crazygamesSlug": "mahjong-unlimited"
+}

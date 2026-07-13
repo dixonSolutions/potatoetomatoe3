@@ -1,0 +1,17 @@
+{
+  "id": "playhop-grand-theft-liberty-city-3d",
+  "name": "Grand Theft: Liberty City 3D",
+  "author": "Borisov Dev",
+  "description": "Play Grand Theft: Liberty City 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019287aa8eb46fa2e0eb8c4c5a6804/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000019287aa8eb46fa2e0eb8c4c5a6804/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-355080.games.s3.yandex.net/355080/dxdaz00yban3x3aal44ur77mn6uh3pww/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=355080&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 355080,
+  "playhopPageUrl": "https://playhop.com/app/355080",
+  "playhopRating": 4,
+  "playhopRatingCount": 1761
+}

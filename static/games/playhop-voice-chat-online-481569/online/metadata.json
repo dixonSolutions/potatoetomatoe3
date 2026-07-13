@@ -1,0 +1,17 @@
+{
+  "id": "playhop-voice-chat-online-481569",
+  "name": "Voice Chat Online",
+  "author": "M8X Studio",
+  "description": "Play Voice Chat Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019e1766519912d0c7ad0455587152/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019e1766519912d0c7ad0455587152/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-481569.games.s3.yandex.net/481569/fyg6sw7yzgjdomy4x71secdap196row7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=481569&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 481569,
+  "playhopPageUrl": "https://playhop.com/app/481569",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 6311
+}

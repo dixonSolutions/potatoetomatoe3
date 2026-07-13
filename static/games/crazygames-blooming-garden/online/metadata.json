@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blooming-garden",
+  "name": "Blooming Gardens 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blooming Gardens is a puzzle game that might look like a simple farming game, but it&#x27;s more than just that. It&#x27;s a board game where you care for a garden that grows flowers continuously as you move them around.",
+  "thumbnail": "https://imgs.crazygames.com/games/blooming-garden/cover-1614434720788.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/blooming-garden/cover-1614434720788.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blooming-garden/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blooming-garden",
+  "crazygamesSlug": "blooming-garden"
+}

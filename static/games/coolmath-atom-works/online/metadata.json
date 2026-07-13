@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-atom-works",
+  "name": "Atom Works - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blast your ball into the portal and let the Atom Works. Let the fireworks fly across the board as you push on through the galaxy.",
+  "thumbnail": "/games/coolmath-atom-works/online/assets/coolmath-atom-works.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48554/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-atom-works",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-atom-works"
+}

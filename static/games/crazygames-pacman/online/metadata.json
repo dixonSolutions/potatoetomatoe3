@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-pacman",
+  "name": "Pacman 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pacman is one of the most iconic arcade games ever. It was created in 1980 by Namco and is still very popular today.",
+  "thumbnail": "/games/crazygames-pacman/online/assets/crazygames-pacman.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pacman/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pacman",
+  "crazygamesSlug": "pacman"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-big-block-blast",
+  "name": "Big Block Blast - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Create perfect squares by combining jagged pieces and tiles. Big Block Blast is a geometric game of epic proportions, requiring strategy and planning.",
+  "thumbnail": "/games/coolmath-big-block-blast/online/assets/coolmath-big-block-blast.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54047/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-big-block-blast",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-big-block-blast"
+}

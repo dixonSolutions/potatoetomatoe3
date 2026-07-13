@@ -1,0 +1,14 @@
+{
+  "id": "addicting-school-of-dragons",
+  "name": "School of Dragons",
+  "author": "Addicting Games",
+  "description": "Raise and train your own dragons as you soar through the skies, go on legendary quests, and explore Berk with Hiccup, Astrid and the rest of the How to Train Your Dragon heroes.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/school-of-dragons_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/school-of-dragons_sp.png",
+  "thumbnailStored": "remote",
+  "category": "mmo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://www.schoolofdragons.com/SA/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/mmo/school-of-dragons"
+}

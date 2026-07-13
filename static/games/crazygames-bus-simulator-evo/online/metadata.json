@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bus-simulator-evo",
+  "name": "Bus Simulator: EVO 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bus Simulator: EVO is a simulation driving game that turns you into a city bus driver! Your job is pretty simple - follow your route, stay on top of traffic rules, pick up passengers at bus stops, and earn money to unlock better buses and new game modes.",
+  "thumbnail": "https://imgs.crazygames.com/bus-simulator-evo_16x9/20260317031203/bus-simulator-evo_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bus-simulator-evo_16x9/20260317031203/bus-simulator-evo_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bus-simulator-evo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bus-simulator-evo",
+  "crazygamesSlug": "bus-simulator-evo"
+}

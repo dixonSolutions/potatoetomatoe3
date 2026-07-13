@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cut-the-rope",
+  "name": "Cut the Rope",
+  "author": "Addicting Games",
+  "description": "<p>Om Nom is hungry for candy, and it's your job to help him out! Collect gold stars, discover hidden prizes and unlock exciting new levels in this addictively fun, award-winning, physics-based game!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/cut-the-rope_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/cut-the-rope_sp.png",
+  "thumbnailStored": "remote",
+  "category": "embeddable-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://games.gamepix.com/play/40071?sid=80251",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/cut-the-rope"
+}

@@ -29,6 +29,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { pipeline } from 'stream/promises';
 import { Readable } from 'stream';
+import { assessUnityPlayQuality } from './lib/catalog-quality.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const GAMES_ROOT = join(__dirname, '../static/games');
@@ -58,6 +59,8 @@ function parseArgv() {
 		skipExisting: a.includes('--skip-existing'),
 		discoverOnly: a.includes('--discover-only'),
 		force: a.includes('--force'),
+		noQualityFilter: a.includes('--no-quality-filter'),
+		minPlays: num('--min-plays', 100),
 		help: a.includes('--help') || a.includes('-h')
 	};
 }
@@ -483,6 +486,13 @@ Options:
 	}
 
 	let todo = catalog;
+	if (!opts.noQualityFilter) {
+		const before = todo.length;
+		todo = todo.filter((g) => assessUnityPlayQuality(g, { minPlays: opts.minPlays }).ok);
+		console.log(
+			`Quality filter (minPlays=${opts.minPlays}): ${before} → ${todo.length} (dropped ${before - todo.length})`
+		);
+	}
 	if (opts.limit > 0) {
 		todo = catalog.slice(0, opts.limit);
 		console.log(`Applying --limit ${opts.limit} → ${todo.length} games.`);

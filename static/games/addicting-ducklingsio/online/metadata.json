@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ducklingsio",
+  "name": "Ducklings.io",
+  "author": "Addicting Games",
+  "description": "<p>Ducklings.io is a crowd building iogame. We all wanna have the most friends and build a better life for ourselves. In Ducklings.io you can do exactly that except with birds instead of friends. Birds are actually probably better for you, long term, than people, are anyway. This is an adorable crowd building game about ducks competing to have the biggest flock of ducklings. You will start off as a hapless lonesome duck who must float out into the big bad world to find followers to bring back to your nest. The more ducklings you are able to convert and bring back to your nest, the more points you will score. It is not as simple as it sounds though, beware the machinations of competitive ducks who wish to intercept your flock and steal your followers for themselves. You will need to be able to spot them, outflank them, avoid them and keep your flock on the straight and narrow. You'll probably have to make multiple trips back to your nest in order to maximize your score and keep mama duck happy. Also, you yourself can intercept opposing ducks flocks in order to steal their ducklings. Don't feel too bad about it, that is the name of the game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/duck.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/duck.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://ducklings.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/ducklingsio"
+}

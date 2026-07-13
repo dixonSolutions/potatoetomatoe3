@@ -1,0 +1,17 @@
+{
+  "id": "playhop-digital-adventures-313706",
+  "name": "Digital adventures",
+  "author": "lolkajoin",
+  "description": "Play Digital adventures via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000193d8e5153ed9850ddbd59f614242/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000193d8e5153ed9850ddbd59f614242/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-313706.games.s3.yandex.net/313706/eq8pw0y33z5iu1vyno4qvoavlsevjl62/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=313706&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 313706,
+  "playhopPageUrl": "https://playhop.com/app/313706",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 9336
+}

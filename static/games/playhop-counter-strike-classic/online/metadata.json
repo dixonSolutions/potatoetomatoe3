@@ -1,0 +1,17 @@
+{
+  "id": "playhop-counter-strike-classic",
+  "name": "Counter-Strike Classic",
+  "author": "ololoken",
+  "description": "Play Counter-Strike Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a000001990622eeb8cab289b12e5af9b323/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a000001990622eeb8cab289b12e5af9b323/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-464500.games.s3.yandex.net/464500/oq4ldxnyz6qogvl4j9x82en8kmcqaxu9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=464500&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 464500,
+  "playhopPageUrl": "https://playhop.com/app/464500",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 652
+}

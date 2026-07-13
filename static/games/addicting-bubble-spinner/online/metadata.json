@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bubble-spinner",
+  "name": "Bubble Spinner",
+  "author": "Addicting Games",
+  "description": "<p>\n\n\nPlay Bubble Spinner, the classic bubble shooter game! Match colors, clear bubbles, and spin your way to a high score in this fun, casual puzzle game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bubble-spinner_0.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bubble-spinner_0.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/bubblespinner/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/bubble-spinner"
+}

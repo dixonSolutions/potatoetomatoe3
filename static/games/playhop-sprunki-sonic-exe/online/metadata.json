@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-sonic-exe",
+  "name": "Sprunki Sonic EXE",
+  "author": "n1",
+  "description": "Play Sprunki Sonic EXE via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a000001931c0d8af640a9f3a0f3d5236f01/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a000001931c0d8af640a9f3a0f3d5236f01/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-387093.games.s3.yandex.net/387093/kgu41wp30w2g3ikof2kdqnq1wxlduzin/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=387093&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 387093,
+  "playhopPageUrl": "https://playhop.com/app/387093",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 2251
+}

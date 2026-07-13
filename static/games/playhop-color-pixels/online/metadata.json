@@ -1,0 +1,17 @@
+{
+  "id": "playhop-color-pixels",
+  "name": "Color Pixels",
+  "author": "Annie Games",
+  "description": "Play Color Pixels via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e3b0254390cdb9419988d29b53c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e3b0254390cdb9419988d29b53c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-352316.games.s3.yandex.net/352316/bi72cdnx2gxsdtu538xukin1nglpv6jh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=352316&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 352316,
+  "playhopPageUrl": "https://playhop.com/app/352316",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 924
+}

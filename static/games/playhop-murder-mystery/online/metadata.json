@@ -1,0 +1,17 @@
+{
+  "id": "playhop-murder-mystery",
+  "name": "Murder Mystery",
+  "author": "MinerKa",
+  "description": "Play Murder Mystery via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a00000195c8453e52d20b2280ecf6dfdff4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a00000195c8453e52d20b2280ecf6dfdff4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-416620.games.s3.yandex.net/416620/iodql9y7gdhqnvgznyruog1godgpxph0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=416620&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 416620,
+  "playhopPageUrl": "https://playhop.com/app/416620",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 3495
+}

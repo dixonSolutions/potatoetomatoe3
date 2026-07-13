@@ -1,0 +1,17 @@
+{
+  "id": "playhop-balloon-match",
+  "name": "Balloon Match",
+  "author": "Linder",
+  "description": "Play Balloon Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001914b4e8adc3cfc7a024bffcf5dc8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001914b4e8adc3cfc7a024bffcf5dc8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-333936.games.s3.yandex.net/333936/ogtzlqfnc91uuu7bhghra43167i6pxra/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=333936&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 333936,
+  "playhopPageUrl": "https://playhop.com/app/333936",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 724
+}

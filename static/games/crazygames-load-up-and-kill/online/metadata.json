@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-load-up-and-kill",
+  "name": "Load Up and Kill 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Load Up and Kill is a killing simulation game in which your only goal is to kill a prisoner with whatever weapon you desire. You will be shown some weapons, and after choosing one, you have to load it up (if it needs ammo).",
+  "thumbnail": "https://imgs.crazygames.com/games/load-up-and-kill/cover-1628120335270.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/load-up-and-kill/cover-1628120335270.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/load-up-and-kill/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/load-up-and-kill",
+  "crazygamesSlug": "load-up-and-kill"
+}

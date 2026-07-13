@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-move-2",
+  "name": "Color Move 2 - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Move 2 at Cool Math Games: Slide the tiles to change their colors! Can you figure out how to match all the colors?",
+  "thumbnail": "/games/coolmath-color-move-2/online/assets/coolmath-color-move-2.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25110/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-move-2",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-move-2"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-papas-pancakeria",
+  "name": "Papa&#x27;s Pancakeria 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Papa’s Pancakeria is a casual restaurant game in which you grill pancakes and serve them with delicious toppings to customers. As you progress, you play minigames and upgrade the shop.",
+  "thumbnail": "/games/crazygames-papas-pancakeria/online/assets/crazygames-papas-pancakeria.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/papas-pancakeria/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/papas-pancakeria",
+  "crazygamesSlug": "papas-pancakeria"
+}

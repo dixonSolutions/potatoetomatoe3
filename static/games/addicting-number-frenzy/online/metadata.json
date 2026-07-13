@@ -1,0 +1,14 @@
+{
+  "id": "addicting-number-frenzy",
+  "name": "Number Frenzy",
+  "author": "Addicting Games",
+  "description": "<p>Number Frenzy is a free math game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/numberfrenzy.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/numberfrenzy.jpg",
+  "thumbnailStored": "remote",
+  "category": "block",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/number-frenzy/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/number-frenzy"
+}

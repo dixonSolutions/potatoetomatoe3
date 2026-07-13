@@ -1,0 +1,14 @@
+{
+  "id": "addicting-smartle",
+  "name": "Smartle",
+  "author": "Addicting Games",
+  "description": "<p>Smartle is a daily word puzzle game where you rearrange letters to create horizontal 5-letter words. Train your brain, improve your vocabulary and solve a new word puzzle every day.</p>\n\n<p>The game is easy to understand but can become surprisingly challenging as you search for the correct word. Some puzzles can be solved quickly, while others require careful thinking and pattern recognition.</p>\n\n<p>Smartle includes multiple game modes:</p>\n\n<p>*</p>\n\n<p>Daily Mode - solve one unique puzzle every day</p>\n\n<p>*</p>\n\n<p>Sprint Mode - race against the clock and solve puzzles as fast as possible</p>\n\n<p>*</p>\n\n<p>Archive Mode - play daily puzzles from previous days anytime you want</p>\n\n<p>Whether you want a relaxing brain teaser or a fast-paced word challenge, Smartle is designed for players who enjoy word games, logic puzzles and casual brain training.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/smartle_banner.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/smartle_banner.png",
+  "thumbnailStored": "remote",
+  "category": "daily-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://smartle-addictinggames.web.app/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/smartle"
+}

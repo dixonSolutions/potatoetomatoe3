@@ -1,0 +1,14 @@
+{
+  "id": "addicting-dino-run",
+  "name": "Dino Run",
+  "author": "Addicting Games",
+  "description": "<p>Extinct? No Want! Run, run and run some more. Many powerups will keep you alive; avoid nasty creatures, and, of course, that wall of lava behind you...</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/dinorun_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/dinorun_sp.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/dinorun_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/dino-run"
+}

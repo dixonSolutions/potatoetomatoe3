@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tap-supermarket",
+  "name": "Tap Supermarket 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tap Supermarket is a simulation game to manage the grocery store. Check out customers, keep the store stocked, expand your inventory and keep the business running smoothly!",
+  "thumbnail": "https://imgs.crazygames.com/games/tap-supermarket/cover-1656607347540.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/tap-supermarket/cover-1656607347540.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tap-supermarket/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tap-supermarket",
+  "crazygamesSlug": "tap-supermarket"
+}

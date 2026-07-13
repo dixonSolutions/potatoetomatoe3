@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lines-and-balls-186954",
+  "name": "Lines & Balls",
+  "author": "Toxic Pixels",
+  "description": "Play Lines & Balls via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001868ef1ebce9837f6666517e28387/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001868ef1ebce9837f6666517e28387/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-186954.games.s3.yandex.net/186954/kcq6ixrch83d8to9tjoh4i36q5ezqeyx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=186954&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 186954,
+  "playhopPageUrl": "https://playhop.com/app/186954",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 350
+}

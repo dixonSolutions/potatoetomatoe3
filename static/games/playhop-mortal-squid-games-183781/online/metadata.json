@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mortal-squid-games-183781",
+  "name": "Mortal Squid Games",
+  "author": "Taber Play",
+  "description": "Play Mortal Squid Games via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017ebede370d32b604386632ea35f6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000017ebede370d32b604386632ea35f6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-183781.games.s3.yandex.net/183781/qacalmc6cm5hs504xy50l10kmu4bs1zs/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=183781&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 183781,
+  "playhopPageUrl": "https://playhop.com/app/183781",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 1088
+}

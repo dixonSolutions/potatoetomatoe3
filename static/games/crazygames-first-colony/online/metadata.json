@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-first-colony",
+  "name": "First Colony 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "First Colony is an idle simulation game where you&#39;ll be in charge of the inaugural human settlement on Mars. Construct essential structures, gather valuable resources, and tactfully manage the well-being of your colonists.",
+  "thumbnail": "https://imgs.crazygames.com/first-colony/20230511025251/first-colony-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/first-colony/20230511025251/first-colony-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/first-colony/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/first-colony",
+  "crazygamesSlug": "first-colony"
+}

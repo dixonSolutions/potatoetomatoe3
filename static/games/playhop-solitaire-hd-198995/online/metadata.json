@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-hd-198995",
+  "name": "Solitaire HD",
+  "author": "mbkj",
+  "description": "Play Solitaire HD via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001865fab4dc7cf451d76eae82a74fa/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001865fab4dc7cf451d76eae82a74fa/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-198995.games.s3.yandex.net/198995/ev9kwvner3b74yqanaywv612jtpfyvck/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=198995&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 198995,
+  "playhopPageUrl": "https://playhop.com/app/198995",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3459
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-colorush",
+  "name": "Colorush - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Colorush at Cool Math Games: It&#039;s a science project. Rush to move ramps, bends, and other objects to fill the capacitors with colored paint.",
+  "thumbnail": "/games/coolmath-colorush/online/assets/coolmath-colorush.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/17731/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-colorush",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-colorush"
+}

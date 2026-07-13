@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cuzzbe",
+  "name": "Cuzzbe - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Pass the cube from tile to tile until you make it to the end in Cuzzbe. The higher the level, the more there is to think about.",
+  "thumbnail": "/games/coolmath-cuzzbe/online/assets/coolmath-cuzzbe.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54388/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cuzzbe",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cuzzbe"
+}

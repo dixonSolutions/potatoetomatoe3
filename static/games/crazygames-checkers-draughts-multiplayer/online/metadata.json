@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-checkers-draughts-multiplayer",
+  "name": "checkers draughts multiplayer",
+  "author": "CrazyGames",
+  "description": "Play checkers draughts multiplayer on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/checkers-draughts-multiplayer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/checkers-draughts-multiplayer",
+  "crazygamesSlug": "checkers-draughts-multiplayer"
+}

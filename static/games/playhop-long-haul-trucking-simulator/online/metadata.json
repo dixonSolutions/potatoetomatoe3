@@ -1,0 +1,17 @@
+{
+  "id": "playhop-long-haul-trucking-simulator",
+  "name": "Long-haul trucking simulator",
+  "author": "GMD",
+  "description": "Play Long-haul trucking simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019133bc9368913e799cd719c5d2aa/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019133bc9368913e799cd719c5d2aa/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-362771.games.s3.yandex.net/362771/tu1fk69f8eb3clxg4zeyuoyjqknova9p/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=362771&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 362771,
+  "playhopPageUrl": "https://playhop.com/app/362771",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 8800
+}

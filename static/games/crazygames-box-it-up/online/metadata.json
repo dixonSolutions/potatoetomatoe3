@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-box-it-up",
+  "name": "Box It Up 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Box It Up is a fast-paced puzzle game that tests your skills in managing a bustling can factory. Organize and pack cans with precision, mastering vibrant and challenging levels designed to keep you on your toes.",
+  "thumbnail": "https://imgs.crazygames.com/box-it-up_16x9/20250122040512/box-it-up_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/box-it-up_16x9/20250122040512/box-it-up_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/box-it-up/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/box-it-up",
+  "crazygamesSlug": "box-it-up"
+}

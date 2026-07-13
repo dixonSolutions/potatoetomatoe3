@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-diner-dash",
+  "name": "Diner Dash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Diner Dash is a casual food restaurant management game where you&#39;ll guide your character through the bustling chaos of running the city&#39;s busiest diner. From seating customers to taking orders, serving food, and cleaning tables, your job is to keep the restaurant in tip-top shape.",
+  "thumbnail": "https://imgs.crazygames.com/games/diner-dash/thumb-1572691008210.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/diner-dash/thumb-1572691008210.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/diner-dash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/diner-dash",
+  "crazygamesSlug": "diner-dash"
+}

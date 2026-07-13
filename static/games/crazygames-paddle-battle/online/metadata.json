@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-paddle-battle",
+  "name": "Paddle Battle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Paddle Battle is a simple, intuitive game where you play against a friend locally. Control a ball to hit the small orange ball into the gap found on your opponent&#39;s side of the board.",
+  "thumbnail": "https://imgs.crazygames.com/paddle-battle/20230203112755/paddle-battle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/paddle-battle/20230203112755/paddle-battle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/paddle-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/paddle-battle",
+  "crazygamesSlug": "paddle-battle"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cut-the-rope-289684",
+  "name": "Cut The Rope",
+  "author": "Famobi-Dev",
+  "description": "Play Cut The Rope via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018d55aa42a766ae8ab069138cf1fb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018d55aa42a766ae8ab069138cf1fb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-289684.games.s3.yandex.net/289684/g9j7wfosgi55ciil3sikfv3nekt7do6j/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=289684&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 289684,
+  "playhopPageUrl": "https://playhop.com/app/289684",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 11025
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-nightmare-runner",
+  "name": "Nightmare Runner",
+  "author": "Addicting Games",
+  "description": "<p>Escape an endless nightmare haunted by monstrous creatures!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/nightmare-runner_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/nightmare-runner_sp.png",
+  "thumbnailStored": "remote",
+  "category": "escape-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/nightmare-runner_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/nightmare-runner"
+}

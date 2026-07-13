@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connect-the-dots",
+  "name": "Connect the Dots - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Scan the field to find the longest color chains and Connect the Dots. Surround a color to create powerups and score even more points.",
+  "thumbnail": "/games/coolmath-connect-the-dots/online/assets/coolmath-connect-the-dots.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/35936/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connect-the-dots",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connect-the-dots"
+}

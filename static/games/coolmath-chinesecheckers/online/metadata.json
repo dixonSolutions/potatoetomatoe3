@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chinesecheckers",
+  "name": "Chinese Checkers - Play Online Now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Play the classic Chinese Checkers board game free online. Get your marbles to the other side of the board before your opponent.",
+  "thumbnail": "/games/coolmath-chinesecheckers/online/assets/coolmath-chinesecheckers.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48181/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chinesecheckers",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chinesecheckers"
+}

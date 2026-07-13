@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-behold-battle",
+  "name": "Behold Battle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Behold Battle is an action auto-battle game where you enter the world of thrilling warfare where you predict and witness intense clashes between heroes and monsters. Experience the excitement of this simple yet addictive auto battler, with randomly generated battles that leave you on the edge of your seat.",
+  "thumbnail": "https://imgs.crazygames.com/behold-battle/20230613145048/behold-battle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/behold-battle/20230613145048/behold-battle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/behold-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/behold-battle",
+  "crazygamesSlug": "behold-battle"
+}

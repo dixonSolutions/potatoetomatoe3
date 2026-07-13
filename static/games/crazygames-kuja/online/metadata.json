@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-kuja",
+  "name": "Kuja 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The guy in this game had too much to drink and wanted to start a big fight in the Kuja club. Help him swing his fists to knock down opponents.",
+  "thumbnail": "/games/crazygames-kuja/online/assets/crazygames-kuja.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kuja/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kuja",
+  "crazygamesSlug": "kuja"
+}

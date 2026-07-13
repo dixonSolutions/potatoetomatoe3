@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-minimine",
+  "name": "Mini Mine 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mini Mine is a thrilling adventure arcade game where you dig deep, fight fierce monsters, and trade smartly to save Noob’s kidnapped girlfriend. Mine resources to upgrade weapons and tools, build a thriving village, and uncover hidden treasures.",
+  "thumbnail": "https://imgs.crazygames.com/minimine_16x9/20260512041900/minimine_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/minimine_16x9/20260512041900/minimine_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/minimine/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/minimine",
+  "crazygamesSlug": "minimine"
+}

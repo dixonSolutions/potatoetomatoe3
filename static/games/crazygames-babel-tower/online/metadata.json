@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-babel-tower",
+  "name": "Babel Tower 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Babel Tower is a full-featured clicker-idle game with a mission to complete the Tower of Babel.How to Play Babel TowerPress and hold the left mouse button on certain camps to mine stones, transfer stones to processing, speed up brick production, chop trees, and perform other activities.",
+  "thumbnail": "https://imgs.crazygames.com/babel-tower_16x9/20241216072840/babel-tower_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/babel-tower_16x9/20241216072840/babel-tower_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/babel-tower/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/babel-tower",
+  "crazygamesSlug": "babel-tower"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-aim-master",
+  "name": "Aim Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Aim Master is a fun puzzle game that challenges your focus and precision. Your goal is to shoot the ball so it hits every white object in one take.",
+  "thumbnail": "https://imgs.crazygames.com/aim-master_16x9/20240905042049/aim-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/aim-master_16x9/20240905042049/aim-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/aim-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/aim-master",
+  "crazygamesSlug": "aim-master"
+}

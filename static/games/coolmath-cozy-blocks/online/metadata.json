@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cozy-blocks",
+  "name": "Cozy Blocks - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Clear out each layer of the cube in Cozy Blocks. You&#039;ll have to flip, turn, and rotate each block until it fits into the puzzle just perfectly.",
+  "thumbnail": "/games/coolmath-cozy-blocks/online/assets/coolmath-cozy-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54159/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cozy-blocks",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cozy-blocks"
+}

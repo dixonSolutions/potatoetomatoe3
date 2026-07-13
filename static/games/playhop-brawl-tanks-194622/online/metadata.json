@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brawl-tanks-194622",
+  "name": "Brawl Tanks",
+  "author": "ManyBits",
+  "description": "Play Brawl Tanks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000182a710c0937ac030d649b9c696eb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000182a710c0937ac030d649b9c696eb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-194622.games.s3.yandex.net/194622/pto9084yca9gzi8i3zj9f01jasmgl0x1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=194622&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 194622,
+  "playhopPageUrl": "https://playhop.com/app/194622",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1291
+}

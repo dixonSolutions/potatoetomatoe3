@@ -1,0 +1,17 @@
+{
+  "id": "playhop-crazy-flying-car",
+  "name": "Crazy Flying Car",
+  "author": "AM",
+  "description": "Play Crazy Flying Car via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019056a937bf3cc04af9c465e827f6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000019056a937bf3cc04af9c465e827f6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-352609.games.s3.yandex.net/352609/6mwh4rug25hru39xwfameexf7kwg5l9f/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=352609&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 352609,
+  "playhopPageUrl": "https://playhop.com/app/352609",
+  "playhopRating": 4,
+  "playhopRatingCount": 1271
+}

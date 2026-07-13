@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soldier-290730",
+  "name": "Soldier",
+  "author": "GMD",
+  "description": "Play Soldier via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018d6417c961f258ed8f6bfdbb9622/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018d6417c961f258ed8f6bfdbb9622/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-290730.games.s3.yandex.net/290730/5dtt6e6pvbtjz0y6fptg02rgwgqdi7sb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=290730&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 290730,
+  "playhopPageUrl": "https://playhop.com/app/290730",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 6193
+}

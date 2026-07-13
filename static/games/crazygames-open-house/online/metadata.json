@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-open-house",
+  "name": "Open House 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Open House is a puzzle match-3 game where you&#39;re unexpectedly tasked with turning an abandoned residence into your dream home via one puzzle at a time. Each puzzle brings about new furnishings and upgrades to keep you hooked.",
+  "thumbnail": "https://imgs.crazygames.com/open-house_16x9/20260220024829/open-house_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/open-house_16x9/20260220024829/open-house_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/open-house/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/open-house",
+  "crazygamesSlug": "open-house"
+}

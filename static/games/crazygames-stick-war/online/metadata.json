@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-stick-war",
+  "name": "Stick War 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stick War is a classic strategy war game featuring stick figures. This original title was released in 2009 in Flash and is now available to play in your web browser through Ruffle.",
+  "thumbnail": "/games/crazygames-stick-war/online/assets/crazygames-stick-war.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stick-war/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stick-war",
+  "crazygamesSlug": "stick-war"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-jewel-hunter",
+  "name": "Jewel Hunter 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jewel Hunter is a quick and challenging match-3 game. You only have a limited amount of moves to complete the level goal.",
+  "thumbnail": "https://imgs.crazygames.com/jewel-hunter-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/jewel-hunter-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jewel-hunter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jewel-hunter",
+  "crazygamesSlug": "jewel-hunter"
+}

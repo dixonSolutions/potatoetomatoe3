@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ruya",
+  "name": "Ruya 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ruya is a serene puzzle game that invites you into dreamlike landscapes filled with vibrant colors and meditative challenges. Immerse yourself in Ruya&#39;s introspective journey, decorating her with flowers while solving minimalistic puzzles.",
+  "thumbnail": "https://imgs.crazygames.com/ruya_16x9/20250219055302/ruya_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ruya_16x9/20250219055302/ruya_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ruya/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ruya",
+  "crazygamesSlug": "ruya"
+}

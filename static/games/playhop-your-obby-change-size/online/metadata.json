@@ -1,0 +1,17 @@
+{
+  "id": "playhop-your-obby-change-size",
+  "name": "Your Obby Change Size",
+  "author": "KreizLand",
+  "description": "Play Your Obby Change Size via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b47fd1c52e382e85ad76b5a3558/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b47fd1c52e382e85ad76b5a3558/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-414319.games.s3.yandex.net/414319/y33t24yilfhkceum2w0oi265336umgep/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=414319&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 414319,
+  "playhopPageUrl": "https://playhop.com/app/414319",
+  "playhopRating": 4,
+  "playhopRatingCount": 10815
+}

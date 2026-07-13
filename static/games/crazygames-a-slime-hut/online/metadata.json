@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-a-slime-hut",
+  "name": "A Slime Hut 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "A Slime Hut is a unique tower-defense game in which you need to continually strengthen the defense by doing various management stuff in the hut with a garden. The judges were impressed by this game and thus it won the third place of CrazyGames 2019 developer contest.",
+  "thumbnail": "https://imgs.crazygames.com/a-slime-hut-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/a-slime-hut-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/a-slime-hut/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/a-slime-hut",
+  "crazygamesSlug": "a-slime-hut"
+}

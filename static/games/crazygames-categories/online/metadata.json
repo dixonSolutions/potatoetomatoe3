@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-categories",
+  "name": "Categories 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Categories is a word game where you prepare yourself for a daily dose of word-sorting fun! This engaging word game challenges players to group words that share a common theme into categories to solve the puzzle.",
+  "thumbnail": "https://imgs.crazygames.com/categories_16x9/20240827025635/categories_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/categories_16x9/20240827025635/categories_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/categories/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/categories",
+  "crazygamesSlug": "categories"
+}

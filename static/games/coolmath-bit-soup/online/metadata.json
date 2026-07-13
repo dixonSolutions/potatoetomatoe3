@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bit-soup",
+  "name": "B.I.T. Soup - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Become the coolest musician around in B.I.T. Soup. Challenge creatures from near and afar to show off your musical prowess.",
+  "thumbnail": "/games/coolmath-bit-soup/online/assets/coolmath-bit-soup.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/54197/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bit-soup",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bit-soup"
+}

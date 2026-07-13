@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connected-towers",
+  "name": "Connected Towers - Play Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "In Connected Towers, push the power towers to activate them and boost the signal. Unlock sealed gates and use giant machines to reach the goal.",
+  "thumbnail": "/games/coolmath-connected-towers/online/assets/coolmath-connected-towers.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/40407/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connected-towers",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connected-towers"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-stick-war",
+  "name": "Stick War",
+  "author": "Addicting Games",
+  "description": "<p>Stick War is a free desktop strategy game.   This is the ultimate base defense game online. Prove that you are the greatest Stick King in the land by defeating all of your stick opponents. In this real time strategy game, defend the statue of your king while simultaneously trying to destroy the statue of your enemy. Build miners to harvest gold, and then use that gold to purchase units. Those units will be your front-line defense against the enemy, and your means of destroying the statue. Progress through multiple levels, unlocking additional units along the way, until proving to the stick world that you are the one true Stick King.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/stick-war.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/stick-war.jpg",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/stickwar.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/stick-war"
+}

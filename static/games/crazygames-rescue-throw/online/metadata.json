@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rescue-throw",
+  "name": "Rescue Throw 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rescue Throw is an arcade game in which you must throw the patient to the ambulance. Aim in the right direction, avoid any obstacles, and collect coins as you throw the stickman.",
+  "thumbnail": "https://imgs.crazygames.com/rescue-throw_16x9/20240318052713/rescue-throw_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rescue-throw_16x9/20240318052713/rescue-throw_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rescue-throw/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rescue-throw",
+  "crazygamesSlug": "rescue-throw"
+}

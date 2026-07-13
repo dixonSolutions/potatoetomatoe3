@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-entropy",
+  "name": "entropy",
+  "author": "CrazyGames",
+  "description": "Play entropy on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/entropy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/entropy",
+  "crazygamesSlug": "entropy"
+}

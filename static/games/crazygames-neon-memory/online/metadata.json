@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-neon-memory",
+  "name": "neon memory",
+  "author": "CrazyGames",
+  "description": "Play neon memory on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/neon-memory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/neon-memory",
+  "crazygamesSlug": "neon-memory"
+}

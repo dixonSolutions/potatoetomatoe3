@@ -1,0 +1,17 @@
+{
+  "id": "playhop-belong-2-528866",
+  "name": "Belong 2",
+  "author": "k0reshov",
+  "description": "Play Belong 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019f298c2c83876a03f530afd2b600/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019f298c2c83876a03f530afd2b600/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-528866.games.s3.yandex.net/528866/8rb4ga98qm0hswiygjuii3e135nepycs/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=528866&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 528866,
+  "playhopPageUrl": "https://playhop.com/app/528866",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 44
+}

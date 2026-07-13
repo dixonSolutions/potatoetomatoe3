@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-galaxy-clicker",
+  "name": "Galaxy Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Galaxy Clicker is an idle game featuring different planets, stars, and star systems. You will earn income each time the planet revolves around the sun.",
+  "thumbnail": "https://imgs.crazygames.com/galaxy-clicker_16x9/20240417031513/galaxy-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/galaxy-clicker_16x9/20240417031513/galaxy-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/galaxy-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/galaxy-clicker",
+  "crazygamesSlug": "galaxy-clicker"
+}

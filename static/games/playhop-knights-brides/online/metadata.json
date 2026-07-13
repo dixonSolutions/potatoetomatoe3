@@ -1,0 +1,17 @@
+{
+  "id": "playhop-knights-brides",
+  "name": "Knights & Brides",
+  "author": "Vizor Apps LTD",
+  "description": "Play Knights & Brides via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019e6f0bdc016676a03d0b7275063e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019e6f0bdc016676a03d0b7275063e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-180663.games.s3.yandex.net/180663/cfxzlv9a3qk0vn0dilg80gynktsb3eqk/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 410637,
+  "playhopPageUrl": "https://playhop.com/app/410637",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 6095
+}

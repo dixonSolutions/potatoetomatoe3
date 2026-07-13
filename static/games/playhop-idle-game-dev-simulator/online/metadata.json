@@ -1,0 +1,17 @@
+{
+  "id": "playhop-idle-game-dev-simulator",
+  "name": "Idle Game Dev Simulator",
+  "author": "PlayCroc",
+  "description": "Play Idle Game Dev Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019cd13ef61ad328b76143b3bd36fa/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019cd13ef61ad328b76143b3bd36fa/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-436114.games.s3.yandex.net/436114/3p361nbk6t4c6nt5ara81vldiairrggm/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=436114&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 436114,
+  "playhopPageUrl": "https://playhop.com/app/436114",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 2472
+}

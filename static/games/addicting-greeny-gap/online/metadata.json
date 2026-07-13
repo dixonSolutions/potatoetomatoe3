@@ -1,0 +1,14 @@
+{
+  "id": "addicting-greeny-gap",
+  "name": "Greeny Gap",
+  "author": "Addicting Games",
+  "description": "<p>The world is green and you're a quadrangle spaceship. Oh noes! Pilot through mazes that will take you upside down and roller coastering through a strange green world. And please, mind the gaps, or else there will be no certificate for you, young Greeny.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/greenygap_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/greenygap_sp.png",
+  "thumbnailStored": "remote",
+  "category": "flying-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/greenygap_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/greeny-gap"
+}

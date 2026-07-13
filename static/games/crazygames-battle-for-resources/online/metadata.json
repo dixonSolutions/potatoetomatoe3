@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-battle-for-resources",
+  "name": "Battle for Resources 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Engage in fierce real-time strategy battles in PvP Res Battle. Build crucial infrastructure such as warehouses, barracks, and defensive towers while capturing vital resources to construct new buildings and recruit powerful heroes.",
+  "thumbnail": "https://imgs.crazygames.com/battle-for-resources_16x9/20260130052212/battle-for-resources_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/battle-for-resources_16x9/20260130052212/battle-for-resources_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battle-for-resources/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battle-for-resources",
+  "crazygamesSlug": "battle-for-resources"
+}

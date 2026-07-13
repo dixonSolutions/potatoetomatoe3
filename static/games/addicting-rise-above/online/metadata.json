@@ -1,0 +1,14 @@
+{
+  "id": "addicting-rise-above",
+  "name": "Rise Above",
+  "author": "Addicting Games",
+  "description": "<p>Rise Above is a free-avoider game.  You're a chicken in this endless avoided game where objects like spikes, balls, hexes, squares, and sticks fall from the sky and must be blocked, deflected, and pushed away by your shield. This is a game where you play until you die. If you want to make it to the top of the leaderboard, you'll have to be as defensive as possible. This is a game with no way to speed up, slow down, or move your chicken. The only way to survive is by protecting them with the shield. Endless avoider games are a great way to practice patience and strategy as you block, push, and protect. Keep your chicken safe in this free, fun, avoided game. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/riseabovescreen.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/riseabovescreen.png",
+  "thumbnailStored": "remote",
+  "category": "balance",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/rise-above/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/rise-above"
+}

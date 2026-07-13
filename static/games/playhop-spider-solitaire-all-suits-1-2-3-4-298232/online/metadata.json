@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-solitaire-all-suits-1-2-3-4-298232",
+  "name": "Spider Solitaire all suits (1, 2, 3, 4)",
+  "author": "FENIKSDEV",
+  "description": "Play Spider Solitaire all suits (1, 2, 3, 4) via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018e095204de297afe403c186ea00b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018e095204de297afe403c186ea00b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-298232.games.s3.yandex.net/298232/c4bmbjjmpw99rgfh94ecniitbg9w2cad/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=298232&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 298232,
+  "playhopPageUrl": "https://playhop.com/app/298232",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 241
+}

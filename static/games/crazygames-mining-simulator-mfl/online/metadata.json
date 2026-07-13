@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mining-simulator-mfl",
+  "name": "Mining Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mine your way from the surface crust down to the mysterious Void Nexus, located 25 kilometers beneath the earth. Dig through 12 increasingly challenging depth zones, uncover valuable ores, and build the ultimate mining empire.",
+  "thumbnail": "https://imgs.crazygames.com/mining-simulator-mfl_16x9/20260522075219/mining-simulator-mfl_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mining-simulator-mfl_16x9/20260522075219/mining-simulator-mfl_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mining-simulator-mfl/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mining-simulator-mfl",
+  "crazygamesSlug": "mining-simulator-mfl"
+}

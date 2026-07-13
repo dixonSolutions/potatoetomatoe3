@@ -1,0 +1,17 @@
+{
+  "id": "playhop-build-an-island",
+  "name": "Build an Island!",
+  "author": "Shakabuy",
+  "description": "Play Build an Island! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019f1b5ba06abbf397b98d344478ba/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000019f1b5ba06abbf397b98d344478ba/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-450363.games.s3.yandex.net/450363/xw6v7j845jx5fcfzedsenz59z37fcftk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=450363&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 450363,
+  "playhopPageUrl": "https://playhop.com/app/450363",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 7234
+}

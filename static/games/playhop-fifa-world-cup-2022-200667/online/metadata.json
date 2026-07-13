@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fifa-world-cup-2022-200667",
+  "name": "FIFA World Cup 2022",
+  "author": "bdeuxagames",
+  "description": "Play FIFA World Cup 2022 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a000001846ecda16d2b3665fbc13ac25a33/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a000001846ecda16d2b3665fbc13ac25a33/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-200667.games.s3.yandex.net/200667/z5afqd3dv1tt9o6eht0gh7mah5l03lad/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=200667&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 200667,
+  "playhopPageUrl": "https://playhop.com/app/200667",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 8880
+}

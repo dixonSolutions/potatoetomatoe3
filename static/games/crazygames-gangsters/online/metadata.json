@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gangsters",
+  "name": "Gangsters 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Gangsters is a pixelated shooting mayhem in which the players takes control of a gang. The goal of the game is to defend your turf against rival gangs.",
+  "thumbnail": "https://imgs.crazygames.com/games/gangsters/cover_16x9-1707829296211.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/gangsters/cover_16x9-1707829296211.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gangsters/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gangsters",
+  "crazygamesSlug": "gangsters"
+}

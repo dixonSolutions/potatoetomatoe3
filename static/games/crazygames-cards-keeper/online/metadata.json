@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cards-keeper",
+  "name": "Cards Keeper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cards Keeper is the awesome turn-based card action game in which you will take on mystical creatures within the hidden dungeons surrounding you. You are a brave hero on a mission to rid the land of these creatures and you must do so by winning using the card battle system.",
+  "thumbnail": "https://imgs.crazygames.com/cardskeeperb.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cardskeeperb.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cards-keeper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cards-keeper",
+  "crazygamesSlug": "cards-keeper"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-plumber-94-501243",
+  "name": "Plumber 94",
+  "author": "digitalcaramel2",
+  "description": "Play Plumber 94 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019cf554cd90526cf2a3370c90e79a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019cf554cd90526cf2a3370c90e79a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-501243.games.s3.yandex.net/501243/aphr8lsf1d5ferp4x1qj31bck36hq9b3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=501243&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 501243,
+  "playhopPageUrl": "https://playhop.com/app/501243",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 37
+}

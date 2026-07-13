@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-push-io",
+  "name": "Push.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Push.io is a fast-paced arena game where you battle to stay on the map and push everyone else off. Wield your boomerang with precision to knock rivals into the water while dodging incoming attacks.",
+  "thumbnail": "https://imgs.crazygames.com/push-io_16x9/20251208142032/push-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/push-io_16x9/20251208142032/push-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/push-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/push-io",
+  "crazygamesSlug": "push-io"
+}

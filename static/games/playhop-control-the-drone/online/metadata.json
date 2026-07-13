@@ -1,0 +1,17 @@
+{
+  "id": "playhop-control-the-drone",
+  "name": "Control the drone!",
+  "author": "razrob",
+  "description": "Play Control the drone! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000191468255d3dfdfd61eb731fa97e5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000191468255d3dfdfd61eb731fa97e5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-353732.games.s3.yandex.net/353732/wml1gz95huxpocg6nfi4q6fzhc0yba92/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=353732&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 353732,
+  "playhopPageUrl": "https://playhop.com/app/353732",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 2409
+}

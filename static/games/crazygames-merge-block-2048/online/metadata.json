@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-merge-block-2048",
+  "name": "merge block 2048",
+  "author": "CrazyGames",
+  "description": "Play merge block 2048 on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-block-2048/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-block-2048",
+  "crazygamesSlug": "merge-block-2048"
+}

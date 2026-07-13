@@ -1,0 +1,17 @@
+{
+  "id": "playhop-squid-game-mini-games-online",
+  "name": "Squid Game: Mini-Games Online",
+  "author": "Playme",
+  "description": "Play Squid Game: Mini-Games Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a000001971e6736f7a0794aeba8d1232e66/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a000001971e6736f7a0794aeba8d1232e66/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-396981.games.s3.yandex.net/396981/5noilt3eb1wtm6mch89keoaflucr8il6/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=396981&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 396981,
+  "playhopPageUrl": "https://playhop.com/app/396981",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 13511
+}

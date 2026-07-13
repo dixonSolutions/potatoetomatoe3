@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sushi-drop",
+  "name": "Sushi Drop 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sushi Drop is a puzzle game where you must drop-and-merge the same sushi blocks to create more expensive and fancy sushi ordered by the customers. You can remove unwanted sushi using a bomb booster and also reshuffle the sushi using a blender booster.",
+  "thumbnail": "https://imgs.crazygames.com/sushi-drop_16x9/20231005100303/sushi-drop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sushi-drop_16x9/20231005100303/sushi-drop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sushi-drop/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sushi-drop",
+  "crazygamesSlug": "sushi-drop"
+}

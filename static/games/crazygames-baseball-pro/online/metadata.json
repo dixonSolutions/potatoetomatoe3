@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-baseball-pro",
+  "name": "Baseball Pro 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Baseball Pro is a sports game to become a pro baseballer and hit all the incoming ball to get high scores! Developer Code This Lab made this game.",
+  "thumbnail": "/games/crazygames-baseball-pro/online/assets/crazygames-baseball-pro.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/baseball-pro/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/baseball-pro",
+  "crazygamesSlug": "baseball-pro"
+}

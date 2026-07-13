@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bauble-buster",
+  "name": "Play Bauble Buster: Gnomes away | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The gnomes are redecorating for the holidays. Drop a gnome-bomb from the gnome-plane and clear out all the baubles for all gnome-kind!",
+  "thumbnail": "/games/coolmath-bauble-buster/online/assets/coolmath-bauble-buster.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37324/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bauble-buster",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bauble-buster"
+}

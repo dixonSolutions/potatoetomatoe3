@@ -1,0 +1,17 @@
+{
+  "id": "playhop-onet-connect-classic-240981",
+  "name": "Onet Connect Classic",
+  "author": "Famobi-Dev",
+  "description": "Play Onet Connect Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001894f5d00a1612ee22ee1f4aca39c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001894f5d00a1612ee22ee1f4aca39c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-240981.games.s3.yandex.net/240981/ohcms0bqzxv6icx2jlqvzt29fyjna9j0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=240981&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 240981,
+  "playhopPageUrl": "https://playhop.com/app/240981",
+  "playhopRating": 4,
+  "playhopRatingCount": 169
+}

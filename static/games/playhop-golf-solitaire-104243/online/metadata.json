@@ -1,0 +1,17 @@
+{
+  "id": "playhop-golf-solitaire-104243",
+  "name": "Golf Solitaire",
+  "author": "CodeThisLab",
+  "description": "Play Golf Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019d864900c8ede76917684c699568/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019d864900c8ede76917684c699568/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-104243.games.s3.yandex.net/104243/p6vd9iu8steup171me49554wmy65qopy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=104243&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 104243,
+  "playhopPageUrl": "https://playhop.com/app/104243",
+  "playhopRating": 4,
+  "playhopRatingCount": 1169
+}

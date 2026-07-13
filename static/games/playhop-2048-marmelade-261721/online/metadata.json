@@ -1,0 +1,17 @@
+{
+  "id": "playhop-2048-marmelade-261721",
+  "name": "2048 Marmelade",
+  "author": "Ratata-dev",
+  "description": "Play 2048 Marmelade via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018dee74324f38401986de7a9b89e3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018dee74324f38401986de7a9b89e3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-261721.games.s3.yandex.net/261721/xao9tpwan3ydsyi5zwk7flss9hkapawy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=261721&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 261721,
+  "playhopPageUrl": "https://playhop.com/app/261721",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1425
+}

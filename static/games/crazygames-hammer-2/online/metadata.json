@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-hammer-2",
+  "name": "Hammer 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Complete various missions while constantly shooting down enemies. Collect money and upgrades while doing so!",
+  "thumbnail": "/games/crazygames-hammer-2/online/assets/crazygames-hammer-2.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hammer-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hammer-2",
+  "crazygamesSlug": "hammer-2"
+}

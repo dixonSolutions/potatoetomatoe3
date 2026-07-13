@@ -1,0 +1,17 @@
+{
+  "id": "playhop-grub-537053",
+  "name": "Grub",
+  "author": "PollyGamesStd",
+  "description": "Play Grub via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019e8d6f204a1a9f4175b5efa70513/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019e8d6f204a1a9f4175b5efa70513/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-537053.games.s3.yandex.net/537053/3gfnlmu6j6azepr29gh8cd01i86qjb0q/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=537053&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 537053,
+  "playhopPageUrl": "https://playhop.com/app/537053",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

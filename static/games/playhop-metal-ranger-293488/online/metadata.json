@@ -1,0 +1,17 @@
+{
+  "id": "playhop-metal-ranger-293488",
+  "name": "Metal Ranger",
+  "author": "Albert Zig",
+  "description": "Play Metal Ranger via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018f1ee36e69f61e76bea735cedf6b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018f1ee36e69f61e76bea735cedf6b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-293488.games.s3.yandex.net/293488/ow49j2ctdckem3tsmbt77te35imtp6ms/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=293488&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 293488,
+  "playhopPageUrl": "https://playhop.com/app/293488",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1944
+}

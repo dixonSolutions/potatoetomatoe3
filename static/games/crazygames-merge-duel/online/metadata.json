@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-merge-duel",
+  "name": "merge duel",
+  "author": "CrazyGames",
+  "description": "Play merge duel on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-duel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-duel",
+  "crazygamesSlug": "merge-duel"
+}

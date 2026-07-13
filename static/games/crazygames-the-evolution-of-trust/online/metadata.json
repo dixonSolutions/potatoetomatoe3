@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-the-evolution-of-trust",
+  "name": "The Evolution of Trust 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Evolution of Trust is a cool game that tests your ability to trust your opponent fully. You and an AI controlled player will both choose whether to cooperate or steal coins as you put them into the machine.",
+  "thumbnail": "https://imgs.crazygames.com/theevolutionoftrust.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/theevolutionoftrust.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-evolution-of-trust/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-evolution-of-trust",
+  "crazygamesSlug": "the-evolution-of-trust"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-feudalism",
+  "name": "Feudalism",
+  "author": "Addicting Games",
+  "description": "<p>Feudalism is a free strategy game. Vanquish foes! Slaughter enemies! Recruit and equip your armies! Conquer foreign lands! Tax citizens and provide municipal services! Oh, ok, you can skip the last part.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/feudalism_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/feudalism_sp.png",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/feudalism.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/feudalism"
+}

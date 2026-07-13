@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mancala-shu",
+  "name": "mancala shu",
+  "author": "CrazyGames",
+  "description": "Play mancala shu on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mancala-shu/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mancala-shu",
+  "crazygamesSlug": "mancala-shu"
+}

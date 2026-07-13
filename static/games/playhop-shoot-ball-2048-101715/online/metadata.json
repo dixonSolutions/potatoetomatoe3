@@ -1,0 +1,17 @@
+{
+  "id": "playhop-shoot-ball-2048-101715",
+  "name": "Shoot Ball 2048",
+  "author": "truelisgames",
+  "description": "Play Shoot Ball 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017867acf0486802ec9dccf878fe99/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017867acf0486802ec9dccf878fe99/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-101715.games.s3.yandex.net/101715/zyb1tfpy7svirgdwl7jij90sz63hrxm1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=101715&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 101715,
+  "playhopPageUrl": "https://playhop.com/app/101715",
+  "playhopRating": 4,
+  "playhopRatingCount": 660
+}

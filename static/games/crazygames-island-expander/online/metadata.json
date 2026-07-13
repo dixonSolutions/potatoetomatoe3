@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-island-expander",
+  "name": "Island Expander 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Island Expander is a cozy crafting game where you transform a tiny island into a paradise. Collect resources, unlock recipes, craft items from simple tools to complex machines.",
+  "thumbnail": "https://imgs.crazygames.com/island-expander_16x9/20260219063258/island-expander_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/island-expander_16x9/20260219063258/island-expander_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/island-expander/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/island-expander",
+  "crazygamesSlug": "island-expander"
+}

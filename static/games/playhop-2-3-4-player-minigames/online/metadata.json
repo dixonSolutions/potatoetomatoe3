@@ -1,0 +1,17 @@
+{
+  "id": "playhop-2-3-4-player-minigames",
+  "name": "2,3,4 Player Minigames",
+  "author": "MonaxGames",
+  "description": "Play 2,3,4 Player Minigames via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019756ea96c0f8a73e316fcc88a567/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000019756ea96c0f8a73e316fcc88a567/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-443850.games.s3.yandex.net/443850/9sx02176urrizmr6cm5x6xqn722yffoj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=443850&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 443850,
+  "playhopPageUrl": "https://playhop.com/app/443850",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 272
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-restore-car-3d",
+  "name": "Restore Car 3D",
+  "author": "ZoltanGames",
+  "description": "Play Restore Car 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a000001985c7ec0cc2ba5e4f513c0d5cf61/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a000001985c7ec0cc2ba5e4f513c0d5cf61/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-407601.games.s3.yandex.net/407601/fky1zw17nphw2l2r6tlosb6ivbq1gr4r/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=407601&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 407601,
+  "playhopPageUrl": "https://playhop.com/app/407601",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 4316
+}

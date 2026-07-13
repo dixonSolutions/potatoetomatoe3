@@ -1,0 +1,14 @@
+{
+  "id": "addicting-dream-car-racing",
+  "name": "Dream Car Racing",
+  "author": "Addicting Games",
+  "description": "<p>Dream Car Racing is a free racing game. Tinker with this wobbly car and get ready for action! Put the long spring thingy here, the wheel there, and put that somewhere too, then get on the road. Collect coins along your way to trick out your ride, son!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/dreamcarracing_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/dreamcarracing_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/dreamcarracing.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/dream-car-racing"
+}

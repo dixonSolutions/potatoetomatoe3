@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-puzzle-balls",
+  "name": "Puzzle Balls 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Puzzle Balls is a one-button truck-filling game. Guide the balls through the puzzle, fill up the truck to win.",
+  "thumbnail": "https://imgs.crazygames.com/puzzle-balls-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/puzzle-balls-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/puzzle-balls/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/puzzle-balls",
+  "crazygamesSlug": "puzzle-balls"
+}

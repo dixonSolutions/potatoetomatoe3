@@ -1,0 +1,14 @@
+{
+  "id": "addicting-noughts-crosses",
+  "name": "Noughts & Crosses",
+  "author": "Addicting Games",
+  "description": "<p>Noughts &amp; Crosses is the classic game that is unlocked with math questions! Play against our AI opponent as you both race to create a row. Strategy is definitely required for this kind of competitive game. For the newbies, the game is played on a 6-block grid. You are either the nought or the cross but crosses go first. The person (or robot) who plays first has the advantage. Create a row with your mark to win! Once you play a quick session, you will need to solve math questions to unlock another game. All the questions are multiple-choice. This math game has skills from preschool to the eighth grade. There are simple math skills like addition, counting, and subtraction. However, you will also find advanced math skills like decimals, multiplication, fractions, statistics, and even geometry! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/noughtsandcrossesgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/noughtsandcrossesgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "strategy-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/noughts-and-crosses/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/noughts-crosses"
+}

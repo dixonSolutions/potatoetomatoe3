@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-4x4-chess",
+  "name": "4x4 Chess: Last Man Stand 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "4x4 Chess: Last Man Stand is a fast-paced, tactical twist on the classic game, designed for short, intense matches where only one player can be the last piece standing. On a tight 4x4 board, every move matters and the battle for survival is fierce.",
+  "thumbnail": "https://imgs.crazygames.com/4x4-chess_16x9/20260220031351/4x4-chess_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/4x4-chess_16x9/20260220031351/4x4-chess_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/4x4-chess/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/4x4-chess",
+  "crazygamesSlug": "4x4-chess"
+}

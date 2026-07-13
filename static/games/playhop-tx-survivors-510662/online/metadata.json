@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tx-survivors-510662",
+  "name": "TX Survivors",
+  "author": "TX Studio",
+  "description": "Play TX Survivors via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019d7235f51113188654efbb8a30f4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18880415/2a0000019d7235f51113188654efbb8a30f4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-510662.games.s3.yandex.net/510662/obosgzos1wudb5im7jqhhg5u4vwcdyvs/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=510662&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 510662,
+  "playhopPageUrl": "https://playhop.com/app/510662",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

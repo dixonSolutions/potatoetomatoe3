@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mix-rave",
+  "name": "mix rave",
+  "author": "CrazyGames",
+  "description": "Play mix rave on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mix-rave/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mix-rave",
+  "crazygamesSlug": "mix-rave"
+}

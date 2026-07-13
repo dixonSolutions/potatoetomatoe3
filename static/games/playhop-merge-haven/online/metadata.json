@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-haven",
+  "name": "Merge Haven",
+  "author": "Clever Apps Pte. Ltd.",
+  "description": "Play Merge Haven via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019e0e2e1526ec1255559c87fec2a3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18107970/2a0000019e0e2e1526ec1255559c87fec2a3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-329867.games.s3.yandex.net/329867/f5xewtfv0i6i79bdb6ms3snp9pf6zfcw/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 429901,
+  "playhopPageUrl": "https://playhop.com/app/429901",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 7616
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-metro-escape",
+  "name": "Metro Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Metro Escape is an adventure escape game where you must search the room for items to help you escape. Use items you have found to solve the puzzles, look carefully at the various patterns around the metro, and solve the riddles.",
+  "thumbnail": "https://imgs.crazygames.com/metro-escape_16x9/20250617022528/metro-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/metro-escape_16x9/20250617022528/metro-escape_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/metro-escape/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/metro-escape",
+  "crazygamesSlug": "metro-escape"
+}

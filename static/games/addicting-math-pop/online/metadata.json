@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-pop",
+  "name": "Math Pop",
+  "author": "Addicting Games",
+  "description": "<p>Math Pop is a free math game.</p>\n\n<p>This is a math game that is both fun and educational! Sharpen your math skills whilst enjoying a dangerous yet interesting matching game. This online game is all about the sweet and brightly colored candy pops which haunt the dreams of even the sweetest teeth out there. You are here to match upwards of three different candy pops. The three different candies must be adjacent either in a row, column, or group. They cannot be matched diagonally though. With every match-3 you will gain more time. Keep matching until there are no more and get the highest score you can every time you play. When you run out of time, you will get your final score. Then you will have to answer another set of math questions correctly to unlock another game session. This is a great way of breaking up your studying sessions without overwhelming yourself.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mathpopogame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mathpopogame.jpg",
+  "thumbnailStored": "remote",
+  "category": "educational-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-pop/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-pop"
+}

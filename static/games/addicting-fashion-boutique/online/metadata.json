@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fashion-boutique",
+  "name": "Fashion Boutique",
+  "author": "Addicting Games",
+  "description": "<p>Fashion Boutique is a free dress up game. Design high fashion clothing, and then sell it! Can you spot market trends, or are you making yesterday's clothes?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/fashionboutique_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/fashionboutique_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/fashionboutique.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/glam/fashion-boutique"
+}

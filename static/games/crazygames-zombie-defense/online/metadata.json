@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-zombie-defense",
+  "name": "zombie defense",
+  "author": "CrazyGames",
+  "description": "Play zombie defense on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombie-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombie-defense",
+  "crazygamesSlug": "zombie-defense"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-kour-io",
+  "name": "kour io",
+  "author": "CrazyGames",
+  "description": "Play kour io on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kour-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kour-io",
+  "crazygamesSlug": "kour-io"
+}

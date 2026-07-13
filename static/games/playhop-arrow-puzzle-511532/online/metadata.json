@@ -1,0 +1,17 @@
+{
+  "id": "playhop-arrow-puzzle-511532",
+  "name": "Arrow puzzle",
+  "author": "GTS games",
+  "description": "Play Arrow puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019dfc473c06b1e5a9422a2d51b43b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019dfc473c06b1e5a9422a2d51b43b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-511532.games.s3.yandex.net/511532/1jqshbkld3ufvdj0psb06yi9sudxg96i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=511532&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 511532,
+  "playhopPageUrl": "https://playhop.com/app/511532",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 869
+}

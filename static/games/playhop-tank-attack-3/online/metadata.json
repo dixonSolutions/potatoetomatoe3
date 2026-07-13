@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tank-attack-3",
+  "name": "Tank Attack 3",
+  "author": "IB-Studio",
+  "description": "Play Tank Attack 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018f668adb25b22a88f477d23a1ed0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018f668adb25b22a88f477d23a1ed0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-335999.games.s3.yandex.net/335999/vhwtaefah1b4mep29rlz015v58g8cf2k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=335999&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 335999,
+  "playhopPageUrl": "https://playhop.com/app/335999",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 452
+}

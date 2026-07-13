@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-train-drift",
+  "name": "Train Drift 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Train Drift is a casual drifting game combining the excitement of arcade drifting with the unconventional world of train driving. From executing extreme drifts to engaging in thrilling clashes with other trains, players are in for an adrenaline-fueled ride.",
+  "thumbnail": "https://imgs.crazygames.com/train-drift_16x9/20231120092618/train-drift_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/train-drift_16x9/20231120092618/train-drift_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/train-drift/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/train-drift",
+  "crazygamesSlug": "train-drift"
+}

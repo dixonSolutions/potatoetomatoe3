@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rocket-well",
+  "name": "Rocket Well 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rocket Well is a casual game that challenges players to stick rockets to their ragdoll character and ascend from a deep well. Your mission is to guide the character, strategically using boosters to rise higher and overcome obstacles.",
+  "thumbnail": "https://imgs.crazygames.com/rocket-well_16x9/20231113153603/rocket-well_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rocket-well_16x9/20231113153603/rocket-well_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rocket-well/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rocket-well",
+  "crazygamesSlug": "rocket-well"
+}

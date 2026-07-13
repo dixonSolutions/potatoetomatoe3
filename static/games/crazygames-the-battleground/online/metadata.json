@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-the-battleground",
+  "name": "the battleground",
+  "author": "CrazyGames",
+  "description": "Play the battleground on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-battleground/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-battleground",
+  "crazygamesSlug": "the-battleground"
+}

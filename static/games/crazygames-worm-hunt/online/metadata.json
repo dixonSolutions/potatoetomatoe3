@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-worm-hunt",
+  "name": "Worm Hunt 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Worm Hunt is an .io game where you battle against other worms in a colorful online arena. Squirm around, picking up food and boosters to grow your worm bigger.",
+  "thumbnail": "https://imgs.crazygames.com/worm-hunt_16x9/20230913105128/worm-hunt_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/worm-hunt_16x9/20230913105128/worm-hunt_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/worm-hunt/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/worm-hunt",
+  "crazygamesSlug": "worm-hunt"
+}

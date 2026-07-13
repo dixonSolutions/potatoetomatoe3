@@ -1,0 +1,17 @@
+{
+  "id": "playhop-animals-memory-282123",
+  "name": "Animals memory",
+  "author": "RK-Games",
+  "description": "Play Animals memory via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018ca3a04913f7fc7b43d35ef85ec2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018ca3a04913f7fc7b43d35ef85ec2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-282123.games.s3.yandex.net/282123/jjbc7os8q8ltjtdmdol5ak5pzfmwo02x/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=282123&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 282123,
+  "playhopPageUrl": "https://playhop.com/app/282123",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 68
+}

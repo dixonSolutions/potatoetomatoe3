@@ -1,0 +1,17 @@
+{
+  "id": "playhop-home-pin-2-278887",
+  "name": "Home Pin 2",
+  "author": "Gamee Studio",
+  "description": "Play Home Pin 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018c8b731d9691ed6054f7fd0dd13f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018c8b731d9691ed6054f7fd0dd13f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-278887.games.s3.yandex.net/278887/ek844i6fbbbj1z4rkcxa3a6amd8d567f/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=278887&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 278887,
+  "playhopPageUrl": "https://playhop.com/app/278887",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 2455
+}

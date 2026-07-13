@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-the-impossible-game",
+  "name": "The Impossible Game 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Impossible Game is exactly what you would expect - a challenging game of skill, timing and precision in which you must control a square and attempt to jump over various objects at high speeds. Your square moves automatically and you simply control the jumping motion - you must time your jumps perfectly to avoid the various obstacles on each level.",
+  "thumbnail": "/games/crazygames-the-impossible-game/online/assets/crazygames-the-impossible-game.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-impossible-game/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-impossible-game",
+  "crazygamesSlug": "the-impossible-game"
+}

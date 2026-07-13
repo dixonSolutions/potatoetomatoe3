@@ -1,0 +1,14 @@
+{
+  "id": "addicting-rapid-math",
+  "name": "Rapid Math",
+  "author": "Addicting Games",
+  "description": "<p>Rapid Math is a math game for you to test both your math and speed skills. As soon as you see the counter go down, you must do the math as quickly as possible.  Your score is determined by how many you get correct, and how many problems you finish by the end of the timer. If you do not earn enough points, you will not be able to advance to the next level. However, you can always replay the level again! There are 30 levels of this online game for you to beat! The game will start off easy with additional and subtraction. Each level will become more difficult with more complex math problems. If you are good at math, then here is the time to show off your skills. Submit your score to see if you are one of the Rapid Math high scorers!  </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/rapidmathgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/rapidmathgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "educational-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/rapid-math/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/rapid-math"
+}

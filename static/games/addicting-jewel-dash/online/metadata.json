@@ -1,0 +1,14 @@
+{
+  "id": "addicting-jewel-dash",
+  "name": "Jewel Dash",
+  "author": "Addicting Games",
+  "description": "<p>Jewel Dash is a free match 3 game. This is a puzzle game where you must create streaks of at least 3 jewels in a row. This is a simple yet addictive online game. The puzzle game is filled with tons of colorful jewels set against a muddy, cave background. Similar to other matching games, you must connect 3 of the same colored jewels, and do it fast! In this case, you are creating any shape of three with the jewels. There are multiple levels of this online game for you to play! You can find your score, timer, and level displayed on screen for you to see.  If you take too long, the game will automatically highlights jewels that you can rotate. Submit your score and see if you placed in today’s high scores! </p>\n\n<p> </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/jeweldashgamescreenshot.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/jeweldashgamescreenshot.jpg",
+  "thumbnailStored": "remote",
+  "category": "jewel-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/jewel-dash/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/jewel-dash"
+}

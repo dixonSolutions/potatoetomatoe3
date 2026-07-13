@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-card-sort-ghc",
+  "name": "Card Sort 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Card Sort is a fast-paced puzzle challenge where you test your reflexes and strategy by organizing cards into perfect stacks. You sort by color and number, clear the board with smart merges, and react quickly as difficulty ramps up.",
+  "thumbnail": "https://imgs.crazygames.com/card-sort-ghc_16x9/20251215053804/card-sort-ghc_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/card-sort-ghc_16x9/20251215053804/card-sort-ghc_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/card-sort-ghc/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/card-sort-ghc",
+  "crazygamesSlug": "card-sort-ghc"
+}

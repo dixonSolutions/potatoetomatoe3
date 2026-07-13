@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-highway-racer",
+  "name": "Highway Racer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Highway Racer is a 3D racing game where you speed down a highway dodging cars. Build up your speed and avoid hitting traffic while taking risks like near misses and driving on the wrong side for bonus points.",
+  "thumbnail": "/games/crazygames-highway-racer/online/assets/crazygames-highway-racer.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/highway-racer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/highway-racer",
+  "crazygamesSlug": "highway-racer"
+}

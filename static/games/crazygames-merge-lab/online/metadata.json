@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-lab",
+  "name": "Merge LAB 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge LAB is a merge puzzle game that challenges you to combine bacteria and viruses into new, powerful forms. Each fusion unlocks higher levels, sharper strategies, and tougher goals.",
+  "thumbnail": "https://imgs.crazygames.com/merge-lab_16x9/20251029042032/merge-lab_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-lab_16x9/20251029042032/merge-lab_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-lab/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-lab",
+  "crazygamesSlug": "merge-lab"
+}

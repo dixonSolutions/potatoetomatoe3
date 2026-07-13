@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-robo-shop",
+  "name": "Robo Shop 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Robo Shop is a futuristic management game where you run a bustling store designed especially for robot customers. Robots from all around flock to your market, and it is up to you to keep every stall running smoothly and the goods constantly flowing.",
+  "thumbnail": "https://imgs.crazygames.com/robo-shop_16x9/20260112075544/robo-shop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/robo-shop_16x9/20260112075544/robo-shop_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/robo-shop/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/robo-shop",
+  "crazygamesSlug": "robo-shop"
+}

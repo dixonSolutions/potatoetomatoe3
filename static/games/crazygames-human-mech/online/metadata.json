@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-human-mech",
+  "name": "Human Mech 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Human Mech is a game where you reconstruct wrecked buildings by earning trophies in mech battles. Combine stickmen to design powerful mechs, upgrading stats to enhance strength and speed.",
+  "thumbnail": "https://imgs.crazygames.com/human-mech_16x9/20240529064540/human-mech_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/human-mech_16x9/20240529064540/human-mech_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/human-mech/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/human-mech",
+  "crazygamesSlug": "human-mech"
+}

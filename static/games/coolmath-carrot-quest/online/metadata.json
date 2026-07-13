@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-carrot-quest",
+  "name": "Carrot Quest - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Carrot Quest at Cool Math Games: Help the bunny cross the river and grab dinner. Get all three carrots for a filling meal and a perfect score!",
+  "thumbnail": "/games/coolmath-carrot-quest/online/assets/coolmath-carrot-quest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26460/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-carrot-quest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-carrot-quest"
+}

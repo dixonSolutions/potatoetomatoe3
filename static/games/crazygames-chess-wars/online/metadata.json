@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-chess-wars",
+  "name": "Chess Wars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Chess Wars is an action-packed chess-style game. Plan your move carefully and eliminate all of the enemies to win the match!",
+  "thumbnail": "https://imgs.crazygames.com/chess-wars/20220617173305/chess-wars-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/chess-wars/20220617173305/chess-wars-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/chess-wars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/chess-wars",
+  "crazygamesSlug": "chess-wars"
+}

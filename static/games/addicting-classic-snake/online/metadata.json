@@ -1,0 +1,14 @@
+{
+  "id": "addicting-classic-snake",
+  "name": "Classic Snake",
+  "author": "Addicting Games",
+  "description": "<p>You are a crystalline being made of pure light. A robotic snake who is made of lasers and lives by consuming electro apples in a future grid. It is a yummy, exciting existence but also a dangerous one. Even though you have the ability to teleport yourself from one side of the arena to another by simply slithering through a wall, you also are in danger of destroying yourself if you let the length of your snake body grow too large and you inadvertently smash into yourself while slithering through the grid.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/classic%20snake.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/classic%20snake.jpg",
+  "thumbnailStored": "remote",
+  "category": "snake",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/classic-snake/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/classic-snake"
+}

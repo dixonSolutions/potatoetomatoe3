@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-gokarts-io",
+  "name": "gokarts io",
+  "author": "CrazyGames",
+  "description": "Play gokarts io on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gokarts-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gokarts-io",
+  "crazygamesSlug": "gokarts-io"
+}

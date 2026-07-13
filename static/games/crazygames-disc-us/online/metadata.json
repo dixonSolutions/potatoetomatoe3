@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-disc-us",
+  "name": "Disc Us 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Disc Us is an online multiplayer social deduction game in which you need to work together to survive. This game is inspired by the popular game, Among Us but with different mechanisms and interesting gameplay styles.",
+  "thumbnail": "https://imgs.crazygames.com/disc-us/20201102152530/disc-us-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/disc-us/20201102152530/disc-us-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/disc-us/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/disc-us",
+  "crazygamesSlug": "disc-us"
+}

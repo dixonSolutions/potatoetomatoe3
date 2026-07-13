@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-kingdom-rush",
+  "name": "Kingdom Rush 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kingdom Rush is a superb castle defense game and one of the most popular and challenging available! This title features weird and wonderful enemies such as orcs, trolls, wizards and monster – each enemy is highly detailed and has a cool animation.",
+  "thumbnail": "/games/crazygames-kingdom-rush/online/assets/crazygames-kingdom-rush.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kingdom-rush/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kingdom-rush",
+  "crazygamesSlug": "kingdom-rush"
+}

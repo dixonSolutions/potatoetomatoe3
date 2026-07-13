@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bts-quiz-214970",
+  "name": "BTS Quiz",
+  "author": "Ugi Games",
+  "description": "Play BTS Quiz via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a000001985abac31e539334327e0c7f2c10/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a000001985abac31e539334327e0c7f2c10/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-214970.games.s3.yandex.net/214970/aobyp8up5kus57f6vgjwzzx9dr2tleta/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=214970&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 214970,
+  "playhopPageUrl": "https://playhop.com/app/214970",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 289
+}

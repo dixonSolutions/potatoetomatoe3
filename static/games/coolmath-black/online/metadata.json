@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-black",
+  "name": "Black - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "First, there was Yellow. Then there was Red. Now it&#039;s time for Black. Can you solve the puzzle in every level and make it to the end?",
+  "thumbnail": "/games/coolmath-black/online/assets/coolmath-black.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33419/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-black",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-black"
+}

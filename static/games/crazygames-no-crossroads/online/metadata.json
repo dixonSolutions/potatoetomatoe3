@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-no-crossroads",
+  "name": "No Crossroads 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "No Crossroads is a turn-based strategy game focused on resource management and small scale turn-based combat game. You are tasked with establishing a new colony on a hostile island where resources are limited and the enemies are at your doorstep.",
+  "thumbnail": "https://imgs.crazygames.com/no-crossroads/20220103113649/no-crossroads-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/no-crossroads/20220103113649/no-crossroads-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/no-crossroads/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/no-crossroads",
+  "crazygamesSlug": "no-crossroads"
+}

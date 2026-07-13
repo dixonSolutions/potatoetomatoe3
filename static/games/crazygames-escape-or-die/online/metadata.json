@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-escape-or-die",
+  "name": "Escape or Die 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Escape or Die is an escape room puzzle game. You have 10 minutes to evacuate the room before the bomb explodes.",
+  "thumbnail": "https://imgs.crazygames.com/escape-or-die/20211015090606/escape-or-die-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/escape-or-die/20211015090606/escape-or-die-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/escape-or-die/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/escape-or-die",
+  "crazygamesSlug": "escape-or-die"
+}

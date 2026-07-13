@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-elaine-s-shark",
+  "name": "Call Elaine's shark",
+  "author": "Овощ геймс",
+  "description": "Play Call Elaine's shark via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000193d447130f9373ba15ab9a1727f1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000193d447130f9373ba15ab9a1727f1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-396326.games.s3.yandex.net/396326/d2tqpvkgkk011lemas1tjjarod7j6034/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=396326&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 396326,
+  "playhopPageUrl": "https://playhop.com/app/396326",
+  "playhopRating": 4.7,
+  "playhopRatingCount": 130
+}

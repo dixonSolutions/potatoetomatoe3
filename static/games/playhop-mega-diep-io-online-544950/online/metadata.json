@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mega-diep-io-online-544950",
+  "name": "Mega Diep Io Online",
+  "author": "OpenStudio89",
+  "description": "Play Mega Diep Io Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019f1639b8426326bb8e5101784aa7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019f1639b8426326bb8e5101784aa7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-544950.games.s3.yandex.net/544950/ehnl18scme8kiowzhxqr743wp9z1ix5c/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=544950&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 544950,
+  "playhopPageUrl": "https://playhop.com/app/544950",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

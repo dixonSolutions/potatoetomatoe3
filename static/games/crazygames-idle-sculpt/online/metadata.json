@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-idle-sculpt",
+  "name": "idle sculpt",
+  "author": "CrazyGames",
+  "description": "Play idle sculpt on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-sculpt/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-sculpt",
+  "crazygamesSlug": "idle-sculpt"
+}

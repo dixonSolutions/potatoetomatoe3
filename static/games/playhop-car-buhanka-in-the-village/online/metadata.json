@@ -1,0 +1,17 @@
+{
+  "id": "playhop-car-buhanka-in-the-village",
+  "name": "Car Buhanka in the village",
+  "author": "VM",
+  "description": "Play Car Buhanka in the village via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a00000193301e07a9464199ffc6061a6170/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a00000193301e07a9464199ffc6061a6170/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-382294.games.s3.yandex.net/382294/acpvg74rg7g89fz0urt1ge9d7h56e090/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=382294&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 382294,
+  "playhopPageUrl": "https://playhop.com/app/382294",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 326
+}

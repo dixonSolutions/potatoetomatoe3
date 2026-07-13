@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-10x10-classic",
+  "name": "10x10! Classic 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "10x10! Classic is the original version of this challenging puzzle game.",
+  "thumbnail": "/games/crazygames-10x10-classic/online/assets/crazygames-10x10-classic.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/10x10-classic/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/10x10-classic",
+  "crazygamesSlug": "10x10-classic"
+}

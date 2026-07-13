@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-universe-maker-cui",
+  "name": "Universe Maker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Universe Maker is a relaxing merge puzzle game where you create your own universe by combining planets. Drag and drop two identical planets to merge them into a larger, more powerful celestial body, evolving from tiny moons to massive stars and beyond.",
+  "thumbnail": "https://imgs.crazygames.com/universe-maker-cui_16x9/20260608020838/universe-maker-cui_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/universe-maker-cui_16x9/20260608020838/universe-maker-cui_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/universe-maker-cui/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/universe-maker-cui",
+  "crazygamesSlug": "universe-maker-cui"
+}

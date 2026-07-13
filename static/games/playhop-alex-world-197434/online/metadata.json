@@ -1,0 +1,17 @@
+{
+  "id": "playhop-alex-world-197434",
+  "name": "Alex World",
+  "author": "013Games",
+  "description": "Play Alex World via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000183aad91fc984f5efc952edf814ba/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000183aad91fc984f5efc952edf814ba/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-197434.games.s3.yandex.net/197434/0ssmfvt11atsdm7vowf6dypoc2semj1b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=197434&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 197434,
+  "playhopPageUrl": "https://playhop.com/app/197434",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1506
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-arrower",
+  "name": "Play Arrower: Sliding and guiding | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Move the arrow to the yellow box and grab the flag. Red and blue boxes block your path. Use them to your advantage and complete all 32 levels of Arrower.",
+  "thumbnail": "/games/coolmath-arrower/online/assets/coolmath-arrower.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/39826/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-arrower",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-arrower"
+}

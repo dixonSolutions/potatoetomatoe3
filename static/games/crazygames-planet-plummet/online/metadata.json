@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-planet-plummet",
+  "name": "Planet Plummet 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Planet Plummet is a game where you combine identical planets to create larger, more powerful ones. Strategically merge smaller planets, expanding your cosmic empire with each fusion.",
+  "thumbnail": "https://imgs.crazygames.com/planet-plummet_16x9/20241219021136/planet-plummet_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/planet-plummet_16x9/20241219021136/planet-plummet_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/planet-plummet/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/planet-plummet",
+  "crazygamesSlug": "planet-plummet"
+}

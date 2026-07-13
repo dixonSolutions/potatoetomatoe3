@@ -1,0 +1,17 @@
+{
+  "id": "playhop-doors-and-rooms-226887",
+  "name": "Doors and Rooms",
+  "author": "Invisible Studio",
+  "description": "Play Doors and Rooms via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001882d22a906cb3d65d7b2abfcee02/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001882d22a906cb3d65d7b2abfcee02/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-226887.games.s3.yandex.net/226887/ejuz937p0xbozldmckb27su3cp710swd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=226887&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 226887,
+  "playhopPageUrl": "https://playhop.com/app/226887",
+  "playhopRating": 4,
+  "playhopRatingCount": 15723
+}

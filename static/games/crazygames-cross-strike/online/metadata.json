@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-cross-strike",
+  "name": "cross strike",
+  "author": "CrazyGames",
+  "description": "Play cross strike on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cross-strike/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cross-strike",
+  "crazygamesSlug": "cross-strike"
+}

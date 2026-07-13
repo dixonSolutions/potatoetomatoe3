@@ -1,0 +1,17 @@
+{
+  "id": "playhop-warfare-1942",
+  "name": "Warfare 1942",
+  "author": "Fahrenheit Dev",
+  "description": "Play Warfare 1942 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019ee000a61321baf07c52ad22a708/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019ee000a61321baf07c52ad22a708/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-492460.games.s3.yandex.net/492460/0pfcbruspesd3rjuwtqshjf27k0nq04d/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 377007,
+  "playhopPageUrl": "https://playhop.com/app/377007",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 33482
+}

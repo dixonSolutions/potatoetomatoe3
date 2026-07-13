@@ -1,0 +1,14 @@
+{
+  "id": "addicting-escape-the-car",
+  "name": "Escape: The Car",
+  "author": "Addicting Games",
+  "description": "<p>Escape: The Car is a free escape game. You're trapped in a car like a bad mafia movie. It's either figure out a way to escape or die trying. Can you click your way to freedom?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/EscapetheCar.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/EscapetheCar.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/escapethecar_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/escape-the-car"
+}

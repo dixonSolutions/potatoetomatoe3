@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-academy",
+  "name": "Merge Academy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge Academy is a magical online game where you merge items to collect magic crystals and complete mystical tasks. Fulfill requests from fellow students by creating magical and powerful items.",
+  "thumbnail": "https://imgs.crazygames.com/merge-academy_16x9/20251127123149/merge-academy_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-academy_16x9/20251127123149/merge-academy_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-academy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-academy",
+  "crazygamesSlug": "merge-academy"
+}

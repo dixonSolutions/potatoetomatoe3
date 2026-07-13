@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-yohoho-io",
+  "name": "Yohoho.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Yohoho and welcome to the pirate battle royale! Your ship has been wrecked on the shore of this bootylicious island.",
+  "thumbnail": "https://imgs.crazygames.com/games/yohoho-io/cover-1585071171896.jpg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/yohoho-io/cover-1585071171896.jpg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/yohoho-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/yohoho-io",
+  "crazygamesSlug": "yohoho-io"
+}

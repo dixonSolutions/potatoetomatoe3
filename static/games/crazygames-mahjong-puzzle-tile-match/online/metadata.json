@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mahjong-puzzle-tile-match",
+  "name": "mahjong puzzle tile match",
+  "author": "CrazyGames",
+  "description": "Play mahjong puzzle tile match on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-puzzle-tile-match/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-puzzle-tile-match",
+  "crazygamesSlug": "mahjong-puzzle-tile-match"
+}

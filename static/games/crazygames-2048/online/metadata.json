@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-2048",
+  "name": "2048 🔢 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "2048 is a single-player sliding tile puzzle game developed by Gabriele Cirulli. Merge tiles with the same power of 2 to get the total sum.",
+  "thumbnail": "/games/crazygames-2048/online/assets/crazygames-2048.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/2048/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/2048",
+  "crazygamesSlug": "2048"
+}

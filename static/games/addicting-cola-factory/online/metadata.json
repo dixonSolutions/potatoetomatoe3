@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cola-factory",
+  "name": "Cola Factory",
+  "author": "Addicting Games",
+  "description": "<p>Build a pipeline to deliver cola from the main tank to vans. Turn pipe tiles to make a correct pipeline, so cola can be released.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/cola-factory_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/cola-factory_sp.png",
+  "thumbnailStored": "remote",
+  "category": "embeddable-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/cola-factory/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/cola-factory"
+}

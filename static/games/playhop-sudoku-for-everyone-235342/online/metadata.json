@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sudoku-for-everyone-235342",
+  "name": "Sudoku for everyone",
+  "author": "Алексей Таранов",
+  "description": "Play Sudoku for everyone via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000188a9cffae71ddcc4f5d7accc5dec/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000188a9cffae71ddcc4f5d7accc5dec/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-235342.games.s3.yandex.net/235342/yywnfpgyxxkku9v0ur6755sl93po7bvf/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=235342&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 235342,
+  "playhopPageUrl": "https://playhop.com/app/235342",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1267
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-b",
+  "name": "B - Play it online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "You have been assigned to beta test this new, exciting game with B. What happens if you find any bugs? You can worry about that later.",
+  "thumbnail": "/games/coolmath-b/online/assets/coolmath-b.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41746/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-b",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-b"
+}

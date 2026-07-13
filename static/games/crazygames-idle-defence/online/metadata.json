@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-defence",
+  "name": "Idle Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Defense is an idle game where you protect the planet from incoming threats. Shoot them down and build up your defenses to keep the planet alive for as long as possible.",
+  "thumbnail": "https://imgs.crazygames.com/idle-defence/20220527120003/idle-defence-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-defence/20220527120003/idle-defence-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-defence/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-defence",
+  "crazygamesSlug": "idle-defence"
+}

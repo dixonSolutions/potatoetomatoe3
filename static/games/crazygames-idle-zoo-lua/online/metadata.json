@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-zoo-lua",
+  "name": "Idle Zoo 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle Zoo Tycoon provides an entertaining blend of zoo management, animal collection, and idle gameplay. Build, upgrade, and attract visitors to create the ultimate animal park.",
+  "thumbnail": "https://imgs.crazygames.com/idle-zoo-lua_16x9/20231208142022/idle-zoo-lua_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-zoo-lua_16x9/20231208142022/idle-zoo-lua_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-zoo-lua/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-zoo-lua",
+  "crazygamesSlug": "idle-zoo-lua"
+}

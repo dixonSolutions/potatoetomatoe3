@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-duckpark-io",
+  "name": "DuckPark.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "When AquaPark.io meets ducks, you get DuckPark.io! The rubber ducks are racing to the bath.",
+  "thumbnail": "https://imgs.crazygames.com/games/duckpark-io/cover-1585853392521.jpg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/duckpark-io/cover-1585853392521.jpg?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/duckpark-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/duckpark-io",
+  "crazygamesSlug": "duckpark-io"
+}

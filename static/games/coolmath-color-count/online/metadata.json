@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-count",
+  "name": "Color Count - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Count at Cool Math Games: Are you afraid of the blank canvas? Fill in the white tiles in the right order to reach your color goals!",
+  "thumbnail": "/games/coolmath-color-count/online/assets/coolmath-color-count.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/34191/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-count",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-count"
+}

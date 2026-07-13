@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-boo",
+  "name": "Boo! - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Boo at Cool Math Games: Trick or treat! Dress up your pumpkin and get ready for halloween. Paint it with the right colors and costumes.",
+  "thumbnail": "/games/coolmath-boo/online/assets/coolmath-boo.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33436/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-boo",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-boo"
+}

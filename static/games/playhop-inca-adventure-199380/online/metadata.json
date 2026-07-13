@@ -1,0 +1,17 @@
+{
+  "id": "playhop-inca-adventure-199380",
+  "name": "Inca Adventure",
+  "author": "RHM Interactive",
+  "description": "Play Inca Adventure via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001852183fd65b0d242cbd36a3c4f7d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001852183fd65b0d242cbd36a3c4f7d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-199380.games.s3.yandex.net/199380/7su0vro06jcdo2q2xogpxleg7sjq52lr/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=199380&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 199380,
+  "playhopPageUrl": "https://playhop.com/app/199380",
+  "playhopRating": 4,
+  "playhopRatingCount": 365
+}

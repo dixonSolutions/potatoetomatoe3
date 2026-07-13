@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-flyordieio",
+  "name": "Fly or Die 🪰 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "EvoWorld.io is the multiplayer survival game previously known as FlyOrDie.io. You start as a small fly and level up as you eat more food.",
+  "thumbnail": "/games/crazygames-flyordieio/online/assets/crazygames-flyordieio.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flyordieio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flyordieio",
+  "crazygamesSlug": "flyordieio"
+}

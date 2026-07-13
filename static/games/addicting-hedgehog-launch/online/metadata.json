@@ -1,0 +1,14 @@
+{
+  "id": "addicting-hedgehog-launch",
+  "name": "Hedgehog Launch",
+  "author": "Addicting Games",
+  "description": "<p>Hedgehog Launch is a free launch game. Hedgehog + Rocket Pack = Money Maker! Collect coins in the sky with a prickly little dude, upgrade, and go for broke!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/hedgehoglaunch_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/hedgehoglaunch_sp.png",
+  "thumbnailStored": "remote",
+  "category": "random-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/hedgehoglaunch_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/hedgehog-launch"
+}

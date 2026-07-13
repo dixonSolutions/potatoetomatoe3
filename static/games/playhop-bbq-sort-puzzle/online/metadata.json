@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bbq-sort-puzzle",
+  "name": "BBQ Sort Puzzle",
+  "author": "Cocos Labs",
+  "description": "Play BBQ Sort Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a00000197c9cdea2baf78976034791d8f09/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a00000197c9cdea2baf78976034791d8f09/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-451040.games.s3.yandex.net/451040/esbs8pxs1dmufgh7pc4h4hu7lyiq7cz1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=451040&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 451040,
+  "playhopPageUrl": "https://playhop.com/app/451040",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 189
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-paper-io",
+  "name": "Paper io",
+  "author": "Red Blue Jailbreak Games",
+  "description": "Play Paper io via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001902057d3d4b78183231b380790d7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001902057d3d4b78183231b380790d7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-346131.games.s3.yandex.net/346131/1h87elvd1q2hnctnz9vxknxaehfl9m59/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=346131&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 346131,
+  "playhopPageUrl": "https://playhop.com/app/346131",
+  "playhopRating": 3.3,
+  "playhopRatingCount": 1375
+}

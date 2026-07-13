@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sumjong",
+  "name": "Sumjong",
+  "author": "Addicting Games",
+  "description": "<p>Sumjong is a mahjong game that uses numbers and symbols! Instead of looking for matching tiles, this game requires you to create math equations. What better way to practice your math skills than in this fun online game. Simply click on the free tiles to create a math equation in the right-hand panel. Take advantage of mixed tiles that you can use to either represent any number or any symbol. There are 10 levels of this math game for you to practice your math skills! You can create either addition or subtraction equations. Submit your score at the end of the game to see your final score and ranking. If you are one of the top players, find yourself at the top of the list!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/sumjonggamescreenredo.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/sumjonggamescreenredo.jpg",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/sumjong/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/sumjong"
+}

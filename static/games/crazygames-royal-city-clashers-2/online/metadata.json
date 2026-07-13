@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-royal-city-clashers-2",
+  "name": "royal city clashers 2",
+  "author": "CrazyGames",
+  "description": "Play royal city clashers 2 on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-royal-city-clashers-2/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/royal-city-clashers-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/royal-city-clashers-2",
+  "crazygamesSlug": "royal-city-clashers-2"
+}

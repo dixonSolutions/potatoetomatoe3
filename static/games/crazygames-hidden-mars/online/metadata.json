@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hidden-mars",
+  "name": "Hidden Mars 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hidden Mars is a casual game where you embark on a delightful journey through rockets, space stations, and Mars rovers to uncover the elusive astronaut cat, Felicat. With over 100 hidden Felicats in charming black and white illustrations, the game encourages patience and a sense of exploration.",
+  "thumbnail": "https://imgs.crazygames.com/hidden-mars_16x9/20240116030359/hidden-mars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hidden-mars_16x9/20240116030359/hidden-mars_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hidden-mars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hidden-mars",
+  "crazygamesSlug": "hidden-mars"
+}

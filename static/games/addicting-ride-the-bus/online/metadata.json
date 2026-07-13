@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ride-the-bus",
+  "name": "Ride The Bus",
+  "author": "Addicting Games",
+  "description": "<p>Ride the Bus is a card game where your objective is to have enough tokens to ride the bus. This is a cute twist on your basic card game. You are riding the bus and you need tokens to get to your destination. Your goal is to win more bus tokens so you do not get kicked off the bus. If you lose your tokens, you have to get off the bus. Play against three AI players who decided to bet their bus tokens in a card game. However, their computerized brains cannot compete against your human ones! To win the card game, try to earn 31 points by adding all the cards in your hands of the same suit. The highest number wins every game. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ridethebusgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ridethebusgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/ride-the-bus/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/ride-the-bus"
+}

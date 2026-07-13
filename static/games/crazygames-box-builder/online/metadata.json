@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-box-builder",
+  "name": "Box Builder 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Box Builder is a cozy transformation simulator where you turn an empty, lifeless box into a stylish and inviting dream home. Choose from a wide range of furniture, appliances, and décor to decorate each room exactly how you imagine it.",
+  "thumbnail": "https://imgs.crazygames.com/box-builder_16x9/20251106074352/box-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/box-builder_16x9/20251106074352/box-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/box-builder/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/box-builder",
+  "crazygamesSlug": "box-builder"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-tabletop-idle",
+  "name": "tabletop idle",
+  "author": "CrazyGames",
+  "description": "Play tabletop idle on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-tabletop-idle/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tabletop-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tabletop-idle",
+  "crazygamesSlug": "tabletop-idle"
+}

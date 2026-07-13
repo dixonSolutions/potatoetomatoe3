@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-beacon-under-siege",
+  "name": "Beacon Under Siege 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Beacon Under Siege is an aerial defense shooter where you command an AC-130-style gunship orbiting a lonely island lighthouse. The aircraft moves on its own, so your job is to aim, choose the right weapon, and stop waves of undead attackers before they destroy the beacon.",
+  "thumbnail": "https://imgs.crazygames.com/beacon-under-siege_16x9/20260625095608/beacon-under-siege_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/beacon-under-siege_16x9/20260625095608/beacon-under-siege_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/beacon-under-siege/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/beacon-under-siege",
+  "crazygamesSlug": "beacon-under-siege"
+}

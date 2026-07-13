@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tower-bloxx",
+  "name": "Tower Bloxx",
+  "author": "Addicting Games",
+  "description": "<p>Tower Bloxx is a free stacking game. Who knew that building an entire city could be so easy? Stack up blocks to make the highest skyscrapers possible and give the umbrella peeps a home.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Tower-Bloxx.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Tower-Bloxx.jpg",
+  "thumbnailStored": "remote",
+  "category": "tycoon-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/towerbloxx_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/tower-bloxx"
+}

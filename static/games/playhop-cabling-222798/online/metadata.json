@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cabling-222798",
+  "name": "Cabling",
+  "author": "kirlanik",
+  "description": "Play Cabling via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001872719bd050741a4580935bc7e26/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001872719bd050741a4580935bc7e26/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-222798.games.s3.yandex.net/222798/6i6f9wh9hcf9h1z3l6jp6fwr24vgdhnc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=222798&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 222798,
+  "playhopPageUrl": "https://playhop.com/app/222798",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 816
+}

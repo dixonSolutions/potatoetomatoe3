@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-frontline-defense",
+  "name": "Frontline Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Frontline Defense is a tower defense game where you must strategically position towers along the enemy&#39;s path to defend your territory. As with other tower defense games, your objective is to build and strategically position towers to annihilate waves of incoming enemies.",
+  "thumbnail": "/games/crazygames-frontline-defense/online/assets/crazygames-frontline-defense.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/frontline-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/frontline-defense",
+  "crazygamesSlug": "frontline-defense"
+}

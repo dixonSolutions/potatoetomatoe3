@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-conduit",
+  "name": "Play Conduit Online: Grab the shards | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Hack into the terminal and grab the shards! Build your path, connect the nodes and reach the exit without getting trapped in cyberspace.",
+  "thumbnail": "/games/coolmath-conduit/online/assets/coolmath-conduit.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36555/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-conduit",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-conduit"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-word-fishing",
+  "name": "Word Fishing 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Word Fishing is a casual and relaxing word game that is easy to pick up and play. Cast your net and reel in words!",
+  "thumbnail": "https://imgs.crazygames.com/word-fishing_16x9/20250320132055/word-fishing_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/word-fishing_16x9/20250320132055/word-fishing_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/word-fishing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/word-fishing",
+  "crazygamesSlug": "word-fishing"
+}

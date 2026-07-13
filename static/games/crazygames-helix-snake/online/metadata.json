@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-helix-snake",
+  "name": "helix snake",
+  "author": "CrazyGames",
+  "description": "Play helix snake on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/helix-snake/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/helix-snake",
+  "crazygamesSlug": "helix-snake"
+}

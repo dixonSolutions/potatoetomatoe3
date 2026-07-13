@@ -1,0 +1,17 @@
+{
+  "id": "playhop-number-games-number-match-207972",
+  "name": "Number Games: Number Match",
+  "author": "sb-games",
+  "description": "Play Number Games: Number Match via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a000001954c21dcdd22fc687c52368667b2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a000001954c21dcdd22fc687c52368667b2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-207972.games.s3.yandex.net/207972/6fopz7l2tox744uaaqqf5b4saaj4fm98/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=207972&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 207972,
+  "playhopPageUrl": "https://playhop.com/app/207972",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 5441
+}

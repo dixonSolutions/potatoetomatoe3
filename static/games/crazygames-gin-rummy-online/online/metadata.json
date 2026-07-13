@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-gin-rummy-online",
+  "name": "Gin Rummy Online 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Play Gin Rummy Online (Plus). Gin Rummy is a card-matching game you can play with one or more other players.",
+  "thumbnail": "https://imgs.crazygames.com/games/gin-rummy-online/thumb-1587668082890.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/gin-rummy-online/thumb-1587668082890.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/gin-rummy-online/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/gin-rummy-online",
+  "crazygamesSlug": "gin-rummy-online"
+}

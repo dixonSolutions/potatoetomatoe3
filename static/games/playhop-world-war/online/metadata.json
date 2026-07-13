@@ -1,0 +1,17 @@
+{
+  "id": "playhop-world-war",
+  "name": "World War",
+  "author": "Top Mark Games",
+  "description": "Play World War via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a6db828d9246bc90472ab5f9138/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a6db828d9246bc90472ab5f9138/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-482380.games.s3.yandex.net/482380/xfiuxtzzttmje53huy833b52fj415s7j/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 475929,
+  "playhopPageUrl": "https://playhop.com/app/475929",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3660
+}

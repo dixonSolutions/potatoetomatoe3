@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-crazy-colors",
+  "name": "crazy colors",
+  "author": "CrazyGames",
+  "description": "Play crazy colors on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-colors/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-colors",
+  "crazygamesSlug": "crazy-colors"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-apollo",
+  "name": "Apollo Game - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Wander around the forest and make it past every obstacle as you attempt to find your wings in the Apollo game. Just watch out for spikes.",
+  "thumbnail": "/games/coolmath-apollo/online/assets/coolmath-apollo.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51249/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-apollo",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-apollo"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-im-on-observation-duty-311869",
+  "name": "I'm on Observation Duty",
+  "author": "DarkPlay",
+  "description": "Play I'm on Observation Duty via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018e848c14596727c442f9d79b3e4a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018e848c14596727c442f9d79b3e4a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-311869.games.s3.yandex.net/311869/rxw3189swod4cafww604ltqmolvgjw4i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=311869&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 311869,
+  "playhopPageUrl": "https://playhop.com/app/311869",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 415
+}

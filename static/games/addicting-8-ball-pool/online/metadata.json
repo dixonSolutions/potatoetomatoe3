@@ -1,0 +1,14 @@
+{
+  "id": "addicting-8-ball-pool",
+  "name": "8 Ball Pool",
+  "author": "Addicting Games",
+  "description": "<p>Play multiplayer 8 Ball Pool online. Challenge your friends or match up with players worldwide in quick, casual games. Aim, shoot, and improve your skills!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/8ballpool-thumbnail-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/8ballpool-thumbnail-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "sports",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://foony.com/games/8-ball-pool-online-billiards?platform=addictinggames",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/8-ball-pool"
+}

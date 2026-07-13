@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bash-arena",
+  "name": "Bash Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bash Arena is an explosive fusion of Reverse Bullet Hell and Top-down Action genres set in a thrilling power fantasy world. Forget about saving princesses and embrace the endless battles for power, gold, and glory!",
+  "thumbnail": "https://imgs.crazygames.com/bash-arena/20230710194657/bash-arena-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bash-arena/20230710194657/bash-arena-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bash-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bash-arena",
+  "crazygamesSlug": "bash-arena"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-flow-mania",
+  "name": "Flow Mania 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Flow Mania is an epic and challenging puzzle game in which you must attempt to connect all of the colored dots on each level. This might sound easy, but you have to think hard about the way that you move the colored dots and connect them together as there is only one correct path for each level.",
+  "thumbnail": "https://imgs.crazygames.com/flowmania.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/flowmania.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/flow-mania/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/flow-mania",
+  "crazygamesSlug": "flow-mania"
+}

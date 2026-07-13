@@ -1,0 +1,14 @@
+{
+  "id": "addicting-moto-rush",
+  "name": "Moto Rush",
+  "author": "Addicting Games",
+  "description": "<p>Moto Rush is a free game. Motorcycles! Hoverboards! Monster trucks and bears! Get your tilty ride on in this monstrous game. Pull tricks, race in Timed or Challenge Mode, and see if you can survive the Ultimate Race!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/moto-rush.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/moto-rush.jpg",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/motorush.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/moto-rush"
+}

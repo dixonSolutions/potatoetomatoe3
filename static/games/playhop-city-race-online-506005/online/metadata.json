@@ -1,0 +1,17 @@
+{
+  "id": "playhop-city-race-online-506005",
+  "name": "City Race Online",
+  "author": "fog3r",
+  "description": "Play City Race Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019cdd759e8fbc3159fd8029d37990/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019cdd759e8fbc3159fd8029d37990/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-506005.games.s3.yandex.net/506005/fk0zt4comop8ncg770sb8pq9o2hojju0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=506005&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 506005,
+  "playhopPageUrl": "https://playhop.com/app/506005",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 356
+}

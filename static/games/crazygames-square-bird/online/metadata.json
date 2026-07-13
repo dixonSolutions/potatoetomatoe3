@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-square-bird",
+  "name": "Square Bird 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Square Bird is a side-scrolling 2D platform game. Your bird will build a tower of square eggs to avoid danger whenever you click.",
+  "thumbnail": "https://imgs.crazygames.com/games/square-bird/cover_16x9-1732741016945.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/square-bird/cover_16x9-1732741016945.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/square-bird/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/square-bird",
+  "crazygamesSlug": "square-bird"
+}

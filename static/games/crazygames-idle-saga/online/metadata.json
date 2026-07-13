@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-idle-saga",
+  "name": "idle saga",
+  "author": "CrazyGames",
+  "description": "Play idle saga on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-saga/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-saga",
+  "crazygamesSlug": "idle-saga"
+}

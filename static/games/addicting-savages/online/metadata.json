@@ -1,0 +1,14 @@
+{
+  "id": "addicting-savages",
+  "name": "Savages",
+  "author": "Addicting Games",
+  "description": "<p>Mookah lakah heekee, you know you wanna lei me. Pass the poi mahallo. Shoot the arrow, man!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/savages.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/savages.jpg",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/savages_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/savages"
+}

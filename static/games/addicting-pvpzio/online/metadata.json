@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pvpzio",
+  "name": "pvpz.io",
+  "author": "Addicting Games",
+  "description": "<p>PVPZ.io is a free iogame. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/game_logo_addictinggames.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/game_logo_addictinggames.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://pvpz.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/pvpzio"
+}

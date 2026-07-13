@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-borderless",
+  "name": "Borderless - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Push the borders, retrieve the key, and escape in Borderless. Act quick on your feet and get to the door without falling off the level.",
+  "thumbnail": "/games/coolmath-borderless/online/assets/coolmath-borderless.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/42422/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-borderless",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-borderless"
+}

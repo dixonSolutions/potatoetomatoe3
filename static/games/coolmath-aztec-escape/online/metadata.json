@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-aztec-escape",
+  "name": "Aztec Escape - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Aztec Escape at Cool Math Games: Use your wits to help the explorer escape the temple. Move blocks and stairs, activate switches and make it to the door to find the exit.",
+  "thumbnail": "/games/coolmath-aztec-escape/online/assets/coolmath-aztec-escape.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/21895/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-aztec-escape",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-aztec-escape"
+}

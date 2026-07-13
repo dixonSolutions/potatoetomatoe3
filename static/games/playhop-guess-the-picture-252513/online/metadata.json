@@ -1,0 +1,17 @@
+{
+  "id": "playhop-guess-the-picture-252513",
+  "name": "Guess the picture",
+  "author": "Mobiloids",
+  "description": "Play Guess the picture via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018a6b1567ce08c7a6175aaf95c5be/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a0000018a6b1567ce08c7a6175aaf95c5be/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-252513.games.s3.yandex.net/252513/mf8ghzkip1cyvx0d077nvaftfj6q6bhy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=252513&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 252513,
+  "playhopPageUrl": "https://playhop.com/app/252513",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 63
+}

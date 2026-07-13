@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-orbivert-tcs",
+  "name": "Orbivert 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Orbivert is a one-button 3D arcade game focused on timing, concentration, and orbit control.Guide your runner through obstacle gates by reversing its orbit direction at the perfect moment.",
+  "thumbnail": "https://imgs.crazygames.com/orbivert-tcs_16x9/20260523165126/orbivert-tcs_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/orbivert-tcs_16x9/20260523165126/orbivert-tcs_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/orbivert-tcs/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/orbivert-tcs",
+  "crazygamesSlug": "orbivert-tcs"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-snake-clash-io",
+  "name": "Snake Clash.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Snake Clash.io is an io snake game where you compete against players, outmaneuver rivals, and dominate the leaderboard. Grow longer, strategize, and prove your skill in fast-paced battles.",
+  "thumbnail": "https://imgs.crazygames.com/snake-clash-io_16x9/20250203091302/snake-clash-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/snake-clash-io_16x9/20250203091302/snake-clash-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/snake-clash-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/snake-clash-io",
+  "crazygamesSlug": "snake-clash-io"
+}

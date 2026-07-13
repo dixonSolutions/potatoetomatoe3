@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bloxcalibur",
+  "name": "Bloxcalibur - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bloxcalibur at Cool Math Games: It&#039;s not easy to be a block-knight. Grab your legendary sword and slash your way into the portals!",
+  "thumbnail": "/games/coolmath-bloxcalibur/online/assets/coolmath-bloxcalibur.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24865/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bloxcalibur",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bloxcalibur"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-colored-balls-shooting-game",
+  "name": "Colored balls shooting game",
+  "author": "Game4you",
+  "description": "Play Colored balls shooting game via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a00000194a6b9e4680caf002970382f1062/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a00000194a6b9e4680caf002970382f1062/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-344972.games.s3.yandex.net/344972/ibtsc87ef3gqvmndoeadxsi4h2s27pw0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=344972&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 344972,
+  "playhopPageUrl": "https://playhop.com/app/344972",
+  "playhopRating": 4,
+  "playhopRatingCount": 250
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ringo-starfish",
+  "name": "Ringo Starfish 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ringo Starfish is a 2D side-scrolling platformer game that sets on a mysterious island. In there, Ringo Starfish suspects there are treasures hidden there.",
+  "thumbnail": "https://imgs.crazygames.com/ringo-starfish_16x9/20240909033644/ringo-starfish_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ringo-starfish_16x9/20240909033644/ringo-starfish_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ringo-starfish/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ringo-starfish",
+  "crazygamesSlug": "ringo-starfish"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-space-colony",
+  "name": "Space Colony 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Space Colony is a casual game where you need to extract resources to develop your colony and explore the new planet. These resources include iron, titanium, and other materials that can be gathered from the planet&#39;s surface.",
+  "thumbnail": "https://imgs.crazygames.com/space-colony_16x9/20260217034706/space-colony_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/space-colony_16x9/20260217034706/space-colony_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/space-colony/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/space-colony",
+  "crazygamesSlug": "space-colony"
+}

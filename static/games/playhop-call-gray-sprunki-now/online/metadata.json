@@ -1,0 +1,17 @@
+{
+  "id": "playhop-call-gray-sprunki-now",
+  "name": "Call Gray Sprunki Now!",
+  "author": "APBorK",
+  "description": "Play Call Gray Sprunki Now! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c0dd880cc9ae98c7e2383271267/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c0dd880cc9ae98c7e2383271267/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-409592.games.s3.yandex.net/409592/10f1mfkbxuxngnjlppr8420ivazpq2p0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=409592&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 409592,
+  "playhopPageUrl": "https://playhop.com/app/409592",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 2027
+}

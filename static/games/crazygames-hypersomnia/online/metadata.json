@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-hypersomnia",
+  "name": "hypersomnia",
+  "author": "CrazyGames",
+  "description": "Play hypersomnia on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hypersomnia/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hypersomnia",
+  "crazygamesSlug": "hypersomnia"
+}

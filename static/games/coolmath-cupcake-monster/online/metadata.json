@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cupcake-monster",
+  "name": "Cupcake Monster - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cupcake Monster at Cool Math Games: You can eat every cupcake that you see. Just make sure to put them in the right order first!",
+  "thumbnail": "/games/coolmath-cupcake-monster/online/assets/coolmath-cupcake-monster.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33994/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cupcake-monster",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cupcake-monster"
+}

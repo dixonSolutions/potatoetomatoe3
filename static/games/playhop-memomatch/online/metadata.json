@@ -1,0 +1,17 @@
+{
+  "id": "playhop-memomatch",
+  "name": "MemoMatch",
+  "author": "Morozhenka Studio",
+  "description": "Play MemoMatch via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019afa3a30fb5971293dea300274b7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019afa3a30fb5971293dea300274b7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-476308.games.s3.yandex.net/476308/koxqkun7yjjcwwogrqayerskwu2dwwqc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=476308&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 476308,
+  "playhopPageUrl": "https://playhop.com/app/476308",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 14
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pool-bubbles",
+  "name": "Pool Bubbles 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pool Bubbles is a bubble shooter game with a pool theme. Eliminate pool balls by shooting balls of the same color to a minimum of 3.",
+  "thumbnail": "https://imgs.crazygames.com/games/pool-bubbles/cover-1643211623381.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/pool-bubbles/cover-1643211623381.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pool-bubbles/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pool-bubbles",
+  "crazygamesSlug": "pool-bubbles"
+}

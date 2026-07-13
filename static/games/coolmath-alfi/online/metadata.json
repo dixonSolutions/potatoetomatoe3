@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-alfi",
+  "name": "Alfi - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Alfi at Cool Math Games: Help Alfi, a young forest spirit, explore the forest and capture a golden flower that can grant any wish.",
+  "thumbnail": "/games/coolmath-alfi/online/assets/coolmath-alfi.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/18176/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-alfi",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-alfi"
+}

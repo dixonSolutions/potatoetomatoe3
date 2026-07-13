@@ -1,0 +1,17 @@
+{
+  "id": "playhop-durak-99290",
+  "name": "Durak",
+  "author": "razlozhi",
+  "description": "Play Durak via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017d2ccad537d17b8e478942457212/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017d2ccad537d17b8e478942457212/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-385770.games.s3.yandex.net/385770/3ypdq8ujlonbeo8p5q1psrzuoyjkpizi/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 99290,
+  "playhopPageUrl": "https://playhop.com/app/99290",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 54115
+}

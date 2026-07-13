@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-volley-random",
+  "name": "Volley Random 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Volley Random is a fun two-player sports volleyball game where the simple controls meet chaotic and wacky physics. This one-click button game lets you jump, spike, and scramble your way to victory, all with a few clicks.",
+  "thumbnail": "https://imgs.crazygames.com/volley-random/20230131173658/volley-random-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/volley-random/20230131173658/volley-random-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/volley-random/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/volley-random",
+  "crazygamesSlug": "volley-random"
+}

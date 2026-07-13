@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dino-domination",
+  "name": "Dino Domination 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dino Domination is a casual arcade game where you play as a hungry dinosaur trying to get as much food as possible. Get food, grow stronger, and evolve into a bigger dinosaur.",
+  "thumbnail": "https://imgs.crazygames.com/dino-domination/20230224172650/dino-domination-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dino-domination/20230224172650/dino-domination-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dino-domination/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dino-domination",
+  "crazygamesSlug": "dino-domination"
+}

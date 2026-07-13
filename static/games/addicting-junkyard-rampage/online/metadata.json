@@ -1,0 +1,14 @@
+{
+  "id": "addicting-junkyard-rampage",
+  "name": "Junkyard Rampage",
+  "author": "Addicting Games",
+  "description": "<p>At least you're unlikely to damage anything of importance.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/junkyard%20rampage.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/junkyard%20rampage.jpg",
+  "thumbnailStored": "remote",
+  "category": "gross-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/junkyard-rampage/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/junkyard-rampage"
+}

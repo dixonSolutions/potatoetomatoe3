@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fortzone-battle-royale",
+  "name": "Fortzone Battle Royale",
+  "author": "MirraGames",
+  "description": "Play Fortzone Battle Royale via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019ea74eb6664db4af3e20b3b7c467/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019ea74eb6664db4af3e20b3b7c467/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-492460.games.s3.yandex.net/492460/0pfcbruspesd3rjuwtqshjf27k0nq04d/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 398438,
+  "playhopPageUrl": "https://playhop.com/app/398438",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 32780
+}

@@ -595,36 +595,6 @@ export function getRecommendationsForGamePage(
 	return out.slice(0, limit);
 }
 
-function hashGameId(gameId: string): number {
-	let h = 0;
-	for (let i = 0; i < gameId.length; i++) {
-		h = (Math.imul(31, h) + gameId.charCodeAt(i)) | 0;
-	}
-	return Math.abs(h);
-}
-
-export function getPlaySessions(gameId: string): number {
-	return loadPlayAnalytics().perGame[gameId]?.sessions ?? 0;
-}
-
-export function getLocalDisplayStats(
-	gameId: string,
-	sessions: number = 0
-): { ratingPct: number; activeLabel: string } {
-	const h = hashGameId(gameId);
-	const baseRating = 65 + (h % 28);
-	const ratingPct = Math.min(99, baseRating + Math.min(8, sessions * 2));
-	const baseActive = 30 + (h % 400) + sessions * 42;
-	const activeLabel = formatCompactPlayers(baseActive);
-	return { ratingPct, activeLabel };
-}
-
-function formatCompactPlayers(n: number): string {
-	if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-	if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
-	return String(Math.max(1, Math.round(n)));
-}
-
 export function getRecentlyPlayedGames(
 	allGames: GameMetadata[],
 	prefs: GamePreferences,

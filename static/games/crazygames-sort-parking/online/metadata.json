@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sort-parking",
+  "name": "Sort Parking 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sort Parking is a puzzle game where you sort cars by type, ensuring every color car is parked in a row with cars of the same color to get to the next stage of the game. It is a classic sort-and-order game that involves skills like logic to advance to the next levels.",
+  "thumbnail": "https://imgs.crazygames.com/sort-parking_16x9/20240603130328/sort-parking_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sort-parking_16x9/20240603130328/sort-parking_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sort-parking/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sort-parking",
+  "crazygamesSlug": "sort-parking"
+}

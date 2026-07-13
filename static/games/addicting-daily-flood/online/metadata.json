@@ -1,0 +1,14 @@
+{
+  "id": "addicting-daily-flood",
+  "name": "Daily Flood",
+  "author": "Addicting Games",
+  "description": "<p>Daily Flood is a casual puzzle game that’s great for unwinding at the end of the day. The objective of this colorful online game is to fill up the entire grid with the same color within a limited number of moves. You have the option of playing easy or hard with grids of 10x10, 12x12, 14x14, and 16x16. There’s a new puzzle on a daily basis so tune in to start off your day or to relax at the end of one. This is a great puzzle game to exercise your mind without being overwhelmed as it has simple mechanics. Couldn’t solve it the first time around? No worries as you can replay this puzzle game and try a different strategy until you get the hang of it. Daily Flood is the perfect daily game to add to your routine.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/squarez.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/squarez.jpg",
+  "thumbnailStored": "remote",
+  "category": "daily-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/daily-flood/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/daily-flood"
+}

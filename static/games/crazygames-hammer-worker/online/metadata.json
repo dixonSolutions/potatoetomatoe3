@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hammer-worker",
+  "name": "Hammer Worker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hammer Worker is an arcade game where you must break the rocks to find the money, diamonds, and power-ups! Upgrade your hammer with the money you earn and smash more rocks with an awesome powerful hammer.",
+  "thumbnail": "https://imgs.crazygames.com/hammer-worker/20230307161517/hammer-worker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hammer-worker/20230307161517/hammer-worker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hammer-worker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hammer-worker",
+  "crazygamesSlug": "hammer-worker"
+}

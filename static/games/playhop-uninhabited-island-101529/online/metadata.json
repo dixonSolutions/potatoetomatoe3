@@ -1,0 +1,17 @@
+{
+  "id": "playhop-uninhabited-island-101529",
+  "name": "Uninhabited island",
+  "author": "AppyApp",
+  "description": "Play Uninhabited island via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018deb3147873d524cc18158eedfc2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018deb3147873d524cc18158eedfc2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-101529.games.s3.yandex.net/101529/syk27g5n5itbqv67nc7ptdwu1dagc3au/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=101529&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 101529,
+  "playhopPageUrl": "https://playhop.com/app/101529",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 28292
+}

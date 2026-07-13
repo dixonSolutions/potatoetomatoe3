@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-container-auction",
+  "name": "Container Auction 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Container Auction is an exciting auction simulator! Bid on mysterious containers, competing against rivals.",
+  "thumbnail": "https://imgs.crazygames.com/container-auction_16x9/20260527074509/container-auction_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/container-auction_16x9/20260527074509/container-auction_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/container-auction/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/container-auction",
+  "crazygamesSlug": "container-auction"
+}

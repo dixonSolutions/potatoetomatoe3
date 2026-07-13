@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-om-nom-run",
+  "name": "Om Nom: Run 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Om Nom: Run is a running game set on the mean streets of Nomville. Complete the set challenges on each level to succeed.",
+  "thumbnail": "https://imgs.crazygames.com/games/om-nom-run/cover_16x9-1707829613214.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/om-nom-run/cover_16x9-1707829613214.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/om-nom-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/om-nom-run",
+  "crazygamesSlug": "om-nom-run"
+}

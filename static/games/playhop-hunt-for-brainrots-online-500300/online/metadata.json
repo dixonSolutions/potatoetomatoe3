@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hunt-for-brainrots-online-500300",
+  "name": "Hunt for Brainrots: Online",
+  "author": "DOGSTUDIO",
+  "description": "Play Hunt for Brainrots: Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c63b375ddc01598d9c1d9b0e762/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c63b375ddc01598d9c1d9b0e762/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-500300.games.s3.yandex.net/500300/qf77ijor2ojcebaivcyunwyx4517aq1a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=500300&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 500300,
+  "playhopPageUrl": "https://playhop.com/app/500300",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 7450
+}

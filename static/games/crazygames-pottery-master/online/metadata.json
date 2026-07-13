@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pottery-master",
+  "name": "Pottery Master 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pottery Master is a casual art game where you paint your way to crafting perfection. Use your virtual hands to mold your clay, then your tools to shape and paint them.",
+  "thumbnail": "https://imgs.crazygames.com/pottery-master_16x9/20250515024518/pottery-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pottery-master_16x9/20250515024518/pottery-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pottery-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pottery-master",
+  "crazygamesSlug": "pottery-master"
+}

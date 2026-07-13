@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-classic-mahjongg",
+  "name": "Classic Mahjongg - Play Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Enjoy beautiful calligraphy, peaceful music, and endless puzzles in this free version of the classic tile matching game of Mahjong.",
+  "thumbnail": "/games/coolmath-classic-mahjongg/online/assets/coolmath-classic-mahjongg.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24853/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-classic-mahjongg",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-classic-mahjongg"
+}

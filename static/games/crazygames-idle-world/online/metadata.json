@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-world",
+  "name": "Idle World 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Idle World is a creative simulation game where you build a world from cubes, crafting life after the Big Bang. Use energy and natural elements to shape Earth’s landscapes, create trees, rivers, animals, and humans, and watch your pixel world come alive.",
+  "thumbnail": "https://imgs.crazygames.com/idle-world_16x9/20250102060424/idle-world_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-world_16x9/20250102060424/idle-world_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-world/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-world",
+  "crazygamesSlug": "idle-world"
+}

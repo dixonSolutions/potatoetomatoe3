@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-jamjam",
+  "name": "Jamjam 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jamjam is a precision-based platformer where you control a bouncy jelly character, leaping through tricky levels filled with obstacles. Carefully aim each jump, collect coins and stars, and take on challenging boss stages.",
+  "thumbnail": "https://imgs.crazygames.com/jamjam_16x9/20250131082823/jamjam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/jamjam_16x9/20250131082823/jamjam_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jamjam/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jamjam",
+  "crazygamesSlug": "jamjam"
+}

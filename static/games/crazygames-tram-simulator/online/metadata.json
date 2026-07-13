@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tram-simulator",
+  "name": "Tram Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tram Simulator is a traffic driving game that puts you in the driver&#x27;s seat of one of five tram models rolling through the lively streets of Moscow. Your job is simple on the surface: pick up passengers, follow the route, and get everyone where they need to go safely.",
+  "thumbnail": "https://imgs.crazygames.com/tram-simulator_16x9/20251001044918/tram-simulator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tram-simulator_16x9/20251001044918/tram-simulator_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tram-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tram-simulator",
+  "crazygamesSlug": "tram-simulator"
+}

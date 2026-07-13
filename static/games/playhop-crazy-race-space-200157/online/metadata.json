@@ -1,0 +1,17 @@
+{
+  "id": "playhop-crazy-race-space-200157",
+  "name": "Crazy Race: Space",
+  "author": "NeuroLab",
+  "description": "Play Crazy Race: Space via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001949e07256b94fee9b801d49e4772/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001949e07256b94fee9b801d49e4772/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-200157.games.s3.yandex.net/200157/pcoy47ypjftx6nrpdsvp8eghshmoqree/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=200157&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 200157,
+  "playhopPageUrl": "https://playhop.com/app/200157",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 1612
+}

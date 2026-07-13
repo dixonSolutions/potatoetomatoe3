@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-word-duel",
+  "name": "Word Duel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Word Duel is a 1v1 multiplayer word battle game. Features      Matchmaking in ONE global server: compete with people from all over the world     Compete in 5 different arenas: Beginner, Intermediate, Advanced, Expert, Champion and win gold rewards     Free gold chest every 4 hours     10+ different styles of letter blocks, available for purchase with gold     Daily challenges to warm up your brain and earn gold rewards  Release Date September 2020 Developer Word Duel was made by Fish Pond Studio.",
+  "thumbnail": "https://imgs.crazygames.com/word-duel/20200917160902/word-duel-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/word-duel/20200917160902/word-duel-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/word-duel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/word-duel",
+  "crazygamesSlug": "word-duel"
+}

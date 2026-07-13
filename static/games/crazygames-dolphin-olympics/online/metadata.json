@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-dolphin-olympics",
+  "name": "Dolphin Olympics 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dolphin Olympics is an awesome game of skill in which you must control and acrobatic dolphin and try to perform a variety of cool tricks! You only have a time limit of two minutes and within this time limit you must rack up a high score by trying out different tricks and landing them successfully.",
+  "thumbnail": "/games/crazygames-dolphin-olympics/online/assets/crazygames-dolphin-olympics.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dolphin-olympics/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dolphin-olympics",
+  "crazygamesSlug": "dolphin-olympics"
+}

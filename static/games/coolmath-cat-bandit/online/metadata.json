@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cat-bandit",
+  "name": "Cat Bandit - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Collect every single diamond you can and beat the clock in Cat Bandit. You&#039;ll have to use your agility as a cat to get to the exit before it&#039;s too late.",
+  "thumbnail": "/games/coolmath-cat-bandit/online/assets/coolmath-cat-bandit.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50795/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cat-bandit",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cat-bandit"
+}

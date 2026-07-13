@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pinball-neon",
+  "name": "Pinball Neon",
+  "author": "Addicting Games",
+  "description": "<p>Pinball Neon is an arcade game with a scoreboard waiting to get your name down! There is nothing like playing the pinball machine at the arcade. Whether at the beach pier or your local miniature golf center, there seems to always be a pinball machine for you to play. It is a classic and never gets old. Pinball Neon is the online version of this game that will bring back those memories. This online game has bright colors, great animation, and easy-to-use controls. The goal of the game is to keep the ball in the pinball machine as long as possible. For each session, you only get a limited amount of lives. Play as long as you can for each round to get the best possible score.  </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pinballneon.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pinballneon.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/pinball/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/pinball-neon"
+}

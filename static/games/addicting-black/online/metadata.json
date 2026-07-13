@@ -1,0 +1,14 @@
+{
+  "id": "addicting-black",
+  "name": "Black Bonte",
+  "author": "Addicting Games",
+  "description": "<p>Black is a free puzzle game. When the light is gone and all of the colors have faded into nothing you are left with only darkness, welcome to Black. Black is an abstract puzzle game where players are forced to pit their imagination against the machinations of deviously clever game developers who have made a truly creepy puzzle game. In this game, you will be faced with nothing but a black screen and some icons. You don't just make moves here or there to win the level, you must first figure out what the point of the game is, this makes Black a standout game in the world of puzzle games. Black is the latest in the series of color-themed abstract puzzle games and we are proud to host it for you. We think it harkens back to some of the classic games of the past while also having a modern edge. If you get stuck at any time there is a lightbulb in the top right-hand corner of the screen. Using the hint will affect your score but, hey, at least you'll get it done.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/blackgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/blackgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "idle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/black/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/black"
+}

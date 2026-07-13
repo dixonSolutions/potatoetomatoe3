@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soccer-caps-league-164433",
+  "name": "Soccer Caps League",
+  "author": "GamesJS",
+  "description": "Play Soccer Caps League via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000179452d65d1b245e011e1fd73cc8e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000179452d65d1b245e011e1fd73cc8e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-164433.games.s3.yandex.net/164433/u1v9cxzi9oyp2ycnj4g3n3fna33wdrsq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=164433&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 164433,
+  "playhopPageUrl": "https://playhop.com/app/164433",
+  "playhopRating": 4,
+  "playhopRatingCount": 1989
+}

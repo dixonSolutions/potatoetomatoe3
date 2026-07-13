@@ -1,0 +1,14 @@
+{
+  "id": "addicting-easter-eggs",
+  "name": "Easter Eggs",
+  "author": "Addicting Games",
+  "description": "<p>Look, I don’t mind that they’re dyed eggs, but when you call a game Easter Eggs I expect there to be hiding or searching. The game has neither, there’s only arranging.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2026-03-23_104103371%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2026-03-23_104103371%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "seasonal",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/eastereggs_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/easter-eggs"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-20-minutes-till-dawn",
+  "name": "20 Minutes Till Dawn",
+  "author": "NeoX",
+  "description": "Play 20 Minutes Till Dawn via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000192d898905e930900ba86e3b5da87/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000192d898905e930900ba86e3b5da87/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-376031.games.s3.yandex.net/376031/1vbqix29r7kkwg1i6c8i3dodlb9b7gsb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=376031&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 376031,
+  "playhopPageUrl": "https://playhop.com/app/376031",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 760
+}

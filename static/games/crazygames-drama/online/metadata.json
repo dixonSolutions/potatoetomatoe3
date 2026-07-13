@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-drama",
+  "name": "DRAMA 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "DRAMA is a tricky platformer game with various puzzles to overcome. Think outside the box to complete the game with the most lives spared.",
+  "thumbnail": "https://imgs.crazygames.com/games/drama/cover-1630324415438.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/drama/cover-1630324415438.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drama/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drama",
+  "crazygamesSlug": "drama"
+}

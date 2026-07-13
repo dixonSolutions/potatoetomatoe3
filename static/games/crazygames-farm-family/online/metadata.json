@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-farm-family",
+  "name": "Farm Family 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Farm Family is a captivating farm simulator game that allows you to build and manage your very own farm. You can cultivate crops, raise animals, and sell your products at the market to make money.",
+  "thumbnail": "https://imgs.crazygames.com/farm-family/20230331124843/farm-family-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/farm-family/20230331124843/farm-family-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/farm-family/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/farm-family",
+  "crazygamesSlug": "farm-family"
+}

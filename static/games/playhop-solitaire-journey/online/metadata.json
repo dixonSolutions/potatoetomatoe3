@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-journey",
+  "name": "Solitaire Journey",
+  "author": "Citigo",
+  "description": "Play Solitaire Journey via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018f76306ab5342a780f57cbc5f006/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018f76306ab5342a780f57cbc5f006/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-339900.games.s3.yandex.net/339900/su6u0rvqmrz1ut96wpd0ysl91635hpbb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=339900&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 339900,
+  "playhopPageUrl": "https://playhop.com/app/339900",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 930
+}

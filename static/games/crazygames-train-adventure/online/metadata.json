@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-train-adventure",
+  "name": "Train Adventure 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Train Adventure is a casual game where you arm a train with weapons and seek out resources. Shoot down enemies along the way and collect as much as possible!",
+  "thumbnail": "https://imgs.crazygames.com/train-adventure/20221212104622/train-adventure-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/train-adventure/20221212104622/train-adventure-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/train-adventure/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/train-adventure",
+  "crazygamesSlug": "train-adventure"
+}

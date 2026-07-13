@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dreamy-home",
+  "name": "Dreamy Home",
+  "author": "GSOPE games",
+  "description": "Play Dreamy Home via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019e17d98382b25cf20738e1ef311f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019e17d98382b25cf20738e1ef311f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-437461.games.s3.yandex.net/437461/bins8e1fhsybk60vj6u8hmzjac16qr5e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=437461&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 437461,
+  "playhopPageUrl": "https://playhop.com/app/437461",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 1241
+}

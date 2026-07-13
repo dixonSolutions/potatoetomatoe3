@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-lunar-knight",
+  "name": "Lunar Knight 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Lunar Knight is a pixel adventure game with roguelike elements to it. Battle in a randomly generated world.",
+  "thumbnail": "https://imgs.crazygames.com/lunar-knight_16x9/20240515033859/lunar-knight_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/lunar-knight_16x9/20240515033859/lunar-knight_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lunar-knight/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lunar-knight",
+  "crazygamesSlug": "lunar-knight"
+}

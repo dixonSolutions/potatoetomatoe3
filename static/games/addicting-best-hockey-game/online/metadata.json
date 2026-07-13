@@ -1,0 +1,14 @@
+{
+  "id": "addicting-best-hockey-game",
+  "name": "Best Hockey Game",
+  "author": "Addicting Games",
+  "description": "<p>Best Hockey Game is a free sports game. Ignore all those other hockey games: this here is the real deal. Play as a team - pass, shoot, steal, score! And it wouldn't be hockey without fist fights. Punch your way to victory!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/aghockey_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/aghockey_sp.png",
+  "thumbnailStored": "remote",
+  "category": "fighting-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/aghockey.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/best-hockey-game"
+}

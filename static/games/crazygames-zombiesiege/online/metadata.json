@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zombiesiege",
+  "name": "Zombie Siege: Defense Line 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Zombie Siege: Defense Line puts you in the shoes of a fearless line defender standing between humanity and a zombie takeover. Control your character, hold your ground, and blast through endless waves of undead as they swarm in from every direction.",
+  "thumbnail": "https://imgs.crazygames.com/zombiesiege_16x9/20260109043434/zombiesiege_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zombiesiege_16x9/20260109043434/zombiesiege_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombiesiege/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombiesiege",
+  "crazygamesSlug": "zombiesiege"
+}

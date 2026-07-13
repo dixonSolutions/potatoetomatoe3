@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bloons-tower-defense-4",
+  "name": "Bloons Tower Defense 4 🎈 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloons Tower Defense 4, aka BTD 4, is a classic tower defense game initially released in Flash. Defend the path by avoiding Bloons from reaching the end.",
+  "thumbnail": "/games/crazygames-bloons-tower-defense-4/online/assets/crazygames-bloons-tower-defense-4.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloons-tower-defense-4/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloons-tower-defense-4",
+  "crazygamesSlug": "bloons-tower-defense-4"
+}

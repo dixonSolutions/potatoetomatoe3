@@ -1,0 +1,14 @@
+{
+  "id": "addicting-robo-racing",
+  "name": "Robo Racing",
+  "author": "Addicting Games",
+  "description": "<p>Robo Racing is a free racing game. Blow the competition away.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/robo-racing_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/robo-racing_sp.png",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/robo-racing.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/robo-racing"
+}

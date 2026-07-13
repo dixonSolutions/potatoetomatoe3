@@ -1,0 +1,14 @@
+{
+  "id": "addicting-turret-tumblers",
+  "name": "Turret Tumblers",
+  "author": "Addicting Games",
+  "description": "<p>Protect your back in this online multiplayer twin-stick shooter game with a twist!</p>\n\n<p>As a good recycling robot, your job is to collect as much scrap metal as possible, even it means recycling the other robots. They are not going to make this easy though!</p>\n\n<p>Turrets are easy to replace, but your hull is not. Protect your back with your turrets, while you bounce or curve your shots to reach your enemy's back. When you eventually succeed at salvaging the other robots, use their precious metal to make your hull even stronger. How long can you survive?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/LogoG-addictinggames-720x468.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/LogoG-addictinggames-720x468.png",
+  "thumbnailStored": "remote",
+  "category": "arena-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://turrets.easel.games/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/turret-tumblers"
+}

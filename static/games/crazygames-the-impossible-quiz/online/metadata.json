@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-the-impossible-quiz",
+  "name": "The Impossible Quiz ❓ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The Impossible Quiz is an online quiz game that is… Almost impossible. The questions are all difficult to answer and require lateral thinking.",
+  "thumbnail": "/games/crazygames-the-impossible-quiz/online/assets/crazygames-the-impossible-quiz.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/the-impossible-quiz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/the-impossible-quiz",
+  "crazygamesSlug": "the-impossible-quiz"
+}

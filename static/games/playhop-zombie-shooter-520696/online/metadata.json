@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zombie-shooter-520696",
+  "name": "Zombie Shooter",
+  "author": "Zeta_Studio",
+  "description": "Play Zombie Shooter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019d9c9307015ded54c95650fbe382/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000019d9c9307015ded54c95650fbe382/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-520696.games.s3.yandex.net/520696/ni2i6pgl5f3g4ufdt90b25ky4rmgb7nj/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=520696&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 520696,
+  "playhopPageUrl": "https://playhop.com/app/520696",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

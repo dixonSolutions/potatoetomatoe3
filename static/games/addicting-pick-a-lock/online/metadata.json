@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pick-a-lock",
+  "name": "Pick A Lock",
+  "author": "Addicting Games",
+  "description": "<p>Pick A Lock is a casual online game where your objective is to pick that lock! We’re not ones to teach you how to do bad things but picking a lock can definitely have its advantages. This is an interesting brain teaser that keeps you on your toes. As soon as you hit start, the game starts fast and you barely have any time to think. Your goal is to stop the line as soon as it hits the circle. Not a moment before or after. With every level you pass, another dial turn is added in the next level. This is a precise game that might have you raging. However, once you've memorized the pattern, you’ll be able to unlock them like a champ. Check the leaderboards to see who is the faster lock picker on AddictingGames!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/pick-a-lock.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/pick-a-lock.jpg",
+  "thumbnailStored": "remote",
+  "category": "teen-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.addictinggames.com//cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/pick-a-lock/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/pick-a-lock"
+}

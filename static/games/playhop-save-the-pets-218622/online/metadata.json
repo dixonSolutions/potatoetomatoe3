@@ -1,0 +1,17 @@
+{
+  "id": "playhop-save-the-pets-218622",
+  "name": "Save The Pets",
+  "author": "Citigo",
+  "description": "Play Save The Pets via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000186a57329d8d745f4fb15a765af65/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000186a57329d8d745f4fb15a765af65/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-218622.games.s3.yandex.net/218622/mpvj4bn0k0sgcrrlhrcx8t01prk6ddam/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=218622&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 218622,
+  "playhopPageUrl": "https://playhop.com/app/218622",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 27927
+}

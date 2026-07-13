@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bannerlings",
+  "name": "Bannerlings 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bannerlings is a strategy roguelike auto battler where you recruit, fuse, and customize units to create powerful team compositions and overcome ever-changing challenges.Build your army by collecting unique units, combining them into stronger versions, and equipping them with emblems that unlock new abilities and synergies.",
+  "thumbnail": "https://imgs.crazygames.com/bannerlings_16x9/20260602112103/bannerlings_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bannerlings_16x9/20260602112103/bannerlings_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bannerlings/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bannerlings",
+  "crazygamesSlug": "bannerlings"
+}

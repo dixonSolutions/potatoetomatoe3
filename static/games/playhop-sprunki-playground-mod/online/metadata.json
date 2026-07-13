@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-playground-mod",
+  "name": "Sprunki Playground Mod",
+  "author": "R.G. Team",
+  "description": "Play Sprunki Playground Mod via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f41b7ac50ae399cefe11589df0f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f41b7ac50ae399cefe11589df0f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-426338.games.s3.yandex.net/426338/58v3b751m9u3w41hkzhkfgpfzlqprjcn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=426338&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 426338,
+  "playhopPageUrl": "https://playhop.com/app/426338",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 6713
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-counter-terror-global-strike-238724",
+  "name": "Counter-Terror: Global Strike",
+  "author": "CyberGameDev",
+  "description": "Play Counter-Terror: Global Strike via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019396c6a399d14572cba8b82e120e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000019396c6a399d14572cba8b82e120e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-238724.games.s3.yandex.net/238724/i0subimyrv01ogrx559nj3dy3m5z0jjx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=238724&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 238724,
+  "playhopPageUrl": "https://playhop.com/app/238724",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 32867
+}

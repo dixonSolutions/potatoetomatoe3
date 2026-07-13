@@ -1,0 +1,17 @@
+{
+  "id": "playhop-funny-regiments",
+  "name": "Funny Regiments",
+  "author": "Tappania Games",
+  "description": "Play Funny Regiments via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c7146e4f19422ae2de208200aab/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c7146e4f19422ae2de208200aab/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-353791.games.s3.yandex.net/353791/72wc86vttz6zxebux84v4bc8qziqplrq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=353791&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 353791,
+  "playhopPageUrl": "https://playhop.com/app/353791",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 888
+}

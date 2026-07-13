@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bomber-friends",
+  "name": "bomber friends",
+  "author": "CrazyGames",
+  "description": "Play bomber friends on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-bomber-friends/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bomber-friends/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bomber-friends",
+  "crazygamesSlug": "bomber-friends"
+}

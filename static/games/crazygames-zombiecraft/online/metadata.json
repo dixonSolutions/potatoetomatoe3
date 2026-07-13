@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-zombiecraft",
+  "name": "ZombieCraft 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "ZombieCraft is a third-person shooting game where you must survive the zombie wave. This game features intense zombie shooting in a vast blocky world.",
+  "thumbnail": "https://imgs.crazygames.com/zombiecraft/20221004154004/zombiecraft-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/zombiecraft/20221004154004/zombiecraft-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombiecraft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombiecraft",
+  "crazygamesSlug": "zombiecraft"
+}

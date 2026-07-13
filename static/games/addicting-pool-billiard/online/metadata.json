@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pool-billiard",
+  "name": "Pool Billiard",
+  "author": "Addicting Games",
+  "description": "<p>Pool Billard is a sports game based on a good old fashioned game of pool! This online game is designed to show you the top of the pool table so that you can easily see all of the available balls, routes, and holes. The pool table and balls are decorated and colored just like your basic pool game in your recreational room. This is a solo version so you are not playing against a bot nor a live opponent. You and physics are your only opponents in this game! Your objective is to pocket all of the colored balls first from ideally from low to high. Lastly, you must pocket the black ball to get the best possible points. If you love pool, then check out this online version of the sports game. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/poolbilliardgameneon.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/poolbilliardgameneon.jpg",
+  "thumbnailStored": "remote",
+  "category": "sports",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/pool-billiard/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/pool-billiard"
+}

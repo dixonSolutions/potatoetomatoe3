@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-circloo",
+  "name": "CircloO - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Roll the rock to its destination in CircloO. Use momentum and gravity to pull off jumps and reach new heights in this fun and fast-paced game.",
+  "thumbnail": "/games/coolmath-circloo/online/assets/coolmath-circloo.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23392/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-circloo",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-circloo"
+}

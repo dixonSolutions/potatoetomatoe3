@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-coffee-color-blocks",
+  "name": "Coffee Color Blocks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Coffee Color Blocks is a bright and relaxing puzzle game where you move colored shapes around the board and guide them to gates of the matching color. Each correct connection fills the cups inside the shape.",
+  "thumbnail": "https://imgs.crazygames.com/coffee-color-blocks_16x9/20260203044136/coffee-color-blocks_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/coffee-color-blocks_16x9/20260203044136/coffee-color-blocks_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/coffee-color-blocks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/coffee-color-blocks",
+  "crazygamesSlug": "coffee-color-blocks"
+}

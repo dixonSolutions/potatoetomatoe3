@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ball-eating-simulator",
+  "name": "Ball Eating Simulator",
+  "author": "Cursora Labs",
+  "description": "Play Ball Eating Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019111a17d36238a51fd79bcd6a779/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019111a17d36238a51fd79bcd6a779/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-361294.games.s3.yandex.net/361294/ffcyb2wzaza1x3fy31heubalczldzbw9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=361294&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 361294,
+  "playhopPageUrl": "https://playhop.com/app/361294",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 5963
+}

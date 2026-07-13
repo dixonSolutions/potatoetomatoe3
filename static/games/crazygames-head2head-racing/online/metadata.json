@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-head2head-racing",
+  "name": "Head2Head Racing 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Head2Head racing is a fast-paced and adrenaline fuelled racing game. The 3D graphics are awesome, and the controls are easy to get to grips with, you can also use the beastly nitro boost!",
+  "thumbnail": "https://imgs.crazygames.com/head2head-racing.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/head2head-racing.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/head2head-racing/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/head2head-racing",
+  "crazygamesSlug": "head2head-racing"
+}

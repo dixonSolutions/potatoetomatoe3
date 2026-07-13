@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-number-snap",
+  "name": "Number Snap 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Welcome to Number Snap. Your goal is simple but addictive: place number tiles on the grid to build perfect sequences from 1 to 9.",
+  "thumbnail": "https://imgs.crazygames.com/number-snap_16x9/20260220031344/number-snap_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/number-snap_16x9/20260220031344/number-snap_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/number-snap/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/number-snap",
+  "crazygamesSlug": "number-snap"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-minemerge",
+  "name": "MineMerge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MineMerge is a clicker game with merge mechanics. Merge identical blocks to collect the resources you need to craft weapons and armor.",
+  "thumbnail": "https://imgs.crazygames.com/minemerge_16x9/20260220042355/minemerge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/minemerge_16x9/20260220042355/minemerge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/minemerge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/minemerge",
+  "crazygamesSlug": "minemerge"
+}

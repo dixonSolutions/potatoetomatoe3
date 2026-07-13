@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tung-sahur-bots-chase-room",
+  "name": "Tung Sahur Bots Chase Room",
+  "author": "CyberNex Studios",
+  "description": "Play Tung Sahur Bots Chase Room via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001981d26237c5236c22d3a0d63dd28/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001981d26237c5236c22d3a0d63dd28/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-454908.games.s3.yandex.net/454908/5v51aczj3tskodwbbxri883biitdsbha/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=454908&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 454908,
+  "playhopPageUrl": "https://playhop.com/app/454908",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1000
+}

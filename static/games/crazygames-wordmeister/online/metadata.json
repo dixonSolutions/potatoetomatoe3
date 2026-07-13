@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-wordmeister",
+  "name": "Wordmeister 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Wordmeister is an English word game similar to Scrabble. Use the letters provided and create words on the board to score points.",
+  "thumbnail": "https://imgs.crazygames.com/games/wordmeister/cover_16x9-1750345072824.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/wordmeister/cover_16x9-1750345072824.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/wordmeister/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/wordmeister",
+  "crazygamesSlug": "wordmeister"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-coffee-shop",
+  "name": "Coffee Shop Game - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Run your own coffee shop and sell drinks. You have to plan your budget and how much to charge. Keep everything running smoothly in this Coffee Shop game.",
+  "thumbnail": "/games/coolmath-coffee-shop/online/assets/coolmath-coffee-shop.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48838/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-coffee-shop",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-coffee-shop"
+}

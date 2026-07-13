@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ww1-battle-simulator",
+  "name": "WW1 Battle Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "This is a cool battle simulator game with World War 1 theme. Place your troops strategically and beat the opponent&#39;s army.",
+  "thumbnail": "https://imgs.crazygames.com/ww1-battle-simulator-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ww1-battle-simulator-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ww1-battle-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ww1-battle-simulator",
+  "crazygamesSlug": "ww1-battle-simulator"
+}

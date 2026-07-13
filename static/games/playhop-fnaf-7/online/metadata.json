@@ -1,0 +1,17 @@
+{
+  "id": "playhop-fnaf-7",
+  "name": "Fnaf 7",
+  "author": "TDS BID",
+  "description": "Play Fnaf 7 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019a9c572446a6345c20c3d2fe5154/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019a9c572446a6345c20c3d2fe5154/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-406841.games.s3.yandex.net/406841/sftiv8ivp590nfddbcp0yo0vbx4uttl1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=406841&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 406841,
+  "playhopPageUrl": "https://playhop.com/app/406841",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 400
+}

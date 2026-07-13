@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-more-ore",
+  "name": "More Ore 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "More Ore is an incremental idle game with RPG elements. Destroy the ore, buy buildings for workers, and unlock new technologies to enhance ore production.",
+  "thumbnail": "https://imgs.crazygames.com/more-ore/20220115082008/more-ore-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/more-ore/20220115082008/more-ore-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/more-ore/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/more-ore",
+  "crazygamesSlug": "more-ore"
+}

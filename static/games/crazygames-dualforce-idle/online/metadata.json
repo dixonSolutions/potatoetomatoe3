@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dualforce-idle",
+  "name": "DualForce Idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "DualForce Idle is a clever game that combines idle and tower defense gameplay. Click monsters to generate money for upgrades and turrets.",
+  "thumbnail": "https://imgs.crazygames.com/dualforce-idle/20201217110101/dualforce-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dualforce-idle/20201217110101/dualforce-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dualforce-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dualforce-idle",
+  "crazygamesSlug": "dualforce-idle"
+}

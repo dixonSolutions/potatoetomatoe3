@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-animal-party",
+  "name": "Animal Party - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "It&#039;s eat or be eaten. Travel with your animal party to eat up the competition and be the champions of the forest. Don&#039;t let the enemies eat you first.",
+  "thumbnail": "/games/coolmath-animal-party/online/assets/coolmath-animal-party.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49182/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-animal-party",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-animal-party"
+}

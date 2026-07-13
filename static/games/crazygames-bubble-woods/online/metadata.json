@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bubble-woods",
+  "name": "Bubble Woods 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bubble Woods is an epic bubble shooter game. You have exactly 60 seconds to try and shoot down as many colored bubbles as possible.",
+  "thumbnail": "https://imgs.crazygames.com/bubble-woods_16x9/20240304050525/bubble-woods_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bubble-woods_16x9/20240304050525/bubble-woods_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubble-woods/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubble-woods",
+  "crazygamesSlug": "bubble-woods"
+}

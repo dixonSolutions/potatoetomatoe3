@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cyber-tank",
+  "name": "Cyber Tank - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cyber tank reporting for duty. Your path is guarded by robotic sentry towers. Will you blast them out of your way, or sneak around their field of vision?",
+  "thumbnail": "/games/coolmath-cyber-tank/online/assets/coolmath-cyber-tank.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25166/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cyber-tank",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cyber-tank"
+}

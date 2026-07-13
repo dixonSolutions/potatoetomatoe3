@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-galactic-grind",
+  "name": "Galactic Grind 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Galactic Grind is an awesome clicked game in which you must try to create a thriving production facility and generate resources to reach space. You must start by simply clicking on the earth and picking a production building to create.",
+  "thumbnail": "/games/crazygames-galactic-grind/online/assets/crazygames-galactic-grind.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/galactic-grind/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/galactic-grind",
+  "crazygamesSlug": "galactic-grind"
+}

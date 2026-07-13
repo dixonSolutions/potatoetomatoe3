@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bee-magic",
+  "name": "Bee Magic Game - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Start buzzing around and collecting every single star in the Bee Magic Game. Use your spells to make it past the obstacles that await you.",
+  "thumbnail": "/games/coolmath-bee-magic/online/assets/coolmath-bee-magic.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/52062/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bee-magic",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bee-magic"
+}

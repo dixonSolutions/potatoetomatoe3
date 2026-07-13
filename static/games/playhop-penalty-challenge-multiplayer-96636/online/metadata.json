@@ -1,0 +1,17 @@
+{
+  "id": "playhop-penalty-challenge-multiplayer-96636",
+  "name": "Penalty Challenge Multiplayer",
+  "author": "CodeThisLab",
+  "description": "Play Penalty Challenge Multiplayer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001902c2bd3d5685b357f40a897d0f6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001902c2bd3d5685b357f40a897d0f6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96636.games.s3.yandex.net/96636/ok1h47eaeihutkdigp6dubk8lxlbjqgx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96636&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96636,
+  "playhopPageUrl": "https://playhop.com/app/96636",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 14352
+}

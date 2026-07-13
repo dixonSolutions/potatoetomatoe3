@@ -1,0 +1,17 @@
+{
+  "id": "playhop-five-nights-at-freddys-remaster-208064",
+  "name": "Five Nights at Freddy's Remaster",
+  "author": "SimusDev",
+  "description": "Play Five Nights at Freddy's Remaster via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001853bfb0818029b5bb386a666ba60/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001853bfb0818029b5bb386a666ba60/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-208064.games.s3.yandex.net/208064/ki7jlfa2draxz9opc6tp0ynx26bl3kcc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=208064&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 208064,
+  "playhopPageUrl": "https://playhop.com/app/208064",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 10712
+}

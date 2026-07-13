@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cat-sort",
+  "name": "Cat Sort 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cat Sort is a charming puzzle game where your goal is to tidy up a room full of adorable feline chaos. Match three cats of the same kind in cozy beds to make them disappear, but be ready—each cleared layer reveals new surprises.",
+  "thumbnail": "https://imgs.crazygames.com/cat-sort_16x9/20251023072656/cat-sort_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cat-sort_16x9/20251023072656/cat-sort_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cat-sort/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cat-sort",
+  "crazygamesSlug": "cat-sort"
+}

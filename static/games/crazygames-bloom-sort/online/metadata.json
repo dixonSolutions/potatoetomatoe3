@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bloom-sort",
+  "name": "Bloom Sort 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloom Sort is a relaxing merge puzzle game set in Amy’s Flower Shop. Arrange flower pots, merge matching petals, and unlock stunning new blooms as you go.",
+  "thumbnail": "https://imgs.crazygames.com/bloom-sort_16x9/20241025072209/bloom-sort_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bloom-sort_16x9/20241025072209/bloom-sort_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloom-sort/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloom-sort",
+  "crazygamesSlug": "bloom-sort"
+}

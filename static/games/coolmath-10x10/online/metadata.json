@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-10x10",
+  "name": "10x10 - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "10x10 at Cool Math Games: Master the art of shape-fitting! Use your blocks to get a high score without running out of space.",
+  "thumbnail": "/games/coolmath-10x10/online/assets/coolmath-10x10.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25004/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-10x10",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-10x10"
+}

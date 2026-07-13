@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-connect-the-gems",
+  "name": "Connect the Gems - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Connect the Gems at Cool Math Games: Match enough gems of each color. Surround gems with your matches to create mega-gem power ups!",
+  "thumbnail": "/games/coolmath-connect-the-gems/online/assets/coolmath-connect-the-gems.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/35939/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-connect-the-gems",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-connect-the-gems"
+}

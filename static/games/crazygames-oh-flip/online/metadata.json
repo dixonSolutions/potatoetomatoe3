@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-oh-flip",
+  "name": "Oh, flip! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Oh, flip! is a fun game about doing backflips.",
+  "thumbnail": "https://imgs.crazygames.com/games/oh-flip/thumb-1573052169790.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/oh-flip/thumb-1573052169790.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/oh-flip/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/oh-flip",
+  "crazygamesSlug": "oh-flip"
+}

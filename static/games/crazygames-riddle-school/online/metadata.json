@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-riddle-school",
+  "name": "Riddle School 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Riddle School is a fun game of mystery and puzzle solving and the first title in the Riddle School series. You are stuck in school in a boring class and you want to escape!",
+  "thumbnail": "/games/crazygames-riddle-school/online/assets/crazygames-riddle-school.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/riddle-school/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/riddle-school",
+  "crazygamesSlug": "riddle-school"
+}

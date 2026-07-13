@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-laptop-empire",
+  "name": "laptop empire",
+  "author": "CrazyGames",
+  "description": "Play laptop empire on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/laptop-empire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/laptop-empire",
+  "crazygamesSlug": "laptop-empire"
+}

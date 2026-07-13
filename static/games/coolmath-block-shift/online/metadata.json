@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-block-shift",
+  "name": "Block Shift - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Block Shift at Cool Math Games: It&#039;s block swapping madness! Figure out how to knock off all of the red shaped blocks by shifting the locations of the blocks. Keep the green ones safe!",
+  "thumbnail": "/games/coolmath-block-shift/online/assets/coolmath-block-shift.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/14536/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-block-shift",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-block-shift"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-create-play",
+  "name": "Sprunki: Create & Play",
+  "author": "TokaLoka",
+  "description": "Play Sprunki: Create & Play via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a000001952d223b69c9e79394992398cfd8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a000001952d223b69c9e79394992398cfd8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-413698.games.s3.yandex.net/413698/aq32kbilqbrauyl2itapq5fkgvx5ygzy/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=413698&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 413698,
+  "playhopPageUrl": "https://playhop.com/app/413698",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 7075
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bloons-tower-defense",
+  "name": "Bloons Tower Defense 🎈 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloons Tower Defense is a casual game where your mission is to build and fortify your defenses to stop an ever-growing wave of colorful balloons from reaching the end of the track. This classic game started the legendary Bloons TD series and continues some of the gameplay.",
+  "thumbnail": "/games/crazygames-bloons-tower-defense/online/assets/crazygames-bloons-tower-defense.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloons-tower-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloons-tower-defense",
+  "crazygamesSlug": "bloons-tower-defense"
+}

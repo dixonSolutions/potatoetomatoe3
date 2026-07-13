@@ -1,0 +1,14 @@
+{
+  "id": "addicting-the-vampire-quiz",
+  "name": "The Vampire Quiz",
+  "author": "Addicting Games",
+  "description": "<p>Do you prefer sophisticated bloodsuckers, or rowdy party wolves? Take our extremely scientific quiz to identify your inner beast!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/vampirequiz_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/vampirequiz_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/vampirequiz.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/the-vampire-quiz"
+}

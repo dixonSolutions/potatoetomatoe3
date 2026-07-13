@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-electron-dash",
+  "name": "Electron Dash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Electron Dash is a casual arcade game where you play as an electron racing through an infinite tube in space. This nostalgic-styled runner will have you rotating through corridors, dodging holes, unstable tiles, and lasers as you go.",
+  "thumbnail": "https://imgs.crazygames.com/electron-dash_16x9/20260108031554/electron-dash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/electron-dash_16x9/20260108031554/electron-dash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/electron-dash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/electron-dash",
+  "crazygamesSlug": "electron-dash"
+}

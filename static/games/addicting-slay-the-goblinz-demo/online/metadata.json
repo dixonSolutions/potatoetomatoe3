@@ -1,0 +1,14 @@
+{
+  "id": "addicting-slay-the-goblinz-demo",
+  "name": "Slay the GoblinZ Demo",
+  "author": "Addicting Games",
+  "description": "<p><u><strong><a href=\"https://store.steampowered.com/app/4631260/Slay_the_GoblinZ/\">Find Slay the GoblinZ on Steam now!</a></strong></u></p>\n\n<p> </p>\n\n<p><strong>Slay the GoblinZ [Alpha]</strong> is a dark fantasy incremental RPG where you take on a job to exterminate goblins. Craft unique weapons, master deadly skills, and put an end to the Goblin Forefather.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/banner_720x468%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/banner_720x468%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "demo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/slay-the-goblinz-demo/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/slay-the-goblinz-demo"
+}

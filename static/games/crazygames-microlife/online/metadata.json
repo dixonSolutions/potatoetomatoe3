@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-microlife",
+  "name": "Microlife 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Microlife is an arcade game where you need to feed the little Micro to grow. You need money to buy them food, do not let them starve!",
+  "thumbnail": "https://imgs.crazygames.com/games/microlife/cover-1632817553917.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/microlife/cover-1632817553917.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/microlife/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/microlife",
+  "crazygamesSlug": "microlife"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-car-flip",
+  "name": "Car Flip! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Car Flip is a casual driving game that takes you on a wild joy ride with friends, with one simple mission: flip your car as much as possible before heading to the parking lot. Launch your car into the air by picking the perfect jump angle, then go for epic flips to snag coins mid-flight.",
+  "thumbnail": "https://imgs.crazygames.com/car-flip_16x9/20240801123441/car-flip_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/car-flip_16x9/20240801123441/car-flip_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/car-flip/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/car-flip",
+  "crazygamesSlug": "car-flip"
+}

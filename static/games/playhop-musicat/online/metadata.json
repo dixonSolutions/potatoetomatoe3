@@ -1,0 +1,17 @@
+{
+  "id": "playhop-musicat",
+  "name": "Musicat",
+  "author": "H5Games.Online",
+  "description": "Play Musicat via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001931fb011f834e74c5db544a0eea9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001931fb011f834e74c5db544a0eea9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-387266.games.s3.yandex.net/387266/7dk8fw7vc896pm5px7umsbz3o2c5hbah/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=387266&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 387266,
+  "playhopPageUrl": "https://playhop.com/app/387266",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1576
+}

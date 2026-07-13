@@ -1,0 +1,17 @@
+{
+  "id": "playhop-imbamage-survival",
+  "name": "Imbamage Survival",
+  "author": "AKIRA RED STUDIO",
+  "description": "Play Imbamage Survival via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000198b4eb87336ac71eade32c0c05d2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000198b4eb87336ac71eade32c0c05d2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-459012.games.s3.yandex.net/459012/ajjx83g7htwjivs895ojf1ktt7vildge/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=459012&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 459012,
+  "playhopPageUrl": "https://playhop.com/app/459012",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 151
+}

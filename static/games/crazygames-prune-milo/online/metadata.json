@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-prune-milo",
+  "name": "prune milo",
+  "author": "CrazyGames",
+  "description": "Play prune milo on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/prune-milo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/prune-milo",
+  "crazygamesSlug": "prune-milo"
+}

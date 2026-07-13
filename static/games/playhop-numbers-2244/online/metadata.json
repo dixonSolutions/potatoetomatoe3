@@ -1,0 +1,17 @@
+{
+  "id": "playhop-numbers-2244",
+  "name": "Numbers 2244",
+  "author": "elsid.apps",
+  "description": "Play Numbers 2244 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018f28edfff42740ac0a2495d508f6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018f28edfff42740ac0a2495d508f6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-329371.games.s3.yandex.net/329371/3mkr2wmgopus1zoxkdlxnpc23iefs5nk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=329371&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 329371,
+  "playhopPageUrl": "https://playhop.com/app/329371",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 340
+}

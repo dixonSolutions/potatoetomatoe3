@@ -1,0 +1,14 @@
+{
+  "id": "addicting-lurkersio",
+  "name": "Lurkers.io",
+  "author": "Addicting Games",
+  "description": "<p>Lurkers.io is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/LURKERSIOGAMESCREEN.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/LURKERSIOGAMESCREEN.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://lurkers.io",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/lurkersio"
+}

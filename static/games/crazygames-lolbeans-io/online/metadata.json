@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-lolbeans-io",
+  "name": "Lolbeans 🏃 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "LOLBeans.io is a multiplayer racing game where you have to avoid obstacles. Race to the end of the obstacle course in battle-royale-style elimination gameplay.",
+  "thumbnail": "https://imgs.crazygames.com/games/lolbeans-io/cover-1603275114093.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/lolbeans-io/cover-1603275114093.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/lolbeans-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/lolbeans-io",
+  "crazygamesSlug": "lolbeans-io"
+}

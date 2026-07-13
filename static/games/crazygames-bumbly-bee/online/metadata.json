@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bumbly-bee",
+  "name": "Bumbly Bee 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bumbly Bee is a lighthearted arcade adventure where you buzz around collecting flowers as a charming little bee. Navigate the vibrant and whimsical environments.",
+  "thumbnail": "https://imgs.crazygames.com/bumbly-bee_16x9/20241209085957/bumbly-bee_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bumbly-bee_16x9/20241209085957/bumbly-bee_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bumbly-bee/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bumbly-bee",
+  "crazygamesSlug": "bumbly-bee"
+}

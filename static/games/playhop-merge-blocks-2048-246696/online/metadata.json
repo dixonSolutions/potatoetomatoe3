@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-blocks-2048-246696",
+  "name": "Merge Blocks 2048",
+  "author": "AM",
+  "description": "Play Merge Blocks 2048 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018efce68557e968b77c3615a57c91/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a0000018efce68557e968b77c3615a57c91/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-246696.games.s3.yandex.net/246696/we6za32m73gn4ujj22y7np5xtwsln5yw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=246696&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 246696,
+  "playhopPageUrl": "https://playhop.com/app/246696",
+  "playhopRating": 4,
+  "playhopRatingCount": 611
+}

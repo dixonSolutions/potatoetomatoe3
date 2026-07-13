@@ -1,0 +1,17 @@
+{
+  "id": "playhop-words-on-shelves",
+  "name": "Words on Shelves",
+  "author": "MZGame",
+  "description": "Play Words on Shelves via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001938d89d08fe7da2d30d9136523be/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001938d89d08fe7da2d30d9136523be/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-389929.games.s3.yandex.net/389929/pado1n3xl4uyopdozhke4pvxh9r780lf/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=389929&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 389929,
+  "playhopPageUrl": "https://playhop.com/app/389929",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 441
+}

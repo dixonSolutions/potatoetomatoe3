@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-candy-word",
+  "name": "Candy Word - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Complete challenges to move from one Candy Word steppingstone to the next. Make your way to the end of the path to win the game!",
+  "thumbnail": "/games/coolmath-candy-word/online/assets/coolmath-candy-word.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/23842/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-candy-word",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-candy-word"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-planet-miner",
+  "name": "Planet Miner",
+  "author": "DH",
+  "description": "Play Planet Miner via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019981d9dc4d41d9219f02d8f1adea/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a0000019981d9dc4d41d9219f02d8f1adea/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-469162.games.s3.yandex.net/469162/ec1kysnrb7klclpz87k8orgtya0yu7ra/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=469162&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 469162,
+  "playhopPageUrl": "https://playhop.com/app/469162",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 95
+}

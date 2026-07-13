@@ -1,0 +1,17 @@
+{
+  "id": "playhop-pool-american-billiards-277316",
+  "name": "Pool (American billiards)",
+  "author": "sb-games",
+  "description": "Play Pool (American billiards) via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018c447c78723887184209f8032b26/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018c447c78723887184209f8032b26/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-277316.games.s3.yandex.net/277316/bqtjo70b7037u7j705daer08hfm4uyny/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=277316&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 277316,
+  "playhopPageUrl": "https://playhop.com/app/277316",
+  "playhopRating": 4,
+  "playhopRatingCount": 2397
+}

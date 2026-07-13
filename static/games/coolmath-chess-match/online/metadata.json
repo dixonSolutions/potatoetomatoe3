@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chess-match",
+  "name": "Chess Match - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Connect your bishops, rooks, and knights together in rows of 3 in order to score points and become a Chess Match champion.",
+  "thumbnail": "/games/coolmath-chess-match/online/assets/coolmath-chess-match.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53541/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chess-match",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chess-match"
+}

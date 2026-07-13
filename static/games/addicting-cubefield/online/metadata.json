@@ -1,0 +1,14 @@
+{
+  "id": "addicting-cubefield",
+  "name": "Cubefield",
+  "author": "Addicting Games",
+  "description": "<p>Cubefield is a free racing game. Navigate your triangle through a treacherous field of cubes. It's more like a steering game than a driving game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Cubefield.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Cubefield.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/cubefield.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/cubefield"
+}

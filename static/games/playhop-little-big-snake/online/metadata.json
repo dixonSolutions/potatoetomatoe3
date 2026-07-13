@@ -1,0 +1,17 @@
+{
+  "id": "playhop-little-big-snake",
+  "name": "Little Big Snake",
+  "author": "Neodinamika",
+  "description": "Play Little Big Snake via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16511813/2a00000199b9b0364601c2a166e4268c28e5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16511813/2a00000199b9b0364601c2a166e4268c28e5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-180663.games.s3.yandex.net/180663/cfxzlv9a3qk0vn0dilg80gynktsb3eqk/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 468757,
+  "playhopPageUrl": "https://playhop.com/app/468757",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 1288
+}

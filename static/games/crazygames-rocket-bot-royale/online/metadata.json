@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rocket-bot-royale",
+  "name": "Rocket Bot Royale 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rocket Bot Royale is a gravity-defying multiplayer tank game set in a battle royale arena. Blast other players, collect coins, avoid the rising water levels, and survive for longer than the rest.",
+  "thumbnail": "https://imgs.crazygames.com/games/rocket-bot-royale/cover_16x9-1732723484943.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/rocket-bot-royale/cover_16x9-1732723484943.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rocket-bot-royale/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rocket-bot-royale",
+  "crazygamesSlug": "rocket-bot-royale"
+}

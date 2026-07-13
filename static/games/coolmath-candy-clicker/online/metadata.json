@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-candy-clicker",
+  "name": "Candy Clicker - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Turn one candy into billions in Candy Clicker. Use your candies to purchase upgrades and unlock achievements as you grow your sugary empire.",
+  "thumbnail": "/games/coolmath-candy-clicker/online/assets/coolmath-candy-clicker.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50498/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-candy-clicker",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-candy-clicker"
+}

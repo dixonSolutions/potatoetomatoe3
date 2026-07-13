@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stilts-run",
+  "name": "Stilts Run 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Looking for a fun walking game? Stilts Run is a 3D running adventure for players of all ages, featuring engaging gameplay and exciting challenges.",
+  "thumbnail": "https://imgs.crazygames.com/stilts-run_16x9/20260610022700/stilts-run_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stilts-run_16x9/20260610022700/stilts-run_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stilts-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stilts-run",
+  "crazygamesSlug": "stilts-run"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-royal-match-3",
+  "name": "Royal Match 3",
+  "author": "Cards Games",
+  "description": "Play Royal Match 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000190fd12ecff3198510305cda438af/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000190fd12ecff3198510305cda438af/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-361114.games.s3.yandex.net/361114/bc8a4h9p1p26giv9qg7sbc0262gf8ojx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=361114&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 361114,
+  "playhopPageUrl": "https://playhop.com/app/361114",
+  "playhopRating": 4,
+  "playhopRatingCount": 2972
+}

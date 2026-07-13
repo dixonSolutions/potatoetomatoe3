@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-balls",
+  "name": "Color Balls - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Balls at Cool Math Games: This is a great game for focusing. Click on the balls that say the right color on them... The trick is that the words are all colored in the wrong colors!",
+  "thumbnail": "/games/coolmath-color-balls/online/assets/coolmath-color-balls.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/226/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-balls",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-balls"
+}

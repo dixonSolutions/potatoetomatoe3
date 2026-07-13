@@ -1,0 +1,17 @@
+{
+  "id": "playhop-green-bubble-189911",
+  "name": "Green Bubble",
+  "author": "Game-xl",
+  "description": "Play Green Bubble via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000180fa74a7d8ca9f41ee3113fedcd8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000180fa74a7d8ca9f41ee3113fedcd8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-189911.games.s3.yandex.net/189911/qx6jdo49mlqwkpv4uwbeq00466pb9xv9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=189911&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 189911,
+  "playhopPageUrl": "https://playhop.com/app/189911",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 659
+}

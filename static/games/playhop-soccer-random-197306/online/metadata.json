@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soccer-random-197306",
+  "name": "Soccer Random",
+  "author": "RHM Interactive",
+  "description": "Play Soccer Random via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001836c3a5499f9d31ace8af8efe839/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001836c3a5499f9d31ace8af8efe839/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-197306.games.s3.yandex.net/197306/b1dbvmcde0oog4ebj00rinxr3e367fl4/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=197306&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 197306,
+  "playhopPageUrl": "https://playhop.com/app/197306",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 11338
+}

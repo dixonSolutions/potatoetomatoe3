@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-neon-core-breaker",
+  "name": "Neon Core Breaker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Neon Core Breaker is an idle, Arkanoid-style game where you destroy blocks in a vibrant neon world. Break through waves of blocks, earn rewards over time, and progress even while idle as you upgrade your power and push deeper into increasingly challenging levels.",
+  "thumbnail": "https://imgs.crazygames.com/neon-core-breaker_16x9/20260310094717/neon-core-breaker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/neon-core-breaker_16x9/20260310094717/neon-core-breaker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/neon-core-breaker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/neon-core-breaker",
+  "crazygamesSlug": "neon-core-breaker"
+}

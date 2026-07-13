@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dragon-merge",
+  "name": "Dragon Merge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dragon Merge is a casual game where you can merge and discover new dragons. Discover new and stronger dragons by merging the identical dragons.",
+  "thumbnail": "https://imgs.crazygames.com/dragon-merge_16x9/20240514044159/dragon-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dragon-merge_16x9/20240514044159/dragon-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dragon-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dragon-merge",
+  "crazygamesSlug": "dragon-merge"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-pixel-wars-of-hero",
+  "name": "Pixel Wars of Hero 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pixel Wars of Hero is a fun first person shooter game which uses Minecraft style graphics and gameplay. Control a pixelated character and fight against other online players for arena domination.",
+  "thumbnail": "/games/crazygames-pixel-wars-of-hero/online/assets/crazygames-pixel-wars-of-hero.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pixel-wars-of-hero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pixel-wars-of-hero",
+  "crazygamesSlug": "pixel-wars-of-hero"
+}

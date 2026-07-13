@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mine-keeper",
+  "name": "Mine Keeper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mine Keeper is a simulation game where you play as a dwarf lord and create one of those great kingdoms of yours. Build your own town, and take care of your nation.",
+  "thumbnail": "https://imgs.crazygames.com/mine-keeper_16x9/20240514104854/mine-keeper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mine-keeper_16x9/20240514104854/mine-keeper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mine-keeper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mine-keeper",
+  "crazygamesSlug": "mine-keeper"
+}

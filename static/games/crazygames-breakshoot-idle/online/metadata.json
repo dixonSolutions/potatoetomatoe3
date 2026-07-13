@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-breakshoot-idle",
+  "name": "BreakShoot idle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "BreakShoot idle is a clicker game where you destroy the blocks before they go down to the bottom. Level up your weapons to unlock new upgrades!",
+  "thumbnail": "https://imgs.crazygames.com/breakshoot-idle/20221122100234/breakshoot-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/breakshoot-idle/20221122100234/breakshoot-idle-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/breakshoot-idle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/breakshoot-idle",
+  "crazygamesSlug": "breakshoot-idle"
+}

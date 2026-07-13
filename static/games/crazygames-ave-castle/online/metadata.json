@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ave-castle",
+  "name": "Ave Castle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ave Castle is a defense game where you take on the role of defense commander and must protect your castle using your strategy. Plant and cut down trees to get money.",
+  "thumbnail": "https://imgs.crazygames.com/ave-castle_16x9/20231027054001/ave-castle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ave-castle_16x9/20231027054001/ave-castle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ave-castle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ave-castle",
+  "crazygamesSlug": "ave-castle"
+}

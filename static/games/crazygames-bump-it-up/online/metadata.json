@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bump-it-up",
+  "name": "Bump It Up 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bump It Up is an arcade game where you must survive and protect the white sphere from the hordes of enemies. Bump your enemies to the blue walls to destroy them.",
+  "thumbnail": "https://imgs.crazygames.com/bump-it-up/20220819154656/bump-it-up-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bump-it-up/20220819154656/bump-it-up-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bump-it-up/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bump-it-up",
+  "crazygamesSlug": "bump-it-up"
+}

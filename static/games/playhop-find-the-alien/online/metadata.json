@@ -1,0 +1,17 @@
+{
+  "id": "playhop-find-the-alien",
+  "name": "Find The Alien",
+  "author": "C Games",
+  "description": "Play Find The Alien via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000192b9bd99e09ef574cec066c0ab4f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000192b9bd99e09ef574cec066c0ab4f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-369864.games.s3.yandex.net/369864/vb540wwqis380nxdvua6p9lfdd3xthg9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=369864&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 369864,
+  "playhopPageUrl": "https://playhop.com/app/369864",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 14408
+}

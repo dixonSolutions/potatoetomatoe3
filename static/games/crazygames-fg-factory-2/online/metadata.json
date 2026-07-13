@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fg-factory-2",
+  "name": "FG Factory 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "FG Factory 2 is an incremental idle factory game where you must gather resources and craft items to complete the mission. Drawing inspiration from acclaimed titles like Factorio, Satisfactory, and Dyson Sphere Program, this game offers multiple scenarios to challenge your industrial prowess.",
+  "thumbnail": "https://imgs.crazygames.com/fg-factory-2/20230628083327/fg-factory-2-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fg-factory-2/20230628083327/fg-factory-2-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fg-factory-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fg-factory-2",
+  "crazygamesSlug": "fg-factory-2"
+}

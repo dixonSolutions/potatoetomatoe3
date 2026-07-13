@@ -1,0 +1,14 @@
+{
+  "id": "addicting-attack-of-infections",
+  "name": "Attack of Infections",
+  "author": "Addicting Games",
+  "description": "Fly your antibiotic spaceship around until you wipe out all the infectious bacterian aliens.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Attack-of-Infections.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Attack-of-Infections.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/attackofinfections_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/attack-of-infections"
+}

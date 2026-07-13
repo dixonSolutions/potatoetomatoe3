@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fortress-game",
+  "name": "Fortress Game",
+  "author": "Addicting Games",
+  "description": "<p>It’s a fun game of throwing rocks and shoes at your neighbor. Special attacks include the Duck Throw and the Weiner Dog Toss. Fun, mean, and easy to play.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Fortress-Game.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Fortress-Game.jpg",
+  "thumbnailStored": "remote",
+  "category": "multi-player-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/fortressgame_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/fortress-game"
+}

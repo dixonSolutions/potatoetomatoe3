@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-castle-keeper",
+  "name": "Castle Keeper 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Castle Keeper is a defense game where you fight the enemy and protect the castle. Use your archer skills to shoot at the troops and throw ladders or fire barrels to do more damage.",
+  "thumbnail": "https://imgs.crazygames.com/castle-keeper_16x9/20231018065134/castle-keeper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/castle-keeper_16x9/20231018065134/castle-keeper_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/castle-keeper/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/castle-keeper",
+  "crazygamesSlug": "castle-keeper"
+}

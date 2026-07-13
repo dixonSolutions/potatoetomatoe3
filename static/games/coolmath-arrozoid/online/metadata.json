@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-arrozoid",
+  "name": "Arrozoid - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Arrozoid at Cool Math Games: The arrows only know how to go straight! Carefully time their release to send them flying and smash all the words.",
+  "thumbnail": "/games/coolmath-arrozoid/online/assets/coolmath-arrozoid.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/24973/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-arrozoid",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-arrozoid"
+}

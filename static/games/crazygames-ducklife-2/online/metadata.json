@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-ducklife-2",
+  "name": "Duck Life 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Duck Life 2 is a duck racing game with various training levels to improve your athletic abilities. When you’ve trained enough, you enter a duck ‘quadrathlon’’ that puts your running, climbing, swimming, and flying skills to the test.",
+  "thumbnail": "/games/crazygames-ducklife-2/online/assets/crazygames-ducklife-2.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ducklife-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ducklife-2",
+  "crazygamesSlug": "ducklife-2"
+}

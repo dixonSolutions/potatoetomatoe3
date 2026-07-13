@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-basketball-shot",
+  "name": "Basketball Shot 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Basketball Tap is a fast-paced sports game that tests your timing and precision. You’ll tap to launch the ball, aim for perfect arcs, and land satisfying slam dunks.",
+  "thumbnail": "https://imgs.crazygames.com/basketball-shot_16x9/20251028061632/basketball-shot_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/basketball-shot_16x9/20251028061632/basketball-shot_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/basketball-shot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/basketball-shot",
+  "crazygamesSlug": "basketball-shot"
+}

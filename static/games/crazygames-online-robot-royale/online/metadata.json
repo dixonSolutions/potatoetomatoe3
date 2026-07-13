@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-online-robot-royale",
+  "name": "online robot royale",
+  "author": "CrazyGames",
+  "description": "Play online robot royale on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/online-robot-royale/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/online-robot-royale",
+  "crazygamesSlug": "online-robot-royale"
+}

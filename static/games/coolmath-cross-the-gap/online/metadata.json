@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cross-the-gap",
+  "name": "Cross the Gap - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cross the Gap at Cool Math Games: The ground is unstable! Hurry across and grab the keys before the floor gives out.",
+  "thumbnail": "/games/coolmath-cross-the-gap/online/assets/coolmath-cross-the-gap.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32390/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cross-the-gap",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cross-the-gap"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-arcandies",
+  "name": "Arcandies - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Arcandies at Cool Math Games: Step into the pumpkin patch! Slide the pumpkins into the right slots to collect magic candies.",
+  "thumbnail": "/games/coolmath-arcandies/online/assets/coolmath-arcandies.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32910/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-arcandies",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-arcandies"
+}

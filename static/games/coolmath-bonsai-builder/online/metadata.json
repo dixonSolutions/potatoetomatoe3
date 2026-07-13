@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bonsai-builder",
+  "name": "Bonsai Builder - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Grow your very own tree in Bonsai Builder. Take care of your little plant by trimming the leaves and pruning the branches. You can even change its colors.",
+  "thumbnail": "/games/coolmath-bonsai-builder/online/assets/coolmath-bonsai-builder.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41891/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bonsai-builder",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bonsai-builder"
+}

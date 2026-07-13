@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-tv-invasion",
+  "name": "tv invasion",
+  "author": "CrazyGames",
+  "description": "Play tv invasion on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tv-invasion/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tv-invasion",
+  "crazygamesSlug": "tv-invasion"
+}

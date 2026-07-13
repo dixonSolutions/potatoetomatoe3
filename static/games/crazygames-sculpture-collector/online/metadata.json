@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-sculpture-collector",
+  "name": "sculpture collector",
+  "author": "CrazyGames",
+  "description": "Play sculpture collector on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sculpture-collector/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sculpture-collector",
+  "crazygamesSlug": "sculpture-collector"
+}

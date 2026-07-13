@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-yes-or-no-challenge",
+  "name": "yes or no challenge",
+  "author": "CrazyGames",
+  "description": "Play yes or no challenge on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/yes-or-no-challenge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/yes-or-no-challenge",
+  "crazygamesSlug": "yes-or-no-challenge"
+}

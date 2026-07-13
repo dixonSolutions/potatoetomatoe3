@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-find-cat",
+  "name": "Find Cat 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The cute British shorthair blue cat likes to play hide-and-seek with me. Where did it hide today?",
+  "thumbnail": "https://imgs.crazygames.com/find-cat-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/find-cat-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/find-cat/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/find-cat",
+  "crazygamesSlug": "find-cat"
+}

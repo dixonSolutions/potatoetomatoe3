@@ -34,7 +34,15 @@
     "puller:bundle:linux": "pnpm --filter @potatotomato/puller bundle:linux",
     "games:import-y8": "node scripts/import-y8-catalog.mjs",
     "games:import-unity-play": "node scripts/import-unity-play-catalog.mjs",
-    "games:purge-poki": "node scripts/purge-poki-catalog.mjs"
+    "games:import-coolmath": "node scripts/import-coolmath-catalog.mjs",
+    "games:import-crazygames": "node scripts/import-crazygames-catalog.mjs",
+    "games:import-addictinggames": "node scripts/import-addictinggames-catalog.mjs",
+    "games:import-playhop": "node scripts/import-playhop-catalog.mjs",
+    "games:import-all-portals": "node scripts/import-all-portals.mjs",
+    "games:purge-poki": "node scripts/purge-poki-catalog.mjs",
+    "games:purge-low-quality-unity": "node scripts/purge-low-quality-unity.mjs",
+    "games:update-shrek-playhop": "node scripts/update-shrek-playhop.mjs",
+    "games:prune-thumbs": "node scripts/prune-catalog-thumbs.mjs"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-net-terminator",
+  "name": "Net Terminator",
+  "author": "Addicting Games",
+  "description": "<p>Net Terminator is a free sniper game. This is a target shooting game that’s really hard to pass the first level on. I can’t imagine what the other levels will be. I couldn’t get anywhere. The only thing terminated was my self esteem.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Net-Terminator.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Net-Terminator.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/netterminator.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/net-terminator"
+}

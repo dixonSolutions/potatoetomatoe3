@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-jacksmith",
+  "name": "Jacksmith 🔨 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jacksmith is a crafting game where you forge weapons for soldiers and join them on the battlefield as they slay monsters. Build the perfect weapons to see the soldiers into battle and give them the greatest chance of success!",
+  "thumbnail": "/games/crazygames-jacksmith/online/assets/crazygames-jacksmith.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jacksmith/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jacksmith",
+  "crazygamesSlug": "jacksmith"
+}

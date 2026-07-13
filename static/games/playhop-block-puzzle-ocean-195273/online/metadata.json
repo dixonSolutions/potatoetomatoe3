@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-puzzle-ocean-195273",
+  "name": "Block Puzzle Ocean",
+  "author": "Citigo",
+  "description": "Play Block Puzzle Ocean via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000182ed76e0d06e3d0f0ab86f57d157/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000182ed76e0d06e3d0f0ab86f57d157/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-195273.games.s3.yandex.net/195273/kbrttv5ae8zox0tol5ty8ek679zpg865/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=195273&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 195273,
+  "playhopPageUrl": "https://playhop.com/app/195273",
+  "playhopRating": 4,
+  "playhopRatingCount": 1848
+}

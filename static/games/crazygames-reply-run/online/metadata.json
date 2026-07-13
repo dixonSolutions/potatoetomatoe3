@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-reply-run",
+  "name": "reply run",
+  "author": "CrazyGames",
+  "description": "Play reply run on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/reply-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/reply-run",
+  "crazygamesSlug": "reply-run"
+}

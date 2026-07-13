@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-red",
+  "name": "red 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Red is a fun and exciting puzzle game – the browser version of this popular title is finally here so get ready for some fun! The aim of this game is simple – you must attempt to turn the whole screen red – this might sound easy but as you progress the challenges become increasingly difficult and you must really strain your mind to think of a solution.",
+  "thumbnail": "/games/crazygames-red/online/assets/crazygames-red.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/red/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/red",
+  "crazygamesSlug": "red"
+}

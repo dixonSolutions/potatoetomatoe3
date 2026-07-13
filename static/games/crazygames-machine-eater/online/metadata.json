@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-machine-eater",
+  "name": "machine eater",
+  "author": "CrazyGames",
+  "description": "Play machine eater on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/machine-eater/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/machine-eater",
+  "crazygamesSlug": "machine-eater"
+}

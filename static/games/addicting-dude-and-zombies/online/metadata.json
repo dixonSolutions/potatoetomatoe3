@@ -1,0 +1,14 @@
+{
+  "id": "addicting-dude-and-zombies",
+  "name": "Dude and Zombies",
+  "author": "Addicting Games",
+  "description": "<p>Is there anything more annoying than a swarm of zombie bunnies trying to bite you while you fix your truck? Yeah, bigger zombies. Blast at the undead interference while you repair your truck. Use experience points to protect yourself; use money to buy...yes, Bigger Guns!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/dudeandzombies_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/dudeandzombies_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/dudeandzombies.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/dude-and-zombies"
+}

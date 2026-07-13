@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-construct",
+  "name": "Merge & Construct 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge &amp; Construct is an arcade game where you can be creative to build the ultimate vehicle for driving, flying, and smashing! Show off your imagination as you construct a vehicle capable of crossing the finish line in action-packed car trials.",
+  "thumbnail": "https://imgs.crazygames.com/merge-construct_16x9/20260305092859/merge-construct_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-construct_16x9/20260305092859/merge-construct_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-construct/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-construct",
+  "crazygamesSlug": "merge-construct"
+}

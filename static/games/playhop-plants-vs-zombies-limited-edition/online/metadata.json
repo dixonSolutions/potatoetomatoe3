@@ -1,0 +1,17 @@
+{
+  "id": "playhop-plants-vs-zombies-limited-edition",
+  "name": "Plants vs Zombies Limited Edition",
+  "author": "Shuvali",
+  "description": "Play Plants vs Zombies Limited Edition via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c0e74ac54a805b731a3b50ee3c0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c0e74ac54a805b731a3b50ee3c0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-474134.games.s3.yandex.net/474134/qiti2ezr37vexiw6c3nytg7pduflcer7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=474134&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 474134,
+  "playhopPageUrl": "https://playhop.com/app/474134",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1404
+}

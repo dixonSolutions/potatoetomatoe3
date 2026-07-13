@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-toonle",
+  "name": "Toonle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Toonle is a creative drawing game that lets you bring your animation ideas to life. Design smooth, frame-by-frame animations using intuitive tools, a variety of brushes, and custom color palettes.",
+  "thumbnail": "https://imgs.crazygames.com/toonle_16x9/20260323095342/toonle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/toonle_16x9/20260323095342/toonle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/toonle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/toonle",
+  "crazygamesSlug": "toonle"
+}

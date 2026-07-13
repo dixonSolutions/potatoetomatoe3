@@ -1,0 +1,14 @@
+{
+  "id": "addicting-halloween-quest",
+  "name": "Halloween Quest",
+  "author": "Addicting Games",
+  "description": "<p>In a ghoulish mood? Match zombies and bats and ghosts to score. Well, that's your quest, so get busy!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/halloween-quest_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/halloween-quest_sp.png",
+  "thumbnailStored": "remote",
+  "category": "seasonal",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/halloween-quest.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/halloween-quest"
+}

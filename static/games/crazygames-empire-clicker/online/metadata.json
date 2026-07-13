@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-empire-clicker",
+  "name": "Empire Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Empire Clicker is a clicker game where you transform an empty plot of land into a thriving metropolis. Unleash your city-building skills as your settlement evolves into a bustling, dynamic cityscape.",
+  "thumbnail": "https://imgs.crazygames.com/empire-clicker_16x9/20250606041437/empire-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/empire-clicker_16x9/20250606041437/empire-clicker_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/empire-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/empire-clicker",
+  "crazygamesSlug": "empire-clicker"
+}

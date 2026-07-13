@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-crazy-pig-simulator",
+  "name": "Crazy Pig Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Pig Simulator is an epic game of havoc in which you must control a crazed pig and try to cause as much devastation and destruction in the city as possible! Your pig has super strength and can easily destroy objects and throw them out of his way!",
+  "thumbnail": "/games/crazygames-crazy-pig-simulator/online/assets/crazygames-crazy-pig-simulator.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/crazy-pig-simulator/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/crazy-pig-simulator",
+  "crazygamesSlug": "crazy-pig-simulator"
+}

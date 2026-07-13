@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-espn-arcade-baseball",
+  "name": "ESPN Arcade Baseball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Time for some baseball fun! ESPN Arcade Baseball has 2 different modes: Precision Hitter and Bottom of the Ninth.",
+  "thumbnail": "/games/crazygames-espn-arcade-baseball/online/assets/crazygames-espn-arcade-baseball.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/espn-arcade-baseball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/espn-arcade-baseball",
+  "crazygamesSlug": "espn-arcade-baseball"
+}

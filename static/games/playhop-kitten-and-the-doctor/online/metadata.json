@@ -1,0 +1,17 @@
+{
+  "id": "playhop-kitten-and-the-doctor",
+  "name": "Kitten and the Doctor",
+  "author": "DNCHRDEV",
+  "description": "Play Kitten and the Doctor via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6300668/2a00000196acb214ae826308bfafbe0d5fe5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6300668/2a00000196acb214ae826308bfafbe0d5fe5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-432701.games.s3.yandex.net/432701/wcl49se8wilpqfrfdheli3f3rwwvazj7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=432701&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 432701,
+  "playhopPageUrl": "https://playhop.com/app/432701",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 2274
+}

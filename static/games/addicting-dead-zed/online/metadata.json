@@ -1,0 +1,14 @@
+{
+  "id": "addicting-dead-zed",
+  "name": "Dead Zed",
+  "author": "Addicting Games",
+  "description": "<p>Dead Zed is a free zombie shooting game. Here is the scene: you wake up in the middle of a zombie apocalypse and you have 40 days until help arrives, no time for questions. Whose farmhouse is this? Zed. Who is Zed? Dead Zed, baby. Dead Zed.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/deadzed_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/deadzed_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/deadzed.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/dead-zed"
+}

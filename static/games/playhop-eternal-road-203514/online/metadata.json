@@ -1,0 +1,17 @@
+{
+  "id": "playhop-eternal-road-203514",
+  "name": "Eternal Road",
+  "author": "Start Games",
+  "description": "Play Eternal Road via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000184a8b5580446a56ddde5b57506fc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000184a8b5580446a56ddde5b57506fc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-203514.games.s3.yandex.net/203514/ldliper137ro0ud7gh9hcs2cze0uu6cx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=203514&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 203514,
+  "playhopPageUrl": "https://playhop.com/app/203514",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 13377
+}

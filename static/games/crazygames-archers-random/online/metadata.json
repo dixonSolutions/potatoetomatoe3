@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-archers-random",
+  "name": "archers random",
+  "author": "CrazyGames",
+  "description": "Play archers random on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/archers-random/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/archers-random",
+  "crazygamesSlug": "archers-random"
+}

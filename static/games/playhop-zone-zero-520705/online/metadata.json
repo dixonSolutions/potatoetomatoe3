@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zone-zero-520705",
+  "name": "Zone Zero",
+  "author": "KryachkOFF",
+  "description": "Play Zone Zero via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019decc84dd111d74a1d5ce8fb162f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019decc84dd111d74a1d5ce8fb162f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-520705.games.s3.yandex.net/520705/814q2mbiqpx06yfkwj9rd9u7p1ve0fnw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=520705&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 520705,
+  "playhopPageUrl": "https://playhop.com/app/520705",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 262
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-matchventures",
+  "name": "MatchVentures 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MatchVentures is a captivating match-3 adventure game where you explore the dark dungeons of Cliffmont Castle. As you journey through vast levels, collect gems and jewels while overcoming various obstacles in a quest to rebuild the castle destroyed by the evil dragon master, Dragor.",
+  "thumbnail": "https://imgs.crazygames.com/matchventures_16x9/20260708072929/matchventures_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/matchventures_16x9/20260708072929/matchventures_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/matchventures/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/matchventures",
+  "crazygamesSlug": "matchventures"
+}

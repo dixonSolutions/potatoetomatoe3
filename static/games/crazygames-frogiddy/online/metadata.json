@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-frogiddy",
+  "name": "Frogiddy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Frogiddy is an arcade game where you play as a frog and try to jump the way up as far as you can. You can utilize the purple platform to bounce up and avoid or attack the pink one because it&#39;s harmful to you.",
+  "thumbnail": "https://imgs.crazygames.com/frogiddy/20220128132129/frogiddy-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/frogiddy/20220128132129/frogiddy-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/frogiddy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/frogiddy",
+  "crazygamesSlug": "frogiddy"
+}

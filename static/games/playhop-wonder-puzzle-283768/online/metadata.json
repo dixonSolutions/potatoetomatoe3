@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wonder-puzzle-283768",
+  "name": "Wonder Puzzle",
+  "author": "Creative programming",
+  "description": "Play Wonder Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000198a572ccf9386fdc618d260133a7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000198a572ccf9386fdc618d260133a7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-283768.games.s3.yandex.net/283768/j8sehvjy2omzkscoa5bjr5xf342zxbke/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=283768&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 283768,
+  "playhopPageUrl": "https://playhop.com/app/283768",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1392
+}

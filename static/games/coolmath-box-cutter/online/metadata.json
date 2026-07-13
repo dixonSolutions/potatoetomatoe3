@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-box-cutter",
+  "name": "Box Cutter - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Box Cutter at Cool Math Games: Can you turn a flat piece of paper into a perfectly folded box? Cut out the right shapes to advance!",
+  "thumbnail": "/games/coolmath-box-cutter/online/assets/coolmath-box-cutter.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/35267/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-box-cutter",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-box-cutter"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-stacktris-2048",
+  "name": "Stacktris 2048 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Stacktris 2048 is a combination of the 2048 and Tetris games in 3D. Challenge everyone and score as many points as possible!",
+  "thumbnail": "https://imgs.crazygames.com/stacktris-2048_16x9/20240625073836/stacktris-2048_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/stacktris-2048_16x9/20240625073836/stacktris-2048_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/stacktris-2048/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/stacktris-2048",
+  "crazygamesSlug": "stacktris-2048"
+}

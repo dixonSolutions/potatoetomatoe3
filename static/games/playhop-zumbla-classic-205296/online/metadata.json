@@ -1,0 +1,17 @@
+{
+  "id": "playhop-zumbla-classic-205296",
+  "name": "Zumbla classic",
+  "author": "elsid.apps",
+  "description": "Play Zumbla classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000196ceb9c43e83955a80717ac6556f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000196ceb9c43e83955a80717ac6556f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-205296.games.s3.yandex.net/205296/rt20ytyjsecwlglryuf2ydwhbdbfatw3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=205296&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 205296,
+  "playhopPageUrl": "https://playhop.com/app/205296",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 11880
+}

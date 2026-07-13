@@ -1,0 +1,14 @@
+{
+  "id": "addicting-tank-mania",
+  "name": "Tank Mania",
+  "author": "Addicting Games",
+  "description": "<p>When tilty trucks fail, bring in some heavy armor. With a cannon! Drive your tilty truck through dangerous landscapes to deliver the deadly cargo. Obstacles? Kablammo!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/tankmania_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/tankmania_sp.png",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/tankmania_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/tank-mania"
+}

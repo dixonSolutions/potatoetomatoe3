@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-survev",
+  "name": "Survev io 🔫 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SurvEv.io Battle Royale is an IO battle multiplayer game that puts you in a high-stakes fight for survival on a constantly shrinking island encompassed by the color red. You start with nothing, but soon scavenge for weapons, gear, and essential supplies scattered across the map.",
+  "thumbnail": "https://imgs.crazygames.com/survev_16x9/20251009021953/survev_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/survev_16x9/20251009021953/survev_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/survev/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/survev",
+  "crazygamesSlug": "survev"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-power-blocks",
+  "name": "Power Blocks 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Power Blocks is a puzzle game in which you have to use the blocks of various shapes to fill up the playing field. The game features 60 levels for you to complete!",
+  "thumbnail": "/games/crazygames-power-blocks/online/assets/crazygames-power-blocks.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/power-blocks/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/power-blocks",
+  "crazygamesSlug": "power-blocks"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-daily-suguru",
+  "name": "Daily Suguru",
+  "author": "Addicting Games",
+  "description": "<p>Daily Suguru is a puzzle game that you may find similar to sudoku. In a game of Suguru, you must only use one number each per the grid, and the same numbers cannot be next to each other. This is an online game that requires the use of logic. Each grid is unique with different patterns creating a new challenge for every daily game. There are three modes to play: 6x6, 8x8, and 10x10. Choose your daily challenge or play all three. Click on the calendar icon if you want to play tomorrow’s game or if you want to solve any archived puzzles. Tune in every day for a new daily game! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/image_2025-05-09_122607357.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/image_2025-05-09_122607357.png",
+  "thumbnailStored": "remote",
+  "category": "daily-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/daily-suguru/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/daily-suguru"
+}

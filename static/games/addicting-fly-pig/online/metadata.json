@@ -1,0 +1,14 @@
+{
+  "id": "addicting-fly-pig",
+  "name": "Fly Pig",
+  "author": "Addicting Games",
+  "description": "<p>There are flying pigs. You have a shotgun. Guess what you're going to do? That's right, shoot the flying pigs out of the sky with complete abandon.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Fly-Pig.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Fly-Pig.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/flypig_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/fly-pig"
+}

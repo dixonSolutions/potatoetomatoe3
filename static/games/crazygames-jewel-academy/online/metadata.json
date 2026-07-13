@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-jewel-academy",
+  "name": "Jewel Academy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Jewel Academy is a fun puzzle game with match-three elements.This is a classic match-three game and offers simple gameplay, cool graphics, and challenging tasks.",
+  "thumbnail": "/games/crazygames-jewel-academy/online/assets/crazygames-jewel-academy.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/jewel-academy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/jewel-academy",
+  "crazygamesSlug": "jewel-academy"
+}

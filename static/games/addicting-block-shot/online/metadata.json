@@ -1,0 +1,14 @@
+{
+  "id": "addicting-block-shot",
+  "name": "Block Shot",
+  "author": "Addicting Games",
+  "description": "<p>Block Shot is a free clicker game. Nobody would have ever thought in a million years that you could combine a tactical shooter game with that of a cute puzzle game, yet here we are, and here is Block Shot. This is a game where you are in charge of a series of canons, your job is to activate them one at a time and only once in order to blast apart the blocks that make up the center of the screen. Each block is of an odd shape and they all interconnect with each other like some kind of neon puzzle. Your job is to time the shots of your cannons in such a way that you are able to remove each of the block pieces in a very specific order. If you do this properly you will win the level and move on to the next one. If you screw it up you'll have to start all over again and try to get it right. This is a very unforgiving puzzle in which you really only get one chance per level to get it right. There are no hit points here. Either you succeed or fail.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/block-shot.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/block-shot.jpg",
+  "thumbnailStored": "remote",
+  "category": "clicker",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/block-shot/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/block-shot"
+}

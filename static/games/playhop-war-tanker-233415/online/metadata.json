@@ -1,0 +1,17 @@
+{
+  "id": "playhop-war-tanker-233415",
+  "name": "War Tanker",
+  "author": "VSEGON",
+  "description": "Play War Tanker via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001886cf498fcb8692df43e6d743f1b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001886cf498fcb8692df43e6d743f1b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-233415.games.s3.yandex.net/233415/1r12c23l1n0ah322w2mywefxgtwom650/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=233415&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 233415,
+  "playhopPageUrl": "https://playhop.com/app/233415",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 7513
+}

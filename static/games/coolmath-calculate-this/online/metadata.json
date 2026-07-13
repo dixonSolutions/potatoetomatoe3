@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-calculate-this",
+  "name": "Calculate This! - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Here&#039;s a number... how quickly can you get to it? In Calculate This, players must write the equation using fewer numbers for a bigger coin reward.",
+  "thumbnail": "/games/coolmath-calculate-this/online/assets/coolmath-calculate-this.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26520/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-calculate-this",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-calculate-this"
+}

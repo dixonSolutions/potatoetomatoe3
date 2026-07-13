@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chess-165384",
+  "name": "Chess",
+  "author": "DRA",
+  "description": "Play Chess via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000185c034a62bb9e1f9faad147f3d25/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000185c034a62bb9e1f9faad147f3d25/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-465247.games.s3.yandex.net/465247/o1ll0x5it2urnji8w3c24bk7jd4tau3w/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 165384,
+  "playhopPageUrl": "https://playhop.com/app/165384",
+  "playhopRating": 4,
+  "playhopRatingCount": 55588
+}

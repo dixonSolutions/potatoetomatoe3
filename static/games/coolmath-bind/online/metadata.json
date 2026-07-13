@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bind",
+  "name": "Play Bind online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Grab all the blue squares and get to the goal without getting stuck in a Bind. Plan your path accordingly and don&#039;t get trapped.",
+  "thumbnail": "/games/coolmath-bind/online/assets/coolmath-bind.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/38398/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bind",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bind"
+}

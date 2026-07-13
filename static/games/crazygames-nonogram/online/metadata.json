@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nonogram",
+  "name": "Nonogram 🧩 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Nonogram is a captivating logic game where you fill in spaces on a numerical grid to reveal an image. Think carefully to avoid hitting a cross, and fill in the correct squares to complete the picture.",
+  "thumbnail": "https://imgs.crazygames.com/games/nonogram/cover-1635351946352.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/nonogram/cover-1635351946352.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nonogram/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nonogram",
+  "crazygamesSlug": "nonogram"
+}

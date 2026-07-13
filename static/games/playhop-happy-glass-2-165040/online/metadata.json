@@ -1,0 +1,17 @@
+{
+  "id": "playhop-happy-glass-2-165040",
+  "name": "Happy Glass 2",
+  "author": "Ecaps Games",
+  "description": "Play Happy Glass 2 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001796af98d0040f23d9d4c1cd30a86/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001796af98d0040f23d9d4c1cd30a86/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-165040.games.s3.yandex.net/165040/ri62liuy21l9f6arq30ltc10rz25bl4n/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=165040&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 165040,
+  "playhopPageUrl": "https://playhop.com/app/165040",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 5240
+}

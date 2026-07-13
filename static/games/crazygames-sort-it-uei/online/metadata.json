@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sort-it-uei",
+  "name": "Sort It 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sort It is a fun and addictive puzzle game where you must sort the colored balls in the tubes until all balls with the same color stay in the same tube. A challenging yet relaxing game to exercise your brain!",
+  "thumbnail": "https://imgs.crazygames.com/sort-it-uei/20221121124430/sort-it-uei-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sort-it-uei/20221121124430/sort-it-uei-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sort-it-uei/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sort-it-uei",
+  "crazygamesSlug": "sort-it-uei"
+}

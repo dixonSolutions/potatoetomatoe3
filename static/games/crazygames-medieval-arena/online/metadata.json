@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-medieval-arena",
+  "name": "Medieval Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Medieval Arena is a thrilling combat game set in a blocky, immersive battlefield. Choose your path as an Archer, Swordsman, or Berserker, and dive into intense matches.",
+  "thumbnail": "https://imgs.crazygames.com/medieval-arena_16x9/20250411173533/medieval-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/medieval-arena_16x9/20250411173533/medieval-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/medieval-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/medieval-arena",
+  "crazygamesSlug": "medieval-arena"
+}

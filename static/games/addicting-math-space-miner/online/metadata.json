@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-space-miner",
+  "name": "Math Space Miner",
+  "author": "Addicting Games",
+  "description": "No description available.",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/math-miner.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/math-miner.jpg",
+  "thumbnailStored": "remote",
+  "category": "escape-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-space-miner/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-space-miner"
+}

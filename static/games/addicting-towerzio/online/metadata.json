@@ -1,0 +1,14 @@
+{
+  "id": "addicting-towerzio",
+  "name": "Towerz.io",
+  "author": "Addicting Games",
+  "description": "<p>Towerz.io is a free IO game. This is the radical, high flying world of Towerz.io. An IO game where you must be precise and act fast if you want to win. This is a game that will test your reflexes and your precision as you click through an endless series of falling blocks in order to stack them the most accurately. In this multi-player twist on a classic reflex game, you will be playing in real-time against opponents from around the world. This game is now a race who can go the highest, the furthest, the fastest. You can do it, you can defeat the other players but it won't be easy. You'll have to think hard and move fast if you want to win. This is a 2-d gaame of stacking, speed, and clicking. You have what it takes now show us all.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/towerz.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/towerz.jpg",
+  "thumbnailStored": "remote",
+  "category": "stacking",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://towerz.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/towerzio"
+}

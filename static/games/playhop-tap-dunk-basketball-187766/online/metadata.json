@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tap-dunk-basketball-187766",
+  "name": "Tap Dunk: Basketball",
+  "author": "CodersElectronics",
+  "description": "Play Tap Dunk: Basketball via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001803d1ac9a8bd6995f93c2ad8f1e3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001803d1ac9a8bd6995f93c2ad8f1e3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-187766.games.s3.yandex.net/187766/jh1zh5mqyucs5oz1dl5lbd9lyfaw2mqz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=187766&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 187766,
+  "playhopPageUrl": "https://playhop.com/app/187766",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 530
+}

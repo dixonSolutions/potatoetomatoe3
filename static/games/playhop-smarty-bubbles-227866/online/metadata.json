@@ -1,0 +1,17 @@
+{
+  "id": "playhop-smarty-bubbles-227866",
+  "name": "Smarty Bubbles",
+  "author": "Famobi-Dev",
+  "description": "Play Smarty Bubbles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000187ec351946aaf9574c330bc3484f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000187ec351946aaf9574c330bc3484f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-227866.games.s3.yandex.net/227866/y1z1b8tti8x6fyxy5nmkmsw4xcjt992k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=227866&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 227866,
+  "playhopPageUrl": "https://playhop.com/app/227866",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 194
+}

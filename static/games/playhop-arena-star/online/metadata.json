@@ -1,0 +1,17 @@
+{
+  "id": "playhop-arena-star",
+  "name": "Arena Star",
+  "author": "SPQB games",
+  "description": "Play Arena Star via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a00000199ca2818f0a17c15172f37bfa810/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a00000199ca2818f0a17c15172f37bfa810/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-461713.games.s3.yandex.net/461713/v2756g9v1ko43d4nyt0suvxad5u5vqfo/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=461713&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 461713,
+  "playhopPageUrl": "https://playhop.com/app/461713",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 72
+}

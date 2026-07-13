@@ -1,0 +1,17 @@
+{
+  "id": "playhop-obby-car-training",
+  "name": "Obby: Car Training",
+  "author": "Artimka68",
+  "description": "Play Obby: Car Training via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000194c12b3e673d5b451491d8d494dd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000194c12b3e673d5b451491d8d494dd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-402985.games.s3.yandex.net/402985/9sj5zd6szb9jmaljxi9ols6ta0lixyg3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=402985&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 402985,
+  "playhopPageUrl": "https://playhop.com/app/402985",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 584
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nexusorbiter",
+  "name": "Nexusorbiter 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Nexusorbiter is a single-finger orbital defense arcade action. Your drone orbits a fragile space station and automatically fires at incoming threats.",
+  "thumbnail": "https://imgs.crazygames.com/nexusorbiter_16x9/20260527075905/nexusorbiter_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/nexusorbiter_16x9/20260527075905/nexusorbiter_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nexusorbiter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nexusorbiter",
+  "crazygamesSlug": "nexusorbiter"
+}

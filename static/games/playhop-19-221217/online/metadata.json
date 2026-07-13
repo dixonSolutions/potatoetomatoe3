@@ -1,0 +1,17 @@
+{
+  "id": "playhop-19-221217",
+  "name": "19",
+  "author": "Fiona Games",
+  "description": "Play 19 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a00000198e328a05b5395accd4ab67171b6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a00000198e328a05b5395accd4ab67171b6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-221217.games.s3.yandex.net/221217/x3gguu2tqnca6jfvkotik9yn4v64nhn2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=221217&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 221217,
+  "playhopPageUrl": "https://playhop.com/app/221217",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 163
+}

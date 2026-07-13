@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kings-clash",
+  "name": "Kings Clash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kings Clash is an action game where you must create your own army by merging minions. Create strong heroes and place them in the area to win the war.",
+  "thumbnail": "https://imgs.crazygames.com/kings-clash_16x9/20231002063120/kings-clash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kings-clash_16x9/20231002063120/kings-clash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kings-clash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kings-clash",
+  "crazygamesSlug": "kings-clash"
+}

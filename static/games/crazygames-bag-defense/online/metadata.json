@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bag-defense",
+  "name": "Bag Defense 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bag Defense is an action-packed adventure where strategy and skill are the key to survival! Carefully choose and manage your weapons, armor, and supplies to fend off relentless waves of monsters and defend your territory.",
+  "thumbnail": "https://imgs.crazygames.com/bag-defense_16x9/20250108061531/bag-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bag-defense_16x9/20250108061531/bag-defense_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bag-defense/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bag-defense",
+  "crazygamesSlug": "bag-defense"
+}

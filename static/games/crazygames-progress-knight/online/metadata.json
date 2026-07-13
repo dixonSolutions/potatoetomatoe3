@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-progress-knight",
+  "name": "Progress Knight 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Progress Knight is an interesting life simulation idle game with a fantasy medieval setting that is inspired by Groundhog Life. Work your way from a beggar and become a successful person!",
+  "thumbnail": "https://imgs.crazygames.com/progress-knight/20210122082159/progress-knight-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/progress-knight/20210122082159/progress-knight-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/progress-knight/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/progress-knight",
+  "crazygamesSlug": "progress-knight"
+}

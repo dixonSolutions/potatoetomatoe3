@@ -1,0 +1,17 @@
+{
+  "id": "playhop-moscow-tram-simulator-3d",
+  "name": "Moscow Tram Simulator 3D",
+  "author": "alexkab",
+  "description": "Play Moscow Tram Simulator 3D via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019d2502e721c117d0acef68a74bb7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/15351989/2a0000019d2502e721c117d0acef68a74bb7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-360814.games.s3.yandex.net/360814/sy01tbvn10sv5b1p0l4vbxi9tbl9yxl5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=360814&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 360814,
+  "playhopPageUrl": "https://playhop.com/app/360814",
+  "playhopRating": 4,
+  "playhopRatingCount": 19094
+}

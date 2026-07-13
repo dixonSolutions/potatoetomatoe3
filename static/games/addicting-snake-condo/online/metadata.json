@@ -1,0 +1,14 @@
+{
+  "id": "addicting-snake-condo",
+  "name": "Snake Condo",
+  "author": "Addicting Games",
+  "description": "<p>Snake Condo is a snake-themed avoider game. Become a blip that beeps their way to the top in this challenging but fulfilling avoider game. The interface is simple, all you have to do is click to the left or click to the right. This will guide your cube. The goal of the game is to collect the most yellow cubes and let them flow behind you like the tail of a long, pixelated snake. Your score will be based upon how long you're able to stay alive and staying alive will be no easy feat. In this game, there are dozens of obstacles, everything from rocks to cubes to rival snakes. The journey before you is long and perilous but you can do it. You can win, you can show them all. While you're slithering you'll see the stalks of carrots sticking out of the ground. It is in your best interest to seek these carrots out and collect them. While the carrots do not have an effect on your score or any abilities you may have within the game itself, you. can use them to purchase luxury goods. In between games you can use the carrots as a currency that will let you buy hats, glasses, custom paint scheme and all sorts of other cool items. It is worth collecting to see what is available.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/snake-condo_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/snake-condo_sp.png",
+  "thumbnailStored": "remote",
+  "category": "snake",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/snake-condo/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/clicker/snake-condo"
+}

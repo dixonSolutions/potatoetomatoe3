@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-algerian-solitaire",
+  "name": "Algerian Solitaire 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Algerian Solitaire is a variation on the classic Solitaire (or Patience, as it is also known) card game. It is played using two decks of card, and the rules are quite complex.",
+  "thumbnail": "/games/crazygames-algerian-solitaire/online/assets/crazygames-algerian-solitaire.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/algerian-solitaire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/algerian-solitaire",
+  "crazygamesSlug": "algerian-solitaire"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-seek-and-destroy",
+  "name": "seek and destroy",
+  "author": "CrazyGames",
+  "description": "Play seek and destroy on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-seek-and-destroy/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/seek-and-destroy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/seek-and-destroy",
+  "crazygamesSlug": "seek-and-destroy"
+}

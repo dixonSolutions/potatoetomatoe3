@@ -1,0 +1,17 @@
+{
+  "id": "playhop-wave-challanges-490772",
+  "name": "Wave challanges",
+  "author": "sssatoru",
+  "description": "Play Wave challanges via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c96098d2b8535dda74966f85010/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019c96098d2b8535dda74966f85010/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-490772.games.s3.yandex.net/490772/nglq4fef9pmd23eutehc4lb198y9kb7e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=490772&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 490772,
+  "playhopPageUrl": "https://playhop.com/app/490772",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 2374
+}

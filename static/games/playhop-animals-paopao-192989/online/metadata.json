@@ -1,0 +1,17 @@
+{
+  "id": "playhop-animals-paopao-192989",
+  "name": "Animals PaoPao",
+  "author": "RK-Games",
+  "description": "Play Animals PaoPao via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001822d1b135be3c13bba3173b8ca96/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001822d1b135be3c13bba3173b8ca96/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-192989.games.s3.yandex.net/192989/h2x570vcrzk92iww8312qq8j17oqn7vz/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=192989&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 192989,
+  "playhopPageUrl": "https://playhop.com/app/192989",
+  "playhopRating": 4,
+  "playhopRatingCount": 555
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-clean",
+  "name": "clean",
+  "author": "CrazyGames",
+  "description": "Play clean on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clean/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clean",
+  "crazygamesSlug": "clean"
+}

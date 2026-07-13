@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bowling-champion",
+  "name": "Bowling Champion 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bowling Champion is a sports bowling game where you can test your accuracy skill. Choose between 2 game modes, which are Cup Game mode, where you must beat your opponent to win the game, and Trickshot Challenge mode, where you must drop all the bowling pins in a tricky situation.",
+  "thumbnail": "https://imgs.crazygames.com/bowling-champion_16x9/20231226083626/bowling-champion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bowling-champion_16x9/20231226083626/bowling-champion_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bowling-champion/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bowling-champion",
+  "crazygamesSlug": "bowling-champion"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cleanup-io",
+  "name": "CleanUp.IO 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Just like holey.io, this game allows you to grow bigger and eventually clean the entire map! Start by vacuuming small objects and make your way to victory.",
+  "thumbnail": "https://imgs.crazygames.com/games/cleanup-io/thumb-1563475376194.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/cleanup-io/thumb-1563475376194.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cleanup-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cleanup-io",
+  "crazygamesSlug": "cleanup-io"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tower-defense-149809",
+  "name": "Tower Defense",
+  "author": "Inlogic",
+  "description": "Play Tower Defense via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000177a9c6454e9e762c4e1e3bcd161a/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000177a9c6454e9e762c4e1e3bcd161a/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-149809.games.s3.yandex.net/149809/qxtbxffjezqx1z9m2pmr581hvjsxn6t8/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=149809&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 149809,
+  "playhopPageUrl": "https://playhop.com/app/149809",
+  "playhopRating": 4,
+  "playhopRatingCount": 15802
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-aground",
+  "name": "aground",
+  "author": "CrazyGames",
+  "description": "Play aground on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-aground/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/aground/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/aground",
+  "crazygamesSlug": "aground"
+}

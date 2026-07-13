@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-parkinglot-rescue",
+  "name": "ParkingLot Rescue 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "ParkingLot Rescue is a casual puzzle game where your mission is to clear a set number of target vehicles from a jam-packed parking lot. Non-target cars will loop around the lot once before returning to their original spots, adding an extra layer of challenge.",
+  "thumbnail": "https://imgs.crazygames.com/parkinglot-rescue_16x9/20251106081234/parkinglot-rescue_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/parkinglot-rescue_16x9/20251106081234/parkinglot-rescue_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/parkinglot-rescue/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/parkinglot-rescue",
+  "crazygamesSlug": "parkinglot-rescue"
+}

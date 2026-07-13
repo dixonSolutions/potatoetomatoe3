@@ -1,0 +1,14 @@
+{
+  "id": "addicting-gem-frenzy",
+  "name": "Gem Frenzy",
+  "author": "Addicting Games",
+  "description": "<p>Gem Frenzy is an Arcade, Roguelike game, inspired by Overcooked and Dig Dug where you must dig to find and sell precious gems.</p>\n\n<p>Help Pancha become rich or suffer the consequences of late stage capitalism.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%286%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/thumbnail%20%286%29.png",
+  "thumbnailStored": "remote",
+  "category": "controller-support",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/gem-frenzy/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/gem-frenzy"
+}

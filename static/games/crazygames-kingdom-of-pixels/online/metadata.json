@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kingdom-of-pixels",
+  "name": "Kingdom of Pixels 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kingdom of Pixels is a 2D multiplayer side-scrolling MOBA and platformer game. It is similar to the style of other MOBAs like League of Legends and DOTA 2.",
+  "thumbnail": "https://imgs.crazygames.com/kingdom-of-pixels_16x9/20260422072138/kingdom-of-pixels_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kingdom-of-pixels_16x9/20260422072138/kingdom-of-pixels_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kingdom-of-pixels/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kingdom-of-pixels",
+  "crazygamesSlug": "kingdom-of-pixels"
+}

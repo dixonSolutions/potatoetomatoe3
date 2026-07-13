@@ -1,0 +1,17 @@
+{
+  "id": "playhop-find-your-gender-227471",
+  "name": "Find Your Gender",
+  "author": "Voodo",
+  "description": "Play Find Your Gender via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000187b8d2ce47152a422bd51df86c85/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000187b8d2ce47152a422bd51df86c85/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-227471.games.s3.yandex.net/227471/vj98a3biqlmezjl0i8f345xlhy5sswht/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=227471&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 227471,
+  "playhopPageUrl": "https://playhop.com/app/227471",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 3660
+}

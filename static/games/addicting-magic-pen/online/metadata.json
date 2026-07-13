@@ -1,0 +1,14 @@
+{
+  "id": "addicting-magic-pen",
+  "name": "Magic Pen",
+  "author": "Addicting Games",
+  "description": "<p>Move the red ball to the flag. But how? Draw shapes, pin them down, push them - all with your Magic Pen!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/magicpen_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/magicpen_sp.png",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/magicpen_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/magic-pen"
+}

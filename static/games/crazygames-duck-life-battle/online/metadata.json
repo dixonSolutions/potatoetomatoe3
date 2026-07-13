@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-duck-life-battle",
+  "name": "Duck Life: Battle (Demo) 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "The ducks that we know so well from the previous Duck Life games are back, but this time they&#x27;re angrier. Forget racing, now it&#x27;s time to battle!",
+  "thumbnail": "https://imgs.crazygames.com/duck-life-battle?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/duck-life-battle?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/duck-life-battle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/duck-life-battle",
+  "crazygamesSlug": "duck-life-battle"
+}

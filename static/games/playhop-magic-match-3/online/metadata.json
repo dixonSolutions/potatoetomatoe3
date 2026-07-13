@@ -1,0 +1,17 @@
+{
+  "id": "playhop-magic-match-3",
+  "name": "Magic Match 3",
+  "author": "Eidolon LLC",
+  "description": "Play Magic Match 3 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000190bababb53cac50093f1b5c94307/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000190bababb53cac50093f1b5c94307/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-263978.games.s3.yandex.net/263978/3gezsb8o2t8blyohm4fammu5ju7y24fb/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 333704,
+  "playhopPageUrl": "https://playhop.com/app/333704",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 15193
+}

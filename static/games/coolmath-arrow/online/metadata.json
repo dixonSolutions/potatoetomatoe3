@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-arrow",
+  "name": "Play ARROW: Going one way | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Guide the arrows to the matching color dots. Choose from three different modes and plan your path wisely as you collect the dots in Arrow.",
+  "thumbnail": "/games/coolmath-arrow/online/assets/coolmath-arrow.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53567/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-arrow",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-arrow"
+}

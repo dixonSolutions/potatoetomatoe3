@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sporio-533523",
+  "name": "Sporio",
+  "author": "mxdbvk",
+  "description": "Play Sporio via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019e7fb7e16344a147519f29539f25/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000019e7fb7e16344a147519f29539f25/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-533523.games.s3.yandex.net/533523/o34lv81m8ujew2kjmvtf8ygmqc5rfx1k/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=533523&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 533523,
+  "playhopPageUrl": "https://playhop.com/app/533523",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 74
+}

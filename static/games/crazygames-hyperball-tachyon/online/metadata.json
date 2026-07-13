@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hyperball-tachyon",
+  "name": "Hyperball Tachyon 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hyperball Tachyon is an arcade game where you must control the ball to reach the finish gate by dashing and bouncing around. Avoid the obstacles, or you must start the level all over again.",
+  "thumbnail": "https://imgs.crazygames.com/hyperball-tachyon/20220829183443/hyperball-tachyon-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hyperball-tachyon/20220829183443/hyperball-tachyon-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hyperball-tachyon/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hyperball-tachyon",
+  "crazygamesSlug": "hyperball-tachyon"
+}

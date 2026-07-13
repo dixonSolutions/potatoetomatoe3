@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bounce-and-block",
+  "name": "Bounce and Block - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "It is time to Bounce and Block the balls into the goal. Move blocks around the grid to find the right angles that lead to the bullseye?",
+  "thumbnail": "/games/coolmath-bounce-and-block/online/assets/coolmath-bounce-and-block.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41126/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bounce-and-block",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bounce-and-block"
+}

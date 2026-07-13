@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-axiel",
+  "name": "Axiel - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Axiel at Cool Math Games: It takes two to get the loot! Combine all four directions to push and slide into the gems.",
+  "thumbnail": "/games/coolmath-axiel/online/assets/coolmath-axiel.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/32974/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-axiel",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-axiel"
+}

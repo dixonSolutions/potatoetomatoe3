@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-age-of-war",
+  "name": "Age Of War 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Age of War is an action base defense game where you fight a continuous war. Keep creating units to protect your base and destroy the enemy.",
+  "thumbnail": "/games/crazygames-age-of-war/online/assets/crazygames-age-of-war.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/age-of-war/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/age-of-war",
+  "crazygamesSlug": "age-of-war"
+}

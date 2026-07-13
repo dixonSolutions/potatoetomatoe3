@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bloxorz",
+  "name": "Bloxorz 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bloxorz is a tricky puzzle game that tests your logical skills and sheer brain power. The objective is to get the block into the square hole and avoid falling off the edge.",
+  "thumbnail": "/games/crazygames-bloxorz/online/assets/crazygames-bloxorz.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bloxorz/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bloxorz",
+  "crazygamesSlug": "bloxorz"
+}

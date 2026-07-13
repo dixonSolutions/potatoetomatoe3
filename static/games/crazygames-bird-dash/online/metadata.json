@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bird-dash",
+  "name": "Bird Dash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bird Dash is a physics-based shooter merge game where every shot can trigger a chain reaction. Pull back the slingshot, launch your bird into the basket, and merge matching birds to evolve them into higher tiers.",
+  "thumbnail": "https://imgs.crazygames.com/bird-dash_16x9/20260309061204/bird-dash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bird-dash_16x9/20260309061204/bird-dash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bird-dash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bird-dash",
+  "crazygamesSlug": "bird-dash"
+}

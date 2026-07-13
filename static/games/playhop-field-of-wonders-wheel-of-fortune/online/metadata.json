@@ -1,0 +1,17 @@
+{
+  "id": "playhop-field-of-wonders-wheel-of-fortune",
+  "name": "Field of Wonders Wheel of Fortune",
+  "author": "Fantasy Games",
+  "description": "Play Field of Wonders Wheel of Fortune via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018fe1dc7509b04d51f3b2e3e1fdff/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018fe1dc7509b04d51f3b2e3e1fdff/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-345942.games.s3.yandex.net/345942/ru7vt13rvutw9k67qjt747rv9j6svu36/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=345942&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 345942,
+  "playhopPageUrl": "https://playhop.com/app/345942",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 139
+}

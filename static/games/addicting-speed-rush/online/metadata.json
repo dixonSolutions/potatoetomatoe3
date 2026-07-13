@@ -1,0 +1,14 @@
+{
+  "id": "addicting-speed-rush",
+  "name": "Speed Rush",
+  "author": "Addicting Games",
+  "description": "<p>Speed Rush is a free racing game.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/speedrushgamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/speedrushgamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "car",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/speed-rush/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/car/speed-rush"
+}

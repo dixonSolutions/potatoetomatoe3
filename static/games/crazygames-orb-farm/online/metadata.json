@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-orb-farm",
+  "name": "Orb.Farm 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Orb.Farm is a puzzle-sandbox game to build a sealed personal aquatic ecosystem. If you like this kind of game, you should also check sandspiel, from the same developer.",
+  "thumbnail": "https://imgs.crazygames.com/games/orb-farm/cover-1614874544775.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/orb-farm/cover-1614874544775.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/orb-farm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/orb-farm",
+  "crazygamesSlug": "orb-farm"
+}

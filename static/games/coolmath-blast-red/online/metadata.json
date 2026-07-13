@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blast-red",
+  "name": "Blast Red! - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Blast Red at Cool Math Games: Grab your launcher and set your sights on red! Eliminate every red block, but make sure the green blocks don&#039;t fall into the sea.",
+  "thumbnail": "/games/coolmath-blast-red/online/assets/coolmath-blast-red.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33893/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blast-red",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blast-red"
+}

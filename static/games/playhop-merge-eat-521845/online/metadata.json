@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-eat-521845",
+  "name": "Merge Eat",
+  "author": "PGSG",
+  "description": "Play Merge Eat via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019daea0cf1f49010dd646b2d1dbbb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17921938/2a0000019daea0cf1f49010dd646b2d1dbbb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-521845.games.s3.yandex.net/521845/r0qitizymlqxb5kigfgphrdcfpatez91/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=521845&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 521845,
+  "playhopPageUrl": "https://playhop.com/app/521845",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}

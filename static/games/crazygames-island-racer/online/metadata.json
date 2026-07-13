@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-island-racer",
+  "name": "Island Racer 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Island Racer is a cool racing game that also allows you to build tracks. You can race on these tracks alone or with your friends in a split-screen mode.",
+  "thumbnail": "https://imgs.crazygames.com/island-racer/20230130102914/island-racer-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/island-racer/20230130102914/island-racer-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/island-racer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/island-racer",
+  "crazygamesSlug": "island-racer"
+}

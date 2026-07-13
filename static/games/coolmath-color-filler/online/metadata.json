@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-color-filler",
+  "name": "Color Filler - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Color Filler at Cool Math Games: Every block has a perfect hole. Push them all to their destination, then find the perfect hole for yourself.",
+  "thumbnail": "/games/coolmath-color-filler/online/assets/coolmath-color-filler.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/33722/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-color-filler",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-color-filler"
+}

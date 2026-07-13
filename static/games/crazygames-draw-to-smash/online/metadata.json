@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-draw-to-smash",
+  "name": "Draw To Smash! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Draw To Smash is a clever puzzle game where you draw lines, shapes, or doodles to crush all the troublesome eggs. Test your strategic thinking as you plan each move and predict outcomes to solve intricate puzzles.",
+  "thumbnail": "https://imgs.crazygames.com/draw-to-smash_16x9/20241106071330/draw-to-smash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/draw-to-smash_16x9/20241106071330/draw-to-smash_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/draw-to-smash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/draw-to-smash",
+  "crazygamesSlug": "draw-to-smash"
+}

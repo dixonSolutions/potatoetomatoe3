@@ -1,0 +1,17 @@
+{
+  "id": "playhop-makeup-contest-234404",
+  "name": "Makeup Contest",
+  "author": "Linder",
+  "description": "Play Makeup Contest via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001888a7b53d367015ac889b08dfdff/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001888a7b53d367015ac889b08dfdff/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-234404.games.s3.yandex.net/234404/aq91p0nbvifmqnkq1u6brtilqv49c49b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=234404&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 234404,
+  "playhopPageUrl": "https://playhop.com/app/234404",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 2658
+}

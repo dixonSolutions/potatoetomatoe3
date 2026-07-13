@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ships-3d-io",
+  "name": "Ships 3D IO",
+  "author": "Addicting Games",
+  "description": "<p>Ships 3D is an IO game, multiplayer sailing ship simulator. The game is played in 'first person' where you control the sailor and move around the ship; interacting with the helm, sails and cannons. Sink enemy ships and shoot other players to score points.</p>\n\n<p>Features:</p>\n\n<p>There are two modes; Trader mode and Team mode. In Trader mode take items to the trader to earn large amounts of points. In Team mode, attempt to capture islands to earn points for your team.</p>\n\n<p>Other game features include clans, friends lists, muskets, unlockable cannon balls, ships and skins, as well as, mountains, goblin NPCs, weekly rolling wall of fame and top clan listings.</p>\n\n<p>Invite friends directly into your ship in Trader mode for endless fun.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ships3d_cover%20%282%29.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ships3d_cover%20%282%29.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://yp3d.com/ships3d/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/ships-3d-io"
+}

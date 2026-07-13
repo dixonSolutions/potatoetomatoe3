@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cs-lite",
+  "name": "CS Lite",
+  "author": "AutismDev",
+  "description": "Play CS Lite via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000198263355efefb19cbb26eadb564b/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000198263355efefb19cbb26eadb564b/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-433369.games.s3.yandex.net/433369/pb4t8gyw7nw5mfed2pkl5mvx9ykwdqqq/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=433369&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 433369,
+  "playhopPageUrl": "https://playhop.com/app/433369",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 12808
+}

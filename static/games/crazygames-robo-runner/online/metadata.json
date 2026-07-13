@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-robo-runner",
+  "name": "Robo Runner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Robo Runner is a casual game where you play as a transforming robot. Battle various enemies and transform into new machines as you progress.",
+  "thumbnail": "https://imgs.crazygames.com/robo-runner/20221117132109/robo-runner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/robo-runner/20221117132109/robo-runner-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/robo-runner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/robo-runner",
+  "crazygamesSlug": "robo-runner"
+}

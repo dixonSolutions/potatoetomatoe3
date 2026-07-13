@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-build-your-rocket",
+  "name": "Build your Rocket 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Build your Rocket is a casual game that challenges you to build and launch your own rocket. Your goal is to fly as high as possible, reaching different planets and unlocking new levels.",
+  "thumbnail": "https://imgs.crazygames.com/build-your-rocket_16x9/20260217034638/build-your-rocket_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/build-your-rocket_16x9/20260217034638/build-your-rocket_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/build-your-rocket/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/build-your-rocket",
+  "crazygamesSlug": "build-your-rocket"
+}

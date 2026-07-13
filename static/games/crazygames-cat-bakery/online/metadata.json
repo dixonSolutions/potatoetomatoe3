@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cat-bakery",
+  "name": "Cat Bakery 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cat Bakery is a casual simulation where you embody a feline entrepreneur managing a bakery. Serve customers, expand your menu, and style your staff to perfection.",
+  "thumbnail": "https://imgs.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cat-bakery/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cat-bakery",
+  "crazygamesSlug": "cat-bakery"
+}

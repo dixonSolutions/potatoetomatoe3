@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sandtrix",
+  "name": "SandTrix | Like Tetris® with Sand 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sandtrix is a Tetris game with a twist—the pieces transform into sand when they touch down. The objective is to align blocks of the same color until they form one continuous color from left to right.",
+  "thumbnail": "https://imgs.crazygames.com/sandtrix_16x9/20240823071608/sandtrix_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sandtrix_16x9/20240823071608/sandtrix_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sandtrix/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sandtrix",
+  "crazygamesSlug": "sandtrix"
+}

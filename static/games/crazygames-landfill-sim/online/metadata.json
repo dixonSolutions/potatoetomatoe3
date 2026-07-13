@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-landfill-sim",
+  "name": "Landfill Simulator 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Landfill Simulator is a game where you become the ultimate cleaning manager. Use your powerful vacuum to suck up as much trash as you can, leaving areas spotless.",
+  "thumbnail": "https://imgs.crazygames.com/landfill-sim_16x9/20250415033615/landfill-sim_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/landfill-sim_16x9/20250415033615/landfill-sim_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/landfill-sim/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/landfill-sim",
+  "crazygamesSlug": "landfill-sim"
+}

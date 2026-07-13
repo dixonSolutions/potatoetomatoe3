@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-empire-city",
+  "name": "empire city",
+  "author": "CrazyGames",
+  "description": "Play empire city on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/empire-city/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/empire-city",
+  "crazygamesSlug": "empire-city"
+}

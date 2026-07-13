@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mini-flips",
+  "name": "Mini Flips 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mini Flips is an arcade game to collect all the coins in the arena by jumping, flipping sides, and avoiding obstacles. Complete over 160 levels in this challenging game!",
+  "thumbnail": "https://imgs.crazygames.com/mini-flips/20220324124725/mini-flips-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mini-flips/20220324124725/mini-flips-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mini-flips/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mini-flips",
+  "crazygamesSlug": "mini-flips"
+}

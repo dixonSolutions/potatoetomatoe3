@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-wire-beat",
+  "name": "Wire Beat 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Wire Beat is a rhythmic puzzle game where every action syncs with pulsating beats. Dive into electrifying levels, connecting your moves to the music through an intuitive wiring panel.",
+  "thumbnail": "https://imgs.crazygames.com/wire-beat_16x9/20240212090725/wire-beat_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/wire-beat_16x9/20240212090725/wire-beat_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/wire-beat/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/wire-beat",
+  "crazygamesSlug": "wire-beat"
+}

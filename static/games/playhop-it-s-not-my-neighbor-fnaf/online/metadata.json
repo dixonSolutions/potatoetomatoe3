@@ -1,0 +1,17 @@
+{
+  "id": "playhop-it-s-not-my-neighbor-fnaf",
+  "name": "It's not my neighbor: FNAF!",
+  "author": "LambGameDev_",
+  "description": "Play It's not my neighbor: FNAF! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a929e4e14a1d3512fd75bf8b569/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019a929e4e14a1d3512fd75bf8b569/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-456226.games.s3.yandex.net/456226/tvlp60ugbtdlrav0w79l5p2opkm5vpun/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=456226&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 456226,
+  "playhopPageUrl": "https://playhop.com/app/456226",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 900
+}

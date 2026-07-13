@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-pop-match-3d",
+  "name": "pop match 3d",
+  "author": "CrazyGames",
+  "description": "Play pop match 3d on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pop-match-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pop-match-3d",
+  "crazygamesSlug": "pop-match-3d"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-color-tunnel",
+  "name": "Color Tunnel 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Color Tunnel is an endless running game to zoom at high speed through the colorful tunnel, avoiding obstacles. The game takes you through various levels with challenging new obstacles the further you progress!",
+  "thumbnail": "https://imgs.crazygames.com/tunnelrushb.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tunnelrushb.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/color-tunnel/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/color-tunnel",
+  "crazygamesSlug": "color-tunnel"
+}

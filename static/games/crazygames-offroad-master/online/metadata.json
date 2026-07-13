@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-offroad-master",
+  "name": "Crazy Hills 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Crazy Hills is an arcade racing game where you face intense challenges and push your car to its limits. Navigate through treacherous obstacles, destroy everything in your way, and avoid wrecking your vehicle.",
+  "thumbnail": "https://imgs.crazygames.com/offroad-master_16x9/20240826030317/offroad-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/offroad-master_16x9/20240826030317/offroad-master_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/offroad-master/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/offroad-master",
+  "crazygamesSlug": "offroad-master"
+}

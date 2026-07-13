@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blocko",
+  "name": "Blocko - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Assemble the blocks and make the shape in Blocko. Use hints to help find solutions if you get stuck. How many shapes can you reassemble?",
+  "thumbnail": "/games/coolmath-blocko/online/assets/coolmath-blocko.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48018/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blocko",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blocko"
+}

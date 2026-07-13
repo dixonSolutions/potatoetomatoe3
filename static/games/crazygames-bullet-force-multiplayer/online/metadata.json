@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-bullet-force-multiplayer",
+  "name": "Bullet Force 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bullet Force is an online multiplayer FPS game featuring fast-paced action. Battle against other players on tactical maps using a range of weapons at your disposal.",
+  "thumbnail": "/games/crazygames-bullet-force-multiplayer/online/assets/crazygames-bullet-force-multiplayer.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bullet-force-multiplayer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bullet-force-multiplayer",
+  "crazygamesSlug": "bullet-force-multiplayer"
+}

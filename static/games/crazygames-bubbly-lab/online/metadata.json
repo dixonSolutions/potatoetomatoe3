@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bubbly-lab",
+  "name": "Bubbly Lab 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bubbly Lab is a physics puzzle game where you have to catch all the adorable bubbles in the laboratory. Use a super strong vacuum cleaner to get the bubbles into the flask.",
+  "thumbnail": "https://imgs.crazygames.com/bubbly-lab_16x9/20240220100911/bubbly-lab_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bubbly-lab_16x9/20240220100911/bubbly-lab_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bubbly-lab/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bubbly-lab",
+  "crazygamesSlug": "bubbly-lab"
+}

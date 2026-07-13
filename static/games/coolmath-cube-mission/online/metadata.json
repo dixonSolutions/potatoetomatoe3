@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-cube-mission",
+  "name": "Cube Mission - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Cube Mission at Cool Math Games: Tumble your way past flamethrowers, spikeballs and falling platforms in this 3D World. Finish the mission before you crash and/or burn.",
+  "thumbnail": "/games/coolmath-cube-mission/online/assets/coolmath-cube-mission.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/27563/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-cube-mission",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-cube-mission"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blubble-io",
+  "name": "Blubble.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blubble.io is an io game where you play as a robot who shoots your blubble at your robot opponents to destroy them. Collect coins and unlock new customization options for your Blubble.",
+  "thumbnail": "https://imgs.crazygames.com/blubble-io/20220909170041/blubble-io-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/blubble-io/20220909170041/blubble-io-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blubble-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blubble-io",
+  "crazygamesSlug": "blubble-io"
+}

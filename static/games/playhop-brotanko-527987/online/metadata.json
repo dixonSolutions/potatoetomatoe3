@@ -1,0 +1,17 @@
+{
+  "id": "playhop-brotanko-527987",
+  "name": "Brotanko",
+  "author": "Nova Core",
+  "description": "Play Brotanko via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f439d37784d564a2ee69301fcca/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019f439d37784d564a2ee69301fcca/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-527987.games.s3.yandex.net/527987/o09biml2l7pkbqtt9d28t3bhmaodju4f/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=527987&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 527987,
+  "playhopPageUrl": "https://playhop.com/app/527987",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 13
+}

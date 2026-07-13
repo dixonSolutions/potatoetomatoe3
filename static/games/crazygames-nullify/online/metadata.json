@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-nullify",
+  "name": "Nullify 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Nullify is a math puzzle game with the goal of clearing everything from the screen by merging numbers and math symbols. Improve your logic and math skills by completing unique handcrafted levels and infinite generated levels.",
+  "thumbnail": "https://imgs.crazygames.com/nullify_16x9/20260220035822/nullify_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/nullify_16x9/20260220035822/nullify_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/nullify/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/nullify",
+  "crazygamesSlug": "nullify"
+}

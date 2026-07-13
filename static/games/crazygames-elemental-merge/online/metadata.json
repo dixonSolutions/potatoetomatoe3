@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-elemental-merge",
+  "name": "Elemental Merge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Elemental Merge is a colorful arcade game where you collect and merge elementals to build a powerful army. Strategically combine your elementals to strengthen and defeat your enemies in exciting battles.",
+  "thumbnail": "https://imgs.crazygames.com/elemental-merge_16x9/20260408072718/elemental-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/elemental-merge_16x9/20260408072718/elemental-merge_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/elemental-merge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/elemental-merge",
+  "crazygamesSlug": "elemental-merge"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-unlimited-puzzles-140145",
+  "name": "Unlimited Puzzles",
+  "author": "yurrad",
+  "description": "Play Unlimited Puzzles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017c42205cc4ee8fc70f949aff776e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017c42205cc4ee8fc70f949aff776e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-140145.games.s3.yandex.net/140145/1gx2fvhsttrhe6tbayvkyknft24u138f/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=140145&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 140145,
+  "playhopPageUrl": "https://playhop.com/app/140145",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 5880
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-spiderdoll",
+  "name": "SpiderDoll 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SpiderDoll is a Spider Rope Hero game. Swing through New York City wrapping bad guys in your web and getting closer to saving Mary.",
+  "thumbnail": "https://imgs.crazygames.com/spiderdoll/20210203164846/spiderdoll-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/spiderdoll/20210203164846/spiderdoll-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/spiderdoll/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/spiderdoll",
+  "crazygamesSlug": "spiderdoll"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-capybara-quest",
+  "name": "Capybara Quest - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "A mean pelican tore your family apart... Go on a Capybara Quest to bring your family back together. Explore scenic worlds and collect every yuzu fruit.",
+  "thumbnail": "/games/coolmath-capybara-quest/online/assets/coolmath-capybara-quest.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49165/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-capybara-quest",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-capybara-quest"
+}

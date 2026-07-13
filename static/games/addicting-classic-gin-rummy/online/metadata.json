@@ -1,0 +1,14 @@
+{
+  "id": "addicting-classic-gin-rummy",
+  "name": "Classic Gin Rummy",
+  "author": "Addicting Games",
+  "description": "<p>Step into the world of Classic Gin Rummy, a timeless card game of skill and strategy. Play against AI opponents in fast-paced matches where the goal is to form sets and runs of cards to score points.</p>\n\n<p>Skillfully manage your hand, making smart decisions to create winning combinations and minimize your opponent's chances. Use your knowledge of card sequences and combinations to outwit your rivals and declare victory.</p>\n\n<p>With simple rules yet deep gameplay, Classic Gin Rummy offers endless entertainment for card game enthusiasts. Are you ready to shuffle, deal, and show off your Gin Rummy skills?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Gin-Rummy.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Gin-Rummy.jpg",
+  "thumbnailStored": "remote",
+  "category": "card",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/classic-gin-rummy/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/card/classic-gin-rummy"
+}

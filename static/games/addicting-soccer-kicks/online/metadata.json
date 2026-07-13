@@ -1,0 +1,14 @@
+{
+  "id": "addicting-soccer-kicks",
+  "name": "Soccer Kicks",
+  "author": "Addicting Games",
+  "description": "<p>Soccer Kicks is a sports game where your objective is to hit the target inside of the net. This is an easy soccer game with cute and bright animation. The game is fitted to be played on a smartphone but you can also play it on your computer. It’s not enough just to get the ball in the net, you have to hit a target that may or may not be moving. On top of hitting an unpredictable target, sometimes you have to avoid a determined goalie. Look out for stars that you can earn by hitting the target. Miss 3 times and you’re out! At the end of each game session, you’ll see your most recent and best score. Play, again and again, to beat your own score every time. The more you play this online sports game, the better you’ll get.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ball.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ball.jpg",
+  "thumbnailStored": "remote",
+  "category": "sports",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/soccer-kicks/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/sports/soccer-kicks"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rovercraft",
+  "name": "Rovercraft 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rovercraft is a driving arcade game that puts your creativity and driving skills to the test. Build and customize your very own rover, outfitting it with powerful tools like jet engines, super-wheels, and other high-tech upgrades to tackle challenging alien landscapes.",
+  "thumbnail": "https://imgs.crazygames.com/rovercraft_16x9/20241205063322/rovercraft_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rovercraft_16x9/20241205063322/rovercraft_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rovercraft/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rovercraft",
+  "crazygamesSlug": "rovercraft"
+}

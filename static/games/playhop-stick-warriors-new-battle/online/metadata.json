@@ -1,0 +1,17 @@
+{
+  "id": "playhop-stick-warriors-new-battle",
+  "name": "Stick Warriors: New Battle",
+  "author": "BearWithBeer",
+  "description": "Play Stick Warriors: New Battle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000196dfe4854c1ab15adf022b032048/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000196dfe4854c1ab15adf022b032048/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-336172.games.s3.yandex.net/336172/0dxsfe0ma03mkwpelq5lhqulpnhw2c22/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=336172&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 336172,
+  "playhopPageUrl": "https://playhop.com/app/336172",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 4443
+}

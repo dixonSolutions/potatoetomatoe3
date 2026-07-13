@@ -1,0 +1,17 @@
+{
+  "id": "playhop-chess-with-a-computer-203195",
+  "name": "Chess with a computer",
+  "author": "sb-games",
+  "description": "Play Chess with a computer via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019546106c49d6732a6beea54d362c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019546106c49d6732a6beea54d362c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-203195.games.s3.yandex.net/203195/gb6esb713pgndnu5ab0l0mlg8x3k9bgl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=203195&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 203195,
+  "playhopPageUrl": "https://playhop.com/app/203195",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 45940
+}

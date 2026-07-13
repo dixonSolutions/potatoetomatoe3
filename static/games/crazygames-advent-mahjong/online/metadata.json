@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-advent-mahjong",
+  "name": "Advent Mahjong 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Advent Mahjong is a match 3 Christmas-themed game to connect identical tiles and remove them from the grid to move on to the next challenging levels before you run out of time. By passing a level, you get one day closer to Christmas, and the closer you get the more challenging the levels are.",
+  "thumbnail": "https://imgs.crazygames.com/advent-mahjong/20211202101555/advent-mahjong-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/advent-mahjong/20211202101555/advent-mahjong-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/advent-mahjong/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/advent-mahjong",
+  "crazygamesSlug": "advent-mahjong"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-pinturillo",
+  "name": "Pinturillo 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pinturillo 2 is a free online drawing game inspired by Pictionary. In the game, you draw a picture based on the word that is given to you, or you guess what the other player is drawing.",
+  "thumbnail": "/games/crazygames-pinturillo/online/assets/crazygames-pinturillo.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pinturillo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pinturillo",
+  "crazygamesSlug": "pinturillo"
+}

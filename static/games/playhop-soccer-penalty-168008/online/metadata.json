@@ -1,0 +1,17 @@
+{
+  "id": "playhop-soccer-penalty-168008",
+  "name": "Soccer Penalty",
+  "author": "Five Star Games",
+  "description": "Play Soccer Penalty via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017a021f1a7cf499ff8b95637a96a8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000017a021f1a7cf499ff8b95637a96a8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-168008.games.s3.yandex.net/168008/lgmyu7mfdmmrcm45y0v1smc2zs1bt9dc/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=168008&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 168008,
+  "playhopPageUrl": "https://playhop.com/app/168008",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 8256
+}

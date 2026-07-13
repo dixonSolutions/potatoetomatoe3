@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-dragon-io",
+  "name": "Dragon.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dragon.io is a snake game, but with dragons! Avoid obstacles, collect food to grow, destroy the other dragons that are smaller than you, and be the longest dragon in the arena to win!",
+  "thumbnail": "https://imgs.crazygames.com/dragon-io_16x9/20231025064843/dragon-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/dragon-io_16x9/20231025064843/dragon-io_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dragon-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dragon-io",
+  "crazygamesSlug": "dragon-io"
+}

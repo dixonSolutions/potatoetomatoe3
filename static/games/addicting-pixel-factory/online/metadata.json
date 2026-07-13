@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pixel-factory",
+  "name": "Pixel Factory",
+  "author": "Addicting Games",
+  "description": "<p>Pixel Factory is a puzzle game where your objective to memorize and draw the same pixel drawing. This is a good online game to help test your memory. First, you are shown a cute pixel drawing and given less than a minute to observe and memorize it. Then it is time to draw. Click on and use the pixel color in the righthand panel. Each block must be in the same exact place and the same color as the one you observed. There are 30-pixel drawings for you to replicate in this online game! Some of them are simple shapes with only one color and some of them are more complicated shapes with multiple colors. If you get stuck, click on the magnifying glass in the lower right-hand corner and you will be given time to view the drawing again. However, using the hint will eat at your score every time you use it. Once you have solved all 30 levels, submit your score! Then head over to the scoreboard to see if you rank up there with other high scorers!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/blockdrawgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/blockdrawgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "make-your-own-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/pixel-factory/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/pixel-factory"
+}

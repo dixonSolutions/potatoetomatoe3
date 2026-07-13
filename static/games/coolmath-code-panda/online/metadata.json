@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-code-panda",
+  "name": "Code Panda: Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "This Code Panda needs help getting their bamboo. Learn to program the panda to gather the bamboo and shiny coins with as few moves as possible.",
+  "thumbnail": "/games/coolmath-code-panda/online/assets/coolmath-code-panda.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/37432/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-code-panda",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-code-panda"
+}

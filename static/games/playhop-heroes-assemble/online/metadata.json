@@ -1,0 +1,17 @@
+{
+  "id": "playhop-heroes-assemble",
+  "name": "Heroes Assemble",
+  "author": "gzwegame",
+  "description": "Play Heroes Assemble via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a000001956a370eca0500d63148af7235f9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a000001956a370eca0500d63148af7235f9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-484846.games.s3.yandex.net/484846/0mytj4mt9b5a82pth8imnw61mvmex5zp/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 389821,
+  "playhopPageUrl": "https://playhop.com/app/389821",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 260
+}

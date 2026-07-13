@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-tile-craft-3d",
+  "name": "Tile Craft 3D 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Tile Craft 3D is a fun coloring game where you stack tiles to create beautiful artwork. Match the numbers on the floor design to complete each masterpiece!",
+  "thumbnail": "https://imgs.crazygames.com/tile-craft-3d_16x9/20240821032528/tile-craft-3d_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/tile-craft-3d_16x9/20240821032528/tile-craft-3d_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/tile-craft-3d/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/tile-craft-3d",
+  "crazygamesSlug": "tile-craft-3d"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-design-show",
+  "name": "Design Show",
+  "author": "RED BRIX WALL LLC",
+  "description": "Play Design Show via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001921d943e65b2d0f62f9ec19449ad/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001921d943e65b2d0f62f9ec19449ad/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-483161.games.s3.yandex.net/483161/k1v5svd2he8ptrh816z8g2qyxun2nxrp/index.html",
+  "pullStrategy": "generic",
+  "playhopAppId": 363891,
+  "playhopPageUrl": "https://playhop.com/app/363891",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 4450
+}

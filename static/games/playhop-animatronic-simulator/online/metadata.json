@@ -1,0 +1,17 @@
+{
+  "id": "playhop-animatronic-simulator",
+  "name": "Animatronic Simulator",
+  "author": "VXGames",
+  "description": "Play Animatronic Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000197e711ded84f767016005b06bbfb/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000197e711ded84f767016005b06bbfb/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-451965.games.s3.yandex.net/451965/y8s26w3x6ccv80m1hn1f1udpqvamm19j/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=451965&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 451965,
+  "playhopPageUrl": "https://playhop.com/app/451965",
+  "playhopRating": 4,
+  "playhopRatingCount": 99
+}

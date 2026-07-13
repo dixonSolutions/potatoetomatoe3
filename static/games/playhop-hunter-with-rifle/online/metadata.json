@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hunter-with-rifle",
+  "name": "Hunter with rifle",
+  "author": "C Games",
+  "description": "Play Hunter with rifle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a2a8fa3e949fcbe3c1caa59dfa2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17999008/2a0000019a2a8fa3e949fcbe3c1caa59dfa2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-474144.games.s3.yandex.net/474144/nm8d3otxu21ekpxdrqs25qb7yvjti1po/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=474144&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 474144,
+  "playhopPageUrl": "https://playhop.com/app/474144",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 3543
+}

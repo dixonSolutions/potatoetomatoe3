@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-merge-galaxy",
+  "name": "Merge Galaxy 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Merge Galaxy is a casual merge game where you aim, shoot, and stack planets to create cosmic wonders. Combine smaller planets into larger ones, launching them into orbit with precision.",
+  "thumbnail": "https://imgs.crazygames.com/merge-galaxy_16x9/20250116090841/merge-galaxy_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/merge-galaxy_16x9/20250116090841/merge-galaxy_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/merge-galaxy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/merge-galaxy",
+  "crazygamesSlug": "merge-galaxy"
+}

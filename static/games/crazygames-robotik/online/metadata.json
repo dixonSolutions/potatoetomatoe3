@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-robotik",
+  "name": "ROBOTIK 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "ROBOTIK is a casual puzzle game that puts your strategic thinking to the test. Your objective is to guide your robot to the end of the map before its battery drains.",
+  "thumbnail": "https://imgs.crazygames.com/robotik/20230817082446/robotik-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/robotik/20230817082446/robotik-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/robotik/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/robotik",
+  "crazygamesSlug": "robotik"
+}

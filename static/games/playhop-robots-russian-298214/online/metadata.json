@@ -1,0 +1,17 @@
+{
+  "id": "playhop-robots-russian-298214",
+  "name": "Robots Russian",
+  "author": "GMD",
+  "description": "Play Robots Russian via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018e1ec73375ce8a1d838f8452f21f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a0000018e1ec73375ce8a1d838f8452f21f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-298214.games.s3.yandex.net/298214/o8tzvoaukkbj7ejdl52l4dv3k5ppgffx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=298214&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 298214,
+  "playhopPageUrl": "https://playhop.com/app/298214",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 6824
+}

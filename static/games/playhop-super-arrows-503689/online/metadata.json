@@ -1,0 +1,17 @@
+{
+  "id": "playhop-super-arrows-503689",
+  "name": "Super Arrows",
+  "author": "Th0mas",
+  "description": "Play Super Arrows via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019ca90802cdbccb39efb75a6f5aa9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17696815/2a0000019ca90802cdbccb39efb75a6f5aa9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-503689.games.s3.yandex.net/503689/uxxeq6u1hru348pnyos4jfwt39gwjrt1/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=503689&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 503689,
+  "playhopPageUrl": "https://playhop.com/app/503689",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 512
+}

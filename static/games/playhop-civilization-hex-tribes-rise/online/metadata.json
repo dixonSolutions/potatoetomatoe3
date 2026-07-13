@@ -1,0 +1,17 @@
+{
+  "id": "playhop-civilization-hex-tribes-rise",
+  "name": "Civilization Hex: Tribes Rise",
+  "author": "Mad Pixel",
+  "description": "Play Civilization Hex: Tribes Rise via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019146006a1af9f8b48aa6667a2c04/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019146006a1af9f8b48aa6667a2c04/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-360281.games.s3.yandex.net/360281/g6nj1ik5ox920wkuvsg4klv5ox8drpgb/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=360281&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 360281,
+  "playhopPageUrl": "https://playhop.com/app/360281",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 399
+}

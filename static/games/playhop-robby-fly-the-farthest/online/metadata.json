@@ -1,0 +1,17 @@
+{
+  "id": "playhop-robby-fly-the-farthest",
+  "name": "Robby: Fly the Farthest",
+  "author": "ACT52",
+  "description": "Play Robby: Fly the Farthest via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001942b50109f398905893282e0e410/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001942b50109f398905893282e0e410/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-392749.games.s3.yandex.net/392749/vfb131xe0t7c5hwdi46u9j3e3dgxtv65/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=392749&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 392749,
+  "playhopPageUrl": "https://playhop.com/app/392749",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 6274
+}

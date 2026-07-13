@@ -1,0 +1,17 @@
+{
+  "id": "playhop-world-of-military-tanks",
+  "name": "World of Military Tanks",
+  "author": "AVI",
+  "description": "Play World of Military Tanks via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018f7b6adc09f24215d0ee3e2f02e1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a0000018f7b6adc09f24215d0ee3e2f02e1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-338883.games.s3.yandex.net/338883/gm65tgewmpcapsigzyhfr5yvrj8t1s5b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=338883&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 338883,
+  "playhopPageUrl": "https://playhop.com/app/338883",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 3423
+}

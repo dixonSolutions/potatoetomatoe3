@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-falling-ball",
+  "name": "Falling Ball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Falling Ball is a frantic arcade game in which you need to shoot balls down the screen to take health off of the static circles below. When you shoot, the ball&#x27;s gravity will make them cascade down the screen, every time they come into contact with the circles it will subtract from the circle&#x27;s value.",
+  "thumbnail": "https://imgs.crazygames.com/falling-ball_16x9/20240212173210/falling-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/falling-ball_16x9/20240212173210/falling-ball_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/falling-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/falling-ball",
+  "crazygamesSlug": "falling-ball"
+}

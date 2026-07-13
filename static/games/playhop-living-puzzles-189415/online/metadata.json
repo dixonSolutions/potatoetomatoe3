@@ -1,0 +1,17 @@
+{
+  "id": "playhop-living-puzzles-189415",
+  "name": "Living Puzzles",
+  "author": "yurrad",
+  "description": "Play Living Puzzles via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a00000192424ecdad626da0336b5d81a504/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a00000192424ecdad626da0336b5d81a504/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-189415.games.s3.yandex.net/189415/35a1xx90sx1mg22qvtdaa32g0k1ah66s/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=189415&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 189415,
+  "playhopPageUrl": "https://playhop.com/app/189415",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 229
+}

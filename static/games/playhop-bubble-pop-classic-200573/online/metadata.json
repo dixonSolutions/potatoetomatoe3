@@ -1,0 +1,17 @@
+{
+  "id": "playhop-bubble-pop-classic-200573",
+  "name": "Bubble Pop Classic",
+  "author": "Citigo",
+  "description": "Play Bubble Pop Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a000001843b59c9a4af53d67c9c4e0b07a8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a000001843b59c9a4af53d67c9c4e0b07a8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-200573.games.s3.yandex.net/200573/blkr70jrraml56s845x5ugnh4hmfxgyv/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=200573&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 200573,
+  "playhopPageUrl": "https://playhop.com/app/200573",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 10830
+}

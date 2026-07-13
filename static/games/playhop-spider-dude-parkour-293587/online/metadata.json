@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-dude-parkour-293587",
+  "name": "Spider Dude Parkour",
+  "author": "XCESSFULL",
+  "description": "Play Spider Dude Parkour via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019df3a4776e23b935e66ed4c11fb9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019df3a4776e23b935e66ed4c11fb9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-293587.games.s3.yandex.net/293587/cymxifaa2421met8x0he9c215sam4egu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=293587&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 293587,
+  "playhopPageUrl": "https://playhop.com/app/293587",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 10353
+}

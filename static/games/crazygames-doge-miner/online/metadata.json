@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-doge-miner",
+  "name": "Doge Miner 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Doge Miner is an awesome incremental game featuring everyone’s favorite shibe inu pup. It is an idle game inspired by Cookie Clicker where the goal of the game is to click your way to the moon!",
+  "thumbnail": "/games/crazygames-doge-miner/online/assets/crazygames-doge-miner.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/doge-miner/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/doge-miner",
+  "crazygamesSlug": "doge-miner"
+}

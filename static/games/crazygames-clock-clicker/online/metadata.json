@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-clock-clicker",
+  "name": "Clock Clicker 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Clock Clicker is a clicker game where you earn timebucks by clicking on the clock. Use the accumulated timebucks to buy various types of watches and upgrades that will help you make more currency.",
+  "thumbnail": "https://imgs.crazygames.com/clock-clicker/20221114175912/clock-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/clock-clicker/20221114175912/clock-clicker-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clock-clicker/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clock-clicker",
+  "crazygamesSlug": "clock-clicker"
+}

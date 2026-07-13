@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-castaway",
+  "name": "Castaway 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Castaway is a strategy RPG in which you play as a powerful warrior on a mysterious island.  Release Date May 2010  Developer Castaway was made by Likwid.",
+  "thumbnail": "/games/crazygames-castaway/online/assets/crazygames-castaway.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/castaway/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/castaway",
+  "crazygamesSlug": "castaway"
+}

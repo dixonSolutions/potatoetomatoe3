@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-clean-it-up-demo",
+  "name": "Clean It Up! Demo 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Clean It Up! is a captivating business simulation where you manage a cleaning store, transforming dirty items into spotless treasures.",
+  "thumbnail": "https://imgs.crazygames.com/clean-it-up-demo_16x9/20241210040147/clean-it-up-demo_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/clean-it-up-demo_16x9/20241210040147/clean-it-up-demo_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/clean-it-up-demo/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/clean-it-up-demo",
+  "crazygamesSlug": "clean-it-up-demo"
+}

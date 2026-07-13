@@ -1,0 +1,17 @@
+{
+  "id": "playhop-playground-update-2-0-283428",
+  "name": "Playground Update 2.0",
+  "author": "8 Bit Studio",
+  "description": "Play Playground Update 2.0 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a000001936e722dcf244912bf074004c6e7/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a000001936e722dcf244912bf074004c6e7/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-283428.games.s3.yandex.net/283428/mq4ay4qbcm2d27w1e0egi8s4c6nij918/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=283428&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 283428,
+  "playhopPageUrl": "https://playhop.com/app/283428",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1456
+}

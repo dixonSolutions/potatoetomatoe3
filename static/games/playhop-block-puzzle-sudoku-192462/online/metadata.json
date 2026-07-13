@@ -1,0 +1,17 @@
+{
+  "id": "playhop-block-puzzle-sudoku-192462",
+  "name": "Block Puzzle Sudoku",
+  "author": "Citigo",
+  "description": "Play Block Puzzle Sudoku via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a00000182253ca1ea4c36b0e290f195b321/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a00000182253ca1ea4c36b0e290f195b321/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-192462.games.s3.yandex.net/192462/abmy7xe6l8b3l1idsfwx99w9g76bzqyu/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=192462&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 192462,
+  "playhopPageUrl": "https://playhop.com/app/192462",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 415
+}

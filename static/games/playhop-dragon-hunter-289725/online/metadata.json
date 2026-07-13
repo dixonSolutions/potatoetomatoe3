@@ -1,0 +1,17 @@
+{
+  "id": "playhop-dragon-hunter-289725",
+  "name": "Dragon Hunter",
+  "author": "MirraGames",
+  "description": "Play Dragon Hunter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019333d69f118a2e0a6d754cf45ee0/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000019333d69f118a2e0a6d754cf45ee0/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-289725.games.s3.yandex.net/289725/hxe5hg8q8bghdrqloi8arl0r2h7em081/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=289725&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 289725,
+  "playhopPageUrl": "https://playhop.com/app/289725",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 233
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-shadow-bullet",
+  "name": "Shadow Bullet 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Shadow Bullet offers a unique blend of puzzle-solving challenges and precision shooting. You can enjoy the excitement of taking down shadow enemies while navigating through brain-engaging puzzles.",
+  "thumbnail": "https://imgs.crazygames.com/shadow-bullet_16x9/20231204094416/shadow-bullet_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/shadow-bullet_16x9/20231204094416/shadow-bullet_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/shadow-bullet/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/shadow-bullet",
+  "crazygamesSlug": "shadow-bullet"
+}

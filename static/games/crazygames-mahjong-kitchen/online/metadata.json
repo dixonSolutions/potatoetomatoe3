@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mahjong-kitchen",
+  "name": "Mahjong Kitchen 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mahjong Kitchen is a new concept of mahjong game where you can buy recipes and complete the order of the customers. This game will completely immerse you in the atmosphere of a pleasant cafe.",
+  "thumbnail": "https://imgs.crazygames.com/mahjong-kitchen/20221209151441/mahjong-kitchen-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mahjong-kitchen/20221209151441/mahjong-kitchen-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-kitchen/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-kitchen",
+  "crazygamesSlug": "mahjong-kitchen"
+}

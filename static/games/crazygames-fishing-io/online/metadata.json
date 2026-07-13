@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fishing-io",
+  "name": "Fishing.io 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fishing.io is a fun fishing game in which you collect as many fish as possible at the deepest of the sea. Release Date May 2020 Developer Inlogic Software developed this game.",
+  "thumbnail": "https://imgs.crazygames.com/games/fishing-io/cover-1589904894408.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/fishing-io/cover-1589904894408.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fishing-io/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fishing-io",
+  "crazygamesSlug": "fishing-io"
+}

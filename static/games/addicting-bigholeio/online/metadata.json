@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bigholeio",
+  "name": "BigHole.io",
+  "author": "Addicting Games",
+  "description": "<p>BigHole.io is an exciting online hole-eating game. Consume various props across different maps, grow larger, and start devouring other holes to become the biggest and claim victory! Gameplay: You play as a hole in a bustling city. Your goal is to survive by consuming various props, which will help you grow larger. Be cautious, though—other holes will try to consume you. At the same time, seize every opportunity to devour smaller holes to gain a significant advantage and dominate the game. How To Play: Use the W, A, S, and D keys on your keyboard to move your hole. Alternatively, you can use your mouse: simply click or tap on the screen, and your hole will move toward the pointer. On mobile devices, you can control your hole using either the mouse or the joystick located at the bottom-left corner of the screen.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bighole%20addictinggames%20thumbnail.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bighole%20addictinggames%20thumbnail.png",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://bighole.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/bigholeio"
+}

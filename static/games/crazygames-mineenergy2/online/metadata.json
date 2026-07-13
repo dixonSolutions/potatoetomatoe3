@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mineenergy2",
+  "name": "MineEnergy2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "MineEnergy2 is similar to Minecraft but with industrial tech mods. Extract energy, sell it, and purchase upgrades in this competitive world.",
+  "thumbnail": "https://imgs.crazygames.com/mineenergy2_16x9/20240405034045/mineenergy2_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/mineenergy2_16x9/20240405034045/mineenergy2_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mineenergy2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mineenergy2",
+  "crazygamesSlug": "mineenergy2"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cup-heroes",
+  "name": "Cup Heroes 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cup Heroes is an adventure game where ordinary cups rise as fearless champions on a mission to save their Queen. You’ll command your cup warriors through battles, solve clever puzzles, and forge powerful strategies.",
+  "thumbnail": "https://imgs.crazygames.com/cup-heroes_16x9/20251028095442/cup-heroes_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cup-heroes_16x9/20251028095442/cup-heroes_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cup-heroes/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cup-heroes",
+  "crazygamesSlug": "cup-heroes"
+}

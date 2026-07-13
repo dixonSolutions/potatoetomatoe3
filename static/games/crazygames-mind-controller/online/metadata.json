@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mind-controller",
+  "name": "mind controller",
+  "author": "CrazyGames",
+  "description": "Play mind controller on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mind-controller/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mind-controller",
+  "crazygamesSlug": "mind-controller"
+}

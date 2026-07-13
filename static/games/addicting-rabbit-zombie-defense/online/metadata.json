@@ -1,0 +1,14 @@
+{
+  "id": "addicting-rabbit-zombie-defense",
+  "name": "Rabbit Zombie Defense",
+  "author": "Addicting Games",
+  "description": "<p>Oh no! A virus outbreak turned all your rabbit friends into zombies. You're our last line of defense. Shoot power-ups to change weapons. Be careful and conserve your ammo. Remember to use the points earned to upgrade the weapons in the shop, and defend the base at all costs!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/rabbit-zombie-defense_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/rabbit-zombie-defense_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "http://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/rabbit-zombie-defense/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/rabbit-zombie-defense"
+}

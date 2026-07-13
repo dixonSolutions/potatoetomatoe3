@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-chain-sums",
+  "name": "Chain Sums - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Chain Sums at Cool Math Games: Connect tiles to output the right sums. When you have everything just right the tiles will all light up!",
+  "thumbnail": "/games/coolmath-chain-sums/online/assets/coolmath-chain-sums.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25733/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-chain-sums",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-chain-sums"
+}

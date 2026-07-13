@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-drift-zero",
+  "name": "drift zero",
+  "author": "CrazyGames",
+  "description": "Play drift zero on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/drift-zero/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/drift-zero",
+  "crazygamesSlug": "drift-zero"
+}

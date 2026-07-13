@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-basket-and-ball",
+  "name": "Basket and Ball - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Activate the power bounce in one of our most popular games, Basket and Ball. Jump over the spikes and past the guards. Bounce into Basket to score.",
+  "thumbnail": "/games/coolmath-basket-and-ball/online/assets/coolmath-basket-and-ball.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/48476/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-basket-and-ball",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-basket-and-ball"
+}

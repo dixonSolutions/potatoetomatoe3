@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gt-cars-city-racing",
+  "name": "GT Cars City Racing",
+  "author": "gameVgames",
+  "description": "Play GT Cars City Racing via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000193a507003a4e6933677fd7122712/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000193a507003a4e6933677fd7122712/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-394068.games.s3.yandex.net/394068/x905mzvjqiyffmu63lj8z1yyf7smspov/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=394068&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 394068,
+  "playhopPageUrl": "https://playhop.com/app/394068",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1185
+}

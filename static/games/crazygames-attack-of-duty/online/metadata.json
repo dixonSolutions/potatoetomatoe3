@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-attack-of-duty",
+  "name": "Attack of Duty 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Attack of Duty is an arcade shooting game where your mission is to destroy all opponents. Drag to aim and shoot down enemies, intercepting incoming threats.",
+  "thumbnail": "https://imgs.crazygames.com/attack-of-duty_16x9/20240606142630/attack-of-duty_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/attack-of-duty_16x9/20240606142630/attack-of-duty_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/attack-of-duty/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/attack-of-duty",
+  "crazygamesSlug": "attack-of-duty"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-orion-station-209169",
+  "name": "Orion Station",
+  "author": "Start Games",
+  "description": "Play Orion Station via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018d817b6e87152fc5d86289206121/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018d817b6e87152fc5d86289206121/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-209169.games.s3.yandex.net/209169/ja4fd4irqjya69ghgbt4sz2vlmjpag6h/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=209169&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 209169,
+  "playhopPageUrl": "https://playhop.com/app/209169",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 6290
+}

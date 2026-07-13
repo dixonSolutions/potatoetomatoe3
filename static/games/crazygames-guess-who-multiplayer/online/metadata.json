@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-guess-who-multiplayer",
+  "name": "Guess Who Online 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Guess Who? brings the classic board game everyone loves to the digital realm!",
+  "thumbnail": "https://imgs.crazygames.com/games/guess-who-multiplayer/cover-1625571428797.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/guess-who-multiplayer/cover-1625571428797.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/guess-who-multiplayer/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/guess-who-multiplayer",
+  "crazygamesSlug": "guess-who-multiplayer"
+}

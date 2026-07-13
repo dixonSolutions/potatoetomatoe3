@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bunny-run",
+  "name": "Bunny Run - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Bunny Run at Cool Math Games: Strap on your running shoes! Jump over dangerous spikes and hungry bears to collect coins and reach the exit!",
+  "thumbnail": "/games/coolmath-bunny-run/online/assets/coolmath-bunny-run.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22138/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bunny-run",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bunny-run"
+}

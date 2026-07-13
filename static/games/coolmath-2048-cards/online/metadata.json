@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-2048-cards",
+  "name": "2048 Cards - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Combine your cards to multiply them into something greater. The longer 2048 Cards goes on, the harder it will be to keep your stacks tidy.",
+  "thumbnail": "/games/coolmath-2048-cards/online/assets/coolmath-2048-cards.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/55006/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-2048-cards",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-2048-cards"
+}

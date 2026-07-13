@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-evo-fish",
+  "name": "Evo Fish 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Evo Fish is a tranquil idle merge experience where you evolve a colorful array of fish and curate your own serene fishbowl. Tap to hatch, merge to discover new species, and enjoy quirky surprises like sneaker-wearing sharks.",
+  "thumbnail": "https://imgs.crazygames.com/evo-fish_16x9/20250615113647/evo-fish_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/evo-fish_16x9/20250615113647/evo-fish_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/evo-fish/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/evo-fish",
+  "crazygamesSlug": "evo-fish"
+}

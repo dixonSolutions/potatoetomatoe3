@@ -1,0 +1,17 @@
+{
+  "id": "playhop-simulator-wb",
+  "name": "Simulator WB",
+  "author": "KryachkOFF",
+  "description": "Play Simulator WB via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019427bfdc4627b26ff11517f869dc/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000019427bfdc4627b26ff11517f869dc/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-400483.games.s3.yandex.net/400483/wmfg7ewbbxeaf9qp2g2f8d76turlnz6b/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=400483&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 400483,
+  "playhopPageUrl": "https://playhop.com/app/400483",
+  "playhopRating": 3.5,
+  "playhopRatingCount": 2658
+}

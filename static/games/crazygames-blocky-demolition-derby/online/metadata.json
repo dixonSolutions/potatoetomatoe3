@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-blocky-demolition-derby",
+  "name": "Blocky Demolition Derby 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Blocky Demolition Derby is a fast-paced and fun demolition derby simulation game with blocky objects. Destroy other vehicles and show your dominance in the arena!",
+  "thumbnail": "https://imgs.crazygames.com/blocky-demolition-derby-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/blocky-demolition-derby-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/blocky-demolition-derby/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/blocky-demolition-derby",
+  "crazygamesSlug": "blocky-demolition-derby"
+}

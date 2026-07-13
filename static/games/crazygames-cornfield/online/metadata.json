@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-cornfield",
+  "name": "Cornfield 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cornfield is a pulse-pounding puzzle-survival game where you must outsmart a relentless corn monster. Navigate a shadowy maze filled with complex challenges, testing your strategy and nerves.",
+  "thumbnail": "https://imgs.crazygames.com/cornfield_16x9/20241218040129/cornfield_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/cornfield_16x9/20241218040129/cornfield_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cornfield/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cornfield",
+  "crazygamesSlug": "cornfield"
+}

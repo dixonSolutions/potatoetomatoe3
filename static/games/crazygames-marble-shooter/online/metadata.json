@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-marble-shooter",
+  "name": "marble shooter",
+  "author": "CrazyGames",
+  "description": "Play marble shooter on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/marble-shooter/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/marble-shooter",
+  "crazygamesSlug": "marble-shooter"
+}

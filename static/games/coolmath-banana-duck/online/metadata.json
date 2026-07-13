@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-banana-duck",
+  "name": "Banana Duck Game - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Life&#039;s simple when you&#039;re a duck who loves bananas. Just explore every level, dodge evil tomatoes, and find all the keys in Banana Duck.",
+  "thumbnail": "/games/coolmath-banana-duck/online/assets/coolmath-banana-duck.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50837/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-banana-duck",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-banana-duck"
+}

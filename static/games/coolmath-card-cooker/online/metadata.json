@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-card-cooker",
+  "name": "Card Cooker: Play it online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Help the Card Cooker gather the ingredients by sliding through the maze. Make the right moves and collect all the ingredients in order.",
+  "thumbnail": "/games/coolmath-card-cooker/online/assets/coolmath-card-cooker.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/38463/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-card-cooker",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-card-cooker"
+}

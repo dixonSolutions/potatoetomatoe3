@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ballooner",
+  "name": "Ballooner - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Ballooner at Cool Math Games: Remove obstacles to release the balloons so they can float away. Be sure to avoid getting popped!",
+  "thumbnail": "/games/coolmath-ballooner/online/assets/coolmath-ballooner.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26995/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ballooner",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ballooner"
+}

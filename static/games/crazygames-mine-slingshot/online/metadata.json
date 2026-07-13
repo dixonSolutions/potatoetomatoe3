@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-mine-slingshot",
+  "name": "mine slingshot",
+  "author": "CrazyGames",
+  "description": "Play mine slingshot on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mine-slingshot/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mine-slingshot",
+  "crazygamesSlug": "mine-slingshot"
+}

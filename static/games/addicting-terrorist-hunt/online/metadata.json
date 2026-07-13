@@ -1,0 +1,14 @@
+{
+  "id": "addicting-terrorist-hunt",
+  "name": "Terrorist Hunt",
+  "author": "Addicting Games",
+  "description": "<p>Terrorist Hunt is a free shooter game. Oooh, terrorists. NO LIKE. I especially hate their squatty posture and blue coveralls. Kapow! Pow!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/terroristhunt.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/terroristhunt.jpg",
+  "thumbnailStored": "remote",
+  "category": "first-person",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/terroristhunt.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/terrorist-hunt"
+}

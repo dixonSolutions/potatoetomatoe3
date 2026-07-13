@@ -1,0 +1,17 @@
+{
+  "id": "playhop-tcg-card-3d-store-simulator",
+  "name": "TCG Card: 3D Store Simulator",
+  "author": "CyberNex Studios",
+  "description": "Play TCG Card: 3D Store Simulator via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a000001939b45efe338149d4eee4c036870/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a000001939b45efe338149d4eee4c036870/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-392798.games.s3.yandex.net/392798/vgfo7sjwqfb31xjkmu4hkz8ekc15w5h3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=392798&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 392798,
+  "playhopPageUrl": "https://playhop.com/app/392798",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 95
+}

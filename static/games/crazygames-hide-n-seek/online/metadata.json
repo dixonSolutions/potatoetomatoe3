@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-hide-n-seek",
+  "name": "Hide N Seek 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Hide N Seek is a fun 3D simulation game where you play the classic hide and seek game with your kids. Run around the house until you find them cheeky wee little ones!",
+  "thumbnail": "https://imgs.crazygames.com/hide-n-seek/20220216140400/hide-n-seek-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/hide-n-seek/20220216140400/hide-n-seek-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/hide-n-seek/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/hide-n-seek",
+  "crazygamesSlug": "hide-n-seek"
+}

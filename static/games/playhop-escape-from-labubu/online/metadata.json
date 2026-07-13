@@ -1,0 +1,17 @@
+{
+  "id": "playhop-escape-from-labubu",
+  "name": "Escape from Labubu",
+  "author": "kassir",
+  "description": "Play Escape from Labubu via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a00000197973dec72386009980b7295e7d9/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a00000197973dec72386009980b7295e7d9/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://playhop.com/app/447935",
+  "pullStrategy": "generic",
+  "playhopAppId": 447935,
+  "playhopPageUrl": "https://playhop.com/app/447935",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 74
+}

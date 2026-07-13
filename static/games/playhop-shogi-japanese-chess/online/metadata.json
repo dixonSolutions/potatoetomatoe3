@@ -1,0 +1,17 @@
+{
+  "id": "playhop-shogi-japanese-chess",
+  "name": "Shogi: Japanese Chess",
+  "author": "kirlanik",
+  "description": "Play Shogi: Japanese Chess via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18880415/2a00000199691e8171d5254add2e1e2ac4bd/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18880415/2a00000199691e8171d5254add2e1e2ac4bd/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-468263.games.s3.yandex.net/468263/wh55umykzn8tczmh58hqypvq0xutj66o/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=468263&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 468263,
+  "playhopPageUrl": "https://playhop.com/app/468263",
+  "playhopRating": 4,
+  "playhopRatingCount": 32
+}

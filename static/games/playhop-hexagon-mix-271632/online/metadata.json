@@ -1,0 +1,17 @@
+{
+  "id": "playhop-hexagon-mix-271632",
+  "name": "Hexagon mix",
+  "author": "LeoGame",
+  "description": "Play Hexagon mix via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018bd1cbb359fd30e9500d6800ba03/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000018bd1cbb359fd30e9500d6800ba03/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-271632.games.s3.yandex.net/271632/9ru3sjdrotr6dqyrow2ve7o82so7rs7e/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=271632&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 271632,
+  "playhopPageUrl": "https://playhop.com/app/271632",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 63
+}

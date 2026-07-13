@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-brick-boss",
+  "name": "Brick Boss: Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "As the Brick Boss, you will arrange the bricks in wacky formations. What&#039;s the oddest formation you can build? Be warned: the rules of physics still apply.",
+  "thumbnail": "/games/coolmath-brick-boss/online/assets/coolmath-brick-boss.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/41893/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-brick-boss",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-brick-boss"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-move-it",
+  "name": "Move It! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Just like, Genius Mechanic, in Move It!, you have to assemble vehicles by putting together parts. Then, you have to successfully transport the goods to the designated areas.",
+  "thumbnail": "https://imgs.crazygames.com/move-it_16x9/20240819102020/move-it_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/move-it_16x9/20240819102020/move-it_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/move-it/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/move-it",
+  "crazygamesSlug": "move-it"
+}

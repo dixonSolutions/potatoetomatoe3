@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-snake-blockade",
+  "name": "Snake Blockade 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Snake Blockade is a casual snake game where you collect points to grow your snake. Use points to crush the blockade.",
+  "thumbnail": "https://imgs.crazygames.com/snake-blockade/20230118111336/snake-blockade-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/snake-blockade/20230118111336/snake-blockade-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/snake-blockade/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/snake-blockade",
+  "crazygamesSlug": "snake-blockade"
+}

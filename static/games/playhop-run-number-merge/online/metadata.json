@@ -1,0 +1,17 @@
+{
+  "id": "playhop-run-number-merge",
+  "name": "Run Number Merge",
+  "author": "GirlsBoysGame",
+  "description": "Play Run Number Merge via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000196a4281af5af11fd57a37d46ae9f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000196a4281af5af11fd57a37d46ae9f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-371504.games.s3.yandex.net/371504/dqelkljf80ozkehni3ts3nv9iar9mmpg/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=371504&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 371504,
+  "playhopPageUrl": "https://playhop.com/app/371504",
+  "playhopRating": 4,
+  "playhopRatingCount": 23955
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-go-escape-nim",
+  "name": "Go Escape 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Go Escape is a fast-paced one-button arcade game where reflexes and timing are your best allies. Control a rolling ball and guide it through a maze of spikes, moving platforms, and deadly traps.",
+  "thumbnail": "https://imgs.crazygames.com/go-escape-nim_16x9/20250424095122/go-escape-nim_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/go-escape-nim_16x9/20250424095122/go-escape-nim_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/go-escape-nim/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/go-escape-nim",
+  "crazygamesSlug": "go-escape-nim"
+}

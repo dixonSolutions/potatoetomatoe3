@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-commando-myk",
+  "name": "Commando 2D 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Commando is a 2D side-scrolling team-multiplayer game. Enter the battlefield and shoot down your enemies using a wide range of different guns.",
+  "thumbnail": "https://imgs.crazygames.com/commando-myk-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/commando-myk-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/commando-myk/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/commando-myk",
+  "crazygamesSlug": "commando-myk"
+}

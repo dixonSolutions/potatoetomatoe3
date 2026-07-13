@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-plumber",
+  "name": "Plumber Pipe Out 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Plumber Pipe Out is a fun and challenging puzzle game in which you must act as a plumber and try to connect all the pipes. Each level contains a different array of pipes in a certain configuration; you must rotate them individually and try to make the water flow correctly.",
+  "thumbnail": "https://imgs.crazygames.com/plumberpipeout.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/plumberpipeout.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/plumber/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/plumber",
+  "crazygamesSlug": "plumber"
+}

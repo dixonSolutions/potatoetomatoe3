@@ -1,0 +1,14 @@
+{
+  "id": "addicting-laserzio",
+  "name": "Laserz.io",
+  "author": "Addicting Games",
+  "description": "<p>Laserz.io is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/laserzgamescreen.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/laserzgamescreen.jpg",
+  "thumbnailStored": "remote",
+  "category": "io",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://laserz.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io-games/laserzio"
+}

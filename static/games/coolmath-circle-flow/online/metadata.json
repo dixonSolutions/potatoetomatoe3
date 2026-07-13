@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-circle-flow",
+  "name": "Circle Flow - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Circle Flow at Cool Math Games: Twist and turn the rows to match the pattern. Can you crack the code?",
+  "thumbnail": "/games/coolmath-circle-flow/online/assets/coolmath-circle-flow.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22292/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-circle-flow",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-circle-flow"
+}

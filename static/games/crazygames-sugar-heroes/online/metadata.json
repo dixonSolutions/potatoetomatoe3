@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-sugar-heroes",
+  "name": "Sugar Heroes 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Sugar Heroes is a puzzle match-3 adventure that plays as sweet as it sounds. Join a quirky crew of lovable characters, each with their own charm, as you dive into a world bursting with vibrant colors, tricky obstacles, and endless fun.",
+  "thumbnail": "https://imgs.crazygames.com/sugar-heroes_16x9/20240624043724/sugar-heroes_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/sugar-heroes_16x9/20240624043724/sugar-heroes_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/sugar-heroes/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/sugar-heroes",
+  "crazygamesSlug": "sugar-heroes"
+}

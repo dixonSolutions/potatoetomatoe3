@@ -1,0 +1,17 @@
+{
+  "id": "playhop-robby-piggy-296306",
+  "name": "Robby Piggy",
+  "author": "AlianceDevGame",
+  "description": "Play Robby Piggy via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018ddadcc1a356cf93ee9399727a4f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11385414/2a0000018ddadcc1a356cf93ee9399727a4f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-296306.games.s3.yandex.net/296306/ke7gnrs9t9yyvies39eawupp0y1hpbn9/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=296306&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 296306,
+  "playhopPageUrl": "https://playhop.com/app/296306",
+  "playhopRating": 3.7,
+  "playhopRatingCount": 78
+}

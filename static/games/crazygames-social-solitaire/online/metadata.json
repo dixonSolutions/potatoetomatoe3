@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-social-solitaire",
+  "name": "Social Solitaire 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Social Solitaire is a free solitaire game featuring a relaxed and normal game mode. Using the points you earn in games, you can customize your deck and theme.",
+  "thumbnail": "https://imgs.crazygames.com/games/solitaire-social/thumb-1585078055716.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/solitaire-social/thumb-1585078055716.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/social-solitaire/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/social-solitaire",
+  "crazygamesSlug": "social-solitaire"
+}

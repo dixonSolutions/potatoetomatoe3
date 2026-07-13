@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-traffic-loop",
+  "name": "Traffic Loop 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Traffic Loop is an idle game where you can earn money from the traffic. Morning traffic is usually the worst thing in the world, but now you have a chance to get an advantage of it!",
+  "thumbnail": "https://imgs.crazygames.com/games/traffic-loop/cover_16x9-1698742040113.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/traffic-loop/cover_16x9-1698742040113.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/traffic-loop/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/traffic-loop",
+  "crazygamesSlug": "traffic-loop"
+}

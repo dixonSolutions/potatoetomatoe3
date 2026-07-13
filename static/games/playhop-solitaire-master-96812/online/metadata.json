@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-master-96812",
+  "name": "Solitaire Master",
+  "author": "Inlogic",
+  "description": "Play Solitaire Master via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1890793/2a000001835ff7bed95f03b9ed96e6006926/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1890793/2a000001835ff7bed95f03b9ed96e6006926/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96812.games.s3.yandex.net/96812/kcxngfv28yocxp71hhcnr7ijitoqon0a/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96812&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96812,
+  "playhopPageUrl": "https://playhop.com/app/96812",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 882
+}

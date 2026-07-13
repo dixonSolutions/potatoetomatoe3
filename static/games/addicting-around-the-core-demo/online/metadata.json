@@ -1,0 +1,14 @@
+{
+  "id": "addicting-around-the-core-demo",
+  "name": "Around The Core Demo",
+  "author": "Addicting Games",
+  "description": "<p><u><strong><a href=\"https://store.steampowered.com/app/4300950/Around_The_Core/\">Find Around The Core on Steam now!</a></strong></u></p>\n\n<p>A space-themed incremental shooter where destruction fuels growth. Start small by aiming, shooting, and gathering fragments from annihilated asteroids. As you harvest wealth, you will explore a vast upgrade tree to redefine your power and escalate the chaos against an increasing variety and intensity of shapes.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ag_game_thumbnail.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ag_game_thumbnail.jpg",
+  "thumbnailStored": "remote",
+  "category": "shooting",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/around-the-core-demo/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/around-the-core-demo"
+}

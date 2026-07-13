@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bloons-tower-defense",
+  "name": "Bloons Tower Defense",
+  "author": "Addicting Games",
+  "description": "<p>Bloons Tower Defense is a free tower defense game. Monkeys Fight Creepy Bloons!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bloonstowerdefense_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bloonstowerdefense_sp.png",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/bloonstowerdefense_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/bloons-tower-defense"
+}

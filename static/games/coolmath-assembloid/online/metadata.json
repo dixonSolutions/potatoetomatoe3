@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-assembloid",
+  "name": "Play Assembloid: Lose your head | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Grab your head and get a move on. Can you escape the robot factory with your body fully intact? Throw your blaster and flip switches to solve the puzzles.",
+  "thumbnail": "/games/coolmath-assembloid/online/assets/coolmath-assembloid.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36570/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-assembloid",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-assembloid"
+}

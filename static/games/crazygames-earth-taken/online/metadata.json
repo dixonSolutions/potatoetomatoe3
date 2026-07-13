@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-earth-taken",
+  "name": "Earth Taken 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Earth Taken is an apocalyptic action shooter game where you are on a mission to find the hiding underground shelters and fight to survive. Can you make it to the end?",
+  "thumbnail": "/games/crazygames-earth-taken/online/assets/crazygames-earth-taken.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/earth-taken/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/earth-taken",
+  "crazygamesSlug": "earth-taken"
+}

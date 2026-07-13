@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-super-smash-flash",
+  "name": "Super Smash Flash 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Super Smash Flash is based on the awesome Super Mario Bros series and allows you to compete in a variety of intense and fun fights with your favourite Super Mario World characters such as Mario, Luigi and Wario (plus some other Nintendo legends!). There are several different game modes including solo, online and group - you can fight alone, with friends, or even online against other players!",
+  "thumbnail": "/games/crazygames-super-smash-flash/online/assets/crazygames-super-smash-flash.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/super-smash-flash/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/super-smash-flash",
+  "crazygamesSlug": "super-smash-flash"
+}

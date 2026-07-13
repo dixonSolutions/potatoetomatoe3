@@ -1,0 +1,14 @@
+{
+  "id": "addicting-slayone",
+  "name": "Slay.one",
+  "author": "Addicting Games",
+  "description": "<p>A fast-paced, indie, 2D, multiplayer, top-down shooter</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/slay_title.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/slay_title.png",
+  "thumbnailStored": "remote",
+  "category": "arena-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://slay.one/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/slayone"
+}

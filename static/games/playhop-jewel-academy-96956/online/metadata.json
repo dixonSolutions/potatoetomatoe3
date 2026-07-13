@@ -1,0 +1,17 @@
+{
+  "id": "playhop-jewel-academy-96956",
+  "name": "Jewel Academy",
+  "author": "CoolGames",
+  "description": "Play Jewel Academy via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881371/2a0000016b093fe73859aff08415e548bb41/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881371/2a0000016b093fe73859aff08415e548bb41/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96956.games.s3.yandex.net/96956/7nx0f3j2j2x6zmt1t6codi9nciad29cd/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96956&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96956,
+  "playhopPageUrl": "https://playhop.com/app/96956",
+  "playhopRating": 3.8,
+  "playhopRatingCount": 6093
+}

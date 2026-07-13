@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-solitaire-1-2-and-4-suits-96447",
+  "name": "Spider Solitaire (1, 2, and 4 suits)",
+  "author": "razlozhi",
+  "description": "Play Spider Solitaire (1, 2, and 4 suits) via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018f38ce898fb3706ec2997133f7f2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018f38ce898fb3706ec2997133f7f2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-96447.games.s3.yandex.net/96447/sgtfstxzjjvjn1nuh7kl1zinyne8fxka/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=96447&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 96447,
+  "playhopPageUrl": "https://playhop.com/app/96447",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 64738
+}

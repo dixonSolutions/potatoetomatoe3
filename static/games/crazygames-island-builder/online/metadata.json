@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-island-builder",
+  "name": "Island Builder 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Island Builder is a building game that offers both relaxing and fun gameplay that challenges you to strategically place various buildings to get maximum points. Use your logic to achieve objectives to progress through levels successfully.",
+  "thumbnail": "https://imgs.crazygames.com/island-builder_16x9/20240223030734/island-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/island-builder_16x9/20240223030734/island-builder_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/island-builder/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/island-builder",
+  "crazygamesSlug": "island-builder"
+}

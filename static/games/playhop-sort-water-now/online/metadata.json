@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sort-water-now",
+  "name": "Sort Water Now",
+  "author": "Cocos Labs",
+  "description": "Play Sort Water Now via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019835fca6f4b2e53675efe9b2e6e3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000019835fca6f4b2e53675efe9b2e6e3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-455821.games.s3.yandex.net/455821/zx1000rsydp6wg6g0jwr98mmev1pf3d3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=455821&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 455821,
+  "playhopPageUrl": "https://playhop.com/app/455821",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 1984
+}

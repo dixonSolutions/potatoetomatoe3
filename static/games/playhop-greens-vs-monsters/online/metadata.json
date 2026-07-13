@@ -1,0 +1,17 @@
+{
+  "id": "playhop-greens-vs-monsters",
+  "name": "Greens vs. Monsters",
+  "author": "dshappygames",
+  "description": "Play Greens vs. Monsters via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019343a351bf4e552777e192354d04/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a0000019343a351bf4e552777e192354d04/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-379277.games.s3.yandex.net/379277/ygp37bxz55y1tfxl7e5k0wo2vgs5d3sx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=379277&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 379277,
+  "playhopPageUrl": "https://playhop.com/app/379277",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 2873
+}

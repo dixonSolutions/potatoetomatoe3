@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-animail",
+  "name": "Animail - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Animail at Cool Math Games: Race through danger to deliver the mail. Jump over spikes and gaps on your way. Nothing slows this mail-bunny down!",
+  "thumbnail": "/games/coolmath-animail/online/assets/coolmath-animail.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/26817/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-animail",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-animail"
+}

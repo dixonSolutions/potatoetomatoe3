@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-cow-defender",
+  "name": "Cow Defender 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Cow Defender is an awesome 3D third person driving and shooting game with a unique twist. Instead of racing or battling against other players in an arena, you must hop in your vehicle and save your cows from the evil alien invaders!",
+  "thumbnail": "/games/crazygames-cow-defender/online/assets/crazygames-cow-defender.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/cow-defender/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/cow-defender",
+  "crazygamesSlug": "cow-defender"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-words-crossword-puzzle",
+  "name": "Words Crossword Puzzle",
+  "author": "LQGAMES",
+  "description": "Play Words Crossword Puzzle via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018fd903345b978f1be830ac0670d1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a0000018fd903345b978f1be830ac0670d1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-340683.games.s3.yandex.net/340683/fk22mx7xkmh3erde0qkohwyuqi3t8web/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=340683&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 340683,
+  "playhopPageUrl": "https://playhop.com/app/340683",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 29510
+}

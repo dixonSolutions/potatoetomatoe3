@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-aloha-mahjong",
+  "name": "Aloha Mahjong 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Aloha Mahjong is a relaxing puzzle game set in the beautiful landscapes of Hawaii. With 365 levels inspired by the island’s culture, you’ll match tiles featuring traditional symbols and exotic elements.",
+  "thumbnail": "https://imgs.crazygames.com/aloha-mahjong_16x9/20240910083037/aloha-mahjong_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/aloha-mahjong_16x9/20240910083037/aloha-mahjong_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/aloha-mahjong/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/aloha-mahjong",
+  "crazygamesSlug": "aloha-mahjong"
+}

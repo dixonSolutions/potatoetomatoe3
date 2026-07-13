@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-monster-life",
+  "name": "Monster Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Monster Life is an action game where you choose and adopt a monster, and fight in epic battles! Can you beat the big boss?",
+  "thumbnail": "https://imgs.crazygames.com/monster-life/20221206084424/monster-life-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/monster-life/20221206084424/monster-life-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/monster-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/monster-life",
+  "crazygamesSlug": "monster-life"
+}

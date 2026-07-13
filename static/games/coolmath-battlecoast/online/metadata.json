@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-battlecoast",
+  "name": "Battlecoast - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "The enemies have called in reinforcements. Only you can defend the island in Battle Coast. Upgrade your crossbow and sink their ships.",
+  "thumbnail": "/games/coolmath-battlecoast/online/assets/coolmath-battlecoast.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/22831/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-battlecoast",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-battlecoast"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-idle-train-factory",
+  "name": "Farm Around 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Farm Around is a tycoon game where you build and expand your very own tractor farm deep in the countryside! Start with a single cart, collect resources, and process them at your mill to grow your farming empire.",
+  "thumbnail": "https://imgs.crazygames.com/idle-train-factory_16x9/20260305091147/idle-train-factory_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/idle-train-factory_16x9/20260305091147/idle-train-factory_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/idle-train-factory/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/idle-train-factory",
+  "crazygamesSlug": "idle-train-factory"
+}

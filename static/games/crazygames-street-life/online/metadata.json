@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-street-life",
+  "name": "Street Life 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Street Life is a clicker merge game where you rise from the streets to stardom by tapping, merging, and jamming with your musical monkey. Perform soulful tunes, earn riches, and transform your style as you journey from a struggling street performer to a global sensation.",
+  "thumbnail": "https://imgs.crazygames.com/games/street-life/cover_16x9-1744800465274.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/street-life/cover_16x9-1744800465274.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/street-life/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/street-life",
+  "crazygamesSlug": "street-life"
+}

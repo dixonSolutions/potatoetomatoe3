@@ -1,0 +1,14 @@
+{
+  "id": "addicting-lifespan-candle",
+  "name": "Lifespan Candle",
+  "author": "Addicting Games",
+  "description": "<p>Lifespan Candle is a free desktop game. This game is a platformer. This game is a puzzler. This game is a combination platformer-puzzler. You are a candle, and your wick is burning bright. On each level you must get the candle to the goal and burn it down. If you take too long, then your body will melt to nothing. You'll have to navigate melting, running, jumping, and dodging to complete each level. They are all puzzles, and none of them are easy but they're all fun. </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/lifespancandle.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/lifespancandle.jpg",
+  "thumbnailStored": "remote",
+  "category": "action",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/lifespan-candle/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/lifespan-candle"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-math-rocket",
+  "name": "Math Rocket",
+  "author": "Addicting Games",
+  "description": "<p>Math Rocket is a math game combined with a vertical flight game. Fly through space in this cute rocket ship that is trying to get as far away as it can. There are many obstacles in the way like satellites, meteor showers, and other debris in the vast sky. Hit something in outer space and you lose one life. Your objective is to reach as far as you can while also collecting stars along the way. On top of this fun vertical flight game, you get to practice your math skills. In between each gaming session, you will be asked to solve 5 math questions correctly. There are grades available from Preschool to the 8th grade, and different skills available for each grade. There are math skills as simple as addition and subtraction but also topics about geometry and algebra. Study in a way that makes learning fun with this math game!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/mathroketgame.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/mathroketgame.jpg",
+  "thumbnailStored": "remote",
+  "category": "educational-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn.mathgames.com/content/math-rocket/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/math-rocket"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "playhop-connect-pipes-pipeline",
+  "name": "Connect Pipes: Pipeline",
+  "author": "safarov-en",
+  "description": "Play Connect Pipes: Pipeline via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019af79a9a2939e2e6f8a039a80751/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17782796/2a0000019af79a9a2939e2e6f8a039a80751/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-481964.games.s3.yandex.net/481964/qd69yrze6sok7j83qrkpz6b5fgd0k995/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=481964&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 481964,
+  "playhopPageUrl": "https://playhop.com/app/481964",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 116
+}

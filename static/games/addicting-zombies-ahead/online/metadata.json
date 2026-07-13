@@ -1,0 +1,14 @@
+{
+  "id": "addicting-zombies-ahead",
+  "name": "Zombies Ahead",
+  "author": "Addicting Games",
+  "description": "<p>One thing is for certain, the zombies are gonna keep on coming. Lock and load!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/zombiesahead_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/zombiesahead_sp.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/zombiesahead.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/zombie/zombies-ahead"
+}

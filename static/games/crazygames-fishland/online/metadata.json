@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-fishland",
+  "name": "fishland",
+  "author": "CrazyGames",
+  "description": "Play fishland on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fishland/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fishland",
+  "crazygamesSlug": "fishland"
+}

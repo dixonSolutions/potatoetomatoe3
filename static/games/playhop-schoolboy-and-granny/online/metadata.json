@@ -1,0 +1,17 @@
+{
+  "id": "playhop-schoolboy-and-granny",
+  "name": "Schoolboy and Granny",
+  "author": "NeuraRevo",
+  "description": "Play Schoolboy and Granny via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019f46145ed10dcf953f3412261738/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a0000019f46145ed10dcf953f3412261738/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-416480.games.s3.yandex.net/416480/qeqbnkl2z5zzse9mbhjrdobjkeu9tdvf/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=416480&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 416480,
+  "playhopPageUrl": "https://playhop.com/app/416480",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 8217
+}

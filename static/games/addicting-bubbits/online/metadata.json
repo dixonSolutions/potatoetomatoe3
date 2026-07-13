@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bubbits",
+  "name": "Bubbits Demo",
+  "author": "Addicting Games",
+  "description": "\n<p><u><strong><a href=\"https://store.steampowered.com/app/2483270/Bubbits/\">Find Bubbits on Steam now!</a></strong></u></p>\n\n<p> </p>\n\n<p>Pop your way to victory in a colorful next generation Bubble Shooter. Perfect for casual and competitive players alike! Compete in a 25 Player Battle Royale or go solo in the Daily Challenge or the Adventure Mode. Customize your playfield, unleash Power Ups and experience crazy battle events that shake up the game!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bubbits_720x468.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bubbits_720x468.jpg",
+  "thumbnailStored": "remote",
+  "category": "strategy",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://bubbits.io/play",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/strategy/bubbits"
+}

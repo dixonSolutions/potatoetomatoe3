@@ -1,0 +1,17 @@
+{
+  "id": "playhop-battle-of-the-marshmallows-234580",
+  "name": "Battle of the Marshmallows",
+  "author": "klaritydev",
+  "description": "Play Battle of the Marshmallows via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018896be972f7acf2fed179bbaa17f/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/3006389/2a0000018896be972f7acf2fed179bbaa17f/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-234580.games.s3.yandex.net/234580/hujbbi7vwwfg2927ws69qc380pn7518p/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=234580&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 234580,
+  "playhopPageUrl": "https://playhop.com/app/234580",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 2151
+}

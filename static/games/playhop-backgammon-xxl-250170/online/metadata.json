@@ -1,0 +1,17 @@
+{
+  "id": "playhop-backgammon-xxl-250170",
+  "name": "Backgammon XXL",
+  "author": "KSIlogic",
+  "description": "Play Backgammon XXL via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018ab1140ff2fd7a6c4653fa373b61/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/6238841/2a0000018ab1140ff2fd7a6c4653fa373b61/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-250170.games.s3.yandex.net/250170/fjytun22un7xs84skgz74jayp6hmoa31/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=250170&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 250170,
+  "playhopPageUrl": "https://playhop.com/app/250170",
+  "playhopRating": 3.4,
+  "playhopRatingCount": 3657
+}

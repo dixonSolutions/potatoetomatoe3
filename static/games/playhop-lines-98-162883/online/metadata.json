@@ -1,0 +1,17 @@
+{
+  "id": "playhop-lines-98-162883",
+  "name": "Lines 98",
+  "author": "Cozy Games",
+  "description": "Play Lines 98 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018c82586517bbb32c8d0801d96f02/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018c82586517bbb32c8d0801d96f02/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-162883.games.s3.yandex.net/162883/04iqhfc405ma6sop4keu5k0t92yev5dk/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=162883&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 162883,
+  "playhopPageUrl": "https://playhop.com/app/162883",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 12247
+}

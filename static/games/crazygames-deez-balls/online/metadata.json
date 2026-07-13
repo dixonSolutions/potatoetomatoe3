@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-deez-balls",
+  "name": "Deez Balls 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Deez Balls is a chaotic physics-based battle where you fight to knock rival spheres out of the ring. Each victory levels you up, unlocking stronger upgrades as enemies grow smarter and tougher.",
+  "thumbnail": "https://imgs.crazygames.com/deez-balls_16x9/20250822092149/deez-balls_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/deez-balls_16x9/20250822092149/deez-balls_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/deez-balls/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/deez-balls",
+  "crazygamesSlug": "deez-balls"
+}

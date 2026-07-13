@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-christmas-pop",
+  "name": "Christmas Pop - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Christmas Pop at Cool Math Games: The Christmas ornaments are all laid out. How many can you pop before the timer runs out!",
+  "thumbnail": "/games/coolmath-christmas-pop/online/assets/coolmath-christmas-pop.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/25055/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-christmas-pop",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-christmas-pop"
+}

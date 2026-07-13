@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-ghost-dorm",
+  "name": "Ghost Dorm 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Ghost Dorm is a survival horror game set in ancient China. Defend your inn from vengeful spirits, upgrade your defenses, and survive the night.",
+  "thumbnail": "https://imgs.crazygames.com/ghost-dorm_16x9/20260127093932/ghost-dorm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/ghost-dorm_16x9/20260127093932/ghost-dorm_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ghost-dorm/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ghost-dorm",
+  "crazygamesSlug": "ghost-dorm"
+}

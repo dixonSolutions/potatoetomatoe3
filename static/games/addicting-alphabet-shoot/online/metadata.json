@@ -1,0 +1,14 @@
+{
+  "id": "addicting-alphabet-shoot",
+  "name": "Alphabet Shoot",
+  "author": "Addicting Games",
+  "description": "<p>No spelling required! Shoot the letter D to eliminate the D block. Shoot the letter F to eliminate the F block. Sounds easy but gets hard fast!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/alphabetshoot_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/alphabetshoot_sp.png",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/alphabetshoot.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/alphabet-shoot"
+}

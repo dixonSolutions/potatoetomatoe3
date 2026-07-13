@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-blasting-marbles",
+  "name": "Blasting Marbles - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Roll these blasting marbles home. Watch them bounce off the walls and avoid the tricky traps to get them back home safely.",
+  "thumbnail": "/games/coolmath-blasting-marbles/online/assets/coolmath-blasting-marbles.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/50600/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-blasting-marbles",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-blasting-marbles"
+}

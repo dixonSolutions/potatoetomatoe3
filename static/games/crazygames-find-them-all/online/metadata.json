@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-find-them-all",
+  "name": "Find Them All! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Find them all is a puzzle game that sharpens your cognitive skills. Uncover hidden objects and crack puzzles, but beware – appearances can be deceiving!",
+  "thumbnail": "https://imgs.crazygames.com/find-them-all_16x9/20231213140316/find-them-all_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/find-them-all_16x9/20231213140316/find-them-all_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/find-them-all/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/find-them-all",
+  "crazygamesSlug": "find-them-all"
+}

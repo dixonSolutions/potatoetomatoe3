@@ -1,0 +1,17 @@
+{
+  "id": "playhop-paw-patrol-evolution",
+  "name": "Paw Patrol Evolution",
+  "author": "Bricks Play",
+  "description": "Play Paw Patrol Evolution via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a000001910aa1128e764ba82687a92c223e/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a000001910aa1128e764ba82687a92c223e/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-358602.games.s3.yandex.net/358602/jbe32zwote49k8el39wqmg0hl9fwtbw5/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=358602&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 358602,
+  "playhopPageUrl": "https://playhop.com/app/358602",
+  "playhopRating": 4.6,
+  "playhopRatingCount": 201
+}

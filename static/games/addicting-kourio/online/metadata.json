@@ -1,0 +1,14 @@
+{
+  "id": "addicting-kourio",
+  "name": "Kour.io",
+  "author": "Addicting Games",
+  "description": "<p>Guns go bang! Play from 12 different classes, 6 maps to play across, and more than 6 modes to play! </p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/KourThumbnailXZ.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/KourThumbnailXZ.png",
+  "thumbnailStored": "remote",
+  "category": "shooting",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://kour.io/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/kourio"
+}

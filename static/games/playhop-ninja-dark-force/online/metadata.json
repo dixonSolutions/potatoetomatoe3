@@ -1,0 +1,17 @@
+{
+  "id": "playhop-ninja-dark-force",
+  "name": "Ninja: Dark Force",
+  "author": "GMD",
+  "description": "Play Ninja: Dark Force via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/12797757/2a00000191391f3febb4c588f55f18cdf7e5/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/12797757/2a00000191391f3febb4c588f55f18cdf7e5/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-363293.games.s3.yandex.net/363293/i41v73jomnlvauokopeoc5an4nt7e29x/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=363293&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 363293,
+  "playhopPageUrl": "https://playhop.com/app/363293",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 7550
+}

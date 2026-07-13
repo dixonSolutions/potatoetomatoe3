@@ -1,0 +1,14 @@
+{
+  "id": "addicting-the-impossible-quiz",
+  "name": "The Impossible Quiz",
+  "author": "Addicting Games",
+  "description": "<p>The Impossible Quiz is a classic brain teaser that will confuse you until your head hurts. This is the same puzzle game you may remember from your childhood. It’s still around and still as perplexing as ever. This is an online game that is full of twists and jokes that will get you frustrated but also make you laugh. Try to solve the entire quiz as quickly as you can. Can you solve it in a day? You can do it on your own or invite your friends to help you solve this crazy brain teaser.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/TheImpossibleQuiz.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/TheImpossibleQuiz.png",
+  "thumbnailStored": "remote",
+  "category": "puzzle",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/theimpossiblequiz/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/the-impossible-quiz"
+}

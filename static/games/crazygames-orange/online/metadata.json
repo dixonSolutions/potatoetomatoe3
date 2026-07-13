@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-orange",
+  "name": "orange 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Orange is a captivating puzzle game that challenges you to bring vibrant orange hues to every level. With 25 unique and thought-provoking puzzles, can you uncover the logic and master each stage to fill the screen with the mesmerizing color of orange?",
+  "thumbnail": "https://imgs.crazygames.com/orange/20230706173926/orange-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/orange/20230706173926/orange-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/orange/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/orange",
+  "crazygamesSlug": "orange"
+}

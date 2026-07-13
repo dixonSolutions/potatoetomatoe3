@@ -1,0 +1,17 @@
+{
+  "id": "playhop-plants-vs-zombies-for-two",
+  "name": "Plants vs Zombies: for two",
+  "author": "JqStudio",
+  "description": "Play Plants vs Zombies: for two via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a00000197a6750d62d247e094b8863d9dd4/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a00000197a6750d62d247e094b8863d9dd4/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-436117.games.s3.yandex.net/436117/7vngwmqw3vu94si8d95nhrrqj78dg8ii/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=436117&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 436117,
+  "playhopPageUrl": "https://playhop.com/app/436117",
+  "playhopRating": 4,
+  "playhopRatingCount": 116
+}

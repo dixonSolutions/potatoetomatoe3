@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bounce",
+  "name": "Play Bounce: Spring to the goal | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Make your own path and bounce to the goal. Avoid the walls around you as you hop along the platforms. Can you beat all 12 levels of this game?",
+  "thumbnail": "/games/coolmath-bounce/online/assets/coolmath-bounce.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49527/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bounce",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bounce"
+}

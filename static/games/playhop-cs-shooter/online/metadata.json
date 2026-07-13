@@ -1,0 +1,17 @@
+{
+  "id": "playhop-cs-shooter",
+  "name": "CS: Shooter",
+  "author": "MIKMOK",
+  "description": "Play CS: Shooter via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c95c0c2d69f9179da8554e05049/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/17955142/2a0000019c95c0c2d69f9179da8554e05049/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-429607.games.s3.yandex.net/429607/alvfenemqo55thojwjump3mcvq6oym5f/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=429607&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 429607,
+  "playhopPageUrl": "https://playhop.com/app/429607",
+  "playhopRating": 4.7,
+  "playhopRatingCount": 59582
+}

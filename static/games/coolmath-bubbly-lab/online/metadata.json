@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bubbly-lab",
+  "name": "Bubbly Lab - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Suck up the bubbles in this bubbly lab. These cuddly, fuzzy creatures need to be put back in their place. Try to grab the experimental vials.",
+  "thumbnail": "/games/coolmath-bubbly-lab/online/assets/coolmath-bubbly-lab.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51081/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bubbly-lab",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bubbly-lab"
+}

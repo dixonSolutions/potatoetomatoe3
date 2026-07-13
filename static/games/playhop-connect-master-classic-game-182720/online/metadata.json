@@ -1,0 +1,17 @@
+{
+  "id": "playhop-connect-master-classic-game-182720",
+  "name": "Connect Master - Classic Game",
+  "author": "AGED STUDIO LIMITED",
+  "description": "Play Connect Master - Classic Game via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a00000187adbe9b8aef7bdfbafc5429941d/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a00000187adbe9b8aef7bdfbafc5429941d/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-182720.games.s3.yandex.net/182720/95r7xhq19l65srk1hguoz0m6xgew3iqx/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=182720&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 182720,
+  "playhopPageUrl": "https://playhop.com/app/182720",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 431
+}

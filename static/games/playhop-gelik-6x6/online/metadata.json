@@ -1,0 +1,17 @@
+{
+  "id": "playhop-gelik-6x6",
+  "name": "Gelik 6x6",
+  "author": "MezzleN Dev",
+  "description": "Play Gelik 6x6 via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000190d04b32a5048ba152a6f65a39e8/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000190d04b32a5048ba152a6f65a39e8/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-358994.games.s3.yandex.net/358994/s9dsg64j6dwgsqnlu9u67wuj1o7o3x64/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=358994&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 358994,
+  "playhopPageUrl": "https://playhop.com/app/358994",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 6444
+}

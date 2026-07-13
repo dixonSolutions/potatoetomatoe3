@@ -1,0 +1,17 @@
+{
+  "id": "playhop-basketball-star-191108",
+  "name": "Basketball Star",
+  "author": "Ohayo",
+  "description": "Play Basketball Star via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018171ae2fd65b10a6c5a640e415b3/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000018171ae2fd65b10a6c5a640e415b3/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-191108.games.s3.yandex.net/191108/20n72zqdvwkkui827mqps8t5z5oe24k3/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=191108&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 191108,
+  "playhopPageUrl": "https://playhop.com/app/191108",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 1351
+}

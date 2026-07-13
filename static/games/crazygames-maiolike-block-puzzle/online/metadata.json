@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-maiolike-block-puzzle",
+  "name": "Maiolike Block Puzzle 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Maiolike Block Puzzle is a vibrant puzzle game that challenges your logic and precision. Connect matching blocks, align colors, and reach target scores while managing limited moves.",
+  "thumbnail": "https://imgs.crazygames.com/maiolike-block-puzzle_16x9/20251022030932/maiolike-block-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/maiolike-block-puzzle_16x9/20251022030932/maiolike-block-puzzle_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/maiolike-block-puzzle/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/maiolike-block-puzzle",
+  "crazygamesSlug": "maiolike-block-puzzle"
+}

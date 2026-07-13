@@ -1,0 +1,17 @@
+{
+  "id": "playhop-kick-lucky-blocks-online-528954",
+  "name": "Kick Lucky Blocks Online",
+  "author": "Cursora Labs",
+  "description": "Play Kick Lucky Blocks Online via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e1769ce508e5f44423616404942/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e1769ce508e5f44423616404942/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-528954.games.s3.yandex.net/528954/q41tpqbo9xy686x0bhbrlsexe4eqhfh7/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=528954&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 528954,
+  "playhopPageUrl": "https://playhop.com/app/528954",
+  "playhopRating": 4.5,
+  "playhopRatingCount": 306
+}

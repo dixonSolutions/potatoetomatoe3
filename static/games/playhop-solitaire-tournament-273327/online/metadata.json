@@ -1,0 +1,17 @@
+{
+  "id": "playhop-solitaire-tournament-273327",
+  "name": "Solitaire Tournament",
+  "author": "Fantasy Games",
+  "description": "Play Solitaire Tournament via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018bf5e778deb6728c03ef60ad3296/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/11374519/2a0000018bf5e778deb6728c03ef60ad3296/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-273327.games.s3.yandex.net/273327/a5h7kt5i1v8ugkw3tx1b5mfko76x9fva/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=273327&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 273327,
+  "playhopPageUrl": "https://playhop.com/app/273327",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 91
+}

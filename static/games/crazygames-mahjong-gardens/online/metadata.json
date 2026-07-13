@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-mahjong-gardens",
+  "name": "Mahjong Gardens 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Mahjong Gardens is a puzzle game that lets you play mahjong in its solitaire variation. You are clearing tiles from the board by pairing identical tiles with each other.",
+  "thumbnail": "https://imgs.crazygames.com/games/mahjong-gardens/cover-1627759110762.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/mahjong-gardens/cover-1627759110762.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/mahjong-gardens/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/mahjong-gardens",
+  "crazygamesSlug": "mahjong-gardens"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-random-wars",
+  "name": "random wars",
+  "author": "CrazyGames",
+  "description": "Play random wars on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/random-wars/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/random-wars",
+  "crazygamesSlug": "random-wars"
+}

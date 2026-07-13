@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-101674",
+  "name": "Spider",
+  "author": "Lazy games",
+  "description": "Play Spider via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000173286097822a8c7a14955a526777/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000173286097822a8c7a14955a526777/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-101674.games.s3.yandex.net/101674/as1d1h4awwfumhuj4pl3zfari9alukog/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=101674&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 101674,
+  "playhopPageUrl": "https://playhop.com/app/101674",
+  "playhopRating": 3.2,
+  "playhopRatingCount": 595
+}

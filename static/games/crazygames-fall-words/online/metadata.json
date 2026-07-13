@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-fall-words",
+  "name": "Fall Words 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Fall Words is a puzzle game that challenges you to collect stars by strategically dropping letters. Each level presents unique mechanics like bridges, dominoes, and more, adding depth to the gameplay.",
+  "thumbnail": "https://imgs.crazygames.com/fall-words_16x9/20240311041648/fall-words_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/fall-words_16x9/20240311041648/fall-words_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fall-words/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fall-words",
+  "crazygamesSlug": "fall-words"
+}

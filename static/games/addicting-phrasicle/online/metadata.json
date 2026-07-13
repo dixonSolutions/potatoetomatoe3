@@ -1,0 +1,14 @@
+{
+  "id": "addicting-phrasicle",
+  "name": "Phrasicle",
+  "author": "Addicting Games",
+  "description": "<p> Phrasicle is a daily word-chain puzzle game where you link connected words to form two-word phrases or compound words. Each row leads to a final mystery phrase — the “Phrasicle” — that you must solve at the end!</p>\n\n<p>🎯 Objective</p>\n\n<p>Fill in each row by finding five words that form a sequence of natural two-word phrases or compound words. Once all rows are complete, use the words you've found to solve the final Phrasicle clue.</p>\n\n<p>🧩 How It Works</p>\n\n<p>* -The first and last words in each row are already filled in.<br />\n* -The first letter of the next word in the chain is provided. Use clues if needed to reveal more letters.<br />\n* -Enter words into the blank spaces to form natural two-word phrases or compound words to complete the word chains. These can be phrases like chill out (“chill” + “out”) or board game (“board” + “game”) as well as compound words like sunflower (“sun” + “flower”) or paperclip (“paper” + “clip”) as seen in the example grid below.<br />\n* -You can use up to 10 clues total to reveal any 10 letters. Your tier depends on the number of clues you use so use them sparingly! If you use 0-3 clues = 🥇 Gold, 4-6 clues = 🥈 Silver, 7-10 clues = 🥉 Bronze<br />\n* If you reveal the grid you are automatically in the 🥉 bronze tier so don't give up!<br />\n* -The Phrasicle will be a common saying or turn of phrase. To solve the Phrasicle, use the words you've revealed in the grid to fill the blanks in the Phrasicle clue. For example, if your clue is \"__ __ at a __\" and you've revealed the words One, Step and Time in your grid, the Phrasicle could be \"One Step at a Time\". Submit the entire phrase in the text box to solve the Phrasicle and earn your stars!</p>\n\n<p>🔍 Example Solved Grid:</p>\n\n<p></p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Addicting%20games%20thumbnail%20%281%29%20%281%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Addicting%20games%20thumbnail%20%281%29%20%281%29.png",
+  "thumbnailStored": "remote",
+  "category": "daily-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://phrasicle.com/embed",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/phrasicle"
+}

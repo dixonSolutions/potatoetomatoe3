@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-save-my-pets",
+  "name": "Save My Pets 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Save My Pets is a casual puzzle game for people looking for something addictive, fun, and challenging with simple gameplay! Simply draw lines to create walls that protect the dog from attacks by angry bees.",
+  "thumbnail": "https://imgs.crazygames.com/save-my-pets/20221209110824/save-my-pets-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/save-my-pets/20221209110824/save-my-pets-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/save-my-pets/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/save-my-pets",
+  "crazygamesSlug": "save-my-pets"
+}

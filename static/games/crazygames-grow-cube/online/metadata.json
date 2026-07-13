@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-grow-cube",
+  "name": "grow cube",
+  "author": "CrazyGames",
+  "description": "Play grow cube on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-grow-cube/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/grow-cube/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/grow-cube",
+  "crazygamesSlug": "grow-cube"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-word-search",
+  "name": "Word Search 🔍 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Word Search is a digital puzzle game, a version of the classic newspaper word puzzle where you find words up, down, forward, backward, and on the diagonal. If you liked newspaper puzzles, then you will love this simple but classic game.",
+  "thumbnail": "https://imgs.crazygames.com/games/word-search/cover-1622567474554.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/word-search/cover-1622567474554.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/word-search/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/word-search",
+  "crazygamesSlug": "word-search"
+}

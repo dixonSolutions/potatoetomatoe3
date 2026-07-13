@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-candle-guy",
+  "name": "Candle Guy - Play online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Don&#039;t let the flame of Candle Guy burn out. Light your way to the door and make sure you don&#039;t get stuck in your own wax.",
+  "thumbnail": "/games/coolmath-candle-guy/online/assets/coolmath-candle-guy.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/42987/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-candle-guy",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-candle-guy"
+}

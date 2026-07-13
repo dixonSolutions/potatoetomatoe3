@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-ducklife",
+  "name": "Duck Life 🦆 Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Duck Life is the first game in the Duck Life series. A tornado has struck your farm and destroyed everything.",
+  "thumbnail": "/games/crazygames-ducklife/online/assets/crazygames-ducklife.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/ducklife/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/ducklife",
+  "crazygamesSlug": "ducklife"
+}

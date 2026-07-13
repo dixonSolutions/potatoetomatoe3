@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-battle-arena",
+  "name": "Battle Arena 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battle Arena is a thrilling RPG adventure battle game that seamlessly blends heart-pounding action with strategic gameplay. Create your team from over 50 unique heroes, each inspired by iconic characters you know and love.",
+  "thumbnail": "https://imgs.crazygames.com/battle-arena_16x9/20260227022607/battle-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/battle-arena_16x9/20260227022607/battle-arena_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battle-arena/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battle-arena",
+  "crazygamesSlug": "battle-arena"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-buscity",
+  "name": "BusCity - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Build the path in BusCity and make sure the bus doesn&#039;t go off the road or worse, into the ocean. Move that bus to the goal as efficiently as possible.",
+  "thumbnail": "/games/coolmath-buscity/online/assets/coolmath-buscity.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51013/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-buscity",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-buscity"
+}

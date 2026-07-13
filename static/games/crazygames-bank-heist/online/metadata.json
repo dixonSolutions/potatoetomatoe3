@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-bank-heist",
+  "name": "Bank Heist 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Bank Heist is an action-packed game filled with thrilling adventures where you rob banks, stores, and more! Strategize, fight, and escape with the loot in this high-stakes crime escapade.",
+  "thumbnail": "https://imgs.crazygames.com/bank-heist_16x9/20251020045834/bank-heist_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/bank-heist_16x9/20251020045834/bank-heist_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/bank-heist/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/bank-heist",
+  "crazygamesSlug": "bank-heist"
+}

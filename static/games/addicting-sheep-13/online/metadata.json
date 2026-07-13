@@ -1,0 +1,14 @@
+{
+  "id": "addicting-sheep-13",
+  "name": "Sheep 13",
+  "author": "Addicting Games",
+  "description": "<p>Sheep 13 is a free IOgame.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/sheep13gamescreen.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/sheep13gamescreen.png",
+  "thumbnailStored": "remote",
+  "category": "mystery-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://www.modd.io/play/sheep13/",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/io/sheep-13"
+}

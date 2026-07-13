@@ -1,0 +1,14 @@
+{
+  "id": "addicting-pastry-racer",
+  "name": "Pastry Racer",
+  "author": "Addicting Games",
+  "description": "<p>Ready to hit the road? Pick a car and pilot your Pop-Tarts(r) toaster pastry to victory! Avoid hazards and grab food for speed!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Pastry-Racer.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Pastry-Racer.jpg",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/pastryracer_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/action/pastry-racer"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-swing-monkey",
+  "name": "Swing Monkey 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Swing Monkey is a one-button monkey swinging game to reach the finish line successfully. This game is inspired by Stickman Hook.",
+  "thumbnail": "https://imgs.crazygames.com/games/swing-monkey/cover-1601370916112.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/swing-monkey/cover-1601370916112.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/swing-monkey/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/swing-monkey",
+  "crazygamesSlug": "swing-monkey"
+}

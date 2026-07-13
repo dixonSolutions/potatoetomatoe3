@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-twirl-pja",
+  "name": "Twirl 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Twirl is a puzzle game where you need to fulfill your goals by placing blocks on the board until they get full horizontally or vertically to make the blocks disappear. The more you show your skills, the more stars you get for completing the level.",
+  "thumbnail": "https://imgs.crazygames.com/twirl-pja/20221130164015/twirl-pja-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/twirl-pja/20221130164015/twirl-pja-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/twirl-pja/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/twirl-pja",
+  "crazygamesSlug": "twirl-pja"
+}

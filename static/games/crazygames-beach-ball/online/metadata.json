@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-beach-ball",
+  "name": "Beach Ball 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Beach Ball is a casual sports game where you play volleyball on the beach. To win the match, score 3 times in this 1v1 foot volleyball game.",
+  "thumbnail": "https://imgs.crazygames.com/beach-ball/20230415080828/beach-ball-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/beach-ball/20230415080828/beach-ball-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/beach-ball/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/beach-ball",
+  "crazygamesSlug": "beach-ball"
+}

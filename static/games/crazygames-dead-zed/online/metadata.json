@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-dead-zed",
+  "name": "Dead Zed 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Dead Zed is a zombie survival game where you must shoot down zombies and manage your group of survivors. Have you got what it takes to survive?",
+  "thumbnail": "/games/crazygames-dead-zed/online/assets/crazygames-dead-zed.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/dead-zed/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/dead-zed",
+  "crazygamesSlug": "dead-zed"
+}

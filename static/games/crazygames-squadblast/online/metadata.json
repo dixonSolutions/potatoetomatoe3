@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-squadblast",
+  "name": "SquadBlast 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "SquadBlast is an action multiplayer game, a run-and-gun shooter set in the dystopian world set in 2042. With deep class-based combat, each hero brings unique abilities to the battlefield, requiring strategic mastery for victory.",
+  "thumbnail": "https://imgs.crazygames.com/games/squadblast/cover_16x9-1724031463879.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/squadblast/cover_16x9-1724031463879.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/squadblast/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/squadblast",
+  "crazygamesSlug": "squadblast"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-level-eaten",
+  "name": "Level EATEN! 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Level Eaten is an intriguing game where you explore by walking into and consuming blocks that match your size. Navigate through levels, strategically devouring blocks to progress.",
+  "thumbnail": "https://imgs.crazygames.com/games/level-eaten/cover_16x9-1715675115430.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/level-eaten/cover_16x9-1715675115430.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/level-eaten/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/level-eaten",
+  "crazygamesSlug": "level-eaten"
+}

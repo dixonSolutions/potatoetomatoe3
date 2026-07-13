@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-swords-souls",
+  "name": "Swords & Souls 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Swords &amp; Souls is an action game where you&#39;ll embark on a journey of heroism. Customize your hero&#39;s appearance and name before training them for battle.",
+  "thumbnail": "/games/crazygames-swords-souls/online/assets/crazygames-swords-souls.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/swords-souls/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/swords-souls",
+  "crazygamesSlug": "swords-souls"
+}

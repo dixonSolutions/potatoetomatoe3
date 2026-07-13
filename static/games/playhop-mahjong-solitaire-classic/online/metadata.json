@@ -1,0 +1,17 @@
+{
+  "id": "playhop-mahjong-solitaire-classic",
+  "name": "Mahjong Solitaire Classic",
+  "author": "NSTgame",
+  "description": "Play Mahjong Solitaire Classic via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/13012056/2a00000195901e0459d47b2ca39a27325ee1/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/13012056/2a00000195901e0459d47b2ca39a27325ee1/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-419145.games.s3.yandex.net/419145/vk1u7h3um9ooc1sp2z2fxh0sfe4sag1g/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=419145&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 419145,
+  "playhopPageUrl": "https://playhop.com/app/419145",
+  "playhopRating": 4.3,
+  "playhopRatingCount": 159
+}

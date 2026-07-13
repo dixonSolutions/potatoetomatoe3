@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-clicker-heroes",
+  "name": "Clicker Heroes - Play it now at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Click to defeat monsters, earn gold, and level up heroes in Clicker Heroes. See how far you can go in this action-packed game.",
+  "thumbnail": "/games/coolmath-clicker-heroes/online/assets/coolmath-clicker-heroes.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/49858/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-clicker-heroes",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-clicker-heroes"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-ice-bucket",
+  "name": "Ice Bucket",
+  "author": "Addicting Games",
+  "description": "<p>Its back with new content! Position and angle are key to achieving maximum splatter.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/ice-bucket_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/ice-bucket_sp.png",
+  "thumbnailStored": "remote",
+  "category": "celebrity-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/ice-bucket.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/funny/ice-bucket"
+}

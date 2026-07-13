@@ -1,0 +1,14 @@
+{
+  "id": "addicting-coinsweeper-demo",
+  "name": "Coinsweeper Demo",
+  "author": "Addicting Games",
+  "description": "\n<p><u><strong><a href=\"https://store.steampowered.com/app/4321130/Coinsweeper/\">Find Coinsweeper on Steam now!</a></strong></u></p>\n\n<p> </p>\n\n<p><strong>Coinsweeper - Minesweeper meets Roguelike</strong></p>\n\n<p>Turn Minesweeper into a high-stakes treasure hunt! Reveal tiles to <br />\ncollect coins, upgrade your abilities between runs, and compete for the highest <br />\nscore. Will you play it safe or risk it all?</p>\n\n<p><strong>Features:</strong><br />\n✓ Risk/reward gameplay - cash out anytime or push your luck<br />\n✓ Meta-progression with permanent upgrades<br />\n✓ Relaxing yet strategic gameplay</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Thumbnail%20%2810%29.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Thumbnail%20%2810%29.png",
+  "thumbnailStored": "remote",
+  "category": "demo",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/coinsweeper-demo/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/coinsweeper-demo"
+}

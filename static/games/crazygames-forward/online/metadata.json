@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-forward",
+  "name": "Forward 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Forward is a card-based adventure game to slay as many monsters as you can. Release Date March 2019 Developer Christophe Coyard developed Forward.",
+  "thumbnail": "https://imgs.crazygames.com/games/forward/thumb-1588785379955.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/forward/thumb-1588785379955.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/forward/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/forward",
+  "crazygamesSlug": "forward"
+}

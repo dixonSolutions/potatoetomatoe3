@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-solitaire-176323",
+  "name": "Spider Solitaire",
+  "author": "AGED STUDIO LIMITED",
+  "description": "Play Spider Solitaire via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017cc5167467cb17ab7cca31cf5b38/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/2977039/2a0000017cc5167467cb17ab7cca31cf5b38/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-176323.games.s3.yandex.net/176323/h4xe99rp1j0ssa8ysu5d4dy0jxcax0ke/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=176323&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 176323,
+  "playhopPageUrl": "https://playhop.com/app/176323",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 3876
+}

@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-zombiecraftio",
+  "name": "zombiecraftio",
+  "author": "CrazyGames",
+  "description": "Play zombiecraftio on Potato Tomato (via crazygames).",
+  "thumbnail": "/games/crazygames-zombiecraftio/online/assets/.gitkeep",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/zombiecraftio/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/zombiecraftio",
+  "crazygamesSlug": "zombiecraftio"
+}

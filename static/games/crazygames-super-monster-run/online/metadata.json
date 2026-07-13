@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-super-monster-run",
+  "name": "Super Monster Run 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Super Monster Run is a fun casual game where you catch monsters and level them up for battle at the end of each round. Complete the track, collect money, and capture as many monsters as possible before the end.",
+  "thumbnail": "https://imgs.crazygames.com/super-monster-run/20221005182319/super-monster-run-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/super-monster-run/20221005182319/super-monster-run-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/super-monster-run/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/super-monster-run",
+  "crazygamesSlug": "super-monster-run"
+}

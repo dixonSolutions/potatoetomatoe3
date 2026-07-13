@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-kick-loser",
+  "name": "Kick Loser 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Kick Loser is a creative ragdoll puzzle game where your goal is simple: cause maximum chaos to the stickman hero using clever strategy and a mix of wild objects. Drag, aim, and launch with precision as you bounce him through hilarious, unpredictable impacts.",
+  "thumbnail": "https://imgs.crazygames.com/kick-loser_16x9/20250829065937/kick-loser_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/kick-loser_16x9/20250829065937/kick-loser_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/kick-loser/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/kick-loser",
+  "crazygamesSlug": "kick-loser"
+}

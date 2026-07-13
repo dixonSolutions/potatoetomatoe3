@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-bloo",
+  "name": "Play Bloo Online: Draw your path | Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Draw your way to the flag using your magic pen. Whether you need a boulder, ramp or catapult, if you can draw it you can use it!",
+  "thumbnail": "/games/coolmath-bloo/online/assets/coolmath-bloo.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/36871/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-bloo",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-bloo"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pong-runga",
+  "name": "Pong-Runga 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pong-Runga is a fast-paced arcade action game where you control a mobile turret and destroy descending waves of blocks before they reach the bottom of the screen.Every run offers powerful upgrades that dramatically change your playstyle, from explosive projectiles and chain reactions to chaotic multi-shot builds.",
+  "thumbnail": "https://imgs.crazygames.com/pong-runga_16x9/20260703050814/pong-runga_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pong-runga_16x9/20260703050814/pong-runga_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pong-runga/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pong-runga",
+  "crazygamesSlug": "pong-runga"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-rope-rescue",
+  "name": "Rope Rescue 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Rope Rescue is a puzzle game with simple controls but a challenging twist. Strategize to save everyone using ropes while dodging tricky traps and obstacles.",
+  "thumbnail": "https://imgs.crazygames.com/rope-rescue_16x9/20250303044818/rope-rescue_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/rope-rescue_16x9/20250303044818/rope-rescue_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/rope-rescue/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/rope-rescue",
+  "crazygamesSlug": "rope-rescue"
+}

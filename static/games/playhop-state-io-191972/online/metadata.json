@@ -1,0 +1,17 @@
+{
+  "id": "playhop-state-io-191972",
+  "name": "State.io",
+  "author": "AzurGames",
+  "description": "Play State.io via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1892995/2a00000181f612194d83cd125e963632b1e6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1892995/2a00000181f612194d83cd125e963632b1e6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-191972.games.s3.yandex.net/191972/7oo5b5sa97uxzzwsovif1dsu76rmfj2d/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=191972&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 191972,
+  "playhopPageUrl": "https://playhop.com/app/191972",
+  "playhopRating": 4.2,
+  "playhopRatingCount": 27137
+}

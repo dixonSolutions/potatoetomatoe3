@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-block-climber",
+  "name": "Block Climber 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Block Climber is a platformer where your trusty pickaxe helps you to conquer challenging blocky landscapes. Navigate tricky obstacles like collapsing platforms and scorching lava as you make your way to the top.",
+  "thumbnail": "https://imgs.crazygames.com/block-climber_16x9/20241003080446/block-climber_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/block-climber_16x9/20241003080446/block-climber_16x9-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/block-climber/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/block-climber",
+  "crazygamesSlug": "block-climber"
+}

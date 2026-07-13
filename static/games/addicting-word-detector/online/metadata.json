@@ -1,0 +1,14 @@
+{
+  "id": "addicting-word-detector",
+  "name": "Word Detector",
+  "author": "Addicting Games",
+  "description": "<p>Word Detector is a free word search game. So, you think you can spell? Well, we dare you to try and prove it. Some word games are a stodgy affair rife with trivia and pedantic rules about grammar. Word Detector is a speed game where you are given a series of letters and scored on your ability to connect each letter to the other letters and form as many words as you possibly can in as short an amount of time as you possibly can. The game will start off easy with a common letter which can be arranged into a variety of irregularly used words but as the time ticks away you're going to be forced to really scratch your noggin as you try and make 3 words out of Y,A,C, and L. Try it. It's a lot harder than you think and it is also a lot more satisfying when you actually pull it off. Word Detector is a fabulous ride through the crazy world of spelling, grammar, words, and all the magic that comes from them.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/word-detector-0.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/word-detector-0.jpg",
+  "thumbnailStored": "remote",
+  "category": "word-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/word-detector/index.html",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/puzzle/word-detector"
+}

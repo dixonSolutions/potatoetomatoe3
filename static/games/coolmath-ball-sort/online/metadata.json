@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-ball-sort",
+  "name": "Ball Sort - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "Sort and solve with all the colorful balls in Ball Sort. Pick up a ball and put it in the vial containing balls of matching color. Plan each move carefully.",
+  "thumbnail": "/games/coolmath-ball-sort/online/assets/coolmath-ball-sort.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/51679/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-ball-sort",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-ball-sort"
+}

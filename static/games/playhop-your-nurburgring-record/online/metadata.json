@@ -1,0 +1,17 @@
+{
+  "id": "playhop-your-nurburgring-record",
+  "name": "Your Nurburgring record",
+  "author": "MishkaCompany",
+  "description": "Play Your Nurburgring record via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881957/2a00000193d8926d7559d1c147f16c46e413/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881957/2a00000193d8926d7559d1c147f16c46e413/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-335152.games.s3.yandex.net/335152/clhn6jp8rbb4cr6fjbuzr5y0a0ll9pms/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=335152&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 335152,
+  "playhopPageUrl": "https://playhop.com/app/335152",
+  "playhopRating": 3.6,
+  "playhopRatingCount": 393
+}

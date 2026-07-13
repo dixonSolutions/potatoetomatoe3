@@ -1,0 +1,13 @@
+{
+  "id": "coolmath-4x4-chess",
+  "name": "4x4 Chess - Play it Online at Coolmath Games",
+  "author": "Coolmath Games",
+  "description": "All of the Chess action with only one fourth of the area! 4x4 Chess is a test of strategy and pace as you try and take out every single piece.",
+  "thumbnail": "/games/coolmath-4x4-chess/online/assets/coolmath-4x4-chess.png",
+  "category": "arcade",
+  "sourcePortal": "coolmath",
+  "onlineEmbedUrl": "https://www.coolmathgames.com/sites/default/files/public_games/53738/",
+  "pullStrategy": "generic",
+  "coolmathPath": "/0-4x4-chess",
+  "coolmathPageUrl": "https://www.coolmathgames.com/0-4x4-chess"
+}

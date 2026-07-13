@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-pizza-challenge",
+  "name": "Pizza Challenge 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Pizza Challenge is a cool two-player game in which you must compete against a friend to try and grab all of the pizza slices as quickly as possible. If you love pizza, then this is the game for you!",
+  "thumbnail": "https://imgs.crazygames.com/pizza-challenge/20230131111322/pizza-challenge-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/pizza-challenge/20230131111322/pizza-challenge-cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/pizza-challenge/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/pizza-challenge",
+  "crazygamesSlug": "pizza-challenge"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-bloody-day",
+  "name": "Bloody Day",
+  "author": "Addicting Games",
+  "description": "<p>Bloody Day is a free sniper game. Back alley butchering has never been so much fun. It's like having your own barrel with moderately slow moving fish. How many kills can you rack up?</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/bloodyday.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/bloodyday.jpg",
+  "thumbnailStored": "remote",
+  "category": "bloody-games",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/bloodyday_0.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/bloody-day"
+}

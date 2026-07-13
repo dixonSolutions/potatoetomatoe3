@@ -1,0 +1,17 @@
+{
+  "id": "playhop-spider-solitaire-for-seniors",
+  "name": "Spider Solitaire for Seniors",
+  "author": "VesnaGames",
+  "description": "Play Spider Solitaire for Seniors via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/10152950/2a00000199336cc7e0255236c392e8316265/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/10152950/2a00000199336cc7e0255236c392e8316265/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-456719.games.s3.yandex.net/456719/lbj1k0jgfaspahz6wymi8h5bl6ll0564/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=456719&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 456719,
+  "playhopPageUrl": "https://playhop.com/app/456719",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 666
+}

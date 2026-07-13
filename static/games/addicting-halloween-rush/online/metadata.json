@@ -1,0 +1,14 @@
+{
+  "id": "addicting-halloween-rush",
+  "name": "Halloween Rush",
+  "author": "Addicting Games",
+  "description": "<p>Two minutes. An infinite number of seemingly evil jack-o-lanterns. Unlimited ammo. Do your worst.</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/halloween-rush_sp.png",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/halloween-rush_sp.png",
+  "thumbnailStored": "remote",
+  "category": "seasonal",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/halloween-rush.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/halloween-rush"
+}

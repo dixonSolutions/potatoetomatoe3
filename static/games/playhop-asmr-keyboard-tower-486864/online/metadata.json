@@ -1,0 +1,17 @@
+{
+  "id": "playhop-asmr-keyboard-tower-486864",
+  "name": "ASMR Keyboard Tower",
+  "author": "CRX Games",
+  "description": "Play ASMR Keyboard Tower via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e918af03b26112f998c693a3db6/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/14244614/2a0000019e918af03b26112f998c693a3db6/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-486864.games.s3.yandex.net/486864/gfow3xm5m1ewmr0zq9w4el05ek5bxda0/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=486864&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 486864,
+  "playhopPageUrl": "https://playhop.com/app/486864",
+  "playhopRating": 4.1,
+  "playhopRatingCount": 29
+}

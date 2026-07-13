@@ -1,0 +1,15 @@
+{
+  "id": "crazygames-vector-td",
+  "name": "Vector TD 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Vector TD is a vector-themed tower defense game. Place your towers strategically and eliminate the incoming enemies.",
+  "thumbnail": "https://imgs.crazygames.com/games/vector-td/thumb-1567165108744.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailRemote": "https://imgs.crazygames.com/games/vector-td/thumb-1567165108744.png?metadata=none&amp;quality=100&amp;width=1200&amp;height=630&amp;fit=crop",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/vector-td/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/vector-td",
+  "crazygamesSlug": "vector-td"
+}

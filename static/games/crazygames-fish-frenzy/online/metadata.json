@@ -1,0 +1,14 @@
+{
+  "id": "crazygames-fish-frenzy",
+  "name": "fish frenzy",
+  "author": "CrazyGames",
+  "description": "Play fish frenzy on Potato Tomato (via crazygames).",
+  "thumbnail": "",
+  "thumbnailStored": "none",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/fish-frenzy/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/fish-frenzy",
+  "crazygamesSlug": "fish-frenzy"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "addicting-squirrel-hunt",
+  "name": "Squirrel Hunt",
+  "author": "Addicting Games",
+  "description": "<p>To some folk, squirrels are pets. Remove the pests from the premises, please!</p>\n",
+  "thumbnail": "https://prod.addictinggames.com/sites/default/files/Squirrel-Hunt.jpg",
+  "thumbnailRemote": "https://prod.addictinggames.com/sites/default/files/Squirrel-Hunt.jpg",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "addictinggames",
+  "onlineEmbedUrl": "https://prod.addictinggames.com/sites/default/files/flash_games/squirrelhunt.swf",
+  "pullStrategy": "generic",
+  "addictingPageUrl": "https://www.addictinggames.com/shooting/squirrel-hunt"
+}

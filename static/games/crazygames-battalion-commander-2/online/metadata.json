@@ -1,0 +1,13 @@
+{
+  "id": "crazygames-battalion-commander-2",
+  "name": "Battalion Commander 2 🕹️ Play on CrazyGames",
+  "author": "CrazyGames",
+  "description": "Battalion Commander 2 is an action shooting game where you must shoot your enemy and survive till the end of the stage to win the game. Complete all the missions and save your friends that are being captured by your enemy.",
+  "thumbnail": "/games/crazygames-battalion-commander-2/online/assets/crazygames-battalion-commander-2.png",
+  "category": "arcade",
+  "sourcePortal": "crazygames",
+  "onlineEmbedUrl": "https://games.crazygames.com/en_US/battalion-commander-2/index.html",
+  "pullStrategy": "generic",
+  "crazygamesPageUrl": "https://www.crazygames.com/game/battalion-commander-2",
+  "crazygamesSlug": "battalion-commander-2"
+}

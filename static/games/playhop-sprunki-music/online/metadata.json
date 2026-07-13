@@ -1,0 +1,17 @@
+{
+  "id": "playhop-sprunki-music",
+  "name": "Sprunki Music!",
+  "author": "B-Tree",
+  "description": "Play Sprunki Music! via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b4d0c53dc56a7bf8f43ded08519/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/18762293/2a0000019b4d0c53dc56a7bf8f43ded08519/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-394259.games.s3.yandex.net/394259/1zgqoz9v6qlyozfhe57chlhqwqcxz1pw/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=394259&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 394259,
+  "playhopPageUrl": "https://playhop.com/app/394259",
+  "playhopRating": 4.4,
+  "playhopRatingCount": 5118
+}

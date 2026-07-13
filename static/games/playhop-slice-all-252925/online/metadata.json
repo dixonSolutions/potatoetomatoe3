@@ -1,0 +1,17 @@
+{
+  "id": "playhop-slice-all-252925",
+  "name": "Slice All",
+  "author": "C2games",
+  "description": "Play Slice All via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018a36c949dd44f9ac1abc80d8525c/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/1881364/2a0000018a36c949dd44f9ac1abc80d8525c/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-252925.games.s3.yandex.net/252925/rwvlkd5da8nqz12iw3xw226aurc8oxnn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=252925&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 252925,
+  "playhopPageUrl": "https://playhop.com/app/252925",
+  "playhopRating": 3.9,
+  "playhopRatingCount": 636
+}

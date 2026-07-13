@@ -1,0 +1,17 @@
+{
+  "id": "playhop-merge-gifts-528050",
+  "name": "Merge Gifts",
+  "author": "S4 Games",
+  "description": "Play Merge Gifts via Playhop / Yandex Games.",
+  "thumbnail": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019e5b904dc00bc91e0e4c124b10f2/orig",
+  "thumbnailRemote": "https://avatars.mds.yandex.net/get-games/16928287/2a0000019e5b904dc00bc91e0e4c124b10f2/orig",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "playhop",
+  "onlineEmbedUrl": "https://app-528050.games.s3.yandex.net/528050/tc08j3v8l4wo7yo5cpch6e5srwz5vnlh/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e94af4bd9.js#origin=https%3A%2F%2Fplayhop.com&app-id=528050&device-type=desktop",
+  "pullStrategy": "generic",
+  "playhopAppId": 528050,
+  "playhopPageUrl": "https://playhop.com/app/528050",
+  "playhopRating": 0,
+  "playhopRatingCount": 0
+}
