@@ -7,6 +7,7 @@ Browse and play unblocked HTML5 games in the browser or as a **Tauri 2** desktop
 - Game catalog with search, categories, favourites, and recommendations
 - **Per-game offline download** — download, delete, and switch between online/offline versions on each game page
 - **Downloaded only** filter on the games browse page
+- **Universal touch console** — glass on-screen joystick + buttons for mobile (same-origin / mirrored games); see [docs/touch-console.md](docs/touch-console.md)
 - **Shrek: Escape from the Swamp** bundled with a pre-built offline copy
 - Tauri desktop shell + Flatpak packaging with public OSTree remote on GitHub Pages
 
@@ -125,6 +126,8 @@ The puller runs as a **separate Node package** at [`puller/`](puller/). It expos
 **Strategies:** `embed` (Unity/Google Sites — Shrek) and `generic` (iframe wget mirror).
 
 See [docs/offline-downloader.md](docs/offline-downloader.md) for details.
+
+Touch controls for mobile require same-origin (mirrored) game documents — see [docs/touch-console.md](docs/touch-console.md).
 
 ## Project structure
 

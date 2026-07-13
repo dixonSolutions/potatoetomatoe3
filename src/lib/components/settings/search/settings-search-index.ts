@@ -134,5 +134,44 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				keywords: 'tray close quit background gnome silverblue desktop appindicator'
 			}
 		]
+	},
+	{
+		id: 'search-sec-touch',
+		title: 'Touch Controls',
+		panel: 'touch',
+		sectionKeywords:
+			'touch mobile gamepad overlay joystick buttons virtual controller console glass five finger',
+		subsections: [
+			{
+				id: 'sub-touch-enabled',
+				label: 'Enable touch console',
+				scrollTargetId: 'settings-section-touch-enabled',
+				keywords: 'enable touch overlay mobile gamepad console'
+			},
+			{
+				id: 'sub-touch-availability',
+				label: 'When to show the toggle',
+				scrollTargetId: 'settings-section-touch-availability',
+				keywords: 'availability auto always off mobile desktop toggle'
+			},
+			{
+				id: 'sub-touch-appearance',
+				label: 'Appearance',
+				scrollTargetId: 'settings-section-touch-appearance',
+				keywords: 'opacity scale size haptics vibration appearance'
+			},
+			{
+				id: 'sub-touch-layout',
+				label: 'Layout',
+				scrollTargetId: 'settings-section-touch-layout',
+				keywords: 'layout landscape portrait position size drag preview reset copy'
+			},
+			{
+				id: 'sub-touch-mapping',
+				label: 'Key mapping',
+				scrollTargetId: 'settings-section-touch-mapping',
+				keywords: 'mapping keys remap arrows wasd space enter escape button binding'
+			}
+		]
 	}
 ];
