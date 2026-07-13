@@ -1,8 +1,8 @@
 name: Deploy GitHub Pages
 
 # Fast web deploy on every main push, separate from Release/Flatpak.
-# Preserves /flatpak/ OSTree from the currently published site so this
-# workflow does not wipe remote Flatpak installs.
+# Preserves /flatpak/ OSTree from the latest successful Release artifact
+# so this workflow does not wipe remote Flatpak installs.
 on:
   push:
     branches:
@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -45,26 +46,36 @@ jobs:
           PUBLIC_OFFLINE_DEPLOYMENT: public-site
           GITHUB_REPOSITORY: ${{ github.repository }}
 
-      - name: Preserve Flatpak OSTree from live Pages
+      - name: Preserve Flatpak OSTree from latest Release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          set -euo pipefail
-          BASE="https://dixonsolutions.github.io/potatoetomatoe3/flatpak"
+          set -uo pipefail
           mkdir -p build/flatpak
-          if curl -fsSIL "$BASE/summary" >/dev/null 2>&1; then
-            echo "Mirroring existing OSTree from live Pages…"
-            (
-              cd build/flatpak
-              wget -q -r -np -nH --cut-dirs=2 -R "index.html*" "$BASE/"
-            )
-            if [ ! -f build/flatpak/summary ]; then
-              echo "ERROR: mirrored flatpak tree missing summary" >&2
-              ls -la build/flatpak >&2 || true
-              exit 1
-            fi
-            echo "OK: preserved OSTree summary ($(wc -c < build/flatpak/summary) bytes)"
-          else
-            echo "WARNING: no live /flatpak/summary — deploying web-only (remote Flatpak installs will break until Release finishes)"
+          RUN_ID=$(gh run list --repo "${{ github.repository }}" --workflow=release.yml --branch=main --status=success --limit 1 --json databaseId --jq '.[0].databaseId // empty' || true)
+          if [ -z "${RUN_ID}" ]; then
+            echo "WARNING: no successful Release run — deploying web-only"
+            exit 0
           fi
+          echo "Downloading flatpak-bundle from Release run ${RUN_ID}"
+          mkdir -p flatpak-artifacts
+          if ! gh run download "${RUN_ID}" -n flatpak-bundle -D flatpak-artifacts; then
+            echo "WARNING: artifact download failed — deploying web-only"
+            exit 0
+          fi
+          if [ -d flatpak-artifacts/repo ]; then
+            cp -a flatpak-artifacts/repo/. build/flatpak/
+          else
+            echo "WARNING: flatpak-artifacts/repo missing — deploying web-only"
+            ls -la flatpak-artifacts || true
+            exit 0
+          fi
+          if [ ! -f build/flatpak/summary ]; then
+            echo "WARNING: restored tree missing summary — deploying web-only"
+            ls -la build/flatpak || true
+            exit 0
+          fi
+          echo "OK: preserved OSTree summary ($(wc -c < build/flatpak/summary) bytes)"
 
       - uses: actions/upload-pages-artifact@v3
         with:

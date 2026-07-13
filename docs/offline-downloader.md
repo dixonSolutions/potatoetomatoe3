@@ -146,7 +146,7 @@ Production builds use base path `/potatoetomatoe3` (override with `PUBLIC_PAGES_
 
 **Public URL:** `https://dixonsolutions.github.io/potatoetomatoe3/` — game pages are `…/potatoetomatoe3/games/{id}` (not `…/games/{id}` at the domain root). The build copies SPA shells into each `games/{id}/` folder so GitHub Pages deep links work beside static game assets.
 
-Deploy workflows: `.github/workflows/pages.yml` on every `main` push (web build + preserve live `/flatpak/`); `.github/workflows/release.yml` also deploys Pages with a freshly built OSTree. Manual web hotfixes: `pages.yml` or `deploy.yml` via **workflow_dispatch**.
+Deploy workflows: `.github/workflows/pages.yml` on every `main` push (web build + preserve `/flatpak/` from the latest Release artifact); `.github/workflows/release.yml` also deploys Pages with a freshly built OSTree. Manual web hotfixes: `pages.yml` or `deploy.yml` via **workflow_dispatch**.
 
 Enable Pages in the repo: **Settings → Pages → Build and deployment → GitHub Actions**.
 

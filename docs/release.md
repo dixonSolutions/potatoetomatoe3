@@ -12,7 +12,7 @@ On every push to `main`:
 4. **GitHub Release** — attaches `com.potatotomato.games-<version>.flatpak`
 5. **GitHub Pages** — deploys web build + OSTree repo at `/flatpak/` + `.flatpakrepo` file
 
-The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) runs on every `push` to `main` (and `workflow_dispatch`) for fast web updates, separate from the Flatpak Release. Before uploading it **mirrors the live `/flatpak/` OSTree** into the new artifact so web-only deploys do not wipe remote Flatpak installs. `release.yml` still rebuilds Pages with a freshly built OSTree when a Release finishes.
+The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) runs on every `push` to `main` (and `workflow_dispatch`) for fast web updates, separate from the Flatpak Release. Before uploading it **copies `/flatpak/` OSTree from the latest successful Release artifact** so web-only deploys do not wipe remote Flatpak installs. `release.yml` still rebuilds Pages with a freshly built OSTree when a Release finishes.
 
 ## Public Flatpak remote
 
@@ -36,7 +36,7 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 | Release | `ConfigureRemote not allowed for user` | Use `flatpak --user` for remotes and installs on GitHub-hosted runners |
 | Build Flatpak | `npm: command not found` in sandbox | Build Tauri on the host in CI; Flatpak manifest only packages prebuilt binaries |
 | Remote install | `Invalid gpg key` | Remove empty `GPGKey=` from `.flatpakrepo`; add remote with `--no-gpg-verify` |
-| GitHub Pages | `/flatpak/summary` 404 | Usually a Pages deploy raced before any OSTree existed, or the preserve-mirror step failed. `pages.yml` should copy live `/flatpak/`; `release.yml` publishes a fresh OSTree. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
+| GitHub Pages | `/flatpak/summary` 404 | Usually no successful Release artifact was available to preserve, or Release Pages deploy had not finished yet. `pages.yml` restores OSTree from the latest Release artifact; `release.yml` publishes a fresh one. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
 | Remote install | Prefer one-file bundle | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken |
 | Flatpak runtime | `Game not in catalog` / `puller catalog is empty` | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`. |
 | Flatpak run | `Failed to load ayatana-appindicator3` panic | Bundle `shared-modules/libappindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak. |
