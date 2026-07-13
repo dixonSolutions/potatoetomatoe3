@@ -3850,6 +3850,26 @@ function isBlockedHostname(hostname) {
   }
   return false;
 }
+var MAX_REDIRECTS = 10;
+async function safeFetch(url, init) {
+  let current = url;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+    assertSafePlayUrl(current);
+    const response = await fetch(current, { ...init, redirect: "manual" });
+    if (response.status >= 300 && response.status < 400) {
+      const location = response.headers.get("location");
+      if (!location) {
+        await response.body?.cancel();
+        throw new Error("Redirect without Location header");
+      }
+      current = new URL(location, current).href;
+      await response.body?.cancel();
+      continue;
+    }
+    return { response, finalUrl: current };
+  }
+  throw new Error("Too many redirects");
+}
 function assertSafePlayUrl(raw) {
   let url;
   try {
@@ -4017,15 +4037,19 @@ async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
   });
   session.targetUrl = targetUrl;
   session.baseHref = targetUrl;
-  const res = await fetch(targetUrl, {
+  const { response: res, finalUrl } = await safeFetch(targetUrl, {
     headers: {
       "User-Agent": WGET_USER_AGENT,
       Accept: "text/html,application/xhtml+xml,*/*"
     },
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    redirect: "follow"
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
   });
   if (!res.ok) return null;
+  const finalParsed = new URL(finalUrl);
+  session.baseHref = finalUrl;
+  session.targetUrl = finalUrl;
+  session.targetOrigin = finalParsed.origin;
+  allowOrigin(session, finalParsed.origin);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.byteLength > MAX_HTML_BYTES) {
     throw new Error("Live HTML response too large");
@@ -4048,15 +4072,15 @@ async function fetchLiveAsset(gameId, sessionId, assetPath, absoluteOverride) {
   if (!isOriginAllowed(session, parsed.origin)) {
     throw new Error("Asset origin not allowed for this live session");
   }
-  const res = await fetch(remoteUrl, {
+  const { response: res, finalUrl } = await safeFetch(remoteUrl, {
     headers: {
       "User-Agent": WGET_USER_AGENT,
       Accept: "*/*",
       Referer: session.targetUrl
     },
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    redirect: "follow"
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
   });
+  const documentUrl = finalUrl;
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.byteLength > MAX_ASSET_BYTES) {
     throw new Error("Live asset response too large");
@@ -4069,7 +4093,7 @@ async function fetchLiveAsset(gameId, sessionId, assetPath, absoluteOverride) {
     if (isUnityGameHtml(html)) {
       html = injectUnityPatches(html);
     }
-    html = rewriteHtmlForLiveSession(html, session, proxyPrefix);
+    html = rewriteHtmlForLiveSession(html, { ...session, baseHref: documentUrl }, proxyPrefix);
     html = injectGameStorageBridge(html, gameId);
     body = Buffer.from(html, "utf-8");
     contentType = "text/html; charset=utf-8";
@@ -4511,7 +4535,7 @@ function createServer() {
       if (liveAssetMatch && req.method === "GET") {
         const gameId = decodeURIComponent(liveAssetMatch[1]);
         const sessionId = decodeURIComponent(liveAssetMatch[2]);
-        const assetPath = decodeURIComponent(liveAssetMatch[3] || "");
+        let assetPath = decodeURIComponent(liveAssetMatch[3] || "");
         if (!isValidGameId(gameId)) {
           sendJson(res, 400, { error: "Invalid game id" });
           return;
@@ -4521,6 +4545,9 @@ function createServer() {
           return;
         }
         const absoluteOverride = assetPath === "_ext" ? url.searchParams.get("u") : null;
+        if (!absoluteOverride && url.search) {
+          assetPath += url.search;
+        }
         try {
           const asset = await fetchLiveAsset(
             gameId,
