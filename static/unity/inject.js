@@ -303,13 +303,162 @@
 		} catch (e) {}
 	}
 
-	/* App-driven pause/mute — must keep working despite focus spoof */
+	/* ——— Touch console → synthetic keyboard (cross-origin parent uses postMessage) ——— */
+	var PT_KEY_CODE_TO_KEY = {
+		ArrowUp: 'ArrowUp',
+		ArrowDown: 'ArrowDown',
+		ArrowLeft: 'ArrowLeft',
+		ArrowRight: 'ArrowRight',
+		Space: ' ',
+		Enter: 'Enter',
+		Escape: 'Escape',
+		ShiftLeft: 'Shift',
+		ShiftRight: 'Shift',
+		ControlLeft: 'Control',
+		ControlRight: 'Control',
+		AltLeft: 'Alt',
+		AltRight: 'Alt',
+		Tab: 'Tab',
+		Backspace: 'Backspace'
+	};
+	var PT_KEY_CODE_TO_KEY_CODE = {
+		ArrowLeft: 37,
+		ArrowUp: 38,
+		ArrowRight: 39,
+		ArrowDown: 40,
+		Space: 32,
+		Enter: 13,
+		Escape: 27,
+		ShiftLeft: 16,
+		ShiftRight: 16,
+		ControlLeft: 17,
+		ControlRight: 17,
+		AltLeft: 18,
+		AltRight: 18,
+		Tab: 9,
+		Backspace: 8
+	};
+	var ptTouchHeld = Object.create(null);
+
+	function ptKeyFromCode(code) {
+		if (PT_KEY_CODE_TO_KEY[code]) return PT_KEY_CODE_TO_KEY[code];
+		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();
+		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);
+		return code || '';
+	}
+
+	function ptKeyCodeFromCode(code) {
+		if (PT_KEY_CODE_TO_KEY_CODE[code] != null) return PT_KEY_CODE_TO_KEY_CODE[code];
+		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);
+		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);
+		return 0;
+	}
+
+	function ptTouchFocus() {
+		try {
+			var canvas =
+				document.querySelector('canvas') ||
+				document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+		} catch (e) {}
+		try {
+			window.focus();
+		} catch (e) {}
+	}
+
+	function ptDispatchKey(type, code) {
+		if (!code) return;
+		var key = ptKeyFromCode(code);
+		var keyCode = ptKeyCodeFromCode(code);
+		var init = {
+			key: key,
+			code: code,
+			keyCode: keyCode,
+			which: keyCode,
+			bubbles: true,
+			cancelable: true,
+			composed: true,
+			view: window
+		};
+		var event;
+		try {
+			event = new KeyboardEvent(type, init);
+			try {
+				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });
+				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });
+				Object.defineProperty(event, 'charCode', { get: function () { return 0; } });
+			} catch (e) {}
+		} catch (e) {
+			return;
+		}
+		ptTouchFocus();
+		var canvas =
+			document.querySelector('canvas') ||
+			document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+		var targets = [];
+		if (canvas) targets.push(canvas);
+		if (document.body) targets.push(document.body);
+		if (document.documentElement) targets.push(document.documentElement);
+		targets.push(document, window);
+		var seen = {};
+		for (var i = 0; i < targets.length; i++) {
+			var t = targets[i];
+			if (!t || seen[t]) continue;
+			seen[t] = true;
+			try {
+				t.dispatchEvent(event);
+			} catch (e) {}
+		}
+	}
+
+	function ptTouchInputDown(codes) {
+		if (!codes || !codes.length) return;
+		ptTouchFocus();
+		for (var i = 0; i < codes.length; i++) {
+			var code = codes[i];
+			if (!code || ptTouchHeld[code]) continue;
+			ptTouchHeld[code] = true;
+			ptDispatchKey('keydown', code);
+		}
+	}
+
+	function ptTouchInputUp(codes) {
+		if (!codes || !codes.length) return;
+		for (var i = 0; i < codes.length; i++) {
+			var code = codes[i];
+			if (!code || !ptTouchHeld[code]) continue;
+			delete ptTouchHeld[code];
+			ptDispatchKey('keyup', code);
+		}
+	}
+
+	function ptTouchInputReleaseAll() {
+		var codes = Object.keys(ptTouchHeld);
+		ptTouchHeld = Object.create(null);
+		for (var i = 0; i < codes.length; i++) ptDispatchKey('keyup', codes[i]);
+	}
+
+	function handleTouchInputMessage(data) {
+		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		var action = data.action;
+		var codes = Array.isArray(data.codes)
+			? data.codes
+			: data.code
+				? [data.code]
+				: [];
+		if (action === 'down') ptTouchInputDown(codes);
+		else if (action === 'up') ptTouchInputUp(codes);
+		else if (action === 'releaseAll') ptTouchInputReleaseAll();
+	}
+
+	/* App-driven pause/mute/touch — must keep working despite focus spoof */
 	window.addEventListener('message', function (ev) {
 		var data = ev && ev.data;
 		if (!data || typeof data !== 'object') return;
 		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
 		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
 		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);
+		handleTouchInputMessage(data);
 	});
 	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
 		document.addEventListener(type, unlockAudio, true);

@@ -79,7 +79,7 @@ pnpm run games:import-y8 -- --limit 50 --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock). Without the puller, play falls back to `/unity/player.html?src=…` (shell only — cross-origin embeds cannot receive inject). Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
+Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock + touch postMessage bridge). Without the puller, play falls back to `/unity/player.html?src=…` (shell only — cross-origin embeds cannot receive inject) **unless** `PUBLIC_PLAY_PROXY_URL` is set (GitHub Pages → Cloudflare Worker; see [`workers/unity-play-proxy/`](../workers/unity-play-proxy/)). Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
 
 ### Unity Play catalog import
 
@@ -92,7 +92,7 @@ pnpm run games:import-unity-play -- --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbedUrl` set to the Unity Play build frame (`https://play.unity.com/api/v1/games/game/<uuid>/build/latest/frame`). That frame loads `createUnityInstance` against `cdn.play.unity.com` assets and does **not** send `frame-ancestors` / `X-Frame-Options`, so `/unity/player.html?src=…` works. In **Vite dev**, online play prefers `/api/unity-play/:id` (same-origin inject proxy via Vite). Packaged Tauri/Flatpak has no production proxy for that path, so it always uses `/unity/player.html?src=…`.
+Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbedUrl` set to the Unity Play build frame (`https://play.unity.com/api/v1/games/game/<uuid>/build/latest/frame`). That frame loads `createUnityInstance` against `cdn.play.unity.com` assets and does **not** send `frame-ancestors` / `X-Frame-Options`, so `/unity/player.html?src=…` works. In **Vite dev**, online play prefers `/api/unity-play/:id` (same-origin inject proxy via Vite). Packaged Tauri uses the local puller URL when available (touch via postMessage bridge). **GitHub Pages** uses `PUBLIC_PLAY_PROXY_URL` → Cloudflare Worker `/api/unity-play/:id` when configured; otherwise it falls back to `/unity/player.html?src=…` (touch unavailable).
 
 ## Tauri integration
 

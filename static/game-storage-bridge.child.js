@@ -494,12 +494,113 @@
 		}
 	}
 
+	var ptTouchHeld = Object.create(null);
+	function ptKeyFromCode(code) {
+		var map = {
+			ArrowUp: 'ArrowUp',
+			ArrowDown: 'ArrowDown',
+			ArrowLeft: 'ArrowLeft',
+			ArrowRight: 'ArrowRight',
+			Space: ' ',
+			Enter: 'Enter',
+			Escape: 'Escape',
+			ShiftLeft: 'Shift',
+			ShiftRight: 'Shift'
+		};
+		if (map[code]) return map[code];
+		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();
+		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);
+		return code || '';
+	}
+	function ptKeyCodeFromCode(code) {
+		var map = {
+			ArrowLeft: 37,
+			ArrowUp: 38,
+			ArrowRight: 39,
+			ArrowDown: 40,
+			Space: 32,
+			Enter: 13,
+			Escape: 27,
+			ShiftLeft: 16,
+			ShiftRight: 16
+		};
+		if (map[code] != null) return map[code];
+		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);
+		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);
+		return 0;
+	}
+	function ptDispatchKey(type, code) {
+		if (!code) return;
+		var key = ptKeyFromCode(code);
+		var keyCode = ptKeyCodeFromCode(code);
+		var event;
+		try {
+			event = new KeyboardEvent(type, {
+				key: key,
+				code: code,
+				keyCode: keyCode,
+				which: keyCode,
+				bubbles: true,
+				cancelable: true,
+				composed: true,
+				view: window
+			});
+			try {
+				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });
+				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });
+			} catch (e) {}
+		} catch (e) {
+			return;
+		}
+		try {
+			var canvas = document.querySelector('canvas');
+			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+		} catch (e) {}
+		var targets = [];
+		var canvasEl = document.querySelector('canvas');
+		if (canvasEl) targets.push(canvasEl);
+		if (document.body) targets.push(document.body);
+		if (document.documentElement) targets.push(document.documentElement);
+		targets.push(document, window);
+		for (var i = 0; i < targets.length; i++) {
+			try {
+				targets[i].dispatchEvent(event);
+			} catch (e) {}
+		}
+	}
+	function handleTouchInputMessage(data) {
+		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];
+		if (data.action === 'releaseAll') {
+			var held = Object.keys(ptTouchHeld);
+			ptTouchHeld = Object.create(null);
+			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);
+			return;
+		}
+		if (data.action === 'down') {
+			for (var d = 0; d < codes.length; d++) {
+				if (!codes[d] || ptTouchHeld[codes[d]]) continue;
+				ptTouchHeld[codes[d]] = true;
+				ptDispatchKey('keydown', codes[d]);
+			}
+			return;
+		}
+		if (data.action === 'up') {
+			for (var u = 0; u < codes.length; u++) {
+				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;
+				delete ptTouchHeld[codes[u]];
+				ptDispatchKey('keyup', codes[u]);
+			}
+		}
+	}
+
 	window.addEventListener('message', function (event) {
 		var data = event && event.data;
 		if (!data || typeof data !== 'object') return;
 		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();
 		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);
 		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);
+		handleTouchInputMessage(data);
 	});
 	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
 		document.addEventListener(type, unlockAudio, true);

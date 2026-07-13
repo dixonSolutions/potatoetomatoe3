@@ -6,7 +6,7 @@ import {
 	getEffectiveConfig,
 	loadTouchConsoleSettings
 } from './touch-console';
-import { KeyDispatcher, isLikelyInjectableUrl } from './touch-input-dispatch';
+import { KeyDispatcher, canUseTouchBridge, isLikelyInjectableUrl } from './touch-input-dispatch';
 
 describe('touch-input-dispatch', () => {
 	it('classifies offline and proxied play URLs as injectable', () => {
@@ -19,6 +19,16 @@ describe('touch-input-dispatch', () => {
 	it('rejects Unity player shell and online shells as non-injectable', () => {
 		expect(isLikelyInjectableUrl('/unity/player.html?src=https://example.com')).toBe(false);
 		expect(isLikelyInjectableUrl('/games/foo/online/index.html')).toBe(false);
+	});
+
+	it('classifies unity-play and offline URLs as touch-bridge capable', () => {
+		expect(canUseTouchBridge('/api/unity-play/mob-city')).toBe(true);
+		expect(canUseTouchBridge('http://127.0.0.1:18787/api/unity-play/mob-city')).toBe(true);
+		expect(canUseTouchBridge('/games/foo/offline/index.html')).toBe(true);
+		expect(canUseTouchBridge('/puller-games/foo/offline/index.html')).toBe(true);
+		expect(canUseTouchBridge('/browser-offline/foo/online/index.html')).toBe(true);
+		expect(canUseTouchBridge('/unity/player.html?src=https://play.unity.com/x')).toBe(false);
+		expect(canUseTouchBridge('https://games.crazygames.com/en_US/ovo/index.html')).toBe(false);
 	});
 
 	it('maps joystick vectors to direction key codes', () => {

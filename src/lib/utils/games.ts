@@ -455,12 +455,19 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	 * Unity online with inject: prefer puller `/api/unity-play/:id` whenever the puller is up.
 	 * In Vite that path is same-origin (proxy). In Tauri it is http://127.0.0.1 — still gets
 	 * inject.js inside the game document (unlike /unity/player.html wrapping play.unity.com).
+	 * On GitHub Pages, PUBLIC_PLAY_PROXY_URL points at the Cloudflare Worker (same API shape).
 	 */
 	if (metadata?.engine === 'unity') {
 		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
 		if (await isPullerAvailable()) {
 			const url = pullerUnityPlayUrl(gameId, base);
 			appendPlayLog('info', 'play-url', `Resolved Unity play via puller proxy`, `game=${gameId} url=${url}`);
+			return url;
+		}
+		const playProxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(/\/$/, '');
+		if (playProxy) {
+			const url = `${playProxy}/api/unity-play/${encodeURIComponent(gameId)}`;
+			appendPlayLog('info', 'play-url', `Resolved Unity play via PUBLIC_PLAY_PROXY_URL`, `game=${gameId} url=${url}`);
 			return url;
 		}
 	}
@@ -508,7 +515,18 @@ export function iframeAllowForUrl(url: string): string | undefined {
 		url.includes('127.0.0.1') ||
 		url.includes('localhost') ||
 		url.startsWith('blob:') ||
-		(url.includes('/games/') && (url.includes('/online/') || url.includes('/offline/')))
+		(url.includes('/games/') && (url.includes('/online/') || url.includes('/offline/'))) ||
+		(() => {
+			try {
+				const proxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(
+					/\/$/,
+					''
+				);
+				return Boolean(proxy && url.startsWith(proxy));
+			} catch {
+				return false;
+			}
+		})()
 	) {
 		return 'fullscreen; autoplay; gamepad; microphone; camera';
 	}
