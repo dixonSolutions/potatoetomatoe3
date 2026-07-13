@@ -6,7 +6,16 @@
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import { Switch } from '$lib/components/ui/switch';
-	import { ChevronRight, ChevronLeft, MoreVertical, Shield, Volume2, Gamepad2, BarChart3 } from 'lucide-svelte';
+	import {
+		ChevronRight,
+		ChevronLeft,
+		MoreVertical,
+		Shield,
+		Volume2,
+		Gamepad2,
+		BarChart3,
+		Smartphone
+	} from 'lucide-svelte';
 	import {
 		Root as DropdownMenuRoot,
 		Trigger as DropdownMenuTrigger,
@@ -50,6 +59,7 @@
 	import AudioSection from '$lib/components/settings/sections/audio/AudioSection.svelte';
 	import AnalyticsSection from '$lib/components/settings/sections/analytics/AnalyticsSection.svelte';
 	import GamesSection from '$lib/components/settings/sections/games/GamesSection.svelte';
+	import TouchControlsSection from '$lib/components/settings/sections/touch-controls/TouchControlsSection.svelte';
 	import {
 		clearCategoryAffinities,
 		getCategoryAffinityMap,
@@ -59,7 +69,7 @@
 	} from '$lib/utils/play-recommendations';
 	import { getDefaultGamePlayMode, type GamePlayMode } from '$lib/utils/game-play-mode';
 
-	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games';
+	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games' | 'touch';
 
 	let {
 		open = $bindable(false),
@@ -174,7 +184,7 @@
 	});
 
 	async function goToSearchSubsection(
-		targetPanel: 'privacy' | 'audio' | 'analytics' | 'games',
+		targetPanel: 'privacy' | 'audio' | 'analytics' | 'games' | 'touch',
 		scrollTargetId: string
 	) {
 		if (targetPanel === 'privacy' && !actualEnabled) {
@@ -643,6 +653,23 @@
 							type="button"
 							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
 							onclick={() => {
+								panel = 'touch';
+							}}
+						>
+							<Smartphone class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+							<div class="min-w-0 flex-1">
+								<p class="text-sm font-medium">Touch Controls</p>
+								<p class="text-xs text-muted-foreground">
+									On-screen joystick, layout, and key mapping
+								</p>
+							</div>
+							<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+						</button>
+
+						<button
+							type="button"
+							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+							onclick={() => {
 								panel = 'analytics';
 								syncLocal();
 							}}
@@ -843,6 +870,38 @@
 
 			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
 				<GamesSection searchQuery={settingsSearchQuery} {busy} bind:defaultPlayMode={gamesDefaultPlayMode} />
+			</div>
+		{:else if panel === 'touch'}
+			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
+				<Button
+					variant="ghost"
+					size="icon"
+					class="shrink-0"
+					onclick={goBack}
+					aria-label="Back to settings"
+				>
+					<ChevronLeft class="size-5" />
+				</Button>
+				<div class="min-w-0 basis-full sm:flex-1 sm:basis-[min(100%,10rem)]">
+					<h2 class="text-lg leading-none font-semibold tracking-tight">Touch Controls</h2>
+					<p class="sr-only">On-screen joystick layout and key mapping</p>
+				</div>
+				<div
+					class="flex w-full min-w-0 flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto"
+				>
+					<input
+						type="search"
+						bind:value={settingsSearchQuery}
+						placeholder="Search…"
+						class="{searchInputClass} min-w-0 flex-1"
+						aria-label="Search touch control settings"
+						autocomplete="off"
+					/>
+				</div>
+			</div>
+
+			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+				<TouchControlsSection searchQuery={settingsSearchQuery} {busy} />
 			</div>
 		{/if}
 	</Dialog.Content>

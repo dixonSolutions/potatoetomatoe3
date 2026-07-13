@@ -1,0 +1,51 @@
+import { describe, expect, it } from 'vitest';
+import {
+	DEFAULT_TOUCH_MAPPING,
+	codesToLabel,
+	formatTouchKeyCode,
+	getEffectiveConfig,
+	loadTouchConsoleSettings
+} from './touch-console';
+import { KeyDispatcher, isLikelyInjectableUrl } from './touch-input-dispatch';
+
+describe('touch-input-dispatch', () => {
+	it('classifies offline and proxied play URLs as injectable', () => {
+		expect(isLikelyInjectableUrl('/games/shrek-escape/offline/index.html')).toBe(true);
+		expect(isLikelyInjectableUrl('/puller-games/foo/offline/index.html')).toBe(true);
+		expect(isLikelyInjectableUrl('/api/unity-play/foo')).toBe(true);
+		expect(isLikelyInjectableUrl('blob:http://localhost/abc')).toBe(true);
+	});
+
+	it('rejects Unity player shell and online shells as non-injectable', () => {
+		expect(isLikelyInjectableUrl('/unity/player.html?src=https://example.com')).toBe(false);
+		expect(isLikelyInjectableUrl('/games/foo/online/index.html')).toBe(false);
+	});
+
+	it('maps joystick vectors to direction key codes', () => {
+		const mapping = DEFAULT_TOUCH_MAPPING.directions;
+		expect(KeyDispatcher.directionsFromVector(0, 0, mapping)).toEqual([]);
+		expect(KeyDispatcher.directionsFromVector(0, -1, mapping)).toEqual(mapping.up);
+		expect(KeyDispatcher.directionsFromVector(1, 0, mapping)).toEqual(mapping.right);
+		expect(KeyDispatcher.directionsFromVector(-0.9, 0.9, mapping).sort()).toEqual(
+			[...mapping.left, ...mapping.down].sort()
+		);
+	});
+});
+
+describe('touch-console helpers', () => {
+	it('formats key codes for the mapping UI', () => {
+		expect(formatTouchKeyCode('Space')).toBe('Space');
+		expect(formatTouchKeyCode('ArrowUp')).toBe('Up');
+		expect(formatTouchKeyCode('KeyW')).toBe('W');
+		expect(codesToLabel(['ArrowUp', 'KeyW'])).toBe('Up + W');
+	});
+
+	it('loads default effective config', () => {
+		const settings = loadTouchConsoleSettings();
+		expect(settings.enabled).toBe(true);
+		expect(settings.mapping.directions.up).toContain('ArrowUp');
+		const cfg = getEffectiveConfig(null, 'landscape');
+		expect(cfg.layout.joystick.size).toBeGreaterThan(0);
+		expect(cfg.mapping.buttons.a).toEqual(['Space']);
+	});
+});

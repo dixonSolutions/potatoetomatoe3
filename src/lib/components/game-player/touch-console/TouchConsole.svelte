@@ -1,0 +1,411 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { Gamepad2, GripHorizontal } from 'lucide-svelte';
+	import TouchJoystick from './TouchJoystick.svelte';
+	import TouchButton from './TouchButton.svelte';
+	import {
+		TOUCH_CONSOLE_CHANGED,
+		getEffectiveConfig,
+		saveLayout,
+		type EffectiveTouchConfig,
+		type TouchLayout,
+		type TouchOrientation
+	} from '$lib/utils/touch-console';
+	import {
+		KeyDispatcher,
+		isLikelyInjectableUrl,
+		resolveInjectable
+	} from '$lib/utils/touch-input-dispatch';
+	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
+
+	let {
+		iframe = null,
+		gameId = '',
+		playerUrl = '',
+		isPortrait = false,
+		paused = false,
+		started = false
+	}: {
+		iframe?: HTMLIFrameElement | null;
+		gameId?: string;
+		playerUrl?: string;
+		isPortrait?: boolean;
+		paused?: boolean;
+		started?: boolean;
+	} = $props();
+
+	const isMobile = new IsMobile();
+	const dispatcher = new KeyDispatcher();
+
+	let visible = $state(false);
+	let injectable = $state(false);
+	let unavailableHint = $state(false);
+	let surfaceEl = $state<HTMLDivElement | null>(null);
+	let surfaceW = $state(0);
+	let surfaceH = $state(0);
+	let config = $state<EffectiveTouchConfig>(getEffectiveConfig(null, 'landscape'));
+	let layoutDraft = $state<TouchLayout | null>(null);
+	let editingControl = $state<'console' | 'joystick' | string | null>(null);
+	let editOrigin = $state<TouchLayout | null>(null);
+	let lastToggleAt = 0;
+	let gestureCleanup: (() => void) | null = null;
+	let privacyLocked = $state(false);
+
+	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
+	const layout = $derived(layoutDraft ?? config.layout);
+	const showToggle = $derived(
+		started &&
+			config.enabled &&
+			config.availability !== 'off' &&
+			(config.availability === 'always' || isMobile.current || injectable)
+	);
+	const showOverlay = $derived(
+		showToggle && visible && !paused && !privacyLocked && injectable
+	);
+	const scale = $derived(config.scale);
+
+	function refreshConfig() {
+		config = getEffectiveConfig(gameId || null, orientation);
+		layoutDraft = null;
+	}
+
+	function probeInjectable() {
+		const target = resolveInjectable(iframe);
+		dispatcher.setTarget(target);
+		injectable = Boolean(target);
+		unavailableHint = Boolean(
+			started &&
+				config.enabled &&
+				config.availability !== 'off' &&
+				!injectable &&
+				(config.availability === 'always' || !isLikelyInjectableUrl(playerUrl))
+		);
+		attachGestureListeners();
+	}
+
+	function toggleVisible(source: 'button' | 'gesture' = 'button') {
+		const now = Date.now();
+		if (now - lastToggleAt < 300) return;
+		lastToggleAt = now;
+		visible = !visible;
+		if (!visible) {
+			dispatcher.releaseAll();
+			editingControl = null;
+			layoutDraft = null;
+		}
+		if (source === 'gesture' && config.haptics && typeof navigator !== 'undefined') {
+			try {
+				navigator.vibrate?.(12);
+			} catch {
+				/* ignore */
+			}
+		}
+	}
+
+	function attachGestureListeners() {
+		gestureCleanup?.();
+		gestureCleanup = null;
+		const target = dispatcher.getTarget();
+		if (!target) return;
+
+		const active: Record<number, true> = {};
+		let activeCount = 0;
+		let armed = false;
+
+		const onDown = (e: PointerEvent) => {
+			if (active[e.pointerId]) return;
+			active[e.pointerId] = true;
+			activeCount += 1;
+			if (activeCount >= 5 && !armed) {
+				armed = true;
+				toggleVisible('gesture');
+			}
+		};
+		const onUp = (e: PointerEvent) => {
+			if (!active[e.pointerId]) return;
+			delete active[e.pointerId];
+			activeCount = Math.max(0, activeCount - 1);
+			if (activeCount < 5) armed = false;
+		};
+
+		const opts: AddEventListenerOptions = { capture: true, passive: true };
+		target.doc.addEventListener('pointerdown', onDown, opts);
+		target.doc.addEventListener('pointerup', onUp, opts);
+		target.doc.addEventListener('pointercancel', onUp, opts);
+		target.win.addEventListener('pointerdown', onDown, opts);
+		target.win.addEventListener('pointerup', onUp, opts);
+		target.win.addEventListener('pointercancel', onUp, opts);
+
+		gestureCleanup = () => {
+			target.doc.removeEventListener('pointerdown', onDown, opts);
+			target.doc.removeEventListener('pointerup', onUp, opts);
+			target.doc.removeEventListener('pointercancel', onUp, opts);
+			target.win.removeEventListener('pointerdown', onDown, opts);
+			target.win.removeEventListener('pointerup', onUp, opts);
+			target.win.removeEventListener('pointercancel', onUp, opts);
+		};
+	}
+
+	function pctToPx(pct: number, axis: 'x' | 'y'): number {
+		return pct * (axis === 'x' ? surfaceW : surfaceH);
+	}
+
+	function clampPct(n: number): number {
+		return Math.max(0, Math.min(1, n));
+	}
+
+	function beginEdit(control: 'console' | 'joystick' | string) {
+		editingControl = control;
+		editOrigin = structuredClone(layout);
+		layoutDraft = structuredClone(layout);
+	}
+
+	function dragControl(control: 'console' | 'joystick' | string, delta: { x: number; y: number }) {
+		if (!editOrigin || !layoutDraft || surfaceW <= 0 || surfaceH <= 0) return;
+		const next = structuredClone(editOrigin);
+		const dxPct = delta.x / surfaceW;
+		const dyPct = delta.y / surfaceH;
+		if (control === 'console') {
+			next.console.xPct = clampPct(editOrigin.console.xPct + dxPct);
+			next.console.yPct = clampPct(editOrigin.console.yPct + dyPct);
+		} else if (control === 'joystick') {
+			next.joystick.xPct = clampPct(editOrigin.joystick.xPct + dxPct);
+			next.joystick.yPct = clampPct(editOrigin.joystick.yPct + dyPct);
+		} else {
+			next.buttons = next.buttons.map((b) => {
+				if (b.id !== control) return b;
+				const originBtn = editOrigin!.buttons.find((ob) => ob.id === control);
+				if (!originBtn) return b;
+				return {
+					...b,
+					xPct: clampPct(originBtn.xPct + dxPct),
+					yPct: clampPct(originBtn.yPct + dyPct)
+				};
+			});
+		}
+		layoutDraft = next;
+	}
+
+	function endEdit(committed: boolean) {
+		if (committed && layoutDraft) {
+			saveLayout(orientation, layoutDraft, gameId || null);
+			config = getEffectiveConfig(gameId || null, orientation);
+		}
+		layoutDraft = null;
+		editOrigin = null;
+		editingControl = null;
+	}
+
+	function onJoystickVector(v: { x: number; y: number }) {
+		if (!showOverlay || editingControl) {
+			dispatcher.setJoystickCodes([]);
+			return;
+		}
+		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, config.mapping.directions);
+		dispatcher.setJoystickCodes(codes);
+	}
+
+	function buttonCodes(id: string): string[] {
+		return config.mapping.buttons[id] ?? layout.buttons.find((b) => b.id === id)?.codes ?? [];
+	}
+
+	function buttonAccent(id: string): 'green' | 'blue' | 'red' | 'amber' {
+		if (id === 'a') return 'green';
+		if (id === 'b') return 'blue';
+		if (id === 'x') return 'red';
+		return 'amber';
+	}
+
+	function measureSurface() {
+		if (!surfaceEl) return;
+		const rect = surfaceEl.getBoundingClientRect();
+		surfaceW = rect.width;
+		surfaceH = rect.height;
+	}
+
+	onMount(() => {
+		refreshConfig();
+		measureSurface();
+
+		const onSettings = () => refreshConfig();
+		const onPrivacy = (e: Event) => {
+			const d = (e as CustomEvent<{ locked: boolean }>).detail;
+			privacyLocked = d?.locked ?? document.documentElement.hasAttribute('data-privacy-locked');
+			if (privacyLocked) dispatcher.releaseAll();
+		};
+		privacyLocked = document.documentElement.hasAttribute('data-privacy-locked');
+
+		window.addEventListener(TOUCH_CONSOLE_CHANGED, onSettings);
+		window.addEventListener('potato-tomato-privacy-locked', onPrivacy);
+
+		const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => measureSurface()) : null;
+		if (surfaceEl && ro) ro.observe(surfaceEl);
+
+		return () => {
+			window.removeEventListener(TOUCH_CONSOLE_CHANGED, onSettings);
+			window.removeEventListener('potato-tomato-privacy-locked', onPrivacy);
+			ro?.disconnect();
+			gestureCleanup?.();
+			dispatcher.releaseAll();
+		};
+	});
+
+	$effect(() => {
+		void orientation;
+		void gameId;
+		refreshConfig();
+	});
+
+	$effect(() => {
+		void iframe;
+		void playerUrl;
+		void started;
+		void config.enabled;
+		void config.availability;
+		probeInjectable();
+	});
+
+	$effect(() => {
+		if (paused || privacyLocked || !visible) {
+			dispatcher.releaseAll();
+		}
+	});
+
+</script>
+
+{#if showToggle}
+	<div
+		bind:this={surfaceEl}
+		class="pointer-events-none absolute inset-0 z-[15] overflow-hidden"
+		aria-hidden={!showOverlay}
+	>
+		<button
+			type="button"
+			class="pt-touch-toggle pointer-events-auto absolute top-3 right-3 z-20 flex size-11 items-center justify-center rounded-xl border border-white/25 bg-background/40 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
+			class:pt-touch-toggle--on={visible && injectable}
+			aria-pressed={visible}
+			aria-label={visible ? 'Hide touch controls' : 'Show touch controls'}
+			title="Touch controls (or five-finger tap)"
+			onclick={() => toggleVisible('button')}
+		>
+			<Gamepad2 class="size-5" />
+		</button>
+
+		{#if unavailableHint && visible}
+			<div
+				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
+				role="status"
+			>
+				Touch controls need a same-origin (mirrored/offline) game. Download for offline or play a
+				bundled copy to enable the console.
+			</div>
+		{/if}
+
+		{#if showOverlay}
+			<!-- Compact console panel (visual grouping + whole-unit drag handle) -->
+			<div
+				class="pointer-events-none absolute rounded-[26px] border border-white/20 bg-white/[0.04] shadow-[0_10px_40px_rgb(0_0_0_/0.35)]"
+				class:ring-2={editingControl === 'console'}
+				class:ring-rose-400={editingControl === 'console'}
+				class:ring-dashed={editingControl === 'console'}
+				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
+			>
+				<button
+					type="button"
+					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white/80"
+					aria-label="Hold 2 seconds then drag to move the whole console"
+					onpointerdown={(e) => {
+						e.preventDefault();
+						e.stopPropagation();
+						const start = { x: e.clientX, y: e.clientY };
+						let editing = false;
+						let moved = false;
+						const timer = setTimeout(() => {
+							if (moved) return;
+							editing = true;
+							beginEdit('console');
+						}, 2000);
+						const onMove = (ev: PointerEvent) => {
+							if (ev.pointerId !== e.pointerId) return;
+							const dx = ev.clientX - start.x;
+							const dy = ev.clientY - start.y;
+							if (!editing && Math.hypot(dx, dy) > 10) {
+								moved = true;
+								clearTimeout(timer);
+							}
+							if (editing) dragControl('console', { x: dx, y: dy });
+						};
+						const onUp = (ev: PointerEvent) => {
+							if (ev.pointerId !== e.pointerId) return;
+							clearTimeout(timer);
+							window.removeEventListener('pointermove', onMove, true);
+							window.removeEventListener('pointerup', onUp, true);
+							window.removeEventListener('pointercancel', onUp, true);
+							endEdit(editing);
+						};
+						window.addEventListener('pointermove', onMove, true);
+						window.addEventListener('pointerup', onUp, true);
+						window.addEventListener('pointercancel', onUp, true);
+					}}
+				>
+					<GripHorizontal class="size-4" />
+				</button>
+			</div>
+
+			<div
+				class="absolute"
+				style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${pctToPx(layout.joystick.yPct, 'y')}px;`}
+			>
+				<TouchJoystick
+					size={Math.round(layout.joystick.size * scale)}
+					deadzone={layout.joystick.deadzone}
+					opacity={config.opacity}
+					editing={editingControl === 'joystick'}
+					disabled={Boolean(editingControl && editingControl !== 'joystick')}
+					onVector={onJoystickVector}
+					onHoldEditStart={() => beginEdit('joystick')}
+					onHoldEditDrag={(d) => dragControl('joystick', d)}
+					onHoldEditEnd={(c) => endEdit(c)}
+				/>
+			</div>
+
+			{#each layout.buttons as btn (btn.id)}
+				<div
+					class="absolute"
+					style={`left:${pctToPx(btn.xPct, 'x')}px;top:${pctToPx(btn.yPct, 'y')}px;`}
+				>
+					<TouchButton
+						label={btn.label}
+						size={Math.round(btn.size * scale)}
+						opacity={config.opacity}
+						accent={buttonAccent(btn.id)}
+						editing={editingControl === btn.id}
+						disabled={Boolean(editingControl && editingControl !== btn.id)}
+						onPress={() => {
+							if (editingControl) return;
+							dispatcher.down(buttonCodes(btn.id));
+							if (config.haptics) {
+								try {
+									navigator.vibrate?.(8);
+								} catch {
+									/* ignore */
+								}
+							}
+						}}
+						onRelease={() => dispatcher.up(buttonCodes(btn.id))}
+						onHoldEditStart={() => beginEdit(btn.id)}
+						onHoldEditDrag={(d) => dragControl(btn.id, d)}
+						onHoldEditEnd={(c) => endEdit(c)}
+					/>
+				</div>
+			{/each}
+		{/if}
+	</div>
+{/if}
+
+<style>
+	.pt-touch-toggle--on {
+		border-color: rgb(74 222 128 / 0.55);
+		background: rgb(74 222 128 / 0.18);
+	}
+</style>

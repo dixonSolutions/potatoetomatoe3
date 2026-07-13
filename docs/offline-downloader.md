@@ -151,3 +151,7 @@ Deploy workflow: `.github/workflows/release.yml` (includes `/flatpak/`). Web-onl
 Enable Pages in the repo: **Settings → Pages → Build and deployment → GitHub Actions**.
 
 Note: private repos require a GitHub plan that includes Pages for private repositories.
+
+## Touch console
+
+Mirrored / offline play paths are what make the [universal touch console](./touch-console.md) able to inject keyboard events into the game document. Live third-party embeds and nested Unity shells remain non-injectable until a guest bridge lands.

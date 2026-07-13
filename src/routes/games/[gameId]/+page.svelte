@@ -31,6 +31,7 @@
 	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown, RotateCcw, ScrollText, Pause, Play } from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
+	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -619,6 +620,14 @@
 						}}
 					/>
 				{/key}
+				<TouchConsole
+					iframe={iframeElement ?? null}
+					{gameId}
+					playerUrl={gamePlayerUrl}
+					isPortrait={playerLayout.isPortrait}
+					paused={gamePaused}
+					started={gameSurfaceStarted}
+				/>
 			</div>
 		</div>
 

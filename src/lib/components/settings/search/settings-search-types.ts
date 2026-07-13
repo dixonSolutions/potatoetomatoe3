@@ -8,7 +8,7 @@ export type SettingsSearchSub = {
 export type SettingsSearchSectionDef = {
 	id: string;
 	title: string;
-	panel: 'privacy' | 'audio' | 'analytics' | 'games';
+	panel: 'privacy' | 'audio' | 'analytics' | 'games' | 'touch';
 	sectionKeywords: string;
 	subsections: SettingsSearchSub[];
 };
