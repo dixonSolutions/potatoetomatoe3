@@ -315,7 +315,7 @@ export function createServer(): http.Server {
       if (liveAssetMatch && req.method === 'GET') {
         const gameId = decodeURIComponent(liveAssetMatch[1]);
         const sessionId = decodeURIComponent(liveAssetMatch[2]);
-        const assetPath = decodeURIComponent(liveAssetMatch[3] || '');
+        let assetPath = decodeURIComponent(liveAssetMatch[3] || '');
         if (!isValidGameId(gameId)) {
           sendJson(res, 400, { error: 'Invalid game id' });
           return;
@@ -326,6 +326,9 @@ export function createServer(): http.Server {
         }
         const absoluteOverride =
           assetPath === '_ext' ? url.searchParams.get('u') : null;
+        if (!absoluteOverride && url.search) {
+          assetPath += url.search;
+        }
         try {
           const asset = await fetchLiveAsset(
             gameId,

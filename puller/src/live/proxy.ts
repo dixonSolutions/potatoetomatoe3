@@ -1,7 +1,7 @@
 import { injectUnityPatches, isUnityGameHtml } from '../unity/inject-html.js';
 import { injectGameStorageBridge } from '../game-storage-bridge-script.js';
 import { WGET_USER_AGENT } from '../config.js';
-import { assertSafePlayUrl } from './safety.js';
+import { assertSafePlayUrl, safeFetch } from './safety.js';
 import {
 	allowOrigin,
 	createLiveSession,
@@ -85,15 +85,20 @@ export async function startLiveGameHtml(
 	session.targetUrl = targetUrl;
 	session.baseHref = targetUrl;
 
-	const res = await fetch(targetUrl, {
+	const { response: res, finalUrl } = await safeFetch(targetUrl, {
 		headers: {
 			'User-Agent': WGET_USER_AGENT,
 			Accept: 'text/html,application/xhtml+xml,*/*'
 		},
-		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-		redirect: 'follow'
+		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
 	});
 	if (!res.ok) return null;
+
+	const finalParsed = new URL(finalUrl);
+	session.baseHref = finalUrl;
+	session.targetUrl = finalUrl;
+	session.targetOrigin = finalParsed.origin;
+	allowOrigin(session, finalParsed.origin);
 
 	const buf = Buffer.from(await res.arrayBuffer());
 	if (buf.byteLength > MAX_HTML_BYTES) {
@@ -136,15 +141,15 @@ export async function fetchLiveAsset(
 		throw new Error('Asset origin not allowed for this live session');
 	}
 
-	const res = await fetch(remoteUrl, {
+	const { response: res, finalUrl } = await safeFetch(remoteUrl, {
 		headers: {
 			'User-Agent': WGET_USER_AGENT,
 			Accept: '*/*',
 			Referer: session.targetUrl
 		},
-		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-		redirect: 'follow'
+		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
 	});
+	const documentUrl = finalUrl;
 
 	const buf = Buffer.from(await res.arrayBuffer());
 	if (buf.byteLength > MAX_ASSET_BYTES) {
@@ -161,7 +166,7 @@ export async function fetchLiveAsset(
 		if (isUnityGameHtml(html)) {
 			html = injectUnityPatches(html);
 		}
-		html = rewriteHtmlForLiveSession(html, session, proxyPrefix);
+		html = rewriteHtmlForLiveSession(html, { ...session, baseHref: documentUrl }, proxyPrefix);
 		html = injectGameStorageBridge(html, gameId);
 		body = Buffer.from(html, 'utf-8');
 		contentType = 'text/html; charset=utf-8';

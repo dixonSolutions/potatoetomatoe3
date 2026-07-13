@@ -33,6 +33,32 @@ export function isBlockedHostname(hostname: string): boolean {
 	return false;
 }
 
+const MAX_REDIRECTS = 10;
+
+/** Fetch with manual redirect following; each hop is validated against SSRF rules. */
+export async function safeFetch(
+	url: string,
+	init?: RequestInit
+): Promise<{ response: Response; finalUrl: string }> {
+	let current = url;
+	for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+		assertSafePlayUrl(current);
+		const response = await fetch(current, { ...init, redirect: 'manual' });
+		if (response.status >= 300 && response.status < 400) {
+			const location = response.headers.get('location');
+			if (!location) {
+				await response.body?.cancel();
+				throw new Error('Redirect without Location header');
+			}
+			current = new URL(location, current).href;
+			await response.body?.cancel();
+			continue;
+		}
+		return { response, finalUrl: current };
+	}
+	throw new Error('Too many redirects');
+}
+
 /** Validate a catalog play target before upstream fetch. */
 export function assertSafePlayUrl(raw: string): URL {
 	let url: URL;
