@@ -1,0 +1,21 @@
+{
+	"files.watcherExclude": {
+		"**/static/games/**": true,
+		"**/build/**": true,
+		"**/.svelte-kit/**": true,
+		"**/src-tauri/target/**": true,
+		"**/node_modules/**": true,
+		"**/.flatpak-builder/**": true,
+		"**/build-flatpak/**": true
+	},
+	"files.exclude": {
+		"**/.flatpak-builder": true,
+		"**/build-flatpak": true
+	},
+	"search.exclude": {
+		"**/static/games/**": true,
+		"**/build/**": true,
+		"**/.svelte-kit/**": true,
+		"**/src-tauri/target/**": true
+	}
+}

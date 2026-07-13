@@ -128,9 +128,11 @@
   }
 }
 
-/* Game player — fullscreen fills the viewport with safe-area padding on notched devices. */
+/* Game player — fullscreen fills the viewport with safe-area padding on notched devices.
+ * `.pseudo-fullscreen` is the CSS fallback when the Fullscreen API is blocked (iOS Safari). */
 .game-player-surface:fullscreen,
-.game-player-surface:-webkit-full-screen {
+.game-player-surface:-webkit-full-screen,
+.game-player-surface.pseudo-fullscreen {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -145,8 +147,17 @@
   box-shadow: none;
 }
 
+.game-player-surface.pseudo-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100dvh;
+}
+
 .game-player-surface:fullscreen .game-player-surface__frame,
-.game-player-surface:-webkit-full-screen .game-player-surface__frame {
+.game-player-surface:-webkit-full-screen .game-player-surface__frame,
+.game-player-surface.pseudo-fullscreen .game-player-surface__frame {
   flex: 1;
   min-height: 0;
   height: 100%;

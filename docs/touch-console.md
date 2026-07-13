@@ -26,7 +26,6 @@ flowchart TD
     dispatch -->|keydown/keyup with code+keyCode+bubbles+composed, canvas focused| gamedoc[Game document]
 
     toggleBtn[Glass toggle button] --> visible[visible boolean]
-    gesture[5-finger pointer count - injected passive listener] --> visible
     visible --> controls
 
     settings[Settings - Touch Controls] --> store[(touch-console store: global + per-game)]
@@ -61,13 +60,30 @@ Live probe: `resolveInjectable(iframe)` in [`src/lib/utils/touch-input-dispatch.
 
 | Action | Behavior |
 |--------|----------|
-| Gamepad toggle button | Always visible (when enabled / availability allows). Same `visible` boolean as the gesture. |
-| Five-finger tap | ≥5 simultaneous pointers on the same-origin game doc toggles overlay. Debounced ~300ms against the button. |
+| Gamepad toggle button | Sole show/hide entry point (when enabled / availability allows). |
 | Joystick | Analog stick → 8-way direction keys (Arrows + WASD by default). |
 | A / B / X / Y | Hold = keydown, release = keyup (Space / Enter / Shift / Esc by default). |
 | Hold 2s on a control | Enter drag mode (dashed highlight), move, release commits to store. |
 | Hold 2s on panel grip | Drag the whole compact console rectangle. |
 | Pause / privacy lock | Overlay hides and all keys are released. |
+
+Five-finger toggle was removed: iOS/iPadOS reserves multi-finger system gestures, Android OEM skins bind 3+ finger shortcuts, and the button is discoverable without fighting the OS.
+
+## Open-source options (evaluated)
+
+| Project | License | Role for Potato Tomato |
+|---------|---------|------------------------|
+| **[nipplejs](https://github.com/yoannmoinet/nipplejs)** | MIT | Virtual joystick: multitouch zones, normalized vector, CSS-friendly styling for the glass look. Candidate to replace the hand-rolled stick if stick feel needs more polish. |
+| **[interact.js](https://github.com/taye/interact.js)** | MIT | Drag + resize + hold/`manualStart` for every control (joystick, buttons, console rect) with bounds and min/max size. Best fit for “every component position **and** size adjustable.” |
+| **[idb-keyval](https://github.com/jakearchibald/idb-keyval)** | Apache-2.0 | Tiny IndexedDB wrapper if layout JSON outgrows `localStorage` (large per-game / orientation profiles). |
+| **[better-xcloud](https://github.com/redphx/better-xcloud)** | — (prior art) | Not a dependency. Browser overlay over a game it does not control; public layout JSON + community mockups by genre — reference for placement conventions. |
+| **Xbox Touch Adaptation Kit schema** | Public schema | Microsoft tool is not OSS; the published layout JSON schema is a good model for context layouts (driving vs on-foot vs menu) later. |
+
+**Current v1** keeps a zero-dep Pointer Events stick + hold-drag helper. Next layout pass should adopt **interact.js** for resize (today only position is drag-editable in-game; size is via Settings sliders / scale) and keep nipplejs optional.
+
+## Related: game fullscreen on iOS
+
+`requestFullscreen()` is blocked on iPhone (all browsers use WebKit). [`src/lib/utils/fullscreen.ts`](../src/lib/utils/fullscreen.ts) tries the native API first, then falls back to a `.pseudo-fullscreen` class (`position: fixed; inset: 0; height: 100dvh`) on the game surface — same button label either way. Escape exits the CSS fallback.
 
 ## Data model
 
@@ -78,6 +94,7 @@ Live probe: `resolveInjectable(iframe)` in [`src/lib/utils/touch-input-dispatch.
   version: 1,
   enabled: true,
   availability: 'auto' | 'always' | 'off',
+```
   opacity: 0.72,
   scale: 1,
   haptics: true,
@@ -125,7 +142,7 @@ Assets live in [`docs/touch-console/assets/`](./touch-console/assets/) in chrono
 2. **Architecture flowchart (conversation)** — origin check → gesture layer → overlay hold/drag → input translator (see mermaid above).
 
 3. **First labeled mockup** — [`universal-console-mockup.svg`](./touch-console/assets/universal-console-mockup.svg)  
-   Landscape overlay legend: five-finger zone, joystick, hold-2s drag, A/B, manual toggle, settings, orientation, size.
+   Landscape overlay legend: joystick, hold-2s drag, A/B, manual toggle, settings, orientation, size (five-finger zone is historical — removed from the product).
 
 4. **Refined compact glass console** — [`compact-glass-console.svg`](./touch-console/assets/compact-glass-console.svg)  
    Single frosted rectangle, drag handle, glass stick, clustered A/B/Y, optional second rectangle for twin-stick (deferred).
@@ -135,8 +152,12 @@ Assets live in [`docs/touch-console/assets/`](./touch-console/assets/) in chrono
 
 ## Follow-ups (not in v1)
 
+- **interact.js** drag + resize for every control (position already editable; size still Settings/scale)
+- Click passthrough vs Tap Zone (opt-in full-surface Space / bound key)
+- Binding picker (key + mouseClick) and add/remove controls per game
 - Cross-origin guest `postMessage` bridge (packaged Tauri puller, live embeds, nested Unity)
 - Same-origin proxy for `/api/unity-play` outside Vite dev
 - Broader puller `generic` mirroring coverage
 - Genre / engine mapping presets + crowdsourced profiles
 - Hardware gamepad passthrough and virtual trackpad / cursor mode
+- Compact mobile game-page chrome (Play first, icon grid) from the mockup HTML
