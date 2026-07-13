@@ -482,6 +482,18 @@ async function hasOfflineMirror(gameId) {
   }
   return false;
 }
+async function resolveOfflineMirrorRoot(gameId) {
+  const entryRel = await resolveOfflineEntryRel(gameId);
+  if (!entryRel) return null;
+  for (const root of [offlineDir(gameId), path3.join(catalogGameRoot(gameId), "offline")]) {
+    try {
+      const stat = await fs2.stat(path3.join(root, entryRel));
+      if (stat.isFile() && stat.size >= MIN_OFFLINE_INDEX_BYTES) return root;
+    } catch {
+    }
+  }
+  return null;
+}
 function resolveOfflineFilePath(gameId, fileRel) {
   const normalized = path3.normalize(fileRel).replace(/^(\.\.(\/|\\|$))+/, "");
   const candidates = [
@@ -4503,16 +4515,11 @@ function createServer() {
           sendJson(res, 400, { error: "Invalid game id" });
           return;
         }
-        const status = await getGameStatus(gameId);
-        if (!status.offline) {
+        if (!await hasOfflineMirror(gameId)) {
           sendJson(res, 409, { error: "Offline mirror is not complete" });
           return;
         }
-        const roots = [
-          path25.join(GAMES_DATA_DIR, gameId, "offline"),
-          path25.join(CATALOG_DIR, gameId, "offline")
-        ];
-        const offlineRoot = roots.find((candidate) => existsSync12(candidate));
+        const offlineRoot = await resolveOfflineMirrorRoot(gameId);
         if (!offlineRoot) {
           sendJson(res, 404, { error: "Offline mirror not found" });
           return;
@@ -4542,8 +4549,20 @@ function createServer() {
           sendJson(res, 400, { error: "Invalid export path" });
           return;
         }
-        const absolute = resolveOfflineFilePath(gameId, relativePath);
-        if (!absolute || !existsSync12(absolute)) {
+        const offlineRoot = await resolveOfflineMirrorRoot(gameId);
+        if (!offlineRoot) {
+          sendJson(res, 404, { error: "Offline mirror not found" });
+          return;
+        }
+        const normalized = path25.normalize(relativePath).replace(/^(\.\.(\/|\\|$))+/, "");
+        const absolute = path25.join(offlineRoot, normalized);
+        const resolvedRoot = path25.resolve(offlineRoot);
+        const resolvedAbs = path25.resolve(absolute);
+        if (!resolvedAbs.startsWith(resolvedRoot + path25.sep) && resolvedAbs !== resolvedRoot) {
+          sendJson(res, 400, { error: "Invalid export path" });
+          return;
+        }
+        if (!existsSync12(absolute)) {
           sendJson(res, 404, { error: "Export file not found" });
           return;
         }
