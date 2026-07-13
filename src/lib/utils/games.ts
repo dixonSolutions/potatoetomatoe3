@@ -516,7 +516,10 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 			);
 			return url;
 		}
-		if (isPublicSiteDeployment()) {
+		if (
+			isPublicSiteDeployment() &&
+			(await isPullerAvailable(true, { ignoreDeploymentGate: true }))
+		) {
 			const { ensureOfflineServiceWorker } = await import('./browser-offline-download');
 			await ensureOfflineServiceWorker();
 			const url = sameOriginLiveGameUrl(gameId, base);
