@@ -18,8 +18,9 @@ permissions:
   id-token: write
 
 concurrency:
+  # Never cancel an in-flight Pages deploy that may be restoring OSTree.
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -53,21 +54,46 @@ jobs:
           # Set repo Actions variable PUBLIC_PLAY_PROXY_URL (no trailing slash).
           PUBLIC_PLAY_PROXY_URL: ${{ vars.PUBLIC_PLAY_PROXY_URL }}
 
-      - name: Preserve matching Flatpak OSTree
-        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'Publish Linux Flatpak'
+      # Always try to keep a Flatpak OSTree on Pages. Release-prep deploys used to wipe
+      # /flatpak when they raced ahead of Publish Linux Flatpak, breaking remotes.
+      - name: Preserve Flatpak OSTree
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || '' }}
+          EVENT_NAME: ${{ github.event_name }}
+          WORKFLOW_NAME: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.name || '' }}
+          WORKFLOW_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || '' }}
+          HEAD_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
         run: |
           set -uo pipefail
-          mkdir -p build/flatpak
-          RUN_ID="${RELEASE_RUN_ID}"
-          echo "Downloading Flatpak artifact from platform run ${RUN_ID}"
-          mkdir -p flatpak-artifacts
-          if ! gh run download "${RUN_ID}" -n flatpak-bundle -D flatpak-artifacts; then
-            echo "WARNING: artifact download failed — deploying web-only"
+          mkdir -p build/flatpak flatpak-artifacts
+
+          download_bundle() {
+            local run_id="$1"
+            [ -n "$run_id" ] || return 1
+            rm -rf flatpak-artifacts
+            mkdir -p flatpak-artifacts
+            echo "Downloading flatpak-bundle from run ${run_id}"
+            gh run download "${run_id}" -n flatpak-bundle -D flatpak-artifacts
+          }
+
+          RUN_ID=""
+          if [ "$EVENT_NAME" = "workflow_run" ] && [ "$WORKFLOW_NAME" = "Publish Linux Flatpak" ]; then
+            RUN_ID="$WORKFLOW_RUN_ID"
+          fi
+
+          if [ -z "$RUN_ID" ]; then
+            RUN_ID="$(gh run list --repo "${{ github.repository }}" --workflow=release-flatpak.yml --status=success --limit 20 --json databaseId,headSha --jq "[.[] | select(.headSha==\"$HEAD_SHA\")][0].databaseId // empty" || true)"
+          fi
+
+          if [ -z "$RUN_ID" ]; then
+            RUN_ID="$(gh run list --repo "${{ github.repository }}" --workflow=release-flatpak.yml --status=success --limit 1 --json databaseId --jq '.[0].databaseId // empty' || true)"
+          fi
+
+          if [ -z "$RUN_ID" ] || ! download_bundle "$RUN_ID"; then
+            echo "WARNING: no Flatpak OSTree artifact available — deploying web-only"
             exit 0
           fi
+
           if [ -d flatpak-artifacts/repo ]; then
             cp -a flatpak-artifacts/repo/. build/flatpak/
           else
@@ -75,12 +101,14 @@ jobs:
             ls -la flatpak-artifacts || true
             exit 0
           fi
+
           if [ ! -f build/flatpak/summary ]; then
             echo "WARNING: restored tree missing summary — deploying web-only"
             ls -la build/flatpak || true
             exit 0
           fi
-          echo "OK: preserved OSTree summary ($(wc -c < build/flatpak/summary) bytes)"
+
+          echo "OK: preserved OSTree summary ($(wc -c < build/flatpak/summary) bytes) from run ${RUN_ID}"
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -15,7 +15,7 @@ publishes an immutable release-context artifact containing the generated tag and
 
 `Publish Linux Flatpak` and `Publish Android APK` start independently after preparation succeeds. Each downloads that context, checks out the exact SHA, stamps the same version into its platform build, and attaches only its own versioned asset to the already-created release. Platform workflows never query `latest`, so concurrent releases cannot mix artifacts.
 
-Pages deployment runs asynchronously after release preparation and successful artifact publication. It receives the release identity from the workflow event and preserves the Flatpak OSTree only when the matching artifact is available.
+Pages deployment runs asynchronously after release preparation and after Linux Flatpak publication. Every Pages deploy tries to keep a Flatpak OSTree: Flatpak-triggered runs use that run’s artifact, while prep/manual deploys fall back to the matching or latest successful `flatpak-bundle` so web-only publishes cannot wipe the remote.
 
 Android is currently gated on generated Tauri Android sources. Run `pnpm tauri android init` after installing the Android SDK, then configure signing secrets before enabling APK publication. Android is a direct signed APK download with manual updates; it has no update remote.
 
