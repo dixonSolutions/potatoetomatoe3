@@ -275,6 +275,15 @@
 									>
 										All Games
 									</a>
+									<a
+										href={resolve('/download')}
+										class="block text-sm transition-colors {$page.url.pathname.includes('/download')
+											? 'font-medium text-primary'
+											: 'text-foreground hover:text-primary'}"
+										onclick={() => (isOpen = false)}
+									>
+										Download app
+									</a>
 								</div>
 							</div>
 
