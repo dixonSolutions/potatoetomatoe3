@@ -38,7 +38,9 @@ jobs:
             latest_patch="$(git tag --list 'release-[0-9]*' | sed -n 's/^release-\([0-9][0-9]*\)$/\1/p' | sort -n | tail -n 1)"
             patch="$(( ${latest_patch:-0} + 1 ))"
             existing_tag="release-$patch"
-            git tag -a "$existing_tag" -m "Release 0.0.$patch" HEAD
+            git -c user.name="Potato Tomato Release Bot" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              tag -a "$existing_tag" -m "Release 0.0.$patch" HEAD
             git push origin "$existing_tag"
           fi
           [[ "$patch" =~ ^[0-9]+$ ]] || {
