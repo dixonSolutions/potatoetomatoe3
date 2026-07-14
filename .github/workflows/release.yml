@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: release-${{ github.sha }}
+  group: release-prepare
   cancel-in-progress: false
 
 jobs:
@@ -81,11 +81,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.ver.outputs.tag }}
+          VERSION: ${{ steps.ver.outputs.version }}
           SHA: ${{ steps.ver.outputs.sha }}
         run: |
           release_id="$(gh release view "$TAG" --json id --jq .id 2>/dev/null || true)"
           if [ -z "$release_id" ]; then
-            gh release create "$TAG" --target "$SHA" --draft --title "Release ${TAG#v}" --generate-notes
+            gh release create "$TAG" --target "$SHA" --draft --title "Release $VERSION" --generate-notes
             release_id="$(gh release view "$TAG" --json id --jq .id)"
           fi
           echo "id=$release_id" >> "$GITHUB_OUTPUT"
