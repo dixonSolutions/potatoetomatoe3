@@ -43,9 +43,12 @@ jobs:
           done < <(git rev-list --reverse origin/main)
 
           if [ -z "$target_sha" ]; then
-            echo "No untagged commits on main."
-            exit 1
+            echo "No untagged commits on main; nothing to release."
+            echo "has_target=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          echo "has_target=true" >> "$GITHUB_OUTPUT"
 
           if [ "$target_sha" != "${{ github.sha }}" ]; then
             echo "Delegating preparation to commit $target_sha (triggered by ${{ github.sha }})."
@@ -55,6 +58,7 @@ jobs:
 
           echo "sha=$target_sha" >> "$GITHUB_OUTPUT"
       - id: ver
+        if: steps.target.outputs.has_target == 'true'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -66,8 +70,6 @@ jobs:
             latest_patch="$(git tag --list 'release-[0-9]*' | sed -n 's/^release-\([0-9][0-9]*\)$/\1/p' | sort -n | tail -n 1)"
             patch="$(( ${latest_patch:-0} + 1 ))"
             existing_tag="release-$patch"
-            git tag -a "$existing_tag" -m "Release 0.0.$patch" HEAD
-            git push origin "$existing_tag"
           fi
           [[ "$patch" =~ ^[0-9]+$ ]] || {
             echo "Invalid calculated release patch: $patch" >&2
@@ -78,14 +80,18 @@ jobs:
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: pnpm/action-setup@v4
+        if: steps.target.outputs.has_target == 'true'
         with:
           version: 10
       - uses: actions/setup-node@v4
+        if: steps.target.outputs.has_target == 'true'
         with:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+        if: steps.target.outputs.has_target == 'true'
       - name: Stamp and validate shared release inputs
+        if: steps.target.outputs.has_target == 'true'
         env:
           VERSION: ${{ steps.ver.outputs.version }}
           SHA: ${{ steps.ver.outputs.sha }}
@@ -102,10 +108,12 @@ jobs:
           NODE
           node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
       - name: Compile shared web and puller outputs
+        if: steps.target.outputs.has_target == 'true'
         run: |
           pnpm build
           pnpm puller:build
       - name: Create or resume this tag's release
+        if: steps.target.outputs.has_target == 'true'
         id: release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -120,6 +128,7 @@ jobs:
           fi
           echo "id=$release_id" >> "$GITHUB_OUTPUT"
       - name: Write immutable platform context
+        if: steps.target.outputs.has_target == 'true'
         run: |
           cat > release-context.json <<EOF
           {
@@ -130,6 +139,7 @@ jobs:
           }
           EOF
       - uses: actions/upload-artifact@v4
+        if: steps.target.outputs.has_target == 'true'
         with:
           name: release-inputs
           path: |
@@ -138,7 +148,7 @@ jobs:
             puller/dist/
           if-no-files-found: error
       - name: Continue release queue
-        if: success()
+        if: success() && steps.target.outputs.has_target == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
