@@ -1,4 +1,4 @@
-name: Release
+name: Release preparation
 
 on:
   push:
@@ -19,13 +19,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  version:
+  prepare:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.ver.outputs.version }}
       tag: ${{ steps.ver.outputs.tag }}
       sha: ${{ steps.ver.outputs.sha }}
-      android_enabled: ${{ steps.ver.outputs.android_enabled }}
+      release_id: ${{ steps.release.outputs.id }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,140 +41,7 @@ jobs:
           echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          if git ls-files --error-unmatch src-tauri/gen/android >/dev/null 2>&1 || test -d src-tauri/gen/android; then
-            echo "android_enabled=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "android_enabled=false" >> "$GITHUB_OUTPUT"
-          fi
 
-  build-flatpak:
-    runs-on: ubuntu-latest
-    needs: version
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-          submodules: recursive
-          ref: ${{ needs.version.outputs.tag }}
-
-      - name: Restore Flatpak runtime and builder cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.local/share/flatpak
-            ~/.cache/ccache
-            .flatpak-builder
-          key: flatpak-gnome50-${{ runner.os }}-${{ hashFiles('flatpak/com.potatotomato.games.yml', 'flatpak/shared-modules/**') }}
-          restore-keys: |
-            flatpak-gnome50-${{ runner.os }}-
-
-      - name: Install Flatpak
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y flatpak flatpak-builder
-          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          flatpak --user install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
-
-      - name: Install Tauri build dependencies
-        run: |
-          sudo apt-get install -y \
-            libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf \
-            pkg-config libssl-dev ccache
-
-      - uses: dtolnay/rust-toolchain@stable
-
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: src-tauri -> target
-          cache-on-failure: true
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Bump version
-        run: |
-          VERSION="${{ needs.version.outputs.version }}"
-          node -e "
-            const fs = require('fs');
-            for (const f of ['package.json', 'src-tauri/tauri.conf.json']) {
-              const j = JSON.parse(fs.readFileSync(f, 'utf8'));
-              j.version = '$VERSION';
-              fs.writeFileSync(f, JSON.stringify(j, null, 2) + '\n');
-            }
-            let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
-            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"$VERSION\"');
-            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
-            fs.writeFileSync('version.txt', '$VERSION\n');
-          "
-
-      - name: Verify release metadata
-        run: node scripts/verify-release-metadata.mjs "${{ needs.version.outputs.version }}" "${{ needs.version.outputs.sha }}"
-
-      - name: Build puller sidecar
-        run: |
-          if ! (ldconfig -p | rg -q 'libnss3\.so' && ldconfig -p | rg -q 'libatk-1\.0\.so'); then
-            (cd puller && npx playwright install-deps chromium)
-          else
-            echo "Playwright system dependencies already available"
-          fi
-          pnpm puller:bundle:linux
-
-      - name: Build Tauri app
-        run: pnpm tauri:build:flatpak
-
-      - name: Assert Tauri catalog resources
-        run: |
-          # After `tauri build --no-bundle`, resources sit next to the binary
-          # (not under target/lib/). Flatpak copies them into
-          # `/app/lib/Potato Tomato/` (Tauri productName), with a potato-tomato symlink.
-          CATALOG_LIST=src-tauri/target/release/catalog/games/games-list.json
-          if [ ! -f "$CATALOG_LIST" ]; then
-            echo "ERROR: missing $CATALOG_LIST after tauri build" >&2
-            echo "Searched nearby games-list.json paths:" >&2
-            find src-tauri/target -name 'games-list.json' 2>/dev/null | head -20 >&2 || true
-            exit 1
-          fi
-          echo "OK: $CATALOG_LIST"
-
-      - name: Build Flatpak
-        run: |
-          flatpak-builder --user --install-deps-from=flathub \
-            --state-dir=.flatpak-builder --ccache \
-            --repo=repo --default-branch=stable \
-            build-flatpak flatpak/com.potatotomato.games.yml
-          flatpak build-update-repo repo
-          flatpak build-bundle repo "com.potatotomato.games-${{ needs.version.outputs.version }}.flatpak" \
-            com.potatotomato.games stable
-
-      - name: Upload Flatpak artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: flatpak-bundle
-          path: |
-            com.potatotomato.games-*.flatpak
-            repo/
-          if-no-files-found: error
-
-  build-android:
-    if: needs.version.outputs.android_enabled == 'true'
-    runs-on: ubuntu-latest
-    needs: version
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.version.outputs.tag }}
-          lfs: true
       - uses: pnpm/action-setup@v4
         with:
           version: 10
@@ -182,110 +49,55 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-      - uses: android-actions/setup-android@v3
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-      - name: Install Android build dependencies
-        run: |
-          sdkmanager "platforms;android-36" "ndk;27.3.13750724"
-          rustup target add aarch64-linux-android
       - run: pnpm install --frozen-lockfile
-      - name: Set exact release version
+      - name: Stamp and validate shared release inputs
+        env:
+          VERSION: ${{ steps.ver.outputs.version }}
+          SHA: ${{ steps.ver.outputs.sha }}
         run: |
           node - <<'NODE'
           const fs = require('node:fs');
-          const version = process.env.RELEASE_VERSION;
+          const version = process.env.VERSION;
           for (const file of ['package.json', 'src-tauri/tauri.conf.json']) {
             const json = JSON.parse(fs.readFileSync(file, 'utf8'));
             json.version = version;
             fs.writeFileSync(file, JSON.stringify(json, null, 2) + '\n');
           }
-          let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
-          cargo = cargo.replace(/^version = ".*"/m, `version = "${version}"`);
-          fs.writeFileSync('src-tauri/Cargo.toml', cargo);
+          fs.writeFileSync('src-tauri/Cargo.toml', fs.readFileSync('src-tauri/Cargo.toml', 'utf8').replace(/^version = ".*"/m, `version = "${version}"`));
           NODE
-        env:
-          RELEASE_VERSION: ${{ needs.version.outputs.version }}
-      - name: Verify release metadata
-        run: node scripts/verify-release-metadata.mjs "${{ needs.version.outputs.version }}" "${{ needs.version.outputs.sha }}"
-      - name: Build Android APK
-        run: pnpm tauri android build --target aarch64 --apk true
-      - name: Collect APK
+          node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
+      - name: Compile shared web and puller outputs
         run: |
-          mkdir -p dist
-          apk="src-tauri/gen/android/app/build/outputs/apk/arm64/release/app-arm64-release.apk"
-          test -f "$apk"
-          cp "$apk" "dist/potato-tomato-${{ needs.version.outputs.version }}.apk"
+          pnpm build
+          pnpm puller:build
+      - name: Create or resume this tag's release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.ver.outputs.tag }}
+          SHA: ${{ steps.ver.outputs.sha }}
+        run: |
+          release_id="$(gh release view "$TAG" --json id --jq .id 2>/dev/null || true)"
+          if [ -z "$release_id" ]; then
+            gh release create "$TAG" --target "$SHA" --draft --title "Release ${TAG#v}" --generate-notes
+            release_id="$(gh release view "$TAG" --json id --jq .id)"
+          fi
+          echo "id=$release_id" >> "$GITHUB_OUTPUT"
+      - name: Write immutable platform context
+        run: |
+          cat > release-context.json <<EOF
+          {
+            "version": "${{ steps.ver.outputs.version }}",
+            "tag": "${{ steps.ver.outputs.tag }}",
+            "sha": "${{ steps.ver.outputs.sha }}",
+            "releaseId": "${{ steps.release.outputs.id }}"
+          }
+          EOF
       - uses: actions/upload-artifact@v4
         with:
-          name: android-apk-${{ needs.version.outputs.version }}
-          path: dist/*.apk
+          name: release-inputs
+          path: |
+            release-context.json
+            build/
+            puller/dist/
           if-no-files-found: error
-
-  publish-release:
-    runs-on: ubuntu-latest
-    needs: [build-flatpak, build-android, version]
-    if: >
-      always() &&
-      needs.version.result == 'success' &&
-      needs.build-flatpak.result == 'success'
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: flatpak-bundle
-          path: dist
-
-      - name: Download Android APK
-        if: needs.version.outputs.android_enabled == 'true' && needs.build-android.result == 'success'
-        uses: actions/download-artifact@v4
-        with:
-          name: android-apk-${{ needs.version.outputs.version }}
-          path: dist
-
-      - name: Write release manifest
-        run: |
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const version = process.env.RELEASE_VERSION;
-          const androidBuilt = process.env.ANDROID_BUILT === 'true';
-          const assets = [`com.potatotomato.games-${version}.flatpak`];
-          if (androidBuilt) {
-            assets.push(`potato-tomato-${version}.apk`);
-          }
-          const manifest = {
-            version,
-            tag: `v${version}`,
-            commit: process.env.RELEASE_SHA,
-            releasedAt: new Date().toISOString(),
-            changelogUrl: `${process.env.REPOSITORY_URL}/releases/tag/v${version}`,
-            platforms: { linux: true, flatpak: true, android: androidBuilt },
-            assets
-          };
-          fs.writeFileSync('dist/release-manifest.json', JSON.stringify(manifest, null, 2) + '\n');
-          NODE
-        env:
-          RELEASE_VERSION: ${{ needs.version.outputs.version }}
-          RELEASE_SHA: ${{ needs.version.outputs.sha }}
-          ANDROID_BUILT: ${{ needs.version.outputs.android_enabled == 'true' && needs.build-android.result == 'success' }}
-          REPOSITORY_URL: https://github.com/${{ github.repository }}
-
-      - name: Stage release assets
-        run: |
-          mkdir -p release-assets
-          cp dist/com.potatotomato.games-*.flatpak release-assets/
-          cp dist/release-manifest.json release-assets/
-          shopt -s nullglob
-          apks=(dist/*.apk)
-          if [ ${#apks[@]} -gt 0 ]; then
-            cp "${apks[@]}" release-assets/
-          fi
-
-      - uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ needs.version.outputs.tag }}
-          name: Release ${{ needs.version.outputs.version }}
-          generate_release_notes: true
-          make_latest: true
-          files: release-assets/*

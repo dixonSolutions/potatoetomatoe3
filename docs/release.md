@@ -11,7 +11,9 @@ git tag -a v1.4.0 -m "Release v1.4.0"
 git push origin v1.4.0
 ```
 
-The workflow validates the tag, checks out that exact tag/SHA, and publishes one draft GitHub Release. Linux/Flatpak and Android jobs run independently and attach versioned assets to that same release. Platform jobs never query `latest`, so concurrent releases cannot mix artifacts.
+`Release preparation` is the central workflow. It validates the tag, checks out that exact tag/SHA, creates or resumes one draft GitHub Release, compiles the shared web and puller outputs, and publishes an immutable release-context artifact.
+
+`Publish Linux Flatpak` and `Publish Android APK` start independently after preparation succeeds. Each downloads that context, checks out the exact SHA, stamps the same version into its platform build, and attaches only its own versioned asset to the already-created release. Platform workflows never query `latest`, so concurrent releases cannot mix artifacts.
 
 Pages deployment runs asynchronously after release preparation and successful artifact publication. It receives the release identity from the workflow event and preserves the Flatpak OSTree only when the matching artifact is available.
 
