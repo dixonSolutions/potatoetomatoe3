@@ -1,17 +1,17 @@
 # Release & Flatpak remote
 
-## Tagged release
+## Automated immutable release
 
 Workflow: `.github/workflows/release.yml`
 
-Push an immutable semantic-version tag, for example `v1.4.0`:
+Every merge to `main` starts one coordinator run. It derives the next version from the
+existing `release-<number>` tags (`0.0.<number>`), creates that immutable tag at the
+merged commit, and uses it as the release identity. A manual dispatch follows the
+same calculation; versions are never hardcoded in the workflow.
 
-```bash
-git tag -a v1.4.0 -m "Release v1.4.0"
-git push origin v1.4.0
-```
-
-`Release preparation` is the central workflow. It validates the tag, checks out that exact tag/SHA, creates or resumes one draft GitHub Release, compiles the shared web and puller outputs, and publishes an immutable release-context artifact.
+`Release preparation` is the central workflow. It calculates the version, creates or
+resumes one draft GitHub Release, compiles the shared web and puller outputs, and
+publishes an immutable release-context artifact containing the generated tag and SHA.
 
 `Publish Linux Flatpak` and `Publish Android APK` start independently after preparation succeeds. Each downloads that context, checks out the exact SHA, stamps the same version into its platform build, and attaches only its own versioned asset to the already-created release. Platform workflows never query `latest`, so concurrent releases cannot mix artifacts.
 
