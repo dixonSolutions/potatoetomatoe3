@@ -215,8 +215,9 @@ jobs:
       - name: Collect APK
         run: |
           mkdir -p dist
-          find src-tauri/gen/android -type f -name '*.apk' -exec cp {} "dist/potato-tomato-${{ needs.version.outputs.version }}.apk" \;
-          test -f "dist/potato-tomato-${{ needs.version.outputs.version }}.apk"
+          apk="src-tauri/gen/android/app/build/outputs/apk/arm64/release/app-arm64-release.apk"
+          test -f "$apk"
+          cp "$apk" "dist/potato-tomato-${{ needs.version.outputs.version }}.apk"
       - uses: actions/upload-artifact@v4
         with:
           name: android-apk-${{ needs.version.outputs.version }}
@@ -229,8 +230,7 @@ jobs:
     if: >
       always() &&
       needs.version.result == 'success' &&
-      needs.build-flatpak.result == 'success' &&
-      (needs.version.outputs.android_enabled != 'true' || needs.build-android.result == 'success')
+      needs.build-flatpak.result == 'success'
     steps:
       - uses: actions/download-artifact@v4
         with:

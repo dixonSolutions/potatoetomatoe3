@@ -291,10 +291,12 @@ pub fn run() {
             .build(),
         )?;
       }
-      // Reserve port before spawn so get_puller_base_url matches the sidecar.
-      let _ = puller_port();
       #[cfg(not(mobile))]
-      spawn_puller(app.handle());
+      {
+        // Reserve port before spawn so get_puller_base_url matches the sidecar.
+        let _ = puller_port();
+        spawn_puller(app.handle());
+      }
       #[cfg(mobile)]
       log::info!("mobile build: puller capture sidecar is intentionally disabled");
       // libappindicator-sys panics (does not return Err) when the .so is missing

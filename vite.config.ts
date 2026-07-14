@@ -35,6 +35,7 @@ const pullerApiProxy = {
 };
 
 export default defineConfig({
+	envPrefix: ['VITE_', 'TAURI_ENV_'],
 	plugins: [
 		pullerGamesProxyPlugin(pullerTarget),
 		gamesHtmlBridgeInjectPlugin(),
