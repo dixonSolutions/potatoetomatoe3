@@ -1,0 +1,104 @@
+name: Publish Linux Flatpak
+
+on:
+  workflow_run:
+    workflows:
+      - Release preparation
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: release-flatpak-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          lfs: true
+          submodules: recursive
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-inputs
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: release-inputs
+      - name: Restore prepared shared outputs
+        run: |
+          cp -a release-inputs/build/. build/
+          cp -a release-inputs/puller/dist/. puller/dist/
+      - name: Read immutable release identity
+        id: release
+        run: |
+          echo "version=$(jq -r .version release-inputs/release-context.json)" >> "$GITHUB_OUTPUT"
+          echo "tag=$(jq -r .tag release-inputs/release-context.json)" >> "$GITHUB_OUTPUT"
+          echo "sha=$(jq -r .sha release-inputs/release-context.json)" >> "$GITHUB_OUTPUT"
+      - name: Restore Flatpak caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/flatpak
+            ~/.cache/ccache
+            .flatpak-builder
+          key: flatpak-gnome50-${{ runner.os }}-${{ hashFiles('flatpak/com.potatotomato.games.yml', 'flatpak/shared-modules/**') }}
+          restore-keys: flatpak-gnome50-${{ runner.os }}-
+      - name: Install Flatpak build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf pkg-config libssl-dev ccache
+          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak --user install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Stamp and validate this platform build
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          SHA: ${{ steps.release.outputs.sha }}
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const version = process.env.VERSION;
+          for (const file of ['package.json', 'src-tauri/tauri.conf.json']) {
+            const json = JSON.parse(fs.readFileSync(file, 'utf8'));
+            json.version = version;
+            fs.writeFileSync(file, JSON.stringify(json, null, 2) + '\n');
+          }
+          fs.writeFileSync('src-tauri/Cargo.toml', fs.readFileSync('src-tauri/Cargo.toml', 'utf8').replace(/^version = ".*"/m, `version = "${version}"`));
+          NODE
+          node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
+      - name: Build Linux app and Flatpak
+        run: |
+          pnpm puller:bundle:linux
+          pnpm tauri:build:flatpak
+          flatpak-builder --user --install-deps-from=flathub --state-dir=.flatpak-builder --ccache --repo=repo --default-branch=stable build-flatpak flatpak/com.potatotomato.games.yml
+          flatpak build-update-repo repo
+          flatpak build-bundle repo "com.potatotomato.games-${{ steps.release.outputs.version }}.flatpak" com.potatotomato.games stable
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flatpak-bundle
+          path: |
+            com.potatotomato.games-*.flatpak
+            repo/
+      - name: Attach Linux assets to the immutable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: gh release upload "$TAG" com.potatotomato.games-*.flatpak --clobber
