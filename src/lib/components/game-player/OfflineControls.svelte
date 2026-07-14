@@ -68,7 +68,7 @@
 	let backendLabel = $derived(describeOfflineBackend(offlineBackend));
 	let pullerMissingHint = $derived(isLocalAppDeployment() && offlineBackend === 'browser');
 	let waitingForPuller = $derived(
-		isLocalAppDeployment() && !statusReady && offlineBackend !== 'puller'
+		isLocalAppDeployment() && !statusReady && offlineBackend === 'none'
 	);
 	let canDownload = $derived(
 		networkOnline &&
@@ -94,27 +94,29 @@
 	);
 
 	async function refreshStatus() {
-		const backend = await getOfflineBackend(true);
-		offlineBackend = backend;
-		const availability = await getGameAvailability(gameId, metadata, true);
-		onlineAvailable = availability.online;
-		if (backend === 'none') {
-			status = null;
+		try {
+			const backend = await getOfflineBackend(true);
+			offlineBackend = backend;
+			const availability = await getGameAvailability(gameId, metadata, true);
+			onlineAvailable = availability.online;
+			if (backend === 'none') {
+				status = null;
+				return;
+			}
+			status = await refreshGameOfflineState(gameId);
+			if (status && !status.online && availability.online) {
+				status = { ...status, online: true };
+			}
+			if (backend === 'browser') {
+				const meta = await getGameMeta(gameId);
+				externalEmbedOnly =
+					Boolean(meta?.externalIframe) || (await onlineShellHasExternalIframe(gameId));
+			} else {
+				externalEmbedOnly = false;
+			}
+		} finally {
 			statusReady = true;
-			return;
 		}
-		status = await refreshGameOfflineState(gameId);
-		if (status && !status.online && availability.online) {
-			status = { ...status, online: true };
-		}
-		if (backend === 'browser') {
-			const meta = await getGameMeta(gameId);
-			externalEmbedOnly =
-				Boolean(meta?.externalIframe) || (await onlineShellHasExternalIframe(gameId));
-		} else {
-			externalEmbedOnly = false;
-		}
-		statusReady = true;
 	}
 
 	function shouldRefreshForEvent(detail: OfflineStatusChangedDetail | undefined): boolean {
