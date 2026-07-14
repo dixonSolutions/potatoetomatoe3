@@ -29,7 +29,18 @@
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import { Maximize, ArrowLeft, X, ThumbsUp, ThumbsDown, RotateCcw, ScrollText, Pause, Play } from 'lucide-svelte';
+	import {
+		Maximize,
+		ArrowLeft,
+		X,
+		ThumbsUp,
+		ThumbsDown,
+		RotateCcw,
+		ScrollText,
+		Pause,
+		Play,
+		Download
+	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
@@ -37,11 +48,12 @@
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
 	import { GAME_PLAY_MODE_CHANGED, getGamePlayMode } from '$lib/utils/game-play-mode';
-	import { OFFLINE_STATUS_CHANGED, type OfflineStatusChangedDetail } from '$lib/utils/offline-downloader';
 	import {
-		describeOfflineBackend,
-		getOfflineBackend
-	} from '$lib/utils/offline-runtime';
+		OFFLINE_STATUS_CHANGED,
+		type OfflineStatusChangedDetail
+	} from '$lib/utils/offline-downloader';
+	import { describeOfflineBackend, getOfflineBackend } from '$lib/utils/offline-runtime';
+	import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import {
 		applyPauseToGameIframe,
@@ -250,6 +262,9 @@
 	onMount(() => {
 		networkOnline = isNetworkOnline();
 		refreshPauseShortcutLabel();
+		// `afterNavigate` does not fire for the route's initial hydration. Load the
+		// requested game here as well so direct links do not remain on "Loading game…".
+		if (gameId) void loadGamePage(gameId);
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
 			if (gameId) void loadGamePage(gameId);
@@ -499,10 +514,29 @@
 				</div>
 			</div>
 			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
-			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
+			{#if !isPublicSiteDeployment()}
+				<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
+			{/if}
 		</div>
 
-		<PlayLogsDialog bind:open={logsOpen} gameId={gameId} snapshotLines={logSnapshot} />
+		{#if isPublicSiteDeployment()}
+			<div
+				class="mb-5 flex flex-col gap-3 rounded-lg border border-primary/30 bg-primary/5 p-4 sm:flex-row sm:items-center sm:justify-between"
+			>
+				<div class="min-w-0">
+					<p class="font-medium">Browser preview: online play only</p>
+					<p class="text-sm text-muted-foreground">
+						Download the Linux app for offline mirrors, touch controls, and local saves.
+					</p>
+				</div>
+				<Button href={resolve('/download')} class="shrink-0">
+					<Download class="mr-2 size-4" />
+					Download the app
+				</Button>
+			</div>
+		{/if}
+
+		<PlayLogsDialog bind:open={logsOpen} {gameId} snapshotLines={logSnapshot} />
 
 		<div
 			bind:this={gameSurfaceEl}
@@ -510,7 +544,9 @@
 			style={!isGameFullscreen && playerLayout.isCompact ? playerLayout.surfaceStyle : undefined}
 		>
 			{#if isGameFullscreen}
-				<div class="absolute top-2 right-2 z-20 flex flex-wrap justify-end gap-1 sm:top-3 sm:right-3">
+				<div
+					class="absolute top-2 right-2 z-20 flex flex-wrap justify-end gap-1 sm:top-3 sm:right-3"
+				>
 					<Button
 						variant="secondary"
 						size="sm"
@@ -567,7 +603,9 @@
 				>
 					<p class="text-lg font-semibold">Paused</p>
 					<p class="text-sm text-muted-foreground">
-						Press <kbd class="rounded border bg-muted px-1.5 py-0.5 font-mono text-xs">{pauseShortcutLabel}</kbd>
+						Press <kbd class="rounded border bg-muted px-1.5 py-0.5 font-mono text-xs"
+							>{pauseShortcutLabel}</kbd
+						>
 						or Resume to continue
 					</p>
 					<Button size="sm" onclick={toggleGamePause}>
@@ -588,7 +626,7 @@
 						</svg>
 						<div class="min-w-0 text-sm sm:text-base">
 							<span class="font-semibold">Try Linux Ubuntu today!</span>
-							<span class="mt-0.5 block sm:ml-2 sm:mt-0 sm:inline"
+							<span class="mt-0.5 block sm:mt-0 sm:ml-2 sm:inline"
 								>Speed up your gaming performance with Linux</span
 							>
 						</div>

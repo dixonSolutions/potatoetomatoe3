@@ -10,7 +10,12 @@ import { discoverAllAssetUrls } from '../download/discover-all.js';
 import { downloadFilesParallel } from '../download/parallel-wget.js';
 import { resolveMirroredEntryHtml } from '../generic/entry-html.js';
 import { postProcessGenericOfflineMirror } from '../generic/post-process-offline.js';
-import { extractIframeSrc, captureGameWithPlaywright, localPathForUrl } from '../capture/session.js';
+import {
+	extractIframeSrc,
+	captureGameWithPlaywright,
+	localPathForUrl
+} from '../capture/session.js';
+import { writeMirrorManifest } from '../capture/mirror-manifest.js';
 import {
 	expandBuildManifest,
 	findUnityLoaderBuildJson,
@@ -303,6 +308,12 @@ export async function pullGenericGame(
 		await fs.cp(catalogOnlineDir(gameId), out, { recursive: true });
 		await writeOfflineManifest(out, { entry: 'index.html' });
 		await postProcessGenericOfflineMirror(out, 'index.html');
+		await writeMirrorManifest(out, {
+			gameId,
+			entry: 'index.html',
+			captureMethod: 'fallback',
+			notes: ['No iframe source was present; copied the catalog shell.']
+		});
 		onProgress(100, 'Copied online shell');
 		return;
 	}
@@ -372,8 +383,20 @@ export async function pullGenericGame(
 		await postProcessGenericOfflineMirror(out, entryRel);
 	}
 
+	await writeMirrorManifest(out, {
+		gameId,
+		entry: entryRel,
+		mirroredFrom: iframeSrc,
+		captureMethod: usedPlaywright ? 'playwright' : 'fallback',
+		notes: usedPlaywright
+			? ['Captured through Playwright response observation and static asset discovery.']
+			: ['Playwright was unavailable; capture used the bounded wget fallback.']
+	});
+
 	onProgress(
 		100,
-		usedPlaywright ? 'Download complete (Playwright full scrape)' : 'Download complete (wget fallback)'
+		usedPlaywright
+			? 'Download complete (Playwright full scrape)'
+			: 'Download complete (wget fallback)'
 	);
 }

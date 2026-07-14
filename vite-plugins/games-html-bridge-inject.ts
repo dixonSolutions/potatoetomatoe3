@@ -93,14 +93,18 @@ function sendPlain404(
 }
 
 function attachGamesMiddleware(
-	server: { middlewares: { use: (fn: unknown) => void } },
+	server: { middlewares: { use: (fn: any) => any } },
 	gamesRoot: string,
 	staticRoot: string
 ) {
 	server.middlewares.use(
 		(
 			req: { url?: string },
-			res: { statusCode: number; setHeader: (k: string, v: string) => void; end: (b?: string) => void },
+			res: {
+				statusCode: number;
+				setHeader: (k: string, v: string) => void;
+				end: (b?: string) => void;
+			},
 			next: () => void
 		) => {
 			const url = (req.url ?? '').split('?')[0];

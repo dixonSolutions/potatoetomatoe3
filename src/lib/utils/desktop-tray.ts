@@ -30,7 +30,9 @@ let cachedLifecycle: TrayLifecycleState | null = null;
 export async function getTrayRecentGames(limit = 5): Promise<TrayRecentGame[]> {
 	const prefs = getPreferences();
 	const disliked = new Set(prefs.disliked);
-	const sessions = getPlaySessionsList().filter((s) => !disliked.has(s.gameId)).slice(0, limit);
+	const sessions = getPlaySessionsList()
+		.filter((s) => !disliked.has(s.gameId))
+		.slice(0, limit);
 
 	/* Prefer lean index names; fall back to game id */
 	let byId = new Map<string, { name?: string }>();
@@ -115,7 +117,7 @@ export async function attachDesktopTrayListeners(): Promise<UnlistenFn> {
 	const unlistenNav = await listen<string>('tray-navigate', (event) => {
 		const path = (event.payload ?? '').trim();
 		if (!path.startsWith('/')) return;
-		void goto(resolve(path));
+		void goto(resolve(path as any));
 	});
 
 	void syncDesktopTrayRecent();

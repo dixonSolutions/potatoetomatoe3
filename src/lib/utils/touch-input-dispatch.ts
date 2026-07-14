@@ -106,7 +106,9 @@ function keyCodeFromCode(code: string): number {
 function findCanvas(doc: Document): HTMLCanvasElement | HTMLElement | null {
 	const canvas = doc.querySelector('canvas');
 	if (canvas instanceof HTMLCanvasElement) return canvas;
-	const unity = doc.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+	const unity = doc.querySelector(
+		'#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
+	);
 	if (unity instanceof HTMLElement) return unity;
 	return null;
 }
@@ -115,7 +117,9 @@ function findCanvas(doc: Document): HTMLCanvasElement | HTMLElement | null {
  * Walk same-origin nested iframes and prefer the deepest document that has a canvas.
  * Returns null if the top iframe itself is cross-origin.
  */
-export function resolveInjectable(iframe: HTMLIFrameElement | null | undefined): InjectableTarget | null {
+export function resolveInjectable(
+	iframe: HTMLIFrameElement | null | undefined
+): InjectableTarget | null {
 	if (!iframe) return null;
 	try {
 		const win = iframe.contentWindow;
@@ -231,7 +235,10 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 	try {
 		const proxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(/\/$/, '');
 		if (proxy) {
-			const parsed = new URL(u, typeof window !== 'undefined' ? window.location.href : 'http://local');
+			const parsed = new URL(
+				u,
+				typeof window !== 'undefined' ? window.location.href : 'http://local'
+			);
 			const proxyOrigin = new URL(proxy).origin;
 			if (parsed.origin === proxyOrigin && isPullerPlayProxyPath(parsed.pathname)) return true;
 		}
@@ -271,7 +278,11 @@ export class KeyDispatcher {
 	private bridgeFrame: HTMLIFrameElement | null = null;
 
 	setTarget(target: InjectableTarget | null): void {
-		if (this.target !== target) {
+		const targetChanged =
+			this.target?.doc !== target?.doc ||
+			this.target?.win !== target?.win ||
+			this.target?.canvas !== target?.canvas;
+		if (targetChanged) {
 			this.releaseAll();
 			this.target = target;
 		}

@@ -2,23 +2,23 @@
 
 The app picks an offline backend automatically from where it is running:
 
-| Deployment | Detection | Download storage | Play path |
-|------------|-----------|------------------|-----------|
-| **Public site** (GitHub Pages) | Production host, not localhost/Tauri | Browser **IndexedDB** + service worker | `/browser-offline/{id}/…` |
+| Deployment                        | Detection                                  | Download storage                | Play path                                  |
+| --------------------------------- | ------------------------------------------ | ------------------------------- | ------------------------------------------ |
+| **Public site** (GitHub Pages)    | Production host, not localhost/Tauri       | None; preview only              | Raw online game embed                      |
 | **Local app** (`pnpm dev`, Tauri) | `import.meta.env.DEV`, Tauri, or localhost | **Puller** writes files to disk | `/puller-games/{id}/offline/…` (dev proxy) |
 
 Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or `local-app` in `.env` if needed.
 
-The puller is the shared Node.js backend used by both local desktop and web workflows:
+The puller is the native desktop Node.js backend:
 
 1. **Primary:** mirrors games into `static/games/<id>/offline/` for true offline play (`/api/offline`)
-2. **Also:** live-relays external online embeds through `/api/game-live` (and Unity via `/api/unity-play`) so touch works while online — without creating an offline download
+2. **Also:** live-relays external online embeds through `/api/game-live` (and Unity via `/api/unity-play`) for native online play
 
 The execution and storage adapters differ by host, but scrape/capture/ads logic is not duplicated:
 
 - Tauri/Flatpak runs the puller sidecar and keeps mirrors on disk.
-- The web app calls the same puller HTTP API when a local puller is available, then progressively imports completed files into IndexedDB and serves them through `/browser-offline/`.
-- Public-site web touch is intentionally limited to local/offline mirrors. Live proxy and online touch remain local-app/Tauri capabilities.
+- The public web app does not capture, download, relay, register a service worker, or inject touch controls. It is an online preview and native-app download site.
+- Linux/Flatpak is the mirror-creating platform. Android plays bundled/imported verified mirrors and cannot run the Node/Playwright capture sidecar.
 
 ## Running
 
@@ -29,12 +29,12 @@ pnpm puller:dev            # watch mode
 
 Environment variables:
 
-| Variable               | Default               | Description                             |
-| ---------------------- | --------------------- | --------------------------------------- |
+| Variable               | Default               | Description                                  |
+| ---------------------- | --------------------- | -------------------------------------------- |
 | `PULLER_PORT`          | `18787`               | HTTP listen port (8787 used by Cursor Voice) |
-| `GAMES_DATA_DIR`       | `<repo>/static/games` | Writable games root                     |
-| `PULLER_CORS_ORIGIN`   | `*`                   | CORS header                             |
-| `EMBED_STRATEGY_GAMES` | `shrek-escape`        | Comma-separated embed-strategy game IDs |
+| `GAMES_DATA_DIR`       | `<repo>/static/games` | Writable games root                          |
+| `PULLER_CORS_ORIGIN`   | `*`                   | CORS header                                  |
+| `EMBED_STRATEGY_GAMES` | `shrek-escape`        | Comma-separated embed-strategy game IDs      |
 
 ## Security
 
@@ -47,11 +47,11 @@ Environment variables:
 
 At 10k+ catalog size, the SPA never asks the puller for every game’s status.
 
-| Request | Response |
-|---------|----------|
-| `GET /api/offline/status` | Only **downloaded / in-progress / partial** games (dirs with `offline/`, plus active downloads) |
-| `GET /api/offline/status?ids=a,b,c` | Statuses for the listed ids (visible cards) |
-| `GET /api/offline/status/:id` | Single game (unchanged) |
+| Request                             | Response                                                                                        |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `GET /api/offline/status`           | Only **downloaded / in-progress / partial** games (dirs with `offline/`, plus active downloads) |
+| `GET /api/offline/status?ids=a,b,c` | Statuses for the listed ids (visible cards)                                                     |
+| `GET /api/offline/status/:id`       | Single game (unchanged)                                                                         |
 
 Client helpers: `fetchDownloadedStatuses()` and `fetchOfflineStatusesForIds(ids)`.
 
@@ -91,10 +91,10 @@ Default for catalog games. **Does not stop at the online shell** — mirrors the
 
 ### Browser IndexedDB vs puller
 
-| Backend | What gets saved | Cross-origin iframe |
-|---------|-----------------|---------------------|
-| **Puller** (local app / Tauri) | Full iframe host + assets + ad stubs | Supported (this is the full-scrape path) |
-| **Browser** (GitHub Pages) | Same-origin `/games/{id}/online/*` only | **Refused** — download fails with CTA unless a local puller is reachable (`pnpm puller:start`), then the download is routed to the puller |
+| Backend                        | What gets saved                         | Cross-origin iframe                                                                                                                       |
+| ------------------------------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Puller** (local app / Tauri) | Full iframe host + assets + ad stubs    | Supported (this is the full-scrape path)                                                                                                  |
+| **Browser** (GitHub Pages)     | Same-origin `/games/{id}/online/*` only | **Refused** — download fails with CTA unless a local puller is reachable (`pnpm puller:start`), then the download is routed to the puller |
 
 Shell-only “offline” copies that still load a live third-party iframe are no longer treated as successful downloads.
 
@@ -141,10 +141,10 @@ In release builds, the puller is bundled as a sidecar binary (`src-tauri/binarie
 
 The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads persist outside the read-only bundle. Tauri reserves a free loopback port (default `18787`, next free if busy) and exposes it to the UI via `get_puller_base_url` so Flatpak does not accidentally talk to a host `pnpm dev` puller.
 
-| Variable | Dev | Packaged app |
-|----------|-----|--------------|
-| `GAMES_DATA_DIR` | `static/games/` | `~/.local/share/com.potatotomato.games/games/` |
-| `CATALOG_DIR` | same as data dir | bundled `catalog/games/` resource (read-only online shells). Flatpak must install under `/app/lib/Potato Tomato/catalog/games/` because Tauri resolves Linux resources with `productName` (`Potato Tomato`), not the Cargo crate name. A `potato-tomato` symlink is also created for debugging. |
+| Variable         | Dev              | Packaged app                                                                                                                                                                                                                                                                                    |
+| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GAMES_DATA_DIR` | `static/games/`  | `~/.local/share/com.potatotomato.games/games/`                                                                                                                                                                                                                                                  |
+| `CATALOG_DIR`    | same as data dir | bundled `catalog/games/` resource (read-only online shells). Flatpak must install under `/app/lib/Potato Tomato/catalog/games/` because Tauri resolves Linux resources with `productName` (`Potato Tomato`), not the Cargo crate name. A `potato-tomato` symlink is also created for debugging. |
 
 Downloaded `offline/` folders are **gitignored** under `static/games/` during development.
 
@@ -152,12 +152,12 @@ Downloaded `offline/` folders are **gitignored** under `static/games/` during de
 
 The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. Detection lives in `src/lib/utils/offline-deployment.ts`; routing in `offline-runtime.ts`:
 
-| Environment | Backend | Storage |
-|-------------|---------|---------|
-| Public site (GitHub Pages) | Browser only | IndexedDB + `offline-sw.js` |
-| Local app + puller running | Puller | Files on disk (`GAMES_DATA_DIR`) |
-| Local app, puller stopped | Browser fallback | IndexedDB (limited mirrors) |
-| Tauri desktop | Puller sidecar | App data directory |
+| Environment                | Backend          | Storage                          |
+| -------------------------- | ---------------- | -------------------------------- |
+| Public site (GitHub Pages) | Browser only     | IndexedDB + `offline-sw.js`      |
+| Local app + puller running | Puller           | Files on disk (`GAMES_DATA_DIR`) |
+| Local app, puller stopped  | Browser fallback | IndexedDB (limited mirrors)      |
+| Tauri desktop              | Puller sidecar   | App data directory               |
 
 Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:18787`).
 
@@ -165,17 +165,17 @@ Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1
 
 Per-game saves (`localStorage`, `sessionStorage`, cookies, IndexedDB) are emulated and persisted so online and offline play share one profile. Full documentation: [game-browser-storage.md](./game-browser-storage.md).
 
-| Play path | Bridge injection |
-|-----------|-------------------|
-| `/games/{id}/online/` or `/offline/` | Vite middleware (dev) or service worker (public site) |
-| `/puller-games/{id}/offline/` | Same as app origin + puller HTML injection |
-| `/browser-offline/{id}/…` | Service worker injects `game-storage-bridge.child.js` |
-| Direct puller URL (`127.0.0.1:18787`) | Inline bridge; shell syncs via `postMessage` |
+| Play path                             | Bridge injection                                      |
+| ------------------------------------- | ----------------------------------------------------- |
+| `/games/{id}/online/` or `/offline/`  | Vite middleware (dev) or service worker (public site) |
+| `/puller-games/{id}/offline/`         | Same as app origin + puller HTML injection            |
+| `/browser-offline/{id}/…`             | Service worker injects `game-storage-bridge.child.js` |
+| Direct puller URL (`127.0.0.1:18787`) | Inline bridge; shell syncs via `postMessage`          |
 
-| Deployment | Profile storage |
-|------------|-----------------|
-| Local + puller | `static/games/{id}/data/` (gitignored) |
-| GitHub Pages | IndexedDB `potatotomato-browser-data-v1` |
+| Deployment     | Profile storage                          |
+| -------------- | ---------------------------------------- |
+| Local + puller | `static/games/{id}/data/` (gitignored)   |
+| GitHub Pages   | IndexedDB `potatotomato-browser-data-v1` |
 
 Games embedded in third-party iframes (Poki, etc.) keep saves on the embed origin and cannot be mirrored automatically.
 

@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import type { Page, Response } from 'playwright';
 import { isCapturableUrl, localPathForUrl } from './rewrite.js';
@@ -7,6 +8,8 @@ export interface VaultEntry {
 	url: string;
 	status: number;
 	contentType: string;
+	headers: Record<string, string>;
+	initiatorUrl?: string;
 	body: Buffer;
 }
 
@@ -15,6 +18,7 @@ export interface NetworkVault {
 	entries: Map<string, VaultEntry>;
 	attach(page: Page): void;
 	detach(page: Page): void;
+	waitForIdle(): Promise<void>;
 	/** Persist all entries under outDir using baseUrl for path layout. */
 	flush(outDir: string, baseUrl: string): Promise<string[]>;
 }
@@ -45,6 +49,7 @@ function shouldSkipUrl(url: string): boolean {
 export function createNetworkVault(): NetworkVault {
 	const entries = new Map<string, VaultEntry>();
 	const handlers = new WeakMap<Page, (response: Response) => void>();
+	const pending = new Set<Promise<void>>();
 
 	async function ingest(response: Response): Promise<void> {
 		const url = response.url();
@@ -61,7 +66,14 @@ export function createNetworkVault(): NetworkVault {
 		try {
 			const body = Buffer.from(await response.body());
 			if (body.length === 0) return;
-			entries.set(url, { url, status, contentType, body });
+			entries.set(url, {
+				url,
+				status,
+				contentType,
+				headers: response.headers(),
+				initiatorUrl: response.request().frame()?.url(),
+				body
+			});
 		} catch {
 			// Body unavailable (redirect, opaque, cancelled)
 		}
@@ -71,7 +83,9 @@ export function createNetworkVault(): NetworkVault {
 		entries,
 		attach(page: Page) {
 			const handler = (response: Response) => {
-				void ingest(response);
+				const task = ingest(response);
+				pending.add(task);
+				void task.finally(() => pending.delete(task));
 			};
 			handlers.set(page, handler);
 			page.on('response', handler);
@@ -83,7 +97,13 @@ export function createNetworkVault(): NetworkVault {
 				handlers.delete(page);
 			}
 		},
+		async waitForIdle() {
+			while (pending.size > 0) {
+				await Promise.all([...pending]);
+			}
+		},
 		async flush(outDir: string, baseUrl: string): Promise<string[]> {
+			await this.waitForIdle();
 			const written: string[] = [];
 			for (const entry of entries.values()) {
 				const dest = localPathForUrl(baseUrl, entry.url, outDir);
@@ -91,6 +111,24 @@ export function createNetworkVault(): NetworkVault {
 				await fs.writeFile(dest, entry.body);
 				written.push(dest);
 			}
+			const manifest = [...entries.values()].map((entry) => ({
+				url: entry.url,
+				path: path
+					.relative(outDir, localPathForUrl(baseUrl, entry.url, outDir))
+					.split(path.sep)
+					.join('/'),
+				status: entry.status,
+				contentType: entry.contentType,
+				headers: entry.headers,
+				initiatorUrl: entry.initiatorUrl,
+				bytes: entry.body.length,
+				sha256: createHash('sha256').update(entry.body).digest('hex')
+			}));
+			await fs.writeFile(
+				path.join(outDir, 'capture-manifest.json'),
+				`${JSON.stringify({ version: 1, baseUrl, capturedAt: new Date().toISOString(), entries: manifest }, null, 2)}\n`,
+				'utf-8'
+			);
 			return written;
 		}
 	};
