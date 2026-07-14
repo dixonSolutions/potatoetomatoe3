@@ -90,3 +90,29 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.release.outputs.tag }}
         run: gh release upload "$TAG" dist/*.apk --clobber
+      - name: Wait for Linux Flatpak assets
+        if: always() && steps.release.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ steps.release.outputs.sha }}
+        run: |
+          for _ in $(seq 1 180); do
+            read -r status conclusion < <(gh run list --repo "${{ github.repository }}" --workflow=release-flatpak.yml --commit="$SHA" --limit 1 --json status,conclusion --jq -r '.[0] | "\(.status) \(.conclusion // "")"')
+            if [ "$status" = "completed" ]; then
+              [ "$conclusion" = "success" ] || exit 0
+              exit 0
+            fi
+            sleep 30
+          done
+          echo "Timed out waiting for Publish Linux Flatpak" >&2
+          exit 1
+      - name: Publish release
+        if: always() && steps.release.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+          SHA: ${{ steps.release.outputs.sha }}
+        run: |
+          conclusion="$(gh run list --repo "${{ github.repository }}" --workflow=release-flatpak.yml --commit="$SHA" --limit 1 --json conclusion --jq -r '.[0].conclusion // ""')"
+          [ "$conclusion" = "success" ] || exit 0
+          gh release edit "$TAG" --draft=false --latest
