@@ -63,7 +63,14 @@
 		started &&
 			config.enabled &&
 			config.availability !== 'off' &&
-			(config.availability === 'always' || isMobile.current || injectable)
+			(config.availability === 'always' ||
+				isMobile.current ||
+				injectable ||
+				canUseTouchBridge(playerUrl) ||
+				isLikelyInjectableUrl(playerUrl))
+	);
+	const waitingForInjection = $derived(
+		showToggle && visible && !paused && !privacyLocked && !injectable
 	);
 	const showOverlay = $derived(showToggle && visible && !paused && !privacyLocked && injectable);
 	const scale = $derived(config.scale);
@@ -322,11 +329,11 @@
 {#if showToggle}
 	<div
 		bind:this={surfaceEl}
-		class="pointer-events-none absolute inset-0 z-[15] overflow-hidden"
+		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
 		aria-hidden={!showOverlay}
 	>
 		<div
-			class="pointer-events-auto absolute top-3 right-3 z-20 flex items-center gap-2 rounded-xl border border-white/25 bg-background/70 px-3 py-2 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
+			class="pointer-events-auto absolute top-3 right-3 z-40 flex items-center gap-2 rounded-xl border border-white/25 bg-background/70 px-3 py-2 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
 		>
 			<Gamepad2 class="size-4 text-blue-500" aria-hidden="true" />
 			<Switch
@@ -340,14 +347,21 @@
 			/>
 		</div>
 
-		{#if unavailableHint && visible}
+		{#if waitingForInjection}
 			<div
 				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
 				role="status"
 			>
-				Touch controls need a same-origin play URL or an offline mirror. On the web app, download
-				the game for local play first. The local desktop app can also use the puller proxy for
-				online games; raw third-party embeds cannot receive controls.
+				Waiting for the game frame so touch controls can inject through the puller proxy or local
+				mirror…
+			</div>
+		{:else if unavailableHint && visible}
+			<div
+				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
+				role="status"
+			>
+				Touch controls need a puller-proxied online URL or an offline mirror. Start or relaunch the
+				game after the local puller is ready; raw third-party embeds cannot receive controls.
 			</div>
 		{/if}
 

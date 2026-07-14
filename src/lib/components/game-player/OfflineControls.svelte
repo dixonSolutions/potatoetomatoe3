@@ -62,18 +62,24 @@
 	let cancelling = $state(false);
 	let pollGeneration = $state(0);
 
+	let statusReady = $state(false);
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
 	let backendLabel = $derived(describeOfflineBackend(offlineBackend));
 	let pullerMissingHint = $derived(isLocalAppDeployment() && offlineBackend === 'browser');
-	let canDownload = $derived(
-		networkOnline &&
-			offlineReady &&
-			!bundled &&
-			!status?.offline &&
-			!downloading &&
-			onlineAvailable
+	let waitingForPuller = $derived(
+		isLocalAppDeployment() && !statusReady && offlineBackend !== 'puller'
 	);
+	let canDownload = $derived(
+		networkOnline && offlineReady && !bundled && !status?.offline && !downloading && onlineAvailable
+	);
+	let downloadBlockedReason = $derived.by(() => {
+		if (canDownload || downloading || status?.offline || bundled) return '';
+		if (!networkOnline) return 'Connect to the internet to download this game.';
+		if (!offlineReady) return 'Offline downloads are unavailable in this environment.';
+		if (!onlineAvailable) return 'This game has no online shell the puller can capture.';
+		return '';
+	});
 	let hasPartialCache = $derived(Boolean(status?.partialCache && (status.cacheFileCount ?? 0) > 0));
 	let canCancel = $derived(downloading || Boolean(status?.downloading));
 	let canDelete = $derived(
@@ -87,6 +93,7 @@
 		onlineAvailable = availability.online;
 		if (backend === 'none') {
 			status = null;
+			statusReady = true;
 			return;
 		}
 		status = await refreshGameOfflineState(gameId);
@@ -100,6 +107,7 @@
 		} else {
 			externalEmbedOnly = false;
 		}
+		statusReady = true;
 	}
 
 	function shouldRefreshForEvent(detail: OfflineStatusChangedDetail | undefined): boolean {
@@ -147,12 +155,22 @@
 		downloading = true;
 		const generation = ++pollGeneration;
 		progress = { state: 'pending', progress: 0, message: 'Starting…' };
-		appendPlayLog('info', 'download', `Starting offline download`, `game=${gameId} backend=${offlineBackend}`);
+		appendPlayLog(
+			'info',
+			'download',
+			`Starting offline download`,
+			`game=${gameId} backend=${offlineBackend}`
+		);
 		dispatchOfflineStatusChanged(gameId, 'download-start');
 		try {
 			const start = await startGameDownload(gameId);
 			if (!start.started) {
-				appendPlayLog('warn', 'download', 'Download not started', `game=${gameId} ${start.message}`);
+				appendPlayLog(
+					'warn',
+					'download',
+					'Download not started',
+					`game=${gameId} ${start.message}`
+				);
 				toast.error(start.message);
 				progress = { state: 'error', progress: 0, message: start.message, error: start.message };
 				dispatchOfflineStatusChanged(gameId, 'download-error');
@@ -170,7 +188,12 @@
 				dispatchOfflineStatusChanged(gameId, 'download-done');
 				onPlayUrlChange?.();
 			} else if (final.state === 'cancelled') {
-				appendPlayLog('warn', 'download', 'Download cancelled', `game=${gameId} ${final.message ?? ''}`.trim());
+				appendPlayLog(
+					'warn',
+					'download',
+					'Download cancelled',
+					`game=${gameId} ${final.message ?? ''}`.trim()
+				);
 				toast.message(final.message || 'Download cancelled');
 				status = await refreshGameOfflineState(gameId);
 				dispatchOfflineStatusChanged(gameId, 'download-cancel');
@@ -241,9 +264,14 @@
 	}
 
 	let showDownloadSection = $derived(
-		offlineReady &&
-			!bundled &&
-			(onlineAvailable || Boolean(status?.offline) || downloading || hasPartialCache)
+		!bundled &&
+			(offlineReady || isLocalAppDeployment()) &&
+			(onlineAvailable ||
+				Boolean(status?.offline) ||
+				downloading ||
+				hasPartialCache ||
+				waitingForPuller ||
+				Boolean(downloadBlockedReason))
 	);
 </script>
 
@@ -269,6 +297,11 @@
 					<Loader2 class="h-3 w-3 animate-spin" />
 					Downloading
 				</Badge>
+			{:else if waitingForPuller}
+				<Badge variant="outline" class="gap-1">
+					<Loader2 class="h-3 w-3 animate-spin" />
+					Starting puller
+				</Badge>
 			{:else if hasPartialCache}
 				<Badge variant="secondary" class="gap-1">
 					<HardDrive class="h-3 w-3" />
@@ -280,6 +313,11 @@
 		<div class="flex flex-wrap gap-2">
 			{#if canDownload}
 				<Button size="sm" onclick={handleDownload} disabled={downloading || cancelling}>
+					<Download class="mr-2 h-4 w-4" />
+					{hasPartialCache ? 'Resume download' : 'Download for offline'}
+				</Button>
+			{:else if downloadBlockedReason && !status?.offline}
+				<Button size="sm" disabled title={downloadBlockedReason}>
 					<Download class="mr-2 h-4 w-4" />
 					{hasPartialCache ? 'Resume download' : 'Download for offline'}
 				</Button>
@@ -317,6 +355,10 @@
 			</div>
 		{/if}
 
+		{#if downloadBlockedReason && !status?.offline && !downloading}
+			<p class="text-xs text-muted-foreground">{downloadBlockedReason}</p>
+		{/if}
+
 		{#if hasPartialCache && !downloading}
 			<p class="text-xs text-muted-foreground">
 				Partial download saved in this browser. Resume to continue where you left off, or delete the
@@ -324,10 +366,15 @@
 			</p>
 		{/if}
 
-		{#if pullerMissingHint}
+		{#if waitingForPuller}
 			<p class="text-xs text-muted-foreground">
-				Run <code class="rounded bg-muted px-1">pnpm dev</code> to start the puller for full game
-				file downloads on disk.
+				Connecting to the local puller for Playwright capture and offline mirrors…
+			</p>
+		{:else if pullerMissingHint}
+			<p class="text-xs text-muted-foreground">
+				The local puller is unavailable right now. Start the desktop app sidecar or run
+				<code class="rounded bg-muted px-1">pnpm puller:start</code> for full game file downloads on
+				disk.
 			</p>
 		{:else if offlineBackend === 'browser'}
 			<p class="text-xs text-muted-foreground">
@@ -342,8 +389,8 @@
 			{/if}
 		{:else if offlineBackend === 'puller'}
 			<p class="text-xs text-muted-foreground">
-				Downloads are saved as game files on disk via the local puller (full iframe + asset scrape,
-				ads stripped).
+				Downloads are saved as game files on disk via the local puller (Playwright capture, ads
+				stripped).
 			</p>
 		{/if}
 	</div>
@@ -354,8 +401,8 @@
 		<AlertDialog.Header>
 			<AlertDialog.Title>Cancel download?</AlertDialog.Title>
 			<AlertDialog.Description>
-				You can discard everything downloaded so far, or keep the partial cache in this browser so the
-				next download can resume from saved files.
+				You can discard everything downloaded so far, or keep the partial cache in this browser so
+				the next download can resume from saved files.
 			</AlertDialog.Description>
 		</AlertDialog.Header>
 		<AlertDialog.Footer class="flex-col gap-2 sm:flex-row sm:justify-end">

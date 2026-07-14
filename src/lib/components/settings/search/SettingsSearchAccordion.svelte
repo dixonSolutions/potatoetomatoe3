@@ -10,7 +10,7 @@
 		results: SearchResultSection[];
 		accordionOpen?: string[];
 		onPickSubsection: (
-			panel: 'privacy' | 'audio' | 'analytics' | 'games' | 'touch',
+			panel: 'privacy' | 'audio' | 'analytics' | 'games' | 'touch' | 'updates',
 			scrollTargetId: string
 		) => void;
 	} = $props();

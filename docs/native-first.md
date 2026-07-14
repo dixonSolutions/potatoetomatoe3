@@ -4,11 +4,37 @@ Potato Tomato has two deliberate product surfaces:
 
 - The GitHub Pages site is a fast catalog and online game preview. It does not
   capture games, create offline downloads, relay arbitrary sites, register the
-  offline service worker, or inject touch controls.
+  offline service worker, or inject touch controls. It is stamped with
+  `PUBLIC_OFFLINE_DEPLOYMENT=public-site`.
 - The native app is the full player. Linux/Flatpak runs the local puller and
   Playwright capture flow, stores verified mirrors, and provides touch controls
   and saves. Android plays bundled or imported mirrors and does not package
-  Node.js or Playwright.
+  Node.js or Playwright. Native frontend builds are stamped with
+  `PUBLIC_OFFLINE_DEPLOYMENT=local-app` and also accept runtime Tauri signals
+  (`globalThis.isTauri`, `tauri.localhost`, `TAURI_ENV_PLATFORM`).
+
+## Native runtime diagnostics
+
+In the packaged webview DevTools:
+
+```js
+({
+	hostname: location.hostname,
+	isTauri: globalThis.isTauri,
+	PUBLIC_OFFLINE_DEPLOYMENT: import.meta.env.PUBLIC_OFFLINE_DEPLOYMENT,
+	TAURI_ENV_PLATFORM: import.meta.env.TAURI_ENV_PLATFORM
+});
+```
+
+Healthy Flatpak expectations:
+
+- deployment resolves to `local-app`
+- `PUBLIC_OFFLINE_DEPLOYMENT` is `local-app` (never `public-site`)
+- `Download app` nav / browser-preview banner are hidden
+- Offline download controls are visible and the puller health endpoint answers
+
+Android Settings → Updates downloads the latest `.apk` asset from this repository’s
+GitHub Releases. Flatpak updates remain system-managed (`flatpak update`).
 
 ## Capture contract
 

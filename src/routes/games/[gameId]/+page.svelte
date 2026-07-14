@@ -545,7 +545,7 @@
 		>
 			{#if isGameFullscreen}
 				<div
-					class="absolute top-2 right-2 z-20 flex flex-wrap justify-end gap-1 sm:top-3 sm:right-3"
+					class="absolute top-2 left-2 z-20 flex flex-wrap justify-start gap-1 sm:top-3 sm:left-3"
 				>
 					<Button
 						variant="secondary"
@@ -668,15 +668,16 @@
 						}}
 					/>
 				{/key}
-				<TouchConsole
-					iframe={iframeElement ?? null}
-					{gameId}
-					playerUrl={gamePlayerUrl}
-					isPortrait={playerLayout.isPortrait}
-					paused={gamePaused}
-					started={gameSurfaceStarted}
-				/>
 			</div>
+			<!-- Above pause (z-10) and fullscreen chrome (z-20) so the toggle stays clickable. -->
+			<TouchConsole
+				iframe={iframeElement ?? null}
+				{gameId}
+				playerUrl={gamePlayerUrl}
+				isPortrait={playerLayout.isPortrait}
+				paused={gamePaused}
+				started={gameSurfaceStarted}
+			/>
 		</div>
 
 		<div class="mb-8">

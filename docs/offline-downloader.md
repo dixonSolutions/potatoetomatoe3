@@ -2,12 +2,14 @@
 
 The app picks an offline backend automatically from where it is running:
 
-| Deployment                        | Detection                                  | Download storage                | Play path                                  |
-| --------------------------------- | ------------------------------------------ | ------------------------------- | ------------------------------------------ |
-| **Public site** (GitHub Pages)    | Production host, not localhost/Tauri       | None; preview only              | Raw online game embed                      |
-| **Local app** (`pnpm dev`, Tauri) | `import.meta.env.DEV`, Tauri, or localhost | **Puller** writes files to disk | `/puller-games/{id}/offline/…` (dev proxy) |
+| Deployment                        | Detection                                                                           | Download storage                | Play path                                              |
+| --------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
+| **Public site** (GitHub Pages)    | `PUBLIC_OFFLINE_DEPLOYMENT=public-site`, or non-local host without Tauri            | None; preview only              | Raw online game embed                                  |
+| **Local app** (`pnpm dev`, Tauri) | `local-app` stamp, `globalThis.isTauri`, `tauri.localhost`, or `TAURI_ENV_PLATFORM` | **Puller** writes files to disk | `/puller-games/{id}/offline/…` or loopback puller URLs |
 
-Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or `local-app` in `.env` if needed.
+Release preparation stamps native artifacts with `PUBLIC_OFFLINE_DEPLOYMENT=local-app`.
+Pages CI keeps `public-site`. Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or
+`local-app` in `.env` only when debugging.
 
 The puller is the native desktop Node.js backend:
 

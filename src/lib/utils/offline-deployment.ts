@@ -7,19 +7,63 @@ export type AppDeployment = 'public-site' | 'local-app';
 
 export function isTauriApp(): boolean {
 	if (typeof window === 'undefined') return false;
-	return '__TAURI_INTERNALS__' in window || '__TAURI__' in window;
+	const g = globalThis as { isTauri?: boolean };
+	return g.isTauri === true || '__TAURI_INTERNALS__' in window || '__TAURI__' in window;
 }
 
 function deploymentOverride(): AppDeployment | null {
-	const raw = import.meta.env.PUBLIC_OFFLINE_DEPLOYMENT;
+	return parseDeploymentOverride(import.meta.env.PUBLIC_OFFLINE_DEPLOYMENT);
+}
+
+export function parseDeploymentOverride(raw: unknown): AppDeployment | null {
 	if (raw === 'public-site' || raw === 'public') return 'public-site';
 	if (raw === 'local-app' || raw === 'local') return 'local-app';
 	return null;
 }
 
-/** True when the page is served from localhost (dev server on this machine). */
-export function isLocalAppHost(hostname = typeof window !== 'undefined' ? window.location.hostname : ''): boolean {
-	return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]';
+function hasTauriBuildPlatform(): boolean {
+	const platform = import.meta.env.TAURI_ENV_PLATFORM;
+	return typeof platform === 'string' && platform.length > 0;
+}
+
+/** True when the page is served from a local or Tauri webview host. */
+export function isLocalAppHost(
+	hostname = typeof window !== 'undefined' ? window.location.hostname : ''
+): boolean {
+	const host = hostname.trim().toLowerCase();
+	return (
+		host === 'localhost' ||
+		host === '127.0.0.1' ||
+		host === '[::1]' ||
+		host === 'tauri.localhost' ||
+		host === 'asset.localhost' ||
+		host.endsWith('.localhost')
+	);
+}
+
+/** Pure classifier used by runtime helpers and unit tests. */
+export function resolveAppDeployment(input: {
+	override?: AppDeployment | null;
+	isTauri?: boolean;
+	isDev?: boolean;
+	hasTauriPlatform?: boolean;
+	hostname?: string;
+	hasWindow?: boolean;
+}): AppDeployment {
+	if (input.override) return input.override;
+
+	const hasWindow = input.hasWindow ?? true;
+	if (hasWindow) {
+		if (input.isTauri) return 'local-app';
+		if (input.isDev) return 'local-app';
+		if (input.hasTauriPlatform) return 'local-app';
+		if (isLocalAppHost(input.hostname ?? '')) return 'local-app';
+		return 'public-site';
+	}
+
+	if (input.isDev) return 'local-app';
+	if (input.hasTauriPlatform) return 'local-app';
+	return 'public-site';
 }
 
 /**
@@ -27,19 +71,16 @@ export function isLocalAppHost(hostname = typeof window !== 'undefined' ? window
  * Public site → browser IndexedDB. Local app → puller file downloads when available.
  */
 export function getAppDeployment(): AppDeployment {
-	const override = deploymentOverride();
-	if (override) return override;
-
-	if (typeof window !== 'undefined') {
-		if (isTauriApp()) return 'local-app';
-		if (import.meta.env.DEV) return 'local-app';
-		if (isLocalAppHost()) return 'local-app';
-		return 'public-site';
-	}
-
-	if (import.meta.env.DEV) return 'local-app';
-	if (typeof process !== 'undefined' && process.env.TAURI_ENV_PLATFORM) return 'local-app';
-	return 'public-site';
+	return resolveAppDeployment({
+		override: deploymentOverride(),
+		hasWindow: typeof window !== 'undefined',
+		isTauri: typeof window !== 'undefined' ? isTauriApp() : false,
+		isDev: import.meta.env.DEV,
+		hasTauriPlatform:
+			hasTauriBuildPlatform() ||
+			(typeof process !== 'undefined' && Boolean(process.env.TAURI_ENV_PLATFORM)),
+		hostname: typeof window !== 'undefined' ? window.location.hostname : ''
+	});
 }
 
 export function isPublicSiteDeployment(): boolean {
@@ -50,9 +91,13 @@ export function isLocalAppDeployment(): boolean {
 	return getAppDeployment() === 'local-app';
 }
 
-function isTauriMobileBuild(): boolean {
+export function isTauriMobileBuild(): boolean {
 	const platform = import.meta.env.TAURI_ENV_PLATFORM;
 	return platform === 'android' || platform === 'ios';
+}
+
+export function isTauriAndroidBuild(): boolean {
+	return import.meta.env.TAURI_ENV_PLATFORM === 'android';
 }
 
 /** Local/Tauri builds should prefer the puller sidecar; public sites must not probe it. */
