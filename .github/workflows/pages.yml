@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows:
-      - Release preparation
       - Publish Linux Flatpak
     types:
       - completed

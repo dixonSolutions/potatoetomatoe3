@@ -86,8 +86,21 @@ jobs:
           node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
       - name: Build Linux app and Flatpak
         run: |
+          if ! (ldconfig -p | rg -q 'libnss3\.so' && ldconfig -p | rg -q 'libatk-1\.0\.so'); then
+            (cd puller && npx playwright install-deps chromium)
+          else
+            echo "Playwright system dependencies already available"
+          fi
           pnpm puller:bundle:linux
           pnpm tauri:build:flatpak
+          CATALOG_LIST=src-tauri/target/release/catalog/games/games-list.json
+          if [ ! -f "$CATALOG_LIST" ]; then
+            echo "ERROR: missing $CATALOG_LIST after tauri build" >&2
+            echo "Searched nearby games-list.json paths:" >&2
+            find src-tauri/target -name 'games-list.json' 2>/dev/null | head -20 >&2 || true
+            exit 1
+          fi
+          echo "OK: $CATALOG_LIST"
           flatpak-builder --user --install-deps-from=flathub --state-dir=.flatpak-builder --ccache --repo=repo --default-branch=stable build-flatpak flatpak/com.potatotomato.games.yml
           flatpak build-update-repo repo
           flatpak build-bundle repo "com.potatotomato.games-${{ steps.release.outputs.version }}.flatpak" com.potatotomato.games stable
@@ -102,3 +115,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.release.outputs.tag }}
         run: gh release upload "$TAG" com.potatotomato.games-*.flatpak --clobber
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: gh release edit "$TAG" --draft=false --latest
