@@ -50,6 +50,7 @@
 		shouldProbePullerBackend
 	} from '$lib/utils/offline-deployment';
 	import { invalidateOfflineBackendCache } from '$lib/utils/offline-runtime';
+	import { dispatchOfflineStatusChanged } from '$lib/utils/offline-status-events';
 
 	let { data, children } = $props();
 
@@ -321,6 +322,7 @@
 					await syncPullerBaseUrlFromTauri();
 					invalidatePullerAvailabilityCache();
 					invalidateOfflineBackendCache();
+					dispatchOfflineStatusChanged();
 				}
 			);
 		}

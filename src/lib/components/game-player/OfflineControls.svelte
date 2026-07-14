@@ -71,7 +71,14 @@
 		isLocalAppDeployment() && !statusReady && offlineBackend !== 'puller'
 	);
 	let canDownload = $derived(
-		networkOnline && offlineReady && !bundled && !status?.offline && !downloading && onlineAvailable
+		networkOnline &&
+			offlineReady &&
+			!bundled &&
+			!status?.offline &&
+			!downloading &&
+			onlineAvailable &&
+			statusReady &&
+			!waitingForPuller
 	);
 	let downloadBlockedReason = $derived.by(() => {
 		if (canDownload || downloading || status?.offline || bundled) return '';
