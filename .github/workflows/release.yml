@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 concurrency:
   group: release-prepare
@@ -26,39 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Resolve release target commit
-        id: target
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          git fetch origin main --tags
-
-          target_sha=""
-          while read -r sha; do
-            if [ -z "$(git tag --points-at "$sha" --list 'release-[0-9]*')" ]; then
-              target_sha="$sha"
-              break
-            fi
-          done < <(git rev-list --reverse origin/main)
-
-          if [ -z "$target_sha" ]; then
-            echo "No untagged commits on main; nothing to release."
-            echo "has_target=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "has_target=true" >> "$GITHUB_OUTPUT"
-
-          if [ "$target_sha" != "${{ github.sha }}" ]; then
-            echo "Delegating preparation to commit $target_sha (triggered by ${{ github.sha }})."
-            gh workflow run release.yml --ref "$target_sha"
-            exit 1
-          fi
-
-          echo "sha=$target_sha" >> "$GITHUB_OUTPUT"
       - id: ver
-        if: steps.target.outputs.has_target == 'true'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -80,18 +47,14 @@ jobs:
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: pnpm/action-setup@v4
-        if: steps.target.outputs.has_target == 'true'
         with:
           version: 10
       - uses: actions/setup-node@v4
-        if: steps.target.outputs.has_target == 'true'
         with:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-        if: steps.target.outputs.has_target == 'true'
       - name: Stamp and validate shared release inputs
-        if: steps.target.outputs.has_target == 'true'
         env:
           VERSION: ${{ steps.ver.outputs.version }}
           SHA: ${{ steps.ver.outputs.sha }}
@@ -108,12 +71,10 @@ jobs:
           NODE
           node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
       - name: Compile shared web and puller outputs
-        if: steps.target.outputs.has_target == 'true'
         run: |
           pnpm build
           pnpm puller:build
       - name: Create or resume this tag's release
-        if: steps.target.outputs.has_target == 'true'
         id: release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -128,7 +89,6 @@ jobs:
           fi
           echo "id=$release_id" >> "$GITHUB_OUTPUT"
       - name: Write immutable platform context
-        if: steps.target.outputs.has_target == 'true'
         run: |
           cat > release-context.json <<EOF
           {
@@ -139,7 +99,6 @@ jobs:
           }
           EOF
       - uses: actions/upload-artifact@v4
-        if: steps.target.outputs.has_target == 'true'
         with:
           name: release-inputs
           path: |
@@ -147,23 +106,3 @@ jobs:
             build/
             puller/dist/
           if-no-files-found: error
-      - name: Continue release queue
-        if: success() && steps.target.outputs.has_target == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          git fetch origin main --tags
-
-          next_sha=""
-          while read -r sha; do
-            if [ -z "$(git tag --points-at "$sha" --list 'release-[0-9]*')" ]; then
-              next_sha="$sha"
-              break
-            fi
-          done < <(git rev-list --reverse origin/main)
-
-          if [ -n "$next_sha" ]; then
-            echo "Queueing preparation for $next_sha"
-            gh workflow run release.yml --ref "$next_sha"
-          fi
