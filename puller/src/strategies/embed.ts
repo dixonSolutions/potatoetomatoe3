@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import { chromium } from 'playwright';
+import { writeMirrorManifest } from '../capture/mirror-manifest.js';
 import { throwIfCancelled } from '../cancel-registry.js';
 import { GAMES_DATA_DIR } from '../config.js';
 import { outDirForGame } from '../unity-embed/config.js';
@@ -54,6 +55,14 @@ export async function pullEmbedGame(
 		onProgress(85, 'Writing offline host files…');
 		const assetRoutes = buildAssetRouteMap(info.externalAssetUrls);
 		await writeHostFiles(outDir, info, downloads, merges, assetRoutes);
+
+		await writeMirrorManifest(outDir, {
+			gameId,
+			entry: 'index.html',
+			mirroredFrom: info.fileUrl,
+			captureMethod: 'playwright',
+			notes: ['Captured through embed strategy with Playwright asset discovery.']
+		});
 
 		onProgress(100, 'Download complete');
 	} finally {

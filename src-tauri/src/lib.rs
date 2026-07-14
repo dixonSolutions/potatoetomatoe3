@@ -1,4 +1,11 @@
+#[cfg(desktop)]
 mod tray;
+
+#[cfg(mobile)]
+mod tray {
+  #[tauri::command]
+  pub fn sync_tray_recent() {}
+}
 
 use std::net::TcpListener;
 use std::path::{Path, PathBuf};
@@ -284,11 +291,17 @@ pub fn run() {
             .build(),
         )?;
       }
-      // Reserve port before spawn so get_puller_base_url matches the sidecar.
-      let _ = puller_port();
-      spawn_puller(app.handle());
+      #[cfg(not(mobile))]
+      {
+        // Reserve port before spawn so get_puller_base_url matches the sidecar.
+        let _ = puller_port();
+        spawn_puller(app.handle());
+      }
+      #[cfg(mobile)]
+      log::info!("mobile build: puller capture sidecar is intentionally disabled");
       // libappindicator-sys panics (does not return Err) when the .so is missing
       // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
+      #[cfg(not(mobile))]
       let tray_ok = match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
         tray::build_tray(app.handle())
       })) {
@@ -304,6 +317,8 @@ pub fn run() {
           false
         }
       };
+      #[cfg(mobile)]
+      let tray_ok = false;
       TRAY_AVAILABLE.store(tray_ok, Ordering::SeqCst);
       let close_to_tray = compute_close_to_tray(tray_ok);
       CLOSE_TO_TRAY.store(close_to_tray, Ordering::SeqCst);
@@ -317,6 +332,7 @@ pub fn run() {
       Ok(())
     })
     .on_window_event(|window, event| {
+      #[cfg(desktop)]
       if let tauri::WindowEvent::CloseRequested { api, .. } = event {
         if CLOSE_TO_TRAY.load(Ordering::SeqCst) {
           // Keep puller + tray alive; Quit from the tray exits for real.

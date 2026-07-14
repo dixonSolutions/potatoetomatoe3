@@ -54,6 +54,8 @@
 	let lastToggleAt = 0;
 	let privacyLocked = $state(false);
 	let autoOpenedForGame = $state('');
+	/** Cross-origin bridge scripts can only receive input after their iframe has loaded. */
+	let bridgeFrameLoaded = $state(false);
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
@@ -63,9 +65,7 @@
 			config.availability !== 'off' &&
 			(config.availability === 'always' || isMobile.current || injectable)
 	);
-	const showOverlay = $derived(
-		showToggle && visible && !paused && !privacyLocked && injectable
-	);
+	const showOverlay = $derived(showToggle && visible && !paused && !privacyLocked && injectable);
 	const scale = $derived(config.scale);
 
 	function refreshConfig() {
@@ -92,7 +92,7 @@
 				visible = true;
 				autoOpenedForGame = gameId;
 			}
-		} else if (iframe && canUseTouchBridge(playerUrl)) {
+		} else if (iframe && bridgeFrameLoaded && canUseTouchBridge(playerUrl)) {
 			dispatcher.setTarget(null);
 			dispatcher.setBridgeFrame(iframe);
 			injectable = Boolean(iframe.contentWindow);
@@ -208,8 +208,12 @@
 		const rect = surfaceEl.getBoundingClientRect();
 		const parent = surfaceEl.parentElement;
 		/* Fallback when inset-0 has not laid out yet — avoid stacking every control at (0,0). */
-		surfaceW = rect.width || parent?.clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
-		surfaceH = rect.height || parent?.clientHeight || (typeof window !== 'undefined' ? window.innerHeight : 0);
+		surfaceW =
+			rect.width || parent?.clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
+		surfaceH =
+			rect.height ||
+			parent?.clientHeight ||
+			(typeof window !== 'undefined' ? window.innerHeight : 0);
 	}
 
 	onMount(() => {
@@ -238,7 +242,8 @@
 		const el = surfaceEl;
 		if (!el) return;
 		measureSurface();
-		const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => measureSurface()) : null;
+		const ro =
+			typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => measureSurface()) : null;
 		ro?.observe(el);
 		const onWinResize = () => measureSurface();
 		window.addEventListener('resize', onWinResize);
@@ -271,6 +276,25 @@
 		probeInjectable();
 	});
 
+	/* A cross-origin WindowProxy exists before the bridge script does. Do not expose controls until load. */
+	$effect(() => {
+		const frame = iframe;
+		bridgeFrameLoaded = false;
+		if (!frame) return;
+		const onLoad = () => {
+			bridgeFrameLoaded = true;
+			probeInjectable();
+		};
+		frame.addEventListener('load', onLoad);
+		try {
+			bridgeFrameLoaded = frame.contentDocument?.readyState === 'complete';
+		} catch {
+			/* Cross-origin documents become ready only through the iframe load event. */
+		}
+		if (bridgeFrameLoaded) probeInjectable();
+		return () => frame.removeEventListener('load', onLoad);
+	});
+
 	/* Unity / nested shells often create the canvas after first probe — keep trying while visible. */
 	$effect(() => {
 		if (!started || !visible || !iframe) return;
@@ -293,7 +317,6 @@
 			dispatcher.releaseAll();
 		}
 	});
-
 </script>
 
 {#if showToggle}
@@ -322,9 +345,9 @@
 				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
 				role="status"
 			>
-				Touch controls need a same-origin play URL or an offline mirror. On the web app,
-				download the game for local play first. The local desktop app can also use the puller
-				proxy for online games; raw third-party embeds cannot receive controls.
+				Touch controls need a same-origin play URL or an offline mirror. On the web app, download
+				the game for local play first. The local desktop app can also use the puller proxy for
+				online games; raw third-party embeds cannot receive controls.
 			</div>
 		{/if}
 
@@ -340,24 +363,28 @@
 				<button
 					type="button"
 					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white/80"
-					aria-label="Hold 2 seconds then drag to move the whole console"
+					aria-label="Hold, then drag to move the whole console"
 					onpointerdown={(e) => {
 						e.preventDefault();
 						e.stopPropagation();
+						const grip = e.currentTarget;
+						grip.setPointerCapture?.(e.pointerId);
 						const start = { x: e.clientX, y: e.clientY };
 						let editing = false;
-						let moved = false;
+						let cancelled = false;
 						const timer = setTimeout(() => {
-							if (moved) return;
+							if (cancelled) return;
 							editing = true;
 							beginEdit('console');
-						}, 2000);
+						}, 650);
 						const onMove = (ev: PointerEvent) => {
 							if (ev.pointerId !== e.pointerId) return;
 							const dx = ev.clientX - start.x;
 							const dy = ev.clientY - start.y;
-							if (!editing && Math.hypot(dx, dy) > 10) {
-								moved = true;
+							// Minor touch jitter should not cancel the long-press. Once editing
+							// begins, pointer capture keeps the drag alive outside the small grip.
+							if (!editing && Math.hypot(dx, dy) > 24) {
+								cancelled = true;
 								clearTimeout(timer);
 							}
 							if (editing) dragControl('console', { x: dx, y: dy });
@@ -368,6 +395,9 @@
 							window.removeEventListener('pointermove', onMove, true);
 							window.removeEventListener('pointerup', onUp, true);
 							window.removeEventListener('pointercancel', onUp, true);
+							if (grip.hasPointerCapture?.(e.pointerId)) {
+								grip.releasePointerCapture(e.pointerId);
+							}
 							endEdit(editing);
 						};
 						window.addEventListener('pointermove', onMove, true);

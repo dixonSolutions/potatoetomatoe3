@@ -1,20 +1,14 @@
 name: Deploy GitHub Pages
 
-# Fast web deploy on every main push, separate from Release/Flatpak.
-# Preserves /flatpak/ OSTree from the latest successful Release artifact
-# so this workflow does not wipe remote Flatpak installs.
+# Download-site deploys are separate from platform builds.
+# Release-triggered runs preserve the matching Flatpak OSTree when available.
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
   workflow_run:
     workflows:
       - Release
     types:
       - completed
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -34,6 +28,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
       - uses: pnpm/action-setup@v4
         with:
@@ -66,7 +61,7 @@ jobs:
           mkdir -p build/flatpak
           RUN_ID="${RELEASE_RUN_ID}"
           if [ -z "${RUN_ID}" ]; then
-            RUN_ID=$(gh run list --repo "${{ github.repository }}" --workflow=release.yml --branch=main --status=success --limit 1 --json databaseId --jq '.[0].databaseId // empty' || true)
+            RUN_ID=$(gh run list --repo "${{ github.repository }}" --workflow=release.yml --status=success --limit 1 --json databaseId --jq '.[0].databaseId // empty' || true)
           fi
           if [ -z "${RUN_ID}" ]; then
             echo "WARNING: no successful Release run — deploying web-only"

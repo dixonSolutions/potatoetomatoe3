@@ -44,7 +44,7 @@
 		shouldShowTrayCloseHint,
 		syncDesktopTrayRecent
 	} from '$lib/utils/desktop-tray';
-	import { isTauriApp } from '$lib/utils/offline-deployment';
+	import { isPublicSiteDeployment, isTauriApp } from '$lib/utils/offline-deployment';
 
 	let { data, children } = $props();
 
@@ -265,7 +265,8 @@
 			if (!playLimitToastIssued) {
 				playLimitToastIssued = true;
 				toast.error('Daily playtime limit reached', {
-					description: 'Use “Disable time limit” on the overlay or change the cap in Settings → Analytics.'
+					description:
+						'Use “Disable time limit” on the overlay or change the cap in Settings → Analytics.'
 				});
 			}
 		} else if (!exceeded) {
@@ -280,7 +281,7 @@
 		syncPrivacyUnlockCookieWithSession();
 		refreshPlayLimitLock();
 
-		if (isBrowserStorageSupported()) {
+		if (isBrowserStorageSupported() && !isPublicSiteDeployment()) {
 			void ensureOfflineServiceWorker().catch((err) =>
 				console.warn('Offline service worker registration failed:', err)
 			);
@@ -350,7 +351,10 @@
 		window.addEventListener('keydown', onPrivacyKeydown);
 		window.addEventListener('focus', onWindowFocusForPrivacy);
 		document.addEventListener('visibilitychange', onVisibilityChangeForPrivacy);
-		window.addEventListener('potato-tomato-privacy-settings-applied', onPrivacySettingsAppliedForTimers);
+		window.addEventListener(
+			'potato-tomato-privacy-settings-applied',
+			onPrivacySettingsAppliedForTimers
+		);
 
 		const onFocusSyncTray = () => {
 			if (isTauriApp()) void syncDesktopTrayRecent();
@@ -366,7 +370,10 @@
 			detachTray?.();
 			clearLockDelayTimer();
 			clearVisibilityHiddenDebounce();
-			window.removeEventListener('potato-tomato-privacy-settings-applied', onPrivacySettingsAppliedForTimers);
+			window.removeEventListener(
+				'potato-tomato-privacy-settings-applied',
+				onPrivacySettingsAppliedForTimers
+			);
 			window.removeEventListener('keydown', onPrivacyKeydown);
 			window.removeEventListener('focus', onWindowFocusForPrivacy);
 			window.removeEventListener('focus', onFocusSyncTray);
@@ -381,11 +388,8 @@
 		if (!browser || !privacyBootstrapReady) return;
 		const locked = privacyEnabled && !privacyUnlocked;
 		document.documentElement.toggleAttribute('data-privacy-locked', locked);
-		window.dispatchEvent(
-			new CustomEvent('potato-tomato-privacy-locked', { detail: { locked } })
-		);
+		window.dispatchEvent(new CustomEvent('potato-tomato-privacy-locked', { detail: { locked } }));
 	});
-
 </script>
 
 <ModeWatcher defaultMode="system" />

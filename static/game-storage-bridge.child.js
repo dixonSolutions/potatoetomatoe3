@@ -44,10 +44,34 @@
 				/* ignore */
 			}
 		}
+		var focusLossEvents = {
+			blur: true,
+			focusout: true,
+			visibilitychange: true
+		};
 		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {
 			window.addEventListener(type, swallow, true);
 			document.addEventListener(type, swallow, true);
 		});
+		/*
+		 * The console lives in the parent document. Tapping it can blur this
+		 * iframe, and some games register their own blur handlers after this
+		 * bridge is loaded. Block those handlers before they are registered:
+		 * the app's explicit Pause control remains the only pause channel.
+		 */
+		function blockFocusLossListeners(target) {
+			try {
+				var add = target.addEventListener;
+				target.addEventListener = function (type, listener, options) {
+					if (focusLossEvents[type]) return;
+					return add.call(this, type, listener, options);
+				};
+			} catch (e) {
+				/* ignore */
+			}
+		}
+		blockFocusLossListeners(window);
+		blockFocusLossListeners(document);
 	})();
 
 	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */

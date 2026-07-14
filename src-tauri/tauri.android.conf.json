@@ -1,0 +1,11 @@
+{
+	"build": {
+		"beforeBuildCommand": "node scripts/generate-games-list.js && pnpm build"
+	},
+	"bundle": {
+		"externalBin": [],
+		"resources": {
+			"../build/games/": "catalog/games/"
+		}
+	}
+}

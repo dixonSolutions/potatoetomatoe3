@@ -297,10 +297,7 @@
 		if (disguiseChoice !== baseline.disguise) {
 			savePrivacyDisguiseMode(disguiseChoice);
 		}
-		if (
-			providerChoice !== baseline.provider ||
-			serviceChoice !== baseline.service
-		) {
+		if (providerChoice !== baseline.provider || serviceChoice !== baseline.service) {
 			if (!savePrivacyDisguiseSelection(providerChoice, serviceChoice)) {
 				error = 'Choose a valid service.';
 				return;
@@ -574,7 +571,11 @@
 {/snippet}
 
 <Dialog.Root bind:open>
-	<Dialog.Content class="flex max-h-[90vh] flex-col gap-0 overflow-hidden p-0 sm:max-w-md">
+	<Dialog.Content
+		class={`flex max-h-[90dvh] flex-col gap-0 overflow-hidden p-0 ${
+			panel === 'touch' ? 'sm:max-w-5xl' : 'sm:max-w-md'
+		}`}
+	>
 		{#if panel === 'root'}
 			<div class="border-b px-6 pt-6 pb-3">
 				<Dialog.Title class="shrink-0">Settings</Dialog.Title>
@@ -604,7 +605,7 @@
 						/>
 					{/if}
 				{:else}
-					<div class="overflow-hidden rounded-lg border bg-card divide-y divide-border">
+					<div class="divide-y divide-border overflow-hidden rounded-lg border bg-card">
 						<div class="flex items-stretch" role="group" aria-label="Privacy mode">
 							<button
 								type="button"
@@ -884,7 +885,11 @@
 			</div>
 
 			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
-				<GamesSection searchQuery={settingsSearchQuery} {busy} bind:defaultPlayMode={gamesDefaultPlayMode} />
+				<GamesSection
+					searchQuery={settingsSearchQuery}
+					{busy}
+					bind:defaultPlayMode={gamesDefaultPlayMode}
+				/>
 			</div>
 		{:else if panel === 'touch'}
 			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
@@ -916,7 +921,7 @@
 				</div>
 			</div>
 
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+			<div class="min-h-0 flex-1 overflow-y-auto px-4 py-4 sm:px-6">
 				<TouchControlsSection
 					searchQuery={settingsSearchQuery}
 					{busy}

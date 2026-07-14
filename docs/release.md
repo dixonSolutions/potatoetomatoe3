@@ -1,18 +1,21 @@
 # Release & Flatpak remote
 
-## Automated release (main branch)
+## Tagged release
 
 Workflow: `.github/workflows/release.yml`
 
-On every push to `main`:
+Push an immutable semantic-version tag, for example `v1.4.0`:
 
-1. **Version bump** — `0.0.<run_number>` written to `package.json`, `tauri.conf.json`, `Cargo.toml`, `version.txt`
-2. **Puller sidecar** — `pnpm puller:bundle:linux`
-3. **Flatpak build** — packages prebuilt Tauri binary + puller sidecar via `flatpak/com.potatotomato.games.yml`
-4. **GitHub Release** — attaches `com.potatotomato.games-<version>.flatpak`
-5. **Pages refresh** — `pages.yml` asynchronously deploys the web build and the new OSTree repo after Release completes
+```bash
+git tag -a v1.4.0 -m "Release v1.4.0"
+git push origin v1.4.0
+```
 
-The standalone **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`) runs on every `push` to `main` (and `workflow_dispatch`) for fast web updates. It also runs after a successful `Release` workflow and uses that exact Release artifact, so `/flatpak/` is refreshed without making Release wait for a second site build. Push-triggered Pages runs copy the latest successful Release OSTree so web-only deploys do not wipe remote Flatpak installs.
+The workflow validates the tag, checks out that exact tag/SHA, and publishes one draft GitHub Release. Linux/Flatpak and Android jobs run independently and attach versioned assets to that same release. Platform jobs never query `latest`, so concurrent releases cannot mix artifacts.
+
+Pages deployment runs asynchronously after release preparation and successful artifact publication. It receives the release identity from the workflow event and preserves the Flatpak OSTree only when the matching artifact is available.
+
+Android is currently gated on generated Tauri Android sources. Run `pnpm tauri android init` after installing the Android SDK, then configure signing secrets before enabling APK publication. Android is a direct signed APK download with manual updates; it has no update remote.
 
 ## Public Flatpak remote
 
@@ -31,22 +34,22 @@ The `.flatpakrepo` file lives in `static/potatotomato.flatpakrepo` and must use 
 
 ## Previous CI failures (fixed)
 
-| Workflow | Failure | Fix |
-| -------- | ------- | --- |
-| Release | `ConfigureRemote not allowed for user` | Use `flatpak --user` for remotes and installs on GitHub-hosted runners |
-| Build Flatpak | `npm: command not found` in sandbox | Build Tauri on the host in CI; Flatpak manifest only packages prebuilt binaries |
-| Remote install | `Invalid gpg key` | Remove empty `GPGKey=` from `.flatpakrepo`; add remote with `--no-gpg-verify` |
-| GitHub Pages | `/flatpak/summary` 404 | Usually no successful Release artifact was available to preserve, or Release Pages deploy had not finished yet. `pages.yml` restores OSTree from the latest Release artifact; `release.yml` publishes a fresh one. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
-| Remote install | Prefer one-file bundle | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken |
-| Flatpak runtime | `Game not in catalog` / `puller catalog is empty` | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`. |
-| Flatpak run | `Failed to load ayatana-appindicator3` panic | Bundle `shared-modules/libappindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak. |
-| Flatpak build | `Package 'libayatana-ido3-0.4' not found` | Ayatana cmake installs to `/app/lib64`; use classic `libappindicator-gtk3-12.10.json` instead. |
-| Flatpak Unity download | `File '/**/static/unity/inject.js' was not included into executable` | Puller sidecar must inline inject/bridge via `pnpm embed-assets` before `pkg` (see `puller/scripts/embed-assets.mjs`). |
-| Flatpak Unity download | Error path under repo `static/games/…` | Host puller on `:18787` stole traffic. Stop `pnpm dev` / local puller, or use a build with `get_puller_base_url` port isolation. |
+| Workflow               | Failure                                                              | Fix                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Release                | `ConfigureRemote not allowed for user`                               | Use `flatpak --user` for remotes and installs on GitHub-hosted runners                                                                                                                                                                                                                                                                           |
+| Build Flatpak          | `npm: command not found` in sandbox                                  | Build Tauri on the host in CI; Flatpak manifest only packages prebuilt binaries                                                                                                                                                                                                                                                                  |
+| Remote install         | `Invalid gpg key`                                                    | Remove empty `GPGKey=` from `.flatpakrepo`; add remote with `--no-gpg-verify`                                                                                                                                                                                                                                                                    |
+| GitHub Pages           | `/flatpak/summary` 404                                               | Usually no successful Release artifact was available to preserve, or Release Pages deploy had not finished yet. `pages.yml` restores OSTree from the latest Release artifact; `release.yml` publishes a fresh one. Verify `https://dixonsolutions.github.io/potatoetomatoe3/flatpak/summary` returns 200 before telling users to use the remote. |
+| Remote install         | Prefer one-file bundle                                               | `flatpak install --user` the `.flatpak` from [GitHub Releases](https://github.com/dixonSolutions/potatoetomatoe3/releases/latest) if the OSTree remote is broken                                                                                                                                                                                 |
+| Flatpak runtime        | `Game not in catalog` / `puller catalog is empty`                    | Tauri looks for resources at `/app/lib/<productName>/` (`Potato Tomato`). Catalog must be installed there (not only under `potato-tomato`). Check `/api/offline/health` → `catalogGameCount`.                                                                                                                                                    |
+| Flatpak run            | `Failed to load ayatana-appindicator3` panic                         | Bundle `shared-modules/libappindicator` in the Flatpak manifest (submodule). Rebuild/reinstall the Flatpak.                                                                                                                                                                                                                                      |
+| Flatpak build          | `Package 'libayatana-ido3-0.4' not found`                            | Ayatana cmake installs to `/app/lib64`; use classic `libappindicator-gtk3-12.10.json` instead.                                                                                                                                                                                                                                                   |
+| Flatpak Unity download | `File '/**/static/unity/inject.js' was not included into executable` | Puller sidecar must inline inject/bridge via `pnpm embed-assets` before `pkg` (see `puller/scripts/embed-assets.mjs`).                                                                                                                                                                                                                           |
+| Flatpak Unity download | Error path under repo `static/games/…`                               | Host puller on `:18787` stole traffic. Stop `pnpm dev` / local puller, or use a build with `get_puller_base_url` port isolation.                                                                                                                                                                                                                 |
 
 ## Manual web-only deploy
 
-Push to `main` (or run `.github/workflows/pages.yml` / `deploy.yml` via **workflow_dispatch**). Prefer `pages.yml` — it preserves `/flatpak/`.
+Run `.github/workflows/pages.yml` via **workflow_dispatch** for a site-only deploy. Production Pages releases are tag/release driven.
 
 ## Local Flatpak build
 

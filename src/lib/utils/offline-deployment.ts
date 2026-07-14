@@ -50,7 +50,15 @@ export function isLocalAppDeployment(): boolean {
 	return getAppDeployment() === 'local-app';
 }
 
+function isTauriMobileBuild(): boolean {
+	const platform = import.meta.env.TAURI_ENV_PLATFORM;
+	return platform === 'android' || platform === 'ios';
+}
+
 /** Local/Tauri builds should prefer the puller sidecar; public sites must not probe it. */
 export function shouldProbePullerBackend(): boolean {
-	return isLocalAppDeployment();
+	if (!isLocalAppDeployment()) return false;
+	// Mobile Tauri builds intentionally disable the puller sidecar (see src-tauri/src/lib.rs).
+	if (isTauriMobileBuild()) return false;
+	return true;
 }
