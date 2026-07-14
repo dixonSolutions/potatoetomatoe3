@@ -6,7 +6,11 @@ import {
 	getOfflinePlayUrl,
 	isBrowserGameDownloaded
 } from '$lib/utils/offline-downloader';
-import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
+import {
+	pullerOfflineAssetUrl,
+	shouldUsePullerGameProxy
+} from '$lib/utils/offline-downloader-puller';
+import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
 import {
 	resolveStaticOfflinePlayUrl,
@@ -74,22 +78,18 @@ export type ThumbnailResolveOptions = {
 	offlineThumbnailUrl?: string | null;
 };
 
+/**
+ * Cover URL for a file under offline/ (e.g. assets/thumbnail.jpg).
+ * Dev → Vite `/puller-games` proxy; packaged desktop → puller loopback;
+ * Android / static mirrors → same-origin `/games/.../offline/...`.
+ */
 function offlineAssetUrl(gameId: string, relPath: string): string {
 	const safe = relPath.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
+	if (shouldUsePullerGameProxy() || shouldProbePullerBackend()) {
+		return pullerOfflineAssetUrl(gameId, safe, base);
+	}
 	const b = base.replace(/\/$/, '');
-	/* Dev / Tauri webview: puller offline files are proxied under /puller-games */
-	if (typeof window !== 'undefined' && (import.meta.env.DEV || shouldUsePullerProxyHeuristic())) {
-		return `${b}/puller-games/${encodeURIComponent(gameId)}/offline/${safe}`.replace(/\/{2,}/g, '/');
-	}
 	return `${b}/games/${encodeURIComponent(gameId)}/offline/${safe}`.replace(/\/{2,}/g, '/');
-}
-
-function shouldUsePullerProxyHeuristic(): boolean {
-	try {
-		return window.location.protocol === 'http:' || window.location.protocol === 'https:';
-	} catch {
-		return false;
-	}
 }
 
 /** Safe `src` for game cards: blank `thumbnail` does not hit `/games/.../404`. */
@@ -464,23 +464,60 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Unity online with inject (specialized puller path):
-	 * 1) Local-app puller URL when available
-	 * 2) Optional hosted PUBLIC_PLAY_PROXY_URL (Cloudflare Worker)
-	 * 3) Public site: same-origin /api/unity-play/:id via offline-sw → local puller :18787
-	 * 4) Else player.html shell (touch unavailable)
+	 * Online + puller (local app):
+	 * - Unity → /api/unity-play (inject in game doc)
+	 * - Explicit external onlineEmbedUrl → /api/game-live
+	 * - Plain catalog shells (/games/{id}/online/index.html wrapping a remote iframe)
+	 *   play directly; console toggle upgrades to game-live via ensureTouchCapablePlayUrl().
+	 * Forcing game-live for every online title broke Unity loaders (progressLogoUrl / JSON←HTML).
+	 */
+	if (!isPublicSiteDeployment()) {
+		const { isPullerAvailable, pullerUnityPlayUrl, pullerLiveGameUrl } = await import(
+			'./offline-downloader-puller'
+		);
+		if (await isPullerAvailable()) {
+			if (metadata?.engine === 'unity') {
+				const url = pullerUnityPlayUrl(gameId, base);
+				appendPlayLog(
+					'info',
+					'play-url',
+					`Resolved Unity play via puller proxy`,
+					`game=${gameId} url=${url}`
+				);
+				return url;
+			}
+			if (hasExternalOnlineEmbed(metadata)) {
+				const url = pullerLiveGameUrl(gameId, base);
+				appendPlayLog(
+					'info',
+					'play-url',
+					`Resolved live relay via puller (online play; not an offline download)`,
+					`game=${gameId} url=${url}`
+				);
+				return url;
+			}
+		}
+	}
+
+	/*
+	 * Unity online without a local puller:
+	 * 1) Optional hosted PUBLIC_PLAY_PROXY_URL (Cloudflare Worker)
+	 * 2) Public site: same-origin /api/unity-play/:id via offline-sw → local puller :18787
+	 * 3) Else player.html shell (touch unavailable)
 	 */
 	if (metadata?.engine === 'unity') {
-		const { isPullerAvailable, pullerUnityPlayUrl } = await import('./offline-downloader-puller');
-		if (await isPullerAvailable()) {
-			const url = pullerUnityPlayUrl(gameId, base);
-			appendPlayLog('info', 'play-url', `Resolved Unity play via puller proxy`, `game=${gameId} url=${url}`);
-			return url;
-		}
-		const playProxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(/\/$/, '');
+		const playProxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(
+			/\/$/,
+			''
+		);
 		if (playProxy) {
 			const url = `${playProxy}/api/unity-play/${encodeURIComponent(gameId)}`;
-			appendPlayLog('info', 'play-url', `Resolved Unity play via PUBLIC_PLAY_PROXY_URL`, `game=${gameId} url=${url}`);
+			appendPlayLog(
+				'info',
+				'play-url',
+				`Resolved Unity play via PUBLIC_PLAY_PROXY_URL`,
+				`game=${gameId} url=${url}`
+			);
 			return url;
 		}
 		if (isPublicSiteDeployment()) {
@@ -498,28 +535,13 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Live relay (additional puller capability — does not download offline):
-	 * External online embeds get same-origin /api/game-live for touch + play while online.
-	 * Offline scrape remains the puller's primary job via /api/offline.
+	 * Public site: live relay for external embeds when a local puller is reachable via SW.
 	 */
-	if (hasExternalOnlineEmbed(metadata) && !isPublicSiteDeployment()) {
-		const { isPullerAvailable, pullerLiveGameUrl, sameOriginLiveGameUrl } = await import(
+	if (hasExternalOnlineEmbed(metadata) && isPublicSiteDeployment()) {
+		const { isPullerAvailable, sameOriginLiveGameUrl } = await import(
 			'./offline-downloader-puller'
 		);
-		if (await isPullerAvailable()) {
-			const url = pullerLiveGameUrl(gameId, base);
-			appendPlayLog(
-				'info',
-				'play-url',
-				`Resolved live relay via puller (online play; not an offline download)`,
-				`game=${gameId} url=${url}`
-			);
-			return url;
-		}
-		if (
-			isPublicSiteDeployment() &&
-			(await isPullerAvailable(true, { ignoreDeploymentGate: true }))
-		) {
+		if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) {
 			const { ensureOfflineServiceWorker } = await import('./browser-offline-download');
 			await ensureOfflineServiceWorker();
 			const url = sameOriginLiveGameUrl(gameId, base);

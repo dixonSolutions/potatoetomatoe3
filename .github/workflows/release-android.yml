@@ -100,7 +100,8 @@ jobs:
         run: |
           get_flatpak_run() {
             local prep_updated
-            prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq -r .updated_at)"
+            # gh api --jq takes a single expression; do not pass jq's -r flag here.
+            prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq .updated_at)"
             gh api "/repos/$REPO/actions/workflows/release-flatpak.yml/runs?event=workflow_run&head_sha=$SHA&per_page=30" \
               --jq "[.workflow_runs[] | select(.created_at >= \"$prep_updated\")] | sort_by(.created_at) | .[0]"
           }
@@ -129,7 +130,8 @@ jobs:
           TAG: ${{ steps.release.outputs.tag }}
           SHA: ${{ steps.release.outputs.sha }}
         run: |
-          prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq -r .updated_at)"
+          # gh api --jq takes a single expression; do not pass jq's -r flag here.
+          prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq .updated_at)"
           conclusion="$(gh api "/repos/$REPO/actions/workflows/release-flatpak.yml/runs?event=workflow_run&head_sha=$SHA&per_page=30" \
             --jq "[.workflow_runs[] | select(.created_at >= \"$prep_updated\")] | sort_by(.created_at) | .[0].conclusion // \"\"")"
           [ "$conclusion" = "success" ] || exit 0

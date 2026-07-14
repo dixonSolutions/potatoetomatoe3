@@ -61,6 +61,7 @@ export default defineConfig({
 			ignored: [
 				ignoreHeavyWatchPath,
 				'**/static/games/**',
+				'**/puller/**',
 				'**/.svelte-kit/**',
 				'**/.flatpak-builder/**',
 				'**/build-flatpak/**',

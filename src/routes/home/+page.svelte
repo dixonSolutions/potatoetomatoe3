@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
-	import { base, resolve } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import {
 		loadCatalogIndex,
 		resolveGameThumbnailSrc,
@@ -37,6 +36,7 @@
 	let offlineStatusMap = $state<
 		Record<string, { offline?: boolean; offlineThumbnail?: string }>
 	>({});
+	let loadGeneration = 0;
 
 	const continueSkeletonCount = 12;
 	const recommendedSkeletonCount = 6;
@@ -73,55 +73,98 @@
 		return filterDownloadedGames(games, offlineStatusMap);
 	}
 
-	async function loadFeed() {
+	async function refreshOfflineStatuses() {
+		try {
+			offlineStatusMap = await fetchDownloadedStatuses(true);
+			if (!networkOnline) {
+				continueGames = applyOfflineLibraryFilter(continueGames);
+				recommendedGames = applyOfflineLibraryFilter(recommendedGames);
+				featuredGames = applyOfflineLibraryFilter(featuredGames);
+			}
+		} catch {
+			/* Keep the last known map — never block the feed on puller blips. */
+		}
+	}
+
+	async function loadFeed(options?: { soft?: boolean }) {
 		if (!browser) return;
-		libraryReady = false;
-		feedReady = false;
+		const soft = Boolean(options?.soft) && libraryReady && allGames.length > 0;
+		const generation = ++loadGeneration;
+		/* Never flash the skeleton again once we have painted real cards (dev $page thrash). */
+		if (!soft && !libraryReady) {
+			feedReady = false;
+		}
 		try {
 			networkOnline = isNetworkOnline();
-			offlineStatusMap = await fetchDownloadedStatuses(true);
 			const prefs = getPreferences();
 			favouriteIds = [...prefs.liked];
 
+			/* Catalog first — never wait on puller status before painting the home grid. */
+			const statusPromise = refreshOfflineStatuses();
+
 			allGames = await loadCatalogIndex((partial) => {
-				/* Paint continue/featured as soon as shard 0+ arrives */
-				if (!libraryReady && partial.length > 0) {
+				if (generation !== loadGeneration) return;
+				/* Paint continue as soon as shard 0+ arrives */
+				if (partial.length > 0) {
 					allGames = partial;
 					continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(partial, prefs, 28));
 					libraryReady = true;
 				}
 			});
+			if (generation !== loadGeneration) return;
 
 			continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
 			libraryReady = true;
 
 			const continueIds = new Set(continueGames.map((g) => g.id));
 
-			let rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
-			rec = rec.filter((g) => !continueIds.has(g.id));
-			if (rec.length < 10) {
-				rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
-			}
-			if (rec.length === 0) {
-				rec = getHomeRecommendations(allGames, prefs, 14);
-			}
-			recommendedGames = applyOfflineLibraryFilter(rec);
+			/* Recommendations are nice-to-have — paint Continue first, then fill the rest. */
+			void (async () => {
+				try {
+					let rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
+					if (generation !== loadGeneration) return;
+					rec = rec.filter((g) => !continueIds.has(g.id));
+					if (rec.length < 10) {
+						rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
+						if (generation !== loadGeneration) return;
+					}
+					if (rec.length === 0) {
+						rec = getHomeRecommendations(allGames, prefs, 14);
+					}
+					recommendedGames = applyOfflineLibraryFilter(rec);
 
-			const used = new Set([...continueGames, ...recommendedGames].map((g) => g.id));
-			featuredGames = applyOfflineLibraryFilter(
-				shuffleDeterministic(
-					allGames.filter((g) => !used.has(g.id)),
-					getBrowseShuffleSeed() ^ 0xfed1
-				).slice(0, 16)
-			);
+					const used = new Set([...continueGames, ...recommendedGames].map((g) => g.id));
+					featuredGames = applyOfflineLibraryFilter(
+						shuffleDeterministic(
+							allGames.filter((g) => !used.has(g.id)),
+							getBrowseShuffleSeed() ^ 0xfed1
+						).slice(0, 16)
+					);
 
-			if (featuredGames.length < 8 && networkOnline) {
-				const need = 8 - featuredGames.length;
-				const extra = allGames.filter((g) => !featuredGames.some((f) => f.id === g.id)).slice(0, need);
-				featuredGames = [...featuredGames, ...extra].slice(0, 16);
+					if (featuredGames.length < 8 && networkOnline) {
+						const need = 8 - featuredGames.length;
+						const extra = allGames
+							.filter((g) => !featuredGames.some((f) => f.id === g.id))
+							.slice(0, need);
+						featuredGames = [...featuredGames, ...extra].slice(0, 16);
+					}
+					feedReady = true;
+				} catch {
+					recommendedGames = applyOfflineLibraryFilter(
+						getHomeRecommendations(allGames, prefs, 14)
+					);
+					feedReady = true;
+				}
+			})();
+
+			await statusPromise;
+			if (generation !== loadGeneration) return;
+			if (!networkOnline) {
+				continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
 			}
-			feedReady = true;
-		} catch {
+		} catch (err) {
+			console.error('Home feed failed to load:', err);
+			if (generation !== loadGeneration) return;
 			libraryReady = true;
 			feedReady = true;
 		}
@@ -129,26 +172,28 @@
 
 	onMount(() => {
 		networkOnline = isNetworkOnline();
+		/* This page only mounts on /home — do not key off $page (dev invalidations reset the skeleton). */
+		void loadFeed();
+
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
-			void loadFeed();
+			void loadFeed({ soft: true });
 		});
+		let statusTimer: ReturnType<typeof setTimeout> | undefined;
 		const onOfflineStatusChanged = () => {
-			void loadFeed();
+			clearTimeout(statusTimer);
+			statusTimer = setTimeout(() => {
+				void refreshOfflineStatuses();
+			}, 200);
 		};
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		return () => {
 			detachNetwork();
+			clearTimeout(statusTimer);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		};
 	});
 
-	$effect(() => {
-		if (!browser) return;
-		const path = $page.url.pathname;
-		if (path !== '/home' && !path.endsWith('/home')) return;
-		void loadFeed();
-	});
 	let downloadedCount = $derived(filterDownloadedGames(allGames, offlineStatusMap).length);
 </script>
 

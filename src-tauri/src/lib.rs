@@ -250,22 +250,99 @@ fn spawn_puller_dev(
   spawn_with_env(cmd, games_dir, catalog_dir, port)
 }
 
+/// `pnpm puller:bundle:linux` replaces this stub; until then spawning it "succeeds" then exits 1.
+fn is_placeholder_puller_sidecar() -> bool {
+  let dir = repo_root().join("src-tauri/binaries");
+  let Ok(entries) = std::fs::read_dir(&dir) else {
+    return false;
+  };
+  for entry in entries.flatten() {
+    let name = entry.file_name();
+    let name = name.to_string_lossy();
+    if !name.starts_with("puller-sidecar") {
+      continue;
+    }
+    if let Ok(contents) = std::fs::read_to_string(entry.path()) {
+      if contents.contains("Placeholder") || contents.contains("puller sidecar not built") {
+        return true;
+      }
+    }
+  }
+  false
+}
+
+/// Confirm the puller HTTP API is actually listening (spawn alone is not enough).
+fn wait_for_puller_health(port: u16, timeout_ms: u64) -> bool {
+  use std::io::{Read, Write};
+  use std::net::{TcpStream, ToSocketAddrs};
+  use std::time::{Duration, Instant};
+
+  let deadline = Instant::now() + Duration::from_millis(timeout_ms);
+  let addr = format!("127.0.0.1:{port}");
+  let req = format!(
+    "GET /api/offline/health HTTP/1.1\r\nHost: 127.0.0.1:{port}\r\nConnection: close\r\n\r\n"
+  );
+
+  while Instant::now() < deadline {
+    if let Ok(mut addrs) = addr.to_socket_addrs() {
+      if let Some(sock) = addrs.next() {
+        if let Ok(mut stream) = TcpStream::connect_timeout(&sock, Duration::from_millis(250)) {
+          let _ = stream.set_read_timeout(Some(Duration::from_millis(400)));
+          let _ = stream.set_write_timeout(Some(Duration::from_millis(400)));
+          if stream.write_all(req.as_bytes()).is_ok() {
+            let mut buf = [0u8; 512];
+            if let Ok(n) = stream.read(&mut buf) {
+              let text = String::from_utf8_lossy(&buf[..n]);
+              if text.contains("200") && text.contains("\"ok\"") {
+                return true;
+              }
+            }
+          }
+        }
+      }
+    }
+    std::thread::sleep(Duration::from_millis(150));
+  }
+  false
+}
+
 fn spawn_puller(app: &tauri::AppHandle) {
   let (games_dir, catalog_dir, port) = puller_env(app);
 
-  if spawn_puller_sidecar(app, &games_dir, &catalog_dir, port).is_ok() {
-    return;
+  /*
+   * `tauri dev` / `pnpm app` must not treat the unbuilt sidecar stub as success —
+   * that previously skipped the tsx fallback and left the UI on "puller unavailable"
+   * (often while Flatpak still owned :18787).
+   */
+  if cfg!(debug_assertions) {
+    match spawn_puller_dev(&games_dir, &catalog_dir, port) {
+      Ok(()) => {
+        if wait_for_puller_health(port, 10_000) {
+          log::info!("dev puller healthy on port {}", port);
+          return;
+        }
+        log::warn!("dev puller spawned but health check failed on port {}", port);
+      }
+      Err(e) => log::warn!("dev puller spawn failed: {e}"),
+    }
+  }
+
+  if is_placeholder_puller_sidecar() {
+    log::info!(
+      "skipping unbuilt puller-sidecar placeholder (run pnpm puller:bundle:linux for release builds)"
+    );
+  } else if spawn_puller_sidecar(app, &games_dir, &catalog_dir, port).is_ok() {
+    if wait_for_puller_health(port, 10_000) {
+      return;
+    }
+    log::warn!("puller sidecar spawned but health check failed on port {}", port);
   }
 
   if spawn_puller_node_bundle(app, &games_dir, &catalog_dir, port).is_ok() {
-    return;
-  }
-
-  if cfg!(debug_assertions) {
-    if let Err(e) = spawn_puller_dev(&games_dir, &catalog_dir, port) {
-      log::warn!("puller unavailable: {e}");
+    if wait_for_puller_health(port, 10_000) {
+      return;
     }
-    return;
+    log::warn!("bundled puller script spawned but health check failed on port {}", port);
   }
 
   log::warn!("puller could not be started — offline download disabled");

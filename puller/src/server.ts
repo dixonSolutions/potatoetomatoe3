@@ -11,20 +11,8 @@ import {
 	startDownload,
 	cancelDownload
 } from './download-manager.js';
-import { getProgressJobForGame } from './jobs.js';
-import {
-	hasOfflineMirror,
-	isValidGameId,
-	isGameInCatalog,
-	loadGameIds,
-	resolveOfflineFilePath,
-	resolveOfflineMirrorRoot,
-	readGameMetadata
-} from './catalog.js';
-import { injectGameStorageBridge } from './game-storage-bridge-script.js';
-import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
-import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
-import { fetchLiveAsset, startLiveGameHtml } from './live/proxy.js';
+import { getProgressJobForGame, listRecentJobs, listDownloadingGameIds } from './jobs.js';
+import { liveSessionCount } from './live/session.js';
 import {
 	deleteGameBrowserProfile,
 	readGameBrowserProfile,
@@ -198,7 +186,21 @@ export function createServer(): http.Server {
 					ok: true,
 					dataDir: GAMES_DATA_DIR,
 					catalogDir: CATALOG_DIR,
-					catalogGameCount: catalogIds.length
+					catalogGameCount: catalogIds.length,
+					port: PORT,
+					activeDownloads: listDownloadingGameIds().size,
+					liveSessions: liveSessionCount()
+				});
+				return;
+			}
+
+			if (pathname === '/api/offline/jobs' && req.method === 'GET') {
+				const jobs = listRecentJobs();
+				sendJson(res, 200, {
+					ok: true,
+					active: [...listDownloadingGameIds()],
+					jobs,
+					liveSessions: liveSessionCount()
 				});
 				return;
 			}
@@ -226,7 +228,7 @@ export function createServer(): http.Server {
 					sendJson(res, 400, { error: 'Invalid game id' });
 					return;
 				}
-				sendJson(res, 200, await getGameStatus(gameId));
+				sendJson(res, 200, await getGameStatus(gameId, { repairThumbnail: true }));
 				return;
 			}
 

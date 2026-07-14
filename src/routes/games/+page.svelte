@@ -141,10 +141,11 @@
 	}
 
 	async function refreshDownloadedStatuses() {
-		offlineStatusMap = {
-			...offlineStatusMap,
-			...(await fetchDownloadedStatuses(true))
-		};
+		/*
+		 * Replace (do not merge): fetchDownloadedStatuses only returns active downloads.
+		 * Spreading over the previous map left deleted games stuck as offline:true.
+		 */
+		offlineStatusMap = await fetchDownloadedStatuses(true);
 	}
 
 	function updateColumnCount() {
@@ -312,7 +313,21 @@
 		const t = setTimeout(() => {
 			void fetchOfflineStatusesForIds(missing).then((map) => {
 				if (cancelled) return;
-				offlineStatusMap = { ...offlineStatusMap, ...map };
+				const next = { ...offlineStatusMap };
+				for (const [id, status] of Object.entries(map)) {
+					if (status.offline || status.downloading || status.partialCache) {
+						next[id] = status;
+					} else {
+						delete next[id];
+					}
+				}
+				/* Mark probed ids so we do not refetch forever for online-only games. */
+				for (const id of missing) {
+					if (!(id in map) && !(id in next)) {
+						next[id] = { offline: false };
+					}
+				}
+				offlineStatusMap = next;
 			});
 		}, 80);
 		return () => {

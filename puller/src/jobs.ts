@@ -98,3 +98,13 @@ export function listDownloadingGameIds(): Set<string> {
   }
   return set;
 }
+
+/** Active + recently finished jobs for the process manager UI. */
+export function listRecentJobs(limit = 40): DownloadJob[] {
+  const out: DownloadJob[] = [];
+  for (const job of jobs.values()) {
+    out.push({ ...job });
+  }
+  out.sort((a, b) => (b.startedAt ?? 0) - (a.startedAt ?? 0));
+  return out.slice(0, limit);
+}

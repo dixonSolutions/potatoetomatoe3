@@ -64,7 +64,7 @@ Injection:
 |-----------|-----------|
 | `/browser-offline/{id}/…` | `offline-sw.js` injects bridge script |
 | `/games/{id}/online|offline/…` (public site) | Service worker intercepts HTML |
-| `/games/…` (local dev) | Vite `games-html-bridge-inject` middleware |
+| `/games/…` (local dev) | Vite `games-html-bridge-inject` middleware (only `/games/**` — must not 404 Vite `/@fs` or `/node_modules` modules or the app never hydrates) |
 | Puller offline HTML | Inline or script injection in puller |
 
 Parent handler: `attachGameStorageBridge()` in `+layout.svelte`.

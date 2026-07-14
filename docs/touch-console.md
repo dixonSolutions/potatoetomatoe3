@@ -25,8 +25,7 @@ flowchart TD
     translate --> dispatch
     dispatch -->|keydown/keyup with code+keyCode+bubbles+composed, canvas focused| gamedoc[Game document]
 
-    toggleBtn[Blue glass toggle switch] --> visible[visible boolean]
-    visible --> controls
+    The in-game **Console** control lives in the page toolbar (with Pause / Fullscreen) and in the fullscreen chrome — not as a floating switch over the game. Turning it on shows the glass joystick / buttons overlay.
 
     settings[Settings - Touch Controls] --> draft[(unsaved settings draft)]
     draft --> saveSplit[shared settings Save / Discard]
@@ -60,6 +59,8 @@ flowchart TD
 The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an extra **local-app/Tauri** capability. On the public web app, mobile touch requires a local/offline mirror saved under `/browser-offline/` or served from same-origin game files.
 
 Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks permanent offline play. Live relay covers the “play online with touch now” case without a download.
+
+**Rule of thumb:** online + console → puller **proxy** (`/api/game-live` or `/api/unity-play`); offline + console → **inject** into the mirrored HTML. Never inject into a same-origin shell that only wraps a cross-origin Unity iframe — that causes Unity “Script error” when the console steals focus.
 
 ### Touch postMessage bridge
 

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Gamepad2, GripHorizontal } from 'lucide-svelte';
-	import { Switch } from '$lib/components/ui/switch';
+	import { GripHorizontal } from 'lucide-svelte';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
 	import {
@@ -28,7 +27,11 @@
 		playerUrl = '',
 		isPortrait = false,
 		paused = false,
-		started = false
+		started = false,
+		/** Parent toolbar owns the on/off control; this is the overlay visibility. */
+		visible = $bindable(false),
+		/** Whether the parent should show the Console toolbar button. */
+		chromeAvailable = $bindable(false)
 	}: {
 		iframe?: HTMLIFrameElement | null;
 		gameId?: string;
@@ -36,12 +39,13 @@
 		isPortrait?: boolean;
 		paused?: boolean;
 		started?: boolean;
+		visible?: boolean;
+		chromeAvailable?: boolean;
 	} = $props();
 
 	const isMobile = new IsMobile();
 	const dispatcher = new KeyDispatcher();
 
-	let visible = $state(false);
 	let injectable = $state(false);
 	let unavailableHint = $state(false);
 	let surfaceEl = $state<HTMLDivElement | null>(null);
@@ -52,17 +56,17 @@
 	let layoutDraft = $state<TouchLayout | null>(null);
 	let editingControl = $state<'console' | 'joystick' | string | null>(null);
 	let editOrigin = $state<TouchLayout | null>(null);
-	let lastToggleAt = 0;
 	let privacyLocked = $state(false);
 	let autoOpenedForGame = $state('');
+	/** Track last game id so we only clear visibility on actual navigation. */
+	let visibilityGameId = $state('');
 	/** Cross-origin bridge scripts can only receive input after their iframe has loaded. */
 	let bridgeFrameLoaded = $state(false);
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
-	const showToggle = $derived(
-		started &&
-			config.enabled &&
+	const canOfferChrome = $derived(
+		config.enabled &&
 			config.availability !== 'off' &&
 			(config.availability === 'always' ||
 				isMobile.current ||
@@ -71,18 +75,25 @@
 				isLikelyInjectableUrl(playerUrl))
 	);
 	const waitingForInjection = $derived(
-		showToggle && visible && !paused && !privacyLocked && !injectable
+		canOfferChrome && started && visible && !paused && !privacyLocked && !injectable
 	);
-	const showOverlay = $derived(showToggle && visible && !paused && !privacyLocked && injectable);
+	const showOverlay = $derived(
+		canOfferChrome && started && visible && !paused && !privacyLocked && injectable
+	);
+	const showSurface = $derived(canOfferChrome && started && visible);
 	const scale = $derived(config.scale);
 
 	function refreshConfig() {
 		config = getEffectiveConfig(gameId || null, orientation);
 		layoutDraft = null;
-		if (autoOpenedForGame !== gameId) {
-			autoOpenedForGame = '';
-			visible = false;
-		}
+	}
+
+	/** Reset overlay visibility only when navigating to a different game. */
+	function resetVisibilityForGameChange(nextGameId: string) {
+		if (visibilityGameId === nextGameId) return;
+		visibilityGameId = nextGameId;
+		autoOpenedForGame = '';
+		visible = false;
 	}
 
 	function probeInjectable() {
@@ -127,18 +138,6 @@
 				!canUseTouchBridge(playerUrl) &&
 				(config.availability === 'always' || !isLikelyInjectableUrl(playerUrl))
 		);
-	}
-
-	function toggleVisible() {
-		const now = Date.now();
-		if (now - lastToggleAt < 300) return;
-		lastToggleAt = now;
-		visible = !visible;
-		if (!visible) {
-			dispatcher.releaseAll();
-			editingControl = null;
-			layoutDraft = null;
-		}
 	}
 
 	function pctToPx(pct: number, axis: 'x' | 'y'): number {
@@ -250,7 +249,19 @@
 		};
 	});
 
-	/* surfaceEl only exists after showToggle — measure/observe whenever it binds. */
+	$effect(() => {
+		chromeAvailable = canOfferChrome;
+	});
+
+	$effect(() => {
+		if (!visible) {
+			dispatcher.releaseAll();
+			editingControl = null;
+			layoutDraft = null;
+		}
+	});
+
+	/* surfaceEl only exists after showSurface — measure/observe whenever it binds. */
 	$effect(() => {
 		const el = surfaceEl;
 		if (!el) return;
@@ -276,7 +287,12 @@
 
 	$effect(() => {
 		void orientation;
-		void gameId;
+		refreshConfig();
+	});
+
+	$effect(() => {
+		const id = gameId;
+		resetVisibilityForGameChange(id);
 		refreshConfig();
 	});
 
@@ -332,42 +348,28 @@
 	});
 </script>
 
-{#if showToggle}
+{#if showSurface}
 	<div
 		bind:this={surfaceEl}
 		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
 		aria-hidden={!showOverlay}
 	>
-		<div
-			class="pointer-events-auto absolute top-3 right-3 z-40 flex items-center gap-2 rounded-xl border border-white/25 bg-background/70 px-3 py-2 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
-		>
-			<Gamepad2 class="size-4 text-blue-500" aria-hidden="true" />
-			<Switch
-				checked={visible}
-				class="h-6 w-11 data-[state=checked]:bg-blue-500"
-				aria-label={visible ? 'Hide touch controls' : 'Show touch controls'}
-				title="Touch controls"
-				onCheckedChange={(checked) => {
-					if (Boolean(checked) !== visible) toggleVisible();
-				}}
-			/>
-		</div>
-
 		{#if waitingForInjection}
 			<div
-				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
+				class="pointer-events-auto absolute top-3 right-3 max-w-[min(280px,70vw)] rounded-lg border border-emerald-500/40 bg-background/90 px-3 py-2 text-xs text-foreground shadow-md backdrop-blur-sm sm:top-4 sm:right-4"
 				role="status"
 			>
-				Waiting for the game frame so touch controls can inject through the puller proxy or local
-				mirror…
+				<span class="mb-1 block font-medium text-emerald-400">Console · ON</span>
+				Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…
 			</div>
-		{:else if unavailableHint && visible}
+		{:else if unavailableHint}
 			<div
-				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
+				class="pointer-events-auto absolute top-3 right-3 max-w-[min(280px,70vw)] rounded-lg border border-amber-500/50 bg-background/90 px-3 py-2 text-xs text-foreground shadow-md backdrop-blur-sm sm:top-4 sm:right-4"
 				role="status"
 			>
-				Touch controls need a puller-proxied online URL or an offline mirror. Start or relaunch the
-				game after the local puller is ready; raw third-party embeds cannot receive controls.
+				<span class="mb-1 block font-medium text-amber-400">Console · blocked</span>
+				Online play needs the puller proxy; offline play needs a downloaded mirror. Raw third-party
+				embeds cannot receive controls.
 			</div>
 		{/if}
 
