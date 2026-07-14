@@ -14,7 +14,8 @@
 		Volume2,
 		Gamepad2,
 		BarChart3,
-		Smartphone
+		Smartphone,
+		Download
 	} from 'lucide-svelte';
 	import {
 		Root as DropdownMenuRoot,
@@ -60,6 +61,8 @@
 	import AnalyticsSection from '$lib/components/settings/sections/analytics/AnalyticsSection.svelte';
 	import GamesSection from '$lib/components/settings/sections/games/GamesSection.svelte';
 	import TouchControlsSection from '$lib/components/settings/sections/touch-controls/TouchControlsSection.svelte';
+	import UpdatesSection from '$lib/components/settings/sections/updates/UpdatesSection.svelte';
+	import { isTauriAndroidBuild } from '$lib/utils/offline-deployment';
 	import {
 		clearCategoryAffinities,
 		getCategoryAffinityMap,
@@ -74,7 +77,8 @@
 		type TouchConsoleSettings
 	} from '$lib/utils/touch-console';
 
-	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games' | 'touch';
+	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games' | 'touch' | 'updates';
+	const showAndroidUpdates = isTauriAndroidBuild();
 
 	let {
 		open = $bindable(false),
@@ -154,7 +158,11 @@
 		touchSettingsJson: JSON.stringify(loadTouchConsoleSettings())
 	});
 
-	const globalSearchResults = $derived.by(() => computeGlobalSearchResults(settingsSearchQuery));
+	const globalSearchResults = $derived.by(() => {
+		const results = computeGlobalSearchResults(settingsSearchQuery);
+		if (showAndroidUpdates) return results;
+		return results.filter((r) => r.panel !== 'updates');
+	});
 
 	$effect(() => {
 		const r = globalSearchResults;
@@ -192,12 +200,16 @@
 	});
 
 	async function goToSearchSubsection(
-		targetPanel: 'privacy' | 'audio' | 'analytics' | 'games' | 'touch',
+		targetPanel: 'privacy' | 'audio' | 'analytics' | 'games' | 'touch' | 'updates',
 		scrollTargetId: string
 	) {
 		if (targetPanel === 'privacy' && !actualEnabled) {
 			settingsSearchQuery = '';
 			enableDialogOpen = true;
+			return;
+		}
+		if (targetPanel === 'updates' && !showAndroidUpdates) {
+			settingsSearchQuery = '';
 			return;
 		}
 		settingsSearchQuery = '';
@@ -682,6 +694,23 @@
 							<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
 						</button>
 
+						{#if showAndroidUpdates}
+							<button
+								type="button"
+								class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
+								onclick={() => {
+									panel = 'updates';
+								}}
+							>
+								<Download class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+								<div class="min-w-0 flex-1">
+									<p class="text-sm font-medium">Updates</p>
+									<p class="text-xs text-muted-foreground">Download the latest Android APK</p>
+								</div>
+								<ChevronRight class="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+							</button>
+						{/if}
+
 						<button
 							type="button"
 							class="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/40"
@@ -927,6 +956,38 @@
 					{busy}
 					bind:settings={touchSettingsDraft}
 				/>
+			</div>
+		{:else if panel === 'updates' && showAndroidUpdates}
+			<div class="flex flex-wrap items-center gap-2 border-b px-2 py-3 pe-12">
+				<Button
+					variant="ghost"
+					size="icon"
+					class="shrink-0"
+					onclick={goBack}
+					aria-label="Back to settings"
+				>
+					<ChevronLeft class="size-5" />
+				</Button>
+				<div class="min-w-0 basis-full sm:flex-1 sm:basis-[min(100%,10rem)]">
+					<h2 class="text-lg leading-none font-semibold tracking-tight">Updates</h2>
+					<p class="sr-only">Download the latest Android APK</p>
+				</div>
+				<div
+					class="flex w-full min-w-0 flex-[1_1_14rem] flex-wrap items-center justify-end gap-2 sm:ms-auto sm:w-auto"
+				>
+					<input
+						type="search"
+						bind:value={settingsSearchQuery}
+						placeholder="Search…"
+						class="{searchInputClass} min-w-0 flex-1"
+						aria-label="Search update settings"
+						autocomplete="off"
+					/>
+				</div>
+			</div>
+
+			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+				<UpdatesSection searchQuery={settingsSearchQuery} {busy} />
 			</div>
 		{/if}
 	</Dialog.Content>

@@ -37,21 +37,30 @@ export function getPullerBaseUrl(): string {
 	return DEFAULT_PULLER_URL;
 }
 
+/** Clear cached health probes so a later puller start is observed quickly. */
+export function invalidatePullerAvailabilityCache(): void {
+	pullerAvailableCache = null;
+	pullerAvailableCheckedAt = 0;
+}
+
 /** Resolve puller URL from Tauri (handles port conflicts with host pullers). */
 export async function syncPullerBaseUrlFromTauri(): Promise<string | null> {
 	if (!shouldProbePullerBackend()) return null;
 	try {
-		const { isTauriApp } = await import('./offline-deployment');
-		if (!isTauriApp()) return null;
+		const { isTauriApp, isLocalAppDeployment } = await import('./offline-deployment');
+		// Packaged Tauri builds classify as local-app; invoke when either signal is present.
+		if (!isTauriApp() && !isLocalAppDeployment()) return null;
 		const { invoke } = await import('@tauri-apps/api/core');
 		const url = await invoke<string>('get_puller_base_url');
 		if (typeof url === 'string' && url.trim()) {
 			setPullerBaseUrlOverride(url.trim());
+			invalidatePullerAvailabilityCache();
 			return getPullerBaseUrl();
 		}
 	} catch {
 		/* not Tauri or command unavailable */
 	}
+	invalidatePullerAvailabilityCache();
 	return null;
 }
 
@@ -132,10 +141,6 @@ export async function describePullerDownloadError(error: string | undefined): Pr
 		return `${base} — puller catalog is empty (packaging issue)`;
 	}
 	return `${base} (puller catalog has ${health.catalogGameCount} games)`;
-}
-
-export function invalidatePullerAvailabilityCache(): void {
-	pullerAvailableCache = null;
 }
 
 let statusCache: Record<string, GameOfflineStatus> | null = null;
@@ -302,11 +307,7 @@ export function shouldUsePullerGameProxy(): boolean {
 	return import.meta.env.DEV;
 }
 
-export function pullerOfflinePlayUrl(
-	gameId: string,
-	basePath = '',
-	entry = 'index.html'
-): string {
+export function pullerOfflinePlayUrl(gameId: string, basePath = '', entry = 'index.html'): string {
 	const safeEntry = entry.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
 	if (shouldUsePullerGameProxy()) {
 		return `${getPullerGameProxyPrefix(basePath)}/${encodeURIComponent(gameId)}/offline/${safeEntry}`;
@@ -315,11 +316,7 @@ export function pullerOfflinePlayUrl(
 }
 
 /** URL for a file under the puller's offline mirror (e.g. cached cover thumbnail). */
-export function pullerOfflineAssetUrl(
-	gameId: string,
-	relPath: string,
-	basePath = ''
-): string {
+export function pullerOfflineAssetUrl(gameId: string, relPath: string, basePath = ''): string {
 	return pullerOfflinePlayUrl(gameId, basePath, relPath);
 }
 

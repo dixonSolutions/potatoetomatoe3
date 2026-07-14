@@ -1,6 +1,6 @@
 {
 	"build": {
-		"beforeBuildCommand": "node scripts/generate-games-list.js && pnpm build"
+		"beforeBuildCommand": "node scripts/generate-games-list.js && PUBLIC_OFFLINE_DEPLOYMENT=local-app pnpm build"
 	},
 	"bundle": {
 		"externalBin": [],

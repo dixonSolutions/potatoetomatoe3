@@ -73,6 +73,7 @@ export function describeOfflineBackend(backend: OfflineBackend): string {
 
 export function invalidateOfflineBackendCache(): void {
 	backendCache = null;
+	backendCheckedAt = 0;
 }
 
 export async function isOfflineDownloadAvailable(force = false): Promise<boolean> {

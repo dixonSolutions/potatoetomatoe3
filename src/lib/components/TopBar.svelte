@@ -8,18 +8,20 @@
 	import { toggleMode } from 'mode-watcher';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
 	import logo from '$lib/assets/logo.png';
-	import { isTauriApp } from '$lib/utils/offline-deployment';
+	import { isPublicSiteDeployment, isTauriApp } from '$lib/utils/offline-deployment';
 	import { quitDesktopApp } from '$lib/utils/desktop-tray';
 
 	let { hidden = false }: { hidden?: boolean } = $props();
 
 	let isOpen = $state(false);
 	let showQuit = $state(false);
+	let showDownloadApp = $state(false);
 
 	const settingsUi = getSettingsUiContext();
 
 	$effect(() => {
 		showQuit = isTauriApp();
+		showDownloadApp = isPublicSiteDeployment();
 	});
 
 	async function onQuit() {
@@ -134,18 +136,20 @@
 								All Games
 							</NavigationMenu.Link>
 						</NavigationMenu.Item>
-						<NavigationMenu.Item>
-							<NavigationMenu.Link
-								href={resolve('/download')}
-								class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 {$page.url.pathname.includes(
-									'/download'
-								)
-									? 'text-primary'
-									: ''}"
-							>
-								Download app
-							</NavigationMenu.Link>
-						</NavigationMenu.Item>
+						{#if showDownloadApp}
+							<NavigationMenu.Item>
+								<NavigationMenu.Link
+									href={resolve('/download')}
+									class="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 {$page.url.pathname.includes(
+										'/download'
+									)
+										? 'text-primary'
+										: ''}"
+								>
+									Download app
+								</NavigationMenu.Link>
+							</NavigationMenu.Item>
+						{/if}
 					</NavigationMenu.List>
 				</NavigationMenu.Root>
 			</div>
@@ -275,15 +279,19 @@
 									>
 										All Games
 									</a>
-									<a
-										href={resolve('/download')}
-										class="block text-sm transition-colors {$page.url.pathname.includes('/download')
-											? 'font-medium text-primary'
-											: 'text-foreground hover:text-primary'}"
-										onclick={() => (isOpen = false)}
-									>
-										Download app
-									</a>
+									{#if showDownloadApp}
+										<a
+											href={resolve('/download')}
+											class="block text-sm transition-colors {$page.url.pathname.includes(
+												'/download'
+											)
+												? 'font-medium text-primary'
+												: 'text-foreground hover:text-primary'}"
+											onclick={() => (isOpen = false)}
+										>
+											Download app
+										</a>
+									{/if}
 								</div>
 							</div>
 

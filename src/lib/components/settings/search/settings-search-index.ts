@@ -173,5 +173,19 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				keywords: 'mapping keys remap arrows wasd space enter escape button binding'
 			}
 		]
+	},
+	{
+		id: 'search-sec-updates',
+		title: 'Updates',
+		panel: 'updates',
+		sectionKeywords: 'update apk android download release github about version latest',
+		subsections: [
+			{
+				id: 'sub-updates-android',
+				label: 'Android APK download',
+				scrollTargetId: 'settings-section-updates-android',
+				keywords: 'android apk download latest github release update install'
+			}
+		]
 	}
 ];

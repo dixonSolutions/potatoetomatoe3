@@ -76,6 +76,8 @@ jobs:
           NODE
           node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
       - name: Compile shared web and puller outputs
+        env:
+          PUBLIC_OFFLINE_DEPLOYMENT: local-app
         run: |
           pnpm build
           pnpm puller:build

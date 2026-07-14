@@ -47,6 +47,7 @@
 	let surfaceEl = $state<HTMLDivElement | null>(null);
 	let surfaceW = $state(0);
 	let surfaceH = $state(0);
+	let surfaceOffsetY = $state(0);
 	let config = $state<EffectiveTouchConfig>(getEffectiveConfig(null, 'landscape'));
 	let layoutDraft = $state<TouchLayout | null>(null);
 	let editingControl = $state<'console' | 'joystick' | string | null>(null);
@@ -63,7 +64,14 @@
 		started &&
 			config.enabled &&
 			config.availability !== 'off' &&
-			(config.availability === 'always' || isMobile.current || injectable)
+			(config.availability === 'always' ||
+				isMobile.current ||
+				injectable ||
+				canUseTouchBridge(playerUrl) ||
+				isLikelyInjectableUrl(playerUrl))
+	);
+	const waitingForInjection = $derived(
+		showToggle && visible && !paused && !privacyLocked && !injectable
 	);
 	const showOverlay = $derived(showToggle && visible && !paused && !privacyLocked && injectable);
 	const scale = $derived(config.scale);
@@ -205,15 +213,20 @@
 
 	function measureSurface() {
 		if (!surfaceEl) return;
-		const rect = surfaceEl.getBoundingClientRect();
-		const parent = surfaceEl.parentElement;
-		/* Fallback when inset-0 has not laid out yet — avoid stacking every control at (0,0). */
+		const overlayRect = surfaceEl.getBoundingClientRect();
+		const frame = surfaceEl.parentElement?.querySelector<HTMLElement>(
+			'.game-player-surface__frame'
+		);
+		const rect = frame?.getBoundingClientRect() ?? overlayRect;
+		const parent = frame ?? surfaceEl.parentElement;
+		/* Match the playable iframe region, not optional banners above the frame. */
 		surfaceW =
 			rect.width || parent?.clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
 		surfaceH =
 			rect.height ||
 			parent?.clientHeight ||
 			(typeof window !== 'undefined' ? window.innerHeight : 0);
+		surfaceOffsetY = rect.top - overlayRect.top;
 	}
 
 	onMount(() => {
@@ -322,11 +335,11 @@
 {#if showToggle}
 	<div
 		bind:this={surfaceEl}
-		class="pointer-events-none absolute inset-0 z-[15] overflow-hidden"
+		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
 		aria-hidden={!showOverlay}
 	>
 		<div
-			class="pointer-events-auto absolute top-3 right-3 z-20 flex items-center gap-2 rounded-xl border border-white/25 bg-background/70 px-3 py-2 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
+			class="pointer-events-auto absolute top-3 right-3 z-40 flex items-center gap-2 rounded-xl border border-white/25 bg-background/70 px-3 py-2 text-foreground shadow-md backdrop-blur-md sm:top-4 sm:right-4"
 		>
 			<Gamepad2 class="size-4 text-blue-500" aria-hidden="true" />
 			<Switch
@@ -340,14 +353,21 @@
 			/>
 		</div>
 
-		{#if unavailableHint && visible}
+		{#if waitingForInjection}
 			<div
 				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
 				role="status"
 			>
-				Touch controls need a same-origin play URL or an offline mirror. On the web app, download
-				the game for local play first. The local desktop app can also use the puller proxy for
-				online games; raw third-party embeds cannot receive controls.
+				Waiting for the game frame so touch controls can inject through the puller proxy or local
+				mirror…
+			</div>
+		{:else if unavailableHint && visible}
+			<div
+				class="pointer-events-auto absolute top-16 right-3 max-w-[min(280px,70vw)] rounded-lg border border-border/60 bg-background/85 px-3 py-2 text-xs text-muted-foreground shadow-md backdrop-blur-sm sm:right-4"
+				role="status"
+			>
+				Touch controls need a puller-proxied online URL or an offline mirror. Start or relaunch the
+				game after the local puller is ready; raw third-party embeds cannot receive controls.
 			</div>
 		{/if}
 
@@ -358,7 +378,7 @@
 				class:ring-2={editingControl === 'console'}
 				class:ring-rose-400={editingControl === 'console'}
 				class:ring-dashed={editingControl === 'console'}
-				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
+				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
 			>
 				<button
 					type="button"
@@ -411,7 +431,7 @@
 
 			<div
 				class="absolute"
-				style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${pctToPx(layout.joystick.yPct, 'y')}px;`}
+				style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.joystick.yPct, 'y')}px;`}
 			>
 				<TouchJoystick
 					size={Math.round(layout.joystick.size * scale)}
@@ -429,7 +449,7 @@
 			{#each layout.buttons as btn (btn.id)}
 				<div
 					class="absolute"
-					style={`left:${pctToPx(btn.xPct, 'x')}px;top:${pctToPx(btn.yPct, 'y')}px;`}
+					style={`left:${pctToPx(btn.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(btn.yPct, 'y')}px;`}
 				>
 					<TouchButton
 						label={btn.label}
