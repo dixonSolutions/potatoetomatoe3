@@ -47,6 +47,7 @@
 	let surfaceEl = $state<HTMLDivElement | null>(null);
 	let surfaceW = $state(0);
 	let surfaceH = $state(0);
+	let surfaceOffsetY = $state(0);
 	let config = $state<EffectiveTouchConfig>(getEffectiveConfig(null, 'landscape'));
 	let layoutDraft = $state<TouchLayout | null>(null);
 	let editingControl = $state<'console' | 'joystick' | string | null>(null);
@@ -212,15 +213,20 @@
 
 	function measureSurface() {
 		if (!surfaceEl) return;
-		const rect = surfaceEl.getBoundingClientRect();
-		const parent = surfaceEl.parentElement;
-		/* Fallback when inset-0 has not laid out yet — avoid stacking every control at (0,0). */
+		const overlayRect = surfaceEl.getBoundingClientRect();
+		const frame = surfaceEl.parentElement?.querySelector<HTMLElement>(
+			'.game-player-surface__frame'
+		);
+		const rect = frame?.getBoundingClientRect() ?? overlayRect;
+		const parent = frame ?? surfaceEl.parentElement;
+		/* Match the playable iframe region, not optional banners above the frame. */
 		surfaceW =
 			rect.width || parent?.clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
 		surfaceH =
 			rect.height ||
 			parent?.clientHeight ||
 			(typeof window !== 'undefined' ? window.innerHeight : 0);
+		surfaceOffsetY = rect.top - overlayRect.top;
 	}
 
 	onMount(() => {
@@ -372,7 +378,7 @@
 				class:ring-2={editingControl === 'console'}
 				class:ring-rose-400={editingControl === 'console'}
 				class:ring-dashed={editingControl === 'console'}
-				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
+				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
 			>
 				<button
 					type="button"
@@ -425,7 +431,7 @@
 
 			<div
 				class="absolute"
-				style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${pctToPx(layout.joystick.yPct, 'y')}px;`}
+				style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.joystick.yPct, 'y')}px;`}
 			>
 				<TouchJoystick
 					size={Math.round(layout.joystick.size * scale)}
@@ -443,7 +449,7 @@
 			{#each layout.buttons as btn (btn.id)}
 				<div
 					class="absolute"
-					style={`left:${pctToPx(btn.xPct, 'x')}px;top:${pctToPx(btn.yPct, 'y')}px;`}
+					style={`left:${pctToPx(btn.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(btn.yPct, 'y')}px;`}
 				>
 					<TouchButton
 						label={btn.label}

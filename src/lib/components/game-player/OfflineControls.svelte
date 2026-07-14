@@ -63,12 +63,15 @@
 	let pollGeneration = $state(0);
 
 	let statusReady = $state(false);
+	let pullerStartupSettled = $state(!isLocalAppDeployment());
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
 	let backendLabel = $derived(describeOfflineBackend(offlineBackend));
-	let pullerMissingHint = $derived(isLocalAppDeployment() && offlineBackend === 'browser');
 	let waitingForPuller = $derived(
-		isLocalAppDeployment() && !statusReady && offlineBackend === 'none'
+		isLocalAppDeployment() && !pullerStartupSettled && offlineBackend !== 'puller'
+	);
+	let pullerMissingHint = $derived(
+		isLocalAppDeployment() && pullerStartupSettled && offlineBackend === 'browser'
 	);
 	let canDownload = $derived(
 		networkOnline &&
@@ -97,6 +100,7 @@
 		try {
 			const backend = await getOfflineBackend(true);
 			offlineBackend = backend;
+			if (backend === 'puller') pullerStartupSettled = true;
 			const availability = await getGameAvailability(gameId, metadata, true);
 			onlineAvailable = availability.online;
 			if (backend === 'none') {
@@ -133,6 +137,13 @@
 		playMode = getGamePlayMode(gameId);
 		void refreshStatus();
 
+		let pullerStartupTimer: ReturnType<typeof setTimeout> | undefined;
+		if (isLocalAppDeployment()) {
+			pullerStartupTimer = setTimeout(() => {
+				pullerStartupSettled = true;
+			}, 8000);
+		}
+
 		const onModeChange = (e: Event) => {
 			const d = (e as CustomEvent<{ gameId: string; mode: GamePlayMode }>).detail;
 			if (d?.gameId === gameId) playMode = d.mode;
@@ -140,12 +151,18 @@
 		const onOfflineStatusChanged = (e: Event) => {
 			const detail = (e as CustomEvent<OfflineStatusChangedDetail>).detail;
 			if (!shouldRefreshForEvent(detail)) return;
-			void refreshStatus();
+			void refreshStatus().then(() => {
+				if (isLocalAppDeployment() && !detail?.gameId) {
+					pullerStartupSettled = true;
+					if (pullerStartupTimer) clearTimeout(pullerStartupTimer);
+				}
+			});
 		};
 
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onModeChange);
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		return () => {
+			if (pullerStartupTimer) clearTimeout(pullerStartupTimer);
 			detachNetwork();
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onModeChange);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
