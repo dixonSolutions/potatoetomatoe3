@@ -94,25 +94,43 @@ jobs:
         if: always() && steps.release.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
+          PREP_RUN_ID: ${{ github.event.workflow_run.id }}
+          REPO: ${{ github.repository }}
           SHA: ${{ steps.release.outputs.sha }}
         run: |
+          get_flatpak_run() {
+            local prep_updated
+            prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq -r .updated_at)"
+            gh api "/repos/$REPO/actions/workflows/release-flatpak.yml/runs?event=workflow_run&head_sha=$SHA&per_page=30" \
+              --jq "[.workflow_runs[] | select(.created_at >= \"$prep_updated\")] | sort_by(.created_at) | .[0]"
+          }
           for _ in $(seq 1 180); do
-            read -r status conclusion < <(gh run list --repo "${{ github.repository }}" --workflow=release-flatpak.yml --commit="$SHA" --limit 1 --json status,conclusion --jq -r '.[0] | "\(.status) \(.conclusion // "")"')
+            run="$(get_flatpak_run)"
+            if [ -z "$run" ] || [ "$run" = "null" ]; then
+              sleep 30
+              continue
+            fi
+            status="$(echo "$run" | jq -r .status)"
+            conclusion="$(echo "$run" | jq -r '.conclusion // ""')"
             if [ "$status" = "completed" ]; then
               [ "$conclusion" = "success" ] || exit 0
               exit 0
             fi
             sleep 30
           done
-          echo "Timed out waiting for Publish Linux Flatpak" >&2
-          exit 1
+          echo "Timed out waiting for Publish Linux Flatpak; Flatpak workflow will publish when it completes" >&2
+          exit 0
       - name: Publish release
         if: always() && steps.release.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
+          PREP_RUN_ID: ${{ github.event.workflow_run.id }}
+          REPO: ${{ github.repository }}
           TAG: ${{ steps.release.outputs.tag }}
           SHA: ${{ steps.release.outputs.sha }}
         run: |
-          conclusion="$(gh run list --repo "${{ github.repository }}" --workflow=release-flatpak.yml --commit="$SHA" --limit 1 --json conclusion --jq -r '.[0].conclusion // ""')"
+          prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq -r .updated_at)"
+          conclusion="$(gh api "/repos/$REPO/actions/workflows/release-flatpak.yml/runs?event=workflow_run&head_sha=$SHA&per_page=30" \
+            --jq "[.workflow_runs[] | select(.created_at >= \"$prep_updated\")] | sort_by(.created_at) | .[0].conclusion // \"\"")"
           [ "$conclusion" = "success" ] || exit 0
           gh release edit "$TAG" --draft=false --latest
