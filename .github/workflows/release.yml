@@ -2,20 +2,15 @@ name: Release preparation
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Existing vX.Y.Z tag to rebuild
-        required: true
-        type: string
 
 permissions:
   contents: write
 
 concurrency:
-  group: release-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  group: release-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -29,17 +24,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+          fetch-depth: 0
       - id: ver
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}"
-          [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
-            echo "Expected an exact vX.Y.Z tag, got $TAG" >&2
+          existing_tag="$(git tag --points-at HEAD --list 'release-[0-9]*' | sort -V | tail -n 1)"
+          if [ -n "$existing_tag" ]; then
+            patch="${existing_tag#release-}"
+          else
+            latest_patch="$(git tag --list 'release-[0-9]*' | sed -n 's/^release-\([0-9][0-9]*\)$/\1/p' | sort -n | tail -n 1)"
+            patch="$(( ${latest_patch:-0} + 1 ))"
+            existing_tag="release-$patch"
+            git tag -a "$existing_tag" -m "Release 0.0.$patch" HEAD
+            git push origin "$existing_tag"
+          fi
+          [[ "$patch" =~ ^[0-9]+$ ]] || {
+            echo "Invalid calculated release patch: $patch" >&2
             exit 1
           }
-          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=0.0.$patch" >> "$GITHUB_OUTPUT"
+          echo "tag=$existing_tag" >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: pnpm/action-setup@v4

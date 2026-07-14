@@ -25,9 +25,10 @@ bounded fallback and is marked as such in the manifest.
 
 ## Platform distribution
 
-Releases are created only from exact `vX.Y.Z` tags. Linux/Flatpak and Android
-jobs use the same tag and commit SHA but publish independently. The download
-site links to the matching GitHub Release and presents Linux/Flatpak first.
+The central release workflow calculates the next `0.0.<number>` version and creates
+an immutable `release-<number>` tag at the merged commit. Linux/Flatpak and Android
+jobs use that same tag and commit SHA but publish independently. The download site
+links to the matching GitHub Release and presents Linux/Flatpak first.
 Android is a manually updated APK; there is no F-Droid repository or app
 update remote.
 
