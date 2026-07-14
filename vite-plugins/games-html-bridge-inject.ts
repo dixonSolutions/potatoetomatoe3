@@ -110,11 +110,27 @@ function attachGamesMiddleware(
 			const url = (req.url ?? '').split('?')[0];
 
 			/*
-			 * Never let SvelteKit SPA fallback return index.html for missing binary/script assets.
-			 * Also block directories that look like packages (e.g. node_modules/pixi.js) — sirv
-			 * would otherwise createReadStream(dir) and crash the process with EISDIR.
+			 * Never intercept Vite / SvelteKit module graph URLs. A previous catch-all on
+			 * ASSET_EXT_RE (*.js, *.json, …) 404'd `/node_modules/.../entry.js` and
+			 * `/@fs/.../app.js`, so the client never hydrated and home stayed on SSR skeletons.
 			 */
-			if (ASSET_EXT_RE.test(url)) {
+			if (
+				url.startsWith('/@') ||
+				url.startsWith('/node_modules/') ||
+				url.startsWith('/.svelte-kit/') ||
+				url.startsWith('/src/') ||
+				url.startsWith('/_app/')
+			) {
+				next();
+				return;
+			}
+
+			/*
+			 * Only for /games/**: never let SvelteKit SPA fallback return index.html for missing
+			 * binary/script assets. Also block directories that look like packages (e.g. pixi.js) —
+			 * sirv would otherwise createReadStream(dir) and crash with EISDIR.
+			 */
+			if (url.startsWith('/games/') && ASSET_EXT_RE.test(url)) {
 				const abs = resolveStaticAsset(url, gamesRoot, staticRoot);
 				if (!abs || !isRegularFile(abs)) {
 					sendPlain404(res, url);

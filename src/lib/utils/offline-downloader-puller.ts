@@ -158,7 +158,9 @@ export async function fetchPullerOfflineStatuses(
 		return {};
 	}
 	try {
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status`);
+		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status`, {
+			signal: AbortSignal.timeout(8_000)
+		});
 		if (!res.ok) return {};
 		const data = (await res.json()) as { games?: Record<string, GameOfflineStatus> };
 		statusCache = data.games ?? {};
@@ -179,11 +181,22 @@ export async function fetchPullerOfflineStatusesForIds(
 	if (!(await isPullerAvailable(force))) return {};
 	try {
 		const params = new URLSearchParams({ ids: unique.join(',') });
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status?${params}`);
+		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status?${params}`, {
+			signal: AbortSignal.timeout(8_000)
+		});
 		if (!res.ok) return {};
 		const data = (await res.json()) as { games?: Record<string, GameOfflineStatus> };
 		const games = data.games ?? {};
-		statusCache = { ...(statusCache ?? {}), ...games };
+		const nextCache: Record<string, GameOfflineStatus> = { ...(statusCache ?? {}) };
+		for (const [id, status] of Object.entries(games)) {
+			if (status.offline || status.downloading || status.partialCache) {
+				nextCache[id] = status;
+			} else {
+				/* Drop stale downloaded entries after delete. */
+				delete nextCache[id];
+			}
+		}
+		statusCache = nextCache;
 		statusCacheAt = Date.now();
 		return games;
 	} catch {
@@ -300,11 +313,19 @@ export function getPullerGameProxyPrefix(basePath = ''): string {
 }
 
 /** True when puller offline games should load through the app origin (storage continuity).
- * Only Vite dev/preview proxies `/puller-games` and `/api/unity-play` — packaged Tauri does not.
+ * Only Vite proxies `/puller-games` to PUBLIC_DOWNLOADER_URL (default :18787).
+ * When Tauri reserved another port (Flatpak already on 18787), use absolute puller URLs
+ * so we do not hit the wrong sidecar and 404 Unity Build JSON as HTML.
  */
 export function shouldUsePullerGameProxy(): boolean {
 	if (!shouldProbePullerBackend()) return false;
-	return import.meta.env.DEV;
+	if (!import.meta.env.DEV) return false;
+	const active = getPullerBaseUrl().replace(/\/$/, '');
+	const env = import.meta.env.PUBLIC_DOWNLOADER_URL;
+	const viteProxyTarget = (
+		typeof env === 'string' && env.trim() ? env.trim() : DEFAULT_PULLER_URL
+	).replace(/\/$/, '');
+	return active === viteProxyTarget;
 }
 
 export function pullerOfflinePlayUrl(gameId: string, basePath = '', entry = 'index.html'): string {

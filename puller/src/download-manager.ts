@@ -31,12 +31,90 @@ import { ensureOfflineThumbnail, readOfflineThumbnailRel } from './offline-thumb
 
 const cancelDiscardCache = new Map<string, boolean>();
 
-export async function getGameStatus(gameId: string): Promise<GameStatus> {
+/** In-memory cache so home/browse do not re-stat the whole catalog on every request. */
+let activityIdsCache: string[] | null = null;
+let activityIdsCacheAt = 0;
+const ACTIVITY_IDS_TTL_MS = 30_000;
+
+export function invalidateOfflineActivityIdsCache(): void {
+	activityIdsCache = null;
+	activityIdsCacheAt = 0;
+}
+
+async function pathIsOfflineDir(abs: string): Promise<boolean> {
+	try {
+		const st = await fs.stat(abs);
+		return st.isDirectory();
+	} catch {
+		return false;
+	}
+}
+
+/** Bounded concurrency — unbounded Promise.all over 10k+ dirs saturates libuv and freezes Vite. */
+async function mapPool<T, R>(
+	items: T[],
+	concurrency: number,
+	worker: (item: T) => Promise<R | null | undefined>
+): Promise<R[]> {
+	const out: R[] = [];
+	let cursor = 0;
+	const runners = Array.from({ length: Math.min(concurrency, Math.max(items.length, 1)) }, async () => {
+		while (cursor < items.length) {
+			const i = cursor++;
+			const value = await worker(items[i]);
+			if (value != null) out.push(value);
+		}
+	});
+	await Promise.all(runners);
+	return out;
+}
+
+async function scanRootForOfflineDirs(root: string): Promise<string[]> {
+	let entries: import('node:fs').Dirent[];
+	try {
+		entries = await fs.readdir(root, { withFileTypes: true });
+	} catch {
+		return [];
+	}
+	const dirs = entries.filter(
+		(entry) => entry.isDirectory() && !entry.name.startsWith('_') && isValidGameId(entry.name)
+	);
+	return mapPool(dirs, 32, async (entry) => {
+		if (await pathIsOfflineDir(path.join(root, entry.name, 'offline'))) return entry.name;
+		return null;
+	});
+}
+
+/**
+ * IDs that may have offline activity: downloading, or an `offline/` directory exists.
+ * Avoids full-catalog FS probes for every catalog id on every request.
+ */
+async function listOfflineActivityIds(force = false): Promise<string[]> {
+	const now = Date.now();
+	if (!force && activityIdsCache && now - activityIdsCacheAt < ACTIVITY_IDS_TTL_MS) {
+		return [...new Set([...activityIdsCache, ...listDownloadingGameIds()])];
+	}
+
+	const ids = new Set<string>(listDownloadingGameIds());
+	const roots = [...new Set([path.resolve(GAMES_DATA_DIR), path.resolve(CATALOG_DIR)])];
+	for (const root of roots) {
+		for (const id of await scanRootForOfflineDirs(root)) ids.add(id);
+	}
+	activityIdsCache = [...ids];
+	activityIdsCacheAt = now;
+	return activityIdsCache;
+}
+
+export async function getGameStatus(
+	gameId: string,
+	options?: { repairThumbnail?: boolean }
+): Promise<GameStatus> {
 	const partialCache = await hasPartialDownloadCache(gameId);
 	const cache = partialCache ? await countOfflineFiles(gameId) : 0;
 	const offline = await hasOfflineMirror(gameId);
 	let offlineThumbnail = offline ? ((await readOfflineThumbnailRel(gameId)) ?? undefined) : undefined;
-	if (offline && !offlineThumbnail) {
+	/* Bulk status lists must not hit the network — repair only when explicitly requested. */
+	if (offline && !offlineThumbnail && options?.repairThumbnail === true) {
 		offlineThumbnail = (await ensureOfflineThumbnail(gameId)) ?? undefined;
 	}
 	return {
@@ -49,45 +127,14 @@ export async function getGameStatus(gameId: string): Promise<GameStatus> {
 	};
 }
 
-/**
- * IDs that may have offline activity: downloading, or an `offline/` directory exists.
- * Avoids full-catalog FS probes for every catalog id.
- */
-async function listOfflineActivityIds(): Promise<string[]> {
-	const ids = new Set<string>(listDownloadingGameIds());
-	const roots = new Set<string>([GAMES_DATA_DIR, CATALOG_DIR]);
-	for (const root of roots) {
-		try {
-			const entries = await fs.readdir(root, { withFileTypes: true });
-			await Promise.all(
-				entries.map(async (entry) => {
-					if (!entry.isDirectory() || entry.name.startsWith('_') || !isValidGameId(entry.name)) {
-						return;
-					}
-					try {
-						const st = await fs.stat(path.join(root, entry.name, 'offline'));
-						if (st.isDirectory()) ids.add(entry.name);
-					} catch {
-						// no offline dir
-					}
-				})
-			);
-		} catch {
-			// root missing
-		}
-	}
-	return [...ids];
-}
-
 /** Downloaded / in-progress / partial only — not every catalog id. */
 export async function getDownloadedGameStatuses(): Promise<Record<string, GameStatus>> {
 	const ids = await listOfflineActivityIds();
 	const result: Record<string, GameStatus> = {};
-	await Promise.all(
-		ids.map(async (id) => {
-			result[id] = await getGameStatus(id);
-		})
-	);
+	await mapPool(ids, 24, async (id) => {
+		result[id] = await getGameStatus(id, { repairThumbnail: false });
+		return id;
+	});
 	return result;
 }
 
@@ -95,11 +142,10 @@ export async function getDownloadedGameStatuses(): Promise<Record<string, GameSt
 export async function getGameStatusesForIds(gameIds: string[]): Promise<Record<string, GameStatus>> {
 	const result: Record<string, GameStatus> = {};
 	const unique = [...new Set(gameIds.filter((id) => isValidGameId(id)))];
-	await Promise.all(
-		unique.map(async (id) => {
-			result[id] = await getGameStatus(id);
-		})
-	);
+	await mapPool(unique, 24, async (id) => {
+		result[id] = await getGameStatus(id, { repairThumbnail: false });
+		return id;
+	});
 	return result;
 }
 
@@ -118,6 +164,7 @@ export async function deleteOfflineGame(gameId: string): Promise<void> {
 
 	await fs.rm(offlineDir(gameId), { recursive: true, force: true });
 	invalidateCatalogCache();
+	invalidateOfflineActivityIdsCache();
 }
 
 export async function startDownload(gameId: string): Promise<{ started: boolean; message: string }> {
@@ -190,6 +237,7 @@ async function runDownloadJob(
 			finishedAt: Date.now()
 		});
 		invalidateCatalogCache();
+		invalidateOfflineActivityIdsCache();
 	} catch (error) {
 		const discardCache = cancelDiscardCache.get(gameId) ?? true;
 		cancelDiscardCache.delete(gameId);

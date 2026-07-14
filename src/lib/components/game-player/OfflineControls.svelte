@@ -275,15 +275,25 @@
 		deleting = true;
 		try {
 			await deleteOfflineCopy(gameId);
-			toast.success('Offline copy deleted');
-			status = await refreshGameOfflineState(gameId);
+			/* Clear badges immediately so the UI does not wait on a slow status round-trip. */
+			status = {
+				online: onlineAvailable || Boolean(status?.online),
+				offline: false,
+				downloading: false,
+				partialCache: false,
+				cacheFileCount: undefined,
+				offlineThumbnail: undefined
+			};
 			dispatchOfflineStatusChanged(gameId, 'delete');
+			toast.success('Offline copy deleted');
+			status = (await refreshGameOfflineState(gameId)) ?? status;
 			if (playMode === 'offline') {
 				saveGamePlayMode(gameId, 'online');
-				onPlayUrlChange?.();
 			}
+			onPlayUrlChange?.();
 		} catch (e) {
 			toast.error(e instanceof Error ? e.message : 'Delete failed');
+			await refreshStatus();
 		} finally {
 			deleting = false;
 		}

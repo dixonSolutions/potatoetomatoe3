@@ -6,7 +6,7 @@
 	"build": {
 		"frontendDist": "../build",
 		"devUrl": "http://127.0.0.1:5173/home",
-		"beforeDevCommand": "node scripts/generate-games-list.js && vite dev",
+		"beforeDevCommand": "node scripts/ensure-games-index.mjs && vite dev",
 		"beforeBuildCommand": "node scripts/generate-games-list.js && PUBLIC_OFFLINE_DEPLOYMENT=local-app pnpm build && pnpm puller:bundle:linux"
 	},
 	"app": {

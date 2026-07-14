@@ -39,7 +39,8 @@
 		ScrollText,
 		Pause,
 		Play,
-		Download
+		Download,
+		Gamepad2
 	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
@@ -65,6 +66,7 @@
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
+	import { canUseTouchBridge } from '$lib/utils/touch-input-dispatch';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import {
 		toggleFullscreen as toggleElementFullscreen,
@@ -86,6 +88,8 @@
 	let bannerDismissed = $state(false);
 	let userPreference = $state<'liked' | 'disliked' | null>(null);
 	let networkOnline = $state(true);
+	let offlineThumbRel = $state<string | undefined>(undefined);
+	let gameIsOffline = $state(false);
 
 	let gameId = $derived($page.params.gameId ?? '');
 
@@ -131,16 +135,30 @@
 	let offlineBackendLabel = $state('…');
 	let gamePaused = $state(false);
 	let pauseShortcutLabel = $state('`');
+	let touchConsoleVisible = $state(false);
+	let touchConsoleAvailable = $state(false);
 
 	const playerLayout = new GamePlayerLayout();
 
 	function posterUrlFor(game: GameIndexEntry | GameMetadata) {
-		const preferOffline = !networkOnline;
+		const preferOffline = !networkOnline || gameIsOffline;
 		return resolveGameThumbnailSrc(game.thumbnail, {
 			gameId: game.id,
-			preferOffline
-			/* Detail page can still use catalog thumb when online; offline needs puller status — optional follow-up */
+			preferOffline,
+			offlineThumbnailRel: offlineThumbRel
 		});
+	}
+
+	async function refreshOfflineCoverStatus(id: string) {
+		try {
+			const { fetchGameOfflineStatus } = await import('$lib/utils/offline-downloader');
+			const status = await fetchGameOfflineStatus(id, true);
+			gameIsOffline = Boolean(status?.offline);
+			offlineThumbRel = status?.offlineThumbnail;
+		} catch {
+			gameIsOffline = false;
+			offlineThumbRel = undefined;
+		}
 	}
 
 	function refreshPauseShortcutLabel() {
@@ -161,6 +179,65 @@
 			return;
 		}
 		setGamePausedState(!gamePaused);
+	}
+
+	/**
+	 * Online + console must use the puller proxy (inject/bridge in the game document).
+	 * Offline uses mirrored HTML with inject already applied — no proxy switch.
+	 */
+	async function ensureTouchCapablePlayUrl(): Promise<boolean> {
+		if (canUseTouchBridge(gamePlayerUrl)) return true;
+
+		const mode = gameId ? getGamePlayMode(gameId) : 'online';
+		if (mode === 'offline') {
+			const prev = gamePlayerUrl;
+			await refreshPlayerUrl();
+			if (canUseTouchBridge(gamePlayerUrl)) {
+				if (gamePlayerUrl !== prev) playerRemountKey += 1;
+				return true;
+			}
+			toast.error('Console needs an offline mirror with inject support for this game.');
+			return false;
+		}
+
+		const { isPullerAvailable } = await import('$lib/utils/offline-downloader-puller');
+		if (!(await isPullerAvailable(true))) {
+			toast.error('Console needs the local puller for online play.', {
+				description: 'Restart the app or run pnpm puller:start, then try again.'
+			});
+			return false;
+		}
+
+		const prev = gamePlayerUrl;
+		await refreshPlayerUrl();
+		if (!canUseTouchBridge(gamePlayerUrl)) {
+			toast.error('Could not open a puller proxy URL for touch console.', {
+				description: `Still on ${gamePlayerUrl || '(empty)'}`
+			});
+			return false;
+		}
+		if (gamePlayerUrl !== prev) {
+			playerRemountKey += 1;
+			toast.message('Reloading through puller proxy for the console…');
+		}
+		return true;
+	}
+
+	async function toggleTouchConsole() {
+		if (!touchConsoleAvailable) return;
+		if (!gameSurfaceStarted) {
+			toast.message('Start the game first');
+			return;
+		}
+		if (touchConsoleVisible) {
+			touchConsoleVisible = false;
+			appendPlayLog('info', 'ui', 'Touch console off', `game=${gameId}`);
+			return;
+		}
+		const ok = await ensureTouchCapablePlayUrl();
+		if (!ok) return;
+		touchConsoleVisible = true;
+		appendPlayLog('info', 'ui', 'Touch console on', `game=${gameId} url=${gamePlayerUrl}`);
 	}
 
 	async function refreshPlayerUrl() {
@@ -198,6 +275,7 @@
 		if (!gameId) return;
 		appendPlayLog('info', 'ui', 'Relaunch game completely', `game=${gameId}`);
 		setGamePausedState(false);
+		touchConsoleVisible = false;
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
 		await refreshPlayerUrl();
@@ -215,6 +293,7 @@
 		error = '';
 		gameSurfaceStarted = false;
 		gamePaused = false;
+		touchConsoleVisible = false;
 		gamePlayerUrl = '';
 
 		gameMetadata = await loadGameMetadata(id);
@@ -248,6 +327,7 @@
 
 		if (!error) {
 			gamePlayerUrl = await getGamePlayerUrl(id);
+			void refreshOfflineCoverStatus(id);
 		}
 		loading = false;
 	}
@@ -287,6 +367,7 @@
 			const detail = (e as CustomEvent<OfflineStatusChangedDetail>).detail;
 			if (detail?.gameId && detail.gameId !== gameId) return;
 			void refreshPlayerUrl();
+			if (gameId) void refreshOfflineCoverStatus(gameId);
 		};
 		const onPauseHotkey = (e: KeyboardEvent) => {
 			if (!gameSurfaceStarted) return;
@@ -464,7 +545,7 @@
 						{/if}
 					</div>
 				</div>
-				<div class="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row">
+				<div class="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-end">
 					<Button
 						onclick={() => void openPlayLogs()}
 						variant="outline"
@@ -492,6 +573,27 @@
 						{/if}
 						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
 					</Button>
+					{#if touchConsoleAvailable}
+						<Button
+							type="button"
+							onclick={() => void toggleTouchConsole()}
+							variant={touchConsoleVisible ? 'default' : 'outline'}
+							size="sm"
+							class={
+								touchConsoleVisible
+									? 'w-full border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500 sm:w-auto'
+									: 'w-full border-dashed sm:w-auto'
+							}
+							disabled={!gameSurfaceStarted}
+							aria-pressed={touchConsoleVisible}
+							title={touchConsoleVisible
+								? 'Touch console is ON — click to hide'
+								: 'Touch console is OFF — click to show'}
+						>
+							<Gamepad2 class="mr-2 h-4 w-4" />
+							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}
+						</Button>
+					{/if}
 					<Button
 						onclick={() => void relaunchGameCompletely()}
 						variant="outline"
@@ -573,6 +675,25 @@
 							Pause
 						{/if}
 					</Button>
+					{#if touchConsoleAvailable}
+						<Button
+							type="button"
+							variant={touchConsoleVisible ? 'default' : 'secondary'}
+							size="sm"
+							class={
+								touchConsoleVisible
+									? 'border-emerald-400 bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400/80 hover:bg-emerald-500'
+									: 'shadow-md backdrop-blur-sm'
+							}
+							onclick={() => void toggleTouchConsole()}
+							disabled={!gameSurfaceStarted}
+							aria-pressed={touchConsoleVisible}
+							aria-label={touchConsoleVisible ? 'Console on — hide touch console' : 'Console off — show touch console'}
+						>
+							<Gamepad2 class="mr-2 h-4 w-4" />
+							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}
+						</Button>
+					{/if}
 					<Button
 						variant="secondary"
 						size="sm"
@@ -669,7 +790,7 @@
 					/>
 				{/key}
 			</div>
-			<!-- Above pause (z-10) and fullscreen chrome (z-20) so the toggle stays clickable. -->
+			<!-- Overlay only — Console on/off lives in the page toolbar with Pause / Fullscreen. -->
 			<TouchConsole
 				iframe={iframeElement ?? null}
 				{gameId}
@@ -677,6 +798,8 @@
 				isPortrait={playerLayout.isPortrait}
 				paused={gamePaused}
 				started={gameSurfaceStarted}
+				bind:visible={touchConsoleVisible}
+				bind:chromeAvailable={touchConsoleAvailable}
 			/>
 		</div>
 

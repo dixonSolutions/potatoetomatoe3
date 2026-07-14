@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/generate-games-list.js && node scripts/dev-with-puller.mjs vite dev --open",
-    "app": "node scripts/generate-games-list.js && tauri dev",
+    "app": "tauri dev",
     "build": "node scripts/generate-games-list.js && vite build && node scripts/prepare-github-pages.mjs",
     "tauri": "tauri",
     "tauri:dev": "pnpm app",
