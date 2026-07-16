@@ -1,0 +1,17 @@
+{
+  "id": "poop-clicker-2",
+  "name": "Poop Clicker 2",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/poop-clicker-2).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d0asWNdfN1atrAsFyUQBW35l5ADn_1E81E5gzUxl2u4zq3Osgnk6oS-KhBizadJSCITHeXOs5TcKMIslk4aZ0ZuOh-hbLOW4wD_Z8b90DpSnD8xpX1l73sKPSR-1sBON2jHqJTbDBjsqGNG8-UUhH8s56kOckzkF-alu-uHd1KHDjEoKbP11_OsF9Z5jvd-6OyjeEPE5FrUIaJFJs7a-2I",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d0asWNdfN1atrAsFyUQBW35l5ADn_1E81E5gzUxl2u4zq3Osgnk6oS-KhBizadJSCITHeXOs5TcKMIslk4aZ0ZuOh-hbLOW4wD_Z8b90DpSnD8xpX1l73sKPSR-1sBON2jHqJTbDBjsqGNG8-UUhH8s56kOckzkF-alu-uHd1KHDjEoKbP11_OsF9Z5jvd-6OyjeEPE5FrUIaJFJs7a-2I",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/poopclicker/poop-clicker@4350632afd4414148e3f07551cec19576ba2b687/index.html",
+  "pullStrategy": "embed",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/poop-clicker-2",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/poopclicker/poop-clicker@4350632afd4414148e3f07551cec19576ba2b687/",
+  "remotePlayUrl": "https://cdn.jsdelivr.net/gh/poopclicker/poop-clicker@4350632afd4414148e3f07551cec19576ba2b687/index.html"
+}

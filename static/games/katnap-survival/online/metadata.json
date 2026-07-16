@@ -1,0 +1,19 @@
+{
+  "id": "katnap-survival",
+  "name": "Katnap Survival",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/katnap-survival).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrmFY-3TFePwGn3cNr9RiXTutw8HLe8QA3NFNaJBIml89Ee_wO_KN0NHhhCjbKQBQN99fywvfgI7FgUAZrlCoc6JJduTias0i1Z1bHnwAAvc29R0m-pjwiM1EaXiUZ-iHPgINsBAvrsCtHALC-lGDLBb-w",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrmFY-3TFePwGn3cNr9RiXTutw8HLe8QA3NFNaJBIml89Ee_wO_KN0NHhhCjbKQBQN99fywvfgI7FgUAZrlCoc6JJduTias0i1Z1bHnwAAvc29R0m-pjwiM1EaXiUZ-iHPgINsBAvrsCtHALC-lGDLBb-w",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/bodrumkat/wahawh@main/index.html",
+  "pullStrategy": "embed",
+  "engine": "unity",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/katnap-survival",
+  "gadgetXmlUrl": "https://cdn.jsdelivr.net/gh/bodrumkat/wahawh@main/1.xml",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/bodrumkat/wahawh@main/",
+  "remotePlayUrl": "https://cdn.jsdelivr.net/gh/bodrumkat/wahawh@main/index.html"
+}

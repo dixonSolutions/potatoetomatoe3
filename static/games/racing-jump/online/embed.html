@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/TemplateData/">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#000}object,embed,canvas,#gameContainer,.webgl-content{width:100%;height:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/TemplateData/style.css">
+<script src="https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gertdoro/Kubeflow@3f03b14afd95a9256c4754840fc39a8e672ed7b9/py/kubeflow/kubeflow/cd/RacingJump.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/gertdoro/Kubeflow@3f03b14afd95a9256c4754840fc39a8e672ed7b9/py/kubeflow/kubeflow/cd/RacingJump.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
+
+    <div class="webgl-content">
+        <div id="gameContainer" style="width: 100vw; height: 100vh"></div>
+        </div>
+</body>
+</html>

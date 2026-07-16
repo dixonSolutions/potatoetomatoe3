@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><base href="https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" style="width: 900px; height: 506px">
+      <canvas id="unity-canvas"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ── responsive.js UnityLoader hatasını önle ──
+      window.UnityLoader = { Error: { handler: function() {} } };
+    </script>
+
+    <script>
+      // ── Part birleştirme sistemi (fetch + XHR) ──
+      (function() {
+        var splitFiles = {
+          "https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/Build/Build.data": { parts: 4, prefix: "https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/Build/Build.data.part" },
+          "https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/Build/Build.wasm": { parts: 4, prefix: "https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/Build/Build.wasm.part" }
+        };
+
+        function findMatch(url) {
+          for (var key in splitFiles) {
+            if (url.indexOf(key) !== -1 && url.indexOf(".part") === -1) return key;
+          }
+          return null;
+        }
+
+        function downloadAndMerge(matchKey) {
+          var info = splitFiles[matchKey];
+          console.log("[MERGE] " + matchKey + " yakalandi, " + info.parts + " part indiriliyor...");
+          var fetches = [];
+          for (var i = 1; i <= info.parts; i++) {
+            fetches.push(
+              (function(num) {
+                return fetch(info.prefix + num).then(function(resp) {
+                  if (!resp.ok) throw new Error("[MERGE] part" + num + " HATA: " + resp.status);
+                  return resp.arrayBuffer();
+                }).then(function(buf) {
+                  console.log("[MERGE] " + matchKey + " part" + num + " OK - " + (buf.byteLength / 1048576).toFixed(2) + " MB");
+                  return { index: num, buffer: buf };
+                });
+              })(i)
+            );
+          }
+          return Promise.all(fetches).then(function(results) {
+            results.sort(function(a, b) { return a.index - b.index; });
+            var totalSize = results.reduce(function(s, r) { return s + r.buffer.byteLength; }, 0);
+            var merged = new Uint8Array(totalSize);
+            var offset = 0;
+            results.forEach(function(r) {
+              merged.set(new Uint8Array(r.buffer), offset);
+              offset += r.buffer.byteLength;
+            });
+            console.log("[MERGE] " + matchKey + " tamamlandi! Toplam: " + (totalSize / 1048576).toFixed(2) + " MB");
+            return merged;
+          });
+        }
+
+        // ── Fetch override (wasm için) ──
+        var originalFetch = window.fetch;
+        window.fetch = function(url, opts) {
+          var urlStr = (typeof url === "string") ? url : url.url;
+          var matchKey = findMatch(urlStr);
+          if (!matchKey) return originalFetch.call(this, url, opts);
+
+          return downloadAndMerge(matchKey).then(function(merged) {
+            var ct = matchKey.indexOf(".wasm") !== -1 ? "application/wasm" : "application/octet-stream";
+            return new Response(merged.buffer, {
+              status: 200,
+              headers: { "Content-Type": ct, "Content-Length": merged.byteLength }
+            });
+          });
+        };
+
+        // ── XHR override (data için - Unity loader XHR kullanıyor) ──
+        var OrigXHR = XMLHttpRequest;
+        var XHRProto = OrigXHR.prototype;
+        var origOpen = XHRProto.open;
+        var origSend = XHRProto.send;
+
+        XHRProto.open = function(method, url) {
+          this._mergeUrl = (typeof url === "string") ? url : "";
+          this._mergeMatch = findMatch(this._mergeUrl);
+          return origOpen.apply(this, arguments);
+        };
+
+        XHRProto.send = function(body) {
+          if (!this._mergeMatch) return origSend.apply(this, arguments);
+
+          var xhr = this;
+          var matchKey = this._mergeMatch;
+
+          downloadAndMerge(matchKey).then(function(merged) {
+            Object.defineProperty(xhr, "status", { get: function() { return 200; } });
+            Object.defineProperty(xhr, "readyState", { get: function() { return 4; } });
+            Object.defineProperty(xhr, "response", { get: function() { return merged.buffer; } });
+            Object.defineProperty(xhr, "responseType", { get: function() { return "arraybuffer"; } });
+            Object.defineProperty(xhr, "statusText", { get: function() { return "OK"; } });
+            Object.defineProperty(xhr, "getAllResponseHeaders", { value: function() { return "content-type: application/octet-stream\r\ncontent-length: " + merged.byteLength + "\r\n"; } });
+            Object.defineProperty(xhr, "getResponseHeader", { value: function(h) {
+              if (h.toLowerCase() === "content-length") return "" + merged.byteLength;
+              if (h.toLowerCase() === "content-type") return "application/octet-stream";
+              return null;
+            }});
+
+            if (typeof xhr.onprogress === "function") {
+              xhr.onprogress({ loaded: merged.byteLength, total: merged.byteLength, lengthComputable: true });
+            }
+            if (typeof xhr.onload === "function") {
+              xhr.onload({ target: xhr });
+            }
+            if (typeof xhr.onreadystatechange === "function") {
+              xhr.onreadystatechange();
+            }
+            try { xhr.dispatchEvent(new Event("load")); } catch(e) {}
+          }).catch(function(err) {
+            console.error("[MERGE-XHR] " + matchKey + " HATA:", err);
+            if (typeof xhr.onerror === "function") xhr.onerror(err);
+          });
+        };
+      })();
+    </script>
+
+    <script>
+      var buildUrl = "https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/Build";
+      var loaderUrl = buildUrl + "/Build.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Build.data",
+        frameworkUrl: buildUrl + "/Build.framework.js",
+        codeUrl: buildUrl + "/Build.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "SpiderDoll",
+        productVersion: "1.0",
+      };
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      loadingBar.style.display = "block";
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/okyesgoogl/sp557xxd@main/TemplateData/responsive.js"></script>
+
+    <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+  </body>
+</html>

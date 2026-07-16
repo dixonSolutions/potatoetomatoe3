@@ -1,0 +1,18 @@
+{
+  "id": "dune-dash",
+  "name": "Dune Dash",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/dune-dash).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d2WeU9d-DtEVIsBDBsLKKSSvxqxxQ6scs0tcZ-Mp6UL6ERsc8s1yCuIQlXAlY9LnJTC5Jt0Q5QxBowxoeCkgoQo9ZoumGNoPS0UZlNVmWMxAj3vu_KDrp4kowye-a3Iq90XR3bX9J5k9J1Ox14jOy7O6FTTXvxbvaI9QQ_I4HCkHesqTe7DCcKZYYAERK7pA0Kw3hERtOWRp9blKRbnpD8",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d2WeU9d-DtEVIsBDBsLKKSSvxqxxQ6scs0tcZ-Mp6UL6ERsc8s1yCuIQlXAlY9LnJTC5Jt0Q5QxBowxoeCkgoQo9ZoumGNoPS0UZlNVmWMxAj3vu_KDrp4kowye-a3Iq90XR3bX9J5k9J1Ox14jOy7O6FTTXvxbvaI9QQ_I4HCkHesqTe7DCcKZYYAERK7pA0Kw3hERtOWRp9blKRbnpD8",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://sites.google.com/view/drive-u-7-home/dune-dash",
+  "pullStrategy": "local-embed",
+  "engine": "unity",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/dune-dash",
+  "gadgetXmlUrl": "https://cdn.jsdelivr.net/gh/z799gs/550o8@main/3.xml",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/z799gs/550o8@main/"
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/gulamen/bibi@main/">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=yes"/>
+<title>Biblox</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/gulamen/bibi@main/TemplateData/favicon.ico"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gulamen/bibi@main/TemplateData/style.css"/>
+</head>
+<body>
+
+<div id="unity-container">
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Dil override — loader öncesi, hem MirraSDK hem Unity SystemInfo için -->
+<!-- Dil override + pointer lock sessiz hata önleme -->
+<script>
+try {
+    Object.defineProperty(navigator, 'language',      { get: () => 'en',         configurable: true });
+    Object.defineProperty(navigator, 'userLanguage',  { get: () => 'en',         configurable: true });
+    Object.defineProperty(navigator, 'languages',     { get: () => ['en','en-US'], configurable: true });
+} catch(e) {}
+(function() {
+    const _orig = Element.prototype.requestPointerLock;
+    Element.prototype.requestPointerLock = function(...args) {
+        try { (args[0] ||= {}).unadjustedMovement = true; } catch(e) {}
+        const p = _orig.apply(this, args);
+        if (p && typeof p.then === 'function') { return p.catch(() => {}); }
+        return p;
+    };
+})();
+</script>
+<!-- unityApp.js önce yükle — içindeki applyCommonFixes, tryRotationLock, tryLockAspectRatio çalışsın -->
+<script src="https://cdn.jsdelivr.net/gh/gulamen/bibi@main/unityApp.js"></script>
+
+<script>
+/* ============================================================
+   PART LOADER — unityApp.startLoading'i override eder
+   .gz dosyalar Blob olarak birleştirilir, application/gzip tipi
+   verilir ki Unity decompress edebilsin
+   ============================================================ */
+
+const BUILD_URL  = "https://cdn.jsdelivr.net/gh/gulamen/bibi@main/Build";
+const DATA_FILE  = "Zciblox9999999999999999999997.data.gz";
+const WASM_FILE  = "Zciblox9999999999999999999997.wasm.gz";
+const DATA_PARTS = 6;
+const WASM_PARTS = 4;
+
+const progressBarFull = document.querySelector("#unity-progress-bar-full");
+const loadingBar      = document.querySelector("#unity-loading-bar");
+const canvas          = document.querySelector("#unity-canvas");
+
+function setProgress(pct) {
+    if (progressBarFull) progressBarFull.style.width = Math.min(pct, 100) + "%";
+}
+
+async function fetchParts(filename, count, startPct, endPct) {
+    const step   = (endPct - startPct) / count;
+    const chunks = [];
+    for (let i = 0; i < count; i++) {
+        const resp = await fetch(`${BUILD_URL}/${filename}.part${i}`);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status} - ${BUILD_URL}/${filename}.part${i}`);
+        chunks.push(new Uint8Array(await resp.arrayBuffer()));
+        setProgress(Math.round(startPct + step * (i + 1)));
+    }
+    const total  = chunks.reduce((s, c) => s + c.length, 0);
+    const merged = new Uint8Array(total);
+    let offset = 0;
+    for (const c of chunks) { merged.set(c, offset); offset += c.length; }
+    /* application/gzip — Unity loader .gz dosyasını decompress eder */
+    return URL.createObjectURL(new Blob([merged], { type: 'application/gzip' }));
+}
+
+/* unityApp.startLoading'i Blob URL versiyonuyla değiştir */
+unityApp.startLoading = async function () {
+    try {
+        if (loadingBar) loadingBar.style.display = "block";
+        setProgress(2);
+
+        const [dataUrl, wasmUrl] = await Promise.all([
+            fetchParts(DATA_FILE, DATA_PARTS, 2,  50),
+            fetchParts(WASM_FILE, WASM_PARTS, 50, 88),
+        ]);
+
+        setProgress(92);
+
+        const config = {
+            arguments:          [],
+            dataUrl:            dataUrl,
+            frameworkUrl:       `${BUILD_URL}/Zciblox9999999999999999999997.framework.js`,
+            codeUrl:            wasmUrl,
+            streamingAssetsUrl: "StreamingAssets",
+            companyName:        "DefaultCompany",
+            productName:        "Biblox",
+            productVersion:     "0.1",
+            showBanner: (msg, type) => {
+                type === 'error' ? console.error(msg) : console.warn(msg);
+            },
+        };
+
+        const loaderScript  = document.createElement("script");
+        loaderScript.src    = `${BUILD_URL}/Zciblox9999999999999999999997.loader.js`;
+        loaderScript.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                setProgress(Math.round(88 + progress * 10));
+            }).then(() => {
+                if (loadingBar) loadingBar.style.display = "none";
+            }).catch(e => {
+                console.error(e);
+                alert(e);
+            });
+        };
+        document.body.appendChild(loaderScript);
+
+    } catch (err) {
+        console.error("Yukleme hatasi:", err);
+        if (progressBarFull) progressBarFull.textContent = "Hata: " + err.message;
+    }
+};
+
+/* unityApp.js'in son satırındaki startLoading() çağrısı zaten çalıştı
+   ama biz override ettik — manuel tetikle */
+unityApp.startLoading();
+</script>
+
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+</body>
+</html>

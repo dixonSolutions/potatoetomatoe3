@@ -1,0 +1,17 @@
+{
+  "id": "papers-io-mania",
+  "name": "Papers.io Mania",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/papers-io-mania).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d2UpudVW45brbRF2XLDvP3VZX-GoexlHMDpfKpV8PBWmF-Gakp0Flxn8NCmtRo0zJY1HjSeF0_WDZxwgtpFzulPbRd8L8rcpY0kFiuoWbTKFXT9ONc73akcIBFymehqmX0eGvrGSt1dYWLveYLw9dX45_HELoPjziM5bIzo3OFdRG9CjCik0Do8Db3I=w1280",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d2UpudVW45brbRF2XLDvP3VZX-GoexlHMDpfKpV8PBWmF-Gakp0Flxn8NCmtRo0zJY1HjSeF0_WDZxwgtpFzulPbRd8L8rcpY0kFiuoWbTKFXT9ONc73akcIBFymehqmX0eGvrGSt1dYWLveYLw9dX45_HELoPjziM5bIzo3OFdRG9CjCik0Do8Db3I=w1280",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://sites.google.com/view/drive-u-7-home/papers-io-mania",
+  "pullStrategy": "local-embed",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/papers-io-mania",
+  "gadgetXmlUrl": "https://cdn.jsdelivr.net/gh/bessiegasbarro/papman@7e044598c7c684bd40cdda991c302317c451b414/pm.xml",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/bessiegasbarro/papman@7e044598c7c684bd40cdda991c302317c451b414/"
+}

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/createzalma6z/feyzehrut@main/">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/createzalma6z/feyzehrut@main/style.css"/>
+<style>
+  canvas:focus{outline:none;}
+  html,body{padding:0;margin:0;overflow:hidden;overscroll-behavior:none;height:100%;
+    -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;
+    -ms-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+</style>
+</head>
+<body class="dark">
+<div id="unity-container" class="unity-desktop">
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+</div>
+<div id="loading-cover" style="display:none;">
+  <div id="unity-loading-bar">
+    <div id="unity-logo"><img src="https://cdn.jsdelivr.net/gh/createzalma6z/feyzehrut@main/Images/logo.png"/></div>
+    <div id="unity-progress-bar-empty" style="display:none;">
+      <div id="unity-progress-bar-full"></div>
+    </div>
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<script>
+window.YaGames = { init: function() {
+  var sdk = {
+    environment: { app:{id:'0'}, i18n:{lang:'en',tld:'com'}, browser:{lang:'en'}, payload:null },
+    deviceInfo: { type:'desktop',
+      isMobile:  function(){ return false; },
+      isDesktop: function(){ return true;  },
+      isTablet:  function(){ return false; },
+      isTV:      function(){ return false; }
+    },
+    adv: {
+      showFullscreenAdv: function(o){ if(o&&o.callbacks&&o.callbacks.onClose) o.callbacks.onClose(false); },
+      showRewardedVideo: function(o){
+        if(!o||!o.callbacks) return;
+        if(o.callbacks.onOpen)     o.callbacks.onOpen();
+        if(o.callbacks.onRewarded) o.callbacks.onRewarded();
+        if(o.callbacks.onClose)    o.callbacks.onClose();
+      },
+      showBannerAdv:function(){},hideBannerAdv:function(){},
+      getBannerAdvStatus:function(){ return Promise.resolve({stickyAdvIsShowing:false}); }
+    },
+    auth:     { openAuthDialog: function(){ return Promise.resolve(); } },
+    feedback: {
+      canReview:     function(){ return Promise.resolve({value:false}); },
+      requestReview: function(){ return Promise.resolve({feedbackSent:false}); }
+    },
+    shortcut: {
+      canShowPrompt: function(){ return Promise.resolve({canShow:false}); },
+      showPrompt:    function(){ return Promise.resolve({outcome:'rejected'}); }
+    },
+    getPayments: function(){ return Promise.reject('no payments'); },
+    getPlayer:   function(){ return Promise.resolve({
+      isAuthorized:function(){return false;},getMode:function(){return 'lite';},
+      getName:function(){return '';},getUniqueID:function(){return '0';},
+      getPhoto:function(){return '';},getPayingStatus:function(){return 'unknown';},
+      setData:function(){return Promise.resolve();},getData:function(){return Promise.resolve({});},
+      getStats:function(){return Promise.resolve({});},setStats:function(){return Promise.resolve();}
+    });},
+    getFlags:   function(){ return Promise.resolve({}); },
+    serverTime: function(){ return Promise.resolve(Date.now()); },
+    on:         function(){},
+    features: { LoadingAPI:{ready:function(){}}, GameplayAPI:{start:function(){},stop:function(){}} }
+  };
+  return Promise.resolve(sdk);
+}};
+</script>
+<script>
+(function(){ var s=document.createElement('script'); s.src="https://cdn.jsdelivr.net/sdk.js";
+  s.onerror=function(){ console.warn('[Stub] sdk.js yuklenemedi'); };
+  document.head.appendChild(s); })();
+</script>
+
+<script>
+var CDN        = "https://cdn.jsdelivr.net/gh/createzalma6z/feyzehrut@main/Build";   /* <-- degistir */
+var WASM_PARTS = 5;   /* 37.1MB / 8MB = 5 part */
+
+var LOADER    = "Builds";
+var DATA_FILE = "c6b178b69ab718faf313a6d4329c51be";
+var FRAMEWORK = "63bb806cced314e9b4f49cc94a380f78";
+var WASM_FILE = "df5d61c177fc30ab3443ca6b2987a07c";
+
+var buildUrl = CDN;
+var config = {
+  dataUrl:            buildUrl + "/" + DATA_FILE + ".data.br",
+  frameworkUrl:       buildUrl + "/" + FRAMEWORK + ".js",
+  codeUrl:            null,
+  streamingAssetsUrl: "StreamingAssets",
+  companyName: "abdelstd",
+  productName:  "miraculous heroes",
+  productVersion: "1"
+};
+
+var container        = document.querySelector("#unity-container");
+var canvas           = document.querySelector("#unity-canvas");
+var loadingCover     = document.querySelector("#loading-cover");
+var progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+var progressBarFull  = document.querySelector("#unity-progress-bar-full");
+var spinner          = document.querySelector('.spinner');
+
+if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+  container.className = "unity-mobile";
+
+loadingCover.style.display = "";
+
+var StartUnityInstance;
+var ygGameInstance = null;
+var ysdk = null;
+var initYSDK = false;
+var initGame = false;
+var syncInit = false;
+var isVisibility = true;
+var isPausedGame = false;
+var nowFullAdOpen = false;
+var NO_DATA = 'no data';
+
+document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+document.addEventListener('visibilitychange', function(){ SetVisibility(!document.hidden); });
+window.addEventListener('blur',  function(){ SetVisibility(false); });
+window.addEventListener('focus', function(){ SetVisibility(true); });
+window.addEventListener('pointerdown', function(){ FocusGame(); SetVisibility(true); });
+
+var oRPL = Element.prototype.requestPointerLock;
+Element.prototype.requestPointerLock = async function() {
+  var args = Array.from(arguments);
+  try { (args[0]=args[0]||{}).unadjustedMovement=true; await oRPL.apply(this,args); } catch(e){}
+};
+
+function InstallBlurFocusBlocker() {
+  if (!('onblur' in document)||window.blurFocusHandlersInstalled) return;
+  window.addEventListener('blur', function(){
+    var btn=document.createElement('button');
+    Object.assign(btn.style,{position:'fixed',top:'0',left:'0',width:'100%',height:'100%',
+      zIndex:'9999',backgroundColor:'rgba(0,0,0,0)',border:'none',cursor:'default'});
+    document.body.appendChild(btn);
+    window.addEventListener('focus', function rem(){
+      btn.parentNode&&btn.parentNode.removeChild(btn);
+      window.removeEventListener('focus',rem);
+    });
+  });
+  window.blurFocusHandlersInstalled=true;
+}
+function FocusGame(){ if(!isPausedGame) canvas.focus(); }
+function SetVisibility(v){
+  if(ysdk!==null&&initGame===true&&isVisibility!==v){
+    isVisibility=v;
+    YG2Instance('SetFocusWindowGame',v?'true':'false');
+  }
+}
+function PauseCallback(){  isPausedGame=true;  YG2Instance('SetPauseGame','true');  }
+function ResumeCallback(){ isPausedGame=false; YG2Instance('SetPauseGame','false'); }
+
+/* ── PART İNDİRME ─────────────────────────────────────────── */
+async function fetchParts(baseUrl, partCount) {
+  var parts=[];
+  for(var i=0;i<partCount;i++){
+    var r=await fetch(baseUrl+'.part'+i);
+    if(!r.ok) throw new Error('part'+i+': HTTP '+r.status);
+    parts.push(new Uint8Array(await r.arrayBuffer()));
+  }
+  var total=parts.reduce(function(s,p){return s+p.length;},0);
+  var merged=new Uint8Array(total); var off=0;
+  for(var j=0;j<parts.length;j++){merged.set(parts[j],off);off+=parts[j].length;}
+  return merged;
+}
+function brotliBloburl("https://cdn.jsdelivr.net/gh/createzalma6z/feyzehrut@main/uint8,filename"){
+  var blob=new Blob([uint8],{type:'application/octet-stream'});
+  return URL.createObjecturl("https://cdn.jsdelivr.net/gh/createzalma6z/feyzehrut@main/blob")+'#'+encodeURIComponent(filename);
+}
+
+/* ── LOADER ───────────────────────────────────────────────── */
+var script=document.createElement("script");
+script.src=buildUrl+"/"+LOADER+".loader.js";
+script.onload=async function(){
+  try {
+    var wasmBytes=await fetchParts(buildUrl+"/"+WASM_FILE+".wasm.br",WASM_PARTS);
+    config.codeUrl=brotliBlobUrl(wasmBytes,WASM_FILE+".wasm.br");
+  } catch(e){ alert("WASM error: "+e.message); return; }
+
+  StartUnityInstance=function(){
+    createUnityInstance(canvas,config,function(progress){
+      spinner.style.display="none";
+      progressBarEmpty.style.display="";
+      progressBarFull.style.width=(100*Math.max(progress,0.05))+'%';
+    }).then(function(inst){
+      ygGameInstance=inst;
+      loadingCover.style.background="";
+      loadingCover.style.display="none";
+    }).catch(function(msg){console.error(msg);});
+  };
+
+  InstallBlurFocusBlocker();
+  InitYSDK();
+  StartUnityInstance_IfUnloaded();
+};
+
+function StartUnityInstance_IfUnloaded(){
+  if(typeof StartUnityInstance==='function'&&spinner.style.display!=="none")
+    StartUnityInstance();
+}
+function IsLocalHost(){
+  try {
+    if(window.top!==window) return false;
+    var h=window.location.hostname;
+    return h==="localhost"||h==="127.0.0.1"||h.endsWith(".local");
+  } catch(e){return false;}
+}
+function YG2Instance(method,arg){
+  if(ygGameInstance==null) return;
+  var send=function(){
+    arg!==undefined
+      ?ygGameInstance.SendMessage('YG2Instance',method,arg)
+      :ygGameInstance.SendMessage('YG2Instance',method);
+  };
+  if(!initGame) setTimeout(send,100); else send();
+}
+function LogStyledMessage(msg){
+  console.log('%c'+msg,'color:#FFDF73;background-color:#454545');
+}
+
+InitYSDK();
+async function InitYSDK(){
+  try {
+    if(IsLocalHost()) return;
+    ysdk=await YaGames.init();
+    ysdk.on('game_api_pause',PauseCallback);
+    ysdk.on('game_api_resume',ResumeCallback);
+    initYSDK=true;
+    if(ygGameInstance!=null) ygGameInstance.SendMessage('YG2Instance','InitSDKComplete');
+    LogStyledMessage('Init YandexSDK Success');
+  } catch(e){console.error('CRASH Init SDK:',e);}
+  if(!IsLocalHost()&&!syncInit) StartUnityInstance_IfUnloaded();
+}
+function InitGame(){
+  initGame=true;
+  setTimeout(function(){if(isPausedGame) YG2Instance('SetPauseGame','true');},100);
+}
+LogStyledMessage('[PluginYG2 v2.008] [Build: 33] [Platform: YandexGames]');
+
+function RewardedAdvShow(id){
+  try {
+    ysdk.adv.showRewardedVideo({callbacks:{
+      onOpen:     function(){LogStyledMessage('Opened Rewarded Adv');YG2Instance('OpenRewardedAdv');},
+      onClose:    function(){LogStyledMessage('Closed Rewarded Adv'); YG2Instance('CloseRewardedAdv');FocusGame();},
+      onRewarded: function(){YG2Instance('RewardAdv',id);},
+      onError:    function(err){console.error(err);YG2Instance('ErrorRewardedAdv');}
+    }});
+  } catch(err){console.error('CRASH Rewarded:',err.message);}
+}
+function InterAdvShow(){
+  try {
+    if(!ysdk||nowFullAdOpen) return;
+    ysdk.adv.showFullscreenAdv({callbacks:{
+      onOpen:  function(){nowFullAdOpen=true;if(initGame)YG2Instance('OpenInterAdv');},
+      onClose: function(was){nowFullAdOpen=false;if(initGame)YG2Instance('CloseInterAdv',was?'true':'false');FocusGame();},
+      onError: function(e){console.error(e);nowFullAdOpen=false;YG2Instance('ErrorInterAdv');FocusGame();}
+    }});
+  } catch(e){console.error(e);}
+}
+
+document.body.appendChild(script);
+</script>
+<style>
+  /* Container: Top center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    top: 0; /* Üst kısma sabitlendi */
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); 
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; 
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); /* Gölge yönü aşağı verildi */
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; 
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, -100%); /* Yukarı doğru gizlenir */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; 
+    height: 90px; 
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    bottom: 6px; /* Üst reklamda buton genellikle alt köşede daha erişilebilirdir, istersen top:6px yapabilirsin */
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↑'; /* Üst reklam için yukarı ok */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0;
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; 
+    const countdownStart = 12; 
+    const reappearDelay = 150000; 
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↑';
+        }
+      }, 1000);
+    }
+
+    setTimeout(showAd, showDelay);
+
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+</body>
+</html>

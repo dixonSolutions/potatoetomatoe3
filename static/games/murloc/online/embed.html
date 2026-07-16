@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<html>
+<head><base href="https://cdn.jsdelivr.net/gh/AndreajnRcm4/d4g62dgv5a@d4bc8cb4bcfeeb03fd00e9ef5150efe92c401bfa/dt/wf/">
+<title>WAFLASH</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AndreajnRcm4/d4g62dgv5a@d4bc8cb4bcfeeb03fd00e9ef5150efe92c401bfa/dt/wf/style.css" type="text/css">
+<script>
+		var gameConfig = {
+			swfUrl: "https://cdn.jsdelivr.net/gh/Rockpods/flash-games@d4e98bcedd033320caf7e2c18e50674aea269de1/Murloc-RPG.swf"		
+		}
+</script>
+</head>
+<body>
+<div id="waflashContainer">
+<canvas class="waflashCanvas" id="canvas" tabindex="1"></canvas>
+<div id="waflashStatus" style="display: none;">Playing...</div>
+<script>
+		var ua = navigator.userAgent.toLowerCase();
+		if ( (navigator.appName =='Netscape' && ua.indexOf('trident') != -1) || (ua.indexOf("msie") != -1)) {
+    		var waf = document.getElementById('waflashStatus');
+			waf.style.display ='block';
+			waf.innerText ='??? ?????(IE) ??? ??? ???? ???? !\n??, ???? ?? ????? ??????.';
+			gtag('event', 'connect_from_ie', {'event_category': 'error', 'event_label': ua });
+		}
+	</script>
+<script type="module" crossorigin="anonymous">
+		let is_mobile = /Mobi/i.test(window.navigator.userAgent);
+		if (is_mobile) {
+			function scrollToSubject() {
+				try {
+					window.scrollTo({
+						top: 100,
+						left: 0,
+						behavior: 'smooth'
+					});
+				} catch (e) {}
+			}
+			scrollToSubject();
+			window.addEventListener("orientationchange", function() {
+				setTimeout(scrollToSubject, 100);
+			});
+		} else {
+			document.getElementById('canvas').focus();
+		}
+		document.getElementById('canvas').addEventListener("keydown", function(ev) {
+			ev.preventDefault();
+			ev.stopPropagation();
+		});
+		document.getElementById('canvas').addEventListener("click", function() {
+			document.getElementById('canvas').focus();
+		});
+		document.addEventListener("mousedown", (function() {
+			const canvasElement = document.getElementById('canvas');
+			let focused = false;
+			return function(ev) {
+				if (ev.target == canvasElement) {
+					if (!focused) {
+						canvasElement.focus();
+						focused = true;
+					}
+				} else {
+					if (focused) {
+						focused = false;
+					}
+				}
+				return true;
+			}
+		})());
+		import {
+			createWaflash
+		} from 'https://cdn.jsdelivr.net/gh/AndreajnRcm4/d4g62dgv5a@52edea2daf14f3c83673e6b1f1788f236beb46b2/dt/wf/js/waflash-player.min.js';
+		createWaflash(gameConfig.swfUrl, window.wafOptions || {});
+	</script>
+</div>
+</body>
+</html>

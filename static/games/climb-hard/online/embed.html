@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/schoolflashx/x774@main/">
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/schoolflashx/x774@main/TemplateData/style.css"/>
+    
+    <script>
+        (function() {
+            function MockGamePush() {}
+            MockGamePush.GameReady = function() { return true; };
+            MockGamePush.GameplayStart = function() { return true; };
+            MockGamePush.GameplayStop = function() { return true; };
+            MockGamePush.Init = function() { return Promise.resolve(); };
+            MockGamePush.Language = function() { return "en"; };
+            MockGamePush.IsMobile = function() { return false; };
+            MockGamePush.PlayerAdd = function() { return true; };
+            MockGamePush.PlayerSet = function() { return true; };
+            MockGamePush.PlayerGet = function() { return 0; };
+            MockGamePush.PlayerSync = function() { return Promise.resolve(); };
+            MockGamePush.AdsShowFullscreen = function() { return true; };
+            MockGamePush.AdsShowRewarded = function() { return true; };
+            MockGamePush.AdsShowPreloader = function() { return true; };
+            MockGamePush.LeaderboardOpen = function() { return true; };
+            MockGamePush.AchievementsOpen = function() { return true; };
+
+            const handler = {
+                get: function(target, prop) {
+                    if (typeof target[prop] === 'undefined') {
+                        return function() { return true; };
+                    }
+                    return target[prop];
+                }
+            };
+
+            window.GamePush = new Proxy(MockGamePush, handler);
+            window.GamePushUnity = function() {
+                return {
+                    init: function() {},
+                    language: function() { return "en"; },
+                    gameReady: function() {},
+                    gameplayStart: function() {},
+                    gameplayStop: function() {},
+                    isMobile: function() { return false; },
+                    ads: { showPreloader: function() {}, showFullscreen: function() {}, showRewarded: function() {} },
+                    player: { ready: Promise.resolve(), set: function() {}, add: function() {}, get: function() { return 0; } },
+                    leaderboard: { open: function() {} },
+                    achievements: { open: function() {} }
+                };
+            };
+
+            const gpMock = {
+                language: "en",
+                isMobile: false,
+                ads: { showPreloader: function() {}, showFullscreen: function() {} },
+                player: { ready: Promise.resolve(), set: function() {}, add: function() {} },
+                game: { ready: function() {} }
+            };
+            window.gp = new Proxy(gpMock, handler);
+        })();
+
+        var _unityAwaiter = {};
+        _unityAwaiter.ready = new Promise((resolve, reject) => {
+            _unityAwaiter.done = resolve;
+            _unityAwaiter.abort = reject;
+        });
+
+        var _gpAwaiter = {};
+        _gpAwaiter.ready = Promise.resolve(); 
+        window.unityInstance = null;
+    </script>
+</head>
+<body class="dark">
+    <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas"></canvas>
+    </div>
+
+    <div id="loading-cover">
+        <div id="unity-loading-bar">
+            <div id="unity-logo"><img src="https://cdn.jsdelivr.net/gh/schoolflashx/x774@main/logo.png" onerror="this.style.display='none'"/></div>
+            <div id="chunk-status" style="color: white; margin-bottom: 10px; font-family: sans-serif;">g+...</div>
+            <div id="unity-progress-bar-empty" style="display: none;">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        const buildUrl = "https://cdn.jsdelivr.net/gh/schoolflashx/x774@main/Build";
+        const loaderUrl = buildUrl + "/Difficult Climbing Game.loader.js";
+        
+        // PARÇA AYARLARI
+        const dataPartCount = 6; 
+        const dataBaseName = buildUrl + "/Difficult Climbing Game.data.unityweb.part";
+
+        const config = {
+            dataUrl: "", // Blob ile doldurulacak
+            frameworkUrl: buildUrl + "/Difficult Climbing Game.framework.js.unityweb",
+            codeUrl: buildUrl + "/Difficult Climbing Game.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "Pontypants",
+            productName: "A Difficult Game About Climbing",
+            productVersion: "1.0",
+        };
+
+        const container = document.querySelector("#unity-container");
+        const canvas = document.querySelector("#unity-canvas");
+        const loadingCover = document.querySelector("#loading-cover");
+        const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+        const progressBarFull = document.querySelector("#unity-progress-bar-full");
+        const spinner = document.querySelector('.spinner');
+        const chunkStatus = document.querySelector('#chunk-status');
+
+        // Parçaları birleştirme fonksiyonu
+        async function fetchAndCombineData() {
+            const chunks = [];
+            for (let i = 0; i < dataPartCount; i++) {
+                chunkStatus.innerText = `G+ ... : ${i + 1}/${dataPartCount}`;
+                const response = await fetch(`${dataBaseName}${i}`);
+                if (!response.ok) throw new Error("Parça yüklenemedi: " + i);
+                const buffer = await response.arrayBuffer();
+                chunks.push(buffer);
+            }
+            chunkStatus.innerText = "G+...";
+            const blob = new Blob(chunks, { type: "application/octet-stream" });
+            return URL.createObjecturl("https://cdn.jsdelivr.net/gh/schoolflashx/x774@main/blob");
+        }
+
+        async function startApp() {
+            try {
+                const blobUrl = await fetchAndCombineData();
+                config.dataUrl = blobUrl;
+                chunkStatus.style.display = "none";
+                loadUnity();
+            } catch (e) {
+                chunkStatus.innerText = "t! z.";
+                console.error(e);
+            }
+        }
+
+        function loadUnity() {
+            const unityLoader = document.createElement("script");
+            unityLoader.src = loaderUrl;
+            unityLoader.onload = () => {
+                createUnityInstance(canvas, config, (progress) => {
+                    spinner.style.display = "none";
+                    progressBarEmpty.style.display = "";
+                    progressBarFull.style.width = `${100 * progress}%`;
+                }).then((unityInstance) => {
+                    window.unityInstance = unityInstance;
+                    _unityAwaiter.done(unityInstance);
+                    loadingCover.style.display = "none";
+                }).catch((message) => {
+                    console.error(message);
+                });
+            };
+            document.body.appendChild(unityLoader);
+        }
+
+        container.className = "unity-desktop";
+        startApp();
+
+        document.addEventListener("pointerdown", () => {
+            container.focus();
+            window.focus();
+            canvas.focus();
+        });
+    </script>
+    
+    <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbw60Tp6nuqThxAuU8ZN1JIuPtjHoW2Uqq3fQy0CvrycN0O2AQwhRT5EDv73hh2FhXEF/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+</html>

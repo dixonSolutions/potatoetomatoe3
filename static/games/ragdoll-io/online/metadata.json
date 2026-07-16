@@ -1,0 +1,18 @@
+{
+  "id": "ragdoll-io",
+  "name": "Ragdoll.io",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/ragdoll-io).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d0asWNdfN1atrAsFyUQBW35l5ADn_1E81E5gzUxl2u4zq3Osgnk6oS-KhBizadJSCITHeXOs5TcKMIslk4aZ0ZuOh-hbLOW4wD_Z8b90DpSnD8xpX1l73sKPSR-1sBON2jHqJTbDBjsqGNG8-UUhH8s56kOckzkF-alu-uHd1KHDjEoKbP11_OsF9Z5jvd-6OyjeEPE5FrUIaJFJs7a-2I",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d0asWNdfN1atrAsFyUQBW35l5ADn_1E81E5gzUxl2u4zq3Osgnk6oS-KhBizadJSCITHeXOs5TcKMIslk4aZ0ZuOh-hbLOW4wD_Z8b90DpSnD8xpX1l73sKPSR-1sBON2jHqJTbDBjsqGNG8-UUhH8s56kOckzkF-alu-uHd1KHDjEoKbP11_OsF9Z5jvd-6OyjeEPE5FrUIaJFJs7a-2I",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/index.html",
+  "pullStrategy": "embed",
+  "engine": "unity",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/ragdoll-io",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/TemplateData/",
+  "remotePlayUrl": "https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/index.html"
+}

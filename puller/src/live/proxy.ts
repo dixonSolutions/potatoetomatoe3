@@ -1,3 +1,4 @@
+import { readLocalEmbedHtml } from '../catalog.js';
 import { injectUnityPatches, isUnityGameHtml } from '../unity/inject-html.js';
 import { injectGameStorageBridge } from '../game-storage-bridge-script.js';
 import { WGET_USER_AGENT } from '../config.js';
@@ -75,6 +76,35 @@ export async function startLiveGameHtml(
 	proxyPrefixForGame: (sessionId: string) => string
 ): Promise<LiveHtmlResult | null> {
 	const targetUrl = await resolveLiveTargetUrl(gameId);
+	const local = !targetUrl || /sites\.google\.com\/view\//i.test(targetUrl)
+		? await readLocalEmbedHtml(gameId)
+		: null;
+
+	if (local) {
+		const session = createLiveSession({
+			gameId,
+			targetUrl: normalizeBaseUrl(local.baseHref)
+		});
+		session.targetUrl = local.baseHref;
+		session.baseHref = local.baseHref;
+		try {
+			session.targetOrigin = new URL(local.baseHref).origin;
+			allowOrigin(session, session.targetOrigin);
+		} catch {
+			session.targetOrigin = 'https://cdn.jsdelivr.net';
+			allowOrigin(session, session.targetOrigin);
+		}
+
+		let html = local.html;
+		if (looksLikeUnity(metaEngine, html)) {
+			html = injectUnityPatches(html);
+		}
+		const proxyPrefix = proxyPrefixForGame(session.id);
+		html = rewriteHtmlForLiveSession(html, session, proxyPrefix);
+		html = injectGameStorageBridge(html, gameId);
+		return { session, html, contentType: 'text/html; charset=utf-8' };
+	}
+
 	if (!targetUrl) return null;
 
 	const session = createLiveSession({

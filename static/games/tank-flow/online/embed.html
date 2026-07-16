@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><base href="https://cdn.jsdelivr.net/gh/kelsimsk/fasax@main/3/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+      }
+      iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+      #loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, sans-serif;
+        font-size: 14px;
+        z-index: 9999;
+        transition: opacity .3s;
+      }
+      #loader.hide { opacity: 0; pointer-events: none; }
+      .spin {
+        width: 28px; height: 28px;
+        border: 3px solid #333;
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: s .7s linear infinite;
+        margin-right: 12px;
+      }
+      @keyframes s { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <div id="loader"><div class="spin"></div><span id="status">Loading…</span></div>
+    <iframe id="app-frame" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
+    <script>
+      (function () {
+        var OWNER = "watercolorpenguin";
+        var REPO  = "TFFiles";
+
+        var LATEST_SOURCES = [
+          "https://cdn.jsdelivr.net/gh/" + OWNER + "/" + REPO + "@master/docs/latest.txt"
+        ];
+
+        var CDN_BASES = [
+          "https://cdn.jsdelivr.net/gh/" + OWNER + "/" + REPO + "@",
+        ];
+
+        var DIST_PATH = "/dist/";
+
+        var $ = document.getElementById.bind(document);
+        var status = function (t) { var el = $("status"); if (el) el.textContent = t; };
+
+        function isValidRef(r) {
+          return /^[a-f0-9]{7,40}$/i.test(r) || /^[a-z0-9._-]+$/i.test(r);
+        }
+
+        async function raceFetch(urls) {
+          for (var i = 0; i < urls.length; i++) {
+            try {
+              var res = await fetch(urls[i], { cache: "no-store" });
+              if (res.ok) return (await res.text()).trim();
+            } catch (_) {}
+          }
+          throw new Error("All sources failed");
+        }
+
+        function rewriteUrls(html, base) {
+          html = html.replace(
+            /(src|href)\s*=\s*"(?!https?:\/\/|data:|blob:|javascript:|mailto:|#)([^"]+)"/gi,
+            function (_, attr, path) {
+              path = path.replace(/^\.\//, "").replace(/^\//, "");
+              return attr + '="' + base + path + '"';
+            }
+          );
+          html = html.replace(
+            /url\(\s*['"]?(?!https?:\/\/|data:|blob:)([^'")]+)['"]?\s*\)/gi,
+            function (_, path) {
+              path = path.replace(/^\.\//, "").replace(/^\//, "");
+              return "url('" + base + path + "')";
+            }
+          );
+          return html;
+        }
+
+        // =====================================================================
+        //  BOOT
+        // =====================================================================
+        async function boot() {
+          var ref;
+          try {
+            ref = await raceFetch(LATEST_SOURCES);
+            if (!isValidRef(ref)) throw new Error("Invalid ref: " + ref);
+          } catch (e) {
+            console.warn("latest.txt failed, falling back to @master:", e);
+            ref = "master";
+          }
+
+          var loaded = false;
+
+          for (var c = 0; c < CDN_BASES.length; c++) {
+            var baseUrl  = CDN_BASES[c] + ref + DIST_PATH;
+            var indexUrl = baseUrl + "index.html";
+
+            try {
+              var res = await fetch(indexUrl);
+              if (!res.ok) throw new Error(res.status);
+              var html = await res.text();
+
+              html = rewriteUrls(html, baseUrl);
+
+              var cspMeta = '<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">';
+              if (html.indexOf("<head>") !== -1) {
+                html = html.replace("<head>", "<head>" + cspMeta);
+              } else if (html.indexOf("<HEAD>") !== -1) {
+                html = html.replace("<HEAD>", "<HEAD>" + cspMeta);
+              } else {
+                html = cspMeta + html;
+              }
+
+              var blob = new Blob([html], { type: "text/html;charset=utf-8" });
+              var blobUrl = URL.createObjecturl("https://cdn.jsdelivr.net/gh/kelsimsk/fasax@main/3/blob");
+
+              var frame = $("app-frame");
+              frame.onload = function () {
+                $("loader").classList.add("hide");
+                setTimeout(function () { URL.revokeObjecturl("https://cdn.jsdelivr.net/gh/kelsimsk/fasax@main/3/blobUrl"); }, 5000);
+              };
+              frame.src = blobUrl;
+
+              loaded = true;
+              break;
+            } catch (e) {
+              console.warn("CDN " + (c + 1) + " failed:", e);
+            }
+          }
+
+          if (!loaded) {
+            var fallbackUrl = CDN_BASES[0] + ref + DIST_PATH + "index.html";
+            var frame = $("app-frame");
+            frame.onload = function () { $("loader").classList.add("hide"); };
+            frame.src = fallbackUrl;
+          }
+        }
+
+        boot().catch(function (e) {
+          console.error("Boot error:", e);
+          status("Failed to load. Please refresh.");
+        });
+      })();
+    </script>
+  </body>
+
+  <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</html>

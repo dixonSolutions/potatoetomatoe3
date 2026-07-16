@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>Friday Night Funkin'</title>
+    <style>
+        html, body, #canvas { margin: 0; padding: 0; border: 0; }
+        body { color: white; background-color: black; overflow: hidden; touch-action: none; }
+        #canvas { display: block; }
+        #canvas:focus { outline: none; }
+        #status {
+            position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+            background-color: #000000; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; visibility: visible;
+        }
+        #status-progress { width: 50%; margin-top: 20px; }
+        #status-notice {
+            display: none; background-color: #5b3943; border-radius: 0.5rem;
+            color: #e0e0e0; font-family: sans-serif; padding: 1rem; margin-top: 10px;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/shayderrr/newports@6923d8d3c6272e81d2d9d54440d4e2450c47e89b/fnf/index.icon.png" />
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="status">
+        <img id="status-splash" src="https://cdn.jsdelivr.net/gh/shayderrr/newports@6923d8d3c6272e81d2d9d54440d4e2450c47e89b/fnf/index.png" style="max-width:80%;">
+        <div id="loading-text">Downloading Game Assets (0/23)...</div>
+        <progress id="status-progress" value="0" max="100"></progress>
+        <div id="status-notice"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/shayderrr/newports@6923d8d3c6272e81d2d9d54440d4e2450c47e89b/fnf/index.js"></script>
+
+    <script>
+        const BASE_URL = "https://cdn.jsdelivr.net/gh/shayderrr/newports@6923d8d3c6272e81d2d9d54440d4e2450c47e89b/fnf/";
+        const progress = document.getElementById('status-progress');
+        const loadText = document.getElementById('loading-text');
+
+        let mergedPckBlob = null;
+        let mergedWasmBlob = null;
+
+        async function downloadAndMerge() {
+            try {
+                const pckChunks = [];
+                for (let i = 1; i <= 21; i++) {
+                    const part = i.toString().padStart(2, '0');
+                    loadText.innerText = `Fetching PCK Part ${i}/21...`;
+                    const res = await fetch(`${BASE_URL}index.pck.part${part}`);
+                    pckChunks.push(await res.arrayBuffer());
+                    progress.value = (i / 23) * 100;
+                }
+                mergedPckBlob = new Blob(pckChunks, { type: 'application/octet-stream' });
+
+                const wasmChunks = [];
+                for (let i = 1; i <= 2; i++) {
+                    loadText.innerText = `Fetching WASM Part ${i}/2...`;
+                    const res = await fetch(`${BASE_URL}index.wasm.part${i}`);
+                    wasmChunks.push(await res.arrayBuffer());
+                    progress.value = ((21 + i) / 23) * 100;
+                }
+                mergedWasmBlob = new Blob(wasmChunks, { type: 'application/wasm' });
+
+                launchEngine();
+            } catch (e) {
+                document.getElementById('status-notice').style.display = 'block';
+                document.getElementById('status-notice').innerText = "Download Error: " + e.message;
+            }
+        }
+
+        function launchEngine() {
+            const originalFetch = window.fetch;
+            window.fetch = function(url, options) {
+                const urlStr = typeof url === 'string' ? url : url.url;
+
+                if (urlStr.includes('index.pck')) {
+                    return Promise.resolve(new Response(mergedPckBlob));
+                }
+                if (urlStr.includes('index.wasm')) {
+                    return Promise.resolve(new Response(mergedWasmBlob));
+                }
+
+                return originalFetch(url, options);
+            };
+
+            const GODOT_CONFIG = {
+                "args": [],
+                "canvasResizePolicy": 2,
+                "executable": "index",
+                "fileSizes": { "index.pck": mergedPckBlob.size, "index.wasm": mergedWasmBlob.size },
+                "focusCanvas": true
+            };
+
+            const engine = new Engine(GODOT_CONFIG);
+            engine.startGame().then(() => {
+                document.getElementById('status').remove();
+            });
+        }
+
+        downloadAndMerge();
+    </script>
+
+    <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+</html>

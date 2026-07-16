@@ -1,0 +1,18 @@
+{
+  "id": "helix-jump",
+  "name": "Helix Jump",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/helix-jump).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d2pezH_VO68m6-cl33Bp9s_kX0onO4ETTV8jofqXHG8O6uIP9x7yKQMurUdJxoH5woz1C_4TUiD393KFVAoQTJnDmPED3l7h6dC9bkbBMpAjE1itFfuJX2D7ke1_FYb4IBQauuf1ViDtjG-EuD_xOYxYeq0dOR9Jci0E4ttBSthhOuKvZpyr1ILxAeTOqY=w1280",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d2pezH_VO68m6-cl33Bp9s_kX0onO4ETTV8jofqXHG8O6uIP9x7yKQMurUdJxoH5woz1C_4TUiD393KFVAoQTJnDmPED3l7h6dC9bkbBMpAjE1itFfuJX2D7ke1_FYb4IBQauuf1ViDtjG-EuD_xOYxYeq0dOR9Jci0E4ttBSthhOuKvZpyr1ILxAeTOqY=w1280",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/index.html",
+  "pullStrategy": "embed",
+  "engine": "unity",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/helix-jump",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/TemplateData/",
+  "remotePlayUrl": "https://cdn.jsdelivr.net/gh/paigerodeghero/academicwebsite@897c910c65e6c68b04c44a6b6eba0b99d0f2f2cf/index.html"
+}

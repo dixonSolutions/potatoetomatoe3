@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/777kze777/surf@0131703/">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+<style>
+  *,*:before,*:after{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#0a1628;
+    -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;
+    -ms-user-select:none;user-select:none;cursor:default;}
+  body{display:flex;align-items:center;justify-content:center;}
+  #unity-container{
+    position:relative;
+    width:  min(100vw, 177.78vh);
+    height: min(56.25vw, 100vh);
+  }
+  #unity-canvas{width:100%;height:100%;display:block;}
+  #loading-cover{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  #unity-logo img{max-width:320px;margin-bottom:24px;pointer-events:none;}
+  #unity-progress-bar-empty{
+    width:40%;height:8px;background:rgba(255,255,255,0.15);
+    border-radius:4px;overflow:hidden;margin-top:12px;
+  }
+  #unity-progress-bar-full{height:100%;width:0%;background:linear-gradient(90deg,#00c6ff,#0072ff);transition:width .3s ease;}
+  .loader-label{color:#aad4ff;font-family:Arial,sans-serif;font-size:14px;margin-top:10px;letter-spacing:1px;}
+  /* Loading animation circles (orijinalden) */
+  .circles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+  .circles div{
+    position:absolute;width:20px;height:20px;border-radius:50%;
+    background:rgba(0,198,255,0.15);animation:rise 8s infinite ease-in;
+  }
+  .circles .circle1{left:5%;animation-delay:0s;width:12px;height:12px;}
+  .circles .circle2{left:15%;animation-delay:1s;width:18px;height:18px;}
+  .circles .circle3{left:25%;animation-delay:2s;}
+  .circles .circle4{left:35%;animation-delay:.5s;width:14px;height:14px;}
+  .circles .circle5{left:45%;animation-delay:1.5s;width:22px;height:22px;}
+  .circles .circle6{left:55%;animation-delay:.8s;}
+  .circles .circle7{left:65%;animation-delay:2.5s;width:16px;height:16px;}
+  .circles .circle8{left:75%;animation-delay:.3s;}
+  .circles .circle9{left:85%;animation-delay:1.8s;width:24px;height:24px;}
+  .circles .circle10{left:90%;animation-delay:.6s;width:10px;height:10px;}
+  @keyframes rise{0%{bottom:-20px;opacity:0;}10%{opacity:.4;}90%{opacity:.1;}100%{bottom:110%;opacity:0;}}
+</style>
+</head>
+<body>
+
+<div id="unity-container">
+  <canvas id="unity-canvas"></canvas>
+
+<div id="loading-cover" style="background: url("https://cdn.jsdelivr.net/gh/777kze777/surf@main/background.png") center/cover;">
+    <div class="circles" id="cuboid_anim">
+      <div class="circle1"></div><div class="circle2"></div><div class="circle3"></div>
+      <div class="circle4"></div><div class="circle5"></div><div class="circle6"></div>
+      <div class="circle7"></div><div class="circle8"></div><div class="circle9"></div>
+      <div class="circle10"></div>
+    </div>
+    <div id="unity-logo">
+      <img src="https://cdn.jsdelivr.net/gh/777kze777/surf@main/logo.png" alt="Surf GO"/>
+    </div>
+    <div id="unity-progress-bar-empty">
+      <div id="unity-progress-bar-full"></div>
+    </div>
+    <div class="loader-label" id="loader-label">Loading...</div>
+</div>
+
+<script>
+/* ============================================================
+   YANDEX SDK STUB — sdk.js YÜKLENMEDEN ÖNCE TANIMLANMALI
+   lang:"en" — İngilizce zorla
+   ============================================================ */
+window.YaGames = {
+  init: function() {
+    var sdk = {
+      environment: {
+        app:     { id: '0' },
+        i18n:    { lang: 'en', tld: 'com' },
+        browser: { lang: 'en' },
+        payload: null
+      },
+      deviceInfo: {
+        type: 'desktop',
+        isMobile:  function(){ return false; },
+        isDesktop: function(){ return true;  },
+        isTablet:  function(){ return false; },
+        isTV:      function(){ return false; }
+      },
+      adv: {
+        showFullscreenAdv:  function(o){ if(o&&o.callbacks&&o.callbacks.onClose) o.callbacks.onClose(false); },
+        showRewardedVideo:  function(o){ if(o&&o.callbacks&&o.callbacks.onClose) o.callbacks.onClose(); },
+        showBannerAdv:      function(){},
+        hideBannerAdv:      function(){},
+        getBannerAdvStatus: function(){ return Promise.resolve({ stickyAdvIsShowing: false }); }
+      },
+      auth:     { openAuthDialog: function(){ return Promise.resolve(); } },
+      feedback: { canReview:     function(){ return Promise.resolve({ value: false, reason: '' }); },
+                  requestReview: function(){ return Promise.resolve({ feedbackSent: false }); } },
+      shortcut: { canShowPrompt: function(){ return Promise.resolve({ canShow: false }); },
+                  showPrompt:    function(){ return Promise.resolve({ outcome: 'rejected' }); } },
+      getLeaderboards: function(){
+        return Promise.resolve({
+          setLeaderboardScore:     function(){},
+          getLeaderboardEntries:   function(){ return Promise.reject(); }
+        });
+      },
+      getPayments: function(){ return Promise.reject('no payments'); },
+      getPlayer: function(opts) {
+        return Promise.resolve({
+          getMode:      function(){ return 'lite'; },
+          getName:      function(){ return ''; },
+          getUniqueID:  function(){ return '0'; },
+          getPhoto:     function(){ return ''; },
+          getPayingStatus: function(){ return 'unknown'; },
+          setData:      function(){ return Promise.resolve(); },
+          getData:      function(){ return Promise.resolve({}); }
+        });
+      },
+      serverTime: function(){ return Date.now(); },
+      on: function(){},
+      features: {
+        LoadingAPI:  { ready: function(){} },
+        GameplayAPI: { start: function(){}, stop: function(){} }
+      }
+    };
+    return Promise.resolve(sdk);
+  }
+};
+console.log('[Stub] YaGames hazir, lang = "en"');
+</script>
+
+<script>
+(function(){
+  var s = document.createElement('script');
+  s.src = '/sdk.js';
+  s.onerror = function(){ console.warn('[Stub] sdk.js yuklenemedi'); };
+  document.head.appendChild(s);
+})();
+</script>
+
+<script>
+/* ============================================================
+   CONFIG  —  CDN adresini doldurun
+   ============================================================ */
+var CDN = "https://cdn.jsdelivr.net/gh/777kze777/surf@7a3c946/Build";   /* <-- degistir */
+
+var LOADER    = "f2d439c40430b2f9ae804449b03b5e5b";
+var DATA_FILE = "b8181f262369a6bf3089d895b5d32586";
+var FRAMEWORK = "dcfe935f79be52697b571b1448461520";
+var WASM_FILE = "0201508d745b324b5b1459f0c1d7b89c";
+
+/* Data: 22.8MB -> 3 part  |  WASM: 46MB -> 6 part */
+var DATA_PARTS = 3;
+var WASM_PARTS = 6;
+
+/* ============================================================ */
+var canvas          = document.querySelector("#unity-canvas");
+var progressBarFull = document.querySelector("#unity-progress-bar-full");
+var loaderLabel     = document.querySelector("#loader-label");
+var myGameInstance  = null;
+var leaderboard     = null;
+var player          = null;
+var ysdk            = null;
+var isYsdkInitialize = false;
+var isDeletedGarbage = false;
+
+/* Mobile ölçek */
+function isMobileLike() {
+  if (navigator.userAgentData && 'mobile' in navigator.userAgentData) return navigator.userAgentData.mobile;
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return true;
+  if (/Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent||'')) return true;
+  return Math.min(screen.width, screen.height) <= 820;
+}
+var nativeDPR = window.devicePixelRatio || 1;
+var dpr = isMobileLike() ? Math.min(0.85 * nativeDPR, nativeDPR) : Math.min(1 * nativeDPR, nativeDPR);
+
+canvas.style.background = "center / cover";
+
+/* ── PART İNDİRME ─────────────────────────────────────────── */
+async function fetchParts(urls, label) {
+  var parts = [];
+
+  for (var i = 0; i < urls.length; i++) {
+    loaderLabel.textContent = label + ' ' + (i + 1) + '/' + urls.length + '...';
+
+    var r = await fetch(urls[i]);
+
+    if (!r.ok) {
+      throw new Error('Part failed: ' + urls[i] + ' HTTP ' + r.status);
+    }
+
+    parts.push(new Uint8Array(await r.arrayBuffer()));
+  }
+
+  var total = parts.reduce(function(s, p) { return s + p.length; }, 0);
+  var merged = new Uint8Array(total);
+  var off = 0;
+
+  for (var j = 0; j < parts.length; j++) {
+    merged.set(parts[j], off);
+    off += parts[j].length;
+    parts[j] = null;
+  }
+
+  return merged;
+}
+
+function brotliBloburl("https://cdn.jsdelivr.net/gh/777kze777/surf@0131703/uint8,%20filename") {
+  var blob = new Blob([uint8], { type: 'application/octet-stream' });
+  return URL.createObjecturl("https://cdn.jsdelivr.net/gh/777kze777/surf@0131703/blob") + '#' + encodeURIComponent(filename);
+}
+
+/* ── UNITY YÜKLE ──────────────────────────────────────────── */
+var script = document.createElement("script");
+script.src = CDN + "/" + LOADER + ".loader.js";
+script.onload = async function() {
+  try {
+    loaderLabel.textContent = "Downloading game data...";
+    var DATA_URLS = [
+      "https://cdn.jsdelivr.net/gh/777kze777/surf@d584fd4/Build/b8181f262369a6bf3089d895b5d32586.data.br.part0",
+      "https://cdn.jsdelivr.net/gh/777kze777/surf@d584fd4/Build/b8181f262369a6bf3089d895b5d32586.data.br.part1",
+      "https://cdn.jsdelivr.net/gh/777kze777/surf@d584fd4/Build/b8181f262369a6bf3089d895b5d32586.data.br.part2"
+    ];
+
+    var WASM_URLS = [
+      "https://cdn.jsdelivr.net/gh/z799gs/66443488@bf4c67b/0201508d745b324b5b1459f0c1d7b89c.wasm.br.part0",
+      "https://cdn.jsdelivr.net/gh/z799gs/66443488@bf4c67b/0201508d745b324b5b1459f0c1d7b89c.wasm.br.part1",
+      "https://cdn.jsdelivr.net/gh/z799gs/66443488@bf4c67b/0201508d745b324b5b1459f0c1d7b89c.wasm.br.part2",
+      "https://cdn.jsdelivr.net/gh/z799gs/66443488@bf4c67b/0201508d745b324b5b1459f0c1d7b89c.wasm.br.part3",
+      "https://cdn.jsdelivr.net/gh/z799gs/66443488@bf4c67b/0201508d745b324b5b1459f0c1d7b89c.wasm.br.part4",
+      "https://cdn.jsdelivr.net/gh/z799gs/66443488@bf4c67b/0201508d745b324b5b1459f0c1d7b89c.wasm.br.part5"
+    ];
+
+    var dataBytes = await fetchParts(DATA_URLS, "Data");
+    var wasmBytes = await fetchParts(WASM_URLS, "WASM");
+
+    var config = {
+      dataUrl:            brotliBlobUrl(dataBytes, DATA_FILE + ".data.br"),
+      frameworkUrl:       CDN + "/" + FRAMEWORK + ".framework.js",
+      codeUrl:            brotliBlobUrl(wasmBytes,  WASM_FILE + ".wasm.br"),
+      streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/777kze777/surf@d584fd4/StreamingAssets",
+      companyName:        "Kot Games",
+      productName:        "Surf GO",
+      productVersion:     "3.411",
+      devicePixelRatio:   dpr
+    };
+
+    loaderLabel.textContent = "Starting...";
+    createUnityInstance(canvas, config, function(progress){
+      progressBarFull.style.width = (100 * progress) + '%';
+    }).then(function(inst){
+      myGameInstance = inst;
+      myGameInstance.SendMessage("Yandex WebGL","InitializeYandexInstance");
+      if (!isDeletedGarbage) {
+        var anim = document.getElementById("cuboid_anim");
+        var bar  = document.getElementById("loading-cover");
+        if (anim) anim.remove();
+        if (bar)  bar.style.display = "none";
+        isDeletedGarbage = true;
+      }
+      console.log("Unity initialized");
+    }).catch(function(e){
+      console.error(e);
+      if (!isDeletedGarbage) {
+        var c = document.getElementById("cuboid_anim");
+        if (c) c.remove();
+        isDeletedGarbage = true;
+      }
+    });
+
+  } catch(e) {
+    console.error("Load error:", e);
+    loaderLabel.textContent = "Load error: " + e.message;
+  }
+};
+
+/* ── SDK FONKSİYONLARI ────────────────────────────────────── */
+function initYsdk() {
+  console.log('Yandex SDK start initialization');
+  return YaGames.init().then(function(y){
+    console.log('Yandex SDK initialized');
+    ysdk = y;
+    return y;
+  }).catch(console.error);
+}
+
+function initLeaderboard() {
+  ysdk.getLeaderboards().then(function(_lb){ leaderboard = _lb; });
+}
+
+function initPlayer() {
+  if (ysdk === null) {
+    return initYsdk().then(function(y){
+      return y.getPlayer().then(function(_p){ window.player = _p; return _p; });
+    });
+  } else {
+    return ysdk.getPlayer().then(function(_p){ window.player = _p; return _p; });
+  }
+}
+
+function checkCanShowShorcutDialog() {
+  initYsdk().then(function(y){
+    y.shortcut.canShowPrompt().then(function(prompt){
+      if (prompt.canShow) myGameInstance.SendMessage("Yandex WebGL","ShortcutDialogCanShow");
+    });
+  });
+}
+
+document.body.appendChild(script);
+</script>
+
+<script>
+/* iOS fix */
+var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+if (isIOS) {
+  document.documentElement.style.height = '100%';
+  document.body.style.cssText += ';height:100%;position:fixed;width:100%';
+  document.addEventListener('touchmove', function(e){ e.preventDefault(); }, { passive: false });
+}
+</script>
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+</body>
+</html>

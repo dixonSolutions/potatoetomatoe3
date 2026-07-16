@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#000}object,embed,canvas,#gameContainer,.webgl-content{width:100%;height:100%}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/style.css">
+<script src="https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/UnityProgress.js"></script> 
+<script src="https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/frw.js"></script> 
+
+<script type="text/javascript">
+  var gameInstance;
+  window.onload = function () {
+    gameInstance = UnityLoader.instantiate("gameContainer", "https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/frw.json", {
+      onProgress: UnityProgress,
+      Module: {
+        onRuntimeInitialized: function() {
+          UnityProgress(gameInstance, "complete");
+        }
+      }
+    });
+  }
+</script> 
+
+<div class="webgl-content">
+  <div id="gameContainer" style="width: 100%; height: 100%; margin: auto"></div> 
+</div>
+</body>
+</html>

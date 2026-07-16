@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/ftbaldana/yo8e7@main/">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<style>
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700;900&display=swap");
+        
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #111; font-family: 'Ubuntu', 'Segoe UI', sans-serif; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        canvas { display: block; }
+        
+        #custom-cursor { position: fixed; top: 0; left: 0; width: 24px; height: 24px; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); display: none; }
+        #custom-cursor::before, #custom-cursor::after { content: ''; position: absolute; background: rgba(255,255,255,0.8); }
+        #custom-cursor::before { top: 11px; left: 0; width: 24px; height: 2px; }
+        #custom-cursor::after { top: 0; left: 11px; width: 2px; height: 24px; }
+
+        #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: none; }
+        .ui-box { position: absolute; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 12px; border-radius: 8px; pointer-events: auto; }
+        
+        #player-info { bottom: 20px; left: 50%; transform: translateX(-50%); text-align: center; width: 400px; pointer-events: none;}
+        #xp-bar-bg { width: 100%; height: 22px; background: #333; border-radius: 11px; overflow: hidden; margin-top: 10px; border: 3px solid #000; position: relative; box-shadow: 0 0 10px rgba(0,0,0,0.5);}
+        #xp-bar-fill { height: 100%; width: 0%; background: #ffe02f; transition: width 0.2s; }
+        #xp-text { position: absolute; width: 100%; top: 0; left: 0; text-align: center; font-size: 14px; font-weight: 900; text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; line-height: 22px; color: #fff;}
+        
+        #leaderboard { top: 20px; right: 20px; width: 200px; text-align: left; border: 2px solid #555;}
+        #leaderboard h3 { margin: 0 0 10px 0; font-size: 16px; text-align: center; color: #fff; text-shadow: 1px 1px 0 #000;}
+        .lb-entry { font-size: 14px; margin-bottom: 6px; color: #ccc; display: flex; justify-content: space-between; font-weight: bold; text-shadow: 1px 1px 0 #000;}
+        
+        #exit-btn { position: absolute; top: 20px; right: 260px; pointer-events: auto; }
+        
+        #minimap { bottom: 20px; right: 20px; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border: 3px solid #555; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.5);}
+        #miniCanvas { width: 100%; height: 100%; display: block; border-radius: 5px; }
+        
+        /* Адаптация под маленькие экраны */
+        @media (max-width: 850px) {
+            #player-info { width: 40vw; min-width: 250px; }
+            #minimap { width: 120px; height: 120px; }
+        }
+        @media (max-width: 600px) {
+            #player-info { width: calc(100% - 130px); left: 10px; transform: none; bottom: 10px; }
+            #minimap { width: 100px; height: 100px; right: 10px; bottom: 10px; }
+            #level-text { font-size: 18px !important; }
+            #exit-btn { right: 10px; top: 10px; padding: 5px 15px; font-size: 12px; }
+            #leaderboard { top: 50px; right: 10px; width: 150px; }
+        }
+        
+        #upgrade-menu { position: absolute; top: 20px; left: 20px; display: none; grid-template-columns: repeat(2, 1fr); gap: 10px; pointer-events: auto; }
+        .upgrade-card { background: rgba(30, 30, 30, 0.9); border: 3px solid #00b2e1; border-radius: 10px; width: 110px; display: flex; flex-direction: column; align-items: center; padding: 10px; cursor: pointer; transition: transform 0.15s, background 0.15s, box-shadow 0.15s; box-shadow: 0 6px 12px rgba(0,0,0,0.5); }
+        .upgrade-card:hover, .upgrade-card.sim-hover { transform: scale(1.08) translateY(-5px); background: rgba(50, 50, 50, 1) !important; box-shadow: 0 10px 20px rgba(0,178,225,0.4) !important; }
+        .upgrade-card canvas { width: 90px; height: 90px; margin-bottom: 5px; }
+        .upgrade-card .label { color: white; font-size: 14px; font-weight: bold; text-align: center; text-shadow: 1px 1px 0 #000; }
+        
+        .overlay-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(30,30,30,0.8) 0%, rgba(0,0,0,0.95) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: auto; z-index: 100; cursor: default; }
+        .menu-container { background: #222; padding: 40px; border-radius: 15px; text-align: center; border: 4px solid #444; box-shadow: 0 15px 50px rgba(0,0,0,0.9), inset 0 0 50px rgba(0,0,0,0.5); width: 420px; max-width: 90vw; }
+        .game-title { font-size: 65px; font-weight: 900; color: #fff; -webkit-text-stroke: 3px #000; text-shadow: 4px 4px 0px #000, 0 0 30px rgba(0, 178, 225, 0.6); margin-bottom: 30px; letter-spacing: 2px;}
+        
+        input[type="text"] { padding: 15px; font-size: 22px; width: 100%; box-sizing: border-box; border-radius: 8px; border: 3px solid #555; background: #111; color: #fff; outline: none; text-align: center; font-family: 'Ubuntu', sans-serif; font-weight: bold; margin-bottom: 25px; transition: border-color 0.2s; user-select: auto; -webkit-user-select: auto; }
+        input[type="text"]:focus { border-color: #00b2e1; }
+        
+        .mode-selector { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 30px; }
+        .mode-btn { background: #333; color: #aaa; border: 3px solid #111; padding: 12px 0; flex: 1; cursor: pointer; border-radius: 8px; font-weight: bold; font-size: 15px; transition: all 0.2s; text-shadow: 1px 1px 0 #000; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.4);}
+        .mode-btn:hover, .mode-btn.sim-hover { background: #444; color: #fff; transform: translateY(-2px);}
+        .mode-btn.active { background: linear-gradient(to bottom, #00b2e1, #008eb4); color: #fff; border-color: #000; transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 178, 225, 0.5), inset 0 2px 2px rgba(255,255,255,0.3); z-index: 2;}
+        .mode-btn[data-mode="teams"].active { background: linear-gradient(to bottom, #f14e54, #cc3e43); box-shadow: 0 5px 15px rgba(241, 78, 84, 0.5), inset 0 2px 2px rgba(255,255,255,0.3); }
+        .mode-btn[data-mode="maze"].active { background: linear-gradient(to bottom, #00e16e, #00ba5a); box-shadow: 0 5px 15px rgba(0, 225, 110, 0.5), inset 0 2px 2px rgba(255,255,255,0.3); }
+
+        .btn-3d { width: 100%; padding: 18px; font-size: 24px; cursor: pointer; color: white; border: 3px solid #000; border-radius: 8px; font-weight: 900; transition: transform 0.1s, box-shadow 0.1s, filter 0.2s; margin-bottom: 15px; text-shadow: 2px 2px 0px #000; font-family: 'Ubuntu', sans-serif; text-transform: uppercase; }
+        .btn-primary { background: linear-gradient(to bottom, #00b2e1, #008eb4); box-shadow: 0 6px 0 #005d76, 0 10px 20px rgba(0,0,0,0.6), inset 0 2px 2px rgba(255,255,255,0.3); }
+        .btn-primary:active, .btn-primary.sim-active { transform: translateY(6px); box-shadow: 0 0px 0 #005d76, 0 2px 5px rgba(0,0,0,0.6), inset 0 2px 2px rgba(0,0,0,0.3); }
+        
+        .btn-secondary { background: linear-gradient(to bottom, #bf4ea4, #9e3f87); box-shadow: 0 6px 0 #6e2a5d, 0 10px 20px rgba(0,0,0,0.6), inset 0 2px 2px rgba(255,255,255,0.3); font-size: 18px; padding: 15px; }
+        .btn-secondary:active, .btn-secondary.sim-active { transform: translateY(6px); box-shadow: 0 0px 0 #6e2a5d, 0 2px 5px rgba(0,0,0,0.6), inset 0 2px 2px rgba(0,0,0,0.3); }
+
+        .btn-close { background: linear-gradient(to bottom, #f14e54, #d04348); color: white; border: 3px solid #000; padding: 10px 25px; font-weight: 900; border-radius: 8px; cursor: pointer; font-size: 16px; box-shadow: 0 4px 0 #8a2a2e, inset 0 2px 2px rgba(255,255,255,0.3); transition: transform 0.1s, box-shadow 0.1s; font-family: 'Ubuntu', sans-serif; }
+        .btn-close:active, .btn-close.sim-active { transform: translateY(4px); box-shadow: 0 0px 0 #8a2a2e, inset 0 2px 2px rgba(0,0,0,0.3) !important; }
+        
+        .hint-text { margin-top: 20px; font-size: 14px; color: #aaa; font-weight: bold; text-shadow: 1px 1px 0 #000; letter-spacing: 0.5px;}
+
+        #tree-modal { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 200; pointer-events: auto; backdrop-filter: blur(8px);}
+        .tree-container { background: #222; border: 4px solid #555; border-radius: 15px; width: 95%; height: 95%; max-width: 1200px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 0 50px rgba(0,0,0,0.9);}
+        .tree-header { padding: 20px 30px; background: #111; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #444; }
+        .tree-header h2 { margin: 0; color: #fff; text-shadow: 2px 2px 0 #000; font-size: 24px;}
+        .tree-scroll { flex: 1; overflow: auto; position: relative; background: radial-gradient(circle, #2a2a2a 0%, #151515 100%); display: block; padding: 30px;}
+        #treeCanvas { background: transparent; display: block; margin: 0 auto;}
+
+        @keyframes deathPopup {
+            0% { transform: scale(0.6); opacity: 0; filter: blur(5px); }
+            70% { transform: scale(1.05); opacity: 1; filter: blur(0px); }
+            100% { transform: scale(1); opacity: 1; filter: blur(0px); }
+        }
+        .death-anim {
+            animation: deathPopup 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+</head>
+<body>
+<div id="custom-cursor"></div>
+<canvas id="gameCanvas"></canvas>
+<div id="ui-layer">
+<div id="upgrade-menu"></div>
+<div id="player-info" class="ui-box">
+<div id="level-text" style="font-size: 22px; font-weight: 900; margin-bottom: 5px; text-shadow: 1px 1px 0 #000;">Lvl 1 Basic</div>
+<div id="score-text" style="font-size: 16px; color: #ddd; font-weight: bold;">Счёт: 0</div>
+<div id="xp-bar-bg"><div id="xp-bar-fill"></div><div id="xp-text">0 / 10</div></div>
+</div>
+<div id="leaderboard" class="ui-box"><h3 id="lb-title">Таблица Лидеров</h3><div id="lb-content"></div></div>
+<div id="minimap" class="ui-box"><canvas id="miniCanvas" width="150" height="150"></canvas></div>
+<button id="exit-btn" class="btn-close">В МЕНЮ</button>
+</div>
+<div id="main-menu" class="overlay-screen">
+<div class="menu-container">
+<div class="game-title" id="t-title">diep io - G+</div>
+<input type="text" id="player-name" placeholder="Твой никнейм" value="Игрок" maxlength="15" autocomplete="off"/>
+<div class="mode-selector">
+<div class="mode-btn active" data-mode="ffa" id="btn-mode-ffa">Обычный</div>
+<div class="mode-btn" data-mode="teams" id="btn-mode-teams">2 команды</div>
+<div class="mode-btn" data-mode="maze" id="btn-mode-maze">Лабиринт</div>
+</div>
+<button class="btn-3d btn-primary" id="play-btn">ИГРАТЬ</button>
+<button class="btn-3d btn-secondary" id="show-tree-btn">Дерево Эволюции 🌳</button>
+<div class="hint-text" id="t-controls">Управление: WASD - движение, мышь - прицел, ЛКМ - стрельба</div>
+<div class="hint-text" id="t-hint" style="margin-top: 5px;">Подсказка: нажми <b>F</b> или <b>Пробел</b> для авто-огня</div>
+</div>
+</div>
+<div id="death-screen" class="overlay-screen" style="display: none; background: radial-gradient(circle at center, rgba(30,30,30,0.4) 0%, rgba(0,0,0,0.85) 100%);">
+<div class="menu-container" id="death-container">
+<h1 id="t-destroyed" style="color: #f14e54; font-size: 50px; margin-bottom: 10px; -webkit-text-stroke: 2px #000; text-shadow: 3px 3px 0 #000; font-family: 'Ubuntu';">ТАНК УНИЧТОЖЕН</h1>
+<p id="death-score" style="color: #ccc; font-size: 24px; font-weight: bold; margin-bottom: 30px;">Счёт: 0</p>
+<button class="btn-3d btn-primary" id="respawn-btn">ВОЗРОДИТЬСЯ</button>
+<button class="btn-3d btn-secondary" id="menu-btn-death" style="margin-top: 15px;">В МЕНЮ</button>
+</div>
+</div>
+<div id="tree-modal">
+<div class="tree-container">
+<div class="tree-header">
+<h2 id="t-tree-title">Дерево Эволюции</h2>
+<button class="btn-close" id="close-tree-btn">Закрыть</button>
+</div>
+<div class="tree-scroll" id="tree-scroll-container">
+<canvas id="treeCanvas" width="1100" height="1600"></canvas>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+const i18n = {
+    ru: {
+        title: "diep io",
+        nickname: "Твой никнейм",
+        defaultName: "Игрок",
+        play: "ИГРАТЬ",
+        treeBtn: "Дерево Эволюции 🌳",
+        controls: "Управление: WASD - движение, мышь - прицел, ЛКМ - стрельба",
+        hint: "Подсказка: нажми <b>F</b> или <b>Пробел</b> для авто-огня",
+        destroyed: "ТАНК УНИЧТОЖЕН",
+        score: "Счёт:",
+        respawn: "ВОЗРОДИТЬСЯ",
+        leaderboard: "Таблица Лидеров",
+        menu: "В МЕНЮ",
+        level: "Ур",
+        maxLevel: "МАКС. УРОВЕНЬ",
+        treeTitle: "Дерево Эволюции",
+        close: "Закрыть",
+        modes: {
+            ffa: "Обычный",
+            teams: "2 команды",
+            maze: "Лабиринт"
+        },
+        tanks: {
+            Basic: "Базовый", Twin: "Двойной", Sniper: "Снайпер", MachineGun: "Пулемет", FlankGuard: "Фланговый", Smasher: "Крушитель",
+            TripleShot: "Тройной", TwinFlank: "Двойной фланг", Assassin: "Ассасин", Hunter: "Охотник", Trapper: "Траппер",
+            Destroyer: "Разрушитель", Gunner: "Стрелок", QuadTank: "Квадро", TriAngle: "Треугольник", Spike: "Шип",
+            PentaShot: "Пента", SpreadShot: "Веер", Triplet: "Триплет", OctoTank: "Окто", TripleTwin: "Тройной двойной",
+            Ranger: "Рейнджер", Stalker: "Сталкер", Predator: "Хищник", TriTrapper: "Три-траппер", MegaTrapper: "Мега-траппер",
+            Streamliner: "Стримлайнер", Annihilator: "Аннигилятор", Hybrid: "Гибрид", Sprayer: "Распылитель", Booster: "Бустер", Fighter: "Боец"
+        }
+    },
+    en: {
+        title: "diep io",
+        nickname: "Your nickname",
+        defaultName: "Player",
+        play: "PLAY",
+        treeBtn: "Evolution Tree 🌳",
+        controls: "Controls: WASD to move, Mouse to aim, Left Click to shoot",
+        hint: "Hint: press <b>F</b> or <b>Space</b> for auto-fire",
+        destroyed: "TANK DESTROYED",
+        score: "Score:",
+        respawn: "RESPAWN",
+        leaderboard: "Leaderboard",
+        menu: "MAIN MENU",
+        level: "Lvl",
+        maxLevel: "MAX LEVEL",
+        treeTitle: "Evolution Tree",
+        close: "Close",
+        modes: {
+            ffa: "FFA",
+            teams: "2 Teams",
+            maze: "Maze"
+        },
+        tanks: {
+            Basic: "Basic", Twin: "Twin", Sniper: "Sniper", MachineGun: "Machine Gun", FlankGuard: "Flank Guard", Smasher: "Smasher",
+            TripleShot: "Triple Shot", TwinFlank: "Twin Flank", Assassin: "Assassin", Hunter: "Hunter", Trapper: "Trapper",
+            Destroyer: "Destroyer", Gunner: "Gunner", QuadTank: "Quad Tank", TriAngle: "Tri-Angle", Spike: "Spike",
+            PentaShot: "Penta Shot", SpreadShot: "Spread Shot", Triplet: "Triplet", OctoTank: "Octo Tank", TripleTwin: "Triple Twin",
+            Ranger: "Ranger", Stalker: "Stalker", Predator: "Predator", TriTrapper: "Tri-Trapper", MegaTrapper: "Mega Trapper",
+            Streamliner: "Streamliner", Annihilator: "Annihilator", Hybrid: "Hybrid", Sprayer: "Sprayer", Booster: "Booster", Fighter: "Fighter"
+        }
+    }
+};
+
+let ysdk = null;
+let isPaused = false;
+let isAdShowing = false;
+let userLang = 'en';
+
+const customCursor = document.getElementById('custom-cursor');
+
+function updateCursorVisibility() {
+    if ((gameState === 'playing' || gameState === 'dying') && !isAdShowing) {
+        document.body.style.cursor = 'none';
+        customCursor.style.display = 'block';
+    } else {
+        document.body.style.cursor = 'auto';
+        customCursor.style.display = 'none';
+    }
+}
+
+function applyLanguage() {
+    let l = i18n[userLang] || i18n['en'];
+    document.title = l.title;
+    document.getElementById('t-title').innerText = l.title;
+    document.getElementById('player-name').placeholder = l.nickname;
+    if(document.getElementById('player-name').value === i18n['ru'].defaultName || document.getElementById('player-name').value === i18n['en'].defaultName) {
+        document.getElementById('player-name').value = l.defaultName;
+    }
+    document.getElementById('play-btn').innerText = l.play;
+    document.getElementById('show-tree-btn').innerText = l.treeBtn;
+    document.getElementById('t-controls').innerText = l.controls;
+    document.getElementById('t-hint').innerHTML = l.hint;
+    document.getElementById('t-destroyed').innerText = l.destroyed;
+    document.getElementById('respawn-btn').innerText = l.respawn;
+    document.getElementById('lb-title').innerText = l.leaderboard;
+    document.getElementById('exit-btn').innerText = l.menu;
+    document.getElementById('menu-btn-death').innerText = l.menu;
+    document.getElementById('t-tree-title').innerText = l.treeTitle;
+    document.getElementById('close-tree-btn').innerText = l.close;
+    document.getElementById('btn-mode-ffa').innerText = l.modes.ffa;
+    document.getElementById('btn-mode-teams').innerText = l.modes.teams;
+    document.getElementById('btn-mode-maze').innerText = l.modes.maze;
+}
+
+if (typeof YaGames !== 'undefined') {
+    YaGames.init().then(_ysdk => {
+        ysdk = _ysdk;
+        let lang = ysdk.environment.i18n.lang;
+        if(lang === 'en' || lang === 'ru' || lang === 'tr') {
+            userLang = lang === 'ru' ? 'ru' : 'en';
+        }
+        applyLanguage();
+        ysdk.features.LoadingAPI?.ready(); 
+    }).catch(console.error);
+}
+
+applyLanguage();
+
+document.addEventListener("visibilitychange", () => {
+    isPaused = document.hidden;
+    if (document.hidden) { keys = {}; mouse.isDown = false; }
+});
+
+window.addEventListener("blur", () => {
+    keys = {}; mouse.isDown = false;
+});
+
+function showYandexAd(onDone) {
+    if (ysdk && ysdk.adv) {
+        isAdShowing = true;
+        updateCursorVisibility();
+        if (document.pointerLockElement) document.exitPointerLock();
+        
+        ysdk.adv.showFullscreenAdv({
+            callbacks: {
+                onOpen: () => { isPaused = true; },
+                onClose: () => { isPaused = false; isAdShowing = false; updateCursorVisibility(); if(onDone) onDone(); },
+                onError: () => { isPaused = false; isAdShowing = false; updateCursorVisibility(); if(onDone) onDone(); },
+                onOffline: () => { isPaused = false; isAdShowing = false; updateCursorVisibility(); if(onDone) onDone(); }
+            }
+        });
+    } else {
+        if(onDone) onDone();
+    }
+}
+
+const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
+const miniCanvas = document.getElementById('miniCanvas'); const miniCtx = miniCanvas.getContext('2d');
+
+let width, height; const MAP_SIZE = 4000; const GRID_SIZE = 40;
+const COLORS = { bg: '#111', grid: '#2a2a2a', player: '#00b2e1', redTeam: '#f14e54', bot3: '#bf4ea4', bot4: '#ffe869', barrel: '#999', outline: '#555', wall: '#7a7a7a', square: '#ffe869', triangle: '#fc7677', pentagon: '#768dfc' };
+
+const TANK_TREE = {
+    Basic: ['Twin', 'Sniper', 'MachineGun', 'FlankGuard', 'Smasher'],
+    Twin: ['TripleShot', 'TwinFlank'], Sniper: ['Assassin', 'Hunter', 'Trapper'], MachineGun: ['Destroyer', 'Gunner'], FlankGuard: ['QuadTank', 'TriAngle'], Smasher: ['Spike'],
+    TripleShot: ['PentaShot', 'Triplet', 'SpreadShot'], TwinFlank: ['OctoTank', 'TripleTwin'], Assassin: ['Ranger', 'Stalker'], Hunter: ['Streamliner', 'Predator'], Trapper: ['TriTrapper', 'MegaTrapper'],
+    Destroyer: ['Annihilator', 'Hybrid'], Gunner: ['Sprayer'], QuadTank: ['OctoTank'], TriAngle: ['Booster', 'Fighter'], Spike: []
+};
+
+const TANK_CLASSES = {
+    Basic: { tier: 1, fov: 1.0, recoilMod: 1.0, penetrationMod: 1.0, barrels: [{ angle: 0, length: 35, width: 20, offsetY: 0 }], reloadMod: 1, speedMod: 1, damageMod: 1, bulletSpeedMod: 1, spread: 0 },
+    Twin: { tier: 2, fov: 0.95, recoilMod: 0.9, penetrationMod: 0.8, barrels: [{ angle: 0, length: 35, width: 16, offsetY: -10 }, { angle: 0, length: 35, width: 16, offsetY: 10 }], reloadMod: 0.8, speedMod: 1, damageMod: 0.8, bulletSpeedMod: 1, spread: 0.05 },
+    Sniper: { tier: 2, fov: 0.8, recoilMod: 1.2, penetrationMod: 2.0, barrels: [{ angle: 0, length: 50, width: 16, offsetY: 0 }], reloadMod: 1.5, speedMod: 0.9, damageMod: 2.5, bulletSpeedMod: 1.8, spread: 0 },
+    MachineGun: { tier: 2, fov: 0.95, recoilMod: 0.7, penetrationMod: 0.6, barrels: [{ angle: 0, length: 35, width: 28, offsetY: 0 }], reloadMod: 0.4, speedMod: 1, damageMod: 0.6, bulletSpeedMod: 1.1, spread: 0.25 },
+    FlankGuard: { tier: 2, fov: 0.95, recoilMod: 1.0, penetrationMod: 1.0, barrels: [{ angle: Math.PI, length: 25, width: 20, offsetY: 0 }, { angle: 0, length: 35, width: 20, offsetY: 0 }], reloadMod: 1, speedMod: 1.1, damageMod: 1, bulletSpeedMod: 1, spread: 0 },
+    Smasher: { tier: 2, fov: 0.9, recoilMod: 1.0, penetrationMod: 1.0, barrels: [], reloadMod: 1, speedMod: 1.1, damageMod: 1, bulletSpeedMod: 1, spread: 0, bodyDamageMod: 3.0, maxHealthMod: 1.5 },
+    
+    TripleShot: { tier: 3, fov: 0.9, recoilMod: 0.8, penetrationMod: 0.8, barrels: [{ angle: -Math.PI/6, length: 35, width: 16, offsetY: 0 }, { angle: Math.PI/6, length: 35, width: 16, offsetY: 0 }, { angle: 0, length: 35, width: 16, offsetY: 0 }], reloadMod: 0.9, speedMod: 1, damageMod: 0.7, bulletSpeedMod: 1, spread: 0.05 },
+    TwinFlank: { tier: 3, fov: 0.9, recoilMod: 0.8, penetrationMod: 0.8, barrels: [{ angle: Math.PI, length: 35, width: 16, offsetY: -10 }, { angle: Math.PI, length: 35, width: 16, offsetY: 10 }, { angle: 0, length: 35, width: 16, offsetY: -10 }, { angle: 0, length: 35, width: 16, offsetY: 10 }], reloadMod: 0.8, speedMod: 1, damageMod: 0.8, bulletSpeedMod: 1, spread: 0.05 },
+    Assassin: { tier: 3, fov: 0.65, recoilMod: 1.5, penetrationMod: 3.0, barrels: [{ angle: 0, length: 65, width: 16, offsetY: 0 }], reloadMod: 2.0, speedMod: 0.8, damageMod: 4.0, bulletSpeedMod: 2.2, spread: 0 },
+    Hunter: { tier: 3, fov: 0.75, recoilMod: 1.2, penetrationMod: 1.5, barrels: [ { angle: 0, length: 42, width: 24, offsetY: 0, bRad: 11, sMult: 1.0 }, { angle: 0, length: 48, width: 14, offsetY: 0, bRad: 6, sMult: 1.2 } ], reloadMod: 1.4, speedMod: 0.9, damageMod: 1.8, bulletSpeedMod: 1.5, spread: 0 },
+    Trapper: { tier: 3, fov: 0.8, recoilMod: 0.5, penetrationMod: 4.0, barrels: [{ angle: 0, length: 30, width: 25, offsetY: 0, isTrap: true }], reloadMod: 1.2, speedMod: 1, damageMod: 1.5, bulletSpeedMod: 2.0, spread: 0.05 },
+    Destroyer: { tier: 3, fov: 0.9, recoilMod: 2.5, penetrationMod: 5.0, barrels: [{ angle: 0, length: 40, width: 35, offsetY: 0, bRad: 18 }], reloadMod: 3.5, speedMod: 0.9, damageMod: 6.0, bulletSpeedMod: 0.7, spread: 0 },
+    Gunner: { tier: 3, fov: 0.9, recoilMod: 0.1, penetrationMod: 0.4, barrels: [{ angle: 0, length: 35, width: 10, offsetY: -15, bRad: 4 }, { angle: 0, length: 35, width: 10, offsetY: 15, bRad: 4 }, { angle: 0, length: 40, width: 10, offsetY: -5, bRad: 4 }, { angle: 0, length: 40, width: 10, offsetY: 5, bRad: 4 }], reloadMod: 0.25, speedMod: 1, damageMod: 0.3, bulletSpeedMod: 1.2, spread: 0.1 },
+    QuadTank: { tier: 3, fov: 0.9, recoilMod: 1.0, penetrationMod: 1.0, barrels: [{ angle: Math.PI/2, length: 40, width: 20, offsetY: 0 }, { angle: Math.PI, length: 40, width: 20, offsetY: 0 }, { angle: -Math.PI/2, length: 40, width: 20, offsetY: 0 }, { angle: 0, length: 40, width: 20, offsetY: 0 }], reloadMod: 1, speedMod: 1, damageMod: 1, bulletSpeedMod: 1, spread: 0 },
+    TriAngle: { tier: 3, fov: 0.9, recoilMod: 1.0, penetrationMod: 1.0, barrels: [{ angle: Math.PI * 0.8, length: 30, width: 16, offsetY: 0 }, { angle: -Math.PI * 0.8, length: 30, width: 16, offsetY: 0 }, { angle: 0, length: 40, width: 20, offsetY: 0 }], reloadMod: 1, speedMod: 1.4, damageMod: 1, bulletSpeedMod: 1, spread: 0 },
+    Spike: { tier: 3, fov: 0.85, recoilMod: 1.0, penetrationMod: 1.0, barrels: [], reloadMod: 1, speedMod: 1.1, damageMod: 1, bulletSpeedMod: 1, spread: 0, bodyDamageMod: 5.0, maxHealthMod: 2.0 },
+
+    PentaShot: { tier: 4, fov: 0.85, recoilMod: 0.5, penetrationMod: 0.6, barrels: [{ angle: -Math.PI/4, length: 35, width: 16, offsetY: 0 }, { angle: Math.PI/4, length: 35, width: 16, offsetY: 0 }, { angle: -Math.PI/8, length: 40, width: 16, offsetY: 0 }, { angle: Math.PI/8, length: 40, width: 16, offsetY: 0 }, { angle: 0, length: 45, width: 16, offsetY: 0 }], reloadMod: 0.7, speedMod: 1, damageMod: 0.6, bulletSpeedMod: 1, spread: 0.05 },
+    SpreadShot: { tier: 4, fov: 0.8, recoilMod: 0.2, penetrationMod: 0.5, barrels: [{angle:-Math.PI/2.5, length:20, width:12, offsetY:0}, {angle:Math.PI/2.5, length:20, width:12, offsetY:0}, {angle:-Math.PI/3, length:24, width:12, offsetY:0}, {angle:Math.PI/3, length:24, width:12, offsetY:0}, {angle:-Math.PI/4, length:28, width:12, offsetY:0}, {angle:Math.PI/4, length:28, width:12, offsetY:0}, {angle:-Math.PI/6, length:32, width:12, offsetY:0}, {angle:Math.PI/6, length:32, width:12, offsetY:0}, {angle:-Math.PI/12, length:36, width:12, offsetY:0}, {angle:Math.PI/12, length:36, width:12, offsetY:0}, {angle:0, length:45, width:16, offsetY:0}], reloadMod: 0.6, speedMod: 1, damageMod: 0.5, bulletSpeedMod: 1, spread: 0.02 },
+    Triplet: { tier: 4, fov: 0.85, recoilMod: 0.5, penetrationMod: 0.7, barrels: [{ angle: 0, length: 35, width: 16, offsetY: -15 }, { angle: 0, length: 35, width: 16, offsetY: 15 }, { angle: 0, length: 40, width: 16, offsetY: 0 }], reloadMod: 0.6, speedMod: 1, damageMod: 0.6, bulletSpeedMod: 1, spread: 0.02 },
+    OctoTank: { tier: 4, fov: 0.85, recoilMod: 1.0, penetrationMod: 0.8, barrels: [{ angle: Math.PI/4, length: 38, width: 16, offsetY: 0 }, { angle: Math.PI/2, length: 38, width: 16, offsetY: 0 }, { angle: 3*Math.PI/4, length: 38, width: 16, offsetY: 0 }, { angle: Math.PI, length: 38, width: 16, offsetY: 0 }, { angle: -3*Math.PI/4, length: 38, width: 16, offsetY: 0 }, { angle: -Math.PI/2, length: 38, width: 16, offsetY: 0 }, { angle: -Math.PI/4, length: 38, width: 16, offsetY: 0 }, { angle: 0, length: 38, width: 16, offsetY: 0 }], reloadMod: 1.2, speedMod: 1, damageMod: 0.8, bulletSpeedMod: 1, spread: 0 },
+    TripleTwin: { tier: 4, fov: 0.85, recoilMod: 0.8, penetrationMod: 0.8, barrels: [{ angle: 2*Math.PI/3, length: 38, width: 16, offsetY: -10 }, { angle: 2*Math.PI/3, length: 38, width: 16, offsetY: 10 }, { angle: -2*Math.PI/3, length: 38, width: 16, offsetY: -10 }, { angle: -2*Math.PI/3, length: 38, width: 16, offsetY: 10 }, { angle: 0, length: 38, width: 16, offsetY: -10 }, { angle: 0, length: 38, width: 16, offsetY: 10 }], reloadMod: 0.8, speedMod: 1, damageMod: 0.7, bulletSpeedMod: 1, spread: 0.05 },
+    Ranger: { tier: 4, fov: 0.5, recoilMod: 1.8, penetrationMod: 4.0, barrels: [{ angle: 0, length: 80, width: 16, offsetY: 0 }], reloadMod: 2.5, speedMod: 0.7, damageMod: 5.0, bulletSpeedMod: 2.5, spread: 0 },
+    Stalker: { tier: 4, fov: 0.55, recoilMod: 1.8, penetrationMod: 3.5, barrels: [{ angle: 0, length: 75, width: 16, offsetY: 0 }], reloadMod: 2.5, speedMod: 0.7, damageMod: 5.0, bulletSpeedMod: 2.5, spread: 0 },
+    Predator: { tier: 4, fov: 0.65, recoilMod: 1.2, penetrationMod: 2.0, barrels: [{ angle: 0, length: 40, width: 24, offsetY: 0, bRad: 12, sMult: 0.9 }, { angle: 0, length: 46, width: 18, offsetY: 0, bRad: 9, sMult: 1.1 }, { angle: 0, length: 52, width: 12, offsetY: 0, bRad: 6, sMult: 1.3 }], reloadMod: 1.6, speedMod: 0.85, damageMod: 2.0, bulletSpeedMod: 1.6, spread: 0 },
+    TriTrapper: { tier: 4, fov: 0.8, recoilMod: 0.3, penetrationMod: 3.5, barrels: [{ angle: 0, length: 30, width: 25, offsetY: 0, isTrap: true }, { angle: 2*Math.PI/3, length: 30, width: 25, offsetY: 0, isTrap: true }, { angle: -2*Math.PI/3, length: 30, width: 25, offsetY: 0, isTrap: true }], reloadMod: 1.2, speedMod: 1, damageMod: 1.2, bulletSpeedMod: 2.0, spread: 0.05 },
+    MegaTrapper: { tier: 4, fov: 0.8, recoilMod: 1.0, penetrationMod: 6.0, barrels: [{ angle: 0, length: 35, width: 40, offsetY: 0, isTrap: true, bRad: 20 }], reloadMod: 2.5, speedMod: 1, damageMod: 3.0, bulletSpeedMod: 2.5, spread: 0 },
+    Streamliner: { tier: 4, fov: 0.75, recoilMod: 0.02, penetrationMod: 0.3, barrels: [{ angle: 0, length: 60, width: 14, offsetY: 0 }, { angle: 0, length: 53, width: 14, offsetY: 0 }, { angle: 0, length: 46, width: 14, offsetY: 0 }, { angle: 0, length: 39, width: 14, offsetY: 0 }, { angle: 0, length: 32, width: 14, offsetY: 0 }], reloadMod: 0.15, speedMod: 0.9, damageMod: 0.2, bulletSpeedMod: 1.3, spread: 0.05 },
+    Annihilator: { tier: 4, fov: 0.85, recoilMod: 3.5, penetrationMod: 6.0, barrels: [{ angle: 0, length: 45, width: 45, offsetY: 0, bRad: 22 }], reloadMod: 4.0, speedMod: 0.9, damageMod: 8.0, bulletSpeedMod: 0.7, spread: 0 },
+    
+    Hybrid: { tier: 4, fov: 0.85, recoilMod: 2.5, penetrationMod: 5.0, barrels: [{ angle: Math.PI, length: 30, width: 12, offsetY: 0, bRad: 5, dMult: 0.1 }, { angle: 0, length: 40, width: 35, offsetY: 0, bRad: 18 }], reloadMod: 3.5, speedMod: 0.9, damageMod: 6.0, bulletSpeedMod: 0.7, spread: 0 },
+    
+    Sprayer: { tier: 4, fov: 0.85, recoilMod: 0.4, penetrationMod: 0.5, barrels: [{ angle: 0, length: 45, width: 26, offsetY: 0 }, { angle: 0, length: 48, width: 14, offsetY: 0 }], reloadMod: 0.3, speedMod: 1, damageMod: 0.5, bulletSpeedMod: 1.1, spread: 0.3 },
+    Booster: { tier: 4, fov: 0.85, recoilMod: 1.0, penetrationMod: 1.0, barrels: [{ angle: Math.PI * 0.85, length: 25, width: 16, offsetY: 0 }, { angle: -Math.PI * 0.85, length: 25, width: 16, offsetY: 0 }, { angle: Math.PI * 0.75, length: 30, width: 16, offsetY: 0 }, { angle: -Math.PI * 0.75, length: 30, width: 16, offsetY: 0 }, { angle: 0, length: 40, width: 20, offsetY: 0 }], reloadMod: 1, speedMod: 1.8, damageMod: 1, bulletSpeedMod: 1, spread: 0 },
+    Fighter: { tier: 4, fov: 0.85, recoilMod: 1.0, penetrationMod: 1.0, barrels: [{ angle: Math.PI/2, length: 25, width: 16, offsetY: 0 }, { angle: -Math.PI/2, length: 25, width: 16, offsetY: 0 }, { angle: Math.PI * 0.8, length: 30, width: 16, offsetY: 0 }, { angle: -Math.PI * 0.8, length: 30, width: 16, offsetY: 0 }, { angle: 0, length: 40, width: 20, offsetY: 0 }], reloadMod: 1, speedMod: 1.4, damageMod: 1, bulletSpeedMod: 1, spread: 0 }
+};
+
+let savedLvl = parseInt(localStorage.getItem('diepCloneSavedLevel'));
+let respawnLevel = (isNaN(savedLvl) || savedLvl < 1) ? 1 : savedLvl;
+
+let gameState = 'menu'; let gameMode = 'ffa';
+let entities = { tanks: [], bullets: [], food: [], particles: [], walls: [] };
+let player, camera = { x: MAP_SIZE/2, y: MAP_SIZE/2 }, keys = {};
+let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2, isDown: false };
+let uiAngle = 0, upgradeCanvases = [];
+let currentFov = 1.0, targetFov = 1.0;
+
+function resize() { 
+    width = window.innerWidth || 800; 
+    height = window.innerHeight || 600; 
+    canvas.width = width; 
+    canvas.height = height; 
+} 
+window.addEventListener('resize', resize); resize();
+
+function distance(x1, y1, x2, y2) { return Math.hypot(x2 - x1, y2 - y1); }
+function random(min, max) { return Math.random() * (max - min) + min; }
+
+// Уменьшил требования к опыту после 30 уровня, как ты просил.
+function getXpNeeded(level) { let xp = 10 * Math.pow(1.13, level - 1); if (level >= 30) xp *= 0.8; return Math.floor(xp); }
+
+function ccw(x1, y1, x2, y2, x3, y3) { return (y3 - y1) * (x2 - x1) > (y2 - y1) * (x3 - x1); }
+function intersect(x1, y1, x2, y2, x3, y3, x4, y4) { return ccw(x1, y1, x3, y3, x4, y4) !== ccw(x2, y2, x3, y3, x4, y4) && ccw(x1, y1, x2, y2, x3, y3) !== ccw(x1, y1, x2, y2, x4, y4); }
+function lineIntersectsRect(x1, y1, x2, y2, rx, ry, rw, rh) { if (intersect(x1, y1, x2, y2, rx, ry, rx+rw, ry)) return true; if (intersect(x1, y1, x2, y2, rx+rw, ry, rx+rw, ry+rh)) return true; if (intersect(x1, y1, x2, y2, rx+rw, ry+rh, rx, ry+rh)) return true; if (intersect(x1, y1, x2, y2, rx, ry+rh, rx, ry)) return true; if (x1 >= rx && x1 <= rx+rw && y1 >= ry && y1 <= ry+rh) return true; return false; }
+function hasLineOfSight(x1, y1, x2, y2) { if (gameMode !== 'maze') return true; for (let w of entities.walls) { if (lineIntersectsRect(x1, y1, x2, y2, w.x, w.y, w.w, w.h)) return false; } return true; }
+function isPointInWall(x, y, buffer = 30) { if (gameMode !== 'maze') return false; return entities.walls.some(w => x > w.x - buffer && x < w.x + w.w + buffer && y > w.y - buffer && y < w.y + w.h + buffer); }
+
+class Wall { constructor(x, y, w, h) { this.x = x; this.y = y; this.w = w; this.h = h; } draw(ctx) { ctx.fillStyle = COLORS.wall; ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 4; ctx.fillRect(this.x, this.y, this.w, this.h); ctx.strokeRect(this.x, this.y, this.w, this.h); } }
+
+class Entity { 
+    constructor(x, y, radius) { 
+        this.x = x; this.y = y; this.vx = 0; this.vy = 0; this.radius = radius; 
+        this.health = 100; this.maxHealth = 100; this.dead = false; this.friction = 0.9; 
+    } 
+    update(dt) { 
+        this.x += this.vx * dt; 
+        this.y += this.vy * dt; 
+        this.vx *= Math.pow(this.friction, dt); 
+        this.vy *= Math.pow(this.friction, dt); 
+        if (this.x < this.radius) { this.x = this.radius; this.vx *= -1; } 
+        if (this.x > MAP_SIZE - this.radius) { this.x = MAP_SIZE - this.radius; this.vx *= -1; } 
+        if (this.y < this.radius) { this.y = this.radius; this.vy *= -1; } 
+        if (this.y > MAP_SIZE - this.radius) { this.y = MAP_SIZE - this.radius; this.vy *= -1; } 
+    } 
+}
+
+class Tank extends Entity {
+    constructor(x, y, isPlayer = false, name = "Tank", team = 0) {
+        super(x, y, 20); this.isPlayer = isPlayer; this.name = name; this.team = team;
+        
+        if (gameMode === 'teams') { 
+            this.color = this.team === 1 ? COLORS.player : COLORS.redTeam; 
+        } else { 
+            this.color = isPlayer ? COLORS.player : COLORS.redTeam; 
+        }
+        
+        this.angle = 0; this.baseSpeed = 1.5; this.baseReload = 30; this.reloadTimer = 0; this.score = 0; this.totalXp = 0; this.level = 1; this.xp = 0; this.xpNeeded = getXpNeeded(1); this.autoFire = false; this.className = 'Basic'; this.classData = TANK_CLASSES[this.className]; this.availableUpgrades = []; this.target = null; this.wanderAngle = random(0, Math.PI*2); this.stateTimer = 0;
+        this.lastDamageTime = Date.now(); this.alpha = 1; this.isDying = false;
+    }
+    checkUpgrades() { let t = this.classData.tier || 1; this.availableUpgrades = []; if (this.level >= 15 && t === 1 && TANK_TREE[this.className]) { this.availableUpgrades = TANK_TREE[this.className]; } else if (this.level >= 30 && t === 2 && TANK_TREE[this.className]) { this.availableUpgrades = TANK_TREE[this.className]; } else if (this.level >= 45 && t === 3 && TANK_TREE[this.className]) { this.availableUpgrades = TANK_TREE[this.className]; } if (this.isPlayer) { if (this.availableUpgrades.length > 0) buildVisualUpgradeMenu(this.availableUpgrades); else { document.getElementById('upgrade-menu').style.display = 'none'; upgradeCanvases = []; } } }
+    setClass(className) { if(TANK_CLASSES[className]) { this.className = className; this.classData = TANK_CLASSES[className]; let hpPct = this.health / this.maxHealth; this.maxHealth = (100 + this.level * 5) * (this.classData.maxHealthMod || 1.0); this.health = this.maxHealth * hpPct; this.checkUpgrades(); if(this.isPlayer) updateUI(); } }
+    update(dt) {
+        super.update(dt); 
+        
+        if (this.isDying) {
+            this.alpha = Math.max(0, this.alpha - 0.03 * dt);
+            return;
+        }
+        
+        if (this.reloadTimer > 0) this.reloadTimer -= dt; let moveSpeed = this.baseSpeed * this.classData.speedMod;
+        
+        if (Date.now() - this.lastDamageTime > 15000 && this.health < this.maxHealth) {
+            this.health += this.maxHealth * 0.002 * dt; if (this.health > this.maxHealth) this.health = this.maxHealth;
+        }
+
+        if (this.className === 'Stalker') {
+            if (Math.abs(this.vx) < 0.1 && Math.abs(this.vy) < 0.1) { this.alpha = Math.max(0.15, this.alpha - 0.03 * dt); } else { this.alpha = Math.min(1, this.alpha + 0.1 * dt); }
+        } else { this.alpha = 1; }
+
+        if (this.isPlayer && gameState === 'playing') {
+            let dx = 0; let dy = 0; if (keys['KeyW'] || keys['ArrowUp']) dy -= 1; if (keys['KeyS'] || keys['ArrowDown']) dy += 1; if (keys['KeyA'] || keys['ArrowLeft']) dx -= 1; if (keys['KeyD'] || keys['ArrowRight']) dx += 1;
+            if (dx !== 0 && dy !== 0) { const len = Math.hypot(dx, dy); dx /= len; dy /= len; } this.vx += dx * moveSpeed * 0.2 * dt; this.vy += dy * moveSpeed * 0.2 * dt;
+            const mx = (mouse.x - width / 2) / currentFov + camera.x; const my = (mouse.y - height / 2) / currentFov + camera.y; this.angle = Math.atan2(my - this.y, mx - this.x);
+            if (mouse.isDown || this.autoFire) this.shoot();
+        } else if (!this.isPlayer) { this.updateAI(moveSpeed, dt); }
+    }
+    updateAI(moveSpeed, dt) {
+        this.stateTimer -= dt; 
+        if (this.stateTimer <= 0 || !this.target || this.target.dead) { 
+            this.stateTimer = 30; this.target = null; let closestDist = 1000; 
+            entities.tanks.forEach(t => { if (t !== this && !t.dead && !t.isDying && (this.team === 0 || this.team !== t.team) && t.alpha > 0.2) { let d = distance(this.x, this.y, t.x, t.y); if (d < closestDist && hasLineOfSight(this.x, this.y, t.x, t.y)) { closestDist = d; this.target = t; } } }); 
+            if (!this.target) entities.food.forEach(f => { let d = distance(this.x, this.y, f.x, f.y); if (!f.dead && d < closestDist && hasLineOfSight(this.x, this.y, f.x, f.y)) { closestDist = d; this.target = f; } }); 
+        }
+        if (this.target) { 
+            const dist = distance(this.x, this.y, this.target.x, this.target.y); let diff = Math.atan2(this.target.y - this.y, this.target.x - this.x) - this.angle; while (diff < -Math.PI) diff += Math.PI * 2; while (diff > Math.PI) diff -= Math.PI * 2; 
+            if (this.classData.barrels.length === 0) { 
+                this.angle += diff * 0.4 * dt; 
+                this.vx += Math.cos(this.angle) * moveSpeed * 0.2 * dt; 
+                this.vy += Math.sin(this.angle) * moveSpeed * 0.2 * dt; 
+            } 
+            else { 
+                this.angle += diff * 0.1 * dt;
+                if (dist > 150) { this.vx += Math.cos(this.angle) * moveSpeed * 0.15 * dt; this.vy += Math.sin(this.angle) * moveSpeed * 0.15 * dt; } else if (dist < 100 && this.health < this.maxHealth * 0.4) { this.vx -= Math.cos(this.angle) * moveSpeed * 0.15 * dt; this.vy -= Math.sin(this.angle) * moveSpeed * 0.15 * dt; } 
+                if (Math.abs(diff) < 0.3 && dist < 800) { if (this.target instanceof Tank || dist < 250) this.shoot(); } 
+            } 
+        } else { 
+            if (Math.random() < 0.02 * dt) this.wanderAngle = random(0, Math.PI * 2); 
+            let lookAheadX = this.x + Math.cos(this.wanderAngle) * 100; let lookAheadY = this.y + Math.sin(this.wanderAngle) * 100;
+            if (isPointInWall(lookAheadX, lookAheadY)) this.wanderAngle += (Math.PI / 2 + random(-0.5, 0.5)) * dt;
+            this.vx += Math.cos(this.wanderAngle) * moveSpeed * 0.05 * dt; this.vy += Math.sin(this.wanderAngle) * moveSpeed * 0.05 * dt; this.angle = this.wanderAngle; 
+        }
+        if (this.availableUpgrades.length > 0) this.setClass(this.availableUpgrades[Math.floor(Math.random() * this.availableUpgrades.length)]);
+    }
+    shoot() { 
+        if (this.reloadTimer <= 0 && this.classData.barrels.length > 0) { 
+            let rMod = this.classData.recoilMod !== undefined ? this.classData.recoilMod : 1.0; const scale = this.radius / 20; 
+            this.classData.barrels.forEach(barrel => { 
+                const bAngle = this.angle + barrel.angle; 
+                const bx = this.x + Math.cos(bAngle) * (barrel.length * scale) + Math.cos(bAngle + Math.PI/2) * (barrel.offsetY * scale); 
+                const by = this.y + Math.sin(bAngle) * (barrel.length * scale) + Math.sin(bAngle + Math.PI/2) * (barrel.offsetY * scale); 
+                
+                let bRad = barrel.bRad || null; 
+                let sMult = barrel.sMult || 1.0; 
+                let isTrap = barrel.isTrap || false;
+                let dMult = barrel.dMult || 1.0;
+                
+                entities.bullets.push(new Bullet(bx, by, bAngle + random(-this.classData.spread, this.classData.spread), this, bRad, sMult, isTrap, dMult)); 
+                this.vx -= Math.cos(bAngle) * 1.5 * (barrel.length/40) * rMod; this.vy -= Math.sin(bAngle) * 1.5 * (barrel.length/40) * rMod; 
+            }); 
+            this.reloadTimer = this.baseReload * this.classData.reloadMod; 
+        } 
+    }
+    addXP(amount) { 
+        this.score += amount; this.totalXp += amount; this.xp += amount; 
+        while (this.xp >= this.xpNeeded && this.level < 45) { 
+            this.xp -= this.xpNeeded; this.level++; this.xpNeeded = getXpNeeded(this.level); 
+            let hpPct = this.health / this.maxHealth; this.maxHealth = (100 + this.level * 5) * (this.classData.maxHealthMod || 1.0); this.health = this.maxHealth * hpPct; this.radius = 20 + (this.level * 0.25); 
+        } 
+        this.checkUpgrades(); if (this.isPlayer && gameState === 'playing') updateUI(); 
+    }
+    draw(ctx) { 
+        ctx.save(); ctx.globalAlpha = this.alpha; ctx.translate(this.x, this.y); const scale = this.radius / 20; ctx.scale(scale, scale); ctx.rotate(this.angle); 
+        this.classData.barrels.forEach(barrel => { 
+            ctx.save(); ctx.rotate(barrel.angle); ctx.fillStyle = COLORS.barrel; ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 2 / scale; 
+            if(barrel.isTrap) { ctx.beginPath(); ctx.moveTo(0, -barrel.width/2); ctx.lineTo(barrel.length, -barrel.width/1.2); ctx.lineTo(barrel.length, barrel.width/1.2); ctx.lineTo(0, barrel.width/2); ctx.closePath(); ctx.fill(); ctx.stroke(); } 
+            else { let by = -barrel.width/2 + barrel.offsetY; ctx.fillRect(0, by, barrel.length, barrel.width); ctx.strokeRect(0, by, barrel.length, barrel.width); }
+            ctx.restore(); 
+        }); 
+        if (this.className === 'Smasher') { ctx.beginPath(); for(let i=0; i<6; i++) { let a = i * Math.PI / 3; ctx.lineTo(Math.cos(a) * 26, Math.sin(a) * 26); } ctx.closePath(); ctx.fillStyle = '#555'; ctx.lineWidth = 2/scale; ctx.fill(); ctx.stroke(); } else if (this.className === 'Spike') { ctx.beginPath(); for(let i=0; i<12; i++) { let a = i * Math.PI / 6; let r = (i % 2 === 0) ? 32 : 20; ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r); } ctx.closePath(); ctx.fillStyle = '#555'; ctx.lineWidth = 2/scale; ctx.fill(); ctx.stroke(); }
+        ctx.beginPath(); ctx.arc(0, 0, 20, 0, Math.PI * 2); ctx.fillStyle = this.color; ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 2 / scale; ctx.fill(); ctx.stroke(); ctx.restore(); 
+        
+        if (this.alpha > 0.5 && !this.isDying) {
+            if (this.health < this.maxHealth) { ctx.fillStyle = '#555'; ctx.fillRect(this.x - 20, this.y + this.radius + 10, 40, 5); ctx.fillStyle = '#00e16e'; ctx.fillRect(this.x - 20, this.y + this.radius + 10, 40 * (this.health / this.maxHealth), 5); } 
+            if (gameState === 'playing' || this.isPlayer) { ctx.fillStyle = '#fff'; ctx.font = 'bold 14px Ubuntu'; ctx.textAlign = 'center'; ctx.fillText(this.name, this.x, this.y - this.radius - 12); } 
+        }
+    }
+}
+
+class Bullet extends Entity { 
+    constructor(x, y, angle, owner, customRadius, speedMult = 1.0, isTrap = false, dMult = 1.0) { 
+        let baseR = customRadius || (owner.className.includes('Annihilator') ? 22 : (owner.className.includes('Destroyer') ? 15 : 7)); 
+        let r = baseR * (owner.radius / 20); super(x, y, r); this.owner = owner; this.isTrap = isTrap;
+        this.speed = 10 * owner.classData.bulletSpeedMod * speedMult; this.vx = Math.cos(angle) * this.speed; this.vy = Math.sin(angle) * this.speed; 
+        
+        if (this.isTrap) { this.friction = 0.85; this.life = 800; } 
+        else { 
+            let mult = 1.0;
+            if (owner.className === 'Sniper') mult = 0.5;
+            else if (owner.className === 'Assassin' || owner.className === 'Ranger' || owner.className === 'Stalker' || owner.className === 'Predator' || owner.className === 'Hunter' || owner.className === 'Streamliner') mult = 0.45;
+            this.friction = 1; this.life = 100 * mult; 
+        }
+        
+        this.damage = 25 * owner.classData.damageMod * dMult; 
+        this.health = 20 * (owner.classData.penetrationMod || 1.0) * dMult;
+        if (this.isTrap) this.health *= 3; 
+        this.color = owner.color; 
+    } 
+    update(dt) { 
+        this.x += this.vx * dt; 
+        this.y += this.vy * dt; 
+        this.vx *= Math.pow(this.friction, dt); 
+        this.vy *= Math.pow(this.friction, dt); 
+        
+        if (this.x <= this.radius || this.x >= MAP_SIZE - this.radius || 
+            this.y <= this.radius || this.y >= MAP_SIZE - this.radius) {
+            this.dead = true;
+        }
+        
+        this.life -= dt; 
+        if (this.life <= 0) this.dead = true; 
+    } 
+    draw(ctx) { 
+        ctx.beginPath(); 
+        if (this.isTrap) {
+            ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(Math.atan2(this.vy, this.vx));
+            for(let i=0; i<3; i++) { let a = i * 2 * Math.PI / 3; ctx.lineTo(Math.cos(a)*this.radius*1.5, Math.sin(a)*this.radius*1.5); } ctx.closePath();
+            ctx.fillStyle = this.color; ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 2; ctx.fill(); ctx.stroke(); ctx.restore();
+        } else {
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = this.color; ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 2; ctx.fill(); ctx.stroke(); 
+        }
+    } 
+}
+
+// Вернул еду к первоначальному варианту
+class Food extends Entity { 
+    constructor(x, y) { 
+        super(x, y, 0); 
+        const rand = Math.random(); 
+        if (rand < 0.6) { this.type = 'square'; this.radius = 12; this.color = COLORS.square; this.hp = 10; this.xpVal = 30; this.sides = 4; } 
+        else if (rand < 0.9) { this.type = 'triangle'; this.radius = 15; this.color = COLORS.triangle; this.hp = 30; this.xpVal = 75; this.sides = 3; } 
+        else { this.type = 'pentagon'; this.radius = 25; this.color = COLORS.pentagon; this.hp = 100; this.xpVal = 390; this.sides = 5; } 
+        this.maxHealth = this.hp; this.health = this.hp; this.angle = random(0, Math.PI * 2); this.rotSpeed = random(-0.02, 0.02); 
+    } 
+    update(dt) { super.update(dt); this.angle += this.rotSpeed * dt; } 
+    draw(ctx) { ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.fillStyle = this.color; ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 2; ctx.beginPath(); for (let i = 0; i < this.sides; i++) { const a = (i * 2 * Math.PI) / this.sides; const px = this.radius * Math.cos(a), py = this.radius * Math.sin(a); if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); } ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore(); if (this.health < this.maxHealth) { ctx.fillStyle = '#555'; ctx.fillRect(this.x - 10, this.y + this.radius + 5, 20, 3); ctx.fillStyle = '#00e16e'; ctx.fillRect(this.x - 10, this.y + this.radius + 5, 20 * (this.health / this.maxHealth), 3); } } 
+}
+
+class Particle { constructor(x, y, color) { this.x = x; this.y = y; this.vx = random(-4, 4); this.vy = random(-4, 4); this.life = random(20, 40); this.maxLife = this.life; this.color = color; this.size = random(3, 6); this.dead = false; } update(dt) { this.x += this.vx * dt; this.y += this.vy * dt; this.life -= dt; if (this.life <= 0) this.dead = true; } draw(ctx) { ctx.globalAlpha = Math.max(0, this.life / this.maxLife); ctx.fillStyle = this.color; ctx.fillRect(this.x, this.y, this.size, this.size); ctx.globalAlpha = 1; } }
+
+function buildVisualUpgradeMenu(options) { 
+    const menu = document.getElementById('upgrade-menu'); 
+    menu.innerHTML = ''; upgradeCanvases = []; 
+    let l = i18n[userLang] || i18n['en'];
+    options.forEach(opt => { 
+        const card = document.createElement('div'); card.className = 'upgrade-card'; card.onclick = () => window.upgradePlayer(opt); 
+        const cvs = document.createElement('canvas'); cvs.width = 80; cvs.height = 80; card.appendChild(cvs); 
+        const label = document.createElement('div'); label.className = 'label'; label.innerText = l.tanks[opt] || opt; card.appendChild(label); 
+        menu.appendChild(card); upgradeCanvases.push({ ctx: cvs.getContext('2d'), className: opt }); 
+    }); 
+    menu.style.display = 'grid'; 
+}
+
+function drawRotatingPreviews(dt) { uiAngle += 0.02 * dt; upgradeCanvases.forEach(item => { const cCtx = item.ctx; const cData = TANK_CLASSES[item.className]; cCtx.clearRect(0, 0, 80, 80); cCtx.save(); cCtx.translate(40, 40); if(item.className === 'Ranger' || item.className === 'Stalker' || item.className === 'Assassin' || item.className === 'Streamliner') cCtx.scale(0.4, 0.4); else cCtx.scale(0.5, 0.5); cCtx.rotate(uiAngle); cData.barrels.forEach(barrel => { cCtx.save(); cCtx.rotate(barrel.angle); cCtx.fillStyle = COLORS.barrel; cCtx.strokeStyle = COLORS.outline; cCtx.lineWidth = 2; if(barrel.isTrap){cCtx.beginPath(); cCtx.moveTo(0, -barrel.width/2); cCtx.lineTo(barrel.length, -barrel.width/1.2); cCtx.lineTo(barrel.length, barrel.width/1.2); cCtx.lineTo(0, barrel.width/2); cCtx.closePath(); cCtx.fill(); cCtx.stroke();}else{let by = -barrel.width/2 + barrel.offsetY; cCtx.fillRect(0, by, barrel.length, barrel.width); cCtx.strokeRect(0, by, barrel.length, barrel.width);} cCtx.restore(); }); if (item.className === 'Smasher') { cCtx.beginPath(); for(let i=0; i<6; i++) { let a = i * Math.PI / 3; cCtx.lineTo(Math.cos(a)*26, Math.sin(a)*26); } cCtx.closePath(); cCtx.fillStyle = '#555'; cCtx.fill(); cCtx.stroke(); } else if (item.className === 'Spike') { cCtx.beginPath(); for(let i=0; i<12; i++) { let a = i * Math.PI / 6; let r = (i%2===0)?32:20; cCtx.lineTo(Math.cos(a)*r, Math.sin(a)*r); } cCtx.closePath(); cCtx.fillStyle = '#555'; cCtx.fill(); cCtx.stroke(); } cCtx.beginPath(); cCtx.arc(0, 0, 20, 0, Math.PI * 2); cCtx.fillStyle = COLORS.player; cCtx.strokeStyle = COLORS.outline; cCtx.lineWidth = 2; cCtx.fill(); cCtx.stroke(); cCtx.restore(); }); }
+
+const RUSSIAN_NAMES = [
+    "holy shit", "Sanya_Pro", "N!GGA", "zxc", "dih", "Мишаня", "pro100", "BrawlStarser", "fuck israel jews", "JIEXA",
+    "Гуль", "shadow", "Vovan", "k1ng", "top1", "pepe", "big dih", "Снайпер", "Noob", "ProGamer",
+    "DarkKnight", "Ded_Inside", "Toxic", "negger", "Sniper_Wolf", "Alfa", "ronaldo", "Bebra", "Pivozavr", "Kitten",
+    "T-34", "Stalker", "Pelmen", "Bratishka", "Chiter", "Fuck trump", "fuck jews!", "Ghost", "Ninja", "Samurai",
+    "fuck israel", "Ivan", "Anonim", "GigaChad", "Alex", "Max", "Dima", "Krutoy", "N!GGA JEWS", "Qwerty",
+    "Player1", "Kek", "Lol", "Cheburek", "Шаурма", "Печенька", "tyler", "unblocked games g+", "fuck jews", "Волк"
+];
+
+function spawnBot() { 
+    let nx, ny, v = false, a = 0; 
+    let botTeam = 0; 
+    if (gameMode === 'teams') { 
+        const team1Count = entities.tanks.filter(t => t.team === 1).length; 
+        const team2Count = entities.tanks.filter(t => t.team === 2).length; 
+        botTeam = team1Count > team2Count ? 2 : 1; 
+    } 
+    while(!v && a < 100) { 
+        if (gameMode === 'teams') { 
+            nx = botTeam === 1 ? random(100, 500) : random(MAP_SIZE - 500, MAP_SIZE - 100); 
+        } else { 
+            nx = random(100, MAP_SIZE - 100); 
+        } 
+        ny = random(100, MAP_SIZE - 100); 
+        v = true; 
+        if (isPointInWall(nx, ny)) v = false; 
+        if (v && player && !player.dead && distance(nx, ny, player.x, player.y) < 1000) v = false; 
+        a++; 
+    } 
+    const bot = new Tank(nx, ny, false, RUSSIAN_NAMES[Math.floor(Math.random()*RUSSIAN_NAMES.length)] + Math.floor(random(10,99)), botTeam); 
+    if (Math.random() < 0.05) bot.addXP(25000); else bot.addXP(random(0, 1000)); 
+    entities.tanks.push(bot); 
+}
+
+function spawnFood() { let nx, ny, v=false, a=0; while(!v && a<20){ nx = random(0, MAP_SIZE); ny = random(0, MAP_SIZE); v = !isPointInWall(nx,ny); a++; } if(v) entities.food.push(new Food(nx, ny)); }
+
+function killPlayer(killer, xp) {
+    if (!player || player.dead || player.isDying) return;
+    player.isDying = true;
+    player.health = 0;
+    gameState = 'dying';
+    if (killer && killer !== player && xp > 0) killer.addXP((Math.floor(xp) / 5) + 400);
+    for(let i=0; i<30; i++) entities.particles.push(new Particle(player.x, player.y, player.color));
+    
+    if (document.pointerLockElement) document.exitPointerLock();
+    
+    setTimeout(() => {
+        if(player) player.dead = true;
+        onPlayerDeath();
+    }, 600);
+}
+
+function checkCollisions(dt) {
+    if (gameMode === 'maze') { 
+        entities.walls.forEach(w => { 
+            entities.tanks.forEach(t => { 
+                if(t.isDying) return; 
+                let cx = Math.max(w.x, Math.min(t.x, w.x + w.w)), cy = Math.max(w.y, Math.min(t.y, w.y + w.h)); 
+                let dx = t.x - cx, dy = t.y - cy, dist2 = dx*dx + dy*dy; 
+                if(dist2 < t.radius*t.radius) { 
+                    let dist = Math.sqrt(dist2); 
+                    if(dist === 0) { t.x += t.radius; return; } 
+                    let overlap = t.radius - dist; t.x += (dx/dist) * overlap; t.y += (dy/dist) * overlap; 
+                } 
+            }); 
+            entities.food.forEach(f => { 
+                let cx = Math.max(w.x, Math.min(f.x, w.x + w.w)), cy = Math.max(w.y, Math.min(f.y, w.y + w.h)), dx = f.x - cx, dy = f.y - cy; 
+                if(dx*dx + dy*dy < f.radius*f.radius) { 
+                    let dist = Math.sqrt(dx*dx + dy*dy); 
+                    if(dist === 0) return; 
+                    let overlap = f.radius - dist; f.x += (dx/dist) * overlap; f.y += (dy/dist) * overlap; f.vx *= -1; f.vy *= -1; 
+                } 
+            }); 
+            entities.bullets.forEach(b => { 
+                if(b.dead) return; 
+                let cx = Math.max(w.x, Math.min(b.x, w.x + w.w)), cy = Math.max(w.y, Math.min(b.y, w.y + w.h)), dx = b.x - cx, dy = b.y - cy; 
+                if(dx*dx + dy*dy < b.radius*b.radius) { 
+                    b.dead = true;
+                    for(let i=0;i<3;i++) entities.particles.push(new Particle(b.x, b.y, b.color)); 
+                } 
+            }); 
+        }); 
+    }
+    
+    if (gameMode === 'teams') { entities.tanks.forEach(t => { if (t.team === 2 && t.x < 500) { t.health -= 3 * dt; t.lastDamageTime = Date.now(); } if (t.team === 1 && t.x > MAP_SIZE - 500) { t.health -= 3 * dt; t.lastDamageTime = Date.now(); } if (t.health <= 0 && !t.dead && !t.isDying) { if(t.isPlayer) killPlayer(null, 0); else { t.dead = true; for(let i=0;i<30;i++) entities.particles.push(new Particle(t.x, t.y, t.color)); } } }); }
+    
+    for (let i = 0; i < entities.bullets.length; i++) {
+        for (let j = i + 1; j < entities.bullets.length; j++) {
+            let b1 = entities.bullets[i], b2 = entities.bullets[j];
+            if (b1.dead || b2.dead || b1.owner === b2.owner || (gameMode === 'teams' && b1.owner.team !== 0 && b1.owner.team === b2.owner.team)) continue;
+            let dist = distance(b1.x, b1.y, b2.x, b2.y);
+            if (dist < b1.radius + b2.radius) {
+                let d1 = b2.damage * 0.2; let d2 = b1.damage * 0.2;
+                b1.health -= d1 * dt; b2.health -= d2 * dt;
+                b1.vx *= 0.8; b1.vy *= 0.8; b2.vx *= 0.8; b2.vy *= 0.8;
+                if(Math.random() < 0.3 * dt) entities.particles.push(new Particle(b1.x, b1.y, '#fff'));
+                if (b1.health <= 0) b1.dead = true; if (b2.health <= 0) b2.dead = true;
+            }
+        }
+    }
+
+    entities.bullets.forEach(b => { 
+        if(b.dead) return;
+        entities.tanks.forEach(t => { 
+            if (b.dead || t.dead || t.isDying || (b.owner === t) || (b.owner.team !== 0 && b.owner.team === t.team)) return;
+            if (distance(b.x, b.y, t.x, t.y) < b.radius + t.radius) { 
+                t.health -= b.damage * 0.3 * dt; b.health -= (t.classData ? 5 * (t.classData.bodyDamageMod || 1) : 5) * dt; t.lastDamageTime = Date.now(); 
+                t.vx += b.vx * 0.02 * dt; t.vy += b.vy * 0.02 * dt; 
+                if(Math.random() < 0.2 * dt) for(let i=0;i<3;i++) entities.particles.push(new Particle(b.x, b.y, t.color)); 
+                if (b.health <= 0) b.dead = true;
+                if (t.health <= 0 && !t.dead && !t.isDying) { 
+                    if(t.isPlayer) killPlayer(b.owner, t.totalXp);
+                    else { t.dead = true; b.owner.addXP((Math.floor(t.totalXp) / 5) + 400); for(let i=0;i<30;i++) entities.particles.push(new Particle(t.x, t.y, t.color)); } 
+                } 
+            } 
+        }); 
+        entities.food.forEach(f => { 
+            if (b.dead || f.dead) return;
+            if (distance(b.x, b.y, f.x, f.y) < b.radius + f.radius) { 
+                f.health -= b.damage * 0.3 * dt; b.health -= 2 * dt; f.vx += b.vx * 0.02 * dt; f.vy += b.vy * 0.02 * dt; 
+                if(Math.random() < 0.2 * dt) for(let i=0;i<2;i++) entities.particles.push(new Particle(b.x, b.y, f.color)); 
+                if (b.health <= 0) b.dead = true;
+                if (f.health <= 0 && !f.dead) { f.dead = true; b.owner.addXP(f.xpVal / 5); for(let i=0;i<10;i++) entities.particles.push(new Particle(f.x, f.y, f.color)); } 
+            } 
+        }); 
+    });
+    
+    for (let i = 0; i < entities.tanks.length; i++) { 
+        let t1 = entities.tanks[i];
+        if (t1.dead || t1.isDying) continue;
+        
+        for (let j = 0; j < entities.food.length; j++) {
+            let f = entities.food[j];
+            if (f.dead) continue;
+            let dist = distance(t1.x, t1.y, f.x, f.y);
+            if (dist < t1.radius + f.radius) {
+                let overlap = (t1.radius + f.radius) - dist;
+                let dx = (f.x - t1.x) / dist, dy = (f.y - t1.y) / dist;
+                
+                t1.x -= dx * overlap * 0.2; t1.y -= dy * overlap * 0.2;
+                f.x += dx * overlap * 0.8; f.y += dy * overlap * 0.8;
+
+                let dTank = 2; 
+                let dFood = 5 * (t1.classData.bodyDamageMod || 1);
+
+                t1.health -= dTank * dt; t1.lastDamageTime = Date.now();
+                f.health -= dFood * dt;
+
+                if (Math.random() < 0.2 * dt) {
+                    for(let k=0; k<2; k++) entities.particles.push(new Particle(f.x, f.y, f.color));
+                }
+
+                if (f.health <= 0 && !f.dead) {
+                    f.dead = true;
+                    t1.addXP(f.xpVal / 5);
+                    for(let k=0; k<10; k++) entities.particles.push(new Particle(f.x, f.y, f.color));
+                }
+                if (t1.health <= 0 && !t1.dead && !t1.isDying) {
+                    if(t1.isPlayer) killPlayer(null, 0);
+                    else { t1.dead = true; for(let k=0; k<30; k++) entities.particles.push(new Particle(t1.x, t1.y, t1.color)); }
+                }
+            }
+        }
+
+        for (let j = i + 1; j < entities.tanks.length; j++) { 
+            let t2 = entities.tanks[j]; 
+            if (t2.dead || t2.isDying || (t1.team !== 0 && t1.team === t2.team)) continue; 
+            let dist = distance(t1.x, t1.y, t2.x, t2.y); 
+            if (dist < t1.radius + t2.radius) { 
+                let overlap = (t1.radius + t2.radius) - dist, dx = (t2.x - t1.x) / dist, dy = (t2.y - t1.y) / dist; 
+                t1.x -= dx * overlap / 2; t1.y -= dy * overlap / 2; t2.x += dx * overlap / 2; t2.y += dy * overlap / 2; 
+                let d1 = 2 * (t2.classData.bodyDamageMod || 1); let d2 = 2 * (t1.classData.bodyDamageMod || 1);
+                t1.health -= d1 * dt; t1.lastDamageTime = Date.now(); 
+                t2.health -= d2 * dt; t2.lastDamageTime = Date.now(); 
+                
+                if(t1.health <= 0 && !t1.dead && !t1.isDying) { 
+                    if(t1.isPlayer) killPlayer(t2, t1.totalXp); 
+                    else { t1.dead = true; t2.addXP((Math.floor(t1.totalXp) / 5) + 400); for(let k=0;k<30;k++) entities.particles.push(new Particle(t1.x, t1.y, t1.color)); } 
+                } 
+                if(t2.health <= 0 && !t2.dead && !t2.isDying) { 
+                    if(t2.isPlayer) killPlayer(t1, t2.totalXp); 
+                    else { t2.dead = true; t1.addXP((Math.floor(t2.totalXp) / 5) + 400); for(let k=0;k<30;k++) entities.particles.push(new Particle(t2.x, t2.y, t2.color)); } 
+                } 
+            } 
+        } 
+    }
+}
+
+function updateUI() { 
+    if (!player || player.dead) return; 
+    let l = i18n[userLang] || i18n['en'];
+    document.getElementById('score-text').innerText = `${l.score} ${Math.floor(player.score)}`; 
+    let tankName = l.tanks[player.className] || player.className;
+    document.getElementById('level-text').innerText = `${l.level} ${player.level} ${tankName}`; 
+    document.getElementById('xp-bar-fill').style.width = player.level === 45 ? '100%' : `${(player.xp / player.xpNeeded) * 100}%`; 
+    document.getElementById('xp-text').innerText = player.level === 45 ? l.maxLevel : `${Math.floor(player.xp)} / ${player.xpNeeded}`; 
+    document.getElementById('lb-content').innerHTML = [...entities.tanks].sort((a,b) => b.score - a.score).slice(0, 10).map((t, i) => `<div class="lb-entry"><span style="color:${t.color}">${i+1}. ${t.name}</span><span>${Math.floor(t.score)}</span></div>`).join(''); 
+}
+function drawMinimap() { miniCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height); const scale = miniCanvas.width / MAP_SIZE; if (gameMode === 'teams') { miniCtx.fillStyle = 'rgba(0, 178, 225, 0.3)'; miniCtx.fillRect(0, 0, 500 * scale, MAP_SIZE * scale); miniCtx.fillStyle = 'rgba(241, 78, 84, 0.3)'; miniCtx.fillRect((MAP_SIZE - 500) * scale, 0, 500 * scale, MAP_SIZE * scale); } if(gameMode === 'maze') { miniCtx.fillStyle = '#666'; entities.walls.forEach(w => { miniCtx.fillRect(w.x * scale, w.y * scale, w.w * scale, w.h * scale); }); } entities.tanks.forEach(t => { miniCtx.fillStyle = t.color; miniCtx.beginPath(); miniCtx.arc(t.x * scale, t.y * scale, t.isPlayer ? 4 : 2, 0, Math.PI*2); miniCtx.fill(); }); }
+function generateMaze() { entities.walls = []; if (gameMode !== 'maze') return; const cellSize = 500; const thickness = 80; for(let x = 0; x < MAP_SIZE; x += cellSize) { for(let y = 0; y < MAP_SIZE; y += cellSize) { if (x === 0 || y === 0 || x >= MAP_SIZE - cellSize || y >= MAP_SIZE - cellSize) continue; if (Math.random() < 0.45) { if(Math.random() < 0.5) entities.walls.push(new Wall(x, y, cellSize, thickness)); else entities.walls.push(new Wall(x, y, thickness, cellSize)); } } } }
+
+function initWorld() { 
+    entities = { tanks: [], bullets: [], food: [], particles: [], walls: [] }; 
+    generateMaze(); 
+    let maxT = gameMode === 'teams' ? 8 : 9;
+    for (let i = 0; i < maxT; i++) spawnBot(); 
+    for (let i = 0; i < 200; i++) spawnFood(); 
+}
+
+document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active'); gameMode = e.target.getAttribute('data-mode'); initWorld();
+    });
+});
+
+window.addEventListener('beforeunload', () => {
+    if (player && !player.dead) {
+        localStorage.setItem('diepCloneSavedLevel', Math.max(1, Math.floor(player.level / 2)));
+    }
+});
+
+function startGame() { 
+    let l = i18n[userLang] || i18n['en'];
+    const name = document.getElementById('player-name').value || l.defaultName; 
+    let px, py, valid = false; let pTeam = 0; 
+    if (gameMode === 'teams') { 
+        pTeam = 1; 
+    } 
+    let attempts = 0;
+    while(!valid && attempts < 200) { 
+        if (gameMode === 'teams') { 
+            px = random(100, 400); 
+        } else { 
+            px = random(500, MAP_SIZE-500); 
+        } 
+        py = random(500, MAP_SIZE-500); valid = !isPointInWall(px, py); 
+        if (valid) { for (let t of entities.tanks) { if (!t.dead && distance(px, py, t.x, t.y) < 800) { valid = false; break; } } } attempts++;
+    } 
+    if (!valid) { 
+        if(gameMode === 'teams') px = random(100, 400); 
+        else px = random(500, MAP_SIZE-500); 
+        py = random(500, MAP_SIZE-500); 
+    }
+    
+    gameState = 'playing'; isPaused = false; 
+    document.getElementById('main-menu').style.display = 'none'; 
+    document.getElementById('death-screen').style.display = 'none'; 
+    document.getElementById('ui-layer').style.display = 'block'; 
+    document.getElementById('upgrade-menu').style.display = 'none'; 
+    upgradeCanvases = [];
+    
+    mouse.isDown = false;
+    keys = {};
+    
+    entities.tanks = entities.tanks.filter(t => !t.isPlayer);
+    
+    player = new Tank(px, py, true, name, pTeam); 
+    player.autoFire = false;
+    
+    camera.x = px; camera.y = py;
+    if (respawnLevel > 1) {
+        let xpToAdd = 0;
+        for (let i = 1; i < respawnLevel; i++) {
+            xpToAdd += getXpNeeded(i);
+        }
+        player.addXP(xpToAdd);
+    }
+    entities.tanks.push(player); 
+    currentFov = player.classData.fov || 1.0;
+    targetFov = currentFov;
+    updateUI(); 
+    if (document.pointerLockElement !== canvas && document.mozPointerLockElement !== canvas && canvas.requestPointerLock) {
+        canvas.requestPointerLock();
+    }
+}
+
+function onPlayerDeath() { 
+    gameState = 'dead'; 
+    respawnLevel = Math.max(1, Math.floor(player.level / 2)); 
+    localStorage.setItem('diepCloneSavedLevel', respawnLevel);
+    document.getElementById('ui-layer').style.display = 'none'; 
+    
+    let ds = document.getElementById('death-screen');
+    ds.style.display = 'flex';
+    
+    let dsContainer = document.getElementById('death-container');
+    dsContainer.classList.remove('death-anim');
+    void dsContainer.offsetWidth; 
+    dsContainer.classList.add('death-anim');
+    
+    let l = i18n[userLang] || i18n['en'];
+    document.getElementById('death-score').innerText = `${l.score} ${Math.floor(player.score)}`; 
+    
+    targetFov = 1.0; 
+    updateCursorVisibility();
+}
+
+window.upgradePlayer = function(className) { if (player && !player.dead) { player.setClass(className); } };
+
+document.getElementById('play-btn').addEventListener('click', () => { 
+    showYandexAd(() => startGame()); 
+});
+
+document.getElementById('respawn-btn').addEventListener('click', () => { 
+    if(player) player.dead = true; 
+    showYandexAd(() => startGame()); 
+});
+
+document.getElementById('exit-btn').addEventListener('click', () => {
+    if (player && !player.dead) {
+        respawnLevel = Math.max(1, Math.floor(player.level / 2));
+        localStorage.setItem('diepCloneSavedLevel', respawnLevel);
+        player.dead = true;
+    }
+    if (document.pointerLockElement) document.exitPointerLock();
+    showYandexAd(() => {
+        gameState = 'menu'; document.getElementById('ui-layer').style.display = 'none'; document.getElementById('main-menu').style.display = 'flex'; initWorld(); 
+        currentFov = 1.0; targetFov = 1.0;
+        updateCursorVisibility();
+    });
+});
+
+document.getElementById('menu-btn-death').addEventListener('click', () => {
+    showYandexAd(() => {
+        gameState = 'menu'; document.getElementById('death-screen').style.display = 'none'; document.getElementById('main-menu').style.display = 'flex'; initWorld();
+        updateCursorVisibility();
+    });
+});
+
+document.getElementById('show-tree-btn').addEventListener('click', () => { 
+    document.getElementById('tree-modal').style.display = 'flex'; 
+    renderClassTree(); 
+});
+document.getElementById('close-tree-btn').addEventListener('click', () => { document.getElementById('tree-modal').style.display = 'none'; });
+
+function drawTreeTank(ctxT, x, y, className) {
+    let cData = TANK_CLASSES[className]; if(!cData) return;
+    
+    ctxT.beginPath();
+    ctxT.arc(x, y, 35, 0, Math.PI * 2);
+    ctxT.fillStyle = 'rgba(20, 20, 20, 0.8)';
+    ctxT.fill();
+    ctxT.strokeStyle = '#333';
+    ctxT.lineWidth = 3;
+    ctxT.stroke();
+    
+    ctxT.save(); ctxT.translate(x, y); 
+    let scale = 1.1; if(className === 'Ranger' || className === 'Stalker' || className === 'Assassin' || className === 'Streamliner') scale = 0.9;
+    ctxT.scale(scale, scale);
+    
+    cData.barrels.forEach(barrel => {
+        ctxT.save(); ctxT.rotate(barrel.angle); ctxT.fillStyle = COLORS.barrel; ctxT.strokeStyle = COLORS.outline; ctxT.lineWidth = 2;
+        if(barrel.isTrap){ctxT.beginPath(); ctxT.moveTo(0, -barrel.width/2); ctxT.lineTo(barrel.length, -barrel.width/1.2); ctxT.lineTo(barrel.length, barrel.width/1.2); ctxT.lineTo(0, barrel.width/2); ctxT.closePath(); ctxT.fill(); ctxT.stroke();}
+        else{let by = -barrel.width/2 + barrel.offsetY; ctxT.fillRect(0, by, barrel.length, barrel.width); ctxT.strokeRect(0, by, barrel.length, barrel.width);}
+        ctxT.restore();
+    });
+    if (className === 'Smasher') { ctxT.beginPath(); for(let i=0; i<6; i++) { let a = i * Math.PI / 3; ctxT.lineTo(Math.cos(a)*26, Math.sin(a)*26); } ctxT.closePath(); ctxT.fillStyle = '#555'; ctxT.fill(); ctxT.stroke(); }
+    else if (className === 'Spike') { ctxT.beginPath(); for(let i=0; i<12; i++) { let a = i * Math.PI / 6; let r = (i%2===0)?32:20; ctxT.lineTo(Math.cos(a)*r, Math.sin(a)*r); } ctxT.closePath(); ctxT.fillStyle = '#555'; ctxT.fill(); ctxT.stroke(); }
+    
+    ctxT.beginPath(); ctxT.arc(0, 0, 20, 0, Math.PI * 2); ctxT.fillStyle = COLORS.player; ctxT.strokeStyle = COLORS.outline; ctxT.lineWidth = 2; ctxT.fill(); ctxT.stroke();
+    ctxT.restore();
+    
+    let l = i18n[userLang] || i18n['ru'];
+    let translatedName = l.tanks[className] || className;
+    ctxT.fillStyle = '#fff'; ctxT.font = 'bold 16px Ubuntu'; ctxT.textAlign = 'center'; ctxT.fillText(translatedName, x, y + 54);
+}
+
+function renderClassTree() {
+    const tc = document.getElementById('treeCanvas'); const ctxT = tc.getContext('2d');
+    
+    let nodes = {};
+    let currentY = 100;
+    const xOffset = 260;
+    const ySpacing = 130;
+
+    function assignCoords(node, depth) {
+        let children = TANK_TREE[node] || [];
+        let myY = 0;
+        if (children.length === 0) {
+            myY = currentY;
+            currentY += ySpacing;
+        } else {
+            let sumY = 0;
+            children.forEach(c => {
+                sumY += assignCoords(c, depth + 1);
+            });
+            myY = sumY / children.length;
+        }
+        nodes[node] = { x: 120 + depth * xOffset, y: myY };
+        return myY;
+    }
+
+    assignCoords('Basic', 0);
+    
+    tc.width = 1100;
+    tc.height = Math.max(1600, currentY + 50);
+    ctxT.clearRect(0, 0, tc.width, tc.height);
+
+    ctxT.strokeStyle = 'rgba(0, 178, 225, 0.5)'; 
+    ctxT.lineWidth = 4;
+    ctxT.shadowColor = '#00b2e1';
+    ctxT.shadowBlur = 10;
+    
+    for (let parent in TANK_TREE) {
+        if (!nodes[parent]) continue;
+        TANK_TREE[parent].forEach(child => {
+            if(nodes[child]) { 
+                ctxT.beginPath(); 
+                ctxT.moveTo(nodes[parent].x, nodes[parent].y); 
+                ctxT.bezierCurveTo(
+                    (nodes[parent].x + nodes[child].x) / 2, nodes[parent].y,
+                    (nodes[parent].x + nodes[child].x) / 2, nodes[child].y,
+                    nodes[child].x, nodes[child].y
+                );
+                ctxT.stroke(); 
+            }
+        });
+    }
+    
+    ctxT.shadowBlur = 0;
+    for (let name in nodes) drawTreeTank(ctxT, nodes[name].x, nodes[name].y, name);
+}
+
+let lastTime = 0;
+function loop(timestamp) {
+    requestAnimationFrame(loop);
+    if (!lastTime) lastTime = timestamp || performance.now();
+    let currentTime = timestamp || performance.now();
+    let dt = (currentTime - lastTime) / (1000 / 60);
+    lastTime = currentTime;
+    if (dt > 3) dt = 3;
+
+    if (isPaused) return;
+
+    if (isNaN(currentFov)) currentFov = 1.0;
+    if (isNaN(targetFov)) targetFov = 1.0;
+    if (isNaN(camera.x)) camera.x = MAP_SIZE/2;
+    if (isNaN(camera.y)) camera.y = MAP_SIZE/2;
+
+    entities.tanks.forEach(t => t.update(dt)); entities.bullets.forEach(b => b.update(dt)); entities.food.forEach(f => f.update(dt)); entities.particles.forEach(p => p.update(dt)); checkCollisions(dt); entities.tanks = entities.tanks.filter(t => !t.dead); entities.bullets = entities.bullets.filter(b => !b.dead); entities.food = entities.food.filter(f => !f.dead); entities.particles = entities.particles.filter(p => !p.dead); 
+    
+    // Динамический респавн танков под нужный режим
+    let maxT = gameMode === 'teams' ? 8 : 9;
+    while (entities.tanks.length < maxT) spawnBot(); 
+    while (entities.food.length < 200) spawnFood();
+    
+    let lerpFactor = 1 - Math.pow(0.9, dt);
+    if ((gameState === 'playing' || gameState === 'dying') && player && !player.dead) { camera.x += (player.x - camera.x) * lerpFactor; camera.y += (player.y - camera.y) * lerpFactor; targetFov = player.classData.fov || 1.0; if(Math.random() < 0.05 * dt) updateUI(); } else { camera.x += 1 * dt; camera.y += 1 * dt; if (camera.x > MAP_SIZE) camera.x = 0; if (camera.y > MAP_SIZE) camera.y = 0; }
+    currentFov += (targetFov - currentFov) * (1 - Math.pow(0.95, dt));
+
+    ctx.fillStyle = COLORS.bg; ctx.fillRect(0, 0, width, height); ctx.save(); ctx.translate(width / 2, height / 2); ctx.scale(currentFov, currentFov); ctx.translate(-camera.x, -camera.y); 
+    if (gameMode === 'teams') { ctx.fillStyle = 'rgba(0, 178, 225, 0.15)'; ctx.fillRect(0, 0, 500, MAP_SIZE); ctx.fillStyle = 'rgba(241, 78, 84, 0.15)'; ctx.fillRect(MAP_SIZE - 500, 0, 500, MAP_SIZE); }
+    ctx.strokeStyle = COLORS.grid; ctx.lineWidth = 1; const sW = width / currentFov; const sH = height / currentFov; const startX = Math.floor((camera.x - sW/2) / GRID_SIZE) * GRID_SIZE; const startY = Math.floor((camera.y - sH/2) / GRID_SIZE) * GRID_SIZE; ctx.beginPath(); for (let x = startX; x < camera.x + sW/2; x += GRID_SIZE) { ctx.moveTo(x, camera.y - sH/2); ctx.lineTo(x, camera.y + sH/2); } for (let y = startY; y < camera.y + sH/2; y += GRID_SIZE) { ctx.moveTo(camera.x - sW/2, y); ctx.lineTo(camera.x + sW/2, y); } ctx.stroke(); 
+    ctx.strokeStyle = COLORS.outline; ctx.lineWidth = 5; ctx.strokeRect(0, 0, MAP_SIZE, MAP_SIZE);
+    entities.walls.forEach(w => w.draw(ctx)); entities.food.forEach(f => f.draw(ctx)); entities.bullets.forEach(b => b.draw(ctx)); entities.tanks.forEach(t => t.draw(ctx)); entities.particles.forEach(p => p.draw(ctx)); ctx.restore(); drawMinimap(); if(upgradeCanvases.length > 0) drawRotatingPreviews(dt);
+    
+    if (gameState === 'playing' && !isAdShowing) {
+        customCursor.style.left = mouse.x + 'px';
+        customCursor.style.top = mouse.y + 'px';
+    }
+}
+
+window.addEventListener('keydown', e => { keys[e.code] = true; if((e.code === 'Space' || e.code === 'KeyF') && player) player.autoFire = !player.autoFire; }); 
+window.addEventListener('keyup', e => keys[e.code] = false); 
+
+canvas.addEventListener('mousedown', (e) => { 
+    mouse.isDown = true; 
+    if (gameState === 'playing' && !isAdShowing) {
+        if (document.pointerLockElement !== canvas && document.mozPointerLockElement !== canvas) {
+            if (canvas.requestPointerLock) canvas.requestPointerLock();
+        } else {
+            let el = document.elementFromPoint(mouse.x, mouse.y);
+            if (el && el !== canvas) {
+                let interactiveEl = el.closest('.upgrade-card, .btn-close, .mode-btn, .btn-3d');
+                if (interactiveEl) interactiveEl.click();
+                else el.click();
+            }
+        }
+    }
+}); 
+
+window.addEventListener('mouseup', () => mouse.isDown = false); 
+
+let lastHovered = null;
+window.addEventListener('mousemove', e => { 
+    if (gameState === 'playing' && !isAdShowing) {
+        if (document.pointerLockElement === canvas || document.mozPointerLockElement === canvas) {
+            mouse.x += e.movementX;
+            mouse.y += e.movementY;
+            if (mouse.x < 0) mouse.x = 0;
+            if (mouse.x > width) mouse.x = width;
+            if (mouse.y < 0) mouse.y = 0;
+            if (mouse.y > height) mouse.y = height;
+        } else {
+            mouse.x = e.clientX; 
+            mouse.y = e.clientY; 
+        }
+        
+        customCursor.style.display = 'block';
+        document.body.style.cursor = 'none';
+        
+        customCursor.style.pointerEvents = 'none';
+        let el = document.elementFromPoint(mouse.x, mouse.y);
+        let interactiveEl = el ? el.closest('.upgrade-card, .btn-close, .mode-btn, .btn-3d') : null;
+        
+        if (lastHovered && lastHovered !== interactiveEl) {
+            lastHovered.classList.remove('sim-hover');
+            lastHovered.classList.remove('sim-active');
+        }
+        if (interactiveEl && interactiveEl !== lastHovered) {
+            interactiveEl.classList.add('sim-hover');
+            if(mouse.isDown) interactiveEl.classList.add('sim-active');
+        }
+        lastHovered = interactiveEl;
+    } else {
+        mouse.x = e.clientX; 
+        mouse.y = e.clientY;
+        customCursor.style.display = 'none';
+        document.body.style.cursor = 'auto';
+    }
+}); 
+
+initWorld(); updateCursorVisibility(); requestAnimationFrame(loop);
+</script>
+
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+</html>

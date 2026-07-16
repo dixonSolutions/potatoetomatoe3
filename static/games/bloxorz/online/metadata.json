@@ -1,0 +1,17 @@
+{
+  "id": "bloxorz",
+  "name": "Bloxorz",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/flash-games/bloxorz).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d3YKqBSuthPa3wEd_J6v2b22-caYhkH0fY-sAYspX03wuvasKpIed5o1XuEdcod5kJtWJvCq59heBrLYLKnNeMDQxyw5NZhriHVIS7u2OH6Bgo7V3X38c96u6lif4jZhSzj6efLgRzJvN9KN4X0BcoKsrbGZOtyKaezozxEhuujHhZTiaUNGhWgP521IqY=w1280",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d3YKqBSuthPa3wEd_J6v2b22-caYhkH0fY-sAYspX03wuvasKpIed5o1XuEdcod5kJtWJvCq59heBrLYLKnNeMDQxyw5NZhriHVIS7u2OH6Bgo7V3X38c96u6lif4jZhSzj6efLgRzJvN9KN4X0BcoKsrbGZOtyKaezozxEhuujHhZTiaUNGhWgP521IqY=w1280",
+  "thumbnailStored": "remote",
+  "category": "flash",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://sites.google.com/view/drive-u-7-home/flash-games/bloxorz",
+  "pullStrategy": "local-embed",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/flash-games/bloxorz",
+  "gadgetXmlUrl": "https://cdn.jsdelivr.net/gh/ultimate-gclassrooms/ok@main/Bloxorz.xml",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/ultimate-gclassrooms/ok@main/"
+}

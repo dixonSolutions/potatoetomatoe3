@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="https://cdn.jsdelivr.net/gh/shayderrr/funkinmods@72fa339a4e57c193943c258ec093bb8b86c71c8a/aflac/game.fnfhub.net/24921/">
+  <meta charset="utf-8">
+  
+  <title>Game 24921</title>
+  
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="canonical" href="https://game.fnfhub.net/24921/" />
+  
+  <link rel="shortcut icon" type="image/png" href="https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/favicon.png">
+  
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/psych.js"></script>
+  
+  <script>
+    window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
+    if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+      var meta = document.getElementById ("viewport");
+      meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+    }
+  </script>
+  
+  <style>
+    html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+    #openfl-content { background: #000000; width: 100%; height: 100%; }
+    @font-face {
+      font-family: 'Pixel Arial 11 Bold';
+      src: url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/pixel.eot?#iefix") format('embedded-opentype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/pixel.woff") format('woff'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/pixel.otf") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'VCR OSD Mono';
+      src: url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/vcr.eot?#iefix") format('embedded-opentype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/vcr.woff") format('woff'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/vcr.ttf") format('truetype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/assets/fonts/vcr.svg#VCR%20OSD%20Mono") format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Nokia Cellphone FC Small';
+      src: url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/nokiafc22.eot?#iefix") format('embedded-opentype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/nokiafc22.woff") format('woff'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/nokiafc22.ttf") format('truetype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/nokiafc22.svg#Nokia%20Cellphone%20FC%20Small") format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Monsterrat';
+      src: url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/monsterrat.eot?#iefix") format('embedded-opentype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/monsterrat.woff") format('woff'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/monsterrat.ttf") format('truetype'),
+      url("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/fnf/flixel/fonts/monsterrat.svg#Monsterrat") format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+  </style>
+  
+</head>
+<body>
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+  <noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
+  
+  <div id="openfl-content"></div>
+  
+  <script type="text/javascript">
+    lime.embed ("psych", "openfl-content", 1280, 720, { parameters: {} });
+  </script>
+  
+  <!-- You can find the sources of the game on the website gamebanana.com -->
+  
+</body>
+</html>

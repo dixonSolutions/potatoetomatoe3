@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/ahert7s777-spec/00tt00@main/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎵 Classroom Center Sound Effects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ██ CACHE CONTROL — 1 MONTH ██ -->
+<meta http-equiv="Cache-Control" content="public, max-age=2592000, immutable">
+<meta http-equiv="Expires" content="Thu, 26 Apr 2026 00:00:00 GMT">
+
+<style>
+:root {
+  --bg:        #0d0f1a;
+  --surface:   #161929;
+  --card:      #1e2238;
+  --card-h:    #272d47;
+  --accent1:   #ff6b6b;
+  --accent2:   #ffd93d;
+  --accent3:   #6bcbff;
+  --accent4:   #a78bfa;
+  --accent5:   #4ade80;
+  --text:      #f0f4ff;
+  --sub:       #8892b0;
+  --radius:    18px;
+  --shadow:    0 8px 32px rgba(0,0,0,.45);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── animated star bg ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(167,139,250,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(107,203,255,.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255,107,107,.06) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── HEADER ── */
+header {
+  position: relative; z-index: 10;
+  text-align: center;
+  padding: 40px 20px 24px;
+  background: linear-gradient(180deg, rgba(22,25,41,0.95) 0%, transparent 100%);
+}
+
+.logo-row {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin-bottom: 8px;
+}
+
+.gplus-badge {
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.2rem; line-height: 1;
+}
+
+.site-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcbff, #a78bfa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  animation: gradShift 5s ease infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes gradShift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+.site-sub {
+  font-size: .95rem; color: var(--sub); margin-bottom: 14px;
+}
+
+.site-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent3); font-weight: 700; font-size: .88rem;
+  text-decoration: none; border: 1px solid rgba(107,203,255,.25);
+  padding: 5px 14px; border-radius: 20px; transition: all .25s;
+}
+.site-link:hover { background: rgba(107,203,255,.12); border-color: var(--accent3); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px; flex-wrap: wrap;
+  padding: 10px 20px 20px;
+  font-size: .82rem; color: var(--sub);
+}
+.stat-chip {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 30px; padding: 5px 14px;
+  display: flex; align-items: center; gap: 6px;
+}
+.stat-chip span { color: var(--accent2); font-weight: 800; }
+
+/* ── CONTROLS ── */
+.controls {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13,15,26,.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: 12px 20px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+
+#searchInput {
+  flex: 1; min-width: 200px;
+  background: var(--surface);
+  border: 2px solid rgba(255,255,255,.1);
+  border-radius: 30px; padding: 10px 20px;
+  color: var(--text); font-family: 'Nunito', sans-serif;
+  font-size: .95rem; font-weight: 600;
+  outline: none; transition: border-color .2s;
+}
+#searchInput::placeholder { color: var(--sub); }
+#searchInput:focus { border-color: var(--accent4); }
+
+.btn-ctrl {
+  background: var(--surface);
+  border: 2px solid rgba(255,255,255,.1);
+  color: var(--text); border-radius: 30px;
+  padding: 9px 18px; cursor: pointer;
+  font-family: 'Nunito', sans-serif; font-size: .88rem; font-weight: 700;
+  transition: all .2s; white-space: nowrap;
+}
+.btn-ctrl:hover { background: var(--card-h); border-color: var(--accent1); }
+.btn-ctrl.active { background: var(--accent1); border-color: var(--accent1); color: #fff; }
+
+#stopBtn {
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  border-color: transparent; color: #fff;
+  animation: none;
+}
+#stopBtn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,71,87,.4); }
+#stopBtn.playing { animation: pulse-stop 1.2s ease infinite; }
+
+@keyframes pulse-stop {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,71,87,.6); }
+  50%      { box-shadow: 0 0 0 10px rgba(255,71,87,0); }
+}
+
+#resultCount {
+  color: var(--sub); font-size: .82rem; white-space: nowrap;
+}
+
+/* ── SORT TABS ── */
+.sort-tabs {
+  position: relative; z-index: 10;
+  display: flex; gap: 8px; padding: 12px 20px 0; flex-wrap: wrap;
+}
+.sort-tab {
+  background: var(--surface); border: 1px solid rgba(255,255,255,.08);
+  color: var(--sub); border-radius: 20px; padding: 5px 14px;
+  cursor: pointer; font-family: 'Nunito', sans-serif;
+  font-size: .82rem; font-weight: 700; transition: all .2s;
+}
+.sort-tab:hover { color: var(--text); }
+.sort-tab.active {
+  background: var(--accent4); border-color: var(--accent4);
+  color: #fff;
+}
+
+/* ── NOW PLAYING BAR ── */
+#nowPlaying {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: rgba(22,25,41,.95); backdrop-filter: blur(20px);
+  border: 1px solid rgba(167,139,250,.3);
+  border-radius: 40px; padding: 10px 22px;
+  display: none; align-items: center; gap: 12px;
+  z-index: 100; max-width: 480px; width: 90%;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5);
+  animation: slideUp .3s ease;
+}
+#nowPlaying.visible { display: flex; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.np-icon { font-size: 1.4rem; animation: spin 3s linear infinite; }
+@keyframes spin {
+  from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+}
+
+.np-label { font-weight: 700; font-size: .88rem; color: var(--text); flex: 1; }
+
+.np-waveform {
+  display: flex; align-items: center; gap: 3px; height: 20px;
+}
+.np-waveform span {
+  width: 3px; background: var(--accent4); border-radius: 3px;
+  animation: wave 0.8s ease-in-out infinite;
+}
+.np-waveform span:nth-child(2) { animation-delay:.15s; }
+.np-waveform span:nth-child(3) { animation-delay:.30s; }
+.np-waveform span:nth-child(4) { animation-delay:.45s; }
+.np-waveform span:nth-child(5) { animation-delay:.60s; }
+
+@keyframes wave {
+  0%,100% { height: 4px; } 50% { height: 18px; }
+}
+
+/* ── GRID ── */
+#soundGrid {
+  position: relative; z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px; padding: 16px 20px 120px;
+}
+
+/* ── SOUND CARD ── */
+.sound-card {
+  background: var(--card);
+  border: 2px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  padding: 16px 12px 12px;
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  transition: transform .18s, border-color .18s, box-shadow .18s, background .18s;
+  position: relative; overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sound-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.06), transparent 70%);
+  opacity: 0; transition: opacity .2s;
+}
+
+.sound-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow);
+}
+.sound-card:hover::before { opacity: 1; }
+
+.sound-card:active { transform: scale(.96); }
+
+.sound-card.playing {
+  border-color: var(--accent4) !important;
+  background: rgba(167,139,250,.15);
+  box-shadow: 0 0 0 3px rgba(167,139,250,.2), var(--shadow);
+}
+
+/* Color bands per card index */
+.sound-card[data-c="0"]:hover { border-color: var(--accent1); }
+.sound-card[data-c="1"]:hover { border-color: var(--accent2); }
+.sound-card[data-c="2"]:hover { border-color: var(--accent3); }
+.sound-card[data-c="3"]:hover { border-color: var(--accent4); }
+.sound-card[data-c="4"]:hover { border-color: var(--accent5); }
+
+.card-emoji {
+  font-size: 2rem; line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.4));
+  transition: transform .2s;
+}
+.sound-card:hover .card-emoji { transform: scale(1.2) rotate(-5deg); }
+.sound-card.playing .card-emoji { animation: bounce 0.5s ease infinite alternate; }
+@keyframes bounce { to { transform: scale(1.25) translateY(-4px); } }
+
+.card-label {
+  font-size: .78rem; font-weight: 700;
+  color: var(--text); text-align: center;
+  line-height: 1.3; word-break: break-word;
+  max-height: 2.8em; overflow: hidden;
+}
+
+.card-play-icon {
+  font-size: .75rem; color: var(--sub);
+  transition: color .2s;
+}
+.sound-card:hover .card-play-icon { color: var(--accent2); }
+.sound-card.playing .card-play-icon { color: var(--accent4); }
+
+/* ── ripple ── */
+.ripple {
+  position: absolute; border-radius: 50%;
+  transform: scale(0); animation: ripple-anim .55s linear;
+  background: rgba(255,255,255,.18); pointer-events: none;
+}
+@keyframes ripple-anim { to { transform: scale(4); opacity: 0; } }
+
+/* ── NO RESULTS ── */
+#noResults {
+  display: none; grid-column: 1/-1;
+  text-align: center; padding: 60px 20px;
+  color: var(--sub);
+}
+#noResults .nr-emoji { font-size: 4rem; margin-bottom: 12px; }
+#noResults h3 { font-family: 'Fredoka One'; font-size: 1.5rem; color: var(--text); }
+
+/* ── CONFETTI canvas ── */
+#confettiCanvas {
+  position: fixed; inset: 0; pointer-events: none; z-index: 200;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--card-h); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  #soundGrid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; padding: 10px 10px 120px; }
+  .controls { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="confettiCanvas"></canvas>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-row">
+    <span class="gplus-badge">G+</span>
+    <h1 class="site-title">Classroom Center 🎵</h1>
+  </div>
+  <p class="site-sub">Sound Effects Soundboard &nbsp;·&nbsp; 1,141 Sounds &nbsp;·&nbsp; Free &amp; Unblocked</p>
+  <a class="site-link" href="https://sites.google.com/classroom.center/view-1/" target="_blank" rel="noopener">
+    🏠 Visit Classroom Center
+  </a>
+</header>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-chip">🎧 <span id="totalCount">1141</span> sounds</div>
+  <div class="stat-chip">⚡ <span>Instant</span> play</div>
+  <div class="stat-chip">📦 <span>Cached</span> 1 month</div>
+  <div class="stat-chip">🔓 <span>Unblocked</span></div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <input type="text" id="searchInput" placeholder="🔍  Search sounds..." autocomplete="off" spellcheck="false">
+  <button class="btn-ctrl" id="stopBtn" onclick="stopAll()">⏹ Stop</button>
+  <button class="btn-ctrl" id="shuffleBtn" onclick="playRandom()">🎲 Random</button>
+  <span id="resultCount"></span>
+</div>
+
+<!-- SORT TABS -->
+<div class="sort-tabs">
+  <button class="sort-tab active" onclick="setSort('az',this)">🔤 A–Z</button>
+  <button class="sort-tab" onclick="setSort('za',this)">Z–A</button>
+  <button class="sort-tab" onclick="setSort('random',this)">🔀 Shuffle</button>
+</div>
+
+<!-- GRID -->
+<div id="soundGrid"></div>
+
+<!-- NOW PLAYING -->
+<div id="nowPlaying">
+  <span class="np-icon">🎵</span>
+  <span class="np-label" id="npLabel">—</span>
+  <div class="np-waveform">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<script>
+/* ===== DATA ===== */
+const SOUNDS = [
+  {f:'-they-call-me-trinity-whisle.mp3',l:'They Call Me Trinity Whisle'},
+  {f:'0-golpe-diabla.mp3',l:'0 Golpe Diabla'},
+  {f:'00002a5b_1fMpsyA.mp3',l:'00002A5B 1Fmpsya'},
+  {f:'1-fatality.mp3',l:'1 Fatality'},
+  {f:'1-wind-blowing-crow-cawing-creaky-tree-sound.mp3',l:'1 Wind Blowing Crow Cawing Creaky Tree'},
+  {f:'12g-pumpfull.mp3',l:'12G Pumpfull'},
+  {f:'1500-largo.mp3',l:'1500 Largo'},
+  {f:'168860__orginaljun__light-switch-01.mp3',l:'168860 Orginaljun Light Switch 01'},
+  {f:'2-tlktbmuk-2.mp3',l:'2 Tlktbmuk 2'},
+  {f:'316797__dimbark1__ghostly-whispers.mp3',l:'316797 Dimbark1 Ghostly Whispers'},
+  {f:'3t22-attack-tone.mp3',l:'3T22 Attack Tone'},
+  {f:'44-magnum.mp3',l:'44 Magnum'},
+  {f:'500-cigarettes-tiktok-version.mp3',l:'500 Cigarettes Tiktok Version'},
+  {f:'6777777.mp3',l:'6777777'},
+  {f:'7-11-hello-welcome.mp3',l:'7 11 Hello Welcome'},
+  {f:'8e8118_counter_strike_go_go_go_sound_effect.mp3',l:'8E8118 Counter Strike Go Go Go Sound E'},
+  {f:'98491__tec-studio__walking1-gravel_01.mp3',l:'98491 Tec Studio Walking1 Gravel 01'},
+  {f:'999-social-credit-siren.mp3',l:'999 Social Credit Siren'},
+  {f:'a-few-moments-later-sponge-bob-sfx-fun.mp3',l:'A Few Moments Later Sponge Bob Sfx Fun'},
+  {f:'a320-gpws-full.mp3',l:'A320 Gpws Full'},
+  {f:'abdulupnext-you-gotta-go.mp3',l:'Abdulupnext You Gotta Go'},
+  {f:'ace-attorney-realization.mp3',l:'Ace Attorney Realization'},
+  {f:'ack.mp3',l:'Ack'},
+  {f:'aee-epale.mp3',l:'Aee Epale'},
+  {f:'ah_short.mp3',l:'Ah Short'},
+  {f:'ahh-fresh-meat-pursuer.mp3',l:'Ahh Fresh Meat Pursuer'},
+  {f:'ahh-rblx-scared.mp3',l:'Ahh Rblx Scared'},
+  {f:'ahh-snoring.mp3',l:'Ahh Snoring'},
+  {f:'air-horn-sound-effect.mp3',l:'Air Horn Sound Effect'},
+  {f:'airbus-stall.mp3',l:'Airbus Stall'},
+  {f:'airplane-turbulance.mp3',l:'Airplane Turbulance'},
+  {f:'airplane.mp3',l:'Airplane'},
+  {f:'ak47-loud.mp3',l:'Ak47 Loud'},
+  {f:'alarma-saturada.mp3',l:'Alarma Saturada'},
+  {f:'alert-dun-dunn-duuunnn-suspense.mp3',l:'Alert Dun Dunn Duuunnn Suspense'},
+  {f:'all-i-wanted-was-you-hoodtrap.mp3',l:'All I Wanted Was You Hoodtrap'},
+  {f:'amazed-emote-animal-crossing.mp3',l:'Amazed Emote Animal Crossing'},
+  {f:'amazing-grace-creepy-cut-version.mp3',l:'Amazing Grace Creepy Cut Version'},
+  {f:'among-us-role-reveal-sound-effect.mp3',l:'Among Us Role Reveal Sound Effect'},
+  {f:'among-us-role-reveal-sound.mp3',l:'Among Us Role Reveal Sound'},
+  {f:'and-i-oop.mp3',l:'And I Oop'},
+  {f:'anderdingus.mp3',l:'Anderdingus'},
+  {f:'android-notifications-pixie-dust.mp3',l:'Android Notifications Pixie Dust'},
+  {f:'angle-grinder.mp3',l:'Angle Grinder'},
+  {f:'angry4.mp3',l:'Angry4'},
+  {f:'angy-monkey-mp3.mp3',l:'Angy Monkey Mp3'},
+  {f:'animatronic-in-door.mp3',l:'Animatronic In Door'},
+  {f:'anime-ah_4UL8Jae.mp3',l:'Anime Ah 4Ul8Jae'},
+  {f:'anime-wow-sound-effect.mp3',l:'Anime Wow Sound Effect'},
+  {f:'ankara-messi-best-sound.mp3',l:'Ankara Messi Best Sound'},
+  {f:'another-one_dPvHt2Z.mp3',l:'Another One Dpvht2Z'},
+  {f:'anvil-drop-on-head.mp3',l:'Anvil Drop On Head'},
+  {f:'aol-instant-messenger-trimmed.mp3',l:'Aol Instant Messenger Trimmed'},
+  {f:'aoldialup1.mp3',l:'Aoldialup1'},
+  {f:'aoo-potencia-efeito-sonoro.mp3',l:'Aoo Potencia Efeito Sonoro'},
+  {f:'applause-sound-effect.mp3',l:'Applause Sound Effect'},
+  {f:'arnold-schwarzenegger.mp3',l:'Arnold Schwarzenegger'},
+  {f:'artful-wind-up-dod.mp3',l:'Artful Wind Up Dod'},
+  {f:'ascending1.mp3',l:'Ascending1'},
+  {f:'atrocious-sound.mp3',l:'Atrocious Sound'},
+  {f:'audience-laughing.mp3',l:'Audience Laughing'},
+  {f:'aughhhhh-aughhhhh.mp3',l:'Aughhhhh Aughhhhh'},
+  {f:'aww-sound-fx.mp3',l:'Aww Sound Fx'},
+  {f:'aykut-elmas-haber-bulteni-aclslar-audiotrimmer_W3u9wPS.mp3',l:'Aykut Elmas Haber Bulteni Aclslar Audi'},
+  {f:'ayo-chill-groxmc.mp3',l:'Ayo Chill Groxmc'},
+  {f:'ayo_ngawHKc.mp3',l:'Ayo Ngawhkc'},
+  {f:'babylaugh_sfxb.mp3',l:'Babylaugh Sfxb'},
+  {f:'backup_terry.mp3',l:'Backup Terry'},
+  {f:'baldi-all-7-notebooks.mp3',l:'Baldi All 7 Notebooks'},
+  {f:'baller_8tQ7uMZ.mp3',l:'Baller 8Tq7Umz'},
+  {f:'banana-cartoon-logo-2011.mp3',l:'Banana Cartoon Logo 2011'},
+  {f:'bandy-da-putr-ban-ja.mp3',l:'Bandy Da Putr Ban Ja'},
+  {f:'banido_FzWiL58.mp3',l:'Banido Fzwil58'},
+  {f:'bark-fart.mp3',l:'Bark Fart'},
+  {f:'barrage.mp3',l:'Barrage'},
+  {f:'basketball-brick.mp3',l:'Basketball Brick'},
+  {f:'bass-boost-censor.mp3',l:'Bass Boost Censor'},
+  {f:'bass-boost-drop.mp3',l:'Bass Boost Drop'},
+  {f:'bathitball.mp3',l:'Bathitball'},
+  {f:'bear-sound-effect.mp3',l:'Bear Sound Effect'},
+  {f:'belay-that-order-number-one.mp3',l:'Belay That Order Number One'},
+  {f:'best-friends-v1_3Coc8NL.mp3',l:'Best Friends V1 3Coc8Nl'},
+  {f:'bfdi-bfdia-bfb-and-tpot-scream.mp3',l:'Bfdi Bfdia Bfb And Tpot Scream'},
+  {f:'bfdi-ice-cube-no.mp3',l:'Bfdi Ice Cube No'},
+  {f:'bfdi-ice-cube-yeah.mp3',l:'Bfdi Ice Cube Yeah'},
+  {f:'bfdi-keep-those-neck-muscles-extended.mp3',l:'Bfdi Keep Those Neck Muscles Extended'},
+  {f:'bgt-red-buzzer.mp3',l:'Bgt Red Buzzer'},
+  {f:'big-crash-with-fallout.mp3',l:'Big Crash With Fallout'},
+  {f:'bionicfx.mp3',l:'Bionicfx'},
+  {f:'bird-chirping-sound-effect.mp3',l:'Bird Chirping Sound Effect'},
+  {f:'bite-and-explosion-beepteebops.mp3',l:'Bite And Explosion Beepteebops'},
+  {f:'bite-me_TsiEnTJ.mp3',l:'Bite Me Tsientj'},
+  {f:'bleepme.mp3',l:'Bleepme'},
+  {f:'blink-sound-effect.mp3',l:'Blink Sound Effect'},
+  {f:'blinky.mp3',l:'Blinky'},
+  {f:'blood-splatter-2.mp3',l:'Blood Splatter 2'},
+  {f:'bloodbath-98-death-scream.mp3',l:'Bloodbath 98 Death Scream'},
+  {f:'bluudud-catch.mp3',l:'Bluudud Catch'},
+  {f:'bmw-bong.mp3',l:'Bmw Bong'},
+  {f:'bobby-hill-02.mp3',l:'Bobby Hill 02'},
+  {f:'bocina-coche-choque.mp3',l:'Bocina Coche Choque'},
+  {f:'body-fall-cartoon.mp3',l:'Body Fall Cartoon'},
+  {f:'bodycam-beep.mp3',l:'Bodycam Beep'},
+  {f:'boeing-asmr.mp3',l:'Boeing Asmr'},
+  {f:'boi-what-da-hell-boi-sound-effect.mp3',l:'Boi What Da Hell Boi Sound Effect'},
+  {f:'boing-censor-digital-circus.mp3',l:'Boing Censor Digital Circus'},
+  {f:'boing-sound.mp3',l:'Boing Sound'},
+  {f:'bolgarochka.mp3',l:'Bolgarochka'},
+  {f:'bomb-explosion-with-whistle.mp3',l:'Bomb Explosion With Whistle'},
+  {f:'bone-crack.mp3',l:'Bone Crack'},
+  {f:'bong-rippie.mp3',l:'Bong Rippie'},
+  {f:'bonk_7zPAD7C.mp3',l:'Bonk 7Zpad7C'},
+  {f:'boo-fart.mp3',l:'Boo Fart'},
+  {f:'boosting-turbo-power-engine-rev-ups.mp3',l:'Boosting Turbo Power Engine Rev Ups'},
+  {f:'brain-fart-slowed.mp3',l:'Brain Fart Slowed'},
+  {f:'brainrot-ringtone.mp3',l:'Brainrot Ringtone'},
+  {f:'brazil-zil.mp3',l:'Brazil Zil'},
+  {f:'breaking-bone.mp3',l:'Breaking Bone'},
+  {f:'breaking-glass-sound-effect_hJd2A9S.mp3',l:'Breaking Glass Sound Effect Hjd2A9S'},
+  {f:'brick-on-metal-sound-effect12.mp3',l:'Brick On Metal Sound Effect12'},
+  {f:'brillos.mp3',l:'Brillos'},
+  {f:'brother-ewwwwwww.mp3',l:'Brother Ewwwwwww'},
+  {f:'brother-may-i-have-some-oats.mp3',l:'Brother May I Have Some Oats'},
+  {f:'bruh-meme-fx.mp3',l:'Bruh Meme Fx'},
+  {f:'bruh-sound-effect_WstdzdM.mp3',l:'Bruh Sound Effect Wstdzdm'},
+  {f:'bubbles_OwYcD0i.mp3',l:'Bubbles Owycd0I'},
+  {f:'budots-siv.mp3',l:'Budots Siv'},
+  {f:'buduts.mp3',l:'Buduts'},
+  {f:'burenyuu.mp3',l:'Burenyuu'},
+  {f:'burp-fart.mp3',l:'Burp Fart'},
+  {f:'button-click.mp3',l:'Button Click'},
+  {f:'buzzer-edit.mp3',l:'Buzzer Edit'},
+  {f:'buzzer-wrong-answer_yuGG23T.mp3',l:'Buzzer Wrong Answer Yugg23T'},
+  {f:'bye-bye-deadpool.mp3',l:'Bye Bye Deadpool'},
+  {f:'bytheseaside.mp3',l:'Bytheseaside'},
+  {f:'c00lkidd-outro_UrPqYqx.mp3',l:'C00Lkidd Outro Urpqyqx'},
+  {f:'callate-ala-ver.mp3',l:'Callate Ala Ver'},
+  {f:'callate-ala-verga.mp3',l:'Callate Ala Verga'},
+  {f:'callate-baboso-mm.mp3',l:'Callate Baboso Mm'},
+  {f:'callese-gay.mp3',l:'Callese Gay'},
+  {f:'camera-flash-sound-effect.mp3',l:'Camera Flash Sound Effect'},
+  {f:'camera-shutter2.mp3',l:'Camera Shutter2'},
+  {f:'camera_zLdd1zp.mp3',l:'Camera Zldd1Zp'},
+  {f:'campana.mp3',l:'Campana'},
+  {f:'canadian-amber-alert.mp3',l:'Canadian Amber Alert'},
+  {f:'car-beep-x2.mp3',l:'Car Beep X2'},
+  {f:'car-brake-and-crash.mp3',l:'Car Brake And Crash'},
+  {f:'car-crash-long-build-up.mp3',l:'Car Crash Long Build Up'},
+  {f:'car-crash-short.mp3',l:'Car Crash Short'},
+  {f:'car-crash_OwBDipR.mp3',l:'Car Crash Owbdipr'},
+  {f:'car-honk.mp3',l:'Car Honk'},
+  {f:'carlos-gritando.mp3',l:'Carlos Gritando'},
+  {f:'carsound.mp3',l:'Carsound'},
+  {f:'carter-here.mp3',l:'Carter Here'},
+  {f:'cartman-crying.mp3',l:'Cartman Crying'},
+  {f:'cartoon-boing_7vRWDlc.mp3',l:'Cartoon Boing 7Vrwdlc'},
+  {f:'cartoon-dizzy.mp3',l:'Cartoon Dizzy'},
+  {f:'cartoon-elephant-sound.mp3',l:'Cartoon Elephant Sound'},
+  {f:'cartoon-falling-sound_HWxDuNz.mp3',l:'Cartoon Falling Sound Hwxdunz'},
+  {f:'cartoon-fight-long.mp3',l:'Cartoon Fight Long'},
+  {f:'cartoon-flip_0mhhTzj.mp3',l:'Cartoon Flip 0Mhhtzj'},
+  {f:'cartoon-foghorn-sound-1.mp3',l:'Cartoon Foghorn Sound 1'},
+  {f:'cartoon-frowning-sound.mp3',l:'Cartoon Frowning Sound'},
+  {f:'cartoon-hammer.mp3',l:'Cartoon Hammer'},
+  {f:'cartoon-metallic-stomp.mp3',l:'Cartoon Metallic Stomp'},
+  {f:'cartoon-mix.mp3',l:'Cartoon Mix'},
+  {f:'cartoon-peeping.mp3',l:'Cartoon Peeping'},
+  {f:'cartoon-poke.mp3',l:'Cartoon Poke'},
+  {f:'cartoon-running-sound-effect-online-audio-converter.mp3',l:'Cartoon Running Sound Effect Online Au'},
+  {f:'cartoon-running-sound.mp3',l:'Cartoon Running Sound'},
+  {f:'cartoon-slip-and-punch-sound.mp3',l:'Cartoon Slip And Punch Sound'},
+  {f:'cartoon-slip-gaming-sound-effect-hd.mp3',l:'Cartoon Slip Gaming Sound Effect Hd'},
+  {f:'cartoon-sliping-and-crash.mp3',l:'Cartoon Sliping And Crash'},
+  {f:'cartoon-sound_gFRHN5y.mp3',l:'Cartoon Sound Gfrhn5Y'},
+  {f:'cartoon-tiptoe.mp3',l:'Cartoon Tiptoe'},
+  {f:'cartoon_bite_sound_effect.mp3',l:'Cartoon Bite Sound Effect'},
+  {f:'cartoonlaugh1.mp3',l:'Cartoonlaugh1'},
+  {f:'cat-call.mp3',l:'Cat Call'},
+  {f:'cat-crash.mp3',l:'Cat Crash'},
+  {f:'cat-is-calling.mp3',l:'Cat Is Calling'},
+  {f:'cat-screams-and-disappear.mp3',l:'Cat Screams And Disappear'},
+  {f:'cats-song-music-meowing.mp3',l:'Cats Song Music Meowing'},
+  {f:'celebration-sound-effect.mp3',l:'Celebration Sound Effect'},
+  {f:'celebration.mp3',l:'Celebration'},
+  {f:'cellar-door-slam-shut-soundbible.mp3',l:'Cellar Door Slam Shut Soundbible'},
+  {f:'censor-beep-1.mp3',l:'Censor Beep 1'},
+  {f:'censor-beep-1_S6aFvU1.mp3',l:'Censor Beep 1 S6Afvu1'},
+  {f:'censor-beep-7.mp3',l:'Censor Beep 7'},
+  {f:'chainsaw-on.mp3',l:'Chainsaw On'},
+  {f:'chalo.mp3',l:'Chalo'},
+  {f:'chappelle-ah.mp3',l:'Chappelle Ah'},
+  {f:'chaturbate-tip.mp3',l:'Chaturbate Tip'},
+  {f:'check-mark_oPG7Xo5.mp3',l:'Check Mark Opg7Xo5'},
+  {f:'cheering-clapping.mp3',l:'Cheering Clapping'},
+  {f:'chili-chili-fart_0ikahyN.mp3',l:'Chili Chili Fart 0Ikahyn'},
+  {f:'chimpanzee-calls_converted.mp3',l:'Chimpanzee Calls Converted'},
+  {f:'china-trump.mp3',l:'China Trump'},
+  {f:'chodu-cid-saali_XYXMRJT.mp3',l:'Chodu Cid Saali Xyxmrjt'},
+  {f:'chomp-1.mp3',l:'Chomp 1'},
+  {f:'chord.mp3',l:'Chord'},
+  {f:'chucks-holiday-horrors-jumpscare-sound-4.mp3',l:'Chucks Holiday Horrors Jumpscare Sound'},
+  {f:'church-bell-2.mp3',l:'Church Bell 2'},
+  {f:'church-bell-tolling.mp3',l:'Church Bell Tolling'},
+  {f:'cinematic-boom-1.mp3',l:'Cinematic Boom 1'},
+  {f:'cinematic-boom-hq.mp3',l:'Cinematic Boom Hq'},
+  {f:'cinematic-suspense-riser.mp3',l:'Cinematic Suspense Riser'},
+  {f:'cinematic_impact.mp3',l:'Cinematic Impact'},
+  {f:'clash-royale-he-he-he-haa.mp3',l:'Clash Royale He He He Haa'},
+  {f:'class-dojo-positive-negative.mp3',l:'Class Dojo Positive Negative'},
+  {f:'clock-ticking-1.mp3',l:'Clock Ticking 1'},
+  {f:'clock-ticking-fast.mp3',l:'Clock Ticking Fast'},
+  {f:'clock_ticking_edited-2.mp3',l:'Clock Ticking Edited 2'},
+  {f:'clown-circus-music.mp3',l:'Clown Circus Music'},
+  {f:'cocomelon-intro.mp3',l:'Cocomelon Intro'},
+  {f:'coin-swiped-off-1.mp3',l:'Coin Swiped Off 1'},
+  {f:'college-rocbaron.mp3',l:'College Rocbaron'},
+  {f:'combat-sword-swing-hit.mp3',l:'Combat Sword Swing Hit'},
+  {f:'come-get-some-you-freaking-wuss-from-tf2.mp3',l:'Come Get Some You Freaking Wuss From T'},
+  {f:'comedy-new-style-2.mp3',l:'Comedy New Style 2'},
+  {f:'confetti-pop-sound-effect.mp3',l:'Confetti Pop Sound Effect'},
+  {f:'confetti-pop-sound.mp3',l:'Confetti Pop Sound'},
+  {f:'conversion_E5bEYlM.mp3',l:'Conversion E5Beylm'},
+  {f:'coqui.mp3',l:'Coqui'},
+  {f:'corneta-de-donofrio.mp3',l:'Corneta De Donofrio'},
+  {f:'correcto_Xgyp04B.mp3',l:'Correcto Xgyp04B'},
+  {f:'corte-rapido.mp3',l:'Corte Rapido'},
+  {f:'corykenshin-censor.mp3',l:'Corykenshin Censor'},
+  {f:'coryxkenshin-30-minutes-later.mp3',l:'Coryxkenshin 30 Minutes Later'},
+  {f:'coryxkenshin-yeager-slap-sound-effect.mp3',l:'Coryxkenshin Yeager Slap Sound Effect'},
+  {f:'coughingfish.mp3',l:'Coughingfish'},
+  {f:'cow-moo.mp3',l:'Cow Moo'},
+  {f:'cr7-siuu.mp3',l:'Cr7 Siuu'},
+  {f:'crazy-frog-axel-f-fart-remix.mp3',l:'Crazy Frog Axel F Fart Remix'},
+  {f:'crazy-realistic-knocking-sound-troll-twitch-streamers_small.mp3',l:'Crazy Realistic Knocking Sound Troll T'},
+  {f:'creaking-floor-door.mp3',l:'Creaking Floor Door'},
+  {f:'crew-cheers-applause.mp3',l:'Crew Cheers Applause'},
+  {f:'cricket-fx.mp3',l:'Cricket Fx'},
+  {f:'criminal-criminal-criminal-criminal.mp3',l:'Criminal Criminal Criminal Criminal'},
+  {f:'crowd-applause-cheer-small-group_tUQjCQt.mp3',l:'Crowd Applause Cheer Small Group Tuqjc'},
+  {f:'crowd-aww.mp3',l:'Crowd Aww'},
+  {f:'crowd-cheer-and-applause.mp3',l:'Crowd Cheer And Applause'},
+  {f:'crowd.mp3',l:'Crowd'},
+  {f:'crowd_small_chil_ec049202_9klCwI6.mp3',l:'Crowd Small Chil Ec049202 9Klcwi6'},
+  {f:'crying-baby-sound.mp3',l:'Crying Baby Sound'},
+  {f:'cs-go-bomb-has-been-defused.mp3',l:'Cs Go Bomb Has Been Defused'},
+  {f:'cs-go-bomb-has-been-planted.mp3',l:'Cs Go Bomb Has Been Planted'},
+  {f:'cs-go-deploying-flashbang.mp3',l:'Cs Go Deploying Flashbang'},
+  {f:'cs-go-smoke.mp3',l:'Cs Go Smoke'},
+  {f:'cupcake-siren.mp3',l:'Cupcake Siren'},
+  {f:'cupcakke-omegle-troll-sfx.mp3',l:'Cupcakke Omegle Troll Sfx'},
+  {f:'cute-girl-laughing-sound-effect.mp3',l:'Cute Girl Laughing Sound Effect'},
+  {f:'cute-uwu.mp3',l:'Cute Uwu'},
+  {f:'daddys-home.mp3',l:'Daddys Home'},
+  {f:'daddyy-chill.mp3',l:'Daddyy Chill'},
+  {f:'damian-singing-we-are-charlie-kirk.mp3',l:'Damian Singing We Are Charlie Kirk'},
+  {f:'danger-siren-alarm_BfknMds.mp3',l:'Danger Siren Alarm Bfknmds'},
+  {f:'dark-triad.mp3',l:'Dark Triad'},
+  {f:'darkest_follow_01_18M3jQq.mp3',l:'Darkest Follow 01 18M3Jqq'},
+  {f:'david-n-wordd.mp3',l:'David N Wordd'},
+  {f:'death-bong.mp3',l:'Death Bong'},
+  {f:'death-roman_k-1190383229_h0Q4tg3.mp3',l:'Death Roman K 1190383229 H0Q4Tg3'},
+  {f:'deathmuffin.mp3',l:'Deathmuffin'},
+  {f:'deltarune-intro-sound.mp3',l:'Deltarune Intro Sound'},
+  {f:'demonic-woman-scream.mp3',l:'Demonic Woman Scream'},
+  {f:'desert-eagle-mw2-2009-gunshot.mp3',l:'Desert Eagle Mw2 2009 Gunshot'},
+  {f:'despierte-senor-alex.mp3',l:'Despierte Senor Alex'},
+  {f:'df.mp3',l:'Df'},
+  {f:'diddy-done.mp3',l:'Diddy Done'},
+  {f:'dies-of-cringe.mp3',l:'Dies Of Cringe'},
+  {f:'ding-sound-effect_2.mp3',l:'Ding Sound Effect 2'},
+  {f:'ding-sound-effect_2_bICB0mr.mp3',l:'Ding Sound Effect 2 Bicb0Mr'},
+  {f:'disappear.mp3',l:'Disappear'},
+  {f:'discord-call-sound.mp3',l:'Discord Call Sound'},
+  {f:'discord-calling-sound.mp3',l:'Discord Calling Sound'},
+  {f:'discord-cute-plushie.mp3',l:'Discord Cute Plushie'},
+  {f:'discord-leave-noise.mp3',l:'Discord Leave Noise'},
+  {f:'discord-nofications.mp3',l:'Discord Nofications'},
+  {f:'discord-notification.mp3',l:'Discord Notification'},
+  {f:'disney-applause.mp3',l:'Disney Applause'},
+  {f:'dj-airhorn-sound-effect.mp3',l:'Dj Airhorn Sound Effect'},
+  {f:'dj-record-rewind-sound-effect.mp3',l:'Dj Record Rewind Sound Effect'},
+  {f:'dodge-seatbelt-chime.mp3',l:'Dodge Seatbelt Chime'},
+  {f:'dog-chattering-teeth.mp3',l:'Dog Chattering Teeth'},
+  {f:'dog-clicker_IygBqAk.mp3',l:'Dog Clicker Iygbqak'},
+  {f:'don-t-click.mp3',l:'Don T Click'},
+  {f:'dont_click_on_this.mp3',l:'Dont Click On This'},
+  {f:'door-close-soundbible.mp3',l:'Door Close Soundbible'},
+  {f:'door-crashing-open.mp3',l:'Door Crashing Open'},
+  {f:'door-knock-fx.mp3',l:'Door Knock Fx'},
+  {f:'door-knocking-very-realistic.mp3',l:'Door Knocking Very Realistic'},
+  {f:'door-slam.mp3',l:'Door Slam'},
+  {f:'door_EJ1ESwu.mp3',l:'Door Ej1Eswu'},
+  {f:'doors-figure-growl.mp3',l:'Doors Figure Growl'},
+  {f:'double-fart-shart.mp3',l:'Double Fart Shart'},
+  {f:'doug-walker-fast-clapping.mp3',l:'Doug Walker Fast Clapping'},
+  {f:'downer_noise.mp3',l:'Downer Noise'},
+  {f:'dr-reflex-hammer-hit.mp3',l:'Dr Reflex Hammer Hit'},
+  {f:'dragon-ball-punch.mp3',l:'Dragon Ball Punch'},
+  {f:'dragon-ball-z-body-falling-down-sound.mp3',l:'Dragon Ball Z Body Falling Down Sound'},
+  {f:'dragon-ball-z-grabbing-sound.mp3',l:'Dragon Ball Z Grabbing Sound'},
+  {f:'dragon-quest-level-up-modern.mp3',l:'Dragon Quest Level Up Modern'},
+  {f:'dramatic-intro-sound.mp3',l:'Dramatic Intro Sound'},
+  {f:'drinking-slurping.mp3',l:'Drinking Slurping'},
+  {f:'dropping-water.mp3',l:'Dropping Water'},
+  {f:'drumpapappa.mp3',l:'Drumpapappa'},
+  {f:'dry-fart.mp3',l:'Dry Fart'},
+  {f:'duck-sound-meme.mp3',l:'Duck Sound Meme'},
+  {f:'dun-dun-dun-sound-effect-brass_8nFBccR.mp3',l:'Dun Dun Dun Sound Effect Brass 8Nfbccr'},
+  {f:'duolingo-wrong-sound-effect.mp3',l:'Duolingo Wrong Sound Effect'},
+  {f:'eating-chips.mp3',l:'Eating Chips'},
+  {f:'eating-sound.mp3',l:'Eating Sound'},
+  {f:'ed-edd-n-eddy-yodel-sfx_qBlIxeF.mp3',l:'Ed Edd N Eddy Yodel Sfx Qblixef'},
+  {f:'eero.mp3',l:'Eero'},
+  {f:'ehc.mp3',l:'Ehc'},
+  {f:'ekh.mp3',l:'Ekh'},
+  {f:'electricity-sound.mp3',l:'Electricity Sound'},
+  {f:'elephant-green-screen-effect-full.mp3',l:'Elephant Green Screen Effect Full'},
+  {f:'elmas_iXPvK9w.mp3',l:'Elmas Ixpvk9W'},
+  {f:'emo-tonight.mp3',l:'Emo Tonight'},
+  {f:'en-tu-perra-vida-mm.mp3',l:'En Tu Perra Vida Mm'},
+  {f:'enemy-encounter-undertale.mp3',l:'Enemy Encounter Undertale'},
+  {f:'enmicalo-mm.mp3',l:'Enmicalo Mm'},
+  {f:'enrique.mp3',l:'Enrique'},
+  {f:'epic-outro.mp3',l:'Epic Outro'},
+  {f:'eric-andre-applause.mp3',l:'Eric Andre Applause'},
+  {f:'error-windows-xp.mp3',l:'Error Windows Xp'},
+  {f:'error_CDOxCYm.mp3',l:'Error Cdoxcym'},
+  {f:'espada-som.mp3',l:'Espada Som'},
+  {f:'espn-notification.mp3',l:'Espn Notification'},
+  {f:'eugh-fart.mp3',l:'Eugh Fart'},
+  {f:'everlasting-bass-boosted.mp3',l:'Everlasting Bass Boosted'},
+  {f:'evil-sounds-laugh.mp3',l:'Evil Sounds Laugh'},
+  {f:'ew-dude-wtf.mp3',l:'Ew Dude Wtf'},
+  {f:'ewww.mp3',l:'Ewww'},
+  {f:'explosion-sound-effect.mp3',l:'Explosion Sound Effect'},
+  {f:'explosion-sound.mp3',l:'Explosion Sound'},
+  {f:'explosion_1.mp3',l:'Explosion 1'},
+  {f:'extremely-wet-fart.mp3',l:'Extremely Wet Fart'},
+  {f:'eye-of-rah-sound-effect.mp3',l:'Eye Of Rah Sound Effect'},
+  {f:'eyvah-tufan-eyvah-bass-boosted.mp3',l:'Eyvah Tufan Eyvah Bass Boosted'},
+  {f:'f-ck-this-sh-t-im-out_TfWyqAI.mp3',l:'F Ck This Sh T Im Out Tfwyqai'},
+  {f:'faah-earrape-but-even-louder.mp3',l:'Faah Earrape But Even Louder'},
+  {f:'facetime-call.mp3',l:'Facetime Call'},
+  {f:'fahh-but-its-louder.mp3',l:'Fahh But Its Louder'},
+  {f:'fahhhh-2.mp3',l:'Fahhhh 2'},
+  {f:'fahhhhhh-earrape.mp3',l:'Fahhhhhh Earrape'},
+  {f:'fahhhhhhhh-earrape.mp3',l:'Fahhhhhhhh Earrape'},
+  {f:'fahhhhhhhhhhhhhh.mp3',l:'Fahhhhhhhhhhhhhh'},
+  {f:'fahhhhhhhhhhhhhhh.mp3',l:'Fahhhhhhhhhhhhhhh'},
+  {f:'fahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh.mp3',l:'Fahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh'},
+  {f:'fairy-dust-twinkle.mp3',l:'Fairy Dust Twinkle'},
+  {f:'fairy-twinkle.mp3',l:'Fairy Twinkle'},
+  {f:'fake.mp3',l:'Fake'},
+  {f:'family-feud-ding.mp3',l:'Family Feud Ding'},
+  {f:'family-feud-you-said.mp3',l:'Family Feud You Said'},
+  {f:'family-mart.mp3',l:'Family Mart'},
+  {f:'fanfaretrumpet.mp3',l:'Fanfaretrumpet'},
+  {f:'fanfaretrumpet_lsQx0vb.mp3',l:'Fanfaretrumpet Lsqx0Vb'},
+  {f:'fart-and-vomit-01.mp3',l:'Fart And Vomit 01'},
+  {f:'fart-meme-sound.mp3',l:'Fart Meme Sound'},
+  {f:'fart-sound-effect-big-bean-version.mp3',l:'Fart Sound Effect Big Bean Version'},
+  {f:'fart-with-extra-reverb.mp3',l:'Fart With Extra Reverb'},
+  {f:'fartmemereloaded.mp3',l:'Fartmemereloaded'},
+  {f:'fast-whoosh.mp3',l:'Fast Whoosh'},
+  {f:'favor-de-guardar-silencio-mm.mp3',l:'Favor De Guardar Silencio Mm'},
+  {f:'fawkk.mp3',l:'Fawkk'},
+  {f:'fear-and-hunger-enter-in-combat.mp3',l:'Fear And Hunger Enter In Combat'},
+  {f:'female-coughing.mp3',l:'Female Coughing'},
+  {f:'female-yes-sound-effect.mp3',l:'Female Yes Sound Effect'},
+  {f:'femur-breaker-second-scream.mp3',l:'Femur Breaker Second Scream'},
+  {f:'ff7_victory.mp3',l:'Ff7 Victory'},
+  {f:'film-roll-edit.mp3',l:'Film Roll Edit'},
+  {f:'final-fantasy-vii-victory-fanfare-1_dZiSUE7.mp3',l:'Final Fantasy Vii Victory Fanfare 1 Dz'},
+  {f:'find-my-iphone-sound.mp3',l:'Find My Iphone Sound'},
+  {f:'fire-alarm_frlER9H.mp3',l:'Fire Alarm Frler9H'},
+  {f:'fire-whoosh.mp3',l:'Fire Whoosh'},
+  {f:'five-nights-at-freddys-2-balloon-boy.mp3',l:'Five Nights At Freddys 2 Balloon Boy'},
+  {f:'flap-jack-scream.mp3',l:'Flap Jack Scream'},
+  {f:'flash-bang-sfx.mp3',l:'Flash Bang Sfx'},
+  {f:'flash-camera.mp3',l:'Flash Camera'},
+  {f:'flashbang-might-be-loud-who-knows.mp3',l:'Flashbang Might Be Loud Who Knows'},
+  {f:'flourish-emote-animal-crossing.mp3',l:'Flourish Emote Animal Crossing'},
+  {f:'fnaf-2-hallway-ambience.mp3',l:'Fnaf 2 Hallway Ambience'},
+  {f:'fnf-pico-gun-shot-sound.mp3',l:'Fnf Pico Gun Shot Sound'},
+  {f:'footstep-mario-64.mp3',l:'Footstep Mario 64'},
+  {f:'footstep-walking-sfx.mp3',l:'Footstep Walking Sfx'},
+  {f:'footsteps-on-grass.mp3',l:'Footsteps On Grass'},
+  {f:'footsteps-on-wood.mp3',l:'Footsteps On Wood'},
+  {f:'formula-1-box-box.mp3',l:'Formula 1 Box Box'},
+  {f:'formula-1-radio-notification.mp3',l:'Formula 1 Radio Notification'},
+  {f:'fornite-battle-pass-song-mp3.mp3',l:'Fornite Battle Pass Song Mp3'},
+  {f:'fortnite-error.mp3',l:'Fortnite Error'},
+  {f:'fortnite-slow.mp3',l:'Fortnite Slow'},
+  {f:'four-blinking.mp3',l:'Four Blinking'},
+  {f:'franklin-ringtone.mp3',l:'Franklin Ringtone'},
+  {f:'freakofly.mp3',l:'Freakofly'},
+  {f:'freakybob-sus.mp3',l:'Freakybob Sus'},
+  {f:'free-money-money.mp3',l:'Free Money Money'},
+  {f:'frog-croak.mp3',l:'Frog Croak'},
+  {f:'frutiger-aero-sound.mp3',l:'Frutiger Aero Sound'},
+  {f:'fuera-depresion-or.mp3',l:'Fuera Depresion Or'},
+  {f:'fullsizerender-3_M0c7Qdw.mp3',l:'Fullsizerender 3 M0C7Qdw'},
+  {f:'funkmaster-flex-bomb-sound-effect-from-youtube-by-offliberty.mp3',l:'Funkmaster Flex Bomb Sound Effect From'},
+  {f:'funny-sound-that-will-make-you-to-laugh_1.mp3',l:'Funny Sound That Will Make You To Laug'},
+  {f:'fuuuuh.mp3',l:'Fuuuuh'},
+  {f:'galaxy-meme.mp3',l:'Galaxy Meme'},
+  {f:'gangsta-grillz.mp3',l:'Gangsta Grillz'},
+  {f:'gangstar-torture-dance-jojos-golden-wind-ost-1.mp3',l:'Gangstar Torture Dance Jojos Golden Wi'},
+  {f:'garama-and-madundung-steal-a-brainrot.mp3',l:'Garama And Madundung Steal A Brainrot'},
+  {f:'gargaras-mm.mp3',l:'Gargaras Mm'},
+  {f:'gary_meow.mp3',l:'Gary Meow'},
+  {f:'gaspp.mp3',l:'Gaspp'},
+  {f:'gaster-mp4.mp3',l:'Gaster Mp4'},
+  {f:'gaster-vanish-noise.mp3',l:'Gaster Vanish Noise'},
+  {f:'gavel.mp3',l:'Gavel'},
+  {f:'gawd-damn.mp3',l:'Gawd Damn'},
+  {f:'gawk-gawk-gawk.mp3',l:'Gawk Gawk Gawk'},
+  {f:'gawr-gura-a.mp3',l:'Gawr Gura A'},
+  {f:'gay-car.mp3',l:'Gay Car'},
+  {f:'geez.mp3',l:'Geez'},
+  {f:'generic-ka-ching.mp3',l:'Generic Ka Ching'},
+  {f:'get-comfy.mp3',l:'Get Comfy'},
+  {f:'ghetto-smosh-ahh.mp3',l:'Ghetto Smosh Ahh'},
+  {f:'giberrish-fast-talking-on-phone-cartoon.mp3',l:'Giberrish Fast Talking On Phone Cartoo'},
+  {f:'giggity.mp3',l:'Giggity'},
+  {f:'glass-breaking-sound-effect_wLZSIYn.mp3',l:'Glass Breaking Sound Effect Wlzsiyn'},
+  {f:'glitch_1.mp3',l:'Glitch 1'},
+  {f:'glitch_3.mp3',l:'Glitch 3'},
+  {f:'glock-19-shot-sound.mp3',l:'Glock 19 Shot Sound'},
+  {f:'goanimate-scary.mp3',l:'Goanimate Scary'},
+  {f:'god-is-here.mp3',l:'God Is Here'},
+  {f:'golfinho_OiGbTin.mp3',l:'Golfinho Oigbtin'},
+  {f:'golpe-cara.mp3',l:'Golpe Cara'},
+  {f:'good-job_d15pHHg.mp3',l:'Good Job D15Phhg'},
+  {f:'goofy-ahh-burp.mp3',l:'Goofy Ahh Burp'},
+  {f:'goofy-slip.mp3',l:'Goofy Slip'},
+  {f:'goofy-spring-sound.mp3',l:'Goofy Spring Sound'},
+  {f:'google-chat-notification-sound.mp3',l:'Google Chat Notification Sound'},
+  {f:'google-translate-gnarly.mp3',l:'Google Translate Gnarly'},
+  {f:'google-wallet-payment-successful.mp3',l:'Google Wallet Payment Successful'},
+  {f:'gopgopgop.mp3',l:'Gopgopgop'},
+  {f:'gorilla-tag-ghst.mp3',l:'Gorilla Tag Ghst'},
+  {f:'gorilla-tag-juke.mp3',l:'Gorilla Tag Juke'},
+  {f:'gosh-dang.mp3',l:'Gosh Dang'},
+  {f:'got-a-follow.mp3',l:'Got A Follow'},
+  {f:'gotem-sound-effect.mp3',l:'Gotem Sound Effect'},
+  {f:'gozyuger-no-1-battle-lady-go.mp3',l:'Gozyuger No 1 Battle Lady Go'},
+  {f:'granny-horror.mp3',l:'Granny Horror'},
+  {f:'green-fn.mp3',l:'Green Fn'},
+  {f:'green-giant-instant.mp3',l:'Green Giant Instant'},
+  {f:'green-giant-no-ho-ho-ho.mp3',l:'Green Giant No Ho Ho Ho'},
+  {f:'greetings-emote-animal-crossing.mp3',l:'Greetings Emote Animal Crossing'},
+  {f:'grito-mexicano.mp3',l:'Grito Mexicano'},
+  {f:'groan-tube-1_kdDdtlv.mp3',l:'Groan Tube 1 Kdddtlv'},
+  {f:'groan-tube-2_xK05nvu.mp3',l:'Groan Tube 2 Xk05Nvu'},
+  {f:'grow-a-garden.mp3',l:'Grow A Garden'},
+  {f:'gruesome-sound.mp3',l:'Gruesome Sound'},
+  {f:'gta-pick-up.mp3',l:'Gta Pick Up'},
+  {f:'guess-what-chicken-butt.mp3',l:'Guess What Chicken Butt'},
+  {f:'guest-1337-forsaken.mp3',l:'Guest 1337 Forsaken'},
+  {f:'gun-shoot-ans-reload.mp3',l:'Gun Shoot Ans Reload'},
+  {f:'gun-shooting-sound-effect.mp3',l:'Gun Shooting Sound Effect'},
+  {f:'gun-shots.mp3',l:'Gun Shots'},
+  {f:'gunshot-meme.mp3',l:'Gunshot Meme'},
+  {f:'gunshot-one.mp3',l:'Gunshot One'},
+  {f:'guy-dunking-basketball-on-ice-skates-meme.mp3',l:'Guy Dunking Basketball On Ice Skates M'},
+  {f:'hahaha-rblx-se.mp3',l:'Hahaha Rblx Se'},
+  {f:'haki_kEI6CU4.mp3',l:'Haki Kei6Cu4'},
+  {f:'half-life-2-death-and-ragdoll.mp3',l:'Half Life 2 Death And Ragdoll'},
+  {f:'half-life-2-stalker-scream.mp3',l:'Half Life 2 Stalker Scream'},
+  {f:'half-life-vox-announcer-saying-danger.mp3',l:'Half Life Vox Announcer Saying Danger'},
+  {f:'half-life-vox-announcer-saying-warning_xC5zvUp.mp3',l:'Half Life Vox Announcer Saying Warning'},
+  {f:'halloween-impact.mp3',l:'Halloween Impact'},
+  {f:'happys-sound.mp3',l:'Happys Sound'},
+  {f:'harikitte-ikou.mp3',l:'Harikitte Ikou'},
+  {f:'harken-enraged-transition.mp3',l:'Harken Enraged Transition'},
+  {f:'havali-korna.mp3',l:'Havali Korna'},
+  {f:'heartbeat-fast.mp3',l:'Heartbeat Fast'},
+  {f:'heartbeat.mp3',l:'Heartbeat'},
+  {f:'heavenly-music-gaming-sound-effect-hd-mp3cut.mp3',l:'Heavenly Music Gaming Sound Effect Hd '},
+  {f:'heavy-footsteps-1.mp3',l:'Heavy Footsteps 1'},
+  {f:'hehehehaw-clash-of-clans.mp3',l:'Hehehehaw Clash Of Clans'},
+  {f:'henrys-whistle.mp3',l:'Henrys Whistle'},
+  {f:'hey-bro-watch-your-jet.mp3',l:'Hey Bro Watch Your Jet'},
+  {f:'hey-chant_rWrZfMh.mp3',l:'Hey Chant Rwrzfmh'},
+  {f:'hey-you-baldy.mp3',l:'Hey You Baldy'},
+  {f:'high-honor-rdr2.mp3',l:'High Honor Rdr2'},
+  {f:'hiii-roblox.mp3',l:'Hiii Roblox'},
+  {f:'hindi-totoo-yan-babalu.mp3',l:'Hindi Totoo Yan Babalu'},
+  {f:'hitsound_2.mp3',l:'Hitsound 2'},
+  {f:'hog-rider-epico.mp3',l:'Hog Rider Epico'},
+  {f:'hohoho-gangsterizm.mp3',l:'Hohoho Gangsterizm'},
+  {f:'homelander-stressed.mp3',l:'Homelander Stressed'},
+  {f:'homer-scream-short.mp3',l:'Homer Scream Short'},
+  {f:'homer-simpson-i-am-invincible.mp3',l:'Homer Simpson I Am Invincible'},
+  {f:'hooty-loud-hoot.mp3',l:'Hooty Loud Hoot'},
+  {f:'horror-stinger.mp3',l:'Horror Stinger'},
+  {f:'host-military-series.mp3',l:'Host Military Series'},
+  {f:'hotelmario_creepybowserlaugh.mp3',l:'Hotelmario Creepybowserlaugh'},
+  {f:'hover-sound-effect.mp3',l:'Hover Sound Effect'},
+  {f:'hoy-yung-mga-barkada-mo.mp3',l:'Hoy Yung Mga Barkada Mo'},
+  {f:'hub-intro-sound.mp3',l:'Hub Intro Sound'},
+  {f:'hug0xel-cute-intro.mp3',l:'Hug0Xel Cute Intro'},
+  {f:'huggy-wuggy-jumpscare.mp3',l:'Huggy Wuggy Jumpscare'},
+  {f:'huh-cat.mp3',l:'Huh Cat'},
+  {f:'huh_37bAoRo.mp3',l:'Huh 37Baoro'},
+  {f:'i-am-going-to-commit-great-crime.mp3',l:'I Am Going To Commit Great Crime'},
+  {f:'i-farted.mp3',l:'I Farted'},
+  {f:'i-said-shut-up.mp3',l:'I Said Shut Up'},
+  {f:'ia-rodilsia_hGybxEB.mp3',l:'Ia Rodilsia Hgybxeb'},
+  {f:'ian-original-screaming-memes.mp3',l:'Ian Original Screaming Memes'},
+  {f:'iandeks-taksi-dobro-pozhalovat.mp3',l:'Iandeks Taksi Dobro Pozhalovat'},
+  {f:'iandeks-taksi-marshrut-postroen.mp3',l:'Iandeks Taksi Marshrut Postroen'},
+  {f:'ice-barrage1.mp3',l:'Ice Barrage1'},
+  {f:'ichigo-bankai-screaming-reeeeeeeeeeeee.mp3',l:'Ichigo Bankai Screaming Reeeeeeeeeeeee'},
+  {f:'icq-uh-oh.mp3',l:'Icq Uh Oh'},
+  {f:'ideia-plim.mp3',l:'Ideia Plim'},
+  {f:'idk-what-is-this-low-battery-device-sound.mp3',l:'Idk What Is This Low Battery Device So'},
+  {f:'ih-takotnyee.mp3',l:'Ih Takotnyee'},
+  {f:'im-bout-to-cuhhh.mp3',l:'Im Bout To Cuhhh'},
+  {f:'im-bout-to-cuhhhh.mp3',l:'Im Bout To Cuhhhh'},
+  {f:'im-gonna-break-my-monitor-i-swear-audiotrimmer.mp3',l:'Im Gonna Break My Monitor I Swear Audi'},
+  {f:'im-joking-stop-stop.mp3',l:'Im Joking Stop Stop'},
+  {f:'im-new-bro.mp3',l:'Im New Bro'},
+  {f:'impact_explosion_03_UhRGks5.mp3',l:'Impact Explosion 03 Uhrgks5'},
+  {f:'indian-ringtone-mp3.mp3',l:'Indian Ringtone Mp3'},
+  {f:'insert-cash-or-select-payment-type.mp3',l:'Insert Cash Or Select Payment Type'},
+  {f:'intro-family-feud.mp3',l:'Intro Family Feud'},
+  {f:'iphone-apple-pay.mp3',l:'Iphone Apple Pay'},
+  {f:'iphone-apple-store-sound.mp3',l:'Iphone Apple Store Sound'},
+  {f:'iphone-camera-shutter-fast.mp3',l:'Iphone Camera Shutter Fast'},
+  {f:'iphone-glass.mp3',l:'Iphone Glass'},
+  {f:'iphone-reflection-ringtone.mp3',l:'Iphone Reflection Ringtone'},
+  {f:'isagis-direct-shot.mp3',l:'Isagis Direct Shot'},
+  {f:'its-obunga.mp3',l:'Its Obunga'},
+  {f:'ive-got-this-faaaaaaaaahhhhh.mp3',l:'Ive Got This Faaaaaaaaahhhhh'},
+  {f:'iya-iyaya-aya-aya.mp3',l:'Iya Iyaya Aya Aya'},
+  {f:'jack-black.mp3',l:'Jack Black'},
+  {f:'japanese-eas-alarm.mp3',l:'Japanese Eas Alarm'},
+  {f:'je-vais-te-toucher-la-nuit.mp3',l:'Je Vais Te Toucher La Nuit'},
+  {f:'jeffrey-epstein-song.mp3',l:'Jeffrey Epstein Song'},
+  {f:'jembut-kecelup-santen.mp3',l:'Jembut Kecelup Santen'},
+  {f:'jet-fly-by_mixdown.mp3',l:'Jet Fly By Mixdown'},
+  {f:'jhayco-y-anuel.mp3',l:'Jhayco Y Anuel'},
+  {f:'jimbo-voice-balatro.mp3',l:'Jimbo Voice Balatro'},
+  {f:'jixaw-metal-pipe-falling-sound.mp3',l:'Jixaw Metal Pipe Falling Sound'},
+  {f:'jojo-punch.mp3',l:'Jojo Punch'},
+  {f:'joy-emote-animal-crossing.mp3',l:'Joy Emote Animal Crossing'},
+  {f:'jump-boing.mp3',l:'Jump Boing'},
+  {f:'jumping-you.mp3',l:'Jumping You'},
+  {f:'kaching-sound-fx.mp3',l:'Kaching Sound Fx'},
+  {f:'kamen-rider-zero-one-authorize.mp3',l:'Kamen Rider Zero One Authorize'},
+  {f:'kane-slow-chemical-meme-sound-effect-button.mp3',l:'Kane Slow Chemical Meme Sound Effect B'},
+  {f:'karisik-sesler-havali-korna-sesi-1.mp3',l:'Karisik Sesler Havali Korna Sesi 1'},
+  {f:'karisik-sesler-havali-korna-sesi-2.mp3',l:'Karisik Sesler Havali Korna Sesi 2'},
+  {f:'kastamonu-sarmisak.mp3',l:'Kastamonu Sarmisak'},
+  {f:'keyboard-clackin.mp3',l:'Keyboard Clackin'},
+  {f:'keyboard-typing-2341523.mp3',l:'Keyboard Typing 2341523'},
+  {f:'kid-crash-out-in-steal-a-brainrot.mp3',l:'Kid Crash Out In Steal A Brainrot'},
+  {f:'kid-screaming-sound.mp3',l:'Kid Screaming Sound'},
+  {f:'kill-tony-meow.mp3',l:'Kill Tony Meow'},
+  {f:'killsoundpreview.mp3',l:'Killsoundpreview'},
+  {f:'kim-possible-ringtone.mp3',l:'Kim Possible Ringtone'},
+  {f:'kislotaaa.mp3',l:'Kislotaaa'},
+  {f:'kitten-meowing-sound-effect.mp3',l:'Kitten Meowing Sound Effect'},
+  {f:'knife-pressure-zone.mp3',l:'Knife Pressure Zone'},
+  {f:'knocking-on-wall-four-knocks-moderate-www.mp3',l:'Knocking On Wall Four Knocks Moderate '},
+  {f:'konkonse.mp3',l:'Konkonse'},
+  {f:'kritter.mp3',l:'Kritter'},
+  {f:'ktnbotp.mp3',l:'Ktnbotp'},
+  {f:'kushai-finiki-zvuk.mp3',l:'Kushai Finiki Zvuk'},
+  {f:'lamborghini-revving.mp3',l:'Lamborghini Revving'},
+  {f:'laser-beam-charge-and-shoot.mp3',l:'Laser Beam Charge And Shoot'},
+  {f:'lato-lato.mp3',l:'Lato Lato'},
+  {f:'laughing-people-jp.mp3',l:'Laughing People Jp'},
+  {f:'laughter-hahahahahaahahahah-funnyy.mp3',l:'Laughter Hahahahahaahahahah Funnyy'},
+  {f:'launch-game-nintendo-switch.mp3',l:'Launch Game Nintendo Switch'},
+  {f:'lawandorder.mp3',l:'Lawandorder'},
+  {f:'leappad-2-shutdown-sound.mp3',l:'Leappad 2 Shutdown Sound'},
+  {f:'lebron.mp3',l:'Lebron'},
+  {f:'life_is_strange.mp3',l:'Life Is Strange'},
+  {f:'lightning-strike.mp3',l:'Lightning Strike'},
+  {f:'lights-sound-effect.mp3',l:'Lights Sound Effect'},
+  {f:'lightsaber-clash-04.mp3',l:'Lightsaber Clash 04'},
+  {f:'lightsaber-glitch-03.mp3',l:'Lightsaber Glitch 03'},
+  {f:'lightsaber-off.mp3',l:'Lightsaber Off'},
+  {f:'lil-john-long-yeah.mp3',l:'Lil John Long Yeah'},
+  {f:'lil-jon-ok-audiotrimmer.mp3',l:'Lil Jon Ok Audiotrimmer'},
+  {f:'linia_raw_style.mp3',l:'Linia Raw Style'},
+  {f:'lion-roaring-01_RiOW7ew.mp3',l:'Lion Roaring 01 Riow7Ew'},
+  {f:'lion-scan.mp3',l:'Lion Scan'},
+  {f:'listen-navi.mp3',l:'Listen Navi'},
+  {f:'liu-kang-kick.mp3',l:'Liu Kang Kick'},
+  {f:'lizzard-1.mp3',l:'Lizzard 1'},
+  {f:'llego-la-hora-de-partir.mp3',l:'Llego La Hora De Partir'},
+  {f:'loading-lost-connection-green-screen-with-sound-effect-2_K8HORkT.mp3',l:'Loading Lost Connection Green Screen W'},
+  {f:'lol_Y2sNpB7.mp3',l:'Lol Y2Snpb7'},
+  {f:'look-behind-you-gorilla-tag.mp3',l:'Look Behind You Gorilla Tag'},
+  {f:'look-how-loud-i-have-to-yell.mp3',l:'Look How Loud I Have To Yell'},
+  {f:'lord-have-mercy-im-bout-to-bust_NMRBSTI.mp3',l:'Lord Have Mercy Im Bout To Bust Nmrbst'},
+  {f:'loud-bone-crack.mp3',l:'Loud Bone Crack'},
+  {f:'loud-burp-mp67.mp3',l:'Loud Burp Mp67'},
+  {f:'loud-explosion.mp3',l:'Loud Explosion'},
+  {f:'loud-glitch.mp3',l:'Loud Glitch'},
+  {f:'loud-gunshot.mp3',l:'Loud Gunshot'},
+  {f:'loudest-alarm-ever-made.mp3',l:'Loudest Alarm Ever Made'},
+  {f:'low-honor-rdr-2.mp3',l:'Low Honor Rdr 2'},
+  {f:'lqbyozdog5iqv7chd5oocxnizxvmzbqucsbc0uwl.mp3',l:'Lqbyozdog5Iqv7Chd5Oocxnizxvmzbqucsbc0U'},
+  {f:'lucu-viral.mp3',l:'Lucu Viral'},
+  {f:'m16-burst-shot-long-interior.mp3',l:'M16 Burst Shot Long Interior'},
+  {f:'mac-quack.mp3',l:'Mac Quack'},
+  {f:'macos-wild-eep.mp3',l:'Macos Wild Eep'},
+  {f:'magic-fairy.mp3',l:'Magic Fairy'},
+  {f:'magical-burst.mp3',l:'Magical Burst'},
+  {f:'mamamarrano-mm.mp3',l:'Mamamarrano Mm'},
+  {f:'mamma-mia_caQRETK.mp3',l:'Mamma Mia Caqretk'},
+  {f:'mammott-bom.mp3',l:'Mammott Bom'},
+  {f:'man-screaming-aaaah.mp3',l:'Man Screaming Aaaah'},
+  {f:'man-shut-your-flashbang.mp3',l:'Man Shut Your Flashbang'},
+  {f:'man-snoring-meme_ctrllNn.mp3',l:'Man Snoring Meme Ctrllnn'},
+  {f:'manana-multimedios.mp3',l:'Manana Multimedios'},
+  {f:'maro-jump-sound-effect_1.mp3',l:'Maro Jump Sound Effect 1'},
+  {f:'meanwhile_kJdq4c6.mp3',l:'Meanwhile Kjdq4C6'},
+  {f:'medical-emergency.mp3',l:'Medical Emergency'},
+  {f:'mediumkick.mp3',l:'Mediumkick'},
+  {f:'mellstroy-ekh-ty-suka.mp3',l:'Mellstroy Ekh Ty Suka'},
+  {f:'meme-alarm-loud.mp3',l:'Meme Alarm Loud'},
+  {f:'meme-click.mp3',l:'Meme Click'},
+  {f:'menards.mp3',l:'Menards'},
+  {f:'meow-1.mp3',l:'Meow 1'},
+  {f:'meowrgh.mp3',l:'Meowrgh'},
+  {f:'mephonex-new.mp3',l:'Mephonex New'},
+  {f:'mesg-ting.mp3',l:'Mesg Ting'},
+  {f:'metal-gear-alert-sound-effect_XKoHReZ.mp3',l:'Metal Gear Alert Sound Effect Xkohrez'},
+  {f:'metal-gear-item-drop.mp3',l:'Metal Gear Item Drop'},
+  {f:'metal-pipe-clang.mp3',l:'Metal Pipe Clang'},
+  {f:'metal-pipe-falling-sound-effect.mp3',l:'Metal Pipe Falling Sound Effect'},
+  {f:'metal-sonic-wedlewa_1mkgoNM.mp3',l:'Metal Sonic Wedlewa 1Mkgonm'},
+  {f:'mexican-radio.mp3',l:'Mexican Radio'},
+  {f:'michael-myers-noise.mp3',l:'Michael Myers Noise'},
+  {f:'micheal-jackson-rizz.mp3',l:'Micheal Jackson Rizz'},
+  {f:'micheal-myers.mp3',l:'Micheal Myers'},
+  {f:'microsoft-windows-98-startup-soundmp3_160k.mp3',l:'Microsoft Windows 98 Startup Soundmp3 '},
+  {f:'microwave-loud.mp3',l:'Microwave Loud'},
+  {f:'mike-tomlin-we-do-not-care-trim.mp3',l:'Mike Tomlin We Do Not Care Trim'},
+  {f:'mileena-scream.mp3',l:'Mileena Scream'},
+  {f:'minecraft-click-cropped.mp3',l:'Minecraft Click Cropped'},
+  {f:'minecraft-drop-block-sound-effect.mp3',l:'Minecraft Drop Block Sound Effect'},
+  {f:'minecraft-explosion-meme-sound-effect.mp3',l:'Minecraft Explosion Meme Sound Effect'},
+  {f:'minecraft-firework.mp3',l:'Minecraft Firework'},
+  {f:'minecraft-hurt_kg1jeLX.mp3',l:'Minecraft Hurt Kg1Jelx'},
+  {f:'minecraft_click.mp3',l:'Minecraft Click'},
+  {f:'minigun-gunshot.mp3',l:'Minigun Gunshot'},
+  {f:'minuta-poshla_LeSDguC.mp3',l:'Minuta Poshla Lesdguc'},
+  {f:'miss-sound.mp3',l:'Miss Sound'},
+  {f:'mistah-phone.mp3',l:'Mistah Phone'},
+  {f:'mk-evil-laugh.mp3',l:'Mk Evil Laugh'},
+  {f:'mlg-airhorn.mp3',l:'Mlg Airhorn'},
+  {f:'mlg-horns-sound-effect.mp3',l:'Mlg Horns Sound Effect'},
+  {f:'mm2-chooseing-roles.mp3',l:'Mm2 Chooseing Roles'},
+  {f:'mm2-hit-shooting.mp3',l:'Mm2 Hit Shooting'},
+  {f:'mm2-killing-stab.mp3',l:'Mm2 Killing Stab'},
+  {f:'mm2-shooting-fire.mp3',l:'Mm2 Shooting Fire'},
+  {f:'mmm-6.mp3',l:'Mmm 6'},
+  {f:'mobile-phone-vibration.mp3',l:'Mobile Phone Vibration'},
+  {f:'mocor-os-keypad-sound.mp3',l:'Mocor Os Keypad Sound'},
+  {f:'moes-horn-honk-a-regect.mp3',l:'Moes Horn Honk A Regect'},
+  {f:'money-soundfx.mp3',l:'Money Soundfx'},
+  {f:'monster-laugh.mp3',l:'Monster Laugh'},
+  {f:'morning-xylophone.mp3',l:'Morning Xylophone'},
+  {f:'morse-code-dat.mp3',l:'Morse Code Dat'},
+  {f:'morse-code-dit.mp3',l:'Morse Code Dit'},
+  {f:'mortal-kombat-arcade-insert-credit.mp3',l:'Mortal Kombat Arcade Insert Credit'},
+  {f:'moto-acelerando_qthCaHv.mp3',l:'Moto Acelerando Qthcahv'},
+  {f:'motorola-droid-droid-sound.mp3',l:'Motorola Droid Droid Sound'},
+  {f:'mouse-click-sound.mp3',l:'Mouse Click Sound'},
+  {f:'mouse-click_gt1reD8.mp3',l:'Mouse Click Gt1Red8'},
+  {f:'mouse-clicking-1.mp3',l:'Mouse Clicking 1'},
+  {f:'mr-beast-phonk-meme-mp3.mp3',l:'Mr Beast Phonk Meme Mp3'},
+  {f:'ms-teams-notification.mp3',l:'Ms Teams Notification'},
+  {f:'ms-teams-reconnecting.mp3',l:'Ms Teams Reconnecting'},
+  {f:'muda_muda_muda_sound_effect.mp3',l:'Muda Muda Muda Sound Effect'},
+  {f:'muhehehehe.mp3',l:'Muhehehehe'},
+  {f:'murderous-siren-head.mp3',l:'Murderous Siren Head'},
+  {f:'mwahahaha.mp3',l:'Mwahahaha'},
+  {f:'my-mom-is-kinda-fahhh.mp3',l:'My Mom Is Kinda Fahhh'},
+  {f:'my-money-dont-jiggle-jiggle.mp3',l:'My Money Dont Jiggle Jiggle'},
+  {f:'my-song-33.mp3',l:'My Song 33'},
+  {f:'my-toes.mp3',l:'My Toes'},
+  {f:'nah-dont-push-this-buttooooon-naaaaaaaaaoooooo.mp3',l:'Nah Dont Push This Buttooooon Naaaaaaa'},
+  {f:'nah-jit-t.mp3',l:'Nah Jit T'},
+  {f:'naruto-shadow-clone-jutsu-free-sound-effect.mp3',l:'Naruto Shadow Clone Jutsu Free Sound E'},
+  {f:'neck-crack-sound-effect-free-download.mp3',l:'Neck Crack Sound Effect Free Download'},
+  {f:'neckhurt-8.mp3',l:'Neckhurt 8'},
+  {f:'necksnap1-online-audio-converter_dkqeOVV.mp3',l:'Necksnap1 Online Audio Converter Dkqeo'},
+  {f:'nelvana-stomach-growl.mp3',l:'Nelvana Stomach Growl'},
+  {f:'nerrrrrdddddd.mp3',l:'Nerrrrrdddddd'},
+  {f:'new-douche.mp3',l:'New Douche'},
+  {f:'new-follower_62zQLKz.mp3',l:'New Follower 62Zqlkz'},
+  {f:'new-ford-chime.mp3',l:'New Ford Chime'},
+  {f:'new-leaf-alert.mp3',l:'New Leaf Alert'},
+  {f:'news_intro-maximilien_-1801238420_2.mp3',l:'News Intro Maximilien 1801238420 2'},
+  {f:'ngakak-laugh-annoying.mp3',l:'Ngakak Laugh Annoying'},
+  {f:'nha-pou.mp3',l:'Nha Pou'},
+  {f:'ni-odna-mraz.mp3',l:'Ni Odna Mraz'},
+  {f:'nickelodeon-crowd.mp3',l:'Nickelodeon Crowd'},
+  {f:'no-calebcity.mp3',l:'No Calebcity'},
+  {f:'no-es-momento-mm.mp3',l:'No Es Momento Mm'},
+  {f:'noedolekcin-noboli-blood-splat-logo-666.mp3',l:'Noedolekcin Noboli Blood Splat Logo 66'},
+  {f:'noise-from-old-tv.mp3',l:'Noise From Old Tv'},
+  {f:'nokia-7210-startup.mp3',l:'Nokia 7210 Startup'},
+  {f:'nokia-tune-guitar.mp3',l:'Nokia Tune Guitar'},
+  {f:'noliful-kill-dod.mp3',l:'Noliful Kill Dod'},
+  {f:'noliful-placement-dod.mp3',l:'Noliful Placement Dod'},
+  {f:'noliful-store-dod.mp3',l:'Noliful Store Dod'},
+  {f:'nombre-chapulin-mm.mp3',l:'Nombre Chapulin Mm'},
+  {f:'nooo-god-0.mp3',l:'Nooo God 0'},
+  {f:'normal-mode-black-sprunki.mp3',l:'Normal Mode Black Sprunki'},
+  {f:'normal-skibidi-toilet.mp3',l:'Normal Skibidi Toilet'},
+  {f:'notepad.mp3',l:'Notepad'},
+  {f:'nothing-there-goodbye-lobotomy-corporation.mp3',l:'Nothing There Goodbye Lobotomy Corpora'},
+  {f:'nuclear-diarrhea.mp3',l:'Nuclear Diarrhea'},
+  {f:'nuke-radio.mp3',l:'Nuke Radio'},
+  {f:'nullglitch.mp3',l:'Nullglitch'},
+  {f:'numberblocks-band-3.mp3',l:'Numberblocks Band 3'},
+  {f:'numberblocks-band-4.mp3',l:'Numberblocks Band 4'},
+  {f:'obi-wan-hello-there.mp3',l:'Obi Wan Hello There'},
+  {f:'obi-wan_says_hello_thereyoutubetomp4.mp3',l:'Obi Wan Says Hello Thereyoutubetomp4'},
+  {f:'obiwan-discord.mp3',l:'Obiwan Discord'},
+  {f:'oh-hell-nahhhhhhhhhhhhhhhhhhhhhhh.mp3',l:'Oh Hell Nahhhhhhhhhhhhhhhhhhhhhhh'},
+  {f:'oh-hell-naw-man-wtf-man.mp3',l:'Oh Hell Naw Man Wtf Man'},
+  {f:'oh-my-pccccccccccccc.mp3',l:'Oh My Pccccccccccccc'},
+  {f:'oh-tuff.mp3',l:'Oh Tuff'},
+  {f:'oh-yeah-vector-r6.mp3',l:'Oh Yeah Vector R6'},
+  {f:'oh_my.mp3',l:'Oh My'},
+  {f:'ohhhhhh-supa-hot-fire.mp3',l:'Ohhhhhh Supa Hot Fire'},
+  {f:'okay-lets-go_buBmJye.mp3',l:'Okay Lets Go Bubmjye'},
+  {f:'old-church-bells-death.mp3',l:'Old Church Bells Death'},
+  {f:'old-roblox-glass-break-sound.mp3',l:'Old Roblox Glass Break Sound'},
+  {f:'old-roblox-kid-saying-ouch-sound.mp3',l:'Old Roblox Kid Saying Ouch Sound'},
+  {f:'old-roblox-pinball-gun-sound.mp3',l:'Old Roblox Pinball Gun Sound'},
+  {f:'old-tv-beep.mp3',l:'Old Tv Beep'},
+  {f:'ominous-bell.mp3',l:'Ominous Bell'},
+  {f:'omnitrix-ativado.mp3',l:'Omnitrix Ativado'},
+  {f:'omnitrix-power-down.mp3',l:'Omnitrix Power Down'},
+  {f:'omnitrix-transform.mp3',l:'Omnitrix Transform'},
+  {f:'once-upon-a-time-opening-title-sequence-hd.mp3',l:'Once Upon A Time Opening Title Sequenc'},
+  {f:'only-if-you-want-to-feel-better_SoRnRY9.mp3',l:'Only If You Want To Feel Better Sornry'},
+  {f:'oooo-crowd-sound.mp3',l:'Oooo Crowd Sound'},
+  {f:'original-fah.mp3',l:'Original Fah'},
+  {f:'otkroi-bazu-i-verni-mne-brr-brr-patapima.mp3',l:'Otkroi Bazu I Verni Mne Brr Brr Patapi'},
+  {f:'oven-ding.mp3',l:'Oven Ding'},
+  {f:'packgod-loud-nlg.mp3',l:'Packgod Loud Nlg'},
+  {f:'packgod-packing.mp3',l:'Packgod Packing'},
+  {f:'pancake-song.mp3',l:'Pancake Song'},
+  {f:'panic-suspense.mp3',l:'Panic Suspense'},
+  {f:'partyblower.mp3',l:'Partyblower'},
+  {f:'patrick-valeu-amigo.mp3',l:'Patrick Valeu Amigo'},
+  {f:'paytm.mp3',l:'Paytm'},
+  {f:'pbbv-sound-for-trolling.mp3',l:'Pbbv Sound For Trolling'},
+  {f:'pbs-kids-logo.mp3',l:'Pbs Kids Logo'},
+  {f:'pedro-song.mp3',l:'Pedro Song'},
+  {f:'pep-rally.mp3',l:'Pep Rally'},
+  {f:'perdezh-puk-puk.mp3',l:'Perdezh Puk Puk'},
+  {f:'perfect-fart.mp3',l:'Perfect Fart'},
+  {f:'perro-tiembla.mp3',l:'Perro Tiembla'},
+  {f:'peter-griffin-falls.mp3',l:'Peter Griffin Falls'},
+  {f:'philippine-national-police-manual-siren.mp3',l:'Philippine National Police Manual Sire'},
+  {f:'phone-ringtone-meme.mp3',l:'Phone Ringtone Meme'},
+  {f:'piano-riff.mp3',l:'Piano Riff'},
+  {f:'piano_man_1.mp3',l:'Piano Man 1'},
+  {f:'pika-step-extreme-bass-boost-2m-db.mp3',l:'Pika Step Extreme Bass Boost 2M Db'},
+  {f:'ping_missing.mp3',l:'Ping Missing'},
+  {f:'pistol-shot.mp3',l:'Pistol Shot'},
+  {f:'pistol-sound-effect_zejYI9w.mp3',l:'Pistol Sound Effect Zejyi9W'},
+  {f:'piuw.mp3',l:'Piuw'},
+  {f:'pizza-tower-noise-scream.mp3',l:'Pizza Tower Noise Scream'},
+  {f:'pizza-tower-super-taunt.mp3',l:'Pizza Tower Super Taunt'},
+  {f:'plane-ringtonesdownloads.mp3',l:'Plane Ringtonesdownloads'},
+  {f:'plane-ringtonesdownloads_rMMOCJq.mp3',l:'Plane Ringtonesdownloads Rmmocjq'},
+  {f:'playstation-4-beep.mp3',l:'Playstation 4 Beep'},
+  {f:'pluh.mp3',l:'Pluh'},
+  {f:'pokemon-a-button.mp3',l:'Pokemon A Button'},
+  {f:'pokemon-red_blue_yellow-run-away-sound-effect-1.mp3',l:'Pokemon Red Blue Yellow Run Away Sound'},
+  {f:'police-beep.mp3',l:'Police Beep'},
+  {f:'police-car.mp3',l:'Police Car'},
+  {f:'police-radio-click.mp3',l:'Police Radio Click'},
+  {f:'police-yelp-siren.mp3',l:'Police Yelp Siren'},
+  {f:'ponos_cld1odf.mp3',l:'Ponos Cld1Odf'},
+  {f:'ponte-a-jalar-rober.mp3',l:'Ponte A Jalar Rober'},
+  {f:'pookie-bear.mp3',l:'Pookie Bear'},
+  {f:'pop-from-smii7ys-content.mp3',l:'Pop From Smii7Ys Content'},
+  {f:'popular-riser-metallic-sound-effect.mp3',l:'Popular Riser Metallic Sound Effect'},
+  {f:'popular-riser.mp3',l:'Popular Riser'},
+  {f:'pos-claro-mm.mp3',l:'Pos Claro Mm'},
+  {f:'pou-no-sound-effect.mp3',l:'Pou No Sound Effect'},
+  {f:'predator-roar.mp3',l:'Predator Roar'},
+  {f:'preview_3.mp3',l:'Preview 3'},
+  {f:'pride-emote-animal-crossing.mp3',l:'Pride Emote Animal Crossing'},
+  {f:'prowler.mp3',l:'Prowler'},
+  {f:'ps2_start_up.mp3',l:'Ps2 Start Up'},
+  {f:'ps4-startup.mp3',l:'Ps4 Startup'},
+  {f:'ps5_start.mp3',l:'Ps5 Start'},
+  {f:'pubg-pan-sound-effect.mp3',l:'Pubg Pan Sound Effect'},
+  {f:'pull-up-sink-rate.mp3',l:'Pull Up Sink Rate'},
+  {f:'punch-gaming-sound-effect-hd_RzlG1GE.mp3',l:'Punch Gaming Sound Effect Hd Rzlg1Ge'},
+  {f:'punch_u4LmMsr.mp3',l:'Punch U4Lmmsr'},
+  {f:'purring-cat-alice.mp3',l:'Purring Cat Alice'},
+  {f:'pushing-someone.mp3',l:'Pushing Someone'},
+  {f:'puu-kara-kopek-seni.mp3',l:'Puu Kara Kopek Seni'},
+  {f:'quack-altern_UPGHVUB.mp3',l:'Quack Altern Upghvub'},
+  {f:'quack-duck.mp3',l:'Quack Duck'},
+  {f:'quadruplex-norm.mp3',l:'Quadruplex Norm'},
+  {f:'quandale-dingle-minion-laugh.mp3',l:'Quandale Dingle Minion Laugh'},
+  {f:'quandale-dingle-poopy.mp3',l:'Quandale Dingle Poopy'},
+  {f:'quandale-dingle-text-to-speech.mp3',l:'Quandale Dingle Text To Speech'},
+  {f:'question-mark.mp3',l:'Question Mark'},
+  {f:'raaar_FerSY7o.mp3',l:'Raaar Fersy7O'},
+  {f:'radiation-sound-danger.mp3',l:'Radiation Sound Danger'},
+  {f:'radiation.mp3',l:'Radiation'},
+  {f:'randum-discord-sound.mp3',l:'Randum Discord Sound'},
+  {f:'ranma-1-2-akane-yells-loudly-2nd-version.mp3',l:'Ranma 1 2 Akane Yells Loudly 2Nd Versi'},
+  {f:'rat-squeaking.mp3',l:'Rat Squeaking'},
+  {f:'realistic-door-knocking-sound-effect.mp3',l:'Realistic Door Knocking Sound Effect'},
+  {f:'really-nga.mp3',l:'Really Nga'},
+  {f:'record-scratch-clean.mp3',l:'Record Scratch Clean'},
+  {f:'record-scratch-sound-effect.mp3',l:'Record Scratch Sound Effect'},
+  {f:'red-rita.mp3',l:'Red Rita'},
+  {f:'rehehehe.mp3',l:'Rehehehe'},
+  {f:'reinsamba-baby-laugh.mp3',l:'Reinsamba Baby Laugh'},
+  {f:'reloj-tic-tac.mp3',l:'Reloj Tic Tac'},
+  {f:'ren-stimpy-ahooga-sound.mp3',l:'Ren Stimpy Ahooga Sound'},
+  {f:'reverse-sound-effect.mp3',l:'Reverse Sound Effect'},
+  {f:'revolver.mp3',l:'Revolver'},
+  {f:'rewrite-laughing-lol.mp3',l:'Rewrite Laughing Lol'},
+  {f:'ring-doorbell-bass-boosted.mp3',l:'Ring Doorbell Bass Boosted'},
+  {f:'ringtone_7.mp3',l:'Ringtone 7'},
+  {f:'rip-my-granny-loud-asf.mp3',l:'Rip My Granny Loud Asf'},
+  {f:'risersss.mp3',l:'Risersss'},
+  {f:'rizz-effet.mp3',l:'Rizz Effet'},
+  {f:'rizz-sound-effect.mp3',l:'Rizz Sound Effect'},
+  {f:'rizzzzzzzzing.mp3',l:'Rizzzzzzzzing'},
+  {f:'roaring-knight-swoon-deltarune.mp3',l:'Roaring Knight Swoon Deltarune'},
+  {f:'roblox-death-sound-loud.mp3',l:'Roblox Death Sound Loud'},
+  {f:'roblox-giggle-doors-sfx.mp3',l:'Roblox Giggle Doors Sfx'},
+  {f:'roblox-grace-joeys-scream.mp3',l:'Roblox Grace Joeys Scream'},
+  {f:'roblox-news-guy.mp3',l:'Roblox News Guy'},
+  {f:'roblox-old-winning-sound-effect.mp3',l:'Roblox Old Winning Sound Effect'},
+  {f:'roblox-pizza-place-evil.mp3',l:'Roblox Pizza Place Evil'},
+  {f:'roblox-pluh.mp3',l:'Roblox Pluh'},
+  {f:'roblox-rpg-sound.mp3',l:'Roblox Rpg Sound'},
+  {f:'roblox-slingshot_MLNAoYk.mp3',l:'Roblox Slingshot Mlnaoyk'},
+  {f:'roblox-speed-coil.mp3',l:'Roblox Speed Coil'},
+  {f:'roblox-sword.mp3',l:'Roblox Sword'},
+  {f:'roblox-yum-yum-yum-sound.mp3',l:'Roblox Yum Yum Yum Sound'},
+  {f:'rock-and-roll-security-breach.mp3',l:'Rock And Roll Security Breach'},
+  {f:'roller-dogs.mp3',l:'Roller Dogs'},
+  {f:'romanceeeeeeeeeeeeee.mp3',l:'Romanceeeeeeeeeeeeee'},
+  {f:'ronaldo-suiiiii.mp3',l:'Ronaldo Suiiiii'},
+  {f:'rooster-rsinsds.mp3',l:'Rooster Rsinsds'},
+  {f:'ruido-que-no-escuchan-los-mayores.mp3',l:'Ruido Que No Escuchan Los Mayores'},
+  {f:'ruina-click.mp3',l:'Ruina Click'},
+  {f:'sad-piano.mp3',l:'Sad Piano'},
+  {f:'sad-songs.mp3',l:'Sad Songs'},
+  {f:'saja-boys-mmmrah-but-clean.mp3',l:'Saja Boys Mmmrah But Clean'},
+  {f:'samsung-bass-boosted-reverb.mp3',l:'Samsung Bass Boosted Reverb'},
+  {f:'samsung-estourado.mp3',l:'Samsung Estourado'},
+  {f:'samsung-galaxy-s1.mp3',l:'Samsung Galaxy S1'},
+  {f:'samsung-rap-song-earrape.mp3',l:'Samsung Rap Song Earrape'},
+  {f:'samsung-spaceline-notification.mp3',l:'Samsung Spaceline Notification'},
+  {f:'samsung-super-fast-charging.mp3',l:'Samsung Super Fast Charging'},
+  {f:'samsung-tada-ringtone.mp3',l:'Samsung Tada Ringtone'},
+  {f:'samsung-washing-machine.mp3',l:'Samsung Washing Machine'},
+  {f:'scary-girl.mp3',l:'Scary Girl'},
+  {f:'scary-sound-xdd-meme.mp3',l:'Scary Sound Xdd Meme'},
+  {f:'scoreboard-family-guy.mp3',l:'Scoreboard Family Guy'},
+  {f:'scp-173-spotted-2.mp3',l:'Scp 173 Spotted 2'},
+  {f:'screaming-goat.mp3',l:'Screaming Goat'},
+  {f:'screech-psst_Qj6wNzn.mp3',l:'Screech Psst Qj6Wnzn'},
+  {f:'screech_MVmirKN.mp3',l:'Screech Mvmirkn'},
+  {f:'sebastian-car-crash.mp3',l:'Sebastian Car Crash'},
+  {f:'sentmessage_1.mp3',l:'Sentmessage 1'},
+  {f:'sfx-sekiro-attack-fx.mp3',l:'Sfx Sekiro Attack Fx'},
+  {f:'sfx_s_mission_qualify.mp3',l:'Sfx S Mission Qualify'},
+  {f:'shanks-haki.mp3',l:'Shanks Haki'},
+  {f:'shiny-sparkles-drama.mp3',l:'Shiny Sparkles Drama'},
+  {f:'shocked-boom.mp3',l:'Shocked Boom'},
+  {f:'shocked-emote-animal-crossing.mp3',l:'Shocked Emote Animal Crossing'},
+  {f:'shocked-sound-effect_WMp3HQB.mp3',l:'Shocked Sound Effect Wmp3Hqb'},
+  {f:'short-beep.mp3',l:'Short Beep'},
+  {f:'shotgun-ko-fortnite.mp3',l:'Shotgun Ko Fortnite'},
+  {f:'shut-up-patrick-stfu-up.mp3',l:'Shut Up Patrick Stfu Up'},
+  {f:'sike-noli.mp3',l:'Sike Noli'},
+  {f:'silly-screaming-laughter.mp3',l:'Silly Screaming Laughter'},
+  {f:'sitcom-laughing-and-applause.mp3',l:'Sitcom Laughing And Applause'},
+  {f:'six-seven_okPwnRN.mp3',l:'Six Seven Okpwnrn'},
+  {f:'skala-mem-vzgliad-effekt.mp3',l:'Skala Mem Vzgliad Effekt'},
+  {f:'skibidi-toilet-attack.mp3',l:'Skibidi Toilet Attack'},
+  {f:'skid.mp3',l:'Skid'},
+  {f:'skype_ringtone_new.mp3',l:'Skype Ringtone New'},
+  {f:'slap-soundmaster13-49669815_4L20wGP.mp3',l:'Slap Soundmaster13 49669815 4L20Wgp'},
+  {f:'slap_yRv5WZh.mp3',l:'Slap Yrv5Wzh'},
+  {f:'sleeptime.mp3',l:'Sleeptime'},
+  {f:'slipandfall.mp3',l:'Slipandfall'},
+  {f:'slow-motion-slow-to-fast.mp3',l:'Slow Motion Slow To Fast'},
+  {f:'slowed-down-roblox-death-noise.mp3',l:'Slowed Down Roblox Death Noise'},
+  {f:'slurp-sound-effect_hNzcXo0.mp3',l:'Slurp Sound Effect Hnzcxo0'},
+  {f:'slurpdrinkmale_sfxb.mp3',l:'Slurpdrinkmale Sfxb'},
+  {f:'slushynoobz-hello.mp3',l:'Slushynoobz Hello'},
+  {f:'smoke-alarm-beep.mp3',l:'Smoke Alarm Beep'},
+  {f:'smoke-alarm.mp3',l:'Smoke Alarm'},
+  {f:'snkneo-geo-insert-coin-sound.mp3',l:'Snkneo Geo Insert Coin Sound'},
+  {f:'solo-lo-escuchan-los-jovenes.mp3',l:'Solo Lo Escuchan Los Jovenes'},
+  {f:'som-do-zap-zap-estourado.mp3',l:'Som Do Zap Zap Estourado'},
+  {f:'sonic-exe-2011x-jumpscare-sound-effect_DJgGjuY.mp3',l:'Sonic Exe 2011X Jumpscare Sound Effect'},
+  {f:'sonic-exe-lord-x-laugh.mp3',l:'Sonic Exe Lord X Laugh'},
+  {f:'sonic-the-hedgehog-exit-special-stage.mp3',l:'Sonic The Hedgehog Exit Special Stage'},
+  {f:'sonic-the-hedgehog-running.mp3',l:'Sonic The Hedgehog Running'},
+  {f:'sonic-the-hedgehog-tally.mp3',l:'Sonic The Hedgehog Tally'},
+  {f:'sonic_1.mp3',l:'Sonic 1'},
+  {f:'sonido-de-brillo.mp3',l:'Sonido De Brillo'},
+  {f:'sonido-de-golpeee.mp3',l:'Sonido De Golpeee'},
+  {f:'sonido-teclado.mp3',l:'Sonido Teclado'},
+  {f:'sonmez-reyiz-senin-anan-afrikal-zenciler-yamyamlar.mp3',l:'Sonmez Reyiz Senin Anan Afrikal Zencil'},
+  {f:'sound-effects-magical-twinkle-1.mp3',l:'Sound Effects Magical Twinkle 1'},
+  {f:'speed-clapping.mp3',l:'Speed Clapping'},
+  {f:'spider-man-scream.mp3',l:'Spider Man Scream'},
+  {f:'spin-it-femmle.mp3',l:'Spin It Femmle'},
+  {f:'splat-sound-effect-free-download.mp3',l:'Splat Sound Effect Free Download'},
+  {f:'spliffi-ambiance.mp3',l:'Spliffi Ambiance'},
+  {f:'sponge-bob-disgusting.mp3',l:'Sponge Bob Disgusting'},
+  {f:'spongebob-bubbles.mp3',l:'Spongebob Bubbles'},
+  {f:'spongebob-dramatic-sound.mp3',l:'Spongebob Dramatic Sound'},
+  {f:'spongebob-fail.mp3',l:'Spongebob Fail'},
+  {f:'spot-theme_5oylPWW.mp3',l:'Spot Theme 5Oylpww'},
+  {f:'spraying-perfume_0KMM3qt.mp3',l:'Spraying Perfume 0Kmm3Qt'},
+  {f:'spring-cartoon_06dKjg8.mp3',l:'Spring Cartoon 06Dkjg8'},
+  {f:'squeaky-clean.mp3',l:'Squeaky Clean'},
+  {f:'squeaky-dog-toy.mp3',l:'Squeaky Dog Toy'},
+  {f:'squidward-sits.mp3',l:'Squidward Sits'},
+  {f:'squidward-walk-effect.mp3',l:'Squidward Walk Effect'},
+  {f:'squish.mp3',l:'Squish'},
+  {f:'sr-pelo-scream_94hluaY.mp3',l:'Sr Pelo Scream 94Hluay'},
+  {f:'stand-clear-of-the-closing-doors-please.mp3',l:'Stand Clear Of The Closing Doors Pleas'},
+  {f:'star-wars-seismic-charge.mp3',l:'Star Wars Seismic Charge'},
+  {f:'starcraft-battlecruiser-quotes-audiotrimmer_YasKSmW.mp3',l:'Starcraft Battlecruiser Quotes Audiotr'},
+  {f:'stars.mp3',l:'Stars'},
+  {f:'stay-with-me-miki-short.mp3',l:'Stay With Me Miki Short'},
+  {f:'steal-a-brainrot-ballerina-cappuccina.mp3',l:'Steal A Brainrot Ballerina Cappuccina'},
+  {f:'steal-a-brainrot-boneca-ambalabu.mp3',l:'Steal A Brainrot Boneca Ambalabu'},
+  {f:'steal-a-brainrot-burbaloni-loliloli.mp3',l:'Steal A Brainrot Burbaloni Loliloli'},
+  {f:'steal-a-brainrot-cocofanto-elefanto.mp3',l:'Steal A Brainrot Cocofanto Elefanto'},
+  {f:'steal-a-brainrot-dragon-cannelloni.mp3',l:'Steal A Brainrot Dragon Cannelloni'},
+  {f:'steal-a-brainrot-esok-sekolah.mp3',l:'Steal A Brainrot Esok Sekolah'},
+  {f:'steal-a-brainrot-garama-and-mandundung.mp3',l:'Steal A Brainrot Garama And Mandundung'},
+  {f:'steal-a-brainrot-ketupat-kepat.mp3',l:'Steal A Brainrot Ketupat Kepat'},
+  {f:'steal-a-brainrot-la-vacca-saturno-saturnita.mp3',l:'Steal A Brainrot La Vacca Saturno Satu'},
+  {f:'steal-a-brainrot-lirili-larila_Z7arguU.mp3',l:'Steal A Brainrot Lirili Larila Z7Arguu'},
+  {f:'steal-a-brainrot-los-spyderinis.mp3',l:'Steal A Brainrot Los Spyderinis'},
+  {f:'steal-a-brainrot-los-tralaleritos.mp3',l:'Steal A Brainrot Los Tralaleritos'},
+  {f:'steal-a-brainrot-sigma-boy.mp3',l:'Steal A Brainrot Sigma Boy'},
+  {f:'steal-a-brainrot-tung-tung-tung-sahur.mp3',l:'Steal A Brainrot Tung Tung Tung Sahur'},
+  {f:'steam-deck-achievement.mp3',l:'Steam Deck Achievement'},
+  {f:'still-a-piece-of-garbage_KJxlB13.mp3',l:'Still A Piece Of Garbage Kjxlb13'},
+  {f:'stinky-horn-sound-effect.mp3',l:'Stinky Horn Sound Effect'},
+  {f:'stomachgrowlgurgle_sfxb.mp3',l:'Stomachgrowlgurgle Sfxb'},
+  {f:'stone-sliding.mp3',l:'Stone Sliding'},
+  {f:'stormtrooper-blaster-charge-1.mp3',l:'Stormtrooper Blaster Charge 1'},
+  {f:'stranger-things-clock-sound.mp3',l:'Stranger Things Clock Sound'},
+  {f:'studio-audience-awwww-sound-fx.mp3',l:'Studio Audience Awwww Sound Fx'},
+  {f:'stupid-f__king-bird.mp3',l:'Stupid F King Bird'},
+  {f:'subway-surfers-revive.mp3',l:'Subway Surfers Revive'},
+  {f:'sudden-suspense-boom.mp3',l:'Sudden Suspense Boom'},
+  {f:'sukuna-gugu-gaga-loudest.mp3',l:'Sukuna Gugu Gaga Loudest'},
+  {f:'super-mario-bros-3-coin-sound-effect.mp3',l:'Super Mario Bros 3 Coin Sound Effect'},
+  {f:'super-mario-shart.mp3',l:'Super Mario Shart'},
+  {f:'super-mega.mp3',l:'Super Mega'},
+  {f:'super-microwave-brothers.mp3',l:'Super Microwave Brothers'},
+  {f:'sus-rock.mp3',l:'Sus Rock'},
+  {f:'suspense-build-up.mp3',l:'Suspense Build Up'},
+  {f:'suspense-drums.mp3',l:'Suspense Drums'},
+  {f:'sussy-claps_yZkoPRt.mp3',l:'Sussy Claps Yzkoprt'},
+  {f:'sussy-stare.mp3',l:'Sussy Stare'},
+  {f:'svinia-pishchit.mp3',l:'Svinia Pishchit'},
+  {f:'swoosh-2.mp3',l:'Swoosh 2'},
+  {f:'swoosh-mail.mp3',l:'Swoosh Mail'},
+  {f:'swoosh-sound-effects.mp3',l:'Swoosh Sound Effects'},
+  {f:'sword_slash-ab22fe02-3826-345a-80ad-dc22261a9127.mp3',l:'Sword Slash Ab22Fe02 3826 345A 80Ad Dc'},
+  {f:'sybau.mp3',l:'Sybau'},
+  {f:'syfm-loud_xRTiPcw.mp3',l:'Syfm Loud Xrtipcw'},
+  {f:'t-rex-roaring-sound-effect-for-vids.mp3',l:'T Rex Roaring Sound Effect For Vids'},
+  {f:'ta-da_yrvBrlS.mp3',l:'Ta Da Yrvbrls'},
+  {f:'taco-bell-bong-sfx.mp3',l:'Taco Bell Bong Sfx'},
+  {f:'tails-scream.mp3',l:'Tails Scream'},
+  {f:'take-a-look-around-you.mp3',l:'Take A Look Around You'},
+  {f:'talkingg-benn-laughh.mp3',l:'Talkingg Benn Laughh'},
+  {f:'target-locked-sound-effect.mp3',l:'Target Locked Sound Effect'},
+  {f:'teddy-bear-squeek.mp3',l:'Teddy Bear Squeek'},
+  {f:'telegram-notification.mp3',l:'Telegram Notification'},
+  {f:'terompet-1.mp3',l:'Terompet 1'},
+  {f:'thanos-snap-sound-effect.mp3',l:'Thanos Snap Sound Effect'},
+  {f:'the-bluetooth-device-is-ready-to-pair.mp3',l:'The Bluetooth Device Is Ready To Pair'},
+  {f:'the-evolution-of-kawhi-leonards-laugh.mp3',l:'The Evolution Of Kawhi Leonards Laugh'},
+  {f:'the-number-you-have-dialed.mp3',l:'The Number You Have Dialed'},
+  {f:'the-price-is-right-theme-song-lq.mp3',l:'The Price Is Right Theme Song Lq'},
+  {f:'the-rock-meme.mp3',l:'The Rock Meme'},
+  {f:'the-rock-shut-up.mp3',l:'The Rock Shut Up'},
+  {f:'the-rock-sound-effect.mp3',l:'The Rock Sound Effect'},
+  {f:'the-weeknd-rizzz.mp3',l:'The Weeknd Rizzz'},
+  {f:'the_bfdi_scream.mp3',l:'The Bfdi Scream'},
+  {f:'threenumberblocks3.mp3',l:'Threenumberblocks3'},
+  {f:'throwing-sound-effect-davemadson.mp3',l:'Throwing Sound Effect Davemadson'},
+  {f:'throwing-sound-effect-davemadson_qITuqrG.mp3',l:'Throwing Sound Effect Davemadson Qituq'},
+  {f:'thukuna-kingth-of-curtheth.mp3',l:'Thukuna Kingth Of Curtheth'},
+  {f:'tiger-roar.mp3',l:'Tiger Roar'},
+  {f:'timer.mp3',l:'Timer'},
+  {f:'tiptoe-through-the-tulips-creepy-version.mp3',l:'Tiptoe Through The Tulips Creepy Versi'},
+  {f:'tm-reis-sen-tehlikesin.mp3',l:'Tm Reis Sen Tehlikesin'},
+  {f:'tmp_7901-951678082.mp3',l:'Tmp 7901 951678082'},
+  {f:'tmpcoj3v_01.mp3',l:'Tmpcoj3V 01'},
+  {f:'tng_torpedo2_clean.mp3',l:'Tng Torpedo2 Clean'},
+  {f:'tnt-explosion.mp3',l:'Tnt Explosion'},
+  {f:'toilet-flushing_8w44Gmv.mp3',l:'Toilet Flushing 8W44Gmv'},
+  {f:'toilet_flush.mp3',l:'Toilet Flush'},
+  {f:'tom_scream_ow.mp3',l:'Tom Scream Ow'},
+  {f:'tomato-squash.mp3',l:'Tomato Squash'},
+  {f:'ton-telephone-est-entrain-de-sonner.mp3',l:'Ton Telephone Est Entrain De Sonner'},
+  {f:'train-horn-meme_v6N3591.mp3',l:'Train Horn Meme V6N3591'},
+  {f:'transition-sound-effects-presented-by-mrsnooze-unknown-album-00-005-simple-swoosh.mp3',l:'Transition Sound Effects Presented By '},
+  {f:'tree_fall_small.mp3',l:'Tree Fall Small'},
+  {f:'trompetas-dj-yu.mp3',l:'Trompetas Dj Yu'},
+  {f:'turkish-man-yelling-meow-at-an-egg.mp3',l:'Turkish Man Yelling Meow At An Egg'},
+  {f:'tv-static-01_IOJDWir.mp3',l:'Tv Static 01 Iojdwir'},
+  {f:'tv-static-yt-audio.mp3',l:'Tv Static Yt Audio'},
+  {f:'twitter-notification-sound.mp3',l:'Twitter Notification Sound'},
+  {f:'tyler-fkin-1-machine-gun_1.mp3',l:'Tyler Fkin 1 Machine Gun 1'},
+  {f:'tyler-joseph-twenty-one-pilots-no-scream.mp3',l:'Tyler Joseph Twenty One Pilots No Scre'},
+  {f:'u-got-that-mp3-fix.mp3',l:'U Got That Mp3 Fix'},
+  {f:'uber_driver_2019-99d7bb65-f449-4a38-b010-1ff9ff0454f2.mp3',l:'Uber Driver 2019 99D7Bb65 F449 4A38 B0'},
+  {f:'udar-ot-vzgliada-skaly.mp3',l:'Udar Ot Vzgliada Skaly'},
+  {f:'uhhhhhhhhhhh-tecno.mp3',l:'Uhhhhhhhhhhh Tecno'},
+  {f:'ulla.mp3',l:'Ulla'},
+  {f:'undertakers-bell-1.mp3',l:'Undertakers Bell 1'},
+  {f:'undertakers-bell_2UwFCIe.mp3',l:'Undertakers Bell 2Uwfcie'},
+  {f:'undertale-meow.mp3',l:'Undertale Meow'},
+  {f:'undertale-sound-effect-battle-encounter.mp3',l:'Undertale Sound Effect Battle Encounte'},
+  {f:'untitled_6dhfXn6.mp3',l:'Untitled 6Dhfxn6'},
+  {f:'usa-eas-alarm.mp3',l:'Usa Eas Alarm'},
+  {f:'user-moved-discord.mp3',l:'User Moved Discord'},
+  {f:'vacuum-cleaner-sound-effect.mp3',l:'Vacuum Cleaner Sound Effect'},
+  {f:'valide.mp3',l:'Valide'},
+  {f:'vanity-slasher-outro.mp3',l:'Vanity Slasher Outro'},
+  {f:'very-good_1.mp3',l:'Very Good 1'},
+  {f:'very-scary-scream-metallic-echo-monster.mp3',l:'Very Scary Scream Metallic Echo Monste'},
+  {f:'victory_fanfare.mp3',l:'Victory Fanfare'},
+  {f:'victoryscreech.mp3',l:'Victoryscreech'},
+  {f:'video0-1_EwkbLQ9.mp3',l:'Video0 1 Ewkblq9'},
+  {f:'videoplayback-online-audio-converter_0xZy2wv.mp3',l:'Videoplayback Online Audio Converter 0'},
+  {f:'vine-boom-meme_cCCpxZG.mp3',l:'Vine Boom Meme Cccpxzg'},
+  {f:'vine-boom.mp3',l:'Vine Boom'},
+  {f:'vine-dramatic-boom-sound-effect.mp3',l:'Vine Dramatic Boom Sound Effect'},
+  {f:'vineboom-long.mp3',l:'Vineboom Long'},
+  {f:'violin-suspense.mp3',l:'Violin Suspense'},
+  {f:'vk-video.mp3',l:'Vk Video'},
+  {f:'volkswagen-das-auto-remix.mp3',l:'Volkswagen Das Auto Remix'},
+  {f:'vox-engine-helldivers-2.mp3',l:'Vox Engine Helldivers 2'},
+  {f:'vystrel-vystrel_HtHCfaH.mp3',l:'Vystrel Vystrel Hthcfah'},
+  {f:'wario_oh_my_god_-_mario_party.mp3',l:'Wario Oh My God Mario Party'},
+  {f:'warp-sound.mp3',l:'Warp Sound'},
+  {f:'was-that-the-bite-of-87-sound-effect.mp3',l:'Was That The Bite Of 87 Sound Effect'},
+  {f:'water-splash-9.mp3',l:'Water Splash 9'},
+  {f:'wcgertcz074.mp3',l:'Wcgertcz074'},
+  {f:'we-are-charlie-kirk-phone.mp3',l:'We Are Charlie Kirk Phone'},
+  {f:'we-are-charlie-kirkk.mp3',l:'We Are Charlie Kirkk'},
+  {f:'wedding-music.mp3',l:'Wedding Music'},
+  {f:'wendigo-long-roar.mp3',l:'Wendigo Long Roar'},
+  {f:'whadid-u-say-nyaga.mp3',l:'Whadid U Say Nyaga'},
+  {f:'what-a-good-boy.mp3',l:'What A Good Boy'},
+  {f:'what-did-he-sayyyy_3Rq8f7F.mp3',l:'What Did He Sayyyy 3Rq8F7F'},
+  {f:'what-is-this-diddy-blud-doing-on-the.mp3',l:'What Is This Diddy Blud Doing On The'},
+  {f:'what-the-hell-speed-up.mp3',l:'What The Hell Speed Up'},
+  {f:'whatsapp-typing.mp3',l:'Whatsapp Typing'},
+  {f:'whatsapp-whistle.mp3',l:'Whatsapp Whistle'},
+  {f:'wheel-spin-doit.mp3',l:'Wheel Spin Doit'},
+  {f:'when-i-came-down-ouuu-shiit.mp3',l:'When I Came Down Ouuu Shiit'},
+  {f:'where-are-you-going-i-dunno.mp3',l:'Where Are You Going I Dunno'},
+  {f:'where-are-you-goingg.mp3',l:'Where Are You Goingg'},
+  {f:'whistle-occurence.mp3',l:'Whistle Occurence'},
+  {f:'white-tee-rizz-short.mp3',l:'White Tee Rizz Short'},
+  {f:'whoa-fart.mp3',l:'Whoa Fart'},
+  {f:'whoosh-1.mp3',l:'Whoosh 1'},
+  {f:'whoosh-wind.mp3',l:'Whoosh Wind'},
+  {f:'why-so-serious.mp3',l:'Why So Serious'},
+  {f:'wii-startup-sound.mp3',l:'Wii Startup Sound'},
+  {f:'windows-10-error-sound.mp3',l:'Windows 10 Error Sound'},
+  {f:'windows-10-notification.mp3',l:'Windows 10 Notification'},
+  {f:'windows-7-notification-sound.mp3',l:'Windows 7 Notification Sound'},
+  {f:'windows-7-shutdown.mp3',l:'Windows 7 Shutdown'},
+  {f:'windows-7-startup.mp3',l:'Windows 7 Startup'},
+  {f:'windows-8-8-1-startup-sound.mp3',l:'Windows 8 8 1 Startup Sound'},
+  {f:'windows-vista-startup.mp3',l:'Windows Vista Startup'},
+  {f:'windows-xp-logoff-sound.mp3',l:'Windows Xp Logoff Sound'},
+  {f:'windows-xp-startup-sound-earrape.mp3',l:'Windows Xp Startup Sound Earrape'},
+  {f:'windows-xp-startup-sound-fx-3.mp3',l:'Windows Xp Startup Sound Fx 3'},
+  {f:'windows_xp_404_error.mp3',l:'Windows Xp 404 Error'},
+  {f:'winner-bell-game-show-sound-effect.mp3',l:'Winner Bell Game Show Sound Effect'},
+  {f:'woahh-rblx-se.mp3',l:'Woahh Rblx Se'},
+  {f:'wod.mp3',l:'Wod'},
+  {f:'wolf-howling.mp3',l:'Wolf Howling'},
+  {f:'woosh-mark_diangelo-4778593.mp3',l:'Woosh Mark Diangelo 4778593'},
+  {f:'woosh-sfx.mp3',l:'Woosh Sfx'},
+  {f:'xiaomi-ringtone.mp3',l:'Xiaomi Ringtone'},
+  {f:'y2mate_Ajp9shj.mp3',l:'Y2Mate Ajp9Shj'},
+  {f:'y2mate_DO1kVeR.mp3',l:'Y2Mate Do1Kver'},
+  {f:'y2mate_rQlfs1Y.mp3',l:'Y2Mate Rqlfs1Y'},
+  {f:'yeaa-rblx-se.mp3',l:'Yeaa Rblx Se'},
+  {f:'yeah-boi-sound-effect.mp3',l:'Yeah Boi Sound Effect'},
+  {f:'yeah-boiii-i-i-i.mp3',l:'Yeah Boiii I I I'},
+  {f:'yeay-childrens.mp3',l:'Yeay Childrens'},
+  {f:'yee-haw.mp3',l:'Yee Haw'},
+  {f:'yeet.mp3',l:'Yeet'},
+  {f:'yerrrrrrr.mp3',l:'Yerrrrrrr'},
+  {f:'yippeeeeeeeeeeeeee.mp3',l:'Yippeeeeeeeeeeeeee'},
+  {f:'yippie_Kq73X8D.mp3',l:'Yippie Kq73X8D'},
+  {f:'you-are-an-idiot-hahahahahahahahahahahahahaha.mp3',l:'You Are An Idiot Hahahahahahahahahahah'},
+  {f:'you-are-an-idiot.mp3',l:'You Are An Idiot'},
+  {f:'you-bitch_s7TpHlz.mp3',l:'You Bitch S7Tphlz'},
+  {f:'you-need-to-leave_wDmQeme.mp3',l:'You Need To Leave Wdmqeme'},
+  {f:'you-parasit.mp3',l:'You Parasit'},
+  {f:'you-phone-is-ringing.mp3',l:'You Phone Is Ringing'},
+  {f:'your-beautiful-groan-tube.mp3',l:'Your Beautiful Groan Tube'},
+  {f:'your-gay-super-loud.mp3',l:'Your Gay Super Loud'},
+  {f:'your-not-my-dad_XfGPPFN.mp3',l:'Your Not My Dad Xfgppfn'},
+  {f:'yt1s_Ro643q7.mp3',l:'Yt1S Ro643Q7'},
+  {f:'zapsplat_warfare_sword_swing_fast_whoosh_metal_004.mp3',l:'Zapsplat Warfare Sword Swing Fast Whoo'},
+  {f:'ze_zJylnjS.mp3',l:'Ze Zjylnjs'},
+  {f:'zombie-baby-growl-monster.mp3',l:'Zombie Baby Growl Monster'},
+  {f:'zombie-growl-halloween-sound-effect.mp3',l:'Zombie Growl Halloween Sound Effect'},
+  {f:'zvuk-fotoapparata.mp3',l:'Zvuk Fotoapparata'},
+  {f:'zvuk-litvina.mp3',l:'Zvuk Litvina'},
+  {f:'zvuk-zapuska-windows-minus-ushi.mp3',l:'Zvuk Zapuska Windows Minus Ushi'},
+];
+
+const CDN = "https://cdn.jsdelivr.net/gh/ahert7s777-spec/00v00v00v00v00v00@main/";
+
+/* emoji pool for cards */
+const EMOJIS = ["🎵","🎶","🔊","💥","😂","🤣","😱","🎤","🥁","🎸","🎺","🎻",
+  "🎹","🦁","🐸","🚀","⚡","🌈","💫","🔥","❄️","🎯","🎪","🎭","🎠","🎡",
+  "🧨","🎉","🎊","🪄","👻","🤖","👾","🦄","🐲","🌟","💎","🏆","🎲","🃏"];
+
+function getEmoji(i) { return EMOJIS[i % EMOJIS.length]; }
+
+/* ===== STATE ===== */
+let currentAudio = null;
+let currentCard  = null;
+let sortMode     = 'az';
+let searchQuery  = '';
+
+/* ===== AUDIO CACHE (SW-less in-memory) ===== */
+const audioCache = {};
+
+function getAudio(file) {
+  if (!audioCache[file]) {
+    const a = new Audio(CDN + file);
+    a.preload = 'none';
+    audioCache[file] = a;
+  }
+  return audioCache[file];
+}
+
+/* ===== PLAY ===== */
+function playSound(file, label, cardEl) {
+  /* stop current */
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentCard) currentCard.classList.remove('playing');
+    /* toggle off if same button */
+    if (currentCard === cardEl) {
+      currentAudio = null; currentCard = null;
+      updateNowPlaying(null);
+      document.getElementById('stopBtn').classList.remove('playing');
+      return;
+    }
+  }
+
+  const audio = getAudio(file);
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
+
+  currentAudio = audio;
+  currentCard  = cardEl;
+  cardEl.classList.add('playing');
+  updateNowPlaying(label);
+  document.getElementById('stopBtn').classList.add('playing');
+
+  audio.onended = () => {
+    cardEl.classList.remove('playing');
+    currentAudio = null; currentCard = null;
+    updateNowPlaying(null);
+    document.getElementById('stopBtn').classList.remove('playing');
+    /* small confetti burst on finish */
+    if (Math.random() < 0.15) confettiBurst();
+  };
+}
+
+function stopAll() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  if (currentCard) currentCard.classList.remove('playing');
+  currentAudio = null; currentCard = null;
+  updateNowPlaying(null);
+  document.getElementById('stopBtn').classList.remove('playing');
+}
+
+/* ===== NOW PLAYING ===== */
+function updateNowPlaying(label) {
+  const bar = document.getElementById('nowPlaying');
+  const lbl = document.getElementById('npLabel');
+  if (label) {
+    lbl.textContent = label;
+    bar.classList.add('visible');
+  } else {
+    bar.classList.remove('visible');
+  }
+}
+
+/* ===== RANDOM ===== */
+function playRandom() {
+  const visible = [...document.querySelectorAll('.sound-card:not([style*="display: none"])')];
+  if (!visible.length) return;
+  const card = visible[Math.floor(Math.random() * visible.length)];
+  card.click();
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ===== SORT ===== */
+let sortedSounds = [...SOUNDS];
+
+function setSort(mode, btn) {
+  sortMode = mode;
+  document.querySelectorAll('.sort-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  if (mode === 'az')     sortedSounds = [...SOUNDS].sort((a,b) => a.l.localeCompare(b.l));
+  else if (mode === 'za') sortedSounds = [...SOUNDS].sort((a,b) => b.l.localeCompare(a.l));
+  else                    sortedSounds = [...SOUNDS].sort(() => Math.random() - 0.5);
+  renderGrid();
+}
+
+/* ===== SEARCH ===== */
+document.getElementById('searchInput').addEventListener('input', function() {
+  searchQuery = this.value.toLowerCase().trim();
+  renderGrid();
+});
+
+/* ===== RENDER ===== */
+function renderGrid() {
+  const grid = document.getElementById('soundGrid');
+  const q = searchQuery;
+  const filtered = q ? sortedSounds.filter(s => s.l.toLowerCase().includes(q) || s.f.toLowerCase().includes(q)) : sortedSounds;
+
+  document.getElementById('resultCount').textContent = q ? `${filtered.length} results` : '';
+  document.getElementById('noResults').style.display = filtered.length ? 'none' : 'block';
+
+  /* use fragment for perf */
+  const frag = document.createDocumentFragment();
+  filtered.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'sound-card';
+    card.dataset.c = i % 5;
+    card.dataset.file = s.f;
+    card.innerHTML = `
+      <span class="card-emoji">${getEmoji(i)}</span>
+      <span class="card-label">${escHtml(s.l)}</span>
+      <span class="card-play-icon">▶ tap to play</span>`;
+    card.addEventListener('click', function(e) {
+      rippleEffect(this, e);
+      playSound(s.f, s.l, this);
+    });
+    frag.appendChild(card);
+  });
+
+  /* keep noResults el */
+  const nr = document.getElementById('noResults');
+  grid.innerHTML = '';
+  grid.appendChild(frag);
+  grid.appendChild(nr);
+}
+
+/* ===== RIPPLE ===== */
+function rippleEffect(el, e) {
+  const r = document.createElement('span');
+  r.className = 'ripple';
+  const rect = el.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+  el.appendChild(r);
+  setTimeout(() => r.remove(), 600);
+}
+
+/* ===== CONFETTI ===== */
+const canvas = document.getElementById('confettiCanvas');
+const ctx    = canvas.getContext('2d');
+let particles = [];
+
+function confettiBurst() {
+  canvas.width  = innerWidth;
+  canvas.height = innerHeight;
+  const colors = ['#ff6b6b','#ffd93d','#6bcbff','#a78bfa','#4ade80','#ff9f43'];
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight * .5,
+      vx: (Math.random() - .5) * 6,
+      vy: Math.random() * -8 - 2,
+      r: Math.random() * 6 + 3,
+      c: colors[Math.floor(Math.random()*colors.length)],
+      life: 1
+    });
+  }
+  if (particles.length === 60) requestAnimationFrame(drawConfetti);
+}
+
+function drawConfetti() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles = particles.filter(p => p.life > 0);
+  particles.forEach(p => {
+    p.x  += p.vx; p.y += p.vy; p.vy += .3; p.life -= .018;
+    ctx.globalAlpha = p.life;
+    ctx.fillStyle = p.c;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+  if (particles.length) requestAnimationFrame(drawConfetti);
+}
+
+/* ===== UTIL ===== */
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ===== KEYBOARD ===== */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') stopAll();
+  if (e.key === ' ' && document.activeElement === document.body) {
+    e.preventDefault(); stopAll();
+  }
+});
+
+/* ===== INIT ===== */
+sortedSounds = [...SOUNDS].sort((a,b) => a.l.localeCompare(b.l));
+renderGrid();
+
+/* 🎉 Random confetti on load */
+setTimeout(confettiBurst, 800);
+</script>
+
+<!-- NO RESULTS (inside grid via JS) -->
+<div id="noResults" style="display:none; grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--sub);">
+  <div style="font-size:4rem">🤔</div>
+  <h3 style="font-family:'Fredoka One'; font-size:1.5rem; color:var(--text); margin-top:12px;">No sounds found!</h3>
+  <p style="margin-top:8px;">Try a different search term</p>
+</div>
+
+</body>
+
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</html>

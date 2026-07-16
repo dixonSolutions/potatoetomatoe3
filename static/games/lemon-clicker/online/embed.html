@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/centerclassroom/salam@main/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemon Tycoon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the game */
+        :root {
+            --primary-bg: #2b5478;
+            --container-bg: #24405a;
+            --panel-bg: #2d3748;
+            --accent-color: #f7d04e;
+            --text-light: #f0f0f0;
+            --text-dark: #1a202c;
+            --success-color: #48bb78;
+            --disabled-color: #6c7a8e;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Bangers', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2324405a" fill-opacity="0.4"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"%3E%3C/path%3E%3C/g%3E%3C/svg%3E');
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr minmax(320px, 400px);
+            background-color: var(--container-bg);
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 1200px;
+            width: 95%;
+            height: 90vh;
+            min-height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Game Area (Left Side) */
+        .game-area {
+            grid-column: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: radial-gradient(circle, #3b82f6 0%, #1e40af 100%);
+            position: relative;
+            padding: 1rem;
+            overflow: hidden; /* Keep golden lemons contained */
+        }
+
+        .stats-bar {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10;
+            gap: 0.5rem 1rem;
+        }
+
+        .stats-bar p {
+            font-size: 1.25rem;
+            margin: 0;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .corner-stat {
+            position: absolute;
+            bottom: 1rem;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 0.5rem;
+            text-shadow: 0 0 5px #000;
+        }
+        
+        #ascensionsDisplayContainer { left: 1rem; }
+        #cosmicAscensionsDisplayContainer { right: 1rem; }
+
+        .main-clicker-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-clicker {
+            cursor: pointer;
+            transition: transform 0.1s;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        .main-clicker:active {
+            transform: scale(0.95);
+            animation: none;
+        }
+
+        .lemon-svg {
+            width: 300px;
+            height: 300px;
+        }
+
+        .sunburst {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 255, 102, 0.7) 0%, rgba(255, 255, 102, 0) 70%);
+            border-radius: 50%;
+            animation: spin 30s linear infinite;
+            z-index: 1;
+        }
+        
+        #autoclickerBtn {
+            position: absolute;
+            bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.25rem;
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            font-weight: bold;
+            border-radius: 9999px;
+            transition: background-color 0.2s, transform 0.2s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 10px rgba(247, 208, 78, 0.4);
+        }
+        
+        #autoclickerBtn.active {
+            background-color: var(--success-color);
+            color: var(--text-light);
+        }
+
+        #autoclickerBtn:disabled:not(.active) {
+            background-color: var(--disabled-color);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Golden Lemon styles */
+        .golden-lemon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 20;
+            right: -60px; /* Start off-screen */
+            left: auto;
+            filter: drop-shadow(0 0 10px gold);
+        }
+
+        /* Upgrade Panel (Right Side) */
+        .upgrade-panel {
+            grid-column: 2;
+            background-color: var(--container-bg);
+            border-left: 2px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            overflow-y: auto;
+            gap: 1.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button {
+            padding: 0.5rem 1.5rem;
+            font-size: 1.25rem;
+            border-radius: 9999px;
+            background-color: var(--panel-bg);
+            color: #cbd5e1;
+            transition: background-color 0.2s, color 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .tab-button.active {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            box-shadow: 0 4px 10px rgba(247, 208, 78, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tab-content.active {
+            display: flex;
+        }
+
+        .upgrade-card {
+            background-color: var(--panel-bg);
+            border-radius: 0.5rem;
+            border: 2px solid var(--border-color);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .upgrade-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .upgrade-card-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
+            text-align: center;
+            line-height: 40px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
+            flex-shrink: 0;
+        }
+
+        .upgrade-details { flex: 1; }
+        .upgrade-details h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 5px rgba(247, 208, 78, 0.3);
+        }
+        .upgrade-details p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.25rem;
+            width: 100px;
+        }
+        
+        .upgrade-button {
+            width: 100%;
+            padding: 0.5rem 0;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+            background-color: var(--disabled-color);
+            color: var(--text-dark);
+        }
+        
+        .bulk-buttons {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .upgrade-button-small {
+            flex-grow: 1;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            background-color: var(--disabled-color);
+            color: var(--text-dark);
+            font-weight: bold;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+        }
+        
+        .upgrade-button-small:not(:disabled) {
+            background-color: var(--success-color);
+            cursor: pointer;
+        }
+
+        .upgrade-button-small:not(:disabled):hover {
+            background-color: #38a169;
+            transform: scale(1.05);
+        }
+        
+        .upgrade-button:not(:disabled) {
+            background-color: var(--success-color);
+            cursor: pointer;
+        }
+
+        .upgrade-button:not(:disabled):hover {
+            background-color: #38a169;
+            transform: scale(1.05);
+        }
+
+        .rebirth-card {
+            background-color: var(--panel-bg);
+            border-radius: 0.5rem;
+            border: 2px solid var(--accent-color);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .rebirth-button {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            border-radius: 9999px;
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+            box-shadow: 0 4px 10px rgba(247, 208, 78, 0.4);
+        }
+
+        .rebirth-button:hover:not(:disabled) {
+            background-color: #e3be47;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(247, 208, 78, 0.6);
+        }
+        
+        .rebirth-button:disabled {
+            background-color: var(--disabled-color);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 8px rgba(247, 208, 78, 0.5);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Animations & Modals */
+        .click-animation {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--accent-color);
+            animation: float-up 1s forwards;
+            pointer-events: none;
+            font-weight: bold;
+            text-shadow: 0 0 5px #000;
+            z-index: 10;
+        }
+
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(36, 64, 90, 0.95);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(247, 208, 78, 0.5);
+            z-index: 100;
+            max-width: 90%;
+        }
+
+        .settings-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 99;
+        }
+        
+        .settings-modal-content {
+            background-color: var(--panel-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 400px;
+        }
+        .toggle-switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--success-color); }
+        input:checked + .slider:before { transform: translateX(26px); }
+        
+        #cheatCodeInput {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .hidden { display: none; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes float-up {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-60px); opacity: 0; }
+        }
+        @keyframes pulse {
+            50% { filter: brightness(1.5); }
+        }
+        @keyframes floatAcross {
+            from { transform: translateX(0); }
+            to { transform: translateX(-110vw); } /* Move from right to left off-screen */
+        }
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-15px); }
+        }
+        
+        /* Responsive Design for Mobile */
+        @media (max-width: 900px) {
+            body {
+                align-items: flex-start;
+                padding-top: 1rem;
+            }
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                width: 95%;
+                height: auto;
+                min-height: calc(100vh - 2rem);
+            }
+            .game-area {
+                min-height: 45vh;
+            }
+            .frenzy-container {
+                display: none; /* Hide frenzy bar on small screens to save space */
+            }
+            .upgrade-panel {
+                grid-row: 2;
+                grid-column: 1;
+                border-left: none;
+                border-top: 2px solid var(--border-color);
+                min-height: 50vh;
+            }
+            .lemon-svg { width: 200px; height: 200px; }
+            .sunburst { width: 250px; height: 250px; }
+            .stats-bar {
+                position: relative;
+                top: auto; left: auto; right: auto;
+                border-radius: 1rem;
+                justify-content: center;
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+            }
+            .stats-bar p { font-size: 1.1rem; }
+            #autoclickerBtn {
+                position: relative;
+                bottom: auto;
+                transform: none;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Game area for clicking the lemon -->
+    <div class="game-area">
+        <div class="stats-bar">
+            <p>🍋: <span id="lemonsDisplay">0</span></p>
+            <p>LPS: <span id="lpsDisplay">0</span></p>
+            <p>🍊: <span id="orangesDisplay">0</span></p>
+            <p>✨: <span id="cosmicLemonsDisplay">0</span></p>
+            <button id="settingsBtn" class="settings-button">⚙️</button>
+        </div>
+        <div class="main-clicker-container">
+            <div id="sunburst-container" class="sunburst"></div>
+            <div id="clicker" class="main-clicker">
+                <svg class="lemon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="lemonGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#fcfd7e;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fccb48;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    <path d="M50,95 C75,95 95,75 95,50 C95,25 75,5 50,5 C25,5 5,25 5,50 C5,75 25,95 50,95 Z" fill="url("#lemonGradient")" stroke="#f2a500" stroke-width="3" />
+                    <path d="M50,5 C55,0 65,10 65,15" fill="none" stroke="#689e40" stroke-width="5" stroke-linecap="round" />
+                    <path d="M65,15 C75,10 70,25 60,20" fill="none" stroke="#689e40" stroke-width="5" stroke-linecap="round" />
+                </svg>
+            </div>
+        </div>
+        <div id="ascensionsDisplayContainer" class="corner-stat">Ascends: <span id="ascensionsDisplay">0</span></div>
+        <div id="cosmicAscensionsDisplayContainer" class="corner-stat">Cosmics: <span id="cosmicAscensionsDisplay">0</span></div>
+        <button id="autoclickerBtn">Autoclicker (OFF)</button>
+    </div>
+
+    <!-- Panel for upgrades, ascending, missions, etc. -->
+    <div class="upgrade-panel">
+        <div class="tabs">
+            <button id="upgradesTab" class="tab-button active">Upgrades</button>
+            <button id="ascendTab" class="tab-button">Ascend</button>
+            <button id="missionsTab" class="tab-button">Missions</button>
+            <button id="cosmicTab" class="tab-button">Cosmic</button>
+        </div>
+
+        <div id="upgradesContent" class="tab-content active">
+            <div id="upgradesGrid" class="flex flex-col gap-2"></div>
+        </div>
+
+        <div id="ascendContent" class="tab-content">
+            <div class="rebirth-card">
+                <h3>Ascend</h3>
+                <p>Ascend to earn <span id="orangesToGet">0</span> Golden Oranges and start a new game with a powerful bonus!</p>
+                <p class="text-xs text-gray-400">Requires a total of <span id="ascendCost">100,000</span> Lemons.</p>
+                <button id="ascendBtn" class="rebirth-button mt-4">Ascend</button>
+            </div>
+            <div id="orangeStore" class="flex flex-col gap-2"></div>
+        </div>
+
+        <div id="missionsContent" class="tab-content">
+            <h2 class="section-title">Missions</h2>
+            <div id="missionsGrid" class="flex flex-col gap-2"></div>
+        </div>
+
+        <div id="cosmicContent" class="tab-content">
+            <div class="rebirth-card">
+                <h3>Cosmic Ascension</h3>
+                <p>Perform a Cosmic Ascension to earn <span id="cosmicLemonsToGet">0</span> Cosmic Lemons! This resets your current run but keeps all Golden Orange progress.</p>
+                <p class="text-xs text-gray-400">Requires <span id="orangesRequired">100</span> Golden Oranges.</p>
+                <button id="cosmicAscendBtn" class="rebirth-button mt-4">Cosmic Ascend</button>
+            </div>
+            <div id="cosmicStore" class="flex flex-col gap-2 mt-4"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Pop-up message box -->
+<div id="messageBox" class="message-box hidden">
+    <p id="messageText"></p>
+    <div id="messageButtons" class="mt-4"></div>
+</div>
+
+<!-- Settings modal window -->
+<div id="settingsModal" class="settings-modal">
+    <div class="settings-modal-content">
+        <h2 class="section-title">Settings</h2>
+        <div class="flex items-center justify-between mt-4">
+            <span>Music</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="musicToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+            <span>Show Animations</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="animationToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+            <span>Show Sunburst</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="sunburstToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="mt-6 text-left">
+            <label for="cheatCodeInput">Cheat Code:</label>
+            <input type="text" id="cheatCodeInput" placeholder="Enter cheat code...">
+            <button id="submitCheatBtn" class="upgrade-button w-full mt-2">Submit</button>
+        </div>
+
+        <div class="flex items-center justify-center mt-6">
+            <p class="text-xs text-gray-400">Made by Auaqa (Cole)</p>
+        </div>
+        <button id="fullResetBtn" class="rebirth-button mt-4">Full Reset</button>
+        <button id="closeSettingsBtn" class="upgrade-button mt-4">Close</button>
+    </div>
+</div>
+
+<script>
+    // --- DOM ELEMENT REFERENCES ---
+    const dom = {
+        lemonsDisplay: document.getElementById('lemonsDisplay'),
+        lpsDisplay: document.getElementById('lpsDisplay'),
+        orangesDisplay: document.getElementById('orangesDisplay'),
+        cosmicLemonsDisplay: document.getElementById('cosmicLemonsDisplay'),
+        ascensionsDisplay: document.getElementById('ascensionsDisplay'),
+        cosmicAscensionsDisplay: document.getElementById('cosmicAscensionsDisplay'),
+        orangesToGet: document.getElementById('orangesToGet'),
+        ascendCost: document.getElementById('ascendCost'),
+        orangesRequired: document.getElementById('orangesRequired'),
+        cosmicLemonsToGet: document.getElementById('cosmicLemonsToGet'),
+        clicker: document.getElementById('clicker'),
+        upgradesGrid: document.getElementById('upgradesGrid'),
+        orangeStore: document.getElementById('orangeStore'),
+        cosmicStore: document.getElementById('cosmicStore'),
+        missionsGrid: document.getElementById('missionsGrid'),
+        ascendBtn: document.getElementById('ascendBtn'),
+        cosmicAscendBtn: document.getElementById('cosmicAscendBtn'),
+        autoclickerBtn: document.getElementById('autoclickerBtn'),
+        gameArea: document.querySelector('.game-area'),
+        messageBox: document.getElementById('messageBox'),
+        messageText: document.getElementById('messageText'),
+        messageButtons: document.getElementById('messageButtons'),
+        settingsModal: document.getElementById('settingsModal'),
+        sunburstContainer: document.getElementById('sunburst-container'),
+        cheatCodeInput: document.getElementById('cheatCodeInput'),
+        submitCheatBtn: document.getElementById('submitCheatBtn'),
+        musicToggle: document.getElementById('musicToggle'),
+    };
+
+    // --- GAME CONFIGURATION ---
+    const SAVE_KEY = 'lemonTycoonSave';
+    const AUTOCLICKER_BASE_CPS = 5;
+
+    const upgradesConfig = {
+        'lemonClicker1': { name: 'Strong Hands', type: 'click', baseProduction: 1, icon: '💪', baseCost: 20 },
+        'lemonFarm1': { name: 'Lemon Tree', type: 'lps', baseProduction: 1, icon: '🍋', baseCost: 15 },
+        'lemonClicker2': { name: 'Rubber Gloves', type: 'click', baseProduction: 5, icon: '🧤', baseCost: 150 },
+        'lemonFarm2': { name: 'Squeeze Station', type: 'lps', baseProduction: 8, icon: '🧃', baseCost: 120 },
+        'lemonClicker3': { name: 'Clicking Bot', type: 'click', baseProduction: 25, icon: '🤖', baseCost: 800 },
+        'lemonFarm3': { name: 'Lemonade Stand', type: 'lps', baseProduction: 40, icon: '🥤', baseCost: 750 },
+        'lemonClicker4': { name: 'Power Press', type: 'click', baseProduction: 100, icon: '🏋️', baseCost: 4000 },
+        'lemonFarm4': { name: 'Orchard', type: 'lps', baseProduction: 150, icon: '🌳', baseCost: 5000 },
+        'lemonClicker5': { name: 'Quantum Clicker', type: 'click', baseProduction: 500, icon: '⚛️', baseCost: 15000 },
+        'lemonFarm5': { name: 'Juice Factory', type: 'lps', baseProduction: 750, icon: '🏭', baseCost: 25000 },
+        'lemonClicker6': { name: 'Galactic Gauntlet', type: 'click', baseProduction: 2500, icon: '🌟', baseCost: 80000 },
+        'lemonFarm6': { name: 'Planetary Extractor', type: 'lps', baseProduction: 4000, icon: '🪐', baseCost: 120000 },
+        'lemonClicker7': { name: 'Dimensional Tap', type: 'click', baseProduction: 12000, icon: '🚪', baseCost: 400000 },
+        'lemonFarm7': { name: 'Lemon Multiverse', type: 'lps', baseProduction: 20000, icon: '🌌', baseCost: 650000 },
+        'lemonClicker8': { name: 'Singularity Click', type: 'click', baseProduction: 100000, icon: '⚫', baseCost: 2500000 },
+        'lemonFarm8': { name: 'Galactic Assembly', type: 'lps', baseProduction: 150000, icon: '💫', baseCost: 4000000 },
+        'lemonClicker9': { name: 'Reality Bender', type: 'click', baseProduction: 800000, icon: '🧠', baseCost: 15000000 },
+        'lemonFarm9': { name: 'Time Manipulator', type: 'lps', baseProduction: 1000000, icon: '⏳', baseCost: 22000000 },
+        'lemonClicker10': { name: 'Lemon God Hand', type: 'click', baseProduction: 5000000, icon: '🙏', baseCost: 100000000 },
+        'lemonFarm10': { name: 'Big Squeeze', type: 'lps', baseProduction: 7500000, icon: '💥', baseCost: 150000000 },
+        'lemonClicker11': { name: 'Creator\'s Touch', type: 'click', baseProduction: 4e7, icon: '🤌', baseCost: 8e8 },
+        'lemonFarm11': { name: 'Lemon Singularity', type: 'lps', baseProduction: 6e7, icon: '🌀', baseCost: 1.2e9 },
+    };
+    
+    const goldenUpgradesConfig = {
+        'goldenClicker': { name: 'Golden Clicker', description: 'Permanent +100% click power per level.', icon: '🍊', cost: 1 },
+        'goldenLpsMultiplier': { name: 'Golden Orchard', description: 'Increases all LPS by 10% per level.', icon: '🌳', cost: 5 },
+        'goldenDiscount': { name: 'Golden Discount', description: 'Reduces the cost of regular upgrades by 2% per level (compounding).', icon: '💰', cost: 20 },
+        'lemonSacrifice': { name: 'Lemon Sacrifice', description: 'Start each game with 100 lemons per level.', icon: '🔥', cost: 15 },
+        'goldenAutoclicker': { name: 'Robot Army', description: 'Multiplies autoclicker speed by 2x per level.', icon: '🤖', cost: 100 },
+    };
+
+    const cosmicUpgradesConfig = {
+        'cosmicLpsMultiplier': { name: 'Cosmic LPS Boost', description: 'Permanently increases all LPS by 100% per level.', icon: '✨', cost: 1 },
+        'cosmicClickMultiplier': { name: 'Cosmic Click Boost', description: 'Permanently increases all click power by 100% per level.', icon: '🌟', cost: 1 },
+        'orangeAmplifier': { name: 'Orange Amplifier', description: 'Boosts Golden Clicker, Orchard, and Discount effects by 10% per level.', icon: '📈', cost: 10 },
+        'cosmicOrb': { name: 'Cosmic Orb', description: 'Activates a 100x LPS boost for 60 seconds.', icon: '🔮', cost: 5 }
+    };
+
+    const missionsConfig = {
+        'mission1': { name: 'Beginner\'s Luck', description: 'Click the lemon 100 times.', target: 100, reward: 500, trackStat: 'clicks' },
+        'mission2': { name: 'Lemon Tree', description: 'Get a total of 1,000 lemons.', target: 1000, reward: 2000, trackStat: 'totalLemons' },
+        'mission3': { name: 'Squeeze Master', description: 'Reach 100 LPS.', target: 100, reward: 5000, trackStat: 'lps' },
+        'mission4': { name: 'Lemonade Tycoon', description: 'Earn a total of 100,000 lemons.', target: 100000, reward: 100000, trackStat: 'totalLemons' }
+    };
+
+
+    // --- GAME STATE & LOGIC ---
+    let gameData;
+    let uiElements = { upgrades: {}, goldenUpgrades: {}, cosmicUpgrades: {}, missions: {} };
+    let animationEnabled = true;
+    let musicEnabled = false;
+    let lastTick = Date.now();
+    let isFirstClick = true;
+    let cosmicOrbTimeout = null;
+    let goldenLemonInterval;
+    
+    const defaultGameData = () => ({
+        lemons: 0,
+        totalLemons: 0,
+        lps: 0,
+        goldenOranges: 0,
+        cosmicLemons: 0,
+        ascensions: 0,
+        cosmicAscensions: 0,
+        upgrades: {},
+        goldenUpgrades: {},
+        cosmicUpgrades: {},
+        clicks: 0,
+        clickPower: 1,
+        hasAutoclicker: false,
+        isAutoclickerOn: false,
+        missions: {},
+        musicEnabled: true,
+        cosmicOrbActive: false,
+        cosmicOrbEndTime: 0,
+    });
+
+    // --- UTILITY & SETUP FUNCTIONS ---
+    
+    function formatNumber(num) {
+        num = Math.floor(num);
+        if (num < 1e3) return num.toString();
+        const suffixes = ['', 'K', 'M', 'B', 'T', 'Qa', 'Qi', 'Sx', 'Sp', 'Oc', 'No', 'Dc'];
+        const i = Math.floor(Math.log10(num) / 3);
+        const value = (num / Math.pow(10, i * 3));
+        return value.toFixed(2).replace(/\.00$/, '') + suffixes[i];
+    }
+    
+    function showMessage(message, buttons = [{ text: 'OK', action: hideMessage }]) {
+        dom.messageText.innerHTML = message;
+        dom.messageButtons.innerHTML = '';
+        buttons.forEach(btnInfo => {
+            const button = document.createElement('button');
+            button.className = 'upgrade-button';
+            button.style.backgroundColor = 'var(--success-color)';
+            button.textContent = btnInfo.text;
+            button.onclick = btnInfo.action;
+            dom.messageButtons.appendChild(button);
+        });
+        dom.messageBox.classList.remove('hidden');
+    }
+
+    function hideMessage() {
+        dom.messageBox.classList.add('hidden');
+    }
+    
+    function showAnimation(amount, type = '🍋') {
+        if (!animationEnabled || amount <= 0) return;
+        const text = document.createElement('span');
+        text.className = 'click-animation';
+        text.textContent = `+${formatNumber(amount)} ${type}`;
+        
+        const rect = dom.gameArea.getBoundingClientRect();
+        text.style.left = `${Math.random() * rect.width * 0.8}px`;
+        text.style.top = `${Math.random() * rect.height * 0.5}px`;
+
+        dom.gameArea.appendChild(text);
+        text.addEventListener('animationend', () => text.remove());
+    }
+
+    function setupMusic() {
+        // Tone.js requires a user interaction to start audio context
+        dom.clicker.addEventListener('click', () => {
+            if (isFirstClick) {
+                Tone.start();
+                if (musicEnabled) { Tone.Transport.start(); }
+                startGoldenLemonSpawner();
+                isFirstClick = false;
+            }
+        }, { once: true });
+
+        const reverb = new Tone.Reverb({ decay: 4, preDelay: 0.01, wet: 0.3 }).toDestination();
+        const synth = new Tone.FMSynth({
+            harmonicity: 3.01, modulationIndex: 14,
+            envelope: { attack: 0.01, decay: 0.2, sustain: 0.1, release: 1 },
+            modulationEnvelope: { attack: 0.01, decay: 0.5, sustain: 0, release: 0.5 }
+        }).connect(reverb);
+        const melody = new Tone.Sequence((time, note) => {
+            synth.triggerAttackRelease(note, "8n", time);
+        }, ['C4', 'E4', 'G4', 'E4', 'A3', 'C4', 'E4', 'C4', 'F3', 'A3', 'C4', 'A3', 'G3', 'B3', 'D4', 'B3'], "4n");
+        Tone.Transport.bpm.value = 90;
+        melody.start(0);
+    }
+    
+    // --- GAME CORE ---
+
+    function clickLemon() {
+        const lemonsToAdd = Math.floor(gameData.clickPower);
+        gameData.lemons += lemonsToAdd;
+        gameData.totalLemons += lemonsToAdd;
+        gameData.clicks++;
+        showAnimation(lemonsToAdd);
+    }
+    
+    function calculateStats() {
+        const orangeAmplifierBonus = 1 + (gameData.cosmicUpgrades.orangeAmplifier || 0) * 0.1;
+        
+        let baseLPS = 0;
+        let baseClickPower = 1;
+
+        for (const key in upgradesConfig) {
+            const count = gameData.upgrades[key] || 0;
+            if (upgradesConfig[key].type === 'lps') {
+                baseLPS += count * upgradesConfig[key].baseProduction;
+            } else {
+                baseClickPower += count * upgradesConfig[key].baseProduction;
+            }
+        }
+
+        const goldenLpsMultiplier = 1 + ((gameData.goldenUpgrades.goldenLpsMultiplier || 0) * 0.1 * orangeAmplifierBonus);
+        const goldenClickMultiplier = 1 + ((gameData.goldenUpgrades.goldenClicker || 0) * orangeAmplifierBonus);
+        
+        const cosmicLpsMultiplier = 1 + (gameData.cosmicUpgrades.cosmicLpsMultiplier || 0);
+        const cosmicClickMultiplier = 1 + (gameData.cosmicUpgrades.cosmicClickMultiplier || 0);
+        
+        // Corrected calculation to include cosmic boosts
+        gameData.lps = baseLPS * goldenLpsMultiplier * cosmicLpsMultiplier;
+        gameData.clickPower = baseClickPower * goldenClickMultiplier * cosmicClickMultiplier;
+
+        // Apply temporary cosmic orb boost if active
+        if (gameData.cosmicOrbActive) {
+            gameData.lps *= 100;
+        }
+    }
+
+    // --- UI UPDATE FUNCTIONS ---
+
+    function updateUI() {
+        dom.lemonsDisplay.textContent = formatNumber(gameData.lemons);
+        dom.lpsDisplay.textContent = formatNumber(gameData.lps);
+        dom.orangesDisplay.textContent = formatNumber(gameData.goldenOranges);
+        dom.cosmicLemonsDisplay.textContent = formatNumber(gameData.cosmicLemons);
+        dom.ascensionsDisplay.textContent = formatNumber(gameData.ascensions);
+        dom.cosmicAscensionsDisplay.textContent = formatNumber(gameData.cosmicAscensions);
+        updateAllUpgradeCards();
+        updateAscendButtons();
+        updateMissionCards();
+
+        dom.autoclickerBtn.disabled = !gameData.hasAutoclicker;
+        dom.autoclickerBtn.textContent = `Autoclicker (${gameData.isAutoclickerOn ? 'ON' : 'OFF'})`;
+        dom.autoclickerBtn.classList.toggle('active', gameData.isAutoclickerOn);
+    }
+    
+    function updateAllUpgradeCards() {
+        ['upgrades', 'goldenUpgrades', 'cosmicUpgrades'].forEach(type => {
+            const config = { 'upgrades': upgradesConfig, 'goldenUpgrades': goldenUpgradesConfig, 'cosmicUpgrades': cosmicUpgradesConfig }[type];
+            for (const key in config) {
+                if (uiElements[type][key]) {
+                    const count = gameData[type][key] || 0;
+                    uiElements[type][key].owned.textContent = count;
+                    const cost1 = calculateBulkCost(type, key, 1);
+                    uiElements[type][key].cost.textContent = formatNumber(cost1);
+                    uiElements[type][key].button1.disabled = gameData[getCurrencyKey(type)] < cost1;
+                    uiElements[type][key].button10.disabled = gameData[getCurrencyKey(type)] < calculateBulkCost(type, key, 10);
+                    uiElements[type][key].button100.disabled = gameData[getCurrencyKey(type)] < calculateBulkCost(type, key, 100);
+                }
+            }
+        });
+    }
+
+    function updateAscendButtons() {
+        const ascendLemons = 10e6 * Math.pow(5, gameData.ascensions);
+        dom.ascendCost.textContent = formatNumber(ascendLemons);
+
+        const baseRequirement = 10e6;
+        const orangesToGet = (gameData.lemons >= ascendLemons)
+            ? Math.floor(10 * Math.cbrt(gameData.lemons / baseRequirement))
+            : 0;
+        dom.orangesToGet.textContent = orangesToGet;
+        dom.ascendBtn.disabled = orangesToGet <= 0;
+
+        const cosmicOranges = 250;
+        dom.orangesRequired.textContent = formatNumber(cosmicOranges);
+        const cosmicLemonsToGet = gameData.goldenOranges >= cosmicOranges
+            ? Math.floor(Math.log2(gameData.goldenOranges / cosmicOranges)) + 1
+            : 0;
+        dom.cosmicLemonsToGet.textContent = cosmicLemonsToGet;
+        dom.cosmicAscendBtn.disabled = cosmicLemonsToGet <= 0;
+    }
+    
+    function updateMissionCards() {
+        for (const key in missionsConfig) {
+            const mission = missionsConfig[key];
+            const isCompleted = gameData.missions[key];
+            const currentStat = gameData[mission.trackStat] || 0;
+            const canComplete = !isCompleted && currentStat >= mission.target;
+
+            let statusText;
+            if (isCompleted) {
+                statusText = 'Claimed!';
+                uiElements.missions[key].button.textContent = 'Claimed';
+                uiElements.missions[key].button.disabled = true;
+            } else if (canComplete) {
+                statusText = 'Completed!';
+                uiElements.missions[key].button.textContent = `Claim (${formatNumber(mission.reward)})`;
+                uiElements.missions[key].button.disabled = false;
+            } else {
+                statusText = `Progress: ${formatNumber(currentStat)} / ${formatNumber(mission.target)}`;
+                uiElements.missions[key].button.textContent = 'In Progress...';
+                uiElements.missions[key].button.disabled = true;
+            }
+            uiElements.missions[key].status.textContent = statusText;
+        }
+    }
+    
+    // --- UI CREATION (RUNS ONCE) ---
+
+    function createAllUpgradeCards() {
+        dom.upgradesGrid.innerHTML = '';
+        const clickUpgrades = Object.entries(upgradesConfig).filter(([,v]) => v.type === 'click').map(([k,v]) => ({id:k, ...v})).sort((a,b) => a.baseCost - b.baseCost);
+        const lpsUpgrades = Object.entries(upgradesConfig).filter(([,v]) => v.type === 'lps').map(([k,v]) => ({id:k, ...v})).sort((a,b) => a.baseCost - b.baseCost);
+        const finalSortedUpgrades = [];
+        for (let i = 0; i < Math.max(clickUpgrades.length, lpsUpgrades.length); i++) {
+            if (clickUpgrades[i]) finalSortedUpgrades.push(clickUpgrades[i]);
+            if (lpsUpgrades[i]) finalSortedUpgrades.push(lpsUpgrades[i]);
+        }
+
+        for (const upgrade of finalSortedUpgrades) {
+            const key = upgrade.id;
+            const card = createBuyCardElement(
+                upgrade.name,
+                `<p class="text-xs">${upgrade.type === 'click' ? `+${formatNumber(upgrade.baseProduction)} per click` : `+${formatNumber(upgrade.baseProduction)} per second`}</p><p>Owned: <span class="owned">0</span></p><p>Cost: <span class="cost">${formatNumber(upgrade.baseCost)}</span></p>`,
+                upgrade.icon,
+                (amount) => buyMultipleUpgrades('upgrades', key, amount)
+            );
+            uiElements.upgrades[key] = {
+                owned: card.querySelector('.owned'), cost: card.querySelector('.cost'),
+                button1: card.querySelector('.buy-1'), button10: card.querySelector('.buy-10'), button100: card.querySelector('.buy-100'),
+            };
+            dom.upgradesGrid.appendChild(card);
+        }
+
+        dom.orangeStore.innerHTML = `<h2 class="section-title">Golden Orange Upgrades</h2>`;
+        for (const key in goldenUpgradesConfig) {
+            const upgrade = goldenUpgradesConfig[key];
+            const card = createBuyCardElement(
+                upgrade.name,
+                `<p class="text-xs">${upgrade.description}</p><p>Level: <span class="owned">0</span></p><p>Cost: <span class="cost">${formatNumber(upgrade.cost)}</span> 🍊</p>`,
+                upgrade.icon,
+                (amount) => buyMultipleUpgrades('goldenUpgrades', key, amount)
+            );
+            uiElements.goldenUpgrades[key] = {
+                owned: card.querySelector('.owned'), cost: card.querySelector('.cost'),
+                button1: card.querySelector('.buy-1'), button10: card.querySelector('.buy-10'), button100: card.querySelector('.buy-100'),
+            };
+            dom.orangeStore.appendChild(card);
+        }
+
+        dom.cosmicStore.innerHTML = `<h2 class="section-title">Cosmic Lemon Upgrades</h2>`;
+        for (const key in cosmicUpgradesConfig) {
+            const upgrade = cosmicUpgradesConfig[key];
+            const card = createBuyCardElement(
+                upgrade.name,
+                `<p class="text-xs">${upgrade.description}</p><p>Level: <span class="owned">0</span></p><p>Cost: <span class="cost">${formatNumber(upgrade.cost)}</span> ✨</p>`,
+                upgrade.icon,
+                (amount) => buyMultipleUpgrades('cosmicUpgrades', key, amount)
+            );
+            uiElements.cosmicUpgrades[key] = {
+                owned: card.querySelector('.owned'), cost: card.querySelector('.cost'),
+                button1: card.querySelector('.buy-1'), button10: card.querySelector('.buy-10'), button100: card.querySelector('.buy-100'),
+            };
+            dom.cosmicStore.appendChild(card);
+        }
+        
+        dom.missionsGrid.innerHTML = '';
+        for (const key in missionsConfig) {
+            const mission = missionsConfig[key];
+            const card = createMissionCardElement(mission.name, mission.description, '❓', () => claimMission(key));
+            uiElements.missions[key] = { status: card.querySelector('.status'), button: card.querySelector('button') };
+            dom.missionsGrid.appendChild(card);
+        }
+    }
+    
+    function createBuyCardElement(title, body, icon, onClick) {
+        const card = document.createElement('div');
+        card.className = 'upgrade-card';
+        card.innerHTML = `
+            <div class="upgrade-card-icon">${icon}</div>
+            <div class="upgrade-details flex-grow"><h3>${title}</h3>${body}</div>
+            <div class="button-container">
+                <button class="upgrade-button buy-1">Buy 1</button>
+                <div class="bulk-buttons">
+                    <button class="upgrade-button-small buy-10">Buy 10</button>
+                    <button class="upgrade-button-small buy-100">Buy 100</button>
+                </div>
+            </div>`;
+        card.querySelector('.buy-1').addEventListener('click', () => onClick(1));
+        card.querySelector('.buy-10').addEventListener('click', () => onClick(10));
+        card.querySelector('.buy-100').addEventListener('click', () => onClick(100));
+        
+        // Special case for Cosmic Orb to handle a one-time purchase
+        if (title === 'Cosmic Orb') {
+             card.querySelector('.bulk-buttons').style.display = 'none';
+             card.querySelector('.buy-1').textContent = 'Activate';
+             card.querySelector('.buy-1').addEventListener('click', activateCosmicOrb);
+             card.querySelector('.buy-1').classList.add('buy-orb');
+             
+        }
+        return card;
+    }
+
+    function createMissionCardElement(title, description, icon, onClaim) {
+        const card = document.createElement('div');
+        card.className = 'upgrade-card';
+        card.innerHTML = `
+            <div class="upgrade-card-icon">${icon}</div>
+            <div class="upgrade-details flex-grow">
+                <h3>${title}</h3>
+                <p class="text-xs">${description}</p>
+                <p class="mt-1"><span class="status"></span></p>
+            </div>
+            <div class="button-container">
+                <button class="upgrade-button claim-btn">Claim</button>
+            </div>`;
+        card.querySelector('.claim-btn').addEventListener('click', onClaim);
+        return card;
+    }
+    
+    // --- PURCHASE AND ACTION HANDLERS ---
+    
+    function getCurrencyKey(type) {
+        if (type === 'upgrades') return 'lemons';
+        if (type === 'goldenUpgrades') return 'goldenOranges';
+        return 'cosmicLemons';
+    }
+
+    function calculateBulkCost(type, key, amount) {
+        const config = { 'upgrades': upgradesConfig, 'goldenUpgrades': goldenUpgradesConfig, 'cosmicUpgrades': cosmicUpgradesConfig }[type];
+        const ownedCount = gameData[type][key] || 0;
+        const orangeAmplifierBonus = 1 + (gameData.cosmicUpgrades.orangeAmplifier || 0) * 0.1;
+        const discountPower = (gameData.goldenUpgrades.goldenDiscount || 0) * orangeAmplifierBonus;
+        const discount = (type === 'upgrades') ? Math.pow(0.98, discountPower) : 1;
+        
+        let totalCost = 0;
+        for (let i = 0; i < amount; i++) {
+            const currentLevel = ownedCount + i;
+            if (type === 'upgrades') {
+                totalCost += Math.floor(config[key].baseCost * Math.pow(1.26, currentLevel) * discount);
+            } else if (type === 'goldenUpgrades' || type === 'cosmicUpgrades') {
+                // Use a different exponential growth for prestige upgrades
+                const growthRate = (type === 'goldenUpgrades') ? 1.2 : 1.25;
+                totalCost += Math.floor(config[key].cost * Math.pow(growthRate, currentLevel));
+            } else {
+                totalCost += config[key].cost * (currentLevel + 1);
+            }
+        }
+        return totalCost;
+    }
+
+    function buyMultipleUpgrades(type, key, amount) {
+        if (key === 'cosmicOrb') {
+            activateCosmicOrb();
+            return;
+        }
+
+        const currency = getCurrencyKey(type);
+        const totalCost = calculateBulkCost(type, key, amount);
+
+        if (gameData[currency] >= totalCost) {
+            gameData[currency] -= totalCost;
+            gameData[type][key] = (gameData[type][key] || 0) + amount;
+            calculateStats();
+            updateUI();
+        } else {
+            showMessage(`Not enough ${currency === 'lemons' ? 'lemons' : currency === 'goldenOranges' ? 'Golden Oranges' : 'Cosmic Lemons'}!`);
+        }
+    }
+    
+    function claimMission(key) {
+        if (!gameData.missions[key] && (gameData[missionsConfig[key].trackStat] || 0) >= missionsConfig[key].target) {
+            gameData.lemons += missionsConfig[key].reward;
+            gameData.missions[key] = true;
+            showAnimation(missionsConfig[key].reward);
+            showMessage(`Mission Complete! You earned ${formatNumber(missionsConfig[key].reward)} lemons.`);
+        }
+    }
+    
+    function ascend() {
+        const orangesToGet = parseInt(dom.orangesToGet.textContent);
+        if (orangesToGet > 0) {
+            resetProgress(false);
+            showMessage(`Ascended! You earned ${orangesToGet} Golden Oranges!`);
+        } else {
+            showMessage("You don't meet the requirements to ascend yet.");
+        }
+    }
+    
+    function cosmicAscend() {
+        const cosmicLemonsToGet = parseInt(dom.cosmicLemonsToGet.textContent);
+        if (cosmicLemonsToGet > 0) {
+            resetProgress(true);
+            showMessage(`Cosmic Ascended! You earned ${cosmicLemonsToGet} Cosmic Lemons!`);
+        } else {
+            showMessage("You don't meet the requirements for a Cosmic Ascension yet.");
+        }
+    }
+
+    function resetProgress(isCosmic = false) {
+        const oldData = { ...gameData };
+        let newData = defaultGameData();
+
+        // Preserve prestige progress based on the type of ascension
+        if (isCosmic) {
+            newData.cosmicAscensions = oldData.cosmicAscensions + 1;
+            newData.cosmicLemons = oldData.cosmicLemons + parseInt(dom.cosmicLemonsToGet.textContent);
+            newData.cosmicUpgrades = oldData.cosmicUpgrades;
+            newData.goldenOranges = oldData.goldenOranges;
+            newData.goldenUpgrades = oldData.goldenUpgrades;
+            newData.ascensions = oldData.ascensions;
+        } else {
+            newData.goldenOranges = oldData.goldenOranges + parseInt(dom.orangesToGet.textContent);
+            newData.ascensions = oldData.ascensions + 1;
+            newData.goldenUpgrades = oldData.goldenUpgrades;
+            newData.cosmicLemons = oldData.cosmicLemons;
+            newData.cosmicUpgrades = oldData.cosmicUpgrades;
+            newData.cosmicAscensions = oldData.cosmicAscensions;
+        }
+
+        newData.lemons = (newData.goldenUpgrades.lemonSacrifice || 0) * 100;
+        newData.hasAutoclicker = true;
+        
+        // Reset mission progress on any ascend
+        newData.missions = {};
+
+        gameData = newData;
+        if (gameData.isAutoclickerOn) { gameData.isAutoclickerOn = false; }
+        clearTimeout(cosmicOrbTimeout);
+        
+        calculateStats();
+        updateUI();
+    }
+    
+    function fullReset() {
+        showMessage('Are you sure you want to completely reset your game? This cannot be undone!', [
+            { text: 'Yes, Reset', action: () => {
+                localStorage.removeItem(SAVE_KEY);
+                clearTimeout(goldenLemonInterval);
+                gameData = defaultGameData();
+                musicEnabled = gameData.musicEnabled;
+                dom.musicToggle.checked = musicEnabled;
+                if (!musicEnabled) { Tone.Transport.stop(); }
+                calculateStats();
+                hideMessage();
+                showMessage('Game has been completely reset.');
+            }},
+            { text: 'No, Cancel', action: hideMessage }
+        ]);
+    }
+    
+    function toggleAutoclicker() {
+        if (!gameData.hasAutoclicker) return;
+        gameData.isAutoclickerOn = !gameData.isAutoclickerOn;
+        if (gameData.isAutoclickerOn) {
+            startAutoclicker();
+        } else {
+            // No action needed, the gameLoop check handles stopping
+        }
+    }
+    
+    function startAutoclicker() {
+        // The autoclicker logic is now handled by the gameLoop
+    }
+    
+    function applyCheatCode() {
+        const code = dom.cheatCodeInput.value;
+        if (code === 'biagiosucks') {
+            gameData.lemons = 1e15;
+            gameData.goldenOranges = 1e6;
+            gameData.cosmicLemons = 1e6;
+            gameData.ascensions = 1e6;
+            gameData.cosmicAscensions = 1e6;
+            gameData.hasAutoclicker = true;
+            // Set high levels for prestige upgrades to achieve high LPS
+            gameData.goldenUpgrades.goldenLpsMultiplier = 1e6;
+            gameData.cosmicUpgrades.cosmicLpsMultiplier = 1e6;
+            gameData.cosmicUpgrades.cosmicClickMultiplier = 1e6;
+            calculateStats();
+            dom.settingsModal.style.display = 'none';
+            showMessage('Cheat code activated! Happy testing!');
+        } else {
+            showMessage('Invalid cheat code.');
+        }
+        dom.cheatCodeInput.value = '';
+    }
+
+    // --- GOLDEN LEMON FEATURE ---
+    function spawnGoldenLemon() {
+        const lemon = document.createElement('div');
+        lemon.className = 'golden-lemon';
+        lemon.innerHTML = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,95 C75,95 95,75 95,50 C95,25 75,5 50,5 C25,5 5,25 5,50 C5,75 25,95 50,95 Z" fill="gold" stroke="#f2a500" stroke-width="3" /></svg>`;
+        
+        const gameAreaRect = dom.gameArea.getBoundingClientRect();
+        lemon.style.right = `-60px`;
+        lemon.style.top = `${Math.random() * (gameAreaRect.height - 100) + 20}px`;
+        const duration = (Math.random() * 4) + 5;
+        lemon.style.animation = `floatAcross ${duration}s linear forwards, float 3s ease-in-out infinite alternate`;
+
+        const handleAnimationEnd = () => { lemon.remove(); };
+        lemon.addEventListener('animationend', handleAnimationEnd);
+
+        lemon.addEventListener('click', () => {
+            const lpsReward = (gameData.lps || 1) * 60 * 5;
+            const bankReward = gameData.lemons * 0.01;
+            const totalReward = Math.floor(lpsReward + bankReward);
+            gameData.lemons += totalReward;
+            showAnimation(totalReward, '🍋');
+            lemon.removeEventListener('animationend', handleAnimationEnd);
+            lemon.remove();
+        });
+        dom.gameArea.appendChild(lemon);
+    }
+
+    function startGoldenLemonSpawner() {
+        if (goldenLemonInterval) clearTimeout(goldenLemonInterval);
+        const spawnLogic = () => {
+            spawnGoldenLemon();
+            const nextSpawnTime = (Math.random() * 20000) + 15000;
+            goldenLemonInterval = setTimeout(spawnLogic, nextSpawnTime);
+        };
+        const firstSpawnTime = (Math.random() * 10000) + 5000;
+        goldenLemonInterval = setTimeout(spawnLogic, firstSpawnTime);
+    }
+
+    // --- COSMIC ORB ---
+    function activateCosmicOrb() {
+        if (gameData.cosmicUpgrades.cosmicOrb < 1) {
+             showMessage("You need to purchase the Cosmic Orb upgrade first!");
+             return;
+        }
+        if (gameData.cosmicOrbActive) {
+            showMessage("Cosmic Orb is already active!");
+            return;
+        }
+
+        gameData.cosmicOrbActive = true;
+        gameData.cosmicOrbEndTime = Date.now() + 60 * 1000;
+        calculateStats();
+        showMessage("Cosmic Orb activated! Your LPS is boosted 100x for 60 seconds.");
+        
+        // Disable the activate button
+        const orbButton = document.querySelector('.buy-orb');
+        if (orbButton) {
+            orbButton.disabled = true;
+            orbButton.style.backgroundColor = 'var(--disabled-color)';
+        }
+    }
+    
+    // --- SAVE / LOAD ---
+    
+    function saveGame() {
+        gameData.lastSaveTime = Date.now();
+        localStorage.setItem(SAVE_KEY, JSON.stringify(gameData));
+    }
+    
+    function loadGame() {
+        const savedData = localStorage.getItem(SAVE_KEY);
+        gameData = savedData ? JSON.parse(savedData) : defaultGameData();
+        gameData = { ...defaultGameData(), ...gameData };
+        musicEnabled = gameData.musicEnabled;
+        dom.musicToggle.checked = musicEnabled;
+        calculateStats();
+        if (gameData.lastSaveTime) {
+            const offlineTime = (Date.now() - gameData.lastSaveTime) / 1000;
+            const offlineLemons = gameData.lps * offlineTime;
+            if (offlineLemons > 0) {
+                gameData.lemons += offlineLemons;
+                gameData.totalLemons += offlineLemons;
+                showMessage(`Welcome back! You earned ${formatNumber(offlineLemons)} lemons while away!`);
+            }
+        }
+    }
+    
+    // --- MAIN GAME LOOP ---
+
+    function gameLoop() {
+        const now = Date.now();
+        const delta = (now - lastTick) / 1000;
+        
+        // Autoclicker logic
+        if (gameData.isAutoclickerOn) {
+            const clicksPerSecond = AUTOCLICKER_BASE_CPS * Math.pow(2, gameData.goldenUpgrades.goldenAutoclicker || 0);
+            const lemonsFromAutoclick = Math.floor(gameData.clickPower * clicksPerSecond * delta);
+            if (lemonsFromAutoclick > 0) {
+                gameData.lemons += lemonsFromAutoclick;
+                gameData.totalLemons += lemonsFromAutoclick;
+                gameData.clicks += Math.floor(clicksPerSecond * delta);
+                showAnimation(lemonsFromAutoclick, '🤖');
+            }
+        }
+        
+        // Update cosmic orb state
+        if (gameData.cosmicOrbActive && Date.now() > gameData.cosmicOrbEndTime) {
+            gameData.cosmicOrbActive = false;
+            showMessage("Cosmic Orb effect has worn off.");
+            calculateStats(); // Recalculate stats to remove the boost
+            const orbButton = document.querySelector('.buy-orb');
+            if (orbButton) {
+                orbButton.disabled = false;
+                orbButton.style.backgroundColor = 'var(--success-color)';
+            }
+        }
+
+        let lpsToAdd = gameData.lps * delta;
+        gameData.lemons += lpsToAdd;
+        gameData.totalLemons += lpsToAdd;
+        
+        lastTick = now;
+        updateUI();
+        requestAnimationFrame(gameLoop);
+    }
+    
+    // --- INITIALIZATION ---
+    
+    function init() {
+        loadGame();
+        createAllUpgradeCards();
+        setupMusic();
+        
+        dom.clicker.addEventListener('click', clickLemon);
+        dom.ascendBtn.addEventListener('click', ascend);
+        dom.cosmicAscendBtn.addEventListener('click', cosmicAscend);
+        dom.autoclickerBtn.addEventListener('click', toggleAutoclicker);
+        document.getElementById('upgradesTab').addEventListener('click', () => switchTab('upgrades'));
+        document.getElementById('ascendTab').addEventListener('click', () => switchTab('ascend'));
+        document.getElementById('missionsTab').addEventListener('click', () => switchTab('missions'));
+        document.getElementById('cosmicTab').addEventListener('click', () => switchTab('cosmic'));
+        
+        document.getElementById('settingsBtn').addEventListener('click', () => dom.settingsModal.style.display = 'flex');
+        document.getElementById('closeSettingsBtn').addEventListener('click', () => dom.settingsModal.style.display = 'none');
+        document.getElementById('fullResetBtn').addEventListener('click', fullReset);
+        dom.submitCheatBtn.addEventListener('click', applyCheatCode);
+        document.getElementById('animationToggle').addEventListener('change', (e) => animationEnabled = e.target.checked);
+        document.getElementById('sunburstToggle').addEventListener('change', (e) => dom.sunburstContainer.style.display = e.target.checked ? 'block' : 'none');
+        dom.musicToggle.addEventListener('change', (e) => {
+            musicEnabled = e.target.checked;
+            gameData.musicEnabled = musicEnabled;
+            if (musicEnabled && !isFirstClick) { Tone.Transport.start(); }
+            else { Tone.Transport.stop(); }
+        });
+
+        setInterval(saveGame, 5000);
+        lastTick = Date.now();
+        gameLoop();
+    }
+    
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId + 'Content').classList.add('active');
+        document.getElementById(tabId + 'Tab').classList.add('active');
+    }
+    
+    window.onload = init;
+</script>
+</body>
+</html>

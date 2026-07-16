@@ -36,6 +36,10 @@ export interface GameMetadata {
 	engine?: GameEngine;
 	/** Direct URL for online play (Unity CDN, etc.). */
 	onlineEmbedUrl?: string;
+	/** Prefer this CDN HTML over Sites fallback URLs when present. */
+	remotePlayUrl?: string;
+	/** Catalog importer wrote online/embed.html for puller live/unity proxies. */
+	localEmbed?: boolean;
 	/** Shipped with a pre-built offline copy under static/games/{id}/offline/. */
 	bundledOffline?: boolean;
 }
@@ -346,7 +350,7 @@ function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): st
 
 /** External http(s) catalog embed that cannot be same-origin without the local puller. */
 function hasExternalOnlineEmbed(metadata: GameMetadata | null): boolean {
-	const embed = metadata?.onlineEmbedUrl?.trim();
+	const embed = metadata?.onlineEmbedUrl?.trim() || metadata?.remotePlayUrl?.trim();
 	if (!embed) return false;
 	try {
 		const url = new URL(embed);
@@ -354,6 +358,13 @@ function hasExternalOnlineEmbed(metadata: GameMetadata | null): boolean {
 	} catch {
 		return false;
 	}
+}
+
+function wantsNativeTouchProxy(metadata: GameMetadata | null): boolean {
+	if (metadata?.localEmbed) return true;
+	if (hasExternalOnlineEmbed(metadata)) return true;
+	/* Native app: always relay online HTML5 through game-live so touch inject works. */
+	return true;
 }
 
 async function offlineAvailable(gameId: string): Promise<boolean> {
@@ -464,18 +475,16 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Online + puller (local app):
+	 * Online + puller (local / native app) — touch proxy always on:
 	 * - Unity → /api/unity-play (inject in game doc)
-	 * - Explicit external onlineEmbedUrl → /api/game-live
-	 * - Plain catalog shells (/games/{id}/online/index.html wrapping a remote iframe)
-	 *   play directly; console toggle upgrades to game-live via ensureTouchCapablePlayUrl().
-	 * Forcing game-live for every online title broke Unity loaders (progressLogoUrl / JSON←HTML).
+	 * - All other online titles → /api/game-live (including local embed.html catalogs)
+	 * Unity stays on unity-play (not game-live) so loaders keep working.
 	 */
 	if (!isPublicSiteDeployment()) {
-		const { isPullerAvailable, pullerUnityPlayUrl, pullerLiveGameUrl } = await import(
-			'./offline-downloader-puller'
-		);
-		if (await isPullerAvailable()) {
+		const { isPullerAvailable, waitForPuller, pullerUnityPlayUrl, pullerLiveGameUrl } =
+			await import('./offline-downloader-puller');
+		const pullerUp = (await isPullerAvailable()) || (await waitForPuller(12_000));
+		if (pullerUp) {
 			if (metadata?.engine === 'unity') {
 				const url = pullerUnityPlayUrl(gameId, base);
 				appendPlayLog(
@@ -486,12 +495,12 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 				);
 				return url;
 			}
-			if (hasExternalOnlineEmbed(metadata)) {
+			if (wantsNativeTouchProxy(metadata)) {
 				const url = pullerLiveGameUrl(gameId, base);
 				appendPlayLog(
 					'info',
 					'play-url',
-					`Resolved live relay via puller (online play; not an offline download)`,
+					`Resolved live relay via puller (native touch proxy)`,
 					`game=${gameId} url=${url}`
 				);
 				return url;

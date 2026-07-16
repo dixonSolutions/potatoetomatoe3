@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/organ-nizator/ff@main/">
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Unity WebGL Player | FNAF with The Baby in Yellow</title>
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/ranny31ranny/123@main/TemplateData/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ranny31ranny/123@main/TemplateData/style.css"/>
+    <!-- Yandex Games SDK -->
+    <script src="https://cdn.jsdelivr.net/gh/ranny31ranny/123@main/v2.79e5f6f6325b0faa1b66.js"></script>
+    <!-- GameMonetize SDK Entegrasyonu -->
+    <script type="text/javascript">
+        window.SDK_OPTIONS = {
+            gameId: "jp112o3o4hzgrnc7zaewjkrfk282pul8",
+            onEvent: function (a) {
+                switch (a.name) {
+                    case "SDK_GAME_PAUSE":
+                        console.log("Oyun duraklatıldı, ses kapatılıyor...");
+                        if (typeof myGameInstance !== 'undefined' && myGameInstance) {
+                            myGameInstance.SendMessage('AudioManager', 'MuteAudio');
+                        }
+                        break;
+                    case "SDK_GAME_START":
+                        console.log("Reklam bitti, oyun devam ediyor...");
+                        if (typeof myGameInstance !== 'undefined' && myGameInstance) {
+                            myGameInstance.SendMessage('AudioManager', 'UnmuteAudio');
+                        }
+                        break;
+                    case "SDK_READY":
+                        console.log("SDK hazır.");
+                        break;
+                }
+            }
+        };
+        (function (a, b, c) {
+            var d = a.getElementsByTagName(b)[0];
+            a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://cdn.jsdelivr.net/gh/testamalame/sef@main/sedk.js", d.parentNode.insertBefore(a, d));
+        })(document, "script", "gamemonetize-sdk");
+    </script>
+</head>
+<body>
+    <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
+        <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%"></canvas>
+        <div id="unity-loading-bar">
+            <div id="unity-logo"></div>
+            <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+        </div>
+        <div id="unity-warning"> </div>
+    </div>
+    <script>
+        YaGames
+            .init()
+            .then(ysdk => {
+                console.log('Yandex SDK initialized');
+                window.ysdk = ysdk;
+                initPlayer();
+            });
+        
+        var player;
+
+        function initPlayer() {
+            return ysdk.getPlayer({ scopes: false }).then(_player => {
+                player = _player;
+                return player;
+            });
+        }
+    </script>
+    <script>
+        var container = document.querySelector("#unity-container");
+        var canvas = document.querySelector("#unity-canvas");
+        var loadingBar = document.querySelector("#unity-loading-bar");
+        var progressBarFull = document.querySelector("#unity-progress-bar-full");
+        var warningBanner = document.querySelector("#unity-warning");
+
+        let myGameInstance = null;
+        let isAdShown = false;
+
+        function unityShowBanner(msg, type) {
+            function updateBannerVisibility() {
+                warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+            }
+            var div = document.createElement('div');
+            div.innerHTML = msg;
+            warningBanner.appendChild(div);
+            if (type == 'error') div.style = 'background: red; padding: 10px;';
+            else {
+                if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+                setTimeout(function() {
+                    warningBanner.removeChild(div);
+                    updateBannerVisibility();
+                }, 5000);
+            }
+            updateBannerVisibility();
+        }
+
+        function showAdOnClick() {
+            if (!isAdShown && typeof sdk !== 'undefined' && typeof sdk.showBanner !== 'undefined') {
+                sdk.showBanner();
+                isAdShown = true;
+                console.log("Reklam çağrıldı.");
+            } else {
+                console.warn("SDK veya showBanner tanımlı değil.");
+            }
+        }
+
+        var buildUrl = "https://cdn.jsdelivr.net/gh/ranny31ranny/123@main/Build";
+        var loaderUrl = buildUrl + "/fnaf with the baby in yellow.loader.js";
+        var config = {
+            dataUrl: buildUrl + "/b4c4838f22bfb80fe5b0bd591d925b5b.data",
+            frameworkUrl: buildUrl + "/c984758281ade39774301c83424db041.js",
+            streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/ranny31ranny/123@main/StreamingAssets",
+            companyName: "GP",
+            productName: "FNAF with The Baby in Yellow",
+            productVersion: "1.0",
+            showBanner: unityShowBanner,
+        };
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            container.className = "unity-mobile";
+            canvas.className = "unity-mobile";
+        } else {
+            canvas.style.width = "100%";
+            canvas.style.height = "100%";
+        }
+
+        loadingBar.style.display = "block";
+
+        async function mergeWasmFiles() {
+            const parts = ["96d54c73dc731dc38fce85a5e622207d_part1.wasm", "96d54c73dc731dc38fce85a5e622207d_part2.wasm"];
+            let wasmData = new Uint8Array();
+            
+            for (const part of parts) {
+                const response = await fetch(buildUrl + '/' + part);
+                const partData = new Uint8Array(await response.arrayBuffer());
+                
+                let merged = new Uint8Array(wasmData.length + partData.length);
+                merged.set(wasmData, 0);
+                merged.set(partData, wasmData.length);
+                wasmData = merged;
+            }
+
+            const blob = new Blob([wasmData], { type: 'application/wasm' });
+            const blobUrl = URL.createObjecturl("https://cdn.jsdelivr.net/gh/organ-nizator/ff@main/blob");
+            config.codeUrl = blobUrl;
+            return blobUrl;
+        }
+
+        mergeWasmFiles().then((blobUrl) => {
+            console.log("WASM birleştirme tamamlandı");
+            config.codeUrl = blobUrl;
+            
+            var script = document.createElement("script");
+            script.src = loaderUrl;
+            script.onload = () => {
+                loadingBar.style.display = "block";
+                createUnityInstance(canvas, config, (progress) => {
+                    progressBarFull.style.width = 100 * progress + "%";
+                }).then((unityInstance) => {
+                    myGameInstance = unityInstance;
+                    loadingBar.style.display = "none";
+                    // Oyun yüklendiğinde tıklama olayını ekle
+                    canvas.addEventListener('pointerdown', showAdOnClick);
+                    canvas.addEventListener('touchstart', showAdOnClick);
+                }).catch((message) => {
+                    console.error("Unity yükleme hatası:", message);
+                });
+            };
+            document.body.appendChild(script);
+        });
+    </script>
+</body>
+</html>

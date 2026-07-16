@@ -18,12 +18,20 @@ function extractIframeSrc(html: string): string | null {
 
 /**
  * Resolve the live play target for a catalog game.
- * Prefer metadata.onlineEmbedUrl, else the online shell iframe src.
+ * Prefer a real remote play URL, then metadata.onlineEmbedUrl, else the online shell iframe src.
+ * Google Sites gadget pages are skipped when a local embed.html exists (handled by proxy).
  */
 export async function resolveLiveTargetUrl(gameId: string): Promise<string | null> {
 	const meta = await readGameMetadata(gameId);
+	const remotePlay =
+		typeof meta?.remotePlayUrl === 'string' ? meta.remotePlayUrl.trim() : '';
+	if (remotePlay && !/sites\.google\.com\/view\//i.test(remotePlay)) {
+		assertSafePlayUrl(remotePlay);
+		return remotePlay;
+	}
+
 	const embed = typeof meta?.onlineEmbedUrl === 'string' ? meta.onlineEmbedUrl.trim() : '';
-	if (embed) {
+	if (embed && !/sites\.google\.com\/view\//i.test(embed)) {
 		assertSafePlayUrl(embed);
 		return embed;
 	}
@@ -32,7 +40,7 @@ export async function resolveLiveTargetUrl(gameId: string): Promise<string | nul
 	if (!existsSync(indexPath)) return null;
 	const html = await fs.readFile(indexPath, 'utf-8');
 	const iframeSrc = extractIframeSrc(html);
-	if (!iframeSrc) return null;
+	if (!iframeSrc || /sites\.google\.com\/view\//i.test(iframeSrc)) return null;
 	assertSafePlayUrl(iframeSrc);
 	return iframeSrc;
 }

@@ -1,0 +1,18 @@
+{
+  "id": "cs-lego-online",
+  "name": "CS Lego Online",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/cs-lego-online).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0FhrpZv8RMcAxPxptfaoKwD6o8dlkNzWsnuwVsrHfV0WImFs6ZE0ymcUOvdraISN6ayazKDMtsUCCO44vNC4kiwoUUzUSOetEizLNs83ZYA07CKuKeu5Cl63_wiWmIk7clmTqdeqLxBRnJzjEtToqObNzc",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0FhrpZv8RMcAxPxptfaoKwD6o8dlkNzWsnuwVsrHfV0WImFs6ZE0ymcUOvdraISN6ayazKDMtsUCCO44vNC4kiwoUUzUSOetEizLNs83ZYA07CKuKeu5Cl63_wiWmIk7clmTqdeqLxBRnJzjEtToqObNzc",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/ahmethamdrt567/google3@main/index.html",
+  "pullStrategy": "embed",
+  "engine": "unity",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/cs-lego-online",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/ahmethamdrt567/google3@main/TemplateData/",
+  "remotePlayUrl": "https://cdn.jsdelivr.net/gh/ahmethamdrt567/google3@main/index.html"
+}
