@@ -642,7 +642,12 @@
 			</div>
 			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 			{#if !isPublicSiteDeployment()}
-				<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
+				<OfflineControls
+					{gameId}
+					metadata={gameMetadata}
+					playStarted={gameSurfaceStarted}
+					onPlayUrlChange={refreshPlayerUrl}
+				/>
 			{/if}
 		</div>
 

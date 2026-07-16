@@ -43,10 +43,13 @@
 	let {
 		gameId,
 		metadata = null,
+		playStarted = false,
 		onPlayUrlChange
 	}: {
 		gameId: string;
 		metadata?: GameMetadata | null;
+		/** When true, skip puller-startup URL refresh to avoid remounting an active session. */
+		playStarted?: boolean;
 		onPlayUrlChange?: () => void;
 	} = $props();
 
@@ -144,7 +147,7 @@
 				pullerStartupSettled = true;
 				if (!available) return;
 				await refreshStatus();
-				onPlayUrlChange?.();
+				if (!playStarted) onPlayUrlChange?.();
 			});
 			pullerStartupTimer = setTimeout(() => {
 				pullerStartupSettled = true;
