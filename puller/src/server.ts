@@ -192,6 +192,9 @@ export function createServer(): http.Server {
 
 		try {
 			if (pathname === '/api/offline/health' && req.method === 'GET') {
+				// #region agent log
+				fetch('http://127.0.0.1:7866/ingest/5e10a1ac-52bb-49f2-8956-4b0b8dcddcb8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'20ccf5'},body:JSON.stringify({sessionId:'20ccf5',runId:'flatpak-binding-probe',hypothesisId:'H1-H3',location:'puller/src/server.ts:health',message:'Health handler catalog binding state',data:{loadGameIdsType:typeof loadGameIds,isValidGameIdType:typeof isValidGameId},timestamp:Date.now()})}).catch(()=>{});
+				// #endregion
 				const catalogIds = await loadGameIds();
 				sendJson(res, 200, {
 					ok: true,
@@ -546,12 +549,18 @@ export function createServer(): http.Server {
 			sendJson(res, 404, { error: 'Not found' });
 		} catch (error) {
 			const message = error instanceof Error ? error.message : String(error);
+			// #region agent log
+			fetch('http://127.0.0.1:7866/ingest/5e10a1ac-52bb-49f2-8956-4b0b8dcddcb8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'20ccf5'},body:JSON.stringify({sessionId:'20ccf5',runId:'flatpak-binding-probe',hypothesisId:'H1-H4',location:'puller/src/server.ts:request-catch',message:'Puller request failed',data:{method:req.method??'',pathname,errorName:error instanceof Error?error.name:'unknown',message},timestamp:Date.now()})}).catch(()=>{});
+			// #endregion
 			sendJson(res, 500, { error: message });
 		}
 	});
 }
 
 export function startServer(): http.Server {
+	// #region agent log
+	fetch('http://127.0.0.1:7866/ingest/5e10a1ac-52bb-49f2-8956-4b0b8dcddcb8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'20ccf5'},body:JSON.stringify({sessionId:'20ccf5',runId:'flatpak-binding-probe',hypothesisId:'H1-H3',location:'puller/src/server.ts:startServer',message:'Puller startup binding state',data:{loadGameIdsType:typeof loadGameIds,isValidGameIdType:typeof isValidGameId,port:PORT},timestamp:Date.now()})}).catch(()=>{});
+	// #endregion
 	const server = createServer();
 	server.listen(PORT, '127.0.0.1', () => {
 		console.log(`[puller] listening on http://127.0.0.1:${PORT}`);
