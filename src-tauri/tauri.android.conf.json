@@ -1,11 +1,9 @@
 {
 	"build": {
-		"beforeBuildCommand": "node scripts/generate-games-list.js && PUBLIC_OFFLINE_DEPLOYMENT=local-app pnpm build"
+		"beforeBuildCommand": "node scripts/generate-games-list.js && PUBLIC_OFFLINE_DEPLOYMENT=local-app SKIP_PAGES_GAME_FALLBACKS=1 pnpm build && node scripts/slim-android-assets.mjs"
 	},
 	"bundle": {
 		"externalBin": [],
-		"resources": {
-			"../build/games/": "catalog/games/"
-		}
+		"resources": {}
 	}
 }
