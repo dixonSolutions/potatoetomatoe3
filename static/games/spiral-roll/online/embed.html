@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head><base href="https://cdn.jsdelivr.net/gh/99-classroom/kol@main/">
+    <meta charset="utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+        <script>
+        var mpConfig = {
+            "game": "spiral-roll",
+            "partner": "miniplay"
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/spi@main/mains.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body,
+        html {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            background: 0 0;
+            touch-action: none;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/spi@main/gamesnacks.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/spi@main/lib/VOODOO-H5SDK.snacks.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/my-files-schoolum/spi@main/main.js"></script>
+
+    <!-- ---------- ALT ORTADA SABİT REKLAM (738x95) - MERKEZDEN KESME YAKLAŞIMI ---------- -->
+<style>
+  /* Container: alt ortada, sabit, taşan içerik kırpılır */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(738px, calc(100% - 20px)); /* 738px ama mobilde kenarlara 10px boşluk */
+    height: 95px;
+    background: rgba(0,0,0,0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden; /* İÇERİĞİN TAŞAN KISMI KIRPILSIN */
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.45);
+    box-sizing: border-box;
+  }
+
+  /* İframe: container'dan GENİŞ tutup ortalayacağız => orta kısmı görünür */
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* iframe'in orta kısmı container'ın ortasında olur */
+    /* iframe geniş tutuluyor ki center-crop elde edilsin */
+    width: 1200px; /* yeterince geniş koy; istersen 1000-1400 aralığında ayarla */
+    height: 100%;
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;  /* IE/Edge scrollbar gizle */
+    scrollbar-width: none;     /* Firefox scrollbar gizle */
+  }
+  /* Webkit scrollbar gizleme */
+  #ad-iframe::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+  /* Kapat butonu */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  /* Opsiyonel: sağ kenarda görünen küçük scrollbarları örtmek istersen (ince maske) */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px; /* gerekirse 12-18px arası dene */
+    height: 100%;
+    pointer-events: none; /* mask etkileşimleri engellesin */
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.9));
+    z-index: 99999;
+  }
+
+  /* Mobilde fazla genişlik oluşmasın diye küçük ayar */
+  @media (max-width: 440px) {
+    #ad-container { width: calc(100% - 12px); left: 50%; transform: translateX(-50%); border-radius: 6px 6px 0 0; }
+    #ad-iframe { width: 1000px; } /* küçült */
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Reklam">
+  <!-- iframe ortadan gösterilecek (center-crop) -->
+  <iframe id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="1200"
+    height="95"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin">
+  </iframe>
+
+
+
+  <!-- opsiyonel sağ maske: eğer hala küçük bir scrollbar kenarda gözüküyorsa bu örtü gizler -->
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  // 2 saniye sonra reklam göster, sonra 5s geri sayımla X etkinleşecek.
+  (function(){
+    const showDelay = 2000; // ms
+    const countdownStart = 5; // saniye
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    setTimeout(() => {
+      // Göster
+      adContainer.style.display = 'block';
+      adContainer.setAttribute('aria-hidden','false');
+
+      // Geri sayım başlat
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Kapat (${timeLeft})`;
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Kapat (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Kapat (X)';
+        }
+      }, 1000);
+
+      // Kapatma
+      closeBtn.addEventListener('click', () => {
+        if (closeBtn.disabled) return;
+        adContainer.remove();
+      });
+
+      // Fareyle sürüklenip taşınma vb. istenmiyorsa eklemeyin.
+    }, showDelay);
+  })();
+</script>
+
+
+</body>
+
+</html>

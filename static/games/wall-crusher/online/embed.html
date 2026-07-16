@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><base href="https://cdn.jsdelivr.net/gh/z799gs/zengon@8ad40b7/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oyun Başlatıcı</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+
+    .play-button {
+      display: inline-block;
+      padding: 20px 40px;
+      background-color: #000000;
+      color: #ffffff !important;
+      border: 2px solid #4a148c;
+      border-radius: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none !important;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1001;
+      user-select: none;
+    }
+
+    .play-button:hover {
+      background-color: #4a148c !important;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .fullscreen-button {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #000000;
+      color: #ffffff !important;
+      border: 2px solid #4a148c;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none !important;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1002;
+      user-select: none;
+    }
+
+    .fullscreen-button:hover {
+      background-color: #4a148c !important;
+      transform: scale(1.05);
+    }
+
+    .content-container {
+      display: none;
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      overflow: hidden;
+      z-index: 1000;
+      background-color: #000;
+    }
+
+    .content-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      display: block;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <a id="playButton" class="play-button">CLICK TO PLAY</a>
+  <a id="fullscreenButton" class="fullscreen-button">FULLSCREEN</a>
+  <div id="contentContainer" class="content-container"></div>
+
+  <template id="gameTemplate">
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes" />
+  <title>google.com</title>
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/ahmethamdrt567/google1@main/TemplateData/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ahmethamdrt567/google1@main/TemplateData/style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #unity-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: #000;
+    }
+
+    #unity-canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    #unity-loading-bar {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="unity-container">
+    <canvas id="unity-canvas"></canvas>
+    <div id="unity-loading-bar">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+    <div id="unity-warning"></div>
+  </div>
+
+  <script>
+    /* YaGames hatası için güvenli fallback.
+       Yandex SDK yoksa oyun yine Unity dosyalarını çağırmaya devam eder. */
+    window.ysdkInitialized = 0;
+    window.player = null;
+    window.playerLogin = 0;
+    window.leaderboard = null;
+
+    window.ShowInter = window.ShowInter || function () {
+      try {
+        if (window.ysdk && window.ysdk.adv) {
+          window.ysdk.adv.showFullscreenAdv({ callbacks: {} });
+        }
+      } catch (e) {
+        console.warn("ShowInter fallback:", e);
+      }
+    };
+
+    window.ShowRewarded = window.ShowRewarded || function () {
+      try {
+        if (window.ysdk && window.ysdk.adv) {
+          window.ysdk.adv.showRewardedVideo({ callbacks: {} });
+        }
+      } catch (e) {
+        console.warn("ShowRewarded fallback:", e);
+      }
+    };
+
+    function initYandexSDK() {
+      if (!window.YaGames || typeof window.YaGames.init !== "function") {
+        console.warn("YaGames SDK bulunamadı, fallback ile devam ediliyor.");
+        return;
+      }
+
+      window.YaGames.init().then(function (ysdk) {
+        console.log("Yandex SDK initialized");
+        window.ysdk = ysdk;
+        window.ysdkInitialized = 1;
+
+        try {
+          ysdk.adv.showFullscreenAdv({ callbacks: {} });
+        } catch (e) {}
+
+        try {
+          ysdk.getPlayer({ scopes: false }).then(function (_player) {
+            window.player = _player;
+            if (_player.getMode && _player.getMode() !== "lite") {
+              window.playerLogin = 1;
+            }
+          }).catch(function () {});
+        } catch (e) {}
+
+        try {
+          ysdk.getLeaderboards().then(function (_lb) {
+            window.leaderboard = _lb;
+          }).catch(function () {});
+        } catch (e) {}
+      }).catch(function (err) {
+        console.warn("Yandex SDK init başarısız, fallback ile devam:", err);
+      });
+    }
+
+    (function loadYandexSDKOptional() {
+      var sdk = document.createElement("script");
+      sdk.src = "https://yandex.ru/games/sdk/v2";
+      sdk.async = true;
+      sdk.onload = initYandexSDK;
+      sdk.onerror = function () {
+        console.warn("Yandex SDK yüklenemedi, oyun SDK olmadan devam ediyor.");
+      };
+      document.head.appendChild(sdk);
+    })();
+  </script>
+
+  <script>
+    var container = document.querySelector("#unity-container");
+    var canvas = document.querySelector("#unity-canvas");
+    var loadingBar = document.querySelector("#unity-loading-bar");
+    var progressBarFull = document.querySelector("#unity-progress-bar-full");
+    var warningBanner = document.querySelector("#unity-warning");
+
+    function unityShowBanner(msg, type) {
+      if (!warningBanner) {
+        console.warn(msg);
+        return;
+      }
+
+      function updateBannerVisibility() {
+        warningBanner.style.display = warningBanner.children.length ? "block" : "none";
+      }
+
+      var div = document.createElement("div");
+      div.innerHTML = msg;
+      warningBanner.appendChild(div);
+
+      if (type === "error") {
+        div.style = "background: red; padding: 10px;";
+      } else {
+        if (type === "warning") div.style = "background: yellow; padding: 10px;";
+        setTimeout(function () {
+          if (div.parentNode) {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }
+        }, 5000);
+      }
+
+      updateBannerVisibility();
+    }
+
+    var buildUrl = "https://cdn.jsdelivr.net/gh/ahmethamdrt567/google1@main/Build";
+    var loaderUrl = buildUrl + "/ddf37a755980b4d9328356e5761796c5.js";
+
+    var config = {
+      dataUrl: buildUrl + "/eddf30b5fd12bd430bb2db56690fa442.data.unityweb",
+      frameworkUrl: buildUrl + "/576ba3c51b6b716a818ca823863d6332.js.unityweb",
+      codeUrl: buildUrl + "/d32618b421afcf167b2f96c777d84196.wasm.unityweb",
+
+      /* ÖNEMLİ:
+         Blob/about:blank içinde "StreamingAssets" relative kalınca Unity loader
+         Failed to construct 'URL': Invalid URL hatası verebiliyor.
+         Bu yüzden absolute CDN URL yapıldı. */
+      streamingAssetsUrl: buildUrl + "/StreamingAssets",
+
+      companyName: "OrangeB",
+      productName: "Crusher",
+      productVersion: "1.7",
+      showBanner: unityShowBanner
+    };
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      container.className = "unity-mobile";
+    }
+
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.background = "url("https://cdn.jsdelivr.net/gh/ahmethamdrt567/google1@main/background.jpg") center / cover";
+    loadingBar.style.display = "block";
+
+    var myGameInstance = null;
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = function () {
+      if (typeof createUnityInstance !== "function") {
+        unityShowBanner("Unity loader yüklendi ama createUnityInstance bulunamadı.", "error");
+        return;
+      }
+
+      createUnityInstance(canvas, config, function (progress) {
+        if (progressBarFull) {
+          progressBarFull.style.width = (100 * progress) + "%";
+        }
+      }).then(function (unityInstance) {
+        myGameInstance = unityInstance;
+        loadingBar.style.display = "none";
+        console.log("Unity oyun açıldı.");
+      }).catch(function (message) {
+        console.error("Unity yükleme hatası:", message);
+        unityShowBanner(String(message), "error");
+      });
+    };
+
+    script.onerror = function () {
+      unityShowBanner("Unity loader dosyası yüklenemedi: " + loaderUrl, "error");
+    };
+
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>
+  </template>
+
+  <script>
+    function getGameHTML() {
+      return document.getElementById("gameTemplate").innerHTML.trim();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var playButton = document.getElementById("playButton");
+      var fullscreenButton = document.getElementById("fullscreenButton");
+
+      if (playButton) {
+        playButton.addEventListener("click", showContent);
+      }
+
+      if (fullscreenButton) {
+        fullscreenButton.addEventListener("click", openFullscreen);
+      }
+    });
+
+    function writeGameToFrame(iframe) {
+      var doc = iframe.contentWindow.document;
+      doc.open();
+      doc.write(getGameHTML());
+      doc.close();
+    }
+
+    function showContent() {
+      try {
+        document.getElementById("playButton").style.display = "none";
+
+        var container = document.getElementById("contentContainer");
+        container.style.display = "block";
+        container.innerHTML = "";
+
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("allow", "fullscreen; autoplay; gamepad; clipboard-read; clipboard-write");
+        iframe.setAttribute("allowfullscreen", "true");
+        iframe.onload = function () {
+          console.log("Oyun iframe yüklendi.");
+        };
+
+        container.appendChild(iframe);
+        writeGameToFrame(iframe);
+      } catch (error) {
+        console.error("Hata oluştu:", error);
+        alert("Oyun yüklenemedi. Tarayıcı konsolunu kontrol edin.");
+      }
+    }
+
+    function openFullscreen() {
+      try {
+        var newWin = window.open("about:blank", "_blank");
+
+        if (!newWin) {
+          alert("Yeni sekme açma engellendi. Lütfen tarayıcı ayarlarını kontrol edin.");
+          return;
+        }
+
+        newWin.document.open();
+        newWin.document.write(getGameHTML());
+        newWin.document.close();
+
+        setTimeout(function () {
+          var el = newWin.document.documentElement;
+          if (el.requestFullscreen) el.requestFullscreen();
+          else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+          else if (el.msRequestFullscreen) el.msRequestFullscreen();
+        }, 500);
+      } catch (error) {
+        console.error("Fullscreen hata:", error);
+        alert("Tam ekran modu çalışmadı. Tarayıcı konsolunu kontrol edin.");
+      }
+    }
+  </script>
+</body>
+</html>

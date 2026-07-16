@@ -1,0 +1,227 @@
+{
+  "ok": 208,
+  "skipped": 407,
+  "failed": 55,
+  "failures": [
+    {
+      "slug": "aquapark-idle",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "baseball-bros",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "bloons-super-monkey",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "bloons-td-6",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "bullet-time-fighting",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "business-simulator",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "car-crash-3",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "car-crash-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "clicker-heroes",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "csgo-clicker",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "death-penalty-world-cup",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "desktop-tower-defense",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "duck-duck-clicker",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "escape-road",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "escape-the-bathroom",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "escape-tsunami",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "free-rider-3",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "gacha-club",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "gacha-life",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "guitar-hero-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "hobo-4",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "hobo-7",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "janissary-battles",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "love-tester",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "melon-drop",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "merge-fruits",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "mutilate-a-doll-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "obby-climb-and-slide-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "obby-dragon-training",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "only-racer",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pac-man",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "parking-fury-3",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "penalty-kick",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "penalty-world-cup-brazil",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pixel-speedrun",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-emerald-imperium",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-leaf-green",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-fire-red",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-great-defense-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-mystery-dungeon",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pok",
+      "error": "HTTP 404"
+    },
+    {
+      "slug": "pokemon-sapphire",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-ultimate-fusion",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "pokemon-unbound",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "polybilliards",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "potty-racers-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "skyway-rush",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "stumble-guys",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "suika-fruit",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "super-smash-flash-2",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "terraria",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "taxi-drift",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "world-cup-2010-penalty",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "za6",
+      "error": "no gadget xml"
+    },
+    {
+      "slug": "zube",
+      "error": "no gadget xml"
+    }
+  ]
+}

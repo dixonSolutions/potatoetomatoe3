@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/z799gs/75x75x7@main/">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<style>
+  canvas:focus { outline: none; }
+  html, body {
+    padding: 0; margin: 0; overflow: hidden; height: 100%;
+    -webkit-user-select: none; user-select: none;
+    background: #000 url("https://cdn.jsdelivr.net/gh/z799gs/75x75x7@main/background.jpg") center/cover no-repeat fixed;
+  }
+  #canvas { position: fixed; width: 100%; height: 100%; }
+  .loading_bg {
+    position: fixed; width: 100%; height: 100%; z-index: 1;
+    background: linear-gradient(#2976fa, #6919c6);
+  }
+  .loading_bar {
+    position: absolute; top: 59%; left: 50%; transform: translate(-50%, -50%);
+    width: 70%; height: 3%; background: #FFF; border-radius: 12px;
+    box-shadow: 0 0 0 7px rgba(34,60,80,0.2);
+  }
+  .loading_bar_fill {
+    position: absolute; width: 0%; height: 100%; top: 0; left: 0;
+    border-radius: 12px; background: #00dc15;
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.25) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.25) 75%, transparent 75%, transparent);
+    background-size: 15px 15px;
+  }
+  .loading_logo {
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+    width: 30%; height: 30%; pointer-events: none;
+    background: url("https://cdn.jsdelivr.net/gh/z799gs/75x75x7@main/logo.png") center/contain no-repeat;
+  }
+</style>
+</head>
+<body>
+<canvas id="canvas" class="canvas" tabindex="-1"></canvas>
+<div class="loading_bg" id="loadingBg">
+  <div class="loading_logo"></div>
+  <div class="loading_bar"><div class="loading_bar_fill" id="loadingFill"></div></div>
+</div>
+
+<script>
+// ===== Global değişkenler (Unity framework bunlara doğrudan erişiyor) =====
+var canvas = document.getElementById("canvas");
+var ATinstance = null;
+var myGameInstance = null;
+var ysdk = null;
+var player = null;
+var leaderboard = null;
+var payments = null;
+var initGame = false;
+var nowFullAdOpen = false;
+var isDeviceTouch = false;
+var isDeviceNavigator = false;
+var scaleFactor = 1;
+
+// Unity framework'ün doğrudan okuduğu global data değişkenleri
+var cloudSaves = 'noData';
+var paymentsData = 'none';
+var playerData = JSON.stringify({
+  playerAuth: "rejected",
+  playerName: "unauthorized",
+  playerId: "unauthorized",
+  playerPhoto: "null"
+});
+var environmentData = JSON.stringify({
+  language: "en",
+  domain: "com",
+  deviceType: "desktop",
+  isMobile: false,
+  isDesktop: true,
+  isTablet: false,
+  isTV: false,
+  appID: "0",
+  browserLang: "en",
+  payload: "",
+  promptCanShow: false,
+  reviewCanShow: false,
+  platform: "Win32",
+  browser: "Chrome"
+});
+var flasgsData = JSON.stringify({
+  names: [],
+  values: []
+});
+
+// ===== Framework'ün beklediği yardımcı fonksiyonlar =====
+function ATinstanceEnable(callback) {
+  var check = function() {
+    if (ATinstance !== null) callback();
+    else setTimeout(check, 1000);
+  };
+  check();
+}
+
+function unityShowBanner(msg, type) {}
+
+function FocusGame() {
+  window.focus();
+  canvas.focus();
+}
+
+function NotAuthorized() {
+  return JSON.stringify({
+    playerAuth: "rejected",
+    playerName: "unauthorized",
+    playerId: "unauthorized",
+    playerPhoto: "null"
+  });
+}
+
+// ===== Mock YSDK fonksiyonları =====
+function FullAdShow() {}
+
+function RewardedShow(id) {
+  if (myGameInstance) {
+    myGameInstance.SendMessage('YandexGame', 'OpenVideo');
+    myGameInstance.SendMessage('YandexGame', 'RewardVideo', id);
+    myGameInstance.SendMessage('YandexGame', 'CloseVideo');
+  }
+}
+
+function StickyAdActivity(show) {}
+
+function InitLeaderboard() {
+  if (myGameInstance) myGameInstance.SendMessage('YandexGame', 'InitializedLB');
+}
+
+function SetLeaderboardScores(name, score) {}
+
+function GetLeaderboardScores(nameLB, maxPlayers, quantityTop, quantityAround, photoSize, auth) {
+  if (myGameInstance) {
+    var empty = {
+      technoName: nameLB, isDefault: false, isInvertSortOrder: false,
+      decimalOffset: 0, type: '',
+      entries: 'no data', ranks: [], photos: [], names: [], scores: [], uniqueIDs: []
+    };
+    myGameInstance.SendMessage('YandexGame', 'LeaderboardEntries', JSON.stringify(empty));
+  }
+}
+
+function Review() { FocusGame(); }
+function PromptShow() { FocusGame(); }
+function PaintRBT(rbt) {}
+function StaticRBTDeactivate() {}
+
+function SaveCloud(jsonData, flush) {}
+
+function LoadCloud(sendback) {
+  if (sendback && myGameInstance)
+    myGameInstance.SendMessage('YandexGame', 'SetLoadSaves', 'noData');
+  return Promise.resolve('noData');
+}
+
+function GetPayments(sendback) {
+  if (sendback && myGameInstance)
+    myGameInstance.SendMessage('YandexGame', 'PaymentsEntries', 'none');
+  return Promise.resolve('none');
+}
+
+function BuyPayments(id) {
+  if (myGameInstance) myGameInstance.SendMessage('YandexGame', 'OnPurchaseFailed', id);
+}
+
+function ConsumePurchase(id) {}
+function ConsumePurchases() {}
+
+function RequestingEnvironmentData(sendback) {
+  if (sendback && myGameInstance)
+    myGameInstance.SendMessage('YandexGame', 'SetEnvirData', environmentData);
+  return Promise.resolve(environmentData);
+}
+
+function InitPlayer(sendback) {
+  if (sendback && myGameInstance)
+    myGameInstance.SendMessage('YandexGame', 'SetInitializationSDK', playerData);
+  return Promise.resolve(playerData);
+}
+
+function OpenAuthDialog() {
+  InitPlayer(true);
+}
+
+function GetFlags() {
+  return Promise.resolve(flasgsData);
+}
+
+function InitGame() {
+  console.log('Init Game Success');
+  initGame = true;
+}
+
+// ===== Event listeners =====
+document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+window.addEventListener('pointerdown', FocusGame);
+window.addEventListener('touchstart', FocusGame);
+window.addEventListener('beforeunload', function() {
+  if (myGameInstance) myGameInstance.SendMessage('YandexGame', '_SaveProgress');
+});
+
+// ===== Parça birleştirme fonksiyonu =====
+async function loadParts(baseUrl, totalParts) {
+  var parts = [];
+  for (var i = 0; i < totalParts; i++) {
+    var resp = await fetch(baseUrl + '.part' + i);
+    parts.push(await resp.arrayBuffer());
+  }
+  var totalSize = parts.reduce(function(sum, p) { return sum + p.byteLength; }, 0);
+  var merged = new Uint8Array(totalSize);
+  var offset = 0;
+  for (var j = 0; j < parts.length; j++) {
+    merged.set(new Uint8Array(parts[j]), offset);
+    offset += parts[j].byteLength;
+  }
+  return merged;
+}
+
+// ===== Unity Yükle =====
+var buildUrl = "https://cdn.jsdelivr.net/gh/z799gs/75x75x7@main/Build";
+
+async function startGame() {
+  // wasm.br → 5 parça | data.br → 6 parça (paralel indir)
+  var wasmPromise = loadParts(buildUrl + '/6e497b0f30ff490d586ac04fd1db7ab7.wasm.br', 5);
+  var dataPromise = loadParts(buildUrl + '/a8bd7adc7c6b8abb6796de15ec18c6b2.data.br', 5);
+
+  var results = await Promise.all([wasmPromise, dataPromise]);
+
+  var wasmUrl = URL.createObjectURL(new Blob([results[0]], { type: 'application/wasm' }));
+  var dataUrl = URL.createObjectURL(new Blob([results[1]], { type: 'application/octet-stream' }));
+
+  var config = {
+    dataUrl: dataUrl,
+    frameworkUrl: buildUrl + "/3ee469f88673f096a78ccd51ee5ccedf.framework.js",
+    codeUrl: wasmUrl,
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "DefaultCompany",
+    productName: "Gladihoppers_DEX",
+    productVersion: "1.0",
+    showBanner: unityShowBanner,
+  };
+
+  var script = document.createElement("script");
+  script.src = buildUrl + "/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js";
+  script.onload = function() {
+    createUnityInstance(canvas, config, function(progress) {
+      document.getElementById("loadingFill").style.width = (progress * 100) + "%";
+    }).then(function(instance) {
+      myGameInstance = instance;
+      ATinstance = instance;
+      document.getElementById("loadingBg").style.display = "none";
+      myGameInstance.SendMessage('YandexGame', 'SetInitializationSDK', playerData);
+    }).catch(function(err) {
+      console.error("Unity load error:", err);
+    });
+  };
+  document.body.appendChild(script);
+}
+
+startGame();
+</script>
+
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbw60Tp6nuqThxAuU8ZN1JIuPtjHoW2Uqq3fQy0CvrycN0O2AQwhRT5EDv73hh2FhXEF/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+</html>

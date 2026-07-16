@@ -1,0 +1,17 @@
+{
+  "id": "gun-mayhem-redux",
+  "name": "Gun Mayhem Redux",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/flash-games/gun-mayhem-redux).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d38Sx8aPsvBpVucVxKgnDWjaRyQ-dhvmQqy-k3NxDKW4qkqmu10Jq5Hrs9fBSmwc4uvadxExfnis4bGfEAeSvqc3kbU2CY2HdGsiwTGb7t2RRuUzpLG4b68w1NhMfC5Ym-ZM_14NLAaPEH2Wqg6fM4NcX4BilZAX3sAlxM-B1rmTtLzF40eLj_JflyvU9A=w1280",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d38Sx8aPsvBpVucVxKgnDWjaRyQ-dhvmQqy-k3NxDKW4qkqmu10Jq5Hrs9fBSmwc4uvadxExfnis4bGfEAeSvqc3kbU2CY2HdGsiwTGb7t2RRuUzpLG4b68w1NhMfC5Ym-ZM_14NLAaPEH2Wqg6fM4NcX4BilZAX3sAlxM-B1rmTtLzF40eLj_JflyvU9A=w1280",
+  "thumbnailStored": "remote",
+  "category": "flash",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://sites.google.com/view/drive-u-7-home/flash-games/gun-mayhem-redux",
+  "pullStrategy": "local-embed",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/flash-games/gun-mayhem-redux",
+  "gadgetXmlUrl": "https://cdn.jsdelivr.net/gh/papamamia/70099@main/vv/gun_mayhem_redux.xml",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/papamamia/70099@main/vv/"
+}

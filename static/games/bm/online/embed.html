@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <base href="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/fonts/gamefont.css">
+        <title>google.com</title>
+
+    </head>
+    <body style="background-color: black">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/libs/pixi.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/libs/pixi-tilemap.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/libs/pixi-picture.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/libs/fpsmeter.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/libs/lz-string.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/libs/iphone-inline-video.browser.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/rpg_core.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/rpg_managers.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/rpg_objects.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/rpg_scenes.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/rpg_sprites.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/rpg_windows.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/plugins.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kelsimsk/565h@main/js/main.js"></script>
+    <script>
+                function applycanvasmode() {
+            let w = 0;
+            let h = 0;
+            let maxW = window.innerWidth;
+            let maxH = window.innerHeight;
+            if ((maxW * 0.75) > maxH) {
+                h = maxH;
+                w = Math.floor((maxH / 3) * 4);
+            } else {
+                w = maxW;
+                h = Math.floor((maxW / 4) * 3);
+            }
+            document.querySelector("#GameCanvas").style.width = w + "px";
+            document.querySelector("#GameCanvas").style.height = h + "px";
+            document.querySelector("#GameVideo").style.width = w + "px";
+            document.querySelector("#GameVideo").style.height = h + "px";
+            document.querySelector("#UpperCanvas").style.width = w + "px";
+            document.querySelector("#UpperCanvas").style.height = h + "px";
+        }
+        setInterval(applycanvasmode, 100);
+        (function() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (!isMobile) {
+            return;
+        }
+        let i = setInterval(function () {
+            if (window.fullSetupComplete) {
+                let zoneStatic = document.createElement("div");
+                zoneStatic.style = "position: fixed; bottom: 0; left: 0; z-index: 9999; width: 500px; height: 500px;";
+                let internal = document.createElement("div");
+                internal.style = "position: relative; width: 100%; height: 100%;"
+                zoneStatic.appendChild(internal);
+                let joystick = nipplejs.create({
+                    mode: 'semi',
+                    zone: internal,
+                    color: 'red',
+                    catchDistance: 30
+                });
+                setTimeout(function () {
+                    joystick.on("dir", function (e, data) {
+                        let dirs = ["up", "down", "left", "right"];
+                        for (let o of dirs) {
+                            if (o !== data.direction.angle) {
+                                fakeInput.up(o);
+                            } else {
+                                fakeInput.down(o);
+                            }
+                        }
+                    });
+                    joystick.on("end", function () {
+                        let dirs = ["up", "down", "left", "right"];
+                        for (let o of dirs) {
+                            fakeInput.up(o);
+                        }
+                    });
+                }, 100);
+                document.body.appendChild(zoneStatic);
+                const createButton = (text, key, bottom, right, bgColor) => {
+                    let button = document.createElement("div");
+                    button.style = `
+                    position: fixed; 
+                    bottom: ${bottom}; 
+                    right: ${right}; 
+                    width: 10vw; 
+                    height: 10vw; 
+                    background: ${bgColor}; 
+                    color: white; 
+                    touch-action: none; 
+                    z-index: 999999; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    font-family: sans-serif; 
+                    font-size: 3vw;
+                    border-radius: 50%;
+                `;
+                    button.innerText = text;
+                    button.addEventListener("touchstart", function (e) {
+                        e.preventDefault();
+                        fakeInput.down(key);
+                    });
+                    button.addEventListener("touchend", function (e) {
+                        e.preventDefault();
+                        fakeInput.up(key);
+                    });
+                    document.body.appendChild(button);
+                    return button;
+                };
+
+                createButton("OK", "ok", "5vw", "5vw", "#0f08");
+                createButton("ESC", "escape", "5vw", "15vw", "#f008");
+                createButton("TAG", "tag", "15vw", "15vw", "#00f8");
+                createButton("RUN", "shift", "15vw", "5vw", "#f0f8");
+                clearInterval(i);
+            }
+        }, 100);
+        })();
+    </script>
+    
+    <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbzNG4z_PlG6Ke_bX5wSPKK2uBRB3IY9ouVzqM1shucYhSTvsJWRmyMyZaaC2z5S3ADN/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 60000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/school-management-google/roll@main/">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>Game</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/school-management-google/roll@main/TemplateData/favicon.ico"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/school-management-google/roll@main/TemplateData/style.css"/>
+<style>
+  body {
+    background-color:#000000;
+  }
+  </style>
+<script src="https://cdn.jsdelivr.net/gh/school-management-google/roll@main/TemplateData/UnityProgress.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/school-management-google/roll@main/Build/UnityLoader.js"></script>
+<script>
+    
+  function FitScreen(){
+       //var canvas = document.getElementById("#canvas");
+    
+      //canvas.width = window.innerWidth - 10;
+      //canvas.height = window.innerHeight - 10;
+    
+       document.getElementById("gameContainer").style.width = (window.innerWidth - 10) + "px";
+       document.getElementById("gameContainer").style.height = (window.innerHeight - 10) + "px";
+     
+    }
+
+    
+    
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/school-management-google/roll@main/Build/game.json", {onProgress: UnityProgress});
+    
+     
+    
+    </script>
+</head>
+<body onfocus="FitScreen();" onload="FitScreen();" onresize="FitScreen();">
+<div class="webgl-content">
+<div id="gameContainer" style="width: auto; height: auto"></div>
+</div>
+</body>
+</html>

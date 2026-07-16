@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><base href="https://cdn.jsdelivr.net/gh/fnafben/fx@main/">
+  <meta charset="UTF-8">
+  <title>google.com</title>
+  <script src="https://cdn.jsdelivr.net/gh/somer-sheff-73/xv@main/ruffle.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+    }
+
+    #loading {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.2rem;
+      z-index: 999;
+      flex-direction: column;
+    }
+
+    .bar {
+      width: 200px;
+      height: 8px;
+      background: #333;
+      margin-top: 10px;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    .bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #00bfff;
+      animation: load 2.5s forwards;
+    }
+
+    @keyframes load {
+      to {
+        width: 100%;
+      }
+    }
+
+    #swf-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    embed {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    Loading..pls u ugly ?XD? G+.
+    <div class="bar"><div class="bar-fill"></div></div>
+  </div>
+  <div id="swf-container"></div>
+
+  <script>
+    async function fetchAndCombineParts(partUrls) {
+      const buffers = await Promise.all(partUrls.map(url => fetch(url).then(r => r.arrayBuffer())));
+      const total = buffers.reduce((sum, b) => sum + b.byteLength, 0);
+      const combined = new Uint8Array(total);
+      let offset = 0;
+      for (const b of buffers) {
+        combined.set(new Uint8Array(b), offset);
+        offset += b.byteLength;
+      }
+      return new Blob([combined], { type: "application/x-shockwave-flash" });
+    }
+
+    (async () => {
+      const parts = [
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part0",
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part1",
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part2",
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part3",
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part4",
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part5",
+        "https://cdn.jsdelivr.net/gh/fnafben/fx@main/fnfa.part6"
+      ];
+
+      const blob = await fetchAndCombineParts(parts);
+      const blobUrl = URL.createObjecturl("https://cdn.jsdelivr.net/gh/fnafben/fx@main/blob");
+
+      const container = document.getElementById("swf-container");
+
+      const embed = document.createElement("embed");
+      embed.src = blobUrl;
+      embed.type = "application/x-shockwave-flash";
+      embed.setAttribute("width", "100%");
+      embed.setAttribute("height", "100%");
+
+      container.appendChild(embed);
+      setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>

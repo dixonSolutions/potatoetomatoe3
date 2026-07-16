@@ -33,6 +33,7 @@
     "puller:build": "pnpm --filter @potatotomato/puller build",
     "puller:test": "pnpm --filter @potatotomato/puller test",
     "puller:bundle:linux": "pnpm --filter @potatotomato/puller bundle:linux",
+    "games:import-drive-u7": "node scripts/import-drive-u7-catalog.mjs",
     "games:import-y8": "node scripts/import-y8-catalog.mjs",
     "games:import-unity-play": "node scripts/import-unity-play-catalog.mjs",
     "games:import-coolmath": "node scripts/import-coolmath-catalog.mjs",

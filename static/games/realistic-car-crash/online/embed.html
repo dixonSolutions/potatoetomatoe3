@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/netclassroom/664x@main/">
+    
+
+
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>google.com</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/nihathatpsin/wolkwasg@main/TemplateData/favicon.ico"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nihathatpsin/wolkwasg@main/TemplateData/style.css"/>
+</head>
+<body style="overflow: hidden">
+<div id="unity-container" style="width: 100%; height: 100%">
+  <canvas id="unity-canvas" width="auto" height="auto"></canvas>
+  <div id="unity-loading-bar">
+    <div id="unity-logo"></div>
+    <div id="unity-progress-bar-empty">
+      <div id="unity-progress-bar-full"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var container = document.querySelector("#unity-container");
+  var canvas = document.querySelector("#unity-canvas");
+  var loadingBar = document.querySelector("#unity-loading-bar");
+  var progressBarFull = document.querySelector("#unity-progress-bar-full");
+
+  function unityShowBanner(msg, type) {
+    var warningBanner = document.getElementById("unity-warning");
+    if (!warningBanner) {
+      warningBanner = document.createElement("div");
+      warningBanner.id = "unity-warning";
+      document.body.appendChild(warningBanner);
+    }
+    function updateBannerVisibility() {
+      warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+    }
+    var div = document.createElement('div');
+    div.innerHTML = msg;
+    warningBanner.appendChild(div);
+    if (type === 'error') div.style = 'background:red;padding:10px;';
+    else {
+      if (type === 'warning') div.style = 'background:yellow;padding:10px;';
+      setTimeout(() => {
+        warningBanner.removeChild(div);
+        updateBannerVisibility();
+      }, 5000);
+    }
+    updateBannerVisibility();
+  }
+
+  var buildUrl = "https://cdn.jsdelivr.net/gh/nihathatpsin/wolkwasg@main/Build";
+  var loaderUrl = buildUrl + "/Y34.loader.js";
+  var config = {
+    dataUrl: "",
+    frameworkUrl: buildUrl + "/Y34.framework.js.unityweb",
+    codeUrl: buildUrl + "/Y34.wasm.unityweb",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "DefaultCompany",
+    productName: "Eta shtuka poka ne rabotaet, nu i ladno",
+    productVersion: "etat tozhe",
+    showBanner: unityShowBanner,
+  };
+
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    canvas.style.width = "100vw";
+    canvas.style.height = "100vh";
+  } else {
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+  }
+
+  loadingBar.style.display = "block";
+
+  // SDK fallback koruması
+  window.ysdk = window.ysdk || {};
+  window.YandexSDK = window.YandexSDK || {};
+  window.showFullScreenAdv = window.showFullScreenAdv || function(){};
+  window.ShowInter = window.ShowInter || function(){};
+  window.ShowRewarded = window.ShowRewarded || function(){};
+
+  // Data parçaları
+  const dataParts = [
+    buildUrl + "/Y34.data.unityweb.part000",
+    buildUrl + "/Y34.data.unityweb.part001",
+    buildUrl + "/Y34.data.unityweb.part002",
+    buildUrl + "/Y34.data.unityweb.part003",
+    buildUrl + "/Y34.data.unityweb.part004",
+    buildUrl + "/Y34.data.unityweb.part005"
+  ];
+
+  async function mergeDataPartsAndLoad() {
+    try {
+      const responses = await Promise.all(dataParts.map(url => fetch(url)));
+      const buffers = await Promise.all(responses.map(r => r.arrayBuffer()));
+      const totalSize = buffers.reduce((sum, b) => sum + b.byteLength, 0);
+      const combined = new Uint8Array(totalSize);
+      let offset = 0;
+      for (const b of buffers) {
+        combined.set(new Uint8Array(b), offset);
+        offset += b.byteLength;
+      }
+      const blob = new Blob([combined], { type: "application/octet-stream" });
+      config.dataUrl = URL.createObjecturl("https://cdn.jsdelivr.net/gh/netclassroom/664x@main/blob");
+      console.log("✅ 6 parçadan data birleştirildi.");
+
+      // Unity Loader
+      const script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = `${100 * progress}%`;
+        }).then((unityInstance) => {
+          window.unityInstance = unityInstance;
+          loadingBar.style.display = "none";
+          console.log("Unity başarıyla yüklendi.");
+
+          try {
+            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+              unityInstance.SendMessage('YandexSDK', 'OnGetPlayerPlatform', 'phone');
+            } else {
+              unityInstance.SendMessage('YandexSDK', 'OnGetPlayerPlatform', 'desktop');
+            }
+          } catch (e) {
+            console.warn("Platform mesajı gönderilemedi:", e);
+          }
+        }).catch((message) => {
+          console.error("Unity yükleme hatası:", message);
+        });
+      };
+      document.body.appendChild(script);
+    } catch (err) {
+      console.error("Birleştirme hatası:", err);
+      unityShowBanner("Data dosyası yüklenemedi!", "error");
+    }
+  }
+
+  window.addEventListener("unhandledrejection", function(event) {
+    console.warn("YSDK hatası yoksayıldı:", event.reason);
+    event.preventDefault();
+  });
+
+  mergeDataPartsAndLoad();
+  
+  
+          let StartUnityInstance;
+        let myGameInstance;
+        let ysdk = null; // Yandex SDK pasif
+
+        // 
+        let environmentData = {
+            language: "en",
+            domain: "default_domain",
+            deviceType: "desktop",
+            isMobile: false,
+            isDesktop: true,
+            isTablet: false,
+            isTV: false,
+            appID: "default_app_id",
+            browserLang: navigator.language || "en",
+            payload: null,
+            promptCanShow: false,
+            reviewCanShow: false,
+            platform: navigator.platform,
+            browser: (function() {
+                let userAgent = navigator.userAgent;
+                if (userAgent.includes("YaBrowser")) return "Yandex";
+                if (userAgent.includes("OPR") || userAgent.includes("Opera")) return "Opera";
+                if (userAgent.includes("Firefox")) return "Firefox";
+                if (userAgent.includes("MSIE") || userAgent.includes("Trident")) return "IE";
+                if (userAgent.includes("Edge")) return "Edge";
+                if (userAgent.includes("Chrome")) return "Chrome";
+                if (userAgent.includes("Safari")) return "Safari";
+                return "Other";
+            })()
+        };
+        
+        let cloudSaves = 'noData';
+        let paymentsData = 'none';
+        let playerData = 'noData'; // Varsayılan playerData tanımı
+        let player = null;
+        let payments = null;
+        let initGame = false;
+        let nowFullAdOpen = false;
+
+        // 
+        function GetPayments() { console.warn("GetPayments is not implemented"); return Promise.resolve("none"); }
+        function SaveCloud() { console.warn("SaveCloud is not implemented"); }
+        function LoadCloud() { console.warn("LoadCloud is not implemented"); return Promise.resolve("noData"); }
+        function InitPlayer() { console.warn("InitPlayer is not implemented"); return Promise.resolve("noData"); }
+
+
+        function FullAdShow() {
+    try {
+        // Prevent multiple fullscreen ads from opening simultaneously
+        if (!nowFullAdOpen) {
+            nowFullAdOpen = true;
+
+            // If the game is initialized, notify Unity to open the fullscreen ad
+            if (initGame) {
+                myGameInstance.SendMessage("YandexGame", "OpenFullAd");
+            }
+
+            // Simulate ad duration (500ms) and then close it
+            setTimeout(() => {
+                nowFullAdOpen = false;
+                if (initGame) {
+                    myGameInstance.SendMessage("YandexGame", "CloseFullAd", "true");
+                }
+                FocusGame(); // Refocus the game after ad closes
+            }, 500);
+        }
+    } catch (error) {
+        // Silently handle any errors
+    }
+}
+
+
+function RewardedShow(rewardId) {
+    try {
+        // Notify Unity to open the rewarded video with the given reward ID
+        myGameInstance.SendMessage("YandexGame", "RewardVideo", rewardId);
+
+        // After the ad, close it and refocus the game
+        function closeRewardedAd() {
+            myGameInstance.SendMessage("YandexGame", "CloseRewardVideo");
+            FocusGame();
+        }
+        closeRewardedAd(); // Immediate closure for simplicity; in practice, this might be delayed or conditional
+    } catch (error) {
+        // Silently handle any errors
+    }
+}
+
+</script>
+
+<script>
+// ----------- Yandex SDK Fallback Tam Koruma -----------
+// Bu kod, Yandex SDK olmadan çalışan unblocked sürümler içindir.
+// Tüm sdk / ysdk / YandexGame / YandexSDK fonksiyonlarını sessizce yoksayar.
+
+(function() {
+  // Tüm global objeleri güvenli hale getir
+  const fakeFn = () => {};
+  const fakePromise = () => Promise.resolve({ value: false, reason: "no_sdk" });
+
+  // Yandex SDK yoksa sahte sürümler oluştur
+  window.sdk = window.sdk || {
+    getPlayer: () => Promise.resolve({
+      getMode: () => "lite",
+      getData: () => Promise.resolve({ data: "" }),
+      setData: () => Promise.resolve(),
+    }),
+    feedback: {
+      canReview: fakePromise,
+      requestReview: fakePromise
+    },
+    adv: {
+      showRewardedVideo: fakePromise,
+      showFullscreenAdv: fakePromise
+    },
+    getLeaderboards: fakePromise,
+    getPayments: fakePromise,
+  };
+
+  window.ysdk = window.ysdk || window.sdk;
+  window.YandexSDK = window.YandexSDK || {};
+  window.YandexGame = window.YandexGame || {};
+
+  // Sessiz fallback fonksiyonlar
+  window.showFullScreenAdv = window.showFullScreenAdv || fakeFn;
+  window.ShowInter = window.ShowInter || fakeFn;
+  window.ShowRewarded = window.ShowRewarded || fakeFn;
+  window.initPlayer = window.initPlayer || fakeFn;
+  window.auth = window.auth || fakeFn;
+
+  // Olası Unity mesaj hatalarını da bastır
+  window.unityInstance = window.unityInstance || {
+    SendMessage: function() { /* yok say */ }
+  };
+
+  console.log("🛡️ Yandex SDK emülatörü aktif: Tüm SDK çağrıları güvenli şekilde yoksayılıyor.");
+})();
+</script>
+
+
+<script>
+  function auth() {
+    initPlayer();
+  }
+  function initPlayer() {
+    return sdk.getPlayer().then(_player => {
+      player = _player;
+      if (_player.getMode() === 'lite') {
+        window.unityInstance.SendMessage('YandexSDK', 'OnCanReview', "no");
+        window.unityInstance.SendMessage('YandexSDK', 'OnPlayerAuthenticated');
+      } else {
+        sdk.feedback.canReview()
+          .then(({ value }) => {
+            window.unityInstance.SendMessage('YandexSDK', 'OnCanReview', value ? "yes" : "no");
+            window.unityInstance.SendMessage('YandexSDK', 'OnPlayerAuthenticated');
+          });
+      }
+    }).catch(() => {});
+  }
+
+  function setPlayerData(dataStr) {
+    player.setData({ "data": dataStr })
+      .then(() => console.log("saved"))
+      .catch(() => console.log("not saved"));
+  }
+
+  function getPlayerData() {
+    player.getData(["data"]).then(data => {
+      var dataStr = (data.data && data.data.length) ? data.data : 'none';
+      window.unityInstance.SendMessage('YandexSDK', 'OnGetPlayerData', dataStr);
+    }).catch(() => {
+      window.unityInstance.SendMessage('YandexSDK', 'OnGetPlayerData', 'none');
+    });
+  }
+
+  function openRateUs() {
+    sdk.feedback.canReview()
+      .then(({ value }) => {
+        if (value) {
+          sdk.feedback.requestReview().then(({ feedbackSent }) => {
+            window.focus();
+            console.log(feedbackSent);
+          });
+        }
+      });
+  }
+</script>
+
+<!-- GOOGLE -->
+<style>
+  /* Container: Top center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, -100%); /* Slide up out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↑'; /* Up arrow */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 708px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbzA6GNdpfUShkCh6apD0D21YAUf7A5d3Guhq2PayqLbk_5XG_wQhy0bdYzKJWLhzgMVMQ/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 25000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↑';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+
+</body>
+</html>

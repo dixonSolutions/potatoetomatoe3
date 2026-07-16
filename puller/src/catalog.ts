@@ -196,10 +196,51 @@ export async function readGameMetadata(gameId: string): Promise<Record<string, u
 		try {
 			return JSON.parse(await fs.readFile(p, 'utf-8')) as Record<string, unknown>;
 		} catch {
-			// try next
+			/* try next */
 		}
 	}
 	return null;
+}
+
+/**
+ * Optional local playable HTML written by catalog importers (e.g. Drive U 7 gadgets).
+ * Used by unity-play / game-live when there is no fetchable remote onlineEmbedUrl.
+ */
+export async function readLocalEmbedHtml(gameId: string): Promise<{
+	html: string;
+	baseHref: string;
+} | null> {
+	const candidates = [
+		path.join(catalogOnlineDir(gameId), 'embed.html'),
+		path.join(gameDataRoot(gameId), 'online', 'embed.html')
+	];
+	for (const p of candidates) {
+		try {
+			const html = await fs.readFile(p, 'utf-8');
+			if (html.trim().length < 40) continue;
+			const meta = await readGameMetadata(gameId);
+			const embedBase =
+				typeof meta?.embedBaseUrl === 'string' && meta.embedBaseUrl.trim()
+					? meta.embedBaseUrl.trim()
+					: null;
+			const baseHref =
+				embedBase ||
+				html.match(/<base[^>]+href=["']([^"']+)["']/i)?.[1] ||
+				html.match(/https?:\/\/cdn\.jsdelivr\.net\/gh\/[^"'\\\s<>]+/i)?.[0]?.replace(
+					/\/[^/]*$/,
+					'/'
+				) ||
+				'https://cdn.jsdelivr.net/';
+			return { html, baseHref };
+		} catch {
+			/* try next */
+		}
+	}
+	return null;
+}
+
+export async function hasLocalEmbed(gameId: string): Promise<boolean> {
+	return (await readLocalEmbedHtml(gameId)) !== null;
 }
 
 export async function getPullStrategy(gameId: string): Promise<'embed' | 'generic'> {

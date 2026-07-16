@@ -13,9 +13,21 @@ Potato Tomato has two deliberate product surfaces:
   `PUBLIC_OFFLINE_DEPLOYMENT=local-app` and also accept runtime Tauri signals
   (`globalThis.isTauri`, `tauri.localhost`, `TAURI_ENV_PLATFORM`).
 
-## Native runtime diagnostics
+## Native touch proxy (always on)
 
-In the packaged webview DevTools:
+On `local-app` / Tauri desktop builds the puller is required for online play with
+touch. `getGamePlayerUrl` waits briefly for puller health, then always routes:
+
+- Unity → `/api/unity-play/:id`
+- Other online titles → `/api/game-live/:id`
+
+Touch console availability is forced to `always` (and enabled) in the native app
+so the overlay chrome stays available without a settings trip.
+
+Catalog importers may write `online/embed.html` (+ `localEmbed: true`) when the
+only playable document lives inside a Google Sites gadget XML. The puller serves
+that file through the same proxies when `onlineEmbedUrl` is a Sites page or missing.
+
 
 ```js
 ({

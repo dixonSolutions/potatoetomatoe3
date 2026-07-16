@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/centerclassroom/mc55@main/">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/karala-ar/vaydanam@main/style.css"/>
+<style>
+        /* Убираем выделение по нажатию клавиш */
+        canvas:focus {
+            outline: none;
+        }
+
+        html, body {
+            /* Убираем отступы */
+            padding: 0;
+            margin: 0;
+            /* Отключаем скролл и лонгтап на IOS */
+            overflow: hidden;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            /* Ставим высоту на 100% */
+            height: 100%;
+        }
+    </style>
+<!-- Additional head modules -->
+</head>
+<body class="dark">
+<div id="unity-container" class="unity-desktop">
+<canvas id="unity-canvas" tabindex="-1"></canvas>
+</div>
+<div id="loading-cover" style="display:none;">
+<div id="unity-loading-bar">
+<div id="unity-logo"><img src="https://cdn.jsdelivr.net/gh/karala-ar/vaydanam@main/logoz.png"/></div>
+<div id="unity-progress-bar-empty" style="display: none;">
+<div id="unity-progress-bar-full"></div>
+<div id="txtloadingw">Drift Hunters - RU G+</div>
+</div>
+<div class="spinner"></div>
+</div>
+</div>
+<!-- Additional body modules -->
+<script>
+        async function mergeUnityWebFiles(baseUrl, filePrefix, totalParts, extension) {
+            const partUrls = [];
+            for (let i = 1; i <= totalParts; i++) {
+                partUrls.push(`${baseUrl}/${filePrefix}_part${i}.${extension}`);
+            }
+
+            const buffers = [];
+            for (let i = 0; i < totalParts; i++) {
+                const response = await fetch(partUrls[i]);
+                if (!response.ok) {
+                    throw new Error(`Failed to load part: ${partUrls[i]}`);
+                }
+                const buffer = await response.arrayBuffer();
+                buffers.push(buffer);
+
+                // İlerleme çubuğunu güncelle
+                const progress = ((i + 1) / totalParts) * 100;
+                document.querySelector("#unity-progress-bar-full").style.width = `${progress}%`;
+            }
+
+            const totalLength = buffers.reduce((acc, buffer) => acc + buffer.byteLength, 0);
+            const combinedBuffer = new Uint8Array(totalLength);
+            let offset = 0;
+
+            buffers.forEach((buffer) => {
+                combinedBuffer.set(new Uint8Array(buffer), offset);
+                offset += buffer.byteLength;
+            });
+
+            return combinedBuffer;
+        }
+
+        const buildUrl = "https://cdn.jsdelivr.net/gh/karala-ar/vaydanam@45f2826/build";
+        const loaderUrl = buildUrl + "/RuDrift.loader.js";
+        const config = {
+            dataUrl: null,
+            frameworkUrl: buildUrl + "/RuDrift.framework.js.unityweb",
+            codeUrl: buildUrl + "/RuDrift.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "Drift Tuner RU",
+            productVersion: "1.0",
+        };
+
+        const container = document.querySelector("#unity-container");
+        const canvas = document.querySelector("#unity-canvas");
+        const loadingCover = document.querySelector("#loading-cover");
+        const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+        const progressBarFull = document.querySelector("#unity-progress-bar-full");
+        const spinner = document.querySelector('.spinner');
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            container.className = "unity-mobile";
+        }
+
+        loadingCover.style.background = "url("https://cdn.jsdelivr.net/gh/karala-ar/vaydanam@main/background.png") center / cover";
+
+        loadingCover.style.display = "";
+        
+        async function initializeGame() {
+            try {
+                // Parçalanmış dosyaları birleştir
+                const dataBuffer = await mergeUnityWebFiles(buildUrl, "RuDrift", 3, "data.unityweb");
+                const dataBlobUrl = URL.createObjectURL(new Blob([dataBuffer], { type: "application/octet-stream" }));
+                config.dataUrl = dataBlobUrl;
+
+                const unityLoader = document.createElement("script");
+                unityLoader.src = loaderUrl;
+                unityLoader.onload = () => {
+                    createUnityInstance(canvas, config, (progress) => {
+                        progressBarFull.style.width = 100 * progress + "%";
+                    }).then((unityInstance) => {
+                        myGameInstance = unityInstance;
+                        loadingCover.style.display = "none";
+                    }).catch((message) => {
+                        alert(message);
+                    });
+                };
+                document.body.appendChild(unityLoader);
+            } catch (error) {
+                console.error("Unity yükleme hatası:", error);
+            }
+        }
+
+        initializeGame();
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        function FocusGame() {
+            window.focus();
+            canvas.focus();
+        }
+
+        window.addEventListener('pointerdown', FocusGame);
+        window.addEventListener('touchstart', FocusGame);
+
+        let StartUnityInstance;
+        let myGameInstance;
+        let ysdk = null; // Yandex SDK pasif
+
+        // Varsayılan değerlerle environmentData, cloudSaves, paymentsData ve playerData gibi değişkenlerin tanımlanması
+        let environmentData = {
+            language: "en",
+            domain: "default_domain",
+            deviceType: "desktop",
+            isMobile: false,
+            isDesktop: true,
+            isTablet: false,
+            isTV: false,
+            appID: "default_app_id",
+            browserLang: navigator.language || "en",
+            payload: null,
+            promptCanShow: false,
+            reviewCanShow: false,
+            platform: navigator.platform,
+            browser: (function() {
+                let userAgent = navigator.userAgent;
+                if (userAgent.includes("YaBrowser")) return "Yandex";
+                if (userAgent.includes("OPR") || userAgent.includes("Opera")) return "Opera";
+                if (userAgent.includes("Firefox")) return "Firefox";
+                if (userAgent.includes("MSIE") || userAgent.includes("Trident")) return "IE";
+                if (userAgent.includes("Edge")) return "Edge";
+                if (userAgent.includes("Chrome")) return "Chrome";
+                if (userAgent.includes("Safari")) return "Safari";
+                return "Other";
+            })()
+        };
+        
+        let cloudSaves = 'noData';
+        let paymentsData = 'none';
+        let playerData = 'noData'; // Varsayılan playerData tanımı
+        let player = null;
+        let payments = null;
+        let initGame = false;
+        let nowFullAdOpen = false;
+
+        // Eksik olabilecek tüm SDK işlevlerini varsayılan olarak tanımla
+        function GetPayments() { console.warn("GetPayments is not implemented"); return Promise.resolve("none"); }
+        function SaveCloud() { console.warn("SaveCloud is not implemented"); }
+        function LoadCloud() { console.warn("LoadCloud is not implemented"); return Promise.resolve("noData"); }
+        function InitPlayer() { console.warn("InitPlayer is not implemented"); return Promise.resolve("noData"); }
+        function FullAdShow() { console.warn("FullAdShow is not implemented"); }
+        function RewardedShow() { console.warn("RewardedShow is not implemented"); }
+        function StickyAdActivity() { console.warn("StickyAdActivity is not implemented"); }
+        function Review() { console.warn("Review is not implemented"); }
+        function PromptShow() { console.warn("PromptShow is not implemented"); }
+        function InitLeaderboards() { console.warn("InitLeaderboards is not implemented"); }
+        function GetLeaderboardScores() { console.warn("GetLeaderboardScores is not implemented"); }
+        function SetLeaderboardScores() { console.warn("SetLeaderboardScores is not implemented"); }
+        function ConsumePurchase() { console.warn("ConsumePurchase is not implemented"); }
+        function ConsumePurchases() { console.warn("ConsumePurchases is not implemented"); } // Varsayılan tanım eklendi
+        
+                function InitGame() {
+            try {
+                console.log('Init Game Success');
+                initGame = true;
+                if (nowFullAdOpen === true && myGameInstance != null) {
+                    myGameInstance.SendMessage('YandexGame', 'OpenFullAd');
+                }
+            } catch (error) {
+                console.error("InitGame sırasında hata:", error);
+            }
+        }
+
+        // Hata oluştuğunda oyuna devam etmek için tüm hataları global olarak yakalayan yapı
+        window.addEventListener("unhandledrejection", function(event) {
+            console.warn("Hata es geçildi:", event.reason);
+            event.preventDefault();
+        });
+        
+</script>
+
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbyLqfuYNg4HqY0inO1-UyYb5pVvsb0FDxHj6mw418ypqPmoNzUgt0McBC9Q9JfLfFp39Q/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+</html>

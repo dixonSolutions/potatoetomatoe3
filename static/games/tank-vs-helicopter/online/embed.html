@@ -1,0 +1,24 @@
+<html>
+  <head><base href="https://cdn.jsdelivr.net/gh/schoolflashx/6666664@main/">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Classroom Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/schoolflashx/6666664@main/style/style.css">
+  <script src="https://cdn.jsdelivr.net/gh/schoolflashx/6666664@main/UnityLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/schoolflashx/6666664@main/UnityProgress.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/schoolflashx/6666664@main/build.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 100%; height: 95%; margin: auto;"></div>
+    <div class="footer">
+              <div class="webgl-logo"></div>
+              <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+              <div class="title">Google > Classroom Center Games</div>
+          </div>
+    </div>
+
+  </body>
+</html>

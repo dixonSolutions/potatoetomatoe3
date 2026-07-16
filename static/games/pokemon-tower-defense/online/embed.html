@@ -1,0 +1,382 @@
+<html lang="en">
+<head><base href="https://cdn.jsdelivr.net/gh/ftbaldana/f88f88@main/">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />    
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/gh/schoolflashx/g@main/ruffle.js"></script>
+
+<object width="100%" height="100%">
+    <param name="movie" value="https://cdn.jsdelivr.net/gh/ftbaldana/f88f88@main/PTD1-v2.9.4.swf">
+    <embed src="https://cdn.jsdelivr.net/gh/ftbaldana/f88f88@main/PTD1-v2.9.4.swf" width="100%" height="100%">
+
+        <!-- gooooooooooooooooooooooooooooooooooooooooooooooo -->
+<style>
+  /* Full screen dark overlay */
+  #ad-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    display: none;
+    z-index: 99998;
+    transition: opacity 0.4s ease-out;
+  }
+
+  #ad-overlay.fade-out {
+    opacity: 0;
+  }
+
+  /* Countdown indicator - sağ alt köşe */
+  #ad-countdown {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 99997;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  #ad-countdown .countdown-text {
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+
+  #ad-countdown .countdown-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4d4d;
+    text-align: center;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Container: Center of screen, fixed */
+  #ad-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 370px;
+    height: 310px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  #ad-container.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 370px;
+    height: 330px;
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Base button styles */
+  .ad-close-btn {
+    position: absolute;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 100000;
+  }
+
+  /* Fake close button - clickthrough */
+  #fake-close {
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* Real close button - hidden initially */
+  #real-close {
+    cursor: pointer;
+    z-index: 100001;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+  }
+
+  #real-close.visible {
+    display: block;
+    opacity: 1;
+  }
+
+  #real-close:hover {
+    background: #ff3333;
+  }
+
+  /* Corner positions */
+  .corner-top-left {
+    top: 6px;
+    left: 8px;
+  }
+  .corner-top-right {
+    top: 6px;
+    right: 8px;
+  }
+  .corner-bottom-left {
+    bottom: 6px;
+    left: 8px;
+  }
+  .corner-bottom-right {
+    bottom: 6px;
+    right: 8px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 20px);
+      max-width: 360px;
+    }
+    #ad-iframe {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+</style>
+
+<!-- Countdown indicator -->
+<div id="ad-countdown">
+  <div class="countdown-text">Ad in</div>
+  <div class="countdown-number">3</div>
+</div>
+
+<!-- Full screen overlay -->
+<div id="ad-overlay"></div>
+
+<!-- Ad container -->
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src=""
+    width="360px"
+    height="310px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="fake-close" class="ad-close-btn">✕</button>
+  <button id="real-close" class="ad-close-btn">Close Ad</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    // ==========================================
+    // SCRIPT URL'LERİ - LOAD BALANCING
+    // ==========================================
+    const scriptUrls = [
+      "https://script.google.com/macros/s/AKfycbz3w9-0OorUrWh9GsMdDG3LYtMs4IXLETsCA3W77v6PnGLonQyKeVG4gJYFzGNACWr2/exec",
+      "https://script.google.com/macros/s/AKfycbxuPKwdSMxk8neWw2aaXwWExYbEIIAc8NeOU7ZFCOEvf5R6A4Vlo0FOmEIhItQ-Q44/exec",
+      "https://script.google.com/macros/s/AKfycbx7hHK5-k4hA7416rI8Yl-FahaDWvAvPKg-ws2IQBdGMZkc8e1IEFJV0A0q7fqzDth2/exec",
+      "https://script.google.com/macros/s/AKfycbzUiDRQ37aswCW_h_vxfDVpadTVLCJW0WPO--eMygOlJq47N7hdCIVgwrIdzHnyDPqmFQ/exec",
+      "https://script.google.com/macros/s/AKfycbzhkewrEbvVnTKWHqkYxapr1A_fCwjbmHjLidR_Ze6fmlVmglfk030mCCCfvVp82dru/exec"
+    ];
+    
+    // Sürekli random - her gösterimde tamamen rastgele seç
+    function getRandomUrl() {
+      const randomIndex = Math.floor(Math.random() * scriptUrls.length);
+      return scriptUrls[randomIndex];
+    }
+    
+    // ==========================================
+    // AYARLAR
+    // ==========================================
+    const initialDelay = 3000;
+    const realCloseDelay = 3000;
+    const countdownDuration = 3;
+    
+    // Artan bekleme süreleri
+    const reappearDelays = [
+      180000,  // 3 dakika
+      240000   // 4 dakika
+    ];
+    
+    let adShowCount = 0;
+    
+    // ==========================================
+    // DOM ELEMANLARI
+    // ==========================================
+    const adOverlay = document.getElementById('ad-overlay');
+    const adContainer = document.getElementById('ad-container');
+    const adIframe = document.getElementById('ad-iframe');
+    const fakeClose = document.getElementById('fake-close');
+    const realClose = document.getElementById('real-close');
+    const adCountdown = document.getElementById('ad-countdown');
+    const countdownNumber = adCountdown.querySelector('.countdown-number');
+
+    const corners = [
+      'corner-top-left',
+      'corner-top-right',
+      'corner-bottom-left',
+      'corner-bottom-right'
+    ];
+
+    function clearCorners(element) {
+      corners.forEach(corner => element.classList.remove(corner));
+    }
+
+    function getRandomCorner() {
+      return corners[Math.floor(Math.random() * corners.length)];
+    }
+
+    function setRandomCorner(button) {
+      clearCorners(button);
+      button.classList.add(getRandomCorner());
+    }
+    
+    function getCurrentDelay() {
+      if (adShowCount <= 1) {
+        return reappearDelays[0]; // 3 dakika
+      } else {
+        return reappearDelays[1]; // 4 dakika
+      }
+    }
+
+    // Geri sayım
+    function startCountdown(callback) {
+      let count = countdownDuration;
+      
+      adCountdown.style.display = 'block';
+      countdownNumber.textContent = count;
+      
+      const interval = setInterval(() => {
+        count--;
+        
+        if (count > 0) {
+          countdownNumber.textContent = count;
+        } else {
+          clearInterval(interval);
+          adCountdown.style.display = 'none';
+          callback();
+        }
+      }, 1000);
+    }
+
+    function showAd() {
+      adShowCount++;
+      
+      // ==========================================
+      // HER REKLAM GÖSTERİMİNDE RASTGELE URL SEÇ
+      // ==========================================
+      const selectedUrl = getRandomUrl();
+      adIframe.src = selectedUrl;
+      
+      // Reset states
+      adOverlay.classList.remove('fade-out');
+      adContainer.classList.remove('fade-out');
+      fakeClose.style.display = 'block';
+      realClose.classList.remove('visible');
+      realClose.style.display = 'none';
+
+      setRandomCorner(fakeClose);
+
+      adOverlay.style.display = 'block';
+      adContainer.style.display = 'block';
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      setTimeout(() => {
+        fakeClose.style.display = 'none';
+        setRandomCorner(realClose);
+        realClose.style.display = 'block';
+        realClose.offsetHeight;
+        realClose.classList.add('visible');
+      }, realCloseDelay);
+    }
+    
+    function showAdWithCountdown() {
+      startCountdown(() => {
+        showAd();
+      });
+    }
+
+    function closeAd() {
+      adOverlay.classList.add('fade-out');
+      adContainer.classList.add('fade-out');
+
+      setTimeout(() => {
+        adOverlay.style.display = 'none';
+        adContainer.style.display = 'none';
+        adContainer.setAttribute('aria-hidden', 'true');
+        
+        // iframe src'yi temizle - bellek tasarrufu
+        adIframe.src = '';
+        
+        if (typeof window.focusGame === 'function') {
+          window.focusGame();
+        }
+      }, 400);
+
+      const nextDelay = getCurrentDelay();
+      setTimeout(showAdWithCountdown, nextDelay);
+    }
+
+    // İlk reklam (geri sayımlı)
+    setTimeout(showAdWithCountdown, initialDelay);
+
+    realClose.addEventListener('click', closeAd);
+
+    // Global fonksiyonlar
+    window.showInterstitialAd = showAd;
+    window.showInterstitialAdWithCountdown = showAdWithCountdown;
+    window.closeInterstitialAd = closeAd;
+  })();
+</script>
+
+</body>
+</html>

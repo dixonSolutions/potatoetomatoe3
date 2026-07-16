@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head><base href="https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/style.css"/>
+<!-- Yandex Games SDK - Optional, will be mocked if unavailable -->
+<script src="https://cdn.jsdelivr.net/sdk.js" onerror="console.log('SDK not available, using mock')"></script>
+<style>
+        canvas:focus {
+            outline: none;
+        }
+
+        html, body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            height: 100%;
+        }
+    </style>
+<!-- Additional head modules -->
+</head>
+<body class="dark">
+<div id="unity-container" class="unity-desktop">
+<canvas id="unity-canvas" tabindex="-1"></canvas>
+</div>
+<div id="loading-cover" style="display:none;">
+<div id="unity-loading-bar">
+<div id="unity-logo"><img src="https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/Images/logo.png"/></div>
+<div id="unity-progress-bar-empty" style="display: none;">
+<div id="unity-progress-bar-full"></div>
+</div>
+<div class="spinner"></div>
+</div>
+</div>
+<!-- Additional body modules -->
+<script>
+        // ============================================
+        // YANDEX SDK MOCK - Bypass when SDK unavailable
+        // ============================================
+        
+        // Check if YaGames exists, if not create a mock
+        if (typeof YaGames === 'undefined') {
+            console.log('%c[SDK MOCK] YaGames not found, creating mock SDK', 'color: #FFDF73; background-color: #454545');
+            
+            window.YaGames = {
+                init: function() {
+                    return new Promise((resolve) => {
+                        console.log('%c[SDK MOCK] Mock SDK initialized', 'color: #FFDF73; background-color: #454545');
+                        resolve({
+                            // Server time - returns current timestamp
+                            serverTime: () => Date.now(),
+                            
+                            environment: {
+                                i18n: { lang: 'en', tld: 'com' },
+                                app: { id: 'mock-app-id' },
+                                browser: { lang: navigator.language || 'en' },
+                                payload: ''
+                            },
+                            deviceInfo: {
+                                type: 'desktop',
+                                isMobile: () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+                                isDesktop: () => !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+                                isTablet: () => false,
+                                isTV: () => false
+                            },
+                            screen: {
+                                fullscreen: {
+                                    status: 'off',
+                                    request: () => Promise.resolve(),
+                                    exit: () => Promise.resolve()
+                                }
+                            },
+                            adv: {
+                                showFullscreenAdv: (options) => {
+                                    console.log('%c[SDK MOCK] Interstitial ad requested (mocked)', 'color: #FFDF73; background-color: #454545');
+                                    if (options && options.callbacks) {
+                                        if (options.callbacks.onOpen) options.callbacks.onOpen();
+                                        setTimeout(() => {
+                                            if (options.callbacks.onClose) options.callbacks.onClose(false);
+                                        }, 100);
+                                    }
+                                },
+                                showRewardedVideo: (options) => {
+                                    console.log('%c[SDK MOCK] Rewarded ad requested (mocked - auto reward)', 'color: #FFDF73; background-color: #454545');
+                                    if (options && options.callbacks) {
+                                        if (options.callbacks.onOpen) options.callbacks.onOpen();
+                                        setTimeout(() => {
+                                            if (options.callbacks.onRewarded) options.callbacks.onRewarded();
+                                            if (options.callbacks.onClose) options.callbacks.onClose();
+                                        }, 100);
+                                    }
+                                },
+                                getBannerAdvStatus: () => Promise.resolve({ stickyAdvIsShowing: false, reason: 'ADV_IS_NOT_CONNECTED' }),
+                                showBannerAdv: () => Promise.resolve({ stickyAdvIsShowing: false }),
+                                hideBannerAdv: () => Promise.resolve({ stickyAdvIsShowing: false })
+                            },
+                            auth: {
+                                openAuthDialog: () => Promise.reject(new Error('Mock: Auth not available'))
+                            },
+                            getPlayer: (options) => {
+                                return Promise.resolve({
+                                    getMode: () => 'lite',
+                                    getName: () => 'Guest',
+                                    getUniqueID: () => 'guest-' + Math.random().toString(36).substr(2, 9),
+                                    getPhoto: (size) => '',
+                                    getPayingStatus: () => 'unknown',
+                                    getData: (keys) => Promise.resolve({}),
+                                    setData: (data, flush) => Promise.resolve(),
+                                    getIDsPerGame: () => Promise.resolve([]),
+                                    signature: ''
+                                });
+                            },
+                            getPayments: () => Promise.reject(new Error('Mock: Payments not available')),
+                            getLeaderboards: () => Promise.resolve({
+                                setLeaderboardScore: (name, score, extraData) => Promise.resolve(),
+                                getLeaderboardDescription: (name) => Promise.resolve({
+                                    default: false,
+                                    description: {
+                                        invert_sort_order: false,
+                                        score_format: { options: { decimal_offset: 0 } },
+                                        type: 'numeric'
+                                    }
+                                }),
+                                getLeaderboardEntries: (name, options) => Promise.resolve({
+                                    entries: [],
+                                    leaderboard: {},
+                                    ranges: [],
+                                    userRank: 0
+                                }),
+                                getLeaderboardPlayerEntry: (name) => Promise.reject({ code: 'LEADERBOARD_PLAYER_NOT_PRESENT' })
+                            }),
+                            getFlags: (options) => Promise.resolve({}),
+                            features: {
+                                GamesAPI: {
+                                    getAllGames: () => Promise.resolve({ games: [], developerURL: '' })
+                                },
+                                LoadingAPI: {
+                                    ready: () => console.log('%c[SDK MOCK] Game ready signal sent', 'color: #FFDF73; background-color: #454545')
+                                }
+                            },
+                            feedback: {
+                                canReview: () => Promise.resolve({ value: false, reason: 'UNKNOWN' }),
+                                requestReview: () => Promise.resolve({ feedbackSent: false })
+                            },
+                            shortcut: {
+                                canShowPrompt: () => Promise.resolve({ canShow: false }),
+                                showPrompt: () => Promise.resolve({ outcome: 'rejected' })
+                            },
+                            clipboard: {
+                                writeText: (text) => navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject(new Error('Clipboard not available'))
+                            },
+                            isAvailableMethod: (method) => false
+                        });
+                    });
+                }
+            };
+        }
+
+        // ============================================
+        // CHUNKED DATA LOADER - For split data.br files
+        // ============================================
+        
+        const WASM_CHUNKS = {
+            totalChunks: 9,  // 67MB / 8MB = 9 parça (PowerShell çıktısına göre güncelleyin)
+            baseFileName: "StealMeme.wasm.br",
+            chunkExtension: ".part"
+        };
+
+        async function loadChunkedWasm(baseUrl) {
+            console.log('%c[CHUNK LOADER] Starting chunked WASM download...', 'color: #00BFFF; background-color: #454545');
+            
+            const chunks = [];
+            let totalSize = 0;
+            
+            for (let i = 0; i < WASM_CHUNKS.totalChunks; i++) {
+                const chunkUrl = `${baseUrl}/${WASM_CHUNKS.baseFileName}${WASM_CHUNKS.chunkExtension}${i}`;
+                console.log(`%c[CHUNK LOADER] Downloading part ${i + 1}/${WASM_CHUNKS.totalChunks}...`, 'color: #00BFFF;');
+                
+                try {
+                    const response = await fetch(chunkUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status} for ${chunkUrl}`);
+                    }
+                    const arrayBuffer = await response.arrayBuffer();
+                    chunks.push(new Uint8Array(arrayBuffer));
+                    totalSize += arrayBuffer.byteLength;
+                    
+                    // Progress update
+                    const progress = ((i + 1) / WASM_CHUNKS.totalChunks) * 0.5; // 0-50% for wasm loading
+                    updateLoadingProgress(progress);
+                    
+                    console.log(`%c[CHUNK LOADER] Part ${i + 1} loaded (${(arrayBuffer.byteLength / 1024 / 1024).toFixed(2)} MB)`, 'color: #00FF00;');
+                } catch (error) {
+                    console.error(`[CHUNK LOADER] Failed to load chunk ${i}:`, error);
+                    throw error;
+                }
+            }
+            
+            // Combine all chunks
+            console.log('%c[CHUNK LOADER] Combining WASM chunks...', 'color: #00BFFF;');
+            const combined = new Uint8Array(totalSize);
+            let offset = 0;
+            for (const chunk of chunks) {
+                combined.set(chunk, offset);
+                offset += chunk.length;
+            }
+            
+            console.log(`%c[CHUNK LOADER] WASM assembled: ${(totalSize / 1024 / 1024).toFixed(2)} MB total`, 'color: #00FF00; background-color: #454545');
+            
+            return combined.buffer;
+        }
+
+        function updateLoadingProgress(progress) {
+            const progressBarFull = document.querySelector("#unity-progress-bar-full");
+            if (progressBarFull) {
+                progressBarFull.style.width = `${100 * progress}%`;
+            }
+        }
+
+        // ============================================
+        // ORIGINAL GAME CODE (Modified for chunked loading)
+        // ============================================
+        
+        const hideFullScreenButton = "";
+        const buildUrl = "https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/Build";
+        const loaderUrl = buildUrl + "/StealMeme.loader.js";
+        
+        // Config - dataUrl normal, codeUrl will be set as Blob URL after chunks are combined
+        const config = {
+            dataUrl: buildUrl + "/StealMeme.data.br",
+            frameworkUrl: buildUrl + "/StealMeme.framework.js",
+            codeUrl: null,  // Will be set after WASM chunks are loaded
+            streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/StreamingAssets",
+            companyName: "Playme",
+            productName: "Steal Brain Online",
+            productVersion: "1.0.10"
+        };
+
+        const container = document.querySelector("#unity-container");
+        const canvas = document.querySelector("#unity-canvas");
+        const loadingCover = document.querySelector("#loading-cover");
+        const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+        const progressBarFull = document.querySelector("#unity-progress-bar-full");
+        const spinner = document.querySelector('.spinner');
+
+        const canFullscreen = (function () {
+            for (const key of [
+                'exitFullscreen',
+                'webkitExitFullscreen',
+                'webkitCancelFullScreen',
+                'mozCancelFullScreen',
+                'msExitFullscreen',
+            ]) {
+                if (key in document) {
+                    return true;
+                }
+            }
+            return false;
+        }());
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            container.className = "unity-mobile";
+        }
+
+        loadingCover.style.display = "";
+
+        let StartUnityInstance;
+        let ygGameInstance = null;
+        let ysdk = null;
+        let initYSDK = false;
+        let initGame = false;
+        let syncInit = true;
+        const NO_DATA = 'no data';
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        
+        function FocusGame() {
+            window.focus();
+            canvas.focus();
+        }
+        
+        window.addEventListener('pointerdown', () => {
+            FocusGame();
+        });
+        window.addEventListener('touchstart', () => {
+            FocusGame();
+        });
+
+        document.addEventListener('visibilitychange', function () {
+            if (ysdk !== null && initGame == true) {
+                if (document.hidden) {
+                    YG2Instance('SetFocusWindowGame', 'false');
+                } else {
+                    YG2Instance('SetFocusWindowGame', 'true');
+                    if ((ysdk.deviceInfo.isMobile() || ysdk.deviceInfo.isTablet()) && ysdk.screen.fullscreen.status == 'off') {
+                        try {
+                            ysdk.screen.fullscreen.request();
+                        } catch(e) {
+                            console.log('Fullscreen request failed:', e);
+                        }
+                    }
+                }
+            }
+        });
+
+        // Main initialization
+        async function initializeGame() {
+            try {
+                // Step 1: Load chunked WASM
+                spinner.style.display = "none";
+                progressBarEmpty.style.display = "";
+                
+                console.log('%c[INIT] Loading chunked WASM...', 'color: #FFDF73; background-color: #454545');
+                const wasmBuffer = await loadChunkedWasm(buildUrl);
+                
+                // Step 2: Create Blob URL for the combined WASM
+                const wasmBlob = new Blob([wasmBuffer], { type: 'application/wasm' });
+                config.codeUrl = URL.createObjecturl("https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/wasmBlob");
+                console.log('%c[INIT] WASM Blob URL created', 'color: #00FF00; background-color: #454545');
+                
+                // Step 3: Load Unity loader script
+                const script = document.createElement("script");
+                script.src = loaderUrl;
+                script.onload = () => {
+                    StartUnityInstance = function () {
+                        createUnityInstance(canvas, config, (progress) => {
+                            // Progress from 50% to 100% for Unity loading
+                            const adjustedProgress = 0.5 + (progress * 0.5);
+                            progressBarFull.style.width = `${100 * adjustedProgress}%`;
+                        }).then((unityInstance) => {
+                            ygGameInstance = unityInstance;
+                            loadingCover.style.display = "none";
+                            
+                            // Clean up Blob URL
+                            URL.revokeObjecturl("https://cdn.jsdelivr.net/gh/papamamia/gonzales@main/config.codeUrl");
+                            
+                            console.log('%c[GAME] Unity instance created successfully!', 'color: #00FF00; background-color: #454545');
+                        }).catch((message) => {
+                            console.error('Unity instance creation failed:', message);
+                        });
+                    };
+                    
+                    StartUnityInstance();
+                };
+                
+                script.onerror = () => {
+                    console.error('Failed to load Unity loader script');
+                };
+                
+                document.body.appendChild(script);
+                
+            } catch (error) {
+                console.error('[INIT] Failed to initialize game:', error);
+                // Fallback: try loading original single WASM file (if exists)
+                console.log('%c[INIT] Attempting fallback to single WASM file...', 'color: #FFA500;');
+                initializeGameFallback();
+            }
+        }
+
+        // Fallback for single file loading (original method)
+        function initializeGameFallback() {
+            config.codeUrl = buildUrl + "/StealMeme.wasm.br";
+            
+            const script = document.createElement("script");
+            script.src = loaderUrl;
+            script.onload = () => {
+                StartUnityInstance = function () {
+                    createUnityInstance(canvas, config, (progress) => {
+                        spinner.style.display = "none";
+                        progressBarEmpty.style.display = "";
+                        const adjustedProgress = Math.max(progress, 0.05);
+                        progressBarFull.style.width = `${100 * adjustedProgress}%`;
+                    }).then((unityInstance) => {
+                        ygGameInstance = unityInstance;
+                        loadingCover.style.display = "none";
+                        console.log('%c[GAME] Unity instance created (fallback)!', 'color: #00FF00;');
+                    }).catch((message) => {
+                        console.error('Unity instance creation failed:', message);
+                    });
+                };
+                StartUnityInstance();
+            };
+            document.body.appendChild(script);
+        }
+
+        // Start the game
+        initializeGame();
+
+        function YG2Instance(method, arg) {
+            if (ygGameInstance == null) return;
+
+            if (!initGame) {
+                setTimeout(function () {
+                    if (ygGameInstance) {
+                        if (arg !== undefined) {
+                            ygGameInstance.SendMessage('YG2Instance', method, arg);
+                        } else {
+                            ygGameInstance.SendMessage('YG2Instance', method);
+                        }
+                    }
+                }, 100);
+            } else {
+                if (arg !== undefined) {
+                    ygGameInstance.SendMessage('YG2Instance', method, arg);
+                } else {
+                    ygGameInstance.SendMessage('YG2Instance', method);
+                }
+            }
+        }
+
+        function LogStyledMessage(message, style) {
+            if (style) {
+                console.log('%c' + message, style);
+            } else {
+                console.log('%c' + message, 'color: #FFDF73; background-color: #454545');
+            }
+        }
+
+        // Initialize SDK (will use mock if real SDK unavailable)
+        InitYSDK();
+        
+        async function InitYSDK() {
+            try {
+                ysdk = await YaGames.init();
+                
+                // Environment data
+                await RequestingEnvironmentData();
+                LogStyledMessage('Init EnvirData ysdk');
+
+                // Player init
+                await InitPlayer();
+                LogStyledMessage('Init Authorization ysdk');
+
+                // Cloud saves
+                await LoadCloud();
+                LogStyledMessage('Init Storage ysdk');
+
+                // Payments (may fail with mock)
+                try {
+                    await InitPayments();
+                    LogStyledMessage('Init Payments ysdk');
+                } catch(e) {
+                    LogStyledMessage('Payments not available (expected with mock)');
+                }
+
+                // All games
+                try {
+                    await GetAllGames();
+                    LogStyledMessage('Init OpenURL ysdk');
+                } catch(e) {
+                    LogStyledMessage('GetAllGames not available');
+                }
+
+                // Leaderboards
+                try {
+                    await InitLeaderboards();
+                    LogStyledMessage('Init Leaderboards ysdk');
+                } catch(e) {
+                    LogStyledMessage('Leaderboards not available');
+                }
+
+                // Flags
+                try {
+                    await GetFlags();
+                    LogStyledMessage('Init Flags ysdk');
+                } catch(e) {
+                    LogStyledMessage('Flags not available');
+                }
+
+                initYSDK = true;
+                if (ygGameInstance != null) {
+                    ygGameInstance.SendMessage('YG2Instance', 'InitSDKComplete');
+                }
+
+                LogStyledMessage('Init YandexSDK Success (or Mock)');
+
+            } catch (e) {
+                console.error('SDK Initialization error (continuing anyway): ', e);
+                initYSDK = true;
+            }
+        }
+
+        function InitGame() {
+            initGame = true;
+        }
+
+        // ============================================
+        // SDK FUNCTION IMPLEMENTATIONS
+        // ============================================
+        
+        LogStyledMessage('PluginYG2 v2.0031  build: 112 (Modified - Chunked Loading)');
+
+        var cloudSaves = NO_DATA;
+
+        function SaveCloud(jsonData, flush) {
+            if (player == null) {
+                console.error('CRASH Save Cloud: ', 'Didnt have time to load');
+                return;
+            }
+            try {
+                player.setData({
+                    saves: [jsonData],
+                }, flush);
+            } catch (e) {
+                console.error('CRASH Save Cloud: ', e.message);
+            }
+        }
+
+        function LoadCloud() {
+            return new Promise((resolve) => {
+                if (ysdk == null) {
+                    Final(NO_DATA);
+                    return;
+                }
+                try {
+                    player.getData(["saves"]).then(data => {
+                        if (data.saves) {
+                            Final(JSON.stringify(data.saves));
+                        } else {
+                            Final(NO_DATA);
+                        }
+                    }).catch(() => {
+                        console.log('Load Cloud: No saved data (expected for new users)');
+                        Final(NO_DATA);
+                    });
+                } catch (e) {
+                    console.error('CRASH Load saves Cloud: ', e.message);
+                    Final(NO_DATA);
+                }
+
+                function Final(res) {
+                    cloudSaves = res;
+                    YG2Instance('SetLoadSaves', res);
+                    resolve(res);
+                }
+            });
+        }
+
+        function RewardedAdvShow(id) {
+            try {
+                ysdk.adv.showRewardedVideo({
+                    callbacks: {
+                        onOpen: () => {
+                            LogStyledMessage('Opened Rewarded Adv');
+                            YG2Instance('OpenRewardedAdv');
+                        },
+                        onClose: () => {
+                            LogStyledMessage('Closed Rewarded Adv');
+                            YG2Instance('CloseRewardedAdv');
+                            FocusGame();
+                        },
+                        onRewarded: () => {
+                            LogStyledMessage('Reward Adv');
+                            YG2Instance('RewardAdv', id);
+                        },
+                        onError: (err) => {
+                            console.error('Error Rewarded Adv', err);
+                            YG2Instance('ErrorRewardedAdv');
+                        }
+                    }
+                });
+            } catch (err) {
+                console.error('CRASH Rewarded Adv Show: ', err.message);
+                YG2Instance('RewardAdv', id);
+            }
+        }
+
+        var paymentsData = NO_DATA;
+        let payments = null;
+
+        function InitPayments() {
+            return new Promise((resolve) => {
+                try {
+                    if (ysdk == null) {
+                        Final(NO_DATA);
+                        return;
+                    }
+
+                    ysdk.getPayments().then(_payments => {
+                        payments = _payments;
+                        payments.getCatalog().then(products => {
+                            let productID = [];
+                            let title = [];
+                            let description = [];
+                            let imageURI = [];
+                            let price = [];
+                            let priceValue = [];
+                            let priceCurrencyCode = [];
+                            let currencyImageURL = [];
+                            let consumed = [];
+
+                            payments.getPurchases().then(purchases => {
+                                for (let i = 0; i < products.length; i++) {
+                                    productID[i] = products[i].id;
+                                    title[i] = products[i].title;
+                                    description[i] = products[i].description;
+                                    imageURI[i] = products[i].imageURI;
+                                    price[i] = products[i].price;
+                                    priceValue[i] = products[i].priceValue;
+                                    priceCurrencyCode[i] = products[i].priceCurrencyCode;
+                                    currencyImageURL[i] = products[i].getPriceCurrencyImage("medium");
+                                    consumed[i] = true;
+                                    for (let i2 = 0; i2 < purchases.length; i2++) {
+                                        if (purchases[i2].productID === productID[i]) {
+                                            consumed[i] = false;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                let jsonPayments = {
+                                    "id": productID,
+                                    "title": title,
+                                    "description": description,
+                                    "imageURI": imageURI,
+                                    "price": price,
+                                    "priceValue": priceValue,
+                                    "priceCurrencyCode": priceCurrencyCode,
+                                    "currencyImageURL": currencyImageURL,
+                                    "consumed": consumed,
+                                    "language": ysdk.environment.i18n.lang
+                                };
+
+                                Final(JSON.stringify(jsonPayments));
+                            });
+                        });
+                    }).catch(e => {
+                        LogStyledMessage('Purchases are not available: ' + e.message);
+                        Final(NO_DATA);
+                    });
+                } catch (e) {
+                    console.error('CRASH Init Payments: ', e.message);
+                    Final(NO_DATA);
+                }
+
+                function Final(res) {
+                    paymentsData = res;
+                    YG2Instance('PaymentsEntries', res);
+                    resolve(res);
+                }
+            });
+        }
+
+        function BuyPayments(id) {
+            try {
+                if (payments != null) {
+                    payments.purchase(id).then(() => {
+                        LogStyledMessage('Purchase Success');
+                        ConsumePurchase(id, true);
+                        FocusGame();
+                    }).catch(e => {
+                        console.error('Purchase Failed', e.message);
+                        YG2Instance('OnPurchaseFailed', id);
+                        FocusGame();
+                    });
+                } else {
+                    LogStyledMessage('Payments == null');
+                    YG2Instance('OnPurchaseFailed', id);
+                }
+            } catch (e) {
+                console.error('CRASH Buy Payments: ', e.message);
+                YG2Instance('OnPurchaseFailed', id);
+                FocusGame();
+            }
+        }
+
+        function ConsumePurchase(id, onPurchaseSuccess) {
+            try {
+                if (payments != null) {
+                    payments.getPurchases().then(purchases => {
+                        for (let i = 0; i < purchases.length; i++) {
+                            if (purchases[i].productID === id) {
+                                payments.consumePurchase(purchases[i].purchaseToken);
+                                if (onPurchaseSuccess) YG2Instance('OnPurchaseSuccess', id);
+                            }
+                        }
+                    });
+                } else {
+                    LogStyledMessage('Consume purchase: payments null');
+                }
+            } catch (e) {
+                console.error('CRASH Consume Purchase: ', e.message);
+            }
+        }
+
+        function ConsumePurchases(onPurchaseSuccess) {
+            try {
+                if (payments != null) {
+                    payments.getPurchases().then(purchases => {
+                        LogStyledMessage('Unprocessed purchases: ' + purchases.length);
+                        for (let i = 0; i < purchases.length; i++) {
+                            payments.consumePurchase(purchases[i].purchaseToken);
+                            if (onPurchaseSuccess) YG2Instance('OnPurchaseSuccess', purchases[i].productID);
+                        }
+                    });
+                } else {
+                    LogStyledMessage('Consume purchases: payments null');
+                }
+            } catch (e) {
+                console.error('CRASH Consume purchases: ', e.message);
+            }
+        }
+
+        let allGamesData = NO_DATA;
+
+        function GetAllGames() {
+            return new Promise((resolve) => {
+                if (ysdk == null) {
+                    Final(NO_DATA);
+                    return;
+                }
+                try {
+                    ysdk.features.GamesAPI.getAllGames().then(({ games, developerURL }) => {
+                        let appID = [];
+                        let title = [];
+                        let url = [];
+                        let coverURL = [];
+                        let iconURL = [];
+
+                        for (let i = 0; i < games.length; i++) {
+                            appID[i] = games[i].appID;
+                            title[i] = games[i].title;
+                            url[i] = games[i].url;
+                            coverURL[i] = games[i].coverURL;
+                            iconURL[i] = games[i].iconURL;
+                        }
+
+                        let jsonGames = {
+                            "appID": appID,
+                            "title": title,
+                            "url": url,
+                            "coverURL": coverURL,
+                            "iconURL": iconURL,
+                            "developerURL": developerURL
+                        };
+
+                        Final(JSON.stringify(jsonGames));
+                    }).catch(err => {
+                        console.log('GetAllGames not available:', err);
+                        Final(NO_DATA);
+                    });
+                } catch (e) {
+                    console.error('CRASH Get All Games: ', e.message);
+                    Final(NO_DATA);
+                }
+
+                function Final(res) {
+                    allGamesData = res;
+                    resolve(res);
+                }
+            });
+        }
+
+        let leaderboards = null;
+
+        function InitLeaderboards() {
+            return new Promise((resolve) => {
+                if (ysdk == null) {
+                    resolve(null);
+                    return;
+                }
+                ysdk.getLeaderboards()
+                    .then(_lb => {
+                        leaderboards = _lb;
+                        resolve(_lb);
+                    })
+                    .catch(e => {
+                        console.log('Leaderboards not available:', e.message);
+                        resolve(null);
+                    });
+            });
+        }
+
+        function SetLeaderboard(name, score, extraData) {
+            if (leaderboards == null) return;
+            try {
+                leaderboards.setLeaderboardScore(name, score, extraData);
+            } catch (e) {
+                console.error('CRASH Set Leaderboard: ', e.message);
+            }
+        }
+
+        function GetLeaderboard(nameLB, quantityTop, quantityAround, photoSize, auth) {
+            if (leaderboards == null) return;
+            try {
+                var jsonEntries = {
+                    technoName: '',
+                    isDefault: false,
+                    isInvertSortOrder: false,
+                    decimalOffset: 0,
+                    type: ''
+                };
+
+                leaderboards.getLeaderboardDescription(nameLB)
+                    .then(res => {
+                        jsonEntries.technoName = nameLB;
+                        jsonEntries.isDefault = res.default;
+                        jsonEntries.isInvertSortOrder = res.description.invert_sort_order;
+                        jsonEntries.decimalOffset = res.description.score_format.options.decimal_offset;
+                        jsonEntries.type = res.description.type;
+
+                        return leaderboards.getLeaderboardEntries(nameLB, {
+                            quantityTop: quantityTop,
+                            includeUser: auth,
+                            quantityAround: quantityAround
+                        });
+                    })
+                    .then(res => {
+                        let jsonPlayers = EntriesLB(res, photoSize);
+                        let combinedJson = { ...jsonEntries, ...jsonPlayers };
+                        YG2Instance('LeaderboardEntries', JSON.stringify(combinedJson));
+                    })
+                    .catch(err => {
+                        if (err.code === 'LEADERBOARD_PLAYER_NOT_PRESENT')
+                            LogStyledMessage('Leaderboard player not present');
+                        console.log('Leaderboard error:', err);
+                    });
+            } catch (e) {
+                console.error('CRASH Get Leaderboard: ', e.message);
+            }
+        }
+
+        function EntriesLB(res, photoSize) {
+            let LbdEntriesText = '';
+            let plCount = res.entries.length;
+
+            let ranks = new Array(plCount);
+            let photos = new Array(plCount);
+            let mames = new Array(plCount);
+            let scores = new Array(plCount);
+            let uniqueIDs = new Array(plCount);
+            let extraDataArray = new Array(plCount);
+
+            for (let i = 0; i < plCount; i++) {
+                ranks[i] = res.entries[i].rank;
+                scores[i] = res.entries[i].score;
+                uniqueIDs[i] = res.entries[i].player.uniqueID;
+                photos[i] = res.entries[i].player.getAvatarSrc(photoSize);
+
+                if (res.entries[i].extraData == "" || res.entries[i].extraData == null)
+                    extraDataArray[i] = NO_DATA;
+                else
+                    extraDataArray[i] = res.entries[i].extraData;
+
+                if (res.entries[i].player.scopePermissions.public_name !== "allow")
+                    mames[i] = "anonymous";
+                else
+                    mames[i] = res.entries[i].player.publicName;
+
+                LbdEntriesText += ranks[i] + '. ' + mames[i] + ": " + scores[i] + '\n';
+            }
+
+            if (plCount === 0) {
+                LbdEntriesText = 'no data';
+            }
+
+            let jsonPlayers = {
+                "entries": LbdEntriesText,
+                "ranks": ranks,
+                "photos": photos,
+                "names": mames,
+                "scores": scores,
+                "uniqueIDs": uniqueIDs,
+                "extraDataArray": extraDataArray
+            };
+
+            return jsonPlayers;
+        }
+
+        let nowFullAdOpen = false;
+
+        function InterAdvShow() {
+            try {
+                if (nowFullAdOpen !== true && ysdk !== null) {
+                    ysdk.adv.showFullscreenAdv({
+                        callbacks: {
+                            onOpen: () => {
+                                LogStyledMessage('Open Interstitial Adv');
+                                nowFullAdOpen = true;
+                                if (initGame === true) {
+                                    YG2Instance('OpenInterAdv');
+                                }
+                            },
+                            onClose: (wasShown) => {
+                                nowFullAdOpen = false;
+                                if (initGame === true) {
+                                    YG2Instance('CloseInterAdv', wasShown ? 'true' : 'false');
+                                }
+                                FocusGame();
+                            },
+                            onError: (error) => {
+                                console.error('Error Interstitial Adv', error);
+                                YG2Instance('ErrorInterAdv');
+                                FocusGame();
+                            }
+                        }
+                    });
+                }
+            } catch (e) {
+                console.error('CRASH Interstitial Adv Show: ', e.message);
+            }
+        }
+
+        let flasgsData = NO_DATA;
+
+        function GetFlags() {
+            return new Promise((resolve) => {
+                if (ysdk == null) {
+                    Final(NO_DATA);
+                    return;
+                }
+                try {
+                    ysdk.getFlags().then(flags => {
+                        let names = [];
+                        let values = [];
+
+                        for (let key in flags) {
+                            if (flags.hasOwnProperty(key)) {
+                                names.push(key);
+                                values.push(flags[key]);
+                            }
+                        }
+
+                        let jsonFlags = {
+                            "names": names,
+                            "values": values
+                        };
+
+                        Final(JSON.stringify(jsonFlags));
+                    });
+                } catch (e) {
+                    console.error('CRASH Get Flags: ', e.message);
+                    Final(NO_DATA);
+                }
+
+                function Final(res) {
+                    flasgsData = res;
+                    resolve(res);
+                }
+            });
+        }
+
+        var environmentData = NO_DATA;
+
+        function RequestingEnvironmentData() {
+            return new Promise((resolve) => {
+                if (ysdk == null) {
+                    Final(NO_DATA);
+                    return;
+                }
+                try {
+                    var browser = navigator.userAgent;
+                    if (browser.includes('YaBrowser') || browser.includes('YaSearchBrowser'))
+                        browser = 'Yandex';
+                    else if (browser.includes('Opera') || browser.includes('OPR'))
+                        browser = 'Opera';
+                    else if (browser.includes('Firefox'))
+                        browser = 'Firefox';
+                    else if (browser.includes('MSIE'))
+                        browser = 'IE';
+                    else if (browser.includes('Edge'))
+                        browser = 'Edge';
+                    else if (browser.includes('Chrome'))
+                        browser = 'Chrome';
+                    else if (browser.includes('Safari'))
+                        browser = 'Safari';
+                    else
+                        browser = 'Other';
+
+                    let jsonEnvir = {
+                        "language": ysdk.environment.i18n.lang,
+                        "domain": ysdk.environment.i18n.tld,
+                        "deviceType": ysdk.deviceInfo.type,
+                        "isMobile": ysdk.deviceInfo.isMobile(),
+                        "isDesktop": ysdk.deviceInfo.isDesktop(),
+                        "isTablet": ysdk.deviceInfo.isTablet(),
+                        "isTV": ysdk.deviceInfo.isTV(),
+                        "appID": ysdk.environment.app.id,
+                        "browserLang": ysdk.environment.browser.lang,
+                        "payload": ysdk.environment.payload,
+                        "platform": navigator.platform,
+                        "browser": browser
+                    };
+
+                    Final(JSON.stringify(jsonEnvir));
+                    LogStyledMessage("Environment Data: " + JSON.stringify(jsonEnvir));
+                } catch (e) {
+                    console.error('CRASH Requesting Environment Data: ', e.message);
+                    Final(NO_DATA);
+                }
+
+                function Final(res) {
+                    environmentData = res;
+                    YG2Instance('SetEnvirData', res);
+                    resolve(res);
+                }
+            });
+        }
+
+        var playerData = NO_DATA;
+        let player = null;
+
+        function InitPlayer() {
+            return new Promise((resolve) => {
+                try {
+                    if (ysdk == null) {
+                        Final(NotAuthorized());
+                        return;
+                    }
+
+                    let _scopes = true;
+                    ysdk.getPlayer({ scopes: _scopes })
+                        .then(_player => {
+                            player = _player;
+
+                            let playerName = player.getName();
+                            let playerPhoto = player.getPhoto('medium');
+
+                            if (!_scopes) {
+                                playerName = "anonymous";
+                                playerPhoto = "NO_DATA";
+                            }
+
+                            if (player.getMode() === 'lite') {
+                                LogStyledMessage('Not Authorized (Guest Mode)');
+                                Final(NotAuthorized());
+                            } else {
+                                let authJson = {
+                                    "playerAuth": "resolved",
+                                    "playerName": playerName,
+                                    "playerId": player.getUniqueID(),
+                                    "playerPhoto": playerPhoto,
+                                    "payingStatus": player.getPayingStatus()
+                                };
+                                Final(JSON.stringify(authJson));
+                            }
+                        }).catch(e => {
+                            console.log('Authorization error (expected for guests):', e.message);
+                            Final(NotAuthorized());
+                        });
+                } catch (e) {
+                    console.error('CRASH init Player: ', e.message);
+                    Final(NotAuthorized());
+                }
+
+                function Final(res) {
+                    playerData = res;
+                    YG2Instance('SetAuth', res);
+                    resolve(res);
+                }
+            });
+        }
+
+        function NotAuthorized() {
+            let authJson = {
+                "playerAuth": "rejected",
+                "playerName": "Guest",
+                "playerId": "guest-" + Math.random().toString(36).substr(2, 9),
+                "playerPhoto": "null",
+                "payingStatus": "unknown"
+            };
+            return JSON.stringify(authJson);
+        }
+
+        function OpenAuthDialog() {
+            if (ysdk !== null) {
+                try {
+                    ysdk.auth.openAuthDialog().then(() => {
+                        InitPlayer(true).then(() => {
+                            YG2Instance('GetDataInvoke');
+                        });
+                    }).catch(e => {
+                        LogStyledMessage('Auth dialog not available: ' + e.message);
+                    });
+                } catch (e) {
+                    LogStyledMessage('CRASH Open Auth Dialog: ' + e.message);
+                }
+            }
+        }
+    </script>
+    
+ <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbw60Tp6nuqThxAuU8ZN1JIuPtjHoW2Uqq3fQy0CvrycN0O2AQwhRT5EDv73hh2FhXEF/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+</html>

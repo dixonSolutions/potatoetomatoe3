@@ -3,6 +3,8 @@
  * Positions are stored as viewport percentages so layouts survive screen size and orientation.
  */
 
+import { isLocalAppDeployment } from './offline-deployment';
+
 export type TouchOrientation = 'landscape' | 'portrait';
 
 export type TouchAvailability = 'auto' | 'always' | 'off';
@@ -157,6 +159,7 @@ export const DEFAULT_TOUCH_MAPPING: TouchKeyMapping = {
 export const DEFAULT_TOUCH_SETTINGS: TouchConsoleSettings = {
 	version: 1,
 	enabled: true,
+	/** Public site stays auto; native/local-app forces always via getEffectiveTouchConfig. */
 	availability: 'auto',
 	opacity: 0.72,
 	scale: 1,
@@ -381,9 +384,18 @@ export function getEffectiveConfig(gameId: string | null | undefined, orientatio
 				buttons: { ...global.mapping.buttons, ...(override.mapping.buttons ?? {}) }
 			})
 		: global.mapping;
+
+	let enabled = global.enabled;
+	let availability = global.availability;
+	/* Native / local-app: puller + touch proxy stay on — keep console available. */
+	if (isLocalAppDeployment()) {
+		enabled = true;
+		if (availability === 'off' || availability === 'auto') availability = 'always';
+	}
+
 	return {
-		enabled: global.enabled,
-		availability: global.availability,
+		enabled,
+		availability,
 		opacity: global.opacity,
 		scale: global.scale,
 		haptics: global.haptics,

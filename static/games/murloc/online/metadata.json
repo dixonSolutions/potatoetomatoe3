@@ -1,0 +1,16 @@
+{
+  "id": "murloc",
+  "name": "Murloc",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/murloc).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0FhrpZv8RMcAxPxptfaoKwD6o8dlkNzWsnuwVsrHfV0WImFs6ZE0ymcUOvdraISN6ayazKDMtsUCCO44vNC4kiwoUUzUSOetEizLNs83ZYA07CKuKeu5Cl63_wiWmIk7clmTqdeqLxBRnJzjEtToqObNzc",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0FhrpZv8RMcAxPxptfaoKwD6o8dlkNzWsnuwVsrHfV0WImFs6ZE0ymcUOvdraISN6ayazKDMtsUCCO44vNC4kiwoUUzUSOetEizLNs83ZYA07CKuKeu5Cl63_wiWmIk7clmTqdeqLxBRnJzjEtToqObNzc",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://sites.google.com/view/drive-u-7-home/murloc",
+  "pullStrategy": "local-embed",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/murloc",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/AndreajnRcm4/d4g62dgv5a@d4bc8cb4bcfeeb03fd00e9ef5150efe92c401bfa/dt/wf/"
+}

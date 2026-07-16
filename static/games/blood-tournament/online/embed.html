@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><base href="https://cdn.jsdelivr.net/gh/emrsdahclassroom/ojyes@main/">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Blood Tournament</title>
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/emrsdahclassroom/ojyes@main/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/emrsdahclassroom/ojyes@main/TemplateData/style.css">
+    <script src="https://cdn.jsdelivr.net/gh/emrsdahclassroom/ojyes@main/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emrsdahclassroom/ojyes@main/Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "https://cdn.jsdelivr.net/gh/emrsdahclassroom/ojyes@main/Build/Itch%20io%20webgl.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">google</div>
+      </div>
+    </div>
+  </body>
+</html>

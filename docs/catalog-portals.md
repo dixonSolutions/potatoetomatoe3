@@ -50,6 +50,7 @@ Always kept: `shrek-escape`, `shrek-5`.
 | AddictingGames | `pnpm games:import-addictinggames` | Genre `__NEXT_DATA__` → page embeds |
 | Playhop (Yandex) | `pnpm games:import-playhop` | Digraph search + feed → `app-*.games.s3.yandex.net` |
 | Y8 | `pnpm games:import-y8` | RSS → `storage.y8.com` |
+| Drive U 7 | `pnpm games:import-drive-u7` | Google Sites home → jsDelivr gadget XML → local `embed.html` |
 | All of the above | `pnpm games:import-all-portals` | Purge → Shrek → portals → regenerate list |
 
 Common flags: `--limit N`, `--skip-existing`, `--discover-only`, `--concurrency N`.

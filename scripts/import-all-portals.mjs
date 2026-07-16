@@ -75,7 +75,8 @@ async function main() {
 		'import-crazygames-catalog.mjs',
 		'import-addictinggames-catalog.mjs',
 		'import-playhop-catalog.mjs',
-		'import-y8-catalog.mjs'
+		'import-y8-catalog.mjs',
+		'import-drive-u7-catalog.mjs'
 	];
 
 	for (const script of portals) {

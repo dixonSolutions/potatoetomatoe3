@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><base href="https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <style>
+        html,
+        body {
+            background-image: url("https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/Build/Build.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+
+        div#gameContainer {
+            background: transparent !important;
+            position: absolute;
+            top: 0px !important;
+            width: 100% !important;
+            height: 100% !important;
+            left: 0px !important;
+        }
+
+        div#gameContainer canvas {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        div#gameContainer canvas[data-pixel-art="true"] {
+            position: absolute;
+            image-rendering: optimizeSpeed;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -o-crisp-edges;
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: pixelated;
+            -ms-interpolation-mode: nearest-neighbor;
+        }
+
+        .loadingOut {
+            width: 250px;
+            position: fixed;
+            left: 50%;
+            top: calc(50% - 8px);
+            transform: translate(-50%);
+            border: 2px solid white;
+            height: 14px;
+            background: transparent;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, white, white 0%, transparent 0%, transparent);
+            width: 100%;
+        }
+
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -250px;
+            width: 500px;
+        }
+
+        #orientation-warning {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+            color: white;
+            padding: 20px;
+            border: 2px solid white;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        #orientation-image {
+            width: 125px;
+            height: 125px;
+            margin-top: 10px;
+            display: none;
+            position: fixed;
+            top: calc(50% - 150px);
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #loading-text {
+            position: fixed;
+            top: calc(50% + 20px);
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-shadow: 1px 1px 2px black;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="orientation-image" src="https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/TemplateData/Orientation/orientation.png" alt="Orientation">
+    <div id="orientation-warning">
+        <div>Please rotate your device to the correct mode.</div>
+    </div>
+    <div id="gameContainer">
+        <img src="https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/TemplateData/logo.png" class="centered">
+        <div class="loadingOut">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div id="loading-text">Loading Assets...</div>
+        <canvas id="unity-canvas" data-pixel-art=""></canvas>
+        <script src="https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/Build/ShapeShifter_H5_V50.loader.js"></script>
+        <script>
+            var canvas = document.querySelector("#unity-canvas");
+            var progressBar = document.querySelector("#progress-bar");
+            var gameContainer = document.querySelector("#gameContainer");
+            var orientationWarning = document.querySelector("#orientation-warning");
+            var orientationImage = document.querySelector("#orientation-image");
+            var loadingText = document.querySelector("#loading-text");
+
+            // Dosya adı yapılandırması
+            const dataFilename = "0aea490714d24dd56d5d8f133db73317.data.unityweb";
+
+            var config = {
+                dataUrl: "", // mergeDataParts fonksiyonu ile doldurulacak
+                frameworkUrl: "https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/Build/4b48f13749459fd9a85976d443eff8f8.js.unityweb",
+                codeUrl: "https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/Build/b4413c95649420a69c46417273ba947e.wasm.unityweb",
+                streamingAssetsUrl: "StreamingAssets",
+                companyName: "GameVGames",
+                productName: "Shape Transform Race",
+                productVersion: "0.1.0",
+            };
+
+            var scaleToFit;
+            try {
+                scaleToFit = !!JSON.parse("");
+            } catch (e) {
+                scaleToFit = true;
+            }
+
+            function updateProgressUI(percentVal, statusText) {
+                var percentStr = percentVal + '%';
+                progressBar.style.background = 'linear-gradient(to right, white, white ' + percentStr + ', transparent ' + percentStr + ', transparent)';
+                if (statusText) {
+                    loadingText.innerText = statusText + " " + Math.round(percentVal) + "%";
+                }
+            }
+
+            function progressHandler(progress) {
+                // Unity motoru yüklenirken çağrılır
+                updateProgressUI(progress * 100, "Initializing Game...");
+            }
+
+            function onResize() {
+                var container = canvas.parentElement;
+                var w;
+                var h;
+
+                if (scaleToFit) {
+                    w = window.innerWidth;
+                    h = window.innerHeight;
+                    var r = 1080 / 1920;
+                    if (w * r > window.innerHeight) {
+                        w = Math.min(w, Math.ceil(h / r));
+                    }
+                    h = Math.floor(w * r);
+                } else {
+                    w = 1920;
+                    h = 1080;
+                }
+
+                container.style.width = canvas.style.width = w + "px";
+                container.style.height = canvas.style.height = h + "px";
+                container.style.top = Math.floor((window.innerHeight - h) / 2) + "px";
+                container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
+            }
+
+            function checkOrientation(orientation) {
+                if (orientation === "Portrait" && window.innerHeight < window.innerWidth) {
+                    orientationWarning.style.display = 'block';
+                    gameContainer.style.display = 'none';
+                    orientationWarning.innerText = 'Please rotate your device to portrait mode.';
+                    orientationImage.style.display = 'block';
+                } else if (orientation === "Landscape" && window.innerHeight > window.innerWidth) {
+                    orientationWarning.style.display = 'block';
+                    gameContainer.style.display = 'none';
+                    orientationWarning.innerText = 'Please rotate your device to landscape mode.';
+                    orientationImage.style.display = 'block';
+                } else {
+                    orientationWarning.style.display = 'none';
+                    gameContainer.style.display = 'block';
+                    orientationImage.style.display = 'none';
+                }
+            }
+
+            function loadTemplateConfig() {
+                var request = new XMLHttpRequest();
+                request.open('GET', 'https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/TemplateData/Orientation/template.json', true);
+                request.onreadystatechange = function () {
+                    if (request.readyState === 4 && request.status === 200) {
+                        var configJson = JSON.parse(request.responseText);
+                        var orientation = configJson.customOptions.find(option => option.name === "orientation").default;
+                        checkOrientation(orientation);
+                    }
+                };
+                request.send();
+            }
+
+            // --- 8 PARTLI VERİ BİRLEŞTİRME SİSTEMİ ---
+            async function mergeDataParts() {
+                const totalParts = 8; // 10MB sınırına göre toplam 8 parça
+                const chunks = [];
+
+                for (let i = 1; i <= totalParts; i++) {
+                    const partNumber = i.toString().padStart(2, '0');
+                    const partUrl = `https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/Build/${dataFilename}.part${partNumber}`;
+
+                    try {
+                        const response = await fetch(partUrl);
+                        if (!response.ok) throw new Error(`Part ${partNumber} could not be loaded.`);
+
+                        const chunk = await response.arrayBuffer();
+                        chunks.push(chunk);
+
+                        // İndirme aşaması UI güncelleme
+                        const downloadProgress = (i / totalParts) * 100;
+                        updateProgressUI(downloadProgress, "Downloading Assets...");
+
+                    } catch (error) {
+                        console.error(error);
+                        loadingText.innerText = "Error: Data missing!";
+                        throw error;
+                    }
+                }
+
+                updateProgressUI(100, "Merging Assets...");
+                const blob = new Blob(chunks);
+                return URL.createObjecturl("https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/blob");
+            }
+
+            // --- BAŞLATICI ---
+            window.addEventListener('resize', function () {
+                onResize();
+                loadTemplateConfig();
+            });
+
+            mergeDataParts().then(blobUrl => {
+                config.dataUrl = blobUrl;
+                
+                createUnityInstance(canvas, config, progressHandler).then(function (instance) {
+                    // Yükleme UI'larını gizle
+                    document.querySelector(".loadingOut").style.display = "none";
+                    loadingText.style.display = "none";
+                    
+                    onResize();
+                    loadTemplateConfig();
+                }).catch(err => {
+                    console.error("Unity Instance Error:", err);
+                    loadingText.innerText = "Error starting the engine.";
+                });
+            }).catch(err => {
+                console.error("Merge Error:", err);
+            });
+
+            loadTemplateConfig();
+        </script>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ftbaldana/heex@main/js/rhmApi.js"></script>
+    </div>
+    
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxAZ0PV-KYd1bbw1BBD9J88dBWC-BrAiTQXx7l0wIfdR-iPl_h4rkPGwzf4rV-Q_Nj_Xg/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+
+</body>
+
+</html>

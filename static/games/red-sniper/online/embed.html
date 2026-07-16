@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<base href="https://cdn.jsdelivr.net/gh/Stinkalistic/UGS@main/UNITY/sniper/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+    html, body {
+      background: #000;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      padding: 0;
+      margin: 0;
+    }
+
+    #gameContainer {
+      background: transparent !important;
+      position: absolute;
+    }
+
+    #gameContainer canvas {
+      position: absolute;
+    }
+
+    #gameContainer canvas[data-pixel-art="true"] {
+      image-rendering: optimizeSpeed;
+      image-rendering: -webkit-crisp-edges;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-crisp-edges;
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
+      -ms-interpolation-mode: nearest-neighbor;
+    }
+
+    #loading-text {
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="gameContainer">
+    <canvas id="unity-canvas" data-pixel-art></canvas>
+    <div id="loading-text">LOADING...</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/Build/loader.js"></script>
+  <script>
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      const meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.head.appendChild(meta);
+    }
+
+    const loadingText = document.querySelector("#loading-text");
+    let totalBytes = 0;
+    let loadedBytes = 0;
+
+    function formatSize(bytes) {
+      if (bytes > 1024 * 1024 * 1024) return (bytes / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+      if (bytes > 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+      if (bytes > 1024) return (bytes / 1024).toFixed(2) + " KB";
+      return bytes + " B";
+    }
+
+    async function getSize(url) {
+      try {
+        const res = await fetch(url, { method: "HEAD" });
+        return parseInt(res.headers.get("Content-Length") || "0", 10);
+      } catch {
+        return 0;
+      }
+    }
+
+    async function fetchPart(url) {
+      const response = await fetch(url);
+      if (!response.body) {
+        const ab = await response.arrayBuffer();
+        loadedBytes += ab.byteLength;
+        loadingText.textContent = `LOADING... ${formatSize(loadedBytes)} / ${formatSize(totalBytes)}`;
+        return new Uint8Array(ab);
+      }
+      const reader = response.body.getReader();
+      const chunks = [];
+      let received = 0;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        received += value.length;
+        loadedBytes += value.length;
+        chunks.push(value);
+        const percent = totalBytes > 0 ? ((loadedBytes / totalBytes) * 100).toFixed(1) : "?";
+        loadingText.textContent = `LOADING... ${formatSize(loadedBytes)} / ${formatSize(totalBytes)} (${percent}%)`;
+      }
+      const full = new Uint8Array(received);
+      let offset = 0;
+      for (let chunk of chunks) {
+        full.set(chunk, offset);
+        offset += chunk.length;
+      }
+      return full;
+    }
+
+    async function mergeParts(parts, mimeType) {
+      const buffers = await Promise.all(parts.map(fetchPart));
+      const totalLen = buffers.reduce((s, b) => s + b.length, 0);
+      const concatenated = new Uint8Array(totalLen);
+      let off = 0;
+      for (let b of buffers) {
+        concatenated.set(b, off);
+        off += b.length;
+      }
+      return URL.createObjecturl("https://cdn.jsdelivr.net/gh/familiapablo/heyle@main/new%20Blob([concatenated],%20%7B%20type:%20mimeType%20||%20undefined%20%7D"));
+    }
+
+    function getParts(file, count) {
+      const parts = [];
+      for (let i = 1; i <= count; i++) parts.push(file + ".part" + i);
+      return parts;
+    }
+
+    (async () => {
+      try {
+        const dataParts = getParts("Build/New folder (2).data", 7);
+        const wasmParts = getParts("Build/New folder (2).wasm", 2);
+        const allParts = [...dataParts, ...wasmParts, "Build/framework.js"];
+        const sizes = await Promise.all(allParts.map(getSize));
+        totalBytes = sizes.reduce((a, b) => a + b, 0);
+
+        const [dataUrl, wasmUrl, frameworkUrl] = await Promise.all([
+          mergeParts(dataParts),
+          mergeParts(wasmParts),
+          mergeParts(["Build/framework.js"], 'application/javascript')
+        ]);
+
+        const canvas = document.querySelector("#unity-canvas");
+        let scaleToFit = true;
+
+        function onResize() {
+          const container = canvas.parentElement;
+          let w, h;
+          if (scaleToFit) {
+            w = window.innerWidth;
+            h = window.innerHeight;
+            const r = 540 / 960;
+            if (w * r > window.innerHeight) w = Math.min(w, Math.ceil(h / r));
+            h = Math.floor(w * r);
+          } else {
+            w = 960;
+            h = 540;
+          }
+          container.style.width = canvas.style.width = w + "px";
+          container.style.height = canvas.style.height = h + "px";
+          container.style.top = Math.floor((window.innerHeight - h) / 2) + "px";
+          container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
+        }
+        window.addEventListener('resize', onResize);
+        onResize();
+
+        // Wait until Unity loader is available
+        await (async function waitForLoader() {
+          if (typeof createUnityInstance === 'function') return;
+          await new Promise(resolve => {
+            const check = setInterval(() => {
+              if (typeof createUnityInstance === 'function') {
+                clearInterval(check);
+                resolve();
+              }
+            }, 50);
+          });
+        })();
+
+        const config = {
+          dataUrl: dataUrl,
+          frameworkUrl: frameworkUrl,
+          codeUrl: wasmUrl,
+          streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/Stinkalistic/UGS@main/UNITY/sniper/StreamingAssets",
+          companyName: "",
+          productName: "",
+          productVersion: ""
+        };
+
+        createUnityInstance(canvas, config, (progress) => {
+          const percent = Math.round(progress * 100);
+          loadingText.textContent = `LOADING... ${percent}%`;
+        }).then((unityInstance) => {
+          loadingText.remove();
+        }).catch((message) => {
+          loadingText.textContent = 'Failed to start Unity: ' + message;
+          console.error(message);
+        });
+      } catch (err) {
+        loadingText.textContent = 'ERROR: ' + (err.message || err);
+        console.error(err);
+      }
+    })();
+  </script>
+  
+  <!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbxLG5DHBe-sIbduDvwQZYJ3oaX_ha7rsvroprCFkQsnpZK_PEdipNia5ghxI_sdXYpv/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+</body>
+</html>

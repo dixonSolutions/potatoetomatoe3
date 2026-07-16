@@ -111,6 +111,21 @@ export async function isPullerAvailable(
 	}
 }
 
+/**
+ * Wait until the puller answers health (native app startup). Returns false on timeout.
+ */
+export async function waitForPuller(timeoutMs = 15_000): Promise<boolean> {
+	if (!shouldProbePullerBackend()) return false;
+	const deadline = Date.now() + Math.max(0, timeoutMs);
+	await syncPullerBaseUrlFromTauri();
+	while (Date.now() <= deadline) {
+		invalidatePullerAvailabilityCache();
+		if (await isPullerAvailable(true)) return true;
+		await new Promise((r) => setTimeout(r, 400));
+	}
+	return false;
+}
+
 export interface PullerHealth {
 	ok: boolean;
 	dataDir?: string;

@@ -1,0 +1,17 @@
+{
+  "id": "goku",
+  "name": "Goku",
+  "author": "Drive U 7",
+  "description": "Imported from Drive U 7 (https://sites.google.com/view/drive-u-7-home/new-games/goku).",
+  "thumbnail": "https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0FhrpZv8RMcAxPxptfaoKwD6o8dlkNzWsnuwVsrHfV0WImFs6ZE0ymcUOvdraISN6ayazKDMtsUCCO44vNC4kiwoUUzUSOetEizLNs83ZYA07CKuKeu5Cl63_wiWmIk7clmTqdeqLxBRnJzjEtToqObNzc",
+  "thumbnailRemote": "https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0FhrpZv8RMcAxPxptfaoKwD6o8dlkNzWsnuwVsrHfV0WImFs6ZE0ymcUOvdraISN6ayazKDMtsUCCO44vNC4kiwoUUzUSOetEizLNs83ZYA07CKuKeu5Cl63_wiWmIk7clmTqdeqLxBRnJzjEtToqObNzc",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "drive-u-7",
+  "onlineEmbedUrl": "https://cdn.jsdelivr.net/gh/zhit73/wafedit@b8543abf2881dfb9519de3f0d5022de154b7df3d/index.html",
+  "pullStrategy": "embed",
+  "embedPageUrl": "https://sites.google.com/view/drive-u-7-home/new-games/goku",
+  "localEmbed": true,
+  "embedBaseUrl": "https://cdn.jsdelivr.net/gh/aeiea/3kh0-Assets-1@ae7f5e20b8aafb0adc8c56a2cca6868f0c0d357f/Run%202/waflash/",
+  "remotePlayUrl": "https://cdn.jsdelivr.net/gh/zhit73/wafedit@b8543abf2881dfb9519de3f0d5022de154b7df3d/index.html"
+}

@@ -14,6 +14,17 @@ import {
 import { getProgressJobForGame, listRecentJobs, listDownloadingGameIds } from './jobs.js';
 import { liveSessionCount } from './live/session.js';
 import {
+	isValidGameId,
+	isGameInCatalog,
+	loadGameIds,
+	resolveOfflineFilePath,
+	resolveOfflineMirrorRoot,
+	readGameMetadata
+} from './catalog.js';
+import { injectGameStorageBridge } from './game-storage-bridge-script.js';
+import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
+import { fetchLiveAsset, startLiveGameHtml } from './live/proxy.js';
+import {
 	deleteGameBrowserProfile,
 	readGameBrowserProfile,
 	writeGameBrowserProfile

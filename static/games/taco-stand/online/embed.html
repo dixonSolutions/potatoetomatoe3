@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><base href="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/style.css">
+
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+
+      <!-- CUSTOM LOADING SCREEN -->
+      <div id="custom-loading">
+        <div class="taco-container">
+          <span class="taco-emoji">🌮</span>
+        </div>
+        <div class="loading-title">TACO STAND</div>
+        <div class="loading-subtitle">Preparing the tastiest tacos...</div>
+        <div class="progress-container">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="merge-progress-bar"></div>
+          </div>
+          <div class="progress-text" id="merge-progress-text">0%</div>
+          <div class="loading-status" id="merge-status">Initializing...</div>
+        </div>
+        <div class="fun-message" id="fun-message"></div>
+      </div>
+
+      <div id="unity-loading-bar" style="display:none;">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">g+</div>
+      </div>
+    </div>
+
+    <script>
+      // ==========================================
+      // FUN LOADING MESSAGES
+      // ==========================================
+      const funMessages = [
+        "Chopping onions and tomatoes... 🍅",
+        "Seasoning the meat just right... 🌶️",
+        "Warming up the tortillas... 🫓",
+        "Adding extra guacamole... 🥑",
+        "Squeezing fresh limes... 🍋",
+        "Taste-testing the salsa... 💃",
+        "Grilling to perfection... 🔥",
+        "Folding tacos with love... ❤️",
+        "Sprinkling cilantro on top... 🌿",
+        "Almost ready to serve! 🎉"
+      ];
+
+      let funMsgIndex = 0;
+      const funMsgEl = document.getElementById('fun-message');
+
+      function rotateFunMessage() {
+        funMsgEl.style.opacity = '0';
+        setTimeout(() => {
+          funMsgEl.textContent = funMessages[funMsgIndex % funMessages.length];
+          funMsgEl.style.opacity = '0.8';
+          funMsgIndex++;
+        }, 300);
+      }
+
+      rotateFunMessage();
+      const funMsgInterval = setInterval(rotateFunMessage, 3000);
+
+      // ==========================================
+      // FILE MERGE SYSTEM
+      // ==========================================
+      const mergeConfig = {
+        files: [
+          { name: 'web.data.gz', parts: 4 },
+          { name: 'web.wasm.gz', parts: 3 }
+        ],
+        basePath: 'https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/Build/'
+      };
+
+      const mergedFiles = {};
+      const progressBar = document.getElementById('merge-progress-bar');
+      const progressText = document.getElementById('merge-progress-text');
+      const statusEl = document.getElementById('merge-status');
+
+      async function mergeFileParts(baseName, partCount, progressCallback) {
+        const chunks = [];
+        for (let i = 0; i < partCount; i++) {
+          const partUrl = mergeConfig.basePath + baseName + '.part' + i;
+          const response = await fetch(partUrl);
+          if (!response.ok) throw new Error(`Failed to load ${partUrl}: ${response.status}`);
+
+          const reader = response.body.getReader();
+          const contentLength = +response.headers.get('Content-Length') || 0;
+          let received = 0;
+          const partChunks = [];
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            partChunks.push(value);
+            received += value.length;
+          }
+
+          const partData = new Uint8Array(received);
+          let offset = 0;
+          for (const chunk of partChunks) {
+            partData.set(chunk, offset);
+            offset += chunk.length;
+          }
+
+          chunks.push(partData);
+          progressCallback(i + 1, partCount);
+          console.log(`[MERGE] ${baseName} part${i} loaded (${(received / 1024 / 1024).toFixed(2)} MB)`);
+        }
+
+        const totalSize = chunks.reduce((acc, c) => acc + c.length, 0);
+        const merged = new Uint8Array(totalSize);
+        let off = 0;
+        for (const chunk of chunks) {
+          merged.set(chunk, off);
+          off += chunk.length;
+        }
+
+        console.log(`[MERGE] ${baseName} merged (${(totalSize / 1024 / 1024).toFixed(2)} MB)`);
+        return merged.buffer;
+      }
+
+      async function mergeAllFiles() {
+        const totalParts = mergeConfig.files.reduce((a, f) => a + f.parts, 0);
+        let completedParts = 0;
+
+        for (const file of mergeConfig.files) {
+          statusEl.textContent = `Downloading ${file.name}...`;
+
+          const buffer = await mergeFileParts(file.name, file.parts, (current, total) => {
+            completedParts++;
+            const pct = Math.round((completedParts / totalParts) * 100);
+            progressBar.style.width = pct + '%';
+            progressText.textContent = pct + '%';
+            statusEl.textContent = `${file.name} — part ${current}/${total}`;
+          });
+
+          mergedFiles[file.name] = buffer;
+        }
+
+        statusEl.textContent = 'Starting game engine...';
+        progressBar.style.width = '100%';
+        progressText.textContent = '100%';
+      }
+
+      // ==========================================
+      // CUSTOM FETCH INTERCEPTOR
+      // ==========================================
+      const originalFetch = window.fetch;
+      window.fetch = function(url, options) {
+        if (typeof url === 'string') {
+          for (const file of mergeConfig.files) {
+            // Intercept requests for the original files and return merged data
+            if (url.endsWith(file.name) || url.includes('/' + file.name)) {
+              if (mergedFiles[file.name]) {
+                console.log(`[INTERCEPT] Serving merged: ${file.name}`);
+                return Promise.resolve(new Response(mergedFiles[file.name], {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/octet-stream' }
+                }));
+              }
+            }
+          }
+        }
+        return originalFetch.apply(this, arguments);
+      };
+
+      // ==========================================
+      // UNITY INIT
+      // ==========================================
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/Build";
+      var loaderUrl = buildUrl + "/web.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/web.data.gz",
+        frameworkUrl: buildUrl + "/web.framework.js",
+        codeUrl: buildUrl + "/web.wasm.gz",
+        streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/StreamingAssets",
+        companyName: "Wave Infinite",
+        productName: "Taco Stand",
+        productVersion: "0.1",
+        showBanner: unityShowBanner,
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+
+      // MAIN: Merge files first, then load Unity
+      mergeAllFiles().then(() => {
+        clearInterval(funMsgInterval);
+
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+          createUnityInstance(canvas, config, (progress) => {
+            // Unity engine loading progress
+            const pct = Math.round(progress * 100);
+            progressBar.style.width = pct + '%';
+            progressText.textContent = pct + '%';
+            statusEl.textContent = 'Loading game engine... ' + pct + '%';
+          }).then((unityInstance) => {
+            // Hide loading screen
+            document.getElementById('custom-loading').classList.add('fade-out');
+            setTimeout(() => {
+              document.getElementById('custom-loading').style.display = 'none';
+            }, 800);
+
+            fullscreenButton.onclick = () => {
+              unityInstance.SetFullscreen(1);
+            };
+          }).catch((message) => {
+            alert(message);
+          });
+        };
+        document.body.appendChild(script);
+      }).catch((err) => {
+        statusEl.textContent = 'Error: ' + err.message;
+        progressBar.style.background = 'red';
+        console.error('[MERGE] Fatal error:', err);
+      });
+    </script>
+<!-- Sticky Bottom Center Ad (728x90) with Smooth Slide-Out and Reappearance -->
+<style>
+  /* Container: Bottom center, fixed, with overflow hidden */
+  #ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(728px, calc(100% - 20px)); /* 728px, 10px margin on mobile */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in/out animation */
+  }
+
+  /* Slide-out animation */
+  #ad-container.hidden {
+    transform: translate(-50%, 100%); /* Slide down out of view */
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 745px; /* Updated width */
+    height: 90px; /* Updated height */
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  #ad-iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Close button with arrow */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+  #close-ad::before {
+    content: '↓'; /* Down arrow for bottom ad */
+    margin-right: 4px;
+  }
+
+  /* Right mask for scrollbar */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    z-index: 99999;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 440px) {
+    #ad-container {
+      width: calc(100% - 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0; /* Sharp corners on mobile */
+    }
+    #ad-iframe {
+      width: 728px;
+    }
+  }
+</style>
+
+<div id="ad-container" aria-hidden="true" role="dialog" aria-label="Advertisement">
+  <iframe
+    id="ad-iframe"
+    src="https://script.google.com/macros/s/AKfycbwO0_-Mbrs-AoE1MqbBxyaIzK385M7xGx4jDkq-FDsbR9wNcqft1m3554Np5XINfbRViw/exec"
+    width="768px"
+    height="95px"
+    scrolling="no"
+    frameborder="0"
+    sandbox="allow-scripts allow-popups allow-same-origin"
+  ></iframe>
+  <button id="close-ad" disabled>Close (12)</button>
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  (function () {
+    const showDelay = 2000; // 2 seconds delay before first show
+    const countdownStart = 12; // 12 seconds countdown
+    const reappearDelay = 150000; // 25 seconds before reappearance
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    function showAd() {
+      // Show ad with smooth slide-in
+      adContainer.style.display = 'block';
+      adContainer.classList.remove('hidden');
+      adContainer.setAttribute('aria-hidden', 'false');
+
+      // Start countdown
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Close (${timeLeft})`;
+      closeBtn.disabled = true;
+      closeBtn.classList.remove('enabled');
+
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Close (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Close ↓';
+        }
+      }, 1000);
+    }
+
+    // Initial ad show
+    setTimeout(showAd, showDelay);
+
+    // Close with animation and schedule reappearance
+    closeBtn.addEventListener('click', () => {
+      if (closeBtn.disabled) return;
+      adContainer.classList.add('hidden');
+      adContainer.setAttribute('aria-hidden', 'true');
+      // Schedule reappearance without removing or reloading iframe
+      setTimeout(showAd, reappearDelay);
+    });
+  })();
+</script>
+  </body>
+</html>
