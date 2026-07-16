@@ -114,8 +114,17 @@ jobs:
           fi
           echo "OK: $CATALOG_LIST"
           flatpak-builder --user --install-deps-from=flathub --state-dir=.flatpak-builder --ccache --repo=repo --default-branch=stable build-flatpak flatpak/com.potatotomato.games.yml
-          cmp src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu build-flatpak/files/bin/puller-sidecar
-          PULLER_BINARY=build-flatpak/files/bin/puller-sidecar pnpm --filter @potatotomato/puller smoke:bundle
+          # Absolute paths: pnpm --filter runs smoke from puller/, so relative
+          # build-flatpak/... would resolve to the wrong directory.
+          SOURCE_SIDECAR="$PWD/src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu"
+          ASSEMBLED_SIDECAR="$PWD/build-flatpak/files/bin/puller-sidecar"
+          test -x "$ASSEMBLED_SIDECAR" || {
+            echo "ERROR: assembled sidecar missing at $ASSEMBLED_SIDECAR" >&2
+            find build-flatpak -name 'puller-sidecar*' 2>/dev/null | head -20 >&2 || true
+            exit 1
+          }
+          cmp "$SOURCE_SIDECAR" "$ASSEMBLED_SIDECAR"
+          PULLER_BINARY="$ASSEMBLED_SIDECAR" pnpm --filter @potatotomato/puller smoke:bundle
           flatpak build-update-repo repo
           flatpak build-bundle repo "com.potatotomato.games-${{ steps.release.outputs.version }}.flatpak" com.potatotomato.games stable
       - uses: actions/upload-artifact@v4
