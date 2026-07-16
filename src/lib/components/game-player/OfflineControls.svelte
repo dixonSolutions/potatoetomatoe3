@@ -38,6 +38,7 @@
 	import { onMount } from 'svelte';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
+	import { waitForPuller } from '$lib/utils/offline-downloader-puller';
 
 	let {
 		gameId,
@@ -139,6 +140,12 @@
 
 		let pullerStartupTimer: ReturnType<typeof setTimeout> | undefined;
 		if (isLocalAppDeployment()) {
+			void waitForPuller(15_000).then(async (available) => {
+				pullerStartupSettled = true;
+				if (!available) return;
+				await refreshStatus();
+				onPlayUrlChange?.();
+			});
 			pullerStartupTimer = setTimeout(() => {
 				pullerStartupSettled = true;
 			}, 8000);
@@ -170,8 +177,8 @@
 	});
 
 	$effect(() => {
-		gameId;
-		metadata;
+		void gameId;
+		void metadata;
 		playMode = getGamePlayMode(gameId);
 		void refreshStatus();
 	});

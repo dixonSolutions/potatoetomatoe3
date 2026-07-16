@@ -12,10 +12,7 @@ import {
 } from '$lib/utils/offline-downloader-puller';
 import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
-import {
-	resolveStaticOfflinePlayUrl,
-	staticOfflineFileExists
-} from '$lib/utils/offline-play-url';
+import { resolveStaticOfflinePlayUrl, staticOfflineFileExists } from '$lib/utils/offline-play-url';
 import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 
 export type GameEngine = 'unity' | 'html5' | string;
@@ -363,8 +360,12 @@ function hasExternalOnlineEmbed(metadata: GameMetadata | null): boolean {
 function wantsNativeTouchProxy(metadata: GameMetadata | null): boolean {
 	if (metadata?.localEmbed) return true;
 	if (hasExternalOnlineEmbed(metadata)) return true;
-	/* Native app: always relay online HTML5 through game-live so touch inject works. */
-	return true;
+	/*
+	 * Keep same-origin catalog shells on their direct URL. The console can
+	 * upgrade them to the puller relay on demand, while avoiding a hard
+	 * dependency on game-live for titles that do not need it.
+	 */
+	return false;
 }
 
 async function offlineAvailable(gameId: string): Promise<boolean> {
@@ -387,8 +388,12 @@ async function staticOfflinePlayUrlIfNeeded(gameId: string): Promise<string> {
 }
 
 /** Resolve the iframe src for playing a game. */
-export async function getGamePlayerUrl(gameId: string): Promise<string> {
-	const metadata = await loadGameMetadata(gameId);
+export async function getGamePlayerUrl(
+	gameId: string,
+	metadataOverride?: GameMetadata | null
+): Promise<string> {
+	const metadata =
+		metadataOverride === undefined ? await loadGameMetadata(gameId) : metadataOverride;
 
 	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;
@@ -439,9 +444,7 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 		const offlineUrl = await getOfflinePlayUrl(gameId);
 		if (offlineUrl) {
 			const url =
-				metadata?.engine === 'unity'
-					? resolveOfflineUnityPlayUrl(offlineUrl, gameId)
-					: offlineUrl;
+				metadata?.engine === 'unity' ? resolveOfflineUnityPlayUrl(offlineUrl, gameId) : offlineUrl;
 			appendPlayLog(
 				'info',
 				'play-url',
@@ -475,12 +478,12 @@ export async function getGamePlayerUrl(gameId: string): Promise<string> {
 	}
 
 	/*
-	 * Online + puller (local / native app) — touch proxy always on:
-	 * - Unity → /api/unity-play (inject in game doc)
-	 * - All other online titles → /api/game-live (including local embed.html catalogs)
-	 * Unity stays on unity-play (not game-live) so loaders keep working.
+	 * Only wait for the puller when this game needs its proxy. Ordinary same-origin
+	 * catalog shells can start directly; waiting for a sidecar that will not be used
+	 * adds a full startup timeout to every native game launch.
 	 */
-	if (!isPublicSiteDeployment()) {
+	const needsNativeProxy = metadata?.engine === 'unity' || wantsNativeTouchProxy(metadata);
+	if (!isPublicSiteDeployment() && needsNativeProxy) {
 		const { isPullerAvailable, waitForPuller, pullerUnityPlayUrl, pullerLiveGameUrl } =
 			await import('./offline-downloader-puller');
 		const pullerUp = (await isPullerAvailable()) || (await waitForPuller(12_000));
@@ -580,7 +583,11 @@ export async function canPlayGameOffline(
 	metadata?: GameMetadata | null
 ): Promise<boolean> {
 	const { getGameAvailability } = await import('$lib/utils/game-availability');
-	const availability = await getGameAvailability(gameId, metadata ?? (await loadGameMetadata(gameId)), true);
+	const availability = await getGameAvailability(
+		gameId,
+		metadata ?? (await loadGameMetadata(gameId)),
+		true
+	);
 	return availability.offline;
 }
 

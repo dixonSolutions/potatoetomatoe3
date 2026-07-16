@@ -51,12 +51,23 @@ jobs:
           echo "tag=$existing_tag" >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      - name: Restore packaging and Playwright caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pkg-cache
+            ~/.cache/pkg-native
+            ~/.cache/ms-playwright
+          key: native-tools-${{ runner.os }}-node22-${{ hashFiles('pnpm-lock.yaml', 'puller/package.json') }}
+          restore-keys: |
+            native-tools-${{ runner.os }}-node22-
+
       - uses: pnpm/action-setup@v4
         with:
           version: 10
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Stamp and validate shared release inputs

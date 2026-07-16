@@ -67,7 +67,7 @@ const DEFAULTS: SiteSettingsV1 = {
 	privacyDisguiseMode: 'focus_loss',
 	privacyPauseGameWhileLocked: false,
 	privacyLockShortcut: null,
-	muteAudioScope: 'off',
+	muteAudioScope: 'focus_loss',
 	masterVolume: 1,
 	defaultGamePlayMode: 'online',
 	gamePauseShortcut: {

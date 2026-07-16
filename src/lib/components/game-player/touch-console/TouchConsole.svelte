@@ -19,6 +19,7 @@
 		resolveInjectable,
 		isTouchOnlyDevice
 	} from '$lib/utils/touch-input-dispatch';
+	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 
 	let {
@@ -70,6 +71,7 @@
 			config.availability !== 'off' &&
 			(config.availability === 'always' ||
 				isMobile.current ||
+				isLocalAppDeployment() ||
 				injectable ||
 				canUseTouchBridge(playerUrl) ||
 				isLikelyInjectableUrl(playerUrl))
@@ -368,8 +370,8 @@
 				role="status"
 			>
 				<span class="mb-1 block font-medium text-amber-400">Console · blocked</span>
-				Online play needs the puller proxy; offline play needs a downloaded mirror. Raw third-party
-				embeds cannot receive controls.
+				Online play needs the puller proxy; offline play needs a downloaded mirror. Raw third-party embeds
+				cannot receive controls.
 			</div>
 		{/if}
 

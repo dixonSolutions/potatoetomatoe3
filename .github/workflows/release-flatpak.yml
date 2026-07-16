@@ -50,6 +50,18 @@ jobs:
             .flatpak-builder
           key: flatpak-gnome50-${{ runner.os }}-${{ hashFiles('flatpak/com.potatotomato.games.yml', 'flatpak/shared-modules/**') }}
           restore-keys: flatpak-gnome50-${{ runner.os }}-
+
+      - name: Restore packaging and Playwright caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pkg-cache
+            ~/.cache/pkg-native
+            ~/.cache/ms-playwright
+          key: native-tools-${{ runner.os }}-node22-${{ hashFiles('pnpm-lock.yaml', 'puller/package.json') }}
+          restore-keys: |
+            native-tools-${{ runner.os }}-node22-
+
       - name: Install Flatpak build dependencies
         run: |
           sudo apt-get update
@@ -91,7 +103,7 @@ jobs:
           else
             echo "Playwright system dependencies already available"
           fi
-          pnpm puller:bundle:linux
+          pnpm --filter @potatotomato/puller bundle:linux:binary
           pnpm tauri:build:flatpak
           CATALOG_LIST=src-tauri/target/release/catalog/games/games-list.json
           if [ ! -f "$CATALOG_LIST" ]; then
