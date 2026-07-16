@@ -438,6 +438,22 @@
 		for (var i = 0; i < codes.length; i++) ptDispatchKey('keyup', codes[i]);
 	}
 
+	function sendTouchInputAck(data, codes) {
+		if (!data || !data.ackId) return;
+		try {
+			window.parent.postMessage(
+				{
+					type: 'potato-tomato-touch-input-ack',
+					ackId: data.ackId,
+					action: data.action,
+					codes: codes || [],
+					path: 'bridge',
+					ok: true
+				},
+				'*'
+			);
+		} catch (e) {}
+	}
 	function handleTouchInputMessage(data) {
 		if (!data || data.type !== 'potato-tomato-touch-input') return;
 		var action = data.action;
@@ -449,6 +465,7 @@
 		if (action === 'down') ptTouchInputDown(codes);
 		else if (action === 'up') ptTouchInputUp(codes);
 		else if (action === 'releaseAll') ptTouchInputReleaseAll();
+		sendTouchInputAck(data, codes);
 	}
 
 	/* App-driven pause/mute/touch — must keep working despite focus spoof */

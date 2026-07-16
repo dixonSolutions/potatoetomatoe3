@@ -267,6 +267,8 @@ export type TouchBridgeMessage = {
 	action: 'down' | 'up' | 'releaseAll';
 	code?: string;
 	codes?: string[];
+	/** When set, child bridge replies with potato-tomato-touch-input-ack (dev harness). */
+	ackId?: string;
 };
 
 export class KeyDispatcher {
@@ -319,6 +321,28 @@ export class KeyDispatcher {
 		}
 	}
 
+	/** Optional ackId attached to the next bridge postMessage (cleared after use). */
+	private pendingAckId: string | null = null;
+
+	setPendingAckId(ackId: string | null): void {
+		this.pendingAckId = ackId;
+	}
+
+	getDispatchPathKind(): 'dom' | 'bridge' | 'none' {
+		if (this.target) return 'dom';
+		if (this.bridgeFrame?.contentWindow) return 'bridge';
+		return 'none';
+	}
+
+	private withAck(msg: TouchBridgeMessage): TouchBridgeMessage {
+		if (!this.pendingAckId) return msg;
+		return { ...msg, ackId: this.pendingAckId };
+	}
+
+	private clearPendingAckId(): void {
+		this.pendingAckId = null;
+	}
+
 	private focusTarget(): void {
 		const t = this.target;
 		if (!t) return;
@@ -336,11 +360,13 @@ export class KeyDispatcher {
 
 	private dispatch(type: 'keydown' | 'keyup', code: TouchKeyCode): void {
 		if (this.bridgeFrame?.contentWindow && !this.target) {
-			this.postBridge({
-				type: 'potato-tomato-touch-input',
-				action: type === 'keydown' ? 'down' : 'up',
-				codes: [code]
-			});
+			this.postBridge(
+				this.withAck({
+					type: 'potato-tomato-touch-input',
+					action: type === 'keydown' ? 'down' : 'up',
+					codes: [code]
+				})
+			);
 			return;
 		}
 
@@ -392,21 +418,32 @@ export class KeyDispatcher {
 	}
 
 	down(codes: TouchKeyCode[]): void {
-		if (!this.hasDispatchPath() || !codes.length) return;
+		if (!this.hasDispatchPath() || !codes.length) {
+			this.clearPendingAckId();
+			return;
+		}
 		if (this.target) this.focusTarget();
-		for (const code of codes) {
-			if (this.held.has(code)) continue;
-			this.held.add(code);
-			this.dispatch('keydown', code);
+		try {
+			for (const code of codes) {
+				if (this.held.has(code)) continue;
+				this.held.add(code);
+				this.dispatch('keydown', code);
+			}
+		} finally {
+			this.clearPendingAckId();
 		}
 	}
 
 	up(codes: TouchKeyCode[]): void {
-		for (const code of codes) {
-			if (!this.held.has(code)) continue;
-			this.held.delete(code);
-			this.joystickHeld.delete(code);
-			this.dispatch('keyup', code);
+		try {
+			for (const code of codes) {
+				if (!this.held.has(code)) continue;
+				this.held.delete(code);
+				this.joystickHeld.delete(code);
+				this.dispatch('keyup', code);
+			}
+		} finally {
+			this.clearPendingAckId();
 		}
 	}
 
@@ -440,21 +477,29 @@ export class KeyDispatcher {
 	}
 
 	releaseAll(): void {
-		if (!this.held.size) {
-			if (this.bridgeFrame?.contentWindow && !this.target) {
-				this.postBridge({ type: 'potato-tomato-touch-input', action: 'releaseAll' });
+		try {
+			if (!this.held.size) {
+				if (this.bridgeFrame?.contentWindow && !this.target) {
+					this.postBridge(
+						this.withAck({ type: 'potato-tomato-touch-input', action: 'releaseAll' })
+					);
+				}
+				return;
 			}
-			return;
-		}
-		const codes = [...this.held];
-		this.held.clear();
-		this.joystickHeld.clear();
-		if (this.bridgeFrame?.contentWindow && !this.target) {
-			this.postBridge({ type: 'potato-tomato-touch-input', action: 'releaseAll' });
-			return;
-		}
-		for (const code of codes) {
-			this.dispatch('keyup', code);
+			const codes = [...this.held];
+			this.held.clear();
+			this.joystickHeld.clear();
+			if (this.bridgeFrame?.contentWindow && !this.target) {
+				this.postBridge(
+					this.withAck({ type: 'potato-tomato-touch-input', action: 'releaseAll' })
+				);
+				return;
+			}
+			for (const code of codes) {
+				this.dispatch('keyup', code);
+			}
+		} finally {
+			this.clearPendingAckId();
 		}
 	}
 

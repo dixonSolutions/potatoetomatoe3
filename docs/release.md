@@ -19,6 +19,8 @@ Pages deployment runs asynchronously after release preparation and after Linux F
 
 Android is currently gated on generated Tauri Android sources. Run `pnpm tauri android init` after installing the Android SDK, then configure signing secrets before enabling APK publication. Android is a direct signed APK download with manual updates; it has no update remote.
 
+APK packaging stays under the ZIP32 65535-entry limit via `SKIP_PAGES_GAME_FALLBACKS` and `scripts/slim-android-assets.mjs` (see `tauri.android.conf.json`).
+
 ## Public Flatpak remote
 
 After a successful release:

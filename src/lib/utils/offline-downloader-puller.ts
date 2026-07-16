@@ -131,6 +131,29 @@ export interface PullerHealth {
 	dataDir?: string;
 	catalogDir?: string;
 	catalogGameCount?: number;
+	port?: number;
+	activeDownloads?: number;
+	liveSessions?: number;
+}
+
+export interface PullerJobsSnapshot {
+	ok: boolean;
+	active: string[];
+	jobs: unknown[];
+	liveSessions?: number;
+}
+
+export async function fetchPullerJobs(): Promise<PullerJobsSnapshot | null> {
+	if (!shouldProbePullerBackend()) return null;
+	try {
+		const res = await fetch(`${getPullerBaseUrl()}/api/offline/jobs`, {
+			signal: AbortSignal.timeout(4000)
+		});
+		if (!res.ok) return null;
+		return (await res.json()) as PullerJobsSnapshot;
+	} catch {
+		return null;
+	}
 }
 
 export async function fetchPullerHealth(): Promise<PullerHealth | null> {

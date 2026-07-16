@@ -1,17 +1,17 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const moduleDir =
+	typeof __dirname === 'string' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 /** Repo root (parent of puller/). */
-export const REPO_ROOT = path.resolve(__dirname, '../..');
+export const REPO_ROOT = path.resolve(moduleDir, '../..');
 
 /**
  * Writable directory for user-downloaded offline mirrors.
  * Packaged app: app data dir (set by Tauri). Dev: static/games.
  */
-export const GAMES_DATA_DIR =
-  process.env.GAMES_DATA_DIR ?? path.join(REPO_ROOT, 'static', 'games');
+export const GAMES_DATA_DIR = process.env.GAMES_DATA_DIR ?? path.join(REPO_ROOT, 'static', 'games');
 
 /**
  * Read-only catalog (online shells, metadata, games-list).
@@ -57,5 +57,5 @@ export const DOWNLOAD_CONCURRENCY = Number.parseInt(
 
 /** Games that use the Unity/Google Sites embed pull strategy (see pullStrategy in metadata). */
 export const EMBED_STRATEGY_GAME_IDS = new Set(
-  (process.env.EMBED_STRATEGY_GAMES ?? 'shrek-escape').split(',').filter(Boolean)
+	(process.env.EMBED_STRATEGY_GAMES ?? 'shrek-escape').split(',').filter(Boolean)
 );

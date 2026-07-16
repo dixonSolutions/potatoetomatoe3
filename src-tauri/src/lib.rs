@@ -22,8 +22,13 @@ static CLOSE_TO_TRAY: AtomicBool = AtomicBool::new(false);
 const DEFAULT_PULLER_PORT: u16 = 18787;
 
 /// Prefer 18787; if occupied (e.g. host `pnpm dev` while Flatpak runs), pick the next free port.
+/// When an existing puller is already healthy on 18787, reuse that port (no second spawn).
 fn reserve_puller_port() -> u16 {
   *PULLER_PORT.get_or_init(|| {
+    if wait_for_puller_health(DEFAULT_PULLER_PORT, 250) {
+      log::info!("default puller port {} already healthy — will reuse", DEFAULT_PULLER_PORT);
+      return DEFAULT_PULLER_PORT;
+    }
     for port in DEFAULT_PULLER_PORT..DEFAULT_PULLER_PORT + 32 {
       if TcpListener::bind(("127.0.0.1", port)).is_ok() {
         return port;
@@ -62,6 +67,26 @@ fn compute_close_to_tray(tray_ok: bool) -> bool {
 #[tauri::command]
 fn get_puller_base_url() -> String {
   format!("http://127.0.0.1:{}", puller_port())
+}
+
+/// Development harness mode (`console-test` | `puller-test`) from env, or empty.
+/// Only meaningful in debug builds; release always returns empty.
+#[tauri::command]
+fn get_dev_harness_mode() -> String {
+  if !cfg!(debug_assertions) {
+    return String::new();
+  }
+  match std::env::var("POTATO_TOMATO_DEV_HARNESS") {
+    Ok(value) => {
+      let trimmed = value.trim().to_string();
+      if trimmed == "console-test" || trimmed == "puller-test" {
+        trimmed
+      } else {
+        String::new()
+      }
+    }
+    Err(_) => String::new(),
+  }
 }
 
 #[tauri::command]
@@ -223,7 +248,7 @@ fn spawn_puller_node_bundle(
 ) -> Result<(), String> {
   let script = app
     .path()
-    .resolve("puller/index.js", BaseDirectory::Resource)
+    .resolve("puller/index.cjs", BaseDirectory::Resource)
     .map_err(|e| e.to_string())?;
 
   if !script.exists() {
@@ -310,6 +335,15 @@ fn spawn_puller(app: &tauri::AppHandle) {
   let (games_dir, catalog_dir, port) = puller_env(app);
 
   /*
+   * Reuse an already-healthy puller on the reserved port (e.g. leftover from a prior
+   * harness session) instead of spawning a duplicate Node/Playwright process.
+   */
+  if wait_for_puller_health(port, 400) {
+    log::info!("reusing healthy puller already listening on port {}", port);
+    return;
+  }
+
+  /*
    * `tauri dev` / `pnpm app` must not treat the unbuilt sidecar stub as success —
    * that previously skipped the tsx fallback and left the UI on "puller unavailable"
    * (often while Flatpak still owned :18787).
@@ -355,6 +389,7 @@ pub fn run() {
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
       get_puller_base_url,
+      get_dev_harness_mode,
       is_tray_available,
       is_close_to_tray_enabled,
       set_close_to_tray_enabled,

@@ -1,0 +1,18 @@
+{
+	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+	"build": {
+		"devUrl": "http://127.0.0.1:5173/dev/console-test"
+	},
+	"app": {
+		"windows": [
+			{
+				"title": "Console Test (dev)",
+				"width": 1440,
+				"height": 900,
+				"resizable": true,
+				"fullscreen": false,
+				"visible": true
+			}
+		]
+	}
+}

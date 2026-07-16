@@ -2,6 +2,9 @@
  * GitHub Pages helpers for SPA deep links:
  * - 404.html → SPA shell for unknown routes
  * - games/{id}/index.html + games/{id}.html → game player routes beside static asset folders
+ *
+ * Skip per-game fallbacks for Tauri / Android builds (APK ZIP32 max 65535 entries).
+ * Set SKIP_PAGES_GAME_FALLBACKS=1 or TAURI_ENV_PLATFORM to only write 404 + browse shell.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -23,6 +26,18 @@ const gamesBrowseIndex = path.join(buildDir, 'games', 'index.html');
 if (fs.existsSync(path.join(buildDir, 'games'))) {
 	fs.writeFileSync(gamesBrowseIndex, indexHtml);
 	console.log('[prepare-github-pages] wrote build/games/index.html (browse route)');
+}
+
+const skipPerGame =
+	process.env.SKIP_PAGES_GAME_FALLBACKS === '1' ||
+	process.env.SKIP_PAGES_GAME_FALLBACKS === 'true' ||
+	Boolean(process.env.TAURI_ENV_PLATFORM);
+
+if (skipPerGame) {
+	console.log(
+		'[prepare-github-pages] skipping per-game SPA fallbacks (Tauri/Android ZIP entry budget)'
+	);
+	process.exit(0);
 }
 
 const listPath = path.join(buildDir, 'games', 'games-list.json');

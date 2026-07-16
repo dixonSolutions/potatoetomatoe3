@@ -28,6 +28,9 @@ Catalog importers may write `online/embed.html` (+ `localEmbed: true`) when the
 only playable document lives inside a Google Sites gadget XML. The puller serves
 that file through the same proxies when `onlineEmbedUrl` is a Sites page or missing.
 
+## Native runtime diagnostics
+
+In the packaged webview DevTools:
 
 ```js
 ({
@@ -47,6 +50,11 @@ Healthy Flatpak expectations:
 
 Android Settings → Updates downloads the latest `.apk` asset from this repository’s
 GitHub Releases. Flatpak updates remain system-managed (`flatpak update`).
+
+Android APK packaging must stay under the ZIP32 **65535 entry** limit. The Android
+Tauri config skips GitHub Pages per-game SPA fallbacks, drops `.gitkeep` / non-bundled
+`offline/` trees via `scripts/slim-android-assets.mjs`, and does not re-bundle the
+catalog as a separate `resources` tree (the WebView already serves `build/games`).
 
 ## Capture contract
 

@@ -183,6 +183,8 @@ export async function startDownload(gameId: string): Promise<{ started: boolean;
 	cancelDiscardCache.delete(gameId);
 	const job = createJob(gameId);
 	const signal = beginDownloadAbort(gameId);
+	const strategy = await getPullStrategy(gameId);
+	console.log(`[puller] download start game=${gameId} strategy=${strategy}`);
 	void runDownloadJob(gameId, job, signal);
 
 	return { started: true, message: 'Download started' };
@@ -236,6 +238,7 @@ async function runDownloadJob(
 			message: 'Complete',
 			finishedAt: Date.now()
 		});
+		console.log(`[puller] download done game=${gameId}`);
 		invalidateCatalogCache();
 		invalidateOfflineActivityIdsCache();
 	} catch (error) {
@@ -269,6 +272,7 @@ async function runDownloadJob(
 		}
 
 		const message = error instanceof Error ? error.message : String(error);
+		console.warn(`[puller] download error game=${gameId}: ${message}`);
 		updateJob(gameId, {
 			state: 'error',
 			progress: 0,

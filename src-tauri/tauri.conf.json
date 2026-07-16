@@ -30,7 +30,7 @@
 		"externalBin": ["binaries/puller-sidecar"],
 		"resources": {
 			"../build/games/": "catalog/games/",
-			"../puller/dist/index.js": "puller/index.js"
+			"../puller/dist/index.cjs": "puller/index.cjs"
 		},
 		"icon": [
 			"icons/32x32.png",
