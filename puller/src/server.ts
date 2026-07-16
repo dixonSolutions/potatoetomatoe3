@@ -370,8 +370,10 @@ export function createServer(): http.Server {
 					sendJson(res, 404, { error: 'Game not in catalog' });
 					return;
 				}
+				console.log(`[puller] unity-play game=${gameId}`);
 				const html = await fetchProxiedUnityHtml(gameId);
 				if (!html) {
+					console.warn(`[puller] unity-play failed game=${gameId}`);
 					sendJson(res, 502, { error: 'Could not fetch Unity build' });
 					return;
 				}
@@ -401,6 +403,7 @@ export function createServer(): http.Server {
 					sendJson(res, 404, { error: 'Game not in catalog' });
 					return;
 				}
+				console.log(`[puller] game-live game=${gameId}`);
 				const meta = await readGameMetadata(gameId);
 				const result = await startLiveGameHtml(
 					gameId,
@@ -408,9 +411,13 @@ export function createServer(): http.Server {
 					(sessionId) => `/api/game-live/${encodeURIComponent(gameId)}/${sessionId}`
 				);
 				if (!result) {
+					console.warn(`[puller] game-live failed game=${gameId}`);
 					sendJson(res, 502, { error: 'Could not fetch live game' });
 					return;
 				}
+				console.log(
+					`[puller] game-live session=${result.session.id} game=${gameId}`
+				);
 				res.writeHead(200, {
 					'Content-Type': result.contentType.includes('text/html')
 						? 'text/html; charset=utf-8'

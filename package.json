@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "node scripts/generate-games-list.js && node scripts/dev-with-puller.mjs vite dev --open",
     "app": "tauri dev",
+    "console-test": "node scripts/tauri-dev-harness.mjs console-test",
+    "puller-test": "node scripts/tauri-dev-harness.mjs puller-test",
     "build": "node scripts/generate-games-list.js && vite build && node scripts/prepare-github-pages.mjs",
     "tauri": "tauri",
     "tauri:dev": "pnpm app",

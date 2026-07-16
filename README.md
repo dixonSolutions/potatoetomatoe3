@@ -17,7 +17,11 @@ Browse and play unblocked HTML5 games in the browser or as a **Tauri 2** desktop
 pnpm install
 pnpm dev          # web dev + offline downloader (opens browser)
 pnpm app          # Tauri desktop + offline downloader
+pnpm console-test # native dev harness: touch console + proxy injection
+pnpm puller-test  # native dev harness: puller health + download lifecycle
 ```
+
+Development harnesses are documented in [docs/dev-test-harnesses.md](docs/dev-test-harnesses.md).
 
 Offline download runs in a bundled **puller** backend that starts automatically with `pnpm app` (Tauri) and packaged Flatpak/AppImage builds. Downloaded games are stored in app data (`~/.local/share/com.potatotomato.games/games/`), not in the git repo.
 

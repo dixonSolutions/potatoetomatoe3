@@ -1,5 +1,13 @@
 # Game Porting Tools
 
+## Dev harness launchers
+
+| Script | Root command | Purpose |
+|--------|--------------|---------|
+| [`tauri-dev-harness.mjs`](./tauri-dev-harness.mjs) | `pnpm console-test` / `pnpm puller-test` | Native Tauri workbenches for puller proxy + touch console (see [docs/dev-test-harnesses.md](../docs/dev-test-harnesses.md)) |
+
+These launchers do **not** start the puller themselves — Tauri owns the puller lifecycle.
+
 ## Quick Start - Port Everything!
 
 ```bash

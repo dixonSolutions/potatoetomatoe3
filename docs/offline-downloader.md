@@ -139,7 +139,7 @@ Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbed
 
 In debug builds (`pnpm app` / `tauri dev`), Tauri starts the puller with `pnpm exec tsx puller/src/index.ts` and waits for `/api/offline/health` before treating it as up. The `src-tauri/binaries/puller-sidecar-*` file is only a **placeholder shell script** until `pnpm puller:bundle:linux` runs — spawning that stub used to “succeed” and skip the tsx fallback, which left the UI on “puller unavailable”.
 
-In release builds, the puller is bundled as a real sidecar binary (`src-tauri/binaries/puller-sidecar`) built via `pnpm puller:bundle:linux`. Unity inject + game-storage bridge scripts are **inlined at build time** (`puller/scripts/embed-assets.mjs`) so the pkg sidecar does not need to read `static/` from disk (required for Flatpak).
+In release builds, the puller is bundled as a real sidecar binary (`src-tauri/binaries/puller-sidecar`) built via `pnpm puller:bundle:linux`. The bundle uses CommonJS before packaging because the pkg runtime can lose imported ESM bindings such as `isValidGameId` and `loadGameIds`. The bundle command runs a health and proxy-route smoke test before succeeding. Unity inject + game-storage bridge scripts are **inlined at build time** (`puller/scripts/embed-assets.mjs`) so the pkg sidecar does not need to read `static/` from disk (required for Flatpak).
 
 The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads persist outside the read-only bundle. Tauri reserves a free loopback port (default `18787`, next free if busy — e.g. when Flatpak already owns 18787) and exposes it to the UI via `get_puller_base_url` so the webview talks to **this** app’s puller, not another instance.
 

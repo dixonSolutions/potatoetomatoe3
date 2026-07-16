@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
 	import { ensureOfflineServiceWorker } from '$lib/utils/browser-offline-download';
@@ -53,6 +54,11 @@
 	import { dispatchOfflineStatusChanged } from '$lib/utils/offline-status-events';
 
 	let { data, children } = $props();
+
+	/** Dev harness routes: strip app chrome (TopBar / privacy / play-limit). */
+	const isDevHarnessRoute = $derived(
+		page.url.pathname === '/dev' || page.url.pathname.startsWith('/dev/')
+	);
 
 	const ssrPrivacyHeadFallback = {
 		privacyModeEnabled: false,
@@ -417,7 +423,7 @@
 	{/key}
 </svelte:head>
 
-{#if !privacyEnabled || privacyUnlocked}
+{#if !isDevHarnessRoute && (!privacyEnabled || privacyUnlocked)}
 	<Settings
 		bind:open={settingsOpen}
 		onApplied={() => {
@@ -430,20 +436,28 @@
 	/>
 {/if}
 
-<div class="min-h-screen bg-background">
-	<!-- Do not gate the shell on privacyBootstrapReady: SSR sent an empty page before, which caused a full flash on hydrate. Title/favicon still wait on bootstrap via activeTitle/activeFavicon. -->
-	<div
-		class="min-h-screen"
-		inert={privacyEnabled && !privacyUnlocked ? true : playLimitLocked ? true : undefined}
-	>
-		<TopBar hidden={gameImmersive} />
+{#if isDevHarnessRoute}
+	<div class="min-h-screen bg-background">
 		{#if children}
 			{@render children()}
 		{/if}
 	</div>
-	{#if privacyEnabled && !privacyUnlocked}
-		<PrivacyGate onUnlocked={refreshPrivacyState} />
-	{:else if playLimitLocked}
-		<PlayLimitGate />
-	{/if}
-</div>
+{:else}
+	<div class="min-h-screen bg-background">
+		<!-- Do not gate the shell on privacyBootstrapReady: SSR sent an empty page before, which caused a full flash on hydrate. Title/favicon still wait on bootstrap via activeTitle/activeFavicon. -->
+		<div
+			class="min-h-screen"
+			inert={privacyEnabled && !privacyUnlocked ? true : playLimitLocked ? true : undefined}
+		>
+			<TopBar hidden={gameImmersive} />
+			{#if children}
+				{@render children()}
+			{/if}
+		</div>
+		{#if privacyEnabled && !privacyUnlocked}
+			<PrivacyGate onUnlocked={refreshPrivacyState} />
+		{:else if playLimitLocked}
+			<PlayLimitGate />
+		{/if}
+	</div>
+{/if}

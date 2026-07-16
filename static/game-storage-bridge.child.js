@@ -593,6 +593,22 @@
 			} catch (e) {}
 		}
 	}
+	function sendTouchInputAck(data, codes) {
+		if (!data || !data.ackId) return;
+		try {
+			window.parent.postMessage(
+				{
+					type: 'potato-tomato-touch-input-ack',
+					ackId: data.ackId,
+					action: data.action,
+					codes: codes || [],
+					path: 'bridge',
+					ok: true
+				},
+				'*'
+			);
+		} catch (e) {}
+	}
 	function handleTouchInputMessage(data) {
 		if (!data || data.type !== 'potato-tomato-touch-input') return;
 		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];
@@ -600,6 +616,7 @@
 			var held = Object.keys(ptTouchHeld);
 			ptTouchHeld = Object.create(null);
 			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);
+			sendTouchInputAck(data, held);
 			return;
 		}
 		if (data.action === 'down') {
@@ -608,6 +625,7 @@
 				ptTouchHeld[codes[d]] = true;
 				ptDispatchKey('keydown', codes[d]);
 			}
+			sendTouchInputAck(data, codes);
 			return;
 		}
 		if (data.action === 'up') {
@@ -616,6 +634,7 @@
 				delete ptTouchHeld[codes[u]];
 				ptDispatchKey('keyup', codes[u]);
 			}
+			sendTouchInputAck(data, codes);
 		}
 	}
 

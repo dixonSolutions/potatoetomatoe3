@@ -16,6 +16,7 @@
     "core:event:allow-listen",
     "allow-sync-tray-recent",
     "allow-get-puller-base-url",
+    "allow-get-dev-harness-mode",
     "allow-tray-lifecycle",
     "shell:default",
     {

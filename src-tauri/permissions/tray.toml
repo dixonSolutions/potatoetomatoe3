@@ -9,6 +9,11 @@ description = "Allow the frontend to read the local puller HTTP base URL"
 commands.allow = ["get_puller_base_url"]
 
 [[permission]]
+identifier = "allow-get-dev-harness-mode"
+description = "Allow the frontend to read the active development harness mode (debug builds only)"
+commands.allow = ["get_dev_harness_mode"]
+
+[[permission]]
 identifier = "allow-tray-lifecycle"
 description = "Allow the frontend to query tray availability and quit the desktop app"
 commands.allow = ["is_tray_available", "is_close_to_tray_enabled", "set_close_to_tray_enabled", "quit_app"]
