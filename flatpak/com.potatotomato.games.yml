@@ -3,6 +3,11 @@ runtime: org.gnome.Platform
 runtime-version: '50'
 sdk: org.gnome.Sdk
 command: potato-tomato
+# pkg appends its JavaScript snapshot to the Node ELF. Flatpak's default
+# debuginfo extraction rewrites that file and corrupts catalog bindings.
+build-options:
+  strip: false
+  no-debuginfo: true
 finish-args:
   - --share=network
   - --share=ipc
