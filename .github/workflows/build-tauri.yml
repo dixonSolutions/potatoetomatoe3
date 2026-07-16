@@ -26,18 +26,26 @@ jobs:
           restore-keys: |
             flatpak-gnome50-${{ runner.os }}-
 
+      - name: Restore packaging and Playwright caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pkg-cache
+            ~/.cache/pkg-native
+            ~/.cache/ms-playwright
+          key: native-tools-${{ runner.os }}-node22-${{ hashFiles('pnpm-lock.yaml', 'puller/package.json') }}
+          restore-keys: |
+            native-tools-${{ runner.os }}-node22-
+
       - name: Install Flatpak
         run: |
           sudo apt-get update
-          sudo apt-get install -y flatpak flatpak-builder
-          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          flatpak --user install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
-
-      - name: Install Tauri build dependencies
-        run: |
           sudo apt-get install -y \
+            flatpak flatpak-builder \
             libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf \
             pkg-config libssl-dev ccache
+          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak --user install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
 
       - uses: dtolnay/rust-toolchain@stable
 

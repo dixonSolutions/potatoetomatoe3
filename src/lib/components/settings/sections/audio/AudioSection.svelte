@@ -27,7 +27,7 @@
 			hint: 'Never force mute; audio plays normally (cross-origin games may still behave on their own).'
 		},
 		{
-			label: 'When tab is in the background or window loses focus',
+			label: 'When tab is in the background or window loses focus (recommended)',
 			value: 'focus_loss',
 			hint: 'Mute when another app or tab takes focus. Staying in Potato Tomato (including inside the game) keeps sound on.'
 		},
@@ -50,8 +50,8 @@
 		<div id="settings-section-audio-mute" class="scroll-mt-32 space-y-2">
 			<Label>Mute audio</Label>
 			<p class="text-xs text-muted-foreground">
-				When to force mute on this page’s videos and games. Cross-origin embedded games may still play sound; use
-				browser or system controls for full silence.
+				When to force mute on this page’s videos and games. Cross-origin embedded games may still
+				play sound; use browser or system controls for full silence.
 			</p>
 			<Select.Root
 				type="single"
@@ -65,7 +65,7 @@
 					{MUTE_SCOPE_OPTIONS.find((o) => o.value === muteScopeChoice)?.label ?? 'Choose…'}
 				</Select.Trigger>
 				<Select.Content>
-					{#each MUTE_SCOPE_OPTIONS as opt}
+					{#each MUTE_SCOPE_OPTIONS as opt (opt.value)}
 						<Select.Item value={opt.value}>{opt.label}</Select.Item>
 					{/each}
 				</Select.Content>
@@ -80,11 +80,11 @@
 		<div id="settings-section-audio-volume" class="scroll-mt-32 space-y-2">
 			<div class="flex items-center justify-between gap-2">
 				<Label for="master-volume">Master volume</Label>
-				<span class="text-xs tabular-nums text-muted-foreground">{volumeSliderPct}%</span>
+				<span class="text-xs text-muted-foreground tabular-nums">{volumeSliderPct}%</span>
 			</div>
 			<p class="text-xs text-muted-foreground">
-				Live level for HTML audio and video on this site. Disabled when mute scope is “Always” (output is forced
-				silent).
+				Live level for HTML audio and video on this site. Disabled when mute scope is “Always”
+				(output is forced silent).
 			</p>
 			<input
 				id="master-volume"
@@ -108,8 +108,8 @@
 			id="settings-section-audio-embeds"
 			class="scroll-mt-32 text-xs leading-relaxed text-muted-foreground"
 		>
-			<strong class="font-medium text-foreground">Embeds:</strong> Cross-origin games may use Web Audio or ignore HTML
-			volume; use your browser tab mute or system volume when sound still leaks through.
+			<strong class="font-medium text-foreground">Embeds:</strong> Cross-origin games may use Web Audio
+			or ignore HTML volume; use your browser tab mute or system volume when sound still leaks through.
 		</p>
 	{/if}
 

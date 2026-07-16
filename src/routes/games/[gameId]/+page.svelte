@@ -200,8 +200,16 @@
 			return false;
 		}
 
-		const { isPullerAvailable } = await import('$lib/utils/offline-downloader-puller');
-		if (!(await isPullerAvailable(true))) {
+		const {
+			isPullerAvailable,
+			syncPullerBaseUrlFromTauri,
+			waitForPuller,
+			pullerLiveGameUrl,
+			pullerUnityPlayUrl
+		} = await import('$lib/utils/offline-downloader-puller');
+		await syncPullerBaseUrlFromTauri();
+		const pullerUp = (await isPullerAvailable(true)) || (await waitForPuller(12_000));
+		if (!pullerUp) {
 			toast.error('Console needs the local puller for online play.', {
 				description: 'Restart the app or run pnpm puller:start, then try again.'
 			});
@@ -210,6 +218,15 @@
 
 		const prev = gamePlayerUrl;
 		await refreshPlayerUrl();
+		if (!canUseTouchBridge(gamePlayerUrl)) {
+			const proxyUrl =
+				gameMetadata?.engine === 'unity'
+					? pullerUnityPlayUrl(gameId, base)
+					: pullerLiveGameUrl(gameId, base);
+			if (proxyUrl !== gamePlayerUrl) {
+				gamePlayerUrl = proxyUrl;
+			}
+		}
 		if (!canUseTouchBridge(gamePlayerUrl)) {
 			toast.error('Could not open a puller proxy URL for touch console.', {
 				description: `Still on ${gamePlayerUrl || '(empty)'}`
@@ -243,7 +260,7 @@
 	async function refreshPlayerUrl() {
 		const id = gameId;
 		if (!id) return;
-		gamePlayerUrl = await getGamePlayerUrl(id);
+		gamePlayerUrl = await getGamePlayerUrl(id, gameMetadata);
 	}
 
 	async function refreshOfflineBackendLabel() {
@@ -295,6 +312,7 @@
 		gamePaused = false;
 		touchConsoleVisible = false;
 		gamePlayerUrl = '';
+		recommendedGames = [];
 
 		gameMetadata = await loadGameMetadata(id);
 		if (!gameMetadata) {
@@ -309,27 +327,34 @@
 
 		userPreference = getGamePreference(id);
 
-		const allGames = await loadAllGames();
-		const prefs = getPreferences();
+		if (!gameMetadata || error) {
+			loading = false;
+			return;
+		}
 
-		if (gameMetadata) {
-			if (networkOnline) {
-				recordGamePlay(id, gameMetadata.category, gameMetadata.author);
-			}
+		if (networkOnline) {
+			recordGamePlay(id, gameMetadata.category, gameMetadata.author);
+		}
+
+		/*
+		 * Resolve the playable URL before loading the full recommendation catalog.
+		 * The catalog is useful below the fold, but must not delay the first game frame.
+		 */
+		gamePlayerUrl = await getGamePlayerUrl(id);
+		void refreshOfflineCoverStatus(id);
+		loading = false;
+
+		void (async () => {
+			const allGames = await loadAllGames();
+			const prefs = getPreferences();
 			let rec = getRecommendationsForGamePage(allGames, gameMetadata, id, prefs, 4);
 			if (!networkOnline) {
 				const { fetchDownloadedStatuses } = await import('$lib/utils/offline-downloader');
 				const statusMap = await fetchDownloadedStatuses(true);
 				rec = filterDownloadedGames(rec, statusMap);
 			}
-			recommendedGames = rec;
-		}
-
-		if (!error) {
-			gamePlayerUrl = await getGamePlayerUrl(id);
-			void refreshOfflineCoverStatus(id);
-		}
-		loading = false;
+			if (gameId === id) recommendedGames = rec;
+		})();
 	}
 
 	afterNavigate(({ to }) => {
@@ -545,7 +570,9 @@
 						{/if}
 					</div>
 				</div>
-				<div class="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-end">
+				<div
+					class="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-end"
+				>
 					<Button
 						onclick={() => void openPlayLogs()}
 						variant="outline"
@@ -579,11 +606,9 @@
 							onclick={() => void toggleTouchConsole()}
 							variant={touchConsoleVisible ? 'default' : 'outline'}
 							size="sm"
-							class={
-								touchConsoleVisible
-									? 'w-full border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500 sm:w-auto'
-									: 'w-full border-dashed sm:w-auto'
-							}
+							class={touchConsoleVisible
+								? 'w-full border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500 sm:w-auto'
+								: 'w-full border-dashed sm:w-auto'}
 							disabled={!gameSurfaceStarted}
 							aria-pressed={touchConsoleVisible}
 							title={touchConsoleVisible
@@ -680,15 +705,15 @@
 							type="button"
 							variant={touchConsoleVisible ? 'default' : 'secondary'}
 							size="sm"
-							class={
-								touchConsoleVisible
-									? 'border-emerald-400 bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400/80 hover:bg-emerald-500'
-									: 'shadow-md backdrop-blur-sm'
-							}
+							class={touchConsoleVisible
+								? 'border-emerald-400 bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400/80 hover:bg-emerald-500'
+								: 'shadow-md backdrop-blur-sm'}
 							onclick={() => void toggleTouchConsole()}
 							disabled={!gameSurfaceStarted}
 							aria-pressed={touchConsoleVisible}
-							aria-label={touchConsoleVisible ? 'Console on — hide touch console' : 'Console off — show touch console'}
+							aria-label={touchConsoleVisible
+								? 'Console on — hide touch console'
+								: 'Console off — show touch console'}
 						>
 							<Gamepad2 class="mr-2 h-4 w-4" />
 							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}

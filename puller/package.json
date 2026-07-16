@@ -8,7 +8,8 @@
 		"dev": "pnpm embed-assets && tsx watch src/index.ts",
 		"start": "pnpm embed-assets && tsx src/index.ts",
 		"build": "pnpm embed-assets && esbuild src/index.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/index.cjs --packages=external",
-		"bundle:linux": "pnpm build && npx --yes @yao-pkg/pkg@6.21.0 dist/index.cjs --targets node20-linux-x64 --output ../src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu && pnpm smoke:bundle",
+		"bundle:linux": "pnpm build && pnpm bundle:linux:binary",
+		"bundle:linux:binary": "pkg dist/index.cjs --targets node22-linux-x64 --output ../src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu && pnpm smoke:bundle",
 		"smoke:bundle": "node scripts/smoke-bundle.mjs",
 		"test": "tsx --test src/capture/rewrite.test.ts src/capture/frames.test.ts src/capture/mirror-manifest.test.ts src/ads/apply.test.ts src/live/safety.test.ts src/live/session.test.ts src/live/proxy.test.ts src/jobs.harness.test.ts",
 		"postinstall": "playwright install chromium || echo 'Playwright browser install skipped (run manually if needed)'"
@@ -18,6 +19,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^22",
+		"@yao-pkg/pkg": "6.21.0",
 		"esbuild": "^0.25.0",
 		"tsx": "^4.19.4",
 		"typescript": "^5.9.2"
