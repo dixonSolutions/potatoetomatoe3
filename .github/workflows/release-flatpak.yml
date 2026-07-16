@@ -65,7 +65,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Stamp and validate this platform build
@@ -86,7 +86,7 @@ jobs:
           node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
       - name: Build Linux app and Flatpak
         run: |
-          if ! (ldconfig -p | rg -q 'libnss3\.so' && ldconfig -p | rg -q 'libatk-1\.0\.so'); then
+          if ! (ldconfig -p | grep -q 'libnss3\.so' && ldconfig -p | grep -q 'libatk-1\.0\.so'); then
             (cd puller && npx playwright install-deps chromium)
           else
             echo "Playwright system dependencies already available"
