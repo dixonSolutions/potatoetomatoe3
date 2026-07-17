@@ -147,6 +147,11 @@ function writeGamesIndex(allMetadata) {
 		...(entry.engine ? { engine: entry.engine } : {})
 	}));
 
+	/* A–Z shards so All Games can lazy-load the next page as you scroll. */
+	lean.sort(
+		(a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }) || a.id.localeCompare(b.id)
+	);
+
 	const categories = [
 		...new Set(lean.map((g) => g.category).filter(Boolean))
 	].sort((a, b) => a.localeCompare(b));

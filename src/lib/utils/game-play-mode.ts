@@ -2,6 +2,7 @@
  * Per-game online vs offline play preference (localStorage).
  */
 
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import { loadSiteSettings, patchSiteSettings } from '$lib/utils/site-settings';
 
 export type GamePlayMode = 'online' | 'offline';
@@ -22,7 +23,7 @@ export function saveDefaultGamePlayMode(mode: GamePlayMode): void {
 }
 
 export function getGamePlayMode(gameId: string): GamePlayMode {
-	if (typeof localStorage === 'undefined') return getDefaultGamePlayMode();
+	if (!canUseLocalStorage()) return getDefaultGamePlayMode();
 	try {
 		const raw = localStorage.getItem(STORAGE_PREFIX + gameId);
 		if (raw === 'online' || raw === 'offline') return raw;
@@ -33,7 +34,7 @@ export function getGamePlayMode(gameId: string): GamePlayMode {
 }
 
 export function saveGamePlayMode(gameId: string, mode: GamePlayMode): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	try {
 		localStorage.setItem(STORAGE_PREFIX + gameId, mode);
 		window.dispatchEvent(new CustomEvent(GAME_PLAY_MODE_CHANGED, { detail: { gameId, mode } }));
@@ -43,7 +44,7 @@ export function saveGamePlayMode(gameId: string, mode: GamePlayMode): void {
 }
 
 export function clearGamePlayMode(gameId: string): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	try {
 		localStorage.removeItem(STORAGE_PREFIX + gameId);
 	} catch {

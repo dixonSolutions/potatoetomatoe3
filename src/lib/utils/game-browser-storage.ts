@@ -2,6 +2,7 @@
  * Unified per-game browser profile storage (disk via puller or IndexedDB on public site).
  */
 
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import {
 	emptyGameBrowserProfile,
 	isGameBrowserProfile,
@@ -36,7 +37,7 @@ interface LegacyGameBrowserData {
 }
 
 function loadLegacyShellSnapshot(gameId: string): LegacyGameBrowserData | null {
-	if (typeof localStorage === 'undefined') return null;
+	if (!canUseLocalStorage()) return null;
 	try {
 		const raw = localStorage.getItem(legacyBrowserDataKey(gameId));
 		if (!raw) return null;
@@ -49,7 +50,7 @@ function loadLegacyShellSnapshot(gameId: string): LegacyGameBrowserData | null {
 }
 
 function clearLegacyShellSnapshot(gameId: string): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	try {
 		localStorage.removeItem(legacyBrowserDataKey(gameId));
 	} catch {

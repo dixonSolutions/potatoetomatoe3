@@ -118,7 +118,9 @@ export function resolveGameThumbnailSrc(
 let cachedManifest: CatalogManifest | null = null;
 const shardCache = new Map<number, GameIndexEntry[]>();
 let cachedIndex: GameIndexEntry[] | null = null;
-let indexLoadPromise: Promise<GameIndexEntry[]> | null = null;
+/** Contiguous loaded prefix length (shards 0..n-1 all present). */
+let contiguousLoadedShards = 0;
+let shardLoadTail: Promise<void> = Promise.resolve();
 const indexProgressListeners = new Set<
 	(games: GameIndexEntry[], progress: CatalogLoadProgress) => void
 >();
@@ -152,15 +154,17 @@ export async function loadCatalogShard(index: number): Promise<GameIndexEntry[]>
 	return shard;
 }
 
-async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => Promise<void>) {
-	let cursor = 0;
-	const runners = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
-		while (cursor < items.length) {
-			const i = cursor++;
-			await worker(items[i]);
-		}
-	});
-	await Promise.all(runners);
+function assembleContiguousGames(manifest: CatalogManifest): GameIndexEntry[] {
+	const out: GameIndexEntry[] = [];
+	let n = 0;
+	for (let i = 0; i < manifest.shardCount; i++) {
+		const shard = shardCache.get(i);
+		if (!shard) break;
+		out.push(...shard);
+		n = i + 1;
+	}
+	contiguousLoadedShards = n;
+	return out;
 }
 
 function emitIndexProgress(games: GameIndexEntry[], progress: CatalogLoadProgress) {
@@ -173,55 +177,27 @@ function emitIndexProgress(games: GameIndexEntry[], progress: CatalogLoadProgres
 	}
 }
 
-async function loadCatalogIndexInternal(): Promise<GameIndexEntry[]> {
-	const manifest = await loadCatalogManifest();
-	const byShard = new Map<number, GameIndexEntry[]>();
-
-	const rebuild = (): GameIndexEntry[] => {
-		const out: GameIndexEntry[] = [];
-		for (let i = 0; i < manifest.shardCount; i++) {
-			const shard = byShard.get(i);
-			if (shard) out.push(...shard);
-		}
-		return out;
+function reportCatalogProgress(manifest: CatalogManifest): GameIndexEntry[] {
+	const games = assembleContiguousGames(manifest);
+	const complete = contiguousLoadedShards >= manifest.shardCount;
+	const progress: CatalogLoadProgress = {
+		loadedShards: contiguousLoadedShards,
+		shardCount: manifest.shardCount,
+		loadedGames: games.length,
+		total: manifest.total,
+		complete
 	};
-
-	const report = (loadedShards: number, complete: boolean) => {
-		const games = rebuild();
-		const progress: CatalogLoadProgress = {
-			loadedShards,
-			shardCount: manifest.shardCount,
-			loadedGames: games.length,
-			total: manifest.total,
-			complete
-		};
-		emitIndexProgress(games, progress);
-		if (complete) cachedIndex = games;
-	};
-
-	byShard.set(0, await loadCatalogShard(0));
-	report(1, manifest.shardCount <= 1);
-
-	if (manifest.shardCount > 1) {
-		const rest = Array.from({ length: manifest.shardCount - 1 }, (_, i) => i + 1);
-		let loadedShards = 1;
-		await runPool(rest, 4, async (shardIndex) => {
-			byShard.set(shardIndex, await loadCatalogShard(shardIndex));
-			loadedShards += 1;
-			report(loadedShards, loadedShards >= manifest.shardCount);
-		});
-	}
-
-	const final = rebuild();
-	cachedIndex = final;
-	return final;
+	emitIndexProgress(games, progress);
+	if (complete) cachedIndex = games;
+	return games;
 }
 
 /**
- * Progressive catalog index: shard 0 first (callback), then remaining shards (concurrency 4).
- * Concurrent callers share one load; progress listeners all receive updates.
+ * Ensure shards `[0, throughExclusive)` are loaded (sequential, scroll-friendly).
+ * Shared across callers; progress listeners receive contiguous-prefix updates.
  */
-export async function loadCatalogIndex(
+export async function ensureCatalogShards(
+	throughExclusive: number,
 	onProgress?: (games: GameIndexEntry[], progress: CatalogLoadProgress) => void
 ): Promise<GameIndexEntry[]> {
 	if (cachedIndex) {
@@ -237,12 +213,88 @@ export async function loadCatalogIndex(
 
 	if (onProgress) indexProgressListeners.add(onProgress);
 	try {
-		if (!indexLoadPromise) {
-			indexLoadPromise = loadCatalogIndexInternal().finally(() => {
-				indexLoadPromise = null;
-			});
+		const manifest = await loadCatalogManifest();
+		const target = Math.max(0, Math.min(Math.floor(throughExclusive), manifest.shardCount));
+
+		shardLoadTail = shardLoadTail.then(async () => {
+			for (let i = contiguousLoadedShards; i < target; i++) {
+				if (!shardCache.has(i)) {
+					await loadCatalogShard(i);
+				}
+				/* Recompute contiguous in case shards arrived out of order from eager loads. */
+				reportCatalogProgress(manifest);
+			}
+		});
+		await shardLoadTail;
+		return reportCatalogProgress(manifest);
+	} finally {
+		if (onProgress) indexProgressListeners.delete(onProgress);
+	}
+}
+
+/** Load the next `count` shards after the current contiguous prefix. */
+export async function loadMoreCatalogShards(
+	count = 2,
+	onProgress?: (games: GameIndexEntry[], progress: CatalogLoadProgress) => void
+): Promise<GameIndexEntry[]> {
+	const manifest = cachedManifest ?? (await loadCatalogManifest());
+	const next = Math.min(manifest.shardCount, contiguousLoadedShards + Math.max(1, count));
+	return ensureCatalogShards(next, onProgress);
+}
+
+async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => Promise<void>) {
+	let cursor = 0;
+	const runners = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+		while (cursor < items.length) {
+			const i = cursor++;
+			await worker(items[i]!);
 		}
-		return await indexLoadPromise;
+	});
+	await Promise.all(runners);
+}
+
+/**
+ * Progressive catalog index: shard 0 first (callback), then remaining shards.
+ * Pass `{ eager: false }` for All Games (first page only; use {@link loadMoreCatalogShards} on scroll).
+ * Default `eager: true` loads the full index (Home / recommendations).
+ */
+export async function loadCatalogIndex(
+	onProgress?: (games: GameIndexEntry[], progress: CatalogLoadProgress) => void,
+	options?: { eager?: boolean }
+): Promise<GameIndexEntry[]> {
+	if (cachedIndex) {
+		onProgress?.(cachedIndex, {
+			loadedShards: cachedManifest?.shardCount ?? 1,
+			shardCount: cachedManifest?.shardCount ?? 1,
+			loadedGames: cachedIndex.length,
+			total: cachedIndex.length,
+			complete: true
+		});
+		return cachedIndex;
+	}
+
+	const eager = options?.eager !== false;
+	if (!eager) {
+		return ensureCatalogShards(1, onProgress);
+	}
+
+	if (onProgress) indexProgressListeners.add(onProgress);
+	try {
+		const manifest = await loadCatalogManifest();
+		await ensureCatalogShards(1);
+		if (manifest.shardCount > 1) {
+			const rest = Array.from({ length: manifest.shardCount - 1 }, (_, i) => i + 1);
+			shardLoadTail = shardLoadTail.then(async () => {
+				await runPool(rest, 4, async (shardIndex) => {
+					if (!shardCache.has(shardIndex)) {
+						await loadCatalogShard(shardIndex);
+					}
+					reportCatalogProgress(manifest);
+				});
+			});
+			await shardLoadTail;
+		}
+		return reportCatalogProgress(manifest);
 	} finally {
 		if (onProgress) indexProgressListeners.delete(onProgress);
 	}
@@ -488,15 +540,19 @@ export async function getGamePlayerUrl(
 	 * adds a full startup timeout to every native game launch.
 	 *
 	 * Catalog shells that only wrap a cross-origin iframe (e.g. Mob City → github.io)
-	 * also need game-live — otherwise Unity runs in a nested third-party frame
-	 * (Script error + no touch inject).
+	 * also need a puller proxy — otherwise Unity runs in a nested third-party frame
+	 * (Script error + no touch inject). Unity-like shells prefer unity-play (CDN assets
+	 * + inject); other external embeds use game-live.
 	 */
 	let needsNativeProxy = metadata?.engine === 'unity' || wantsNativeTouchProxy(metadata);
 	let externalIframeShell = false;
+	let externalUnityShell = false;
 	if (!needsNativeProxy && !isPublicSiteDeployment()) {
 		try {
-			const { onlineShellHasExternalIframe } = await import('./browser-offline-download');
-			externalIframeShell = await onlineShellHasExternalIframe(gameId);
+			const { probeOnlineShellExternal } = await import('./browser-offline-download');
+			const shell = await probeOnlineShellExternal(gameId);
+			externalIframeShell = shell.external;
+			externalUnityShell = shell.unityLike;
 			needsNativeProxy = externalIframeShell;
 		} catch {
 			/* ignore probe failures */
@@ -507,12 +563,14 @@ export async function getGamePlayerUrl(
 			await import('./offline-downloader-puller');
 		const pullerUp = (await isPullerAvailable()) || (await waitForPuller(12_000));
 		if (pullerUp) {
-			if (metadata?.engine === 'unity') {
+			if (metadata?.engine === 'unity' || externalUnityShell) {
 				const url = pullerUnityPlayUrl(gameId, base);
 				appendPlayLog(
 					'info',
 					'play-url',
-					`Resolved Unity play via puller proxy`,
+					externalUnityShell && metadata?.engine !== 'unity'
+						? `Resolved Unity play via puller (Unity iframe shell)`
+						: `Resolved Unity play via puller proxy`,
 					`game=${gameId} url=${url}`
 				);
 				return url;
@@ -529,6 +587,13 @@ export async function getGamePlayerUrl(
 				);
 				return url;
 			}
+		} else if (externalIframeShell || metadata?.engine === 'unity') {
+			appendPlayLog(
+				'warn',
+				'play-url',
+				`Puller unavailable — nested cross-origin shell will fail (Script error / no inject)`,
+				`game=${gameId} engine=${metadata?.engine ?? 'unknown'} unityShell=${externalUnityShell}`
+			);
 		}
 	}
 

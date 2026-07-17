@@ -7,7 +7,7 @@ const UNITY_INJECT_TAG = '<script src="/unity/inject.js"></script>';
 
 /** Same junk patterns as puller stripUnityPortalBloat — keep Vite + puller in sync. */
 const BLOAT_SCRIPT =
-	/(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare)/i;
+	/(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare|adinLoader|adinplay|getAdinDomain|doubleclick|pagead)/i;
 
 const ASSET_EXT_RE =
 	/\.(?:js|mjs|cjs|wasm|unityweb|data|css|json|mem|map|png|jpe?g|gif|webp|svg|ico|woff2?|mp3|ogg|br)(?:\?|$)/i;

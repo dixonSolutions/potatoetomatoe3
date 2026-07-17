@@ -179,7 +179,30 @@
 	 * occupied while the framework is being evaluated, which aborts startup
 	 * with "invalid handle for stdin (1)". Repair only this known assertion
 	 * pattern after the framework has been decompressed and before it runs.
+	 *
+	 * Frameworks emit either `0===stdin.fd` or `stdin.fd===0` — match both.
+	 * Keep in sync with puller/src/unity/framework-patches.ts.
 	 */
+	function repairStdioAssert(stream, expected) {
+		return (
+			'if (' +
+			stream +
+			'.fd !== ' +
+			expected +
+			') { FS.streams[' +
+			stream +
+			'.fd] = null; ' +
+			stream +
+			'.fd = ' +
+			expected +
+			'; FS.streams[' +
+			expected +
+			'] = ' +
+			stream +
+			'; }'
+		);
+	}
+
 	function patchUnityFrameworkSource(source) {
 		var original = source;
 		var text = source;
@@ -201,26 +224,15 @@
 			return original;
 		}
 
-		var assertion =
+		var assertionLiteralLeft =
 			/assert\(\s*([0-2])===([A-Za-z_$][\w$]*)\.fd\s*,\s*["']invalid handle for (stdin|stdout|stderr) \(["']\+\2\.fd\+["']\)["']\s*\);/g;
-		var patched = text.replace(assertion, function (_match, expected, stream) {
-			return (
-				'if (' +
-				stream +
-				'.fd !== ' +
-				expected +
-				') { FS.streams[' +
-				stream +
-				'.fd] = null; ' +
-				stream +
-				'.fd = ' +
-				expected +
-				'; FS.streams[' +
-				expected +
-				'] = ' +
-				stream +
-				'; }'
-			);
+		var assertionStreamLeft =
+			/assert\(\s*([A-Za-z_$][\w$]*)\.fd===([0-2])\s*,\s*["']invalid handle for (stdin|stdout|stderr) \(["']\+\1\.fd\+["']\)["']\s*\);/g;
+		var patched = text.replace(assertionLiteralLeft, function (_match, expected, stream) {
+			return repairStdioAssert(stream, expected);
+		});
+		patched = patched.replace(assertionStreamLeft, function (_match, stream, expected) {
+			return repairStdioAssert(stream, expected);
 		});
 
 		if (patched === text) return original;
@@ -229,6 +241,37 @@
 			return typeof TextEncoder === 'function' ? new TextEncoder().encode(patched) : original;
 		} catch (e) {
 			return original;
+		}
+	}
+
+	/* Legacy UnityLoader: only gunzip real gzip; pass through plain UnityFS / decoded bodies. */
+	function isGzipMagic(data) {
+		return data && data.length >= 2 && data[0] === 0x1f && data[1] === 0x8b;
+	}
+
+	function wrapUnityDecompress(fn) {
+		if (typeof fn !== 'function' || fn.__ptSafeDecompress) return fn;
+		var wrapped = function (data) {
+			var bytes =
+				data instanceof Uint8Array
+					? data
+					: data && typeof data.byteLength === 'number'
+						? new Uint8Array(data)
+						: null;
+			if (!bytes || !isGzipMagic(bytes)) return data;
+			return fn(data);
+		};
+		wrapped.__ptSafeDecompress = true;
+		return wrapped;
+	}
+
+	function forceUnityCompressionSupported(UL) {
+		try {
+			var cs = UL && UL.CompressionState;
+			if (!cs || typeof cs.Set !== 'function') return;
+			if (typeof cs.Supported === 'number') cs.Set(cs.Supported);
+		} catch (e) {
+			/* ignore */
 		}
 	}
 
@@ -275,6 +318,7 @@
 			var origInstantiate = UL.instantiate.bind(UL);
 			UL.instantiate = function (container, url, opts) {
 				hideLoadingDom();
+				forceUnityCompressionSupported(UL);
 				opts = opts || {};
 				opts.Module = ensureUnityModuleHooks(opts.Module || {});
 				if (opts.onProgress) {
@@ -300,6 +344,7 @@
 			patchedLoadCode.__ptStdioPatched = true;
 			UL.loadCode = patchedLoadCode;
 		}
+		forceUnityCompressionSupported(UL);
 		return UL;
 	}
 	Object.defineProperty(window, 'UnityLoader', {
@@ -313,6 +358,34 @@
 		}
 	});
 	if (_ul) _ul = patchUnityLoader(_ul);
+
+	/*
+	 * UnityLoader.js assigns window.unityDecompressReleaseFile = pako.inflate at parse time.
+	 * Trap the property so we wrap it even when the script loads after inject.
+	 */
+	(function trapUnityDecompress() {
+		if (window.__ptUnityDecompressTrap) return;
+		window.__ptUnityDecompressTrap = true;
+		var _decompress = wrapUnityDecompress(window.unityDecompressReleaseFile);
+		try {
+			Object.defineProperty(window, 'unityDecompressReleaseFile', {
+				configurable: true,
+				enumerable: true,
+				get: function () {
+					return _decompress;
+				},
+				set: function (fn) {
+					_decompress = wrapUnityDecompress(fn);
+				}
+			});
+		} catch (e) {
+			if (typeof window.unityDecompressReleaseFile === 'function') {
+				window.unityDecompressReleaseFile = wrapUnityDecompress(
+					window.unityDecompressReleaseFile
+				);
+			}
+		}
+	})();
 
 	/* Track every AudioContext so focus-loss mute can suspend Unity Web Audio too. */
 	var audioContexts = [];

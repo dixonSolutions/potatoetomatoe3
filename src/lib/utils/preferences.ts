@@ -2,6 +2,8 @@
  * User preferences stored in localStorage
  */
 
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
+
 export interface GamePreferences {
 	liked: string[]; // game IDs
 	disliked: string[]; // game IDs
@@ -10,10 +12,10 @@ export interface GamePreferences {
 const STORAGE_KEY = 'potato-tomato-preferences';
 
 export function getPreferences(): GamePreferences {
-	if (typeof localStorage === 'undefined') {
+	if (!canUseLocalStorage()) {
 		return { liked: [], disliked: [] };
 	}
-	
+
 	try {
 		const stored = localStorage.getItem(STORAGE_KEY);
 		if (stored) {
@@ -22,12 +24,12 @@ export function getPreferences(): GamePreferences {
 	} catch (error) {
 		console.error('Failed to load preferences:', error);
 	}
-	
+
 	return { liked: [], disliked: [] };
 }
 
 export function savePreferences(prefs: GamePreferences): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	
 	try {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));

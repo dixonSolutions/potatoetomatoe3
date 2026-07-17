@@ -62,6 +62,8 @@ Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) un
 
 **Rule of thumb:** online + console → puller **proxy** (`/api/game-live` or `/api/unity-play`); offline + console → **inject** into the mirrored HTML. Never inject into a same-origin shell that only wraps a cross-origin Unity iframe — that causes Unity “Script error” when the console steals focus.
 
+**Unity iframe shells (abinbins / similar):** when the puller is up, play resolves to `/api/unity-play/:id` (unwrap remote HTML, inject, absolutize CDN asset URLs). When the puller is down, the desktop UI shows a Retry-puller warning — launching the nested shell alone usually fails with a masked Unity `Script error`.
+
 ### Touch postMessage bridge
 
 When the parent cannot read `iframe.contentDocument` (cross-origin), [`KeyDispatcher`](../src/lib/utils/touch-input-dispatch.ts) sends:

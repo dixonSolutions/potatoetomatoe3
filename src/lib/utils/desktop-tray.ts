@@ -7,6 +7,7 @@ import { invoke } from '@tauri-apps/api/core';
 import { listen, type UnlistenFn } from '@tauri-apps/api/event';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import { loadAllGames } from '$lib/utils/games';
 import { isTauriApp } from '$lib/utils/offline-deployment';
 import { getPlaySessionsList } from '$lib/utils/play-recommendations';
@@ -130,7 +131,7 @@ export async function attachDesktopTrayListeners(): Promise<UnlistenFn> {
 
 /** One-time hint about close behavior (tray vs quit). */
 export function shouldShowTrayCloseHint(): boolean {
-	if (!isTauriApp() || typeof localStorage === 'undefined') return false;
+	if (!isTauriApp() || !canUseLocalStorage()) return false;
 	try {
 		return localStorage.getItem(TRAY_HINT_KEY) !== '1';
 	} catch {
@@ -139,7 +140,7 @@ export function shouldShowTrayCloseHint(): boolean {
 }
 
 export function markTrayCloseHintShown(): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	try {
 		localStorage.setItem(TRAY_HINT_KEY, '1');
 	} catch {

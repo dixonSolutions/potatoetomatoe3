@@ -10,9 +10,9 @@
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
 	import {
 		DEFAULT_TOUCH_MAPPING,
+		DEFAULT_TOUCH_SETTINGS,
 		codesToLabel,
 		getDefaultTouchLayout,
-		loadTouchConsoleSettings,
 		patchTouchConsoleSettings,
 		translateTouchLayout,
 		type TouchAvailability,
@@ -27,7 +27,7 @@
 	let {
 		searchQuery,
 		busy = false,
-		settings = $bindable(loadTouchConsoleSettings())
+		settings = $bindable(structuredClone(DEFAULT_TOUCH_SETTINGS))
 	}: {
 		searchQuery: string;
 		busy?: boolean;
