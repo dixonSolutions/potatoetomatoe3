@@ -372,11 +372,16 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	if (isBundledOfflineGame(gameId)) return true;
 	const status = await fetchGameOfflineStatus(gameId);
 	if (status?.offline) return true;
-	// Puller answered — trust it; do not probe static /offline/ (noisy 404s while playing online).
-	if (status) return false;
-	if ((await getOfflineBackend()) === 'browser' && (await isBrowserGameDownloaded(gameId))) {
+	const backend = await getOfflineBackend();
+	if (backend === 'browser' && (await isBrowserGameDownloaded(gameId))) {
 		return true;
 	}
+	/*
+	 * Puller status offline:false is authoritative while the puller is up.
+	 * When puller is down (browser/none), still accept a same-origin disk mirror
+	 * so offline launch survives temporary puller outages.
+	 */
+	if (status && backend === 'puller') return false;
 	if (!isPublicSiteDeployment()) {
 		return staticOfflineFileExists(gameId, base);
 	}
@@ -481,8 +486,22 @@ export async function getGamePlayerUrl(
 	 * Only wait for the puller when this game needs its proxy. Ordinary same-origin
 	 * catalog shells can start directly; waiting for a sidecar that will not be used
 	 * adds a full startup timeout to every native game launch.
+	 *
+	 * Catalog shells that only wrap a cross-origin iframe (e.g. Mob City → github.io)
+	 * also need game-live — otherwise Unity runs in a nested third-party frame
+	 * (Script error + no touch inject).
 	 */
-	const needsNativeProxy = metadata?.engine === 'unity' || wantsNativeTouchProxy(metadata);
+	let needsNativeProxy = metadata?.engine === 'unity' || wantsNativeTouchProxy(metadata);
+	let externalIframeShell = false;
+	if (!needsNativeProxy && !isPublicSiteDeployment()) {
+		try {
+			const { onlineShellHasExternalIframe } = await import('./browser-offline-download');
+			externalIframeShell = await onlineShellHasExternalIframe(gameId);
+			needsNativeProxy = externalIframeShell;
+		} catch {
+			/* ignore probe failures */
+		}
+	}
 	if (!isPublicSiteDeployment() && needsNativeProxy) {
 		const { isPullerAvailable, waitForPuller, pullerUnityPlayUrl, pullerLiveGameUrl } =
 			await import('./offline-downloader-puller');
@@ -498,12 +517,14 @@ export async function getGamePlayerUrl(
 				);
 				return url;
 			}
-			if (wantsNativeTouchProxy(metadata)) {
+			if (wantsNativeTouchProxy(metadata) || externalIframeShell) {
 				const url = pullerLiveGameUrl(gameId, base);
 				appendPlayLog(
 					'info',
 					'play-url',
-					`Resolved live relay via puller (native touch proxy)`,
+					externalIframeShell
+						? `Resolved live relay via puller (external iframe shell)`
+						: `Resolved live relay via puller (native touch proxy)`,
 					`game=${gameId} url=${url}`
 				);
 				return url;

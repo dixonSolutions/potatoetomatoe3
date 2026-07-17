@@ -147,6 +147,7 @@
 
 <div
 	bind:this={rootEl}
+	data-testid="touch-joystick"
 	class="pt-touch-joystick touch-none select-none"
 	class:pt-touch-joystick--active={active}
 	class:pt-touch-joystick--editing={holdEditing || editing}

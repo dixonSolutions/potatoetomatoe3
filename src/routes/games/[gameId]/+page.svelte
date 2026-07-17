@@ -67,6 +67,7 @@
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
 	import { canUseTouchBridge } from '$lib/utils/touch-input-dispatch';
+	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import {
 		toggleFullscreen as toggleElementFullscreen,
@@ -137,6 +138,31 @@
 	let pauseShortcutLabel = $state('`');
 	let touchConsoleVisible = $state(false);
 	let touchConsoleAvailable = $state(false);
+	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
+	let loadedGameId = $state('');
+	/**
+	 * Always show Console on local/dev/Tauri. Do not gate on child chromeAvailable —
+	 * that bind lagged false and hid the control entirely.
+	 */
+	let showConsoleButton = $derived(!isPublicSiteDeployment() || touchConsoleAvailable);
+
+	/** Single writer for Console on/off — persists so remounts / reloads cannot snap back to Off. */
+	function setTouchConsoleVisible(on: boolean, reason: string) {
+		if (gameId) writeConsoleVisiblePref(gameId, on);
+		if (touchConsoleVisible === on) return;
+		touchConsoleVisible = on;
+		appendPlayLog('info', 'ui', on ? 'Touch console on' : 'Touch console off', `game=${gameId} reason=${reason}`);
+	}
+
+	function restoreTouchConsolePref(id: string) {
+		if (!readConsoleVisiblePref(id)) return;
+		const alreadyOn = touchConsoleVisible && gameSurfaceStarted;
+		touchConsoleVisible = true;
+		gameSurfaceStarted = true;
+		if (alreadyOn) return;
+		appendPlayLog('info', 'ui', 'Touch console restored', `game=${id}`);
+		void ensureTouchCapablePlayUrl();
+	}
 
 	const playerLayout = new GamePlayerLayout();
 
@@ -193,7 +219,7 @@
 			const prev = gamePlayerUrl;
 			await refreshPlayerUrl();
 			if (canUseTouchBridge(gamePlayerUrl)) {
-				if (gamePlayerUrl !== prev) playerRemountKey += 1;
+				gameSurfaceStarted = true;
 				return true;
 			}
 			toast.error('Console needs an offline mirror with inject support for this game.');
@@ -204,14 +230,30 @@
 			isPullerAvailable,
 			syncPullerBaseUrlFromTauri,
 			waitForPuller,
+			invalidatePullerAvailabilityCache,
 			pullerLiveGameUrl,
 			pullerUnityPlayUrl
 		} = await import('$lib/utils/offline-downloader-puller');
+		const { invalidateOfflineBackendCache } = await import('$lib/utils/offline-runtime');
 		await syncPullerBaseUrlFromTauri();
-		const pullerUp = (await isPullerAvailable(true)) || (await waitForPuller(12_000));
+		invalidatePullerAvailabilityCache();
+		invalidateOfflineBackendCache();
+		/* ignoreDeploymentGate: health must work even if deployment was misclassified. */
+		const pullerUp =
+			(await isPullerAvailable(true, { ignoreDeploymentGate: true })) ||
+			(await waitForPuller(12_000));
 		if (!pullerUp) {
+			/* Offline mirror can still host the console without a live puller. */
+			const { getOfflinePlayUrl } = await import('$lib/utils/offline-downloader');
+			const offlineUrl = await getOfflinePlayUrl(gameId);
+			if (offlineUrl && canUseTouchBridge(offlineUrl)) {
+				gamePlayerUrl = offlineUrl;
+				gameSurfaceStarted = true;
+				toast.message('Puller down — using offline mirror for console');
+				return true;
+			}
 			toast.error('Console needs the local puller for online play.', {
-				description: 'Restart the app or run pnpm puller:start, then try again.'
+				description: 'Use Retry puller, restart the app, or run pnpm puller:start.'
 			});
 			return false;
 		}
@@ -219,6 +261,10 @@
 		const prev = gamePlayerUrl;
 		await refreshPlayerUrl();
 		if (!canUseTouchBridge(gamePlayerUrl)) {
+			/*
+			 * Prefer game-live for catalog iframe shells — it same-origin proxies
+			 * Build assets (WebKit-safe). unity-play is for metadata engine=unity.
+			 */
 			const proxyUrl =
 				gameMetadata?.engine === 'unity'
 					? pullerUnityPlayUrl(gameId, base)
@@ -234,27 +280,42 @@
 			return false;
 		}
 		if (gamePlayerUrl !== prev) {
-			playerRemountKey += 1;
+			/*
+			 * Do not bump playerRemountKey — remounting LazyGameFrame resets
+			 * bind:started and hides the console overlay.
+			 */
+			gameSurfaceStarted = true;
 			toast.message('Reloading through puller proxy for the console…');
 		}
 		return true;
 	}
 
-	async function toggleTouchConsole() {
-		if (!touchConsoleAvailable) return;
-		if (!gameSurfaceStarted) {
-			toast.message('Start the game first');
-			return;
-		}
+	function toggleTouchConsole() {
 		if (touchConsoleVisible) {
-			touchConsoleVisible = false;
-			appendPlayLog('info', 'ui', 'Touch console off', `game=${gameId}`);
+			setTouchConsoleVisible(false, 'toggle');
+			toast.message('Console · Off');
 			return;
 		}
-		const ok = await ensureTouchCapablePlayUrl();
-		if (!ok) return;
-		touchConsoleVisible = true;
-		appendPlayLog('info', 'ui', 'Touch console on', `game=${gameId} url=${gamePlayerUrl}`);
+		/*
+		 * Flip ON synchronously — no await before the state write. Persist so any
+		 * later loadGamePage / remount restores ON instead of snapping to Off.
+		 */
+		gameSurfaceStarted = true;
+		setTouchConsoleVisible(true, 'toggle');
+		toast.message('Console · ON');
+		void ensureTouchCapablePlayUrl().then((ok) => {
+			/* Re-assert after async proxy work — never leave the button Off. */
+			gameSurfaceStarted = true;
+			setTouchConsoleVisible(true, 'toggle-reassert');
+			if (!ok) {
+				appendPlayLog('warn', 'ui', 'Touch console on but proxy incomplete', `game=${gameId}`);
+				toast.error('Console is ON, but the game frame still needs the puller or an offline mirror.', {
+					description: 'Check Retry puller, or switch Play from → Offline if downloaded.'
+				});
+				return;
+			}
+			appendPlayLog('info', 'ui', 'Touch console ready', `game=${gameId} url=${gamePlayerUrl}`);
+		});
 	}
 
 	async function refreshPlayerUrl() {
@@ -292,7 +353,7 @@
 		if (!gameId) return;
 		appendPlayLog('info', 'ui', 'Relaunch game completely', `game=${gameId}`);
 		setGamePausedState(false);
-		touchConsoleVisible = false;
+		setTouchConsoleVisible(false, 'relaunch');
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
 		await refreshPlayerUrl();
@@ -300,54 +361,74 @@
 		toast.message('Game relaunched — press Play to start again');
 	}
 
-	async function loadGamePage(id: string) {
+	/**
+	 * @param soft When true, refresh URL/metadata only — never wipe Play / Console.
+	 *             Same-game hard reloads also keep Console (session pref + loadedGameId).
+	 */
+	async function loadGamePage(id: string, opts?: { soft?: boolean }) {
 		if (!id) {
 			error = 'Game not found';
 			loading = false;
 			return;
 		}
-		loading = true;
-		error = '';
-		gameSurfaceStarted = false;
-		gamePaused = false;
-		touchConsoleVisible = false;
-		gamePlayerUrl = '';
-		recommendedGames = [];
 
-		gameMetadata = await loadGameMetadata(id);
-		if (!gameMetadata) {
+		const soft = Boolean(opts?.soft);
+		const switchingGame = id !== loadedGameId;
+
+		if (!soft && switchingGame) {
+			loading = true;
+			error = '';
+			gameSurfaceStarted = false;
+			gamePaused = false;
+			touchConsoleVisible = false;
+			gamePlayerUrl = '';
+			recommendedGames = [];
+		} else if (!soft) {
+			/* Same game re-entry (onMount + afterNavigate race) — do not wipe Console. */
+			error = '';
+		}
+
+		const meta = soft && gameMetadata && id === gameId ? gameMetadata : await loadGameMetadata(id);
+		if (!soft || !gameMetadata) gameMetadata = meta;
+		if (!meta) {
 			error = 'Game not found';
 		}
 
 		networkOnline = isNetworkOnline();
-		if (!networkOnline && gameMetadata && !(await canPlayGameOffline(id, gameMetadata))) {
+		if (!networkOnline && meta && !(await canPlayGameOffline(id, meta))) {
 			error =
 				'This game is not available offline. Connect to the internet or download it for offline play first.';
 		}
 
-		userPreference = getGamePreference(id);
+		if (!soft) userPreference = getGamePreference(id);
 
-		if (!gameMetadata || error) {
+		if (!meta || error) {
 			loading = false;
 			return;
 		}
 
-		if (networkOnline) {
-			recordGamePlay(id, gameMetadata.category, gameMetadata.author);
+		if (!soft && switchingGame && networkOnline) {
+			recordGamePlay(id, meta.category, meta.author);
 		}
 
 		/*
 		 * Resolve the playable URL before loading the full recommendation catalog.
 		 * The catalog is useful below the fold, but must not delay the first game frame.
 		 */
-		gamePlayerUrl = await getGamePlayerUrl(id);
+		gamePlayerUrl = await getGamePlayerUrl(id, meta);
 		void refreshOfflineCoverStatus(id);
+		loadedGameId = id;
 		loading = false;
+
+		/* Console preference survives remounts / double-loads / accidental hard refresh. */
+		restoreTouchConsolePref(id);
+
+		if (soft) return;
 
 		void (async () => {
 			const allGames = await loadAllGames();
 			const prefs = getPreferences();
-			let rec = getRecommendationsForGamePage(allGames, gameMetadata, id, prefs, 4);
+			let rec = getRecommendationsForGamePage(allGames, meta, id, prefs, 4);
 			if (!networkOnline) {
 				const { fetchDownloadedStatuses } = await import('$lib/utils/offline-downloader');
 				const statusMap = await fetchDownloadedStatuses(true);
@@ -372,7 +453,14 @@
 		if (gameId) void loadGamePage(gameId);
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
-			if (gameId) void loadGamePage(gameId);
+			/*
+			 * Never call loadGamePage here — WebKit fires online/offline often and even
+			 * "soft" loads raced with Play/Console. Just refresh the play URL + cover.
+			 */
+			if (gameId) {
+				void refreshPlayerUrl();
+				void refreshOfflineCoverStatus(gameId);
+			}
 		});
 
 		const onPrivacyLocked = (e: Event) => {
@@ -442,7 +530,7 @@
 
 	$effect(() => {
 		if (!gameSurfaceStarted) {
-			gamePaused = false;
+			if (gamePaused) gamePaused = false;
 			return;
 		}
 		applyPauseToGameIframe(iframeElement, gamePaused);
@@ -600,24 +688,24 @@
 						{/if}
 						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
 					</Button>
-					{#if touchConsoleAvailable}
-						<Button
+					{#if showConsoleButton}
+						<button
 							type="button"
-							onclick={() => void toggleTouchConsole()}
-							variant={touchConsoleVisible ? 'default' : 'outline'}
-							size="sm"
-							class={touchConsoleVisible
-								? 'w-full border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500 sm:w-auto'
-								: 'w-full border-dashed sm:w-auto'}
-							disabled={!gameSurfaceStarted}
+							data-testid="touch-console-toggle"
+							onclick={toggleTouchConsole}
 							aria-pressed={touchConsoleVisible}
 							title={touchConsoleVisible
 								? 'Touch console is ON — click to hide'
-								: 'Touch console is OFF — click to show'}
+								: gameSurfaceStarted
+									? 'Touch console is OFF — click to show'
+									: 'Start the game and show touch console'}
+							class="inline-flex h-8 w-full shrink-0 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium transition-colors sm:w-auto {touchConsoleVisible
+								? 'border border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500'
+								: 'border border-dashed border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground'}"
 						>
-							<Gamepad2 class="mr-2 h-4 w-4" />
+							<Gamepad2 class="h-4 w-4" />
 							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}
-						</Button>
+						</button>
 					{/if}
 					<Button
 						onclick={() => void relaunchGameCompletely()}
@@ -700,24 +788,22 @@
 							Pause
 						{/if}
 					</Button>
-					{#if touchConsoleAvailable}
-						<Button
+					{#if showConsoleButton}
+						<button
 							type="button"
-							variant={touchConsoleVisible ? 'default' : 'secondary'}
-							size="sm"
-							class={touchConsoleVisible
-								? 'border-emerald-400 bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400/80 hover:bg-emerald-500'
-								: 'shadow-md backdrop-blur-sm'}
-							onclick={() => void toggleTouchConsole()}
-							disabled={!gameSurfaceStarted}
+							data-testid="touch-console-toggle-fs"
+							onclick={toggleTouchConsole}
 							aria-pressed={touchConsoleVisible}
 							aria-label={touchConsoleVisible
 								? 'Console on — hide touch console'
 								: 'Console off — show touch console'}
+							class="inline-flex h-8 shrink-0 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium shadow-md transition-colors {touchConsoleVisible
+								? 'border border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/80 hover:bg-emerald-500'
+								: 'border border-transparent bg-secondary text-secondary-foreground backdrop-blur-sm hover:bg-secondary/80'}"
 						>
-							<Gamepad2 class="mr-2 h-4 w-4" />
+							<Gamepad2 class="h-4 w-4" />
 							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}
-						</Button>
+						</button>
 					{/if}
 					<Button
 						variant="secondary"
@@ -797,7 +883,12 @@
 				</div>
 			{/if}
 			<div class="game-player-surface__frame relative min-h-0 w-full flex-1">
-				{#key `${gamePlayerUrl}::${playerRemountKey}`}
+				<!--
+					Key only on explicit relaunch. Including gamePlayerUrl in the key remounted
+					the frame on every console/proxy URL upgrade and reset bind:started → false,
+					so Console appeared stuck Off and the overlay never showed.
+				-->
+				{#key playerRemountKey}
 					<LazyGameFrame
 						{gameId}
 						gameUrl={fixMalformedGamePlayerUrl(
@@ -810,7 +901,8 @@
 						fillContainer={isGameFullscreen || playerLayout.isCompact}
 						bind:started={gameSurfaceStarted}
 						onIframeReady={(el) => {
-							iframeElement = el ?? undefined;
+							const next = el ?? undefined;
+							if (iframeElement !== next) iframeElement = next;
 						}}
 					/>
 				{/key}
@@ -823,8 +915,12 @@
 				isPortrait={playerLayout.isPortrait}
 				paused={gamePaused}
 				started={gameSurfaceStarted}
-				bind:visible={touchConsoleVisible}
+				visible={touchConsoleVisible}
 				bind:chromeAvailable={touchConsoleAvailable}
+				onRequestShow={() => {
+					gameSurfaceStarted = true;
+					setTouchConsoleVisible(true, 'auto-show');
+				}}
 			/>
 		</div>
 

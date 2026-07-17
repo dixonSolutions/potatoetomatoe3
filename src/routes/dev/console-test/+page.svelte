@@ -419,8 +419,11 @@
 								gameId={selectedId}
 								{playerUrl}
 								{started}
-								bind:visible={consoleVisible}
+								visible={consoleVisible}
 								bind:chromeAvailable
+								onRequestShow={() => {
+									consoleVisible = true;
+								}}
 							/>
 						{/if}
 					{:else}

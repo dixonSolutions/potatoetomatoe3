@@ -43,11 +43,20 @@
         } catch (e) {}
       }
 
+      function forwardPause(paused) {
+        try {
+          frame.contentWindow &&
+            frame.contentWindow.postMessage({ type: 'potato-tomato-game-pause', paused: !!paused }, '*');
+        } catch (e) {}
+      }
+
       ['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {
         document.addEventListener(type, unlockAudio, true);
       });
       window.addEventListener('message', function (ev) {
-        if (ev && ev.data && ev.data.type === 'potato-tomato-unlock-audio') unlockAudio();
+        if (!ev || !ev.data) return;
+        if (ev.data.type === 'potato-tomato-unlock-audio') unlockAudio();
+        if (ev.data.type === 'potato-tomato-game-pause') forwardPause(ev.data.paused);
       });
       frame.addEventListener('load', unlockAudio);
 

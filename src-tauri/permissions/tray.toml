@@ -9,6 +9,11 @@ description = "Allow the frontend to read the local puller HTTP base URL"
 commands.allow = ["get_puller_base_url"]
 
 [[permission]]
+identifier = "allow-ensure-puller"
+description = "Allow the frontend to health-check and respawn the local puller sidecar"
+commands.allow = ["ensure_puller"]
+
+[[permission]]
 identifier = "allow-get-dev-harness-mode"
 description = "Allow the frontend to read the active development harness mode (debug builds only)"
 commands.allow = ["get_dev_harness_mode"]

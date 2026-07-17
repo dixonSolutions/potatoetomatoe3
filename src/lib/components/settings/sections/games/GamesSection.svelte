@@ -91,7 +91,8 @@
 	});
 
 	$effect(() => {
-		defaultPlayMode = getDefaultGamePlayMode();
+		const next = getDefaultGamePlayMode();
+		if (defaultPlayMode !== next) defaultPlayMode = next;
 	});
 
 	$effect(() => {

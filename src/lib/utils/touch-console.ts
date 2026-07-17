@@ -114,6 +114,27 @@ export const TOUCH_CONSOLE_CHANGED = 'potato-tomato-touch-console-changed';
 
 const GLOBAL_KEY = 'potato-tomato-touch-console-v1';
 const GAME_PREFIX = 'potato-tomato-touch-console-game-';
+/** Session preference: toolbar Console · ON for a game (survives soft reloads / remounts). */
+const CONSOLE_VISIBLE_PREFIX = 'potato-tomato-console-visible:';
+
+export function readConsoleVisiblePref(gameId: string): boolean {
+	if (typeof sessionStorage === 'undefined' || !gameId) return false;
+	try {
+		return sessionStorage.getItem(CONSOLE_VISIBLE_PREFIX + gameId) === '1';
+	} catch {
+		return false;
+	}
+}
+
+export function writeConsoleVisiblePref(gameId: string, on: boolean): void {
+	if (typeof sessionStorage === 'undefined' || !gameId) return;
+	try {
+		if (on) sessionStorage.setItem(CONSOLE_VISIBLE_PREFIX + gameId, '1');
+		else sessionStorage.removeItem(CONSOLE_VISIBLE_PREFIX + gameId);
+	} catch {
+		/* private mode / quota */
+	}
+}
 
 const DEFAULT_LANDSCAPE: TouchLayout = {
 	console: { xPct: 0.04, yPct: 0.58, widthPct: 0.46, heightPct: 0.36 },

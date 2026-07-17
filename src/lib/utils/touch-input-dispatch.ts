@@ -280,23 +280,36 @@ export class KeyDispatcher {
 	private bridgeFrame: HTMLIFrameElement | null = null;
 
 	setTarget(target: InjectableTarget | null): void {
-		const targetChanged =
-			this.target?.doc !== target?.doc ||
-			this.target?.win !== target?.win ||
-			this.target?.canvas !== target?.canvas;
-		if (targetChanged) {
-			this.releaseAll();
-			this.target = target;
+		if (!target) {
+			/* Clearing for a bridge handoff — do not release held keys here. */
+			this.target = null;
+			return;
 		}
-		if (target) this.bridgeFrame = null;
+		const same =
+			this.target?.doc === target.doc &&
+			this.target?.win === target.win &&
+			this.target?.canvas === target.canvas &&
+			!this.bridgeFrame;
+		if (same) return;
+		/* Switching dispatch destination — drop prior keys once. */
+		if (this.target || this.bridgeFrame) this.releaseAll();
+		this.target = target;
+		this.bridgeFrame = null;
 	}
 
 	setBridgeFrame(frame: HTMLIFrameElement | null): void {
-		if (this.bridgeFrame !== frame) {
-			this.releaseAll();
-			this.bridgeFrame = frame;
+		if (!frame) {
+			if (this.bridgeFrame) {
+				this.releaseAll();
+				this.bridgeFrame = null;
+			}
+			return;
 		}
-		if (frame) this.target = null;
+		const same = this.bridgeFrame === frame && !this.target;
+		if (same) return;
+		if (this.target || (this.bridgeFrame && this.bridgeFrame !== frame)) this.releaseAll();
+		this.bridgeFrame = frame;
+		this.target = null;
 	}
 
 	getTarget(): InjectableTarget | null {
@@ -343,16 +356,12 @@ export class KeyDispatcher {
 		this.pendingAckId = null;
 	}
 
-	private focusTarget(): void {
+	/** Focus the game once per press burst — not on every joystick tick (WebKit freezes otherwise). */
+	private focusTargetOnce(): void {
 		const t = this.target;
 		if (!t) return;
 		try {
 			t.canvas?.focus?.({ preventScroll: true } as FocusOptions);
-		} catch {
-			/* ignore */
-		}
-		try {
-			t.win.focus?.();
 		} catch {
 			/* ignore */
 		}
@@ -401,17 +410,12 @@ export class KeyDispatcher {
 		};
 
 		try {
-			this.focusTarget();
-			const targets: EventTarget[] = [];
-			if (t.canvas) targets.push(t.canvas);
-			if (t.doc.body) targets.push(t.doc.body);
-			targets.push(t.doc.documentElement, t.doc, t.win);
-			const seen = new Set<EventTarget>();
-			for (const target of targets) {
-				if (!target || seen.has(target)) continue;
-				seen.add(target);
-				target.dispatchEvent(makeEvent());
-			}
+			/*
+			 * One primary target only. Fanning key events to body/document/window on every
+			 * joystick frame stalls Unity/WebKit (looks like the game "freezes").
+			 */
+			const primary = t.canvas ?? t.doc.body ?? t.doc.documentElement ?? t.win;
+			primary.dispatchEvent(makeEvent());
 		} catch {
 			/* ignore */
 		}
@@ -422,7 +426,8 @@ export class KeyDispatcher {
 			this.clearPendingAckId();
 			return;
 		}
-		if (this.target) this.focusTarget();
+		const firstPress = this.held.size === 0;
+		if (firstPress && this.target) this.focusTargetOnce();
 		try {
 			for (const code of codes) {
 				if (this.held.has(code)) continue;
@@ -461,6 +466,8 @@ export class KeyDispatcher {
 		for (const code of next) {
 			if (!this.joystickHeld.has(code)) toPress.push(code);
 		}
+		/* No-op when the direction set is unchanged — pointermove fires every frame. */
+		if (!toRelease.length && !toPress.length) return;
 		if (toRelease.length) {
 			for (const code of toRelease) this.joystickHeld.delete(code);
 			this.up(toRelease);
@@ -469,6 +476,11 @@ export class KeyDispatcher {
 			for (const code of toPress) this.joystickHeld.add(code);
 			this.down(toPress);
 		}
+	}
+
+	/** True while any touch key is held — callers should avoid rebinding targets mid-gesture. */
+	hasHeldKeys(): boolean {
+		return this.held.size > 0;
 	}
 
 	/** @deprecated Use setJoystickCodes — kept as alias for clarity in call sites. */

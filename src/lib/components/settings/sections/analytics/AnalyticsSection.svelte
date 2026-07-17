@@ -33,7 +33,7 @@
 	let loading = $state(true);
 
 	$effect(() => {
-		if (!limitEnabled) limitMinutes = 0;
+		if (!limitEnabled && limitMinutes !== 0) limitMinutes = 0;
 	});
 
 	function formatDuration(ms: number): string {

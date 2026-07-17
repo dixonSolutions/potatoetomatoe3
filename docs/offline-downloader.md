@@ -164,6 +164,9 @@ The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. D
 | Tauri desktop              | Puller sidecar   | App data directory               |
 
 Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:18787`).
+In Vite / `pnpm app`, offline APIs use same-origin `/api/offline/*` (proxied to the puller) so
+WebKit/Tauri does not depend on cross-origin fetches to `:18787`. `PUBLIC_OFFLINE_DEPLOYMENT=local-app`
+is set by `pnpm app` and the Tauri beforeDevCommand.
 
 ### Game save data (browser profiles)
 
@@ -192,6 +195,12 @@ When the puller is unavailable but IndexedDB and service workers are supported:
 3. Games that load entirely from external iframes may still need network access after download.
 
 Per-game online/offline preference is stored in localStorage via `src/lib/utils/game-play-mode.ts`.
+
+When the puller drops mid-session, the UI falls back to browser storage but still probes
+same-origin `/games/{id}/offline/` mirrors so previously downloaded offline copies remain
+playable. Use **Retry puller** (or wait ~12s for auto-recovery) to reconnect without reloading;
+Console / pause inject need the puller proxy for online Unity (otherwise the page shows
+**Unity · CDN** and touch controls cannot inject).
 
 On the game page, **View logs** opens diagnostics scoped to the current game only (play URL
 resolution, download events, and relaunch events). **Relaunch** resets the player surface and

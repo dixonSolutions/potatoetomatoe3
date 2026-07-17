@@ -5,7 +5,7 @@
 	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 	import { buttonVariants } from '$lib/components/ui/button/button.svelte';
 	import { cn } from '$lib/utils';
-	import { Download, Trash2, HardDrive, Loader2, X } from 'lucide-svelte';
+	import { Download, Trash2, HardDrive, Loader2, RefreshCw, X } from 'lucide-svelte';
 	import { toast } from 'svelte-sonner';
 	import {
 		type GameOfflineStatus,
@@ -25,6 +25,7 @@
 		isBundledOfflineGame,
 		describePullerDownloadError
 	} from '$lib/utils/offline-downloader';
+	import { invalidateOfflineBackendCache } from '$lib/utils/offline-runtime';
 	import { getGameMeta } from '$lib/utils/browser-offline-storage';
 	import { onlineShellHasExternalIframe } from '$lib/utils/browser-offline-download';
 	import {
@@ -38,7 +39,12 @@
 	import { onMount } from 'svelte';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
-	import { waitForPuller } from '$lib/utils/offline-downloader-puller';
+	import {
+		invalidatePullerAvailabilityCache,
+		isPullerAvailable,
+		syncPullerBaseUrlFromTauri,
+		waitForPuller
+	} from '$lib/utils/offline-downloader-puller';
 
 	let {
 		gameId,
@@ -65,6 +71,7 @@
 
 	let statusReady = $state(false);
 	let pullerStartupSettled = $state(!isLocalAppDeployment());
+	let retryingPuller = $state(false);
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
 	let backendLabel = $derived(describeOfflineBackend(offlineBackend));
@@ -139,6 +146,7 @@
 		void refreshStatus();
 
 		let pullerStartupTimer: ReturnType<typeof setTimeout> | undefined;
+		let pullerRecoveryTimer: ReturnType<typeof setInterval> | undefined;
 		if (isLocalAppDeployment()) {
 			void waitForPuller(15_000).then(async (available) => {
 				pullerStartupSettled = true;
@@ -149,6 +157,11 @@
 			pullerStartupTimer = setTimeout(() => {
 				pullerStartupSettled = true;
 			}, 8000);
+			/* Puller can come back after a port fight or sidecar restart — recover without reload. */
+			pullerRecoveryTimer = setInterval(() => {
+				if (offlineBackend === 'puller' || retryingPuller) return;
+				void retryPullerConnection({ silent: true });
+			}, 12_000);
 		}
 
 		const onModeChange = (e: Event) => {
@@ -170,16 +183,55 @@
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		return () => {
 			if (pullerStartupTimer) clearTimeout(pullerStartupTimer);
+			if (pullerRecoveryTimer) clearInterval(pullerRecoveryTimer);
 			detachNetwork();
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onModeChange);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		};
 	});
 
+	async function retryPullerConnection(opts?: { silent?: boolean }) {
+		if (!isLocalAppDeployment() || retryingPuller) return;
+		retryingPuller = true;
+		try {
+			/* Ask the native shell to respawn a dead puller (Vite proxy → :18787). */
+			try {
+				const { invoke } = await import('@tauri-apps/api/core');
+				await invoke<string>('ensure_puller');
+			} catch {
+				/* Browser / command unavailable — fall through to health wait. */
+			}
+			await syncPullerBaseUrlFromTauri();
+			invalidatePullerAvailabilityCache();
+			invalidateOfflineBackendCache();
+			const available = opts?.silent
+				? await isPullerAvailable(true, { ignoreDeploymentGate: true })
+				: await waitForPuller(12_000);
+			pullerStartupSettled = true;
+			if (!available && opts?.silent) return;
+			await refreshStatus();
+			if (available) {
+				dispatchOfflineStatusChanged();
+				onPlayUrlChange?.();
+				if (!opts?.silent) {
+					toast.success('Local puller connected');
+				}
+			} else if (!opts?.silent) {
+				toast.error('Puller still unavailable', {
+					description:
+						'You are in the desktop app, but the local puller process is down. Click Retry again, or run pnpm puller:start.'
+				});
+			}
+		} finally {
+			retryingPuller = false;
+		}
+	}
+
 	$effect(() => {
 		void gameId;
 		void metadata;
-		playMode = getGamePlayMode(gameId);
+		const nextMode = getGamePlayMode(gameId);
+		if (playMode !== nextMode) playMode = nextMode;
 		void refreshStatus();
 	});
 
@@ -365,6 +417,22 @@
 					{hasPartialCache ? 'Resume download' : 'Download for offline'}
 				</Button>
 			{/if}
+			{#if pullerMissingHint}
+				<Button
+					size="sm"
+					variant="outline"
+					onclick={() => void retryPullerConnection()}
+					disabled={retryingPuller}
+				>
+					{#if retryingPuller}
+						<Loader2 class="mr-2 h-4 w-4 animate-spin" />
+						Retrying…
+					{:else}
+						<RefreshCw class="mr-2 h-4 w-4" />
+						Retry puller
+					{/if}
+				</Button>
+			{/if}
 			{#if canCancel}
 				<Button
 					size="sm"
@@ -415,9 +483,10 @@
 			</p>
 		{:else if pullerMissingHint}
 			<p class="text-xs text-muted-foreground">
-				The local puller is unavailable right now. Start the desktop app sidecar or run
+				The local puller is unavailable right now. Use <span class="font-medium">Retry puller</span>,
+				restart the desktop app sidecar, or run
 				<code class="rounded bg-muted px-1">pnpm puller:start</code> for full game file downloads on
-				disk.
+				disk. Console, pause inject, and offline mirrors need the puller.
 			</p>
 		{:else if offlineBackend === 'browser'}
 			<p class="text-xs text-muted-foreground">
