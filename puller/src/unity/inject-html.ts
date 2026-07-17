@@ -15,9 +15,9 @@ export function buildUnityInjectScriptTag(): string {
 
 /** Portal bloat — strip before Unity loader runs. */
 const BLOAT_SCRIPT =
-	/(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare)/i;
+	/(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare|adinLoader|adinplay|getAdinDomain|doubleclick|pagead)/i;
 
-const BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick|cloak)/i;
+const BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick|cloak|adin)/i;
 
 /**
  * Strip portal SDK scripts, play-gate overlays, and duplicate loaders from mirrored HTML.

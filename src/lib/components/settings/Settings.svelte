@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -72,10 +72,12 @@
 	} from '$lib/utils/play-recommendations';
 	import { getDefaultGamePlayMode, type GamePlayMode } from '$lib/utils/game-play-mode';
 	import {
+		DEFAULT_TOUCH_SETTINGS,
 		loadTouchConsoleSettings,
 		saveTouchConsoleSettings,
 		type TouchConsoleSettings
 	} from '$lib/utils/touch-console';
+	import { browser } from '$app/environment';
 
 	type Panel = 'root' | 'privacy' | 'audio' | 'analytics' | 'games' | 'touch' | 'updates';
 	const showAndroidUpdates = isTauriAndroidBuild();
@@ -118,7 +120,7 @@
 	let analyticsAffinity = $state<Record<string, number>>({});
 	let analyticsPanelKey = $state(0);
 	let gamesDefaultPlayMode = $state<GamePlayMode>('online');
-	let touchSettingsDraft = $state<TouchConsoleSettings>(loadTouchConsoleSettings());
+	let touchSettingsDraft = $state<TouchConsoleSettings>(structuredClone(DEFAULT_TOUCH_SETTINGS));
 
 	type SettingsBaseline = {
 		disguise: PrivacyDisguiseMode;
@@ -155,7 +157,14 @@
 		analyticsLimitEnabled: false,
 		analyticsLimitMin: 0,
 		analyticsAffinityJson: '[]',
-		touchSettingsJson: JSON.stringify(loadTouchConsoleSettings())
+		touchSettingsJson: JSON.stringify(DEFAULT_TOUCH_SETTINGS)
+	});
+
+	onMount(() => {
+		if (!browser) return;
+		const loaded = loadTouchConsoleSettings();
+		touchSettingsDraft = loaded;
+		baseline = { ...baseline, touchSettingsJson: JSON.stringify(loaded) };
 	});
 
 	const globalSearchResults = $derived.by(() => {

@@ -14,10 +14,16 @@ The SPA does **not** fetch the full `games-metadata.json` (~11 MB). Instead
 | `static/games/games-index/manifest.json` | `total`, `shardSize` (500), `shardCount`, `categories[]` |
 | `static/games/games-index/shard-NNN.json` | Lean rows: `id`, `name`, `author`, `category`, `thumbnail`, optional `engine` |
 
-Client load order: manifest → shard-000 (first paint) → remaining shards (concurrency 4).
-Browse search/filter runs on loaded entries until the index is complete, then Fuse
-covers the full catalog. Full descriptions / embed URLs stay on per-game
-`online/metadata.json` for detail pages.
+Client load order:
+
+1. manifest + **shard-000** (first paint on All Games)
+2. **More shards as you scroll** (`loadMoreCatalogShards`) for default A–Z browse
+3. Full index (concurrency 4) when searching or sorting by author/category/shuffle
+
+Shards are written **A–Z by name** so scroll prefetch appends the next page of the
+library. Rebuild with `node scripts/reindex-games-catalog.mjs` (or full
+`generate-games-list`). Browse Fuse search builds only when the user types a query.
+Full descriptions / embed URLs stay on per-game `online/metadata.json` for detail pages.
 
 `games-list.json` and `games-metadata.json` remain for puller / Flatpak tooling.
 

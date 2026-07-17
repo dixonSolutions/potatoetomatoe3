@@ -119,13 +119,9 @@
 			if (status && !status.online && availability.online) {
 				status = { ...status, online: true };
 			}
-			if (backend === 'browser') {
-				const meta = await getGameMeta(gameId);
-				externalEmbedOnly =
-					Boolean(meta?.externalIframe) || (await onlineShellHasExternalIframe(gameId));
-			} else {
-				externalEmbedOnly = false;
-			}
+			const meta = await getGameMeta(gameId);
+			externalEmbedOnly =
+				Boolean(meta?.externalIframe) || (await onlineShellHasExternalIframe(gameId));
 		} finally {
 			statusReady = true;
 		}
@@ -488,6 +484,13 @@
 				<code class="rounded bg-muted px-1">pnpm puller:start</code> for full game file downloads on
 				disk. Console, pause inject, and offline mirrors need the puller.
 			</p>
+			{#if externalEmbedOnly}
+				<p class="text-xs text-amber-600 dark:text-amber-400">
+					This title loads Unity (or another host) inside a nested cross-origin iframe. Without the
+					puller, play falls back to that shell and usually fails with a Unity
+					<span class="font-medium">Script error</span>. Retry the puller before launching.
+				</p>
+			{/if}
 		{:else if offlineBackend === 'browser'}
 			<p class="text-xs text-muted-foreground">
 				Downloads are saved in this browser via IndexedDB. Same-origin game files work offline.

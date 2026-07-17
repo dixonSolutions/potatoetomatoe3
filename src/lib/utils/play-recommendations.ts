@@ -5,6 +5,7 @@
  * - Content-based weights (categories, authors), implicit feedback, recency, explicit category affinity.
  */
 
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import type { GameIndexEntry, GameMetadata } from '$lib/utils/games';
 import type { GamePreferences } from '$lib/utils/preferences';
 import Fuse from 'fuse.js';
@@ -85,7 +86,7 @@ function migrateV1ToV2(raw: Record<string, unknown>): PlayAnalyticsV2 {
 }
 
 export function loadPlayAnalytics(): PlayAnalyticsV2 {
-	if (typeof localStorage === 'undefined') {
+	if (!canUseLocalStorage()) {
 		return emptyAnalytics();
 	}
 	try {
@@ -116,7 +117,7 @@ export function loadPlayAnalytics(): PlayAnalyticsV2 {
 }
 
 function savePlayAnalytics(data: PlayAnalyticsV2): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	try {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 	} catch (e) {

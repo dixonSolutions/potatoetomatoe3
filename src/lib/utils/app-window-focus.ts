@@ -11,7 +11,10 @@ let appWindowFocused = true;
 let attached = false;
 
 /** Parent-realm native check — game iframes spoof `document.hasFocus()` for Unity. */
-const nativeDocumentHasFocus = Document.prototype.hasFocus;
+function nativeDocumentHasFocus(doc: Document): boolean {
+	if (typeof Document === 'undefined') return false;
+	return Document.prototype.hasFocus.call(doc);
+}
 
 export function isAppWindowFocused(): boolean {
 	return appWindowFocused;
@@ -98,7 +101,7 @@ export async function attachAppWindowFocusTracking(): Promise<() => void> {
 				try {
 					/* Same-origin: native hasFocus on child doc (bypasses iframe focus spoof). */
 					const childDoc = iframe.contentDocument;
-					setFocused(Boolean(childDoc && nativeDocumentHasFocus.call(childDoc)));
+					setFocused(Boolean(childDoc && nativeDocumentHasFocus(childDoc)));
 					return;
 				} catch {
 					/* Cross-origin game frame — keep audio while this tab is visible. */

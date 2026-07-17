@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
@@ -6,10 +7,12 @@
 	import {
 		loadCatalogIndex,
 		loadCatalogManifest,
+		loadMoreCatalogShards,
 		resolveGameThumbnailSrc,
 		type CatalogLoadProgress,
 		type GameIndexEntry
 	} from '$lib/utils/games';
+	import { canUseLocalStorage } from '$lib/utils/browser-storage';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
 	import * as Card from '$lib/components/ui/card';
@@ -33,6 +36,9 @@
 	const BROWSE_SORT_LS = 'potato-tomato-games-browse-sort';
 	const SEARCH_DEBOUNCE_MS = 150;
 	const ROW_ESTIMATE_PX = 360;
+	/** Prefetch more shards when within this many rows of the loaded end. */
+	const SCROLL_PREFETCH_ROWS = 3;
+	const SHARDS_PER_SCROLL = 2;
 
 	let games: GameIndexEntry[] = $state([]);
 	let catalogCategories: string[] = $state([]);
@@ -119,7 +125,7 @@
 
 	function setSortBy(v: SortKey) {
 		sortBy = v;
-		if (typeof localStorage !== 'undefined') {
+		if (canUseLocalStorage()) {
 			try {
 				localStorage.setItem(BROWSE_SORT_LS, v);
 			} catch {
@@ -129,6 +135,10 @@
 		const u = new URL($page.url.href);
 		u.searchParams.set('sort', v);
 		void goto(`${u.pathname}${u.search}`, { replaceState: true, keepFocus: true, noScroll: true });
+		/* Author / category / shuffle need the full catalog for a correct global order. */
+		if (v !== 'name' && catalogProgress && !catalogProgress.complete) {
+			void loadCatalogIndex(applyCatalogUpdate, { eager: true });
+		}
 	}
 
 	function rebuildFuse(list: GameIndexEntry[]) {
@@ -138,6 +148,31 @@
 			includeScore: true,
 			minMatchCharLength: 2
 		});
+	}
+
+	function applyCatalogUpdate(list: GameIndexEntry[], progress: CatalogLoadProgress) {
+		games = list;
+		catalogProgress = progress;
+		if (loading) loading = false;
+		/* Fuse is expensive over 13k rows — only build when the user is searching. */
+		if (debouncedSearch.trim() || searchQuery.trim()) {
+			rebuildFuse(list);
+		} else {
+			fuse = null;
+		}
+	}
+
+	let loadingMoreShards = $state(false);
+
+	async function prefetchShardsIfNeeded() {
+		if (!browser || loadingMoreShards) return;
+		if (catalogProgress?.complete) return;
+		loadingMoreShards = true;
+		try {
+			await loadMoreCatalogShards(SHARDS_PER_SCROLL, applyCatalogUpdate);
+		} finally {
+			loadingMoreShards = false;
+		}
 	}
 
 	async function refreshDownloadedStatuses() {
@@ -179,10 +214,9 @@
 			selectedCategory = params.get('category') || 'all';
 			const urlSort = params.get('sort') as SortKey | null;
 			const allowed: SortKey[] = ['name', 'author', 'category', 'random'];
-			const fromLs =
-				typeof localStorage !== 'undefined'
-					? (localStorage.getItem(BROWSE_SORT_LS) as SortKey | null)
-					: null;
+			const fromLs = canUseLocalStorage()
+				? (localStorage.getItem(BROWSE_SORT_LS) as SortKey | null)
+				: null;
 			sortBy =
 				urlSort && allowed.includes(urlSort)
 					? urlSort
@@ -194,22 +228,26 @@
 			const prefs = getPreferences();
 			favouriteIds = new Set(prefs.liked);
 
-			try {
-				const manifest = await loadCatalogManifest();
-				catalogCategories = manifest.categories;
-			} catch {
-				catalogCategories = [];
-			}
-
 			void refreshDownloadedStatuses();
 
-			await loadCatalogIndex((list, progress) => {
-				games = list;
-				catalogProgress = progress;
-				rebuildFuse(list);
-				if (loading) loading = false;
-			});
-			loading = false;
+			try {
+				/* First shard only — paint immediately; more shards load as you scroll. */
+				await loadCatalogIndex(applyCatalogUpdate, { eager: false });
+				const manifest = await loadCatalogManifest();
+				catalogCategories = manifest.categories;
+				/*
+				 * Global search / non-name sorts need the full index eventually.
+				 * Kick a quiet background fill only when the user already searched
+				 * or picked a sort that is not the default A–Z browse path.
+				 */
+				if (searchQuery.trim() || sortBy !== 'name') {
+					void loadCatalogIndex(applyCatalogUpdate, { eager: true });
+				}
+			} catch (err) {
+				console.error('Failed to load games catalog:', err);
+			} finally {
+				loading = false;
+			}
 		})();
 
 		return () => {
@@ -225,6 +263,17 @@
 			debouncedSearch = q;
 		}, SEARCH_DEBOUNCE_MS);
 		return () => clearTimeout(t);
+	});
+
+	/* Searching the full library — ensure the rest of the catalog is loading. */
+	$effect(() => {
+		if (!browser) return;
+		if (!debouncedSearch.trim()) return;
+		if (catalogProgress?.complete) {
+			if (!fuse) rebuildFuse(games);
+			return;
+		}
+		void loadCatalogIndex(applyCatalogUpdate, { eager: true });
 	});
 
 	let restrictToDownloaded = $derived(!networkOnline || showDownloadedOnly);
@@ -252,12 +301,15 @@
 			);
 		}
 
+		/* Shards are A–Z — skip a full sort for the default browse path. */
+		if (sortBy === 'name' && !sortReversed) {
+			return results;
+		}
+
 		const sorted = [...results];
 		switch (sortBy) {
 			case 'name':
-				sorted.sort((a, b) =>
-					sortReversed ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
-				);
+				sorted.sort((a, b) => b.name.localeCompare(a.name));
 				break;
 			case 'author':
 				sorted.sort((a, b) =>
@@ -302,7 +354,17 @@
 	let totalSize = $derived($rowVirtualizer.getTotalSize());
 
 	$effect(() => {
-		const ids = virtualRows.flatMap((row) => {
+		if (!browser) return;
+		const rows = virtualRows;
+		if (rows.length === 0) return;
+
+		/* Near the end of loaded rows → fetch the next name-sorted shards. */
+		const last = rows[rows.length - 1];
+		if (last && rowCount - last.index <= SCROLL_PREFETCH_ROWS) {
+			void prefetchShardsIfNeeded();
+		}
+
+		const ids = rows.flatMap((row) => {
 			const start = row.index * columnCount;
 			return filteredGames.slice(start, start + columnCount).map((g) => g.id);
 		});
@@ -360,8 +422,8 @@
 	<div class="mb-8">
 		<h1 class="mb-4 text-4xl font-bold">All games</h1>
 		<p class="max-w-2xl text-muted-foreground">
-			Full library in default A–Z order or a session-stable shuffle. The catalog loads in the
-			background so the first rows appear quickly.
+			Full library in A–Z order (or shuffle). The first page appears immediately; more games load
+			as you scroll. Search pulls in the rest of the catalog when you type.
 		</p>
 	</div>
 

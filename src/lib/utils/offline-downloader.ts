@@ -77,9 +77,9 @@ const BROWSER_PULLER_DOWNLOADS_KEY = 'pt-browser-puller-downloads';
 const browserPullerDownloads = new Set<string>();
 
 function hydrateBrowserPullerDownloads(): void {
-	if (typeof sessionStorage === 'undefined') return;
+	if (typeof window === 'undefined' || typeof window.sessionStorage === 'undefined') return;
 	try {
-		const raw = sessionStorage.getItem(BROWSER_PULLER_DOWNLOADS_KEY);
+		const raw = window.sessionStorage.getItem(BROWSER_PULLER_DOWNLOADS_KEY);
 		if (!raw) return;
 		for (const id of JSON.parse(raw) as string[]) {
 			if (typeof id === 'string' && id) browserPullerDownloads.add(id);
@@ -90,8 +90,11 @@ function hydrateBrowserPullerDownloads(): void {
 }
 
 function syncBrowserPullerDownloads(): void {
-	if (typeof sessionStorage === 'undefined') return;
-	sessionStorage.setItem(BROWSER_PULLER_DOWNLOADS_KEY, JSON.stringify([...browserPullerDownloads]));
+	if (typeof window === 'undefined' || typeof window.sessionStorage === 'undefined') return;
+	window.sessionStorage.setItem(
+		BROWSER_PULLER_DOWNLOADS_KEY,
+		JSON.stringify([...browserPullerDownloads])
+	);
 }
 
 function trackBrowserPullerDownload(gameId: string): void {

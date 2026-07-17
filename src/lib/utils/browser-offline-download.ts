@@ -200,31 +200,81 @@ function extractIframeSrc(html: string): string | null {
 	return null;
 }
 
+/** Hosts that serve Unity WebGL builds behind catalog iframe shells. */
+const UNITY_IFRAME_HOST_RE =
+	/abinbins\.github\.io|play\.unity\.com|cdn\.play\.unity\.com|storage-direct\.y8\.com|unity3d\.com/i;
+
+/** True when an embed URL is likely a Unity WebGL document (prefer /api/unity-play). */
+export function iframeSrcLooksLikeUnity(src: string): boolean {
+	try {
+		const u = new URL(src);
+		if (UNITY_IFRAME_HOST_RE.test(u.hostname)) return true;
+		if (/\/(Build|Release|TemplateData)\//i.test(u.pathname)) return true;
+		return false;
+	} catch {
+		return false;
+	}
+}
+
+export type OnlineShellExternalInfo = {
+	external: boolean;
+	/** Prefer puller unity-play (CDN assets + inject) over full game-live relay. */
+	unityLike: boolean;
+	iframeSrc: string | null;
+};
+
 /**
- * Peek the online shell for a cross-origin iframe (browser IndexedDB cannot full-scrape those).
+ * Peek the online shell for a cross-origin iframe and whether it looks like Unity.
+ * Browser IndexedDB cannot full-scrape those hosts.
  */
-export async function onlineShellHasExternalIframe(gameId: string): Promise<boolean> {
+export async function probeOnlineShellExternal(gameId: string): Promise<OnlineShellExternalInfo> {
+	const empty: OnlineShellExternalInfo = { external: false, unityLike: false, iframeSrc: null };
 	try {
 		const { loadGameMetadata } = await import('./games');
 		const metadata = await loadGameMetadata(gameId);
 		if (metadata?.onlineEmbedUrl) {
 			try {
-				if (new URL(metadata.onlineEmbedUrl).origin !== window.location.origin) return true;
+				const embed = metadata.onlineEmbedUrl.trim();
+				if (new URL(embed).origin !== window.location.origin) {
+					return {
+						external: true,
+						unityLike: metadata.engine === 'unity' || iframeSrcLooksLikeUnity(embed),
+						iframeSrc: embed
+					};
+				}
 			} catch {
-				return true;
+				return {
+					external: true,
+					unityLike: metadata?.engine === 'unity',
+					iframeSrc: metadata.onlineEmbedUrl
+				};
 			}
 		}
 		const res = await fetch(absoluteGameOnlineUrl(gameId, 'index.html'), {
 			cache: 'no-store'
 		});
-		if (!res.ok) return false;
+		if (!res.ok) return empty;
 		const html = await res.text();
 		const iframeSrc = extractIframeSrc(html);
-		if (!iframeSrc) return false;
-		return new URL(iframeSrc).origin !== window.location.origin;
+		if (!iframeSrc) return empty;
+		const external = new URL(iframeSrc).origin !== window.location.origin;
+		if (!external) return empty;
+		return {
+			external: true,
+			unityLike: metadata?.engine === 'unity' || iframeSrcLooksLikeUnity(iframeSrc),
+			iframeSrc
+		};
 	} catch {
-		return false;
+		return empty;
 	}
+}
+
+/**
+ * Peek the online shell for a cross-origin iframe (browser IndexedDB cannot full-scrape those).
+ */
+export async function onlineShellHasExternalIframe(gameId: string): Promise<boolean> {
+	const info = await probeOnlineShellExternal(gameId);
+	return info.external;
 }
 
 /** Clear message when browser storage cannot mirror a third-party game host. */

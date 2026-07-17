@@ -3,6 +3,7 @@
  * Positions are stored as viewport percentages so layouts survive screen size and orientation.
  */
 
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import { isLocalAppDeployment } from './offline-deployment';
 
 export type TouchOrientation = 'landscape' | 'portrait';
@@ -307,7 +308,7 @@ function emitChanged(detail: { gameId?: string | null } = {}): void {
 }
 
 export function loadTouchConsoleSettings(): TouchConsoleSettings {
-	if (typeof localStorage === 'undefined') return structuredClone(DEFAULT_TOUCH_SETTINGS);
+	if (!canUseLocalStorage()) return structuredClone(DEFAULT_TOUCH_SETTINGS);
 	try {
 		const raw = localStorage.getItem(GLOBAL_KEY);
 		if (!raw) return structuredClone(DEFAULT_TOUCH_SETTINGS);
@@ -319,7 +320,7 @@ export function loadTouchConsoleSettings(): TouchConsoleSettings {
 
 export function saveTouchConsoleSettings(settings: TouchConsoleSettings): TouchConsoleSettings {
 	const next = normalizeSettings(settings);
-	if (typeof localStorage !== 'undefined') {
+	if (canUseLocalStorage()) {
 		try {
 			localStorage.setItem(GLOBAL_KEY, JSON.stringify(next));
 		} catch (e) {
@@ -355,7 +356,7 @@ export function patchTouchConsoleSettings(
 }
 
 export function loadGameTouchOverride(gameId: string): TouchConsoleGameOverride | null {
-	if (!gameId || typeof localStorage === 'undefined') return null;
+	if (!gameId || !canUseLocalStorage()) return null;
 	try {
 		const raw = localStorage.getItem(GAME_PREFIX + gameId);
 		if (!raw) return null;
@@ -372,7 +373,7 @@ export function loadGameTouchOverride(gameId: string): TouchConsoleGameOverride 
 }
 
 export function saveGameTouchOverride(gameId: string, override: TouchConsoleGameOverride | null): void {
-	if (!gameId || typeof localStorage === 'undefined') return;
+	if (!gameId || !canUseLocalStorage()) return;
 	try {
 		if (!override || (!override.layouts && !override.mapping)) {
 			localStorage.removeItem(GAME_PREFIX + gameId);

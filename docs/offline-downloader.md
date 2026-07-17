@@ -108,7 +108,15 @@ pnpm run games:import-y8 -- --limit 50 --skip-existing
 node scripts/generate-games-list.js
 ```
 
-Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock + touch postMessage bridge). Non-Unity external embeds use `/api/game-live/:id` (live relay — not an offline download).
+Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. When the local puller is running (Tauri / `pnpm dev`), online Unity play prefers `/api/unity-play/:id` so `inject.js` runs **inside** the game document (splash stripped + Web Audio unlock + touch postMessage bridge). Catalog shells that only wrap a Unity iframe (e.g. `abinbins.github.io`) are detected at play time and also routed to `/api/unity-play/:id` even without `engine: "unity"` metadata — CDN assets stay remote while inject still runs in-document. Non-Unity external embeds use `/api/game-live/:id` (live relay — not an offline download).
+
+**All Games catalog:** shards are A–Z; the browse page paints after shard-000 and loads more as you scroll (`loadMoreCatalogShards`). Searching or non-name sorts pull the rest of the index in the background.
+
+**Unity inject hardening** ([`static/unity/inject.js`](../static/unity/inject.js)):
+
+- Patches both `assert(0===stdin.fd,…)` and `assert(stdin.fd===0,…)` so WebKitGTK does not abort at `createStandardStreams` (“invalid handle for stdin”).
+- Wraps `unityDecompressReleaseFile` so legacy UnityLoader only gunzips real gzip payloads (plain UnityFS / already-decoded bodies pass through) — avoids zlib “incorrect header check” when the `*.gz` fallback would inflate HTML or uncompressed data.
+- Forces `UnityLoader.CompressionState` to Supported when possible so flaky first XHRs do not kick that broken `.gz` path.
 
 **GitHub Pages:** Unity online uses same-origin `{base}/api/unity-play/:id`; other external online embeds use `{base}/api/game-live/:id`. [`offline-sw.js`](../static/offline-sw.js) relays to `http://127.0.0.1:18787` when you run `pnpm puller:start` locally (no hosted proxy required; avoids mixed-content). Optionally set `PUBLIC_PLAY_PROXY_URL` (Cloudflare Worker) for Unity visitors without a local puller — see [`workers/unity-play-proxy/`](../workers/unity-play-proxy/). Without puller or that env var, the SW iframe shows an error page (touch unavailable).
 

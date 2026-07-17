@@ -3,6 +3,8 @@
  * can still paint the decoy tab title on first load. Legacy cookie-only installs migrate on read.
  */
 
+import { canUseLocalStorage } from '$lib/utils/browser-storage';
+
 export const SITE_SETTINGS_COOKIE = 'potato-tomato-settings';
 const LOCAL_STORAGE_KEY = 'potato-tomato-site-settings-v1';
 const COOKIE_MAX_AGE_SEC = 60 * 60 * 24 * 400; // ~400 days
@@ -183,7 +185,7 @@ function setCookieRaw(name: string, value: string, maxAgeSec: number): void {
 }
 
 function migrateFromLocalStorage(): SiteSettingsV1 | null {
-	if (typeof localStorage === 'undefined') return null;
+	if (!canUseLocalStorage()) return null;
 	const flag = localStorage.getItem(LEGACY_KEYS.flag);
 	if (flag !== '1') return null;
 	const hash = localStorage.getItem(LEGACY_KEYS.hash);
@@ -197,7 +199,7 @@ function migrateFromLocalStorage(): SiteSettingsV1 | null {
 }
 
 function clearLegacyLocalStorage(): void {
-	if (typeof localStorage === 'undefined') return;
+	if (!canUseLocalStorage()) return;
 	localStorage.removeItem(LEGACY_KEYS.flag);
 	localStorage.removeItem(LEGACY_KEYS.hash);
 	localStorage.removeItem(LEGACY_KEYS.decoy);
@@ -205,7 +207,7 @@ function clearLegacyLocalStorage(): void {
 
 /** Read merged settings: localStorage first, then migrate from cookie or legacy keys. */
 export function loadSiteSettings(): SiteSettingsV1 {
-	if (typeof localStorage !== 'undefined') {
+	if (canUseLocalStorage()) {
 		const ls = localStorage.getItem(LOCAL_STORAGE_KEY);
 		if (ls) {
 			try {
@@ -248,7 +250,7 @@ export function loadSiteSettings(): SiteSettingsV1 {
 }
 
 export function saveSiteSettings(settings: SiteSettingsV1): void {
-	if (typeof localStorage !== 'undefined') {
+	if (canUseLocalStorage()) {
 		try {
 			localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(settings));
 		} catch (e) {

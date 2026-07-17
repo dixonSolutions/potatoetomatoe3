@@ -123,8 +123,12 @@
 	function dismissBanner() {
 		bannerDismissed = true;
 		// Store dismissal in localStorage
-		if (typeof localStorage !== 'undefined') {
-			localStorage.setItem('ubuntuBannerDismissed', 'true');
+		try {
+			if (typeof window !== 'undefined' && window.localStorage) {
+				window.localStorage.setItem('ubuntuBannerDismissed', 'true');
+			}
+		} catch {
+			/* ignore */
 		}
 	}
 
