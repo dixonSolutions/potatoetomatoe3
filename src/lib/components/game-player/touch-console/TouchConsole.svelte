@@ -191,19 +191,57 @@
 		return Math.max(0, Math.min(1, n));
 	}
 
+	/**
+	 * Svelte 5 exposes derived/state objects as reactive proxies. `structuredClone`
+	 * cannot clone those proxies, so edit sessions need a plain layout snapshot.
+	 */
+	function cloneTouchLayout(source: TouchLayout): TouchLayout {
+		return {
+			console: { ...source.console },
+			joystick: { ...source.joystick },
+			buttons: source.buttons.map((button) => ({
+				...button,
+				codes: [...button.codes]
+			}))
+		};
+	}
+
+	function getSurfaceMetrics() {
+		const overlayRect = surfaceEl?.getBoundingClientRect();
+		const frame = surfaceEl?.parentElement?.querySelector<HTMLElement>(
+			'.game-player-surface__frame'
+		);
+		const frameRect = frame?.getBoundingClientRect();
+		const width =
+			frameRect?.width ||
+			overlayRect?.width ||
+			surfaceEl?.parentElement?.clientWidth ||
+			(typeof window !== 'undefined' ? window.innerWidth : 0);
+		const height =
+			frameRect?.height ||
+			overlayRect?.height ||
+			surfaceEl?.parentElement?.clientHeight ||
+			(typeof window !== 'undefined' ? window.innerHeight : 0);
+		return {
+			width,
+			height
+		};
+	}
+
 	function beginEdit(control: 'console' | 'joystick' | string) {
 		editingControl = control;
-		editOrigin = structuredClone(layout);
-		layoutDraft = structuredClone(layout);
+		editOrigin = cloneTouchLayout(layout);
+		layoutDraft = cloneTouchLayout(layout);
 	}
 
 	function dragControl(control: 'console' | 'joystick' | string, delta: { x: number; y: number }) {
-		if (!editOrigin || !layoutDraft || surfaceW <= 0 || surfaceH <= 0) return;
-		const next = structuredClone(editOrigin);
-		const dxPct = delta.x / surfaceW;
-		const dyPct = delta.y / surfaceH;
+		const { width, height } = getSurfaceMetrics();
+		if (!editOrigin || !layoutDraft || width <= 0 || height <= 0) return;
+		const next = cloneTouchLayout(editOrigin);
+		const dxPct = delta.x / width;
+		const dyPct = delta.y / height;
 		if (control === 'console') {
-			layoutDraft = translateTouchLayout(editOrigin, dxPct, dyPct);
+			layoutDraft = cloneTouchLayout(translateTouchLayout(editOrigin, dxPct, dyPct));
 			return;
 		} else if (control === 'joystick') {
 			next.joystick.xPct = clampPct(editOrigin.joystick.xPct + dxPct);
@@ -451,7 +489,11 @@
 						e.preventDefault();
 						e.stopPropagation();
 						const grip = e.currentTarget;
-						grip.setPointerCapture?.(e.pointerId);
+						try {
+							grip.setPointerCapture?.(e.pointerId);
+						} catch {
+							/* Synthetic or WebView pointer events may not have an active capture target. */
+						}
 						const start = { x: e.clientX, y: e.clientY };
 						let editing = false;
 						let cancelled = false;
@@ -464,8 +506,10 @@
 							if (ev.pointerId !== e.pointerId) return;
 							const dx = ev.clientX - start.x;
 							const dy = ev.clientY - start.y;
-							// Minor touch jitter should not cancel the long-press. Once editing
-							// begins, pointer capture keeps the drag alive outside the small grip.
+							/*
+							 * Minor touch jitter should not cancel the long-press. Once editing
+							 * begins, pointer capture keeps the drag alive outside the grip.
+							 */
 							if (!editing && Math.hypot(dx, dy) > 24) {
 								cancelled = true;
 								clearTimeout(timer);
@@ -478,8 +522,12 @@
 							window.removeEventListener('pointermove', onMove, true);
 							window.removeEventListener('pointerup', onUp, true);
 							window.removeEventListener('pointercancel', onUp, true);
-							if (grip.hasPointerCapture?.(e.pointerId)) {
-								grip.releasePointerCapture(e.pointerId);
+							try {
+								if (grip.hasPointerCapture?.(e.pointerId)) {
+									grip.releasePointerCapture(e.pointerId);
+								}
+							} catch {
+								/* Ignore releases after a WebView pointer cancellation. */
 							}
 							endEdit(editing);
 						};

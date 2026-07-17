@@ -196,6 +196,20 @@ export async function fetchLiveAsset(
 	}
 
 	let contentType = res.headers.get('content-type') || 'application/octet-stream';
+	/*
+	 * Preserve upstream failures as failures. In particular, do not inject the
+	 * storage bridge into a 404 HTML page returned for a missing .js/.wasm
+	 * asset; that turns a clean missing-asset response into a misleading
+	 * JavaScript parse/runtime error.
+	 */
+	if (!res.ok) {
+		return {
+			status: res.status,
+			contentType,
+			body: buf,
+			cacheControl: res.headers.get('cache-control') || undefined
+		};
+	}
 	let body = buf;
 
 	/* Nested HTML (iframes): inject bridge + rewrite against this session. */

@@ -471,6 +471,9 @@ export function createServer(): http.Server {
 					res.end(asset.body);
 				} catch (error) {
 					const message = error instanceof Error ? error.message : String(error);
+					console.warn(
+						`[puller] live asset failed game=${gameId} session=${sessionId} path=${assetPath}: ${message}`
+					);
 					sendJson(res, 502, { error: message });
 				}
 				return;

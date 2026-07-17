@@ -167,15 +167,17 @@ function relayPullerPassthrough(targetUrl, kind, gameId) {
 		.then(function (res) {
 			if (!res.ok) {
 				return res.text().then(function (body) {
-					var detail = body && body.length < 200 ? body : 'HTTP ' + res.status;
-					var ct = (res.headers.get('Content-Type') || '').toLowerCase();
-					if (ct.indexOf('text/html') === 0) {
-						return new Response(pullerRelayErrorHtml(kind, gameId, detail), {
-							status: 502,
-							headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
-						});
-					}
-					return new Response(body, { status: res.status });
+					/*
+					 * Asset requests can legitimately receive an upstream HTML
+					 * 404 page for an optional portal/ad file. Preserve that
+					 * response instead of converting it into a misleading 502;
+					 * relay errors are reserved for the top-level entry page.
+					 */
+					return new Response(body, {
+						status: res.status,
+						statusText: res.statusText,
+						headers: res.headers
+					});
 				});
 			}
 			return res.arrayBuffer().then(function (buf) {

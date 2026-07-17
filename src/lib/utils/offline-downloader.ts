@@ -66,7 +66,11 @@ import {
 	startBrowserGameDownload
 } from './browser-offline-download';
 import { importPullerOfflineCopy } from './browser-offline-download';
-import { getOfflineBackend, invalidateOfflineBackendCache } from './offline-runtime';
+import {
+	getOfflineBackend,
+	invalidateOfflineBackendCache,
+	isPublicSiteDeployment
+} from './offline-runtime';
 
 /** Public-site downloads delegated to the puller, then imported into browser storage. */
 const BROWSER_PULLER_DOWNLOADS_KEY = 'pt-browser-puller-downloads';

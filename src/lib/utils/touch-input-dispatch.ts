@@ -105,11 +105,16 @@ function keyCodeFromCode(code: string): number {
 
 function findCanvas(doc: Document): HTMLCanvasElement | HTMLElement | null {
 	const canvas = doc.querySelector('canvas');
-	if (canvas instanceof HTMLCanvasElement) return canvas;
+	/*
+	 * Do not use the parent realm's HTMLElement constructors here. Same-origin
+	 * iframe elements belong to the iframe realm, so `instanceof HTMLCanvasElement`
+	 * is false even when the element is a real canvas.
+	 */
+	if (canvas) return canvas as HTMLCanvasElement;
 	const unity = doc.querySelector(
 		'#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
 	);
-	if (unity instanceof HTMLElement) return unity;
+	if (unity) return unity as HTMLElement;
 	return null;
 }
 
@@ -135,7 +140,6 @@ export function resolveInjectable(
 
 		const visit = (root: Document, depth: number) => {
 			for (const frame of root.querySelectorAll('iframe')) {
-				if (!(frame instanceof HTMLIFrameElement)) continue;
 				try {
 					const childDoc = frame.contentDocument;
 					const childWin = frame.contentWindow;
@@ -162,7 +166,6 @@ export function resolveInjectable(
 		if (!best.canvas && nested.length > 0) {
 			let anySameOriginChild = false;
 			for (const frame of nested) {
-				if (!(frame instanceof HTMLIFrameElement)) continue;
 				try {
 					if (frame.contentDocument) anySameOriginChild = true;
 				} catch {

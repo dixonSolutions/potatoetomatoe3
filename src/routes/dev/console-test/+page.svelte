@@ -169,7 +169,7 @@
 			ackId,
 			path,
 			domCodes: codes,
-			iframeWin: iframeEl?.contentWindow ?? null
+			iframeWin: dispatcher.getTarget()?.win ?? iframeEl?.contentWindow ?? null
 		});
 		dispatcher.setPendingAckId(ackId);
 		run();
