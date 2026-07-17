@@ -84,6 +84,8 @@
 	let error = $state('');
 	let iframeElement = $state<HTMLIFrameElement | undefined>(undefined);
 	let gameSurfaceEl = $state<HTMLDivElement | undefined>(undefined);
+	let playerUrlRefreshPending = $state(false);
+	let playerUrlRefreshGeneration = 0;
 	let isGameFullscreen = $state(false);
 	let showUbuntuBanner = $state(false);
 	let bannerDismissed = $state(false);
@@ -216,7 +218,6 @@
 
 		const mode = gameId ? getGamePlayMode(gameId) : 'online';
 		if (mode === 'offline') {
-			const prev = gamePlayerUrl;
 			await refreshPlayerUrl();
 			if (canUseTouchBridge(gamePlayerUrl)) {
 				gameSurfaceStarted = true;
@@ -321,7 +322,17 @@
 	async function refreshPlayerUrl() {
 		const id = gameId;
 		if (!id) return;
-		gamePlayerUrl = await getGamePlayerUrl(id, gameMetadata);
+		const generation = ++playerUrlRefreshGeneration;
+		playerUrlRefreshPending = true;
+		try {
+			const nextUrl = await getGamePlayerUrl(id, gameMetadata);
+			if (generation !== playerUrlRefreshGeneration || id !== gameId) return;
+			gamePlayerUrl = nextUrl;
+		} finally {
+			if (generation === playerUrlRefreshGeneration) {
+				playerUrlRefreshPending = false;
+			}
+		}
 	}
 
 	async function refreshOfflineBackendLabel() {
@@ -899,6 +910,7 @@
 						posterUrl={posterUrlFor(gameMetadata)}
 						title={gameMetadata.name}
 						fillContainer={isGameFullscreen || playerLayout.isCompact}
+						startDisabled={playerUrlRefreshPending && !gameSurfaceStarted}
 						bind:started={gameSurfaceStarted}
 						onIframeReady={(el) => {
 							const next = el ?? undefined;

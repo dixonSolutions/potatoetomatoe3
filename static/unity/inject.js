@@ -173,6 +173,65 @@
 		}
 	}
 
+	/*
+	 * Older Unity/Emscripten frameworks assume that stdin/stdout/stderr are
+	 * allocated at descriptors 0/1/2. WebKitGTK can leave descriptor 0
+	 * occupied while the framework is being evaluated, which aborts startup
+	 * with "invalid handle for stdin (1)". Repair only this known assertion
+	 * pattern after the framework has been decompressed and before it runs.
+	 */
+	function patchUnityFrameworkSource(source) {
+		var original = source;
+		var text = source;
+		var bytes = false;
+		try {
+			if (typeof source !== 'string') {
+				if (source instanceof ArrayBuffer) source = new Uint8Array(source);
+				if (!source || typeof source.byteLength !== 'number' || typeof TextDecoder !== 'function') {
+					return original;
+				}
+				text = new TextDecoder('utf-8').decode(source);
+				bytes = true;
+			}
+		} catch (e) {
+			return original;
+		}
+
+		if (typeof text !== 'string' || text.indexOf('invalid handle for stdin') === -1) {
+			return original;
+		}
+
+		var assertion =
+			/assert\(\s*([0-2])===([A-Za-z_$][\w$]*)\.fd\s*,\s*["']invalid handle for (stdin|stdout|stderr) \(["']\+\2\.fd\+["']\)["']\s*\);/g;
+		var patched = text.replace(assertion, function (_match, expected, stream) {
+			return (
+				'if (' +
+				stream +
+				'.fd !== ' +
+				expected +
+				') { FS.streams[' +
+				stream +
+				'.fd] = null; ' +
+				stream +
+				'.fd = ' +
+				expected +
+				'; FS.streams[' +
+				expected +
+				'] = ' +
+				stream +
+				'; }'
+			);
+		});
+
+		if (patched === text) return original;
+		if (!bytes) return patched;
+		try {
+			return typeof TextEncoder === 'function' ? new TextEncoder().encode(patched) : original;
+		} catch (e) {
+			return original;
+		}
+	}
+
 	/* Wrap createUnityInstance once the loader defines it */
 	var _cui = window.createUnityInstance;
 	Object.defineProperty(window, 'createUnityInstance', {
@@ -227,6 +286,19 @@
 				}
 				return origInstantiate(container, url, opts);
 			};
+		}
+		if (typeof UL.loadCode === 'function' && !UL.loadCode.__ptStdioPatched) {
+			var origLoadCode = UL.loadCode;
+			var patchedLoadCode = function (source, callback, options) {
+				return origLoadCode.call(
+					this,
+					patchUnityFrameworkSource(source),
+					callback,
+					options
+				);
+			};
+			patchedLoadCode.__ptStdioPatched = true;
+			UL.loadCode = patchedLoadCode;
 		}
 		return UL;
 	}

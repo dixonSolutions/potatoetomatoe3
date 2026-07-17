@@ -1853,7 +1853,11 @@ var UNITY_INJECT_SOURCE = `/**
 		if (window.__ptFocusSpoofInstalled) return;
 		window.__ptFocusSpoofInstalled = true;
 
-		/* Do NOT override Document.prototype.hasFocus \u2014 parent mute-on-focus uses it. */
+		/*
+		 * Safe to spoof hasFocus HERE (iframe realm only). Parent mute-on-focus-loss
+		 * reads the shell document \u2014 not this prototype. Unity polls hasFocus() when
+		 * the touch console (parent overlay) steals DOM focus; without this the game freezes.
+		 */
 		try {
 			Object.defineProperty(Document.prototype, 'hidden', {
 				configurable: true,
@@ -1867,6 +1871,9 @@ var UNITY_INJECT_SOURCE = `/**
 					return 'visible';
 				}
 			});
+			Document.prototype.hasFocus = function () {
+				return true;
+			};
 		} catch (e) {
 			/* ignore */
 		}
@@ -1881,11 +1888,28 @@ var UNITY_INJECT_SOURCE = `/**
 			}
 		}
 
+		var focusLossEvents = { blur: true, focusout: true, visibilitychange: true };
+
 		/* Capture-phase: Unity never sees blur / visibilitychange (keeps in-game pause menus off). */
 		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {
 			window.addEventListener(type, swallow, true);
 			document.addEventListener(type, swallow, true);
 		});
+
+		/* Block late-registered blur handlers (Unity / portal SDKs). */
+		function blockFocusLossListeners(target) {
+			try {
+				var add = target.addEventListener;
+				target.addEventListener = function (type, listener, options) {
+					if (focusLossEvents[type]) return;
+					return add.call(this, type, listener, options);
+				};
+			} catch (e3) {
+				/* ignore */
+			}
+		}
+		blockFocusLossListeners(window);
+		blockFocusLossListeners(document);
 	})();
 
 	/* \u2014\u2014\u2014 Reject HTML mistaken for JS/wasm (SPA fallback / missing Build files) \u2014\u2014\u2014 */
@@ -1969,6 +1993,65 @@ var UNITY_INJECT_SOURCE = `/**
 		}
 	}
 
+	/*
+	 * Older Unity/Emscripten frameworks assume that stdin/stdout/stderr are
+	 * allocated at descriptors 0/1/2. WebKitGTK can leave descriptor 0
+	 * occupied while the framework is being evaluated, which aborts startup
+	 * with "invalid handle for stdin (1)". Repair only this known assertion
+	 * pattern after the framework has been decompressed and before it runs.
+	 */
+	function patchUnityFrameworkSource(source) {
+		var original = source;
+		var text = source;
+		var bytes = false;
+		try {
+			if (typeof source !== 'string') {
+				if (source instanceof ArrayBuffer) source = new Uint8Array(source);
+				if (!source || typeof source.byteLength !== 'number' || typeof TextDecoder !== 'function') {
+					return original;
+				}
+				text = new TextDecoder('utf-8').decode(source);
+				bytes = true;
+			}
+		} catch (e) {
+			return original;
+		}
+
+		if (typeof text !== 'string' || text.indexOf('invalid handle for stdin') === -1) {
+			return original;
+		}
+
+		var assertion =
+			/assert\\(\\s*([0-2])===([A-Za-z_$][\\w$]*)\\.fd\\s*,\\s*["']invalid handle for (stdin|stdout|stderr) \\(["']\\+\\2\\.fd\\+["']\\)["']\\s*\\);/g;
+		var patched = text.replace(assertion, function (_match, expected, stream) {
+			return (
+				'if (' +
+				stream +
+				'.fd !== ' +
+				expected +
+				') { FS.streams[' +
+				stream +
+				'.fd] = null; ' +
+				stream +
+				'.fd = ' +
+				expected +
+				'; FS.streams[' +
+				expected +
+				'] = ' +
+				stream +
+				'; }'
+			);
+		});
+
+		if (patched === text) return original;
+		if (!bytes) return patched;
+		try {
+			return typeof TextEncoder === 'function' ? new TextEncoder().encode(patched) : original;
+		} catch (e) {
+			return original;
+		}
+	}
+
 	/* Wrap createUnityInstance once the loader defines it */
 	var _cui = window.createUnityInstance;
 	Object.defineProperty(window, 'createUnityInstance', {
@@ -2023,6 +2106,19 @@ var UNITY_INJECT_SOURCE = `/**
 				}
 				return origInstantiate(container, url, opts);
 			};
+		}
+		if (typeof UL.loadCode === 'function' && !UL.loadCode.__ptStdioPatched) {
+			var origLoadCode = UL.loadCode;
+			var patchedLoadCode = function (source, callback, options) {
+				return origLoadCode.call(
+					this,
+					patchUnityFrameworkSource(source),
+					callback,
+					options
+				);
+			};
+			patchedLoadCode.__ptStdioPatched = true;
+			UL.loadCode = patchedLoadCode;
 		}
 		return UL;
 	}
@@ -2369,7 +2465,7 @@ var UNITY_INJECT_SOURCE = `/**
 	setInterval(hideLoadingDom, 500);
 })();
 `;
-var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Do not override hasFocus \u2014 parent mute-on-focus-loss reads it.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		var focusLossEvents = {\n			blur: true,\n			focusout: true,\n			visibilitychange: true\n		};\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n		/*\n		 * The console lives in the parent document. Tapping it can blur this\n		 * iframe, and some games register their own blur handlers after this\n		 * bridge is loaded. Block those handlers before they are registered:\n		 * the app's explicit Pause control remains the only pause channel.\n		 */\n		function blockFocusLossListeners(target) {\n			try {\n				var add = target.addEventListener;\n				target.addEventListener = function (type, listener, options) {\n					if (focusLossEvents[type]) return;\n					return add.call(this, type, listener, options);\n				};\n			} catch (e) {\n				/* ignore */\n			}\n		}\n		blockFocusLossListeners(window);\n		blockFocusLossListeners(document);\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//,\n			/\\/api\\/(?:unity-play|game-live)\\/([^/]+)/\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;\n			if (effective) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		applyEffectiveAudioMute();\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas = document.querySelector('canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl = document.querySelector('canvas');\n		if (canvasEl) targets.push(canvasEl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function sendTouchInputAck(data, codes) {\n		if (!data || !data.ackId) return;\n		try {\n			window.parent.postMessage(\n				{\n					type: 'potato-tomato-touch-input-ack',\n					ackId: data.ackId,\n					action: data.action,\n					codes: codes || [],\n					path: 'bridge',\n					ok: true\n				},\n				'*'\n			);\n		} catch (e) {}\n	}\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			sendTouchInputAck(data, held);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			sendTouchInputAck(data, codes);\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n			sendTouchInputAck(data, codes);\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
+var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Spoof hasFocus in this iframe realm only \u2014 parent shell mute uses the outer document.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n			Document.prototype.hasFocus = function () {\n				return true;\n			};\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		var focusLossEvents = {\n			blur: true,\n			focusout: true,\n			visibilitychange: true\n		};\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n		/*\n		 * The console lives in the parent document. Tapping it can blur this\n		 * iframe, and some games register their own blur handlers after this\n		 * bridge is loaded. Block those handlers before they are registered:\n		 * the app's explicit Pause control remains the only pause channel.\n		 */\n		function blockFocusLossListeners(target) {\n			try {\n				var add = target.addEventListener;\n				target.addEventListener = function (type, listener, options) {\n					if (focusLossEvents[type]) return;\n					return add.call(this, type, listener, options);\n				};\n			} catch (e) {\n				/* ignore */\n			}\n		}\n		blockFocusLossListeners(window);\n		blockFocusLossListeners(document);\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//,\n			/\\/api\\/(?:unity-play|game-live)\\/([^/]+)/\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;\n			if (effective) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		applyEffectiveAudioMute();\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas = document.querySelector('canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl = document.querySelector('canvas');\n		if (canvasEl) targets.push(canvasEl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function sendTouchInputAck(data, codes) {\n		if (!data || !data.ackId) return;\n		try {\n			window.parent.postMessage(\n				{\n					type: 'potato-tomato-touch-input-ack',\n					ackId: data.ackId,\n					action: data.action,\n					codes: codes || [],\n					path: 'bridge',\n					ok: true\n				},\n				'*'\n			);\n		} catch (e) {}\n	}\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			sendTouchInputAck(data, held);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			sendTouchInputAck(data, codes);\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n			sendTouchInputAck(data, codes);\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
 
 // src/unity/inject-html.ts
 var cachedInjectSource = null;
@@ -4067,84 +4163,14 @@ function injectGameStorageBridge(html, _gameId, childScriptSrc) {
 }
 
 // src/unity/proxy-play.ts
+var import_promises23 = __toESM(require("node:fs/promises"), 1);
+var import_node_fs10 = require("node:fs");
+var import_node_path24 = __toESM(require("node:path"), 1);
+
+// src/live/target.ts
 var import_promises22 = __toESM(require("node:fs/promises"), 1);
 var import_node_fs9 = require("node:fs");
 var import_node_path23 = __toESM(require("node:path"), 1);
-init_config();
-function extractIframeSrc2(html) {
-  const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i];
-  for (const re of patterns) {
-    const m = html.match(re);
-    if (m?.[1]) {
-      const src = m[1].replace(/&amp;/g, "&").trim();
-      if (src.startsWith("http")) return src;
-    }
-  }
-  return null;
-}
-function isRemoteHttpUrl(url) {
-  try {
-    const u = new URL(url);
-    return u.protocol === "http:" || u.protocol === "https:";
-  } catch {
-    return false;
-  }
-}
-function isPreferredUnityEmbed(url) {
-  if (!isRemoteHttpUrl(url)) return false;
-  if (/sites\.google\.com\/view\//i.test(url)) return false;
-  return true;
-}
-async function resolveUnityPlayUrl(gameId) {
-  const meta = await readGameMetadata(gameId);
-  const embed = typeof meta?.onlineEmbedUrl === "string" ? meta.onlineEmbedUrl.trim() : "";
-  if (embed && isPreferredUnityEmbed(embed)) return embed;
-  const remotePlay = typeof meta?.remotePlayUrl === "string" ? meta.remotePlayUrl.trim() : "";
-  if (remotePlay && isPreferredUnityEmbed(remotePlay)) return remotePlay;
-  const indexPath = import_node_path23.default.join(catalogOnlineDir(gameId), "index.html");
-  if (!(0, import_node_fs9.existsSync)(indexPath)) return null;
-  const html = await import_promises22.default.readFile(indexPath, "utf-8");
-  const iframeSrc = extractIframeSrc2(html);
-  if (iframeSrc && isPreferredUnityEmbed(iframeSrc)) return iframeSrc;
-  return null;
-}
-function absolutizeAgainstBase(html, baseHref) {
-  try {
-    const base = new URL(baseHref);
-    return html.replace(
-      /(src|href)=["'](?!https?:|\/\/|data:|blob:|#)([^"']+)["']/gi,
-      (_m, attr, rel) => `${attr}="${new URL(rel, base).href}"`
-    );
-  } catch {
-    return html;
-  }
-}
-async function fetchProxiedUnityHtml(gameId) {
-  const targetUrl = await resolveUnityPlayUrl(gameId);
-  if (targetUrl) {
-    const res = await fetch(targetUrl, {
-      headers: {
-        "User-Agent": WGET_USER_AGENT,
-        Accept: "text/html,application/xhtml+xml,*/*"
-      },
-      signal: AbortSignal.timeout(6e4)
-    });
-    if (res.ok) {
-      let html2 = await res.text();
-      html2 = injectUnityPatches2(html2);
-      html2 = absolutizeAgainstBase(html2, targetUrl);
-      return html2;
-    }
-  }
-  const local = await readLocalEmbedHtml(gameId);
-  if (!local) return null;
-  let html = injectUnityPatches2(local.html);
-  html = absolutizeAgainstBase(html, local.baseHref);
-  return html;
-}
-
-// src/live/proxy.ts
-init_config();
 
 // src/live/safety.ts
 var import_node_net = __toESM(require("node:net"), 1);
@@ -4210,10 +4236,7 @@ function assertSafePlayUrl(raw) {
 }
 
 // src/live/target.ts
-var import_promises23 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs10 = require("node:fs");
-var import_node_path24 = __toESM(require("node:path"), 1);
-function extractIframeSrc3(html) {
+function extractIframeSrc2(html) {
   const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i, /<iframe[^>]+src=([^\s>]+)/i];
   for (const re of patterns) {
     const m = html.match(re);
@@ -4236,10 +4259,10 @@ async function resolveLiveTargetUrl(gameId) {
     assertSafePlayUrl(embed);
     return embed;
   }
-  const indexPath = import_node_path24.default.join(catalogOnlineDir(gameId), "index.html");
-  if (!(0, import_node_fs10.existsSync)(indexPath)) return null;
-  const html = await import_promises23.default.readFile(indexPath, "utf-8");
-  const iframeSrc = extractIframeSrc3(html);
+  const indexPath = import_node_path23.default.join(catalogOnlineDir(gameId), "index.html");
+  if (!(0, import_node_fs9.existsSync)(indexPath)) return null;
+  const html = await import_promises22.default.readFile(indexPath, "utf-8");
+  const iframeSrc = extractIframeSrc2(html);
   if (!iframeSrc || /sites\.google\.com\/view\//i.test(iframeSrc)) return null;
   assertSafePlayUrl(iframeSrc);
   return iframeSrc;
@@ -4252,7 +4275,100 @@ function normalizeBaseUrl(targetUrl) {
   return parsed.href;
 }
 
+// src/unity/proxy-play.ts
+init_config();
+function extractIframeSrc3(html) {
+  const patterns = [/<iframe[^>]+src=["']([^"']+)["']/i];
+  for (const re of patterns) {
+    const m = html.match(re);
+    if (m?.[1]) {
+      const src = m[1].replace(/&amp;/g, "&").trim();
+      if (src.startsWith("http")) return src;
+    }
+  }
+  return null;
+}
+function isRemoteHttpUrl(url) {
+  try {
+    const u = new URL(url);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+function isPreferredUnityEmbed(url) {
+  if (!isRemoteHttpUrl(url)) return false;
+  if (/sites\.google\.com\/view\//i.test(url)) return false;
+  return true;
+}
+async function resolveUnityPlayUrl(gameId) {
+  const meta = await readGameMetadata(gameId);
+  const embed = typeof meta?.onlineEmbedUrl === "string" ? meta.onlineEmbedUrl.trim() : "";
+  if (embed && isPreferredUnityEmbed(embed)) return embed;
+  const remotePlay = typeof meta?.remotePlayUrl === "string" ? meta.remotePlayUrl.trim() : "";
+  if (remotePlay && isPreferredUnityEmbed(remotePlay)) return remotePlay;
+  const indexPath = import_node_path24.default.join(catalogOnlineDir(gameId), "index.html");
+  if (!(0, import_node_fs10.existsSync)(indexPath)) return null;
+  const html = await import_promises23.default.readFile(indexPath, "utf-8");
+  const iframeSrc = extractIframeSrc3(html);
+  if (iframeSrc && isPreferredUnityEmbed(iframeSrc)) return iframeSrc;
+  return null;
+}
+function documentBaseHref(baseHref) {
+  return normalizeBaseUrl(baseHref);
+}
+function ensureHtmlBaseTag(html, baseHref) {
+  const href = documentBaseHref(baseHref);
+  if (/<base\b/i.test(html)) {
+    return html.replace(/<base\b[^>]*>/i, `<base href="${href}">`);
+  }
+  if (/<head\b[^>]*>/i.test(html)) {
+    return html.replace(/<head\b[^>]*>/i, (open) => `${open}<base href="${href}">`);
+  }
+  return `<base href="${href}">${html}`;
+}
+function absolutizeAgainstBase(html, baseHref) {
+  try {
+    const base = new URL(documentBaseHref(baseHref));
+    let out = html.replace(
+      /(src|href)=["'](?!https?:|\/\/|data:|blob:|#)([^"']+)["']/gi,
+      (_m, attr, rel) => `${attr}="${new URL(rel, base).href}"`
+    );
+    out = out.replace(
+      /(UnityLoader\.instantiate\s*\(\s*[^,]+,\s*)(["'])(?!https?:|\/\/|data:|blob:)([^"']+)\2/gi,
+      (_m, prefix, quote, rel) => `${prefix}${quote}${new URL(rel, base).href}${quote}`
+    );
+    return ensureHtmlBaseTag(out, base.href);
+  } catch {
+    return html;
+  }
+}
+async function fetchProxiedUnityHtml(gameId) {
+  const targetUrl = await resolveUnityPlayUrl(gameId);
+  if (targetUrl) {
+    const res = await fetch(targetUrl, {
+      headers: {
+        "User-Agent": WGET_USER_AGENT,
+        Accept: "text/html,application/xhtml+xml,*/*"
+      },
+      signal: AbortSignal.timeout(6e4)
+    });
+    if (res.ok) {
+      let html2 = await res.text();
+      html2 = injectUnityPatches2(html2);
+      html2 = absolutizeAgainstBase(html2, res.url || targetUrl);
+      return html2;
+    }
+  }
+  const local = await readLocalEmbedHtml(gameId);
+  if (!local) return null;
+  let html = injectUnityPatches2(local.html);
+  html = absolutizeAgainstBase(html, local.baseHref);
+  return html;
+}
+
 // src/live/proxy.ts
+init_config();
 var FETCH_TIMEOUT_MS = 6e4;
 var MAX_HTML_BYTES = 8 * 1024 * 1024;
 var MAX_ASSET_BYTES = 80 * 1024 * 1024;
@@ -4261,7 +4377,7 @@ function looksLikeUnity(metaEngine, html) {
   return isUnityGameHtml2(html);
 }
 function rewriteHtmlForLiveSession(html, session, proxyPrefix) {
-  const base = new URL(session.baseHref);
+  const base = new URL(normalizeBaseUrl(session.baseHref));
   const toProxy = (rawUrl) => {
     try {
       const abs = new URL(rawUrl, base);
@@ -4284,18 +4400,23 @@ function rewriteHtmlForLiveSession(html, session, proxyPrefix) {
   out = out.replace(/url\(\s*(['"]?)(?!data:|blob:)([^)'"]+)\1\s*\)/gi, (_m, _q, rel) => {
     return `url("${toProxy(rel.trim())}")`;
   });
+  out = out.replace(
+    /(UnityLoader\.instantiate\s*\(\s*[^,]+,\s*)(["'])(?!https?:|\/\/|data:|blob:)([^"']+)\2/gi,
+    (_m, prefix, quote, rel) => `${prefix}${quote}${toProxy(rel)}${quote}`
+  );
   return out;
 }
 async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
   const targetUrl = await resolveLiveTargetUrl(gameId);
   const local = !targetUrl || /sites\.google\.com\/view\//i.test(targetUrl) ? await readLocalEmbedHtml(gameId) : null;
   if (local) {
+    const localBase = normalizeBaseUrl(local.baseHref);
     const session2 = createLiveSession({
       gameId,
-      targetUrl: normalizeBaseUrl(local.baseHref)
+      targetUrl: localBase
     });
     session2.targetUrl = local.baseHref;
-    session2.baseHref = local.baseHref;
+    session2.baseHref = localBase;
     try {
       session2.targetOrigin = new URL(local.baseHref).origin;
       allowOrigin(session2, session2.targetOrigin);
@@ -4328,7 +4449,7 @@ async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
   });
   if (!res.ok) return null;
   const finalParsed = new URL(finalUrl);
-  session.baseHref = finalUrl;
+  session.baseHref = normalizeBaseUrl(finalUrl);
   session.targetUrl = finalUrl;
   session.targetOrigin = finalParsed.origin;
   allowOrigin(session, finalParsed.origin);
@@ -4368,6 +4489,14 @@ async function fetchLiveAsset(gameId, sessionId, assetPath, absoluteOverride) {
     throw new Error("Live asset response too large");
   }
   let contentType = res.headers.get("content-type") || "application/octet-stream";
+  if (!res.ok) {
+    return {
+      status: res.status,
+      contentType,
+      body: buf,
+      cacheControl: res.headers.get("cache-control") || void 0
+    };
+  }
   let body = buf;
   if (/text\/html/i.test(contentType) || /\.html?$/i.test(parsed.pathname)) {
     let html = buf.toString("utf-8");
@@ -4955,6 +5084,9 @@ function createServer() {
           res.end(asset.body);
         } catch (error) {
           const message = error instanceof Error ? error.message : String(error);
+          console.warn(
+            `[puller] live asset failed game=${gameId} session=${sessionId} path=${assetPath}: ${message}`
+          );
           sendJson(res, 502, { error: message });
         }
         return;

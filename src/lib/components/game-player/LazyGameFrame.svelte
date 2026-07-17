@@ -19,6 +19,7 @@
 		posterUrl,
 		iframeAllow,
 		fillContainer = false,
+		startDisabled = false,
 		started = $bindable(false),
 		onIframeReady
 	}: {
@@ -29,6 +30,8 @@
 		iframeAllow?: string;
 		/** When true, fill the parent (fullscreen / flex child) instead of fixed 16:9. */
 		fillContainer?: boolean;
+		/** Prevent starting while an online/offline play URL is being resolved. */
+		startDisabled?: boolean;
 		started?: boolean;
 		onIframeReady?: (el: HTMLIFrameElement | null) => void;
 	} = $props();
@@ -97,6 +100,7 @@
 			type="button"
 			class="group absolute inset-0 flex w-full flex-col items-center justify-center gap-3 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
 			onclick={startGame}
+			disabled={startDisabled}
 			aria-label="Load and play {title}"
 		>
 			<img
@@ -119,7 +123,7 @@
 			<span class="relative z-[1] flex items-center gap-2">
 				<Button type="button" size="lg" class="pointer-events-none gap-2 shadow-md">
 					<Play class="h-5 w-5 fill-current" aria-hidden="true" />
-					Play
+					{startDisabled ? 'Preparing play…' : 'Play'}
 				</Button>
 			</span>
 			<span class="relative z-[1] max-w-md px-4 text-center text-xs text-muted-foreground">
