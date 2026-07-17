@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { GripHorizontal } from 'lucide-svelte';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
@@ -29,10 +29,15 @@
 		isPortrait = false,
 		paused = false,
 		started = false,
-		/** Parent toolbar owns the on/off control; this is the overlay visibility. */
-		visible = $bindable(false),
+		/**
+		 * Parent toolbar owns on/off — one-way prop only.
+		 * Never $bindable: child remounts / effects were wiping parent back to Off.
+		 */
+		visible = false,
 		/** Whether the parent should show the Console toolbar button. */
-		chromeAvailable = $bindable(false)
+		chromeAvailable = $bindable(false),
+		/** Auto-enable on touch-only devices asks the parent to turn Console on. */
+		onRequestShow
 	}: {
 		iframe?: HTMLIFrameElement | null;
 		gameId?: string;
@@ -42,6 +47,7 @@
 		started?: boolean;
 		visible?: boolean;
 		chromeAvailable?: boolean;
+		onRequestShow?: () => void;
 	} = $props();
 
 	const isMobile = new IsMobile();
@@ -76,70 +82,105 @@
 				canUseTouchBridge(playerUrl) ||
 				isLikelyInjectableUrl(playerUrl))
 	);
+	/*
+	 * When the parent toolbar forces Console ON, always show the surface —
+	 * even if chromeAvailable briefly lags — so the button never looks stuck Off
+	 * while inject/proxy catches up.
+	 */
 	const waitingForInjection = $derived(
-		canOfferChrome && started && visible && !paused && !privacyLocked && !injectable
+		started && visible && !paused && !privacyLocked && !injectable && canUseTouchBridge(playerUrl)
 	);
 	const showOverlay = $derived(
-		canOfferChrome && started && visible && !paused && !privacyLocked && injectable
+		started && visible && !paused && !privacyLocked && injectable
 	);
-	const showSurface = $derived(canOfferChrome && started && visible);
+	const showSurface = $derived(started && visible);
+	const showBlockedHint = $derived(
+		started &&
+			visible &&
+			!paused &&
+			!privacyLocked &&
+			!injectable &&
+			!canUseTouchBridge(playerUrl)
+	);
 	const scale = $derived(config.scale);
 
 	function refreshConfig() {
 		config = getEffectiveConfig(gameId || null, orientation);
-		layoutDraft = null;
+		/* Do not clear layoutDraft here — that aborted in-progress drag-edit on every refresh. */
 	}
 
-	/** Reset overlay visibility only when navigating to a different game. */
-	function resetVisibilityForGameChange(nextGameId: string) {
-		if (visibilityGameId === nextGameId) return;
+	/** Track game id for auto-open; parent owns visible — do not write it here. */
+	function noteGameId(nextGameId: string) {
+		if (!nextGameId || visibilityGameId === nextGameId) return;
 		visibilityGameId = nextGameId;
 		autoOpenedForGame = '';
-		visible = false;
+	}
+
+	function requestAutoShow() {
+		if (
+			!started ||
+			!config.autoEnableOnTouchOnly ||
+			!isTouchOnlyDevice() ||
+			autoOpenedForGame === gameId
+		) {
+			return;
+		}
+		autoOpenedForGame = gameId;
+		onRequestShow?.();
+	}
+
+	/**
+	 * Console is game chrome. preventDefault stops the overlay from taking DOM focus
+	 * (which would make Unity see hasFocus()===false). Do NOT iframe.focus() here —
+	 * that steals pointer capture from the joystick mid-drag.
+	 */
+	function keepGameFocused(e?: Event) {
+		e?.preventDefault?.();
+		try {
+			iframe?.contentWindow?.postMessage({ type: 'potato-tomato-unlock-audio' }, '*');
+		} catch {
+			/* ignore */
+		}
 	}
 
 	function probeInjectable() {
+		/*
+		 * Never rebind dispatch targets while keys are held — setTarget/setBridgeFrame
+		 * used to releaseAll() and drop mid-gesture input (game looks frozen).
+		 */
+		if (dispatcher.hasHeldKeys()) {
+			const nextInjectable = dispatcher.hasDispatchPath();
+			if (injectable !== nextInjectable) injectable = nextInjectable;
+			return;
+		}
+
+		const loaded = untrack(() => bridgeFrameLoaded);
 		const target = resolveInjectable(iframe);
+		let nextInjectable = false;
 		if (target) {
 			dispatcher.setTarget(target);
-			dispatcher.setBridgeFrame(null);
-			injectable = true;
-			if (
-				started &&
-				config.autoEnableOnTouchOnly &&
-				isTouchOnlyDevice() &&
-				autoOpenedForGame !== gameId
-			) {
-				visible = true;
-				autoOpenedForGame = gameId;
-			}
-		} else if (iframe && bridgeFrameLoaded && canUseTouchBridge(playerUrl)) {
-			dispatcher.setTarget(null);
+			nextInjectable = true;
+		} else if (iframe && loaded && canUseTouchBridge(playerUrl)) {
 			dispatcher.setBridgeFrame(iframe);
-			injectable = Boolean(iframe.contentWindow);
-			if (
-				injectable &&
-				started &&
-				config.autoEnableOnTouchOnly &&
-				isTouchOnlyDevice() &&
-				autoOpenedForGame !== gameId
-			) {
-				visible = true;
-				autoOpenedForGame = gameId;
-			}
+			nextInjectable = Boolean(iframe.contentWindow);
 		} else {
 			dispatcher.setTarget(null);
 			dispatcher.setBridgeFrame(null);
-			injectable = false;
+			nextInjectable = false;
 		}
-		unavailableHint = Boolean(
+		if (injectable !== nextInjectable) injectable = nextInjectable;
+		if (nextInjectable) requestAutoShow();
+
+		const nextHint = Boolean(
 			started &&
-				config.enabled &&
-				config.availability !== 'off' &&
-				!injectable &&
+				visible &&
+				!nextInjectable &&
 				!canUseTouchBridge(playerUrl) &&
-				(config.availability === 'always' || !isLikelyInjectableUrl(playerUrl))
+				(config.availability === 'always' ||
+					isLocalAppDeployment() ||
+					!isLikelyInjectableUrl(playerUrl))
 		);
+		if (unavailableHint !== nextHint) unavailableHint = nextHint;
 	}
 
 	function pctToPx(pct: number, axis: 'x' | 'y'): number {
@@ -221,13 +262,16 @@
 		const rect = frame?.getBoundingClientRect() ?? overlayRect;
 		const parent = frame ?? surfaceEl.parentElement;
 		/* Match the playable iframe region, not optional banners above the frame. */
-		surfaceW =
+		const nextW =
 			rect.width || parent?.clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
-		surfaceH =
+		const nextH =
 			rect.height ||
 			parent?.clientHeight ||
 			(typeof window !== 'undefined' ? window.innerHeight : 0);
-		surfaceOffsetY = rect.top - overlayRect.top;
+		const nextOffsetY = rect.top - overlayRect.top;
+		if (surfaceW !== nextW) surfaceW = nextW;
+		if (surfaceH !== nextH) surfaceH = nextH;
+		if (surfaceOffsetY !== nextOffsetY) surfaceOffsetY = nextOffsetY;
 	}
 
 	onMount(() => {
@@ -252,14 +296,15 @@
 	});
 
 	$effect(() => {
-		chromeAvailable = canOfferChrome;
+		const next = canOfferChrome;
+		if (chromeAvailable !== next) chromeAvailable = next;
 	});
 
 	$effect(() => {
 		if (!visible) {
 			dispatcher.releaseAll();
-			editingControl = null;
-			layoutDraft = null;
+			if (editingControl !== null) editingControl = null;
+			if (layoutDraft !== null) layoutDraft = null;
 		}
 	});
 
@@ -294,7 +339,7 @@
 
 	$effect(() => {
 		const id = gameId;
-		resetVisibilityForGameChange(id);
+		noteGameId(id);
 		refreshConfig();
 	});
 
@@ -304,42 +349,54 @@
 		void started;
 		void config.enabled;
 		void config.availability;
-		probeInjectable();
+		/* Probe writes injectable — keep that outside the dependency graph. */
+		untrack(() => probeInjectable());
 	});
 
 	/* A cross-origin WindowProxy exists before the bridge script does. Do not expose controls until load. */
 	$effect(() => {
 		const frame = iframe;
-		bridgeFrameLoaded = false;
-		if (!frame) return;
+		if (!frame) {
+			untrack(() => {
+				if (bridgeFrameLoaded) bridgeFrameLoaded = false;
+			});
+			return;
+		}
 		const onLoad = () => {
-			bridgeFrameLoaded = true;
+			untrack(() => {
+				if (!bridgeFrameLoaded) bridgeFrameLoaded = true;
+			});
 			probeInjectable();
 		};
 		frame.addEventListener('load', onLoad);
+		let loaded = false;
 		try {
-			bridgeFrameLoaded = frame.contentDocument?.readyState === 'complete';
+			loaded = frame.contentDocument?.readyState === 'complete';
 		} catch {
 			/* Cross-origin documents become ready only through the iframe load event. */
 		}
-		if (bridgeFrameLoaded) probeInjectable();
+		untrack(() => {
+			if (bridgeFrameLoaded !== loaded) bridgeFrameLoaded = loaded;
+		});
+		if (loaded) probeInjectable();
 		return () => frame.removeEventListener('load', onLoad);
 	});
 
 	/* Unity / nested shells often create the canvas after first probe — keep trying while visible. */
 	$effect(() => {
 		if (!started || !visible || !iframe) return;
-		probeInjectable();
+		const frame = iframe;
+		untrack(() => probeInjectable());
 		const t1 = window.setTimeout(() => probeInjectable(), 400);
 		const t2 = window.setTimeout(() => probeInjectable(), 1500);
 		const t3 = window.setTimeout(() => probeInjectable(), 4000);
 		const onLoad = () => probeInjectable();
-		iframe.addEventListener('load', onLoad);
+		frame.addEventListener('load', onLoad);
 		return () => {
 			window.clearTimeout(t1);
 			window.clearTimeout(t2);
 			window.clearTimeout(t3);
-			iframe.removeEventListener('load', onLoad);
+			frame.removeEventListener('load', onLoad);
 		};
 	});
 
@@ -355,16 +412,18 @@
 		bind:this={surfaceEl}
 		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
 		aria-hidden={!showOverlay}
+		onpointerdowncapture={keepGameFocused}
 	>
 		{#if waitingForInjection}
 			<div
 				class="pointer-events-auto absolute top-3 right-3 max-w-[min(280px,70vw)] rounded-lg border border-emerald-500/40 bg-background/90 px-3 py-2 text-xs text-foreground shadow-md backdrop-blur-sm sm:top-4 sm:right-4"
 				role="status"
+				onpointerdown={keepGameFocused}
 			>
 				<span class="mb-1 block font-medium text-emerald-400">Console · ON</span>
 				Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…
 			</div>
-		{:else if unavailableHint}
+		{:else if showBlockedHint || unavailableHint}
 			<div
 				class="pointer-events-auto absolute top-3 right-3 max-w-[min(280px,70vw)] rounded-lg border border-amber-500/50 bg-background/90 px-3 py-2 text-xs text-foreground shadow-md backdrop-blur-sm sm:top-4 sm:right-4"
 				role="status"

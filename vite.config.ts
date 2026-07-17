@@ -4,12 +4,22 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { pullerGamesProxyPlugin } from './vite-plugins/puller-games-proxy';
+import { pullerApiProxyPlugin } from './vite-plugins/puller-api-proxy';
 import { gamesHtmlBridgeInjectPlugin } from './vite-plugins/games-html-bridge-inject';
 
 const pullerTarget = (process.env.PUBLIC_DOWNLOADER_URL ?? 'http://127.0.0.1:18787').replace(
 	/\/$/,
 	''
 );
+
+/*
+ * Tauri beforeDevCommand sometimes drops inline `VAR=value` prefixes.
+ * When the Vite process is clearly under Tauri, force local-app so offline /
+ * console paths match the desktop app (not GitHub Pages browser storage).
+ */
+if (!process.env.PUBLIC_OFFLINE_DEPLOYMENT?.trim() && process.env.TAURI_ENV_PLATFORM) {
+	process.env.PUBLIC_OFFLINE_DEPLOYMENT = 'local-app';
+}
 
 const repoRoot = path.resolve('.');
 
@@ -38,6 +48,7 @@ export default defineConfig({
 	envPrefix: ['VITE_', 'TAURI_ENV_', 'POTATO_TOMATO_', 'PUBLIC_'],
 	plugins: [
 		pullerGamesProxyPlugin(pullerTarget),
+		pullerApiProxyPlugin(pullerTarget),
 		gamesHtmlBridgeInjectPlugin(),
 		tailwindcss(),
 		sveltekit(),
@@ -55,7 +66,9 @@ export default defineConfig({
 		proxy: {
 			'/puller-games': pullerGameProxy,
 			'/api/unity-play': pullerApiProxy,
-			'/api/game-live': pullerApiProxy
+			'/api/game-live': pullerApiProxy,
+			/* Same-origin offline API — WebKit/Tauri is flaky on cross-origin :18787 fetches. */
+			'/api/offline': pullerApiProxy
 		},
 		watch: {
 			ignored: [
@@ -78,7 +91,8 @@ export default defineConfig({
 		proxy: {
 			'/puller-games': pullerGameProxy,
 			'/api/unity-play': pullerApiProxy,
-			'/api/game-live': pullerApiProxy
+			'/api/game-live': pullerApiProxy,
+			'/api/offline': pullerApiProxy
 		}
 	},
 	test: {

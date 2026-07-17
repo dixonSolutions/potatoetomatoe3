@@ -69,6 +69,24 @@ fn get_puller_base_url() -> String {
   format!("http://127.0.0.1:{}", puller_port())
 }
 
+/// Health-check and (re)spawn the puller if it died — used by UI "Retry puller".
+#[tauri::command]
+fn ensure_puller(app: tauri::AppHandle) -> Result<String, String> {
+  let port = puller_port();
+  if wait_for_puller_health(port, 600) {
+    return Ok(get_puller_base_url());
+  }
+  log::info!("ensure_puller: nothing healthy on {} — spawning", port);
+  spawn_puller(&app);
+  if wait_for_puller_health(port, 12_000) {
+    Ok(get_puller_base_url())
+  } else {
+    Err(format!(
+      "puller failed to become healthy on http://127.0.0.1:{port}"
+    ))
+  }
+}
+
 /// Development harness mode (`console-test` | `puller-test`) from env, or empty.
 /// Only meaningful in debug builds; release always returns empty.
 #[tauri::command]
@@ -389,6 +407,7 @@ pub fn run() {
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
       get_puller_base_url,
+      ensure_puller,
       get_dev_harness_mode,
       is_tray_available,
       is_close_to_tray_enabled,

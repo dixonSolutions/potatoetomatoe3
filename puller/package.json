@@ -11,7 +11,7 @@
 		"bundle:linux": "pnpm build && pnpm bundle:linux:binary",
 		"bundle:linux:binary": "pkg dist/index.cjs --targets node22-linux-x64 --output ../src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu && pnpm smoke:bundle",
 		"smoke:bundle": "node scripts/smoke-bundle.mjs",
-		"test": "tsx --test src/capture/rewrite.test.ts src/capture/frames.test.ts src/capture/mirror-manifest.test.ts src/ads/apply.test.ts src/live/safety.test.ts src/live/session.test.ts src/live/proxy.test.ts src/jobs.harness.test.ts",
+		"test": "tsx --test src/capture/rewrite.test.ts src/capture/frames.test.ts src/capture/mirror-manifest.test.ts src/ads/apply.test.ts src/live/safety.test.ts src/live/session.test.ts src/live/proxy.test.ts src/unity/proxy-play.test.ts src/jobs.harness.test.ts",
 		"postinstall": "playwright install chromium || echo 'Playwright browser install skipped (run manually if needed)'"
 	},
 	"dependencies": {

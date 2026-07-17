@@ -37,6 +37,16 @@ export function getPullerBaseUrl(): string {
 	return DEFAULT_PULLER_URL;
 }
 
+/**
+ * Base URL for puller HTTP APIs (`/api/offline`, etc.).
+ * In Vite dev, prefer same-origin (empty string) so WebKit/Tauri uses the Vite proxy
+ * instead of flaky cross-origin fetches to :18787.
+ */
+export function getPullerApiBaseUrl(): string {
+	if (shouldUsePullerGameProxy()) return '';
+	return getPullerBaseUrl();
+}
+
 /** Clear cached health probes so a later puller start is observed quickly. */
 export function invalidatePullerAvailabilityCache(): void {
 	pullerAvailableCache = null;
@@ -94,7 +104,7 @@ export async function isPullerAvailable(
 		return pullerAvailableCache;
 	}
 	try {
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/health`, {
+		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/health`, {
 			signal: AbortSignal.timeout(2500)
 		});
 		if (!options?.ignoreDeploymentGate) {
@@ -115,12 +125,12 @@ export async function isPullerAvailable(
  * Wait until the puller answers health (native app startup). Returns false on timeout.
  */
 export async function waitForPuller(timeoutMs = 15_000): Promise<boolean> {
-	if (!shouldProbePullerBackend()) return false;
 	const deadline = Date.now() + Math.max(0, timeoutMs);
 	await syncPullerBaseUrlFromTauri();
 	while (Date.now() <= deadline) {
 		invalidatePullerAvailabilityCache();
-		if (await isPullerAvailable(true)) return true;
+		/* Probe even if deployment was misclassified — health is the source of truth. */
+		if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) return true;
 		await new Promise((r) => setTimeout(r, 400));
 	}
 	return false;
@@ -146,7 +156,7 @@ export interface PullerJobsSnapshot {
 export async function fetchPullerJobs(): Promise<PullerJobsSnapshot | null> {
 	if (!shouldProbePullerBackend()) return null;
 	try {
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/jobs`, {
+		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/jobs`, {
 			signal: AbortSignal.timeout(4000)
 		});
 		if (!res.ok) return null;
@@ -159,7 +169,7 @@ export async function fetchPullerJobs(): Promise<PullerJobsSnapshot | null> {
 export async function fetchPullerHealth(): Promise<PullerHealth | null> {
 	if (!shouldProbePullerBackend()) return null;
 	try {
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/health`, {
+		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/health`, {
 			signal: AbortSignal.timeout(2500)
 		});
 		if (!res.ok) return null;
@@ -196,7 +206,7 @@ export async function fetchPullerOfflineStatuses(
 		return {};
 	}
 	try {
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status`, {
+		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/status`, {
 			signal: AbortSignal.timeout(8_000)
 		});
 		if (!res.ok) return {};
@@ -219,7 +229,7 @@ export async function fetchPullerOfflineStatusesForIds(
 	if (!(await isPullerAvailable(force))) return {};
 	try {
 		const params = new URLSearchParams({ ids: unique.join(',') });
-		const res = await fetch(`${getPullerBaseUrl()}/api/offline/status?${params}`, {
+		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/status?${params}`, {
 			signal: AbortSignal.timeout(8_000)
 		});
 		if (!res.ok) return {};
@@ -249,7 +259,7 @@ export async function fetchPullerGameOfflineStatus(
 	if (!(await isPullerAvailable(force))) return null;
 	try {
 		const res = await fetch(
-			`${getPullerBaseUrl()}/api/offline/status/${encodeURIComponent(gameId)}`
+			`${getPullerApiBaseUrl()}/api/offline/status/${encodeURIComponent(gameId)}`
 		);
 		if (!res.ok) return null;
 		return (await res.json()) as GameOfflineStatus;
@@ -266,7 +276,7 @@ export async function startPullerGameDownload(
 	gameId: string
 ): Promise<{ started: boolean; message: string }> {
 	const res = await fetch(
-		`${getPullerBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/download`,
+		`${getPullerApiBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/download`,
 		{ method: 'POST' }
 	);
 	if (!res.ok) {
@@ -279,7 +289,7 @@ export async function startPullerGameDownload(
 
 export async function fetchPullerDownloadProgress(gameId: string): Promise<DownloadProgress> {
 	const res = await fetch(
-		`${getPullerBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/progress`
+		`${getPullerApiBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/progress`
 	);
 	if (!res.ok) {
 		return { state: 'idle', progress: 0, message: 'Unavailable' };
@@ -288,7 +298,7 @@ export async function fetchPullerDownloadProgress(gameId: string): Promise<Downl
 }
 
 export async function deletePullerOfflineCopy(gameId: string): Promise<void> {
-	const res = await fetch(`${getPullerBaseUrl()}/api/offline/${encodeURIComponent(gameId)}`, {
+	const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/${encodeURIComponent(gameId)}`, {
 		method: 'DELETE'
 	});
 	if (!res.ok) {
@@ -303,7 +313,7 @@ export async function cancelPullerGameDownload(
 	discardCache: boolean
 ): Promise<{ cancelled: boolean; message: string }> {
 	const res = await fetch(
-		`${getPullerBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/cancel`,
+		`${getPullerApiBaseUrl()}/api/offline/${encodeURIComponent(gameId)}/cancel`,
 		{
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

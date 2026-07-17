@@ -1,6 +1,7 @@
 import { base } from '$app/paths';
 import {
 	fetchGameOfflineStatus,
+	getOfflineBackend,
 	isBundledOfflineGame
 } from '$lib/utils/offline-downloader';
 import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
@@ -23,6 +24,22 @@ async function onlineShellExists(gameId: string): Promise<boolean> {
 	}
 }
 
+/**
+ * When the puller drops, backend becomes `browser` and IndexedDB status often says
+ * offline:false even though a prior puller download still exists on disk under
+ * `/games/{id}/offline/`. Keep probing static mirrors in that case so Offline play
+ * remains selectable.
+ */
+async function shouldProbeStaticOfflineMirror(
+	statusOffline: boolean | undefined
+): Promise<boolean> {
+	if (isPublicSiteDeployment()) return false;
+	if (statusOffline) return false;
+	if (statusOffline === undefined) return true;
+	const backend = await getOfflineBackend();
+	return backend !== 'puller';
+}
+
 /** Whether online and/or offline copies exist for a game. */
 export async function getGameAvailability(
 	gameId: string,
@@ -35,8 +52,7 @@ export async function getGameAvailability(
 	if (!offline) {
 		const status = await fetchGameOfflineStatus(gameId, force);
 		if (status?.offline) offline = true;
-		// When puller/browser status is known, skip static /offline/ probes (avoids 404 spam on online play).
-		else if (!status && !isPublicSiteDeployment()) {
+		else if (await shouldProbeStaticOfflineMirror(status?.offline)) {
 			offline = await staticOfflineFileExists(gameId, base);
 		}
 	}

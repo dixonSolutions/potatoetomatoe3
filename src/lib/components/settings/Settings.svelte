@@ -165,8 +165,10 @@
 	});
 
 	$effect(() => {
-		const r = globalSearchResults;
-		searchAccordionOpen = r.map((x) => x.id);
+		const next = globalSearchResults.map((x) => x.id);
+		const prev = searchAccordionOpen;
+		if (prev.length === next.length && prev.every((id, i) => id === next[i])) return;
+		searchAccordionOpen = next;
 	});
 
 	$effect(() => {

@@ -13,6 +13,7 @@
 		codesToLabel,
 		getDefaultTouchLayout,
 		loadTouchConsoleSettings,
+		patchTouchConsoleSettings,
 		translateTouchLayout,
 		type TouchAvailability,
 		type TouchConsoleSettings,
@@ -21,6 +22,7 @@
 		type TouchLayout,
 		type TouchOrientation
 	} from '$lib/utils/touch-console';
+	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
 
 	let {
 		searchQuery,
@@ -31,6 +33,8 @@
 		busy?: boolean;
 		settings?: TouchConsoleSettings;
 	} = $props();
+
+	const localAppForcesConsole = isLocalAppDeployment();
 
 	let orientationTab = $state<TouchOrientation>('landscape');
 	let recordingTarget = $state<'up' | 'down' | 'left' | 'right' | 'a' | 'b' | 'x' | 'y' | null>(
@@ -63,6 +67,13 @@
 
 	function persistPatch(patch: Partial<TouchConsoleSettings>, message?: string) {
 		settings = { ...settings, ...patch, version: 1 };
+		/*
+		 * Enable / availability must stick immediately — waiting for the shared
+		 * Settings Save made the switch feel broken (always Off after leaving).
+		 */
+		if ('enabled' in patch || 'availability' in patch || 'autoEnableOnTouchOnly' in patch) {
+			settings = patchTouchConsoleSettings(patch);
+		}
 		if (message) toast.message(message);
 	}
 
@@ -217,12 +228,17 @@
 						same-origin or proxied Unity play iframes (offline mirror, local puller + Pages
 						service-worker relay, or play proxy). Online portal shells that only wrap an external
 						embed cannot receive controls.
+						{#if localAppForcesConsole}
+							<span class="mt-1 block text-foreground/80">
+								Local app keeps the in-game Console button available even if this is off.
+							</span>
+						{/if}
 					</p>
 				</div>
 				<Switch
 					id="touch-enabled"
-					checked={settings.enabled}
-					disabled={busy}
+					checked={localAppForcesConsole ? true : settings.enabled}
+					disabled={busy || localAppForcesConsole}
 					onCheckedChange={(v) =>
 						persistPatch({ enabled: Boolean(v) }, v ? 'Touch console on' : 'Touch console off')}
 					aria-label="Enable touch console"

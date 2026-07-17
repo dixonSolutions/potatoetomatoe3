@@ -33,7 +33,11 @@
 		if (window.__ptFocusSpoofInstalled) return;
 		window.__ptFocusSpoofInstalled = true;
 
-		/* Do NOT override Document.prototype.hasFocus — parent mute-on-focus uses it. */
+		/*
+		 * Safe to spoof hasFocus HERE (iframe realm only). Parent mute-on-focus-loss
+		 * reads the shell document — not this prototype. Unity polls hasFocus() when
+		 * the touch console (parent overlay) steals DOM focus; without this the game freezes.
+		 */
 		try {
 			Object.defineProperty(Document.prototype, 'hidden', {
 				configurable: true,
@@ -47,6 +51,9 @@
 					return 'visible';
 				}
 			});
+			Document.prototype.hasFocus = function () {
+				return true;
+			};
 		} catch (e) {
 			/* ignore */
 		}
@@ -61,11 +68,28 @@
 			}
 		}
 
+		var focusLossEvents = { blur: true, focusout: true, visibilitychange: true };
+
 		/* Capture-phase: Unity never sees blur / visibilitychange (keeps in-game pause menus off). */
 		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {
 			window.addEventListener(type, swallow, true);
 			document.addEventListener(type, swallow, true);
 		});
+
+		/* Block late-registered blur handlers (Unity / portal SDKs). */
+		function blockFocusLossListeners(target) {
+			try {
+				var add = target.addEventListener;
+				target.addEventListener = function (type, listener, options) {
+					if (focusLossEvents[type]) return;
+					return add.call(this, type, listener, options);
+				};
+			} catch (e3) {
+				/* ignore */
+			}
+		}
+		blockFocusLossListeners(window);
+		blockFocusLossListeners(document);
 	})();
 
 	/* ——— Reject HTML mistaken for JS/wasm (SPA fallback / missing Build files) ——— */

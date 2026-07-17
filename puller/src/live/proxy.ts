@@ -12,6 +12,7 @@ import {
 	type LiveSession
 } from './session.js';
 import { normalizeBaseUrl, resolveLiveTargetUrl } from './target.js';
+import { absolutizeAgainstBase } from '../unity/proxy-play.js';
 
 const FETCH_TIMEOUT_MS = 60_000;
 const MAX_HTML_BYTES = 8 * 1024 * 1024;
@@ -38,7 +39,7 @@ export function rewriteHtmlForLiveSession(
 	session: LiveSession,
 	proxyPrefix: string
 ): string {
-	const base = new URL(session.baseHref);
+	const base = new URL(normalizeBaseUrl(session.baseHref));
 
 	const toProxy = (rawUrl: string): string => {
 		try {
@@ -67,6 +68,13 @@ export function rewriteHtmlForLiveSession(
 		return `url("${toProxy(rel.trim())}")`;
 	});
 
+	/* Legacy UnityLoader.instantiate(container, "Build/game.json") — not a src/href attr. */
+	out = out.replace(
+		/(UnityLoader\.instantiate\s*\(\s*[^,]+,\s*)(["'])(?!https?:|\/\/|data:|blob:)([^"']+)\2/gi,
+		(_m, prefix: string, quote: string, rel: string) =>
+			`${prefix}${quote}${toProxy(rel)}${quote}`
+	);
+
 	return out;
 }
 
@@ -81,12 +89,13 @@ export async function startLiveGameHtml(
 		: null;
 
 	if (local) {
+		const localBase = normalizeBaseUrl(local.baseHref);
 		const session = createLiveSession({
 			gameId,
-			targetUrl: normalizeBaseUrl(local.baseHref)
+			targetUrl: localBase
 		});
 		session.targetUrl = local.baseHref;
-		session.baseHref = local.baseHref;
+		session.baseHref = localBase;
 		try {
 			session.targetOrigin = new URL(local.baseHref).origin;
 			allowOrigin(session, session.targetOrigin);
@@ -125,7 +134,7 @@ export async function startLiveGameHtml(
 	if (!res.ok) return null;
 
 	const finalParsed = new URL(finalUrl);
-	session.baseHref = finalUrl;
+	session.baseHref = normalizeBaseUrl(finalUrl);
 	session.targetUrl = finalUrl;
 	session.targetOrigin = finalParsed.origin;
 	allowOrigin(session, finalParsed.origin);
@@ -232,11 +241,7 @@ export async function fetchSimpleProxiedPlayHtml(
 		html = injectUnityPatches(html);
 	}
 
-	const base = new URL(targetUrl);
-	html = html.replace(
-		/(src|href)=["'](?!https?:|\/\/|data:|blob:|#)([^"']+)["']/gi,
-		(_m, attr, rel) => `${attr}="${new URL(rel, base).href}"`
-	);
+	html = absolutizeAgainstBase(html, res.url || targetUrl);
 
 	return injectGameStorageBridge(html, gameId);
 }

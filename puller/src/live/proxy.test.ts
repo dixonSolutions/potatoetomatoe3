@@ -27,4 +27,19 @@ describe('live/proxy rewrite', () => {
 		assert.match(out, /_ext\?u=/);
 		assert.match(out, /cdn\.other\.com/);
 	});
+
+	it('treats extensionless game paths as directories for Build assets', () => {
+		const session = createLiveSession({
+			gameId: 'mob-city',
+			targetUrl: 'https://abinbins.github.io/a/mob-city'
+		});
+		session.baseHref = 'https://abinbins.github.io/a/mob-city';
+		const prefix = `/api/game-live/mob-city/${session.id}`;
+		const html = `<script src="Build/UnityLoader.js"></script>
+<script>UnityLoader.instantiate("gameContainer", "Build/mob-city.json", {});</script>`;
+		const out = rewriteHtmlForLiveSession(html, session, prefix);
+		assert.match(out, new RegExp(`${prefix}/a/mob-city/Build/UnityLoader\\.js`));
+		assert.match(out, new RegExp(`${prefix}/a/mob-city/Build/mob-city\\.json`));
+		assert.doesNotMatch(out, new RegExp(`${prefix}/a/Build/`));
+	});
 });

@@ -55,10 +55,16 @@
 		});
 	}
 
+	let lastReadyEl: HTMLIFrameElement | null | undefined = undefined;
+
 	$effect(() => {
 		const el = started ? iframeEl : null;
+		if (el === lastReadyEl) return;
+		lastReadyEl = el;
 		if (started && iframeEl) {
-			void tick().then(() => onIframeReady?.(iframeEl));
+			void tick().then(() => {
+				if (iframeEl === lastReadyEl) onIframeReady?.(iframeEl);
+			});
 		} else {
 			onIframeReady?.(el);
 		}

@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { catalogOnlineDir, readGameMetadata, readLocalEmbedHtml } from '../catalog.js';
+import { normalizeBaseUrl } from '../live/target.js';
 import { injectUnityPatches } from './inject-html.js';
 import { WGET_USER_AGENT } from '../config.js';
 
@@ -49,13 +50,40 @@ async function resolveUnityPlayUrl(gameId: string): Promise<string | null> {
 	return null;
 }
 
-function absolutizeAgainstBase(html: string, baseHref: string): string {
+/** Directory form so `Build/x` resolves under `/game/` not the parent of `/game`. */
+export function documentBaseHref(baseHref: string): string {
+	return normalizeBaseUrl(baseHref);
+}
+
+function ensureHtmlBaseTag(html: string, baseHref: string): string {
+	const href = documentBaseHref(baseHref);
+	if (/<base\b/i.test(html)) {
+		return html.replace(/<base\b[^>]*>/i, `<base href="${href}">`);
+	}
+	if (/<head\b[^>]*>/i.test(html)) {
+		return html.replace(/<head\b[^>]*>/i, (open) => `${open}<base href="${href}">`);
+	}
+	return `<base href="${href}">${html}`;
+}
+
+/**
+ * Absolutize relative src/href and legacy UnityLoader.instantiate JSON paths.
+ * Extensionless remote paths (…/mob-city) must be treated as directories.
+ */
+export function absolutizeAgainstBase(html: string, baseHref: string): string {
 	try {
-		const base = new URL(baseHref);
-		return html.replace(
+		const base = new URL(documentBaseHref(baseHref));
+		let out = html.replace(
 			/(src|href)=["'](?!https?:|\/\/|data:|blob:|#)([^"']+)["']/gi,
 			(_m, attr, rel) => `${attr}="${new URL(rel, base).href}"`
 		);
+		/* UnityLoader.instantiate("el", "Build/game.json") — not matched by src/href rewrite. */
+		out = out.replace(
+			/(UnityLoader\.instantiate\s*\(\s*[^,]+,\s*)(["'])(?!https?:|\/\/|data:|blob:)([^"']+)\2/gi,
+			(_m, prefix: string, quote: string, rel: string) =>
+				`${prefix}${quote}${new URL(rel, base).href}${quote}`
+		);
+		return ensureHtmlBaseTag(out, base.href);
 	} catch {
 		return html;
 	}
@@ -77,7 +105,7 @@ export async function fetchProxiedUnityHtml(gameId: string): Promise<string | nu
 		if (res.ok) {
 			let html = await res.text();
 			html = injectUnityPatches(html);
-			html = absolutizeAgainstBase(html, targetUrl);
+			html = absolutizeAgainstBase(html, res.url || targetUrl);
 			return html;
 		}
 	}

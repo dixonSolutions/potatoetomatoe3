@@ -334,6 +334,14 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 		if (await isBrowserGameDownloaded(gameId)) {
 			return resolveBrowserOfflinePlayUrl(gameId);
 		}
+		/*
+		 * Puller may be temporarily down while a prior disk mirror still exists
+		 * under static/games (dev) or was last served from the same origin.
+		 * Prefer that over failing offline launch entirely.
+		 */
+		if (!isPublicSiteDeployment() && (await staticOfflineFileExists(gameId, base))) {
+			return resolveStaticOfflinePlayUrl(gameId, base);
+		}
 		return null;
 	}
 
@@ -348,6 +356,11 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 			return pullerOfflinePlayUrl(gameId, base, entry);
 		}
 		return null;
+	}
+
+	/* Backend none — still try a same-origin static mirror in local-app. */
+	if (!isPublicSiteDeployment() && (await staticOfflineFileExists(gameId, base))) {
+		return resolveStaticOfflinePlayUrl(gameId, base);
 	}
 
 	return null;

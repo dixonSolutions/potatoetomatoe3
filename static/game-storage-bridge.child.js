@@ -14,7 +14,7 @@
 	/*
 	 * Focus spoof for ALL same-origin games (not just Unity inject.js):
 	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.
-	 * Do not override hasFocus — parent mute-on-focus-loss reads it.
+	 * Spoof hasFocus in this iframe realm only — parent shell mute uses the outer document.
 	 */
 	(function patchFocusSpoof() {
 		if (window.__ptFocusSpoofInstalled) return;
@@ -32,6 +32,9 @@
 					return 'visible';
 				}
 			});
+			Document.prototype.hasFocus = function () {
+				return true;
+			};
 		} catch (e) {
 			/* ignore */
 		}

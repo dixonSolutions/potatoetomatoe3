@@ -15,6 +15,7 @@
 		DEFAULT_GAME_PLAY_MODE_CHANGED
 	} from '$lib/utils/game-play-mode';
 	import type { GameMetadata } from '$lib/utils/games';
+	import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 	import { onMount } from 'svelte';
 
 	let {
@@ -34,6 +35,8 @@
 	/** Ignore stale async refresh results after the user picks a mode. */
 	let refreshGeneration = 0;
 	let activeGameId = $state('');
+	/** Whether online Unity can use the local inject proxy (vs raw CDN shell). */
+	let unityProxyReady = $state(false);
 
 	async function refresh(force = false) {
 		const id = gameId;
@@ -52,6 +55,18 @@
 			saveGamePlayMode(id, 'offline');
 		}
 		playMode = nextMode;
+
+		if (metadata?.engine === 'unity' && nextMode === 'online' && !isPublicSiteDeployment()) {
+			try {
+				const { isPullerAvailable } = await import('$lib/utils/offline-downloader-puller');
+				unityProxyReady = await isPullerAvailable(force);
+			} catch {
+				unityProxyReady = false;
+			}
+		} else {
+			unityProxyReady = false;
+		}
+
 		ready = true;
 	}
 
@@ -157,7 +172,11 @@
 		{/if}
 
 		{#if metadata?.engine === 'unity' && playMode === 'online'}
-			<Badge variant="secondary" class="text-[11px]">Unity · CDN</Badge>
+			{#if unityProxyReady}
+				<Badge variant="secondary" class="text-[11px]">Unity · local proxy</Badge>
+			{:else}
+				<Badge variant="secondary" class="text-[11px]">Unity · CDN</Badge>
+			{/if}
 		{/if}
 	</div>
 {/if}
