@@ -10,6 +10,9 @@ export const APP_WINDOW_FOCUS_CHANGED = 'potato-tomato-app-window-focus';
 let appWindowFocused = true;
 let attached = false;
 
+/** Parent-realm native check — game iframes spoof `document.hasFocus()` for Unity. */
+const nativeDocumentHasFocus = Document.prototype.hasFocus;
+
 export function isAppWindowFocused(): boolean {
 	return appWindowFocused;
 }
@@ -93,8 +96,9 @@ export async function attachAppWindowFocusTracking(): Promise<() => void> {
 			if (active && active.tagName === 'IFRAME') {
 				const iframe = active as HTMLIFrameElement;
 				try {
-					/* Same-origin: child hasFocus distinguishes in-iframe play vs Alt-Tab. */
-					setFocused(Boolean(iframe.contentDocument?.hasFocus()));
+					/* Same-origin: native hasFocus on child doc (bypasses iframe focus spoof). */
+					const childDoc = iframe.contentDocument;
+					setFocused(Boolean(childDoc && nativeDocumentHasFocus.call(childDoc)));
 					return;
 				} catch {
 					/* Cross-origin game frame — keep audio while this tab is visible. */
