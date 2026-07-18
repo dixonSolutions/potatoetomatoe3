@@ -243,7 +243,7 @@
 		await syncPullerBaseUrlFromTauri();
 		invalidatePullerAvailabilityCache();
 		invalidateOfflineBackendCache();
-		/* ignoreDeploymentGate: health must work even if deployment was misclassified. */
+		/* isPullerAvailable falls back to Rust ensure_puller when WebKit loopback fetch fails. */
 		const pullerUp =
 			(await isPullerAvailable(true, { ignoreDeploymentGate: true })) ||
 			(await waitForPuller(12_000));
@@ -267,13 +267,24 @@
 		await refreshPlayerUrl();
 		if (!canUseTouchBridge(gamePlayerUrl)) {
 			/*
-			 * Prefer game-live for catalog iframe shells — it same-origin proxies
-			 * Build assets (WebKit-safe). unity-play is for metadata engine=unity.
+			 * Unity iframe shells (abinbins etc.) must use unity-play — game-live only
+			 * injects the outer catalog shell, leaving nested Unity without the bridge
+			 * (Console stuck on “Waiting for the puller-proxied game frame…”).
 			 */
-			const proxyUrl =
-				gameMetadata?.engine === 'unity'
-					? pullerUnityPlayUrl(gameId, base)
-					: pullerLiveGameUrl(gameId, base);
+			let preferUnityPlay = gameMetadata?.engine === 'unity';
+			if (!preferUnityPlay) {
+				try {
+					const { probeOnlineShellExternal } = await import(
+						'$lib/utils/browser-offline-download'
+					);
+					preferUnityPlay = (await probeOnlineShellExternal(gameId)).unityLike;
+				} catch {
+					/* ignore */
+				}
+			}
+			const proxyUrl = preferUnityPlay
+				? pullerUnityPlayUrl(gameId, base)
+				: pullerLiveGameUrl(gameId, base);
 			if (proxyUrl !== gamePlayerUrl) {
 				gamePlayerUrl = proxyUrl;
 			}

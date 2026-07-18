@@ -559,9 +559,16 @@ export async function getGamePlayerUrl(
 		}
 	}
 	if (!isPublicSiteDeployment() && needsNativeProxy) {
-		const { isPullerAvailable, waitForPuller, pullerUnityPlayUrl, pullerLiveGameUrl } =
-			await import('./offline-downloader-puller');
-		const pullerUp = (await isPullerAvailable()) || (await waitForPuller(12_000));
+		const {
+			syncPullerBaseUrlFromTauri,
+			isPullerAvailable,
+			waitForPuller,
+			pullerUnityPlayUrl,
+			pullerLiveGameUrl
+		} = await import('./offline-downloader-puller');
+		/* Packaged Flatpak: sync port; isPullerAvailable falls back to Rust ensure_puller. */
+		await syncPullerBaseUrlFromTauri();
+		const pullerUp = (await isPullerAvailable(true)) || (await waitForPuller(12_000));
 		if (pullerUp) {
 			if (metadata?.engine === 'unity' || externalUnityShell) {
 				const url = pullerUnityPlayUrl(gameId, base);
