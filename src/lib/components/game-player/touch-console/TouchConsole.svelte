@@ -391,33 +391,54 @@
 		untrack(() => probeInjectable());
 	});
 
-	/* A cross-origin WindowProxy exists before the bridge script does. Do not expose controls until load. */
+	/*
+	 * Cross-origin WindowProxy exists before the bridge script does — wait for load.
+	 * Packaged Flatpak often swaps playerUrl onto the same iframe without remounting;
+	 * contentDocument is opaque so a naive readyState check was clearing bridgeFrameLoaded
+	 * after the load event already fired → Console stuck on “Waiting for…”.
+	 */
 	$effect(() => {
 		const frame = iframe;
+		void playerUrl;
 		if (!frame) {
 			untrack(() => {
 				if (bridgeFrameLoaded) bridgeFrameLoaded = false;
 			});
 			return;
 		}
-		const onLoad = () => {
+		untrack(() => {
+			bridgeFrameLoaded = false;
+		});
+		const markLoaded = () => {
 			untrack(() => {
 				if (!bridgeFrameLoaded) bridgeFrameLoaded = true;
 			});
 			probeInjectable();
 		};
-		frame.addEventListener('load', onLoad);
-		let loaded = false;
+		frame.addEventListener('load', markLoaded);
 		try {
-			loaded = frame.contentDocument?.readyState === 'complete';
+			if (frame.contentDocument?.readyState === 'complete') markLoaded();
 		} catch {
-			/* Cross-origin documents become ready only through the iframe load event. */
+			/* Cross-origin — rely on load + retries below. */
 		}
-		untrack(() => {
-			if (bridgeFrameLoaded !== loaded) bridgeFrameLoaded = loaded;
-		});
-		if (loaded) probeInjectable();
-		return () => frame.removeEventListener('load', onLoad);
+		const timers = [50, 250, 800, 2000].map((ms) =>
+			window.setTimeout(() => {
+				if (!frame.isConnected) return;
+				try {
+					if (frame.contentDocument?.readyState === 'complete') {
+						markLoaded();
+						return;
+					}
+				} catch {
+					const src = frame.getAttribute('src') || frame.src || '';
+					if (src && src !== 'about:blank' && frame.contentWindow) markLoaded();
+				}
+			}, ms)
+		);
+		return () => {
+			frame.removeEventListener('load', markLoaded);
+			for (const t of timers) window.clearTimeout(t);
+		};
 	});
 
 	/* Unity / nested shells often create the canvas after first probe — keep trying while visible. */

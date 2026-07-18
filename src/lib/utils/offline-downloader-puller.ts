@@ -53,13 +53,21 @@ export function invalidatePullerAvailabilityCache(): void {
 	pullerAvailableCheckedAt = 0;
 }
 
+async function canInvokeTauriPuller(): Promise<boolean> {
+	try {
+		const { isTauriApp, isLocalAppDeployment } = await import('./offline-deployment');
+		// Packaged Tauri / Flatpak classify as local-app; invoke when either signal is present.
+		return isTauriApp() || isLocalAppDeployment();
+	} catch {
+		return false;
+	}
+}
+
 /** Resolve puller URL from Tauri (handles port conflicts with host pullers). */
 export async function syncPullerBaseUrlFromTauri(): Promise<string | null> {
 	if (!shouldProbePullerBackend()) return null;
 	try {
-		const { isTauriApp, isLocalAppDeployment } = await import('./offline-deployment');
-		// Packaged Tauri builds classify as local-app; invoke when either signal is present.
-		if (!isTauriApp() && !isLocalAppDeployment()) return null;
+		if (!(await canInvokeTauriPuller())) return null;
 		const { invoke } = await import('@tauri-apps/api/core');
 		const url = await invoke<string>('get_puller_base_url');
 		if (typeof url === 'string' && url.trim()) {
@@ -71,6 +79,29 @@ export async function syncPullerBaseUrlFromTauri(): Promise<string | null> {
 		/* not Tauri or command unavailable */
 	}
 	invalidatePullerAvailabilityCache();
+	return null;
+}
+
+/**
+ * Ask the native shell to health-check (and respawn) the puller.
+ * Prefer this in packaged Flatpak/Tauri — WebKit fetch to 127.0.0.1 is flaky
+ * from `tauri://` while Rust loopback checks are reliable.
+ */
+export async function ensurePullerFromTauri(): Promise<string | null> {
+	if (!shouldProbePullerBackend()) return null;
+	try {
+		if (!(await canInvokeTauriPuller())) return null;
+		const { invoke } = await import('@tauri-apps/api/core');
+		const url = await invoke<string>('ensure_puller');
+		if (typeof url === 'string' && url.trim()) {
+			setPullerBaseUrlOverride(url.trim());
+			pullerAvailableCache = true;
+			pullerAvailableCheckedAt = Date.now();
+			return getPullerBaseUrl();
+		}
+	} catch {
+		/* not Tauri, or puller failed to become healthy */
+	}
 	return null;
 }
 
@@ -103,20 +134,32 @@ export async function isPullerAvailable(
 	) {
 		return pullerAvailableCache;
 	}
+
+	const cacheResult = (ok: boolean) => {
+		if (!options?.ignoreDeploymentGate) {
+			pullerAvailableCache = ok;
+			pullerAvailableCheckedAt = Date.now();
+		}
+		return ok;
+	};
+
+	if (await probePullerHealthHttp()) return cacheResult(true);
+
+	/*
+	 * Packaged WebViews often fail cross-origin loopback fetch even when the
+	 * sidecar is healthy — confirm via Rust ensure_puller before giving up.
+	 */
+	if (await ensurePullerFromTauri()) return cacheResult(true);
+	return cacheResult(false);
+}
+
+async function probePullerHealthHttp(): Promise<boolean> {
 	try {
 		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/health`, {
 			signal: AbortSignal.timeout(2500)
 		});
-		if (!options?.ignoreDeploymentGate) {
-			pullerAvailableCache = res.ok;
-			pullerAvailableCheckedAt = now;
-		}
 		return res.ok;
 	} catch {
-		if (!options?.ignoreDeploymentGate) {
-			pullerAvailableCache = false;
-			pullerAvailableCheckedAt = now;
-		}
 		return false;
 	}
 }
@@ -127,13 +170,19 @@ export async function isPullerAvailable(
 export async function waitForPuller(timeoutMs = 15_000): Promise<boolean> {
 	const deadline = Date.now() + Math.max(0, timeoutMs);
 	await syncPullerBaseUrlFromTauri();
+	/* Native ensure respawns a dead sidecar — do this once before the poll loop. */
+	if (await ensurePullerFromTauri()) return true;
 	while (Date.now() <= deadline) {
 		invalidatePullerAvailabilityCache();
-		/* Probe even if deployment was misclassified — health is the source of truth. */
-		if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) return true;
+		if (await probePullerHealthHttp()) {
+			pullerAvailableCache = true;
+			pullerAvailableCheckedAt = Date.now();
+			return true;
+		}
 		await new Promise((r) => setTimeout(r, 400));
 	}
-	return false;
+	/* Last chance: WebKit fetch stayed dark but Rust can still reach loopback. */
+	return Boolean(await ensurePullerFromTauri());
 }
 
 export interface PullerHealth {

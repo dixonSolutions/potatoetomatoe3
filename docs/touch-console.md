@@ -54,7 +54,8 @@ flowchart TD
 | `/unity/player.html?src=…`                                                     | Same-origin shell   | **No** — nested cross-origin `#game`                                                                                                                               |
 | `/games/{id}/online/index.html`                                                | Same-origin shell   | **No** — nested external embed                                                                                                                                     |
 | Direct `https://…` embed                                                       | Cross-origin        | **No** without local puller live relay                                                                                                                             |
-| `http://127.0.0.1:18787/api/unity-play/…` or `/api/game-live/…` (Tauri puller) | Cross-origin        | **Yes** via postMessage bridge                                                                                                                                     |
+| `http://127.0.0.1:<port>/api/unity-play/…` (Tauri/Flatpak puller)              | Cross-origin        | **Yes** via postMessage bridge — prefer this for Unity iframe shells (abinbins)                                                                                    |
+| `http://127.0.0.1:<port>/api/game-live/…` (Tauri/Flatpak puller)               | Cross-origin        | **Yes** via postMessage bridge for non-Unity external embeds (not for nested Unity shells)                                                                         |
 
 The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an extra **local-app/Tauri** capability. On the public web app, mobile touch requires a local/offline mirror saved under `/browser-offline/` or served from same-origin game files.
 

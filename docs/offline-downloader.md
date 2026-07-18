@@ -173,7 +173,11 @@ The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. D
 
 Configure the puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:18787`).
 In Vite / `pnpm app`, offline APIs use same-origin `/api/offline/*` (proxied to the puller) so
-WebKit/Tauri does not depend on cross-origin fetches to `:18787`. `PUBLIC_OFFLINE_DEPLOYMENT=local-app`
+WebKit/Tauri does not depend on cross-origin fetches to `:18787`. Packaged Flatpak/Tauri still
+loads play iframes from `http://127.0.0.1:<port>/api/unity-play|game-live/…`, but **health and
+respawn** go through Tauri `ensure_puller` / `get_puller_base_url` first — WebKit fetch to
+loopback from `tauri://` is flaky and used to leave Unity shells on nested catalog HTML
+(`Script error`) even when the sidecar was fine. `PUBLIC_OFFLINE_DEPLOYMENT=local-app`
 is set by `pnpm app` and the Tauri beforeDevCommand.
 
 ### Game save data (browser profiles)
