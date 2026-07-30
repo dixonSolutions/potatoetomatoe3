@@ -207,3 +207,17 @@ misclassifies (CrazyGames especially), the WebView loads a broken shell.
 3. **Mark CrazyGames live hosts** that need a fuller rewrite; add a play-log error when
    proxied HTML still references localhost.
 4. **Continue feed:** show a clear “won’t run” badge when last session playMs=0 after N opens.
+
+## Follow-up: Pause + Console ON → black / never starts
+
+**Symptom (0.0.69 Flatpak):** With Console ON, Pause then Resume left Unity titles
+(e.g. Slope 2 Multiplayer) on a black viewport; chrome peeked at the bottom.
+
+**Root cause:** `inject.js` / storage bridge treated app Pause like mute and called
+`AudioContext.suspend()`. On WebKitGTK, `resume()` often never completes without an
+iframe gesture → Unity WebGL stays frozen. Restoring Console also forced
+`gameSurfaceStarted` before Play, skipping the user-gesture path.
+
+**Fix (local, needs next Flatpak):** Mute-only AC suspend; unlock on resume; Console
+pref restore no longer auto-starts the frame; longer bridge load probes. Embedded
+into puller via `pnpm embed-assets`.

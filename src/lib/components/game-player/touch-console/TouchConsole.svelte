@@ -421,7 +421,7 @@
 		} catch {
 			/* Cross-origin — rely on load + retries below. */
 		}
-		const timers = [50, 250, 800, 2000].map((ms) =>
+		const timers = [50, 250, 800, 2000, 5000, 9000].map((ms) =>
 			window.setTimeout(() => {
 				if (!frame.isConnected) return;
 				try {
@@ -430,8 +430,14 @@
 						return;
 					}
 				} catch {
+					/* Cross-origin puller frame: load may have already fired before this effect. */
 					const src = frame.getAttribute('src') || frame.src || '';
 					if (src && src !== 'about:blank' && frame.contentWindow) markLoaded();
+				}
+				/* Last-resort: any non-blank frame with a WindowProxy is bridge-capable. */
+				if (ms >= 5000 && frame.contentWindow) {
+					const src = frame.getAttribute('src') || frame.src || '';
+					if (src && src !== 'about:blank') markLoaded();
 				}
 			}, ms)
 		);

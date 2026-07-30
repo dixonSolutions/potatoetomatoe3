@@ -408,7 +408,8 @@
 			}
 			audioContexts.push(ctx);
 			window.__ptSharedAudioCtx = ctx;
-			if (window.__ptAudioOutputMuted || window.__ptGamePaused) {
+			/* Mute-only — never suspend for app Pause (Unity/WebKit black-canvas trap). */
+			if (window.__ptAudioOutputMuted) {
 				try {
 					ctx.suspend();
 				} catch (e2) {}
@@ -424,7 +425,8 @@
 	})();
 
 	function unlockAudio() {
-		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;
+		/* Mute still blocks unlock; app Pause must NOT — WebKit never resumes AC after suspend(). */
+		if (window.__ptAudioOutputMuted) return;
 		for (var i = 0; i < audioContexts.length; i++) {
 			try {
 				if (audioContexts[i].state === 'suspended') audioContexts[i].resume();
@@ -433,10 +435,15 @@
 	}
 
 	function applyEffectiveAudioMute() {
-		var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;
+		/*
+		 * Only real mute suspends AudioContext. Tying pause to suspend() freezes Unity
+		 * WebGL on WebKitGTK/Flatpak — resume() after Pause often never runs (no gesture
+		 * in the iframe), so the canvas stays black and Play never continues.
+		 */
+		var muted = !!window.__ptAudioOutputMuted;
 		for (var i = 0; i < audioContexts.length; i++) {
 			try {
-				if (effective) {
+				if (muted) {
 					if (audioContexts[i].state === 'running') audioContexts[i].suspend();
 				} else if (audioContexts[i].state === 'suspended') {
 					audioContexts[i].resume();
@@ -452,7 +459,6 @@
 
 	function setGamePaused(paused) {
 		window.__ptGamePaused = !!paused;
-		applyEffectiveAudioMute();
 		try {
 			var media = document.querySelectorAll('audio, video');
 			for (var i = 0; i < media.length; i++) {
@@ -470,6 +476,8 @@
 				}
 			}
 		} catch (e) {}
+		/* Parent also blocks pointer-events; wake audio on resume for Unity. */
+		if (!paused) unlockAudio();
 	}
 
 	/* ——— Touch console → synthetic keyboard (cross-origin parent uses postMessage) ——— */

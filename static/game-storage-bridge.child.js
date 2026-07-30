@@ -460,7 +460,8 @@
 	installIdbShim();
 
 	function unlockAudio() {
-		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;
+		/* Mute still blocks unlock; app Pause must not (WebKit AC resume trap). */
+		if (window.__ptAudioOutputMuted) return;
 		try {
 			var AC = window.AudioContext || window.webkitAudioContext;
 			if (!AC) return;
@@ -482,8 +483,9 @@
 				ctx = new AC();
 				window.__ptSharedAudioCtx = ctx;
 			}
-			var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;
-			if (effective) {
+			/* Mute-only — pause must not suspend AudioContext (Unity black canvas). */
+			var muted = !!window.__ptAudioOutputMuted;
+			if (muted) {
 				if (ctx.state === 'running') ctx.suspend();
 			} else if (ctx.state === 'suspended') {
 				ctx.resume();
@@ -500,7 +502,6 @@
 
 	function setGamePaused(paused) {
 		window.__ptGamePaused = !!paused;
-		applyEffectiveAudioMute();
 		try {
 			var media = document.querySelectorAll('audio, video');
 			for (var i = 0; i < media.length; i++) {
@@ -520,6 +521,7 @@
 		} catch (e) {
 			/* ignore */
 		}
+		if (!paused) unlockAudio();
 	}
 
 	var ptTouchHeld = Object.create(null);

@@ -162,12 +162,16 @@
 
 	function restoreTouchConsolePref(id: string) {
 		if (!readConsoleVisiblePref(id)) return;
-		const alreadyOn = touchConsoleVisible && gameSurfaceStarted;
+		/*
+		 * Restore the Console *preference* only — do not auto-start the iframe.
+		 * Forcing gameSurfaceStarted here skipped LazyGameFrame's Play gesture, so
+		 * WebKit/Unity often came up black; Pause then made recovery impossible.
+		 */
+		const alreadyOn = touchConsoleVisible;
 		touchConsoleVisible = true;
-		gameSurfaceStarted = true;
 		if (alreadyOn) return;
-		appendPlayLog('info', 'ui', 'Touch console restored', `game=${id}`);
-		void ensureTouchCapablePlayUrl();
+		appendPlayLog('info', 'ui', 'Touch console preference restored', `game=${id}`);
+		if (gameSurfaceStarted) void ensureTouchCapablePlayUrl();
 	}
 
 	const playerLayout = new GamePlayerLayout();
@@ -202,6 +206,12 @@
 		gamePaused = paused;
 		applyPauseToGameIframe(iframeElement, paused);
 		dispatchGamePauseChanged(paused);
+		if (!paused && iframeElement) {
+			void import('$lib/utils/game-audio').then(({ unlockGameIframeAudio }) => {
+				unlockGameIframeAudio(iframeElement);
+				window.setTimeout(() => unlockGameIframeAudio(iframeElement), 200);
+			});
+		}
 		appendPlayLog('info', 'ui', paused ? 'Game paused' : 'Game resumed', `game=${gameId}`);
 	}
 
@@ -315,6 +325,7 @@
 		/*
 		 * Flip ON synchronously — no await before the state write. Persist so any
 		 * later loadGamePage / remount restores ON instead of snapping to Off.
+		 * Starting the surface from this click preserves a user gesture for WebKit audio.
 		 */
 		gameSurfaceStarted = true;
 		setTouchConsoleVisible(true, 'toggle');
@@ -323,6 +334,11 @@
 			/* Re-assert after async proxy work — never leave the button Off. */
 			gameSurfaceStarted = true;
 			setTouchConsoleVisible(true, 'toggle-reassert');
+			void import('$lib/utils/game-audio').then(({ unlockGameIframeAudio }) => {
+				unlockGameIframeAudio(iframeElement);
+				window.setTimeout(() => unlockGameIframeAudio(iframeElement), 250);
+				window.setTimeout(() => unlockGameIframeAudio(iframeElement), 1000);
+			});
 			if (!ok) {
 				appendPlayLog('warn', 'ui', 'Touch console on but proxy incomplete', `game=${gameId}`);
 				toast.error('Console is ON, but the game frame still needs the puller or an offline mirror.', {

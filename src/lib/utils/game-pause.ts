@@ -101,6 +101,20 @@ export function applyPauseToGameIframe(iframe: HTMLIFrameElement | null | undefi
 	} else {
 		iframe.style.pointerEvents = '';
 		iframe.removeAttribute('data-pt-paused');
+		/*
+		 * Resume clicks are a user gesture in the parent — wake iframe audio immediately.
+		 * (inject no longer suspends AudioContext on pause; unlock still helps late Unity AC.)
+		 */
+		try {
+			iframe.contentWindow?.postMessage({ type: 'potato-tomato-unlock-audio' }, '*');
+		} catch {
+			/* ignore */
+		}
+		try {
+			iframe.contentWindow?.focus?.();
+		} catch {
+			/* ignore */
+		}
 	}
 	broadcastGamePause(paused);
 }
