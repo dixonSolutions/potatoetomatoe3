@@ -29,7 +29,7 @@
 		"targets": "all",
 		"externalBin": ["binaries/puller-sidecar"],
 		"resources": {
-			"../build/games/": "catalog/games/",
+			"../static/games/": "catalog/games/",
 			"../puller/dist/index.cjs": "puller/index.cjs"
 		},
 		"icon": [

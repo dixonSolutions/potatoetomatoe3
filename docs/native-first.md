@@ -54,7 +54,7 @@ GitHub Releases. Flatpak updates remain system-managed (`flatpak update`).
 Android APK packaging must stay under the ZIP32 **65535 entry** limit. The Android
 Tauri config skips GitHub Pages per-game SPA fallbacks, drops `.gitkeep` / non-bundled
 `offline/` trees via `scripts/slim-android-assets.mjs`, and does not re-bundle the
-catalog as a separate `resources` tree (the WebView already serves `build/games`).
+catalog as a separate `resources` tree (the WebView already serves the built games; the desktop resource catalog is sourced from `static/games`).
 
 ## Capture contract
 
