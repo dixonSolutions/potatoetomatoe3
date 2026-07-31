@@ -221,3 +221,19 @@ iframe gesture → Unity WebGL stays frozen. Restoring Console also forced
 **Fix (local, needs next Flatpak):** Mute-only AC suspend; unlock on resume; Console
 pref restore no longer auto-starts the frame; longer bridge load probes. Embedded
 into puller via `pnpm embed-assets`.
+
+## Follow-up (2026-07-31): puller never started / Offline crashed it
+
+**Symptoms on Flatpak 0.0.70:** Many titles (Snow Rider Offline, Slope 2, …) white/black
+viewport. Host curl to `:18787` often refused; Offline HTML once killed the sidecar.
+
+**Root causes:**
+1. Flatpak installed only `/app/bin/puller-sidecar`, but Tauri looks for
+   `puller-sidecar-x86_64-unknown-linux-gnu` → spawn failed silently.
+2. `puller/src/server.ts` called `isUnityGameHtml` / `injectUnityPatches` /
+   `hasOfflineMirror` without importing them → Offline HTML threw after
+   `writeHead(200)` → outer `sendJson` → `ERR_HTTP_HEADERS_SENT` → process exit.
+
+**Fixes:** install both sidecar names; Rust fallback spawn by path; import + build
+HTML before headers; guard `sendJson` when headers already sent. Hot-patched tablet
+deploy + symlink until next Flatpak release.

@@ -46,7 +46,11 @@ modules:
           if [ -f "$candidate" ]; then SIDECAR="$candidate"; break; fi
         done
         if [ -z "$SIDECAR" ]; then echo "ERROR puller sidecar missing — run pnpm puller:bundle:linux" >&2; exit 1; fi
+        # Tauri shell resolves externalBin as `<name>-<target-triple>` next to the app
+        # binary. Installing only `puller-sidecar` makes spawn fail silently on Flatpak
+        # (no puller → white Offline viewports / dead Online proxy).
         install -Dm755 "$SIDECAR" /app/bin/puller-sidecar
+        install -Dm755 "$SIDECAR" /app/bin/puller-sidecar-x86_64-unknown-linux-gnu
       - |
         # Tauri `build --no-bundle` places resources next to the binary
         # (src-tauri/target/release/{catalog,puller}/). On Linux, Tauri resolves

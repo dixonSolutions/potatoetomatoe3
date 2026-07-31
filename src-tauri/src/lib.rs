@@ -242,20 +242,59 @@ fn spawn_puller_sidecar(
 ) -> Result<(), String> {
   use tauri_plugin_shell::ShellExt;
 
-  let sidecar = app
-    .shell()
-    .sidecar("puller-sidecar")
-    .map_err(|e| e.to_string())?
-    .env("GAMES_DATA_DIR", games_dir)
-    .env("CATALOG_DIR", catalog_dir)
-    .env("PULLER_PORT", port.to_string());
+  match app.shell().sidecar("puller-sidecar") {
+    Ok(sidecar) => {
+      return sidecar
+        .env("GAMES_DATA_DIR", games_dir)
+        .env("CATALOG_DIR", catalog_dir)
+        .env("PULLER_PORT", port.to_string())
+        .spawn()
+        .map(|_| {
+          log::info!("puller sidecar spawned on port {}", port);
+        })
+        .map_err(|e| e.to_string());
+    }
+    Err(e) => {
+      log::warn!(
+        "tauri sidecar('puller-sidecar') failed ({e}) — trying exe-adjacent binaries"
+      );
+    }
+  }
 
-  sidecar
-    .spawn()
-    .map(|_| {
-      log::info!("puller sidecar spawned on port {}", port);
-    })
-    .map_err(|e| e.to_string())
+  /*
+   * Flatpak historically installed only `/app/bin/puller-sidecar` while Tauri looks for
+   * `puller-sidecar-<target-triple>`. Fall back to plain paths so Offline/Online play
+   * still works when the triple-named file is missing.
+   */
+  let mut candidates = Vec::new();
+  if let Ok(exe) = std::env::current_exe() {
+    if let Some(dir) = exe.parent() {
+      candidates.push(dir.join("puller-sidecar-x86_64-unknown-linux-gnu"));
+      candidates.push(dir.join("puller-sidecar"));
+    }
+  }
+  candidates.push(PathBuf::from("/app/bin/puller-sidecar-x86_64-unknown-linux-gnu"));
+  candidates.push(PathBuf::from("/app/bin/puller-sidecar"));
+
+  for path in candidates {
+    if !path.is_file() {
+      continue;
+    }
+    let cmd = std::process::Command::new(&path);
+    match spawn_with_env(cmd, games_dir, catalog_dir, port) {
+      Ok(()) => {
+        log::info!(
+          "puller spawned via fallback binary {} on port {}",
+          path.display(),
+          port
+        );
+        return Ok(());
+      }
+      Err(err) => log::warn!("fallback puller spawn failed for {}: {err}", path.display()),
+    }
+  }
+
+  Err("puller-sidecar binary not found next to app or under /app/bin".into())
 }
 
 fn spawn_puller_node_bundle(

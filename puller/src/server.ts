@@ -16,12 +16,14 @@ import { liveSessionCount } from './live/session.js';
 import {
 	isValidGameId,
 	isGameInCatalog,
+	hasOfflineMirror,
 	loadGameIds,
 	resolveOfflineFilePath,
 	resolveOfflineMirrorRoot,
 	readGameMetadata
 } from './catalog.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
+import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
 import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
 import { fetchLiveAsset, startLiveGameHtml } from './live/proxy.js';
 import {
@@ -32,6 +34,10 @@ import {
 import type { GameBrowserProfile } from './browser-data-profile.js';
 
 function sendJson(res: http.ServerResponse, status: number, body: unknown): void {
+	if (res.headersSent || res.writableEnded) {
+		console.error('[puller] sendJson skipped — headers already sent', status, body);
+		return;
+	}
 	const payload = JSON.stringify(body);
 	res.writeHead(status, {
 		'Content-Type': 'application/json',
@@ -145,21 +151,33 @@ async function serveStaticGames(
 
 	const isHtml = /\.html?$/i.test(absPath);
 
+	if (isHtml) {
+		/*
+		 * Build the body before writeHead. A throw after headers (e.g. missing inject
+		 * helpers in a bad bundle) used to hit the outer sendJson catch and kill the
+		 * whole Node process with ERR_HTTP_HEADERS_SENT — breaking Offline play.
+		 */
+		let raw = await fs.readFile(absPath, 'utf-8');
+		if (isUnityGameHtml(raw)) {
+			raw = injectUnityPatches(raw);
+		}
+		const body = injectGameStorageBridge(raw, gameId);
+		res.writeHead(200, {
+			'Content-Type': 'text/html; charset=utf-8',
+			'Access-Control-Allow-Origin': CORS_ORIGIN,
+			'Access-Control-Allow-Private-Network': 'true',
+			'Cache-Control': 'public, max-age=3600'
+		});
+		res.end(body);
+		return true;
+	}
+
 	res.writeHead(200, {
 		'Content-Type': mimeFor(absPath),
 		'Access-Control-Allow-Origin': CORS_ORIGIN,
 		'Access-Control-Allow-Private-Network': 'true',
 		'Cache-Control': 'public, max-age=3600'
 	});
-
-	if (isHtml) {
-		let raw = await fs.readFile(absPath, 'utf-8');
-		if (isUnityGameHtml(raw)) {
-			raw = injectUnityPatches(raw);
-		}
-		res.end(injectGameStorageBridge(raw, gameId));
-		return true;
-	}
 
 	const stream = createReadStream(absPath);
 	stream.on('error', (err) => {

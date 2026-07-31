@@ -85,12 +85,18 @@ jobs:
           # build-flatpak/... would resolve to the wrong directory.
           SOURCE_SIDECAR="$PWD/src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu"
           ASSEMBLED_SIDECAR="$PWD/build-flatpak/files/bin/puller-sidecar"
+          ASSEMBLED_SIDECAR_TRIPLE="$PWD/build-flatpak/files/bin/puller-sidecar-x86_64-unknown-linux-gnu"
           test -x "$ASSEMBLED_SIDECAR" || {
             echo "ERROR: assembled sidecar missing at $ASSEMBLED_SIDECAR" >&2
             find build-flatpak -name 'puller-sidecar*' 2>/dev/null | head -20 >&2 || true
             exit 1
           }
+          test -x "$ASSEMBLED_SIDECAR_TRIPLE" || {
+            echo "ERROR: Tauri triple-named sidecar missing at $ASSEMBLED_SIDECAR_TRIPLE" >&2
+            exit 1
+          }
           cmp "$SOURCE_SIDECAR" "$ASSEMBLED_SIDECAR"
+          cmp "$SOURCE_SIDECAR" "$ASSEMBLED_SIDECAR_TRIPLE"
           PULLER_BINARY="$ASSEMBLED_SIDECAR" pnpm --filter @potatotomato/puller smoke:bundle
           flatpak build-bundle repo potato-tomato.flatpak com.potatotomato.games stable
 

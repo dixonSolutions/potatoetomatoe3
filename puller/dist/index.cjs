@@ -492,7 +492,7 @@ async function hasOnlineShell(gameId) {
   }
   return false;
 }
-async function hasOfflineMirror2(gameId) {
+async function hasOfflineMirror(gameId) {
   const entryRel = await resolveOfflineEntryRel(gameId);
   if (!entryRel) return false;
   for (const root of [offlineDir(gameId), import_node_path3.default.join(catalogGameRoot(gameId), "offline")]) {
@@ -1999,7 +1999,30 @@ var UNITY_INJECT_SOURCE = `/**
 	 * occupied while the framework is being evaluated, which aborts startup
 	 * with "invalid handle for stdin (1)". Repair only this known assertion
 	 * pattern after the framework has been decompressed and before it runs.
+	 *
+	 * Frameworks emit either \`0===stdin.fd\` or \`stdin.fd===0\` \u2014 match both.
+	 * Keep in sync with puller/src/unity/framework-patches.ts.
 	 */
+	function repairStdioAssert(stream, expected) {
+		return (
+			'if (' +
+			stream +
+			'.fd !== ' +
+			expected +
+			') { FS.streams[' +
+			stream +
+			'.fd] = null; ' +
+			stream +
+			'.fd = ' +
+			expected +
+			'; FS.streams[' +
+			expected +
+			'] = ' +
+			stream +
+			'; }'
+		);
+	}
+
 	function patchUnityFrameworkSource(source) {
 		var original = source;
 		var text = source;
@@ -2021,26 +2044,15 @@ var UNITY_INJECT_SOURCE = `/**
 			return original;
 		}
 
-		var assertion =
+		var assertionLiteralLeft =
 			/assert\\(\\s*([0-2])===([A-Za-z_$][\\w$]*)\\.fd\\s*,\\s*["']invalid handle for (stdin|stdout|stderr) \\(["']\\+\\2\\.fd\\+["']\\)["']\\s*\\);/g;
-		var patched = text.replace(assertion, function (_match, expected, stream) {
-			return (
-				'if (' +
-				stream +
-				'.fd !== ' +
-				expected +
-				') { FS.streams[' +
-				stream +
-				'.fd] = null; ' +
-				stream +
-				'.fd = ' +
-				expected +
-				'; FS.streams[' +
-				expected +
-				'] = ' +
-				stream +
-				'; }'
-			);
+		var assertionStreamLeft =
+			/assert\\(\\s*([A-Za-z_$][\\w$]*)\\.fd===([0-2])\\s*,\\s*["']invalid handle for (stdin|stdout|stderr) \\(["']\\+\\1\\.fd\\+["']\\)["']\\s*\\);/g;
+		var patched = text.replace(assertionLiteralLeft, function (_match, expected, stream) {
+			return repairStdioAssert(stream, expected);
+		});
+		patched = patched.replace(assertionStreamLeft, function (_match, stream, expected) {
+			return repairStdioAssert(stream, expected);
 		});
 
 		if (patched === text) return original;
@@ -2049,6 +2061,37 @@ var UNITY_INJECT_SOURCE = `/**
 			return typeof TextEncoder === 'function' ? new TextEncoder().encode(patched) : original;
 		} catch (e) {
 			return original;
+		}
+	}
+
+	/* Legacy UnityLoader: only gunzip real gzip; pass through plain UnityFS / decoded bodies. */
+	function isGzipMagic(data) {
+		return data && data.length >= 2 && data[0] === 0x1f && data[1] === 0x8b;
+	}
+
+	function wrapUnityDecompress(fn) {
+		if (typeof fn !== 'function' || fn.__ptSafeDecompress) return fn;
+		var wrapped = function (data) {
+			var bytes =
+				data instanceof Uint8Array
+					? data
+					: data && typeof data.byteLength === 'number'
+						? new Uint8Array(data)
+						: null;
+			if (!bytes || !isGzipMagic(bytes)) return data;
+			return fn(data);
+		};
+		wrapped.__ptSafeDecompress = true;
+		return wrapped;
+	}
+
+	function forceUnityCompressionSupported(UL) {
+		try {
+			var cs = UL && UL.CompressionState;
+			if (!cs || typeof cs.Set !== 'function') return;
+			if (typeof cs.Supported === 'number') cs.Set(cs.Supported);
+		} catch (e) {
+			/* ignore */
 		}
 	}
 
@@ -2095,6 +2138,7 @@ var UNITY_INJECT_SOURCE = `/**
 			var origInstantiate = UL.instantiate.bind(UL);
 			UL.instantiate = function (container, url, opts) {
 				hideLoadingDom();
+				forceUnityCompressionSupported(UL);
 				opts = opts || {};
 				opts.Module = ensureUnityModuleHooks(opts.Module || {});
 				if (opts.onProgress) {
@@ -2120,6 +2164,7 @@ var UNITY_INJECT_SOURCE = `/**
 			patchedLoadCode.__ptStdioPatched = true;
 			UL.loadCode = patchedLoadCode;
 		}
+		forceUnityCompressionSupported(UL);
 		return UL;
 	}
 	Object.defineProperty(window, 'UnityLoader', {
@@ -2133,6 +2178,34 @@ var UNITY_INJECT_SOURCE = `/**
 		}
 	});
 	if (_ul) _ul = patchUnityLoader(_ul);
+
+	/*
+	 * UnityLoader.js assigns window.unityDecompressReleaseFile = pako.inflate at parse time.
+	 * Trap the property so we wrap it even when the script loads after inject.
+	 */
+	(function trapUnityDecompress() {
+		if (window.__ptUnityDecompressTrap) return;
+		window.__ptUnityDecompressTrap = true;
+		var _decompress = wrapUnityDecompress(window.unityDecompressReleaseFile);
+		try {
+			Object.defineProperty(window, 'unityDecompressReleaseFile', {
+				configurable: true,
+				enumerable: true,
+				get: function () {
+					return _decompress;
+				},
+				set: function (fn) {
+					_decompress = wrapUnityDecompress(fn);
+				}
+			});
+		} catch (e) {
+			if (typeof window.unityDecompressReleaseFile === 'function') {
+				window.unityDecompressReleaseFile = wrapUnityDecompress(
+					window.unityDecompressReleaseFile
+				);
+			}
+		}
+	})();
 
 	/* Track every AudioContext so focus-loss mute can suspend Unity Web Audio too. */
 	var audioContexts = [];
@@ -2155,7 +2228,8 @@ var UNITY_INJECT_SOURCE = `/**
 			}
 			audioContexts.push(ctx);
 			window.__ptSharedAudioCtx = ctx;
-			if (window.__ptAudioOutputMuted || window.__ptGamePaused) {
+			/* Mute-only \u2014 never suspend for app Pause (Unity/WebKit black-canvas trap). */
+			if (window.__ptAudioOutputMuted) {
 				try {
 					ctx.suspend();
 				} catch (e2) {}
@@ -2171,7 +2245,8 @@ var UNITY_INJECT_SOURCE = `/**
 	})();
 
 	function unlockAudio() {
-		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;
+		/* Mute still blocks unlock; app Pause must NOT \u2014 WebKit never resumes AC after suspend(). */
+		if (window.__ptAudioOutputMuted) return;
 		for (var i = 0; i < audioContexts.length; i++) {
 			try {
 				if (audioContexts[i].state === 'suspended') audioContexts[i].resume();
@@ -2180,10 +2255,15 @@ var UNITY_INJECT_SOURCE = `/**
 	}
 
 	function applyEffectiveAudioMute() {
-		var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;
+		/*
+		 * Only real mute suspends AudioContext. Tying pause to suspend() freezes Unity
+		 * WebGL on WebKitGTK/Flatpak \u2014 resume() after Pause often never runs (no gesture
+		 * in the iframe), so the canvas stays black and Play never continues.
+		 */
+		var muted = !!window.__ptAudioOutputMuted;
 		for (var i = 0; i < audioContexts.length; i++) {
 			try {
-				if (effective) {
+				if (muted) {
 					if (audioContexts[i].state === 'running') audioContexts[i].suspend();
 				} else if (audioContexts[i].state === 'suspended') {
 					audioContexts[i].resume();
@@ -2199,7 +2279,6 @@ var UNITY_INJECT_SOURCE = `/**
 
 	function setGamePaused(paused) {
 		window.__ptGamePaused = !!paused;
-		applyEffectiveAudioMute();
 		try {
 			var media = document.querySelectorAll('audio, video');
 			for (var i = 0; i < media.length; i++) {
@@ -2217,6 +2296,8 @@ var UNITY_INJECT_SOURCE = `/**
 				}
 			}
 		} catch (e) {}
+		/* Parent also blocks pointer-events; wake audio on resume for Unity. */
+		if (!paused) unlockAudio();
 	}
 
 	/* \u2014\u2014\u2014 Touch console \u2192 synthetic keyboard (cross-origin parent uses postMessage) \u2014\u2014\u2014 */
@@ -2465,7 +2546,7 @@ var UNITY_INJECT_SOURCE = `/**
 	setInterval(hideLoadingDom, 500);
 })();
 `;
-var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Spoof hasFocus in this iframe realm only \u2014 parent shell mute uses the outer document.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n			Document.prototype.hasFocus = function () {\n				return true;\n			};\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		var focusLossEvents = {\n			blur: true,\n			focusout: true,\n			visibilitychange: true\n		};\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n		/*\n		 * The console lives in the parent document. Tapping it can blur this\n		 * iframe, and some games register their own blur handlers after this\n		 * bridge is loaded. Block those handlers before they are registered:\n		 * the app's explicit Pause control remains the only pause channel.\n		 */\n		function blockFocusLossListeners(target) {\n			try {\n				var add = target.addEventListener;\n				target.addEventListener = function (type, listener, options) {\n					if (focusLossEvents[type]) return;\n					return add.call(this, type, listener, options);\n				};\n			} catch (e) {\n				/* ignore */\n			}\n		}\n		blockFocusLossListeners(window);\n		blockFocusLossListeners(document);\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//,\n			/\\/api\\/(?:unity-play|game-live)\\/([^/]+)/\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		if (window.__ptAudioOutputMuted || window.__ptGamePaused) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			var effective = !!window.__ptAudioOutputMuted || !!window.__ptGamePaused;\n			if (effective) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		applyEffectiveAudioMute();\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas = document.querySelector('canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl = document.querySelector('canvas');\n		if (canvasEl) targets.push(canvasEl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function sendTouchInputAck(data, codes) {\n		if (!data || !data.ackId) return;\n		try {\n			window.parent.postMessage(\n				{\n					type: 'potato-tomato-touch-input-ack',\n					ackId: data.ackId,\n					action: data.action,\n					codes: codes || [],\n					path: 'bridge',\n					ok: true\n				},\n				'*'\n			);\n		} catch (e) {}\n	}\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			sendTouchInputAck(data, held);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			sendTouchInputAck(data, codes);\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n			sendTouchInputAck(data, codes);\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
+var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Spoof hasFocus in this iframe realm only \u2014 parent shell mute uses the outer document.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n			Document.prototype.hasFocus = function () {\n				return true;\n			};\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		var focusLossEvents = {\n			blur: true,\n			focusout: true,\n			visibilitychange: true\n		};\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n		/*\n		 * The console lives in the parent document. Tapping it can blur this\n		 * iframe, and some games register their own blur handlers after this\n		 * bridge is loaded. Block those handlers before they are registered:\n		 * the app's explicit Pause control remains the only pause channel.\n		 */\n		function blockFocusLossListeners(target) {\n			try {\n				var add = target.addEventListener;\n				target.addEventListener = function (type, listener, options) {\n					if (focusLossEvents[type]) return;\n					return add.call(this, type, listener, options);\n				};\n			} catch (e) {\n				/* ignore */\n			}\n		}\n		blockFocusLossListeners(window);\n		blockFocusLossListeners(document);\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//,\n			/\\/api\\/(?:unity-play|game-live)\\/([^/]+)/\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		/* Mute still blocks unlock; app Pause must not (WebKit AC resume trap). */\n		if (window.__ptAudioOutputMuted) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			/* Mute-only \u2014 pause must not suspend AudioContext (Unity black canvas). */\n			var muted = !!window.__ptAudioOutputMuted;\n			if (muted) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		if (!paused) unlockAudio();\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas = document.querySelector('canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl = document.querySelector('canvas');\n		if (canvasEl) targets.push(canvasEl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function sendTouchInputAck(data, codes) {\n		if (!data || !data.ackId) return;\n		try {\n			window.parent.postMessage(\n				{\n					type: 'potato-tomato-touch-input-ack',\n					ackId: data.ackId,\n					action: data.action,\n					codes: codes || [],\n					path: 'bridge',\n					ok: true\n				},\n				'*'\n			);\n		} catch (e) {}\n	}\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			sendTouchInputAck(data, held);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			sendTouchInputAck(data, codes);\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n			sendTouchInputAck(data, codes);\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
 
 // src/unity/inject-html.ts
 var cachedInjectSource = null;
@@ -2477,8 +2558,8 @@ function loadUnityInjectSource() {
 function buildUnityInjectScriptTag() {
   return `<script>${loadUnityInjectSource()}</script>`;
 }
-var BLOAT_SCRIPT = /(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare)/i;
-var BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick|cloak)/i;
+var BLOAT_SCRIPT = /(?:poki-sdk|master-loader|y8-afp|y8\.sdk|id\.net|idnet|gameapi|adsbygoogle|googlesyndication|cloak\.js|main\.min\.js|cdn-cgi|cloudflare|adinLoader|adinplay|getAdinDomain|doubleclick|pagead)/i;
+var BLOAT_LINK = /(?:poki|y8|id\.net|doubleclick|cloak|adin)/i;
 function stripUnityPortalBloat(html) {
   let out = html;
   out = out.replace(
@@ -2494,7 +2575,7 @@ function stripUnityPortalBloat(html) {
   out = out.replace(/<div\b[^>]*\bid=["']loading-cover["'][^>]*>[\s\S]*?<\/div>/gi, "");
   return out;
 }
-function injectUnityPatches2(html, assetRoutes = {}) {
+function injectUnityPatches(html, assetRoutes = {}) {
   let out = stripUnityPortalBloat(html);
   const inject = buildUnityInjectScriptTag();
   const redirect = Object.keys(assetRoutes).length > 0 ? buildAssetRedirectScript(assetRoutes) : "";
@@ -2509,7 +2590,7 @@ ${redirect}`;
   }
   return bundle + out;
 }
-function isUnityGameHtml2(html) {
+function isUnityGameHtml(html) {
   return /UnityLoader|createUnityInstance|master-loader\.js|unityWebglLoaderUrl|Build\/.*\.json/i.test(
     html
   );
@@ -2517,7 +2598,7 @@ function isUnityGameHtml2(html) {
 
 // src/unity-embed/host.ts
 function buildOfflineHtml(assetRoutes) {
-  return injectUnityPatches2(buildAdFreeHostHtml(), assetRoutes);
+  return injectUnityPatches(buildAdFreeHostHtml(), assetRoutes);
 }
 async function writeHostFiles(outDir, info, downloads, merges, assetRoutes) {
   const files = [];
@@ -3465,7 +3546,7 @@ async function discoverExternalUnityAssets(outDir, indexHtml) {
 async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.html") {
   const entryPath = import_node_path19.default.join(outDir, entryRel);
   const entryHtml = await import_promises17.default.readFile(entryPath, "utf-8");
-  if (!isUnityGameHtml2(entryHtml)) {
+  if (!isUnityGameHtml(entryHtml)) {
     return { assetRoutes: {}, externalCount: 0 };
   }
   const externalUrls = await discoverExternalUnityAssets(outDir, entryHtml);
@@ -3476,7 +3557,7 @@ async function postProcessUnityOfflineMirror(outDir, baseUrl, entryRel = "index.
       JSON.stringify(assetRoutes, null, 2)
     );
   }
-  const patched = injectUnityPatches2(entryHtml, assetRoutes);
+  const patched = injectUnityPatches(entryHtml, assetRoutes);
   await import_promises17.default.writeFile(entryPath, patched);
   console.log(
     `[unity] Post-processed ${import_node_path19.default.basename(outDir)} \u2014 ${externalUrls.length} external route(s), product=${inferBuildProductName(entryHtml) ?? "unknown"}`
@@ -3926,7 +4007,7 @@ async function listOfflineActivityIds(force = false) {
 async function getGameStatus(gameId, options) {
   const partialCache = await hasPartialDownloadCache(gameId);
   const cache = partialCache ? await countOfflineFiles(gameId) : 0;
-  const offline = await hasOfflineMirror2(gameId);
+  const offline = await hasOfflineMirror(gameId);
   let offlineThumbnail = offline ? await readOfflineThumbnailRel(gameId) ?? void 0 : void 0;
   if (offline && !offlineThumbnail && options?.repairThumbnail === true) {
     offlineThumbnail = await ensureOfflineThumbnail(gameId) ?? void 0;
@@ -4355,14 +4436,14 @@ async function fetchProxiedUnityHtml(gameId) {
     });
     if (res.ok) {
       let html2 = await res.text();
-      html2 = injectUnityPatches2(html2);
+      html2 = injectUnityPatches(html2);
       html2 = absolutizeAgainstBase(html2, res.url || targetUrl);
       return html2;
     }
   }
   const local = await readLocalEmbedHtml(gameId);
   if (!local) return null;
-  let html = injectUnityPatches2(local.html);
+  let html = injectUnityPatches(local.html);
   html = absolutizeAgainstBase(html, local.baseHref);
   return html;
 }
@@ -4374,7 +4455,7 @@ var MAX_HTML_BYTES = 8 * 1024 * 1024;
 var MAX_ASSET_BYTES = 80 * 1024 * 1024;
 function looksLikeUnity(metaEngine, html) {
   if (typeof metaEngine === "string" && metaEngine.toLowerCase() === "unity") return true;
-  return isUnityGameHtml2(html);
+  return isUnityGameHtml(html);
 }
 function rewriteHtmlForLiveSession(html, session, proxyPrefix) {
   const base = new URL(normalizeBaseUrl(session.baseHref));
@@ -4426,7 +4507,7 @@ async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
     }
     let html2 = local.html;
     if (looksLikeUnity(metaEngine, html2)) {
-      html2 = injectUnityPatches2(html2);
+      html2 = injectUnityPatches(html2);
     }
     const proxyPrefix2 = proxyPrefixForGame(session2.id);
     html2 = rewriteHtmlForLiveSession(html2, session2, proxyPrefix2);
@@ -4459,7 +4540,7 @@ async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
   }
   let html = buf.toString("utf-8");
   if (looksLikeUnity(metaEngine, html)) {
-    html = injectUnityPatches2(html);
+    html = injectUnityPatches(html);
   }
   const proxyPrefix = proxyPrefixForGame(session.id);
   html = rewriteHtmlForLiveSession(html, session, proxyPrefix);
@@ -4501,8 +4582,8 @@ async function fetchLiveAsset(gameId, sessionId, assetPath, absoluteOverride) {
   if (/text\/html/i.test(contentType) || /\.html?$/i.test(parsed.pathname)) {
     let html = buf.toString("utf-8");
     const proxyPrefix = `/api/game-live/${encodeURIComponent(gameId)}/${session.id}`;
-    if (isUnityGameHtml2(html)) {
-      html = injectUnityPatches2(html);
+    if (isUnityGameHtml(html)) {
+      html = injectUnityPatches(html);
     }
     html = rewriteHtmlForLiveSession(html, { ...session, baseHref: documentUrl }, proxyPrefix);
     html = injectGameStorageBridge(html, gameId);
@@ -4697,6 +4778,10 @@ async function deleteGameBrowserProfile(gameId) {
 
 // src/server.ts
 function sendJson(res, status, body) {
+  if (res.headersSent || res.writableEnded) {
+    console.error("[puller] sendJson skipped \u2014 headers already sent", status, body);
+    return;
+  }
   const payload = JSON.stringify(body);
   res.writeHead(status, {
     "Content-Type": "application/json",
@@ -4794,20 +4879,27 @@ async function serveStaticGames(req, res, urlPath) {
     return true;
   }
   const isHtml = /\.html?$/i.test(absPath);
+  if (isHtml) {
+    let raw = await import_promises25.default.readFile(absPath, "utf-8");
+    if (isUnityGameHtml(raw)) {
+      raw = injectUnityPatches(raw);
+    }
+    const body = injectGameStorageBridge(raw, gameId);
+    res.writeHead(200, {
+      "Content-Type": "text/html; charset=utf-8",
+      "Access-Control-Allow-Origin": CORS_ORIGIN,
+      "Access-Control-Allow-Private-Network": "true",
+      "Cache-Control": "public, max-age=3600"
+    });
+    res.end(body);
+    return true;
+  }
   res.writeHead(200, {
     "Content-Type": mimeFor(absPath),
     "Access-Control-Allow-Origin": CORS_ORIGIN,
     "Access-Control-Allow-Private-Network": "true",
     "Cache-Control": "public, max-age=3600"
   });
-  if (isHtml) {
-    let raw = await import_promises25.default.readFile(absPath, "utf-8");
-    if (isUnityGameHtml(raw)) {
-      raw = injectUnityPatches(raw);
-    }
-    res.end(injectGameStorageBridge(raw, gameId));
-    return true;
-  }
   const stream = (0, import_node_fs12.createReadStream)(absPath);
   stream.on("error", (err) => {
     console.error("[puller] read error", absPath, err.message);
