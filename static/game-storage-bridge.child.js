@@ -583,12 +583,18 @@
 			return;
 		}
 		try {
-			var canvas = document.querySelector('canvas');
+			var canvas =
+				document.querySelector('canvas') ||
+				document.querySelector('#openfl-content canvas, #unity-canvas, #gameContainer canvas');
 			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
 		} catch (e) {}
 		var targets = [];
-		var canvasEl = document.querySelector('canvas');
+		var canvasEl =
+			document.querySelector('canvas') ||
+			document.querySelector('#openfl-content canvas, #unity-canvas, #gameContainer canvas');
 		if (canvasEl) targets.push(canvasEl);
+		var openfl = document.getElementById('openfl-content');
+		if (openfl) targets.push(openfl);
 		if (document.body) targets.push(document.body);
 		if (document.documentElement) targets.push(document.documentElement);
 		targets.push(document, window);
@@ -614,6 +620,17 @@
 			);
 		} catch (e) {}
 	}
+	function ptForwardTouchToChildFrames(data) {
+		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		var frames = document.getElementsByTagName('iframe');
+		for (var i = 0; i < frames.length; i++) {
+			try {
+				var win = frames[i].contentWindow;
+				if (win) win.postMessage(data, '*');
+			} catch (e) {}
+		}
+	}
+
 	function handleTouchInputMessage(data) {
 		if (!data || data.type !== 'potato-tomato-touch-input') return;
 		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];
@@ -621,6 +638,7 @@
 			var held = Object.keys(ptTouchHeld);
 			ptTouchHeld = Object.create(null);
 			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);
+			ptForwardTouchToChildFrames(data);
 			sendTouchInputAck(data, held);
 			return;
 		}
@@ -630,6 +648,7 @@
 				ptTouchHeld[codes[d]] = true;
 				ptDispatchKey('keydown', codes[d]);
 			}
+			ptForwardTouchToChildFrames(data);
 			sendTouchInputAck(data, codes);
 			return;
 		}
@@ -639,6 +658,7 @@
 				delete ptTouchHeld[codes[u]];
 				ptDispatchKey('keyup', codes[u]);
 			}
+			ptForwardTouchToChildFrames(data);
 			sendTouchInputAck(data, codes);
 		}
 	}

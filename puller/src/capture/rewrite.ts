@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 /**
@@ -38,4 +39,28 @@ export function isCapturableUrl(url: string): boolean {
 	} catch {
 		return false;
 	}
+}
+
+/**
+ * Absolute http(s) URL → `_external/<host>/<path>` when that file was vaulted
+ * during capture. Host-agnostic (any CDN), only rewrites when the mirror file exists.
+ */
+export function rewriteAbsoluteUrlsToMirroredExternal(
+	html: string,
+	mirrorRoot: string
+): string {
+	return html.replace(/https?:\/\/[^\s"'<>\\]+/gi, (absolute) => {
+		let parsed: URL;
+		try {
+			parsed = new URL(absolute);
+		} catch {
+			return absolute;
+		}
+		if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return absolute;
+		const pathParts = parsed.pathname.split('/').filter(Boolean);
+		const local = path.join(mirrorRoot, '_external', parsed.hostname, ...pathParts);
+		if (!existsSync(local)) return absolute;
+		const rel = ['_external', parsed.hostname, ...pathParts].join('/');
+		return `${rel}${parsed.search}${parsed.hash}`;
+	});
 }

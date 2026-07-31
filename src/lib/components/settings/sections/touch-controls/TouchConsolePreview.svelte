@@ -23,7 +23,8 @@
 		onEndDrag?: () => void;
 	} = $props();
 
-	function buttonAccent(id: string): 'green' | 'blue' | 'red' | 'amber' {
+	function buttonAccent(id: string): 'green' | 'blue' | 'red' | 'amber' | 'slate' {
+		if (id === 'space') return 'slate';
 		if (id === 'a') return 'green';
 		if (id === 'b') return 'blue';
 		if (id === 'x') return 'red';
@@ -85,6 +86,7 @@
 			<TouchButton
 				label={button.label}
 				size={Math.round(button.size * scale)}
+				width={button.id === 'space' ? Math.round(button.size * 2.1 * scale) : undefined}
 				opacity={opacity}
 				accent={buttonAccent(button.id)}
 				onPress={() => undefined}
@@ -93,7 +95,7 @@
 		</div>
 		<div
 			class="absolute z-10 cursor-move"
-			style={`left:${button.xPct * 100}%;top:${button.yPct * 100}%;width:${Math.round(button.size * scale)}px;height:${Math.round(button.size * scale)}px;`}
+			style={`left:${button.xPct * 100}%;top:${button.yPct * 100}%;width:${Math.round((button.id === 'space' ? button.size * 2.1 : button.size) * scale)}px;height:${Math.round(button.size * scale)}px;`}
 			aria-label={`Drag ${button.label} preview`}
 			role="button"
 			tabindex="0"

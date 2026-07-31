@@ -7,8 +7,10 @@
 		TOUCH_CONSOLE_CHANGED,
 		getEffectiveConfig,
 		saveLayout,
+		setJoystickScheme,
 		translateTouchLayout,
 		type EffectiveTouchConfig,
+		type TouchJoystickScheme,
 		type TouchLayout,
 		type TouchOrientation
 	} from '$lib/utils/touch-console';
@@ -284,11 +286,23 @@
 		return config.mapping.buttons[id] ?? layout.buttons.find((b) => b.id === id)?.codes ?? [];
 	}
 
-	function buttonAccent(id: string): 'green' | 'blue' | 'red' | 'amber' {
+	function buttonAccent(id: string): 'green' | 'blue' | 'red' | 'amber' | 'slate' {
+		if (id === 'space') return 'slate';
 		if (id === 'a') return 'green';
 		if (id === 'b') return 'blue';
 		if (id === 'x') return 'red';
 		return 'amber';
+	}
+
+	function buttonWidth(btn: { id: string; size: number }): number | undefined {
+		if (btn.id === 'space') return Math.round(btn.size * 2.1 * scale);
+		return undefined;
+	}
+
+	function onJoystickSchemeChange(scheme: TouchJoystickScheme) {
+		setJoystickScheme(scheme);
+		refreshConfig();
+		dispatcher.setJoystickCodes([]);
 	}
 
 	function measureSurface() {
@@ -508,6 +522,22 @@
 				class:ring-dashed={editingControl === 'console'}
 				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
 			>
+				<label
+					class="pointer-events-auto absolute top-2 left-2 z-10 flex max-w-[46%] items-center"
+					aria-label="Joystick key scheme"
+				>
+					<select
+						class="h-7 max-w-full truncate rounded-full border border-white/25 bg-black/35 px-2 text-[10px] font-semibold tracking-wide text-white/90 shadow-sm backdrop-blur-md outline-none"
+						value={config.joystickScheme}
+						onchange={(e) =>
+							onJoystickSchemeChange(
+								(e.currentTarget as HTMLSelectElement).value === 'wasd' ? 'wasd' : 'arrows'
+							)}
+					>
+						<option value="arrows">↑↓←→ Arrows</option>
+						<option value="wasd">WASD</option>
+					</select>
+				</label>
 				<button
 					type="button"
 					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white/80"
@@ -592,6 +622,7 @@
 					<TouchButton
 						label={btn.label}
 						size={Math.round(btn.size * scale)}
+						width={buttonWidth(btn)}
 						opacity={config.opacity}
 						accent={buttonAccent(btn.id)}
 						editing={editingControl === btn.id}

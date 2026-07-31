@@ -22,7 +22,9 @@ import {
 	resolveOfflineMirrorRoot,
 	readGameMetadata
 } from './catalog.js';
+import { rewriteAbsoluteUrlsToMirroredExternal } from './capture/rewrite.js';
 import { injectGameStorageBridge } from './game-storage-bridge-script.js';
+import { isCrazyGamesShellHtml } from './unity/crazygames-unwrap.js';
 import { injectUnityPatches, isUnityGameHtml } from './unity/inject-html.js';
 import { fetchProxiedUnityHtml } from './unity/proxy-play.js';
 import { fetchLiveAsset, startLiveGameHtml } from './live/proxy.js';
@@ -50,6 +52,15 @@ function sendJson(res: http.ServerResponse, status: number, body: unknown): void
 }
 
 function mimeFor(filePath: string): string {
+	const base = path.basename(filePath).toLowerCase();
+	/*
+	 * Legacy Unity names framework JS as `*.wasm.framework.unityweb` (no .js).
+	 * Serving it as octet-stream breaks some WebKit script/XHR paths used by
+	 * Color Tunnel / similar offline mirrors — treat framework files as JS.
+	 */
+	if (base.includes('.framework.unityweb') || base.endsWith('.framework.js')) {
+		return 'application/javascript';
+	}
 	const ext = path.extname(filePath).toLowerCase();
 	const map: Record<string, string> = {
 		'.html': 'text/html',
@@ -158,7 +169,16 @@ async function serveStaticGames(
 		 * whole Node process with ERR_HTTP_HEADERS_SENT — breaking Offline play.
 		 */
 		let raw = await fs.readFile(absPath, 'utf-8');
-		if (isUnityGameHtml(raw)) {
+		/*
+		 * Host-agnostic: any absolute http(s) URL that was vaulted under
+		 * `_external/<host>/…` during capture is rewritten to the local path.
+		 * Do not unwrap CrazyGames shells into a synthetic Unity host.
+		 */
+		const mirrorRoot = await resolveOfflineMirrorRoot(gameId);
+		if (mirrorRoot) {
+			raw = rewriteAbsoluteUrlsToMirroredExternal(raw, mirrorRoot);
+		}
+		if (!isCrazyGamesShellHtml(raw) && isUnityGameHtml(raw)) {
 			raw = injectUnityPatches(raw);
 		}
 		const body = injectGameStorageBridge(raw, gameId);
@@ -389,8 +409,35 @@ export function createServer(): http.Server {
 					return;
 				}
 				console.log(`[puller] unity-play game=${gameId}`);
-				const html = await fetchProxiedUnityHtml(gameId);
-				if (!html) {
+				const unityResult = await fetchProxiedUnityHtml(gameId);
+				if (unityResult?.kind === 'live-relay') {
+					/*
+					 * OpenFL/Lime (G-Switch 3) and other non-Unity shells: unity-play
+					 * absolutize + Unity inject blacks the canvas. Serve game-live HTML.
+					 */
+					console.log(
+						`[puller] unity-play → game-live relay game=${gameId} reason=${unityResult.reason}`
+					);
+					const meta = await readGameMetadata(gameId);
+					const live = await startLiveGameHtml(
+						gameId,
+						meta?.engine,
+						(sessionId) => `/api/game-live/${encodeURIComponent(gameId)}/${sessionId}`
+					);
+					if (!live) {
+						sendJson(res, 502, { error: 'Could not fetch playable build' });
+						return;
+					}
+					res.writeHead(200, {
+						'Content-Type': live.contentType || 'text/html; charset=utf-8',
+						'Access-Control-Allow-Origin': CORS_ORIGIN,
+						'Access-Control-Allow-Private-Network': 'true',
+						'Cache-Control': 'no-store'
+					});
+					res.end(live.html);
+					return;
+				}
+				if (!unityResult || unityResult.kind !== 'unity') {
 					console.warn(`[puller] unity-play failed game=${gameId}`);
 					sendJson(res, 502, { error: 'Could not fetch Unity build' });
 					return;
@@ -401,7 +448,7 @@ export function createServer(): http.Server {
 					'Access-Control-Allow-Private-Network': 'true',
 					'Cache-Control': 'public, max-age=300'
 				});
-				res.end(injectGameStorageBridge(html, gameId));
+				res.end(injectGameStorageBridge(unityResult.html, gameId));
 				return;
 			}
 

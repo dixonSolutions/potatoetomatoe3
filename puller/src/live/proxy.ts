@@ -1,5 +1,6 @@
 import { readLocalEmbedHtml } from '../catalog.js';
 import { injectUnityPatches, isUnityGameHtml } from '../unity/inject-html.js';
+import { isCrazyGamesShellHtml } from '../unity/crazygames-unwrap.js';
 import { injectGameStorageBridge } from '../game-storage-bridge-script.js';
 import { WGET_USER_AGENT } from '../config.js';
 import { assertSafePlayUrl, safeFetch } from './safety.js';
@@ -25,8 +26,41 @@ export interface LiveHtmlResult {
 }
 
 function looksLikeUnity(metaEngine: unknown, html: string): boolean {
-	if (typeof metaEngine === 'string' && metaEngine.toLowerCase() === 'unity') return true;
+	/* CrazyGames shells mention UnityLoader URLs but are portal HTML, not Unity docs. */
+	if (isCrazyGamesShellHtml(html)) return false;
+	if (typeof metaEngine === 'string' && metaEngine.toLowerCase() === 'unity') {
+		/* Metadata can lie for portal wrappers — prefer HTML sniff when shell-like. */
+		return isUnityGameHtml(html);
+	}
 	return isUnityGameHtml(html);
+}
+
+/**
+ * Entry iframe URL is `/api/game-live/:id` (no session). OpenFL/Lime (and many
+ * Unity loaders) resolve runtime assets against the document URL or <base>.
+ * Point <base> at the session + remote directory so `assets/…` hits the proxy.
+ */
+export function liveSessionBaseHref(session: LiveSession, proxyPrefix: string): string {
+	const base = new URL(session.baseHref);
+	let pathname = base.pathname || '/';
+	/* <base> must be a directory — strip index.html / entry files. */
+	if (!pathname.endsWith('/')) {
+		pathname = /\.[a-z0-9]+$/i.test(pathname)
+			? pathname.replace(/\/[^/]+$/, '/')
+			: `${pathname}/`;
+	}
+	const rel = pathname.replace(/^\//, '');
+	return rel ? `${proxyPrefix}/${rel}` : `${proxyPrefix}/`;
+}
+
+function ensureLiveBaseTag(html: string, href: string): string {
+	if (/<base\b/i.test(html)) {
+		return html.replace(/<base\b[^>]*>/i, `<base href="${href}">`);
+	}
+	if (/<head\b[^>]*>/i.test(html)) {
+		return html.replace(/<head\b[^>]*>/i, (open) => `${open}<base href="${href}">`);
+	}
+	return `<base href="${href}">${html}`;
 }
 
 /**
@@ -75,7 +109,7 @@ export function rewriteHtmlForLiveSession(
 			`${prefix}${quote}${toProxy(rel)}${quote}`
 	);
 
-	return out;
+	return ensureLiveBaseTag(out, liveSessionBaseHref(session, proxyPrefix));
 }
 
 export async function startLiveGameHtml(

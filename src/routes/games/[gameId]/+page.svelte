@@ -277,9 +277,9 @@
 		await refreshPlayerUrl();
 		if (!canUseTouchBridge(gamePlayerUrl)) {
 			/*
-			 * Unity iframe shells (abinbins etc.) must use unity-play — game-live only
-			 * injects the outer catalog shell, leaving nested Unity without the bridge
-			 * (Console stuck on “Waiting for the puller-proxied game frame…”).
+			 * Unity iframe shells must use unity-play (CDN + inject). Non-Unity
+			 * external shells (OpenFL/Lime on abinbins, etc.) use game-live.
+			 * Catalog wrappers alone leave nested games without the touch bridge.
 			 */
 			let preferUnityPlay = gameMetadata?.engine === 'unity';
 			if (!preferUnityPlay) {

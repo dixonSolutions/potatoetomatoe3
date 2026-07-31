@@ -71,8 +71,11 @@ export function translateTouchLayout(layout: TouchLayout, dxPct: number, dyPct: 
 
 export type TouchDirection = 'up' | 'down' | 'left' | 'right';
 
+/** Joystick stick only — exclusive arrow keys or WASD (not both). */
+export type TouchJoystickScheme = 'arrows' | 'wasd';
+
 export type TouchKeyMapping = {
-	/** Direction → KeyboardEvent.code values (usually arrows + WASD). */
+	/** Direction → KeyboardEvent.code values (driven by joystickScheme). */
 	directions: Record<TouchDirection, TouchKeyCode[]>;
 	/** Button id → KeyboardEvent.code values (overrides button.codes when set). */
 	buttons: Record<string, TouchKeyCode[]>;
@@ -89,6 +92,8 @@ export type TouchConsoleSettings = {
 	haptics: boolean;
 	/** Automatically open controls on touch-first devices without a reliable keyboard. */
 	autoEnableOnTouchOnly: boolean;
+	/** Joystick emits Arrow keys or WASD (Space / face buttons unchanged). */
+	joystickScheme: TouchJoystickScheme;
 	layouts: Record<TouchOrientation, TouchLayout>;
 	mapping: TouchKeyMapping;
 };
@@ -106,6 +111,7 @@ export type EffectiveTouchConfig = {
 	scale: number;
 	haptics: boolean;
 	autoEnableOnTouchOnly: boolean;
+	joystickScheme: TouchJoystickScheme;
 	layout: TouchLayout;
 	mapping: TouchKeyMapping;
 	hasGameOverride: boolean;
@@ -138,24 +144,26 @@ export function writeConsoleVisiblePref(gameId: string, on: boolean): void {
 }
 
 const DEFAULT_LANDSCAPE: TouchLayout = {
-	console: { xPct: 0.04, yPct: 0.58, widthPct: 0.46, heightPct: 0.36 },
+	console: { xPct: 0.04, yPct: 0.56, widthPct: 0.5, heightPct: 0.4 },
 	joystick: { xPct: 0.06, yPct: 0.64, size: 112, deadzone: 0.18 },
 	buttons: [
-		{ id: 'a', label: 'A', codes: ['Space'], xPct: 0.34, yPct: 0.66, size: 52 },
-		{ id: 'b', label: 'B', codes: ['Enter'], xPct: 0.42, yPct: 0.74, size: 52 },
-		{ id: 'x', label: 'X', codes: ['ShiftLeft'], xPct: 0.34, yPct: 0.82, size: 44 },
-		{ id: 'y', label: 'Y', codes: ['Escape'], xPct: 0.44, yPct: 0.62, size: 44 }
+		{ id: 'a', label: 'A', codes: ['KeyZ'], xPct: 0.34, yPct: 0.64, size: 48 },
+		{ id: 'b', label: 'B', codes: ['Enter'], xPct: 0.42, yPct: 0.72, size: 48 },
+		{ id: 'x', label: 'X', codes: ['ShiftLeft'], xPct: 0.34, yPct: 0.8, size: 44 },
+		{ id: 'y', label: 'Y', codes: ['Escape'], xPct: 0.44, yPct: 0.6, size: 44 },
+		{ id: 'space', label: 'Space', codes: ['Space'], xPct: 0.3, yPct: 0.88, size: 56 }
 	]
 };
 
 const DEFAULT_PORTRAIT: TouchLayout = {
-	console: { xPct: 0.06, yPct: 0.68, widthPct: 0.88, heightPct: 0.28 },
-	joystick: { xPct: 0.1, yPct: 0.74, size: 100, deadzone: 0.18 },
+	console: { xPct: 0.04, yPct: 0.66, widthPct: 0.92, heightPct: 0.3 },
+	joystick: { xPct: 0.08, yPct: 0.72, size: 100, deadzone: 0.18 },
 	buttons: [
-		{ id: 'a', label: 'A', codes: ['Space'], xPct: 0.62, yPct: 0.74, size: 52 },
-		{ id: 'b', label: 'B', codes: ['Enter'], xPct: 0.78, yPct: 0.8, size: 52 },
-		{ id: 'x', label: 'X', codes: ['ShiftLeft'], xPct: 0.62, yPct: 0.86, size: 44 },
-		{ id: 'y', label: 'Y', codes: ['Escape'], xPct: 0.8, yPct: 0.7, size: 44 }
+		{ id: 'a', label: 'A', codes: ['KeyZ'], xPct: 0.58, yPct: 0.7, size: 48 },
+		{ id: 'b', label: 'B', codes: ['Enter'], xPct: 0.74, yPct: 0.76, size: 48 },
+		{ id: 'x', label: 'X', codes: ['ShiftLeft'], xPct: 0.58, yPct: 0.84, size: 44 },
+		{ id: 'y', label: 'Y', codes: ['Escape'], xPct: 0.78, yPct: 0.66, size: 44 },
+		{ id: 'space', label: 'Space', codes: ['Space'], xPct: 0.36, yPct: 0.88, size: 56 }
 	]
 };
 
@@ -163,18 +171,38 @@ export function getDefaultTouchLayout(orientation: TouchOrientation): TouchLayou
 	return structuredClone(orientation === 'portrait' ? DEFAULT_PORTRAIT : DEFAULT_LANDSCAPE);
 }
 
+export const JOYSTICK_SCHEME_ARROWS: Record<TouchDirection, TouchKeyCode[]> = {
+	up: ['ArrowUp'],
+	down: ['ArrowDown'],
+	left: ['ArrowLeft'],
+	right: ['ArrowRight']
+};
+
+export const JOYSTICK_SCHEME_WASD: Record<TouchDirection, TouchKeyCode[]> = {
+	up: ['KeyW'],
+	down: ['KeyS'],
+	left: ['KeyA'],
+	right: ['KeyD']
+};
+
+export function directionsForJoystickScheme(
+	scheme: TouchJoystickScheme
+): Record<TouchDirection, TouchKeyCode[]> {
+	return structuredClone(scheme === 'wasd' ? JOYSTICK_SCHEME_WASD : JOYSTICK_SCHEME_ARROWS);
+}
+
+export function normalizeJoystickScheme(raw: unknown): TouchJoystickScheme {
+	return raw === 'wasd' ? 'wasd' : 'arrows';
+}
+
 export const DEFAULT_TOUCH_MAPPING: TouchKeyMapping = {
-	directions: {
-		up: ['ArrowUp', 'KeyW'],
-		down: ['ArrowDown', 'KeyS'],
-		left: ['ArrowLeft', 'KeyA'],
-		right: ['ArrowRight', 'KeyD']
-	},
+	directions: directionsForJoystickScheme('arrows'),
 	buttons: {
-		a: ['Space'],
+		a: ['KeyZ'],
 		b: ['Enter'],
 		x: ['ShiftLeft'],
-		y: ['Escape']
+		y: ['Escape'],
+		space: ['Space']
 	}
 };
 
@@ -187,6 +215,7 @@ export const DEFAULT_TOUCH_SETTINGS: TouchConsoleSettings = {
 	scale: 1,
 	haptics: true,
 	autoEnableOnTouchOnly: true,
+	joystickScheme: 'arrows',
 	layouts: {
 		landscape: structuredClone(DEFAULT_LANDSCAPE),
 		portrait: structuredClone(DEFAULT_PORTRAIT)
@@ -253,28 +282,20 @@ function normalizeLayout(raw: Partial<TouchLayout> | undefined, fallback: TouchL
 	};
 }
 
-function normalizeMapping(raw: Partial<TouchKeyMapping> | undefined): TouchKeyMapping {
-	const dirs: Partial<Record<TouchDirection, TouchKeyCode[]>> = raw?.directions ?? {};
+function normalizeMapping(
+	raw: Partial<TouchKeyMapping> | undefined,
+	scheme: TouchJoystickScheme = 'arrows'
+): TouchKeyMapping {
 	const buttons: Partial<Record<string, TouchKeyCode[]>> = raw?.buttons ?? {};
-	const pickDir = (dir: TouchDirection): TouchKeyCode[] => {
-		const list = dirs[dir];
-		if (Array.isArray(list) && list.length) {
-			return list.filter((c): c is string => typeof c === 'string');
-		}
-		return [...DEFAULT_TOUCH_MAPPING.directions[dir]];
-	};
-	const directions: TouchKeyMapping['directions'] = {
-		up: pickDir('up'),
-		down: pickDir('down'),
-		left: pickDir('left'),
-		right: pickDir('right')
-	};
+	/* Joystick directions always follow the scheme select — not free-form remap. */
+	const directions = directionsForJoystickScheme(scheme);
 	const buttonMap: Record<string, TouchKeyCode[]> = { ...DEFAULT_TOUCH_MAPPING.buttons };
 	for (const [id, codes] of Object.entries(buttons)) {
 		if (Array.isArray(codes) && codes.every((c) => typeof c === 'string') && codes.length) {
 			buttonMap[id] = codes;
 		}
 	}
+	if (!buttonMap.space?.length) buttonMap.space = ['Space'];
 	return { directions, buttons: buttonMap };
 }
 
@@ -283,6 +304,7 @@ function normalizeSettings(raw: Partial<TouchConsoleSettings> | null | undefined
 		raw?.availability === 'auto' || raw?.availability === 'always' || raw?.availability === 'off'
 			? raw.availability
 			: DEFAULT_TOUCH_SETTINGS.availability;
+	const joystickScheme = normalizeJoystickScheme(raw?.joystickScheme);
 	return {
 		version: 1,
 		enabled: typeof raw?.enabled === 'boolean' ? raw.enabled : DEFAULT_TOUCH_SETTINGS.enabled,
@@ -294,11 +316,12 @@ function normalizeSettings(raw: Partial<TouchConsoleSettings> | null | undefined
 			typeof raw?.autoEnableOnTouchOnly === 'boolean'
 				? raw.autoEnableOnTouchOnly
 				: DEFAULT_TOUCH_SETTINGS.autoEnableOnTouchOnly,
+		joystickScheme,
 		layouts: {
 			landscape: normalizeLayout(raw?.layouts?.landscape, DEFAULT_LANDSCAPE),
 			portrait: normalizeLayout(raw?.layouts?.portrait, DEFAULT_PORTRAIT)
 		},
-		mapping: normalizeMapping(raw?.mapping)
+		mapping: normalizeMapping(raw?.mapping, joystickScheme)
 	};
 }
 
@@ -335,13 +358,21 @@ export function patchTouchConsoleSettings(
 	patch: Partial<Omit<TouchConsoleSettings, 'version' | 'layouts' | 'mapping'>> & {
 		layouts?: Partial<Record<TouchOrientation, TouchLayout>>;
 		mapping?: Partial<TouchKeyMapping>;
+		joystickScheme?: TouchJoystickScheme;
 	}
 ): TouchConsoleSettings {
 	const current = loadTouchConsoleSettings();
+	const joystickScheme = normalizeJoystickScheme(
+		patch.joystickScheme !== undefined ? patch.joystickScheme : current.joystickScheme
+	);
+	const mergedMapping = patch.mapping
+		? { ...current.mapping, ...patch.mapping, buttons: { ...current.mapping.buttons, ...(patch.mapping.buttons ?? {}) } }
+		: current.mapping;
 	const next: TouchConsoleSettings = {
 		...current,
 		...patch,
 		version: 1,
+		joystickScheme,
 		layouts: {
 			landscape: patch.layouts?.landscape
 				? normalizeLayout(patch.layouts.landscape, current.layouts.landscape)
@@ -350,9 +381,14 @@ export function patchTouchConsoleSettings(
 				? normalizeLayout(patch.layouts.portrait, current.layouts.portrait)
 				: current.layouts.portrait
 		},
-		mapping: patch.mapping ? normalizeMapping({ ...current.mapping, ...patch.mapping }) : current.mapping
+		mapping: normalizeMapping(mergedMapping, joystickScheme)
 	};
 	return saveTouchConsoleSettings(next);
+}
+
+/** Persist joystick arrows/WASD scheme in touch settings (updates direction mapping). */
+export function setJoystickScheme(scheme: TouchJoystickScheme): void {
+	patchTouchConsoleSettings({ joystickScheme: normalizeJoystickScheme(scheme) });
 }
 
 export function loadGameTouchOverride(gameId: string): TouchConsoleGameOverride | null {
@@ -422,8 +458,9 @@ export function getEffectiveConfig(gameId: string | null | undefined, orientatio
 		scale: global.scale,
 		haptics: global.haptics,
 		autoEnableOnTouchOnly: global.autoEnableOnTouchOnly,
+		joystickScheme: global.joystickScheme,
 		layout,
-		mapping,
+		mapping: normalizeMapping(mapping, global.joystickScheme),
 		hasGameOverride: Boolean(override)
 	};
 }
@@ -451,7 +488,8 @@ export function getMapping(gameId?: string | null): TouchKeyMapping {
 }
 
 export function saveMapping(mapping: TouchKeyMapping, gameId?: string | null): void {
-	const normalized = normalizeMapping(mapping);
+	const scheme = loadTouchConsoleSettings().joystickScheme;
+	const normalized = normalizeMapping(mapping, scheme);
 	if (gameId) {
 		const existing = loadGameTouchOverride(gameId) ?? { version: 1 as const };
 		saveGameTouchOverride(gameId, {
@@ -514,7 +552,10 @@ export function resetMapping(gameId?: string | null): void {
 		});
 		return;
 	}
-	patchTouchConsoleSettings({ mapping: structuredClone(DEFAULT_TOUCH_MAPPING) });
+	patchTouchConsoleSettings({
+		joystickScheme: 'arrows',
+		mapping: structuredClone(DEFAULT_TOUCH_MAPPING)
+	});
 }
 
 /** Human-readable label for a KeyboardEvent.code. */

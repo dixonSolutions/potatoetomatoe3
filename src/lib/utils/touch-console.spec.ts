@@ -57,10 +57,14 @@ describe('touch-console helpers', () => {
 	it('loads default effective config', () => {
 		const settings = loadTouchConsoleSettings();
 		expect(settings.enabled).toBe(true);
-		expect(settings.mapping.directions.up).toContain('ArrowUp');
+		expect(settings.joystickScheme).toBe('arrows');
+		expect(settings.mapping.directions.up).toEqual(['ArrowUp']);
+		expect(settings.mapping.directions.up).not.toContain('KeyW');
 		const cfg = getEffectiveConfig(null, 'landscape');
 		expect(cfg.layout.joystick.size).toBeGreaterThan(0);
-		expect(cfg.mapping.buttons.a).toEqual(['Space']);
+		expect(cfg.joystickScheme).toBe('arrows');
+		expect(cfg.mapping.buttons.space).toEqual(['Space']);
+		expect(cfg.layout.buttons.some((b) => b.id === 'space')).toBe(true);
 	});
 
 	it('translates the console frame and every child control together', () => {

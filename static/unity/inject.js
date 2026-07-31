@@ -328,18 +328,44 @@
 						return origProgress(gameInstance, progress);
 					};
 				}
-				return origInstantiate(container, url, opts);
+				var instance = origInstantiate(container, url, opts);
+				try {
+					if (instance) {
+						window.gameInstance = instance;
+						window.__ptUnityInstance = instance;
+					}
+				} catch (e) {}
+				return instance;
 			};
 		}
 		if (typeof UL.loadCode === 'function' && !UL.loadCode.__ptStdioPatched) {
 			var origLoadCode = UL.loadCode;
-			var patchedLoadCode = function (source, callback, options) {
-				return origLoadCode.call(
-					this,
-					patchUnityFrameworkSource(source),
-					callback,
-					options
-				);
+			/*
+			 * UnityLoader (5.x / v3): loadCode(job, code, callback, options)
+			 * where options.isModularized is required. Do NOT treat arg0 as
+			 * source text — that shifts args and throws
+			 * "undefined is not an object (evaluating 'n.isModularized')".
+			 */
+			var patchedLoadCode = function (job, code, callback, options) {
+				if (typeof callback === 'function') {
+					return origLoadCode.call(
+						this,
+						job,
+						patchUnityFrameworkSource(code),
+						callback,
+						options || { isModularized: false }
+					);
+				}
+				/* Defensive fallback for unknown 2–3 arg shapes. */
+				if (typeof code === 'function') {
+					return origLoadCode.call(
+						this,
+						patchUnityFrameworkSource(job),
+						code,
+						callback
+					);
+				}
+				return origLoadCode.apply(this, arguments);
 			};
 			patchedLoadCode.__ptStdioPatched = true;
 			UL.loadCode = patchedLoadCode;
@@ -535,8 +561,14 @@
 		try {
 			var canvas =
 				document.querySelector('canvas') ||
-				document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+				document.querySelector(
+					'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
+				);
 			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+		} catch (e) {}
+		try {
+			var openfl = document.getElementById('openfl-content');
+			if (openfl && openfl.focus) openfl.focus({ preventScroll: true });
 		} catch (e) {}
 		try {
 			window.focus();
@@ -571,9 +603,13 @@
 		ptTouchFocus();
 		var canvas =
 			document.querySelector('canvas') ||
-			document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+			document.querySelector(
+				'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
+			);
 		var targets = [];
 		if (canvas) targets.push(canvas);
+		var openfl = document.getElementById('openfl-content');
+		if (openfl) targets.push(openfl);
 		if (document.body) targets.push(document.body);
 		if (document.documentElement) targets.push(document.documentElement);
 		targets.push(document, window);
@@ -631,6 +667,28 @@
 			);
 		} catch (e) {}
 	}
+	/* CrazyGames / portal shells nest the real canvas in a same-origin proxied iframe. */
+	function ptForwardTouchToChildFrames(data) {
+		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		var frames = document.getElementsByTagName('iframe');
+		for (var i = 0; i < frames.length; i++) {
+			try {
+				var win = frames[i].contentWindow;
+				if (win) win.postMessage(data, '*');
+			} catch (e) {}
+			try {
+				var doc = frames[i].contentDocument;
+				if (!doc) continue;
+				var canvas =
+					doc.querySelector('canvas') ||
+					doc.querySelector(
+						'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer'
+					);
+				if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+			} catch (e) {}
+		}
+	}
+
 	function handleTouchInputMessage(data) {
 		if (!data || data.type !== 'potato-tomato-touch-input') return;
 		var action = data.action;
@@ -642,6 +700,7 @@
 		if (action === 'down') ptTouchInputDown(codes);
 		else if (action === 'up') ptTouchInputUp(codes);
 		else if (action === 'releaseAll') ptTouchInputReleaseAll();
+		ptForwardTouchToChildFrames(data);
 		sendTouchInputAck(data, codes);
 	}
 
@@ -674,6 +733,63 @@
 				return Promise.resolve();
 			}
 		};
+
+	/*
+	 * CrazyGames Unity 5.6 builds call bare `CrazySDK.init` / `requestAd` from
+	 * the framework. Unwrapped / offline hosts strip the portal shell, so stub
+	 * the global before Unity runs (WebKit: "Can't find variable: CrazySDK").
+	 */
+	(function stubCrazySDK() {
+		if (window.CrazySDK && window.CrazySDK.__ptStub) return;
+		var objectName = 'CrazySDK';
+		function send(method, arg) {
+			try {
+				var inst =
+					window.gameInstance || window.unityInstance || window.__ptUnityInstance;
+				if (!inst || typeof inst.SendMessage !== 'function') return;
+				inst.SendMessage(objectName, method, arg == null ? '' : String(arg));
+			} catch (e) {}
+		}
+		window.CrazySDK = {
+			__ptStub: true,
+			init: function (opts) {
+				opts = opts || {};
+				if (opts.crazySDKObjectName) objectName = String(opts.crazySDKObjectName);
+				setTimeout(function () {
+					send('InitCallback', '');
+				}, 0);
+			},
+			requestAd: function () {
+				setTimeout(function () {
+					/* Finish immediately — no real ads in Potato Tomato. */
+					send('AdFinished', '');
+				}, 0);
+			}
+		};
+		window.CrazyGames =
+			window.CrazyGames ||
+			{
+				SDK: {
+					init: function () {
+						return Promise.resolve();
+					},
+					ad: {
+						requestAd: function (_type, cb) {
+							cb = cb || {};
+							try {
+								if (typeof cb.adFinished === 'function') cb.adFinished();
+							} catch (e) {}
+							return Promise.resolve();
+						}
+					},
+					game: {
+						gameplayStart: function () {},
+						gameplayStop: function () {},
+						happytime: function () {}
+					}
+				}
+			};
+	})();
 
 	window.y8 =
 		window.y8 ||

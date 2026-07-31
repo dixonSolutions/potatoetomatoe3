@@ -3,7 +3,8 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { catalogOnlineDir, readGameMetadata, readLocalEmbedHtml } from '../catalog.js';
 import { normalizeBaseUrl } from '../live/target.js';
-import { injectUnityPatches } from './inject-html.js';
+import { isCrazyGamesShellHtml } from './crazygames-unwrap.js';
+import { injectUnityPatches, isOpenFlGameHtml, isUnityGameHtml } from './inject-html.js';
 import { WGET_USER_AGENT } from '../config.js';
 
 function extractIframeSrc(html: string): string | null {
@@ -89,10 +90,17 @@ export function absolutizeAgainstBase(html: string, baseHref: string): string {
 	}
 }
 
+export type UnityPlayHtmlResult =
+	| { kind: 'unity'; html: string }
+	| { kind: 'live-relay'; reason: 'openfl' | 'non-unity' }
+	| null;
+
 /**
- * Fetch remote Unity build HTML (or load local embed.html), inject patches, serve same-origin.
+ * Fetch remote Unity build HTML (or load local embed.html), inject patches.
+ * Returns `live-relay` for OpenFL/Lime / non-Unity shells so the HTTP handler can
+ * use game-live rewrite (avoids a circular import with live/proxy.ts).
  */
-export async function fetchProxiedUnityHtml(gameId: string): Promise<string | null> {
+export async function fetchProxiedUnityHtml(gameId: string): Promise<UnityPlayHtmlResult> {
 	const targetUrl = await resolveUnityPlayUrl(gameId);
 	if (targetUrl) {
 		const res = await fetch(targetUrl, {
@@ -103,16 +111,23 @@ export async function fetchProxiedUnityHtml(gameId: string): Promise<string | nu
 			signal: AbortSignal.timeout(60000)
 		});
 		if (res.ok) {
-			let html = await res.text();
-			html = injectUnityPatches(html);
+			const raw = await res.text();
+			if (isOpenFlGameHtml(raw)) return { kind: 'live-relay', reason: 'openfl' };
+			/* Portal shell → game-live rewrite; never invent a bare UnityLoader page. */
+			if (isCrazyGamesShellHtml(raw)) return { kind: 'live-relay', reason: 'non-unity' };
+			if (!isUnityGameHtml(raw)) return { kind: 'live-relay', reason: 'non-unity' };
+			let html = injectUnityPatches(raw);
 			html = absolutizeAgainstBase(html, res.url || targetUrl);
-			return html;
+			return { kind: 'unity', html };
 		}
 	}
 
 	const local = await readLocalEmbedHtml(gameId);
 	if (!local) return null;
+	if (isOpenFlGameHtml(local.html)) return { kind: 'live-relay', reason: 'openfl' };
+	if (isCrazyGamesShellHtml(local.html)) return { kind: 'live-relay', reason: 'non-unity' };
+	if (!isUnityGameHtml(local.html)) return { kind: 'live-relay', reason: 'non-unity' };
 	let html = injectUnityPatches(local.html);
 	html = absolutizeAgainstBase(html, local.baseHref);
-	return html;
+	return { kind: 'unity', html };
 }

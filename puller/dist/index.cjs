@@ -332,7 +332,7 @@ var init_extract = __esm({
 // src/server.ts
 var import_node_http = __toESM(require("node:http"), 1);
 var import_promises25 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs12 = require("node:fs");
+var import_node_fs13 = require("node:fs");
 var import_node_path26 = __toESM(require("node:path"), 1);
 init_config();
 
@@ -2148,18 +2148,44 @@ var UNITY_INJECT_SOURCE = `/**
 						return origProgress(gameInstance, progress);
 					};
 				}
-				return origInstantiate(container, url, opts);
+				var instance = origInstantiate(container, url, opts);
+				try {
+					if (instance) {
+						window.gameInstance = instance;
+						window.__ptUnityInstance = instance;
+					}
+				} catch (e) {}
+				return instance;
 			};
 		}
 		if (typeof UL.loadCode === 'function' && !UL.loadCode.__ptStdioPatched) {
 			var origLoadCode = UL.loadCode;
-			var patchedLoadCode = function (source, callback, options) {
-				return origLoadCode.call(
-					this,
-					patchUnityFrameworkSource(source),
-					callback,
-					options
-				);
+			/*
+			 * UnityLoader (5.x / v3): loadCode(job, code, callback, options)
+			 * where options.isModularized is required. Do NOT treat arg0 as
+			 * source text \u2014 that shifts args and throws
+			 * "undefined is not an object (evaluating 'n.isModularized')".
+			 */
+			var patchedLoadCode = function (job, code, callback, options) {
+				if (typeof callback === 'function') {
+					return origLoadCode.call(
+						this,
+						job,
+						patchUnityFrameworkSource(code),
+						callback,
+						options || { isModularized: false }
+					);
+				}
+				/* Defensive fallback for unknown 2\u20133 arg shapes. */
+				if (typeof code === 'function') {
+					return origLoadCode.call(
+						this,
+						patchUnityFrameworkSource(job),
+						code,
+						callback
+					);
+				}
+				return origLoadCode.apply(this, arguments);
 			};
 			patchedLoadCode.__ptStdioPatched = true;
 			UL.loadCode = patchedLoadCode;
@@ -2355,8 +2381,14 @@ var UNITY_INJECT_SOURCE = `/**
 		try {
 			var canvas =
 				document.querySelector('canvas') ||
-				document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+				document.querySelector(
+					'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
+				);
 			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+		} catch (e) {}
+		try {
+			var openfl = document.getElementById('openfl-content');
+			if (openfl && openfl.focus) openfl.focus({ preventScroll: true });
 		} catch (e) {}
 		try {
 			window.focus();
@@ -2391,9 +2423,13 @@ var UNITY_INJECT_SOURCE = `/**
 		ptTouchFocus();
 		var canvas =
 			document.querySelector('canvas') ||
-			document.querySelector('#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]');
+			document.querySelector(
+				'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
+			);
 		var targets = [];
 		if (canvas) targets.push(canvas);
+		var openfl = document.getElementById('openfl-content');
+		if (openfl) targets.push(openfl);
 		if (document.body) targets.push(document.body);
 		if (document.documentElement) targets.push(document.documentElement);
 		targets.push(document, window);
@@ -2451,6 +2487,28 @@ var UNITY_INJECT_SOURCE = `/**
 			);
 		} catch (e) {}
 	}
+	/* CrazyGames / portal shells nest the real canvas in a same-origin proxied iframe. */
+	function ptForwardTouchToChildFrames(data) {
+		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		var frames = document.getElementsByTagName('iframe');
+		for (var i = 0; i < frames.length; i++) {
+			try {
+				var win = frames[i].contentWindow;
+				if (win) win.postMessage(data, '*');
+			} catch (e) {}
+			try {
+				var doc = frames[i].contentDocument;
+				if (!doc) continue;
+				var canvas =
+					doc.querySelector('canvas') ||
+					doc.querySelector(
+						'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer'
+					);
+				if (canvas && canvas.focus) canvas.focus({ preventScroll: true });
+			} catch (e) {}
+		}
+	}
+
 	function handleTouchInputMessage(data) {
 		if (!data || data.type !== 'potato-tomato-touch-input') return;
 		var action = data.action;
@@ -2462,6 +2520,7 @@ var UNITY_INJECT_SOURCE = `/**
 		if (action === 'down') ptTouchInputDown(codes);
 		else if (action === 'up') ptTouchInputUp(codes);
 		else if (action === 'releaseAll') ptTouchInputReleaseAll();
+		ptForwardTouchToChildFrames(data);
 		sendTouchInputAck(data, codes);
 	}
 
@@ -2494,6 +2553,63 @@ var UNITY_INJECT_SOURCE = `/**
 				return Promise.resolve();
 			}
 		};
+
+	/*
+	 * CrazyGames Unity 5.6 builds call bare \`CrazySDK.init\` / \`requestAd\` from
+	 * the framework. Unwrapped / offline hosts strip the portal shell, so stub
+	 * the global before Unity runs (WebKit: "Can't find variable: CrazySDK").
+	 */
+	(function stubCrazySDK() {
+		if (window.CrazySDK && window.CrazySDK.__ptStub) return;
+		var objectName = 'CrazySDK';
+		function send(method, arg) {
+			try {
+				var inst =
+					window.gameInstance || window.unityInstance || window.__ptUnityInstance;
+				if (!inst || typeof inst.SendMessage !== 'function') return;
+				inst.SendMessage(objectName, method, arg == null ? '' : String(arg));
+			} catch (e) {}
+		}
+		window.CrazySDK = {
+			__ptStub: true,
+			init: function (opts) {
+				opts = opts || {};
+				if (opts.crazySDKObjectName) objectName = String(opts.crazySDKObjectName);
+				setTimeout(function () {
+					send('InitCallback', '');
+				}, 0);
+			},
+			requestAd: function () {
+				setTimeout(function () {
+					/* Finish immediately \u2014 no real ads in Potato Tomato. */
+					send('AdFinished', '');
+				}, 0);
+			}
+		};
+		window.CrazyGames =
+			window.CrazyGames ||
+			{
+				SDK: {
+					init: function () {
+						return Promise.resolve();
+					},
+					ad: {
+						requestAd: function (_type, cb) {
+							cb = cb || {};
+							try {
+								if (typeof cb.adFinished === 'function') cb.adFinished();
+							} catch (e) {}
+							return Promise.resolve();
+						}
+					},
+					game: {
+						gameplayStart: function () {},
+						gameplayStop: function () {},
+						happytime: function () {}
+					}
+				}
+			};
+	})();
 
 	window.y8 =
 		window.y8 ||
@@ -2546,7 +2662,7 @@ var UNITY_INJECT_SOURCE = `/**
 	setInterval(hideLoadingDom, 500);
 })();
 `;
-var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Spoof hasFocus in this iframe realm only \u2014 parent shell mute uses the outer document.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n			Document.prototype.hasFocus = function () {\n				return true;\n			};\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		var focusLossEvents = {\n			blur: true,\n			focusout: true,\n			visibilitychange: true\n		};\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n		/*\n		 * The console lives in the parent document. Tapping it can blur this\n		 * iframe, and some games register their own blur handlers after this\n		 * bridge is loaded. Block those handlers before they are registered:\n		 * the app's explicit Pause control remains the only pause channel.\n		 */\n		function blockFocusLossListeners(target) {\n			try {\n				var add = target.addEventListener;\n				target.addEventListener = function (type, listener, options) {\n					if (focusLossEvents[type]) return;\n					return add.call(this, type, listener, options);\n				};\n			} catch (e) {\n				/* ignore */\n			}\n		}\n		blockFocusLossListeners(window);\n		blockFocusLossListeners(document);\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//,\n			/\\/api\\/(?:unity-play|game-live)\\/([^/]+)/\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		/* Mute still blocks unlock; app Pause must not (WebKit AC resume trap). */\n		if (window.__ptAudioOutputMuted) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			/* Mute-only \u2014 pause must not suspend AudioContext (Unity black canvas). */\n			var muted = !!window.__ptAudioOutputMuted;\n			if (muted) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		if (!paused) unlockAudio();\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas = document.querySelector('canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl = document.querySelector('canvas');\n		if (canvasEl) targets.push(canvasEl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function sendTouchInputAck(data, codes) {\n		if (!data || !data.ackId) return;\n		try {\n			window.parent.postMessage(\n				{\n					type: 'potato-tomato-touch-input-ack',\n					ackId: data.ackId,\n					action: data.action,\n					codes: codes || [],\n					path: 'bridge',\n					ok: true\n				},\n				'*'\n			);\n		} catch (e) {}\n	}\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			sendTouchInputAck(data, held);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			sendTouchInputAck(data, codes);\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n			sendTouchInputAck(data, codes);\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
+var GAME_STORAGE_BRIDGE_SOURCE = "/**\n * In-game iframe: sync full browser profile with Potato Tomato shell via postMessage.\n * Includes IndexedDB shim for Unity WebGL and other IDB-based saves.\n */\n(function () {\n	var TYPE = 'potato-tomato-game-storage';\n	var SCHEMA_VERSION = 1;\n	var gameId = '';\n	var origin = location.origin;\n	var idbProfile = [];\n	var idbShimInstalled = false;\n	var pushTimer = null;\n\n	/*\n	 * Focus spoof for ALL same-origin games (not just Unity inject.js):\n	 * stop blur/visibility from auto-pausing the game. App Pause still uses postMessage.\n	 * Spoof hasFocus in this iframe realm only \u2014 parent shell mute uses the outer document.\n	 */\n	(function patchFocusSpoof() {\n		if (window.__ptFocusSpoofInstalled) return;\n		window.__ptFocusSpoofInstalled = true;\n		try {\n			Object.defineProperty(Document.prototype, 'hidden', {\n				configurable: true,\n				get: function () {\n					return false;\n				}\n			});\n			Object.defineProperty(Document.prototype, 'visibilityState', {\n				configurable: true,\n				get: function () {\n					return 'visible';\n				}\n			});\n			Document.prototype.hasFocus = function () {\n				return true;\n			};\n		} catch (e) {\n			/* ignore */\n		}\n		function swallow(ev) {\n			try {\n				ev.stopImmediatePropagation();\n				ev.stopPropagation();\n				ev.preventDefault();\n			} catch (e2) {\n				/* ignore */\n			}\n		}\n		var focusLossEvents = {\n			blur: true,\n			focusout: true,\n			visibilitychange: true\n		};\n		['blur', 'focusout', 'visibilitychange'].forEach(function (type) {\n			window.addEventListener(type, swallow, true);\n			document.addEventListener(type, swallow, true);\n		});\n		/*\n		 * The console lives in the parent document. Tapping it can blur this\n		 * iframe, and some games register their own blur handlers after this\n		 * bridge is loaded. Block those handlers before they are registered:\n		 * the app's explicit Pause control remains the only pause channel.\n		 */\n		function blockFocusLossListeners(target) {\n			try {\n				var add = target.addEventListener;\n				target.addEventListener = function (type, listener, options) {\n					if (focusLossEvents[type]) return;\n					return add.call(this, type, listener, options);\n				};\n			} catch (e) {\n				/* ignore */\n			}\n		}\n		blockFocusLossListeners(window);\n		blockFocusLossListeners(document);\n	})();\n\n	/* Generic Emscripten/Unity stdin stubs (bridge may load when inject.js does not). */\n	(function patchUnityModuleStdio() {\n		if (window.__ptModuleStdioInstalled) return;\n		window.__ptModuleStdioInstalled = true;\n		function nullIn() {\n			return null;\n		}\n		function noopOut() {}\n		try {\n			var mod = window.Module || {};\n			if (typeof mod.stdin !== 'function') mod.stdin = nullIn;\n			if (typeof mod.stdout !== 'function') mod.stdout = noopOut;\n			if (typeof mod.stderr !== 'function') mod.stderr = noopOut;\n			if (!mod.ENVIRONMENT) mod.ENVIRONMENT = 'WEB';\n			window.Module = mod;\n		} catch (e) {\n			/* ignore */\n		}\n	})();\n\n	function detectGameId() {\n		var path = location.pathname;\n		var patterns = [\n			/\\/puller-games\\/([^/]+)\\//,\n			/\\/browser-offline\\/([^/]+)\\//,\n			/\\/games\\/([^/]+)\\/(?:offline|online)\\//,\n			/\\/api\\/(?:unity-play|game-live)\\/([^/]+)/\n		];\n		for (var i = 0; i < patterns.length; i++) {\n			var match = path.match(patterns[i]);\n			if (match) return decodeURIComponent(match[1]);\n		}\n		return '';\n	}\n\n	function emptyProfile() {\n		return {\n			schemaVersion: SCHEMA_VERSION,\n			updatedAt: 0,\n			profile: {\n				Default: {\n					localStorage: {},\n					sessionStorage: {},\n					cookies: [],\n					indexedDB: []\n				}\n			}\n		};\n	}\n\n	function snapLocalStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < localStorage.length; i++) {\n				var key = localStorage.key(i);\n				if (key) data[key] = localStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapSessionStorage() {\n		var data = {};\n		try {\n			for (var i = 0; i < sessionStorage.length; i++) {\n				var key = sessionStorage.key(i);\n				if (key) data[key] = sessionStorage.getItem(key);\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		return data;\n	}\n\n	function snapCookies() {\n		var raw = document.cookie;\n		if (!raw) return [];\n		var cookies = [];\n		var parts = raw.split(';');\n		for (var i = 0; i < parts.length; i++) {\n			var trimmed = parts[i].trim();\n			if (!trimmed) continue;\n			var eq = trimmed.indexOf('=');\n			if (eq === -1) continue;\n			cookies.push({\n				name: trimmed.slice(0, eq).trim(),\n				value: trimmed.slice(eq + 1).trim(),\n				path: '/'\n			});\n		}\n		return cookies;\n	}\n\n	function serializeKey(key) {\n		try {\n			return JSON.stringify(key);\n		} catch (e) {\n			return String(key);\n		}\n	}\n\n	function serializeValue(val) {\n		if (val == null) return 'null';\n		if (typeof val === 'string') return val;\n		try {\n			if (val instanceof ArrayBuffer) {\n				var bytes = new Uint8Array(val);\n				var bin = '';\n				for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);\n				return '__ab__:' + btoa(bin);\n			}\n			return JSON.stringify(val);\n		} catch (e) {\n			return String(val);\n		}\n	}\n\n	function findDbProfile(name) {\n		for (var i = 0; i < idbProfile.length; i++) {\n			if (idbProfile[i].name === name) return idbProfile[i];\n		}\n		return null;\n	}\n\n	function upsertRecord(dbName, storeName, key, value) {\n		var db = findDbProfile(dbName);\n		if (!db) {\n			db = { name: dbName, version: 1, objectStores: [], records: [] };\n			idbProfile.push(db);\n		}\n		if (db.objectStores.indexOf(storeName) === -1) db.objectStores.push(storeName);\n		var keyStr = serializeKey(key);\n		var valStr = serializeValue(value);\n		for (var i = 0; i < db.records.length; i++) {\n			if (db.records[i].storeName === storeName && db.records[i].key === keyStr) {\n				db.records[i].value = valStr;\n				return;\n			}\n		}\n		db.records.push({ storeName: storeName, key: keyStr, value: valStr });\n	}\n\n	function removeRecord(dbName, storeName, key) {\n		var db = findDbProfile(dbName);\n		if (!db) return;\n		var keyStr = serializeKey(key);\n		db.records = db.records.filter(function (r) {\n			return r.storeName !== storeName || r.key !== keyStr;\n		});\n	}\n\n	function installIdbShim() {\n		if (idbShimInstalled || !window.indexedDB) return;\n		idbShimInstalled = true;\n		var realOpen = window.indexedDB.open.bind(window.indexedDB);\n\n		window.indexedDB.open = function (name, version) {\n			var req = realOpen(name, version || 1);\n			var dbName = String(name);\n			var dbVersion = version || 1;\n\n			req.addEventListener('upgradeneeded', function () {\n				var db = req.result;\n				var stores = [];\n				try {\n					for (var i = 0; i < db.objectStoreNames.length; i++) {\n						stores.push(db.objectStoreNames[i]);\n					}\n				} catch (e) {\n					/* ignore */\n				}\n				var existing = findDbProfile(dbName);\n				if (!existing) {\n					idbProfile.push({\n						name: dbName,\n						version: dbVersion,\n						objectStores: stores,\n						records: []\n					});\n				} else {\n					existing.version = dbVersion;\n					existing.objectStores = stores;\n				}\n			});\n\n			req.addEventListener('success', function () {\n				var db = req.result;\n				wrapDatabase(db, dbName);\n				hydrateIdbDatabase(db, dbName);\n			});\n\n			return req;\n		};\n	}\n\n	function wrapDatabase(db, dbName) {\n		var origTransaction = db.transaction.bind(db);\n		db.transaction = function (storeNames, mode) {\n			var tx = origTransaction(storeNames, mode);\n			wrapTransaction(tx, dbName, storeNames);\n			return tx;\n		};\n	}\n\n	function wrapTransaction(tx, dbName, storeNames) {\n		var names = Array.isArray(storeNames) ? storeNames : [storeNames];\n		tx.addEventListener('complete', function () {\n			schedulePush();\n		});\n\n		var origObjectStore = tx.objectStore.bind(tx);\n		tx.objectStore = function (name) {\n			var store = origObjectStore(name);\n			wrapObjectStore(store, dbName, name);\n			return store;\n		};\n	}\n\n	function wrapObjectStore(store, dbName, storeName) {\n		var origPut = store.put.bind(store);\n		var origAdd = store.add.bind(store);\n		var origDelete = store.delete.bind(store);\n\n		store.put = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origPut(value, key);\n		};\n		store.add = function (value, key) {\n			upsertRecord(dbName, storeName, key !== undefined ? key : value, value);\n			return origAdd(value, key);\n		};\n		store.delete = function (key) {\n			removeRecord(dbName, storeName, key);\n			return origDelete(key);\n		};\n	}\n\n	function parseStoredValue(valStr) {\n		if (valStr == null) return null;\n		if (valStr.indexOf('__ab__:') === 0) {\n			var bin = atob(valStr.slice(7));\n			var bytes = new Uint8Array(bin.length);\n			for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n			return bytes.buffer;\n		}\n		try {\n			return JSON.parse(valStr);\n		} catch (e) {\n			return valStr;\n		}\n	}\n\n	function parseStoredKey(keyStr) {\n		try {\n			return JSON.parse(keyStr);\n		} catch (e) {\n			return keyStr;\n		}\n	}\n\n	function hydrateIdbDatabase(db, dbName) {\n		var profile = findDbProfile(dbName);\n		if (!profile || !profile.records.length) return;\n\n		for (var i = 0; i < profile.records.length; i++) {\n			var rec = profile.records[i];\n			try {\n				if (!db.objectStoreNames.contains(rec.storeName)) continue;\n				var tx = db.transaction(rec.storeName, 'readwrite');\n				var store = tx.objectStore(rec.storeName);\n				var key = parseStoredKey(rec.key);\n				var value = parseStoredValue(rec.value);\n				store.put(value, key);\n			} catch (e) {\n				/* store may not exist yet */\n			}\n		}\n	}\n\n	function buildProfile() {\n		var p = emptyProfile();\n		p.updatedAt = Date.now();\n		p.profile.Default.localStorage[origin] = snapLocalStorage();\n		p.profile.Default.sessionStorage[origin] = snapSessionStorage();\n		p.profile.Default.cookies = snapCookies();\n		p.profile.Default.indexedDB = idbProfile.map(function (db) {\n			return {\n				name: db.name,\n				version: db.version,\n				objectStores: db.objectStores.slice(),\n				records: db.records.slice()\n			};\n		});\n		return p;\n	}\n\n	function applyProfile(profile) {\n		if (!profile || !profile.profile || !profile.profile.Default) return;\n		var def = profile.profile.Default;\n\n		var ls = def.localStorage && def.localStorage[origin];\n		if (ls) {\n			for (var key in ls) {\n				if (!Object.prototype.hasOwnProperty.call(ls, key)) continue;\n				try {\n					localStorage.setItem(key, ls[key]);\n				} catch (e) {\n					/* quota */\n				}\n			}\n		}\n\n		var ss = def.sessionStorage && def.sessionStorage[origin];\n		if (ss) {\n			for (var sk in ss) {\n				if (!Object.prototype.hasOwnProperty.call(ss, sk)) continue;\n				try {\n					sessionStorage.setItem(sk, ss[sk]);\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.cookies && def.cookies.length) {\n			for (var ci = 0; ci < def.cookies.length; ci++) {\n				var c = def.cookies[ci];\n				if (c.httpOnly) continue;\n				var segment =\n					encodeURIComponent(c.name) + '=' + encodeURIComponent(c.value);\n				if (c.path) segment += '; path=' + c.path;\n				if (c.domain) segment += '; domain=' + c.domain;\n				if (c.secure) segment += '; secure';\n				if (c.sameSite) segment += '; samesite=' + c.sameSite;\n				try {\n					document.cookie = segment;\n				} catch (e) {\n					/* ignore */\n				}\n			}\n		}\n\n		if (def.indexedDB && def.indexedDB.length) {\n			idbProfile = def.indexedDB.map(function (db) {\n				return {\n					name: db.name,\n					version: db.version,\n					objectStores: (db.objectStores || []).slice(),\n					records: (db.records || []).slice()\n				};\n			});\n		}\n	}\n\n	function pushToParent() {\n		if (!gameId || window.parent === window) return;\n		window.parent.postMessage(\n			{\n				type: TYPE,\n				action: 'push',\n				gameId: gameId,\n				data: buildProfile()\n			},\n			'*'\n		);\n	}\n\n	function schedulePush() {\n		if (pushTimer) return;\n		pushTimer = setTimeout(function () {\n			pushTimer = null;\n			pushToParent();\n		}, 500);\n	}\n\n	gameId = detectGameId();\n	if (!gameId || window.parent === window) return;\n\n	installIdbShim();\n\n	function unlockAudio() {\n		/* Mute still blocks unlock; app Pause must not (WebKit AC resume trap). */\n		if (window.__ptAudioOutputMuted) return;\n		try {\n			var AC = window.AudioContext || window.webkitAudioContext;\n			if (!AC) return;\n			if (!window.__ptSharedAudioCtx) window.__ptSharedAudioCtx = new AC();\n			if (window.__ptSharedAudioCtx.state === 'suspended') {\n				window.__ptSharedAudioCtx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function applyEffectiveAudioMute() {\n		try {\n			var ctx = window.__ptSharedAudioCtx;\n			if (!ctx) {\n				var AC = window.AudioContext || window.webkitAudioContext;\n				if (!AC) return;\n				ctx = new AC();\n				window.__ptSharedAudioCtx = ctx;\n			}\n			/* Mute-only \u2014 pause must not suspend AudioContext (Unity black canvas). */\n			var muted = !!window.__ptAudioOutputMuted;\n			if (muted) {\n				if (ctx.state === 'running') ctx.suspend();\n			} else if (ctx.state === 'suspended') {\n				ctx.resume();\n			}\n		} catch (e) {\n			/* ignore */\n		}\n	}\n\n	function setAudioOutputMuted(muted) {\n		window.__ptAudioOutputMuted = !!muted;\n		applyEffectiveAudioMute();\n	}\n\n	function setGamePaused(paused) {\n		window.__ptGamePaused = !!paused;\n		try {\n			var media = document.querySelectorAll('audio, video');\n			for (var i = 0; i < media.length; i++) {\n				var el = media[i];\n				if (paused) {\n					if (!el.paused) el.setAttribute('data-pt-pause-was-playing', '1');\n					try {\n						el.pause();\n					} catch (e2) {}\n				} else if (el.getAttribute('data-pt-pause-was-playing') === '1') {\n					el.removeAttribute('data-pt-pause-was-playing');\n					try {\n						el.play();\n					} catch (e2) {}\n				}\n			}\n		} catch (e) {\n			/* ignore */\n		}\n		if (!paused) unlockAudio();\n	}\n\n	var ptTouchHeld = Object.create(null);\n	function ptKeyFromCode(code) {\n		var map = {\n			ArrowUp: 'ArrowUp',\n			ArrowDown: 'ArrowDown',\n			ArrowLeft: 'ArrowLeft',\n			ArrowRight: 'ArrowRight',\n			Space: ' ',\n			Enter: 'Enter',\n			Escape: 'Escape',\n			ShiftLeft: 'Shift',\n			ShiftRight: 'Shift'\n		};\n		if (map[code]) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charAt(3).toLowerCase();\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charAt(5);\n		return code || '';\n	}\n	function ptKeyCodeFromCode(code) {\n		var map = {\n			ArrowLeft: 37,\n			ArrowUp: 38,\n			ArrowRight: 39,\n			ArrowDown: 40,\n			Space: 32,\n			Enter: 13,\n			Escape: 27,\n			ShiftLeft: 16,\n			ShiftRight: 16\n		};\n		if (map[code] != null) return map[code];\n		if (code && code.indexOf('Key') === 0 && code.length === 4) return code.charCodeAt(3);\n		if (code && code.indexOf('Digit') === 0 && code.length === 6) return code.charCodeAt(5);\n		return 0;\n	}\n	function ptDispatchKey(type, code) {\n		if (!code) return;\n		var key = ptKeyFromCode(code);\n		var keyCode = ptKeyCodeFromCode(code);\n		var event;\n		try {\n			event = new KeyboardEvent(type, {\n				key: key,\n				code: code,\n				keyCode: keyCode,\n				which: keyCode,\n				bubbles: true,\n				cancelable: true,\n				composed: true,\n				view: window\n			});\n			try {\n				Object.defineProperty(event, 'keyCode', { get: function () { return keyCode; } });\n				Object.defineProperty(event, 'which', { get: function () { return keyCode; } });\n			} catch (e) {}\n		} catch (e) {\n			return;\n		}\n		try {\n			var canvas =\n				document.querySelector('canvas') ||\n				document.querySelector('#openfl-content canvas, #unity-canvas, #gameContainer canvas');\n			if (canvas && canvas.focus) canvas.focus({ preventScroll: true });\n		} catch (e) {}\n		var targets = [];\n		var canvasEl =\n			document.querySelector('canvas') ||\n			document.querySelector('#openfl-content canvas, #unity-canvas, #gameContainer canvas');\n		if (canvasEl) targets.push(canvasEl);\n		var openfl = document.getElementById('openfl-content');\n		if (openfl) targets.push(openfl);\n		if (document.body) targets.push(document.body);\n		if (document.documentElement) targets.push(document.documentElement);\n		targets.push(document, window);\n		for (var i = 0; i < targets.length; i++) {\n			try {\n				targets[i].dispatchEvent(event);\n			} catch (e) {}\n		}\n	}\n	function sendTouchInputAck(data, codes) {\n		if (!data || !data.ackId) return;\n		try {\n			window.parent.postMessage(\n				{\n					type: 'potato-tomato-touch-input-ack',\n					ackId: data.ackId,\n					action: data.action,\n					codes: codes || [],\n					path: 'bridge',\n					ok: true\n				},\n				'*'\n			);\n		} catch (e) {}\n	}\n	function ptForwardTouchToChildFrames(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var frames = document.getElementsByTagName('iframe');\n		for (var i = 0; i < frames.length; i++) {\n			try {\n				var win = frames[i].contentWindow;\n				if (win) win.postMessage(data, '*');\n			} catch (e) {}\n		}\n	}\n\n	function handleTouchInputMessage(data) {\n		if (!data || data.type !== 'potato-tomato-touch-input') return;\n		var codes = Array.isArray(data.codes) ? data.codes : data.code ? [data.code] : [];\n		if (data.action === 'releaseAll') {\n			var held = Object.keys(ptTouchHeld);\n			ptTouchHeld = Object.create(null);\n			for (var r = 0; r < held.length; r++) ptDispatchKey('keyup', held[r]);\n			ptForwardTouchToChildFrames(data);\n			sendTouchInputAck(data, held);\n			return;\n		}\n		if (data.action === 'down') {\n			for (var d = 0; d < codes.length; d++) {\n				if (!codes[d] || ptTouchHeld[codes[d]]) continue;\n				ptTouchHeld[codes[d]] = true;\n				ptDispatchKey('keydown', codes[d]);\n			}\n			ptForwardTouchToChildFrames(data);\n			sendTouchInputAck(data, codes);\n			return;\n		}\n		if (data.action === 'up') {\n			for (var u = 0; u < codes.length; u++) {\n				if (!codes[u] || !ptTouchHeld[codes[u]]) continue;\n				delete ptTouchHeld[codes[u]];\n				ptDispatchKey('keyup', codes[u]);\n			}\n			ptForwardTouchToChildFrames(data);\n			sendTouchInputAck(data, codes);\n		}\n	}\n\n	window.addEventListener('message', function (event) {\n		var data = event && event.data;\n		if (!data || typeof data !== 'object') return;\n		if (data.type === 'potato-tomato-unlock-audio') unlockAudio();\n		if (data.type === 'potato-tomato-audio-output') setAudioOutputMuted(!!data.muted);\n		if (data.type === 'potato-tomato-game-pause') setGamePaused(!!data.paused);\n		handleTouchInputMessage(data);\n	});\n	['pointerdown', 'touchstart', 'keydown'].forEach(function (type) {\n		document.addEventListener(type, unlockAudio, true);\n	});\n\n	window.addEventListener('message', function (event) {\n		var msg = event.data;\n		if (!msg || msg.type !== TYPE || msg.gameId !== gameId) return;\n		if (msg.action === 'hydrate' && msg.data) {\n			applyProfile(msg.data);\n		}\n	});\n\n	window.parent.postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');\n	setInterval(pushToParent, 4000);\n	window.addEventListener('pagehide', pushToParent);\n})();\n";
 
 // src/unity/inject-html.ts
 var cachedInjectSource = null;
@@ -2590,7 +2706,15 @@ ${redirect}`;
   }
   return bundle + out;
 }
+function isOpenFlGameHtml(html) {
+  return /lime\.embed\s*\(|id=["']openfl-content["']|openfl-content/i.test(html);
+}
 function isUnityGameHtml(html) {
+  if (isOpenFlGameHtml(html)) return false;
+  if (/Crazygames\.load\s*\(|useLocalGF\s*=|gfBuildPath\s*=/i.test(html)) return false;
+  if (/"moduleJsonUrl"\s*:\s*"https?:\/\//i.test(html) && /"unityLoaderUrl"\s*:\s*"https?:\/\//i.test(html)) {
+    return false;
+  }
   return /UnityLoader|createUnityInstance|master-loader\.js|unityWebglLoaderUrl|Build\/.*\.json/i.test(
     html
   );
@@ -2781,7 +2905,7 @@ async function pullEmbedGame(gameId, onProgress, signal) {
 
 // src/strategies/generic.ts
 var import_promises18 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs7 = require("node:fs");
+var import_node_fs8 = require("node:fs");
 var import_node_path20 = __toESM(require("node:path"), 1);
 var import_node_child_process3 = require("node:child_process");
 init_cancel_registry();
@@ -3231,6 +3355,7 @@ var import_node_crypto4 = require("node:crypto");
 var import_node_path17 = __toESM(require("node:path"), 1);
 
 // src/capture/rewrite.ts
+var import_node_fs6 = require("node:fs");
 var import_node_path16 = __toESM(require("node:path"), 1);
 function localPathForUrl(baseUrl, assetUrl, outDir) {
   const base = new URL(baseUrl);
@@ -3259,6 +3384,22 @@ function isCapturableUrl(url) {
   } catch {
     return false;
   }
+}
+function rewriteAbsoluteUrlsToMirroredExternal(html, mirrorRoot) {
+  return html.replace(/https?:\/\/[^\s"'<>\\]+/gi, (absolute) => {
+    let parsed;
+    try {
+      parsed = new URL(absolute);
+    } catch {
+      return absolute;
+    }
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return absolute;
+    const pathParts = parsed.pathname.split("/").filter(Boolean);
+    const local = import_node_path16.default.join(mirrorRoot, "_external", parsed.hostname, ...pathParts);
+    if (!(0, import_node_fs6.existsSync)(local)) return absolute;
+    const rel = ["_external", parsed.hostname, ...pathParts].join("/");
+    return `${rel}${parsed.search}${parsed.hash}`;
+  });
 }
 
 // src/capture/network-vault.ts
@@ -3511,12 +3652,12 @@ async function captureGameWithPlaywright(options) {
 
 // src/unity/post-process-offline.ts
 var import_promises17 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs6 = require("node:fs");
+var import_node_fs7 = require("node:fs");
 var import_node_path19 = __toESM(require("node:path"), 1);
 init_scan_assets();
 async function listBuildFiles(outDir) {
   const buildDir = import_node_path19.default.join(outDir, "Build");
-  if (!(0, import_node_fs6.existsSync)(buildDir)) return [];
+  if (!(0, import_node_fs7.existsSync)(buildDir)) return [];
   const entries = await import_promises17.default.readdir(buildDir);
   return entries.map((f) => import_node_path19.default.posix.join("Build", f));
 }
@@ -3531,7 +3672,7 @@ async function discoverExternalUnityAssets(outDir, indexHtml) {
   }
   for (const rel of toScan) {
     const filePath = import_node_path19.default.join(outDir, rel);
-    if (!(0, import_node_fs6.existsSync)(filePath)) continue;
+    if (!(0, import_node_fs7.existsSync)(filePath)) continue;
     try {
       const buf = await import_promises17.default.readFile(filePath);
       if (buf.length > 16 * 1024 * 1024) continue;
@@ -3575,7 +3716,7 @@ function normalizeGameBaseUrl2(iframeSrc) {
 }
 async function findGameContentRoot(mirrorDir) {
   async function walk(dir) {
-    if ((0, import_node_fs7.existsSync)(import_node_path20.default.join(dir, "Build")) || (0, import_node_fs7.existsSync)(import_node_path20.default.join(dir, "TemplateData"))) {
+    if ((0, import_node_fs8.existsSync)(import_node_path20.default.join(dir, "Build")) || (0, import_node_fs8.existsSync)(import_node_path20.default.join(dir, "TemplateData"))) {
       return dir;
     }
     const entries = await import_promises18.default.readdir(dir, { withFileTypes: true });
@@ -3597,7 +3738,7 @@ async function promoteGameRootToOfflineDir(mirrorDir, iframeSrc) {
   await import_promises18.default.cp(contentRoot, staging, { recursive: true });
   const entryName = import_node_path20.default.basename(entryPath);
   const stagedEntry = import_node_path20.default.join(staging, entryName);
-  if (!(0, import_node_fs7.existsSync)(stagedEntry)) {
+  if (!(0, import_node_fs8.existsSync)(stagedEntry)) {
     await import_promises18.default.rm(staging, { recursive: true, force: true });
     throw new Error(`Could not prepare offline entry (${entryName})`);
   }
@@ -3630,7 +3771,7 @@ async function runWget(args) {
 async function hasUnityLoaderOnDisk(outDir) {
   const roots = [outDir, import_node_path20.default.join(outDir, "Build")];
   for (const root of roots) {
-    if (!(0, import_node_fs7.existsSync)(root)) continue;
+    if (!(0, import_node_fs8.existsSync)(root)) continue;
     try {
       const entries = await import_promises18.default.readdir(root);
       if (entries.some((name) => /^UnityLoader(?:\.[0-9.]+)?\.js$/i.test(name))) {
@@ -3659,14 +3800,14 @@ async function validateRequiredAssets(outDir, baseUrl, indexHtml) {
     if (buildJsonRel && !buildJsonRel.startsWith("blob:")) {
       const buildJsonUrl = new URL(buildJsonRel, baseUrl).href;
       const buildJsonPath = localPathForUrl(baseUrl, buildJsonUrl, outDir);
-      if (!(0, import_node_fs7.existsSync)(buildJsonPath)) {
+      if (!(0, import_node_fs8.existsSync)(buildJsonPath)) {
         missing.push(buildJsonPath);
       } else {
         try {
           const buildMeta = JSON.parse(await import_promises18.default.readFile(buildJsonPath, "utf-8"));
           for (const assetUrl of expandBuildManifest(buildMeta, buildJsonUrl)) {
             const assetPath = localPathForUrl(baseUrl, assetUrl, outDir);
-            if (!(0, import_node_fs7.existsSync)(assetPath)) missing.push(assetPath);
+            if (!(0, import_node_fs8.existsSync)(assetPath)) missing.push(assetPath);
           }
         } catch {
           missing.push(buildJsonPath);
@@ -3747,7 +3888,7 @@ async function mirrorWithWget(out, mirrorUrl, iframeSrc, onProgress, signal) {
     throw new Error(wgetExitMessage(code));
   }
   const entryPath = import_node_path20.default.join(out, entryRel);
-  if (!(0, import_node_fs7.existsSync)(entryPath)) {
+  if (!(0, import_node_fs8.existsSync)(entryPath)) {
     throw new Error(`Mirror completed but entry HTML missing: ${entryRel}`);
   }
   return { baseUrl, entryRel };
@@ -3845,7 +3986,7 @@ async function pullGenericGame(gameId, onProgress, signal) {
 
 // src/offline-thumbnail.ts
 var import_promises19 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs8 = require("node:fs");
+var import_node_fs9 = require("node:fs");
 var import_node_path21 = __toESM(require("node:path"), 1);
 var import_promises20 = require("node:stream/promises");
 var import_node_stream = require("node:stream");
@@ -3883,7 +4024,7 @@ async function ensureOfflineThumbnail(gameId) {
   const existing = await readOfflineManifestFromDir(outRoot);
   if (existing?.thumbnail) {
     const abs = import_node_path21.default.join(outRoot, existing.thumbnail);
-    if ((0, import_node_fs8.existsSync)(abs)) return existing.thumbnail;
+    if ((0, import_node_fs9.existsSync)(abs)) return existing.thumbnail;
   }
   if (thumb.startsWith("/")) {
     const relFromGames = thumb.replace(/^\/games\//, "");
@@ -3919,7 +4060,7 @@ async function ensureOfflineThumbnail(gameId) {
     const rel = `assets/thumbnail${ext}`;
     const dest = import_node_path21.default.join(outRoot, rel);
     await import_promises19.default.mkdir(import_node_path21.default.dirname(dest), { recursive: true });
-    await (0, import_promises20.pipeline)(import_node_stream.Readable.fromWeb(res.body), (0, import_node_fs8.createWriteStream)(dest));
+    await (0, import_promises20.pipeline)(import_node_stream.Readable.fromWeb(res.body), (0, import_node_fs9.createWriteStream)(dest));
     await patchManifestThumbnail(outRoot, rel, existing?.entry ?? "index.html");
     return rel;
   } catch {
@@ -3931,7 +4072,7 @@ async function readOfflineThumbnailRel(gameId) {
   const manifest = await readOfflineManifestFromDir(outRoot);
   if (manifest?.thumbnail) {
     const abs = import_node_path21.default.join(outRoot, manifest.thumbnail);
-    if ((0, import_node_fs8.existsSync)(abs)) return manifest.thumbnail;
+    if ((0, import_node_fs9.existsSync)(abs)) return manifest.thumbnail;
   }
   for (const name of [
     "assets/thumbnail.jpg",
@@ -3940,7 +4081,7 @@ async function readOfflineThumbnailRel(gameId) {
     "assets/thumbnail.webp",
     "assets/thumbnail.gif"
   ]) {
-    if ((0, import_node_fs8.existsSync)(import_node_path21.default.join(outRoot, name))) return name;
+    if ((0, import_node_fs9.existsSync)(import_node_path21.default.join(outRoot, name))) return name;
   }
   return null;
 }
@@ -4243,14 +4384,26 @@ function injectGameStorageBridge(html, _gameId, childScriptSrc) {
   return tag + html;
 }
 
+// src/unity/crazygames-unwrap.ts
+function extractCrazyGamesUnityBuild(html) {
+  const mod = html.match(/"moduleJsonUrl"\s*:\s*"(https?:\/\/[^"]+)"/i);
+  const loader = html.match(/"unityLoaderUrl"\s*:\s*"(https?:\/\/[^"]+)"/i);
+  if (!mod?.[1] || !loader?.[1]) return null;
+  return { moduleJsonUrl: mod[1], unityLoaderUrl: loader[1] };
+}
+function isCrazyGamesShellHtml(html) {
+  if (extractCrazyGamesUnityBuild(html)) return true;
+  return /Crazygames\.load\s*\(|useLocalGF\s*=|gfBuildPath\s*=/i.test(html);
+}
+
 // src/unity/proxy-play.ts
 var import_promises23 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs10 = require("node:fs");
+var import_node_fs11 = require("node:fs");
 var import_node_path24 = __toESM(require("node:path"), 1);
 
 // src/live/target.ts
 var import_promises22 = __toESM(require("node:fs/promises"), 1);
-var import_node_fs9 = require("node:fs");
+var import_node_fs10 = require("node:fs");
 var import_node_path23 = __toESM(require("node:path"), 1);
 
 // src/live/safety.ts
@@ -4341,7 +4494,7 @@ async function resolveLiveTargetUrl(gameId) {
     return embed;
   }
   const indexPath = import_node_path23.default.join(catalogOnlineDir(gameId), "index.html");
-  if (!(0, import_node_fs9.existsSync)(indexPath)) return null;
+  if (!(0, import_node_fs10.existsSync)(indexPath)) return null;
   const html = await import_promises22.default.readFile(indexPath, "utf-8");
   const iframeSrc = extractIframeSrc2(html);
   if (!iframeSrc || /sites\.google\.com\/view\//i.test(iframeSrc)) return null;
@@ -4389,7 +4542,7 @@ async function resolveUnityPlayUrl(gameId) {
   const remotePlay = typeof meta?.remotePlayUrl === "string" ? meta.remotePlayUrl.trim() : "";
   if (remotePlay && isPreferredUnityEmbed(remotePlay)) return remotePlay;
   const indexPath = import_node_path24.default.join(catalogOnlineDir(gameId), "index.html");
-  if (!(0, import_node_fs10.existsSync)(indexPath)) return null;
+  if (!(0, import_node_fs11.existsSync)(indexPath)) return null;
   const html = await import_promises23.default.readFile(indexPath, "utf-8");
   const iframeSrc = extractIframeSrc3(html);
   if (iframeSrc && isPreferredUnityEmbed(iframeSrc)) return iframeSrc;
@@ -4435,17 +4588,23 @@ async function fetchProxiedUnityHtml(gameId) {
       signal: AbortSignal.timeout(6e4)
     });
     if (res.ok) {
-      let html2 = await res.text();
-      html2 = injectUnityPatches(html2);
+      const raw = await res.text();
+      if (isOpenFlGameHtml(raw)) return { kind: "live-relay", reason: "openfl" };
+      if (isCrazyGamesShellHtml(raw)) return { kind: "live-relay", reason: "non-unity" };
+      if (!isUnityGameHtml(raw)) return { kind: "live-relay", reason: "non-unity" };
+      let html2 = injectUnityPatches(raw);
       html2 = absolutizeAgainstBase(html2, res.url || targetUrl);
-      return html2;
+      return { kind: "unity", html: html2 };
     }
   }
   const local = await readLocalEmbedHtml(gameId);
   if (!local) return null;
+  if (isOpenFlGameHtml(local.html)) return { kind: "live-relay", reason: "openfl" };
+  if (isCrazyGamesShellHtml(local.html)) return { kind: "live-relay", reason: "non-unity" };
+  if (!isUnityGameHtml(local.html)) return { kind: "live-relay", reason: "non-unity" };
   let html = injectUnityPatches(local.html);
   html = absolutizeAgainstBase(html, local.baseHref);
-  return html;
+  return { kind: "unity", html };
 }
 
 // src/live/proxy.ts
@@ -4454,8 +4613,29 @@ var FETCH_TIMEOUT_MS = 6e4;
 var MAX_HTML_BYTES = 8 * 1024 * 1024;
 var MAX_ASSET_BYTES = 80 * 1024 * 1024;
 function looksLikeUnity(metaEngine, html) {
-  if (typeof metaEngine === "string" && metaEngine.toLowerCase() === "unity") return true;
+  if (isCrazyGamesShellHtml(html)) return false;
+  if (typeof metaEngine === "string" && metaEngine.toLowerCase() === "unity") {
+    return isUnityGameHtml(html);
+  }
   return isUnityGameHtml(html);
+}
+function liveSessionBaseHref(session, proxyPrefix) {
+  const base = new URL(session.baseHref);
+  let pathname = base.pathname || "/";
+  if (!pathname.endsWith("/")) {
+    pathname = /\.[a-z0-9]+$/i.test(pathname) ? pathname.replace(/\/[^/]+$/, "/") : `${pathname}/`;
+  }
+  const rel = pathname.replace(/^\//, "");
+  return rel ? `${proxyPrefix}/${rel}` : `${proxyPrefix}/`;
+}
+function ensureLiveBaseTag(html, href) {
+  if (/<base\b/i.test(html)) {
+    return html.replace(/<base\b[^>]*>/i, `<base href="${href}">`);
+  }
+  if (/<head\b[^>]*>/i.test(html)) {
+    return html.replace(/<head\b[^>]*>/i, (open) => `${open}<base href="${href}">`);
+  }
+  return `<base href="${href}">${html}`;
 }
 function rewriteHtmlForLiveSession(html, session, proxyPrefix) {
   const base = new URL(normalizeBaseUrl(session.baseHref));
@@ -4485,7 +4665,7 @@ function rewriteHtmlForLiveSession(html, session, proxyPrefix) {
     /(UnityLoader\.instantiate\s*\(\s*[^,]+,\s*)(["'])(?!https?:|\/\/|data:|blob:)([^"']+)\2/gi,
     (_m, prefix, quote, rel) => `${prefix}${quote}${toProxy(rel)}${quote}`
   );
-  return out;
+  return ensureLiveBaseTag(out, liveSessionBaseHref(session, proxyPrefix));
 }
 async function startLiveGameHtml(gameId, metaEngine, proxyPrefixForGame) {
   const targetUrl = await resolveLiveTargetUrl(gameId);
@@ -4601,7 +4781,7 @@ async function fetchLiveAsset(gameId, sessionId, assetPath, absoluteOverride) {
 // src/browser-data.ts
 var import_promises24 = __toESM(require("node:fs/promises"), 1);
 var import_node_path25 = __toESM(require("node:path"), 1);
-var import_node_fs11 = require("node:fs");
+var import_node_fs12 = require("node:fs");
 
 // src/browser-data-profile.ts
 var BROWSER_PROFILE_SCHEMA_VERSION = 1;
@@ -4663,7 +4843,7 @@ async function writeJsonAtomic(filePath, data) {
 }
 async function loadIndexedDbProfiles(gameId) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
-  if (!(0, import_node_fs11.existsSync)(idbRoot)) return [];
+  if (!(0, import_node_fs12.existsSync)(idbRoot)) return [];
   const entries = await import_promises24.default.readdir(idbRoot, { withFileTypes: true });
   const profiles = [];
   for (const entry of entries) {
@@ -4691,7 +4871,7 @@ async function loadIndexedDbProfiles(gameId) {
 async function saveIndexedDbProfiles(gameId, databases) {
   const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
   await import_promises24.default.mkdir(idbRoot, { recursive: true });
-  const existing = (0, import_node_fs11.existsSync)(idbRoot) ? await import_promises24.default.readdir(idbRoot, { withFileTypes: true }) : [];
+  const existing = (0, import_node_fs12.existsSync)(idbRoot) ? await import_promises24.default.readdir(idbRoot, { withFileTypes: true }) : [];
   for (const entry of existing) {
     if (entry.isDirectory()) {
       await import_promises24.default.rm(import_node_path25.default.join(idbRoot, entry.name), { recursive: true, force: true });
@@ -4713,7 +4893,7 @@ async function saveIndexedDbProfiles(gameId, databases) {
 async function readGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
   const metaPath = dataFilePath(gameId, PROFILE_DISK_PATHS.meta);
-  if (!(0, import_node_fs11.existsSync)(root) && !(0, import_node_fs11.existsSync)(metaPath)) {
+  if (!(0, import_node_fs12.existsSync)(root) && !(0, import_node_fs12.existsSync)(metaPath)) {
     return null;
   }
   const profile = emptyGameBrowserProfile();
@@ -4771,7 +4951,7 @@ async function writeGameBrowserProfile(gameId, input) {
 }
 async function deleteGameBrowserProfile(gameId) {
   const root = browserDataDir(gameId);
-  if (!(0, import_node_fs11.existsSync)(root)) return;
+  if (!(0, import_node_fs12.existsSync)(root)) return;
   assertDataPath(gameId, root);
   await import_promises24.default.rm(root, { recursive: true, force: true });
 }
@@ -4793,6 +4973,10 @@ function sendJson(res, status, body) {
   res.end(payload);
 }
 function mimeFor(filePath) {
+  const base = import_node_path26.default.basename(filePath).toLowerCase();
+  if (base.includes(".framework.unityweb") || base.endsWith(".framework.js")) {
+    return "application/javascript";
+  }
   const ext = import_node_path26.default.extname(filePath).toLowerCase();
   const map = {
     ".html": "text/html",
@@ -4863,7 +5047,7 @@ async function serveStaticGames(req, res, urlPath) {
     sendJson(res, 403, { error: "Forbidden" });
     return true;
   }
-  if (!(0, import_node_fs12.existsSync)(absPath)) {
+  if (!(0, import_node_fs13.existsSync)(absPath)) {
     sendJson(res, 404, { error: "Not found" });
     return true;
   }
@@ -4881,7 +5065,11 @@ async function serveStaticGames(req, res, urlPath) {
   const isHtml = /\.html?$/i.test(absPath);
   if (isHtml) {
     let raw = await import_promises25.default.readFile(absPath, "utf-8");
-    if (isUnityGameHtml(raw)) {
+    const mirrorRoot = await resolveOfflineMirrorRoot(gameId);
+    if (mirrorRoot) {
+      raw = rewriteAbsoluteUrlsToMirroredExternal(raw, mirrorRoot);
+    }
+    if (!isCrazyGamesShellHtml(raw) && isUnityGameHtml(raw)) {
       raw = injectUnityPatches(raw);
     }
     const body = injectGameStorageBridge(raw, gameId);
@@ -4900,7 +5088,7 @@ async function serveStaticGames(req, res, urlPath) {
     "Access-Control-Allow-Private-Network": "true",
     "Cache-Control": "public, max-age=3600"
   });
-  const stream = (0, import_node_fs12.createReadStream)(absPath);
+  const stream = (0, import_node_fs13.createReadStream)(absPath);
   stream.on("error", (err) => {
     console.error("[puller] read error", absPath, err.message);
     if (!res.headersSent) {
@@ -5063,7 +5251,7 @@ function createServer() {
           sendJson(res, 400, { error: "Invalid export path" });
           return;
         }
-        if (!(0, import_node_fs12.existsSync)(absolute)) {
+        if (!(0, import_node_fs13.existsSync)(absolute)) {
           sendJson(res, 404, { error: "Export file not found" });
           return;
         }
@@ -5073,7 +5261,7 @@ function createServer() {
           "Access-Control-Allow-Private-Network": "true",
           "Cache-Control": "no-store"
         });
-        (0, import_node_fs12.createReadStream)(absolute).pipe(res);
+        (0, import_node_fs13.createReadStream)(absolute).pipe(res);
         return;
       }
       const unityPlayMatch = pathname.match(/^\/api\/unity-play\/([^/]+)$/);
@@ -5088,8 +5276,31 @@ function createServer() {
           return;
         }
         console.log(`[puller] unity-play game=${gameId}`);
-        const html = await fetchProxiedUnityHtml(gameId);
-        if (!html) {
+        const unityResult = await fetchProxiedUnityHtml(gameId);
+        if (unityResult?.kind === "live-relay") {
+          console.log(
+            `[puller] unity-play \u2192 game-live relay game=${gameId} reason=${unityResult.reason}`
+          );
+          const meta = await readGameMetadata(gameId);
+          const live = await startLiveGameHtml(
+            gameId,
+            meta?.engine,
+            (sessionId) => `/api/game-live/${encodeURIComponent(gameId)}/${sessionId}`
+          );
+          if (!live) {
+            sendJson(res, 502, { error: "Could not fetch playable build" });
+            return;
+          }
+          res.writeHead(200, {
+            "Content-Type": live.contentType || "text/html; charset=utf-8",
+            "Access-Control-Allow-Origin": CORS_ORIGIN,
+            "Access-Control-Allow-Private-Network": "true",
+            "Cache-Control": "no-store"
+          });
+          res.end(live.html);
+          return;
+        }
+        if (!unityResult || unityResult.kind !== "unity") {
           console.warn(`[puller] unity-play failed game=${gameId}`);
           sendJson(res, 502, { error: "Could not fetch Unity build" });
           return;
@@ -5100,7 +5311,7 @@ function createServer() {
           "Access-Control-Allow-Private-Network": "true",
           "Cache-Control": "public, max-age=300"
         });
-        res.end(injectGameStorageBridge(html, gameId));
+        res.end(injectGameStorageBridge(unityResult.html, gameId));
         return;
       }
       const liveEntryMatch = pathname.match(/^\/api\/game-live\/([^/]+)\/?$/);

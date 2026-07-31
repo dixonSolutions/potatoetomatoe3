@@ -65,6 +65,10 @@ Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) un
 
 **Unity iframe shells (abinbins / similar):** when the puller is up, play resolves to `/api/unity-play/:id` (unwrap remote HTML, inject, absolutize CDN asset URLs). When the puller is down, the desktop UI shows a Retry-puller warning — launching the nested shell alone usually fails with a masked Unity `Script error`.
 
+**OpenFL / Lime (G-Switch 3):** abinbins hosts these next to Unity builds. The app must **not** treat every abinbins URL as Unity — OpenFL goes through `/api/game-live/:id` with a `<base href>` that includes the live session prefix so runtime `assets/…` loads succeed.
+
+**CrazyGames (Color Tunnel):** treat as a **portal shell**, not a Unity document. Online play uses **game-live** to proxy the real CrazyGames HTML (gameframe + CrazySDK stay intact). Do **not** unwrap into a synthetic UnityLoader page — that caused `CrazySDK` / `isModularized` crashes. Touch may not reach the nested cross-origin gameframe; playability comes first. Blank `engine` → game-live is correct.
+
 ### Touch postMessage bridge
 
 When the parent cannot read `iframe.contentDocument` (cross-origin), [`KeyDispatcher`](../src/lib/utils/touch-input-dispatch.ts) sends:
@@ -95,8 +99,9 @@ If the puller is not running, the iframe shows an error page telling you to star
 | Action               | Behavior                                                                                                                        |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | Gamepad switch       | Blue on/off switch for the console (when enabled / availability allows).                                                        |
-| Joystick             | Analog stick → 8-way direction keys (Arrows + WASD by default).                                                                 |
-| A / B / X / Y        | Hold = keydown, release = keyup (Space / Enter / Shift / Esc by default).                                                       |
+| Joystick             | Analog stick → 8-way keys. Scheme select: **Arrows** (default) or **WASD** — stored in touch settings.                          |
+| Space                | Glass pill button → `Space` (same overlay as A/B/X/Y).                                                                          |
+| A / B / X / Y        | Hold = keydown, release = keyup (Z / Enter / Shift / Esc by default; remappable).                                               |
 | Hold on a control    | After 650 ms, enter drag mode (dashed highlight), move, release commits to store.                                               |
 | Hold on panel grip   | After 650 ms, drag the whole compact console rectangle. Pointer capture keeps the drag active after the finger leaves the grip. |
 | Pause / privacy lock | Overlay hides and all keys are released.                                                                                        |
@@ -128,6 +133,7 @@ Five-finger toggle was removed: iOS/iPadOS reserves multi-finger system gestures
   version: 1,
   enabled: true,
   availability: 'auto' | 'always' | 'off',
+  joystickScheme: 'arrows' | 'wasd', // stick only; default arrows
 ```
 
 opacity: 0.72,

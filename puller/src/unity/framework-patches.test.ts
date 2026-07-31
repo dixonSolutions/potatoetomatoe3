@@ -49,6 +49,24 @@ describe('unity/framework-patches stdin asserts', () => {
 		assert.match(inject, /\(\[0-2\]\)===/);
 		assert.match(inject, /\.fd===\(\[0-2\]\)/);
 	});
+
+	it('inject.js patches UnityLoader.loadCode as (job, code, callback, options)', () => {
+		const inject = readFileSync(injectPath, 'utf8');
+		assert.match(inject, /patchedLoadCode = function \(job, code, callback, options\)/);
+		assert.match(inject, /options \|\| \{ isModularized: false \}/);
+		assert.match(inject, /patchUnityFrameworkSource\(code\)/);
+		assert.doesNotMatch(
+			inject,
+			/patchedLoadCode = function \(source, callback, options\)/
+		);
+	});
+
+	it('inject.js stubs CrazySDK for unwrapped CrazyGames Unity builds', () => {
+		const inject = readFileSync(injectPath, 'utf8');
+		assert.match(inject, /window\.CrazySDK\s*=/);
+		assert.match(inject, /InitCallback/);
+		assert.match(inject, /requestAd/);
+	});
 });
 
 describe('unity/framework-patches safe decompress', () => {

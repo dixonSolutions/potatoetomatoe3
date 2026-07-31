@@ -1,7 +1,14 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, it } from 'node:test';
-import { isCapturableUrl, localPathForUrl, relativePathForUrl } from './rewrite.js';
+import {
+	isCapturableUrl,
+	localPathForUrl,
+	relativePathForUrl,
+	rewriteAbsoluteUrlsToMirroredExternal
+} from './rewrite.js';
 
 describe('capture/rewrite', () => {
 	const outDir = '/tmp/offline-game';
@@ -34,5 +41,26 @@ describe('capture/rewrite', () => {
 		assert.equal(isCapturableUrl('blob:https://x/1'), false);
 		assert.equal(isCapturableUrl('data:text/plain,hi'), false);
 		assert.equal(isCapturableUrl('https://cdn.example.com/a.js'), true);
+	});
+
+	it('rewrites absolute CDN URLs only when vaulted under _external', () => {
+		const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pt-ext-'));
+		const vaulted = path.join(
+			root,
+			'_external',
+			'cdn.example.com',
+			'Build',
+			'game.json'
+		);
+		fs.mkdirSync(path.dirname(vaulted), { recursive: true });
+		fs.writeFileSync(vaulted, '{}');
+		const html = [
+			'<script src="https://cdn.example.com/Build/game.json"></script>',
+			'<script src="https://missing.example.com/nope.js"></script>'
+		].join('');
+		const out = rewriteAbsoluteUrlsToMirroredExternal(html, root);
+		assert.match(out, /src="_external\/cdn\.example\.com\/Build\/game\.json"/);
+		assert.match(out, /src="https:\/\/missing\.example\.com\/nope\.js"/);
+		fs.rmSync(root, { recursive: true, force: true });
 	});
 });

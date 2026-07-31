@@ -17,7 +17,7 @@
 		translateTouchLayout,
 		type TouchAvailability,
 		type TouchConsoleSettings,
-		type TouchDirection,
+		type TouchJoystickScheme,
 		type TouchKeyMapping,
 		type TouchLayout,
 		type TouchOrientation
@@ -37,9 +37,20 @@
 	const localAppForcesConsole = isLocalAppDeployment();
 
 	let orientationTab = $state<TouchOrientation>('landscape');
-	let recordingTarget = $state<'up' | 'down' | 'left' | 'right' | 'a' | 'b' | 'x' | 'y' | null>(
-		null
-	);
+	let recordingTarget = $state<'a' | 'b' | 'x' | 'y' | 'space' | null>(null);
+
+	const JOYSTICK_SCHEMES: { value: TouchJoystickScheme; label: string; hint: string }[] = [
+		{
+			value: 'arrows',
+			label: 'Arrows (↑ ↓ ← →)',
+			hint: 'Joystick sends ArrowUp / ArrowDown / ArrowLeft / ArrowRight.'
+		},
+		{
+			value: 'wasd',
+			label: 'WASD',
+			hint: 'Joystick sends W / A / S / D (forward, left, back, right).'
+		}
+	];
 	let previewDrag = $state<{
 		id: string;
 		startX: number;
@@ -71,7 +82,12 @@
 		 * Enable / availability must stick immediately — waiting for the shared
 		 * Settings Save made the switch feel broken (always Off after leaving).
 		 */
-		if ('enabled' in patch || 'availability' in patch || 'autoEnableOnTouchOnly' in patch) {
+		if (
+			'enabled' in patch ||
+			'availability' in patch ||
+			'autoEnableOnTouchOnly' in patch ||
+			'joystickScheme' in patch
+		) {
 			settings = patchTouchConsoleSettings(patch);
 		}
 		if (message) toast.message(message);
@@ -141,19 +157,12 @@
 	}
 
 	function mappingCodes(target: NonNullable<typeof recordingTarget>): string[] {
-		if (target === 'up' || target === 'down' || target === 'left' || target === 'right') {
-			return settings.mapping.directions[target];
-		}
 		return settings.mapping.buttons[target] ?? [];
 	}
 
 	function setMappingCodes(target: NonNullable<typeof recordingTarget>, codes: string[]) {
 		const mapping: TouchKeyMapping = structuredClone(settings.mapping);
-		if (target === 'up' || target === 'down' || target === 'left' || target === 'right') {
-			mapping.directions[target as TouchDirection] = codes;
-		} else {
-			mapping.buttons[target] = codes;
-		}
+		mapping.buttons[target] = codes;
 		settings = { ...settings, mapping };
 		toast.success(`${target.toUpperCase()} → ${codesToLabel(codes)}`);
 	}
@@ -467,43 +476,54 @@
 			</div>
 		{/if}
 
-		{#if sectionMatches(searchQuery, 'touch mapping keys remap arrows wasd space enter escape button binding')}
+		{#if sectionMatches(searchQuery, 'touch mapping keys remap arrows wasd space enter escape button binding joystick scheme')}
 			<div id="settings-section-touch-mapping" class="scroll-mt-32 space-y-3">
 				<div>
-					<p class="text-sm font-medium">Key mapping</p>
+					<p class="text-sm font-medium">Joystick + key mapping</p>
 					<p class="text-xs text-muted-foreground">
-						Default is Arrows + WASD for the stick, Space / Enter / Shift / Esc for A / B / X / Y.
-						Record a new key for any action.
+						Joystick scheme is Arrows or WASD only. Face buttons and Space are remappable. Same
+						defaults appear on the in-game glass console select.
 					</p>
 				</div>
 
 				<div class="space-y-2">
-					{#each ['up', 'down', 'left', 'right'] as const as dir (dir)}
+					<Label>Joystick scheme</Label>
+					<Select.Root
+						type="single"
+						value={settings.joystickScheme ?? 'arrows'}
+						onValueChange={(v) => {
+							if (v === 'arrows' || v === 'wasd') {
+								persistPatch(
+									{ joystickScheme: v },
+									v === 'wasd' ? 'Joystick → WASD' : 'Joystick → Arrows'
+								);
+							}
+						}}
+						disabled={busy}
+					>
+						<Select.Trigger class="w-full">
+							{JOYSTICK_SCHEMES.find((o) => o.value === (settings.joystickScheme ?? 'arrows'))
+								?.label ?? 'Choose…'}
+						</Select.Trigger>
+						<Select.Content>
+							{#each JOYSTICK_SCHEMES as opt (opt.value)}
+								<Select.Item value={opt.value}>{opt.label}</Select.Item>
+							{/each}
+						</Select.Content>
+					</Select.Root>
+					<p class="text-xs text-muted-foreground">
+						{JOYSTICK_SCHEMES.find((o) => o.value === (settings.joystickScheme ?? 'arrows'))
+							?.hint ?? ''}
+					</p>
+				</div>
+
+				<div class="space-y-2">
+					{#each ['a', 'b', 'x', 'y', 'space'] as const as btn (btn)}
 						<div
 							class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2"
 						>
-							<span class="w-14 text-xs font-medium text-muted-foreground uppercase">{dir}</span>
-							<span class="flex-1 font-mono text-xs tabular-nums">
-								{recordingTarget === dir
-									? 'Press a key… (Esc cancel)'
-									: codesToLabel(mappingCodes(dir))}
-							</span>
-							<Button
-								type="button"
-								variant={recordingTarget === dir ? 'secondary' : 'outline'}
-								size="sm"
-								disabled={busy}
-								onclick={() => (recordingTarget = dir)}
-							>
-								{recordingTarget === dir ? 'Listening…' : 'Record'}
-							</Button>
-						</div>
-					{/each}
-					{#each ['a', 'b', 'x', 'y'] as const as btn (btn)}
-						<div
-							class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2"
-						>
-							<span class="w-14 text-xs font-medium text-muted-foreground uppercase">Btn {btn}</span
+							<span class="w-14 text-xs font-medium text-muted-foreground uppercase"
+								>{btn === 'space' ? 'Space' : `Btn ${btn}`}</span
 							>
 							<span class="flex-1 font-mono text-xs tabular-nums">
 								{recordingTarget === btn
@@ -529,10 +549,12 @@
 					size="sm"
 					disabled={busy}
 					onclick={() => {
-						settings = { ...settings, mapping: structuredClone(DEFAULT_TOUCH_MAPPING) };
-						toast.message(
-							`Mapping reset to ${codesToLabel(DEFAULT_TOUCH_MAPPING.directions.up)} / Space…`
-						);
+						settings = {
+							...settings,
+							joystickScheme: 'arrows',
+							mapping: structuredClone(DEFAULT_TOUCH_MAPPING)
+						};
+						toast.message('Joystick → Arrows; buttons reset (Space / Enter / …)');
 					}}
 				>
 					Reset mapping defaults
@@ -540,7 +562,7 @@
 			</div>
 		{/if}
 
-		{#if searchQuery.trim() && !sectionMatches(searchQuery, 'touch enable overlay mobile gamepad console joystick virtual controller') && !sectionMatches(searchQuery, 'touch availability auto always off mobile desktop') && !sectionMatches(searchQuery, 'touch auto enable default keyboard screen touch-only tablet') && !sectionMatches(searchQuery, 'touch opacity scale size haptics vibration appearance') && !sectionMatches(searchQuery, 'touch layout landscape portrait position size drag preview reset copy') && !sectionMatches(searchQuery, 'touch mapping keys remap arrows wasd space enter escape button binding')}
+		{#if searchQuery.trim() && !sectionMatches(searchQuery, 'touch enable overlay mobile gamepad console joystick virtual controller') && !sectionMatches(searchQuery, 'touch availability auto always off mobile desktop') && !sectionMatches(searchQuery, 'touch auto enable default keyboard screen touch-only tablet') && !sectionMatches(searchQuery, 'touch opacity scale size haptics vibration appearance') && !sectionMatches(searchQuery, 'touch layout landscape portrait position size drag preview reset copy') && !sectionMatches(searchQuery, 'touch mapping keys remap arrows wasd space enter escape button binding joystick scheme')}
 			<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
 		{/if}
 	</div>

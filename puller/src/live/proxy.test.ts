@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { rewriteHtmlForLiveSession } from './proxy.js';
+import { liveSessionBaseHref, rewriteHtmlForLiveSession } from './proxy.js';
 import { createLiveSession } from './session.js';
 
 describe('live/proxy rewrite', () => {
@@ -14,6 +14,24 @@ describe('live/proxy rewrite', () => {
 		const out = rewriteHtmlForLiveSession(html, session, prefix);
 		assert.match(out, new RegExp(`${prefix}/en_US/ovo/Build/game\\.js`));
 		assert.match(out, new RegExp(`${prefix}/shared/style\\.css`));
+		assert.match(out, new RegExp(`<base href="${prefix}/en_US/ovo/">`));
+	});
+
+	it('sets <base> so OpenFL relative assets keep the live session prefix', () => {
+		const session = createLiveSession({
+			gameId: 'g-switch-3',
+			targetUrl: 'https://abinbins.github.io/a4/g-switch-3'
+		});
+		session.baseHref = 'https://abinbins.github.io/a4/g-switch-3';
+		const prefix = `/api/game-live/g-switch-3/${session.id}`;
+		assert.equal(liveSessionBaseHref(session, prefix), `${prefix}/a4/g-switch-3/`);
+		const out = rewriteHtmlForLiveSession(
+			`<html><head></head><script src="G-Switch3.js"></script></html>`,
+			session,
+			prefix
+		);
+		assert.match(out, new RegExp(`<base href="${prefix}/a4/g-switch-3/">`));
+		assert.match(out, new RegExp(`${prefix}/a4/g-switch-3/G-Switch3\\.js`));
 	});
 
 	it('routes cross-origin absolute URLs through _ext?u=', () => {

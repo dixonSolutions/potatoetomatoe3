@@ -5,6 +5,8 @@
 	let {
 		label = 'A',
 		size = 52,
+		/** Wider than `size` for pill controls (e.g. Space). Defaults to `size`. */
+		width = undefined as number | undefined,
 		opacity = 0.72,
 		accent = 'green',
 		disabled = false,
@@ -17,8 +19,9 @@
 	}: {
 		label?: string;
 		size?: number;
+		width?: number;
 		opacity?: number;
-		accent?: 'green' | 'blue' | 'red' | 'amber';
+		accent?: 'green' | 'blue' | 'red' | 'amber' | 'slate';
 		disabled?: boolean;
 		editing?: boolean;
 		onPress?: () => void;
@@ -27,6 +30,9 @@
 		onHoldEditDrag?: (delta: { x: number; y: number }) => void;
 		onHoldEditEnd?: (committed: boolean) => void;
 	} = $props();
+
+	const boxW = $derived(typeof width === 'number' && width > 0 ? width : size);
+	const isPill = $derived(boxW > size * 1.15);
 
 	let rootEl = $state<HTMLButtonElement | null>(null);
 	let pointerId = $state<number | null>(null);
@@ -44,7 +50,9 @@
 				? 'rgb(96 165 250 / 0.85)'
 				: accent === 'red'
 					? 'rgb(248 113 113 / 0.85)'
-					: 'rgb(251 191 36 / 0.85)'
+					: accent === 'slate'
+						? 'rgb(226 232 240 / 0.85)'
+						: 'rgb(251 191 36 / 0.85)'
 	);
 	const accentFill = $derived(
 		accent === 'green'
@@ -53,7 +61,9 @@
 				? 'rgb(96 165 250 / 0.22)'
 				: accent === 'red'
 					? 'rgb(248 113 113 / 0.22)'
-					: 'rgb(251 191 36 / 0.22)'
+					: accent === 'slate'
+						? 'rgb(248 250 252 / 0.2)'
+						: 'rgb(251 191 36 / 0.22)'
 	);
 
 	function clearHold() {
@@ -133,7 +143,8 @@
 	class="pt-touch-btn touch-none select-none"
 	class:pt-touch-btn--pressed={pressed}
 	class:pt-touch-btn--editing={holdEditing || editing}
-	style={`width:${size}px;height:${size}px;opacity:${opacity};--pt-accent-border:${accentBorder};--pt-accent-fill:${accentFill};font-size:${Math.max(12, size * 0.32)}px;`}
+	class:pt-touch-btn--pill={isPill}
+	style={`width:${boxW}px;height:${size}px;opacity:${opacity};--pt-accent-border:${accentBorder};--pt-accent-fill:${accentFill};font-size:${Math.max(11, size * (isPill ? 0.28 : 0.32))}px;`}
 	aria-label={`Action ${label}`}
 	disabled={disabled}
 	onpointerdown={onPointerDown}
@@ -163,6 +174,11 @@
 		transition:
 			transform 80ms ease,
 			box-shadow 80ms ease;
+	}
+	.pt-touch-btn--pill {
+		border-radius: 9999px;
+		padding: 0 0.35em;
+		letter-spacing: 0.04em;
 	}
 	.pt-touch-btn--pressed {
 		transform: scale(0.94);

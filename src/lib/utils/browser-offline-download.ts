@@ -200,11 +200,14 @@ function extractIframeSrc(html: string): string | null {
 	return null;
 }
 
-/** Hosts that serve Unity WebGL builds behind catalog iframe shells. */
+/**
+ * Hosts that almost always serve Unity WebGL. Do NOT include abinbins.github.io —
+ * that mirror hosts Unity and OpenFL/Lime (e.g. G-Switch 3) under the same domain.
+ */
 const UNITY_IFRAME_HOST_RE =
-	/abinbins\.github\.io|play\.unity\.com|cdn\.play\.unity\.com|storage-direct\.y8\.com|unity3d\.com/i;
+	/play\.unity\.com|cdn\.play\.unity\.com|storage-direct\.y8\.com|unity3d\.com/i;
 
-/** True when an embed URL is likely a Unity WebGL document (prefer /api/unity-play). */
+/** True when an embed URL path/host is a strong Unity signal (no network). */
 export function iframeSrcLooksLikeUnity(src: string): boolean {
 	try {
 		const u = new URL(src);
@@ -212,6 +215,44 @@ export function iframeSrcLooksLikeUnity(src: string): boolean {
 		if (/\/(Build|Release|TemplateData)\//i.test(u.pathname)) return true;
 		return false;
 	} catch {
+		return false;
+	}
+}
+
+/** OpenFL / Lime HTML5 (G-Switch etc.) — must use game-live, not unity-play. */
+export function htmlLooksLikeOpenFl(html: string): boolean {
+	return /lime\.embed\s*\(|id=["']openfl-content["']|openfl-content/i.test(html);
+}
+
+/** Unity WebGL document markers (must run on raw HTML — never after inject.js). */
+export function htmlLooksLikeUnityDocument(html: string): boolean {
+	if (htmlLooksLikeOpenFl(html)) return false;
+	/*
+	 * CrazyGames portal shells mention Unity loader URLs but need game-live
+	 * (proxy the shell). Do not classify as Unity → unity-play.
+	 */
+	if (/Crazygames\.load\s*\(|useLocalGF\s*=|gfBuildPath\s*=/i.test(html)) return false;
+	if (/"moduleJsonUrl"\s*:\s*"https?:\/\//i.test(html) && /"unityLoaderUrl"\s*:\s*"https?:\/\//i.test(html)) {
+		return false;
+	}
+	return /UnityLoader|createUnityInstance|unityWebglLoaderUrl|Build\/[^"' ]+\.json/i.test(html);
+}
+
+/** Fetch embed HTML and decide Unity vs OpenFL/other. */
+export async function remoteEmbedLooksLikeUnity(src: string): Promise<boolean> {
+	if (iframeSrcLooksLikeUnity(src)) return true;
+	try {
+		const res = await fetch(src, {
+			cache: 'no-store',
+			signal: AbortSignal.timeout(8_000),
+			redirect: 'follow'
+		});
+		if (!res.ok) return false;
+		const html = (await res.text()).slice(0, 256_000);
+		if (htmlLooksLikeOpenFl(html)) return false;
+		return htmlLooksLikeUnityDocument(html);
+	} catch {
+		/* Unknown host — prefer game-live (rewrites all assets) over unity-play. */
 		return false;
 	}
 }
@@ -236,9 +277,11 @@ export async function probeOnlineShellExternal(gameId: string): Promise<OnlineSh
 			try {
 				const embed = metadata.onlineEmbedUrl.trim();
 				if (new URL(embed).origin !== window.location.origin) {
+					const unityLike =
+						metadata.engine === 'unity' || (await remoteEmbedLooksLikeUnity(embed));
 					return {
 						external: true,
-						unityLike: metadata.engine === 'unity' || iframeSrcLooksLikeUnity(embed),
+						unityLike,
 						iframeSrc: embed
 					};
 				}
@@ -259,9 +302,11 @@ export async function probeOnlineShellExternal(gameId: string): Promise<OnlineSh
 		if (!iframeSrc) return empty;
 		const external = new URL(iframeSrc).origin !== window.location.origin;
 		if (!external) return empty;
+		const unityLike =
+			metadata?.engine === 'unity' || (await remoteEmbedLooksLikeUnity(iframeSrc));
 		return {
 			external: true,
-			unityLike: metadata?.engine === 'unity' || iframeSrcLooksLikeUnity(iframeSrc),
+			unityLike,
 			iframeSrc
 		};
 	} catch {

@@ -69,7 +69,21 @@ export function injectUnityPatches(
 	return bundle + out;
 }
 
+/** OpenFL / Lime HTML5 shells (must not receive Unity inject or unity-play absolutize). */
+export function isOpenFlGameHtml(html: string): boolean {
+	return /lime\.embed\s*\(|id=["']openfl-content["']|openfl-content/i.test(html);
+}
+
 export function isUnityGameHtml(html: string): boolean {
+	if (isOpenFlGameHtml(html)) return false;
+	/*
+	 * CrazyGames shells embed unityLoaderUrl / moduleJsonUrl strings but are
+	 * portal HTML — treat as non-Unity so callers use game-live, not absolutize.
+	 */
+	if (/Crazygames\.load\s*\(|useLocalGF\s*=|gfBuildPath\s*=/i.test(html)) return false;
+	if (/"moduleJsonUrl"\s*:\s*"https?:\/\//i.test(html) && /"unityLoaderUrl"\s*:\s*"https?:\/\//i.test(html)) {
+		return false;
+	}
 	return /UnityLoader|createUnityInstance|master-loader\.js|unityWebglLoaderUrl|Build\/.*\.json/i.test(
 		html
 	);
