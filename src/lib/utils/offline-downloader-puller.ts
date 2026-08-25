@@ -1,6 +1,6 @@
 /** HTTP client for the local puller backend (Tauri / `pnpm dev`). */
 
-import { shouldProbePullerBackend } from './offline-deployment';
+import { isTauriMobileBuild, shouldProbePullerBackend } from './offline-deployment';
 
 export interface GameOfflineStatus {
 	online: boolean;
@@ -154,6 +154,13 @@ export async function isPullerAvailable(
 }
 
 async function probePullerHealthHttp(): Promise<boolean> {
+	/*
+	 * Hard floor, below every `ignoreDeploymentGate` caller. That escape hatch exists for
+	 * the public web site, where a visitor may genuinely be running a puller on loopback.
+	 * On Tauri mobile no sidecar can ever exist, and the request is plain http to
+	 * 127.0.0.1, which a release APK forbids outright (ERR_CLEARTEXT_NOT_PERMITTED).
+	 */
+	if (isTauriMobileBuild()) return false;
 	try {
 		const res = await fetch(`${getPullerApiBaseUrl()}/api/offline/health`, {
 			signal: AbortSignal.timeout(2500)

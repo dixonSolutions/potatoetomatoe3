@@ -26,6 +26,7 @@
 		describePullerDownloadError
 	} from '$lib/utils/offline-downloader';
 	import { invalidateOfflineBackendCache } from '$lib/utils/offline-runtime';
+	import { shouldProbePullerBackend } from '$lib/utils/offline-deployment';
 	import { getGameMeta } from '$lib/utils/browser-offline-storage';
 	import { onlineShellHasExternalIframe } from '$lib/utils/browser-offline-download';
 	import {
@@ -75,11 +76,19 @@
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
 	let backendLabel = $derived(describeOfflineBackend(offlineBackend));
+	/*
+	 * Puller affordances are gated on `shouldProbePullerBackend`, not on
+	 * `isLocalAppDeployment`. Both are true in the desktop app, but only the former is
+	 * false on Tauri mobile, which ships no sidecar. Gating on deployment alone made the
+	 * Android build show "Starting puller", a Retry puller button, and advice to run
+	 * `pnpm puller:start` — on a tablet, for a process that can never exist there.
+	 */
+	let pullerSupported = $derived(shouldProbePullerBackend());
 	let waitingForPuller = $derived(
-		isLocalAppDeployment() && !pullerStartupSettled && offlineBackend !== 'puller'
+		pullerSupported && !pullerStartupSettled && offlineBackend !== 'puller'
 	);
 	let pullerMissingHint = $derived(
-		isLocalAppDeployment() && pullerStartupSettled && offlineBackend === 'browser'
+		pullerSupported && pullerStartupSettled && offlineBackend === 'browser'
 	);
 	let canDownload = $derived(
 		networkOnline &&
@@ -143,7 +152,16 @@
 
 		let pullerStartupTimer: ReturnType<typeof setTimeout> | undefined;
 		let pullerRecoveryTimer: ReturnType<typeof setInterval> | undefined;
-		if (isLocalAppDeployment()) {
+		/*
+		 * Gated on puller support, not deployment. On Android `isLocalAppDeployment()` is
+		 * true but no sidecar can exist, so this block fired ~37 loopback fetches in the
+		 * first 15s (waitForPuller polls every 400ms) plus one every 12s forever — each a
+		 * failed cleartext request to 127.0.0.1:18787, on the game page, while the game
+		 * was loading. There is nothing to wait for, so treat startup as settled.
+		 */
+		if (!pullerSupported) {
+			pullerStartupSettled = true;
+		} else if (isLocalAppDeployment()) {
 			void waitForPuller(15_000).then(async (available) => {
 				pullerStartupSettled = true;
 				if (!available) return;
@@ -479,8 +497,8 @@
 			</p>
 		{:else if pullerMissingHint}
 			<p class="text-xs text-muted-foreground">
-				The local puller is unavailable right now. Use <span class="font-medium">Retry puller</span>,
-				restart the desktop app sidecar, or run
+				The local puller is unavailable right now. Use <span class="font-medium">Retry puller</span
+				>, restart the desktop app sidecar, or run
 				<code class="rounded bg-muted px-1">pnpm puller:start</code> for full game file downloads on
 				disk. Console, pause inject, and offline mirrors need the puller.
 			</p>
@@ -497,9 +515,10 @@
 			</p>
 			{#if externalEmbedOnly}
 				<p class="text-xs text-amber-600 dark:text-amber-400">
-					This game embeds a third-party host. Full offline requires the desktop app or a running
-					local puller (<code class="rounded bg-muted px-1">pnpm puller:start</code>) so the iframe
-					and all assets can be scraped — browser storage alone cannot mirror cross-origin hosts.
+					This game embeds a third-party host, so it plays online only. Browser storage cannot
+					mirror a cross-origin host{pullerSupported
+						? ' — full offline needs the local puller so the iframe and its assets can be scraped.'
+						: ' — full offline for this title needs the desktop app.'}
 				</p>
 			{/if}
 		{:else if offlineBackend === 'puller'}

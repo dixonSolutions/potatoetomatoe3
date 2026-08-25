@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
@@ -52,9 +52,9 @@
 	let showFavouritesOnly = $state(false);
 	let showDownloadedOnly = $state(false);
 	let networkOnline = $state(true);
-	let offlineStatusMap = $state<
-		Record<string, { offline?: boolean; offlineThumbnail?: string }>
-	>({});
+	let offlineStatusMap = $state<Record<string, { offline?: boolean; offlineThumbnail?: string }>>(
+		{}
+	);
 	let fuse: Fuse<GameIndexEntry> | null = $state(null);
 	let favouriteIds = $state<Set<string>>(new Set());
 	let columnCount = $state(4);
@@ -345,9 +345,20 @@
 		overscan: 3
 	});
 
+	/*
+	 * `$rowVirtualizer` is a store read. Reading it inside an effect subscribes to it, and
+	 * `setOptions` then notifies that same store — so the effect re-ran itself until Svelte
+	 * gave up with `effect_update_depth_exceeded`. Once that fires the component stops
+	 * updating altogether, which is why Downloaded only / Show Favourites / the category
+	 * and sort selects all appeared dead: the clicks landed, nothing re-rendered.
+	 *
+	 * Depend on `rowCount` alone; reach the virtualizer instance untracked.
+	 */
 	$effect(() => {
 		const n = rowCount;
-		$rowVirtualizer.setOptions({ count: n });
+		untrack(() => {
+			$rowVirtualizer.setOptions({ count: n });
+		});
 	});
 
 	let virtualRows = $derived($rowVirtualizer.getVirtualItems());
@@ -402,7 +413,7 @@
 	let catalogLoading = $derived(catalogProgress != null && catalogProgress.complete === false);
 </script>
 
-<div class="container mx-auto px-4 py-12">
+<div class="mx-auto w-full max-w-[1920px] px-3 py-5 sm:px-5 md:py-6">
 	{#if !networkOnline}
 		<div
 			class="mb-6 flex items-start gap-3 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm"
@@ -412,8 +423,8 @@
 			<div>
 				<p class="font-medium text-foreground">You are offline</p>
 				<p class="text-muted-foreground">
-					Showing {downloadedCount} downloaded {downloadedCount === 1 ? 'game' : 'games'} you can
-					play without internet.
+					Showing {downloadedCount} downloaded {downloadedCount === 1 ? 'game' : 'games'} you can play
+					without internet.
 				</p>
 			</div>
 		</div>
@@ -422,8 +433,8 @@
 	<div class="mb-8">
 		<h1 class="mb-4 text-4xl font-bold">All games</h1>
 		<p class="max-w-2xl text-muted-foreground">
-			Full library in A–Z order (or shuffle). The first page appears immediately; more games load
-			as you scroll. Search pulls in the rest of the catalog when you type.
+			Full library in A–Z order (or shuffle). The first page appears immediately; more games load as
+			you scroll. Search pulls in the rest of the catalog when you type.
 		</p>
 	</div>
 
@@ -545,10 +556,7 @@
 			{#each virtualRows as vRow (vRow.key)}
 				{@const start = vRow.index * columnCount}
 				{@const rowGames = filteredGames.slice(start, start + columnCount)}
-				<div
-					class="absolute top-0 left-0 w-full"
-					style="transform: translateY({vRow.start}px);"
-				>
+				<div class="absolute top-0 left-0 w-full" style="transform: translateY({vRow.start}px);">
 					<div
 						class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
 						style="padding-bottom: 1.5rem;"

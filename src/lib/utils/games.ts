@@ -14,6 +14,20 @@ import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/off
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
 import { resolveStaticOfflinePlayUrl, staticOfflineFileExists } from '$lib/utils/offline-play-url';
 import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
+import { sizedThumbnailUrl } from '$lib/utils/thumbnail-size';
+import { readConsoleVisiblePref } from '$lib/utils/touch-console';
+import {
+	decideOnlineRelay,
+	hasDirectLaunchFailed,
+	isFrameBlockedHost
+} from '$lib/utils/online-play-routing';
+
+/**
+ * How long a launch may wait for a cold puller when the relay is mandatory (touch
+ * console / direct-launch retry). Kept short: the touch console runs its own longer
+ * wait when the user turns it on, so the launch path never needs to block for that.
+ */
+const RELAY_LAUNCH_WAIT_MS = 4000;
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -77,6 +91,8 @@ export type ThumbnailResolveOptions = {
 	offlineThumbnailRel?: string | null;
 	/** Absolute/blob URL for browser-offline covers. */
 	offlineThumbnailUrl?: string | null;
+	/** Widest this cover will be displayed, in CSS pixels. Drives CDN resizing. */
+	targetPx?: number;
 };
 
 /**
@@ -109,8 +125,12 @@ export function resolveGameThumbnailSrc(
 	}
 	const t = thumbnail?.trim();
 	if (!t || t.endsWith('/.gitkeep') || t.endsWith('.gitkeep')) return MISSING_THUMB_DATA_URI;
-	/* Absolute remote covers (budget fallback) load as-is. */
-	if (/^https?:\/\//i.test(t) || t.startsWith('data:')) return t;
+	if (t.startsWith('data:')) return t;
+	/*
+	 * Remote portal covers are full-resolution originals — up to 2730x1535 for a 138px
+	 * tile. Ask the CDN for a tile-sized image instead; see `sizedThumbnailUrl`.
+	 */
+	if (/^https?:\/\//i.test(t)) return sizedThumbnailUrl(t, options?.targetPx);
 	if (t.startsWith('/')) return `${base}${t}`;
 	return t;
 }
@@ -409,15 +429,15 @@ function hasExternalOnlineEmbed(metadata: GameMetadata | null): boolean {
 	}
 }
 
-function wantsNativeTouchProxy(metadata: GameMetadata | null): boolean {
+/**
+ * Whether online play for this game ends up in a third-party document — either a direct
+ * cross-origin embed or a locally written `embed.html` that only points at one. Those are
+ * the games the touch console cannot reach without a proxy; everything else is same-origin
+ * and injectable as-is.
+ */
+function onlinePlayIsCrossOrigin(metadata: GameMetadata | null): boolean {
 	if (metadata?.localEmbed) return true;
-	if (hasExternalOnlineEmbed(metadata)) return true;
-	/*
-	 * Keep same-origin catalog shells on their direct URL. The console can
-	 * upgrade them to the puller relay on demand, while avoiding a hard
-	 * dependency on game-live for titles that do not need it.
-	 */
-	return false;
+	return hasExternalOnlineEmbed(metadata);
 }
 
 async function offlineAvailable(gameId: string): Promise<boolean> {
@@ -535,30 +555,56 @@ export async function getGamePlayerUrl(
 	}
 
 	/*
-	 * Only wait for the puller when this game needs its proxy. Ordinary same-origin
-	 * catalog shells can start directly; waiting for a sidecar that will not be used
-	 * adds a full startup timeout to every native game launch.
-	 *
-	 * Catalog shells that only wrap a cross-origin iframe (e.g. Mob City → github.io)
-	 * also need a puller proxy — otherwise Unity runs in a nested third-party frame
-	 * (Script error + no touch inject). Unity-like shells prefer unity-play (CDN assets
-	 * + inject); other external embeds use game-live.
+	 * Online launch routing. The public site plays external embeds directly and that
+	 * path is the reliable one, so the app defaults to the same URL. The puller relay
+	 * re-fetches and rewrites every asset through Node, which is what made desktop
+	 * launches stall or never start — reserve it for launches that genuinely need code
+	 * running inside a cross-origin game document (touch console), or for retrying a
+	 * game whose direct launch already failed. See `decideOnlineRelay`.
 	 */
-	let needsNativeProxy = metadata?.engine === 'unity' || wantsNativeTouchProxy(metadata);
-	let externalIframeShell = false;
+	const localApp = !isPublicSiteDeployment();
+	const pullerSupported = shouldProbePullerBackend();
+	const relayPossible = localApp && pullerSupported;
+	const consoleWanted = relayPossible && readConsoleVisiblePref(gameId);
+	const directFailed = relayPossible && hasDirectLaunchFailed(gameId);
+
+	let externalEmbed = onlinePlayIsCrossOrigin(metadata);
 	let externalUnityShell = false;
-	if (!needsNativeProxy && !isPublicSiteDeployment()) {
+	/*
+	 * A host that answers with X-Frame-Options still fires the iframe `load` event, so
+	 * the launch watchdog cannot see the refusal — the user just gets a blank frame.
+	 * These hosts have to be routed to the relay up front.
+	 */
+	let frameBlockedHost = isFrameBlockedHost(
+		metadata?.onlineEmbedUrl?.trim() || metadata?.remotePlayUrl?.trim()
+	);
+	/*
+	 * Probing the shell costs a fetch plus a cross-origin Unity sniff. Only pay for it
+	 * when a relay is actually on the table — otherwise it is pure launch latency.
+	 */
+	if (relayPossible && !externalEmbed && (consoleWanted || directFailed)) {
 		try {
 			const { probeOnlineShellExternal } = await import('./browser-offline-download');
 			const shell = await probeOnlineShellExternal(gameId);
-			externalIframeShell = shell.external;
+			externalEmbed = shell.external;
 			externalUnityShell = shell.unityLike;
-			needsNativeProxy = externalIframeShell;
+			frameBlockedHost = frameBlockedHost || isFrameBlockedHost(shell.iframeSrc);
 		} catch {
 			/* ignore probe failures */
 		}
 	}
-	if (!isPublicSiteDeployment() && needsNativeProxy) {
+
+	const relayDecision = decideOnlineRelay({
+		localApp,
+		pullerSupported,
+		consoleWanted,
+		externalEmbed,
+		directLaunchFailed: directFailed,
+		engine: metadata?.engine,
+		frameBlockedHost
+	});
+
+	if (relayDecision.relay) {
 		const {
 			syncPullerBaseUrlFromTauri,
 			isPullerAvailable,
@@ -568,40 +614,41 @@ export async function getGamePlayerUrl(
 		} = await import('./offline-downloader-puller');
 		/* Packaged Flatpak: sync port; isPullerAvailable falls back to Rust ensure_puller. */
 		await syncPullerBaseUrlFromTauri();
-		const pullerUp = (await isPullerAvailable(true)) || (await waitForPuller(12_000));
+		/*
+		 * An optional relay must never block: waiting on a cold sidecar used to add a
+		 * multi-second stall to every launch. Direct play is a good outcome here.
+		 */
+		const waitMs = relayDecision.relayOptional ? 0 : RELAY_LAUNCH_WAIT_MS;
+		const pullerUp =
+			(await isPullerAvailable(true)) || (waitMs > 0 ? await waitForPuller(waitMs) : false);
 		if (pullerUp) {
-			if (metadata?.engine === 'unity' || externalUnityShell) {
-				const url = pullerUnityPlayUrl(gameId, base);
-				appendPlayLog(
-					'info',
-					'play-url',
-					externalUnityShell && metadata?.engine !== 'unity'
-						? `Resolved Unity play via puller (Unity iframe shell)`
-						: `Resolved Unity play via puller proxy`,
-					`game=${gameId} url=${url}`
-				);
-				return url;
-			}
-			if (wantsNativeTouchProxy(metadata) || externalIframeShell) {
-				const url = pullerLiveGameUrl(gameId, base);
-				appendPlayLog(
-					'info',
-					'play-url',
-					externalIframeShell
-						? `Resolved live relay via puller (external iframe shell)`
-						: `Resolved live relay via puller (native touch proxy)`,
-					`game=${gameId} url=${url}`
-				);
-				return url;
-			}
-		} else if (externalIframeShell || metadata?.engine === 'unity') {
+			const preferUnityHost = metadata?.engine === 'unity' || externalUnityShell;
+			const url = preferUnityHost
+				? pullerUnityPlayUrl(gameId, base)
+				: pullerLiveGameUrl(gameId, base);
 			appendPlayLog(
-				'warn',
+				'info',
 				'play-url',
-				`Puller unavailable — nested cross-origin shell will fail (Script error / no inject)`,
-				`game=${gameId} engine=${metadata?.engine ?? 'unknown'} unityShell=${externalUnityShell}`
+				`Resolved online play via puller relay (${relayDecision.reason})`,
+				`game=${gameId} engine=${metadata?.engine ?? 'unknown'} unityHost=${preferUnityHost} url=${url}`
 			);
+			return url;
 		}
+		appendPlayLog(
+			relayDecision.relayOptional ? 'info' : 'warn',
+			'play-url',
+			relayDecision.relayOptional
+				? `Puller not ready — launching direct instead of waiting`
+				: `Puller unavailable — falling back to the direct online URL`,
+			`game=${gameId} reason=${relayDecision.reason}`
+		);
+	} else {
+		appendPlayLog(
+			'info',
+			'play-url',
+			`Online play stays direct (${relayDecision.reason})`,
+			`game=${gameId} engine=${metadata?.engine ?? 'unknown'}`
+		);
 	}
 
 	/*

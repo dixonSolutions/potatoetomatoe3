@@ -21,6 +21,45 @@ Android is currently gated on generated Tauri Android sources. Run `pnpm tauri a
 
 APK packaging stays under the ZIP32 65535-entry limit via `SKIP_PAGES_GAME_FALLBACKS` and `scripts/slim-android-assets.mjs` (see `tauri.android.conf.json`).
 
+### Android signing
+
+Release 0.0.72 published `app-universal-release-unsigned.apk`. Android refuses to install
+an unsigned package (`INSTALL_PARSE_FAILED_NO_CERTIFICATES`), so the download never
+launched while the build stayed green. `Publish Android APK` now fails outright when the
+keystore secrets are absent, picks the signed artefact by name, and runs `apksigner
+verify` before uploading. `scripts/verify-android-apk.mjs` does the same check locally.
+
+Generate the upload keystore once and keep it — an APK signed with a different key cannot
+upgrade an installed app, only replace it after an uninstall:
+
+```bash
+keytool -genkeypair -v -keystore potato-tomato-release.jks -keyalg RSA -keysize 4096 \
+  -validity 10000 -alias potato-tomato
+base64 -w0 potato-tomato-release.jks
+```
+
+Store the output in repository secrets: `ANDROID_KEYSTORE_BASE64`,
+`ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`. CI writes them
+to `src-tauri/gen/android/key.properties` (gitignored) and deletes both the file and the
+keystore in an `always()` step.
+
+Without `key.properties` the release variant falls back to the debug key so local device
+testing still installs. Those APKs are for testing only — CI never produces one because
+the missing-secret check fails the job first.
+
+R8 stays off for the release variant. `proguardFiles(fileTree(...))` is evaluated at
+configuration time, before `tauri-build` writes `proguard-tauri.pro`, so a clean checkout
+shrank away Tauri's JNI and reflection entry points and the app crashed on launch. The
+payload is ~600 MB of game assets, so shrinking a few hundred KB of Kotlin buys nothing.
+Re-enable only with keep rules committed to `proguard-rules.pro`.
+
+Verify a build before publishing:
+
+```bash
+node scripts/verify-android-apk.mjs                      # newest release APK
+node scripts/verify-android-apk.mjs dist/potato-tomato-0.0.73.apk
+```
+
 ## Public Flatpak remote
 
 After a successful release:

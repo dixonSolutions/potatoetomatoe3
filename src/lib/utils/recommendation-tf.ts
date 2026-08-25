@@ -68,6 +68,21 @@ export function cpuMatMulVec(
 }
 
 /**
+ * Below this many multiply-accumulates, a GPU round trip costs far more than the
+ * arithmetic. Recommendation scoring is capped at 800 candidates x 8 features = 6,400
+ * MACs — microseconds in plain JS. Sending that to TensorFlow meant loading the whole
+ * tfjs runtime plus the WebGPU backend and then blocking on a GPU readback, which on a
+ * low-end Android tablet is a visible freeze. WebGPU itself warns about it:
+ *
+ *   The performance of synchronously reading data from GPU to CPU is poor on the
+ *   webgpu backend, please use asynchronous APIs instead.
+ *
+ * The threshold is set well above any size this app produces, so the GPU path stays
+ * available for a future bulk workload without being on today's critical path.
+ */
+const GPU_WORTHWHILE_MACS = 2_000_000;
+
+/**
  * scores[i] = sum_j features[i,j] * weights[j]
  */
 export async function scoreWithTensorFlow(
@@ -77,7 +92,7 @@ export async function scoreWithTensorFlow(
 	f: number
 ): Promise<Float32Array> {
 	if (n <= 0 || f <= 0) return new Float32Array(0);
-	if (typeof window === 'undefined') {
+	if (typeof window === 'undefined' || n * f < GPU_WORTHWHILE_MACS) {
 		return cpuMatMulVec(features, weights, n, f);
 	}
 
@@ -85,12 +100,17 @@ export async function scoreWithTensorFlow(
 		await initRecommendationBackend();
 		const tf = (await import('@tensorflow/tfjs')) as typeof tfTypes;
 
-		return tf.tidy(() => {
-			const x = tf.tensor2d(features, [n, f]);
-			const w = tf.tensor2d(weights, [f, 1]);
-			const s = tf.matMul(x, w);
-			return new Float32Array(s.dataSync());
-		});
+		const x = tf.tensor2d(features, [n, f]);
+		const w = tf.tensor2d(weights, [f, 1]);
+		const s = tf.matMul(x, w);
+		try {
+			/* `data()` yields to the GPU; `dataSync()` stalls the main thread until it drains. */
+			return new Float32Array(await s.data());
+		} finally {
+			x.dispose();
+			w.dispose();
+			s.dispose();
+		}
 	} catch (e) {
 		console.warn('TensorFlow scoring failed, using CPU fallback:', e);
 		return cpuMatMulVec(features, weights, n, f);

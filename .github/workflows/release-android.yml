@@ -74,13 +74,45 @@ jobs:
           fs.writeFileSync('src-tauri/Cargo.toml', fs.readFileSync('src-tauri/Cargo.toml', 'utf8').replace(/^version = ".*"/m, `version = "${version}"`));
           NODE
           node scripts/verify-release-metadata.mjs "$VERSION" "$SHA"
+      - name: Configure release signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          # An unsigned APK cannot be installed at all (INSTALL_PARSE_FAILED_NO_CERTIFICATES),
+          # so a missing keystore must fail the build rather than publish a dead asset.
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::ANDROID_KEYSTORE_BASE64 is not set. Publishing an unsigned APK produces an asset Android refuses to install. See docs/release.md." >&2
+            exit 1
+          fi
+          printf '%s' "$KEYSTORE_BASE64" | base64 -d > src-tauri/gen/android/release.keystore
+          cat > src-tauri/gen/android/key.properties <<EOF
+          storeFile=$(pwd)/src-tauri/gen/android/release.keystore
+          storePassword=$KEYSTORE_PASSWORD
+          keyAlias=$KEY_ALIAS
+          keyPassword=$KEY_PASSWORD
+          EOF
       - name: Build Android APK
         run: pnpm tauri android build --target aarch64 --apk true
       - name: Collect versioned APK
         run: |
           mkdir -p dist
-          find src-tauri/gen/android/app/build/outputs/apk -name '*.apk' -exec cp {} "dist/potato-tomato-${{ steps.release.outputs.version }}.apk" \;
-          test -f "dist/potato-tomato-${{ steps.release.outputs.version }}.apk"
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -name '*-release*.apk' ! -name '*unsigned*' | head -n1)"
+          if [ -z "$apk" ]; then
+            echo "::error::No signed release APK produced. Built artefacts:" >&2
+            find src-tauri/gen/android/app/build/outputs/apk -name '*.apk' >&2
+            exit 1
+          fi
+          cp "$apk" "dist/potato-tomato-${{ steps.release.outputs.version }}.apk"
+      - name: Verify the APK is signed
+        run: |
+          apksigner="$(find "$ANDROID_HOME/build-tools" -name apksigner | sort -V | tail -n1)"
+          "$apksigner" verify --print-certs "dist/potato-tomato-${{ steps.release.outputs.version }}.apk"
+      - name: Clean up signing material
+        if: always()
+        run: rm -f src-tauri/gen/android/release.keystore src-tauri/gen/android/key.properties
       - uses: actions/upload-artifact@v4
         with:
           name: android-apk-${{ steps.release.outputs.version }}

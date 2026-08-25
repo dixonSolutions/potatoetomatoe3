@@ -2,11 +2,7 @@
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
-	import {
-		loadCatalogIndex,
-		resolveGameThumbnailSrc,
-		type GameIndexEntry
-	} from '$lib/utils/games';
+	import { loadCatalogIndex, resolveGameThumbnailSrc, type GameIndexEntry } from '$lib/utils/games';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
 	import {
 		getBrowseShuffleSeed,
@@ -17,10 +13,7 @@
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Heart, ChevronRight, WifiOff } from 'lucide-svelte';
-	import {
-		fetchDownloadedStatuses,
-		OFFLINE_STATUS_CHANGED
-	} from '$lib/utils/offline-downloader';
+	import { fetchDownloadedStatuses, OFFLINE_STATUS_CHANGED } from '$lib/utils/offline-downloader';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 
@@ -33,9 +26,9 @@
 	let feedReady = $state(false);
 	let favouriteIds = $state<string[]>([]);
 	let networkOnline = $state(true);
-	let offlineStatusMap = $state<
-		Record<string, { offline?: boolean; offlineThumbnail?: string }>
-	>({});
+	let offlineStatusMap = $state<Record<string, { offline?: boolean; offlineThumbnail?: string }>>(
+		{}
+	);
 	let loadGeneration = 0;
 
 	const continueSkeletonCount = 12;
@@ -102,11 +95,21 @@
 			/* Catalog first — never wait on puller status before painting the home grid. */
 			const statusPromise = refreshOfflineStatuses();
 
+			/*
+			 * The progress callback fires once per catalog shard — 27 of them. Rebuilding
+			 * Continue on every one meant 27 passes of getRecentlyPlayedGames, each of which
+			 * indexes and (when history is thin) shuffles and scores the whole 13k-row
+			 * catalog on the main thread. On a low-end tablet that is seconds of jank while
+			 * the page is nominally "loaded". Paint Continue once off the first shard, then
+			 * once more from the complete index below; shards in between only fill the grid.
+			 */
+			let continuePainted = false;
 			allGames = await loadCatalogIndex((partial) => {
 				if (generation !== loadGeneration) return;
-				/* Paint continue as soon as shard 0+ arrives */
-				if (partial.length > 0) {
-					allGames = partial;
+				if (partial.length === 0) return;
+				allGames = partial;
+				if (!continuePainted) {
+					continuePainted = true;
 					continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(partial, prefs, 28));
 					libraryReady = true;
 				}
@@ -150,9 +153,7 @@
 					}
 					feedReady = true;
 				} catch {
-					recommendedGames = applyOfflineLibraryFilter(
-						getHomeRecommendations(allGames, prefs, 14)
-					);
+					recommendedGames = applyOfflineLibraryFilter(getHomeRecommendations(allGames, prefs, 14));
 					feedReady = true;
 				}
 			})();
@@ -198,7 +199,7 @@
 </script>
 
 <div class="min-h-screen bg-background text-foreground">
-	<div class="container mx-auto px-3 sm:px-4 py-6 md:py-8 max-w-[1600px]">
+	<div class="mx-auto w-full max-w-[1920px] px-3 py-5 sm:px-5 md:py-6">
 		{#if !networkOnline}
 			<div
 				class="mb-6 flex items-start gap-3 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm"
@@ -215,9 +216,11 @@
 			</div>
 		{/if}
 
-		<header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 md:mb-10">
-			<h1 class="text-2xl md:text-3xl font-bold tracking-tight">For you</h1>
-			<div class="flex flex-wrap gap-2 shrink-0">
+		<header
+			class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-10"
+		>
+			<h1 class="text-2xl font-bold tracking-tight md:text-3xl">For you</h1>
+			<div class="flex shrink-0 flex-wrap gap-2">
 				<a href={resolve('/play-analytics')} class="text-sm">
 					<Button variant="outline" class="gap-2">Playtime &amp; algorithm</Button>
 				</a>
@@ -233,33 +236,31 @@
 		{#if !libraryReady}
 			<div class="space-y-10 md:space-y-12" aria-busy="true" aria-label="Loading feed">
 				<section class="mb-10 md:mb-12">
-					<div class="h-7 w-40 max-w-[50%] rounded-md bg-muted animate-pulse mb-3"></div>
+					<div class="mb-3 h-7 w-40 max-w-[50%] animate-pulse rounded-md bg-muted"></div>
 					<div
-						class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11 gap-1.5 sm:gap-2"
+						class="grid grid-cols-4 gap-1.5 sm:grid-cols-6 sm:gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11"
 					>
 						{#each [...Array(continueSkeletonCount).keys()] as i (i)}
-							<div class="rounded-xl overflow-hidden border border-border/40 bg-card/50">
-								<div class="aspect-square bg-muted animate-pulse"></div>
-								<div class="px-1 py-2 space-y-1.5">
-									<div class="h-3 bg-muted rounded animate-pulse"></div>
-									<div class="h-2.5 w-2/3 bg-muted/80 rounded animate-pulse"></div>
+							<div class="overflow-hidden rounded-xl border border-border/40 bg-card/50">
+								<div class="aspect-square animate-pulse bg-muted"></div>
+								<div class="space-y-1.5 px-1 py-2">
+									<div class="h-3 animate-pulse rounded bg-muted"></div>
+									<div class="h-2.5 w-2/3 animate-pulse rounded bg-muted/80"></div>
 								</div>
 							</div>
 						{/each}
 					</div>
 				</section>
 				<section class="mb-10 md:mb-12">
-					<div class="h-7 w-48 max-w-[55%] rounded-md bg-muted animate-pulse mb-3"></div>
-					<div
-						class="flex gap-3 md:gap-4 overflow-hidden pb-3"
-					>
+					<div class="mb-3 h-7 w-48 max-w-[55%] animate-pulse rounded-md bg-muted"></div>
+					<div class="flex gap-3 overflow-hidden pb-3 md:gap-4">
 						{#each [...Array(recommendedSkeletonCount).keys()] as i (i)}
-							<div class="shrink-0 w-[min(280px,78vw)] sm:w-[260px] md:w-[280px]">
-								<div class="rounded-xl overflow-hidden border border-border/40 bg-card/50">
-									<div class="aspect-video bg-muted animate-pulse"></div>
-									<div class="p-2.5 space-y-2">
-										<div class="h-4 bg-muted rounded animate-pulse"></div>
-										<div class="h-3 w-4/5 bg-muted/80 rounded animate-pulse"></div>
+							<div class="w-[min(280px,78vw)] shrink-0 sm:w-[260px] md:w-[280px]">
+								<div class="overflow-hidden rounded-xl border border-border/40 bg-card/50">
+									<div class="aspect-video animate-pulse bg-muted"></div>
+									<div class="space-y-2 p-2.5">
+										<div class="h-4 animate-pulse rounded bg-muted"></div>
+										<div class="h-3 w-4/5 animate-pulse rounded bg-muted/80"></div>
 									</div>
 								</div>
 							</div>
@@ -267,15 +268,15 @@
 					</div>
 				</section>
 				<section>
-					<div class="h-7 w-44 max-w-[50%] rounded-md bg-muted animate-pulse mb-3"></div>
+					<div class="mb-3 h-7 w-44 max-w-[50%] animate-pulse rounded-md bg-muted"></div>
 					<div class="flex gap-3 overflow-hidden pb-3">
 						{#each [...Array(featuredSkeletonCount).keys()] as i (i)}
-							<div class="shrink-0 w-[min(200px,42vw)] sm:w-[200px]">
-								<div class="rounded-xl overflow-hidden border border-border/40 bg-card/50">
-									<div class="aspect-square bg-muted animate-pulse"></div>
-									<div class="p-2 space-y-1.5">
-										<div class="h-3 bg-muted rounded animate-pulse"></div>
-										<div class="h-2.5 w-3/4 bg-muted/80 rounded animate-pulse"></div>
+							<div class="w-[min(200px,42vw)] shrink-0 sm:w-[200px]">
+								<div class="overflow-hidden rounded-xl border border-border/40 bg-card/50">
+									<div class="aspect-square animate-pulse bg-muted"></div>
+									<div class="space-y-1.5 p-2">
+										<div class="h-3 animate-pulse rounded bg-muted"></div>
+										<div class="h-2.5 w-3/4 animate-pulse rounded bg-muted/80"></div>
 									</div>
 								</div>
 							</div>
@@ -284,49 +285,51 @@
 				</section>
 			</div>
 		{:else if allGames.length === 0}
-			<p class="text-sm text-muted-foreground py-16 text-center">No games in the library yet.</p>
+			<p class="py-16 text-center text-sm text-muted-foreground">No games in the library yet.</p>
 		{:else}
 			<section class="mb-10 md:mb-12" aria-labelledby="home-continue-heading">
-				<div class="flex items-end justify-between gap-3 mb-3">
+				<div class="mb-3 flex items-end justify-between gap-3">
 					<h2
 						id="home-continue-heading"
-						class="text-lg md:text-xl font-semibold inline-flex items-center gap-1.5"
+						class="inline-flex items-center gap-1.5 text-lg font-semibold md:text-xl"
 					>
 						Continue
 						<ChevronRight class="h-5 w-5 text-muted-foreground opacity-80" aria-hidden="true" />
 					</h2>
 					<a
 						href={resolve('/games')}
-						class="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-0.5"
+						class="inline-flex items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground"
 					>
 						All
 						<ChevronRight class="h-3.5 w-3.5" />
 					</a>
 				</div>
 				<div
-					class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11 gap-1.5 sm:gap-2"
+					class="grid grid-cols-4 gap-1.5 sm:grid-cols-6 sm:gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11"
 				>
 					{#each continueGames as game (game.id)}
 						<a
 							href={resolve(`/games/${game.id}`)}
 							data-sveltekit-preload-data="hover"
-							class="group block rounded-xl overflow-hidden bg-card border border-border/50 hover:border-border transition-colors shadow-sm"
+							class="group block overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm transition-colors hover:border-border"
 						>
-							<div class="aspect-square bg-muted relative overflow-hidden rounded-t-xl">
+							<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
 								<img
 									src={thumbUrl(game)}
 									alt=""
 									loading="lazy"
 									decoding="async"
-									class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-200"
+									class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
 									onerror={(e) => {
 										const el = e.currentTarget as HTMLImageElement;
 										el.src = placeholderDataUrl();
 									}}
 								/>
 							</div>
-							<div class="px-1 pb-1.5 pt-1">
-								<p class="text-[11px] sm:text-xs font-medium leading-tight line-clamp-2">{game.name}</p>
+							<div class="px-1 pt-1 pb-1.5">
+								<p class="line-clamp-2 text-[11px] leading-tight font-medium sm:text-xs">
+									{game.name}
+								</p>
 							</div>
 						</a>
 					{/each}
@@ -338,51 +341,55 @@
 				aria-labelledby="home-recommended-heading"
 				aria-busy={!feedReady}
 			>
-				<div class="flex items-end justify-between gap-3 mb-3">
+				<div class="mb-3 flex items-end justify-between gap-3">
 					<h2
 						id="home-recommended-heading"
-						class="text-lg md:text-xl font-semibold inline-flex items-center gap-1.5"
+						class="inline-flex items-center gap-1.5 text-lg font-semibold md:text-xl"
 					>
 						Recommended
 						<ChevronRight class="h-5 w-5 text-muted-foreground opacity-80" aria-hidden="true" />
 					</h2>
 					<a
 						href={resolve('/games')}
-						class="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-0.5 shrink-0"
+						class="inline-flex shrink-0 items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground"
 					>
 						See all
 						<ChevronRight class="h-3.5 w-3.5" />
 					</a>
 				</div>
 				{#if !feedReady}
-					<div class="flex gap-3 md:gap-4 overflow-hidden pb-3" aria-hidden="true">
+					<div class="flex gap-3 overflow-hidden pb-3 md:gap-4" aria-hidden="true">
 						{#each [...Array(recommendedSkeletonCount).keys()] as i (i)}
-							<div class="shrink-0 w-[min(280px,78vw)] sm:w-[260px] md:w-[280px]">
-								<div class="rounded-xl overflow-hidden border border-border/40 bg-card/50">
-									<div class="aspect-video bg-muted animate-pulse"></div>
-									<div class="p-2.5 space-y-2">
-										<div class="h-4 bg-muted rounded animate-pulse"></div>
-										<div class="h-3 w-4/5 bg-muted/80 rounded animate-pulse"></div>
+							<div class="w-[min(280px,78vw)] shrink-0 sm:w-[260px] md:w-[280px]">
+								<div class="overflow-hidden rounded-xl border border-border/40 bg-card/50">
+									<div class="aspect-video animate-pulse bg-muted"></div>
+									<div class="space-y-2 p-2.5">
+										<div class="h-4 animate-pulse rounded bg-muted"></div>
+										<div class="h-3 w-4/5 animate-pulse rounded bg-muted/80"></div>
 									</div>
 								</div>
 							</div>
 						{/each}
 					</div>
 				{:else if recommendedGames.length === 0}
-					<p class="text-sm text-muted-foreground py-4">No recommendations yet — play a few games to tune your feed.</p>
+					<p class="py-4 text-sm text-muted-foreground">
+						No recommendations yet — play a few games to tune your feed.
+					</p>
 				{:else}
 					<div
-						class="flex gap-3 md:gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]"
+						class="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-3 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] md:gap-4"
 					>
 						{#each recommendedGames as game (game.id)}
-							<div
-								class="snap-start shrink-0 w-[min(280px,78vw)] sm:w-[260px] md:w-[280px] group"
-							>
-								<a href={resolve(`/games/${game.id}`)} data-sveltekit-preload-data="hover" class="block">
+							<div class="group w-[min(280px,78vw)] shrink-0 snap-start sm:w-[260px] md:w-[280px]">
+								<a
+									href={resolve(`/games/${game.id}`)}
+									data-sveltekit-preload-data="hover"
+									class="block"
+								>
 									<div
-										class="relative rounded-xl overflow-hidden bg-muted border border-border/60 shadow-sm hover:shadow-md transition-shadow"
+										class="relative overflow-hidden rounded-xl border border-border/60 bg-muted shadow-sm transition-shadow hover:shadow-md"
 									>
-										<div class="aspect-video bg-muted relative">
+										<div class="relative aspect-video bg-muted">
 											<img
 												src={thumbUrl(game)}
 												alt=""
@@ -397,8 +404,10 @@
 											<button
 												type="button"
 												onclick={(e) => toggleFavourite(game.id, e)}
-												class="absolute top-2 right-2 p-1.5 rounded-full bg-background/85 backdrop-blur-sm hover:bg-background border border-border/50 z-10"
-												aria-label={favouriteIds.includes(game.id) ? 'Remove from favourites' : 'Favourite'}
+												class="absolute top-2 right-2 z-10 rounded-full border border-border/50 bg-background/85 p-1.5 backdrop-blur-sm hover:bg-background"
+												aria-label={favouriteIds.includes(game.id)
+													? 'Remove from favourites'
+													: 'Favourite'}
 											>
 												<Heart
 													class="h-4 w-4 {favouriteIds.includes(game.id)
@@ -408,7 +417,7 @@
 											</button>
 										</div>
 										<div class="p-2.5">
-											<p class="font-medium text-sm leading-snug line-clamp-2">{game.name}</p>
+											<p class="line-clamp-2 text-sm leading-snug font-medium">{game.name}</p>
 										</div>
 									</div>
 								</a>
@@ -419,17 +428,17 @@
 			</section>
 
 			<section aria-labelledby="home-more-heading" aria-busy={!feedReady}>
-				<div class="flex items-end justify-between gap-3 mb-3">
+				<div class="mb-3 flex items-end justify-between gap-3">
 					<h2
 						id="home-more-heading"
-						class="text-lg md:text-xl font-semibold inline-flex items-center gap-1.5"
+						class="inline-flex items-center gap-1.5 text-lg font-semibold md:text-xl"
 					>
 						More to explore
 						<ChevronRight class="h-5 w-5 text-muted-foreground opacity-80" aria-hidden="true" />
 					</h2>
 					<a
 						href={resolve('/games')}
-						class="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-0.5"
+						class="inline-flex items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground"
 					>
 						Browse
 						<ChevronRight class="h-3.5 w-3.5" />
@@ -438,60 +447,66 @@
 				{#if !feedReady}
 					<div class="flex gap-3 overflow-hidden pb-3" aria-hidden="true">
 						{#each [...Array(featuredSkeletonCount).keys()] as i (i)}
-							<div class="shrink-0 w-[min(200px,42vw)] sm:w-[200px]">
-								<div class="rounded-xl overflow-hidden border border-border/40 bg-card/50">
-									<div class="aspect-square bg-muted animate-pulse"></div>
-									<div class="p-2 space-y-1.5">
-										<div class="h-3 bg-muted rounded animate-pulse"></div>
-										<div class="h-2.5 w-3/4 bg-muted/80 rounded animate-pulse"></div>
+							<div class="w-[min(200px,42vw)] shrink-0 sm:w-[200px]">
+								<div class="overflow-hidden rounded-xl border border-border/40 bg-card/50">
+									<div class="aspect-square animate-pulse bg-muted"></div>
+									<div class="space-y-1.5 p-2">
+										<div class="h-3 animate-pulse rounded bg-muted"></div>
+										<div class="h-2.5 w-3/4 animate-pulse rounded bg-muted/80"></div>
 									</div>
 								</div>
 							</div>
 						{/each}
 					</div>
 				{:else}
-				<div
-					class="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scroll-smooth [scrollbar-width:thin]"
-				>
-					{#each featuredGames as game (game.id)}
-						<div class="snap-start shrink-0 w-[min(200px,42vw)] sm:w-[200px] group">
-							<a href={resolve(`/games/${game.id}`)} data-sveltekit-preload-data="hover" class="block">
-								<div
-									class="rounded-xl overflow-hidden border border-border/60 bg-card hover:shadow-md transition-shadow"
+					<div
+						class="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-3 [scrollbar-width:thin]"
+					>
+						{#each featuredGames as game (game.id)}
+							<div class="group w-[min(200px,42vw)] shrink-0 snap-start sm:w-[200px]">
+								<a
+									href={resolve(`/games/${game.id}`)}
+									data-sveltekit-preload-data="hover"
+									class="block"
 								>
-									<div class="aspect-square bg-muted relative rounded-t-xl overflow-hidden">
-										<img
-											src={thumbUrl(game)}
-											alt=""
-											loading="lazy"
-											decoding="async"
-											class="h-full w-full object-cover"
-											onerror={(e) => {
-												const el = e.currentTarget as HTMLImageElement;
-												el.src = placeholderDataUrl();
-											}}
-										/>
-										<button
-											type="button"
-											onclick={(e) => toggleFavourite(game.id, e)}
-											class="absolute top-1.5 right-1.5 p-1 rounded-full bg-background/85 backdrop-blur-sm z-10"
-											aria-label={favouriteIds.includes(game.id) ? 'Remove from favourites' : 'Favourite'}
-										>
-											<Heart
-												class="h-3.5 w-3.5 {favouriteIds.includes(game.id)
-													? 'fill-red-500 text-red-500'
-													: 'text-muted-foreground'}"
+									<div
+										class="overflow-hidden rounded-xl border border-border/60 bg-card transition-shadow hover:shadow-md"
+									>
+										<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
+											<img
+												src={thumbUrl(game)}
+												alt=""
+												loading="lazy"
+												decoding="async"
+												class="h-full w-full object-cover"
+												onerror={(e) => {
+													const el = e.currentTarget as HTMLImageElement;
+													el.src = placeholderDataUrl();
+												}}
 											/>
-										</button>
+											<button
+												type="button"
+												onclick={(e) => toggleFavourite(game.id, e)}
+												class="absolute top-1.5 right-1.5 z-10 rounded-full bg-background/85 p-1 backdrop-blur-sm"
+												aria-label={favouriteIds.includes(game.id)
+													? 'Remove from favourites'
+													: 'Favourite'}
+											>
+												<Heart
+													class="h-3.5 w-3.5 {favouriteIds.includes(game.id)
+														? 'fill-red-500 text-red-500'
+														: 'text-muted-foreground'}"
+												/>
+											</button>
+										</div>
+										<div class="p-2">
+											<p class="line-clamp-2 text-xs leading-snug font-medium">{game.name}</p>
+										</div>
 									</div>
-									<div class="p-2">
-										<p class="text-xs font-medium line-clamp-2 leading-snug">{game.name}</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					{/each}
-				</div>
+								</a>
+							</div>
+						{/each}
+					</div>
 				{/if}
 			</section>
 		{/if}

@@ -219,10 +219,29 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 }
 
 /**
+ * True when the native shell injected the bridge into every frame of this WebView.
+ *
+ * Android's `WebViewCompat.addDocumentStartJavaScript` runs a script at document start in
+ * cross-origin subframes too — something page JavaScript can never do, because the barrier
+ * is Blink's same-origin policy rather than anything about the embedder. Where it is
+ * available the console needs no relay at all: the bridge is already inside the game.
+ *
+ * The injected script sets this marker in every frame, including this one, so its presence
+ * here means it is present in the game frame as well. See
+ * `src-tauri/gen/android/app/src/main/res/raw/native_touch_bridge.js`.
+ */
+export function hasNativeFrameBridge(): boolean {
+	if (typeof window === 'undefined') return false;
+	return Boolean((window as unknown as { __ptNativeBridge?: unknown }).__ptNativeBridge);
+}
+
+/**
  * URLs where inject.js (or storage bridge) runs in the top game iframe and accepts
  * `potato-tomato-touch-input` postMessage — even when contentDocument is cross-origin.
  */
 export function canUseTouchBridge(url: string | null | undefined): boolean {
+	/* Native injection covers every frame, so the play URL no longer decides this. */
+	if (hasNativeFrameBridge()) return true;
 	if (!url) return false;
 	const u = url.trim();
 	if (!u) return false;
@@ -416,8 +435,16 @@ export class KeyDispatcher {
 			/*
 			 * One primary target only. Fanning key events to body/document/window on every
 			 * joystick frame stalls Unity/WebKit (looks like the game "freezes").
+			 *
+			 * Body before canvas. Scratch — most of the abinbins-hosted catalog, and every
+			 * offline mirror of one — drops key events whose `target` is neither `document`
+			 * nor `document.body`, so that typing into its answer box cannot drive the game.
+			 * Dispatching at the canvas was therefore silently ignored. Measured against a
+			 * live VM: canvas gave `_keysPressed === []`, body gave `["space"]`. The event
+			 * bubbles, so canvas-level listeners are the only ones that miss it, and those
+			 * are rare — a canvas needs tabindex and focus to take key events naturally.
 			 */
-			const primary = t.canvas ?? t.doc.body ?? t.doc.documentElement ?? t.win;
+			const primary = t.doc.body ?? t.doc.documentElement ?? t.canvas ?? t.win;
 			primary.dispatchEvent(makeEvent());
 		} catch {
 			/* ignore */
@@ -505,9 +532,7 @@ export class KeyDispatcher {
 			this.held.clear();
 			this.joystickHeld.clear();
 			if (this.bridgeFrame?.contentWindow && !this.target) {
-				this.postBridge(
-					this.withAck({ type: 'potato-tomato-touch-input', action: 'releaseAll' })
-				);
+				this.postBridge(this.withAck({ type: 'potato-tomato-touch-input', action: 'releaseAll' }));
 				return;
 			}
 			for (const code of codes) {

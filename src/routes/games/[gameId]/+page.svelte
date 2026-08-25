@@ -32,7 +32,6 @@
 	import {
 		Maximize,
 		ArrowLeft,
-		X,
 		ThumbsUp,
 		ThumbsDown,
 		RotateCcw,
@@ -54,7 +53,7 @@
 		type OfflineStatusChangedDetail
 	} from '$lib/utils/offline-downloader';
 	import { describeOfflineBackend, getOfflineBackend } from '$lib/utils/offline-runtime';
-	import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
+	import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import {
 		applyPauseToGameIframe,
@@ -66,7 +65,8 @@
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
-	import { canUseTouchBridge } from '$lib/utils/touch-input-dispatch';
+	import { canUseTouchBridge, resolveInjectable } from '$lib/utils/touch-input-dispatch';
+	import { clearDirectLaunchFailed, markDirectLaunchFailed } from '$lib/utils/online-play-routing';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import {
@@ -87,8 +87,6 @@
 	let playerUrlRefreshPending = $state(false);
 	let playerUrlRefreshGeneration = 0;
 	let isGameFullscreen = $state(false);
-	let showUbuntuBanner = $state(false);
-	let bannerDismissed = $state(false);
 	let userPreference = $state<'liked' | 'disliked' | null>(null);
 	let networkOnline = $state(true);
 	let offlineThumbRel = $state<string | undefined>(undefined);
@@ -114,24 +112,6 @@
 		userPreference = null;
 	}
 
-	function detectUbuntu(): boolean {
-		if (typeof navigator === 'undefined') return false;
-		const userAgent = navigator.userAgent.toLowerCase();
-		return userAgent.includes('ubuntu');
-	}
-
-	function dismissBanner() {
-		bannerDismissed = true;
-		// Store dismissal in localStorage
-		try {
-			if (typeof window !== 'undefined' && window.localStorage) {
-				window.localStorage.setItem('ubuntuBannerDismissed', 'true');
-			}
-		} catch {
-			/* ignore */
-		}
-	}
-
 	/** True after the user clicks Play — avoids loading the game bundle until then. */
 	let gameSurfaceStarted = $state(false);
 	let gamePlayerUrl = $state('');
@@ -144,6 +124,8 @@
 	let pauseShortcutLabel = $state('`');
 	let touchConsoleVisible = $state(false);
 	let touchConsoleAvailable = $state(false);
+	/** Frame started but never reported `load` — surfaces the retry hint below the player. */
+	let frameStalled = $state(false);
 	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
 	let loadedGameId = $state('');
 	/**
@@ -157,7 +139,12 @@
 		if (gameId) writeConsoleVisiblePref(gameId, on);
 		if (touchConsoleVisible === on) return;
 		touchConsoleVisible = on;
-		appendPlayLog('info', 'ui', on ? 'Touch console on' : 'Touch console off', `game=${gameId} reason=${reason}`);
+		appendPlayLog(
+			'info',
+			'ui',
+			on ? 'Touch console on' : 'Touch console off',
+			`game=${gameId} reason=${reason}`
+		);
 	}
 
 	function restoreTouchConsolePref(id: string) {
@@ -224,10 +211,32 @@
 	}
 
 	/**
-	 * Online + console must use the puller proxy (inject/bridge in the game document).
-	 * Offline uses mirrored HTML with inject already applied — no proxy switch.
+	 * True when the console can already drive this frame from the parent document —
+	 * a same-origin game (or same-origin nested shell) exposes a real canvas we can
+	 * dispatch key events into. No proxy, no reload, no added latency.
+	 */
+	function consoleCanReachFrameDirectly(): boolean {
+		const target = resolveInjectable(iframeElement ?? null);
+		return Boolean(target?.canvas);
+	}
+
+	/**
+	 * Make the console usable for the current frame, preferring the cheapest path:
+	 *   1. direct DOM dispatch into a same-origin game document,
+	 *   2. an existing inject/bridge URL (offline mirror or puller proxy already loaded),
+	 *   3. the puller relay — only for genuinely cross-origin games, since it reloads
+	 *      the game through a Node proxy.
 	 */
 	async function ensureTouchCapablePlayUrl(): Promise<boolean> {
+		if (consoleCanReachFrameDirectly()) {
+			appendPlayLog(
+				'info',
+				'ui',
+				'Touch console using direct DOM dispatch (no proxy needed)',
+				`game=${gameId} url=${gamePlayerUrl}`
+			);
+			return true;
+		}
 		if (canUseTouchBridge(gamePlayerUrl)) return true;
 
 		const mode = gameId ? getGamePlayMode(gameId) : 'online';
@@ -238,6 +247,25 @@
 				return true;
 			}
 			toast.error('Console needs an offline mirror with inject support for this game.');
+			return false;
+		}
+
+		/*
+		 * Tauri mobile has no sidecar, so every step below is a 12-second wait for a
+		 * process that cannot start, ending in advice to run a pnpm command on a tablet.
+		 * Fail fast and say what actually works there.
+		 */
+		if (!shouldProbePullerBackend()) {
+			appendPlayLog(
+				'info',
+				'ui',
+				'Touch console unavailable — third-party embed and no relay on this platform',
+				`game=${gameId} url=${gamePlayerUrl}`
+			);
+			toast.error('Console cannot reach this game.', {
+				description:
+					'It runs on a third-party site. Touch the game directly, or download it for offline play.'
+			});
 			return false;
 		}
 
@@ -284,9 +312,7 @@
 			let preferUnityPlay = gameMetadata?.engine === 'unity';
 			if (!preferUnityPlay) {
 				try {
-					const { probeOnlineShellExternal } = await import(
-						'$lib/utils/browser-offline-download'
-					);
+					const { probeOnlineShellExternal } = await import('$lib/utils/browser-offline-download');
 					preferUnityPlay = (await probeOnlineShellExternal(gameId)).unityLike;
 				} catch {
 					/* ignore */
@@ -341,13 +367,86 @@
 			});
 			if (!ok) {
 				appendPlayLog('warn', 'ui', 'Touch console on but proxy incomplete', `game=${gameId}`);
-				toast.error('Console is ON, but the game frame still needs the puller or an offline mirror.', {
-					description: 'Check Retry puller, or switch Play from → Offline if downloaded.'
-				});
+				toast.error(
+					'Console is ON, but the game frame still needs the puller or an offline mirror.',
+					{
+						description: 'Check Retry puller, or switch Play from → Offline if downloaded.'
+					}
+				);
 				return;
 			}
 			appendPlayLog('info', 'ui', 'Touch console ready', `game=${gameId} url=${gamePlayerUrl}`);
 		});
+	}
+
+	/** Play URLs served by the local puller relay rather than the game's own host. */
+	function isRelayPlayUrl(url: string): boolean {
+		return url.includes('/api/game-live/') || url.includes('/api/unity-play/');
+	}
+
+	/**
+	 * Launch watchdog. A frame that never fires `load` used to stay black with no
+	 * explanation; now a stalled direct launch is recorded so the next resolve escalates
+	 * to the relay, and the user gets a one-click retry.
+	 */
+	function handleFrameLoadState(state: 'loading' | 'loaded' | 'stalled', url: string) {
+		if (!gameId) return;
+		if (state === 'loading') {
+			frameStalled = false;
+			return;
+		}
+		if (state === 'loaded') {
+			frameStalled = false;
+			clearDirectLaunchFailed(gameId);
+			appendPlayLog('info', 'play-url', 'Game frame loaded', `game=${gameId} url=${url}`);
+			return;
+		}
+
+		frameStalled = true;
+		appendPlayLog(
+			'warn',
+			'play-url',
+			'Game frame did not load in time',
+			`game=${gameId} url=${url}`
+		);
+
+		const alreadyRelayed = isRelayPlayUrl(url);
+		const canEscalate =
+			!alreadyRelayed && shouldProbePullerBackend() && getGamePlayMode(gameId) !== 'offline';
+		if (!canEscalate) {
+			toast.error('This game is not loading.', {
+				description: alreadyRelayed
+					? 'The local relay is not responding — try Relaunch, or Retry puller.'
+					: 'Try Relaunch, or switch Play from → Offline if you have it downloaded.'
+			});
+			return;
+		}
+
+		markDirectLaunchFailed(gameId);
+		toast.error("This game didn't start.", {
+			description: 'It can be retried through the local relay (slower, but more compatible).',
+			action: {
+				label: 'Retry via relay',
+				onClick: () => void retryThroughRelay()
+			}
+		});
+	}
+
+	async function retryThroughRelay() {
+		if (!gameId) return;
+		markDirectLaunchFailed(gameId);
+		appendPlayLog('info', 'ui', 'Retrying launch through the puller relay', `game=${gameId}`);
+		/*
+		 * Swap the URL only — bumping playerRemountKey would reset bind:started and drop
+		 * the user back to the Play poster.
+		 */
+		await refreshPlayerUrl();
+		gameSurfaceStarted = true;
+		if (!isRelayPlayUrl(gamePlayerUrl)) {
+			toast.error('Could not reach the local relay.', {
+				description: 'Use Retry puller in Offline controls, or run pnpm puller:start.'
+			});
+		}
 	}
 
 	async function refreshPlayerUrl() {
@@ -396,6 +495,9 @@
 		appendPlayLog('info', 'ui', 'Relaunch game completely', `game=${gameId}`);
 		setGamePausedState(false);
 		setTouchConsoleVisible(false, 'relaunch');
+		/* A manual relaunch is a fresh attempt — do not keep forcing the relay. */
+		frameStalled = false;
+		clearDirectLaunchFailed(gameId);
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
 		await refreshPlayerUrl();
@@ -424,6 +526,7 @@
 			gamePaused = false;
 			touchConsoleVisible = false;
 			gamePlayerUrl = '';
+			frameStalled = false;
 			recommendedGames = [];
 		} else if (!soft) {
 			/* Same game re-entry (onMount + afterNavigate race) — do not wipe Console. */
@@ -548,10 +651,6 @@
 		document.addEventListener('fullscreenchange', syncGameFullscreenState);
 		document.addEventListener('webkitfullscreenchange', syncGameFullscreenState);
 
-		const isUbuntu = detectUbuntu();
-		const dismissed = localStorage.getItem('ubuntuBannerDismissed') === 'true';
-		showUbuntuBanner = !isUbuntu && !dismissed;
-
 		return () => {
 			detachNetwork();
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
@@ -646,7 +745,7 @@
 	});
 </script>
 
-<div class="container mx-auto px-3 py-4 sm:px-4 sm:py-8">
+<div class="mx-auto w-full max-w-[1920px] px-3 py-4 sm:px-5 sm:py-6">
 	{#if loading}
 		<div class="py-12 text-center">
 			<p class="text-muted-foreground">Loading game...</p>
@@ -888,42 +987,6 @@
 					</Button>
 				</div>
 			{/if}
-			{#if showUbuntuBanner && !bannerDismissed}
-				<div
-					class="flex flex-col gap-3 bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-3 text-white sm:flex-row sm:items-center sm:justify-between sm:px-6"
-				>
-					<div class="flex items-start gap-3 sm:items-center">
-						<svg class="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-							<path
-								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-							/>
-						</svg>
-						<div class="min-w-0 text-sm sm:text-base">
-							<span class="font-semibold">Try Linux Ubuntu today!</span>
-							<span class="mt-0.5 block sm:mt-0 sm:ml-2 sm:inline"
-								>Speed up your gaming performance with Linux</span
-							>
-						</div>
-					</div>
-					<div class="flex shrink-0 items-center gap-2 self-end sm:self-auto">
-						<a
-							href="https://ubuntu.com/download/desktop"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-blue-600 transition-colors hover:bg-gray-100 sm:px-4"
-						>
-							Learn More
-						</a>
-						<button
-							onclick={dismissBanner}
-							class="rounded p-1 transition-colors hover:bg-white/20"
-							aria-label="Dismiss banner"
-						>
-							<X class="h-5 w-5" />
-						</button>
-					</div>
-				</div>
-			{/if}
 			<div class="game-player-surface__frame relative min-h-0 w-full flex-1">
 				<!--
 					Key only on explicit relaunch. Including gamePlayerUrl in the key remounted
@@ -947,9 +1010,38 @@
 							const next = el ?? undefined;
 							if (iframeElement !== next) iframeElement = next;
 						}}
+						onLoadStateChange={handleFrameLoadState}
 					/>
 				{/key}
 			</div>
+			{#if frameStalled && gameSurfaceStarted}
+				<div
+					class="flex flex-col gap-2 border-t bg-amber-500/10 px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between"
+					role="status"
+				>
+					<div class="min-w-0">
+						<p class="font-medium">This game hasn't loaded yet.</p>
+						<p class="text-muted-foreground">
+							{#if isRelayPlayUrl(gamePlayerUrl)}
+								The local relay is not responding. Try Relaunch, or check Retry puller.
+							{:else if shouldProbePullerBackend()}
+								Its host may be blocking the app. Retrying through the local relay usually works.
+							{:else}
+								Its host may be slow or blocking the app. Try Relaunch, or switch Play from →
+								Offline if you have it downloaded.
+							{/if}
+						</p>
+					</div>
+					<div class="flex shrink-0 gap-2">
+						{#if !isRelayPlayUrl(gamePlayerUrl) && shouldProbePullerBackend()}
+							<Button size="sm" onclick={() => void retryThroughRelay()}>Retry via relay</Button>
+						{/if}
+						<Button size="sm" variant="outline" onclick={() => void relaunchGameCompletely()}>
+							Relaunch
+						</Button>
+					</div>
+				</div>
+			{/if}
 			<!-- Overlay only — Console on/off lives in the page toolbar with Pause / Fullscreen. -->
 			<TouchConsole
 				iframe={iframeElement ?? null}

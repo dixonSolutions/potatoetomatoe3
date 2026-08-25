@@ -92,7 +92,9 @@ function gamesFromPageProps(props, category) {
 				(g.genreSlug && g.slug ? `/${g.genreSlug}/${g.slug}` : null) ||
 				(g.slug ? `/${category.replace(/-games$/, '')}/${g.slug}` : null);
 			if (!path || typeof path !== 'string') continue;
-			const pageUrl = path.startsWith('http') ? path : `${BASE}${path.startsWith('/') ? path : `/${path}`}`;
+			const pageUrl = path.startsWith('http')
+				? path
+				: `${BASE}${path.startsWith('/') ? path : `/${path}`}`;
 			const slug = slugify(g.slug || path.split('/').pop(), 'ag');
 			out.push({
 				slug,
@@ -124,7 +126,9 @@ async function discover() {
 			// also scrape hrefs as fallback
 			for (const m of html.matchAll(/href="(\/[a-z0-9-]+\/[a-z0-9-]+)"/gi)) {
 				const href = m[1];
-				if (/^\/(about|tag|all-|new-|top-|most-|free-|hot-|indie-|multiplayer|playlists)/i.test(href)) {
+				if (
+					/^\/(about|tag|all-|new-|top-|most-|free-|hot-|indie-|multiplayer|playlists)/i.test(href)
+				) {
 					continue;
 				}
 				const slug = slugify(href.split('/').pop(), 'ag');
@@ -173,12 +177,7 @@ async function importOne(entry, opts) {
 	const name = game.title || game.name || entry.name;
 	const description = game.description || entry.description || '';
 	const thumb = game.thumbnailUrl || game.image || entry.thumbnailUrl;
-	const embedUrl =
-		game.gameUrl ||
-		game.embedUrl ||
-		game.iframeUrl ||
-		extractEmbed(html) ||
-		null;
+	const embedUrl = game.gameUrl || game.embedUrl || game.iframeUrl || extractEmbed(html) || null;
 
 	if (!embedUrl) return { id: entry.slug, error: 'no embed URL' };
 
@@ -189,13 +188,11 @@ async function importOne(entry, opts) {
 	});
 	if (!quality.ok) return { id: entry.slug, skipped: true, reason: quality.reason };
 
-	const absolute = embedUrl.startsWith('http') ? embedUrl : `${BASE}${embedUrl.startsWith('/') ? '' : '/'}${embedUrl}`;
-
 	return writeOnlineShell(
 		{
 			id: `addicting-${entry.slug}`,
 			name,
-			embedUrl: absolute,
+			embedUrl,
 			author: 'Addicting Games',
 			description,
 			category: entry.category || 'arcade',
@@ -206,7 +203,8 @@ async function importOne(entry, opts) {
 		{
 			skipExisting: opts.skipExisting,
 			force: opts.force,
-			referer: BASE
+			referer: BASE,
+			embedBase: BASE
 		}
 	);
 }
@@ -214,14 +212,20 @@ async function importOne(entry, opts) {
 async function main() {
 	const opts = parseArgv();
 	if (opts.help) {
-		console.log(`Usage: node scripts/import-addictinggames-catalog.mjs [--limit N] [--skip-existing] [--discover-only]`);
+		console.log(
+			`Usage: node scripts/import-addictinggames-catalog.mjs [--limit N] [--skip-existing] [--discover-only]`
+		);
 		process.exit(0);
 	}
 
 	console.log('Discovering AddictingGames…');
 	let catalog = await discover();
 	console.log(`Found ${catalog.length} games.`);
-	writeJson(MANIFEST_PATH, { fetchedAt: new Date().toISOString(), count: catalog.length, games: catalog });
+	writeJson(MANIFEST_PATH, {
+		fetchedAt: new Date().toISOString(),
+		count: catalog.length,
+		games: catalog
+	});
 
 	if (opts.discoverOnly) return;
 	if (opts.limit > 0) catalog = catalog.slice(0, opts.limit);

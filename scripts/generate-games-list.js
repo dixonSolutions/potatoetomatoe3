@@ -10,13 +10,30 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const GAMES_ROOT = join(__dirname, '..', 'static', 'games');
 const BUILD_GAMES_ROOT = join(__dirname, '..', 'build', 'games');
 
+/**
+ * A directory is only a game when it carries catalog content. Without this check
+ * the generator's own `games-index/` output directory is picked up as a game on
+ * the next run, adding a phantom entry that has no metadata and never launches.
+ */
+function isGameDirectory(gameId) {
+	const markers = [
+		join(GAMES_ROOT, gameId, 'online', 'metadata.json'),
+		join(GAMES_ROOT, gameId, 'shared', 'metadata.json'),
+		join(GAMES_ROOT, gameId, 'metadata.json'),
+		join(GAMES_ROOT, gameId, 'online', 'index.html'),
+		join(GAMES_ROOT, gameId, 'offline')
+	];
+	return markers.some((marker) => existsSync(marker));
+}
+
 function listGameIds() {
 	if (!existsSync(GAMES_ROOT)) {
 		return [];
 	}
 	return readdirSync(GAMES_ROOT, { withFileTypes: true })
 		.filter((dirent) => dirent.isDirectory() && !dirent.name.startsWith('_'))
-		.map((dirent) => dirent.name);
+		.map((dirent) => dirent.name)
+		.filter(isGameDirectory);
 }
 
 function toTitleCaseFromId(id) {
@@ -149,12 +166,13 @@ function writeGamesIndex(allMetadata) {
 
 	/* A–Z shards so All Games can lazy-load the next page as you scroll. */
 	lean.sort(
-		(a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }) || a.id.localeCompare(b.id)
+		(a, b) =>
+			a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }) || a.id.localeCompare(b.id)
 	);
 
-	const categories = [
-		...new Set(lean.map((g) => g.category).filter(Boolean))
-	].sort((a, b) => a.localeCompare(b));
+	const categories = [...new Set(lean.map((g) => g.category).filter(Boolean))].sort((a, b) =>
+		a.localeCompare(b)
+	);
 
 	const shardCount = Math.max(1, Math.ceil(lean.length / INDEX_SHARD_SIZE));
 	for (let i = 0; i < shardCount; i++) {

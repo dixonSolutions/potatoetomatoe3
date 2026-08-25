@@ -17,3 +17,10 @@ key.properties
 
 /.tauri
 /tauri.settings.gradle
+/release.keystore
+/app/release.keystore
+
+# Build inputs copied in by `tauri android build` — the slimmed frontend is ~500 MB
+# and the Rust .so is a symlink into src-tauri/target. Both are regenerated per build.
+/app/src/main/assets/
+/app/src/main/jniLibs/

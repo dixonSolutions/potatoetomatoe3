@@ -4,8 +4,8 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import * as NavigationMenu from '$lib/components/ui/navigation-menu';
-	import { Menu, Sun, Moon, Settings, LogOut } from 'lucide-svelte';
-	import { toggleMode } from 'mode-watcher';
+	import { Menu, Sun, Moon, MonitorSmartphone, Settings, LogOut } from 'lucide-svelte';
+	import { setMode, userPrefersMode } from 'mode-watcher';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
 	import logo from '$lib/assets/logo.png';
 	import { isPublicSiteDeployment, isTauriApp } from '$lib/utils/offline-deployment';
@@ -26,6 +26,38 @@
 
 	async function onQuit() {
 		await quitDesktopApp();
+	}
+
+	/*
+	 * Appearance cycles System -> Light -> Dark. `toggleMode` only flipped light/dark, so
+	 * the first tap pinned the app to a fixed mode with no way back to following the OS —
+	 * which on a device in system dark mode read as "there is no appearance setting".
+	 * `ModeWatcher defaultMode="system"` in +layout.svelte supplies the initial value.
+	 */
+	const APPEARANCE_ORDER = ['system', 'light', 'dark'] as const;
+	const appearance = $derived(userPrefersMode.current ?? 'system');
+	const appearanceLabel = $derived(
+		appearance === 'system' ? 'System' : appearance === 'light' ? 'Light' : 'Dark'
+	);
+
+	function cycleAppearance() {
+		const next = APPEARANCE_ORDER[(APPEARANCE_ORDER.indexOf(appearance) + 1) % 3];
+		setMode(next);
+	}
+
+	/** Primary destinations, shared by the slide-out menu. `match` is a pathname suffix. */
+	const mobileLinks = $derived([
+		{ title: 'Home', href: resolve('/home'), match: '/home' },
+		{ title: 'All Games', href: resolve('/games'), match: '/games' },
+		{ title: 'Playtime & algorithm', href: resolve('/play-analytics'), match: 'play-analytics' },
+		...(showDownloadApp
+			? [{ title: 'Download app', href: resolve('/download'), match: '/download' }]
+			: [])
+	]);
+
+	function isCurrent(match: string): boolean {
+		const path = $page.url.pathname;
+		return path === match || path.endsWith(match);
 	}
 
 	const categories = $derived([
@@ -66,7 +98,7 @@
 	<nav
 		class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
 	>
-		<div class="container mx-auto flex h-16 items-center px-4">
+		<div class="mx-auto flex h-16 w-full max-w-[1920px] items-center px-3 sm:px-5">
 			<!-- Logo -->
 			<a href={resolve('/home')} class="flex flex-shrink-0 items-center space-x-2">
 				<img src={logo} alt="" width="32" height="32" class="h-8 w-8" />
@@ -83,7 +115,7 @@
 							</NavigationMenu.Trigger>
 							<NavigationMenu.Content>
 								<ul class="grid w-[400px] gap-3 p-4 md:grid-cols-2">
-									{#each categories as category}
+									{#each categories as category (category.href)}
 										<li>
 											<NavigationMenu.Link
 												href={category.href}
@@ -172,14 +204,20 @@
 						Quit
 					</Button>
 				{/if}
-				<Button onclick={toggleMode} variant="outline" size="icon">
-					<Sun
-						class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
-					/>
-					<Moon
-						class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
-					/>
-					<span class="sr-only">Toggle theme</span>
+				<Button
+					onclick={cycleAppearance}
+					variant="outline"
+					size="icon"
+					title="Appearance: {appearanceLabel}"
+				>
+					{#if appearance === 'system'}
+						<MonitorSmartphone class="h-[1.2rem] w-[1.2rem]" />
+					{:else if appearance === 'light'}
+						<Sun class="h-[1.2rem] w-[1.2rem]" />
+					{:else}
+						<Moon class="h-[1.2rem] w-[1.2rem]" />
+					{/if}
+					<span class="sr-only">Appearance: {appearanceLabel}. Activate to change.</span>
 				</Button>
 				<Button
 					href={resolve('/games')}
@@ -206,14 +244,20 @@
 						<Settings class="h-5 w-5" />
 					</Button>
 				{/if}
-				<Button onclick={toggleMode} variant="outline" size="icon">
-					<Sun
-						class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
-					/>
-					<Moon
-						class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
-					/>
-					<span class="sr-only">Toggle theme</span>
+				<Button
+					onclick={cycleAppearance}
+					variant="outline"
+					size="icon"
+					title="Appearance: {appearanceLabel}"
+				>
+					{#if appearance === 'system'}
+						<MonitorSmartphone class="h-[1.2rem] w-[1.2rem]" />
+					{:else if appearance === 'light'}
+						<Sun class="h-[1.2rem] w-[1.2rem]" />
+					{:else}
+						<Moon class="h-[1.2rem] w-[1.2rem]" />
+					{/if}
+					<span class="sr-only">Appearance: {appearanceLabel}. Activate to change.</span>
 				</Button>
 				<Sheet.Root bind:open={isOpen}>
 					<Sheet.Trigger
@@ -222,98 +266,61 @@
 						<Menu class="h-5 w-5" />
 						<span class="sr-only">Toggle menu</span>
 					</Sheet.Trigger>
-					<Sheet.Content side="right" class="w-[300px] sm:w-[400px]">
-						<div class="mt-8 flex flex-col space-y-6">
-							<!-- Mobile Logo -->
-							<div class="flex items-center space-x-2 border-b pb-4">
-								<img src={logo} alt="" width="32" height="32" class="h-8 w-8" />
-								<span class="text-xl font-bold">Potato Tomato Games</span>
-							</div>
+					<Sheet.Content side="right" class="flex w-[86vw] max-w-[360px] flex-col gap-0 p-0">
+						<div class="flex items-center gap-2 border-b px-4 py-3">
+							<img src={logo} alt="" width="28" height="28" class="h-7 w-7" />
+							<span class="truncate text-base font-semibold">Potato Tomato Games</span>
+						</div>
 
-							<!-- Mobile Navigation -->
-							<div class="space-y-4">
-								<div>
-									<h3 class="mb-2 text-sm font-semibold text-muted-foreground">Categories</h3>
-									<div class="space-y-2">
-										{#each categories as category}
-											<a
-												href={category.href}
-												class="block text-sm text-foreground transition-colors hover:text-primary"
-												onclick={() => (isOpen = false)}
-											>
-												{category.title}
-											</a>
-										{/each}
-									</div>
-								</div>
+						<!--
+							Every row is a 44px-high full-width target. The previous menu used bare
+							`text-sm` links about 20px tall, which is below the Android/WCAG minimum and
+							made them genuinely hard to hit on a tablet.
+						-->
+						<nav class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-2 py-2">
+							{#each mobileLinks as link (link.href)}
+								<a
+									href={link.href}
+									class="flex min-h-11 items-center rounded-md px-3 text-sm transition-colors {isCurrent(
+										link.match
+									)
+										? 'bg-accent font-medium text-accent-foreground'
+										: 'hover:bg-accent/60'}"
+									onclick={() => (isOpen = false)}
+								>
+									{link.title}
+								</a>
+							{/each}
 
-								<div class="space-y-2">
-									<a
-										href={resolve('/home')}
-										class="block text-sm transition-colors {$page.url.pathname === '/home' ||
-										$page.url.pathname.endsWith('/home')
-											? 'font-medium text-primary'
-											: 'text-foreground hover:text-primary'}"
-										onclick={() => (isOpen = false)}
-									>
-										Home
-									</a>
-									<a
-										href={resolve('/play-analytics')}
-										class="block text-sm transition-colors {$page.url.pathname.includes(
-											'play-analytics'
-										)
-											? 'font-medium text-primary'
-											: 'text-foreground hover:text-primary'}"
-										onclick={() => (isOpen = false)}
-									>
-										Playtime &amp; algorithm
-									</a>
-									<a
-										href={resolve('/games')}
-										class="block text-sm transition-colors {$page.url.pathname === '/games' ||
-										$page.url.pathname.endsWith('/games')
-											? 'font-medium text-primary'
-											: 'text-foreground hover:text-primary'}"
-										onclick={() => (isOpen = false)}
-									>
-										All Games
-									</a>
-									{#if showDownloadApp}
-										<a
-											href={resolve('/download')}
-											class="block text-sm transition-colors {$page.url.pathname.includes(
-												'/download'
-											)
-												? 'font-medium text-primary'
-												: 'text-foreground hover:text-primary'}"
-											onclick={() => (isOpen = false)}
-										>
-											Download app
-										</a>
-									{/if}
-								</div>
-							</div>
+							<p class="mt-3 px-3 pb-1 text-xs font-semibold text-muted-foreground">Categories</p>
+							{#each categories as category (category.href)}
+								<a
+									href={category.href}
+									class="flex min-h-11 items-center rounded-md px-3 text-sm transition-colors hover:bg-accent/60"
+									onclick={() => (isOpen = false)}
+								>
+									{category.title}
+								</a>
+							{/each}
+						</nav>
 
-							<!-- Mobile Actions -->
-							<div class="space-y-2 border-t pt-4">
-								{#if settingsUi}
-									<Button
-										variant="outline"
-										class="w-full"
-										onclick={() => {
-											settingsUi.openSettings();
-											isOpen = false;
-										}}
-									>
-										<Settings class="mr-2 h-4 w-4" />
-										Settings
-									</Button>
-								{/if}
-								<Button href={resolve('/games')} class="w-full" onclick={() => (isOpen = false)}>
-									Play Now
+						<div class="flex shrink-0 gap-2 border-t px-3 py-3">
+							{#if settingsUi}
+								<Button
+									variant="outline"
+									class="h-11 flex-1"
+									onclick={() => {
+										settingsUi.openSettings();
+										isOpen = false;
+									}}
+								>
+									<Settings class="mr-2 h-4 w-4" />
+									Settings
 								</Button>
-							</div>
+							{/if}
+							<Button href={resolve('/games')} class="h-11 flex-1" onclick={() => (isOpen = false)}>
+								Play Now
+							</Button>
 						</div>
 					</Sheet.Content>
 				</Sheet.Root>

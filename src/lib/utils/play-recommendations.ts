@@ -9,7 +9,7 @@ import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import type { GameIndexEntry, GameMetadata } from '$lib/utils/games';
 import type { GamePreferences } from '$lib/utils/preferences';
 import Fuse from 'fuse.js';
-import { cpuMatMulVec, scoreWithTensorFlow, initRecommendationBackend } from '$lib/utils/recommendation-tf';
+import { cpuMatMulVec, scoreWithTensorFlow } from '$lib/utils/recommendation-tf';
 
 const STORAGE_KEY = 'potato-tomato-play-analytics';
 
@@ -79,9 +79,7 @@ function migrateV1ToV2(raw: Record<string, unknown>): PlayAnalyticsV2 {
 		categoryWeights: (raw.categoryWeights as Record<string, number>) ?? {},
 		authorWeights: (raw.authorWeights as Record<string, number>) ?? {},
 		perGame,
-		recentCategories: Array.isArray(raw.recentCategories)
-			? (raw.recentCategories as string[])
-			: []
+		recentCategories: Array.isArray(raw.recentCategories) ? (raw.recentCategories as string[]) : []
 	};
 }
 
@@ -224,7 +222,10 @@ export function setPlayLimits(opts: {
 	savePlayAnalytics(data);
 }
 
-export function getPlayLimits(): { dailyGlobalLimitMs: number; dailyPerGameLimitMs: Record<string, number> } {
+export function getPlayLimits(): {
+	dailyGlobalLimitMs: number;
+	dailyPerGameLimitMs: Record<string, number>;
+} {
 	const d = loadPlayAnalytics();
 	return {
 		dailyGlobalLimitMs: d.dailyGlobalLimitMs,
@@ -309,7 +310,10 @@ export function getBrowseShuffleSeed(): number {
 	return parseInt(raw, 10) || 0xdec0de;
 }
 
-function likedAuthorHints(prefs: GamePreferences, byId: Map<string, RecommendableGame>): Set<string> {
+function likedAuthorHints(
+	prefs: GamePreferences,
+	byId: Map<string, RecommendableGame>
+): Set<string> {
 	const authors = new Set<string>();
 	for (const id of prefs.liked) {
 		const g = byId.get(id);
@@ -382,7 +386,7 @@ function scoreGamesCpu(
 	prefs: GamePreferences,
 	byId: Map<string, RecommendableGame>
 ): { game: RecommendableGame; score: number }[] {
-	const disliked = new Set(prefs.disliked);
+	/* Disliked games are already dropped by selectRecommendCandidates. */
 	const effectiveCat: Record<string, number> = { ...analytics.categoryWeights };
 	for (const id of prefs.liked) {
 		const g = byId.get(id);
@@ -538,13 +542,15 @@ export async function getHomeRecommendationsAsync(
 		features.set(row, i * RECOMMEND_FEATURE_DIM);
 	}
 
-	let scores: Float32Array;
-	if (typeof window !== 'undefined') {
-		await initRecommendationBackend();
-		scores = await scoreWithTensorFlow(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM);
-	} else {
-		scores = cpuMatMulVec(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM);
-	}
+	/*
+	 * No eager `initRecommendationBackend()` here: it downloaded and initialised the whole
+	 * tfjs runtime before `scoreWithTensorFlow` had a chance to decide this workload is far
+	 * too small to be worth a GPU. Let the scorer choose; it only touches TF if it needs to.
+	 */
+	const scores =
+		typeof window !== 'undefined'
+			? await scoreWithTensorFlow(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM)
+			: cpuMatMulVec(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM);
 
 	const combined = candidates.map((game, i) => ({
 		game,
@@ -666,7 +672,9 @@ export function getRecentlyPlayedGames(
 
 	if (out.length < limit) {
 		const have = new Set(out.map((g) => g.id));
-		const filler = getHomeRecommendations(allGames, prefs, limit * 2).filter((g) => !have.has(g.id));
+		const filler = getHomeRecommendations(allGames, prefs, limit * 2).filter(
+			(g) => !have.has(g.id)
+		);
 		for (const g of filler) {
 			if (out.length >= limit) break;
 			out.push(g);
@@ -676,7 +684,12 @@ export function getRecentlyPlayedGames(
 	return out.slice(0, limit);
 }
 
-export function getPlaySessionsList(): { gameId: string; sessions: number; lastPlayed: number; totalPlayMs: number }[] {
+export function getPlaySessionsList(): {
+	gameId: string;
+	sessions: number;
+	lastPlayed: number;
+	totalPlayMs: number;
+}[] {
 	const p = loadPlayAnalytics().perGame;
 	return Object.entries(p)
 		.map(([gameId, v]) => ({

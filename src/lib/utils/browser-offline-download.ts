@@ -1,5 +1,6 @@
 /** Client-side mirror of same-origin online shells into IndexedDB (GitHub Pages). */
 
+import { shouldProbePullerBackend } from './offline-deployment';
 import { base } from '$app/paths';
 import {
 	deleteStoredGame,
@@ -43,8 +44,13 @@ async function cacheRemoteThumbnail(
 		const buf = await res.arrayBuffer();
 		if (buf.byteLength < 32) return null;
 		const mime = res.headers.get('content-type')?.split(';')[0]?.trim() || 'image/jpeg';
-		const ext =
-			mime.includes('png') ? '.png' : mime.includes('webp') ? '.webp' : mime.includes('gif') ? '.gif' : '.jpg';
+		const ext = mime.includes('png')
+			? '.png'
+			: mime.includes('webp')
+				? '.webp'
+				: mime.includes('gif')
+					? '.gif'
+					: '.jpg';
 		const path = `${COVER_PATH}${ext}`;
 		await putGameFile(gameId, path, mime, buf);
 		return path;
@@ -134,9 +140,19 @@ async function swServesOfflineShell(playUrl: string): Promise<boolean> {
 	}
 }
 
+/**
+ * Registration is impossible in some webviews, and retrying is not free: on Tauri Android
+ * the script fetch escapes the custom-scheme interceptor and reaches the network stack as
+ * plain http, which the release manifest forbids. Every attempt therefore logged two
+ * errors — `ERR_CLEARTEXT_NOT_PERMITTED` and "An unknown error occurred when fetching the
+ * script" — for a worker that was never going to activate. Try once per session.
+ */
+let serviceWorkerUnavailable = false;
+
 /** Wait until the offline service worker can intercept /browser-offline/ and /api/unity-play/. */
 export async function ensureOfflineServiceWorker(maxWaitMs = 8000): Promise<boolean> {
 	if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return false;
+	if (serviceWorkerUnavailable) return false;
 	const scope = `${appBase()}/`;
 	try {
 		let reg = await navigator.serviceWorker.getRegistration(scope);
@@ -153,6 +169,7 @@ export async function ensureOfflineServiceWorker(maxWaitMs = 8000): Promise<bool
 		}
 		return Boolean(reg.active?.state === 'activated');
 	} catch {
+		serviceWorkerUnavailable = true;
 		return false;
 	}
 }
@@ -232,7 +249,10 @@ export function htmlLooksLikeUnityDocument(html: string): boolean {
 	 * (proxy the shell). Do not classify as Unity → unity-play.
 	 */
 	if (/Crazygames\.load\s*\(|useLocalGF\s*=|gfBuildPath\s*=/i.test(html)) return false;
-	if (/"moduleJsonUrl"\s*:\s*"https?:\/\//i.test(html) && /"unityLoaderUrl"\s*:\s*"https?:\/\//i.test(html)) {
+	if (
+		/"moduleJsonUrl"\s*:\s*"https?:\/\//i.test(html) &&
+		/"unityLoaderUrl"\s*:\s*"https?:\/\//i.test(html)
+	) {
 		return false;
 	}
 	return /UnityLoader|createUnityInstance|unityWebglLoaderUrl|Build\/[^"' ]+\.json/i.test(html);
@@ -241,6 +261,13 @@ export function htmlLooksLikeUnityDocument(html: string): boolean {
 /** Fetch embed HTML and decide Unity vs OpenFL/other. */
 export async function remoteEmbedLooksLikeUnity(src: string): Promise<boolean> {
 	if (iframeSrcLooksLikeUnity(src)) return true;
+	/*
+	 * The fetch below is cross-origin to a portal host that sends no CORS headers, so it
+	 * can only ever fail — it exists to pick between two *relay* hosts. Where no relay can
+	 * run (Tauri mobile, public site) that is an 8-second timeout and a console CORS error
+	 * on every game page, for an answer nothing will use. Fall back to the URL heuristic.
+	 */
+	if (!shouldProbePullerBackend()) return false;
 	try {
 		const res = await fetch(src, {
 			cache: 'no-store',
@@ -277,8 +304,7 @@ export async function probeOnlineShellExternal(gameId: string): Promise<OnlineSh
 			try {
 				const embed = metadata.onlineEmbedUrl.trim();
 				if (new URL(embed).origin !== window.location.origin) {
-					const unityLike =
-						metadata.engine === 'unity' || (await remoteEmbedLooksLikeUnity(embed));
+					const unityLike = metadata.engine === 'unity' || (await remoteEmbedLooksLikeUnity(embed));
 					return {
 						external: true,
 						unityLike,
@@ -302,8 +328,7 @@ export async function probeOnlineShellExternal(gameId: string): Promise<OnlineSh
 		if (!iframeSrc) return empty;
 		const external = new URL(iframeSrc).origin !== window.location.origin;
 		if (!external) return empty;
-		const unityLike =
-			metadata?.engine === 'unity' || (await remoteEmbedLooksLikeUnity(iframeSrc));
+		const unityLike = metadata?.engine === 'unity' || (await remoteEmbedLooksLikeUnity(iframeSrc));
 		return {
 			external: true,
 			unityLike,
@@ -440,7 +465,8 @@ export async function fetchBrowserGameOfflineStatus(gameId: string): Promise<Gam
 	const offline = Boolean(
 		meta?.downloadedAt && meta.fileCount > 0 && !meta?.partialCache && !meta?.externalIframe
 	);
-	const cacheFileCount = meta?.cachedFileCount ?? (partialCache ? await countStoredGameFiles(gameId) : 0);
+	const cacheFileCount =
+		meta?.cachedFileCount ?? (partialCache ? await countStoredGameFiles(gameId) : 0);
 	const thumbUrl = offline ? await browserOfflineThumbnailUrl(gameId) : null;
 	return {
 		online,
@@ -507,7 +533,11 @@ export async function cancelBrowserGameDownload(
 
 async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<void> {
 	try {
-		setBrowserProgress(gameId, { state: 'running', progress: 5, message: 'Scanning online shell…' });
+		setBrowserProgress(gameId, {
+			state: 'running',
+			progress: 5,
+			message: 'Scanning online shell…'
+		});
 		const { files, externalIframe } = await collectSameOriginFiles(gameId, signal);
 		if (files.size === 0) {
 			throw new Error('No same-origin files found for this game');
@@ -712,7 +742,12 @@ export async function importPullerOfflineCopy(
 		);
 		if (!response.ok) throw new Error(`Puller export file failed (${response.status})`);
 		const data = await response.arrayBuffer();
-		await putGameFile(gameId, `online/${file.path}`, file.mimeType ?? guessMimeType(file.path), data);
+		await putGameFile(
+			gameId,
+			`online/${file.path}`,
+			file.mimeType ?? guessMimeType(file.path),
+			data
+		);
 		const count = index + 1;
 		const progress = Math.min(99, Math.round((count / files.length) * 95));
 		onProgress?.({

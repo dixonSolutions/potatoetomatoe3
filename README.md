@@ -1,5 +1,7 @@
 # Potato Tomato 3
 
+**Play online:** [dixonsolutions.github.io/potatoetomatoe3](https://dixonsolutions.github.io/potatoetomatoe3/)
+
 Browse and play unblocked HTML5 games in the browser or as a **Tauri 2** desktop app. Download individual games for offline play via the separate **puller** backend service.
 
 ## Features

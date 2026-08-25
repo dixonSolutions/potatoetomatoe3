@@ -13,6 +13,22 @@ val tauriProperties = Properties().apply {
     }
 }
 
+/**
+ * Release signing. Without this the release variant produces
+ * `app-universal-release-unsigned.apk`, which Android refuses to install
+ * (INSTALL_PARSE_FAILED_NO_CERTIFICATES) — the published APK never launched.
+ *
+ * `key.properties` is gitignored; CI writes it from repository secrets.
+ * See docs/release.md for generating the keystore.
+ */
+val keystoreProperties = Properties().apply {
+    val propFile = rootProject.file("key.properties")
+    if (propFile.exists()) {
+        propFile.inputStream().use { load(it) }
+    }
+}
+val hasReleaseKeystore = keystoreProperties.getProperty("storeFile") != null
+
 android {
     compileSdk = 36
     namespace = "com.potatotomato.games"
@@ -23,6 +39,16 @@ android {
         targetSdk = 36
         versionCode = tauriProperties.getProperty("tauri.android.versionCode", "1").toInt()
         versionName = tauriProperties.getProperty("tauri.android.versionName", "1.0")
+    }
+    signingConfigs {
+        if (hasReleaseKeystore) {
+            create("release") {
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
+        }
     }
     buildTypes {
         getByName("debug") {
@@ -37,12 +63,25 @@ android {
             }
         }
         getByName("release") {
-            isMinifyEnabled = true
-            proguardFiles(
-                *fileTree(".") { include("**/*.pro") }
-                    .plus(getDefaultProguardFile("proguard-android-optimize.txt"))
-                    .toList().toTypedArray()
-            )
+            signingConfig = if (hasReleaseKeystore) {
+                signingConfigs.getByName("release")
+            } else {
+                /*
+                 * Local/unconfigured builds stay installable for testing. CI must not ship
+                 * a debug-signed APK — release-android.yml fails if the release keystore
+                 * secrets are missing.
+                 */
+                logger.warn("key.properties not found — signing release with the debug key (NOT publishable)")
+                signingConfigs.getByName("debug")
+            }
+            /*
+             * R8 is off: the app is ~600 MB of game assets, so shrinking a few hundred KB of
+             * Kotlin buys nothing, while `proguardFiles(fileTree(...))` is resolved at
+             * configuration time — before tauri-build writes `proguard-tauri.pro` — so a
+             * clean checkout would strip Tauri's JNI/reflection entry points and crash on
+             * launch. Re-enable only with explicit keep rules committed to proguard-rules.pro.
+             */
+            isMinifyEnabled = false
         }
     }
     kotlinOptions {

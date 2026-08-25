@@ -5,8 +5,8 @@
  * per-game SPA fallbacks exceed that. Android has no puller, so drop:
  *   - .gitkeep placeholders
  *   - non-bundled offline mirrors (keep shrek-escape etc.)
- *   - Pages-only deep-link shells (games/<id>.html, game/<id>/index.html SPA copies,
- *     game/<id>/__data.json) when present
+ *   - Pages-only deep-link shells (games/<id>.html, games/<id>/index.html SPA copies).
+ *     Route data (games/<id>/__data.json) is kept — see below.
  *
  * Usage (after pnpm build):
  *   node scripts/slim-android-assets.mjs
@@ -86,10 +86,14 @@ function main() {
 			}
 			continue;
 		}
-		if (/^games\/[^/]+\/__data\.json$/.test(rel)) {
-			if (rm(file)) removed++;
-			continue;
-		}
+		/*
+		 * `__data.json` must stay. `+layout.server.ts` gives every route server data, so a
+		 * cold load of /games/<id> fetches /games/<id>/__data.json. Deleting it let the
+		 * request fall through to the SPA shell, which answers `text/html`; the client then
+		 * ran JSON.parse('<!doctype html>') and the game page rendered blank. It is 182
+		 * identical bytes per game and the entry budget has room — the HTML shells removed
+		 * above are what actually cost 2 entries each.
+		 */
 
 		const offlineMatch = rel.match(/^games\/([^/]+)\/offline(\/|$)/);
 		if (offlineMatch && !bundled.has(offlineMatch[1])) {

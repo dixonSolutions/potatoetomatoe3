@@ -21,7 +21,7 @@
 		resolveInjectable,
 		isTouchOnlyDevice
 	} from '$lib/utils/touch-input-dispatch';
-	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
+	import { isLocalAppDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 
 	let {
@@ -72,6 +72,9 @@
 	/** Cross-origin bridge scripts can only receive input after their iframe has loaded. */
 	let bridgeFrameLoaded = $state(false);
 
+	/** False on Tauri mobile, which ships no sidecar — so hints must not mention one. */
+	const pullerSupported = $derived(shouldProbePullerBackend());
+
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
 	const canOfferChrome = $derived(
@@ -92,17 +95,10 @@
 	const waitingForInjection = $derived(
 		started && visible && !paused && !privacyLocked && !injectable && canUseTouchBridge(playerUrl)
 	);
-	const showOverlay = $derived(
-		started && visible && !paused && !privacyLocked && injectable
-	);
+	const showOverlay = $derived(started && visible && !paused && !privacyLocked && injectable);
 	const showSurface = $derived(started && visible);
 	const showBlockedHint = $derived(
-		started &&
-			visible &&
-			!paused &&
-			!privacyLocked &&
-			!injectable &&
-			!canUseTouchBridge(playerUrl)
+		started && visible && !paused && !privacyLocked && !injectable && !canUseTouchBridge(playerUrl)
 	);
 	const scale = $derived(config.scale);
 
@@ -136,7 +132,23 @@
 	 * (which would make Unity see hasFocus()===false). Do NOT iframe.focus() here —
 	 * that steals pointer capture from the joystick mid-drag.
 	 */
+	/**
+	 * Form controls must keep their default activation behaviour.
+	 *
+	 * This runs as a capture-phase `pointerdown` handler on the overlay root, so it saw
+	 * every press inside the console — including the joystick scheme `<select>`. Calling
+	 * `preventDefault()` on `pointerdown` suppresses the default activation, and on
+	 * Android WebView that stops the native picker from ever opening: the Arrows/WASD
+	 * dropdown looked dead. Suppression is only wanted for the game surface, where it
+	 * stops the press stealing focus from the game.
+	 */
+	function isInteractiveControl(target: EventTarget | null): boolean {
+		const el = target instanceof Element ? target : null;
+		return Boolean(el?.closest('select, input, textarea, option, [data-console-control]'));
+	}
+
 	function keepGameFocused(e?: Event) {
+		if (e && isInteractiveControl(e.target)) return;
 		e?.preventDefault?.();
 		try {
 			iframe?.contentWindow?.postMessage({ type: 'potato-tomato-unlock-audio' }, '*');
@@ -500,7 +512,9 @@
 				onpointerdown={keepGameFocused}
 			>
 				<span class="mb-1 block font-medium text-emerald-400">Console · ON</span>
-				Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…
+				{pullerSupported
+					? 'Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…'
+					: 'Waiting for the game frame so controls can inject…'}
 			</div>
 		{:else if showBlockedHint || unavailableHint}
 			<div
@@ -508,8 +522,17 @@
 				role="status"
 			>
 				<span class="mb-1 block font-medium text-amber-400">Console · blocked</span>
-				Online play needs the puller proxy; offline play needs a downloaded mirror. Raw third-party embeds
-				cannot receive controls.
+				{#if pullerSupported}
+					Online play needs the puller proxy; offline play needs a downloaded mirror. Raw
+					third-party embeds cannot receive controls.
+				{:else}
+					<!--
+						No sidecar on this platform, so there is no proxy to escalate to. Say what the user
+						can actually do instead of naming a process they cannot start.
+					-->
+					This game runs on a third-party site, which will not accept injected controls. Touch the game
+					directly, or download it for offline play to use the console.
+				{/if}
 			</div>
 		{/if}
 
