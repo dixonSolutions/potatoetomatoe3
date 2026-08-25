@@ -28,9 +28,11 @@
 		try {
 			const release = await fetchLatestApkRelease();
 			latest = release;
-			openApkDownload(release.apkUrl);
+			/* Awaited: the native handoff can fail, and a dropped rejection is exactly
+			   how this step used to fail silently. */
+			await openApkDownload(release.apkUrl);
 			toast.message(`Downloading ${release.apkName}`, {
-				description: `Release ${release.versionName} (${release.tag})`
+				description: `Release ${release.versionName} (${release.tag}) — check your notifications`
 			});
 		} catch (e) {
 			const msg = e instanceof Error ? e.message : 'Could not fetch the latest APK';

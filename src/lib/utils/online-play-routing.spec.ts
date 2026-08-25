@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
 	decideOnlineRelay,
 	isFrameBlockedHost,
+	isUnframeableInApp,
 	type OnlineRelayInput
 } from './online-play-routing';
 
@@ -115,5 +116,32 @@ describe('isFrameBlockedHost', () => {
 		expect(isFrameBlockedHost(null)).toBe(false);
 		expect(isFrameBlockedHost('')).toBe(false);
 		expect(isFrameBlockedHost('/games/x/online/index.html')).toBe(false);
+	});
+});
+
+describe('isUnframeableInApp', () => {
+	/* Android: no sidecar, so decideOnlineRelay short-circuits before frame-blocked-host. */
+	it('flags a frame-blocked host on a build with no relay', () => {
+		expect(
+			isUnframeableInApp({ localApp: true, pullerSupported: false, frameBlockedHost: true })
+		).toBe(true);
+	});
+
+	it('stays false on desktop, where the relay handles it', () => {
+		expect(
+			isUnframeableInApp({ localApp: true, pullerSupported: true, frameBlockedHost: true })
+		).toBe(false);
+	});
+
+	it('stays false on the public site, which is not framing through an app shell', () => {
+		expect(
+			isUnframeableInApp({ localApp: false, pullerSupported: false, frameBlockedHost: true })
+		).toBe(false);
+	});
+
+	it('stays false for hosts that allow framing', () => {
+		expect(
+			isUnframeableInApp({ localApp: true, pullerSupported: false, frameBlockedHost: false })
+		).toBe(false);
 	});
 });

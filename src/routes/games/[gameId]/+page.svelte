@@ -66,7 +66,13 @@
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
 	import { canUseTouchBridge, resolveInjectable } from '$lib/utils/touch-input-dispatch';
-	import { clearDirectLaunchFailed, markDirectLaunchFailed } from '$lib/utils/online-play-routing';
+	import {
+		clearDirectLaunchFailed,
+		isFrameBlockedHost,
+		isUnframeableInApp,
+		markDirectLaunchFailed
+	} from '$lib/utils/online-play-routing';
+	import { openExternalUrl } from '$lib/utils/open-external';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import {
@@ -133,6 +139,40 @@
 	 * that bind lagged false and hid the control entirely.
 	 */
 	let showConsoleButton = $derived(!isPublicSiteDeployment() || touchConsoleAvailable);
+
+	/*
+	 * Android has no puller, so the relay that plays X-Frame-Options hosts on desktop is
+	 * not on the table. Framing them yields chrome-error://chromewebdata/ — a dead black
+	 * box with no explanation. Offer the system browser instead of a frame that cannot load.
+	 */
+	let unframeableEmbedUrl = $derived.by(() => {
+		const meta: GameMetadata | null = gameMetadata;
+		if (!meta) return '';
+		return meta.onlineEmbedUrl?.trim() || meta.remotePlayUrl?.trim() || '';
+	});
+	let cannotFrameInApp = $derived(
+		isUnframeableInApp({
+			localApp: !isPublicSiteDeployment(),
+			pullerSupported: shouldProbePullerBackend(),
+			frameBlockedHost: isFrameBlockedHost(unframeableEmbedUrl)
+		})
+	);
+	let unframeableHost = $derived.by(() => {
+		try {
+			return new URL(unframeableEmbedUrl).hostname;
+		} catch {
+			return 'This game’s host';
+		}
+	});
+
+	async function openGameInBrowser() {
+		if (!unframeableEmbedUrl) return;
+		try {
+			await openExternalUrl(unframeableEmbedUrl);
+		} catch (e) {
+			toast.error(e instanceof Error ? e.message : 'Could not open this game in the browser');
+		}
+	}
 
 	/** Single writer for Console on/off — persists so remounts / reloads cannot snap back to Off. */
 	function setTouchConsoleVisible(on: boolean, reason: string) {
@@ -993,26 +1033,40 @@
 					the frame on every console/proxy URL upgrade and reset bind:started → false,
 					so Console appeared stuck Off and the overlay never showed.
 				-->
-				{#key playerRemountKey}
-					<LazyGameFrame
-						{gameId}
-						gameUrl={fixMalformedGamePlayerUrl(
-							gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
-							gameId
-						)}
-						iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
-						posterUrl={posterUrlFor(gameMetadata)}
-						title={gameMetadata.name}
-						fillContainer={isGameFullscreen || playerLayout.isCompact}
-						startDisabled={playerUrlRefreshPending && !gameSurfaceStarted}
-						bind:started={gameSurfaceStarted}
-						onIframeReady={(el) => {
-							const next = el ?? undefined;
-							if (iframeElement !== next) iframeElement = next;
-						}}
-						onLoadStateChange={handleFrameLoadState}
-					/>
-				{/key}
+				{#if cannotFrameInApp}
+					<div
+						class="flex h-full min-h-56 flex-col items-center justify-center gap-3 px-6 py-10 text-center"
+						role="status"
+					>
+						<p class="text-base font-semibold">This game can't play inside the app</p>
+						<p class="max-w-md text-sm text-muted-foreground">
+							{unframeableHost} refuses to be embedded, and this build has no local relay to work around
+							it. Open it in your browser instead — the touch console won't be available there.
+						</p>
+						<Button size="sm" onclick={() => void openGameInBrowser()}>Open in browser</Button>
+					</div>
+				{:else}
+					{#key playerRemountKey}
+						<LazyGameFrame
+							{gameId}
+							gameUrl={fixMalformedGamePlayerUrl(
+								gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
+								gameId
+							)}
+							iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
+							posterUrl={posterUrlFor(gameMetadata)}
+							title={gameMetadata.name}
+							fillContainer={isGameFullscreen || playerLayout.isCompact}
+							startDisabled={playerUrlRefreshPending && !gameSurfaceStarted}
+							bind:started={gameSurfaceStarted}
+							onIframeReady={(el) => {
+								const next = el ?? undefined;
+								if (iframeElement !== next) iframeElement = next;
+							}}
+							onLoadStateChange={handleFrameLoadState}
+						/>
+					{/key}
+				{/if}
 			</div>
 			{#if frameStalled && gameSurfaceStarted}
 				<div

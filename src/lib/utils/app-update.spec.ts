@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { selectLatestApkAsset } from './app-update';
+import { isTrustedApkUrl, selectLatestApkAsset } from './app-update';
 
 describe('app-update', () => {
 	it('selects the Potato Tomato APK from the latest GitHub release', () => {
@@ -46,5 +46,21 @@ describe('app-update', () => {
 				]
 			})
 		).toBeNull();
+	});
+
+	it('only trusts APK URLs served from this repo', () => {
+		expect(
+			isTrustedApkUrl(
+				'https://github.com/dixonSolutions/potatoetomatoe3/releases/download/release-73/potato-tomato-0.0.73.apk'
+			)
+		).toBe(true);
+		/* Right repo, wrong extension — ACTION_VIEW on an .html would open a page, not a download. */
+		expect(
+			isTrustedApkUrl(
+				'https://github.com/dixonSolutions/potatoetomatoe3/releases/download/release-73/index.html'
+			)
+		).toBe(false);
+		expect(isTrustedApkUrl('https://evil.example/potato-tomato-0.0.73.apk')).toBe(false);
+		expect(isTrustedApkUrl('http://github.com/dixonSolutions/potatoetomatoe3/x.apk')).toBe(false);
 	});
 });

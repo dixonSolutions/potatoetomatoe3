@@ -19,6 +19,7 @@
     "allow-ensure-puller",
     "allow-get-dev-harness-mode",
     "allow-tray-lifecycle",
+    "allow-open-external-url",
     "shell:default",
     {
       "identifier": "shell:allow-execute",

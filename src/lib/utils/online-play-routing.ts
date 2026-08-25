@@ -51,6 +51,27 @@ export function isFrameBlockedHost(url: string | null | undefined): boolean {
 	return FRAME_BLOCKED_HOSTS.some((blocked) => host === blocked || host.endsWith(`.${blocked}`));
 }
 
+/**
+ * True when a direct launch is a guaranteed blank frame *and* no relay exists to rescue
+ * it — i.e. the Tauri mobile builds, which ship no puller sidecar.
+ *
+ * `decideOnlineRelay` short-circuits on `!pullerSupported` before it ever reaches the
+ * `frameBlockedHost` branch, which is correct (there is no relay to route to) but left
+ * Android rendering a dead iframe for every `sites.google.com` / CoolMath /
+ * addictinggames title. Verified on a Galaxy Tab Active3: the frame navigates to
+ * `chrome-error://chromewebdata/` after the host refuses with
+ * `frame-ancestors https://google-admin.corp.google.com/`.
+ *
+ * The UI uses this to offer the system browser instead of a frame that cannot load.
+ */
+export function isUnframeableInApp(input: {
+	localApp: boolean;
+	pullerSupported: boolean;
+	frameBlockedHost: boolean;
+}): boolean {
+	return input.localApp && !input.pullerSupported && input.frameBlockedHost;
+}
+
 export interface OnlineRelayInput {
 	/** Desktop/mobile app build rather than the hosted public site. */
 	localApp: boolean;

@@ -3,6 +3,8 @@
  * Flatpak updates remain system-managed (`flatpak update`); no in-app Flatpak updater.
  */
 
+import { openExternalUrl } from '$lib/utils/open-external';
+
 export const APP_UPDATE_REPO = 'dixonSolutions/potatoetomatoe3';
 const RELEASES_API = `https://api.github.com/repos/${APP_UPDATE_REPO}/releases/latest`;
 
@@ -90,21 +92,23 @@ export async function fetchLatestApkRelease(signal?: AbortSignal): Promise<Lates
 	return selected;
 }
 
-/** Open the verified APK download URL in a new browsing context / system downloader. */
-export function openApkDownload(apkUrl: string): void {
-	if (
-		!apkUrl.startsWith('https://') ||
-		!apkUrl.includes(APP_UPDATE_REPO) ||
-		!apkUrl.endsWith('.apk')
-	) {
+/** True when `apkUrl` is a release asset of this repo and safe to hand to the OS. */
+export function isTrustedApkUrl(apkUrl: string): boolean {
+	return (
+		apkUrl.startsWith('https://') && apkUrl.includes(APP_UPDATE_REPO) && apkUrl.endsWith('.apk')
+	);
+}
+
+/**
+ * Hand the verified APK URL to the OS downloader.
+ *
+ * This used to click an `<a download>`. On the Tauri Android WebView that is a silent
+ * no-op — no DownloadListener is registered — so the updater resolved the right release
+ * and then never downloaded anything. `openExternalUrl` routes through ACTION_VIEW.
+ */
+export async function openApkDownload(apkUrl: string): Promise<void> {
+	if (!isTrustedApkUrl(apkUrl)) {
 		throw new Error('Refusing to open an untrusted APK URL');
 	}
-	const a = document.createElement('a');
-	a.href = apkUrl;
-	a.rel = 'noopener noreferrer';
-	a.target = '_blank';
-	a.download = '';
-	document.body.appendChild(a);
-	a.click();
-	a.remove();
+	await openExternalUrl(apkUrl);
 }

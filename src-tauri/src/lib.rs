@@ -130,6 +130,32 @@ fn quit_app(app: tauri::AppHandle) {
   app.exit(0);
 }
 
+/// Hand a URL to the operating system.
+///
+/// Android: `tauri-plugin-shell` routes this to `Intent.ACTION_VIEW`, which is the only
+/// way the app can start a download. The Tauri Android WebView registers no
+/// `DownloadListener`, so an in-page `<a download>` click is silently dropped — the APK
+/// updater looked like it worked (release metadata resolved, no error) while nothing was
+/// ever written to /sdcard/Download. Desktop: opens the default handler.
+///
+/// https-only: the caller passes URLs derived from GitHub Releases metadata, and an
+/// ACTION_VIEW on an arbitrary scheme is a much wider door than this needs.
+#[tauri::command]
+fn open_external_url(app: tauri::AppHandle, url: String) -> Result<(), String> {
+  let target = url.trim();
+  if !target.starts_with("https://") {
+    return Err(format!("refusing to open non-https URL: {target}"));
+  }
+  #[allow(deprecated)]
+  {
+    use tauri_plugin_shell::ShellExt;
+    app
+      .shell()
+      .open(target, None)
+      .map_err(|err| format!("could not open {target}: {err}"))
+  }
+}
+
 fn repo_root() -> PathBuf {
   PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("..")
 }
@@ -451,7 +477,8 @@ pub fn run() {
       is_tray_available,
       is_close_to_tray_enabled,
       set_close_to_tray_enabled,
-      quit_app
+      quit_app,
+      open_external_url
     ])
     .setup(|app| {
       if cfg!(debug_assertions) {
