@@ -556,11 +556,20 @@
 		if (/\besc(ape)?\b/.test(t)) add(['Escape']);
 		if (/\bshift\b/.test(t)) add(['ShiftLeft']);
 		if (/\bctrl\b|\bcontrol key\b/.test(t)) add(['ControlLeft']);
-		/* "E = interact", "press R to restart", "F key" — a single letter named as a key. */
-		var re = /(?:\bpress\s+|\bhold\s+|\btap\s+)?\b([a-z0-9])\b\s*(?:key\b|[=:–—-]\s*\w)/g;
+		/*
+		 * "F key", "E = interact", "1 = pistol" — a single letter named as a key.
+		 *
+		 * What follows the letter is the whole signal, so it has to be specific: "letter,
+		 * punctuation, word" on its own is just English. "collect a key to open doors"
+		 * would declare KeyA and the step list "1 - move with the mouse" would declare
+		 * Digit1, and a declared code is strong evidence — one stray letter hides every
+		 * control the blurb happens not to name. So the article is never the A key, and a
+		 * digit needs an explicit `=` rather than the dash a numbered list uses too.
+		 */
+		var re = /\b(?!a\s+key\b)([a-z0-9])\b\s*(?:key\b|=\s*\w)|\b([a-z])\b\s*[:–—-]\s*\w/g;
 		var m;
 		while ((m = re.exec(t))) {
-			var ch = m[1];
+			var ch = m[1] || m[2];
 			var code = ch >= '0' && ch <= '9' ? 'Digit' + ch : 'Key' + ch.toUpperCase();
 			if (EMITTABLE[code]) into[code] = 1;
 		}
@@ -623,17 +632,31 @@
 		/* top frame, or a frozen prototype — fall back to the other two sources */
 	}
 
-	/* Older engines assign `document.onkeydown = fn` instead of registering. */
+	/*
+	 * Older engines assign `document.onkeydown = fn` instead of registering.
+	 *
+	 * These are IDL event-handler attributes: the engine wires the handler into the
+	 * target only when its own setter runs. A wrapper that just stashed the function
+	 * would count the listener and then swallow every key press the game was waiting
+	 * for — including the synthetic ones the console dispatches. So find the real
+	 * accessor (own property on `window`, `Document.prototype` for `document`) and
+	 * delegate to it; if it is not there, leave the property completely alone.
+	 */
 	function watchHandlerProperty(target, prop) {
 		try {
-			var stored = null;
+			var nativeProp;
+			for (var owner = target; owner && !nativeProp; owner = Object.getPrototypeOf(owner)) {
+				nativeProp = Object.getOwnPropertyDescriptor(owner, prop);
+			}
+			if (!nativeProp || !nativeProp.get || !nativeProp.set) return;
 			Object.defineProperty(target, prop, {
 				configurable: true,
+				enumerable: nativeProp.enumerable,
 				get: function () {
-					return stored;
+					return nativeProp.get.call(this);
 				},
 				set: function (fn) {
-					stored = fn;
+					nativeProp.set.call(this, fn);
 					try {
 						if (fn) {
 							profile.listenerCount++;
