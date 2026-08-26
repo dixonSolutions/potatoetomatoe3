@@ -283,12 +283,12 @@ function isGameDocumentPath(pathname) {
 /**
  * Only a top-level document is the app shell.
  *
- * `mode === 'navigate'` is also true for iframe loads, and every game on this origin
- * plays in an iframe — so matching on mode alone caught the game's own document, cached
- * its HTML under the shell key, and skipped the storage-bridge injection further down.
- * `destination` is what separates a top-level document from a nested one (`iframe` /
- * `frame`). The path check then covers a game document opened directly in a tab, where
- * the destination legitimately is `document`.
+ * Games load in an iframe, and an iframe document is `mode: 'navigate'` just like a
+ * top-level load — only `destination` tells them apart (`iframe` / `frame` vs `document`).
+ * Treating a game as the shell would cache it under the shell key, so an offline reload
+ * would boot the game instead of the app holding it, and answering here would skip the
+ * storage-bridge injection the game routes do. The path check then covers a game document
+ * opened directly in a tab, where the destination legitimately is `document`.
  */
 function isAppShellNavigation(request, url) {
 	if (request.method !== 'GET' || request.mode !== 'navigate') return false;
