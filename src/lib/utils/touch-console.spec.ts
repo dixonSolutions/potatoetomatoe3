@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
 	DEFAULT_TOUCH_MAPPING,
 	codesToLabel,
@@ -35,6 +35,22 @@ describe('touch-input-dispatch', () => {
 		expect(canUseTouchBridge('https://games.crazygames.com/en_US/ovo/index.html')).toBe(false);
 	});
 
+	it('treats same-origin relay routes as injectable regardless of deployment', () => {
+		/*
+		 * On the public site `offline-sw.js` answers these paths with the game's own HTML,
+		 * so the frame is same-origin and the console can dispatch straight into it. The
+		 * loopback form is a different origin — bridge-capable via postMessage, but never
+		 * DOM-injectable.
+		 */
+		vi.stubGlobal('window', { location: new URL('https://dixonsolutions.github.io/pt/games/x') });
+		expect(isLikelyInjectableUrl('/pt/api/unity-play/foo')).toBe(true);
+		expect(isLikelyInjectableUrl('https://dixonsolutions.github.io/pt/api/game-live/foo')).toBe(
+			true
+		);
+		expect(isLikelyInjectableUrl('http://127.0.0.1:18787/api/unity-play/foo')).toBe(false);
+		expect(canUseTouchBridge('http://127.0.0.1:18787/api/unity-play/foo')).toBe(true);
+	});
+
 	it('maps joystick vectors to direction key codes', () => {
 		const mapping = DEFAULT_TOUCH_MAPPING.directions;
 		expect(KeyDispatcher.directionsFromVector(0, 0, mapping)).toEqual([]);
@@ -43,6 +59,10 @@ describe('touch-input-dispatch', () => {
 		expect(KeyDispatcher.directionsFromVector(-0.9, 0.9, mapping).sort()).toEqual(
 			[...mapping.left, ...mapping.down].sort()
 		);
+	});
+
+	afterEach(() => {
+		vi.unstubAllGlobals();
 	});
 });
 
