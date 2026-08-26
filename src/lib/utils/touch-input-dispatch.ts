@@ -544,6 +544,20 @@ export class KeyDispatcher {
 	}
 
 	/**
+	 * Press and release a key once.
+	 *
+	 * A held key is what a joystick or face button wants; a menu key is not. Games
+	 * that toggle on Escape would toggle straight back if the release landed in the
+	 * same task, and some engines poll key state per frame and need the press to
+	 * survive at least one frame — hence the short hold rather than an immediate up.
+	 */
+	tap(codes: TouchKeyCode[], holdMs = 80): void {
+		if (!this.hasDispatchPath() || !codes.length) return;
+		this.down(codes);
+		setTimeout(() => this.up(codes), holdMs);
+	}
+
+	/**
 	 * Convert a normalized joystick vector into direction key codes using an 8-way gate.
 	 * Deadzone is applied by the caller (pass 0,0 when inside deadzone).
 	 */
