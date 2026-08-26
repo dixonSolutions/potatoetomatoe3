@@ -614,7 +614,13 @@
 				/>
 			</div>
 
-			<div class="px-2 py-3">
+			<!--
+				min-h-0 is load-bearing: a flex child defaults to min-height:auto and
+				refuses to shrink below its content, so without it this div stays full
+				height, Dialog.Content's overflow-hidden clips the overflow, and the
+				rows past the fold are unreachable on a phone with nothing scrolling.
+			-->
+			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-2 py-3">
 				{#if settingsSearchQuery.trim()}
 					{#if globalSearchResults.length === 0}
 						<p class="px-4 py-6 text-center text-xs text-muted-foreground">
@@ -781,7 +787,7 @@
 				</div>
 			</div>
 
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
 				<PrivacyModeSection
 					searchQuery={settingsSearchQuery}
 					{busy}
@@ -841,7 +847,7 @@
 				</div>
 			</div>
 
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
 				<AudioSection
 					searchQuery={settingsSearchQuery}
 					{busy}
@@ -881,7 +887,7 @@
 				</div>
 			</div>
 
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
 				{#key analyticsPanelKey}
 					<AnalyticsSection
 						searchQuery={settingsSearchQuery}
@@ -924,7 +930,7 @@
 				</div>
 			</div>
 
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
 				<GamesSection
 					searchQuery={settingsSearchQuery}
 					{busy}
@@ -997,7 +1003,7 @@
 				</div>
 			</div>
 
-			<div class="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-4">
+			<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-4">
 				<UpdatesSection searchQuery={settingsSearchQuery} {busy} />
 			</div>
 		{/if}
