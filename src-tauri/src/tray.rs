@@ -208,9 +208,13 @@ fn render_recent(state: &TrayMenuState, games: &[TrayGame]) -> Result<(), String
     } else {
       ids[i] = None;
       if i == 0 && games.is_empty() {
-        item
-          .set_text("No recent games")
-          .map_err(|e| e.to_string())?;
+        /* The disguise blanks this list precisely so the menu stops naming games. */
+        let empty = if state.disguised.load(Ordering::SeqCst) {
+          "No recent items"
+        } else {
+          "No recent games"
+        };
+        item.set_text(empty).map_err(|e| e.to_string())?;
       } else {
         item.set_text("—").map_err(|e| e.to_string())?;
       }

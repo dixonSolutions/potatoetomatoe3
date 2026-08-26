@@ -5,15 +5,26 @@
 	import TouchButton from './TouchButton.svelte';
 	import {
 		TOUCH_CONSOLE_CHANGED,
+		directionsForJoystickScheme,
 		getEffectiveConfig,
 		saveLayout,
 		setJoystickScheme,
 		translateTouchLayout,
 		type EffectiveTouchConfig,
+		type TouchDirection,
 		type TouchJoystickScheme,
+		type TouchKeyCode,
 		type TouchLayout,
 		type TouchOrientation
 	} from '$lib/utils/touch-console';
+	import {
+		emptyKeyProfile,
+		keyProfileCodes,
+		keyProfileSaysNoKeyboard,
+		observeKeyProfile,
+		planControlVisibility,
+		type KeyProfile
+	} from '$lib/utils/key-profile';
 	import {
 		KeyDispatcher,
 		canUseTouchBridge,
@@ -72,11 +83,79 @@
 	/** Cross-origin bridge scripts can only receive input after their iframe has loaded. */
 	let bridgeFrameLoaded = $state(false);
 
+	/*
+	 * What the game is actually listening for, as reported by the in-frame bridge.
+	 *
+	 * `liveProfile` updates the instant a report lands. `appliedProfile` is what the
+	 * layout renders from, and it only catches up when the console is idle: buttons must
+	 * never appear, vanish or fade under a thumb that is mid-press, and a layout that
+	 * reflowed during a drag-edit would fight the drag.
+	 */
+	let liveProfile = $state<KeyProfile>(emptyKeyProfile(''));
+	let appliedProfile = $state<KeyProfile>(emptyKeyProfile(''));
+	/** Set once the player picks a scheme by hand — detection stops overriding after that. */
+	let manualSchemeForGame = $state('');
+
+	const DIRECTION_CODES: Record<TouchJoystickScheme, TouchKeyCode[]> = {
+		arrows: ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'],
+		wasd: ['KeyW', 'KeyA', 'KeyS', 'KeyD']
+	};
+
+	const profileCodes = $derived(keyProfileCodes(appliedProfile));
+	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(appliedProfile));
+	/*
+	 * "Nothing listens" is the one verdict that can be premature. A Unity title binds its
+	 * key handler only once wasm is up, so the bridge's early sweep honestly reports an
+	 * empty frame and the later one corrects it. Showing the badge immediately would flash
+	 * "No keys used" on a game that plays fine, so it waits for the correction window to
+	 * pass. Every other verdict only ever adds keys, which can never flash a wrong answer.
+	 */
+	let noKeyboardSettled = $state(false);
+
+	/**
+	 * The scheme the game's own controls point at, or null when it names both or neither.
+	 *
+	 * Only `strong` evidence counts here. A minified bundle that happens to mention
+	 * `KeyW` is not a reason to silently move the stick off the arrows the player chose.
+	 */
+	const detectedScheme = $derived.by<TouchJoystickScheme | null>(() => {
+		if (appliedProfile.declared.length === 0) return null;
+		const arrows = DIRECTION_CODES.arrows.some((c) => profileCodes.has(c));
+		const wasd = DIRECTION_CODES.wasd.some((c) => profileCodes.has(c));
+		if (arrows === wasd) return null;
+		return arrows ? 'arrows' : 'wasd';
+	});
+
+	const effectiveScheme = $derived<TouchJoystickScheme>(
+		manualSchemeForGame === gameId || !detectedScheme ? config.joystickScheme : detectedScheme
+	);
+
+	const effectiveDirections = $derived<Record<TouchDirection, TouchKeyCode[]>>(
+		effectiveScheme === config.joystickScheme
+			? config.mapping.directions
+			: directionsForJoystickScheme(effectiveScheme)
+	);
+
 	/** False on Tauri mobile, which ships no sidecar — so hints must not mention one. */
 	const pullerSupported = $derived(shouldProbePullerBackend());
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
+	/*
+	 * One plan for the whole console, not a test per control: the "never leave it empty"
+	 * floor in planControlVisibility can only be applied once every control has been judged.
+	 */
+	const JOYSTICK_ID = '__joystick';
+	const visibilityPlan = $derived(
+		planControlVisibility(appliedProfile, [
+			{ id: JOYSTICK_ID, codes: [...DIRECTION_CODES[effectiveScheme]] },
+			...layout.buttons.map((b) => ({ id: b.id, codes: buttonCodes(b.id) }))
+		])
+	);
+	const joystickFate = $derived(visibilityPlan[JOYSTICK_ID] ?? 'show');
+	const hiddenControlCount = $derived(
+		Object.values(visibilityPlan).filter((fate) => fate === 'hide').length
+	);
 	const canOfferChrome = $derived(
 		config.enabled &&
 			config.availability !== 'off' &&
@@ -290,7 +369,7 @@
 			dispatcher.setJoystickCodes([]);
 			return;
 		}
-		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, config.mapping.directions);
+		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, effectiveDirections);
 		dispatcher.setJoystickCodes(codes);
 	}
 
@@ -312,6 +391,8 @@
 	}
 
 	function onJoystickSchemeChange(scheme: TouchJoystickScheme) {
+		/* An explicit pick outranks detection for the rest of this game's session. */
+		manualSchemeForGame = gameId;
 		setJoystickScheme(scheme);
 		refreshConfig();
 		dispatcher.setJoystickCodes([]);
@@ -496,6 +577,61 @@
 			dispatcher.releaseAll();
 		}
 	});
+
+	/*
+	 * Listen for what the game reads. One observer per game id; the bridge keeps posting
+	 * as engines bind their handlers, so reports arrive over the first several seconds
+	 * rather than all at once.
+	 */
+	$effect(() => {
+		const id = gameId;
+		untrack(() => {
+			if (liveProfile.gameId !== id) liveProfile = emptyKeyProfile(id);
+			if (appliedProfile.gameId !== id) appliedProfile = emptyKeyProfile(id);
+			manualSchemeForGame = '';
+		});
+		if (!id) return;
+		return observeKeyProfile(id, (profile) => {
+			liveProfile = profile;
+		});
+	});
+
+	/*
+	 * Move the layout onto the new profile only while nothing is being touched.
+	 *
+	 * Applying it eagerly is what would make this feel broken: a button fading or
+	 * disappearing under a thumb turns one tap into a stuck key, and a control vanishing
+	 * mid-drag snaps the edit to a position the player never chose. When busy, retry —
+	 * the profile is worth applying a moment late, never worth applying mid-gesture.
+	 */
+	$effect(() => {
+		const next = liveProfile;
+		if (next === appliedProfile) return;
+		let timer = 0;
+		const apply = () => {
+			if (editingControl !== null || dispatcher.hasHeldKeys()) {
+				timer = window.setTimeout(apply, 400);
+				return;
+			}
+			appliedProfile = next;
+		};
+		apply();
+		return () => window.clearTimeout(timer);
+	});
+
+	/* The bridge's last sweep is 8s after the frame loads — outlast it before believing it. */
+	$effect(() => {
+		if (!noKeyboardDetected) {
+			untrack(() => {
+				if (noKeyboardSettled) noKeyboardSettled = false;
+			});
+			return;
+		}
+		const timer = window.setTimeout(() => {
+			noKeyboardSettled = true;
+		}, 9000);
+		return () => window.clearTimeout(timer);
+	});
 </script>
 
 {#if showSurface}
@@ -511,7 +647,7 @@
 				role="status"
 				onpointerdown={keepGameFocused}
 			>
-				<span class="mb-1 block font-medium text-emerald-400">Console · ON</span>
+				<span class="mb-1 block font-medium text-emerald-400">Console enabled</span>
 				{pullerSupported
 					? 'Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…'
 					: 'Waiting for the game frame so controls can inject…'}
@@ -521,7 +657,7 @@
 				class="pointer-events-auto absolute top-3 right-3 max-w-[min(280px,70vw)] rounded-lg border border-amber-500/50 bg-background/90 px-3 py-2 text-xs text-foreground shadow-md backdrop-blur-sm sm:top-4 sm:right-4"
 				role="status"
 			>
-				<span class="mb-1 block font-medium text-amber-400">Console · blocked</span>
+				<span class="mb-1 block font-medium text-amber-400">Console blocked</span>
 				{#if pullerSupported}
 					Online play needs the puller proxy; offline play needs a downloaded mirror. Raw
 					third-party embeds cannot receive controls.
@@ -551,7 +687,11 @@
 				>
 					<select
 						class="h-7 max-w-full truncate rounded-full border border-white/25 bg-black/35 px-2 text-[10px] font-semibold tracking-wide text-white/90 shadow-sm backdrop-blur-md outline-none"
-						value={config.joystickScheme}
+						class:border-emerald-400={effectiveScheme !== config.joystickScheme}
+						title={effectiveScheme !== config.joystickScheme
+							? 'Matched to the keys this game says it reads — pick one to override'
+							: 'Keys the joystick sends'}
+						value={effectiveScheme}
 						onchange={(e) =>
 							onJoystickSchemeChange(
 								(e.currentTarget as HTMLSelectElement).value === 'wasd' ? 'wasd' : 'arrows'
@@ -618,55 +758,79 @@
 				>
 					<GripHorizontal class="size-4" />
 				</button>
+				<!--
+					Controls that quietly disappear read as a bug. One short badge says the
+					layout was trimmed on purpose and what it was trimmed against.
+				-->
+				{#if noKeyboardSettled}
+					<span
+						class="pointer-events-none absolute top-2 right-3 z-10 rounded-full border border-amber-400/50 bg-black/40 px-2 py-0.5 text-[10px] font-semibold text-amber-200 backdrop-blur-md"
+						title="Nothing in this game listens for key presses — touch the game directly."
+					>
+						No keys used
+					</span>
+				{:else if hiddenControlCount > 0}
+					<span
+						class="pointer-events-none absolute top-2 right-3 z-10 rounded-full border border-emerald-400/50 bg-black/40 px-2 py-0.5 text-[10px] font-semibold text-emerald-200 backdrop-blur-md"
+						title="Hidden because this game's own control list does not mention them."
+					>
+						−{hiddenControlCount} unused
+					</span>
+				{/if}
 			</div>
 
-			<div
-				class="absolute"
-				style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.joystick.yPct, 'y')}px;`}
-			>
-				<TouchJoystick
-					size={Math.round(layout.joystick.size * scale)}
-					deadzone={layout.joystick.deadzone}
-					opacity={config.opacity}
-					editing={editingControl === 'joystick'}
-					disabled={Boolean(editingControl && editingControl !== 'joystick')}
-					onVector={onJoystickVector}
-					onHoldEditStart={() => beginEdit('joystick')}
-					onHoldEditDrag={(d) => dragControl('joystick', d)}
-					onHoldEditEnd={(c) => endEdit(c)}
-				/>
-			</div>
-
-			{#each layout.buttons as btn (btn.id)}
+			{#if joystickFate !== 'hide'}
 				<div
 					class="absolute"
-					style={`left:${pctToPx(btn.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(btn.yPct, 'y')}px;`}
+					style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.joystick.yPct, 'y')}px;`}
 				>
-					<TouchButton
-						label={btn.label}
-						size={Math.round(btn.size * scale)}
-						width={buttonWidth(btn)}
-						opacity={config.opacity}
-						accent={buttonAccent(btn.id)}
-						editing={editingControl === btn.id}
-						disabled={Boolean(editingControl && editingControl !== btn.id)}
-						onPress={() => {
-							if (editingControl) return;
-							dispatcher.down(buttonCodes(btn.id));
-							if (config.haptics) {
-								try {
-									navigator.vibrate?.(8);
-								} catch {
-									/* ignore */
-								}
-							}
-						}}
-						onRelease={() => dispatcher.up(buttonCodes(btn.id))}
-						onHoldEditStart={() => beginEdit(btn.id)}
-						onHoldEditDrag={(d) => dragControl(btn.id, d)}
+					<TouchJoystick
+						size={Math.round(layout.joystick.size * scale)}
+						deadzone={layout.joystick.deadzone}
+						opacity={joystickFate === 'dim' ? config.opacity * 0.4 : config.opacity}
+						editing={editingControl === 'joystick'}
+						disabled={Boolean(editingControl && editingControl !== 'joystick')}
+						onVector={onJoystickVector}
+						onHoldEditStart={() => beginEdit('joystick')}
+						onHoldEditDrag={(d) => dragControl('joystick', d)}
 						onHoldEditEnd={(c) => endEdit(c)}
 					/>
 				</div>
+			{/if}
+
+			{#each layout.buttons as btn (btn.id)}
+				{@const fate = visibilityPlan[btn.id] ?? 'show'}
+				{#if fate !== 'hide'}
+					<div
+						class="absolute"
+						style={`left:${pctToPx(btn.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(btn.yPct, 'y')}px;`}
+					>
+						<TouchButton
+							label={btn.label}
+							size={Math.round(btn.size * scale)}
+							width={buttonWidth(btn)}
+							opacity={fate === 'dim' ? config.opacity * 0.4 : config.opacity}
+							accent={buttonAccent(btn.id)}
+							editing={editingControl === btn.id}
+							disabled={Boolean(editingControl && editingControl !== btn.id)}
+							onPress={() => {
+								if (editingControl) return;
+								dispatcher.down(buttonCodes(btn.id));
+								if (config.haptics) {
+									try {
+										navigator.vibrate?.(8);
+									} catch {
+										/* ignore */
+									}
+								}
+							}}
+							onRelease={() => dispatcher.up(buttonCodes(btn.id))}
+							onHoldEditStart={() => beginEdit(btn.id)}
+							onHoldEditDrag={(d) => dragControl(btn.id, d)}
+							onHoldEditEnd={(c) => endEdit(c)}
+						/>
+					</div>
+				{/if}
 			{/each}
 		{/if}
 	</div>

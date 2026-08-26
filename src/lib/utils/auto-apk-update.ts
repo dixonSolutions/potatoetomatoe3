@@ -12,6 +12,7 @@
 
 import { toast } from 'svelte-sonner';
 import {
+	canSelfInstall,
 	downloadAndInstallApk,
 	findPendingUpdate,
 	openInstallPermissionSettings,
@@ -128,6 +129,12 @@ let started = false;
 export function startAutoApkUpdate(): void {
 	if (started) return;
 	started = true;
+	/*
+	 * `findPendingUpdate` answers on every packaged build, but only Android can apply the
+	 * answer. Without this a desktop build would pull the whole APK and then fail at the
+	 * Android-only installer; Flatpak updates stay `flatpak update`'s job.
+	 */
+	if (!canSelfInstall()) return;
 	if (!isAutoUpdateEnabled()) return;
 
 	void (async () => {
