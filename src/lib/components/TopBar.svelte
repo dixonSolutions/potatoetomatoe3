@@ -4,18 +4,35 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import * as NavigationMenu from '$lib/components/ui/navigation-menu';
-	import { Menu, Sun, Moon, MonitorSmartphone, Settings, LogOut } from 'lucide-svelte';
+	import { Menu, Sun, Moon, MonitorSmartphone, Settings, LogOut, Lock } from 'lucide-svelte';
 	import { setMode, userPrefersMode } from 'mode-watcher';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
 	import logo from '$lib/assets/logo.png';
 	import { isPublicSiteDeployment, isTauriApp } from '$lib/utils/offline-deployment';
 	import { quitDesktopApp } from '$lib/utils/desktop-tray';
+	import AppUpdateBadge from '$lib/components/AppUpdateBadge.svelte';
+	import { IsTouchOnly } from '$lib/hooks/is-touch-only.svelte';
+	import { isPrivacyEnabled, isPrivacySessionUnlocked } from '$lib/utils/privacy-mode';
 
-	let { hidden = false }: { hidden?: boolean } = $props();
+	let {
+		hidden = false,
+		onLock
+	}: {
+		hidden?: boolean;
+		/** Locks the privacy session. Omitted where privacy mode has no meaning. */
+		onLock?: () => void;
+	} = $props();
 
 	let isOpen = $state(false);
 	let showQuit = $state(false);
 	let showDownloadApp = $state(false);
+	/*
+	 * The privacy lock is otherwise keyboard-only, which strands touch-only devices: a
+	 * tablet has no way to fire the shortcut, so the session can never be locked on demand.
+	 * Show the button exactly where the shortcut cannot be typed.
+	 */
+	const touchOnly = new IsTouchOnly();
+	let privacyReady = $state(false);
 
 	const settingsUi = getSettingsUiContext();
 
@@ -23,6 +40,12 @@
 		showQuit = isTauriApp();
 		showDownloadApp = isPublicSiteDeployment();
 	});
+
+	$effect(() => {
+		privacyReady = isPrivacyEnabled() && isPrivacySessionUnlocked();
+	});
+
+	let showLock = $derived(Boolean(onLock) && privacyReady && touchOnly.current);
 
 	async function onQuit() {
 		await quitDesktopApp();
@@ -188,6 +211,12 @@
 
 			<!-- Desktop Actions -->
 			<div class="hidden flex-shrink-0 items-center space-x-3 lg:flex">
+				<AppUpdateBadge />
+				{#if showLock}
+					<Button onclick={onLock} variant="outline" size="icon" aria-label="Lock now">
+						<Lock class="h-[1.2rem] w-[1.2rem]" />
+					</Button>
+				{/if}
 				{#if settingsUi}
 					<Button
 						onclick={() => settingsUi.openSettings()}
@@ -229,6 +258,12 @@
 
 			<!-- Mobile Menu Button -->
 			<div class="ml-auto flex items-center space-x-2 lg:hidden">
+				<AppUpdateBadge compact />
+				{#if showLock}
+					<Button onclick={onLock} variant="outline" size="icon" aria-label="Lock now">
+						<Lock class="h-5 w-5" />
+					</Button>
+				{/if}
 				{#if showQuit}
 					<Button onclick={onQuit} variant="outline" size="icon" aria-label="Quit Potato Tomato">
 						<LogOut class="h-5 w-5" />

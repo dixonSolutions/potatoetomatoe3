@@ -3,6 +3,7 @@
  * Flatpak updates remain system-managed (`flatpak update`); no in-app Flatpak updater.
  */
 
+import { isTauriApp, isTauriAndroidBuild } from '$lib/utils/offline-deployment';
 import { openExternalUrl } from '$lib/utils/open-external';
 
 export const APP_UPDATE_REPO = 'dixonSolutions/potatoetomatoe3';
@@ -15,12 +16,15 @@ export interface LatestApkRelease {
 	apkUrl: string;
 	releaseUrl: string;
 	publishedAt: string | null;
+	/** Asset size in bytes; 0 when the API omits it. */
+	apkSize: number;
 }
 
 type GithubReleaseAsset = {
 	name?: string;
 	browser_download_url?: string;
 	content_type?: string;
+	size?: number;
 };
 
 type GithubRelease = {
@@ -69,7 +73,8 @@ export function selectLatestApkAsset(release: GithubRelease): LatestApkRelease |
 		apkName,
 		apkUrl,
 		releaseUrl,
-		publishedAt: release.published_at ?? null
+		publishedAt: release.published_at ?? null,
+		apkSize: typeof apk?.size === 'number' ? apk.size : 0
 	};
 }
 
@@ -111,4 +116,111 @@ export async function openApkDownload(apkUrl: string): Promise<void> {
 		throw new Error('Refusing to open an untrusted APK URL');
 	}
 	await openExternalUrl(apkUrl);
+}
+
+/**
+ * Compare two `0.0.N` version strings.
+ *
+ * Returns > 0 when `a` is newer. Non-numeric segments sort as 0 rather than throwing —
+ * a locally built APK reports `0.0.1` and must simply look older than any release.
+ */
+export function compareVersions(a: string, b: string): number {
+	const parse = (v: string) =>
+		v
+			.replace(/^v/i, '')
+			.split('.')
+			.map((n) => Number.parseInt(n, 10) || 0);
+	const av = parse(a);
+	const bv = parse(b);
+	for (let i = 0; i < Math.max(av.length, bv.length); i++) {
+		const diff = (av[i] ?? 0) - (bv[i] ?? 0);
+		if (diff !== 0) return diff;
+	}
+	return 0;
+}
+
+export interface ApkUpdateProgress {
+	phase: 'cached' | 'downloading' | 'needs-permission' | 'installing' | 'done' | 'error';
+	received: number;
+	total: number;
+	message?: string | null;
+}
+
+/** Installed app version, or null off-Tauri. */
+export async function getInstalledVersion(): Promise<string | null> {
+	if (!isTauriApp()) return null;
+	try {
+		const { getVersion } = await import('@tauri-apps/api/app');
+		return await getVersion();
+	} catch {
+		return null;
+	}
+}
+
+/**
+ * Download the release APK in-app and hand it to the Android package installer.
+ *
+ * `onProgress` fires roughly once per MiB. Resolves once the installer has been launched —
+ * Android then shows its own confirmation, which cannot be skipped.
+ */
+export async function downloadAndInstallApk(
+	release: LatestApkRelease,
+	onProgress?: (p: ApkUpdateProgress) => void
+): Promise<void> {
+	if (!isTrustedApkUrl(release.apkUrl)) {
+		throw new Error('Refusing to install an untrusted APK URL');
+	}
+	const { invoke } = await import('@tauri-apps/api/core');
+	const { listen } = await import('@tauri-apps/api/event');
+	const unlisten = onProgress
+		? await listen<ApkUpdateProgress>('apk-update://progress', (e) => onProgress(e.payload))
+		: null;
+	try {
+		await invoke('download_and_install_apk', {
+			url: release.apkUrl,
+			fileName: release.apkName
+		});
+	} finally {
+		unlisten?.();
+	}
+}
+
+/**
+ * True when this build can self-update: Android only, and only when the latest release is
+ * actually newer than what is installed.
+ */
+export async function findPendingUpdate(signal?: AbortSignal): Promise<LatestApkRelease | null> {
+	if (!isTauriAndroidBuild()) return null;
+	const installed = await getInstalledVersion();
+	if (!installed) return null;
+	const latest = await fetchLatestApkRelease(signal);
+	return compareVersions(latest.versionName, installed) > 0 ? latest : null;
+}
+
+/** Open this app's Android "install unknown apps" toggle. */
+export async function openInstallPermissionSettings(): Promise<void> {
+	const { invoke } = await import('@tauri-apps/api/core');
+	await invoke('open_install_permission_settings');
+}
+
+/**
+ * How many releases the installed build is behind, for the update badge.
+ *
+ * Release tags are strictly `0.0.N`, so the patch delta is the release count. Anything
+ * that does not fit that shape (a locally built APK, a dirty version string) falls back
+ * to 1 — "an update exists" is still true and a wrong number is worse than a vague one.
+ */
+export function versionsBehind(installed: string, latest: string): number {
+	const parse = (v: string) =>
+		v
+			.replace(/^v/i, '')
+			.split('.')
+			.map((n) => Number.parseInt(n, 10));
+	const a = parse(installed);
+	const b = parse(latest);
+	const sameLine = a.length === 3 && b.length === 3 && a[0] === b[0] && a[1] === b[1];
+	if (!sameLine || Number.isNaN(a[2]) || Number.isNaN(b[2])) {
+		return compareVersions(latest, installed) > 0 ? 1 : 0;
+	}
+	return Math.max(0, b[2] - a[2]);
 }

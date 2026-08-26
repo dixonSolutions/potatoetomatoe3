@@ -6,6 +6,7 @@
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
 	import { ensureOfflineServiceWorker } from '$lib/utils/browser-offline-download';
+	import { startAutoApkUpdate } from '$lib/utils/auto-apk-update';
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
 	/** Same potato-over-tomato mark as TopBar (`logo.png`). `?url` keeps SSR/client href identical. */
 	import favicon from '$lib/assets/logo.png?url';
@@ -299,6 +300,9 @@
 			);
 		}
 
+		/* Android self-update. No-ops on every other target and when already current. */
+		startAutoApkUpdate();
+
 		const onPlayLimitsChanged = () => refreshPlayLimitLock();
 		window.addEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
 
@@ -449,7 +453,7 @@
 			class="min-h-screen"
 			inert={privacyEnabled && !privacyUnlocked ? true : playLimitLocked ? true : undefined}
 		>
-			<TopBar hidden={gameImmersive} />
+			<TopBar hidden={gameImmersive} onLock={applyPrivacyLock} />
 			{#if children}
 				{@render children()}
 			{/if}

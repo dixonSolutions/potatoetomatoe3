@@ -27,3 +27,8 @@ commands.allow = ["is_tray_available", "is_close_to_tray_enabled", "set_close_to
 identifier = "allow-open-external-url"
 description = "Allow the frontend to hand an https URL to the OS (Android ACTION_VIEW / desktop default handler)"
 commands.allow = ["open_external_url"]
+
+[[permission]]
+identifier = "allow-apk-self-update"
+description = "Allow the frontend to download a verified release APK and hand it to the Android package installer"
+commands.allow = ["download_and_install_apk", "can_install_apk", "open_install_permission_settings"]

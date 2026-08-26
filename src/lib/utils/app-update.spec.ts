@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { isTrustedApkUrl, selectLatestApkAsset } from './app-update';
+import {
+	compareVersions,
+	isTrustedApkUrl,
+	selectLatestApkAsset,
+	versionsBehind
+} from './app-update';
 
 describe('app-update', () => {
 	it('selects the Potato Tomato APK from the latest GitHub release', () => {
@@ -17,7 +22,8 @@ describe('app-update', () => {
 					name: 'potato-tomato-0.0.55.apk',
 					browser_download_url:
 						'https://github.com/dixonSolutions/potatoetomatoe3/releases/download/release-55/potato-tomato-0.0.55.apk',
-					content_type: 'application/vnd.android.package-archive'
+					content_type: 'application/vnd.android.package-archive',
+					size: 188402968
 				}
 			]
 		});
@@ -29,7 +35,8 @@ describe('app-update', () => {
 			apkUrl:
 				'https://github.com/dixonSolutions/potatoetomatoe3/releases/download/release-55/potato-tomato-0.0.55.apk',
 			releaseUrl: 'https://github.com/dixonSolutions/potatoetomatoe3/releases/tag/release-55',
-			publishedAt: '2026-07-14T00:00:00Z'
+			publishedAt: '2026-07-14T00:00:00Z',
+			apkSize: 188402968
 		});
 	});
 
@@ -62,5 +69,27 @@ describe('app-update', () => {
 		).toBe(false);
 		expect(isTrustedApkUrl('https://evil.example/potato-tomato-0.0.73.apk')).toBe(false);
 		expect(isTrustedApkUrl('http://github.com/dixonSolutions/potatoetomatoe3/x.apk')).toBe(false);
+	});
+
+	it('orders versions so a local build always looks older than a release', () => {
+		expect(compareVersions('0.0.75', '0.0.74')).toBeGreaterThan(0);
+		expect(compareVersions('0.0.74', '0.0.75')).toBeLessThan(0);
+		expect(compareVersions('0.0.75', '0.0.75')).toBe(0);
+		/* Locally built APKs report 0.0.1 — every real release must beat that. */
+		expect(compareVersions('0.0.75', '0.0.1')).toBeGreaterThan(0);
+		/* 10 > 9 numerically, not lexically. */
+		expect(compareVersions('0.0.10', '0.0.9')).toBeGreaterThan(0);
+		/* Garbage segments sort as 0 rather than NaN-poisoning the comparison. */
+		expect(compareVersions('0.0.x', '0.0.1')).toBeLessThan(0);
+	});
+
+	it('counts releases behind for the update badge', () => {
+		expect(versionsBehind('0.0.73', '0.0.75')).toBe(2);
+		expect(versionsBehind('0.0.75', '0.0.75')).toBe(0);
+		/* Already ahead of the published release — never render a negative badge. */
+		expect(versionsBehind('0.0.76', '0.0.75')).toBe(0);
+		/* Off the 0.0.N line: report "1 update" rather than an invented count. */
+		expect(versionsBehind('1.2.3', '0.0.75')).toBe(0);
+		expect(versionsBehind('0.0.x', '0.0.75')).toBe(1);
 	});
 });

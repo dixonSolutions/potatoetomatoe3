@@ -20,6 +20,8 @@
     "allow-get-dev-harness-mode",
     "allow-tray-lifecycle",
     "allow-open-external-url",
+    "allow-apk-self-update",
+    "core:app:allow-version",
     "shell:default",
     {
       "identifier": "shell:allow-execute",

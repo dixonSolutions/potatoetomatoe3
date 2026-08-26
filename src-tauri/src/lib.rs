@@ -1,3 +1,5 @@
+mod apk_update;
+
 #[cfg(desktop)]
 mod tray;
 
@@ -478,7 +480,10 @@ pub fn run() {
       is_close_to_tray_enabled,
       set_close_to_tray_enabled,
       quit_app,
-      open_external_url
+      open_external_url,
+      apk_update::download_and_install_apk,
+      apk_update::can_install_apk,
+      apk_update::open_install_permission_settings
     ])
     .setup(|app| {
       if cfg!(debug_assertions) {

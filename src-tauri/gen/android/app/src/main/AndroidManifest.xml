@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--
+      Lets the in-app updater hand a downloaded release APK to the system package
+      installer. This does NOT make the install silent: Android still shows its own
+      confirmation, and the user must additionally grant "install unknown apps" to this
+      app once. Silent install requires device-owner privileges we do not have.
+    -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <!-- AndroidTV support -->
     <uses-feature android:name="android.software.leanback" android:required="false" />
