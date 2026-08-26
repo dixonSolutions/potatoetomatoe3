@@ -385,7 +385,7 @@
 	function toggleTouchConsole() {
 		if (touchConsoleVisible) {
 			setTouchConsoleVisible(false, 'toggle');
-			toast.message('Console · Off');
+			toast.message('Console disabled');
 			return;
 		}
 		/*
@@ -395,7 +395,7 @@
 		 */
 		gameSurfaceStarted = true;
 		setTouchConsoleVisible(true, 'toggle');
-		toast.message('Console · ON');
+		toast.message('Console enabled');
 		void ensureTouchCapablePlayUrl().then((ok) => {
 			/* Re-assert after async proxy work — never leave the button Off. */
 			gameSurfaceStarted = true;
@@ -876,16 +876,16 @@
 							onclick={toggleTouchConsole}
 							aria-pressed={touchConsoleVisible}
 							title={touchConsoleVisible
-								? 'Touch console is ON — click to hide'
+								? 'Touch console is enabled — tap to disable'
 								: gameSurfaceStarted
-									? 'Touch console is OFF — click to show'
+									? 'Touch console is disabled — tap to enable'
 									: 'Start the game and show touch console'}
 							class="inline-flex h-8 w-full shrink-0 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium transition-colors sm:w-auto {touchConsoleVisible
 								? 'border border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500'
 								: 'border border-dashed border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground'}"
 						>
 							<Gamepad2 class="h-4 w-4" />
-							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}
+							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
 						</button>
 					{/if}
 					<Button
@@ -976,14 +976,14 @@
 							onclick={toggleTouchConsole}
 							aria-pressed={touchConsoleVisible}
 							aria-label={touchConsoleVisible
-								? 'Console on — hide touch console'
-								: 'Console off — show touch console'}
+								? 'Console enabled — tap to disable'
+								: 'Console disabled — tap to enable'}
 							class="inline-flex h-8 shrink-0 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium shadow-md transition-colors {touchConsoleVisible
 								? 'border border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/80 hover:bg-emerald-500'
 								: 'border border-transparent bg-secondary text-secondary-foreground backdrop-blur-sm hover:bg-secondary/80'}"
 						>
 							<Gamepad2 class="h-4 w-4" />
-							{touchConsoleVisible ? 'Console · ON' : 'Console · Off'}
+							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
 						</button>
 					{/if}
 					<Button
