@@ -31,6 +31,8 @@ const ICON_PX = 128;
 const iconCache = new Map<string, Promise<string>>();
 let targetPromise: Promise<NativeIdentityTarget> | null = null;
 let lastSent: string | null = null;
+/** Tail of the apply queue; see `syncNativeIdentity`. */
+let applying: Promise<void> = Promise.resolve();
 let everDisguised = false;
 
 /**
@@ -101,23 +103,35 @@ export async function syncNativeIdentity(
 	disguised: boolean
 ): Promise<void> {
 	if (!isTauriApp()) return;
-	if (!disguised && !everDisguised) return;
 
 	const key = disguised ? `${label} ${iconUrl}` : '';
 	if (key === lastSent) return;
 	lastSent = key;
 
-	try {
-		if (disguised) {
-			const iconPngBase64 = await rasterizeCached(iconUrl);
-			await invoke('set_native_disguise', { label, iconPngBase64 });
-			everDisguised = true;
-		} else {
-			await invoke('clear_native_disguise');
+	/*
+	 * `lastSent` is what the app *wants* to be, claimed before any of the work happens, so
+	 * applies queue behind one another and drop out as soon as something supersedes them.
+	 * Overlapping runs are normal — desktop `focus_loss` alt-tabbing flips the identity
+	 * faster than a rasterise plus IPC — and letting a stale disguise land after a newer
+	 * clear would stick: `lastSent` already reads as satisfied, so nothing comes back.
+	 */
+	applying = applying.then(async () => {
+		if (lastSent !== key) return;
+		if (!disguised && !everDisguised) return;
+		try {
+			if (disguised) {
+				const iconPngBase64 = await rasterizeCached(iconUrl);
+				if (lastSent !== key) return;
+				await invoke('set_native_disguise', { label, iconPngBase64 });
+				everDisguised = true;
+			} else {
+				await invoke('clear_native_disguise');
+			}
+		} catch (err) {
+			/* Let the next change retry rather than latching onto a half-applied identity. */
+			if (lastSent === key) lastSent = null;
+			console.warn('[native-disguise] could not apply native identity', err);
 		}
-	} catch (err) {
-		/* Let the next change retry rather than latching onto a half-applied identity. */
-		lastSent = null;
-		console.warn('[native-disguise] could not apply native identity', err);
-	}
+	});
+	await applying;
 }
