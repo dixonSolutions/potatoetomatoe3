@@ -12,15 +12,27 @@
 	import { quitDesktopApp } from '$lib/utils/desktop-tray';
 	import AppUpdateBadge from '$lib/components/AppUpdateBadge.svelte';
 	import { IsTouchOnly } from '$lib/hooks/is-touch-only.svelte';
-	import { isPrivacyEnabled, isPrivacySessionUnlocked } from '$lib/utils/privacy-mode';
 
 	let {
 		hidden = false,
-		onLock
+		onLock,
+		privacyReady = false
 	}: {
 		hidden?: boolean;
 		/** Locks the privacy session. Omitted where privacy mode has no meaning. */
 		onLock?: () => void;
+		/**
+		 * Privacy mode is on and this session is unlocked — i.e. there is something to lock.
+		 *
+		 * Owned by `+layout.svelte`, which already tracks it reactively. Reading it here
+		 * instead meant calling `isPrivacyEnabled()`/`isPrivacySessionUnlocked()`, which read
+		 * a cookie and sessionStorage: not reactive, so the effect wrapping them had no
+		 * dependencies and ran exactly once, at mount. With privacy mode on the app always
+		 * starts *locked* behind PrivacyGate, so that one evaluation was always `false` and
+		 * unlocking never re-ran it — the button could not appear at all in a normal session,
+		 * and on Android the WebView never reloads to give it a second chance.
+		 */
+		privacyReady?: boolean;
 	} = $props();
 
 	let isOpen = $state(false);
@@ -29,20 +41,17 @@
 	/*
 	 * The privacy lock is otherwise keyboard-only, which strands touch-only devices: a
 	 * tablet has no way to fire the shortcut, so the session can never be locked on demand.
-	 * Show the button exactly where the shortcut cannot be typed.
+	 * Show the button exactly where the shortcut cannot be typed, and keep it live —
+	 * `IsTouchOnly` is backed by media queries, so pairing a mouse to a tablet removes the
+	 * button and unpairing brings it back without a reload.
 	 */
 	const touchOnly = new IsTouchOnly();
-	let privacyReady = $state(false);
 
 	const settingsUi = getSettingsUiContext();
 
 	$effect(() => {
 		showQuit = isTauriApp();
 		showDownloadApp = isPublicSiteDeployment();
-	});
-
-	$effect(() => {
-		privacyReady = isPrivacyEnabled() && isPrivacySessionUnlocked();
 	});
 
 	let showLock = $derived(Boolean(onLock) && privacyReady && touchOnly.current);

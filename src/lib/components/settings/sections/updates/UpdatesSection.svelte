@@ -14,7 +14,8 @@
 		runApkUpdate,
 		setAutoUpdateEnabled
 	} from '$lib/utils/auto-apk-update';
-	import { isTauriAndroidBuild } from '$lib/utils/offline-deployment';
+	import { canSelfInstall } from '$lib/utils/app-update';
+	import { openExternalUrl } from '$lib/utils/open-external';
 	import { Download, Loader2, RefreshCw, CheckCircle2 } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 
@@ -73,6 +74,10 @@
 
 	async function updateNow() {
 		if (!latest || updating) return;
+		if (!canSelfInstall()) {
+			await openExternalUrl(latest.releaseUrl).catch(() => {});
+			return;
+		}
 		updating = true;
 		try {
 			await runApkUpdate(latest);
@@ -88,10 +93,15 @@
 	{#if sectionMatches(searchQuery, 'update apk android download release github about version automatic latest installed')}
 		<section id="settings-section-updates-android" class="space-y-3">
 			<div>
-				<h3 class="text-sm font-medium">Android update</h3>
+				<h3 class="text-sm font-medium">App update</h3>
 				<p class="mt-1 text-xs text-muted-foreground">
-					Updates download in the background and open the installer when ready. Android always asks
-					you to confirm the install — that prompt can't be skipped.
+					{#if canSelfInstall()}
+						Updates download in the background and open the installer when ready. Android always
+						asks you to confirm the install — that prompt can't be skipped.
+					{:else}
+						This build can't install its own updates — a Flatpak is updated by
+						<code>flatpak update</code>. The version below is still checked against GitHub Releases.
+					{/if}
 				</p>
 			</div>
 
@@ -118,12 +128,18 @@
 							· {formatSize(latest.apkSize)}{/if}{#if latest.publishedAt}
 							· released {formatDate(latest.publishedAt)}{/if}
 					</p>
-					<a
-						href={latest.releaseUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-block text-xs underline underline-offset-2">View release notes</a
+					<!--
+						Not an <a target="_blank">. In the Tauri Android WebView that navigates the app's
+						own view away from tauri.localhost with no way back — the same trap the APK
+						download hit. openExternalUrl hands the URL to the OS browser instead.
+					-->
+					<button
+						type="button"
+						class="inline-block text-xs underline underline-offset-2"
+						onclick={() => void openExternalUrl(latest!.releaseUrl).catch(() => {})}
 					>
+						View release notes
+					</button>
 				{/if}
 			</div>
 
@@ -151,7 +167,13 @@
 						Updating…
 					{:else}
 						<Download class="mr-2 size-4" />
-						{ready ? `Download ${latest?.versionName}` : 'Up to date'}
+						{#if !ready}
+							Up to date
+						{:else if canSelfInstall()}
+							Download {latest?.versionName}
+						{:else}
+							View {latest?.versionName} release
+						{/if}
 					{/if}
 				</Button>
 				<Button
@@ -165,23 +187,20 @@
 				</Button>
 			</div>
 
-			<div class="flex items-center justify-between gap-3 pt-1">
-				<Label for="auto-apk-update" class="text-xs font-normal">
-					Download updates automatically
-				</Label>
-				<Switch
-					id="auto-apk-update"
-					checked={isAutoUpdateEnabled()}
-					disabled={busy}
-					onCheckedChange={(v) => setAutoUpdateEnabled(v)}
-				/>
-			</div>
-
-			{#if !isTauriAndroidBuild()}
-				<p class="text-xs text-muted-foreground">
-					In-app updates are Android-only. Flatpak updates come from <code>flatpak update</code>.
-				</p>
+			{#if canSelfInstall()}
+				<div class="flex items-center justify-between gap-3 pt-1">
+					<Label for="auto-apk-update" class="text-xs font-normal">
+						Download updates automatically
+					</Label>
+					<Switch
+						id="auto-apk-update"
+						checked={isAutoUpdateEnabled()}
+						disabled={busy}
+						onCheckedChange={(v) => setAutoUpdateEnabled(v)}
+					/>
+				</div>
 			{/if}
+
 			{#if error}
 				<p class="text-xs text-destructive">{error}</p>
 			{/if}

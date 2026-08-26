@@ -1,4 +1,5 @@
 mod apk_update;
+mod disguise;
 
 #[cfg(desktop)]
 mod tray;
@@ -483,7 +484,10 @@ pub fn run() {
       open_external_url,
       apk_update::download_and_install_apk,
       apk_update::can_install_apk,
-      apk_update::open_install_permission_settings
+      apk_update::open_install_permission_settings,
+      disguise::native_identity_target,
+      disguise::set_native_disguise,
+      disguise::clear_native_disguise
     ])
     .setup(|app| {
       if cfg!(debug_assertions) {

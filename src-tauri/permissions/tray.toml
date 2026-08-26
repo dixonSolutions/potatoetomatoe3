@@ -32,3 +32,8 @@ commands.allow = ["open_external_url"]
 identifier = "allow-apk-self-update"
 description = "Allow the frontend to download a verified release APK and hand it to the Android package installer"
 commands.allow = ["download_and_install_apk", "can_install_apk", "open_install_permission_settings"]
+
+[[permission]]
+identifier = "allow-native-identity"
+description = "Allow the frontend to mirror the privacy disguise onto the native window/task label and icon"
+commands.allow = ["native_identity_target", "set_native_disguise", "clear_native_disguise"]
