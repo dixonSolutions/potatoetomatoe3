@@ -270,6 +270,32 @@ function offlineShellFallback() {
 	);
 }
 
+/** Documents that are a game, not the app — they have their own routes further down. */
+function isGameDocumentPath(pathname) {
+	return (
+		pathname.indexOf('/browser-offline/') !== -1 ||
+		pathname.indexOf('/api/unity-play/') !== -1 ||
+		pathname.indexOf('/api/game-live/') !== -1 ||
+		/\/games\/[^/]+\/(online|offline)\//.test(pathname)
+	);
+}
+
+/**
+ * Only a top-level document is the app shell.
+ *
+ * `mode === 'navigate'` is also true for iframe loads, and every game on this origin
+ * plays in an iframe — so matching on mode alone caught the game's own document, cached
+ * its HTML under the shell key, and skipped the storage-bridge injection further down.
+ * `destination` is what separates a top-level document from a nested one (`iframe` /
+ * `frame`). The path check then covers a game document opened directly in a tab, where
+ * the destination legitimately is `document`.
+ */
+function isAppShellNavigation(request, url) {
+	if (request.method !== 'GET' || request.mode !== 'navigate') return false;
+	if (request.destination !== 'document') return false;
+	return !isGameDocumentPath(url.pathname);
+}
+
 /** Network-first: an updated deploy must win while there is a network to fetch it from. */
 function handleNavigation(request) {
 	return fetch(request)
@@ -535,7 +561,7 @@ self.addEventListener('fetch', function (event) {
 		return;
 	}
 
-	if (event.request.method === 'GET' && event.request.mode === 'navigate' && !isNativeShellHost()) {
+	if (!isNativeShellHost() && isAppShellNavigation(event.request, url)) {
 		event.respondWith(handleNavigation(event.request));
 		return;
 	}
