@@ -2,6 +2,19 @@
 	"build": {
 		"beforeBuildCommand": "node scripts/generate-games-list.js && PUBLIC_OFFLINE_DEPLOYMENT=local-app SKIP_PAGES_GAME_FALLBACKS=1 pnpm build && node scripts/slim-android-assets.mjs"
 	},
+	"app": {
+		"windows": [
+			{
+				"title": "Potato Tomato",
+				"width": 1280,
+				"height": 720,
+				"resizable": true,
+				"fullscreen": false,
+				"visible": true,
+				"userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
+			}
+		]
+	},
 	"bundle": {
 		"externalBin": [],
 		"resources": []

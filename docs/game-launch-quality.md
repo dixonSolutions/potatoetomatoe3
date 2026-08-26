@@ -334,6 +334,38 @@ adb forward tcp:9222 localabstract:webview_devtools_remote_$(adb shell pidof com
 `MainActivity` enables WebView debugging only for a launch that carries that extra, so an
 ordinary tap on the launcher icon never turns it on.
 
+### Legacy Unity titles hung at 0% behind an invisible popup
+
+Field test 2026-08-26, Galaxy Tab Active3. House of Hazards launched, showed its loading
+bar, and sat at **0%** forever. Not the network — the same URL hangs identically in
+Firefox on the device, with the app out of the picture — and not a missing asset; all
+three `.unityweb` files and the build JSON serve 200.
+
+Unity 2018-era `UnityLoader.js` runs a compatibility check and, when
+`UnityLoader.SystemInfo.mobile` is true, injects a confirm popup into the game container:
+
+> Please note that Unity WebGL is not currently supported on mobiles. Press OK if you
+> wish to continue anyway.
+
+`UnityLoader.instantiate` does not fetch the build until that OK is clicked. The game's
+own loader overlay (`#loader`, the 0% bar) is painted **on top** of the popup, so it is
+both invisible and unclickable. Reaching into the frame and clicking the button took the
+game from 0% to 100% immediately.
+
+The popup lives in a cross-origin frame (`abinbins.github.io`) nested inside the
+same-origin shell, so the app cannot script it away, and Android has no relay to proxy it
+same-origin. `SystemInfo.mobile` is derived from the user agent, so the fix is to stop the
+WebView looking like a phone: `userAgent` is set on the window in
+`tauri.android.conf.json`. Verified live — `mobile:false`, no popup, build fetched, 100%.
+
+This is scoped to `tauri.android.conf.json` on purpose. Desktop and Flatpak keep their
+real user agent; they have the relay and never tripped this check anyway.
+
+Safe because nothing in the app reads the user agent to decide it is mobile.
+`isTouchOnlyDevice()` uses `maxTouchPoints` + `(pointer: coarse)` + `(hover: hover)`, and
+`IsMobile` is a viewport-width media query — both are capability checks that a spoofed UA
+does not affect, so the touch console still auto-enables.
+
 ## Error reporting makes every failure look the same
 
 Two issues make diagnosis harder than it should be:
