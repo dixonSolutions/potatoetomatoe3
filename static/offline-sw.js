@@ -270,6 +270,20 @@ function offlineShellFallback() {
 	);
 }
 
+/**
+ * Games load in an iframe, and an iframe document is `mode: 'navigate'` just like a
+ * top-level load — only `destination` tells them apart. Treating a game as the shell would
+ * cache it under the shell key, so an offline reload would boot the game instead of the app
+ * holding it, and answering here would skip the storage-bridge injection the game routes do.
+ */
+function isAppShellNavigation(request) {
+	return (
+		request.method === 'GET' &&
+		request.mode === 'navigate' &&
+		request.destination === 'document'
+	);
+}
+
 /** Network-first: an updated deploy must win while there is a network to fetch it from. */
 function handleNavigation(request) {
 	return fetch(request)
@@ -535,7 +549,7 @@ self.addEventListener('fetch', function (event) {
 		return;
 	}
 
-	if (event.request.method === 'GET' && event.request.mode === 'navigate' && !isNativeShellHost()) {
+	if (isAppShellNavigation(event.request) && !isNativeShellHost()) {
 		event.respondWith(handleNavigation(event.request));
 		return;
 	}
