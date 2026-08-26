@@ -199,8 +199,11 @@ fn finish_install(app: &AppHandle, target: PathBuf) -> Result<String, String> {
   Ok(target.to_string_lossy().to_string())
 }
 
+/// Run `f` with a JNI env attached and MainActivity in hand.
+///
+/// Shared with `disguise.rs`, which needs the same hop for `setTaskDescription`.
 #[cfg(target_os = "android")]
-fn with_activity<T>(
+pub(crate) fn with_activity<T>(
   f: impl FnOnce(&mut jni::JNIEnv, &jni::objects::JObject) -> Result<T, String>,
 ) -> Result<T, String> {
   use jni::objects::JObject;

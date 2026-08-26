@@ -23,13 +23,17 @@ tauri-build = { version = "2.5.3", features = [] }
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 log = "0.4"
-tauri = { version = "2.9.4", features = ["devtools", "tray-icon"] }
+# `image-png` lets the privacy disguise turn the PNG the WebView rasterised into a
+# window/tray icon; without it `Image::from_bytes` is not compiled in.
+tauri = { version = "2.9.4", features = ["devtools", "tray-icon", "image-png"] }
 tauri-plugin-log = "2"
 tauri-plugin-shell = "2"
 # APK self-update: stream the release asset to disk with progress rather than handing
 # the URL to a browser. rustls avoids dragging in OpenSSL for the Android cross-build.
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "stream"] }
 futures-util = "0.3"
+# Disguise icons cross the IPC boundary as base64 PNG (a raw RGBA array would be ~1 MB of JSON).
+base64 = "0.22"
 tokio = { version = "1", features = ["fs", "io-util"] }
 
 # Firing the package-installer Intent needs a JNI hop into MainActivity; there is no

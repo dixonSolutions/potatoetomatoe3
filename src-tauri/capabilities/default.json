@@ -21,6 +21,7 @@
     "allow-tray-lifecycle",
     "allow-open-external-url",
     "allow-apk-self-update",
+    "allow-native-identity",
     "core:app:allow-version",
     "shell:default",
     {

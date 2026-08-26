@@ -34,9 +34,18 @@
 		REAL_APP_TITLE
 	} from '$lib/utils/privacy-mode';
 	import { getDecoyFaviconUrl } from '$lib/utils/privacy-disguise-registry';
+	import {
+		getNativeIdentityTarget,
+		syncNativeIdentity,
+		type NativeIdentityTarget
+	} from '$lib/utils/native-disguise';
 	import type { PrivacyDisguiseMode } from '$lib/utils/site-settings';
 	import { attachGlobalMediaMute } from '$lib/utils/audio-mute';
-	import { attachAppWindowFocusTracking } from '$lib/utils/app-window-focus';
+	import {
+		APP_WINDOW_FOCUS_CHANGED,
+		attachAppWindowFocusTracking,
+		isAppWindowFocused
+	} from '$lib/utils/app-window-focus';
 	import { attachGameStorageBridge } from '$lib/utils/game-storage-bridge';
 	import { GAME_IMMERSIVE_CHANGED } from '$lib/utils/game-immersive';
 	import {
@@ -87,6 +96,12 @@
 	/** Tab in background — used when disguise mode is "focus loss" (Google Docs tab while away). */
 	/** Assume visible for first paint to match SSR; real state applied in onMount (tab hidden is client-only). */
 	let tabHidden = $state(false);
+	/*
+	 * Real OS window focus, not `document.visibilityState`. A desktop window that is merely
+	 * behind another one stays "visible", so `tabHidden` never flips on alt-tab — which is
+	 * exactly when the taskbar entry is the only thing anyone can see of this app.
+	 */
+	let appWindowFocused = $state(true);
 	let privacyBootstrapReady = $state(false);
 	let playLimitLocked = $state(false);
 	let playLimitToastIssued = $state(false);
@@ -150,6 +165,36 @@
 	const activeFaviconType = $derived(
 		activeFavicon.includes('.png') ? 'image/png' : 'image/svg+xml'
 	);
+
+	/**
+	 * The same disguise, applied to the surfaces a `<svelte:head>` cannot reach: the Android
+	 * recents card, and on desktop the window title, taskbar entry and tray.
+	 *
+	 * Android is disguised as though the app were *already* hidden. `TaskDescription` is
+	 * only ever read from the recents card, and the system can snapshot that as the app
+	 * pauses — waiting for `visibilitychange` to fire on the way out is a race the disguise
+	 * loses, leaving the real name on the card.
+	 *
+	 * A desktop window title has no snapshot, so `focus_loss` can be honoured literally
+	 * there — but off real OS focus rather than `tabHidden`. A window sitting behind another
+	 * one is still `visibilityState === 'visible'`, so alt-tabbing away would otherwise
+	 * leave "Potato Tomato Games" in the taskbar, which is the whole surface being hidden.
+	 */
+	let nativeIdentityTarget = $state<NativeIdentityTarget | null>(null);
+
+	const nativeIdentity = $derived.by(() => {
+		if (!browser || !privacyBootstrapReady || !nativeIdentityTarget) return null;
+		const hidden = nativeIdentityTarget === 'task' ? true : tabHidden || !appWindowFocused;
+		const disguised = shouldShowDecoyTab(
+			privacyDisguiseMode,
+			privacyEnabled,
+			privacyUnlocked,
+			hidden
+		);
+		return disguised
+			? { label: decoyTitle, icon: decoyFavicon, disguised: true }
+			: { label: REAL_APP_TITLE, icon: favicon, disguised: false };
+	});
 
 	function refreshPrivacyState() {
 		const enabled = isPrivacyEnabled();
@@ -239,6 +284,11 @@
 		}
 	}
 
+	function onAppWindowFocusForNativeIdentity(e: Event) {
+		const detail = (e as CustomEvent<{ focused?: boolean }>).detail;
+		appWindowFocused = detail?.focused ?? true;
+	}
+
 	function onWindowFocusForPrivacy() {
 		if (document.visibilityState === 'visible') {
 			clearLockDelayTimer();
@@ -268,6 +318,19 @@
 	afterNavigate(() => {
 		if (!browser) return;
 		clearVisibilityHiddenDebounce();
+	});
+
+	$effect(() => {
+		if (!browser || !isTauriApp()) return;
+		void getNativeIdentityTarget().then((target) => {
+			nativeIdentityTarget = target;
+		});
+	});
+
+	$effect(() => {
+		const identity = nativeIdentity;
+		if (!identity) return;
+		void syncNativeIdentity(identity.label, identity.icon, identity.disguised);
 	});
 
 	function refreshPlayLimitLock() {
@@ -320,6 +383,7 @@
 
 		const detachMediaMute = attachGlobalMediaMute(document);
 		let detachAppFocus: (() => void) | undefined;
+		appWindowFocused = isAppWindowFocused();
 		void attachAppWindowFocusTracking().then((unlisten) => {
 			detachAppFocus = unlisten;
 		});
@@ -371,6 +435,7 @@
 		document.addEventListener('fullscreenchange', onFullscreenChange);
 		document.addEventListener('webkitfullscreenchange', onFullscreenChange);
 
+		window.addEventListener(APP_WINDOW_FOCUS_CHANGED, onAppWindowFocusForNativeIdentity);
 		window.addEventListener('keydown', onPrivacyKeydown);
 		window.addEventListener('focus', onWindowFocusForPrivacy);
 		document.addEventListener('visibilitychange', onVisibilityChangeForPrivacy);
@@ -397,6 +462,7 @@
 				'potato-tomato-privacy-settings-applied',
 				onPrivacySettingsAppliedForTimers
 			);
+			window.removeEventListener(APP_WINDOW_FOCUS_CHANGED, onAppWindowFocusForNativeIdentity);
 			window.removeEventListener('keydown', onPrivacyKeydown);
 			window.removeEventListener('focus', onWindowFocusForPrivacy);
 			window.removeEventListener('focus', onFocusSyncTray);
@@ -453,7 +519,11 @@
 			class="min-h-screen"
 			inert={privacyEnabled && !privacyUnlocked ? true : playLimitLocked ? true : undefined}
 		>
-			<TopBar hidden={gameImmersive} onLock={applyPrivacyLock} />
+			<TopBar
+				hidden={gameImmersive}
+				onLock={applyPrivacyLock}
+				privacyReady={privacyEnabled && privacyUnlocked}
+			/>
 			{#if children}
 				{@render children()}
 			{/if}

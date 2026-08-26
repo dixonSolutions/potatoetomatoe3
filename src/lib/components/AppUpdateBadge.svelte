@@ -1,22 +1,27 @@
 <script lang="ts">
 	/**
-	 * Android-only version indicator for the top bar.
+	 * Version indicator for the top bar, on every packaged build.
 	 *
-	 * Shows the running version at a glance, and turns into an update button carrying a
-	 * badge of how many releases behind this build is. Renders nothing anywhere else —
-	 * Flatpak updates are system-managed and the public site has no version to report.
+	 * Shows the running version at a glance, and turns into an update control carrying a
+	 * badge of how many releases behind this build is. Knowing what you run and that a
+	 * newer release exists is useful on desktop too; only the action differs — Android
+	 * downloads and installs, desktop opens the release, because a Flatpak cannot install
+	 * itself from inside its own sandbox. Renders nothing on the public site, which has no
+	 * version to report.
 	 */
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Download, Loader2 } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import {
+		canSelfInstall,
 		fetchLatestApkRelease,
 		getInstalledVersion,
 		versionsBehind,
 		type LatestApkRelease
 	} from '$lib/utils/app-update';
 	import { runApkUpdate } from '$lib/utils/auto-apk-update';
-	import { isTauriAndroidBuild } from '$lib/utils/offline-deployment';
+	import { openExternalUrl } from '$lib/utils/open-external';
+	import { isTauriApp } from '$lib/utils/offline-deployment';
 
 	let { compact = false }: { compact?: boolean } = $props();
 
@@ -25,10 +30,10 @@
 	let updating = $state(false);
 
 	let behind = $derived(installed && latest ? versionsBehind(installed, latest.versionName) : 0);
-	let show = $derived(isTauriAndroidBuild() && Boolean(installed));
+	let show = $derived(isTauriApp() && Boolean(installed));
 
 	onMount(() => {
-		if (!isTauriAndroidBuild()) return;
+		if (!isTauriApp()) return;
 		void getInstalledVersion().then((v) => (installed = v));
 		/*
 		 * Best-effort: a filtered network or a rate-limited GitHub API just means no badge.
@@ -41,6 +46,11 @@
 
 	async function updateNow() {
 		if (!latest || updating) return;
+		/* Desktop cannot apply the update itself — show the user where it lives instead. */
+		if (!canSelfInstall()) {
+			await openExternalUrl(latest.releaseUrl).catch(() => {});
+			return;
+		}
 		updating = true;
 		try {
 			await runApkUpdate(latest);
@@ -60,7 +70,7 @@
 			variant="outline"
 			size={compact ? 'icon' : 'sm'}
 			class="relative"
-			aria-label={`Update to ${latest?.versionName} — ${behind} ${behind === 1 ? 'release' : 'releases'} behind`}
+			aria-label={`${canSelfInstall() ? 'Update to' : 'View release'} ${latest?.versionName} — ${behind} ${behind === 1 ? 'release' : 'releases'} behind`}
 			title={`Installed ${installed} · latest ${latest?.versionName}`}
 		>
 			{#if updating}
@@ -69,7 +79,7 @@
 				<Download class="h-4 w-4" />
 			{/if}
 			{#if !compact}
-				<span class="ml-2">Update</span>
+				<span class="ml-2">{canSelfInstall() ? 'Update' : 'New version'}</span>
 			{/if}
 			{#if !updating}
 				<span

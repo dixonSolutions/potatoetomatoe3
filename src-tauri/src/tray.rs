@@ -2,10 +2,12 @@
 //! Window close hides to tray; Quit exits the app (and puller sidecar).
 
 use std::sync::Mutex;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use serde::Deserialize;
 use tauri::{
   AppHandle, Emitter, Manager, Runtime,
+  image::Image,
   menu::{Menu, MenuItem, PredefinedMenuItem},
   tray::{TrayIconBuilder, TrayIconEvent},
 };
@@ -22,6 +24,16 @@ pub struct TrayGame {
 pub struct TrayMenuState {
   recent_ids: Mutex<[Option<String>; RECENT_SLOTS]>,
   recent_items: [MenuItem<tauri::Wry>; RECENT_SLOTS],
+  /* Items whose text names the app or its content, so the disguise has to reach them. */
+  header: MenuItem<tauri::Wry>,
+  recent_label: MenuItem<tauri::Wry>,
+  quit: MenuItem<tauri::Wry>,
+  /*
+   * The frontend syncs recent games on navigation, which will not happen again just
+   * because the disguise lifted. Keep the last list so the menu can be restored from it.
+   */
+  last_games: Mutex<Vec<TrayGame>>,
+  disguised: AtomicBool,
 }
 
 fn truncate_label(name: &str, max_chars: usize) -> String {
@@ -107,6 +119,11 @@ pub fn build_tray(app: &AppHandle) -> tauri::Result<()> {
   app.manage(TrayMenuState {
     recent_ids: Mutex::new(std::array::from_fn(|_| None)),
     recent_items: recent_items.clone(),
+    header: header.clone(),
+    recent_label: recent_label.clone(),
+    quit: quit.clone(),
+    last_games: Mutex::new(Vec::new()),
+    disguised: AtomicBool::new(false),
   });
 
   let icon = app
@@ -173,12 +190,7 @@ pub fn build_tray(app: &AppHandle) -> tauri::Result<()> {
   Ok(())
 }
 
-#[tauri::command]
-pub fn sync_tray_recent(app: AppHandle, games: Vec<TrayGame>) -> Result<(), String> {
-  let state = app
-    .try_state::<TrayMenuState>()
-    .ok_or_else(|| "Tray not initialized".to_string())?;
-
+fn render_recent(state: &TrayMenuState, games: &[TrayGame]) -> Result<(), String> {
   let mut ids = state
     .recent_ids
     .lock()
@@ -207,4 +219,66 @@ pub fn sync_tray_recent(app: AppHandle, games: Vec<TrayGame>) -> Result<(), Stri
   }
 
   Ok(())
+}
+
+#[tauri::command]
+pub fn sync_tray_recent(app: AppHandle, games: Vec<TrayGame>) -> Result<(), String> {
+  let state = app
+    .try_state::<TrayMenuState>()
+    .ok_or_else(|| "Tray not initialized".to_string())?;
+
+  if let Ok(mut last) = state.last_games.lock() {
+    *last = games.clone();
+  }
+
+  /* Hold the list back rather than painting game titles into a disguised menu. */
+  if state.disguised.load(Ordering::SeqCst) {
+    return Ok(());
+  }
+
+  render_recent(&state, &games)
+}
+
+/// Point the tray at the privacy disguise (`Some(icon_png)`), or back at the real app.
+///
+/// Without this the tray is the loudest remaining leak on Linux: an icon of a potato in
+/// the panel, and behind it a menu headed "Potato Tomato" listing the games just played —
+/// considerably more specific than the window title this accompanies.
+///
+/// The recent list is emptied rather than relabelled. There is no believable Google Docs
+/// equivalent of five game names, and inventing one would be worse than an empty menu.
+pub fn apply_disguise(app: &AppHandle, label: &str, icon_png: Option<&[u8]>) {
+  let disguised = icon_png.is_some();
+
+  if let Some(tray) = app.tray_by_id(TRAY_ID) {
+    let _ = tray.set_tooltip(Some(label));
+    match icon_png {
+      Some(png) => {
+        if let Ok(image) = Image::from_bytes(png) {
+          let _ = tray.set_icon(Some(image));
+        }
+      }
+      None => {
+        let _ = tray.set_icon(app.default_window_icon().cloned());
+      }
+    }
+  }
+
+  let Some(state) = app.try_state::<TrayMenuState>() else {
+    return;
+  };
+  state.disguised.store(disguised, Ordering::SeqCst);
+  let _ = state.header.set_text(label);
+  let _ = state.quit.set_text(format!("Quit {label}"));
+  /* "Recent games" names the content even when every slot is blank. */
+  let _ = state
+    .recent_label
+    .set_text(if disguised { "Recent" } else { "Recent games" });
+
+  let games = if disguised {
+    Vec::new()
+  } else {
+    state.last_games.lock().map(|g| g.clone()).unwrap_or_default()
+  };
+  let _ = render_recent(&state, &games);
 }

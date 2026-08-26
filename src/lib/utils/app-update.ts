@@ -186,15 +186,30 @@ export async function downloadAndInstallApk(
 }
 
 /**
- * True when this build can self-update: Android only, and only when the latest release is
- * actually newer than what is installed.
+ * Latest release compared against what is installed, on any packaged build.
+ *
+ * Reporting a version and noticing that a newer release exists is useful on every
+ * platform; only *installing* is platform-bound. Desktop callers use this to link at the
+ * release, Android to download it. Returns null when the question cannot be answered —
+ * a browser build, no readable version, or an unreachable API.
  */
 export async function findPendingUpdate(signal?: AbortSignal): Promise<LatestApkRelease | null> {
-	if (!isTauriAndroidBuild()) return null;
+	if (!isTauriApp()) return null;
 	const installed = await getInstalledVersion();
 	if (!installed) return null;
 	const latest = await fetchLatestApkRelease(signal);
 	return compareVersions(latest.versionName, installed) > 0 ? latest : null;
+}
+
+/**
+ * True only where the app can install the update itself.
+ *
+ * Android can hand an APK to the package installer. A Flatpak cannot install itself from
+ * inside its own sandbox — that is `flatpak update`'s job — so desktop builds surface the
+ * release instead of pretending to apply it.
+ */
+export function canSelfInstall(): boolean {
+	return isTauriAndroidBuild();
 }
 
 /** Open this app's Android "install unknown apps" toggle. */
