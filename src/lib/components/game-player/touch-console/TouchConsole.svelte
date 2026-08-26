@@ -20,9 +20,9 @@
 	import {
 		emptyKeyProfile,
 		keyProfileCodes,
-		keyProfileConfidence,
 		keyProfileSaysNoKeyboard,
 		observeKeyProfile,
+		planControlVisibility,
 		type KeyProfile
 	} from '$lib/utils/key-profile';
 	import {
@@ -101,7 +101,6 @@
 		wasd: ['KeyW', 'KeyA', 'KeyS', 'KeyD']
 	};
 
-	const profileConfidence = $derived(keyProfileConfidence(appliedProfile));
 	const profileCodes = $derived(keyProfileCodes(appliedProfile));
 	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(appliedProfile));
 	/*
@@ -120,7 +119,7 @@
 	 * `KeyW` is not a reason to silently move the stick off the arrows the player chose.
 	 */
 	const detectedScheme = $derived.by<TouchJoystickScheme | null>(() => {
-		if (profileConfidence !== 'strong') return null;
+		if (appliedProfile.declared.length === 0) return null;
 		const arrows = DIRECTION_CODES.arrows.some((c) => profileCodes.has(c));
 		const wasd = DIRECTION_CODES.wasd.some((c) => profileCodes.has(c));
 		if (arrows === wasd) return null;
@@ -137,29 +136,25 @@
 			: directionsForJoystickScheme(effectiveScheme)
 	);
 
-	/**
-	 * How much to trust the profile when deciding a control earns its place.
-	 *
-	 * `hide` is reserved for `strong` evidence — the game published its control list, so a
-	 * key missing from it really is unused. Source scanning can only ever fade a control:
-	 * Unity and other wasm engines route every key through one opaque handler, so absence
-	 * of a code there means nothing at all.
-	 */
-	function controlFate(codes: TouchKeyCode[]): 'show' | 'dim' | 'hide' {
-		if (!codes.length || profileConfidence === 'none') return 'show';
-		if (codes.some((c) => profileCodes.has(c))) return 'show';
-		return profileConfidence === 'strong' ? 'hide' : 'dim';
-	}
-
 	/** False on Tauri mobile, which ships no sidecar — so hints must not mention one. */
 	const pullerSupported = $derived(shouldProbePullerBackend());
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
-	const joystickFate = $derived(controlFate([...DIRECTION_CODES[effectiveScheme]]));
+	/*
+	 * One plan for the whole console, not a test per control: the "never leave it empty"
+	 * floor in planControlVisibility can only be applied once every control has been judged.
+	 */
+	const JOYSTICK_ID = '__joystick';
+	const visibilityPlan = $derived(
+		planControlVisibility(appliedProfile, [
+			{ id: JOYSTICK_ID, codes: [...DIRECTION_CODES[effectiveScheme]] },
+			...layout.buttons.map((b) => ({ id: b.id, codes: buttonCodes(b.id) }))
+		])
+	);
+	const joystickFate = $derived(visibilityPlan[JOYSTICK_ID] ?? 'show');
 	const hiddenControlCount = $derived(
-		layout.buttons.filter((b) => controlFate(buttonCodes(b.id)) === 'hide').length +
-			(joystickFate === 'hide' ? 1 : 0)
+		Object.values(visibilityPlan).filter((fate) => fate === 'hide').length
 	);
 	const canOfferChrome = $derived(
 		config.enabled &&
@@ -804,7 +799,7 @@
 			{/if}
 
 			{#each layout.buttons as btn (btn.id)}
-				{@const fate = controlFate(buttonCodes(btn.id))}
+				{@const fate = visibilityPlan[btn.id] ?? 'show'}
 				{#if fate !== 'hide'}
 					<div
 						class="absolute"

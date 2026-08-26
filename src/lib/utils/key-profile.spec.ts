@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+	planControlVisibility,
 	emptyKeyProfile,
 	keyProfileCodes,
 	keyProfileConfidence,
@@ -112,5 +113,43 @@ describe('keyProfileSaysNoKeyboard', () => {
 		let profile = mergeKeyProfile(emptyKeyProfile('g'), report({ listens: false }), 1);
 		profile = mergeKeyProfile(profile, report({ listens: true }), 2);
 		expect(keyProfileSaysNoKeyboard(profile)).toBe(false);
+	});
+});
+
+describe('planControlVisibility', () => {
+	const DEFAULTS = [
+		{ id: '__joystick', codes: ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'] },
+		{ id: 'a', codes: ['KeyZ'] },
+		{ id: 'b', codes: ['Enter'] },
+		{ id: 'space', codes: ['Space'] }
+	];
+
+	it('leaves everything alone when nothing has been reported', () => {
+		const plan = planControlVisibility(emptyKeyProfile('g'), DEFAULTS);
+		expect(Object.values(plan).every((f) => f === 'show')).toBe(true);
+	});
+
+	it('hides what a declared control list does not mention', () => {
+		const profile = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({ declared: ['Space', 'ArrowLeft'] }),
+			1
+		);
+		const plan = planControlVisibility(profile, DEFAULTS);
+		expect(plan).toEqual({ __joystick: 'show', a: 'hide', b: 'hide', space: 'show' });
+	});
+
+	it('only fades when the evidence is an inferred source scan', () => {
+		const profile = mergeKeyProfile(emptyKeyProfile('g'), report({ inferred: ['Space'] }), 1);
+		const plan = planControlVisibility(profile, DEFAULTS);
+		expect(plan).toEqual({ __joystick: 'dim', a: 'dim', b: 'dim', space: 'show' });
+	});
+
+	it('never empties the console — a trim that hides everything is a parse error', () => {
+		/* KeyA is what "tap a key" used to parse to: strong evidence matching no control. */
+		const profile = mergeKeyProfile(emptyKeyProfile('g'), report({ declared: ['KeyA'] }), 1);
+		const plan = planControlVisibility(profile, DEFAULTS);
+		expect(Object.values(plan)).not.toContain('hide');
+		expect(Object.values(plan).every((f) => f === 'dim')).toBe(true);
 	});
 });

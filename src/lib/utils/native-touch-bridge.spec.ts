@@ -29,6 +29,11 @@ type Frame = {
 	reports: Report[];
 	/** Register a key handler the way a game would, so the wrapper sees its source. */
 	bindKeyHandler: (source: string) => void;
+	/** Assign one the old way, via the `onkeydown` IDL attribute. */
+	assignHandlerProp: (source: string) => unknown;
+	/** What the native IDL setter actually received. */
+	wiredHandler: () => unknown;
+	document: { onkeydown: unknown };
 	/** Run every pending timer callback due within `ms`, repeatedly until quiet. */
 	flush: (ms: number) => void;
 	navigator: { maxTouchPoints: number };
@@ -67,16 +72,42 @@ function runBridge(options: {
 		}
 	}
 
+	/*
+	 * `onkeydown` is an IDL attribute: the real setter is what wires the handler to the
+	 * event loop. Model it as a genuine accessor pair on a prototype so the spec can prove
+	 * the bridge forwards to it instead of swallowing the assignment.
+	 */
+	const wired: Record<string, unknown> = {};
+	function withHandlerProps<T extends object>(obj: T, label: string): T {
+		const proto = Object.create(Object.getPrototypeOf(obj) as object);
+		for (const prop of ['onkeydown', 'onkeyup']) {
+			Object.defineProperty(proto, prop, {
+				configurable: true,
+				get() {
+					return wired[label + '.' + prop] ?? null;
+				},
+				set(fn: unknown) {
+					wired[label + '.' + prop] = fn;
+				}
+			});
+		}
+		Object.setPrototypeOf(obj, proto);
+		return obj;
+	}
+
 	const scripts = (options.scripts ?? []).map((textContent) => ({ textContent }));
-	const documentStub = {
-		readyState: 'complete',
-		body: null,
-		documentElement: null,
-		addEventListener: () => {},
-		getElementsByTagName: () => scripts,
-		querySelector: () => null,
-		querySelectorAll: () => [] as unknown[]
-	};
+	const documentStub = withHandlerProps(
+		{
+			readyState: 'complete',
+			body: null,
+			documentElement: null,
+			addEventListener: () => {},
+			getElementsByTagName: () => scripts,
+			querySelector: () => null,
+			querySelectorAll: () => [] as unknown[]
+		},
+		'document'
+	);
 
 	const top = { postMessage: (data: Report) => reports.push(data) };
 	const windowStub: Record<string, unknown> = {
@@ -93,6 +124,8 @@ function runBridge(options: {
 		parent: top,
 		top
 	};
+
+	withHandlerProps(windowStub, 'window');
 
 	const navigatorStub = { maxTouchPoints: 5, userAgent: 'stub' };
 
@@ -125,6 +158,13 @@ function runBridge(options: {
 	return {
 		reports,
 		navigator: navigatorStub,
+		document: documentStub as unknown as { onkeydown: unknown },
+		wiredHandler: () => wired['document.onkeydown'],
+		assignHandlerProp(source: string) {
+			const handler = new Function('e', source);
+			(documentStub as unknown as { onkeydown: unknown }).onkeydown = handler;
+			return handler;
+		},
 		bindKeyHandler(source: string) {
 			const handler = new Function('e', source);
 			new FakeEventTarget().addEventListener('keydown', handler);
@@ -168,6 +208,33 @@ describe('native touch bridge — key usage detection', () => {
 		]);
 	});
 
+	const declaredFrom = (text: string) => {
+		const frame = runBridge({
+			hostname: 'games.crazygames.com',
+			scripts: [`var options = {"controls":{"text":${JSON.stringify(text)}}};`]
+		});
+		frame.flush(1000);
+		return latest(frame)?.declared ?? [];
+	};
+
+	it('does not mistake ordinary English in a control blurb for a key', () => {
+		/* Each of these declared a stray code once, and a stray declared code hides controls. */
+		expect(declaredFrom('Tap a key to begin.')).not.toContain('KeyA');
+		expect(declaredFrom('Collect a key to open doors.')).not.toContain('KeyA');
+		expect(declaredFrom('Press a key to start.')).not.toContain('KeyA');
+		/* A numbered step list uses the same dash a binding would. */
+		expect(declaredFrom('1 - move with the mouse')).not.toContain('Digit1');
+	});
+
+	it('still reads the shapes a real control list uses', () => {
+		expect(declaredFrom('Hold the R key to reload.')).toContain('KeyR');
+		expect(declaredFrom('Press e to interact.')).toContain('KeyE');
+		expect(declaredFrom('Press A to jump.')).toContain('KeyA');
+		expect(declaredFrom('The B key blocks.')).toContain('KeyB');
+		expect(declaredFrom('E = interact')).toContain('KeyE');
+		expect(declaredFrom('1 = pistol')).toContain('Digit1');
+	});
+
 	it('reads codes out of the key handlers a game registers', () => {
 		const frame = runBridge({ hostname: 'game.example.test' });
 		frame.bindKeyHandler('if (e.code === "KeyE") return 1; if (e.keyCode === 32) return 2;');
@@ -189,6 +256,20 @@ describe('native touch bridge — key usage detection', () => {
 		expect(report?.inferred).not.toContain('KeyS');
 		expect(report?.inferred).not.toContain('KeyR');
 		expect(report?.listens).toBe(true);
+	});
+
+	it('still wires up a handler assigned the old way, via document.onkeydown', () => {
+		const frame = runBridge({ hostname: 'game.example.test' });
+		const handler = frame.assignHandlerProp('if (e.code === "KeyF") return 1;');
+		frame.flush(1000);
+		/*
+		 * The regression this guards: an accessor that only stored the function for
+		 * scanning left the game deaf to every key, from a real keyboard and from the
+		 * console alike. The native IDL setter has to see it.
+		 */
+		expect(frame.wiredHandler()).toBe(handler);
+		expect(frame.document.onkeydown).toBe(handler);
+		expect(latest(frame)?.inferred).toContain('KeyF');
 	});
 
 	it('reports that nothing listens, so the console can say so', () => {

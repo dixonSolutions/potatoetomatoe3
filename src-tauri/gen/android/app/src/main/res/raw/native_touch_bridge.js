@@ -462,15 +462,22 @@
 	 * never reported at all.
 	 */
 
-	/* Codes the console can actually emit. Anything outside this is noise to us. */
+	/*
+	 * Codes the console can emit. Anything outside this is noise to us.
+	 *
+	 * Every letter is here, not just the ones the default layout uses: a player can rebind
+	 * a button to any key, and a code missing from this list would be dropped from the
+	 * declared set — which, since declared evidence hides unused controls, would hide the
+	 * very button they bound.
+	 */
 	var EMITTABLE = {
 		ArrowUp: 1, ArrowDown: 1, ArrowLeft: 1, ArrowRight: 1,
-		KeyW: 1, KeyA: 1, KeyS: 1, KeyD: 1,
 		Space: 1, Enter: 1, Escape: 1, ShiftLeft: 1, ControlLeft: 1,
-		KeyQ: 1, KeyE: 1, KeyR: 1, KeyF: 1, KeyC: 1, KeyV: 1, KeyX: 1, KeyZ: 1,
-		KeyJ: 1, KeyK: 1, KeyL: 1, KeyM: 1, KeyN: 1, KeyP: 1,
-		Digit1: 1, Digit2: 1, Digit3: 1, Digit4: 1, Digit5: 1,
-		Digit6: 1, Digit7: 1, Digit8: 1, Digit9: 1, Digit0: 1
+		KeyA: 1, KeyB: 1, KeyC: 1, KeyD: 1, KeyE: 1, KeyF: 1, KeyG: 1, KeyH: 1, KeyI: 1,
+		KeyJ: 1, KeyK: 1, KeyL: 1, KeyM: 1, KeyN: 1, KeyO: 1, KeyP: 1, KeyQ: 1, KeyR: 1,
+		KeyS: 1, KeyT: 1, KeyU: 1, KeyV: 1, KeyW: 1, KeyX: 1, KeyY: 1, KeyZ: 1,
+		Digit0: 1, Digit1: 1, Digit2: 1, Digit3: 1, Digit4: 1,
+		Digit5: 1, Digit6: 1, Digit7: 1, Digit8: 1, Digit9: 1
 	};
 
 	var CODE_BY_KEYCODE = {
@@ -543,7 +550,8 @@
 	/* Portal control blurbs are written for people, so read them like a person would. */
 	function scanProse(text, into) {
 		if (!text) return;
-		var t = String(text).toLowerCase();
+		var raw = String(text);
+		var t = raw.toLowerCase();
 		var add = function (list) {
 			for (var i = 0; i < list.length; i++) if (EMITTABLE[list[i]]) into[list[i]] = 1;
 		};
@@ -557,19 +565,31 @@
 		if (/\bshift\b/.test(t)) add(['ShiftLeft']);
 		if (/\bctrl\b|\bcontrol key\b/.test(t)) add(['ControlLeft']);
 		/*
-		 * "F key", "E = interact", "1 = pistol" — a single letter named as a key.
+		 * "Press E", "the R key", "1 = pistol" — a single letter named as a key.
 		 *
-		 * What follows the letter is the whole signal, so it has to be specific: "letter,
-		 * punctuation, word" on its own is just English. "collect a key to open doors"
-		 * would declare KeyA and the step list "1 - move with the mouse" would declare
-		 * Digit1, and a declared code is strong evidence — one stray letter hides every
-		 * control the blurb happens not to name. So the article is never the A key, and a
-		 * digit needs an explicit `=` rather than the dash a numbered list uses too.
+		 * Three narrow shapes, because "letter, punctuation, word" on its own is just
+		 * English, and a declared code is strong evidence: one stray letter hides every
+		 * control the blurb happens not to name — the joystick and the whole face pad.
+		 *
+		 *   after press/hold/tap   the verb is the signal, so either case is trusted
+		 *   a capital letter       case is what separates "the A key" from the article in
+		 *                          "collect a key to open doors", and it only survives in
+		 *                          the original text, not the lowercased copy
+		 *   a digit before "="     a numbered step list uses the dash too ("1 - move with
+		 *                          the mouse"), so digits need the explicit binding form
+		 *
+		 * Lowercase standalone "a" is dropped even behind the verb, because "press a key to
+		 * start" and "tap a key" are the two commonest sentences in a control blurb.
+		 *
+		 * Erring towards missing a key is deliberate — an unused button on screen is the
+		 * cheap mistake, removing the right ones is the expensive one.
 		 */
-		var re = /\b(?!a\s+key\b)([a-z0-9])\b\s*(?:key\b|=\s*\w)|\b([a-z])\b\s*[:–—-]\s*\w/g;
+		var re =
+			/(?:\b[Pp]ress\s+|\b[Hh]old\s+|\b[Tt]ap\s+)([A-Za-z0-9])\b|\b([A-Z])\b\s*(?:[Kk]ey\b|[=:\u2013\u2014-]\s*\w)|\b([0-9])\b\s*=\s*\w/g;
 		var m;
-		while ((m = re.exec(t))) {
-			var ch = m[1] || m[2];
+		while ((m = re.exec(raw))) {
+			var ch = m[1] || m[2] || m[3];
+			if (!ch || ch === 'a') continue;
 			var code = ch >= '0' && ch <= '9' ? 'Digit' + ch : 'Key' + ch.toUpperCase();
 			if (EMITTABLE[code]) into[code] = 1;
 		}
@@ -664,7 +684,7 @@
 							scheduleReport();
 						}
 					} catch (e) {
-						/* ignore */
+						/* observation must never cost the assignment */
 					}
 				}
 			});

@@ -12,35 +12,50 @@
  * allow-list, and array lengths are capped before anything reaches the UI.
  */
 
-/** Codes the console can emit. Anything else in a report is discarded. */
+/**
+ * Codes the console can emit. Anything else in a report is discarded.
+ *
+ * Kept in step with `EMITTABLE` in the native bridge. Every letter is listed because a
+ * player can rebind a button to any key, and dropping a code here would drop it from the
+ * declared set — which is the evidence that decides what gets hidden.
+ */
 const EMITTABLE = new Set([
 	'ArrowUp',
 	'ArrowDown',
 	'ArrowLeft',
 	'ArrowRight',
-	'KeyW',
-	'KeyA',
-	'KeyS',
-	'KeyD',
 	'Space',
 	'Enter',
 	'Escape',
 	'ShiftLeft',
 	'ControlLeft',
-	'KeyQ',
-	'KeyE',
-	'KeyR',
-	'KeyF',
+	'KeyA',
+	'KeyB',
 	'KeyC',
-	'KeyV',
-	'KeyX',
-	'KeyZ',
+	'KeyD',
+	'KeyE',
+	'KeyF',
+	'KeyG',
+	'KeyH',
+	'KeyI',
 	'KeyJ',
 	'KeyK',
 	'KeyL',
 	'KeyM',
 	'KeyN',
+	'KeyO',
 	'KeyP',
+	'KeyQ',
+	'KeyR',
+	'KeyS',
+	'KeyT',
+	'KeyU',
+	'KeyV',
+	'KeyW',
+	'KeyX',
+	'KeyY',
+	'KeyZ',
+	'Digit0',
 	'Digit1',
 	'Digit2',
 	'Digit3',
@@ -49,8 +64,7 @@ const EMITTABLE = new Set([
 	'Digit6',
 	'Digit7',
 	'Digit8',
-	'Digit9',
-	'Digit0'
+	'Digit9'
 ]);
 
 const MAX_CODES = 40;
@@ -192,6 +206,53 @@ export function keyProfileCodes(profile: KeyProfile): Set<string> {
  */
 export function keyProfileSaysNoKeyboard(profile: KeyProfile): boolean {
 	return profile.frames > 0 && !profile.listens && keyProfileCodes(profile).size === 0;
+}
+
+/** What the console should do with one control, given what the profile knows. */
+export type ControlFate = 'show' | 'dim' | 'hide';
+
+export type ControlSpec = { id: string; codes: string[] };
+
+/**
+ * Decide the fate of every console control in one pass.
+ *
+ * It has to be one pass rather than a per-control test, because of the floor at the end:
+ * a verdict that would leave nothing on screen is not a finding, it is a parse error.
+ * Declared codes come from prose written for people, and prose parsing will eventually
+ * misread something — one bogus code that matches no control at all would make every
+ * button and the joystick qualify as unused, and the console would render empty. No real
+ * game has an empty control scheme, so that outcome drops the whole trim back to fading.
+ * It costs nothing when the parse is right, because then something always matches.
+ */
+export function planControlVisibility(
+	profile: KeyProfile,
+	controls: ControlSpec[]
+): Record<string, ControlFate> {
+	const confidence = keyProfileConfidence(profile);
+	const codes = keyProfileCodes(profile);
+	const plan: Record<string, ControlFate> = {};
+	let anyShown = false;
+
+	for (const control of controls) {
+		if (!control.codes.length || confidence === 'none') {
+			plan[control.id] = 'show';
+			anyShown = true;
+			continue;
+		}
+		if (control.codes.some((c) => codes.has(c))) {
+			plan[control.id] = 'show';
+			anyShown = true;
+			continue;
+		}
+		plan[control.id] = confidence === 'strong' ? 'hide' : 'dim';
+	}
+
+	if (!anyShown) {
+		for (const id of Object.keys(plan)) {
+			if (plan[id] === 'hide') plan[id] = 'dim';
+		}
+	}
+	return plan;
 }
 
 const STORAGE_PREFIX = 'potato-tomato-key-profile:';
