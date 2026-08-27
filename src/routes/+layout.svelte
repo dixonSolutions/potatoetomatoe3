@@ -5,7 +5,10 @@
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
-	import { ensureOfflineServiceWorker } from '$lib/utils/browser-offline-download';
+	import {
+		cacheLoadedAppAssets,
+		ensureOfflineServiceWorker
+	} from '$lib/utils/browser-offline-download';
 	import { startAutoApkUpdate } from '$lib/utils/auto-apk-update';
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
 	/** Same potato-over-tomato mark as TopBar (`logo.png`). `?url` keeps SSR/client href identical. */
@@ -55,11 +58,7 @@
 		shouldShowTrayCloseHint,
 		syncDesktopTrayRecent
 	} from '$lib/utils/desktop-tray';
-	import {
-		isPublicSiteDeployment,
-		isTauriApp,
-		shouldProbePullerBackend
-	} from '$lib/utils/offline-deployment';
+	import { isTauriApp, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
 	import { invalidateOfflineBackendCache } from '$lib/utils/offline-runtime';
 	import { dispatchOfflineStatusChanged } from '$lib/utils/offline-status-events';
 
@@ -318,6 +317,8 @@
 	afterNavigate(() => {
 		if (!browser) return;
 		clearVisibilityHiddenDebounce();
+		/* Route chunks load lazily, so the set worth caching only settles per navigation. */
+		cacheLoadedAppAssets();
 	});
 
 	$effect(() => {
@@ -357,10 +358,18 @@
 		syncPrivacyUnlockCookieWithSession();
 		refreshPlayLimitLock();
 
-		if (isBrowserStorageSupported() && !isPublicSiteDeployment()) {
-			void ensureOfflineServiceWorker().catch((err) =>
-				console.warn('Offline service worker registration failed:', err)
-			);
+		/*
+		 * The public site needs this worker most: it is what serves /browser-offline/ files
+		 * out of IndexedDB and keeps the app shell reachable with no network, so a game
+		 * downloaded in the browser is still playable after a reload. It used to be skipped
+		 * there, which left browser downloads with nothing to play them back.
+		 */
+		if (isBrowserStorageSupported()) {
+			void ensureOfflineServiceWorker()
+				.then((ready) => {
+					if (ready) cacheLoadedAppAssets();
+				})
+				.catch((err) => console.warn('Offline service worker registration failed:', err));
 		}
 
 		/* Android self-update. No-ops on every other target and when already current. */

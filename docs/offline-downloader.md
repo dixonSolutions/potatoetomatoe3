@@ -2,10 +2,10 @@
 
 The app picks an offline backend automatically from where it is running:
 
-| Deployment                        | Detection                                                                           | Download storage                | Play path                                              |
-| --------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
-| **Public site** (GitHub Pages)    | `PUBLIC_OFFLINE_DEPLOYMENT=public-site`, or non-local host without Tauri            | None; preview only              | Raw online game embed                                  |
-| **Local app** (`pnpm dev`, Tauri) | `local-app` stamp, `globalThis.isTauri`, `tauri.localhost`, or `TAURI_ENV_PLATFORM` | **Puller** writes files to disk | `/puller-games/{id}/offline/…` or loopback puller URLs |
+| Deployment                        | Detection                                                                           | Download storage                              | Play path                                              |
+| --------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------ |
+| **Public site** (GitHub Pages)    | `PUBLIC_OFFLINE_DEPLOYMENT=public-site`, or non-local host without Tauri            | **Browser IndexedDB**, same-origin games only | `/browser-offline/{id}/…` (service worker) or `blob:`  |
+| **Local app** (`pnpm dev`, Tauri) | `local-app` stamp, `globalThis.isTauri`, `tauri.localhost`, or `TAURI_ENV_PLATFORM` | **Puller** writes files to disk               | `/puller-games/{id}/offline/…` or loopback puller URLs |
 
 Release preparation stamps native artifacts with `PUBLIC_OFFLINE_DEPLOYMENT=local-app`.
 Pages CI keeps `public-site`. Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or
@@ -19,7 +19,7 @@ The puller is the native desktop Node.js backend:
 The execution and storage adapters differ by host, but scrape/capture/ads logic is not duplicated:
 
 - Tauri/Flatpak runs the puller sidecar and keeps mirrors on disk.
-- The public web app does not capture, download, relay, register a service worker, or inject touch controls. It is an online preview and native-app download site.
+- The public web app downloads **same-origin** games into IndexedDB and plays them back through `offline-sw.js`. It cannot capture a third-party game host and does not relay arbitrary sites; for those titles it stays an online player and a native-app download site.
 - Linux/Flatpak is the mirror-creating platform. Android plays bundled/imported verified mirrors and cannot run the Node/Playwright capture sidecar.
 
 ## Running
@@ -90,6 +90,32 @@ Default for catalog games. **Does not stop at the online shell** — mirrors the
 6. Unity WebGL: `postProcessUnityOfflineMirror` (inject.js, asset-map) then ad strip
 
 **Fallback:** if Playwright cannot start, use `wget --mirror` + the same fill-in / ad / Unity post-process path (never a silent shell-only copy).
+
+### Offline on the public web site
+
+The web build is a full offline client for the games it can actually mirror:
+
+- `offline-sw.js` registers on every deployment, not just local ones.
+- **Download for offline** on a game page saves the game's same-origin files into
+  IndexedDB and plays them back from `/browser-offline/{id}/…`.
+- The worker also caches the app shell, its hashed `_app/immutable` chunks, SvelteKit
+  route data, and catalog JSON, so a downloaded game is still reachable after a reload
+  with no network. Because the worker registers from the app's own `onMount`, the first
+  page load happens before it can intercept anything; the page therefore posts the URLs
+  it already loaded (`pt-cache-app-assets`) and the worker backfills them.
+- `navigator.storage.persist()` is requested when a browser download starts. Without a
+  persistence grant IndexedDB is evictable, and evicting it would silently delete
+  downloaded games.
+- Game media is deliberately **not** shell-cached — downloaded covers already live in
+  IndexedDB, and caching thumbnails for a 13k catalog would compete with the games
+  themselves for quota.
+
+What the web build still cannot do is mirror a game that runs on someone else's origin.
+That is the same-origin policy, not a missing feature: page JavaScript cannot read a
+cross-origin document or its assets. Most of the catalog embeds such a host, so on the
+public site those titles show the third-party notice and stay online-only. A visitor
+running `pnpm puller:start` on the same machine is the exception — the download is
+delegated to that puller and the finished mirror is imported into IndexedDB.
 
 ### Browser IndexedDB vs puller
 

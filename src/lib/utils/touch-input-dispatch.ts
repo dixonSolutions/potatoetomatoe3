@@ -1,5 +1,3 @@
-import { isPublicSiteDeployment } from './offline-deployment';
-
 /**
  * Same-origin touch → keyboard translation for game iframes.
  * Recurses nested same-origin frames (like broadcastGamePause) and stops at cross-origin boundaries.
@@ -191,6 +189,40 @@ function isPullerPlayProxyPath(pathname: string): boolean {
 	return pathname.includes('/api/unity-play/') || pathname.includes('/api/game-live/');
 }
 
+const ABSOLUTE_URL_RE = /^[a-z][a-z0-9+.-]*:/i;
+
+function parseAgainstApp(url: string): URL | null {
+	try {
+		return new URL(url, typeof window !== 'undefined' ? window.location.href : 'http://local');
+	} catch {
+		return null;
+	}
+}
+
+/**
+ * A relay route answered by this origin.
+ *
+ * Vite's dev proxy, the Tauri shell, and `offline-sw.js` on the public site all reply to
+ * `/api/unity-play/:id` and `/api/game-live/:id` with the game's own HTML, so the game
+ * document is same-origin wherever the app runs. This used to be gated on deployment
+ * instead of origin, which is what kept the console off the public site even when a relay
+ * was already in front of the game.
+ */
+function isSameOriginRelayUrl(url: string): boolean {
+	const parsed = parseAgainstApp(url);
+	if (!parsed || !isPullerPlayProxyPath(parsed.pathname)) return false;
+	/* No window (SSR / unit tests): a relative URL is same-origin by construction. */
+	if (typeof window === 'undefined') return !ABSOLUTE_URL_RE.test(url.trim());
+	return parsed.origin === window.location.origin;
+}
+
+/** Packaged Tauri talks to its puller over loopback — cross-origin, but the bridge answers. */
+function isLoopbackRelayUrl(url: string): boolean {
+	const parsed = parseAgainstApp(url);
+	if (!parsed || !isPullerPlayProxyPath(parsed.pathname)) return false;
+	return parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost';
+}
+
 export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	if (!url) return false;
 	const u = url.trim();
@@ -198,11 +230,7 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	if (u.startsWith('blob:')) return true;
 	if (u.includes('/puller-games/')) return true;
 	if (u.includes('/browser-offline/')) return true;
-	if (
-		(u.includes('/api/unity-play/') || u.includes('/api/game-live/')) &&
-		!isPublicSiteDeployment()
-	)
-		return true;
+	if (isSameOriginRelayUrl(u)) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	// Same-origin shells that nest a cross-origin game — not injectable for the real game.
 	if (u.includes('/unity/player.html')) return false;
@@ -245,11 +273,7 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 	if (!url) return false;
 	const u = url.trim();
 	if (!u) return false;
-	if (
-		(u.includes('/api/unity-play/') || u.includes('/api/game-live/')) &&
-		!isPublicSiteDeployment()
-	)
-		return true;
+	if (isSameOriginRelayUrl(u)) return true;
 	if (u.includes('/puller-games/') && u.includes('/offline/')) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	if (u.includes('/browser-offline/')) return true;
@@ -267,20 +291,7 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 	} catch {
 		/* ignore */
 	}
-	try {
-		if (typeof window !== 'undefined') {
-			const parsed = new URL(u, window.location.href);
-			/* Packaged Tauri puller on loopback */
-			if (
-				(parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost') &&
-				isPullerPlayProxyPath(parsed.pathname)
-			) {
-				return true;
-			}
-		}
-	} catch {
-		/* ignore */
-	}
+	if (isLoopbackRelayUrl(u)) return true;
 	return false;
 }
 
