@@ -527,7 +527,7 @@
 							>
 							<span class="flex-1 font-mono text-xs tabular-nums">
 								{recordingTarget === btn
-									? 'Press a key… (Esc cancel)'
+									? 'Press a key… (tap again to cancel)'
 									: codesToLabel(mappingCodes(btn))}
 							</span>
 							<Button
@@ -535,9 +535,10 @@
 								variant={recordingTarget === btn ? 'secondary' : 'outline'}
 								size="sm"
 								disabled={busy}
-								onclick={() => (recordingTarget = btn)}
+								aria-pressed={recordingTarget === btn}
+								onclick={() => (recordingTarget = recordingTarget === btn ? null : btn)}
 							>
-								{recordingTarget === btn ? 'Listening…' : 'Record'}
+								{recordingTarget === btn ? 'Cancel' : 'Record'}
 							</Button>
 						</div>
 					{/each}

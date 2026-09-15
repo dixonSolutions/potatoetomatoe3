@@ -39,11 +39,13 @@
 		Pause,
 		Play,
 		Download,
-		Gamepad2
+		Gamepad2,
+		Menu
 	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
+	import { GAME_MENU_KEY, sendGameKey } from '$lib/utils/game-key-tap';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -261,6 +263,23 @@
 	}
 
 	/**
+	 * True when the public site can put a game back on its own origin: either a hosted
+	 * play-proxy worker is configured, or a puller is running on this machine and
+	 * `offline-sw.js` can relay /api/unity-play and /api/game-live to it.
+	 */
+	async function publicSiteRelayReachable(): Promise<boolean> {
+		const proxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.trim();
+		if (proxy) return true;
+		try {
+			const { isPullerAvailable } = await import('$lib/utils/offline-downloader-puller');
+			/* ignoreDeploymentGate bypasses the availability cache too, so this always re-probes. */
+			return await isPullerAvailable(true, { ignoreDeploymentGate: true });
+		} catch {
+			return false;
+		}
+	}
+
+	/**
 	 * Make the console usable for the current frame, preferring the cheapest path:
 	 *   1. direct DOM dispatch into a same-origin game document,
 	 *   2. an existing inject/bridge URL (offline mirror or puller proxy already loaded),
@@ -291,11 +310,26 @@
 		}
 
 		/*
-		 * Tauri mobile has no sidecar, so every step below is a 12-second wait for a
-		 * process that cannot start, ending in advice to run a pnpm command on a tablet.
-		 * Fail fast and say what actually works there.
+		 * Neither the public site nor Tauri mobile runs a puller of its own, so the loopback
+		 * wait below has nothing to wait for. The public site does have two relays that put
+		 * the game back on this origin — `offline-sw.js` forwarding /api/… to a puller
+		 * running on the visitor's own machine, and a hosted PUBLIC_PLAY_PROXY_URL worker —
+		 * so re-resolve the play URL in case either became reachable after page load.
 		 */
 		if (!shouldProbePullerBackend()) {
+			if (isPublicSiteDeployment() && (await publicSiteRelayReachable())) {
+				await refreshPlayerUrl();
+				if (canUseTouchBridge(gamePlayerUrl)) {
+					gameSurfaceStarted = true;
+					appendPlayLog(
+						'info',
+						'ui',
+						'Touch console using same-origin relay on the public site',
+						`game=${gameId} url=${gamePlayerUrl}`
+					);
+					return true;
+				}
+			}
 			appendPlayLog(
 				'info',
 				'ui',
@@ -380,6 +414,30 @@
 			toast.message('Reloading through puller proxy for the console…');
 		}
 		return true;
+	}
+
+	/**
+	 * Send Escape into the game: the game's own pause / options menu, not ours.
+	 *
+	 * Escape is the near-universal "open the game menu" key and a touch device has
+	 * no keyboard to press it with. It was previously reachable only as the touch
+	 * console's Y button, which meant finding the console, enabling it and
+	 * switching it ON before a game's own menu could be opened at all. It belongs
+	 * here instead, beside Pause and Fullscreen — the other two things you do to a
+	 * running game rather than inside one.
+	 *
+	 * Deliberately silent on success. This is a key press; a toast per press would
+	 * be noise. Failure does talk, because a button that does nothing and says
+	 * nothing is the worst of the three outcomes.
+	 */
+	function sendGameMenuKey() {
+		if (!gameSurfaceStarted) return;
+		if (sendGameKey(iframeElement ?? null, gamePlayerUrl, GAME_MENU_KEY)) return;
+		toast.error('Cannot reach this game to send Esc.', {
+			description: shouldProbePullerBackend()
+				? 'Online play needs the local relay; offline play needs a downloaded mirror.'
+				: 'This game runs on a third-party site, which will not accept injected keys.'
+		});
 	}
 
 	function toggleTouchConsole() {
@@ -870,6 +928,19 @@
 						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
 					</Button>
 					{#if showConsoleButton}
+						<Button
+							onclick={sendGameMenuKey}
+							variant="outline"
+							size="sm"
+							class="w-full sm:w-auto"
+							disabled={!gameSurfaceStarted}
+							data-testid="game-menu-key"
+							title="Open the game's own menu (sends Esc into the game)"
+						>
+							<Menu class="mr-2 h-4 w-4" />
+							Game menu
+							<span class="ml-1 font-mono text-[10px] opacity-70">Esc</span>
+						</Button>
 						<button
 							type="button"
 							data-testid="touch-console-toggle"
@@ -910,9 +981,7 @@
 				</div>
 			</div>
 			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
-			{#if !isPublicSiteDeployment()}
-				<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
-			{/if}
+			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
 		</div>
 
 		{#if isPublicSiteDeployment()}
@@ -920,9 +989,10 @@
 				class="mb-5 flex flex-col gap-3 rounded-lg border border-primary/30 bg-primary/5 p-4 sm:flex-row sm:items-center sm:justify-between"
 			>
 				<div class="min-w-0">
-					<p class="font-medium">Browser preview: online play only</p>
+					<p class="font-medium">Playing in the browser</p>
 					<p class="text-sm text-muted-foreground">
-						Download the Linux app for offline mirrors, touch controls, and local saves.
+						Offline downloads are saved in this browser and work for games hosted here. Titles that
+						run on a third-party site, and full disk mirrors, still need the Linux app.
 					</p>
 				</div>
 				<Button href={resolve('/download')} class="shrink-0">
@@ -970,6 +1040,18 @@
 						{/if}
 					</Button>
 					{#if showConsoleButton}
+						<Button
+							variant="secondary"
+							size="sm"
+							class="shadow-md backdrop-blur-sm"
+							onclick={sendGameMenuKey}
+							disabled={!gameSurfaceStarted}
+							data-testid="game-menu-key-fs"
+							aria-label="Open the game's own menu (sends Esc into the game)"
+						>
+							<Menu class="mr-2 h-4 w-4" />
+							Game menu
+						</Button>
 						<button
 							type="button"
 							data-testid="touch-console-toggle-fs"

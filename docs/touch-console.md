@@ -42,22 +42,24 @@ flowchart TD
 
 ### Same-origin matrix (injectability)
 
-| Play URL pattern                                                  | Top iframe vs app   | Game document injectable?                                                                                                                                          |
-| ----------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `/games/{id}/offline/…`                                           | Same-origin         | **Yes** (DOM or postMessage bridge)                                                                                                                                |
-| `/puller-games/{id}/offline/…` (dev proxy)                        | Same-origin         | **Yes**                                                                                                                                                            |
-| `/browser-offline/{id}/…`                                         | Same-origin         | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; use puller full scrape) |
-| `/api/unity-play/{id}` (Vite / Pages SW relay)                    | Same-origin         | **Yes** — inject.js in game doc                                                                                                                                    |
-| `/api/game-live/{id}` (local app puller relay)                    | Same-origin         | **Yes** in local app/Tauri; **not a public-site touch path**                                                                                                       |
-| `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}`                       | Cross-origin Worker | **Yes** via postMessage bridge                                                                                                                                     |
-| `blob:…`                                                          | Same-origin         | Same as browser-offline                                                                                                                                            |
-| `/unity/player.html?src=…`                                        | Same-origin shell   | **No** — nested cross-origin `#game`                                                                                                                               |
-| `/games/{id}/online/index.html`                                   | Same-origin shell   | **No** — nested external embed                                                                                                                                     |
-| Direct `https://…` embed                                          | Cross-origin        | **No** without local puller live relay                                                                                                                             |
-| `http://127.0.0.1:<port>/api/unity-play/…` (Tauri/Flatpak puller) | Cross-origin        | **Yes** via postMessage bridge — prefer this for Unity iframe shells (abinbins)                                                                                    |
-| `http://127.0.0.1:<port>/api/game-live/…` (Tauri/Flatpak puller)  | Cross-origin        | **Yes** via postMessage bridge for non-Unity external embeds (not for nested Unity shells)                                                                         |
+| Play URL pattern                                                                    | Top iframe vs app   | Game document injectable?                                                                                                                                          |
+| ----------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `/games/{id}/offline/…`                                                             | Same-origin         | **Yes** (DOM or postMessage bridge)                                                                                                                                |
+| `/puller-games/{id}/offline/…` (dev proxy)                                          | Same-origin         | **Yes**                                                                                                                                                            |
+| `/browser-offline/{id}/…`                                                           | Same-origin         | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; use puller full scrape) |
+| `/api/unity-play/{id}` (Vite / Pages SW relay)                                      | Same-origin         | **Yes** — inject.js in game doc                                                                                                                                    |
+| `/api/game-live/{id}` (relay: Vite proxy, Tauri, or `offline-sw.js` → local puller) | Same-origin         | **Yes** — the relay answers on this origin, so the game document is injectable on every deployment, the public site included                                       |
+| `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}`                                         | Cross-origin Worker | **Yes** via postMessage bridge                                                                                                                                     |
+| `blob:…`                                                                            | Same-origin         | Same as browser-offline                                                                                                                                            |
+| `/unity/player.html?src=…`                                                          | Same-origin shell   | **No** — nested cross-origin `#game`                                                                                                                               |
+| `/games/{id}/online/index.html`                                                     | Same-origin shell   | **No** — nested external embed                                                                                                                                     |
+| Direct `https://…` embed                                                            | Cross-origin        | **No** without local puller live relay                                                                                                                             |
+| `http://127.0.0.1:<port>/api/unity-play/…` (Tauri/Flatpak puller)                   | Cross-origin        | **Yes** via postMessage bridge — prefer this for Unity iframe shells (abinbins)                                                                                    |
+| `http://127.0.0.1:<port>/api/game-live/…` (Tauri/Flatpak puller)                    | Cross-origin        | **Yes** via postMessage bridge for non-Unity external embeds (not for nested Unity shells)                                                                         |
 
-The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an extra **local-app/Tauri** capability. On the public web app, mobile touch requires a local/offline mirror saved under `/browser-offline/` or served from same-origin game files.
+The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an extra capability of a running puller, wherever it runs: on the public site `offline-sw.js` forwards the same-origin relay paths to a puller on the visitor's own machine, so the console works there too when one is up.
+
+Without a relay, touch on the public web app needs the game document to be same-origin already — a browser download saved under `/browser-offline/`, a bundled mirror, or a self-hosted game. That is the case worth optimising for: **Download for offline** on the web makes the console work for that title as a side effect, because the mirror is then served from this origin.
 
 Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks permanent offline play. Live relay covers the “play online with touch now” case without a download.
 
@@ -161,7 +163,7 @@ popup from the platform theme, and no CSS on the `<select>` can reach it: on And
 WebView the Arrows/WASD list opened as an opaque white system sheet over the translucent
 glass console. The replacement is a glass trigger pill plus a popup the console owns.
 
-Two details in that popup are load-bearing. It renders as a *sibling* of the console panel,
+Two details in that popup are load-bearing. It renders as a _sibling_ of the console panel,
 not a child: the panel carries `opacity: config.opacity`, opacity applies to the whole
 subtree, and a nested menu would be dimmed to the same 40% as the chrome behind it. Losing
 the panel's layout is the price, so `schemeMenuPos` recomputes its position from the same
@@ -216,15 +218,36 @@ If the puller is not running, the iframe shows an error page telling you to star
 
 ## Gestures and UX
 
-| Action               | Behavior                                                                                                                        |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Gamepad switch       | Blue on/off switch for the console (when enabled / availability allows).                                                        |
-| Joystick             | Analog stick → 8-way keys. Scheme picker: **Arrows** (default) or **WASD** — stored in touch settings.                          |
-| Space                | Glass pill button → `Space` (same overlay as A/B/X/Y).                                                                          |
-| A / B / X / Y        | Hold = keydown, release = keyup (Z / Enter / Shift / Esc by default; remappable).                                               |
-| Hold on a control    | After 650 ms, enter drag mode (dashed highlight), move, release commits to store.                                               |
-| Hold on panel grip   | After 650 ms, drag the whole compact console rectangle. Pointer capture keeps the drag active after the finger leaves the grip. |
-| Pause / privacy lock | Overlay hides and all keys are released.                                                                                        |
+| Action               | Behavior                                                                                                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gamepad switch       | Blue on/off switch for the console (when enabled / availability allows).                                                                                                                                      |
+| Joystick             | Analog stick → 8-way keys. Scheme picker: **Arrows** (default) or **WASD** — stored in touch settings.                                                                                                        |
+| Space                | Glass pill button → `Space` (same overlay as A/B/X/Y).                                                                                                                                                        |
+| A / B / X / Esc      | Hold = keydown, release = keyup (Z / Enter / Shift / Escape by default; remappable). The fourth face button is labelled by what it sends, because Escape is the one whose job is not guessable from a letter. |
+| Hold on a control    | After 650 ms, enter drag mode (dashed highlight), move, release commits to store.                                                                                                                             |
+| Hold on panel grip   | After 650 ms, drag the whole compact console rectangle. Pointer capture keeps the drag active after the finger leaves the grip.                                                                               |
+| Pause / privacy lock | Overlay hides and all keys are released.                                                                                                                                                                      |
+
+### The game's own menu
+
+Escape is how almost every game opens its own pause / options menu, and a touch
+device has no keyboard to press it with. It is reachable two ways, and the
+important one is not the console:
+
+- **Game menu** in the player toolbar, beside Pause / Relaunch / Fullscreen.
+  Available whenever the game frame can receive keys, whether or not the console
+  is enabled or switched on. This is the answer to "how do I open the game's
+  menu" — the console is a control pad, and needing to find it, enable it and
+  switch it ON before a game's menu is reachable at all was the wrong shape.
+- **Esc** on the console overlay, for players who already have the pad up.
+
+Both go through the same dispatch path as every other console key
+([`game-key-tap.ts`](../src/lib/utils/game-key-tap.ts) →
+`KeyDispatcher.tap`), so a game that cannot receive console input cannot receive
+this either — and the toolbar button says so rather than doing nothing quietly.
+
+This is the game's Escape, not the app's: it does not exit the game, leave
+fullscreen, or close the page.
 
 Five-finger toggle was removed: iOS/iPadOS reserves multi-finger system gestures, Android OEM skins bind 3+ finger shortcuts, and the button is discoverable without fighting the OS.
 
@@ -299,6 +322,7 @@ layout, opacity, or scale does not write storage until Save is selected.
 |------|------|
 | `src/lib/utils/touch-console.ts` | Persistence + defaults |
 | `src/lib/utils/touch-input-dispatch.ts` | Injectability + `KeyDispatcher` |
+| `src/lib/utils/game-key-tap.ts` | One-off key sends from chrome (Game menu / Esc) |
 | `src/lib/components/game-player/touch-console/` | Overlay UI |
 | `src/lib/components/settings/sections/touch-controls/` | Settings panel |
 | `src/routes/games/[gameId]/+page.svelte` | Mount point inside `gameSurfaceEl` |

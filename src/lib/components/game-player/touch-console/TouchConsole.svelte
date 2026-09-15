@@ -234,12 +234,13 @@
 	/**
 	 * Form controls must keep their default activation behaviour.
 	 *
-	 * This runs as a capture-phase `pointerdown` handler on the overlay root, so it saw
-	 * every press inside the console — including the joystick scheme `<select>`. Calling
-	 * `preventDefault()` on `pointerdown` suppresses the default activation, and on
-	 * Android WebView that stops the native picker from ever opening: the Arrows/WASD
-	 * dropdown looked dead. Suppression is only wanted for the game surface, where it
-	 * stops the press stealing focus from the game.
+	 * This runs as a capture-phase `pointerdown` handler on the overlay root, so it sees
+	 * every press inside the console. `preventDefault()` on `pointerdown` suppresses the
+	 * default activation, which kills the press for whatever it landed on — back when the
+	 * scheme picker was a `<select>`, that stopped Android WebView opening the native
+	 * picker at all and the Arrows/WASD dropdown looked dead. Suppression is only wanted
+	 * for the game surface, where it stops the press stealing focus from the game, so
+	 * every console control carries `data-console-control`.
 	 */
 	function isInteractiveControl(target: EventTarget | null): boolean {
 		const el = target instanceof Element ? target : null;

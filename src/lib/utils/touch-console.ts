@@ -51,7 +51,11 @@ export type TouchLayout = {
 };
 
 /** Translate the entire control cluster by viewport-relative deltas. */
-export function translateTouchLayout(layout: TouchLayout, dxPct: number, dyPct: number): TouchLayout {
+export function translateTouchLayout(
+	layout: TouchLayout,
+	dxPct: number,
+	dyPct: number
+): TouchLayout {
 	const translate = <T extends { xPct: number; yPct: number }>(control: T): T => ({
 		...control,
 		xPct: clamp01(control.xPct + dxPct),
@@ -150,7 +154,7 @@ const DEFAULT_LANDSCAPE: TouchLayout = {
 		{ id: 'a', label: 'A', codes: ['KeyZ'], xPct: 0.34, yPct: 0.64, size: 48 },
 		{ id: 'b', label: 'B', codes: ['Enter'], xPct: 0.42, yPct: 0.72, size: 48 },
 		{ id: 'x', label: 'X', codes: ['ShiftLeft'], xPct: 0.34, yPct: 0.8, size: 44 },
-		{ id: 'y', label: 'Y', codes: ['Escape'], xPct: 0.44, yPct: 0.6, size: 44 },
+		{ id: 'y', label: 'Esc', codes: ['Escape'], xPct: 0.44, yPct: 0.6, size: 44 },
 		{ id: 'space', label: 'Space', codes: ['Space'], xPct: 0.3, yPct: 0.88, size: 56 }
 	]
 };
@@ -162,7 +166,7 @@ const DEFAULT_PORTRAIT: TouchLayout = {
 		{ id: 'a', label: 'A', codes: ['KeyZ'], xPct: 0.58, yPct: 0.7, size: 48 },
 		{ id: 'b', label: 'B', codes: ['Enter'], xPct: 0.74, yPct: 0.76, size: 48 },
 		{ id: 'x', label: 'X', codes: ['ShiftLeft'], xPct: 0.58, yPct: 0.84, size: 44 },
-		{ id: 'y', label: 'Y', codes: ['Escape'], xPct: 0.78, yPct: 0.66, size: 44 },
+		{ id: 'y', label: 'Esc', codes: ['Escape'], xPct: 0.78, yPct: 0.66, size: 44 },
 		{ id: 'space', label: 'Space', codes: ['Space'], xPct: 0.36, yPct: 0.88, size: 56 }
 	]
 };
@@ -233,7 +237,10 @@ function clamp(n: number, min: number, max: number): number {
 	return Math.max(min, Math.min(max, n));
 }
 
-function normalizePosition(raw: Partial<TouchControlPosition> | undefined, fallback: TouchControlPosition): TouchControlPosition {
+function normalizePosition(
+	raw: Partial<TouchControlPosition> | undefined,
+	fallback: TouchControlPosition
+): TouchControlPosition {
 	return {
 		xPct: clamp01(typeof raw?.xPct === 'number' ? raw.xPct : fallback.xPct),
 		yPct: clamp01(typeof raw?.yPct === 'number' ? raw.yPct : fallback.yPct),
@@ -241,11 +248,15 @@ function normalizePosition(raw: Partial<TouchControlPosition> | undefined, fallb
 	};
 }
 
-function normalizeButton(raw: Partial<TouchButtonDef> | undefined, fallback: TouchButtonDef): TouchButtonDef {
+function normalizeButton(
+	raw: Partial<TouchButtonDef> | undefined,
+	fallback: TouchButtonDef
+): TouchButtonDef {
 	const pos = normalizePosition(raw, fallback);
-	const codes = Array.isArray(raw?.codes) && raw.codes.every((c) => typeof c === 'string')
-		? (raw.codes as TouchKeyCode[])
-		: fallback.codes;
+	const codes =
+		Array.isArray(raw?.codes) && raw.codes.every((c) => typeof c === 'string')
+			? (raw.codes as TouchKeyCode[])
+			: fallback.codes;
 	return {
 		id: typeof raw?.id === 'string' && raw.id ? raw.id : fallback.id,
 		label: typeof raw?.label === 'string' && raw.label ? raw.label : fallback.label,
@@ -254,29 +265,44 @@ function normalizeButton(raw: Partial<TouchButtonDef> | undefined, fallback: Tou
 	};
 }
 
-function normalizeLayout(raw: Partial<TouchLayout> | undefined, fallback: TouchLayout): TouchLayout {
+function normalizeLayout(
+	raw: Partial<TouchLayout> | undefined,
+	fallback: TouchLayout
+): TouchLayout {
 	const consolePanel = raw?.console ?? fallback.console;
 	const joy = raw?.joystick ?? fallback.joystick;
 	const buttonsRaw = Array.isArray(raw?.buttons) ? raw.buttons : fallback.buttons;
 	const byId = new Map(buttonsRaw.map((b) => [b.id, b]));
 	return {
 		console: {
-			xPct: clamp01(typeof consolePanel.xPct === 'number' ? consolePanel.xPct : fallback.console.xPct),
-			yPct: clamp01(typeof consolePanel.yPct === 'number' ? consolePanel.yPct : fallback.console.yPct),
+			xPct: clamp01(
+				typeof consolePanel.xPct === 'number' ? consolePanel.xPct : fallback.console.xPct
+			),
+			yPct: clamp01(
+				typeof consolePanel.yPct === 'number' ? consolePanel.yPct : fallback.console.yPct
+			),
 			widthPct: clamp(
-				typeof consolePanel.widthPct === 'number' ? consolePanel.widthPct : fallback.console.widthPct,
+				typeof consolePanel.widthPct === 'number'
+					? consolePanel.widthPct
+					: fallback.console.widthPct,
 				0.2,
 				1
 			),
 			heightPct: clamp(
-				typeof consolePanel.heightPct === 'number' ? consolePanel.heightPct : fallback.console.heightPct,
+				typeof consolePanel.heightPct === 'number'
+					? consolePanel.heightPct
+					: fallback.console.heightPct,
 				0.15,
 				1
 			)
 		},
 		joystick: {
 			...normalizePosition(joy, fallback.joystick),
-			deadzone: clamp(typeof joy.deadzone === 'number' ? joy.deadzone : fallback.joystick.deadzone, 0, 0.5)
+			deadzone: clamp(
+				typeof joy.deadzone === 'number' ? joy.deadzone : fallback.joystick.deadzone,
+				0,
+				0.5
+			)
 		},
 		buttons: fallback.buttons.map((fb) => normalizeButton(byId.get(fb.id) ?? fb, fb))
 	};
@@ -299,7 +325,9 @@ function normalizeMapping(
 	return { directions, buttons: buttonMap };
 }
 
-function normalizeSettings(raw: Partial<TouchConsoleSettings> | null | undefined): TouchConsoleSettings {
+function normalizeSettings(
+	raw: Partial<TouchConsoleSettings> | null | undefined
+): TouchConsoleSettings {
 	const availability =
 		raw?.availability === 'auto' || raw?.availability === 'always' || raw?.availability === 'off'
 			? raw.availability
@@ -309,8 +337,16 @@ function normalizeSettings(raw: Partial<TouchConsoleSettings> | null | undefined
 		version: 1,
 		enabled: typeof raw?.enabled === 'boolean' ? raw.enabled : DEFAULT_TOUCH_SETTINGS.enabled,
 		availability,
-		opacity: clamp(typeof raw?.opacity === 'number' ? raw.opacity : DEFAULT_TOUCH_SETTINGS.opacity, 0.2, 1),
-		scale: clamp(typeof raw?.scale === 'number' ? raw.scale : DEFAULT_TOUCH_SETTINGS.scale, 0.6, 1.6),
+		opacity: clamp(
+			typeof raw?.opacity === 'number' ? raw.opacity : DEFAULT_TOUCH_SETTINGS.opacity,
+			0.2,
+			1
+		),
+		scale: clamp(
+			typeof raw?.scale === 'number' ? raw.scale : DEFAULT_TOUCH_SETTINGS.scale,
+			0.6,
+			1.6
+		),
 		haptics: typeof raw?.haptics === 'boolean' ? raw.haptics : DEFAULT_TOUCH_SETTINGS.haptics,
 		autoEnableOnTouchOnly:
 			typeof raw?.autoEnableOnTouchOnly === 'boolean'
@@ -366,7 +402,11 @@ export function patchTouchConsoleSettings(
 		patch.joystickScheme !== undefined ? patch.joystickScheme : current.joystickScheme
 	);
 	const mergedMapping = patch.mapping
-		? { ...current.mapping, ...patch.mapping, buttons: { ...current.mapping.buttons, ...(patch.mapping.buttons ?? {}) } }
+		? {
+				...current.mapping,
+				...patch.mapping,
+				buttons: { ...current.mapping.buttons, ...(patch.mapping.buttons ?? {}) }
+			}
 		: current.mapping;
 	const next: TouchConsoleSettings = {
 		...current,
@@ -408,7 +448,10 @@ export function loadGameTouchOverride(gameId: string): TouchConsoleGameOverride 
 	}
 }
 
-export function saveGameTouchOverride(gameId: string, override: TouchConsoleGameOverride | null): void {
+export function saveGameTouchOverride(
+	gameId: string,
+	override: TouchConsoleGameOverride | null
+): void {
 	if (!gameId || !canUseLocalStorage()) return;
 	try {
 		if (!override || (!override.layouts && !override.mapping)) {
@@ -416,7 +459,11 @@ export function saveGameTouchOverride(gameId: string, override: TouchConsoleGame
 		} else {
 			localStorage.setItem(
 				GAME_PREFIX + gameId,
-				JSON.stringify({ version: 1 as const, layouts: override.layouts, mapping: override.mapping })
+				JSON.stringify({
+					version: 1 as const,
+					layouts: override.layouts,
+					mapping: override.mapping
+				})
 			);
 		}
 		emitChanged({ gameId });
@@ -429,13 +476,15 @@ export function clearGameTouchOverride(gameId: string): void {
 	saveGameTouchOverride(gameId, null);
 }
 
-export function getEffectiveConfig(gameId: string | null | undefined, orientation: TouchOrientation): EffectiveTouchConfig {
+export function getEffectiveConfig(
+	gameId: string | null | undefined,
+	orientation: TouchOrientation
+): EffectiveTouchConfig {
 	const global = loadTouchConsoleSettings();
 	const override = gameId ? loadGameTouchOverride(gameId) : null;
-	const layout =
-		override?.layouts?.[orientation]
-			? normalizeLayout(override.layouts[orientation], global.layouts[orientation])
-			: global.layouts[orientation];
+	const layout = override?.layouts?.[orientation]
+		? normalizeLayout(override.layouts[orientation], global.layouts[orientation])
+		: global.layouts[orientation];
 	const mapping = override?.mapping
 		? normalizeMapping({
 				directions: { ...global.mapping.directions, ...(override.mapping.directions ?? {}) },
@@ -470,7 +519,10 @@ export function saveLayout(
 	layout: TouchLayout,
 	gameId?: string | null
 ): void {
-	const normalized = normalizeLayout(layout, orientation === 'portrait' ? DEFAULT_PORTRAIT : DEFAULT_LANDSCAPE);
+	const normalized = normalizeLayout(
+		layout,
+		orientation === 'portrait' ? DEFAULT_PORTRAIT : DEFAULT_LANDSCAPE
+	);
 	if (gameId) {
 		const existing = loadGameTouchOverride(gameId) ?? { version: 1 as const };
 		saveGameTouchOverride(gameId, {

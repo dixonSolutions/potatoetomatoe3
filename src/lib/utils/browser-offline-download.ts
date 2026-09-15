@@ -174,6 +174,39 @@ export async function ensureOfflineServiceWorker(maxWaitMs = 8000): Promise<bool
 	}
 }
 
+/**
+ * Hand the worker the app assets this page already loaded.
+ *
+ * The worker registers from `onMount`, so the first page load — and every route chunk it
+ * pulled in — happened before it could intercept anything. Those URLs are content-hashed
+ * and never requested again, so without this the cache has a hole exactly where the app's
+ * own code lives, and the site cannot boot offline until a second online visit.
+ */
+export function cacheLoadedAppAssets(): void {
+	if (typeof navigator === 'undefined' || typeof performance === 'undefined') return;
+	const worker = navigator.serviceWorker?.controller;
+	if (!worker) return;
+	try {
+		const urls = performance
+			.getEntriesByType('resource')
+			.map((entry) => entry.name)
+			/* Pre-filter to keep the message small; the worker decides what it will keep. */
+			.filter((name) => {
+				if (name.includes('/_app/immutable/')) return true;
+				/* Route data carries a `?x-sveltekit-invalidated=…` hint, so test the path. */
+				try {
+					return new URL(name, window.location.href).pathname.endsWith('.json');
+				} catch {
+					return false;
+				}
+			});
+		if (urls.length === 0) return;
+		worker.postMessage({ type: 'pt-cache-app-assets', urls: [...new Set(urls)] });
+	} catch {
+		/* Opportunistic — never worth surfacing. */
+	}
+}
+
 /** @deprecated Prefer ensureOfflineServiceWorker — same registration. */
 export async function ensureBrowserOfflineReady(maxWaitMs = 8000): Promise<boolean> {
 	return ensureOfflineServiceWorker(maxWaitMs);
@@ -490,6 +523,25 @@ export async function fetchBrowserOfflineStatuses(): Promise<Record<string, Game
 	return out;
 }
 
+/**
+ * Ask the browser to keep this origin's data.
+ *
+ * Without a persistence grant, IndexedDB is best-effort storage the browser may evict
+ * under pressure — which would silently delete downloaded games, the one failure that
+ * makes an offline download worthless. Browsers grant this on engagement signals
+ * (installed PWA, bookmarked, frequently visited) and refuse quietly otherwise, so this
+ * is a request, not a guarantee; a refusal is not a reason to block the download.
+ */
+export async function requestPersistentStorage(): Promise<boolean> {
+	if (typeof navigator === 'undefined' || !navigator.storage?.persist) return false;
+	try {
+		if (await navigator.storage.persisted?.()) return true;
+		return await navigator.storage.persist();
+	} catch {
+		return false;
+	}
+}
+
 export async function startBrowserGameDownload(
 	gameId: string
 ): Promise<{ started: boolean; message: string }> {
@@ -501,6 +553,9 @@ export async function startBrowserGameDownload(
 	const controller = new AbortController();
 	abortByGame.set(gameId, controller);
 	discardOnCancel.delete(gameId);
+
+	/* Best effort, and deliberately not awaited into the failure path — see the helper. */
+	void requestPersistentStorage();
 
 	setBrowserProgress(gameId, { state: 'pending', progress: 0, message: 'Starting…' });
 	const prior = await getGameMeta(gameId);

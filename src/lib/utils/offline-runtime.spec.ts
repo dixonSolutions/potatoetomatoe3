@@ -44,4 +44,18 @@ describe('offline-runtime', () => {
 		vi.mocked(isPullerAvailable).mockResolvedValue(true);
 		expect(await getOfflineBackend(true)).not.toBe('puller');
 	});
+
+	it('offers browser storage on the public site when IndexedDB and a worker exist', async () => {
+		/* The web build has no sidecar, but it can still download into IndexedDB. */
+		vi.mocked(isPublicSiteDeployment).mockReturnValue(true);
+		vi.mocked(shouldProbePullerBackend).mockReturnValue(false);
+		vi.stubGlobal('window', {});
+		vi.stubGlobal('indexedDB', {});
+		vi.stubGlobal('navigator', { serviceWorker: {} });
+		try {
+			expect(await getOfflineBackend(true)).toBe('browser');
+		} finally {
+			vi.unstubAllGlobals();
+		}
+	});
 });

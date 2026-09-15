@@ -5,7 +5,13 @@
  * Relays /api/unity-play/{id} and /api/game-live/* to a locally running puller
  * (avoids HTTPS→HTTP iframe mixed content). Offline scrape remains the puller's
  * primary job; live relay is an additional capability when puller is running.
+ * Also keeps the app shell, its hashed build assets, and catalog JSON cached, so a
+ * game downloaded in the browser is still reachable when the network is gone —
+ * without the shell there is no page from which to launch it.
  */
+const SHELL_CACHE = 'pt-app-shell-v1';
+const DATA_CACHE = 'pt-app-data-v1';
+const KEEP_CACHES = [SHELL_CACHE, DATA_CACHE];
 const DB_NAME = 'potatotomato-offline-v1';
 const DB_VERSION = 1;
 const FILES_STORE = 'files';
@@ -201,12 +207,294 @@ function relayUnityPlay(gameId) {
 	return relayPullerHtml(DEFAULT_PULLER_UNITY + encodeURIComponent(gameId), 'unity', gameId);
 }
 
+/** Registration scope is `<origin><base>/`, so it doubles as the SPA shell URL. */
+function shellUrl() {
+	return self.registration.scope;
+}
+
+function isWithinScope(url) {
+	return url.href.indexOf(shellUrl()) === 0;
+}
+
+/** Hashed build output — safe to serve from cache forever, and required by the shell. */
+function isImmutableAsset(url) {
+	return url.pathname.indexOf('/_app/immutable/') !== -1;
+}
+
+/**
+ * Exactly the JSON the SPA needs to paint a browse page and a game page: SvelteKit's own
+ * route data, the shard manifest, its shards, and per-game metadata. Deliberately narrow —
+ * game payloads (Unity `Build/*.json` and friends) must keep coming from disk or
+ * IndexedDB, where a delete-and-redownload replaces them, not from a revalidating cache.
+ */
+function isCatalogData(url) {
+	return (
+		/\/__data\.json$/i.test(url.pathname) ||
+		/\/games\/games-index\/[^/]+\.json$/i.test(url.pathname) ||
+		/\/games\/[^/]+\/online\/metadata\.json$/i.test(url.pathname)
+	);
+}
+
+/**
+ * The desktop shell already has every asset on disk and loads over a custom protocol,
+ * so app-shell caching buys it nothing and a mis-served shell would be a black window.
+ * Game routes below still apply there.
+ */
+function isNativeShellHost() {
+	const host = self.location.hostname;
+	return host === 'tauri.localhost' || host === 'asset.localhost';
+}
+
+function cachePut(cacheName, request, response) {
+	if (!response || !response.ok || response.type === 'opaque') return response;
+	const copy = response.clone();
+	caches
+		.open(cacheName)
+		.then(function (cache) {
+			return cache.put(request, copy);
+		})
+		.catch(function () {
+			/* Quota or private mode — caching is an optimisation, never a hard requirement. */
+		});
+	return response;
+}
+
+function offlineShellFallback() {
+	return new Response(
+		'<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Offline</title></head>' +
+			'<body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#111;' +
+			'color:#ddd;font:400 0.95rem/1.5 system-ui,sans-serif;text-align:center">' +
+			'<p>You are offline and this page has not been cached yet.<br/>Reconnect once, then it stays available.</p>' +
+			'</body></html>',
+		{ status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+	);
+}
+
+/** Documents that are a game, not the app — they have their own routes further down. */
+function isGameDocumentPath(pathname) {
+	return (
+		pathname.indexOf('/browser-offline/') !== -1 ||
+		pathname.indexOf('/api/unity-play/') !== -1 ||
+		pathname.indexOf('/api/game-live/') !== -1 ||
+		/\/games\/[^/]+\/(online|offline)\//.test(pathname)
+	);
+}
+
+/**
+ * Only a top-level document is the app shell.
+ *
+ * Games load in an iframe, and an iframe document is `mode: 'navigate'` just like a
+ * top-level load — only `destination` tells them apart (`iframe` / `frame` vs `document`).
+ * Treating a game as the shell would cache it under the shell key, so an offline reload
+ * would boot the game instead of the app holding it, and answering here would skip the
+ * storage-bridge injection the game routes do. The path check then covers a game document
+ * opened directly in a tab, where the destination legitimately is `document`.
+ */
+function isAppShellNavigation(request, url) {
+	if (request.method !== 'GET' || request.mode !== 'navigate') return false;
+	if (request.destination !== 'document') return false;
+	return !isGameDocumentPath(url.pathname);
+}
+
+/** Network-first: an updated deploy must win while there is a network to fetch it from. */
+function handleNavigation(request) {
+	return fetch(request)
+		.then(function (response) {
+			return cachePut(SHELL_CACHE, shellUrl(), response);
+		})
+		.catch(function () {
+			return caches.match(shellUrl()).then(function (cached) {
+				return cached || offlineShellFallback();
+			});
+		});
+}
+
+/**
+ * Hashed filenames never collide, so nothing here is ever invalidated — across enough
+ * deploys that is unbounded growth in a quota shared with the downloaded games. Cache
+ * entries come back in insertion order, so dropping from the front evicts the oldest
+ * deploy's chunks first. One page needs a few dozen; this leaves several deploys' worth.
+ */
+const MAX_ASSET_ENTRIES = 200;
+
+function trimAssetCache() {
+	return caches
+		.open(SHELL_CACHE)
+		.then(function (cache) {
+			return cache.keys().then(function (keys) {
+				const excess = keys.length - MAX_ASSET_ENTRIES;
+				if (excess <= 0) return undefined;
+				return Promise.all(
+					keys.slice(0, excess).map(function (key) {
+						/* Never evict the shell itself — it is the offline entry point. */
+						if (key.url === shellUrl()) return undefined;
+						return cache.delete(key);
+					})
+				);
+			});
+		})
+		.catch(function () {
+			/* Trimming is housekeeping; a failure must not break the response. */
+		});
+}
+
+function handleImmutableAsset(request) {
+	return caches.match(request).then(function (cached) {
+		if (cached) return cached;
+		return fetch(request).then(function (response) {
+			const out = cachePut(SHELL_CACHE, request, response);
+			void trimAssetCache();
+			return out;
+		});
+	});
+}
+
+/**
+ * SvelteKit appends a per-load `?x-sveltekit-invalidated=…` hint to route data requests,
+ * so the same document has a different URL on every navigation. Key these by path alone
+ * or the cache never gets a hit — which is what left an otherwise-booting offline app on
+ * a 500 for the very page holding the downloaded game.
+ */
+function catalogCacheKey(url) {
+	return url.origin + url.pathname;
+}
+
+/** Stale-while-revalidate: catalog JSON is small, changes between deploys, and blocks render. */
+function handleCatalogData(request) {
+	const key = catalogCacheKey(new URL(request.url));
+	return caches.match(key).then(function (cached) {
+		const network = fetch(request)
+			.then(function (response) {
+				return cachePut(DATA_CACHE, key, response);
+			})
+			.catch(function () {
+				return cached || Response.error();
+			});
+		return cached || network;
+	});
+}
+
+/**
+ * Cache the shell and the entry chunks it names.
+ *
+ * The fetch handler alone is not enough for these: this worker registers from the app's
+ * own `onMount`, so by the time it can intercept anything, the entry chunks have already
+ * been fetched by an uncontrolled page and will not be requested again. Reading them out
+ * of the shell HTML keeps the list correct across deploys without a generated manifest.
+ * Route chunks stay lazy — the fetch handler picks those up once the worker is in control.
+ */
+function precacheAppShell(cache) {
+	return fetch(new Request(shellUrl(), { cache: 'reload' })).then(function (response) {
+		if (!response.ok) throw new Error('App shell fetch failed: ' + response.status);
+		return response
+			.clone()
+			.text()
+			.then(function (html) {
+				return cache.put(shellUrl(), response).then(function () {
+					const seen = [];
+					const refs = html.match(/_app\/immutable\/[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+/g) || [];
+					refs.forEach(function (ref) {
+						/* Resolve against the scope so a project-site base path is preserved. */
+						const href = new URL(ref, shellUrl()).href;
+						if (seen.indexOf(href) === -1) seen.push(href);
+					});
+					return Promise.all(
+						seen.map(function (href) {
+							return cache.add(new Request(href, { cache: 'reload' })).catch(function () {
+								/* One missing chunk must not fail the whole install. */
+							});
+						})
+					);
+				});
+			});
+	});
+}
+
 self.addEventListener('install', function (event) {
 	self.skipWaiting();
+	if (isNativeShellHost()) return;
+	event.waitUntil(
+		caches
+			.open(SHELL_CACHE)
+			.then(precacheAppShell)
+			.catch(function () {
+				/* Installed while offline — handleNavigation fills the shell in on first load. */
+			})
+	);
+});
+
+/**
+ * Cache assets an *uncontrolled* page already loaded.
+ *
+ * A worker registered from the app's own `onMount` misses every request the first page
+ * load made, route chunks included, and hashed URLs are never requested again. The page
+ * knows what it loaded, so it sends the list here after each navigation and the worker
+ * fills the gap — otherwise "download a game, then lose the network" leaves the game in
+ * IndexedDB with no app able to boot and play it.
+ */
+self.addEventListener('message', function (event) {
+	const data = event.data;
+	if (!data || data.type !== 'pt-cache-app-assets' || !Array.isArray(data.urls)) return;
+	if (isNativeShellHost()) return;
+	const wanted = [];
+	data.urls.forEach(function (raw) {
+		if (typeof raw !== 'string') return;
+		let parsed;
+		try {
+			parsed = new URL(raw, shellUrl());
+		} catch {
+			return;
+		}
+		if (parsed.origin !== self.location.origin) return;
+		/* Same split the fetch handler uses, so warming never lands in the wrong cache. */
+		if (isImmutableAsset(parsed)) wanted.push([SHELL_CACHE, parsed.href, parsed.href]);
+		else if (isWithinScope(parsed) && isCatalogData(parsed)) {
+			wanted.push([DATA_CACHE, catalogCacheKey(parsed), parsed.href]);
+		}
+	});
+	event.waitUntil(
+		Promise.all(
+			wanted.map(function (entry) {
+				return caches.open(entry[0]).then(function (cache) {
+					return cache.match(entry[1]).then(function (hit) {
+						if (hit) return undefined;
+						return fetch(entry[2])
+							.then(function (response) {
+								if (!response.ok) return undefined;
+								return cache.put(entry[1], response);
+							})
+							.catch(function () {
+								/* A single stale URL must not abort the rest. */
+							});
+					});
+				});
+			})
+		)
+			.then(trimAssetCache)
+			.catch(function () {
+				/* Warming the cache is opportunistic. */
+			})
+	);
 });
 
 self.addEventListener('activate', function (event) {
-	event.waitUntil(self.clients.claim());
+	event.waitUntil(
+		caches
+			.keys()
+			.then(function (names) {
+				return Promise.all(
+					names.map(function (name) {
+						if (name.indexOf('pt-app-') === 0 && KEEP_CACHES.indexOf(name) === -1) {
+							return caches.delete(name);
+						}
+						return undefined;
+					})
+				);
+			})
+			.then(function () {
+				return self.clients.claim();
+			})
+	);
 });
 
 self.addEventListener('fetch', function (event) {
@@ -271,6 +559,26 @@ self.addEventListener('fetch', function (event) {
 			})
 		);
 		return;
+	}
+
+	if (!isNativeShellHost() && isAppShellNavigation(event.request, url)) {
+		event.respondWith(handleNavigation(event.request));
+		return;
+	}
+
+	if (
+		event.request.method === 'GET' &&
+		url.origin === self.location.origin &&
+		!isNativeShellHost()
+	) {
+		if (isImmutableAsset(url)) {
+			event.respondWith(handleImmutableAsset(event.request));
+			return;
+		}
+		if (isWithinScope(url) && isCatalogData(url)) {
+			event.respondWith(handleCatalogData(event.request));
+			return;
+		}
 	}
 
 	const gamesMatch = pathname.match(/\/games\/([^/]+)\/(online|offline)\/(.*)$/);

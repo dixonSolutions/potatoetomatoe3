@@ -2,9 +2,13 @@
 
 Potato Tomato has two deliberate product surfaces:
 
-- The GitHub Pages site is a fast catalog and online game preview. It does not
-  capture games, create offline downloads, relay arbitrary sites, register the
-  offline service worker, or inject touch controls. It is stamped with
+- The GitHub Pages site is a fast catalog and player. It cannot capture a
+  third-party game host — a browser page has no way to scrape a cross-origin
+  origin — so it does not create mirrors of catalog titles that embed one, and it
+  does not relay arbitrary sites. It does register the offline service worker,
+  download same-origin games into IndexedDB, keep its own shell cached so those
+  games survive losing the network, and offer touch controls wherever the game
+  document is same-origin. It is stamped with
   `PUBLIC_OFFLINE_DEPLOYMENT=public-site`.
 - The native app is the full player. Linux/Flatpak runs the local puller and
   Playwright capture flow, stores verified mirrors, and provides touch controls
@@ -46,7 +50,8 @@ Healthy Flatpak expectations:
 - deployment resolves to `local-app`
 - `PUBLIC_OFFLINE_DEPLOYMENT` is `local-app` (never `public-site`)
 - `Download app` nav / browser-preview banner are hidden
-- Offline download controls are visible and the puller health endpoint answers
+- Offline download controls report the puller backend (not `Browser storage`) and
+  the puller health endpoint answers
 
 Android Settings → Updates downloads the latest `.apk` asset from this repository’s
 GitHub Releases. Flatpak updates remain system-managed (`flatpak update`).

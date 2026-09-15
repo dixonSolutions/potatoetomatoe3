@@ -74,9 +74,7 @@
 		PRIVACY_DISGUISE_PROVIDERS.find((p) => p.id === providerChoice) ?? PRIVACY_DISGUISE_PROVIDERS[0]
 	);
 
-	const DISGUISE_OPTIONS = $derived<
-		{ label: string; value: PrivacyDisguiseMode; hint: string }[]
-	>([
+	const DISGUISE_OPTIONS = $derived<{ label: string; value: PrivacyDisguiseMode; hint: string }[]>([
 		{
 			label: 'Off',
 			value: 'off',
@@ -121,8 +119,8 @@
 			<div class="space-y-1">
 				<p class="text-sm font-medium">Disguise settings</p>
 				<p class="text-xs text-muted-foreground">
-					Choose which product the lock screen and browser tab mimic. Tab title and icon are set automatically
-					for the selected service.
+					Choose which product the lock screen and browser tab mimic. Tab title and icon are set
+					automatically for the selected service.
 				</p>
 			</div>
 
@@ -224,8 +222,8 @@
 		<div id="settings-section-pm-disguise" class="scroll-mt-32 space-y-2">
 			<Label>When to disguise</Label>
 			<p class="text-xs text-muted-foreground">
-				When to show the disguised tab title and icon. Lock delay still controls when the passcode screen
-				appears.
+				When to show the disguised tab title and icon. Lock delay still controls when the passcode
+				screen appears.
 			</p>
 			<Select.Root
 				type="single"
@@ -254,8 +252,8 @@
 		<div id="settings-section-pm-lock-delay" class="scroll-mt-32 space-y-2">
 			<Label>Lock delay</Label>
 			<p class="text-xs text-muted-foreground">
-				How long you can be away before the passcode screen appears. “Immediately” locks as soon as you leave
-				the tab or window loses focus.
+				How long you can be away before the passcode screen appears. “Immediately” locks as soon as
+				you leave the tab or window loses focus.
 			</p>
 			<Select.Root
 				type="single"
@@ -282,9 +280,9 @@
 			<div>
 				<p class="text-sm font-medium">Lock shortcut</p>
 				<p class="text-xs text-muted-foreground">
-					While privacy mode is on and the session is unlocked, press this combination anywhere on the site to
-					show the passcode screen immediately (same as locking). Ignored when typing in a field. Ctrl+Shift+,
-					stays reserved for opening settings.
+					While privacy mode is on and the session is unlocked, press this combination anywhere on
+					the site to show the passcode screen immediately (same as locking). Ignored when typing in
+					a field. Ctrl+Shift+, stays reserved for opening settings.
 				</p>
 			</div>
 			<div
@@ -294,7 +292,7 @@
 			>
 				<span class="font-mono text-xs tabular-nums">
 					{recordingLockShortcut
-						? 'Press keys… (Esc to cancel)'
+						? 'Press keys… (or tap Cancel)'
 						: formatPrivacyLockShortcutLabel(lockShortcutDraft)}
 				</span>
 			</div>
@@ -304,9 +302,13 @@
 					variant={recordingLockShortcut ? 'secondary' : 'outline'}
 					size="sm"
 					disabled={busy}
-					onclick={() => onStartRecordingShortcut?.()}
+					aria-pressed={recordingLockShortcut}
+					onclick={() => {
+						if (recordingLockShortcut) recordingLockShortcut = false;
+						else onStartRecordingShortcut?.();
+					}}
 				>
-					{recordingLockShortcut ? 'Listening…' : 'Record shortcut'}
+					{recordingLockShortcut ? 'Cancel' : 'Record shortcut'}
 				</Button>
 				<Button
 					type="button"
@@ -327,13 +329,15 @@
 	{#if sectionMatches(searchQuery, 'pause game iframe overlay screen hide')}
 		<div
 			id="settings-section-pm-pause-game"
-			class="scroll-mt-32 flex items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
+			class="flex scroll-mt-32 items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
 		>
 			<div class="min-w-0 space-y-1">
-				<Label for="pm-pause-game" class="text-sm font-medium">Pause game while privacy screen is shown</Label>
+				<Label for="pm-pause-game" class="text-sm font-medium"
+					>Pause game while privacy screen is shown</Label
+				>
 				<p class="text-xs text-muted-foreground">
-					Hides the game iframe under the lock overlay so it is less likely to keep running in the foreground.
-					Cross-origin games may still use CPU; this is best-effort.
+					Hides the game iframe under the lock overlay so it is less likely to keep running in the
+					foreground. Cross-origin games may still use CPU; this is best-effort.
 				</p>
 			</div>
 			<Switch
@@ -346,10 +350,18 @@
 	{/if}
 
 	{#if sectionMatches(searchQuery, 'turn off disable privacy remove passcode protection')}
-		<div id="settings-section-pm-turn-off" class="scroll-mt-32 space-y-2 rounded-md bg-destructive/5 p-4">
+		<div
+			id="settings-section-pm-turn-off"
+			class="scroll-mt-32 space-y-2 rounded-md bg-destructive/5 p-4"
+		>
 			<p class="text-sm font-medium text-destructive">Turn off privacy mode</p>
 			<p class="text-xs text-muted-foreground">Removes passcode protection for this site.</p>
-			<Button type="button" variant="destructive" onclick={() => onRequestDisablePrivacy?.()} disabled={busy}>
+			<Button
+				type="button"
+				variant="destructive"
+				onclick={() => onRequestDisablePrivacy?.()}
+				disabled={busy}
+			>
 				Turn off
 			</Button>
 		</div>
@@ -374,7 +386,13 @@
 			</div>
 			<div class="space-y-2">
 				<Label for="pm-ch-new">New</Label>
-				<Input id="pm-ch-new" type="password" bind:value={changeNew} autocomplete="new-password" class={inputClass} />
+				<Input
+					id="pm-ch-new"
+					type="password"
+					bind:value={changeNew}
+					autocomplete="new-password"
+					class={inputClass}
+				/>
 			</div>
 			<div class="space-y-2">
 				<Label for="pm-ch-conf">Confirm new</Label>

@@ -70,7 +70,10 @@
 		closeToTrayBusy = true;
 		try {
 			const next = await setCloseToTrayEnabled(checked);
-			trayLife = { ...(trayLife ?? { trayAvailable: false, closeToTray: false }), closeToTray: next };
+			trayLife = {
+				...(trayLife ?? { trayAvailable: false, closeToTray: false }),
+				closeToTray: next
+			};
 			toast.message(
 				next
 					? 'Closing the window will keep the app in the tray'
@@ -131,8 +134,8 @@
 		<div id="settings-section-games-default-mode" class="scroll-mt-32 space-y-2">
 			<Label>Default play source</Label>
 			<p class="text-xs text-muted-foreground">
-				When a game offers both online and offline copies, which version loads first. You can still switch per
-				game on its detail page.
+				When a game offers both online and offline copies, which version loads first. You can still
+				switch per game on its detail page.
 			</p>
 			<Select.Root
 				type="single"
@@ -160,8 +163,9 @@
 			<div>
 				<p class="text-sm font-medium">Pause / resume shortcut</p>
 				<p class="text-xs text-muted-foreground">
-					While a game is playing, press this key to pause or resume (like the console key in Xonotic). Default
-					is the backtick <span class="font-mono">`</span>. Ignored while typing in a field.
+					While a game is playing, press this key to pause or resume (like the console key in
+					Xonotic). Default is the backtick <span class="font-mono">`</span>. Ignored while typing
+					in a field.
 				</p>
 			</div>
 			<div
@@ -171,7 +175,7 @@
 			>
 				<span class="font-mono text-xs tabular-nums">
 					{recordingPauseShortcut
-						? 'Press keys… (Esc to cancel)'
+						? 'Press keys… (or tap Cancel)'
 						: formatGamePauseShortcutLabel(pauseShortcut)}
 				</span>
 			</div>
@@ -181,13 +185,20 @@
 					variant={recordingPauseShortcut ? 'secondary' : 'outline'}
 					size="sm"
 					disabled={busy}
+					aria-pressed={recordingPauseShortcut}
 					onclick={() => {
-						recordingPauseShortcut = true;
+						recordingPauseShortcut = !recordingPauseShortcut;
 					}}
 				>
-					{recordingPauseShortcut ? 'Listening…' : 'Record shortcut'}
+					{recordingPauseShortcut ? 'Cancel' : 'Record shortcut'}
 				</Button>
-				<Button type="button" variant="ghost" size="sm" disabled={busy} onclick={resetPauseShortcut}>
+				<Button
+					type="button"
+					variant="ghost"
+					size="sm"
+					disabled={busy}
+					onclick={resetPauseShortcut}
+				>
 					Reset to `
 				</Button>
 			</div>
@@ -197,18 +208,21 @@
 	{#if trayLife && sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
 		<div
 			id="settings-section-games-close-to-tray"
-			class="scroll-mt-32 flex items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
+			class="flex scroll-mt-32 items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
 		>
 			<div class="min-w-0 space-y-1">
-				<Label for="games-close-to-tray" class="text-sm font-medium">Keep running in tray when closing</Label>
+				<Label for="games-close-to-tray" class="text-sm font-medium"
+					>Keep running in tray when closing</Label
+				>
 				<p class="text-xs text-muted-foreground">
 					{#if !trayLife.trayAvailable}
-						No system tray was detected. Closing the window always quits. On Fedora Silverblue / GNOME, install
-						an AppIndicator extension if you want a tray icon.
+						No system tray was detected. Closing the window always quits. On Fedora Silverblue /
+						GNOME, install an AppIndicator extension if you want a tray icon.
 					{:else}
-						When on, closing the window hides to the tray (puller keeps running). When off, close fully quits —
-						recommended on GNOME/Silverblue where tray icons are often invisible. Use <strong>Quit</strong> in
-						the top bar anytime.
+						When on, closing the window hides to the tray (puller keeps running). When off, close
+						fully quits — recommended on GNOME/Silverblue where tray icons are often invisible. Use <strong
+							>Quit</strong
+						> in the top bar anytime.
 					{/if}
 				</p>
 			</div>
