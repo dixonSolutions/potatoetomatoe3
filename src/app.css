@@ -90,6 +90,84 @@
 	--sidebar-ring: oklch(0.556 0 0);
 }
 
+/*
+ * The desktop picks the colours, not the app.
+ *
+ * There is no in-app appearance control: light/dark, the accent and the base colour are
+ * all read from the OS. That is not only a preference — the native window titlebar is
+ * drawn by the window manager and cannot be restyled from here, so anything the app
+ * chose for itself would sit under a titlebar that disagreed with it. Following the
+ * system is the only setting where the two can match.
+ *
+ * `Canvas`/`CanvasText` are the OS window base pair and `AccentColor`/`AccentColorText`
+ * the OS highlight pair; both resolve per `color-scheme`, so the two blocks below pick up
+ * light and dark on their own. Every other surface is mixed from those so an unusual
+ * system palette stays internally consistent instead of half-themed. The oklch values
+ * above remain the fallback for engines without system colours.
+ */
+@supports (color: AccentColor) and (color: color-mix(in oklab, Canvas, CanvasText)) {
+	:root {
+		--background: Canvas;
+		--foreground: CanvasText;
+		--card: Canvas;
+		--card-foreground: CanvasText;
+		--popover: Canvas;
+		--popover-foreground: CanvasText;
+		--primary: AccentColor;
+		--primary-foreground: AccentColorText;
+		--secondary: color-mix(in oklab, Canvas 96%, CanvasText);
+		--secondary-foreground: CanvasText;
+		--muted: color-mix(in oklab, Canvas 96%, CanvasText);
+		--muted-foreground: color-mix(in oklab, Canvas 45%, CanvasText);
+		--accent: color-mix(in oklab, Canvas 88%, AccentColor);
+		--accent-foreground: CanvasText;
+		--border: color-mix(in oklab, Canvas 88%, CanvasText);
+		--input: color-mix(in oklab, Canvas 88%, CanvasText);
+		--ring: AccentColor;
+		--sidebar: color-mix(in oklab, Canvas 98%, CanvasText);
+		--sidebar-foreground: CanvasText;
+		--sidebar-primary: AccentColor;
+		--sidebar-primary-foreground: AccentColorText;
+		--sidebar-accent: color-mix(in oklab, Canvas 88%, AccentColor);
+		--sidebar-accent-foreground: CanvasText;
+		--sidebar-border: color-mix(in oklab, Canvas 88%, CanvasText);
+		--sidebar-ring: AccentColor;
+	}
+
+	/*
+	 * Dark needs its own mixes, not the same percentages inverted: a dark card sits
+	 * *above* the window base and a light one sits flush with it, so one shared formula
+	 * would flatten the elevation the card and popover surfaces rely on.
+	 */
+	.dark {
+		--background: Canvas;
+		--foreground: CanvasText;
+		--card: color-mix(in oklab, Canvas 94%, CanvasText);
+		--card-foreground: CanvasText;
+		--popover: color-mix(in oklab, Canvas 94%, CanvasText);
+		--popover-foreground: CanvasText;
+		--primary: AccentColor;
+		--primary-foreground: AccentColorText;
+		--secondary: color-mix(in oklab, Canvas 88%, CanvasText);
+		--secondary-foreground: CanvasText;
+		--muted: color-mix(in oklab, Canvas 88%, CanvasText);
+		--muted-foreground: color-mix(in oklab, Canvas 40%, CanvasText);
+		--accent: color-mix(in oklab, Canvas 78%, AccentColor);
+		--accent-foreground: CanvasText;
+		--border: color-mix(in oklab, Canvas 86%, CanvasText);
+		--input: color-mix(in oklab, Canvas 82%, CanvasText);
+		--ring: AccentColor;
+		--sidebar: color-mix(in oklab, Canvas 94%, CanvasText);
+		--sidebar-foreground: CanvasText;
+		--sidebar-primary: AccentColor;
+		--sidebar-primary-foreground: AccentColorText;
+		--sidebar-accent: color-mix(in oklab, Canvas 78%, AccentColor);
+		--sidebar-accent-foreground: CanvasText;
+		--sidebar-border: color-mix(in oklab, Canvas 86%, CanvasText);
+		--sidebar-ring: AccentColor;
+	}
+}
+
 @theme inline {
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);

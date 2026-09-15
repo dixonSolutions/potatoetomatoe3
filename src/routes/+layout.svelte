@@ -19,7 +19,7 @@
 	import Settings from '$lib/components/settings/Settings.svelte';
 	import { toast } from 'svelte-sonner';
 	import { isGlobalDailyLimitExceeded } from '$lib/utils/play-recommendations';
-	import { ModeWatcher } from 'mode-watcher';
+	import { ModeWatcher, resetMode } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { setSettingsUiContext } from '$lib/settings-ui-context';
 	import {
@@ -488,6 +488,16 @@
 		document.documentElement.toggleAttribute('data-privacy-locked', locked);
 		window.dispatchEvent(new CustomEvent('potato-tomato-privacy-locked', { detail: { locked } }));
 	});
+
+	/*
+	 * The app follows the OS and offers no appearance control, so any stored override is
+	 * stale by definition — and a stale one is not harmless. `mode-watcher` persists the
+	 * last pick, so an install that had ever been switched to Dark stayed dark forever
+	 * against a light desktop: dark page, light native titlebar, and (now that the toggle
+	 * is gone) no way back. Clearing it on mount is what makes "follows the system" true
+	 * for existing installs, not just new ones.
+	 */
+	onMount(() => resetMode());
 </script>
 
 <ModeWatcher defaultMode="system" />

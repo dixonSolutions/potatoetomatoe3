@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
-	import { GripHorizontal } from 'lucide-svelte';
+	import { Check, ChevronDown, GripHorizontal } from 'lucide-svelte';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
 	import {
@@ -95,11 +95,31 @@
 	let appliedProfile = $state<KeyProfile>(emptyKeyProfile(''));
 	/** Set once the player picks a scheme by hand — detection stops overriding after that. */
 	let manualSchemeForGame = $state('');
+	/**
+	 * The scheme picker is a custom listbox, not a `<select>`.
+	 *
+	 * A native picker paints itself from the platform theme: on Android WebView the
+	 * Arrows/WASD list came up as an opaque white system sheet over a translucent glass
+	 * console, and no CSS on the `<select>` can reach the popup to fix that. Owning the
+	 * popup is the only way it can match the rest of the console.
+	 */
+	let schemeMenuOpen = $state(false);
+	let schemeMenuEl = $state<HTMLDivElement | null>(null);
 
 	const DIRECTION_CODES: Record<TouchJoystickScheme, TouchKeyCode[]> = {
 		arrows: ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'],
 		wasd: ['KeyW', 'KeyA', 'KeyS', 'KeyD']
 	};
+
+	const SCHEME_OPTIONS: { value: TouchJoystickScheme; label: string }[] = [
+		{ value: 'arrows', label: '↑↓←→ Arrows' },
+		{ value: 'wasd', label: 'WASD' }
+	];
+
+	/* Trigger pill height, and the popup it opens — used to flip the popup near an edge. */
+	const SCHEME_TRIGGER_H = 28;
+	const SCHEME_MENU_W = 152;
+	const SCHEME_MENU_H = 8 + SCHEME_OPTIONS.length * 28;
 
 	const profileCodes = $derived(keyProfileCodes(appliedProfile));
 	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(appliedProfile));
@@ -214,12 +234,13 @@
 	/**
 	 * Form controls must keep their default activation behaviour.
 	 *
-	 * This runs as a capture-phase `pointerdown` handler on the overlay root, so it saw
-	 * every press inside the console — including the joystick scheme `<select>`. Calling
-	 * `preventDefault()` on `pointerdown` suppresses the default activation, and on
-	 * Android WebView that stops the native picker from ever opening: the Arrows/WASD
-	 * dropdown looked dead. Suppression is only wanted for the game surface, where it
-	 * stops the press stealing focus from the game.
+	 * This runs as a capture-phase `pointerdown` handler on the overlay root, so it sees
+	 * every press inside the console. `preventDefault()` on `pointerdown` suppresses the
+	 * default activation, which kills the press for whatever it landed on — back when the
+	 * scheme picker was a `<select>`, that stopped Android WebView opening the native
+	 * picker at all and the Arrows/WASD dropdown looked dead. Suppression is only wanted
+	 * for the game surface, where it stops the press stealing focus from the game, so
+	 * every console control carries `data-console-control`.
 	 */
 	function isInteractiveControl(target: EventTarget | null): boolean {
 		const el = target instanceof Element ? target : null;
@@ -396,6 +417,63 @@
 		setJoystickScheme(scheme);
 		refreshConfig();
 		dispatcher.setJoystickCodes([]);
+	}
+
+	function schemeLabel(scheme: TouchJoystickScheme): string {
+		return SCHEME_OPTIONS.find((o) => o.value === scheme)?.label ?? scheme;
+	}
+
+	function pickScheme(scheme: TouchJoystickScheme) {
+		schemeMenuOpen = false;
+		onJoystickSchemeChange(scheme);
+	}
+
+	/**
+	 * The popup is a sibling of the console panel, not a child of it.
+	 *
+	 * The panel carries `opacity: config.opacity`, and opacity applies to the whole
+	 * subtree — a menu nested inside it would be dimmed to the same 40% as the chrome
+	 * behind it and become unreadable. Being a sibling costs it the panel's layout, so
+	 * its position is computed from the same numbers the panel is drawn from.
+	 */
+	const schemeMenuPos = $derived.by(() => {
+		const triggerLeft = pctToPx(layout.console.xPct, 'x') + 8;
+		const triggerTop = surfaceOffsetY + pctToPx(layout.console.yPct, 'y') + 8;
+		const below = triggerTop + SCHEME_TRIGGER_H + 6;
+		const surfaceBottom = surfaceOffsetY + surfaceH;
+		const flipUp = below + SCHEME_MENU_H > surfaceBottom;
+		return {
+			left: Math.max(4, Math.min(triggerLeft, surfaceW - SCHEME_MENU_W - 4)),
+			top: flipUp
+				? Math.max(surfaceOffsetY + 4, triggerTop - 6 - SCHEME_MENU_H)
+				: Math.min(below, surfaceBottom - SCHEME_MENU_H - 4)
+		};
+	});
+
+	/* A menu left open across a hide or a drag-edit would reopen over the wrong place. */
+	$effect(() => {
+		if (!showOverlay || editingControl !== null) schemeMenuOpen = false;
+	});
+
+	/* Move focus into the popup so a keyboard (or a TV remote) can leave it again. */
+	$effect(() => {
+		if (!schemeMenuOpen || !schemeMenuEl) return;
+		schemeMenuEl.querySelector<HTMLElement>('[aria-selected="true"]')?.focus();
+	});
+
+	function onSchemeMenuKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape') {
+			e.stopPropagation();
+			schemeMenuOpen = false;
+			return;
+		}
+		if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+		const items = Array.from(schemeMenuEl?.querySelectorAll<HTMLElement>('[role="option"]') ?? []);
+		if (items.length === 0) return;
+		e.preventDefault();
+		const at = items.indexOf(document.activeElement as HTMLElement);
+		const step = e.key === 'ArrowDown' ? 1 : -1;
+		items[(at + step + items.length) % items.length]?.focus();
 	}
 
 	function measureSurface() {
@@ -681,26 +759,24 @@
 				class:ring-dashed={editingControl === 'console'}
 				style={`left:${pctToPx(layout.console.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.console.yPct, 'y')}px;width:${pctToPx(layout.console.widthPct, 'x')}px;height:${pctToPx(layout.console.heightPct, 'y')}px;opacity:${config.opacity};`}
 			>
-				<label
-					class="pointer-events-auto absolute top-2 left-2 z-10 flex max-w-[46%] items-center"
+				<button
+					type="button"
+					data-console-control
+					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[46%] items-center gap-1 rounded-full border border-white/25 bg-black/35 px-2.5 text-[10px] font-semibold tracking-wide text-white/90 shadow-sm backdrop-blur-md outline-none"
+					class:border-emerald-400={effectiveScheme !== config.joystickScheme}
 					aria-label="Joystick key scheme"
+					aria-haspopup="listbox"
+					aria-expanded={schemeMenuOpen}
+					title={effectiveScheme !== config.joystickScheme
+						? 'Matched to the keys this game says it reads — pick one to override'
+						: 'Keys the joystick sends'}
+					onclick={() => {
+						schemeMenuOpen = !schemeMenuOpen;
+					}}
 				>
-					<select
-						class="h-7 max-w-full truncate rounded-full border border-white/25 bg-black/35 px-2 text-[10px] font-semibold tracking-wide text-white/90 shadow-sm backdrop-blur-md outline-none"
-						class:border-emerald-400={effectiveScheme !== config.joystickScheme}
-						title={effectiveScheme !== config.joystickScheme
-							? 'Matched to the keys this game says it reads — pick one to override'
-							: 'Keys the joystick sends'}
-						value={effectiveScheme}
-						onchange={(e) =>
-							onJoystickSchemeChange(
-								(e.currentTarget as HTMLSelectElement).value === 'wasd' ? 'wasd' : 'arrows'
-							)}
-					>
-						<option value="arrows">↑↓←→ Arrows</option>
-						<option value="wasd">WASD</option>
-					</select>
-				</label>
+					<span class="truncate">{schemeLabel(effectiveScheme)}</span>
+					<ChevronDown class="size-3 shrink-0 opacity-70" />
+				</button>
 				<button
 					type="button"
 					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white/80"
@@ -778,6 +854,51 @@
 					</span>
 				{/if}
 			</div>
+
+			{#if schemeMenuOpen}
+				<!--
+					Full-surface scrim: a tap anywhere outside the popup closes it. Presses on
+					the game go straight to the iframe and never reach a document listener, so
+					an outside-click handler alone would leave the menu stuck open.
+				-->
+				<button
+					type="button"
+					data-console-control
+					class="pointer-events-auto absolute inset-0 z-20 cursor-default"
+					aria-label="Close the key scheme menu"
+					onpointerdown={() => {
+						schemeMenuOpen = false;
+					}}
+				></button>
+				<div
+					bind:this={schemeMenuEl}
+					class="pointer-events-auto absolute z-30 overflow-hidden rounded-2xl border border-white/20 bg-black/60 p-1 shadow-[0_10px_40px_rgb(0_0_0_/0.45)] backdrop-blur-xl"
+					role="listbox"
+					aria-label="Joystick key scheme"
+					tabindex="-1"
+					style={`left:${schemeMenuPos.left}px;top:${schemeMenuPos.top}px;width:${SCHEME_MENU_W}px;`}
+					onkeydown={onSchemeMenuKeydown}
+				>
+					{#each SCHEME_OPTIONS as opt (opt.value)}
+						<button
+							type="button"
+							data-console-control
+							role="option"
+							aria-selected={effectiveScheme === opt.value}
+							class="flex h-7 w-full items-center justify-between rounded-xl px-2.5 text-[10px] font-semibold tracking-wide text-white/90 outline-none focus-visible:ring-1 focus-visible:ring-white/50 {effectiveScheme ===
+							opt.value
+								? 'bg-white/15'
+								: ''}"
+							onclick={() => pickScheme(opt.value)}
+						>
+							<span class="truncate">{opt.label}</span>
+							{#if effectiveScheme === opt.value}
+								<Check class="size-3 shrink-0 text-emerald-300" />
+							{/if}
+						</button>
+					{/each}
+				</div>
+			{/if}
 
 			{#if joystickFate !== 'hide'}
 				<div
