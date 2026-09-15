@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-friday-night-funkin-corruption",
+  "name": "Friday Night Funkin’ Corruption",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin’ Corruption transforms FNF into a dark infection saga, featuring brutal tracks like Tormentor, Memory-Leak, and Treacherous-Thorns.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-corruption/friday-night-funkin-corruption.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-corruption/friday-night-funkin-corruption.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-corruption?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-corruption",
+  "fnfGamesSlug": "friday-night-funkin-corruption",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "tricky",
+    "pibby"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 722
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-in-backrooms",
+  "name": "Sprunki in Backrooms",
+  "author": "FNF Games",
+  "description": "Explore the endless maze in Sprunki in Backrooms, a 3D horror adventure where you collect hidden items and escape the Backrooms.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-in-backrooms/sprunki-in-backrooms.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-in-backrooms/sprunki-in-backrooms.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-in-backrooms?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-in-backrooms",
+  "fnfGamesSlug": "sprunki-in-backrooms",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

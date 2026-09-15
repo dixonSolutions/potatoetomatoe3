@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-sonic-exe-zero-version",
+  "name": "FNF Sonic.EXE Zero Version",
+  "author": "FNF Games",
+  "description": "Dark halls and burning eyes define FNF Sonic.EXE Zero Version, where a redesigned entity confronts Boyfriend with relentless notes and cinematic tension.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sonic-exe-zero-version/fnf-sonic-exe-zero-version.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sonic-exe-zero-version/fnf-sonic-exe-zero-version.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sonic-exe-zero-version?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sonic-exe-zero-version",
+  "fnfGamesSlug": "fnf-sonic-exe-zero-version",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 143
+}

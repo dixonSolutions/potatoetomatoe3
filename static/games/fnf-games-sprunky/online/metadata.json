@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-sprunky",
+  "name": "SPRUNKY",
+  "author": "FNF Games",
+  "description": "SPRUNKY is a creative music game using 20 characters as rhythm and melody layers, letting players toggle each sound live to build a custom mix.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunky/sprunky.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunky/sprunky.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunky?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunky",
+  "fnfGamesSlug": "sprunky",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "sprunki",
+    "sing"
+  ],
+  "portalRating": 5.8,
+  "portalRatingCount": 12
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-qt-mod",
+  "name": "FNF vs QT Mod",
+  "author": "FNF Games",
+  "description": "In FNF Vs QT Mod, a fast-paced rhythm battle, face the adorable yet powerful robot QT in intense musical duels that test every beat and reflex.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-qt-mod/fnf-vs-qt-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-qt-mod/fnf-vs-qt-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-qt-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-qt-mod",
+  "fnfGamesSlug": "fnf-vs-qt-mod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 138
+}

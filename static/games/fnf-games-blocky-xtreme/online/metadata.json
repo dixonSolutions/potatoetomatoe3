@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-blocky-xtreme",
+  "name": "Blocky Xtreme",
+  "author": "FNF Games",
+  "description": "Ride through endless randomly generated tracks in Blocky Xtreme, a fast-paced physics bike game featuring challenging terrain and unlockable riders.",
+  "thumbnail": "https://fnf-games.io/data/image/game/blocky-xtreme/blocky-xtreme.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/blocky-xtreme/blocky-xtreme.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/blocky-xtreme?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/blocky-xtreme",
+  "fnfGamesSlug": "blocky-xtreme",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

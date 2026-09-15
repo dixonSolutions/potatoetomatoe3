@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-fnaf-1",
+  "name": "FNF vs FNAF 1",
+  "author": "FNF Games",
+  "description": "Join FNF vs FNAF 1, a dark rhythm experience inside Freddy’s pizzeria. Keep the beat, face your fears and sing your way through the night!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-fnaf-1/fnf-vs-fnaf-1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-fnaf-1/fnf-vs-fnaf-1.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-fnaf-1?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-fnaf-1",
+  "fnfGamesSlug": "fnf-vs-fnaf-1",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "horror"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 450
+}

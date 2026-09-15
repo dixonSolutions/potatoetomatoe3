@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-diary-of-a-wimpy-kid",
+  "name": "FNF: Diary of a Wimpy Kid",
+  "author": "FNF Games",
+  "description": "A sketch-style world shapes FNF: Diary of a Wimpy Kid. Follow the rhythm and complete the track without losing control. Stay sharp!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-diary-of-a-wimpy-kid/fnf-diary-of-a-wimpy-kid.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-diary-of-a-wimpy-kid/fnf-diary-of-a-wimpy-kid.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-diary-of-a-wimpy-kid?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-diary-of-a-wimpy-kid",
+  "fnfGamesSlug": "fnf-diary-of-a-wimpy-kid",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "cartoon"
+  ],
+  "portalRating": 8.7,
+  "portalRatingCount": 62
+}

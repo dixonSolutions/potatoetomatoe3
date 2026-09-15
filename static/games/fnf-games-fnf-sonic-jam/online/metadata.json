@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-sonic-jam",
+  "name": "FNF Sonic Jam",
+  "author": "FNF Games",
+  "description": "FNF Sonic Jam is a rhythm game mod for Friday Night Funkin’ featuring Sonic-themed music and remix tracks inspired by classic Sonic soundtracks.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sonic-jam/fnf-sonic-jam.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sonic-jam/fnf-sonic-jam.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sonic-jam?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sonic-jam",
+  "fnfGamesSlug": "fnf-sonic-jam",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "sonic"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 146
+}

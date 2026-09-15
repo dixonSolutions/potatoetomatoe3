@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sonic-exe-the-original-game",
+  "name": "Sonic.EXE – The Original Game",
+  "author": "FNF Games",
+  "description": "Walking through distorted Sonic levels drives Sonic.EXE - The Original Game, where familiar worlds decay and unease grows without warning.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sonic-exe-the-original-game/sonic-exe-the-original-game.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sonic-exe-the-original-game/sonic-exe-the-original-game.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sonic-exe-the-original-game?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sonic-exe-the-original-game",
+  "fnfGamesSlug": "sonic-exe-the-original-game",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 5.8,
+  "portalRatingCount": 19
+}

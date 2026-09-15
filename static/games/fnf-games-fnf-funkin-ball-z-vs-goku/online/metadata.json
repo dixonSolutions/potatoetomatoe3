@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-funkin-ball-z-vs-goku",
+  "name": "FNF Funkin Ball Z vs Goku",
+  "author": "FNF Games",
+  "description": "Join the Z Tournament in FNF Funkin Ball Z vs Goku, a high-intensity rhythm fighting game where anime power blends notes on explosive tracks like Soaring.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-funkin-ball-z-vs-goku/fnf-funkin-ball-z-vs-goku.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-funkin-ball-z-vs-goku/fnf-funkin-ball-z-vs-goku.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-funkin-ball-z-vs-goku?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-funkin-ball-z-vs-goku",
+  "fnfGamesSlug": "fnf-funkin-ball-z-vs-goku",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 55
+}

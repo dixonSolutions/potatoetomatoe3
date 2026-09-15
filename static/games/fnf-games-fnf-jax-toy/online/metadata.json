@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-jax-toy",
+  "name": "FNF Jax Toy",
+  "author": "FNF Games",
+  "description": "Play FNF Jax Toy, a fun Friday Night Funkin mod where musical timing, expressive animations, and Digital Circus style create a unique challenge.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-jax-toy/fnf-jax-toy.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-jax-toy/fnf-jax-toy.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-jax-toy?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-jax-toy",
+  "fnfGamesSlug": "fnf-jax-toy",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon",
+    "pomni"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 436
+}

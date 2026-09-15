@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-nocturnal-protocol-mod",
+  "name": "FNF Nocturnal Protocol Mod",
+  "author": "FNF Games",
+  "description": "Face the Guardian in FNF Nocturnal Protocol Mod, a dark FNF rhythm game with tense notes, whistling callbacks, and eerie endings. Survive Tubbyland!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-nocturnal-protocol-mod/fnf-nocturnal-protocol-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-nocturnal-protocol-mod/fnf-nocturnal-protocol-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-nocturnal-protocol-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-nocturnal-protocol-mod",
+  "fnfGamesSlug": "fnf-nocturnal-protocol-mod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 529
+}

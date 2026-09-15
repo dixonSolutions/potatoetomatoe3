@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-dead-strike",
+  "name": "Dead Strike",
+  "author": "FNF Games",
+  "description": "Fight for survival in a ruined world filled with zombies as Dead Strike challenges your reflexes with fast-paced FPS action and powerful weapons.",
+  "thumbnail": "https://fnf-games.io/data/image/game/dead-strike/dead-strike.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dead-strike/dead-strike.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dead-strike?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dead-strike",
+  "fnfGamesSlug": "dead-strike",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "zombie"
+  ],
+  "portalRating": 7.1,
+  "portalRatingCount": 7
+}

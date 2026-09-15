@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-hole-arena",
+  "name": "Hole Arena",
+  "author": "FNF Games",
+  "description": "Control a growing black hole in Hole Arena, absorb everything in your path, use smart power-ups, and outsize rivals in fast-paced, timed matches.",
+  "thumbnail": "https://fnf-games.io/data/image/game/hole-arena/hole-arena.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/hole-arena/hole-arena.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/hole-arena?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/hole-arena",
+  "fnfGamesSlug": "hole-arena",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 13
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-fire-in-the-hole",
+  "name": "FNF Fire in the Hole",
+  "author": "FNF Games",
+  "description": "Jump into FNF Fire in the Hole and survive a chaotic Lobotomy Dash crossover filled with unexpected songs and tricky note patterns.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-fire-in-the-hole/fnf-fire-in-the-hole.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-fire-in-the-hole/fnf-fire-in-the-hole.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-fire-in-the-hole?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-fire-in-the-hole",
+  "fnfGamesSlug": "fnf-fire-in-the-hole",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 172
+}

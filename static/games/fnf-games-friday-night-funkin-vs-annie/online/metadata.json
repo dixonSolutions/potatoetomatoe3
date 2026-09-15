@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-annie",
+  "name": "Friday Night Funkin’ vs Annie",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin’ vs Annie brings a powerful roadside rhythm duel where shifting tempos and Annie’s fierce vocals drive every beat. Step into the battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-annie/friday-night-funkin-vs-annie.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-annie/friday-night-funkin-vs-annie.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-annie?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-annie",
+  "fnfGamesSlug": "friday-night-funkin-vs-annie",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 24
+}

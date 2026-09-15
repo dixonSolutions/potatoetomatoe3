@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-beast-clash",
+  "name": "Beast Clash",
+  "author": "FNF Games",
+  "description": "Jump into Beast Clash for hilarious animal warriors, fast arena fights, and action-packed matches where timing decides every victory.",
+  "thumbnail": "https://fnf-games.io/data/image/game/beast-clash/beast-clash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/beast-clash/beast-clash.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/beast-clash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/beast-clash",
+  "fnfGamesSlug": "beast-clash",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

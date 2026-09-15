@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-sprunki",
+  "name": "Friday Night Sprunki",
+  "author": "FNF Games",
+  "description": "Friday Night Sprunki is a rhythm game where you can show off your rap and rhythm skills through intense battles. Who knows, you might be the next rhythm star!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-sprunki/friday-night-sprunki.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-sprunki/friday-night-sprunki.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-sprunki?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Ffriday-night-sprunki&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-sprunki",
+  "fnfGamesSlug": "friday-night-sprunki",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fnf",
+    "sprunki"
+  ],
+  "portalRating": 7.1,
+  "portalRatingCount": 62
+}

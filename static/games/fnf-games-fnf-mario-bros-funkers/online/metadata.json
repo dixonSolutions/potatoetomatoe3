@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-mario-bros-funkers",
+  "name": "FNF Mario Bros. Funkers",
+  "author": "FNF Games",
+  "description": "Travel to the Mushroom Kingdom in FNF Mario Bros. Funkers, where Mario, Luigi, Peach, and Toad join five retro-inspired rhythm battles.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-mario-bros-funkers/fnf-mario-bros-funkers.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-mario-bros-funkers/fnf-mario-bros-funkers.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-mario-bros-funkers?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-mario-bros-funkers",
+  "fnfGamesSlug": "fnf-mario-bros-funkers",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "mario"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 58
+}

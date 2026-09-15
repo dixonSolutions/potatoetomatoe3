@@ -57,6 +57,7 @@ Always kept: `shrek-escape`, `shrek-5`.
 | Playhop (Yandex) | `pnpm games:import-playhop` | Digraph search + feed → `app-*.games.s3.yandex.net` |
 | Y8 | `pnpm games:import-y8` | RSS → `storage.y8.com` |
 | Drive U 7 | `pnpm games:import-drive-u7` | Google Sites home → jsDelivr gadget XML → local `embed.html` |
+| FNF Games | `pnpm games:import-fnf-games` | Sitemap → embed URL read out of each game page |
 | All of the above | `pnpm games:import-all-portals` | Purge → Shrek → portals → regenerate list |
 
 Common flags: `--limit N`, `--skip-existing`, `--discover-only`, `--concurrency N`.
@@ -68,6 +69,27 @@ Manifests land in `scripts/data/*-catalog.json`.
 `pnpm games:update-shrek-playhop` sets `shrek-escape` online embed to Playhop app
 `415567` (Yandex S3 build URL). Offline bundle remains under
 `static/games/shrek-escape/offline/` (git allowlisted).
+
+## FNF Games
+
+`fnf-games.io` is a curated Friday Night Funkin' mod portal (~635 entries, mostly
+`rhythm`). Two things make its importer differ from the others:
+
+- **Robots.** The portal disallows `/embed/`, `/game/`, `?page=` pagination and
+  the engine payload extensions. Discovery therefore uses only the sitemap and
+  the game detail pages, and reads the embed URL *out of* each page's markup
+  instead of following it. The shell iframe still points at `/embed/<slug>`,
+  which is the URL the portal frames itself.
+- **Quality gate.** It does not use `assessPortalTitleQuality`. That helper's
+  junk-title heuristic is tuned for Unity Play, where `test`/`sandbox` mark dead
+  user uploads; here the same words are in real mod names (Character Test
+  Playground, FNAF Test, Ragdoll Sandbox), so it only produced false negatives.
+  The importer keeps the NSFW and exact-junk checks and adds a narrow adult-tone
+  list — which deliberately omits "erect", the name of an official FNF remix
+  style.
+
+Covers stay remote (`thumbnailStored: "remote"`): the local thumbnail budget is
+already spent, so no mod cover art is copied into the repo.
 
 ## Notes
 

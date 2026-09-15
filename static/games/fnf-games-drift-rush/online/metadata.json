@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-drift-rush",
+  "name": "Drift Rush",
+  "author": "FNF Games",
+  "description": "Drift Rush brings stylish drift racing with 20 cars, upgrade tuning, smoky turns, 12 tracks, and leaderboards for skilled drivers. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/drift-rush/drift-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/drift-rush/drift-rush.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/drift-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/drift-rush",
+  "fnfGamesSlug": "drift-rush",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 5
+}

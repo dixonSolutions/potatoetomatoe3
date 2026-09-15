@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-monika",
+  "name": "FNF Vs. Monika",
+  "author": "FNF Games",
+  "description": "FNF Vs. Monika brings you a challenging experience when confronting Monika from the world of Doki Doki Literature Club. Try your hand at this rhythm battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-monika/fnf-vs-monika.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-monika/fnf-vs-monika.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-monika?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-monika",
+  "fnfGamesSlug": "fnf-vs-monika",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "monika"
+  ],
+  "portalRating": 7.1,
+  "portalRatingCount": 17
+}

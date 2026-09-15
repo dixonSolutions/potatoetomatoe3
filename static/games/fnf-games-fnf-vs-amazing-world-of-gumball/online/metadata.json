@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-amazing-world-of-gumball",
+  "name": "FNF vs Amazing World of Gumball",
+  "author": "FNF Games",
+  "description": "FNF vs Amazing World of Gumball brings you exciting rap battles featuring Gumball across a diverse range of songs. Let's dive into this battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-amazing-world-of-gumball/fnf-vs-amazing-world-of-gumball.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-amazing-world-of-gumball/fnf-vs-amazing-world-of-gumball.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-amazing-world-of-gumball?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-amazing-world-of-gumball",
+  "fnfGamesSlug": "fnf-vs-amazing-world-of-gumball",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 146
+}

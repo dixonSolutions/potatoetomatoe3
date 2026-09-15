@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-dusk-till-dawn-2",
+  "name": "FNF Dusk Till Dawn 2",
+  "author": "FNF Games",
+  "description": "Face corrupted Twilight in FNF Dusk Till Dawn 2, a Friday Night Funkin' rhythm game where Boyfriend battles through a Pibby-inspired musical confrontation.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-dusk-till-dawn-2/fnf-dusk-till-dawn-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-dusk-till-dawn-2/fnf-dusk-till-dawn-2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-dusk-till-dawn-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-dusk-till-dawn-2",
+  "fnfGamesSlug": "fnf-dusk-till-dawn-2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 164
+}

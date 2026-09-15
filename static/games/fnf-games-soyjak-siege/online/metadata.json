@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-soyjak-siege",
+  "name": "Soyjak Siege",
+  "author": "FNF Games",
+  "description": "Fight through nonstop waves in Soyjak Siege as fast movement, clever upgrades, and unpredictable battles test your survival skills.",
+  "thumbnail": "https://fnf-games.io/data/image/game/soyjak-siege/soyjak-siege.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/soyjak-siege/soyjak-siege.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/soyjak-siege?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/soyjak-siege",
+  "fnfGamesSlug": "soyjak-siege",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "fast-paced",
+    "meme",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

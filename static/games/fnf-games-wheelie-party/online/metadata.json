@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-wheelie-party",
+  "name": "Wheelie Party",
+  "author": "FNF Games",
+  "description": "Keep your front wheel suspended above the road in Wheelie Party, a 2D arcade game with engaging driving gameplay. How far can you do a wheelie?",
+  "thumbnail": "https://fnf-games.io/data/image/game/wheelie-party/wheelie-party.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wheelie-party/wheelie-party.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wheelie-party?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wheelie-party",
+  "fnfGamesSlug": "wheelie-party",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

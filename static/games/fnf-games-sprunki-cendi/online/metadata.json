@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-cendi",
+  "name": "Sprunki Cendi",
+  "author": "FNF Games",
+  "description": "Unleash your creativity in Sprunki Cendi by combining hilarious characters and unique sound effects to build original music in this playful Sprunki mod.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-cendi/sprunki-cendi.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-cendi/sprunki-cendi.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-cendi?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-cendi",
+  "fnfGamesSlug": "sprunki-cendi",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

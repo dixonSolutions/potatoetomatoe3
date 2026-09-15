@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-aqua-bits",
+  "name": "Aqua Bits",
+  "author": "FNF Games",
+  "description": "Dive into Aqua Bits and grow from a tiny fish into an ocean predator by hunting wisely and avoiding dangerous enemies. Let's start!",
+  "thumbnail": "https://fnf-games.io/data/image/game/aqua-bits/aqua-bits.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/aqua-bits/aqua-bits.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/aqua-bits?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/aqua-bits",
+  "fnfGamesSlug": "aqua-bits",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

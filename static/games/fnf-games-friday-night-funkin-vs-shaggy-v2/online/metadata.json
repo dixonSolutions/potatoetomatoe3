@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-shaggy-v2",
+  "name": "Friday Night Funkin vs Shaggy v2",
+  "author": "FNF Games",
+  "description": "In Friday Night Funkin vs Shaggy v2, Boyfriend enters a legendary duel against Shaggy from Scooby Doo. Try out Super Saiyan stage modes!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-shaggy-v2/friday-night-funkin-vs-shaggy-v2.jpg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-shaggy-v2/friday-night-funkin-vs-shaggy-v2.jpg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-shaggy-v2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-shaggy-v2",
+  "fnfGamesSlug": "friday-night-funkin-vs-shaggy-v2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 30
+}

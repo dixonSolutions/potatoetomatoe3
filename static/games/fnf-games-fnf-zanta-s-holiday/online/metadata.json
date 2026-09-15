@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-zanta-s-holiday",
+  "name": "FNF Zanta’s Holiday!",
+  "author": "FNF Games",
+  "description": "Join FNF Zanta’s Holiday! for a festive music showdown featuring Eddsworld humor, holiday chaos, and a unique 3v1 battle against Zanta Claws.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-zanta-s-holiday/fnf-zanta-s-holiday.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-zanta-s-holiday/fnf-zanta-s-holiday.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-zanta-s-holiday?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-zanta-s-holiday",
+  "fnfGamesSlug": "fnf-zanta-s-holiday",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 7.3,
+  "portalRatingCount": 15
+}

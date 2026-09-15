@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-saturday-fatality",
+  "name": "FNF Saturday Fatality",
+  "author": "FNF Games",
+  "description": "In FNF Saturday Fatality, the stage glows under a quiet sky as Boyfriend meets Oswald for a somber duel of music and emotion. Play and explore more!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-saturday-fatality/fnf-saturday-fatality.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-saturday-fatality/fnf-saturday-fatality.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-saturday-fatality?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-saturday-fatality",
+  "fnfGamesSlug": "fnf-saturday-fatality",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "cartoon",
+    "mickey"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 71
+}

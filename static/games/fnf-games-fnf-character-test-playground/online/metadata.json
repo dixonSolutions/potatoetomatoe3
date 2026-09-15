@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-character-test-playground",
+  "name": "FNF Character Test Playground",
+  "author": "FNF Games",
+  "description": "Create your own rhythm in FNF Character Test Playground, a musical playground filled with famous FNF voices waiting for your creative touch.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-character-test-playground/fnf-character-test-playground.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-character-test-playground/fnf-character-test-playground.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-character-test-playground?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-character-test-playground",
+  "fnfGamesSlug": "fnf-character-test-playground",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "tricky",
+    "whitty"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 275
+}

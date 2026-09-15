@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-dancing-beat",
+  "name": "Dancing Beat",
+  "author": "FNF Games",
+  "description": "Feel the rhythm of the ball rolling to the music in Dancing Beat, a signature rhythm arcade game. Transform the track into a vibrant musical symphony!",
+  "thumbnail": "https://fnf-games.io/data/image/game/dancing-beat/dancing-beat.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dancing-beat/dancing-beat.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dancing-beat?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dancing-beat",
+  "fnfGamesSlug": "dancing-beat",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "3d"
+  ],
+  "portalRating": 4.3,
+  "portalRatingCount": 7
+}

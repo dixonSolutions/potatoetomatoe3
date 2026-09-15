@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-wobbly-pets",
+  "name": "Wobbly Pets",
+  "author": "FNF Games",
+  "description": "Tiny pets wobble through Wobbly Pets, a casual physics walking game where every step needs balance and timing. Keep paws steady!",
+  "thumbnail": "https://fnf-games.io/data/image/game/wobbly-pets/wobbly-pets.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wobbly-pets/wobbly-pets.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wobbly-pets?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wobbly-pets",
+  "fnfGamesSlug": "wobbly-pets",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 4
+}

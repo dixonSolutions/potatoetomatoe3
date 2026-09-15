@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-toca-boca-life-neighborhood",
+  "name": "Toca Boca Life Neighborhood",
+  "author": "FNF Games",
+  "description": "Build your own adventures in Toca Boca Life Neighborhood by customizing homes, exploring colorful neighborhood locations, and bringing characters to life.",
+  "thumbnail": "https://fnf-games.io/data/image/game/toca-boca-life-neighborhood/toca-boca-life-neighborhood.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/toca-boca-life-neighborhood/toca-boca-life-neighborhood.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/toca-boca-life-neighborhood?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/toca-boca-life-neighborhood",
+  "fnfGamesSlug": "toca-boca-life-neighborhood",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "cartoon"
+  ],
+  "portalRating": 7.6,
+  "portalRatingCount": 17
+}

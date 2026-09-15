@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-stickman",
+  "name": "FNF Vs Stickman",
+  "author": "FNF Games",
+  "description": "FNF vs Stickman delivers a wild rhythm showdown packed with slapstick moments and stick-figure energy. Stay sharp or lose your mic mid-battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-stickman/fnf-vs-stickman.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-stickman/fnf-vs-stickman.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-stickman?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-stickman",
+  "fnfGamesSlug": "fnf-vs-stickman",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "stickman"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 56
+}

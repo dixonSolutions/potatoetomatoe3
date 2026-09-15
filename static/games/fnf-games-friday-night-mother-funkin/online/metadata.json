@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-mother-funkin",
+  "name": "Friday Night Mother Funkin",
+  "author": "FNF Games",
+  "description": "Enjoy Friday Night Mother Funkin, a meme-driven rhythm mod full of chaotic humor, wild animations, and a bizarre Cuphead showdown. Expect the unexpected!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-mother-funkin/friday-night-mother-funkin.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-mother-funkin/friday-night-mother-funkin.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-mother-funkin?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-mother-funkin",
+  "fnfGamesSlug": "friday-night-mother-funkin",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "meme",
+    "cuphead"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 42
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-x-fnaf-night-life",
+  "name": "FNF X FNAF: Night Life",
+  "author": "FNF Games",
+  "description": "Celebrate FNAF’s anniversary with FNF X FNAF: Night Life! Rap battle Freddy Fazbear in this spooky crossover mod packed with catchy beats.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-fnaf-night-life/fnf-x-fnaf-night-life.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-fnaf-night-life/fnf-x-fnaf-night-life.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-fnaf-night-life?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-fnaf-night-life",
+  "fnfGamesSlug": "fnf-x-fnaf-night-life",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "horror"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 23
+}

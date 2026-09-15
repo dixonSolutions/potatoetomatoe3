@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-doraemon",
+  "name": "FNF vs Doraemon",
+  "author": "FNF Games",
+  "description": "Travel through time in FNF vs Doraemon, where over 20 songs evolve from cheerful anime adventures into dark rhythm battles with surprising twists.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-doraemon/fnf-vs-doraemon.jpeg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-doraemon/fnf-vs-doraemon.jpeg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-doraemon?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-doraemon",
+  "fnfGamesSlug": "fnf-vs-doraemon",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 82
+}

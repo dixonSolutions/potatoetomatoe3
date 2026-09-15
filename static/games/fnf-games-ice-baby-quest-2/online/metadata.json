@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-ice-baby-quest-2",
+  "name": "Ice Baby Quest 2",
+  "author": "FNF Games",
+  "description": "Ice Baby Quest 2 drops you into a bizarre 3D meme-fueled world filled with hidden items, misleading NPCs and multiple absurd endings.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ice-baby-quest-2/ice-baby-quest-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ice-baby-quest-2/ice-baby-quest-2.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ice-baby-quest-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ice-baby-quest-2",
+  "fnfGamesSlug": "ice-baby-quest-2",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "3d",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-retro-blaster",
+  "name": "Retro Blaster",
+  "author": "FNF Games",
+  "description": "Retro Blaster is a pixel-style space shooter packed with fast-paced arcade combat, neon visuals, and classic galaxy-inspired action gameplay.",
+  "thumbnail": "https://fnf-games.io/data/image/game/retro-blaster/retro-blaster.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/retro-blaster/retro-blaster.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/retro-blaster?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/retro-blaster",
+  "fnfGamesSlug": "retro-blaster",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "galaxy",
+    "pixel"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 6
+}

@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-virtual-ukulele",
+  "name": "Virtual Ukulele",
+  "author": "FNF Games",
+  "description": "Play chords and melodies in Virtual Ukulele, a casual music game with four playable strings. Adjust the fretboard and strum your own sound.",
+  "thumbnail": "https://fnf-games.io/data/image/game/virtual-ukulele/virtual-ukulele.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/virtual-ukulele/virtual-ukulele.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/virtual-ukulele?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/virtual-ukulele",
+  "fnfGamesSlug": "virtual-ukulele",
+  "tags": [
+    "fnf-games",
+    "funny"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

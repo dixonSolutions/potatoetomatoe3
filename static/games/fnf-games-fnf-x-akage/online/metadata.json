@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-x-akage",
+  "name": "FNF x AKAGE",
+  "author": "FNF Games",
+  "description": "Follow the rapid beats of AKAGE in FNF x AKAGE, a rhythm mod that pits Boyfriend against Kasane Teto through dense charts and layered vocals.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-akage/fnf-x-akage.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-akage/fnf-x-akage.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-akage?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-akage",
+  "fnfGamesSlug": "fnf-x-akage",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 79
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sprunki-phase-22",
+  "name": "Sprunki Phase 22",
+  "author": "FNF Games",
+  "description": "Build eerie tracks in Sprunki Phase 22, a music game featuring neon visuals, distorted sounds, and corrupted versions of familiar Sprunki characters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-phase-22/sprunki-phase-22.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-phase-22/sprunki-phase-22.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-phase-22?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-phase-22",
+  "fnfGamesSlug": "sprunki-phase-22",
+  "tags": [
+    "fnf-games",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 6,
+  "portalRatingCount": 5
+}

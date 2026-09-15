@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-kapi-v2",
+  "name": "Friday Night Funkin VS. KAPI v2",
+  "author": "FNF Games",
+  "description": "Step into Friday Night Funkin VS. KAPI v2 where arcade vibes meet precise timing. Hit notes cleanly and outplay a relentless rhythm rival!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-kapi-v2/friday-night-funkin-vs-kapi-v2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-kapi-v2/friday-night-funkin-vs-kapi-v2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-kapi-v2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-kapi-v2",
+  "fnfGamesSlug": "friday-night-funkin-vs-kapi-v2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 48
+}

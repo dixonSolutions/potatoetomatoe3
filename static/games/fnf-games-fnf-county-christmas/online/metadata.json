@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-county-christmas",
+  "name": "FNF County Christmas",
+  "author": "FNF Games",
+  "description": "Join the unique musical confrontation in the rhythm game FNF County Christmas in the wonderful Christmas atmosphere. Experience this Christmas like no other!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-county-christmas/fnf-county-christmas.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-county-christmas/fnf-county-christmas.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-county-christmas?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-county-christmas",
+  "fnfGamesSlug": "fnf-county-christmas",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "funny"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 9
+}

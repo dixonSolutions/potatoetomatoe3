@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-spooky-mix",
+  "name": "FNF: Spooky Mix",
+  "author": "FNF Games",
+  "description": "Glow lights, eerie beats, and nonstop remixes define FNF: Spooky Mix, a rhythm mod that reimagines classic weeks with full Halloween flair.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-spooky-mix/fnf-spooky-mix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-spooky-mix/fnf-spooky-mix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-spooky-mix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-spooky-mix",
+  "fnfGamesSlug": "fnf-spooky-mix",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 107
+}

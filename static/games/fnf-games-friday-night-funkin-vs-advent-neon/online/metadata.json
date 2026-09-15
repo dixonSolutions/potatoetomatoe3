@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-advent-neon",
+  "name": "Friday Night Funkin’ vs Advent Neon",
+  "author": "FNF Games",
+  "description": "Enter Friday Night Funkin’ vs Advent Neon and face a futuristic rhythm battle across Neopolis with three electrifying tracks and rising difficulty.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-advent-neon/friday-night-funkin-vs-advent-neon.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-advent-neon/friday-night-funkin-vs-advent-neon.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-advent-neon?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-advent-neon",
+  "fnfGamesSlug": "friday-night-funkin-vs-advent-neon",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 18
+}

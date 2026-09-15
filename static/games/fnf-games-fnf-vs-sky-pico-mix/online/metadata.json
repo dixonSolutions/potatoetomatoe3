@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-sky-pico-mix",
+  "name": "FNF VS Sky: Pico Mix",
+  "author": "FNF Games",
+  "description": "Gunfire timing changes the rhythm in FNF VS Sky: Pico Mix, a tense one-shot mod with Sky, Pico, heavy health loss, and fast reactions.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-sky-pico-mix/fnf-vs-sky-pico-mix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-sky-pico-mix/fnf-vs-sky-pico-mix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-sky-pico-mix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-sky-pico-mix",
+  "fnfGamesSlug": "fnf-vs-sky-pico-mix",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 22
+}

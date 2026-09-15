@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-triple-tubbies-vs-slendytubbies",
+  "name": "FNF Triple Tubbies vs Slendytubbies",
+  "author": "FNF Games",
+  "description": "Step into FNF Triple Tubbies vs Slendytubbies, a creepy FNF mod featuring eerie Teletubbies, fast-paced rhythms, and the unforgettable Triple Tubbies battle.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-triple-tubbies-vs-slendytubbies/fnf-triple-tubbies-vs-slendytubbies.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-triple-tubbies-vs-slendytubbies/fnf-triple-tubbies-vs-slendytubbies.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-triple-tubbies-vs-slendytubbies?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-triple-tubbies-vs-slendytubbies",
+  "fnfGamesSlug": "fnf-triple-tubbies-vs-slendytubbies",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 65
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-var",
+  "name": "FNF vs Var",
+  "author": "FNF Games",
+  "description": "FNF vs Var invites you into a cursed castle filled with haunting rhythms and magic. Face Var in a gothic musical duel between fate and freedom!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-var/fnf-vs-var.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-var/fnf-vs-var.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-var?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-var",
+  "fnfGamesSlug": "fnf-vs-var",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "horror"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 9
+}

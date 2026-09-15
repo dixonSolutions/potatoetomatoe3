@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-dandy-s-world-pyramixed-edition",
+  "name": "Dandy’s World Pyramixed Edition",
+  "author": "FNF Games",
+  "description": "Dandy’s World Pyramixed Edition is a remix music game that blends drag-and-drop gameplay with glitchy visuals and chaotic Pyramixed-style animations.",
+  "thumbnail": "https://fnf-games.io/data/image/game/dandy-s-world-pyramixed-edition/dandy-s-world-pyramixed-edition.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dandy-s-world-pyramixed-edition/dandy-s-world-pyramixed-edition.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dandy-s-world-pyramixed-edition?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dandy-s-world-pyramixed-edition",
+  "fnfGamesSlug": "dandy-s-world-pyramixed-edition",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sing"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 23
+}

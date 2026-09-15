@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-swooop",
+  "name": "Swooop",
+  "author": "FNF Games",
+  "description": "Swooop is a fast-paced arcade flying game where precision and reflexes matter. Dodge obstacles and beat your high score in this skill challenge.",
+  "thumbnail": "https://fnf-games.io/data/image/game/swooop/swooop.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/swooop/swooop.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/swooop?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/swooop",
+  "fnfGamesSlug": "swooop",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 3
+}

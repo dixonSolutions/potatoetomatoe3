@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-meme-tiles",
+  "name": "Meme Tiles",
+  "author": "FNF Games",
+  "description": "Meme Tiles is a fast-paced music game featuring endless tile hopping, catchy soundtracks, meme surprises, and score-chasing gameplay.",
+  "thumbnail": "https://fnf-games.io/data/image/game/meme-tiles/meme-tiles.jpeg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/meme-tiles/meme-tiles.jpeg",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/meme-tiles?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/meme-tiles",
+  "fnfGamesSlug": "meme-tiles",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "meme"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 6
+}

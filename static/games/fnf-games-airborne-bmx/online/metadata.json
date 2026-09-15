@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-airborne-bmx",
+  "name": "Airborne BMX",
+  "author": "FNF Games",
+  "description": "Airborne BMX is a BMX stunt game featuring 60 handcrafted levels, 15 riders, 15 bikes, and over 40 tricks to master across varied tracks.",
+  "thumbnail": "https://fnf-games.io/data/image/game/airborne-bmx/airborne-bmx.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/airborne-bmx/airborne-bmx.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/airborne-bmx?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/airborne-bmx",
+  "fnfGamesSlug": "airborne-bmx",
+  "tags": [
+    "fnf-games",
+    "fast-paced"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 10
+}

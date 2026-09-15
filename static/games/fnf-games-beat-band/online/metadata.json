@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-beat-band",
+  "name": "Beat Band",
+  "author": "FNF Games",
+  "description": "Compose, remix, and share unique tracks in Beat Band using studio effects, customizable BPM, and diverse music genres to craft your perfect performance.",
+  "thumbnail": "https://fnf-games.io/data/image/game/beat-band/beat-band.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/beat-band/beat-band.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/beat-band?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/beat-band",
+  "fnfGamesSlug": "beat-band",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

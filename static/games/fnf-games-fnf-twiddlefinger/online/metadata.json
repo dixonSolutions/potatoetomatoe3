@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-twiddlefinger",
+  "name": "FNF TwiddleFinger",
+  "author": "FNF Games",
+  "description": "Join FNF TwiddleFinger, a unique rhythm game that mixes comedy creativity and fast beats as Chicken Nugget sings his way to freedom.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-twiddlefinger/fnf-twiddlefinger.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-twiddlefinger/fnf-twiddlefinger.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-twiddlefinger?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-twiddlefinger",
+  "fnfGamesSlug": "fnf-twiddlefinger",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "meme"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 189
+}

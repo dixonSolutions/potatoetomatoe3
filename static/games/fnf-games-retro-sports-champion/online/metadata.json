@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-retro-sports-champion",
+  "name": "Retro Sports Champion",
+  "author": "FNF Games",
+  "description": "Chase gold medals in Retro Sports Champion, a pixel sports arcade game with sprinting, hurdles, swimming, and timing events. Win the stadium!",
+  "thumbnail": "https://fnf-games.io/data/image/game/retro-sports-champion/retro-sports-champion.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/retro-sports-champion/retro-sports-champion.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/retro-sports-champion?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/retro-sports-champion",
+  "fnfGamesSlug": "retro-sports-champion",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "pixel",
+    "agility"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 10
+}

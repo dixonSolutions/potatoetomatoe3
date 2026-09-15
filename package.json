@@ -42,6 +42,7 @@
     "games:import-crazygames": "node scripts/import-crazygames-catalog.mjs",
     "games:import-addictinggames": "node scripts/import-addictinggames-catalog.mjs",
     "games:import-playhop": "node scripts/import-playhop-catalog.mjs",
+    "games:import-fnf-games": "node scripts/import-fnf-games-catalog.mjs",
     "games:import-all-portals": "node scripts/import-all-portals.mjs",
     "games:purge-poki": "node scripts/purge-poki-catalog.mjs",
     "games:purge-low-quality-unity": "node scripts/purge-low-quality-unity.mjs",

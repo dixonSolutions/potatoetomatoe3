@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-bob-v2-0",
+  "name": "FNF vs Bob v2.0",
+  "author": "FNF Games",
+  "description": "In FNF vs Bob v2.0, the stage is set for another musical duel. Boyfriend faces Bob once more in a faster, darker and harder rhythm war.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-bob-v2-0/fnf-vs-bob-v2-0.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-bob-v2-0/fnf-vs-bob-v2-0.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-bob-v2-0?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-bob-v2-0",
+  "fnfGamesSlug": "fnf-vs-bob-v2-0",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 98
+}

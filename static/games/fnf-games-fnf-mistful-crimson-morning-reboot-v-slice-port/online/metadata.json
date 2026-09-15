@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-mistful-crimson-morning-reboot-v-slice-port",
+  "name": "FNF: Mistful Crimson Morning Reboot (V-Slice Port)",
+  "author": "FNF Games",
+  "description": "FNF: Mistful Crimson Morning Reboot (V-Slice Port) rebuilds Squidward’s dark stage into an eerie FNF music battle with tense charting. Hold the beat!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-mistful-crimson-morning-reboot/fnf-mistful-crimson-morning-reboot1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-mistful-crimson-morning-reboot/fnf-mistful-crimson-morning-reboot1.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-mistful-crimson-morning-reboot-v-slice-port?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-mistful-crimson-morning-reboot-v-slice-port",
+  "fnfGamesSlug": "fnf-mistful-crimson-morning-reboot-v-slice-port",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "cartoon"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 53
+}

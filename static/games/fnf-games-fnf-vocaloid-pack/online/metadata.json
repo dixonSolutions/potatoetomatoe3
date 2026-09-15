@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vocaloid-pack",
+  "name": "FNF Vocaloid Pack",
+  "author": "FNF Games",
+  "description": "Hit rapid notes in FNF Vocaloid Pack as Vocaloid songs throw fast charts, sharp vocals, and hidden challenges at every combo. Clear the stage!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vocaloid-pack/fnf-vocaloid-pack.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vocaloid-pack/fnf-vocaloid-pack.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vocaloid-pack?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vocaloid-pack",
+  "fnfGamesSlug": "fnf-vocaloid-pack",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 152
+}

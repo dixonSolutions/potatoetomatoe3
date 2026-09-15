@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-gorilla-night-battle",
+  "name": "FNF Gorilla Night Battle",
+  "author": "FNF Games",
+  "description": "In FNF Gorilla Night Battle, Boyfriend faces a lively gorilla challenger as rhythm surges through the glowing woods. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-gorilla-night-battle/fnf-gorilla-night-battle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-gorilla-night-battle/fnf-gorilla-night-battle.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-gorilla-night-battle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-gorilla-night-battle",
+  "fnfGamesSlug": "fnf-gorilla-night-battle",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 46
+}

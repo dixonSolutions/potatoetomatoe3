@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-granny",
+  "name": "FNF vs Granny",
+  "author": "FNF Games",
+  "description": "FNF vs Granny is a Friday Night Funkin’ rhythm mod where you face the iconic horror character Granny in a tense musical battle.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-granny/fnf-vs-granny.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-granny/fnf-vs-granny.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-granny?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-granny",
+  "fnfGamesSlug": "fnf-vs-granny",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 34
+}

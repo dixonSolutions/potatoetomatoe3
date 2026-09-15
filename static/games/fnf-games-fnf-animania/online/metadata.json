@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-animania",
+  "name": "FNF Animania",
+  "author": "FNF Games",
+  "description": "With cinematic animation surrounding every chart, FNF Animania gives familiar FNF songs a fresh rhythm-game style. See each battle differently as you play.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-animania/fnf-animania.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-animania/fnf-animania.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-animania?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-animania",
+  "fnfGamesSlug": "fnf-animania",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

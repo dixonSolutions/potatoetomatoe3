@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-music-tiles-fluffy-hop-beat",
+  "name": "Music Tiles: Fluffy Hop Beat",
+  "author": "FNF Games",
+  "description": "Jump through glowing paths in Music Tiles: Fluffy Hop Beat, a fun arcade rhythm game where timing, movement, and musical reactions matter.",
+  "thumbnail": "https://fnf-games.io/data/image/game/music-tiles-fluffy-hop-beat/music-tiles-fluffy-hop-beat-3.jpeg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/music-tiles-fluffy-hop-beat/music-tiles-fluffy-hop-beat-3.jpeg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/music-tiles-fluffy-hop-beat?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fmusic-tiles-fluffy-hop-beat&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/music-tiles-fluffy-hop-beat",
+  "fnfGamesSlug": "music-tiles-fluffy-hop-beat",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 23
+}

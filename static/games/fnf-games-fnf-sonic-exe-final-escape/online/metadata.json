@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-sonic-exe-final-escape",
+  "name": "FNF Sonic.EXE Final Escape",
+  "author": "FNF Games",
+  "description": "Step into FNF Sonic.EXE Final Escape, a world where a forgotten song returns. Face the cursed rhythm and prove your mastery through every beat.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sonic-exe-final-escape/fnf-sonic-exe-final-escape.jpg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sonic-exe-final-escape/fnf-sonic-exe-final-escape.jpg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sonic-exe-final-escape?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sonic-exe-final-escape",
+  "fnfGamesSlug": "fnf-sonic-exe-final-escape",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.8,
+  "portalRatingCount": 51
+}

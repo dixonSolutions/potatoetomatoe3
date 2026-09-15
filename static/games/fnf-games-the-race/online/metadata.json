@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-the-race",
+  "name": "The Race",
+  "author": "FNF Games",
+  "description": "Suspended red tracks packed with loops, jumps, and tight hairpins turn The Race into a fast, unforgiving drift challenge. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/the-race/the-race.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/the-race/the-race.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/the-race?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/the-race",
+  "fnfGamesSlug": "the-race",
+  "tags": [
+    "fnf-games",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

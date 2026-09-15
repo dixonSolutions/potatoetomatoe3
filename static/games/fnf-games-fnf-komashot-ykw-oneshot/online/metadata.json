@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-komashot-ykw-oneshot",
+  "name": "FNF Komashot! – YKW OneShot",
+  "author": "FNF Games",
+  "description": "Musical dialogue rather than rivalry defines FNF Komashot! – YKW OneShot, a rhythm mod focused on flow, melody, and shared timing.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-komashot-ykw-oneshot/fnf-komashot-ykw-oneshot-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-komashot-ykw-oneshot/fnf-komashot-ykw-oneshot-2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-komashot-ykw-oneshot?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-komashot-ykw-oneshot",
+  "fnfGamesSlug": "fnf-komashot-ykw-oneshot",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 13
+}

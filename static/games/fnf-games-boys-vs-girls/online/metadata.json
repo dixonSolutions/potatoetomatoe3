@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-boys-vs-girls",
+  "name": "Boys vs Girls",
+  "author": "FNF Games",
+  "description": "Eight school rivalries shape Boys vs Girls, a casual interactive story game where each response can change the drama. Pick your side and see what follows.",
+  "thumbnail": "https://fnf-games.io/data/image/game/boys-vs-girls/boys-vs-girls.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/boys-vs-girls/boys-vs-girls.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/boys-vs-girls?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fboys-vs-girls&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/boys-vs-girls",
+  "fnfGamesSlug": "boys-vs-girls",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

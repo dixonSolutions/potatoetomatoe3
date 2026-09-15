@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-starcatcher",
+  "name": "FNF StarCatcher",
+  "author": "FNF Games",
+  "description": "FNF StarCatcher takes players on a musical adventure in a vast space where every note sparkles like a star. Join now to become the brightest musical star!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-starcatcher/fnf-starcatcher.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-starcatcher/fnf-starcatcher.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-starcatcher?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-starcatcher",
+  "fnfGamesSlug": "fnf-starcatcher",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "galaxy"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 8
+}

@@ -1,0 +1,26 @@
+{
+  "id": "fnf-games-chicken-jockey-clicker",
+  "name": "Chicken Jockey Clicker",
+  "author": "FNF Games",
+  "description": "Play as tiny zombie-riding chickens to create a colorful pixel empire in Chicken Jockey Clicker! With just one click, the entire pixel world will be yours!",
+  "thumbnail": "https://fnf-games.io/data/image/game/chicken-jockey-clicker/chicken-jockey-clicker.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/chicken-jockey-clicker/chicken-jockey-clicker.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/chicken-jockey-clicker?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/chicken-jockey-clicker",
+  "fnfGamesSlug": "chicken-jockey-clicker",
+  "tags": [
+    "fnf-games",
+    "minecraft",
+    "pixel",
+    "clicker",
+    "idle",
+    "zombie"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 15
+}

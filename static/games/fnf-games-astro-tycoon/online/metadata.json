@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-astro-tycoon",
+  "name": "Astro Tycoon",
+  "author": "FNF Games",
+  "description": "Build your empire in Astro Tycoon, a space mining simulator with planet exploration and hidden treasures. Expand, upgrade, and dominate the galaxy!",
+  "thumbnail": "https://fnf-games.io/data/image/game/astro-tycoon/astro-tycoon.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/astro-tycoon/astro-tycoon.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/astro-tycoon?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/astro-tycoon",
+  "fnfGamesSlug": "astro-tycoon",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "clicker",
+    "idle"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

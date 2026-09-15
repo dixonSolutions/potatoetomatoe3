@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-polygon-ace",
+  "name": "Polygon Ace",
+  "author": "FNF Games",
+  "description": "Dodge glowing bullet waves in Polygon Ace, a vertical shoot ’em up where auto fire leaves every move to skill. Find the gap and play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/polygon-ace/polygon-ace.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/polygon-ace/polygon-ace.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/polygon-ace?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/polygon-ace",
+  "fnfGamesSlug": "polygon-ace",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "galaxy",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 5
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-huggy-mix",
+  "name": "FNF: Huggy Mix",
+  "author": "FNF Games",
+  "description": "Beat Bug’s goofy opening week in FNF: Huggy Mix, unlock the Huggy Wuggy-inspired performer, and take the microphone through fresh FNF remixes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-huggy-mix/fnf-huggy-mix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-huggy-mix/fnf-huggy-mix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-huggy-mix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-huggy-mix",
+  "fnfGamesSlug": "fnf-huggy-mix",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "huggy-wuggy"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 93
+}

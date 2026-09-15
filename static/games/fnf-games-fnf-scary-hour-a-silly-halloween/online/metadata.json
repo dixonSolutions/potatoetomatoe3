@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-scary-hour-a-silly-halloween",
+  "name": "FNF Scary Hour: A Silly Halloween",
+  "author": "FNF Games",
+  "description": "Jump into FNF Scary Hour: A Silly Halloween, a rhythm game mod packed with strange songs, fun Halloween energy, and unpredictable encounters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-scary-hour-a-silly-halloween/fnf-scary-hour-a-silly-halloween.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-scary-hour-a-silly-halloween/fnf-scary-hour-a-silly-halloween.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-scary-hour-a-silly-halloween?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-scary-hour-a-silly-halloween",
+  "fnfGamesSlug": "fnf-scary-hour-a-silly-halloween",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "horror",
+    "cartoon"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 26
+}

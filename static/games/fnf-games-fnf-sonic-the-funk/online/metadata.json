@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-sonic-the-funk",
+  "name": "FNF Sonic The Funk",
+  "author": "FNF Games",
+  "description": "Speed takes over in FNF Sonic The Funk! Manage rings, react mid song, and stay precise as rhythm battles unfold at relentless pace.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sonic-the-funk/fnf-sonic-the-funk.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sonic-the-funk/fnf-sonic-the-funk.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sonic-the-funk?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sonic-the-funk",
+  "fnfGamesSlug": "fnf-sonic-the-funk",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "sonic"
+  ],
+  "portalRating": 9.6,
+  "portalRatingCount": 76
+}

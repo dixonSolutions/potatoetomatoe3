@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-minus",
+  "name": "FNF Minus",
+  "author": "FNF Games",
+  "description": "FNF Minus completely refreshes the Friday Night Funkin' experience with a bold minimalist design. Try it today and feel the vibrant music!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-minus/fnf-minus.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-minus/fnf-minus.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-minus?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-minus",
+  "fnfGamesSlug": "fnf-minus",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fnf",
+    "fast-paced"
+  ],
+  "portalRating": 7.7,
+  "portalRatingCount": 26
+}

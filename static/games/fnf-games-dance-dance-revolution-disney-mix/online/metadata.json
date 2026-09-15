@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-dance-dance-revolution-disney-mix",
+  "name": "Dance Dance Revolution – Disney Mix",
+  "author": "FNF Games",
+  "description": "Classic Disney songs get a wild Eurobeat twist in Dance Dance Revolution – Disney Mix, with fast arrows and Dance Magic. Feel the magic!",
+  "thumbnail": "https://fnf-games.io/data/image/game/dance-dance-revolution-disney-mix/dance-dance-revolution-disney-mix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dance-dance-revolution-disney-mix/dance-dance-revolution-disney-mix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dance-dance-revolution-disney-mix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dance-dance-revolution-disney-mix",
+  "fnfGamesSlug": "dance-dance-revolution-disney-mix",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "mickey"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

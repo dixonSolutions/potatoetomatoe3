@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-parking-adventure",
+  "name": "Parking Adventure",
+  "author": "FNF Games",
+  "description": "Play Parking Adventure and master challenging parking levels filled with moving traffic and fast-paced gameplay that rewards skillful timing.",
+  "thumbnail": "https://fnf-games.io/data/image/game/parking-adventure/parking-adventure.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/parking-adventure/parking-adventure.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/parking-adventure?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/parking-adventure",
+  "fnfGamesSlug": "parking-adventure",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

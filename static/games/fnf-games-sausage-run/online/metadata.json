@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sausage-run",
+  "name": "Sausage Run",
+  "author": "FNF Games",
+  "description": "In Sausage Run, the kitchen layout stays fixed, letting you learn knife swings, heat timing, and falling hazards to improve control and go farther each run.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sausage-run/sausage-run.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sausage-run/sausage-run.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sausage-run?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fsausage-run&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sausage-run",
+  "fnfGamesSlug": "sausage-run",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

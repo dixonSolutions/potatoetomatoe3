@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-lift-off",
+  "name": "Lift Off",
+  "author": "FNF Games",
+  "description": "Reach for the stars in Lift Off, an addictive arcade game where precise timing launches multi-stage rockets higher into space. Master the launch timing!",
+  "thumbnail": "https://fnf-games.io/data/image/game/lift-off/lift-off.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/lift-off/lift-off.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/lift-off?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/lift-off",
+  "fnfGamesSlug": "lift-off",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "galaxy",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

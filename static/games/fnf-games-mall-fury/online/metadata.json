@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-mall-fury",
+  "name": "Mall Fury",
+  "author": "FNF Games",
+  "description": "Jump into Mall Fury, race against the clock, destroy countless objects, unlock upgrades, and chase higher scores in every action-packed run.",
+  "thumbnail": "https://fnf-games.io/data/image/game/mall-fury/mall-fury.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/mall-fury/mall-fury.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/mall-fury?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/mall-fury",
+  "fnfGamesSlug": "mall-fury",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 4
+}

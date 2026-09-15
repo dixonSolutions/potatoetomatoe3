@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-mobmod",
+  "name": "FNF MOBMOD",
+  "author": "FNF Games",
+  "description": "Enter the blocky world of FNF MOBMOD and battle Minecraft-inspired creatures through seven story-driven songs and animated cutscenes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-mobmod/fnf-mobmod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-mobmod/fnf-mobmod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-mobmod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-mobmod",
+  "fnfGamesSlug": "fnf-mobmod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "minecraft"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 149
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-whitty",
+  "name": "FNF Vs. Whitty",
+  "author": "FNF Games",
+  "description": "In FNF Vs. Whitty, Boyfriend and Girlfriend face the moody rockstar Whitty. Sing your heart out and survive intense battles filled with power!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-whitty/fnf-vs-whitty.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-whitty/fnf-vs-whitty.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-whitty?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-whitty",
+  "fnfGamesSlug": "fnf-vs-whitty",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "whitty"
+  ],
+  "portalRating": 7.8,
+  "portalRatingCount": 111
+}

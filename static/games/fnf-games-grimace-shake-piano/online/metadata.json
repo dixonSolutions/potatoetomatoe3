@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-grimace-shake-piano",
+  "name": "Grimace Shake Piano",
+  "author": "FNF Games",
+  "description": "Grimace Shake Piano is a casual music game where you use a playable keyboard to recreate meme tunes or improvise your own melodies with different sounds.",
+  "thumbnail": "https://fnf-games.io/data/image/game/grimace-shake-piano/grimace-shake-piano.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/grimace-shake-piano/grimace-shake-piano.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/grimace-shake-piano?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/grimace-shake-piano",
+  "fnfGamesSlug": "grimace-shake-piano",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "meme"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 6
+}

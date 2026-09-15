@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-all-my-fellas",
+  "name": "FNF All My Fellas",
+  "author": "FNF Games",
+  "description": "Join FNF All My Fellas and battle Pico in a rhythm-based showdown where timing, accuracy, and flow decide your performance. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-all-my-fellas/fnf-all-my-fellas.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-all-my-fellas/fnf-all-my-fellas.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-all-my-fellas?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-all-my-fellas",
+  "fnfGamesSlug": "fnf-all-my-fellas",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 104
+}

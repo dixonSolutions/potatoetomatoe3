@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-bob-and-bosip",
+  "name": "Friday Night Funkin’ vs Bob and Bosip",
+  "author": "FNF Games",
+  "description": "Jump into Friday Night Funkin’ vs Bob and Bosip, a popular FNF mod where two Minecraft players challenge Boyfriend in a story-packed musical adventure.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-bob-and-bosip/friday-night-funkin-vs-bob-and-bosip.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-bob-and-bosip/friday-night-funkin-vs-bob-and-bosip.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-bob-and-bosip?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-bob-and-bosip",
+  "fnfGamesSlug": "friday-night-funkin-vs-bob-and-bosip",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "minecraft"
+  ],
+  "portalRating": 9.9,
+  "portalRatingCount": 69
+}

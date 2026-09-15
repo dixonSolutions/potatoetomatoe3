@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sprunki-sad-mod",
+  "name": "Sprunki Sad Mod",
+  "author": "FNF Games",
+  "description": "Mix character sounds in Sprunki Sad Mod to create a melancholy track. Swap performers, layer soft melodies, and shape your own emotional mix.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-sad-mod/sprunki-sad-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-sad-mod/sprunki-sad-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-sad-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-sad-mod",
+  "fnfGamesSlug": "sprunki-sad-mod",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 5
+}

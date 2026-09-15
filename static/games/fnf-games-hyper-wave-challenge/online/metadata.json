@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-hyper-wave-challenge",
+  "name": "Hyper Wave Challenge",
+  "author": "FNF Games",
+  "description": "Master Hyper Wave Challenge as gravity changes, portals reshape the path, and every level demands sharper control to reach the finish.",
+  "thumbnail": "https://fnf-games.io/data/image/game/hyper-wave-challenge/hyper-wave-challenge.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/hyper-wave-challenge/hyper-wave-challenge.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/hyper-wave-challenge?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fhyper-wave-challenge&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/hyper-wave-challenge",
+  "fnfGamesSlug": "hyper-wave-challenge",
+  "tags": [
+    "fnf-games",
+    "fast-paced"
+  ],
+  "portalRating": 5.7,
+  "portalRatingCount": 7
+}

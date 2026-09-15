@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-void",
+  "name": "FNF Vs Void",
+  "author": "FNF Games",
+  "description": "FNF vs Void is a challenging mod from Friday Night Funkin' that introduces players to a mysterious opponent. Are you ready to face the mysterious melodies?",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-void/fnf-vs-void.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-void/fnf-vs-void.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-void?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-void",
+  "fnfGamesSlug": "fnf-vs-void",
+  "tags": [
+    "fnf-games",
+    "fnf",
+    "fast-paced"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 28
+}

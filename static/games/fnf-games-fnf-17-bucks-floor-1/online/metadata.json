@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-17-bucks-floor-1",
+  "name": "FNF 17 Bucks: Floor 1",
+  "author": "FNF Games",
+  "description": "FNF 17 Bucks: Floor 1 delivers 12 unique tracks packed with sudden tempo shifts, expressive visuals, and fast-paced rhythm battles that test your timing.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-17-bucks-floor-1/fnf-17-bucks-floor-1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-17-bucks-floor-1/fnf-17-bucks-floor-1.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-17-bucks-floor-1?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-17-bucks-floor-1",
+  "fnfGamesSlug": "fnf-17-bucks-floor-1",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 12
+}

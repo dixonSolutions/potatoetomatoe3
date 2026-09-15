@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-kpop-demon-hunters",
+  "name": "Kpop Demon Hunters",
+  "author": "FNF Games",
+  "description": "Kpop Demon Hunters turns live stages into battles, where you guide HUNTR/X members, sync attacks to song structure, and manage rhythm-driven encounters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/kpop-demon-hunters/kpop-demon-hunters.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/kpop-demon-hunters/kpop-demon-hunters.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/kpop-demon-hunters?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/kpop-demon-hunters",
+  "fnfGamesSlug": "kpop-demon-hunters",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 76
+}

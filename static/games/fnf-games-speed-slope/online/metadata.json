@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-speed-slope",
+  "name": "Speed Slope",
+  "author": "FNF Games",
+  "description": "Control the rolling ball in Speed Slope, a 3D arcade runner where one late steer can send the whole run off track. Stay on track!",
+  "thumbnail": "https://fnf-games.io/data/image/game/speed-slope/speed-slope.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/speed-slope/speed-slope.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/speed-slope?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/speed-slope",
+  "fnfGamesSlug": "speed-slope",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 12
+}

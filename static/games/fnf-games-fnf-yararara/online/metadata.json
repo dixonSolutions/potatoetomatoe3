@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-yararara",
+  "name": "FNF Yararara",
+  "author": "FNF Games",
+  "description": "Experience FNF Yararara, a high-energy FNF mod featuring J-Rock beats, challenging charts, and a unique Vocaloid inspired adventure.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-yararara/fnf-yararara.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-yararara/fnf-yararara.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-yararara?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-yararara",
+  "fnfGamesSlug": "fnf-yararara",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 233
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-tails-secret-histories",
+  "name": "Friday Night Funkin’ vs Tails Secret Histories",
+  "author": "FNF Games",
+  "description": "FNF Vs Tails Secret Histories hides something behind the music. Face a familiar character turned unsettling as each song reveals a darker shift!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-tails-secret-histories/friday-night-funkin-vs-tails-secret-histories.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-tails-secret-histories/friday-night-funkin-vs-tails-secret-histories.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-tails-secret-histories?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-tails-secret-histories",
+  "fnfGamesSlug": "friday-night-funkin-vs-tails-secret-histories",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 11
+}

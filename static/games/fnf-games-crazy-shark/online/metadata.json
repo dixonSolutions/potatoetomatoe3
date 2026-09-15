@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-crazy-shark",
+  "name": "Crazy Shark",
+  "author": "FNF Games",
+  "description": "In Crazy Shark, a vertically layered ocean shifts from bright surfaces to deadly depths, each zone adding predators, traps, and higher risk.",
+  "thumbnail": "https://fnf-games.io/data/image/game/crazy-shark/crazy-shark.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/crazy-shark/crazy-shark.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/crazy-shark?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/crazy-shark",
+  "fnfGamesSlug": "crazy-shark",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 14
+}

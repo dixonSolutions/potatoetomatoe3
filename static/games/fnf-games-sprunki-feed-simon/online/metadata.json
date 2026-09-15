@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-feed-simon",
+  "name": "Sprunki Feed Simon",
+  "author": "FNF Games",
+  "description": "Test strange snacks in Sprunki Feed Simon, a funny Sprunki sandbox game built around item reactions. Feed the surprise!",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-feed-simon/sprunki-feed-simon.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-feed-simon/sprunki-feed-simon.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-feed-simon?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-feed-simon",
+  "fnfGamesSlug": "sprunki-feed-simon",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "sprunki",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 11
+}

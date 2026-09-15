@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-pico-night-funkin",
+  "name": "FNF: Pico Night Funkin",
+  "author": "FNF Games",
+  "description": "Return to FNF: Pico Night Funkin to reimagine familiar battles through Pico's sharp style and classic flow. Get ready to feel the rhythm again!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-pico-night-funkin/fnf-pico-night-funkin.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-pico-night-funkin/fnf-pico-night-funkin.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-pico-night-funkin?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-pico-night-funkin",
+  "fnfGamesSlug": "fnf-pico-night-funkin",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "pixel",
+    "sing"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 73
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sponks",
+  "name": "Sponks",
+  "author": "FNF Games",
+  "description": "Experience the thrill of dragging and dropping singing sponge characters in Sponks, where creativity and humor blend seamlessly. Start dragging and dropping!",
+  "thumbnail": "https://fnf-games.io/data/image/game/sponks/sponks.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sponks/sponks.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sponks?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sponks",
+  "fnfGamesSlug": "sponks",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 9.8,
+  "portalRatingCount": 42
+}

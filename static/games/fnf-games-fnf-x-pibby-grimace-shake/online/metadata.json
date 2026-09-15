@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-x-pibby-grimace-shake",
+  "name": "FNF X Pibby Grimace Shake",
+  "author": "FNF Games",
+  "description": "Face the glitch-infected Grimace in FNF X Pibby Grimace Shake, a rhythm mod inspired by Learning with Pibby and the viral Grimace Shake meme.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-pibby-grimace-shake/fnf-x-pibby-grimace-shake.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-pibby-grimace-shake/fnf-x-pibby-grimace-shake.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-pibby-grimace-shake?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-pibby-grimace-shake",
+  "fnfGamesSlug": "fnf-x-pibby-grimace-shake",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "pibby"
+  ],
+  "portalRating": 7.8,
+  "portalRatingCount": 51
+}

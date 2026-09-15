@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-x-parappa-i-scream",
+  "name": "FNF x PaRappa: I Scream!",
+  "author": "FNF Games",
+  "description": "Step into PaRappa Town in FNF x PaRappa: I Scream!, a rhythm game mod featuring Believe It, classic remixes, and a retro PlayStation style.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-parappa-i-scream/fnf-x-parappa-i-scream.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-parappa-i-scream/fnf-x-parappa-i-scream.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-parappa-i-scream?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-parappa-i-scream",
+  "fnfGamesSlug": "fnf-x-parappa-i-scream",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 8.1,
+  "portalRatingCount": 42
+}

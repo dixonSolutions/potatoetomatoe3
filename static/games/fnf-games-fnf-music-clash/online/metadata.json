@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-music-clash",
+  "name": "FNF Music Clash",
+  "author": "FNF Games",
+  "description": "Arrow timing drives FNF Music Clash, a rhythm battle game where rising note density and advantage shifts keep every duel tense. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-music-clash/fnf-music-clash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-music-clash/fnf-music-clash.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-music-clash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-music-clash",
+  "fnfGamesSlug": "fnf-music-clash",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 11
+}

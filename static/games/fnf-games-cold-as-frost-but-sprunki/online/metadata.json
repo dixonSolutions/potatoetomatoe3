@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-cold-as-frost-but-sprunki",
+  "name": "Cold As Frost But Sprunki",
+  "author": "FNF Games",
+  "description": "In Cold As Frost But Sprunki, players combine frozen characters, layer lo-fi sounds, and experiment with winter-themed audio effects.",
+  "thumbnail": "https://fnf-games.io/data/image/game/cold-as-frost-but-sprunki/cold-as-frost-but-sprunki.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/cold-as-frost-but-sprunki/cold-as-frost-but-sprunki.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/cold-as-frost-but-sprunki?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/cold-as-frost-but-sprunki",
+  "fnfGamesSlug": "cold-as-frost-but-sprunki",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "pixel"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

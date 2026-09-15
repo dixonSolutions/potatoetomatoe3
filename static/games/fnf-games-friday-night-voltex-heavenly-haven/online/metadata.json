@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-voltex-heavenly-haven",
+  "name": "Friday Night Voltex Heavenly Haven",
+  "author": "FNF Games",
+  "description": "Five Sound Voltex tracks test your timing in Friday Night Voltex Heavenly Haven, a rhythm game with four difficulty levels. Pick a chart and play!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-voltex-heavenly-haven/friday-night-voltex-heavenly-haven.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-voltex-heavenly-haven/friday-night-voltex-heavenly-haven.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-voltex-heavenly-haven?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-voltex-heavenly-haven",
+  "fnfGamesSlug": "friday-night-voltex-heavenly-haven",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 6,
+  "portalRatingCount": 5
+}

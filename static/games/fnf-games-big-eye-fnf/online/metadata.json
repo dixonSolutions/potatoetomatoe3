@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-big-eye-fnf",
+  "name": "Big Eye FNF",
+  "author": "FNF Games",
+  "description": "Big Eye FNF will take you on a dramatic adventure that can decide the fate of the main character's love. Play now and experience the most epic music battles!",
+  "thumbnail": "https://fnf-games.io/data/image/game/big-eye-fnf/big-eye-fnf-3.jpg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/big-eye-fnf/big-eye-fnf-3.jpg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/big-eye-fnf?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/big-eye-fnf",
+  "fnfGamesSlug": "big-eye-fnf",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "fast-paced"
+  ],
+  "portalRating": 4.5,
+  "portalRatingCount": 11
+}

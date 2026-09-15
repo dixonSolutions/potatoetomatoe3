@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-thomas-railway-showdown",
+  "name": "FNF: Thomas’ Railway Showdown",
+  "author": "FNF Games",
+  "description": "Haunted VHS horror pulls BF into Thomas’ Railway Showdown, a creepy FNF rhythm mod with cursed train battles. Catch the signal!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-thomas-railway-showdown/fnf-thomas-railway-showdown.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-thomas-railway-showdown/fnf-thomas-railway-showdown.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-thomas-railway-showdown?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-thomas-railway-showdown",
+  "fnfGamesSlug": "fnf-thomas-railway-showdown",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "cartoon"
+  ],
+  "portalRating": 8.1,
+  "portalRatingCount": 47
+}

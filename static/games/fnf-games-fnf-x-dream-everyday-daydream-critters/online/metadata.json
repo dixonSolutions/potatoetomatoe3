@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-x-dream-everyday-daydream-critters",
+  "name": "FNF x Dream Everyday! (Daydream Critters)",
+  "author": "FNF Games",
+  "description": "Step into a creepy rhythm battle inspired by Poppy Playtime, where FNF x Dream Everyday! (Daydream Critters) delivers a haunting yet catchy experience.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-dream-everyday-daydream-critters/fnf-x-dream-everyday.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-dream-everyday-daydream-critters/fnf-x-dream-everyday.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-dream-everyday-daydream-critters?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-dream-everyday-daydream-critters",
+  "fnfGamesSlug": "fnf-x-dream-everyday-daydream-critters",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "horror",
+    "poppy"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 9
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-tap-rich-idle",
+  "name": "Tap Rich Idle",
+  "author": "FNF Games",
+  "description": "Experience Tap Rich Idle, an idle clicker game that mixes smart investment, offline earnings, and global competition to grow unlimited wealth. Come on!",
+  "thumbnail": "https://fnf-games.io/data/image/game/tap-rich-idle/tap-rich-idle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/tap-rich-idle/tap-rich-idle.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/tap-rich-idle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/tap-rich-idle",
+  "fnfGamesSlug": "tap-rich-idle",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "clicker",
+    "idle"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

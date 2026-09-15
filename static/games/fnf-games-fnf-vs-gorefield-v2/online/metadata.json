@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-gorefield-v2",
+  "name": "FNF vs Gorefield V2",
+  "author": "FNF Games",
+  "description": "FNF Vs Gorefield V2 delivers massive musical content, featuring eerie tracks, intense duels, and a chilling story inspired by the Garfield universe.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-gorefield-v2/fnf-vs-gorefield-v2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-gorefield-v2/fnf-vs-gorefield-v2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-gorefield-v2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-gorefield-v2",
+  "fnfGamesSlug": "fnf-vs-gorefield-v2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "meme"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 210
+}

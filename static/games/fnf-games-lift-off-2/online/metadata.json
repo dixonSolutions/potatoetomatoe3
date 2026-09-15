@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-lift-off-2",
+  "name": "Lift Off 2",
+  "author": "FNF Games",
+  "description": "Launch into Lift Off 2, a timing-based rocket game with multi-stage boosts and high-flying challenges. Perfect your launch and reach space!",
+  "thumbnail": "https://fnf-games.io/data/image/game/lift-off-2/lift-off-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/lift-off-2/lift-off-2.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/lift-off-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/lift-off-2",
+  "fnfGamesSlug": "lift-off-2",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

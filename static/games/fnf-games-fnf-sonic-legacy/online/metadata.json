@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-sonic-legacy",
+  "name": "FNF Sonic Legacy",
+  "author": "FNF Games",
+  "description": "FNF Sonic Legacy is a dark rhythm game of speed and fear where glitch effects and pounding drums pull you deeper into Sonic’s corrupted world.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sonic-legacy/fnf-sonic-legacy.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sonic-legacy/fnf-sonic-legacy.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sonic-legacy?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sonic-legacy",
+  "fnfGamesSlug": "fnf-sonic-legacy",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 59
+}

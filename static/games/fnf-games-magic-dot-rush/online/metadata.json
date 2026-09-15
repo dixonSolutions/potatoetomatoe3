@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-magic-dot-rush",
+  "name": "Magic Dot Rush",
+  "author": "FNF Games",
+  "description": "Sliding tiles and shifting visuals turn every beat into a challenge in Magic Dot Rush. Stay on rhythm, react quickly, and keep your combo going.",
+  "thumbnail": "https://fnf-games.io/data/image/game/magic-dot-rush/magic-dot-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/magic-dot-rush/magic-dot-rush.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/magic-dot-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/magic-dot-rush",
+  "fnfGamesSlug": "magic-dot-rush",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

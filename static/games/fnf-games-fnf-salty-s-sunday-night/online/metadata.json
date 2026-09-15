@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-salty-s-sunday-night",
+  "name": "FNF: Salty’s Sunday Night",
+  "author": "FNF Games",
+  "description": "FNF: Salty’s Sunday Night invites you into a dark rhythm world where Salty must battle through music to escape an endless loop. Play and discover the truth!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-salty-s-sunday-night/fnf-saltys-sunday-night.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-salty-s-sunday-night/fnf-saltys-sunday-night.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-salty-s-sunday-night?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-salty-s-sunday-night",
+  "fnfGamesSlug": "fnf-salty-s-sunday-night",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 18
+}

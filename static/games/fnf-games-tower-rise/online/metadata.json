@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-tower-rise",
+  "name": "Tower Rise",
+  "author": "FNF Games",
+  "description": "Tower Rise is a one-tap arcade stacking game where every placement matters. Time each moving floor perfectly and build your skyscraper higher.",
+  "thumbnail": "https://fnf-games.io/data/image/game/tower-rise/tower-rise.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/tower-rise/tower-rise.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/tower-rise?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/tower-rise",
+  "fnfGamesSlug": "tower-rise",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 3.3,
+  "portalRatingCount": 3
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sphere-rush",
+  "name": "Sphere Rush",
+  "author": "FNF Games",
+  "description": "Roll across floating tracks in Sphere Rush, a 3D arcade challenge featuring 38 handcrafted levels, tricky obstacles, and collectible rewards.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sphere-rush/sphere-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sphere-rush/sphere-rush.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sphere-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sphere-rush",
+  "fnfGamesSlug": "sphere-rush",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 5
+}

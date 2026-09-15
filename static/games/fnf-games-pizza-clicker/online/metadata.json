@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-pizza-clicker",
+  "name": "Pizza Clicker",
+  "author": "FNF Games",
+  "description": "Start with a single click in Pizza Clicker, an idle clicker game where upgrades and automation turn a giant pizza into a thriving business.",
+  "thumbnail": "https://fnf-games.io/data/image/game/pizza-clicker/pizza-clicker.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/pizza-clicker/pizza-clicker.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/pizza-clicker?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/pizza-clicker",
+  "fnfGamesSlug": "pizza-clicker",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "clicker",
+    "idle"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

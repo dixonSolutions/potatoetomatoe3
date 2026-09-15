@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-steal-dandy",
+  "name": "Steal Dandy",
+  "author": "FNF Games",
+  "description": "Build a quirky toon empire in Steal Dandy by collecting characters, upgrading your base, and placing units wisely to grow endless passive income.",
+  "thumbnail": "https://fnf-games.io/data/image/game/steal-dandy/steal-dandy.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/steal-dandy/steal-dandy.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/steal-dandy?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/steal-dandy",
+  "fnfGamesSlug": "steal-dandy",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "clicker",
+    "idle",
+    "roblox"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

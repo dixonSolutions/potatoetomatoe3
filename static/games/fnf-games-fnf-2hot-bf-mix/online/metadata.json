@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-2hot-bf-mix",
+  "name": "FNF 2Hot – BF Mix",
+  "author": "FNF Games",
+  "description": "Jump into FNF 2Hot – BF Mix, a high-speed music game featuring a unique mirror duel. Follow the rhythm and complete the track to win the showdown!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-2hot-bf-mix/fnf-2hot-bf-mix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-2hot-bf-mix/fnf-2hot-bf-mix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-2hot-bf-mix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-2hot-bf-mix",
+  "fnfGamesSlug": "fnf-2hot-bf-mix",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 122
+}

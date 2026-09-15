@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-rob-a-car",
+  "name": "Rob a Car",
+  "author": "FNF Games",
+  "description": "Set in a Roblox-style 3D arena, Rob a Car lets you collect over 100 vehicles, steal from rivals, and expand your automated money empire.",
+  "thumbnail": "https://fnf-games.io/data/image/game/rob-a-car/rob-a-car.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/rob-a-car/rob-a-car.png",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/rob-a-car?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/rob-a-car",
+  "fnfGamesSlug": "rob-a-car",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "multiplayer",
+    "roblox"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

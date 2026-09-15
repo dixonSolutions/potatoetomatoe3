@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-spunder",
+  "name": "Sprunki Spunder",
+  "author": "FNF Games",
+  "description": "Turn your browser into a quirky music studio with Sprunki Spunder, where strange sounds and vocals combine into fun rhythm mixes. Start experimenting!",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-spunder/sprunki-spunder.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-spunder/sprunki-spunder.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-spunder?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-spunder",
+  "fnfGamesSlug": "sprunki-spunder",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

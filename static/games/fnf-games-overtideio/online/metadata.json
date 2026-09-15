@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-overtideio",
+  "name": "Overtide.io",
+  "author": "FNF Games",
+  "description": "Fast repositioning and quick reactions drive Overtide.io, an FPS built around compact arenas and nonstop close-range encounters. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/overtide-io/overtide-io.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/overtide-io/overtide-io.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/overtideio?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/overtideio",
+  "fnfGamesSlug": "overtideio",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 24
+}

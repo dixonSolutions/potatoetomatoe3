@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-hd-v4",
+  "name": "FNF HD v4",
+  "author": "FNF Games",
+  "description": "Play FNF HD v4, the upgraded Friday Night Funkin’ mod with HD graphics, new dialogue, and tougher rhythm battles that will challenge your timing skills.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-hd-v4/fnf-hd-v4.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-hd-v4/fnf-hd-v4.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-hd-v4?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-hd-v4",
+  "fnfGamesSlug": "fnf-hd-v4",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 62
+}

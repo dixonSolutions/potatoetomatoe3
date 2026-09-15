@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-pico-school",
+  "name": "Friday Night Funkin: Pico School",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin: Pico School mixes school chaos, fast BPM songs, Jacks, and Chordstreams into a sharp Pico battle. Hit every shot!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-pico-school/friday-night-funkin-pico-school.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-pico-school/friday-night-funkin-pico-school.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-pico-school?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-pico-school",
+  "fnfGamesSlug": "friday-night-funkin-pico-school",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "cassandra"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 40
+}

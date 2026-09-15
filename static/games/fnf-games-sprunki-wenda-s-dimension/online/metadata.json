@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-wenda-s-dimension",
+  "name": "Sprunki Wenda’s Dimension",
+  "author": "FNF Games",
+  "description": "Enter Sprunki Wenda’s Dimension, a surreal music mod blending experimental beat-making with horror mode twists and dark alternate-universe vibes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-wenda-s-dimension/sprunki-wenda-s-dimension.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-wenda-s-dimension/sprunki-wenda-s-dimension.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-wenda-s-dimension?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-wenda-s-dimension",
+  "fnfGamesSlug": "sprunki-wenda-s-dimension",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 7.1,
+  "portalRatingCount": 7
+}

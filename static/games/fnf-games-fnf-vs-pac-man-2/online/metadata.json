@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-pac-man-2",
+  "name": "FNF Vs Pac-Man 2",
+  "author": "FNF Games",
+  "description": "A retro rhythm battle unfolds in FNF Vs Pac-Man 2 as Boyfriend gets trapped inside the iconic arcade maze and chased by Pac-Man. Defeat him to escape!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-pac-man-2/fnf-vs-pac-man-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-pac-man-2/fnf-vs-pac-man-2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-pac-man-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-pac-man-2",
+  "fnfGamesSlug": "fnf-vs-pac-man-2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "mario"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 31
+}

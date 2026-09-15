@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-funkadelix",
+  "name": "FNF Funkadelix",
+  "author": "FNF Games",
+  "description": "Feel the power of FNF Funkadelix, a rhythm battle game that blends catchy tunes with lyrical challenges and invites you to master every beat now.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-funkadelix/fnf-funkadelix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-funkadelix/fnf-funkadelix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-funkadelix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-funkadelix",
+  "fnfGamesSlug": "fnf-funkadelix",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "pixel"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 452
+}

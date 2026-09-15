@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-di-funker",
+  "name": "Friday Night Funkin – Di Funker",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin – Di Funker brings Dick Figures energy into a fast, funny rhythm mod with simple art and fair charting. Catch the beat!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-di-funker/friday-night-funkin-di-funker.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-di-funker/friday-night-funkin-di-funker.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-di-funker?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-di-funker",
+  "fnfGamesSlug": "friday-night-funkin-di-funker",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "stickman"
+  ],
+  "portalRating": 7.6,
+  "portalRatingCount": 33
+}

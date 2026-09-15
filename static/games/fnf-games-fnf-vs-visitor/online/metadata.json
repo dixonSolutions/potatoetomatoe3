@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-visitor",
+  "name": "FNF Vs. Visitor!",
+  "author": "FNF Games",
+  "description": "As a rhythm game mod, FNF Vs. Visitor! mixes eerie visuals, heavy note density, and unpredictable charts that disrupt familiar rhythm habits.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-visitor/fnf-vs-visitor.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-visitor/fnf-vs-visitor.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-visitor?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-visitor",
+  "fnfGamesSlug": "fnf-vs-visitor",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 34
+}

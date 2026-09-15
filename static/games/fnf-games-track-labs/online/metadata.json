@@ -1,0 +1,21 @@
+{
+  "id": "fnf-games-track-labs",
+  "name": "Track-Labs",
+  "author": "FNF Games",
+  "description": "Turn a note grid into your own studio with Track-Labs, a music creation game featuring nine instruments, adjustable tempo, and flexible loop building.",
+  "thumbnail": "https://fnf-games.io/data/image/game/track-labs/track-labs.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/track-labs/track-labs.png",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/track-labs?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/track-labs",
+  "fnfGamesSlug": "track-labs",
+  "tags": [
+    "fnf-games"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 8
+}

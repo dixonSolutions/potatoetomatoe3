@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-school-fury",
+  "name": "School Fury",
+  "author": "FNF Games",
+  "description": "Break desks, labs, and hallways in School Fury, a school destruction simulation game with timed runs, combos, and upgrades. Smash the stress!",
+  "thumbnail": "https://fnf-games.io/data/image/game/school-fury/school-fury.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/school-fury/school-fury.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/school-fury?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/school-fury",
+  "fnfGamesSlug": "school-fury",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 3
+}

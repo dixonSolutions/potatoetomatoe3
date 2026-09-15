@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-capybara-mart",
+  "name": "Capybara Mart",
+  "author": "FNF Games",
+  "description": "Build a growing supermarket in Capybara Mart, a casual management game where you harvest watermelons, stock shelves, serve customers, and unlock upgrades.",
+  "thumbnail": "https://fnf-games.io/data/image/game/capybara-mart/capybara-mart.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/capybara-mart/capybara-mart.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/capybara-mart?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/capybara-mart",
+  "fnfGamesSlug": "capybara-mart",
+  "tags": [
+    "fnf-games",
+    "funny"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 3
+}

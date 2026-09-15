@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-skate-dash",
+  "name": "Skate Dash",
+  "author": "FNF Games",
+  "description": "Master tricky tracks in Skate Dash as you chase collectibles, perform aerial tricks, and push your skating skills further. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/skate-dash/skate-dash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/skate-dash/skate-dash.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/skate-dash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/skate-dash",
+  "fnfGamesSlug": "skate-dash",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

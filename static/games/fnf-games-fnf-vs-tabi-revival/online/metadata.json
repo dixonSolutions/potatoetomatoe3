@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-tabi-revival",
+  "name": "FNF vs TABI Revival",
+  "author": "FNF Games",
+  "description": "Play FNF vs TABI Revival to enjoy enhanced music, polished animations, and a dramatic remake of one of the most iconic FNF mods now.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-tabi-revival/fnf-vs-tabi-revival.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-tabi-revival/fnf-vs-tabi-revival.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-tabi-revival?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-tabi-revival",
+  "fnfGamesSlug": "fnf-vs-tabi-revival",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "tabi"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 75
+}

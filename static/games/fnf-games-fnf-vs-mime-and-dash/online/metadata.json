@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-mime-and-dash",
+  "name": "FNF VS Mime and Dash",
+  "author": "FNF Games",
+  "description": "Silent mime rivals take the stage in FNF VS Mime and Dash, a fast FNF rhythm mod built on clean notes and duo performance. Match the act!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-mime-and-dash/fnf-vs-mime-and-dash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-mime-and-dash/fnf-vs-mime-and-dash.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-mime-and-dash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-mime-and-dash",
+  "fnfGamesSlug": "fnf-vs-mime-and-dash",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 61
+}

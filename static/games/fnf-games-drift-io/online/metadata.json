@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-drift-io",
+  "name": "Drift.io",
+  "author": "FNF Games",
+  "description": "Drive hard in Drift.io, an arcade racing experience where you balance corner control, item usage, and positioning to stay ahead in competitive matches.",
+  "thumbnail": "https://fnf-games.io/data/image/game/drift-io/drift.io.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/drift-io/drift.io.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/drift-io?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/drift-io",
+  "fnfGamesSlug": "drift-io",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-aflac-remastered",
+  "name": "FNF Vs. Aflac Remastered",
+  "author": "FNF Games",
+  "description": "Music meets Minecraft in FNF Vs. Aflac Remastered, where fast beats, sharp reflexes, and playful chaos blend into a perfect rhythm adventure.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-aflac-remastered/fnf-vs-aflac-remastered.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-aflac-remastered/fnf-vs-aflac-remastered.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-aflac-remastered?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-aflac-remastered",
+  "fnfGamesSlug": "fnf-vs-aflac-remastered",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "minecraft"
+  ],
+  "portalRating": 8.1,
+  "portalRatingCount": 27
+}

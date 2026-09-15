@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-ball-breaker",
+  "name": "Ball Breaker",
+  "author": "FNF Games",
+  "description": "Blast endless waves of numbered balls in Ball Breaker, unlocking powerful upgrades, drones, lasers, and special abilities to dominate every stage.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ball-breaker/ball-breaker.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ball-breaker/ball-breaker.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ball-breaker?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ball-breaker",
+  "fnfGamesSlug": "ball-breaker",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 4
+}

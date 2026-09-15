@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-bounce-path",
+  "name": "Bounce Path",
+  "author": "FNF Games",
+  "description": "Discover Bounce Path, a tense rhythm-platformer game with rhythmic music on an exciting running track. The rhythm guides the way, can you keep up?",
+  "thumbnail": "https://fnf-games.io/data/image/game/bounce-path/bounce-path.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/bounce-path/bounce-path.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/bounce-path?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/bounce-path",
+  "fnfGamesSlug": "bounce-path",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

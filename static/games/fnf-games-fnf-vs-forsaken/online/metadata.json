@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-forsaken",
+  "name": "FNF vs Forsaken",
+  "author": "FNF Games",
+  "description": "Face the terrifying machine in FNF vs Forsaken! Battle through the intense song “Insanity” and uncover the dark story behind this chilling mod.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-forsaken/fnf-vs-forsaken.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-forsaken/fnf-vs-forsaken.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-forsaken?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-forsaken",
+  "fnfGamesSlug": "fnf-vs-forsaken",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.7,
+  "portalRatingCount": 99
+}

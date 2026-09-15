@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-veck-io",
+  "name": "Veck io",
+  "author": "FNF Games",
+  "description": "Veck io delivers rapid multiplayer shooting where fights begin immediately, corners are dangerous, and every quick decision shapes the next clash.",
+  "thumbnail": "https://fnf-games.io/data/image/game/veck-io/veck-io.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/veck-io/veck-io.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/veck-io?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/veck-io",
+  "fnfGamesSlug": "veck-io",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 28
+}

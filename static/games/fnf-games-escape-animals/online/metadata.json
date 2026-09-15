@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-escape-animals",
+  "name": "Escape Animals",
+  "author": "FNF Games",
+  "description": "Try Escape Animals, a fast-paced survival arcade game where you collect creatures, dodge dangers, and balance risk for bigger rewards. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/escape-animals/escape-animals.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/escape-animals/escape-animals.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/escape-animals?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/escape-animals",
+  "fnfGamesSlug": "escape-animals",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 5
+}

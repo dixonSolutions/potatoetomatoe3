@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-dynamons-world",
+  "name": "Dynamons World",
+  "author": "FNF Games",
+  "description": "Begin your quest in Dynamons World, an RPG adventure where you capture, train, and battle creatures in strategic fights. Ready to build your ultimate team!",
+  "thumbnail": "https://fnf-games.io/data/image/game/dynamons-world/dynamons-world.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dynamons-world/dynamons-world.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dynamons-world?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fdynamons-world&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dynamons-world",
+  "fnfGamesSlug": "dynamons-world",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "cartoon",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

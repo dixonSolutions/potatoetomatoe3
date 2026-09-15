@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-beat-up-wenda",
+  "name": "Sprunki: Beat Up Wenda",
+  "author": "FNF Games",
+  "description": "Create chaotic beats in Sprunki: Beat Up Wenda, a quirky rhythm mod packed with funny animations. Jump in and start making wild music combos!",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-beat-up-wenda/sprunki-beat-up-wenda.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-beat-up-wenda/sprunki-beat-up-wenda.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-beat-up-wenda?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-beat-up-wenda",
+  "fnfGamesSlug": "sprunki-beat-up-wenda",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 6,
+  "portalRatingCount": 10
+}

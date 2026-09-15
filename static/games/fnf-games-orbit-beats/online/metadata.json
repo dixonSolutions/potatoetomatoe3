@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-orbit-beats",
+  "name": "Orbit Beats",
+  "author": "FNF Games",
+  "description": "Orbit Beats creates a one-button rhythm arcade experience where music and reflexes merge. Start by tapping the right beat and progress further!",
+  "thumbnail": "https://fnf-games.io/data/image/game/orbit-beats/orbit-beats.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/orbit-beats/orbit-beats.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/orbit-beats?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/orbit-beats",
+  "fnfGamesSlug": "orbit-beats",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 11
+}

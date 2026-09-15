@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sprunki-cool-as-ice",
+  "name": "Sprunki Cool As Ice",
+  "author": "FNF Games",
+  "description": "Create frosty soundtracks in Sprunki Cool As Ice, a winter-themed music game featuring creative beat mixing, hidden animations, and an optional Horror Mode.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-cool-as-ice/sprunki-cool-as-ice.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-cool-as-ice/sprunki-cool-as-ice.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-cool-as-ice?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-cool-as-ice",
+  "fnfGamesSlug": "sprunki-cool-as-ice",
+  "tags": [
+    "fnf-games",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 17
+}

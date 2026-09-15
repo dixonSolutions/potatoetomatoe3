@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-sprunki-screamers",
+  "name": "Sprunki Screamers",
+  "author": "FNF Games",
+  "description": "A blend of horror and music, Sprunki Screamers centers on sound-based survival and interactive mechanics that influence how players move and respond.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-screamers/sprunki-screamers.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-screamers/sprunki-screamers.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-screamers?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-screamers",
+  "fnfGamesSlug": "sprunki-screamers",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

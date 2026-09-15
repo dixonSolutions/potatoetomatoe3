@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-blake-expansion",
+  "name": "FNF Blake Expansion",
+  "author": "FNF Games",
+  "description": "Experience FNF Blake Expansion with brand new story weeks, exclusive songs, Erect Mixes, Pico Mixes, fresh characters, and exciting rhythm battles online.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-blake-expansion/fnf-blake-expansion.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-blake-expansion/fnf-blake-expansion.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-blake-expansion?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-blake-expansion",
+  "fnfGamesSlug": "fnf-blake-expansion",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 20
+}

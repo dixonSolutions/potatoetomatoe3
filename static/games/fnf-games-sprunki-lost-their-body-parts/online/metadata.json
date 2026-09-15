@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-lost-their-body-parts",
+  "name": "SPRUNKI LOST THEIR BODY PARTS!",
+  "author": "FNF Games",
+  "description": "Search the map for missing Sprunki body parts in SPRUNKI LOST THEIR BODY PARTS! Collect pieces, protect your haul, and climb the leaderboard.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-lost-their-body-parts/sprunki-lost-their-body-parts.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-lost-their-body-parts/sprunki-lost-their-body-parts.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-lost-their-body-parts?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-lost-their-body-parts",
+  "fnfGamesSlug": "sprunki-lost-their-body-parts",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "sprunki",
+    "multiplayer"
+  ],
+  "portalRating": 7,
+  "portalRatingCount": 10
+}

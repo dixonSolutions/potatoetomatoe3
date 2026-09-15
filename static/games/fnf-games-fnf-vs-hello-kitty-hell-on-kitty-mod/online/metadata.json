@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-hello-kitty-hell-on-kitty-mod",
+  "name": "FNF vs Hello Kitty (Hell On Kitty mod)",
+  "author": "FNF Games",
+  "description": "Enter FNF vs Hello Kitty (Hell On Kitty mod), a rhythm game that twists a cute world into a dark, unsettling experience. Face the unexpected shift!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-hello-kitty-hell-on-kitty-mod/fnf-vs-hello-kitty-hell-on-kitty-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-hello-kitty-hell-on-kitty-mod/fnf-vs-hello-kitty-hell-on-kitty-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-hello-kitty-hell-on-kitty-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-hello-kitty-hell-on-kitty-mod",
+  "fnfGamesSlug": "fnf-vs-hello-kitty-hell-on-kitty-mod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 80
+}

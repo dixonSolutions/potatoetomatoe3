@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-south-park-triple-trouble",
+  "name": "FNF: South Park Triple Trouble",
+  "author": "FNF Games",
+  "description": "Keep your timing sharp in FNF: South Park Triple Trouble as Streams, Jacks, Ring Notes, and nonstop vocals push every beat harder. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-south-park-triple-trouble/fnf-south-park-triple-trouble.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-south-park-triple-trouble/fnf-south-park-triple-trouble.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-south-park-triple-trouble?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-south-park-triple-trouble",
+  "fnfGamesSlug": "fnf-south-park-triple-trouble",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "cartoon"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 19
+}

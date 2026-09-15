@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-bang-bang-bang",
+  "name": "FNF Bang Bang Bang",
+  "author": "FNF Games",
+  "description": "FNF Bang Bang Bang is a rhythm game where you tackle one evolving three-minute track, hit faster note patterns, and hold your combo to the final beat.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-bang-bang-bang/fnf-bang-bang-bang.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-bang-bang-bang/fnf-bang-bang-bang.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-bang-bang-bang?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-bang-bang-bang",
+  "fnfGamesSlug": "fnf-bang-bang-bang",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 185
+}

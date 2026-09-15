@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-huggy-wuggy-redux",
+  "name": "FNF Vs. Huggy Wuggy Redux",
+  "author": "FNF Games",
+  "description": "Experience a refined FNF Huggy Wuggy mod with smoother rhythm, cleaner visuals, and improved timing. Play now and feel the difference!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-huggy-wuggy-redux/fnf-vs-huggy-wuggy-redux.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-huggy-wuggy-redux/fnf-vs-huggy-wuggy-redux.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-huggy-wuggy-redux?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-huggy-wuggy-redux",
+  "fnfGamesSlug": "fnf-vs-huggy-wuggy-redux",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "huggy-wuggy"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 164
+}

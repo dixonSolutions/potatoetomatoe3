@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-vs-dandy-shooter-3d",
+  "name": "Sprunki vs Dandy Shooter 3D",
+  "author": "FNF Games",
+  "description": "Join the chaotic and colorful arenas in Sprunki vs Dandy Shooter 3D, a fast-paced and exciting third-person shooter game featuring the Sprunki warriors.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-vs-dandy-shooter-3d/sprunki-vs-dandy-shooter-3d.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-vs-dandy-shooter-3d/sprunki-vs-dandy-shooter-3d.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-vs-dandy-shooter-3d?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-vs-dandy-shooter-3d",
+  "fnfGamesSlug": "sprunki-vs-dandy-shooter-3d",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "sprunki"
+  ],
+  "portalRating": 7.1,
+  "portalRatingCount": 7
+}

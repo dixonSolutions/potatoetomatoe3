@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-wheelie-master",
+  "name": "Wheelie Master",
+  "author": "FNF Games",
+  "description": "In this physics-driven stunt challenge, Wheelie Master puts bike balance and terrain control into a distance scoring. Hop on your bike and let's go!",
+  "thumbnail": "https://fnf-games.io/data/image/game/wheelie-master/wheelie-master.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wheelie-master/wheelie-master.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wheelie-master?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wheelie-master",
+  "fnfGamesSlug": "wheelie-master",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

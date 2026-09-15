@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-escape-road-3",
+  "name": "Escape Road 3",
+  "author": "FNF Games",
+  "description": "Outrun danger in Escape Road 3, a high-speed driving game with intense chases, dynamic obstacles, and nonstop action. Stay ahead and escape the chaos!",
+  "thumbnail": "https://fnf-games.io/data/image/game/escape-road-3/escape-road-3.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/escape-road-3/escape-road-3.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/escape-road-3?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/escape-road-3",
+  "fnfGamesSlug": "escape-road-3",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 20
+}

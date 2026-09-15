@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-dave-and-bambi-volume-1",
+  "name": "FNF Vs. Dave and Bambi Volume 1",
+  "author": "FNF Games",
+  "description": "Play Vs. Dave and Bambi Volume 1, a rhythm battle game set in the strange town of Fort Geraldson. Face unique characters and discover hidden surprises.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-dave-and-bambi-volume-1/fnf-vs-dave-and-bambi-volume-1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-dave-and-bambi-volume-1/fnf-vs-dave-and-bambi-volume-1.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-dave-and-bambi-volume-1?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-dave-and-bambi-volume-1",
+  "fnfGamesSlug": "fnf-vs-dave-and-bambi-volume-1",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 42
+}

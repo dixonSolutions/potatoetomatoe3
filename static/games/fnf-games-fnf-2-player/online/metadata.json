@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-2-player",
+  "name": "FNF 2 Player",
+  "author": "FNF Games",
+  "description": "FNF 2 Player is the perfect combination of rhythm and competition, giving gamers an extremely interesting dueling experience.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-2-player/fnf-2-player-1.jpg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-2-player/fnf-2-player-1.jpg",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-2-player?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Ffnf-2-player&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-2-player",
+  "fnfGamesSlug": "fnf-2-player",
+  "tags": [
+    "fnf-games",
+    "party",
+    "agility",
+    "multiplayer",
+    "whitty"
+  ],
+  "portalRating": 7.3,
+  "portalRatingCount": 75
+}

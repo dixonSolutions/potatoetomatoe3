@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-minecraft-null",
+  "name": "FNF Vs Minecraft Null",
+  "author": "FNF Games",
+  "description": "FNF Vs Minecraft Null brings the horror of Minecraft urban legends to the rhythmic world of Friday Night Funkin'. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-minecraft-null/fnf-vs-minecraft-null.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-minecraft-null/fnf-vs-minecraft-null.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-minecraft-null?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-minecraft-null",
+  "fnfGamesSlug": "fnf-vs-minecraft-null",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "minecraft"
+  ],
+  "portalRating": 7.6,
+  "portalRatingCount": 37
+}

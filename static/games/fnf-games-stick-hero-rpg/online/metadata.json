@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-stick-hero-rpg",
+  "name": "Stick Hero RPG",
+  "author": "FNF Games",
+  "description": "Survive Stick Hero RPG, an action-packed dungeon crawler with endless battles, diverse classes, and fast-paced combat. Fight smart and outlast every wave!",
+  "thumbnail": "https://fnf-games.io/data/image/game/stick-hero-rpg/stick-hero-rpg.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/stick-hero-rpg/stick-hero-rpg.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/stick-hero-rpg?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/stick-hero-rpg",
+  "fnfGamesSlug": "stick-hero-rpg",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "stickman"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 13
+}

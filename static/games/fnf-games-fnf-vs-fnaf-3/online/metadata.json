@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-fnaf-3",
+  "name": "FNF vs FNAF 3",
+  "author": "FNF Games",
+  "description": "Step into the dark crossover of FNF Vs FNAF 3 where Boyfriend battles William Afton’s ghostly creations. Feel every beat in this haunting musical showdown!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-fnaf-3/fnf-vs-fnaf-3.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-fnaf-3/fnf-vs-fnaf-3.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-fnaf-3?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-fnaf-3",
+  "fnfGamesSlug": "fnf-vs-fnaf-3",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced"
+  ],
+  "portalRating": 9.6,
+  "portalRatingCount": 90
+}

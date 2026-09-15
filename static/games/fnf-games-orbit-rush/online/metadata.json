@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-orbit-rush",
+  "name": "Orbit Rush",
+  "author": "FNF Games",
+  "description": "Orbit Rush challenges your reflexes in a high-speed space arcade adventure where you rotate, dodge, and survive endless orbital obstacles.",
+  "thumbnail": "https://fnf-games.io/data/image/game/orbit-rush/orbit-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/orbit-rush/orbit-rush.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/orbit-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/orbit-rush",
+  "fnfGamesSlug": "orbit-rush",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "galaxy",
+    "agility"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

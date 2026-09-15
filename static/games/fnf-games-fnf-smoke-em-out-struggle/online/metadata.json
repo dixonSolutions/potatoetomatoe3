@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-smoke-em-out-struggle",
+  "name": "FNF Smoke Em Out Struggle",
+  "author": "FNF Games",
+  "description": "FNF Smoke Em Out Struggle is a story-driven rhythm game mod where emotional music battles unfold through changing songs and visuals.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-smoke-em-out-struggle/fnf-smoke-em-out-struggle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-smoke-em-out-struggle/fnf-smoke-em-out-struggle.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-smoke-em-out-struggle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-smoke-em-out-struggle",
+  "fnfGamesSlug": "fnf-smoke-em-out-struggle",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "tricky",
+    "cartoon"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 399
+}

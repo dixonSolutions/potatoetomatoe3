@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-meeland-io",
+  "name": "Meeland.io",
+  "author": "FNF Games",
+  "description": "Play Meeland.io, a multiplayer idle pet tycoon where income grows through pets and other players threaten your base. How long can you stay ahead?",
+  "thumbnail": "https://fnf-games.io/data/image/game/meeland-io/meeland-io.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/meeland-io/meeland-io.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/meeland-io?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/meeland-io",
+  "fnfGamesSlug": "meeland-io",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "multiplayer",
+    "idle"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 8
+}

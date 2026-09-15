@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-remnants",
+  "name": "Friday Night Funkin’: Remnants",
+  "author": "FNF Games",
+  "description": "Play Friday Night Funkin’: Remnants, a fast-paced rhythm battle mod with intense tracks, dark vibes, and skill-based gameplay for true FNF music fans.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-remnants/friday-night-funkin-remnants.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-remnants/friday-night-funkin-remnants.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-remnants?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-remnants",
+  "fnfGamesSlug": "friday-night-funkin-remnants",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fnf"
+  ],
+  "portalRating": 9.6,
+  "portalRatingCount": 133
+}

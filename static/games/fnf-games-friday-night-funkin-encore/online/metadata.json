@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-encore",
+  "name": "Friday Night Funkin Encore",
+  "author": "FNF Games",
+  "description": "Under sweeping concert lights, the rhythm game Friday Night Funkin Encore explodes with remixed drops and crowd like energy that elevate every track.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-encore/friday-night-funkin-encore.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-encore/friday-night-funkin-encore.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-encore?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-encore",
+  "fnfGamesSlug": "friday-night-funkin-encore",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 28
+}

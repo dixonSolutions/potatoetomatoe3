@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-agoti",
+  "name": "Friday Night Funkin Vs Agoti",
+  "author": "FNF Games",
+  "description": "Enter the challenging world of music games with Friday Night Funkin Vs Agoti, where Boyfriend must confront the mysterious screen demon.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-agoti/friday-night-funkin-vs-agoti.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-agoti/friday-night-funkin-vs-agoti.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-agoti?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-agoti",
+  "fnfGamesSlug": "friday-night-funkin-vs-agoti",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "agoti"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 62
+}

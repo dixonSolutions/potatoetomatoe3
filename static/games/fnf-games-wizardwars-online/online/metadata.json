@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-wizardwars-online",
+  "name": "WizardWars.online",
+  "author": "FNF Games",
+  "description": "Earn XP and unlock stronger spells during battle in WizardWars.online, a chaotic PvP wizard game with dynamic arenas. Try now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/wizardwars-online/wizardwars-online.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wizardwars-online/wizardwars-online.png",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wizardwars-online?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wizardwars-online",
+  "fnfGamesSlug": "wizardwars-online",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

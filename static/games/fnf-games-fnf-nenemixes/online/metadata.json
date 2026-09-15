@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-nenemixes",
+  "name": "FNF NeneMixes",
+  "author": "FNF Games",
+  "description": "Step into FNF NeneMixes, a remix-packed rhythm mod where Nene leads fast-paced battles against iconic rivals. Feel the energy and dominate every track!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-nenemixes/fnf-nenemixes.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-nenemixes/fnf-nenemixes.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-nenemixes?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-nenemixes",
+  "fnfGamesSlug": "fnf-nenemixes",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 128
+}

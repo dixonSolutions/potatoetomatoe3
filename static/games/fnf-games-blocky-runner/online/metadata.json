@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-blocky-runner",
+  "name": "Blocky Runner",
+  "author": "FNF Games",
+  "description": "Dash through colorful voxel tracks in Blocky Runner, avoiding random hazards, collecting power-ups, and unlocking new runners in every endless sprint.",
+  "thumbnail": "https://fnf-games.io/data/image/game/blocky-runner/blocky-runner.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/blocky-runner/blocky-runner.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/blocky-runner?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/blocky-runner",
+  "fnfGamesSlug": "blocky-runner",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

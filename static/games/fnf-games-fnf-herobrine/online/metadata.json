@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-herobrine",
+  "name": "FNF: Herobrine",
+  "author": "FNF Games",
+  "description": "Join the dramatic musical confrontation between Boyfriend and Minecraft in FNF: Herobrine! Get ready for the most intense musical challenge!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-herobrine/fnf-herobrine.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-herobrine/fnf-herobrine.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-herobrine?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-herobrine",
+  "fnfGamesSlug": "fnf-herobrine",
+  "tags": [
+    "fnf-games",
+    "fnf",
+    "minecraft"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 24
+}

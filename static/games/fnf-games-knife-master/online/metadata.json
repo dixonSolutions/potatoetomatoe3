@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-knife-master",
+  "name": "Knife Master",
+  "author": "FNF Games",
+  "description": "Test your precision in Knife Master, a fast-paced arcade blade-throwing game with 120+ weapons, physics-based challenges, and intense skill modes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/knife-master/knife-master.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/knife-master/knife-master.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/knife-master?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/knife-master",
+  "fnfGamesSlug": "knife-master",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

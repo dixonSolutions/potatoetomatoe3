@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-kapi",
+  "name": "FNF vs KAPI",
+  "author": "FNF Games",
+  "description": "Join the beat in FNF vs Kapi a fast paced rhythm game set in a glowing arcade world. Feel the tempo rise and prove your musical mastery.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-kapi/fnf-vs-kapi.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-kapi/fnf-vs-kapi.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-kapi?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-kapi",
+  "fnfGamesSlug": "fnf-vs-kapi",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 161
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-confronting-yourself-final-zone",
+  "name": "FNF Confronting Yourself (Final Zone)",
+  "author": "FNF Games",
+  "description": "Take on FNF Confronting Yourself (Final Zone) and help Sonic face his alternate self in an intense rhythm battle featuring the extended Final Zone Mix.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-confronting-yourself-final-zone/fnf-confronting-yourself-final-zone.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-confronting-yourself-final-zone/fnf-confronting-yourself-final-zone.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-confronting-yourself-final-zone?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-confronting-yourself-final-zone",
+  "fnfGamesSlug": "fnf-confronting-yourself-final-zone",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sonic"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 122
+}

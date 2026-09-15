@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-music-tiles-fluffy-rhythm",
+  "name": "Music Tiles: Fluffy Rhythm",
+  "author": "FNF Games",
+  "description": "Guide a fluffy runner through Music Tiles: Fluffy Rhythm, a neon rhythm arcade game with beat jumps and quick turns. Chase the glow!",
+  "thumbnail": "https://fnf-games.io/data/image/game/music-tiles-fluffy-rhythm/music-tiles-fluffy-rhythm.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/music-tiles-fluffy-rhythm/music-tiles-fluffy-rhythm.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/music-tiles-fluffy-rhythm?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/music-tiles-fluffy-rhythm",
+  "fnfGamesSlug": "music-tiles-fluffy-rhythm",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 20
+}

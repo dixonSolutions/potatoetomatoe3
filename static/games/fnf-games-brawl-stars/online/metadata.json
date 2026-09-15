@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-brawl-stars",
+  "name": "Brawl Stars",
+  "author": "FNF Games",
+  "description": "Get ready for high-speed battles in Brawl Stars, where you can fight solo or with friends, building a powerful team to overcome any challenge.",
+  "thumbnail": "https://fnf-games.io/data/image/game/brawl-stars/brawl-stars.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/brawl-stars/brawl-stars.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/brawl-stars?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fbrawl-stars&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/brawl-stars",
+  "fnfGamesSlug": "brawl-stars",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

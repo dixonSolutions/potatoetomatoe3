@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-henry-stickmin",
+  "name": "FNF Vs Henry Stickmin",
+  "author": "FNF Games",
+  "description": "FNF Vs Henry Stickmin perfectly combines the rhythm of Friday Night Funkin' with the humor of the Henry Stickmin series. Enjoy!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-henry-stickmin/fnf-vs-henry-stickmin.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-henry-stickmin/fnf-vs-henry-stickmin.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-henry-stickmin?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-henry-stickmin",
+  "fnfGamesSlug": "fnf-vs-henry-stickmin",
+  "tags": [
+    "fnf-games",
+    "fnf",
+    "fast-paced",
+    "stickman"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 31
+}

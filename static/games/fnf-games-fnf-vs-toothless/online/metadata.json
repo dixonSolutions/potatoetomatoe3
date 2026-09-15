@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-toothless",
+  "name": "FNF Vs Toothless",
+  "author": "FNF Games",
+  "description": "FNF Vs Toothless is a rhythm game against the legendary dragon from How To Train Your Dragon. Play now and see if you can defeat this legendary dragon!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-toothless/fnf-vs-toothless.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-toothless/fnf-vs-toothless.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-toothless?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-toothless",
+  "fnfGamesSlug": "fnf-vs-toothless",
+  "tags": [
+    "fnf-games",
+    "fnf",
+    "toothless"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 11
+}

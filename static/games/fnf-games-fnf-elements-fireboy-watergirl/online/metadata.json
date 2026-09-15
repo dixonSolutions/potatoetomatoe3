@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-elements-fireboy-watergirl",
+  "name": "FNF: Elements (Fireboy & Watergirl)",
+  "author": "FNF Games",
+  "description": "Discover the unique Friday Night Funkin mod with FNF: Elements (Fireboy & Watergirl)—a musical battle between two opposing characters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-elements-fireboy-watergirl/fnf-elements-fireboy-watergirl.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-elements-fireboy-watergirl/fnf-elements-fireboy-watergirl.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-elements-fireboy-watergirl?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-elements-fireboy-watergirl",
+  "fnfGamesSlug": "fnf-elements-fireboy-watergirl",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fireboy-and-watergirl"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 48
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-star-racer",
+  "name": "Star Racer",
+  "author": "FNF Games",
+  "description": "Fight for victory on challenging tracks in Star Racer, a classic-inspired racing battle game. Speed ​​up and defeat your enemies now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/star-racer/star-racer.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/star-racer/star-racer.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/star-racer?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/star-racer",
+  "fnfGamesSlug": "star-racer",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

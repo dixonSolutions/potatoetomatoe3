@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-ice-baby-quest",
+  "name": "Ice Baby Quest",
+  "author": "FNF Games",
+  "description": "Explore maze-like maps in Ice Baby Quest, interact with quirky NPCs, collect clues, and progress through a humorous 3D adventure journey.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ice-baby-quest/ice-baby-quest.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ice-baby-quest/ice-baby-quest.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ice-baby-quest?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ice-baby-quest",
+  "fnfGamesSlug": "ice-baby-quest",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}
