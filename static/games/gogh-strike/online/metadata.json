@@ -1,0 +1,14 @@
+{
+  "id": "gogh-strike",
+  "name": "Gogh Strike",
+  "author": "petergpt",
+  "description": "A painterly 6v6 browser shooter set in Van Gogh's Town. Pick one of twelve artists, join The Yellow House or The Independents, and fight through café streets with a signature weapon, a pistol, paint bursts and your own wall tag. First to 20 eliminations — or the higher score after three minutes — wins. Keyboard and mouse, single player against bots.",
+  "thumbnail": "/games/gogh-strike/online/assets/gogh-strike.png",
+  "thumbnailStored": "local",
+  "category": "action",
+  "engine": "html5",
+  "sourcePortal": "github",
+  "sourceRepoUrl": "https://github.com/petergpt/gogh-strike",
+  "sourceSiteUrl": "https://gogh-strike.surge.sh/",
+  "license": "MIT"
+}
