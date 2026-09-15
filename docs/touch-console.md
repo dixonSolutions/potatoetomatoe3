@@ -149,11 +149,26 @@ canvas needs tabindex and focus to receive key events naturally, so engines bind
 document or window instead.
 
 **Do not `preventDefault()` on form controls.** The overlay root runs `keepGameFocused` as
-a capture-phase `pointerdown` handler to stop presses stealing focus from the game. It saw
-every press inside the console, including the joystick scheme `<select>`; preventing the
-default activation stops Android WebView opening the native picker, so the Arrows/WASD
-dropdown appeared dead. `isInteractiveControl` exempts `select`, `input`, `textarea` and
-anything marked `data-console-control`.
+a capture-phase `pointerdown` handler to stop presses stealing focus from the game. It sees
+every press inside the console; preventing the default activation also kills the press for
+any control in there, which is how the Arrows/WASD picker first came to look dead (back
+when it was a `<select>`, the suppressed default stopped Android WebView opening the native
+picker). `isInteractiveControl` exempts `select`, `input`, `textarea` and anything marked
+`data-console-control` — mark every new console control with that attribute.
+
+**The scheme picker is a custom listbox, not a `<select>`.** A native picker paints its
+popup from the platform theme, and no CSS on the `<select>` can reach it: on Android
+WebView the Arrows/WASD list opened as an opaque white system sheet over the translucent
+glass console. The replacement is a glass trigger pill plus a popup the console owns.
+
+Two details in that popup are load-bearing. It renders as a *sibling* of the console panel,
+not a child: the panel carries `opacity: config.opacity`, opacity applies to the whole
+subtree, and a nested menu would be dimmed to the same 40% as the chrome behind it. Losing
+the panel's layout is the price, so `schemeMenuPos` recomputes its position from the same
+numbers the panel is drawn from, flipping the popup above the trigger when the console sits
+too low to open downwards. And a full-surface scrim closes it on an outside tap — presses
+on the game go straight to the iframe and never reach a document listener, so an
+outside-click handler alone would leave the menu stuck open.
 
 ### Platforms with no sidecar (Tauri mobile)
 
@@ -204,7 +219,7 @@ If the puller is not running, the iframe shows an error page telling you to star
 | Action               | Behavior                                                                                                                        |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | Gamepad switch       | Blue on/off switch for the console (when enabled / availability allows).                                                        |
-| Joystick             | Analog stick → 8-way keys. Scheme select: **Arrows** (default) or **WASD** — stored in touch settings.                          |
+| Joystick             | Analog stick → 8-way keys. Scheme picker: **Arrows** (default) or **WASD** — stored in touch settings.                          |
 | Space                | Glass pill button → `Space` (same overlay as A/B/X/Y).                                                                          |
 | A / B / X / Y        | Hold = keydown, release = keyup (Z / Enter / Shift / Esc by default; remappable).                                               |
 | Hold on a control    | After 650 ms, enter drag mode (dashed highlight), move, release commits to store.                                               |

@@ -4,8 +4,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import * as NavigationMenu from '$lib/components/ui/navigation-menu';
-	import { Menu, Sun, Moon, MonitorSmartphone, Settings, LogOut, Lock } from 'lucide-svelte';
-	import { setMode, userPrefersMode } from 'mode-watcher';
+	import { Menu, Settings, LogOut, Lock } from 'lucide-svelte';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
 	import logo from '$lib/assets/logo.png';
 	import { isPublicSiteDeployment, isTauriApp } from '$lib/utils/offline-deployment';
@@ -61,21 +60,11 @@
 	}
 
 	/*
-	 * Appearance cycles System -> Light -> Dark. `toggleMode` only flipped light/dark, so
-	 * the first tap pinned the app to a fixed mode with no way back to following the OS —
-	 * which on a device in system dark mode read as "there is no appearance setting".
-	 * `ModeWatcher defaultMode="system"` in +layout.svelte supplies the initial value.
+	 * There is deliberately no appearance control. Light/dark, the accent and the base
+	 * colour are all read from the OS (see `app.css`), so the app matches whatever the
+	 * desktop is set to — including the native window titlebar, which the app cannot
+	 * restyle. An in-app override could only ever disagree with that titlebar.
 	 */
-	const APPEARANCE_ORDER = ['system', 'light', 'dark'] as const;
-	const appearance = $derived(userPrefersMode.current ?? 'system');
-	const appearanceLabel = $derived(
-		appearance === 'system' ? 'System' : appearance === 'light' ? 'Light' : 'Dark'
-	);
-
-	function cycleAppearance() {
-		const next = APPEARANCE_ORDER[(APPEARANCE_ORDER.indexOf(appearance) + 1) % 3];
-		setMode(next);
-	}
 
 	/** Primary destinations, shared by the slide-out menu. `match` is a pathname suffix. */
 	const mobileLinks = $derived([
@@ -243,21 +232,6 @@
 					</Button>
 				{/if}
 				<Button
-					onclick={cycleAppearance}
-					variant="outline"
-					size="icon"
-					title="Appearance: {appearanceLabel}"
-				>
-					{#if appearance === 'system'}
-						<MonitorSmartphone class="h-[1.2rem] w-[1.2rem]" />
-					{:else if appearance === 'light'}
-						<Sun class="h-[1.2rem] w-[1.2rem]" />
-					{:else}
-						<Moon class="h-[1.2rem] w-[1.2rem]" />
-					{/if}
-					<span class="sr-only">Appearance: {appearanceLabel}. Activate to change.</span>
-				</Button>
-				<Button
 					href={resolve('/games')}
 					variant={$page.url.pathname.includes('/games') ? 'default' : 'outline'}
 				>
@@ -288,21 +262,6 @@
 						<Settings class="h-5 w-5" />
 					</Button>
 				{/if}
-				<Button
-					onclick={cycleAppearance}
-					variant="outline"
-					size="icon"
-					title="Appearance: {appearanceLabel}"
-				>
-					{#if appearance === 'system'}
-						<MonitorSmartphone class="h-[1.2rem] w-[1.2rem]" />
-					{:else if appearance === 'light'}
-						<Sun class="h-[1.2rem] w-[1.2rem]" />
-					{:else}
-						<Moon class="h-[1.2rem] w-[1.2rem]" />
-					{/if}
-					<span class="sr-only">Appearance: {appearanceLabel}. Activate to change.</span>
-				</Button>
 				<Sheet.Root bind:open={isOpen}>
 					<Sheet.Trigger
 						class="inline-flex h-10 w-10 items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
