@@ -4,11 +4,13 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import * as NavigationMenu from '$lib/components/ui/navigation-menu';
-	import { Menu, Settings, LogOut, Lock } from 'lucide-svelte';
+	import { Menu, Settings, LogOut, Lock, Github, Bug } from 'lucide-svelte';
 	import { getSettingsUiContext } from '$lib/settings-ui-context';
 	import logo from '$lib/assets/logo.png';
 	import { isPublicSiteDeployment, isTauriApp } from '$lib/utils/offline-deployment';
 	import { quitDesktopApp } from '$lib/utils/desktop-tray';
+	import { openExternalUrl } from '$lib/utils/open-external';
+	import { REPOSITORY_URL, REPOSITORY_ISSUES_URL } from '$lib/utils/repository';
 	import AppUpdateBadge from '$lib/components/AppUpdateBadge.svelte';
 	import { IsTouchOnly } from '$lib/hooks/is-touch-only.svelte';
 
@@ -57,6 +59,16 @@
 
 	async function onQuit() {
 		await quitDesktopApp();
+	}
+
+	/*
+	 * Deliberately not a plain `target="_blank"` anchor: in the Tauri Android WebView that
+	 * navigates the app itself away from `tauri.localhost` with no way back (see
+	 * `open-external.ts`). `openExternalUrl` hands the URL to the OS on native builds and
+	 * falls back to an anchor click on the web.
+	 */
+	function openRepository(url: string) {
+		void openExternalUrl(url).catch(() => {});
 	}
 
 	/*
@@ -210,6 +222,24 @@
 			<!-- Desktop Actions -->
 			<div class="hidden flex-shrink-0 items-center space-x-3 lg:flex">
 				<AppUpdateBadge />
+				<Button
+					onclick={() => openRepository(REPOSITORY_URL)}
+					variant="outline"
+					size="icon"
+					title="Source on GitHub"
+					aria-label="Source on GitHub"
+				>
+					<Github class="h-[1.2rem] w-[1.2rem]" />
+				</Button>
+				<Button
+					onclick={() => openRepository(REPOSITORY_ISSUES_URL)}
+					variant="outline"
+					size="icon"
+					title="Report a bug"
+					aria-label="Report a bug on GitHub"
+				>
+					<Bug class="h-[1.2rem] w-[1.2rem]" />
+				</Button>
 				{#if showLock}
 					<Button onclick={onLock} variant="outline" size="icon" aria-label="Lock now">
 						<Lock class="h-[1.2rem] w-[1.2rem]" />
@@ -305,6 +335,31 @@
 									{category.title}
 								</a>
 							{/each}
+
+							<!-- The mobile action row has no space left for icon buttons, so the repo links live here. -->
+							<p class="mt-3 px-3 pb-1 text-xs font-semibold text-muted-foreground">Project</p>
+							<button
+								type="button"
+								class="flex min-h-11 w-full items-center gap-2 rounded-md px-3 text-sm transition-colors hover:bg-accent/60"
+								onclick={() => {
+									openRepository(REPOSITORY_URL);
+									isOpen = false;
+								}}
+							>
+								<Github class="h-4 w-4" />
+								Source on GitHub
+							</button>
+							<button
+								type="button"
+								class="flex min-h-11 w-full items-center gap-2 rounded-md px-3 text-sm transition-colors hover:bg-accent/60"
+								onclick={() => {
+									openRepository(REPOSITORY_ISSUES_URL);
+									isOpen = false;
+								}}
+							>
+								<Bug class="h-4 w-4" />
+								Report a bug
+							</button>
 						</nav>
 
 						<div class="flex shrink-0 gap-2 border-t px-3 py-3">
