@@ -6,6 +6,12 @@ on:
       - main
   workflow_dispatch:
 
+# A 20-minute Flatpak build per push meant three pushes to a PR occupied three runners
+# to produce two results nobody reads.
+concurrency:
+  group: build-flatpak-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-flatpak:
     runs-on: ubuntu-latest
@@ -49,9 +55,14 @@ jobs:
 
       - uses: dtolnay/rust-toolchain@stable
 
+      # `shared-key` must match release-flatpak.yml. Swatinem keys on the job id by
+      # default, so this job looked for `v0-rust-build-flatpak-*` while the only cache
+      # main ever saved was `v0-rust-publish-*` — a guaranteed miss, and a full 9-minute
+      # cold `cargo build --release` on every PR.
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: src-tauri -> target
+          shared-key: flatpak-linux
           cache-on-failure: true
 
       - uses: pnpm/action-setup@v4
@@ -71,7 +82,8 @@ jobs:
           else
             echo "Playwright system dependencies already available"
           fi
-          pnpm puller:bundle:linux
+          # No explicit `pnpm puller:bundle:linux` — tauri.conf.json's beforeBuildCommand
+          # ends in exactly that, so running it here bundled and smoke-tested twice.
           pnpm tauri:build:flatpak
           test -x src-tauri/target/release/potato-tomato
 

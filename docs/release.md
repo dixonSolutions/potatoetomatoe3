@@ -15,6 +15,8 @@ publishes an immutable release-context artifact containing the generated tag and
 
 `Publish Linux Flatpak` and `Publish Android APK` start independently after preparation succeeds. Each downloads that context, checks out the exact SHA, stamps the same version into its platform build, and attaches only its own versioned asset to the already-created release. Platform workflows never query `latest`, so concurrent releases cannot mix artifacts.
 
+`Publish Linux Flatpak` alone flips the draft to published (`gh release edit --draft=false --latest`), so a release goes public exactly when the Flatpak asset lands. `Publish Android APK` used to poll for that same conclusion and run an identical `gh release edit`; it burned 4-28 minutes of runner time per release to duplicate a decision the Flatpak job had already made, and it is gone. A Flatpak failure still leaves the release a draft, exactly as before.
+
 Pages deployment runs asynchronously after release preparation and after Linux Flatpak publication. Every Pages deploy tries to keep a Flatpak OSTree: Flatpak-triggered runs use that run’s artifact, while prep/manual deploys fall back to the matching or latest successful `flatpak-bundle` so web-only publishes cannot wipe the remote.
 
 Android is currently gated on generated Tauri Android sources. Run `pnpm tauri android init` after installing the Android SDK, then configure signing secrets before enabling APK publication. Android is a direct signed APK download with manual updates; it has no update remote.
@@ -110,7 +112,11 @@ pnpm flatpak:run      # run installed app
 ```
 
 CI caches the Rust `src-tauri` target via `Swatinem/rust-cache`, pnpm packages, Flatpak runtimes,
-Flatpak builder state, and ccache. Subsequent workflow runs skip most crate recompilation and
+Flatpak builder state, ccache, Gradle, and the Android `aarch64` target.
+`shared-key` matters more than it looks: `Swatinem/rust-cache` keys on the job id unless you set one,
+so `Build Flatpak` (job `build-flatpak`) and `Publish Linux Flatpak` (job `publish`) wrote two caches
+that could never read each other, and every PR paid a 9-minute cold `cargo build --release`. Both now
+use `shared-key: flatpak-linux`; Android uses `android-aarch64`. Keep them matched when adding a job. Subsequent workflow runs skip most crate recompilation and
 avoid rebuilding the GNOME runtime and app-indicator module from scratch. Routine CI publishes
 the OSTree without static deltas; the GitHub Release `.flatpak` bundle remains available for
 single-file installation.

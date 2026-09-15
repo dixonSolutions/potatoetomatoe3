@@ -69,9 +69,12 @@ jobs:
           flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           flatpak --user install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
       - uses: dtolnay/rust-toolchain@stable
+      # `shared-key` must match build-tauri.yml so PR builds can restore what main saved.
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: src-tauri -> target
+          shared-key: flatpak-linux
+          cache-on-failure: true
       - uses: pnpm/action-setup@v4
         with:
           version: 10

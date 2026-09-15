@@ -51,8 +51,17 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+          cache: gradle
       - uses: android-actions/setup-android@v3
       - uses: dtolnay/rust-toolchain@stable
+      # The aarch64 build was recompiling every crate from scratch on every release
+      # (~10 min of the APK step). `shared-key` keeps the entry off the job id so the
+      # cache survives as a single stable entry rather than one per run.
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+          shared-key: android-aarch64
+          cache-on-failure: true
       - name: Install Android compiler dependencies
         run: |
           sdkmanager "platforms;android-36" "ndk;27.3.13750724"
@@ -122,49 +131,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.release.outputs.tag }}
         run: gh release upload "$TAG" dist/*.apk --clobber
-      - name: Wait for Linux Flatpak assets
-        if: always() && steps.release.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PREP_RUN_ID: ${{ github.event.workflow_run.id }}
-          REPO: ${{ github.repository }}
-          SHA: ${{ steps.release.outputs.sha }}
-        run: |
-          get_flatpak_run() {
-            local prep_updated
-            # gh api --jq takes a single expression; do not pass jq's -r flag here.
-            prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq .updated_at)"
-            gh api "/repos/$REPO/actions/workflows/release-flatpak.yml/runs?event=workflow_run&head_sha=$SHA&per_page=30" \
-              --jq "[.workflow_runs[] | select(.created_at >= \"$prep_updated\")] | sort_by(.created_at) | .[0]"
-          }
-          for _ in $(seq 1 180); do
-            run="$(get_flatpak_run)"
-            if [ -z "$run" ] || [ "$run" = "null" ]; then
-              sleep 30
-              continue
-            fi
-            status="$(echo "$run" | jq -r .status)"
-            conclusion="$(echo "$run" | jq -r '.conclusion // ""')"
-            if [ "$status" = "completed" ]; then
-              [ "$conclusion" = "success" ] || exit 0
-              exit 0
-            fi
-            sleep 30
-          done
-          echo "Timed out waiting for Publish Linux Flatpak; Flatpak workflow will publish when it completes" >&2
-          exit 0
-      - name: Publish release
-        if: always() && steps.release.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PREP_RUN_ID: ${{ github.event.workflow_run.id }}
-          REPO: ${{ github.repository }}
-          TAG: ${{ steps.release.outputs.tag }}
-          SHA: ${{ steps.release.outputs.sha }}
-        run: |
-          # gh api --jq takes a single expression; do not pass jq's -r flag here.
-          prep_updated="$(gh api "/repos/$REPO/actions/runs/$PREP_RUN_ID" --jq .updated_at)"
-          conclusion="$(gh api "/repos/$REPO/actions/workflows/release-flatpak.yml/runs?event=workflow_run&head_sha=$SHA&per_page=30" \
-            --jq "[.workflow_runs[] | select(.created_at >= \"$prep_updated\")] | sort_by(.created_at) | .[0].conclusion // \"\"")"
-          [ "$conclusion" = "success" ] || exit 0
-          gh release edit "$TAG" --draft=false --latest
+      # No wait-for-Flatpak poll here. `Publish Linux Flatpak` flips the same draft
+      # with the same `gh release edit` at the end of its own job, so this job's copy
+      # could only ever duplicate it — while burning 4-28 min of runner time per release
+      # sleeping in a 30s poll loop (27.7 min on run 34927486726, where the APK had
+      # already failed). The release still goes public exactly when Flatpak succeeds.
