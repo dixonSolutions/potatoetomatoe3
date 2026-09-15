@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-crazy-taxi",
+  "name": "Crazy Taxi",
+  "author": "FNF Games",
+  "description": "Race through crowded streets and deliver passengers before time runs out in Crazy Taxi. Speed, risky turns, and smart shortcuts lead to bigger tips.",
+  "thumbnail": "https://fnf-games.io/data/image/game/crazy-taxi/crazy-taxi.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/crazy-taxi/crazy-taxi.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/crazy-taxi?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/crazy-taxi",
+  "fnfGamesSlug": "crazy-taxi",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 2.5,
+  "portalRatingCount": 4
+}

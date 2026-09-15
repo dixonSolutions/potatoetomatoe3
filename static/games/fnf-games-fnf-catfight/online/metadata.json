@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-catfight",
+  "name": "FNF: CATFIGHT",
+  "author": "FNF Games",
+  "description": "Stay on beat in FNF: CATFIGHT as cute pet chaos turns darker through faster drums, Jacks, Streams, and a ticking clock. Join the clash!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-catfight/fnf-catfight.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-catfight/fnf-catfight.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-catfight?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-catfight",
+  "fnfGamesSlug": "fnf-catfight",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 7.9,
+  "portalRatingCount": 107
+}

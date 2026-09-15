@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-nullpulse-runner",
+  "name": "Nullpulse Runner",
+  "author": "FNF Games",
+  "description": "NullPulse Runner combines one-tap controls, gravity flipping, color-based obstacles, and endless neon challenges in a fast-paced arcade experience.",
+  "thumbnail": "https://fnf-games.io/data/image/game/nullpulse-runner/nullpulse-runner.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/nullpulse-runner/nullpulse-runner.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/nullpulse-runner?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/nullpulse-runner",
+  "fnfGamesSlug": "nullpulse-runner",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-rocket-racing",
+  "name": "Rocket Racing",
+  "author": "FNF Games",
+  "description": "Race through dynamic tracks in Rocket Racing, adapting vehicle behavior with engine and suspension upgrades earned from repeated runs.",
+  "thumbnail": "https://fnf-games.io/data/image/game/racing-rocket/rocket-racing.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/racing-rocket/rocket-racing.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/rocket-racing?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Frocket-racing&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/rocket-racing",
+  "fnfGamesSlug": "rocket-racing",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

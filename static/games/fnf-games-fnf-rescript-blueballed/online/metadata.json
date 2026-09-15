@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-rescript-blueballed",
+  "name": "FNF Rescript: Blueballed",
+  "author": "FNF Games",
+  "description": "Face a constantly evolving musical challenge in FNF Rescript: Blueballed as corruption transforms the battle from start to finish.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-rescript-blueballed/fnf-rescript-blueballed.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-rescript-blueballed/fnf-rescript-blueballed.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-rescript-blueballed?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-rescript-blueballed",
+  "fnfGamesSlug": "fnf-rescript-blueballed",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "pibby"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 172
+}

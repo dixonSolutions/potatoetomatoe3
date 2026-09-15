@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-ninja-vs-evilcorp",
+  "name": "Ninja vs EVILCORP",
+  "author": "FNF Games",
+  "description": "Break into the EVILCORP headquarters in Ninja vs EVILCORP, a stealth-focused platformer packed with security cameras and the challenge.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ninja-vs-evilcorp/ninja-vs-evilcorp.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ninja-vs-evilcorp/ninja-vs-evilcorp.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ninja-vs-evilcorp?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ninja-vs-evilcorp",
+  "fnfGamesSlug": "ninja-vs-evilcorp",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

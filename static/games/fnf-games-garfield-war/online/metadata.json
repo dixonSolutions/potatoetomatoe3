@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-garfield-war",
+  "name": "Garfield War",
+  "author": "FNF Games",
+  "description": "Play Garfield War online and defend the fridge from waves of food invaders. Use strategy, deploy allies, and survive intense kitchen battles!",
+  "thumbnail": "https://fnf-games.io/data/image/game/garfield-war/garfield-war.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/garfield-war/garfield-war.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/garfield-war?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/garfield-war",
+  "fnfGamesSlug": "garfield-war",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "cartoon"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

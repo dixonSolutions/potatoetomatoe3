@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-poppy-funktime-vs-bunzo-bunny-fnf-mod",
+  "name": "Poppy Funktime vs Bunzo Bunny (FNF Mod)",
+  "author": "FNF Games",
+  "description": "Poppy Funktime vs Bunzo Bunny is a Friday Night Funkin’ rhythm mod that combines music gameplay with memory-based challenges.",
+  "thumbnail": "https://fnf-games.io/data/image/game/poppy-funktime-vs-bunzo-bunny-fnf-mod/poppy-funktime-vs-bunzo-bunny-fnf-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/poppy-funktime-vs-bunzo-bunny-fnf-mod/poppy-funktime-vs-bunzo-bunny-fnf-mod.png",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/poppy-funktime-vs-bunzo-bunny-fnf-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/poppy-funktime-vs-bunzo-bunny-fnf-mod",
+  "fnfGamesSlug": "poppy-funktime-vs-bunzo-bunny-fnf-mod",
+  "tags": [
+    "fnf-games",
+    "fnf"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 64
+}

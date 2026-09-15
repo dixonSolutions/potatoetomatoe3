@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-pinball-master",
+  "name": "Pinball Master",
+  "author": "FNF Games",
+  "description": "Pinball Master delivers classic arcade pinball action with smooth controls, fast reflex gameplay, and score-chasing excitement for competitive players.",
+  "thumbnail": "https://fnf-games.io/data/image/game/pinball-master/pinball-master.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/pinball-master/pinball-master.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/pinball-master?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/pinball-master",
+  "fnfGamesSlug": "pinball-master",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

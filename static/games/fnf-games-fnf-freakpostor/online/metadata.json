@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-freakpostor",
+  "name": "FNF Freakpostor",
+  "author": "FNF Games",
+  "description": "Challenge Red Impostor in FNF Freakpostor, a fast-paced Friday Night Funkin' mod featuring a fully lyrical rap battle, smooth animations, and catchy beats.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-freakpostor/fnf-freakpostor.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-freakpostor/fnf-freakpostor.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-freakpostor?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-freakpostor",
+  "fnfGamesSlug": "fnf-freakpostor",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "imposter"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 99
+}

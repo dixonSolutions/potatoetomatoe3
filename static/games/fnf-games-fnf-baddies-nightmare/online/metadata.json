@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-baddies-nightmare",
+  "name": "FNF Baddies: Nightmare",
+  "author": "FNF Games",
+  "description": "FNF Baddies: Nightmare challenges you with explosive remixes and pulse-racing duels across the rails of New York. Dive into the beat and survive!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-whitty-0/fnf-baddies-nightmare.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-whitty-0/fnf-baddies-nightmare.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-baddies-nightmare?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-baddies-nightmare",
+  "fnfGamesSlug": "fnf-baddies-nightmare",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "fast-paced"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 115
+}

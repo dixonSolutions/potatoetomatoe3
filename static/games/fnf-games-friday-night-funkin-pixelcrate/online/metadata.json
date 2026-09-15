@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-pixelcrate",
+  "name": "Friday Night Funkin PixelCrate",
+  "author": "FNF Games",
+  "description": "Enjoy Friday Night Funkin PixelCrate, a fast-paced rhythm game with pixel visuals, smooth controls, and instant rap battles. Jump in and keep your combo strong!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-pixelcrate/friday-night-funkin-pixelcrate.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-pixelcrate/friday-night-funkin-pixelcrate.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-pixelcrate?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-pixelcrate",
+  "fnfGamesSlug": "friday-night-funkin-pixelcrate",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "pixel"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 17
+}

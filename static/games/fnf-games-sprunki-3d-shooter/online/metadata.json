@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-3d-shooter",
+  "name": "Sprunki 3D Shooter",
+  "author": "FNF Games",
+  "description": "Fighting through tight mazes drives Sprunki 3D Shooter, an FPS where Sprunki attack from all sides and ammo management decides survival.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-3d-shooter/sprunki-3d-shooter.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-3d-shooter/sprunki-3d-shooter.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-3d-shooter?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fsprunki-3d-shooter&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-3d-shooter",
+  "fnfGamesSlug": "sprunki-3d-shooter",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "sprunki"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 6
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-funkin-at-freddy-s-vs-afton",
+  "name": "FNF Funkin At Freddy’s Vs Afton",
+  "author": "FNF Games",
+  "description": "Begin the musical showdown between Boyfriend and the infamous villain Afton in the game FNF Funkin At Freddy's Vs Afton.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-funkin-at-freddy-s-vs-afton/fnf-funkin-at-freddy-s-vs-afton.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-funkin-at-freddy-s-vs-afton/fnf-funkin-at-freddy-s-vs-afton.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-funkin-at-freddy-s-vs-afton?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-funkin-at-freddy-s-vs-afton",
+  "fnfGamesSlug": "fnf-funkin-at-freddy-s-vs-afton",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 12
+}

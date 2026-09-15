@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-zardy-foolhardy-mod-pack",
+  "name": "FNF: Zardy Foolhardy Mod Pack",
+  "author": "FNF Games",
+  "description": "Take on FNF: Zardy Foolhardy Mod Pack, a brutal rhythm challenge featuring intense remixes, fast patterns, and multiple versions. Prove your precision!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-zardy-foolhardy-mod-pack/fnf-zardy-foolhardy-mod-pack.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-zardy-foolhardy-mod-pack/fnf-zardy-foolhardy-mod-pack.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-zardy-foolhardy-mod-pack?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-zardy-foolhardy-mod-pack",
+  "fnfGamesSlug": "fnf-zardy-foolhardy-mod-pack",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "whitty"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 60
+}

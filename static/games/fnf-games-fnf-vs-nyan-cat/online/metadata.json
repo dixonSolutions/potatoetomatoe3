@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-nyan-cat",
+  "name": "FNF vs Nyan Cat",
+  "author": "FNF Games",
+  "description": "FNF vs Nyan Cat blasts you into a rhythm galaxy where Boyfriend races the Pop-Tart cat through rainbow trails and high-speed beats. Feel the groove!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-nyan-cat/fnf-vs-nyan-cat.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-nyan-cat/fnf-vs-nyan-cat.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-nyan-cat?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-nyan-cat",
+  "fnfGamesSlug": "fnf-vs-nyan-cat",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "meme"
+  ],
+  "portalRating": 8.7,
+  "portalRatingCount": 89
+}

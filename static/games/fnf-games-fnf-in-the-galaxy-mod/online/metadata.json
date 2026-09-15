@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-in-the-galaxy-mod",
+  "name": "FNF: In the Galaxy Mod",
+  "author": "FNF Games",
+  "description": "Blast into space with FNF: In the Galaxy Mod, a cosmic rhythm adventure featuring Boyfriend, Girlfriend, six songs, story cutscenes, and musical battles.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-in-the-galaxy-mod/fnf-in-the-galaxy-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-in-the-galaxy-mod/fnf-in-the-galaxy-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-in-the-galaxy-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-in-the-galaxy-mod",
+  "fnfGamesSlug": "fnf-in-the-galaxy-mod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "galaxy"
+  ],
+  "portalRating": 8.4,
+  "portalRatingCount": 31
+}

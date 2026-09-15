@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-red-face-horror",
+  "name": "Red Face Horror",
+  "author": "FNF Games",
+  "description": "Explore Red Face Horror, a psychological horror game with a disturbing story, eerie atmosphere, and deep emotional themes. Uncover the truth within!",
+  "thumbnail": "https://fnf-games.io/data/image/game/red-face-horror/red-face-horror.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/red-face-horror/red-face-horror.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/red-face-horror?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/red-face-horror",
+  "fnfGamesSlug": "red-face-horror",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "horror",
+    "cartoon"
+  ],
+  "portalRating": 8.1,
+  "portalRatingCount": 16
+}

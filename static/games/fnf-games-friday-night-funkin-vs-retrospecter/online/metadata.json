@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-retrospecter",
+  "name": "Friday Night Funkin' Vs RetroSpecter",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin' Vs RetroSpecter ignites a demon-fueled rhythm war where every note burns brighter than fire itself. Conquer the stage!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-retrospecter/fnf-vs-retrospecter.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-retrospecter/fnf-vs-retrospecter.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-retrospecter?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-retrospecter",
+  "fnfGamesSlug": "friday-night-funkin-vs-retrospecter",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 53
+}

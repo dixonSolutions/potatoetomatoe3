@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-chainsaw-man",
+  "name": "FNF Vs Chainsaw Man",
+  "author": "FNF Games",
+  "description": "Rhythm Game FNF Vs Chainsaw Man brings an exciting musical battle between Chainsaw Man and Katana Man on a train. Just click to start playing now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-chainsaw-man/fnf-vs-chainsaw-man.jpeg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-chainsaw-man/fnf-vs-chainsaw-man.jpeg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-chainsaw-man?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-chainsaw-man",
+  "fnfGamesSlug": "fnf-vs-chainsaw-man",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 34
+}

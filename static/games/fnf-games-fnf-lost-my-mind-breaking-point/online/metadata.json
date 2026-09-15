@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-lost-my-mind-breaking-point",
+  "name": "FNF: Lost My Mind + Breaking Point",
+  "author": "FNF Games",
+  "description": "Play FNF: Lost My Mind + Breaking Point, a high-difficulty Friday Night Funkin mod where Sonic and Xain face their inner demons with strict miss limits.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-lost-my-mind-breaking-point/fnf-lost-my-mind-breaking-point.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-lost-my-mind-breaking-point/fnf-lost-my-mind-breaking-point.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-lost-my-mind-breaking-point?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-lost-my-mind-breaking-point",
+  "fnfGamesSlug": "fnf-lost-my-mind-breaking-point",
+  "tags": [
+    "fnf-games",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 288
+}

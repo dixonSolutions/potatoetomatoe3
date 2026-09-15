@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-big-brother",
+  "name": "Friday Night Funkin' vs Big Brother",
+  "author": "FNF Games",
+  "description": "Challenge in Friday Night Funkin' vs Big Brother, a powerful rhythm mod filled with new mechanics, emotional duels, and unforgettable visual storytelling.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-big-brother/fnf-vs-big-brother.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-big-brother/fnf-vs-big-brother.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-big-brother?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-big-brother",
+  "fnfGamesSlug": "friday-night-funkin-vs-big-brother",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 37
+}

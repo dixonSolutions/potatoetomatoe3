@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-omori-friend-battle",
+  "name": "FNF: OMORI Friend Battle!",
+  "author": "FNF Games",
+  "description": "FNF: OMORI Friend Battle! packs the whole friend group into one evolving rhythm fight. Follow the changing chart when Kel triggers RUN N’ GUN.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-omori-friend-battle/fnf-omori-friend-battle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-omori-friend-battle/fnf-omori-friend-battle.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-omori-friend-battle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-omori-friend-battle",
+  "fnfGamesSlug": "fnf-omori-friend-battle",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 8
+}

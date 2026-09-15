@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-upside-tricky",
+  "name": "FNF UpSide Tricky",
+  "author": "FNF Games",
+  "description": "Intense musical confrontation with the dangerous and mysterious clown Tricky in FNF UpSide Tricky! Don't hesitate any longer!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-upside-tricky/fnf-upside-tricky1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-upside-tricky/fnf-upside-tricky1.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-upside-tricky?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-upside-tricky",
+  "fnfGamesSlug": "fnf-upside-tricky",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "tricky"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 35
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-rivals",
+  "name": "FNF Rivals",
+  "author": "FNF Games",
+  "description": "FNF Rivals is an exciting rhythm game that brings the intense musical confrontation between Nene and Cassandra. Enjoy the ultimate musical confrontation today!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-rivals/fnf-rivals.jpeg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-rivals/fnf-rivals.jpeg",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-rivals?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-rivals",
+  "fnfGamesSlug": "fnf-rivals",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "cassandra"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 171
+}

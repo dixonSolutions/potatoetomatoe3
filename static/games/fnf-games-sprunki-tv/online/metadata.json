@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-tv",
+  "name": "Sprunki TV",
+  "author": "FNF Games",
+  "description": "Switch channels in Sprunki TV, a rhythm sandbox game built around TV-style characters, layered sounds, and playful remix freedom.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-tv/sprunki-tv.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-tv/sprunki-tv.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-tv?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-tv",
+  "fnfGamesSlug": "sprunki-tv",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 7
+}

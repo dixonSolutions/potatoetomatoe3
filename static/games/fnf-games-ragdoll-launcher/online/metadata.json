@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-ragdoll-launcher",
+  "name": "Ragdoll Launcher",
+  "author": "FNF Games",
+  "description": "Launch into Ragdoll Launcher, a physics-based arcade game with chaotic bounces, explosive boosts, and skill-driven momentum. See how far you can fly!",
+  "thumbnail": "https://fnf-games.io/data/image/game/ragdoll-launcher/ragdoll-launcher.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ragdoll-launcher/ragdoll-launcher.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ragdoll-launcher?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ragdoll-launcher",
+  "fnfGamesSlug": "ragdoll-launcher",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

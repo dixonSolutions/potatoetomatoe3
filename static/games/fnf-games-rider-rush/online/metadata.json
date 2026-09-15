@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-rider-rush",
+  "name": "Rider Rush",
+  "author": "FNF Games",
+  "description": "Rider Rush mixes motorcycle racing with physics-based platforming across loops, gaps, and steep slopes. Control each jump and conquer the neon track!",
+  "thumbnail": "https://fnf-games.io/data/image/game/rider-rush/rider-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/rider-rush/rider-rush.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/rider-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/rider-rush",
+  "fnfGamesSlug": "rider-rush",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 7.1,
+  "portalRatingCount": 7
+}

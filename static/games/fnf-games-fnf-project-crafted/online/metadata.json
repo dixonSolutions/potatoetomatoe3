@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-project-crafted",
+  "name": "FNF Project Crafted",
+  "author": "FNF Games",
+  "description": "Explore Minecraft rhythm battles in FNF Project Crafted! Face Steve, Alex, zombies, and more in this creative Friday Night Funkin’ crossover mod.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-project-crafted/fnf-project-crafted.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-project-crafted/fnf-project-crafted.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-project-crafted?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-project-crafted",
+  "fnfGamesSlug": "fnf-project-crafted",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 12
+}

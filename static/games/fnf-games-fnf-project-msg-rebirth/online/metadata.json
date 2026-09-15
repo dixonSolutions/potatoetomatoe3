@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-project-msg-rebirth",
+  "name": "FNF Project MSG Rebirth",
+  "author": "FNF Games",
+  "description": "In FNF Project MSG Rebirth, rhythm battles shift between Soldier’s sharp energy and Casi’s calm tone, urging you to explore this musical clash now.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-project-msg-rebirth/fnf-project-msg-rebirth.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-project-msg-rebirth/fnf-project-msg-rebirth.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-project-msg-rebirth?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-project-msg-rebirth",
+  "fnfGamesSlug": "fnf-project-msg-rebirth",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 5
+}

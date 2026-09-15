@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-simon-s-realm-big-update",
+  "name": "Sprunki: Simon’s Realm Big Update",
+  "author": "FNF Games",
+  "description": "Sprunki: Simon’s Realm Big Update expands the Sprunki universe with new levels, characters, and creative challenges in this colorful indie adventure.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-simon-s-realm-big-update/sprunki-simons-realm-big-update.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-simon-s-realm-big-update/sprunki-simons-realm-big-update.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-simon-s-realm-big-update?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-simon-s-realm-big-update",
+  "fnfGamesSlug": "sprunki-simon-s-realm-big-update",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "sprunki",
+    "cartoon"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 5
+}

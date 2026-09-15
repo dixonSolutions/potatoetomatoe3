@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-plants-vs-brainrots-online",
+  "name": "Plants vs Brainrots Online",
+  "author": "FNF Games",
+  "description": "Plants vs Brainrots Online plays as a strategic tower defense loop of planting, collecting defeated Brainrots, and optimizing space for long-term growth.",
+  "thumbnail": "https://fnf-games.io/data/image/game/plants-vs-brainrots-online/plants-vs-brainrots-online.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/plants-vs-brainrots-online/plants-vs-brainrots-online.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/plants-vs-brainrots-online?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/plants-vs-brainrots-online",
+  "fnfGamesSlug": "plants-vs-brainrots-online",
+  "tags": [
+    "fnf-games",
+    "funny"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 9
+}

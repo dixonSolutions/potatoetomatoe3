@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-singstar-challenge",
+  "name": "FNF: SingStar Challenge",
+  "author": "FNF Games",
+  "description": "Take on FNF: SingStar Challenge, a short music battle mixing rap and guitar around one intense track. Keep your timing sharp and clear “Virgin-Rage.”",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-singstar-challenge/fnf-singstar-challenge.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-singstar-challenge/fnf-singstar-challenge.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-singstar-challenge?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-singstar-challenge",
+  "fnfGamesSlug": "fnf-singstar-challenge",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sing"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 8
+}

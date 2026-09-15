@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-big-engine-brawl",
+  "name": "FNF: Big Engine Brawl",
+  "author": "FNF Games",
+  "description": "FNF: Big Engine Brawl is a Friday Night Funkin' mod where Boyfriend explores the Island of Sodor and battles Thomas & Friends in musical showdowns.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-big-engine-brawl/fnf-big-engine-brawl.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-big-engine-brawl/fnf-big-engine-brawl.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-big-engine-brawl?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-big-engine-brawl",
+  "fnfGamesSlug": "fnf-big-engine-brawl",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9.6,
+  "portalRatingCount": 77
+}

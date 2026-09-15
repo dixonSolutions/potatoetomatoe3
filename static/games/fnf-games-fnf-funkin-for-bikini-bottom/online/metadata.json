@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-funkin-for-bikini-bottom",
+  "name": "FNF: Funkin For Bikini Bottom",
+  "author": "FNF Games",
+  "description": "Robot Sandy kicks off the chaos in FNF: Funkin For Bikini Bottom, with six rhythm battles spreading across a mechanical takeover of Bikini Bottom.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-funkin-for-bikini-bottom/fnf-funkin-for-bikini-bottom.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-funkin-for-bikini-bottom/fnf-funkin-for-bikini-bottom.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-funkin-for-bikini-bottom?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-funkin-for-bikini-bottom",
+  "fnfGamesSlug": "fnf-funkin-for-bikini-bottom",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 50
+}

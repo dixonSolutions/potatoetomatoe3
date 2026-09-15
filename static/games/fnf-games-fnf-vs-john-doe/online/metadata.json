@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-john-doe",
+  "name": "FNF vs John Doe",
+  "author": "FNF Games",
+  "description": "Challenge FNF vs John Doe as Boyfriend faces a digital mystery filled with eerie atmosphere, fast beats, and a legendary Roblox character.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-john-doe/fnf-vs-john-doe.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-john-doe/fnf-vs-john-doe.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-john-doe?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-john-doe",
+  "fnfGamesSlug": "fnf-vs-john-doe",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "roblox"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 24
+}

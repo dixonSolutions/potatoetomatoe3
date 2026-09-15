@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-tail-s-halloween-vs-sonic-exe",
+  "name": "FNF Tail’s Halloween vs Sonic.EXE",
+  "author": "FNF Games",
+  "description": "FNF Tail’s Halloween vs Sonic.EXE is a horror rhythm game where Tails battles Sonic.EXE through spooky songs and Halloween themed stages.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-tail-s-halloween-vs-sonic-exe/fnf-tails-halloween-vs-sonic-exe.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-tail-s-halloween-vs-sonic-exe/fnf-tails-halloween-vs-sonic-exe.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-tail-s-halloween-vs-sonic-exe?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-tail-s-halloween-vs-sonic-exe",
+  "fnfGamesSlug": "fnf-tail-s-halloween-vs-sonic-exe",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 56
+}

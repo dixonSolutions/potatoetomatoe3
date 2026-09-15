@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-studki-sprunki-reskin",
+  "name": "Studki Sprunki Reskin",
+  "author": "FNF Games",
+  "description": "Studki Sprunki Reskin is a fan-made music creation game where colorful characters turn beats, melodies, vocals, and effects into original mixes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/studki-sprunki-reskin/studki-sprunki-reskin.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/studki-sprunki-reskin/studki-sprunki-reskin.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/studki-sprunki-reskin?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/studki-sprunki-reskin",
+  "fnfGamesSlug": "studki-sprunki-reskin",
+  "tags": [
+    "fnf-games",
+    "sprunki",
+    "cartoon"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-bucket-smash",
+  "name": "Bucket Smash",
+  "author": "FNF Games",
+  "description": "Starting with a weak, fuel-hungry machine, Bucket Smash lets players demolish walls, earn coins, and gradually build stronger tools. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/bucket-smash/bucket-smash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/bucket-smash/bucket-smash.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/bucket-smash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/bucket-smash",
+  "fnfGamesSlug": "bucket-smash",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "physics"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 5
+}

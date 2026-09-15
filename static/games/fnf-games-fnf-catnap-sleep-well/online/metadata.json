@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-catnap-sleep-well",
+  "name": "FNF Catnap Sleep Well",
+  "author": "FNF Games",
+  "description": "Face FNF Catnap Sleep Well, a horror rhythm mod with eerie visuals, haunting beats, and intense rap battles. Survive the song and keep your rhythm steady!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-catnap-sleep-well/fnf-catnap-sleep-well.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-catnap-sleep-well/fnf-catnap-sleep-well.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-catnap-sleep-well?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-catnap-sleep-well",
+  "fnfGamesSlug": "fnf-catnap-sleep-well",
+  "tags": [
+    "fnf-games",
+    "horror",
+    "catnap",
+    "poppy"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 181
+}

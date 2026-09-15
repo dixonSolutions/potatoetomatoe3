@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-whodunit-fnf",
+  "name": "WHODUNIT FNF",
+  "author": "FNF Games",
+  "description": "Play WHODUNIT FNF, a mystery-themed rhythm battle featuring Kasane Teto, tense rock music, incoming notes, and a hidden killer waiting to be exposed.",
+  "thumbnail": "https://fnf-games.io/data/image/game/whodunit-fnf/whodunit-fnf.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/whodunit-fnf/whodunit-fnf.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/whodunit-fnf?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/whodunit-fnf",
+  "fnfGamesSlug": "whodunit-fnf",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 27
+}

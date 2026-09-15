@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-tinky-winky-slendytubbies",
+  "name": "FNF: vs Tinky Winky (Slendytubbies)",
+  "author": "FNF Games",
+  "description": "A strange forest battle awaits in FNF: vs Tinky Winky, as fast notes, healthbar pressure, and harder modes test every rhythm move. Survive the week!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-tinky-winky-slendytubbies/fnf-vs-tinky-winky-slendytubbies.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-tinky-winky-slendytubbies/fnf-vs-tinky-winky-slendytubbies.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-tinky-winky-slendytubbies?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-tinky-winky-slendytubbies",
+  "fnfGamesSlug": "fnf-vs-tinky-winky-slendytubbies",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "horror"
+  ],
+  "portalRating": 8.4,
+  "portalRatingCount": 79
+}

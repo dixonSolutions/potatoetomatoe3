@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-seek-s-cool-deltarune-mod",
+  "name": "FNF Seek’s Cool Deltarune Mod",
+  "author": "FNF Games",
+  "description": "Join epic rhythm battles in FNF Seek’s Cool Deltarune Mod, featuring 16 songs and beloved Deltarune characters like Spamton, Kris, and Ralsei.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-seek-s-cool-deltarune-mod/fnf-seeks-cool-deltarune-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-seek-s-cool-deltarune-mod/fnf-seeks-cool-deltarune-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-seek-s-cool-deltarune-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-seek-s-cool-deltarune-mod",
+  "fnfGamesSlug": "fnf-seek-s-cool-deltarune-mod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "cartoon"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 17
+}

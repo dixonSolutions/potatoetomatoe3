@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-broken-strings",
+  "name": "FNF Broken Strings",
+  "author": "FNF Games",
+  "description": "Face the darkness in FNF Broken Strings, a rhythm challenge where haunting beats and glitch effects test your timing in every intense battle.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-broken-strings/fnf-broken-strings.jpg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-broken-strings/fnf-broken-strings.jpg",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-broken-strings?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-broken-strings",
+  "fnfGamesSlug": "fnf-broken-strings",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "horror",
+    "pibby"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 173
+}

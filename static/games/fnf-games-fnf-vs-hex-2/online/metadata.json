@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-hex-2",
+  "name": "FNF Vs. Hex 2",
+  "author": "FNF Games",
+  "description": "FNF Vs. Hex 2 is a challenging Friday Night Funkin’ mod where Boyfriend battles Hex through new electronic songs. Play now and conquer Hex in a rhythm battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-hex-2/fnf-vs-hex-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-hex-2/fnf-vs-hex-2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-hex-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-hex-2",
+  "fnfGamesSlug": "fnf-vs-hex-2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 160
+}

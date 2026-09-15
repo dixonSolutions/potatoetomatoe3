@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-wii-funkin-vs-matt-v3",
+  "name": "Wii Funkin’ – VS Matt V3",
+  "author": "FNF Games",
+  "description": "The fiery arenas of sports and music intersect in Wii Funkin’ – VS Matt V3. Prepare yourself for lightning-fast musical combinations!",
+  "thumbnail": "https://fnf-games.io/data/image/game/wii-funkin-vs-matt-v3/wii-funkin-vs-matt-v3.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wii-funkin-vs-matt-v3/wii-funkin-vs-matt-v3.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wii-funkin-vs-matt-v3?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wii-funkin-vs-matt-v3",
+  "fnfGamesSlug": "wii-funkin-vs-matt-v3",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.8,
+  "portalRatingCount": 101
+}

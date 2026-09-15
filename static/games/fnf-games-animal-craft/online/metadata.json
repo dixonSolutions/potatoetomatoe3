@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-animal-craft",
+  "name": "Animal Craft",
+  "author": "FNF Games",
+  "description": "Explore Animal Craft gameplay featuring animal fusion, open-world roaming, resource gathering and evolving creatures through combat and upgrades.",
+  "thumbnail": "https://fnf-games.io/data/image/game/animal-craft/animal-craft.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/animal-craft/animal-craft.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/animal-craft?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/animal-craft",
+  "fnfGamesSlug": "animal-craft",
+  "tags": [
+    "fnf-games",
+    "funny"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

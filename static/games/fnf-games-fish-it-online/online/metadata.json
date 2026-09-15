@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fish-it-online",
+  "name": "Fish It Online",
+  "author": "FNF Games",
+  "description": "Catch fish across colorful islands and open seas in Fish It Online. Upgrade rods, unlock boats, and hunt rare species in this relaxing Roblox adventure!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fish-it-online/fish-it-online.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fish-it-online/fish-it-online.png",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fish-it-online?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fish-it-online",
+  "fnfGamesSlug": "fish-it-online",
+  "tags": [
+    "fnf-games",
+    "multiplayer",
+    "roblox"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

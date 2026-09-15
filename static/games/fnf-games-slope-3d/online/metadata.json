@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-slope-3d",
+  "name": "Slope 3D",
+  "author": "FNF Games",
+  "description": "Guide a ball through futuristic pathways in Slope 3D, an endless arcade challenge filled with sharp turns, ramps, and increasing speed.",
+  "thumbnail": "https://fnf-games.io/data/image/game/slope-3d/slope-3d.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/slope-3d/slope-3d.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/slope-3d?gd_sdk_referrer_url=https%3A%2F%2Ffnf-games.io%2Fslope-3d&preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/slope-3d",
+  "fnfGamesSlug": "slope-3d",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 16
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-gamebreaker-bundle",
+  "name": "FNF GameBreaker Bundle",
+  "author": "FNF Games",
+  "description": "FNF GameBreaker Bundle packs Gamebreaker covers into a fast rhythm game built for timing pressure plus note-window memory. Hold steady!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-gamebreaker-bundle/fnf-gamebreaker-bundle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-gamebreaker-bundle/fnf-gamebreaker-bundle.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-gamebreaker-bundle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-gamebreaker-bundle",
+  "fnfGamesSlug": "fnf-gamebreaker-bundle",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "minecraft"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 64
+}

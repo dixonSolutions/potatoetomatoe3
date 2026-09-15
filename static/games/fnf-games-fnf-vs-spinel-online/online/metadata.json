@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-spinel-online",
+  "name": "FNF VS Spinel ONLINE",
+  "author": "FNF Games",
+  "description": "Take on Spinel in FNF VS Spinel ONLINE, a Friday Night Funkin' mod packed with voiced scenes, modcharts, and emotional performances.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-spinel-online/fnf-vs-spinel-online.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-spinel-online/fnf-vs-spinel-online.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-spinel-online?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-spinel-online",
+  "fnfGamesSlug": "fnf-vs-spinel-online",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 67
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-egg-hunt",
+  "name": "Egg Hunt",
+  "author": "FNF Games",
+  "description": "Egg Hunt challenges your reflexes in a vibrant low-poly world where perfectly timed jumps and rising speed decide how long you survive the run.",
+  "thumbnail": "https://fnf-games.io/data/image/game/egg-hunt/egg-hunt.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/egg-hunt/egg-hunt.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/egg-hunt?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/egg-hunt",
+  "fnfGamesSlug": "egg-hunt",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

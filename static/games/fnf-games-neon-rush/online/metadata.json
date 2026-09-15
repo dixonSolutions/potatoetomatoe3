@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-neon-rush",
+  "name": "Neon Rush",
+  "author": "FNF Games",
+  "description": "Jump into Neon Rush, a fast-paced rhythm platformer where every leap follows the beat. Dodge obstacles and test your reflexes through energetic music!",
+  "thumbnail": "https://fnf-games.io/data/image/game/neon-rush/neon-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/neon-rush/neon-rush.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/neon-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/neon-rush",
+  "fnfGamesSlug": "neon-rush",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 13
+}

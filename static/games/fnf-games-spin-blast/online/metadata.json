@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-spin-blast",
+  "name": "Spin Blast",
+  "author": "FNF Games",
+  "description": "Feel the tension of every spinning target in Spin Blast and the thrill of chaining perfect shots, where one tap can make all the difference. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/spin-blast/spin-blast.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/spin-blast/spin-blast.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/spin-blast?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/spin-blast",
+  "fnfGamesSlug": "spin-blast",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 4
+}

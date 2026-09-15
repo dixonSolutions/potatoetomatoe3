@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-mrbeast-teamseas",
+  "name": "FNF vs MrBeast (TeamSeas)",
+  "author": "FNF Games",
+  "description": "Shifting waves lift the rhythm game FNF vs MrBeast (TeamSeas), blending lively beats with quick dodging. Step into the coastal battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-mrbeast-teamseas/fnf-vs-mrbeast-teamseas.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-mrbeast-teamseas/fnf-vs-mrbeast-teamseas.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-mrbeast-teamseas?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-mrbeast-teamseas",
+  "fnfGamesSlug": "fnf-vs-mrbeast-teamseas",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 44
+}

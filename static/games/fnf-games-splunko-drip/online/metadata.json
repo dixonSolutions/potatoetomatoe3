@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-splunko-drip",
+  "name": "Splunko Drip",
+  "author": "FNF Games",
+  "description": "Create your own sound experiments in Splunko Drip as character choices reshape the performance and reveal surprising moments beneath the surface.",
+  "thumbnail": "https://fnf-games.io/data/image/game/splunko-drip/splunko-drip.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/splunko-drip/splunko-drip.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/splunko-drip?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/splunko-drip",
+  "fnfGamesSlug": "splunko-drip",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 17
+}

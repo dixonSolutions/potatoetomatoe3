@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-senpai-expansion",
+  "name": "FNF vs Senpai Expansion",
+  "author": "FNF Games",
+  "description": "Return to school in FNF Vs Senpai Expansion with harder patterns and longer songs. Keep rhythm steady and survive a smooth but demanding difficulty climb!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-senpai-expansion/fnf-vs-senpai-expansion.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-senpai-expansion/fnf-vs-senpai-expansion.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-senpai-expansion?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-senpai-expansion",
+  "fnfGamesSlug": "fnf-vs-senpai-expansion",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 32
+}

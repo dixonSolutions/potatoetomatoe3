@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-planet-merge",
+  "name": "Planet Merge",
+  "author": "FNF Games",
+  "description": "Build your way from tiny planets to the Sun in Planet Merge, where careful drops and clever combinations turn a crowded space into a growing solar system.",
+  "thumbnail": "https://fnf-games.io/data/image/game/planet-merge/planet-merge.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/planet-merge/planet-merge.png",
+  "thumbnailStored": "remote",
+  "category": "arcade",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/planet-merge?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/planet-merge",
+  "fnfGamesSlug": "planet-merge",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "galaxy"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

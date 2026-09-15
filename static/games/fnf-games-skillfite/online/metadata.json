@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-skillfite",
+  "name": "SkillFite",
+  "author": "FNF Games",
+  "description": "SkillFite is a 3D open-world MMO with up to 100 players, featuring resource gathering, skill leveling, crafting gear, and intense PvP survival.",
+  "thumbnail": "https://fnf-games.io/data/image/game/skillfite/skillfite.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/skillfite/skillfite.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/skillfite?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/skillfite",
+  "fnfGamesSlug": "skillfite",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "3d",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

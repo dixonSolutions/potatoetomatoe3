@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-the-nicky-verse",
+  "name": "Friday Night Funkin’ vs The Nicky-Verse",
+  "author": "FNF Games",
+  "description": "Nicky versions collide in Friday Night Funkin’ vs The Nicky-Verse, transforming the stage into a strange world of fast-paced, constantly changing notes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-the-nicky-verse/friday-night-funkin-vs-the-nicky-verse.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-the-nicky-verse/friday-night-funkin-vs-the-nicky-verse.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-the-nicky-verse?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-the-nicky-verse",
+  "fnfGamesSlug": "friday-night-funkin-vs-the-nicky-verse",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "meme"
+  ],
+  "portalRating": 6,
+  "portalRatingCount": 5
+}

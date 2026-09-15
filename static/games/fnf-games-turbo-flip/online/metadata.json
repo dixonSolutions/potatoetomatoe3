@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-turbo-flip",
+  "name": "Turbo Flip",
+  "author": "FNF Games",
+  "description": "Launch from towering ramps in Turbo Flip, a physics-based stunt driving game where precise backflips and clean landings keep your run moving forward.",
+  "thumbnail": "https://fnf-games.io/data/image/game/turbo-flip/turbo-flip.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/turbo-flip/turbo-flip.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/turbo-flip?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/turbo-flip",
+  "fnfGamesSlug": "turbo-flip",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 8
+}

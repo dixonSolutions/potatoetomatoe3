@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-wacky-steps",
+  "name": "Wacky Steps",
+  "author": "FNF Games",
+  "description": "Challenge yourself in Wacky Steps, a physics-based walking game with tricky balance mechanics and unpredictable movement. Stay steady to go further!",
+  "thumbnail": "https://fnf-games.io/data/image/game/wacky-steps/wacky-steps.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wacky-steps/wacky-steps.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wacky-steps?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wacky-steps",
+  "fnfGamesSlug": "wacky-steps",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 4
+}

@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-x-the-deceiver",
+  "name": "FNF X The Deceiver",
+  "author": "FNF Games",
+  "description": "Get trapped in FNF X The Deceiver, a dark rhythm game mod inspired by Identity Fraud. Survive twisted battles hidden behind familiar faces!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-the-deceiver/fnf-x-the-deceiver.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-the-deceiver/fnf-x-the-deceiver.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-the-deceiver?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-the-deceiver",
+  "fnfGamesSlug": "fnf-x-the-deceiver",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "horror",
+    "roblox"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 39
+}

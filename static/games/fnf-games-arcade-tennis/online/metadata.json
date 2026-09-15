@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-arcade-tennis",
+  "name": "Arcade Tennis",
+  "author": "FNF Games",
+  "description": "Aim, hit, and adapt instantly in Arcade Tennis, an arcade sports game based on skill and precision. How far can the ball travel in five shots?",
+  "thumbnail": "https://fnf-games.io/data/image/game/arcade-tennis/arcade-tennis.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/arcade-tennis/arcade-tennis.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/arcade-tennis?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/arcade-tennis",
+  "fnfGamesSlug": "arcade-tennis",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

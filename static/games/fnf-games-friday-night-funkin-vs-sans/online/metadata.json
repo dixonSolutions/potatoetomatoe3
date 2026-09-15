@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-sans",
+  "name": "Friday Night Funkin Vs. Sans",
+  "author": "FNF Games",
+  "description": "Face one of the toughest rhythm battles as Friday Night Funkin Vs. Sans throws you against a relentless opponent with fast patterns and hidden songs.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-sans/friday-night-funkin-vs-sans.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-sans/friday-night-funkin-vs-sans.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-sans?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-sans",
+  "fnfGamesSlug": "friday-night-funkin-vs-sans",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "sans"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 10
+}

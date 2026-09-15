@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-evil-impostor",
+  "name": "FNF VS EVIL Impostor",
+  "author": "FNF Games",
+  "description": "Enter a reversed world in FNF VS EVIL Impostor, a rhythm game mod that follows Wicked Boy and twisted versions of familiar crewmates.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-evil-impostor/fnf-vs-evil-impostor.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-evil-impostor/fnf-vs-evil-impostor.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-evil-impostor?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-evil-impostor",
+  "fnfGamesSlug": "fnf-vs-evil-impostor",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "imposter"
+  ],
+  "portalRating": 8.1,
+  "portalRatingCount": 53
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-hellbeats",
+  "name": "FNF Hellbeats",
+  "author": "FNF Games",
+  "description": "FNF Hellbeats takes players into a fascinating music world where the rhythm becomes more dangerous than ever. No power can stop you from mastering rhythm now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-hellbeats/fnf-hellbeats.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-hellbeats/fnf-hellbeats.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-hellbeats?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-hellbeats",
+  "fnfGamesSlug": "fnf-hellbeats",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 9
+}

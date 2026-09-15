@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-candy-riot",
+  "name": "Candy Riot",
+  "author": "FNF Games",
+  "description": "In Candy Riot, players face quick, competitive matches where smart spell timing and positioning decide who controls the candy. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/candy-riot/candy-riot.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/candy-riot/candy-riot.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/candy-riot?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/candy-riot",
+  "fnfGamesSlug": "candy-riot",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "cartoon",
+    "physics"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

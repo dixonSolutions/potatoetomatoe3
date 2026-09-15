@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-vs-sonic-the-hedgehog",
+  "name": "FNF vs Sonic The Hedgehog",
+  "author": "FNF Games",
+  "description": "When the world of speed collides with rhythm, FNF Vs Sonic The Hedgehog blows up a musical stage in the Sonic universe, where notes are the speed breaks!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-sonic-the-hedgehog/fnf-vs-sonic-the-hedgehog.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-sonic-the-hedgehog/fnf-vs-sonic-the-hedgehog.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-sonic-the-hedgehog?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-sonic-the-hedgehog",
+  "fnfGamesSlug": "fnf-vs-sonic-the-hedgehog",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced",
+    "sonic"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 313
+}

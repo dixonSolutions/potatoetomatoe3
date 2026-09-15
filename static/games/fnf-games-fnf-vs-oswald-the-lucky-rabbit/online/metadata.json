@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-vs-oswald-the-lucky-rabbit",
+  "name": "FNF vs Oswald the Lucky Rabbit",
+  "author": "FNF Games",
+  "description": "Glitching frames and unpredictable pacing set the tone for FNF vs Oswald the Lucky Rabbit rhythm game, turning every track into a living cartoon test.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-oswald-the-lucky-rabbit/fnf-vs-oswald-the-lucky-rabbit.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-oswald-the-lucky-rabbit/fnf-vs-oswald-the-lucky-rabbit.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-oswald-the-lucky-rabbit?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-oswald-the-lucky-rabbit",
+  "fnfGamesSlug": "fnf-vs-oswald-the-lucky-rabbit",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "cartoon",
+    "mickey"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 64
+}

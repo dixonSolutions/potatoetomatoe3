@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-sky-reborn",
+  "name": "FNF Sky: REBORN",
+  "author": "FNF Games",
+  "description": "Discover FNF Sky: REBORN, a creative fanmade mod of Friday Night Funkin', developed as a tribute to the original Sky mod with new remix music.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sky-reborn/fnf-sky-reborn.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sky-reborn/fnf-sky-reborn.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sky-reborn?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sky-reborn",
+  "fnfGamesSlug": "fnf-sky-reborn",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 30
+}

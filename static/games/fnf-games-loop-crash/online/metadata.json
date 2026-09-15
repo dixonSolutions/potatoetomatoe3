@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-loop-crash",
+  "name": "Loop Crash",
+  "author": "FNF Games",
+  "description": "Dive into endless intersecting loops in Loop Crash, an arcade driving game where the mission is to perfectly control your speed to never collide. Drive!",
+  "thumbnail": "https://fnf-games.io/data/image/game/loop-crash/loop-crash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/loop-crash/loop-crash.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/loop-crash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/loop-crash",
+  "fnfGamesSlug": "loop-crash",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-glide-in",
+  "name": "Glide In",
+  "author": "FNF Games",
+  "description": "Guess the angle, adjust the force, and overcome obstacles in Glide In, a colorful multi-level puzzle game. Join in and conquer the holes!",
+  "thumbnail": "https://fnf-games.io/data/image/game/glide-in/glide-in.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/glide-in/glide-in.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/glide-in?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/glide-in",
+  "fnfGamesSlug": "glide-in",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 5
+}

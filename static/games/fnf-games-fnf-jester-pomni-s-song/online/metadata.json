@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-jester-pomni-s-song",
+  "name": "FNF Jester (Pomni’s Song)",
+  "author": "FNF Games",
+  "description": "Follow Pomni’s emotional performance in FNF Jester (Pomni’s Song), a Friday Night Funkin' mod featuring the fan song JESTER and fast rhythm gameplay.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-jester-pomni-s-song/fnf-jester-pomni-s-song.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-jester-pomni-s-song/fnf-jester-pomni-s-song.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-jester-pomni-s-song?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-jester-pomni-s-song",
+  "fnfGamesSlug": "fnf-jester-pomni-s-song",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 8.4,
+  "portalRatingCount": 99
+}

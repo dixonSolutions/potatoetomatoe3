@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-ruby-raid",
+  "name": "Ruby Raid",
+  "author": "FNF Games",
+  "description": "Escape the laser in Ruby Raid, a fast-paced runner where every second counts. Time jumps, clear enemies, and survive an increasingly chaotic path.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ruby-raid/ruby-raid.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ruby-raid/ruby-raid.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ruby-raid?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ruby-raid",
+  "fnfGamesSlug": "ruby-raid",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fun-clicker",
+  "name": "Fun Clicker",
+  "author": "FNF Games",
+  "description": "Fun Clicker is a Scratch-based clicker game that disguises psychological horror through innocent visuals and gradual visual corruption.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fun-clicker/fun-clicker.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fun-clicker/fun-clicker.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fun-clicker?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fun-clicker",
+  "fnfGamesSlug": "fun-clicker",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "clicker",
+    "idle"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 82
+}

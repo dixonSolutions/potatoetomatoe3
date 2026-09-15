@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-gacha-life",
+  "name": "Friday Night Funkin Gacha Life",
+  "author": "FNF Games",
+  "description": "Step onto the colorful stage at Friday Night Funkin Gacha Life and go head-to-head with the famous Default Girl characters from the world of Gacha Life!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-gacha-life/friday-night-funkin-gacha-life.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-gacha-life/friday-night-funkin-gacha-life.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-gacha-life?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-gacha-life",
+  "fnfGamesSlug": "friday-night-funkin-gacha-life",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 33
+}

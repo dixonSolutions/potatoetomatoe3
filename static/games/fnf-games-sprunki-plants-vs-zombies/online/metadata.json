@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-sprunki-plants-vs-zombies",
+  "name": "Sprunki Plants vs. Zombies",
+  "author": "FNF Games",
+  "description": "Enter the Splanty crossover in Sprunki Plants vs. Zombies, a music-mixing game that turns familiar Sprunki performers into playful plant-inspired characters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-plants-vs-zombies/sprunki-plants-vs-zombies.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-plants-vs-zombies/sprunki-plants-vs-zombies.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-plants-vs-zombies?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-plants-vs-zombies",
+  "fnfGamesSlug": "sprunki-plants-vs-zombies",
+  "tags": [
+    "fnf-games",
+    "sprunki"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

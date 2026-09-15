@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-flip-rush",
+  "name": "Flip Rush",
+  "author": "FNF Games",
+  "description": "Master Flip Rush, a physics-based arcade game with precise flips and momentum-driven gameplay. Time your jumps and stick the perfect landing!",
+  "thumbnail": "https://fnf-games.io/data/image/game/flip-rush/flip-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/flip-rush/flip-rush.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/flip-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/flip-rush",
+  "fnfGamesSlug": "flip-rush",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

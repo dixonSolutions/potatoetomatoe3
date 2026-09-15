@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-the-golden-one-v2-hfjone-mod",
+  "name": "FNF: The Golden ONE V2 (hfjONE Mod)",
+  "author": "FNF Games",
+  "description": "Enter a mysterious game show world where FNF: The Golden ONE V2 (hfjONE Mod) blends storytelling, music, and emotional rhythm battles.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-the-golden-one-v2-hfjone-mod/fnf-the-golden-one-v2-hfjone-mod.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-the-golden-one-v2-hfjone-mod/fnf-the-golden-one-v2-hfjone-mod.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-the-golden-one-v2-hfjone-mod?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-the-golden-one-v2-hfjone-mod",
+  "fnfGamesSlug": "fnf-the-golden-one-v2-hfjone-mod",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 16
+}

@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-music-night-battle-rhythm-game",
+  "name": "Music Night Battle: Rhythm Game",
+  "author": "FNF Games",
+  "description": "Challenge players worldwide in Music Night Battle: Rhythm Game, featuring competitive rhythm duels, leaderboards, and vibrant concert-inspired stages.",
+  "thumbnail": "https://fnf-games.io/data/image/game/music-night-battle-rhythm-game/music-night-battle-rhythm-game.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/music-night-battle-rhythm-game/music-night-battle-rhythm-game.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/music-night-battle-rhythm-game?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/music-night-battle-rhythm-game",
+  "fnfGamesSlug": "music-night-battle-rhythm-game",
+  "tags": [
+    "fnf-games",
+    "rhythm"
+  ],
+  "portalRating": 7.3,
+  "portalRatingCount": 22
+}

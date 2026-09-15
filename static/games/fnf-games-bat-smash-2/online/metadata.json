@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-bat-smash-2",
+  "name": "Bat Smash 2",
+  "author": "FNF Games",
+  "description": "Bat Smash 2 combines timing and physics in a casual sports game. Launch the ball, time its bounces, and push your distance farther.",
+  "thumbnail": "https://fnf-games.io/data/image/game/bat-smash-2/bat-smash-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/bat-smash-2/bat-smash-2.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/bat-smash-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/bat-smash-2",
+  "fnfGamesSlug": "bat-smash-2",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

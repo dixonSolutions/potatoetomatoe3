@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-suicide-mouse-remastered",
+  "name": "FNF Vs. Suicide Mouse Remastered",
+  "author": "FNF Games",
+  "description": "FNF Vs. Suicide Mouse Remastered takes you into a dramatic musical world with a terrifying version of Mickey Mouse. Have fun!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-suicide-mouse-remastered/fnf-vs-suicide-mouse-remastered.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-suicide-mouse-remastered/fnf-vs-suicide-mouse-remastered.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-suicide-mouse-remastered?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-suicide-mouse-remastered",
+  "fnfGamesSlug": "fnf-vs-suicide-mouse-remastered",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "mickey"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 445
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-rewrite-sonic-exe",
+  "name": "FNF vs Rewrite (Sonic.exe)",
+  "author": "FNF Games",
+  "description": "Join FNF vs Rewrite (Sonic.exe), a Friday Night Funkin’ mod packed with intense songs and adaptive battles. Challenge Rewrite and conquer his twisted world!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-rewrite-sonic-exe/fnf-vs-rewrite-sonic-exe.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-rewrite-sonic-exe/fnf-vs-rewrite-sonic-exe.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-rewrite-sonic-exe?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-rewrite-sonic-exe",
+  "fnfGamesSlug": "fnf-vs-rewrite-sonic-exe",
+  "tags": [
+    "fnf-games",
+    "indie",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 82
+}

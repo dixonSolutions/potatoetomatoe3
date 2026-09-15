@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-color-rhythm",
+  "name": "Color Rhythm",
+  "author": "FNF Games",
+  "description": "The guiding music in Color Rhythm, with its constantly changing backgrounds, creates a pressure-filled rhythm-reflex experience. Try it now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/color-rhythm/color-rhythm.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/color-rhythm/color-rhythm.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/color-rhythm?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/color-rhythm",
+  "fnfGamesSlug": "color-rhythm",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 8
+}

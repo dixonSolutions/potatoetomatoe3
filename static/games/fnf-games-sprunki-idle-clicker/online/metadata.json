@@ -1,0 +1,26 @@
+{
+  "id": "fnf-games-sprunki-idle-clicker",
+  "name": "Sprunki Idle Clicker",
+  "author": "FNF Games",
+  "description": "Enter the world of Sprunki Idle Clicker, an incremental clicker game that blends active tapping and passive income to expand your power over time.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-idle-clicker/sprunki-idle-clicker.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-idle-clicker/sprunki-idle-clicker.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-idle-clicker?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-idle-clicker",
+  "fnfGamesSlug": "sprunki-idle-clicker",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "indie",
+    "sprunki",
+    "clicker",
+    "idle"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

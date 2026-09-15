@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-long-leg-master",
+  "name": "Long Leg Master",
+  "author": "FNF Games",
+  "description": "Long Leg Master turns simple walking into a silly physics test where long legs, shaky timing, and funny falls decide each run. Stay upright!",
+  "thumbnail": "https://fnf-games.io/data/image/game/long-leg-master/long-leg-master.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/long-leg-master/long-leg-master.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/long-leg-master?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/long-leg-master",
+  "fnfGamesSlug": "long-leg-master",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 9
+}

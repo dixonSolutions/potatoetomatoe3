@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-zardy",
+  "name": "FNF Vs Zardy",
+  "author": "FNF Games",
+  "description": "FNF Vs Zardy takes players on a spooky adventure when Boyfriend and Girlfriend accidentally wander into Zardy's mysterious garden.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-zardy/fnf-vs-zardy.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-zardy/fnf-vs-zardy.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-zardy?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-zardy",
+  "fnfGamesSlug": "fnf-vs-zardy",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 31
+}

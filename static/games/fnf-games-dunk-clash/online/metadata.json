@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-dunk-clash",
+  "name": "Dunk Clash",
+  "author": "FNF Games",
+  "description": "Engage in 1v1 basketball battles in Dunk Clash, taking place in a small, challenging space that tests everyone's skills. Score points with your shots!",
+  "thumbnail": "https://fnf-games.io/data/image/game/dunk-clash/dunk-clash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dunk-clash/dunk-clash.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dunk-clash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dunk-clash",
+  "fnfGamesSlug": "dunk-clash",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 5
+}

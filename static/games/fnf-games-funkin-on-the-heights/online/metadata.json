@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-funkin-on-the-heights",
+  "name": "Funkin’ on the Heights!",
+  "author": "FNF Games",
+  "description": "Step into Funkin’ on the Heights!, an engaging Roblox-themed mod that features the familiar battle royale in the reboot demo with Boyfriend and Pico.",
+  "thumbnail": "https://fnf-games.io/data/image/game/funkin-on-the-heights/funkin-on-the-heights.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/funkin-on-the-heights/funkin-on-the-heights.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/funkin-on-the-heights?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/funkin-on-the-heights",
+  "fnfGamesSlug": "funkin-on-the-heights",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "roblox"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 87
+}

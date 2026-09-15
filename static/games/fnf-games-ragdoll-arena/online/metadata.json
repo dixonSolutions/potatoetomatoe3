@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-ragdoll-arena",
+  "name": "Ragdoll Arena",
+  "author": "FNF Games",
+  "description": "Ragdoll motion defines Ragdoll Arena, a 2D physics fighting game that forces players to predict momentum instead of precise control.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ragdoll-arena/ragdoll-arena.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ragdoll-arena/ragdoll-arena.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ragdoll-arena?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ragdoll-arena",
+  "fnfGamesSlug": "ragdoll-arena",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

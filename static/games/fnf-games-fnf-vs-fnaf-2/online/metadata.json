@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-fnaf-2",
+  "name": "FNF Vs. FNAF 2",
+  "author": "FNF Games",
+  "description": "Survive FNF Vs. FNAF 2, a rhythm mod mixing creepy animatronics and multiple weeks of content. Stay focused and make it through the night!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-fnaf-2/fnf-vs-fnaf-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-fnaf-2/fnf-vs-fnaf-2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-fnaf-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-fnaf-2",
+  "fnfGamesSlug": "fnf-vs-fnaf-2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 46
+}

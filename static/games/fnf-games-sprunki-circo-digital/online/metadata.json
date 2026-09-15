@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-circo-digital",
+  "name": "Sprunki Circo Digital",
+  "author": "FNF Games",
+  "description": "Create energetic carnival tracks in Sprunki Circo Digital by dragging and layering sounds onto quirky circus characters in a futuristic stage.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-circo-digital/sprunki-circo-digital.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-circo-digital/sprunki-circo-digital.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-circo-digital?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-circo-digital",
+  "fnfGamesSlug": "sprunki-circo-digital",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "sprunki"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-pico-vs-darnell",
+  "name": "FNF: Pico vs Darnell",
+  "author": "FNF Games",
+  "description": "Dive into FNF: Pico vs Darnell, a fast-paced rhythm mod with intense rap battles, lively visuals, and stylish tracks. Keep up and win the showdown!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-pico-vs-darnell/fnf-pico-vs-darnell.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-pico-vs-darnell/fnf-pico-vs-darnell.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-pico-vs-darnell?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-pico-vs-darnell",
+  "fnfGamesSlug": "fnf-pico-vs-darnell",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 26
+}

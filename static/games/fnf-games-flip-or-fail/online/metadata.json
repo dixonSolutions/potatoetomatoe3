@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-flip-or-fail",
+  "name": "Flip Or Fail",
+  "author": "FNF Games",
+  "description": "Launch into the air in Flip Or Fail, control your spin through each rotation, and judge when to release before your character reaches the landing zone.",
+  "thumbnail": "https://fnf-games.io/data/image/game/flip-or-fail/flip-or-fail.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/flip-or-fail/flip-or-fail.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/flip-or-fail?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/flip-or-fail",
+  "fnfGamesSlug": "flip-or-fail",
+  "tags": [
+    "fnf-games",
+    "physics"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 7
+}

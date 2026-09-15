@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-wurst-dash",
+  "name": "Wurst Dash",
+  "author": "FNF Games",
+  "description": "A brave sausage bends through kitchen danger in Wurst Dash, dodging knives, saws, fire, and presses with funny physics. Escape the grill!",
+  "thumbnail": "https://fnf-games.io/data/image/game/wurst-dash/wurst-dash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wurst-dash/wurst-dash.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wurst-dash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wurst-dash",
+  "fnfGamesSlug": "wurst-dash",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

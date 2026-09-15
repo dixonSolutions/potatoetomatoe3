@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-shot-to-the-top",
+  "name": "FNF: Shot to the Top!",
+  "author": "FNF Games",
+  "description": "Step into FNF: Shot to the Top!, a rhythm challenge with thrilling musical battles every second. Maintain your combo streaks through crossover showdowns!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-shot-to-the-top/fnf-shot-to-the-top.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-shot-to-the-top/fnf-shot-to-the-top.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-shot-to-the-top?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-shot-to-the-top",
+  "fnfGamesSlug": "fnf-shot-to-the-top",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 10
+}

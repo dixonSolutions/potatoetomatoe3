@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-fnaf-test",
+  "name": "FNF: FNAF Test",
+  "author": "FNF Games",
+  "description": "FNF: FNAF Test is a rhythm sandbox where you can switch between FNAF characters, test animations, mix vocals, and create your own musical performances.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-fnaf-test/fnf-fnaf-test.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-fnaf-test/fnf-fnaf-test.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-fnaf-test?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-fnaf-test",
+  "fnfGamesSlug": "fnf-fnaf-test",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 57
+}

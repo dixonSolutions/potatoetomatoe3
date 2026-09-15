@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-phantasm-encore",
+  "name": "FNF Phantasm (ENCORE)",
+  "author": "FNF Games",
+  "description": "Experience a high-intensity rhythm battle as FNF Phantasm (ENCORE) brings back the iconic track with a longer remix and a dramatic Sonic showdown.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-phantasm-encore/fnf-phantasm.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-phantasm-encore/fnf-phantasm.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-phantasm-encore?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-phantasm-encore",
+  "fnfGamesSlug": "fnf-phantasm-encore",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "sonic"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 34
+}

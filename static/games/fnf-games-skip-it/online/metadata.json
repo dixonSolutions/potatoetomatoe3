@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-skip-it",
+  "name": "Skip It!",
+  "author": "FNF Games",
+  "description": "Launch stones across endless water in Skip It! Time each throw, avoid floating obstacles, collect coins, and push your distance farther with every run.",
+  "thumbnail": "https://fnf-games.io/data/image/game/skip-it/skip-it.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/skip-it/skip-it.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/skip-it?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/skip-it",
+  "fnfGamesSlug": "skip-it",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

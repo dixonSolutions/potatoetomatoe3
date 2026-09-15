@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-slap-champions",
+  "name": "Slap Champions",
+  "author": "FNF Games",
+  "description": "Slap Champions is a turn-based casual fighting game where players wait for the moving power bar and tap at the exact moment to deal maximum slap damage.",
+  "thumbnail": "https://fnf-games.io/data/image/game/slap-champions/slap-champions.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/slap-champions/slap-champions.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/slap-champions?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/slap-champions",
+  "fnfGamesSlug": "slap-champions",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 6
+}

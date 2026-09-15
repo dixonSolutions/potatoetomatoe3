@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-corruption-takeover",
+  "name": "FNF Corruption Takeover",
+  "author": "FNF Games",
+  "description": "FNF Corruption Takeover drags players into a dark rhythm world where Boyfriend fights to escape the virus consuming the entire Funkin universe.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-corruption-takeover/fnf-corruption-takeover.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-corruption-takeover/fnf-corruption-takeover.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-corruption-takeover?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-corruption-takeover",
+  "fnfGamesSlug": "fnf-corruption-takeover",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "tricky"
+  ],
+  "portalRating": 9.4,
+  "portalRatingCount": 66
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-rainbow-friends",
+  "name": "FNF vs Rainbow Friends",
+  "author": "FNF Games",
+  "description": "In FNF vs Rainbow Friends, Boyfriend and Girlfriend are trapped in Odd World. Survive the night by turning every song into a fight for life!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-rainbow-friends/fnf-vs-rainbow-friends2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-rainbow-friends/fnf-vs-rainbow-friends2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-rainbow-friends?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-rainbow-friends",
+  "fnfGamesSlug": "fnf-vs-rainbow-friends",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "roblox"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 209
+}

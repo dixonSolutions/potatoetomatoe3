@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-flipping-master",
+  "name": "Flipping Master",
+  "author": "FNF Games",
+  "description": "In Flipping Master, players experience endless arcade gameplay, taking advantage of enemies and mastering the cross-movement system to extend each turn.",
+  "thumbnail": "https://fnf-games.io/data/image/game/flipping-master/flipping-master.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/flipping-master/flipping-master.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/flipping-master?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/flipping-master",
+  "fnfGamesSlug": "flipping-master",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "pixel",
+    "agility"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

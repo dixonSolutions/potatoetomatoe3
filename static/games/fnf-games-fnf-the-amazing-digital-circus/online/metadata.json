@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-the-amazing-digital-circus",
+  "name": "FNF The Amazing Digital Circus",
+  "author": "FNF Games",
+  "description": "Get ready for a musical adventure in the mysterious world of the digital circus in FNF The Amazing Digital Circus! Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-the-amazing-digital-circus/fnf-the-amazing-digital-circus.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-the-amazing-digital-circus/fnf-the-amazing-digital-circus.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-the-amazing-digital-circus?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-the-amazing-digital-circus",
+  "fnfGamesSlug": "fnf-the-amazing-digital-circus",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fnf"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 31
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-heal-infected-sprunkies",
+  "name": "Heal Infected Sprunkies",
+  "author": "FNF Games",
+  "description": "Step into Heal Infected Sprunkies and guide Jeban through quirky recovery cases, dodging dangers, matching items, and saving the Sprunki world!",
+  "thumbnail": "https://fnf-games.io/data/image/game/heal-infected-sprunkies/heal-infected-sprunkies.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/heal-infected-sprunkies/heal-infected-sprunkies.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/heal-infected-sprunkies?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/heal-infected-sprunkies",
+  "fnfGamesSlug": "heal-infected-sprunkies",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "sprunki"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 8
+}

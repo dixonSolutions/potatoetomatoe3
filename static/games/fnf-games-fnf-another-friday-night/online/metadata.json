@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-another-friday-night",
+  "name": "FNF: Another Friday Night",
+  "author": "FNF Games",
+  "description": "The glow of a fading theater frames the rhythm clashes in FNF: Another Friday Night as shifting scenes reshape each act. Join the performance!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-another-friday-night/fnf-another-friday-night.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-another-friday-night/fnf-another-friday-night.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-another-friday-night?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-another-friday-night",
+  "fnfGamesSlug": "fnf-another-friday-night",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "pixel"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 21
+}

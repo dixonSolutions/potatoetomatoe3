@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sprunki-parodybox-shifted-remastered",
+  "name": "Sprunki - PARODYBOX SHIFTED Remastered",
+  "author": "FNF Games",
+  "description": "Create original tracks in Sprunki - PARODYBOX SHIFTED Remastered, a music game featuring remastered visuals and the mysterious Shifted storyline.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-parodybox-shifted-remastered/sprunki-parodybox-shifted-remastered.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-parodybox-shifted-remastered/sprunki-parodybox-shifted-remastered.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-parodybox-shifted-remastered?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-parodybox-shifted-remastered",
+  "fnfGamesSlug": "sprunki-parodybox-shifted-remastered",
+  "tags": [
+    "fnf-games",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

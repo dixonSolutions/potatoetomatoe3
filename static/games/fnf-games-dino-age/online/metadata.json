@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-dino-age",
+  "name": "Dino Age",
+  "author": "FNF Games",
+  "description": "Deploy dinosaurs and stop the enemy in Dino Age, a tactical defense game with action elements. Hold your ground to protect the dinosaur egg!",
+  "thumbnail": "https://fnf-games.io/data/image/game/dino-age/dino-age.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dino-age/dino-age.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dino-age?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dino-age",
+  "fnfGamesSlug": "dino-age",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

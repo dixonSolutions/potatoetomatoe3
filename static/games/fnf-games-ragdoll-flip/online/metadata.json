@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-ragdoll-flip",
+  "name": "Ragdoll Flip",
+  "author": "FNF Games",
+  "description": "Ragdoll Flip is a physics-based skill game where you launch and flip your character through tricky platforms using timing, momentum, and precise control.",
+  "thumbnail": "https://fnf-games.io/data/image/game/ragdoll-flip/ragdoll-flip.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/ragdoll-flip/ragdoll-flip.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/ragdoll-flip?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/ragdoll-flip",
+  "fnfGamesSlug": "ragdoll-flip",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "physics"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 31
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-funkin-corruption-deep-freeze",
+  "name": "Funkin’ Corruption: Deep Freeze",
+  "author": "FNF Games",
+  "description": "Enter Funkin’ Corruption: Deep Freeze, a horror-themed FNF mod where Pico and Boyfriend face rhythm battles through a frozen town consumed by corruption.",
+  "thumbnail": "https://fnf-games.io/data/image/game/funkin-corruption-deep-freeze/funkin-corruption-deep-freeze.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/funkin-corruption-deep-freeze/funkin-corruption-deep-freeze.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/funkin-corruption-deep-freeze?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/funkin-corruption-deep-freeze",
+  "fnfGamesSlug": "funkin-corruption-deep-freeze",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 50
+}

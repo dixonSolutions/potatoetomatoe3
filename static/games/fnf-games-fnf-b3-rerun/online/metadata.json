@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-b3-rerun",
+  "name": "FNF: B3 Rerun",
+  "author": "FNF Games",
+  "description": "Enter FNF: B3 Rerun, a dark Sonic.EXE rhythm mod with intense battles, striking B3 visuals, and chaotic gameplay. Face Krumbo and test your skills now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-b3-rerun/fnf-b3-rerun.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-b3-rerun/fnf-b3-rerun.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-b3-rerun?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-b3-rerun",
+  "fnfGamesSlug": "fnf-b3-rerun",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 9
+}

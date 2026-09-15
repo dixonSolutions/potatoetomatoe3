@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sprunki-birthday-bash",
+  "name": "Sprunki Birthday Bash",
+  "author": "FNF Games",
+  "description": "Celebrate with Sprunki Birthday Bash, a festive music-mixing game filled with birthday beats and colorful performers. Build your party track and play now.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-birthday-bash/sprunki-birthday-bash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-birthday-bash/sprunki-birthday-bash.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-birthday-bash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-birthday-bash",
+  "fnfGamesSlug": "sprunki-birthday-bash",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

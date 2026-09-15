@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-friday-night-funkin-hatsune-miku",
+  "name": "Friday Night Funkin’ + Hatsune Miku",
+  "author": "FNF Games",
+  "description": "Sweeping synths elevate the rhythm game Friday Night Funkin’ + Hatsune Miku as Miku’s signature style transforms each track into a vibrant.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-hatsune-miku/friday-night-funkin-hatsune-miku.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-hatsune-miku/friday-night-funkin-hatsune-miku.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-hatsune-miku?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-hatsune-miku",
+  "fnfGamesSlug": "friday-night-funkin-hatsune-miku",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced",
+    "sing"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 221
+}

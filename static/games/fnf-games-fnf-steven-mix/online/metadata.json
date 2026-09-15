@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-steven-mix",
+  "name": "FNF Steven Mix",
+  "author": "FNF Games",
+  "description": "Join musical showdowns in FNF Steven Mix featuring gem-inspired characters, lofi-flavored remixes, unique songs, and memorable battles.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-steven-mix/fnf-steven-mix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-steven-mix/fnf-steven-mix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-steven-mix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-steven-mix",
+  "fnfGamesSlug": "fnf-steven-mix",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 38
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-darnell-s-mixtape",
+  "name": "FNF: Darnell’s Mixtape",
+  "author": "FNF Games",
+  "description": "FNF: Darnell’s Mixtape amps up the rhythm with 20 exclusive Darnell remixes, hidden bonus tracks, slick visuals, and precision-heavy charts.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-darnell-s-mixtape/fnf-darnell-s-mixtape.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-darnell-s-mixtape/fnf-darnell-s-mixtape.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-darnell-s-mixtape?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-darnell-s-mixtape",
+  "fnfGamesSlug": "fnf-darnell-s-mixtape",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 74
+}

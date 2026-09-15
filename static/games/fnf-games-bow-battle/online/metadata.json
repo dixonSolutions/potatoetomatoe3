@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-bow-battle",
+  "name": "Bow Battle",
+  "author": "FNF Games",
+  "description": "Enter Bow Battle, a physics-driven archery survival game with chaotic combat. Face tougher enemies, time your shots, and use resources wisely to keep going.",
+  "thumbnail": "https://fnf-games.io/data/image/game/bow-battle/bow-battle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/bow-battle/bow-battle.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/bow-battle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/bow-battle",
+  "fnfGamesSlug": "bow-battle",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "stickman",
+    "physics"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 8
+}

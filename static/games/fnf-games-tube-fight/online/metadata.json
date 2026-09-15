@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-tube-fight",
+  "name": "Tube Fight",
+  "author": "FNF Games",
+  "description": "Pick a meme fighter in Tube Fight, a parody arcade fighting game with quick knockouts, chaotic arenas, and funny creator battles. Enter the ring!",
+  "thumbnail": "https://fnf-games.io/data/image/game/tube-fight/tube-fight.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/tube-fight/tube-fight.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/tube-fight?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/tube-fight",
+  "fnfGamesSlug": "tube-fight",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "meme",
+    "physics"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 8
+}

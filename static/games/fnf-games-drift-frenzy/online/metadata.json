@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-drift-frenzy",
+  "name": "Drift Frenzy",
+  "author": "FNF Games",
+  "description": "Endless corners test Drift Frenzy, an arcade drifting game where smooth turns, coin runs, and quick reflexes keep each road alive.",
+  "thumbnail": "https://fnf-games.io/data/image/game/drift-frenzy/drift-frenzy.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/drift-frenzy/drift-frenzy.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/drift-frenzy?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/drift-frenzy",
+  "fnfGamesSlug": "drift-frenzy",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 8
+}

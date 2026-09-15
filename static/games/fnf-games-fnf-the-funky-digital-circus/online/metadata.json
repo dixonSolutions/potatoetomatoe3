@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-the-funky-digital-circus",
+  "name": "FNF The FUNKY Digital Circus",
+  "author": "FNF Games",
+  "description": "Enter the digital circus in FNF The FUNKY Digital Circus, a Friday Night Funkin' rhythm mod built around three character battles. Choose your song and play!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-the-funky-digital-circus/fnf-the-funky-digital-circus.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-the-funky-digital-circus/fnf-the-funky-digital-circus.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-the-funky-digital-circus?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-the-funky-digital-circus",
+  "fnfGamesSlug": "fnf-the-funky-digital-circus",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 87
+}

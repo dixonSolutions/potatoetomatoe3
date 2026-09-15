@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-maginage-matches",
+  "name": "FNF Maginage Matches",
+  "author": "FNF Games",
+  "description": "From schoolyard cheers to heartfelt duets, FNF Maginage Matches captures the pulse of youth in a vibrant Friday Night Funkin’ rhythm showdown.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-maginage-matches/fnf-maginage-matches.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-maginage-matches/fnf-maginage-matches.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-maginage-matches?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-maginage-matches",
+  "fnfGamesSlug": "fnf-maginage-matches",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "sing"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 54
+}

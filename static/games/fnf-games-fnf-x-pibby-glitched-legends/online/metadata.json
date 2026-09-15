@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-x-pibby-glitched-legends",
+  "name": "FNF x Pibby: Glitched Legends",
+  "author": "FNF Games",
+  "description": "A warped cartoon world leads the rhythm game FNF x Pibby: Glitched Legends, where broken transformations make every track exciting. Step into the glitch!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-x-pibby-glitched-legends/fnf-x-pibby-glitched-legends.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-x-pibby-glitched-legends/fnf-x-pibby-glitched-legends.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-x-pibby-glitched-legends?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-x-pibby-glitched-legends",
+  "fnfGamesSlug": "fnf-x-pibby-glitched-legends",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "pibby",
+    "cartoon"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 105
+}

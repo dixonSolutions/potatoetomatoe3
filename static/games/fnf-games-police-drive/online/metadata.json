@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-police-drive",
+  "name": "Police Drive",
+  "author": "FNF Games",
+  "description": "Chase criminals through the bustling city in Police Drive. Control police cars and motorcycles and complete challenging high-speed driving missions!",
+  "thumbnail": "https://fnf-games.io/data/image/game/police-drive/police-drive.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/police-drive/police-drive.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/police-drive?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/police-drive",
+  "fnfGamesSlug": "police-drive",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

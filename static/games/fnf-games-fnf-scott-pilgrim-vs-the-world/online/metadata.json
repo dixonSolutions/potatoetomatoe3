@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-scott-pilgrim-vs-the-world",
+  "name": "FNF: Scott Pilgrim vs The World",
+  "author": "FNF Games",
+  "description": "Explore FNF: Scott Pilgrim vs The World, a stylish rhythm mod with iconic characters and a unique showdown against Nega Scott. Jump into the battle!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-scott-pilgrim-vs-the-world/fnf-scott-pilgrim-vs-the-world.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-scott-pilgrim-vs-the-world/fnf-scott-pilgrim-vs-the-world.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-scott-pilgrim-vs-the-world?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-scott-pilgrim-vs-the-world",
+  "fnfGamesSlug": "fnf-scott-pilgrim-vs-the-world",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "mario"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 5
+}

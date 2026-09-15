@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-hill-sprint",
+  "name": "Hill Sprint",
+  "author": "FNF Games",
+  "description": "Hill Sprint is a physics-based driving game that challenges you to conquer steep hills, avoid rollovers, collect fuel, and travel farther each attempt.",
+  "thumbnail": "https://fnf-games.io/data/image/game/hill-sprint/hill-sprint.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/hill-sprint/hill-sprint.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/hill-sprint?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/hill-sprint",
+  "fnfGamesSlug": "hill-sprint",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

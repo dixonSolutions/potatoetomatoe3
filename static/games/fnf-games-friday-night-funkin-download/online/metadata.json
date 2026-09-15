@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-friday-night-funkin-download",
+  "name": "Friday Night Funkin Download",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin is an engaging rhythm game where you become a street music star through intense rap battles. Are you ready for intense rap battles?",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-download/friday-night-funkin-download.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-download/friday-night-funkin-download.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-download?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-download",
+  "fnfGamesSlug": "friday-night-funkin-download",
+  "tags": [
+    "fnf-games",
+    "dance"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 30
+}

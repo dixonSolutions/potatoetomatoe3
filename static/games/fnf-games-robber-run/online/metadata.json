@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-robber-run",
+  "name": "Robber Run",
+  "author": "FNF Games",
+  "description": "Test your stealth skills in Robber Run, where every heist requires careful planning, smart movement, and a clean getaway. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/robber-run/robber-run.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/robber-run/robber-run.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/robber-run?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/robber-run",
+  "fnfGamesSlug": "robber-run",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "3d",
+    "physics"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

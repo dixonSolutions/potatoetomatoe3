@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-dandy-world-with-a-friend",
+  "name": "Dandy World with a Friend!",
+  "author": "FNF Games",
+  "description": "Dandy World with a Friend! is a split-screen multiplayer tag adventure where players dodge monsters, collect items, and compete in fast-paced co-op fun.",
+  "thumbnail": "https://fnf-games.io/data/image/game/dandy-world-with-a-friend/dandy-world-with-a-friend.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/dandy-world-with-a-friend/dandy-world-with-a-friend.png",
+  "thumbnailStored": "remote",
+  "category": "casual",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/dandy-world-with-a-friend?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/dandy-world-with-a-friend",
+  "fnfGamesSlug": "dandy-world-with-a-friend",
+  "tags": [
+    "fnf-games",
+    "cartoon",
+    "party",
+    "multiplayer"
+  ],
+  "portalRating": 6,
+  "portalRatingCount": 5
+}

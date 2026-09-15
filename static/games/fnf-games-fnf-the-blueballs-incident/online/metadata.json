@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-the-blueballs-incident",
+  "name": "FNF: The Blueballs Incident",
+  "author": "FNF Games",
+  "description": "FNF: The Blueballs Incident brings you a musical experience revolving around the character Trollface and the mysterious disease.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-the-blueballs-incident/fnf-the-blueballs-incident.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-the-blueballs-incident/fnf-the-blueballs-incident.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-the-blueballs-incident?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-the-blueballs-incident",
+  "fnfGamesSlug": "fnf-the-blueballs-incident",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 34
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-convict-rumble",
+  "name": "FNF vs Convict Rumble",
+  "author": "FNF Games",
+  "description": "Every beat in FNF vs Convict Rumble pushes the confrontation forward with shifting tempos and expressive effects. Explore this rhythm game now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-convict-rumble/fnf-vs-convict-rumble.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-convict-rumble/fnf-vs-convict-rumble.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-convict-rumble?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-convict-rumble",
+  "fnfGamesSlug": "fnf-vs-convict-rumble",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.7,
+  "portalRatingCount": 33
+}

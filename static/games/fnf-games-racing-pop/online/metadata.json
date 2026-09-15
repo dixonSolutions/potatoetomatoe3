@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-racing-pop",
+  "name": "Racing Pop",
+  "author": "FNF Games",
+  "description": "Master the perfect pace in Racing Pop, a one-button racing game that challenges your timing across fast tracks filled with sharp corners and sudden bends.",
+  "thumbnail": "https://fnf-games.io/data/image/game/racing-pop/racing-pop.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/racing-pop/racing-pop.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/racing-pop?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/racing-pop",
+  "fnfGamesSlug": "racing-pop",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 6
+}

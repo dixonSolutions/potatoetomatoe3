@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-frunki-2-0",
+  "name": "Sprunki Frunki 2.0",
+  "author": "FNF Games",
+  "description": "Sprunki Frunki 2.0 is a vibrant music-mixing game where fruity characters, smooth animations, and optional horror mode fuel endless creative remix fun.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-frunki-2-0/sprunki-frunki-2-0.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-frunki-2-0/sprunki-frunki-2-0.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-frunki-2-0?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-frunki-2-0",
+  "fnfGamesSlug": "sprunki-frunki-2-0",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sprunki"
+  ],
+  "portalRating": 8,
+  "portalRatingCount": 20
+}

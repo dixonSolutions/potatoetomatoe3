@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-river-drift",
+  "name": "River Drift",
+  "author": "FNF Games",
+  "description": "Sail through magical waterways in River Drift, an endless arcade adventure filled with sharp turns, hidden treasures, and challenging river hazards.",
+  "thumbnail": "https://fnf-games.io/data/image/game/river-drift/river-drift.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/river-drift/river-drift.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/river-drift?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/river-drift",
+  "fnfGamesSlug": "river-drift",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 4
+}

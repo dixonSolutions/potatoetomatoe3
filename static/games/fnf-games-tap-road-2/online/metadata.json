@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-tap-road-2",
+  "name": "Tap Road 2",
+  "author": "FNF Games",
+  "description": "Race through glowing tracks in Tap Road 2, a fast-paced arcade game featuring six challenge modes, quick lane switching, and collectible gems.",
+  "thumbnail": "https://fnf-games.io/data/image/game/tap-road-2/tap-road-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/tap-road-2/tap-road-2.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/tap-road-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/tap-road-2",
+  "fnfGamesSlug": "tap-road-2",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced"
+  ],
+  "portalRating": 7.5,
+  "portalRatingCount": 12
+}

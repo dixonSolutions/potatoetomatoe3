@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-sprunmin",
+  "name": "Sprunmin",
+  "author": "FNF Games",
+  "description": "Sprunmin is a dark lo-fi music mod where players build distorted soundscapes through drag-and-drop characters and emotionally cold compositions.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunmin/sprunmin.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunmin/sprunmin.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunmin?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunmin",
+  "fnfGamesSlug": "sprunmin",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny",
+    "sprunki",
+    "horror"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

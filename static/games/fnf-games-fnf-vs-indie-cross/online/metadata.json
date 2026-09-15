@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-indie-cross",
+  "name": "FNF Vs Indie Cross",
+  "author": "FNF Games",
+  "description": "Enter the vibrant musical world of Friday Night Funkin' with the FNF Vs Indie Cross mod! Try it now to experience one of the best Friday Night Funkin' mods!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-indie-cross/fnf-vs-indie-cross.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-indie-cross/fnf-vs-indie-cross.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-indie-cross?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-indie-cross",
+  "fnfGamesSlug": "fnf-vs-indie-cross",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "cuphead"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 110
+}

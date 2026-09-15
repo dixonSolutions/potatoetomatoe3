@@ -1,0 +1,26 @@
+{
+  "id": "fnf-games-sprunktubbies",
+  "name": "Sprunktubbies",
+  "author": "FNF Games",
+  "description": "Sprunktubbies is a rhythm music game featuring colorful tubbie characters, using drag-and-drop mechanics to turn each one into a living instrument.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunktubbies/sprunktubbies.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunktubbies/sprunktubbies.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunktubbies?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunktubbies",
+  "fnfGamesSlug": "sprunktubbies",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "funny",
+    "sprunki",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

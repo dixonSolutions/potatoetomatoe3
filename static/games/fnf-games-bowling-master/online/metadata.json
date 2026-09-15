@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-bowling-master",
+  "name": "Bowling Master",
+  "author": "FNF Games",
+  "description": "Master every throw in Bowling Master by clearing tricky pin formations, earning rewards, and climbing the global leaderboard. Are you ready?",
+  "thumbnail": "https://fnf-games.io/data/image/game/bowling-master/bowling-master.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/bowling-master/bowling-master.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/bowling-master?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/bowling-master",
+  "fnfGamesSlug": "bowling-master",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

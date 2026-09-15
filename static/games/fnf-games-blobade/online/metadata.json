@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-blobade",
+  "name": "Blobade",
+  "author": "FNF Games",
+  "description": "Survive intense arena clashes in Blobade! Gather gold, gain experience, and outplay rivals before the shrinking battlefield leaves you trapped.",
+  "thumbnail": "https://fnf-games.io/data/image/game/blobade/blobade.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/blobade/blobade.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/blobade?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/blobade",
+  "fnfGamesSlug": "blobade",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

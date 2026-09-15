@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-sky-redux-heartbreak-havoc",
+  "name": "FNF Vs. Sky: REDUX (Heartbreak Havoc)",
+  "author": "FNF Games",
+  "description": "Dive into FNF Vs. Sky: REDUX (Heartbreak Havoc), a rhythm-game mod that brings Sky back with remade songs and a thrilling new storyline. Play now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-sky-redux-heartbreak-havoc/fnf-vs-sky-redux-heartbreak-havoc.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-sky-redux-heartbreak-havoc/fnf-vs-sky-redux-heartbreak-havoc.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-sky-redux-heartbreak-havoc?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-sky-redux-heartbreak-havoc",
+  "fnfGamesSlug": "fnf-vs-sky-redux-heartbreak-havoc",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 146
+}

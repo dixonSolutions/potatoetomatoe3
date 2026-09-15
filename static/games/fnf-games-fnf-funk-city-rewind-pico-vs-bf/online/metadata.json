@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-funk-city-rewind-pico-vs-bf",
+  "name": "FNF Funk City: Rewind – Pico vs BF",
+  "author": "FNF Games",
+  "description": "Experience a story-driven clash as FNF Funk City: Rewind – Pico vs BF lets you relive events through Pico in a colorful and emotional setting.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-funk-city-rewind-pico-vs-bf/fnf-funk-city-rewind-pico-vs-bf.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-funk-city-rewind-pico-vs-bf/fnf-funk-city-rewind-pico-vs-bf.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-funk-city-rewind-pico-vs-bf?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-funk-city-rewind-pico-vs-bf",
+  "fnfGamesSlug": "fnf-funk-city-rewind-pico-vs-bf",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 28
+}

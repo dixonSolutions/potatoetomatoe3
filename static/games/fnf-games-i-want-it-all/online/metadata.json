@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-i-want-it-all",
+  "name": "I Want It All",
+  "author": "FNF Games",
+  "description": "Inspired by classic brick-breaker games, I Want It All upgrades the formula with high speed, glowing effects, and intense arcade action.",
+  "thumbnail": "https://fnf-games.io/data/image/game/i-want-it-all/i-want-it-all.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/i-want-it-all/i-want-it-all.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/i-want-it-all?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/i-want-it-all",
+  "fnfGamesSlug": "i-want-it-all",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "3d"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

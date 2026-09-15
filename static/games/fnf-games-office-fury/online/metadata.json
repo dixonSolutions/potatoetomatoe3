@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-office-fury",
+  "name": "Office Fury",
+  "author": "FNF Games",
+  "description": "Unleash chaos in Office Fury, a fast-paced arcade game with destructive gameplay and wild office mayhem. Smash everything and rack up points!",
+  "thumbnail": "https://fnf-games.io/data/image/game/office-fury/office-fury.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/office-fury/office-fury.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/office-fury?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/office-fury",
+  "fnfGamesSlug": "office-fury",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

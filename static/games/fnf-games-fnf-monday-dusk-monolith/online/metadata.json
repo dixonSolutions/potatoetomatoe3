@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-monday-dusk-monolith",
+  "name": "FNF: Monday Dusk Monolith",
+  "author": "FNF Games",
+  "description": "Survive the Monolith infection in FNF: Monday Dusk Monolith with haunting music, corrupted characters, and fast-paced rhythm gameplay.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-monday-dusk-monolith/fnf-monday-dusk-monolith.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-monday-dusk-monolith/fnf-monday-dusk-monolith.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-monday-dusk-monolith?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-monday-dusk-monolith",
+  "fnfGamesSlug": "fnf-monday-dusk-monolith",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 7
+}

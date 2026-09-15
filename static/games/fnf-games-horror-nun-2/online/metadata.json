@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-horror-nun-2",
+  "name": "Horror Nun 2",
+  "author": "FNF Games",
+  "description": "Trapped inside Eagle's Junior School, Horror Nun 2 challenges you with first-person survival horror. Stay quiet and find your escape!",
+  "thumbnail": "https://fnf-games.io/data/image/game/horror-nun-2/horror-nun-2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/horror-nun-2/horror-nun-2.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/horror-nun-2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/horror-nun-2",
+  "fnfGamesSlug": "horror-nun-2",
+  "tags": [
+    "fnf-games",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

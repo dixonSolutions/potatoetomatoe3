@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sprunki-slap-battle-3d-arena",
+  "name": "Sprunki: Slap Battle 3D Arena",
+  "author": "FNF Games",
+  "description": "Battle above a dangerous abyss in Sprunki: Slap Battle 3D Arena! Knock opponents from floating platforms, rescue Sprunkis, and unlock abilities.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-slap-battle-3d-arena/sprunki-slap-battle-3d-arena.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-slap-battle-3d-arena/sprunki-slap-battle-3d-arena.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-slap-battle-3d-arena?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-slap-battle-3d-arena",
+  "fnfGamesSlug": "sprunki-slap-battle-3d-arena",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "sprunki"
+  ],
+  "portalRating": 2,
+  "portalRatingCount": 10
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-cartoon-cat",
+  "name": "FNF vs Cartoon Cat",
+  "author": "FNF Games",
+  "description": "Step into FNF Vs Cartoon Cat, a rhythm mod with unpredictable mechanics. Stay on beat, handle mixed lanes, and outlast intense musical battles!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-cartoon-cat/fnf-vs-cartoon-cat.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-cartoon-cat/fnf-vs-cartoon-cat.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-cartoon-cat?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-cartoon-cat",
+  "fnfGamesSlug": "fnf-vs-cartoon-cat",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "horror",
+    "cartoon"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 27
+}

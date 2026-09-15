@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-all-hallow-s-eve",
+  "name": "FNF: All Hallow’s Eve",
+  "author": "FNF Games",
+  "description": "FNF: All Hallow’s Eve delivers a Halloween-themed rhythm battle with shifting beats and a ghostly rival. Stay on tempo and adapt as each track changes!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-all-hallow-s-eve/fnf-all-hallows-eve.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-all-hallow-s-eve/fnf-all-hallows-eve.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-all-hallow-s-eve?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-all-hallow-s-eve",
+  "fnfGamesSlug": "fnf-all-hallow-s-eve",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 15
+}

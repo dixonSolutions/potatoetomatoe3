@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-cassandra",
+  "name": "FNF Cassandra",
+  "author": "FNF Games",
+  "description": "FNF Cassandra brings you a great music experience with attractive rhythm challenges and interesting characters. Get ready for the most intense rap battles!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-cassandra/fnf-cassandra.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-cassandra/fnf-cassandra.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-cassandra?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-cassandra",
+  "fnfGamesSlug": "fnf-cassandra",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "fnf"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 4
+}

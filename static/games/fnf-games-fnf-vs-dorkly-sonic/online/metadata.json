@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-dorkly-sonic",
+  "name": "FNF vs Dorkly Sonic",
+  "author": "FNF Games",
+  "description": "FNF vs Dorkly Sonic is a meme rhythm game mod packed with awkward animations, parody humor, and chaotic battles against a bizarre Sonic version.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-dorkly-sonic/fnf-vs-dorkly-sonic.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-dorkly-sonic/fnf-vs-dorkly-sonic.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-dorkly-sonic?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-dorkly-sonic",
+  "fnfGamesSlug": "fnf-vs-dorkly-sonic",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "sonic"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 25
+}

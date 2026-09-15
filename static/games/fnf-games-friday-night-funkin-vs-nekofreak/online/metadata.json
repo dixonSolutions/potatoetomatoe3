@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-nekofreak",
+  "name": "Friday Night Funkin vs NekoFreak",
+  "author": "FNF Games",
+  "description": "FNF Vs NekoFreak is a rhythm game mod where a simple date turns chaotic. Follow five songs as timing tightens and the mood shifts fast!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-nekofreak/friday-night-funkin-vs-nekofreak.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-nekofreak/friday-night-funkin-vs-nekofreak.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-nekofreak?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-nekofreak",
+  "fnfGamesSlug": "friday-night-funkin-vs-nekofreak",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 12
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-double-date",
+  "name": "Sprunki Double Date",
+  "author": "FNF Games",
+  "description": "Sprunki Double Date is a dark horror rhythm mod built around multiverse lore and unsettling music mixing within the Sprunki universe.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-double-date/sprunki-double-date.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-double-date/sprunki-double-date.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-double-date?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-double-date",
+  "fnfGamesSlug": "sprunki-double-date",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "sprunki",
+    "sing"
+  ],
+  "portalRating": 7.9,
+  "portalRatingCount": 28
+}

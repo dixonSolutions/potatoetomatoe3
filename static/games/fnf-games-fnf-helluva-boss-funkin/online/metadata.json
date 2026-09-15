@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-helluva-boss-funkin",
+  "name": "FNF Helluva Boss Funkin",
+  "author": "FNF Games",
+  "description": "FNF Helluva Boss Funkin is the first rhythm game to combine FNF with the animated series Hazbin Hotel. Experience the perfect combination today!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-helluva-boss-funkin/fnf-helluva-boss-funkin.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-helluva-boss-funkin/fnf-helluva-boss-funkin.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-helluva-boss-funkin?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-helluva-boss-funkin",
+  "fnfGamesSlug": "fnf-helluva-boss-funkin",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "helluva-boss"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 37
+}

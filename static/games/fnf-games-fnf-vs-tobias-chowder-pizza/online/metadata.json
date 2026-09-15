@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-tobias-chowder-pizza",
+  "name": "FNF Vs Tobias & Chowder & Pizza",
+  "author": "FNF Games",
+  "description": "The rhythm game FNF Vs Tobias & Chowder & Pizza brings an exciting music battle with famous cartoon characters. Are you ready to become a rhythm master?",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-tobias-chowder-pizza/fnf-vs-tobias-chowder-pizza.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-tobias-chowder-pizza/fnf-vs-tobias-chowder-pizza.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-tobias-chowder-pizza?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-tobias-chowder-pizza",
+  "fnfGamesSlug": "fnf-vs-tobias-chowder-pizza",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 33
+}

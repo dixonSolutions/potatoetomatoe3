@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-challenge-rush",
+  "name": "Challenge Rush",
+  "author": "FNF Games",
+  "description": "Challenge Rush is a fast-paced rhythm platformer where you dodge spikes, cross portals, and adapt to changing movement across multiple game modes.",
+  "thumbnail": "https://fnf-games.io/data/image/game/challenge-rush/challenge-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/challenge-rush/challenge-rush.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/challenge-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/challenge-rush",
+  "fnfGamesSlug": "challenge-rush",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 18
+}

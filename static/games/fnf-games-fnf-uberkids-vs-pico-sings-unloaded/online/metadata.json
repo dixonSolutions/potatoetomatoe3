@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-uberkids-vs-pico-sings-unloaded",
+  "name": "FNF: Uberkids vs Pico Sings Unloaded",
+  "author": "FNF Games",
+  "description": "FNF: Uberkids vs Pico Sings Unloaded is an action rhythm game where Pico battles genetically created enemies through an explosive musical showdown.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-uberkids-vs-pico-sings-unloaded/fnf-uberkids-vs-pico-sings-unloaded.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-uberkids-vs-pico-sings-unloaded/fnf-uberkids-vs-pico-sings-unloaded.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-uberkids-vs-pico-sings-unloaded?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-uberkids-vs-pico-sings-unloaded",
+  "fnfGamesSlug": "fnf-uberkids-vs-pico-sings-unloaded",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 49
+}

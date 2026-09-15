@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-sprunki-lyratick-pluse",
+  "name": "Sprunki Lyratick Pluse",
+  "author": "FNF Games",
+  "description": "Sprunki Lyratick Pluse lets you mix beats, vocals, and shifting tones into one track. Experiment with sound layers and feel the rhythm change!",
+  "thumbnail": "https://fnf-games.io/data/image/game/sprunki-lyratick-pluse/sprunki-lyratick-pluse.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sprunki-lyratick-pluse/sprunki-lyratick-pluse.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sprunki-lyratick-pluse?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sprunki-lyratick-pluse",
+  "fnfGamesSlug": "sprunki-lyratick-pluse",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "sprunki"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 25
+}

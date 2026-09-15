@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnaf-daybreak",
+  "name": "FNaF: Daybreak",
+  "author": "FNF Games",
+  "description": "Return to the Mega Pizzaplex in FNaF: DAYBREAK, a visual novel fangame where you work the night shift and uncover stories hidden after hours.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnaf-daybreak/fnaf-daybreak.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnaf-daybreak/fnaf-daybreak.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnaf-daybreak?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnaf-daybreak",
+  "fnfGamesSlug": "fnaf-daybreak",
+  "tags": [
+    "fnf-games",
+    "horror",
+    "cartoon"
+  ],
+  "portalRating": 8.4,
+  "portalRatingCount": 19
+}

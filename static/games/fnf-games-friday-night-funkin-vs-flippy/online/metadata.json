@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-vs-flippy",
+  "name": "Friday Night Funkin' vs Flippy",
+  "author": "FNF Games",
+  "description": "In Friday Night Funkin' vs Flippy, a wild rhythm mod, faces the unstable bear from Happy Tree Friends through five intense rap battles. Try now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-flippy/friday-night-funkin-vs-flippy.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-vs-flippy/friday-night-funkin-vs-flippy.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-vs-flippy?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-vs-flippy",
+  "fnfGamesSlug": "friday-night-funkin-vs-flippy",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 65
+}

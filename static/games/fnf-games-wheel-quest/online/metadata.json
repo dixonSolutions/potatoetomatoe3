@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-wheel-quest",
+  "name": "Wheel Quest",
+  "author": "FNF Games",
+  "description": "Wheel Quest challenges you to master unicycle balance, make precise movements, reach distance milestones, and unlock additional wheels.",
+  "thumbnail": "https://fnf-games.io/data/image/game/wheel-quest/wheel-quest.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/wheel-quest/wheel-quest.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/wheel-quest?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/wheel-quest",
+  "fnfGamesSlug": "wheel-quest",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 6.7,
+  "portalRatingCount": 6
+}

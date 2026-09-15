@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-tralalero-tralala",
+  "name": "FNF Vs Tralalero Tralala",
+  "author": "FNF Games",
+  "description": "Memes and rhythm collide in FNF Vs Tralalero Tralala, a hilarious mod inspired by the viral Italian Brainrot trend. Face the bizarre shark rival!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-tralalero-tralala/fnf-vs-tralalero-tralala.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-tralalero-tralala/fnf-vs-tralalero-tralala.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-tralalero-tralala?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-tralalero-tralala",
+  "fnfGamesSlug": "fnf-vs-tralalero-tralala",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 16
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-taeyai-cyber-sensation",
+  "name": "FNF vs Taeyai (Cyber Sensation)",
+  "author": "FNF Games",
+  "description": "FNF vs Taeyai (Cyber Sensation) is a story-driven rhythm mod where Boyfriend meets a software engineer who pulls him from the game world. Play the week.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-taeyai-cyber-sensation/fnf-vs-taeyai-cyber-sensation.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-taeyai-cyber-sensation/fnf-vs-taeyai-cyber-sensation.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-taeyai-cyber-sensation?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-taeyai-cyber-sensation",
+  "fnfGamesSlug": "fnf-vs-taeyai-cyber-sensation",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 63
+}

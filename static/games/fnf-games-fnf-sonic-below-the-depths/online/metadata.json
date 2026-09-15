@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-sonic-below-the-depths",
+  "name": "FNF Sonic Below The Depths",
+  "author": "FNF Games",
+  "description": "In FNF Sonic Below The Depths, music leads Boyfriend into a sunken world ruled by Sink. Conquer the beat in this intense Friday Night Funkin’ mod!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sonic-below-the-depths/fnf-sonic-below-the-depths.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sonic-below-the-depths/fnf-sonic-below-the-depths.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sonic-below-the-depths?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sonic-below-the-depths",
+  "fnfGamesSlug": "fnf-sonic-below-the-depths",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "sonic",
+    "horror"
+  ],
+  "portalRating": 8.1,
+  "portalRatingCount": 52
+}

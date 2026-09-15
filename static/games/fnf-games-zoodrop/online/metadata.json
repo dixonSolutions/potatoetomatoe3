@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-zoodrop",
+  "name": "ZooDrop",
+  "author": "FNF Games",
+  "description": "From tiny animals to massive creatures, ZooDrop is a casual merge puzzle where players build chains and clear space through explosive merges.",
+  "thumbnail": "https://fnf-games.io/data/image/game/zoodrop/zoodrop.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/zoodrop/zoodrop.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/zoodrop?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/zoodrop",
+  "fnfGamesSlug": "zoodrop",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-swordbattle-io",
+  "name": "Swordbattle.io",
+  "author": "FNF Games",
+  "description": "Swordbattle.io is a multiplayer .io arena game where players collect coins, grow in size, choose evolutions, and fight with melee timing.",
+  "thumbnail": "https://fnf-games.io/data/image/game/swordbattle-io/swordbattle-io.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/swordbattle-io/swordbattle-io.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/swordbattle-io?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/swordbattle-io",
+  "fnfGamesSlug": "swordbattle-io",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

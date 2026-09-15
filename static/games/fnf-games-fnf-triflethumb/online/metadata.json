@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-triflethumb",
+  "name": "FNF Triflethumb",
+  "author": "FNF Games",
+  "description": "FNF Triflethumb is a tense rhythm mod where you play as a trapped nugget escaping through music. Keep perfect timing as patterns shift!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-triflethumb/fnf-triflethumb.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-triflethumb/fnf-triflethumb.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-triflethumb?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-triflethumb",
+  "fnfGamesSlug": "fnf-triflethumb",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced"
+  ],
+  "portalRating": 9.6,
+  "portalRatingCount": 53
+}

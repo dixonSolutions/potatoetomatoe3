@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-twinsomnia-boy-and-girl",
+  "name": "FNF Twinsomnia: Boy and Girl",
+  "author": "FNF Games",
+  "description": "Step into FNF Twinsomnia Boy and Girl, a dreamlike rhythm game mod with evolving tracks, smooth transitions, and rising difficulty across each song.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-twinsomnia-boy-and-girl/fnf-twinsomnia-boy-and-girl.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-twinsomnia-boy-and-girl/fnf-twinsomnia-boy-and-girl.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-twinsomnia-boy-and-girl?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-twinsomnia-boy-and-girl",
+  "fnfGamesSlug": "fnf-twinsomnia-boy-and-girl",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 42
+}

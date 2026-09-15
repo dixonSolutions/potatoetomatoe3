@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-babybones",
+  "name": "FNF Babybones",
+  "author": "FNF Games",
+  "description": "Enter FNF Babybones, a bizarre rhythm game mod where playful skeleton vibes hide tricky pacing changes, secret content, and Halloween chaos.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-babybones/fnf-babybones.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-babybones/fnf-babybones.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-babybones?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-babybones",
+  "fnfGamesSlug": "fnf-babybones",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "sans"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 27
+}

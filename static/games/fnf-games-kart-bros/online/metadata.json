@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-kart-bros",
+  "name": "Kart Bros",
+  "author": "FNF Games",
+  "description": "Kart Bros is a kart racing game where players drift tight tracks, manage power-ups, and fight for position in short races. Try now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/kart-bros/kart-bros.jpg",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/kart-bros/kart-bros.jpg",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/kart-bros?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/kart-bros",
+  "fnfGamesSlug": "kart-bros",
+  "tags": [
+    "fnf-games",
+    "fast-paced"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

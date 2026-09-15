@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-niko-oneshot",
+  "name": "FNF vs Niko (OneShot)",
+  "author": "FNF Games",
+  "description": "Experience FNF vs Niko (OneShot), a rhythm mod mixing emotional storytelling and smooth battles. Keep your combo strong and rise to the challenge!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-niko-oneshot/fnf-vs-niko-oneshot.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-niko-oneshot/fnf-vs-niko-oneshot.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-niko-oneshot?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-niko-oneshot",
+  "fnfGamesSlug": "fnf-vs-niko-oneshot",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 10
+}

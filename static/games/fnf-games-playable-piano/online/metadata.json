@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-playable-piano",
+  "name": "Playable Piano!",
+  "author": "FNF Games",
+  "description": "Playable Piano! lets players create relaxing melodies with a simple digital keyboard, offering a fun and creative music experience for everyone.",
+  "thumbnail": "https://fnf-games.io/data/image/game/playable-piano/playable-piano.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/playable-piano/playable-piano.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/playable-piano?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/playable-piano",
+  "fnfGamesSlug": "playable-piano",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "funny"
+  ],
+  "portalRating": 4.2,
+  "portalRatingCount": 12
+}

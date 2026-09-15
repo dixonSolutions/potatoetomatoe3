@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-mario-s-madness-v2",
+  "name": "FNF Vs Mario’s Madness V2",
+  "author": "FNF Games",
+  "description": "FNF Vs. Mario's Madness V2 brings you a thrilling rhythm game experience as Boyfriend and Girlfriend face off against creepy Mario characters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-mario-s-madness-v2/fnf-vs-mario-s-madness-v22.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-mario-s-madness-v2/fnf-vs-mario-s-madness-v22.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-mario-s-madness-v2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-mario-s-madness-v2",
+  "fnfGamesSlug": "fnf-vs-mario-s-madness-v2",
+  "tags": [
+    "fnf-games",
+    "horror",
+    "mario"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 406
+}

@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-fnf-pico-erect-remix",
+  "name": "FNF Pico Erect Remix",
+  "author": "FNF Games",
+  "description": "Challenge the upgraded Week 3 battle in FNF Pico Erect Remix, a Friday Night Funkin' mod featuring faster charts, refreshed visuals, and an energetic remix.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-pico-erect-remix/fnf-pico-erect-remix.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-pico-erect-remix/fnf-pico-erect-remix.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-pico-erect-remix?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-pico-erect-remix",
+  "fnfGamesSlug": "fnf-pico-erect-remix",
+  "tags": [
+    "fnf-games",
+    "rhythm"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 57
+}

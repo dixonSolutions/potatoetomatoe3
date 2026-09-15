@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-catch-the-ball-soccer-beats",
+  "name": "Catch the Ball: Soccer Beats",
+  "author": "FNF Games",
+  "description": "Catch the Ball: Soccer Beats turns goalkeeping into a fast-paced soccer arcade challenge. Follow the rhythm, make clean saves, and start playing.",
+  "thumbnail": "https://fnf-games.io/data/image/game/catch-the-ball-soccer-beats/catch-the-ball-soccer-beats.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/catch-the-ball-soccer-beats/catch-the-ball-soccer-beats.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/catch-the-ball-soccer-beats?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/catch-the-ball-soccer-beats",
+  "fnfGamesSlug": "catch-the-ball-soccer-beats",
+  "tags": [
+    "fnf-games",
+    "fast-paced"
+  ],
+  "portalRating": 4,
+  "portalRatingCount": 5
+}

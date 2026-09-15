@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-vs-cassette-girl",
+  "name": "FNF vs Cassette Girl",
+  "author": "FNF Games",
+  "description": "Spend an evening under the city lights in FNF vs Cassette Girl, a Friday Night Funkin' mod featuring rooftop rhythm battles and a retro-inspired performer.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-cassette-girl/fnf-vs-cassette-girl.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-cassette-girl/fnf-vs-cassette-girl.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-cassette-girl?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-cassette-girl",
+  "fnfGamesSlug": "fnf-vs-cassette-girl",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 76
+}

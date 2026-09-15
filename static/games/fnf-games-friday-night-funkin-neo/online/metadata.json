@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-friday-night-funkin-neo",
+  "name": "Friday Night Funkin' Neo",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin' Neo takes players into a musical revolution with its vibrant neon style and engaging rhythm gameplay.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-neo/friday-night-funkin-neo.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-neo/friday-night-funkin-neo.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-neo?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-neo",
+  "fnfGamesSlug": "friday-night-funkin-neo",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "fast-paced"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 119
+}

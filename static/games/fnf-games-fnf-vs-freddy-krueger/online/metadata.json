@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-fnf-vs-freddy-krueger",
+  "name": "FNF VS Freddy Krueger",
+  "author": "FNF Games",
+  "description": "Enter Freddy’s nightmare in FNF VS Freddy Krueger, where Boyfriend takes on the dream-stalking villain through three tense songs and eerie rhythm challenges.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-freddy-krueger/fnf-vs-freddy-krueger.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-freddy-krueger/fnf-vs-freddy-krueger.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-freddy-krueger?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-freddy-krueger",
+  "fnfGamesSlug": "fnf-vs-freddy-krueger",
+  "tags": [
+    "fnf-games",
+    "rhythm"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 29
+}

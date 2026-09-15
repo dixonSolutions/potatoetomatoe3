@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-horror-nun",
+  "name": "Horror Nun",
+  "author": "FNF Games",
+  "description": "Built on stealth and interaction with the environment, Horror Nun transforms exploration and puzzle-solving into moments of risk and terror.",
+  "thumbnail": "https://fnf-games.io/data/image/game/horror-nun/horror-nun.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/horror-nun/horror-nun.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/horror-nun?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/horror-nun",
+  "fnfGamesSlug": "horror-nun",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "horror"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 8
+}

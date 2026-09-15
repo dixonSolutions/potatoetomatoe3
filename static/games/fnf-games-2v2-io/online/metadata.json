@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-2v2-io",
+  "name": "2v2.io",
+  "author": "FNF Games",
+  "description": "Immerse yourself in the action world of 2v2.io, a multiplayer shooter that combines battle royale mechanics with real-time building. Let's shoot!",
+  "thumbnail": "https://fnf-games.io/data/image/game/2v2-io/2v2-io.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/2v2-io/2v2-io.png",
+  "thumbnailStored": "remote",
+  "category": "funny",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/2v2-io?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/2v2-io",
+  "fnfGamesSlug": "2v2-io",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "multiplayer"
+  ],
+  "portalRating": 8.7,
+  "portalRatingCount": 39
+}

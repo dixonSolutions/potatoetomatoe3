@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-sour",
+  "name": "FNF: SOUR",
+  "author": "FNF Games",
+  "description": "In FNF: SOUR, Boyfriend enters a vibrant world of rhythm and style. Feel the refreshing twist of remixed tracks and animated cutscenes!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-sour/fnf-sour.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-sour/fnf-sour.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-sour?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-sour",
+  "fnfGamesSlug": "fnf-sour",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 84
+}

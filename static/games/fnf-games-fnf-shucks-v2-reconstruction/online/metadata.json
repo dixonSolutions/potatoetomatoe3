@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-shucks-v2-reconstruction",
+  "name": "FNF Shucks V2 (Reconstruction)",
+  "author": "FNF Games",
+  "description": "Born from fan passion, FNF Shucks V2 (Reconstruction) revives the iconic Shucks battle in a bold Friday Night Funkin’ remake. Feel the beat again!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-shucks-v2-reconstruction/fnf-shucks-v2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-shucks-v2-reconstruction/fnf-shucks-v2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-shucks-v2-reconstruction?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-shucks-v2-reconstruction",
+  "fnfGamesSlug": "fnf-shucks-v2-reconstruction",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 212
+}

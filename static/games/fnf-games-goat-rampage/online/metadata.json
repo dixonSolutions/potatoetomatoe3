@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-goat-rampage",
+  "name": "Goat Rampage",
+  "author": "FNF Games",
+  "description": "Tear through a voxel city in Goat Rampage, smashing obstacles while police and monsters close in. Trigger turbo, grab coins, and keep the chaos going.",
+  "thumbnail": "https://fnf-games.io/data/image/game/goat-rampage/goat-rampage.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/goat-rampage/goat-rampage.png",
+  "thumbnailStored": "remote",
+  "category": "zombie",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/goat-rampage?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/goat-rampage",
+  "fnfGamesSlug": "goat-rampage",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "zombie"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

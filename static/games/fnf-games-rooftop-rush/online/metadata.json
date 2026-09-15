@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-rooftop-rush",
+  "name": "Rooftop Rush",
+  "author": "FNF Games",
+  "description": "Rooftop Rush is a 3D auto-run skill game where characters slide nonstop across rooftops, demanding precise jump timing to stay in motion.",
+  "thumbnail": "https://fnf-games.io/data/image/game/rooftop-rush/rooftop-rush.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/rooftop-rush/rooftop-rush.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/rooftop-rush?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/rooftop-rush",
+  "fnfGamesSlug": "rooftop-rush",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "agility"
+  ],
+  "portalRating": 3.3,
+  "portalRatingCount": 3
+}

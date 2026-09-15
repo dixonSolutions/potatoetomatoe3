@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-fireboy-and-watergirl",
+  "name": "FNF: Fireboy And Watergirl",
+  "author": "FNF Games",
+  "description": "Experience the thrilling rap battle in the rhythm game FNF: Fireboy And Watergirl with unique melodies! Start playing and conquer the unique melodies!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-fireboy-and-watergirl/fnf-fireboy-and-watergirl.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-fireboy-and-watergirl/fnf-fireboy-and-watergirl.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-fireboy-and-watergirl?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-fireboy-and-watergirl",
+  "fnfGamesSlug": "fnf-fireboy-and-watergirl",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "funny",
+    "fireboy-and-watergirl"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 20
+}

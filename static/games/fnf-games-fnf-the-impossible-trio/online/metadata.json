@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-the-impossible-trio",
+  "name": "FNF: The Impossible Trio",
+  "author": "FNF Games",
+  "description": "In FNF: The Impossible Trio, rotating trios shift rhythm styles nonstop, forcing quick adaptation. Enter the relentless musical rotation now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-the-impossible-trio/fnf-the-impossible-trio.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-the-impossible-trio/fnf-the-impossible-trio.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-the-impossible-trio?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-the-impossible-trio",
+  "fnfGamesSlug": "fnf-the-impossible-trio",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.6,
+  "portalRatingCount": 102
+}

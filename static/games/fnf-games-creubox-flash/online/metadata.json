@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-creubox-flash",
+  "name": "Creubox FLASH",
+  "author": "FNF Games",
+  "description": "Créubox FLASH is a browser-based rhythm mixing game that reboots the Créu Universe with fully redrawn characters and high-tempo funk original music.",
+  "thumbnail": "https://fnf-games.io/data/image/game/creubox-flash/creubox-flash.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/creubox-flash/creubox-flash.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/creubox-flash?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/creubox-flash",
+  "fnfGamesSlug": "creubox-flash",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "indie",
+    "meme"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 3
+}

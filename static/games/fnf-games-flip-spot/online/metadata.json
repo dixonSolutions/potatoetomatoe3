@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-flip-spot",
+  "name": "Flip Spot",
+  "author": "FNF Games",
+  "description": "Flip Spot turns every jump into a risky stunt as you flip through the air, chain tricks, and fight to land safely on elevated 3D platforms.",
+  "thumbnail": "https://fnf-games.io/data/image/game/flip-spot/flip-spot.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/flip-spot/flip-spot.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/flip-spot?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/flip-spot",
+  "fnfGamesSlug": "flip-spot",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "3d",
+    "physics"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 12
+}

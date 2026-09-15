@@ -1,0 +1,22 @@
+{
+  "id": "fnf-games-slope-rider-3d",
+  "name": "Slope Rider 3D",
+  "author": "FNF Games",
+  "description": "Race down frozen mountains in Slope Rider 3D, an arcade endless runner packed with snowy hazards and intense winter survival challenges.",
+  "thumbnail": "https://fnf-games.io/data/image/game/slope-rider-3d/slope-rider-3d1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/slope-rider-3d/slope-rider-3d1.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/slope-rider-3d?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/slope-rider-3d",
+  "fnfGamesSlug": "slope-rider-3d",
+  "tags": [
+    "fnf-games",
+    "fast-paced"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

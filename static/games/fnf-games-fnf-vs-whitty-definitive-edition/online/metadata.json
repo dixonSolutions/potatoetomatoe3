@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-vs-whitty-definitive-edition",
+  "name": "FNF vs Whitty (Definitive Edition)",
+  "author": "FNF Games",
+  "description": "The fiery clash in FNF vs Whitty (Definitive Edition) takes Boyfriend back to the narrow alley where the music blasts. Face the fast-paced fury head-on?",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-whitty-definitive-edition/fnf-vs-whitty-definitive-edition.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-whitty-definitive-edition/fnf-vs-whitty-definitive-edition.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-whitty-definitive-edition?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-whitty-definitive-edition",
+  "fnfGamesSlug": "fnf-vs-whitty-definitive-edition",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "whitty",
+    "sing"
+  ],
+  "portalRating": 9.1,
+  "portalRatingCount": 323
+}

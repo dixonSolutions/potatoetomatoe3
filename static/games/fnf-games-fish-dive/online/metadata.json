@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fish-dive",
+  "name": "Fish Dive",
+  "author": "FNF Games",
+  "description": "Fish Dive is an endless arcade game that challenges players to guide a tiny fish through dangerous waters filled with mines and hidden rewards.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fish-dive/fish-dive.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fish-dive/fish-dive.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fish-dive?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fish-dive",
+  "fnfGamesSlug": "fish-dive",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility"
+  ],
+  "portalRating": 5,
+  "portalRatingCount": 2
+}

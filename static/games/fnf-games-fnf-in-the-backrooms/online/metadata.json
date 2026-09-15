@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-in-the-backrooms",
+  "name": "FNF in the Backrooms",
+  "author": "FNF Games",
+  "description": "FNF in the Backrooms blends eerie hallways with fast rhythm gameplay, creating a haunting journey through repeating rooms and rising dread.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-in-the-backrooms/fnf-in-the-backrooms.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-in-the-backrooms/fnf-in-the-backrooms.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-in-the-backrooms?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-in-the-backrooms",
+  "fnfGamesSlug": "fnf-in-the-backrooms",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "horror"
+  ],
+  "portalRating": 7.6,
+  "portalRatingCount": 25
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-zynpavo-rhythm-piano",
+  "name": "Zynpavo: Rhythm Piano",
+  "author": "FNF Games",
+  "description": "Play Zynpavo: Rhythm Piano, a fast-paced arcade game that turns classical music into intense timing challenges. Hit every note and master the rhythm!",
+  "thumbnail": "https://fnf-games.io/data/image/game/zynpavo-rhythm-piano/zynpavo-rhythm-piano.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/zynpavo-rhythm-piano/zynpavo-rhythm-piano.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/zynpavo-rhythm-piano?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/zynpavo-rhythm-piano",
+  "fnfGamesSlug": "zynpavo-rhythm-piano",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "fast-paced",
+    "3d"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 6
+}

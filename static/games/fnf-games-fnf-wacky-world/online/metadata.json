@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-wacky-world",
+  "name": "FNF Wacky World",
+  "author": "FNF Games",
+  "description": "The bizarre musical world of The Amazing Digital Circus has appeared in the rhythm game FNF Wacky World! Play now to discover unique melodies!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-wacky-world/fnf-wacky-world1.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-wacky-world/fnf-wacky-world1.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-wacky-world?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-wacky-world",
+  "fnfGamesSlug": "fnf-wacky-world",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fnf",
+    "pomni"
+  ],
+  "portalRating": 9.2,
+  "portalRatingCount": 182
+}

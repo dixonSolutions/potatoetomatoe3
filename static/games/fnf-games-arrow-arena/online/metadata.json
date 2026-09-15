@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-arrow-arena",
+  "name": "Arrow Arena",
+  "author": "FNF Games",
+  "description": "Aim through compact arenas in Arrow Arena, a multiplayer bow action game where movement, cover, upgrades, and charged shots decide each duel.",
+  "thumbnail": "https://fnf-games.io/data/image/game/arrow-arena/arrow-arena.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/arrow-arena/arrow-arena.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/arrow-arena?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/arrow-arena",
+  "fnfGamesSlug": "arrow-arena",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "multiplayer"
+  ],
+  "portalRating": 7.8,
+  "portalRatingCount": 9
+}

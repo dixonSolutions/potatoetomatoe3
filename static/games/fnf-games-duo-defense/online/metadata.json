@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-duo-defense",
+  "name": "Duo Defense",
+  "author": "FNF Games",
+  "description": "Duo Defense challenges players to coordinate two heroes and survive increasingly dense enemy waves in a reflex-driven arena. Defend together!",
+  "thumbnail": "https://fnf-games.io/data/image/game/duo-defense/duo-defense.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/duo-defense/duo-defense.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/duo-defense?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/duo-defense",
+  "fnfGamesSlug": "duo-defense",
+  "tags": [
+    "fnf-games",
+    "fast-paced",
+    "agility",
+    "multiplayer"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

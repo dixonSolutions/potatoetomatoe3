@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-sorry-bob",
+  "name": "Sorry Bob",
+  "author": "FNF Games",
+  "description": "Experience nightmare-level surgery in Sorry Bob, a chaotic first-person simulator where unstable movements create unpredictable medical disasters.",
+  "thumbnail": "https://fnf-games.io/data/image/game/sorry-bob/sorry-bob.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/sorry-bob/sorry-bob.png",
+  "thumbnailStored": "remote",
+  "category": "horror",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/sorry-bob?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/sorry-bob",
+  "fnfGamesSlug": "sorry-bob",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "horror"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

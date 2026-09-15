@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-bottle-hop",
+  "name": "Bottle Hop",
+  "author": "FNF Games",
+  "description": "Bottle Hop challenges your skills with a simple yet addictive arcade concept where every bottle flip and jump must be perfectly timed. Try now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/bottle-hop/bottle-hop.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/bottle-hop/bottle-hop.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/bottle-hop?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/bottle-hop",
+  "fnfGamesSlug": "bottle-hop",
+  "tags": [
+    "fnf-games",
+    "3d",
+    "physics"
+  ],
+  "portalRating": 9,
+  "portalRatingCount": 10
+}

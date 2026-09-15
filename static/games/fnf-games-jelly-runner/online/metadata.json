@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-jelly-runner",
+  "name": "Jelly Runner",
+  "author": "FNF Games",
+  "description": "Continuously bouncing on floating ice in Jelly Runner with a challenging jelly block creates a unique arcade experience. Will your concentration last?",
+  "thumbnail": "https://fnf-games.io/data/image/game/jelly-runner/jelly-runner.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/jelly-runner/jelly-runner.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/jelly-runner?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/jelly-runner",
+  "fnfGamesSlug": "jelly-runner",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.3,
+  "portalRatingCount": 6
+}

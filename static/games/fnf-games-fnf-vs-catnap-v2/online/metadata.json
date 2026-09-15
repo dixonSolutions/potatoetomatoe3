@@ -1,0 +1,25 @@
+{
+  "id": "fnf-games-fnf-vs-catnap-v2",
+  "name": "FNF Vs. CatNap V2",
+  "author": "FNF Games",
+  "description": "FNF Vs. CatNap V2 expands the Critters storyline with nine songs and a darker take on musical battles inside the Smiling Critters Factory.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-catnap-v2/fnf-vs-catnap-v2.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-catnap-v2/fnf-vs-catnap-v2.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-catnap-v2?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-catnap-v2",
+  "fnfGamesSlug": "fnf-vs-catnap-v2",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "horror",
+    "catnap",
+    "poppy"
+  ],
+  "portalRating": 9.9,
+  "portalRatingCount": 141
+}

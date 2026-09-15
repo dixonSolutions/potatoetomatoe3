@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-newjeans",
+  "name": "FNF NewJeans",
+  "author": "FNF Games",
+  "description": "Dance through NewJeans hits in FNF NewJeans, a K-pop rhythm mod featuring Attention, Hype Boy, New Jeans, and Gods with Y2K-inspired visuals.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-newjeans/fnf-newjeans.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-newjeans/fnf-newjeans.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-newjeans?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-newjeans",
+  "fnfGamesSlug": "fnf-newjeans",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 8.8,
+  "portalRatingCount": 25
+}

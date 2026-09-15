@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-best-day-ever-fnf",
+  "name": "Best Day Ever FNF",
+  "author": "FNF Games",
+  "description": "SpongeBob parodies take over Best Day Ever FNF one phase at a time, twisting the screen as the notes get tougher. Hold your rhythm!",
+  "thumbnail": "https://fnf-games.io/data/image/game/best-day-ever-fnf/best-day-ever-fnf.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/best-day-ever-fnf/best-day-ever-fnf.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/best-day-ever-fnf?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/best-day-ever-fnf",
+  "fnfGamesSlug": "best-day-ever-fnf",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced"
+  ],
+  "portalRating": 7.3,
+  "portalRatingCount": 96
+}

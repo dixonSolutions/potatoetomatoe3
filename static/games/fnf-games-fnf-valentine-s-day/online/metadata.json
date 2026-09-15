@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-fnf-valentine-s-day",
+  "name": "FNF: Valentine's Day",
+  "author": "FNF Games",
+  "description": "Let's celebrate Valentine's Day in this charming FNF: Valentine's Day mod, where music replaces conflict and Boyfriend sings alongside Girlfriend in peace.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-valentine-s-day/fnf-valentines-day.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-valentine-s-day/fnf-valentines-day.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-valentine-s-day?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-valentine-s-day",
+  "fnfGamesSlug": "fnf-valentine-s-day",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie"
+  ],
+  "portalRating": 9.5,
+  "portalRatingCount": 60
+}

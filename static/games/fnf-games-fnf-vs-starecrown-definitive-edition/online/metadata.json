@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-starecrown-definitive-edition",
+  "name": "FNF VS Starecrown – Definitive Edition",
+  "author": "FNF Games",
+  "description": "Play a remastered Friday Night Funkin mod where FNF VS Starecrown – Definitive Edition features intense rhythm battles against a mysterious observer.",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-starecrown-definitive-edition/fnf-vs-starecrown-definitive-edition.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-starecrown-definitive-edition/fnf-vs-starecrown-definitive-edition.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-starecrown-definitive-edition?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-starecrown-definitive-edition",
+  "fnfGamesSlug": "fnf-vs-starecrown-definitive-edition",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "indie",
+    "fast-paced"
+  ],
+  "portalRating": 8.2,
+  "portalRatingCount": 17
+}

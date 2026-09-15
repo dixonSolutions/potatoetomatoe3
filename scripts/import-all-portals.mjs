@@ -5,7 +5,7 @@
  * Order:
  *   1) purge low-quality Unity Play
  *   2) update shrek-escape → Playhop online URL
- *   3) import Coolmath, CrazyGames, AddictingGames, Playhop, Y8
+ *   3) import Coolmath, CrazyGames, AddictingGames, Playhop, Y8, FNF Games
  *   4) regenerate games-list.json
  *
  * Usage:
@@ -76,7 +76,8 @@ async function main() {
 		'import-addictinggames-catalog.mjs',
 		'import-playhop-catalog.mjs',
 		'import-y8-catalog.mjs',
-		'import-drive-u7-catalog.mjs'
+		'import-drive-u7-catalog.mjs',
+		'import-fnf-games-catalog.mjs'
 	];
 
 	for (const script of portals) {

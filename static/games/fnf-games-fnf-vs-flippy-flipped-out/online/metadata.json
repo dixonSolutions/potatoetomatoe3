@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-fnf-vs-flippy-flipped-out",
+  "name": "FNF vs Flippy Flipped Out!",
+  "author": "FNF Games",
+  "description": "Brace yourself for FNF vs Flippy Flipped Out!, a rhythm clash where calm patterns erupt into frantic bursts whenever Fliqpy appears!",
+  "thumbnail": "https://fnf-games.io/data/image/game/fnf-vs-flippy-flipped-out/fnf-vs-flippy-flipped-out.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/fnf-vs-flippy-flipped-out/fnf-vs-flippy-flipped-out.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/fnf-vs-flippy-flipped-out?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/fnf-vs-flippy-flipped-out",
+  "fnfGamesSlug": "fnf-vs-flippy-flipped-out",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "horror"
+  ],
+  "portalRating": 9.6,
+  "portalRatingCount": 50
+}

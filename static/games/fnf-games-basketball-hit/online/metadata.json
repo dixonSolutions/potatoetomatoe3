@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-basketball-hit",
+  "name": "Basketball Hit",
+  "author": "FNF Games",
+  "description": "Basketball Hit is a one-click sports game built around long-range shots and precise power timing. Hit the green zone and send the ball toward the next hoop.",
+  "thumbnail": "https://fnf-games.io/data/image/game/basketball-hit/basketball-hit.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/basketball-hit/basketball-hit.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/basketball-hit?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/basketball-hit",
+  "fnfGamesSlug": "basketball-hit",
+  "tags": [
+    "fnf-games",
+    "agility",
+    "physics"
+  ],
+  "portalRating": 5.6,
+  "portalRatingCount": 9
+}

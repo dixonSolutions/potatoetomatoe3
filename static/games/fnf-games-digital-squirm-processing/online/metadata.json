@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-digital-squirm-processing",
+  "name": "Digital Squirm Processing",
+  "author": "FNF Games",
+  "description": "Digital Squirm Processing turns audio into a playground, mixing wave controls, bending movement, and beat-based traps in one odd challenge.",
+  "thumbnail": "https://fnf-games.io/data/image/game/digital-squirm-processing/digital-squirm-processing.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/digital-squirm-processing/digital-squirm-processing.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/digital-squirm-processing?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/digital-squirm-processing",
+  "fnfGamesSlug": "digital-squirm-processing",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "fast-paced",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 1
+}

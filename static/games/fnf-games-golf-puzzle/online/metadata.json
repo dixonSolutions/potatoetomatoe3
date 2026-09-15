@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-golf-puzzle",
+  "name": "Golf Puzzle",
+  "author": "FNF Games",
+  "description": "Experience Golf Puzzle online and master its unique card movement system. Think ahead, avoid mistakes, and clear over 100 creative mountain stages.",
+  "thumbnail": "https://fnf-games.io/data/image/game/golf-puzzle/golf-puzzle.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/golf-puzzle/golf-puzzle.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/golf-puzzle?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/golf-puzzle",
+  "fnfGamesSlug": "golf-puzzle",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "physics"
+  ],
+  "portalRating": 10,
+  "portalRatingCount": 2
+}

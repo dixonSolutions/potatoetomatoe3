@@ -1,0 +1,24 @@
+{
+  "id": "fnf-games-friday-night-funkin-corruption-reimagined",
+  "name": "Friday Night Funkin Corruption: Reimagined!",
+  "author": "FNF Games",
+  "description": "Friday Night Funkin Corruption: Reimagined! is a story driven rhythm mod where Boyfriend fights to save corrupted characters from losing themselves.",
+  "thumbnail": "https://fnf-games.io/data/image/game/friday-night-funkin-corruption-reimagined/friday-night-funkin-corruption-reimagined.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/friday-night-funkin-corruption-reimagined/friday-night-funkin-corruption-reimagined.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/friday-night-funkin-corruption-reimagined?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/friday-night-funkin-corruption-reimagined",
+  "fnfGamesSlug": "friday-night-funkin-corruption-reimagined",
+  "tags": [
+    "fnf-games",
+    "dance",
+    "rhythm",
+    "horror"
+  ],
+  "portalRating": 8.5,
+  "portalRatingCount": 115
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-funkin-in-a-wimpy-day",
+  "name": "Funkin’ In A Wimpy Day",
+  "author": "FNF Games",
+  "description": "The rhythm of Funkin’ In A Wimpy Day evolves through Wimpy, Dog Days and Journal remasters, each steering emotion. Join the musical journey now!",
+  "thumbnail": "https://fnf-games.io/data/image/game/funkin-in-a-wimpy-day/funkin-in-a-wimpy-day.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/funkin-in-a-wimpy-day/funkin-in-a-wimpy-day.png",
+  "thumbnailStored": "remote",
+  "category": "rhythm",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/funkin-in-a-wimpy-day?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/funkin-in-a-wimpy-day",
+  "fnfGamesSlug": "funkin-in-a-wimpy-day",
+  "tags": [
+    "fnf-games",
+    "rhythm",
+    "cartoon"
+  ],
+  "portalRating": 8.9,
+  "portalRatingCount": 66
+}

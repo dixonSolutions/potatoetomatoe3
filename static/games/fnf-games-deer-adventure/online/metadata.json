@@ -1,0 +1,23 @@
+{
+  "id": "fnf-games-deer-adventure",
+  "name": "Deer Adventure",
+  "author": "FNF Games",
+  "description": "Jump into Deer Adventure, a funny physics sandbox packed with crazy transformations, destructible environments, and playful open-ended exploration.",
+  "thumbnail": "https://fnf-games.io/data/image/game/deer-adventure/deer-adventure.png",
+  "thumbnailRemote": "https://fnf-games.io/data/image/game/deer-adventure/deer-adventure.png",
+  "thumbnailStored": "remote",
+  "category": "skill",
+  "sourcePortal": "fnf-games",
+  "onlineEmbedUrl": "https://fnf-games.io/embed/deer-adventure?preroll=0",
+  "pullStrategy": "generic",
+  "engine": "html5",
+  "sourceSiteUrl": "https://fnf-games.io/deer-adventure",
+  "fnfGamesSlug": "deer-adventure",
+  "tags": [
+    "fnf-games",
+    "funny",
+    "physics"
+  ],
+  "portalRating": 9.3,
+  "portalRatingCount": 44
+}
