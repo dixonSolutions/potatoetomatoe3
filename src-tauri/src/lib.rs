@@ -16,11 +16,13 @@ mod tray {
 use std::net::TcpListener;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::OnceLock;
+use std::sync::{Mutex, OnceLock};
 use tauri::Manager;
 use tauri::path::BaseDirectory;
 
 static PULLER_PORT: OnceLock<u16> = OnceLock::new();
+/** Held for the length of one `spawn_puller` attempt; see that function. */
+static PULLER_SPAWN_LOCK: Mutex<()> = Mutex::new(());
 static TRAY_AVAILABLE: AtomicBool = AtomicBool::new(false);
 /** When false, window close quits the app (GNOME/Silverblue without a visible tray). */
 static CLOSE_TO_TRAY: AtomicBool = AtomicBool::new(false);
@@ -432,6 +434,17 @@ fn wait_for_puller_health(port: u16, timeout_ms: u64) -> bool {
 }
 
 fn spawn_puller(app: &tauri::AppHandle) {
+  /*
+   * One attempt at a time. `setup` launches the puller on its own thread and
+   * `ensure_puller` runs on a worker, so callers overlap: each would find the port
+   * unhealthy and start its own process on it, and every process but the one that won
+   * the bind exits — leaving its caller to report the puller as unavailable. Whoever
+   * waits here falls into the health check below and reuses what the winner started.
+   */
+  let _spawning = PULLER_SPAWN_LOCK
+    .lock()
+    .unwrap_or_else(|poisoned| poisoned.into_inner());
+
   let (games_dir, catalog_dir, port) = puller_env(app);
 
   /*
