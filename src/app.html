@@ -6,6 +6,32 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1, viewport-fit=cover"
 		/>
+		<!--
+			Paint the system light/dark before anything else. `mode-watcher` injects this same
+			step into the SvelteKit head, but only on prerendered routes: adapter-static writes
+			the SPA fallback (`index.html`) and `404.html` without a layout head, and those are
+			exactly the entries the desktop/Android app boots from and GitHub Pages serves for
+			every deep link — so a dark desktop got a white first paint on every cold start,
+			righted only once hydration ran. Doing it here covers every entry point.
+
+			The app follows the OS and offers no appearance control, so clear any mode
+			`mode-watcher` persisted from a build that had one. `resetMode()` in +layout.svelte
+			does the same, but only after hydration — too late to keep `mode-watcher`'s own
+			script on the prerendered routes from painting that stale pick first.
+		-->
+		<script>
+			(function () {
+				try {
+					localStorage.removeItem('mode-watcher-mode');
+				} catch (e) {
+					/* ignore */
+				}
+				var light = window.matchMedia('(prefers-color-scheme: light)').matches;
+				var root = document.documentElement;
+				root.classList.toggle('dark', !light);
+				root.style.colorScheme = light ? 'light' : 'dark';
+			})();
+		</script>
 		<!-- Favicon from +layout.svelte; early script below may swap to a privacy disguise before paint. -->
 		%sveltekit.head%
 		<!--
