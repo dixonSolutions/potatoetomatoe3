@@ -484,24 +484,25 @@ fn context(desktop_scheme: &Result<bool, String>) -> tauri::Context {
   let mut context = tauri::generate_context!();
   #[cfg(target_os = "linux")]
   if let Ok(dark) = *desktop_scheme {
-    let base = if dark {
-      tauri::window::Color(30, 30, 30, 255)
-    } else {
-      tauri::window::Color(255, 255, 255, 255)
-    };
     // `theme` is what tao acts on, and it acts while building the window — before the
-    // webview is mapped. Without it the GTK window itself is still light at that moment
-    // (GtkSettings is only written from `setup`), so whichever of the two got painted
-    // first decided what you saw: sometimes the dark webview background, sometimes a
-    // white GTK window. Setting both makes the answer the same either way.
+    // webview is mapped. Without it the GTK window itself is still light at that moment,
+    // so whichever of the two got painted first decided what you saw: sometimes the dark
+    // webview background, sometimes a white GTK window.
     let theme = Some(if dark {
       tauri::Theme::Dark
     } else {
       tauri::Theme::Light
     });
+    // And the colour comes from the desktop's own theme, not from a constant here — the
+    // app does not pick its colours. No `theme_bg_color` means no override, leaving the
+    // webview's default rather than a guess.
+    let base = system_theme::theme_window_background()
+      .map(|(r, g, b)| tauri::window::Color(r, g, b, 255));
     for window in &mut context.config_mut().app.windows {
-      window.background_color = Some(base);
       window.theme = theme;
+      if let Some(base) = base {
+        window.background_color = Some(base);
+      }
     }
   }
   context

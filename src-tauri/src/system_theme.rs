@@ -57,8 +57,30 @@ thread_local! {
 /// while a second one a moment later succeeds. That combination is what produced a white
 /// launch under a log line that said "dark" — the colour had already been skipped.
 pub fn desktop_prefers_dark() -> Result<bool, String> {
+  gtk::init().map_err(|e| format!("GTK would not start, leaving light/dark alone: {e}"))?;
   let bus = session_bus()?;
-  read_color_scheme(&bus).ok_or_else(portal_unavailable)
+  let dark = read_color_scheme(&bus).ok_or_else(portal_unavailable)?;
+  // Settle GTK now so the colour read below resolves against the right variant. `setup`
+  // writes it again from the shared answer; the second write is a no-op.
+  let _ = apply(dark);
+  Ok(dark)
+}
+
+/// The colour the desktop paints a window with, for the gap before the page paints.
+///
+/// Looked up from the GTK theme rather than assumed, because the app does not get to pick
+/// its own colours — the same rule `app.css` follows with `Canvas`/`CanvasText`. A constant
+/// here would be one more thing to disagree with the desktop, and would be wrong on any
+/// theme but the one it was copied from.
+///
+/// `theme_bg_color` is the name Adwaita and its derivatives (Yaru included) give the window
+/// base. A theme that does not define it gets no override at all, which leaves the webview
+/// on its own default rather than on a guess.
+pub fn theme_window_background() -> Option<(u8, u8, u8)> {
+  let widget = gtk::Box::new(gtk::Orientation::Horizontal, 0);
+  let rgba = widget.style_context().lookup_color("theme_bg_color")?;
+  let to_u8 = |v: f64| (v.clamp(0.0, 1.0) * 255.0).round() as u8;
+  Some((to_u8(rgba.red()), to_u8(rgba.green()), to_u8(rgba.blue())))
 }
 
 /// Mirror an already-read scheme onto `GtkSettings`, and keep mirroring every change.
