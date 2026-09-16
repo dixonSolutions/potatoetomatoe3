@@ -560,13 +560,18 @@ pub fn run() {
         // drawn on top of it and paints white until the page does. That is the white that
         // survived every window-level fix — the instruments could only see the window
         // underneath it. This call is the one that reaches both.
-        if let Some((r, g, b)) = system_theme::theme_window_background() {
-          let base = tauri::window::Color(r, g, b, 255);
-          for (label, window) in app.webview_windows() {
-            if let Err(e) = window.set_background_color(Some(base)) {
-              log::info!("could not colour {label}: {e}");
+        match system_theme::theme_window_background() {
+          Some((r, g, b)) => {
+            let base = tauri::window::Color(r, g, b, 255);
+            log::info!("webview base colour from theme_bg_color: rgb({r}, {g}, {b})");
+            for (label, window) in app.webview_windows() {
+              match window.set_background_color(Some(base)) {
+                Ok(()) => log::info!("coloured {label}"),
+                Err(e) => log::info!("could not colour {label}: {e}"),
+              }
             }
           }
+          None => log::info!("theme defines no theme_bg_color; leaving the webview default"),
         }
       }
       #[cfg(not(mobile))]
