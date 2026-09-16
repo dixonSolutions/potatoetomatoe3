@@ -478,18 +478,31 @@ fn spawn_puller(app: &tauri::AppHandle) {
 /// on the dev server. Setting it from `setup` is too late: the window exists and has
 /// already painted by then. Config is the one place early enough. These are WebKit's own
 /// canvas colours per `color-scheme`, so the gap matches what the page paints next.
-fn context() -> tauri::Context {
+#[cfg_attr(not(target_os = "linux"), allow(unused_variables))]
+fn context(desktop_scheme: &Result<bool, String>) -> tauri::Context {
   #[allow(unused_mut)]
   let mut context = tauri::generate_context!();
   #[cfg(target_os = "linux")]
-  if let Ok(dark) = system_theme::desktop_prefers_dark() {
-    let base = if dark {
-      tauri::window::Color(30, 30, 30, 255)
+  if let Ok(dark) = *desktop_scheme {
+    // `theme` is what tao acts on, and it acts while building the window — before the
+    // webview is mapped. Without it the GTK window itself is still light at that moment,
+    // so whichever of the two got painted first decided what you saw: sometimes the dark
+    // webview background, sometimes a white GTK window.
+    let theme = Some(if dark {
+      tauri::Theme::Dark
     } else {
-      tauri::window::Color(255, 255, 255, 255)
-    };
+      tauri::Theme::Light
+    });
+    // And the colour comes from the desktop's own theme, not from a constant here — the
+    // app does not pick its colours. No `theme_bg_color` means no override, leaving the
+    // webview's default rather than a guess.
+    let base = system_theme::theme_window_background()
+      .map(|(r, g, b)| tauri::window::Color(r, g, b, 255));
     for window in &mut context.config_mut().app.windows {
-      window.background_color = Some(base);
+      window.theme = theme;
+      if let Some(base) = base {
+        window.background_color = Some(base);
+      }
     }
   }
   context
@@ -497,6 +510,16 @@ fn context() -> tauri::Context {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+  // One portal read, shared: the window's colour is decided from it before the window
+  // exists, and `setup` mirrors the same answer onto GtkSettings once GTK is up.
+  #[cfg(target_os = "linux")]
+  let desktop_scheme = system_theme::desktop_prefers_dark();
+  #[cfg(not(target_os = "linux"))]
+  let desktop_scheme: Result<bool, String> = Err(String::new());
+  // `setup` needs its own copy: the context is still built inline at `.run()` below, where
+  // Tauri expects it.
+  let scheme_for_setup = desktop_scheme.clone();
+
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
     .invoke_handler(tauri::generate_handler![
@@ -516,7 +539,7 @@ pub fn run() {
       disguise::set_native_disguise,
       disguise::clear_native_disguise
     ])
-    .setup(|app| {
+    .setup(move |app| {
       if cfg!(debug_assertions) {
         app.handle().plugin(
           tauri_plugin_log::Builder::default()
@@ -525,9 +548,31 @@ pub fn run() {
         )?;
       }
       #[cfg(target_os = "linux")]
-      match system_theme::follow_desktop_color_scheme() {
-        Ok(dark) => log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" }),
-        Err(why) => log::info!("{why}"),
+      {
+        match scheme_for_setup {
+          Ok(dark) => log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" }),
+          Err(ref why) => log::info!("{why}"),
+        }
+        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup) {
+          log::info!("{why}");
+        }
+        // The window config colour dresses the window; the webview is a separate surface
+        // drawn on top of it and paints white until the page does. That is the white that
+        // survived every window-level fix — the instruments could only see the window
+        // underneath it. This call is the one that reaches both.
+        match system_theme::theme_window_background() {
+          Some((r, g, b)) => {
+            let base = tauri::window::Color(r, g, b, 255);
+            log::info!("webview base colour from theme_bg_color: rgb({r}, {g}, {b})");
+            for (label, window) in app.webview_windows() {
+              match window.set_background_color(Some(base)) {
+                Ok(()) => log::info!("coloured {label}"),
+                Err(e) => log::info!("could not colour {label}: {e}"),
+              }
+            }
+          }
+          None => log::info!("theme defines no theme_bg_color; leaving the webview default"),
+        }
       }
       #[cfg(not(mobile))]
       {
@@ -583,6 +628,6 @@ pub fn run() {
         }
       }
     })
-    .run(context())
+    .run(context(&desktop_scheme))
     .expect("error while running tauri application");
 }

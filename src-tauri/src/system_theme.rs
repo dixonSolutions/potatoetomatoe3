@@ -30,7 +30,7 @@
 //! the spec's, so it is only GTK3's absence from that spec that is being patched over.
 
 use gtk::gio;
-use gtk::glib::Variant;
+use gtk::glib::{Variant, VariantTy};
 use gtk::prelude::*;
 use std::cell::RefCell;
 
@@ -46,27 +46,65 @@ thread_local! {
   static PORTAL_BUS: RefCell<Option<gio::DBusConnection>> = const { RefCell::new(None) };
 }
 
-/// Mirror the desktop's colour-scheme onto `GtkSettings`, now and on every change.
-///
 /// What the desktop published, with nothing done about it yet.
 ///
 /// Only D-Bus, so unlike the rest of this module it can be asked before GTK exists — which
-/// is the point: the window's background colour has to be decided before the window is,
-/// or the app spends the whole page load as a white sheet inside a dark window.
+/// is the point: the window's background colour has to be decided before the window is, or
+/// the app spends the whole page load as a white sheet inside a dark window.
+///
+/// Ask once and pass the answer around. Asking again in `setup` looked equivalent and was
+/// not: the portal is still starting up alongside the app, so the first `Read` can time out
+/// while a second one a moment later succeeds. That combination is what produced a white
+/// launch under a log line that said "dark" — the colour had already been skipped.
 pub fn desktop_prefers_dark() -> Result<bool, String> {
+  gtk::init().map_err(|e| format!("GTK would not start, leaving light/dark alone: {e}"))?;
   let bus = session_bus()?;
-  read_color_scheme(&bus).ok_or_else(portal_unavailable)
+  let dark = read_color_scheme(&bus).ok_or_else(portal_unavailable)?;
+  // Settle GTK now so the colour read below resolves against the right variant. `setup`
+  // writes it again from the shared answer; the second write is a no-op.
+  let _ = apply(dark);
+  Ok(dark)
 }
 
-/// Mirror the desktop's choice onto `GtkSettings`, now and on every change.
+/// The colour the desktop paints a window with, for the gap before the page paints.
 ///
-/// Call once from the GTK thread, after Tauri has initialised GTK. Returns what it read
-/// so the caller can report it.
-pub fn follow_desktop_color_scheme() -> Result<bool, String> {
+/// Looked up from the GTK theme rather than assumed, because the app does not get to pick
+/// its own colours — the same rule `app.css` follows with `Canvas`/`CanvasText`. A constant
+/// here would be one more thing to disagree with the desktop, and would be wrong on any
+/// theme but the one it was copied from.
+///
+/// `theme_bg_color` is the name Adwaita and its derivatives (Yaru included) give the window
+/// base. A theme that does not define it gets no override at all, which leaves the webview
+/// on its own default rather than on a guess.
+pub fn theme_window_background() -> Option<(u8, u8, u8)> {
+  let widget = gtk::Box::new(gtk::Orientation::Horizontal, 0);
+  let rgba = widget.style_context().lookup_color("theme_bg_color")?;
+  let to_u8 = |v: f64| (v.clamp(0.0, 1.0) * 255.0).round() as u8;
+  Some((to_u8(rgba.red()), to_u8(rgba.green()), to_u8(rgba.blue())))
+}
+
+/// Mirror an already-read scheme onto `GtkSettings`, and keep mirroring every change.
+///
+/// Call once from the GTK thread, after Tauri has initialised GTK.
+///
+/// A scheme the early read missed is asked for again rather than written off, because that
+/// read raced the portal's own startup and the portal has had all of Tauri's init to finish
+/// since. `SettingChanged` is no substitute: it announces a change, not the portal becoming
+/// ready, so without the retry one timed-out `Read` would leave a dark desktop light for
+/// the rest of the session.
+pub fn follow_desktop_color_scheme(scheme: &Result<bool, String>) -> Result<(), String> {
   let bus = session_bus()?;
 
-  let scheme = read_color_scheme(&bus).ok_or_else(portal_unavailable);
-  if let Ok(dark) = scheme {
+  let scheme = match *scheme {
+    Ok(dark) => Some(dark),
+    Err(_) => read_color_scheme(&bus).inspect(|dark| {
+      log::info!(
+        "appearance portal answered on retry: desktop colour-scheme is {}",
+        if *dark { "dark" } else { "light" }
+      );
+    }),
+  };
+  if let Some(dark) = scheme {
     let _ = apply(dark);
   }
 
@@ -99,7 +137,7 @@ pub fn follow_desktop_color_scheme() -> Result<bool, String> {
   std::mem::forget(id);
 
   PORTAL_BUS.with(|slot| *slot.borrow_mut() = Some(bus));
-  scheme
+  Ok(())
 }
 
 fn session_bus() -> Result<gio::DBusConnection, String> {
@@ -138,11 +176,16 @@ fn read_color_scheme(bus: &gio::DBusConnection) -> Option<bool> {
 ///
 /// The number arrives nested in variants, and how deeply depends on who answers: the
 /// portal's `Read` wraps its `v` return in another `v`, while `SettingChanged` carries the
-/// value bare. Unwrap until a number appears rather than assuming a depth.
+/// value bare. Unwrap until a number appears rather than assuming a depth — checking the
+/// type first, because `as_variant()` on anything else is a GLib assertion failure, which
+/// it logged as a CRITICAL on every single startup.
 fn prefers_dark(value: &Variant) -> Option<bool> {
   let mut value = value.clone();
-  while let Some(inner) = value.as_variant() {
-    value = inner;
+  while value.type_() == VariantTy::VARIANT {
+    match value.as_variant() {
+      Some(inner) => value = inner,
+      None => break,
+    }
   }
   match value.get::<u32>()? {
     1 => Some(true),
