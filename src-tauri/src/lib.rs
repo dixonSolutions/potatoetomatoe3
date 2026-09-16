@@ -556,6 +556,18 @@ pub fn run() {
         if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup) {
           log::info!("{why}");
         }
+        // The window config colour dresses the window; the webview is a separate surface
+        // drawn on top of it and paints white until the page does. That is the white that
+        // survived every window-level fix — the instruments could only see the window
+        // underneath it. This call is the one that reaches both.
+        if let Some((r, g, b)) = system_theme::theme_window_background() {
+          let base = tauri::window::Color(r, g, b, 255);
+          for (label, window) in app.webview_windows() {
+            if let Err(e) = window.set_background_color(Some(base)) {
+              log::info!("could not colour {label}: {e}");
+            }
+          }
+        }
       }
       #[cfg(not(mobile))]
       {
