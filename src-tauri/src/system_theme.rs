@@ -64,10 +64,25 @@ pub fn desktop_prefers_dark() -> Result<bool, String> {
 /// Mirror an already-read scheme onto `GtkSettings`, and keep mirroring every change.
 ///
 /// Call once from the GTK thread, after Tauri has initialised GTK.
+///
+/// A scheme the early read missed is asked for again rather than written off, because that
+/// read raced the portal's own startup and the portal has had all of Tauri's init to finish
+/// since. `SettingChanged` is no substitute: it announces a change, not the portal becoming
+/// ready, so without the retry one timed-out `Read` would leave a dark desktop light for
+/// the rest of the session.
 pub fn follow_desktop_color_scheme(scheme: &Result<bool, String>) -> Result<(), String> {
   let bus = session_bus()?;
 
-  if let Ok(dark) = *scheme {
+  let scheme = match *scheme {
+    Ok(dark) => Some(dark),
+    Err(_) => read_color_scheme(&bus).inspect(|dark| {
+      log::info!(
+        "appearance portal answered on retry: desktop colour-scheme is {}",
+        if *dark { "dark" } else { "light" }
+      );
+    }),
+  };
+  if let Some(dark) = scheme {
     let _ = apply(dark);
   }
 
