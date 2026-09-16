@@ -36,6 +36,12 @@ futures-util = "0.3"
 base64 = "0.22"
 tokio = { version = "1", features = ["fs", "io-util"] }
 
+# `gtk::Settings` + the appearance portal, so the webview is told the desktop's real
+# light/dark choice rather than what the GTK theme name implies. Same 0.18 Tauri already
+# builds on Linux, so this adds a name in scope, not a crate to the graph.
+[target.'cfg(target_os = "linux")'.dependencies]
+gtk = "0.18"
+
 # Firing the package-installer Intent needs a JNI hop into MainActivity; there is no
 # portable Tauri API for "open this content:// with an explicit MIME type".
 [target.'cfg(target_os = "android")'.dependencies]

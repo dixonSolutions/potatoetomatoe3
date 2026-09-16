@@ -4,6 +4,9 @@ mod disguise;
 #[cfg(desktop)]
 mod tray;
 
+#[cfg(target_os = "linux")]
+mod system_theme;
+
 #[cfg(mobile)]
 mod tray {
   #[tauri::command]
@@ -468,6 +471,30 @@ fn spawn_puller(app: &tauri::AppHandle) {
   log::warn!("puller could not be started — offline download disabled");
 }
 
+/// The generated context, with the window's background colour settled first.
+///
+/// A webview paints white until the page does, so on a dark desktop the whole page load
+/// was a white sheet inside a dark window — seconds of it under `tauri dev`, which waits
+/// on the dev server. Setting it from `setup` is too late: the window exists and has
+/// already painted by then. Config is the one place early enough. These are WebKit's own
+/// canvas colours per `color-scheme`, so the gap matches what the page paints next.
+fn context() -> tauri::Context {
+  #[allow(unused_mut)]
+  let mut context = tauri::generate_context!();
+  #[cfg(target_os = "linux")]
+  if let Ok(dark) = system_theme::desktop_prefers_dark() {
+    let base = if dark {
+      tauri::window::Color(30, 30, 30, 255)
+    } else {
+      tauri::window::Color(255, 255, 255, 255)
+    };
+    for window in &mut context.config_mut().app.windows {
+      window.background_color = Some(base);
+    }
+  }
+  context
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
   tauri::Builder::default()
@@ -496,6 +523,11 @@ pub fn run() {
             .level(log::LevelFilter::Info)
             .build(),
         )?;
+      }
+      #[cfg(target_os = "linux")]
+      match system_theme::follow_desktop_color_scheme() {
+        Ok(dark) => log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" }),
+        Err(why) => log::info!("{why}"),
       }
       #[cfg(not(mobile))]
       {
@@ -551,6 +583,6 @@ pub fn run() {
         }
       }
     })
-    .run(tauri::generate_context!())
+    .run(context())
     .expect("error while running tauri application");
 }

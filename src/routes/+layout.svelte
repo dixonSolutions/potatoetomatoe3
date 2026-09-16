@@ -19,7 +19,7 @@
 	import Settings from '$lib/components/settings/Settings.svelte';
 	import { toast } from 'svelte-sonner';
 	import { isGlobalDailyLimitExceeded } from '$lib/utils/play-recommendations';
-	import { ModeWatcher, resetMode } from 'mode-watcher';
+	import { ModeWatcher, resetMode, systemPrefersMode } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { setSettingsUiContext } from '$lib/settings-ui-context';
 	import {
@@ -497,7 +497,25 @@
 	 * is gone) no way back. Clearing it on mount is what makes "follows the system" true
 	 * for existing installs, not just new ones.
 	 */
-	onMount(() => resetMode());
+	onMount(() => {
+		resetMode();
+
+		/*
+		 * `mode-watcher` follows the OS through a `MediaQuery` it reads inside its own
+		 * `$effect.root`. That subscription holds under `vite dev` but not in the production
+		 * build — the build that actually ships — where the app read the desktop once at
+		 * startup and then ignored it: switch GNOME between Light and Dark with the app open
+		 * and the page kept the scheme it booted with until it was restarted, under a native
+		 * titlebar that had already followed. Re-running its query from the media query's own
+		 * `change` event is what keeps "follows the system" true while the app is running,
+		 * and it feeds the same state the rest of `mode-watcher` derives from rather than
+		 * writing the class behind its back.
+		 */
+		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		const onSchemeChange = () => systemPrefersMode.query();
+		darkQuery.addEventListener('change', onSchemeChange);
+		return () => darkQuery.removeEventListener('change', onSchemeChange);
+	});
 </script>
 
 <ModeWatcher defaultMode="system" />
