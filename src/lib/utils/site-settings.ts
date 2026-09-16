@@ -54,6 +54,8 @@ export type SiteSettingsV1 = {
 	defaultGamePlayMode: GamePlayModePreference;
 	/** Toggle pause/resume while a game is playing (default: backtick `). */
 	gamePauseShortcut: PrivacyLockShortcut;
+	/** Toggle fullscreen while a game is playing (default: F). */
+	gameFullscreenShortcut: PrivacyLockShortcut;
 };
 
 export type GamePlayModePreference = 'online' | 'offline';
@@ -74,6 +76,13 @@ const DEFAULTS: SiteSettingsV1 = {
 	defaultGamePlayMode: 'online',
 	gamePauseShortcut: {
 		code: 'Backquote',
+		ctrlKey: false,
+		shiftKey: false,
+		altKey: false,
+		metaKey: false
+	},
+	gameFullscreenShortcut: {
+		code: 'KeyF',
 		ctrlKey: false,
 		shiftKey: false,
 		altKey: false,
@@ -144,6 +153,23 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 			metaKey: r.metaKey === true
 		};
 	}
+	let gameFullscreenShortcut = DEFAULTS.gameFullscreenShortcut;
+	const rawFullscreen = merged.gameFullscreenShortcut;
+	if (
+		rawFullscreen &&
+		typeof rawFullscreen === 'object' &&
+		typeof (rawFullscreen as PrivacyLockShortcut).code === 'string' &&
+		(rawFullscreen as PrivacyLockShortcut).code.length > 0
+	) {
+		const r = rawFullscreen as PrivacyLockShortcut;
+		gameFullscreenShortcut = {
+			code: r.code,
+			ctrlKey: r.ctrlKey === true,
+			shiftKey: r.shiftKey === true,
+			altKey: r.altKey === true,
+			metaKey: r.metaKey === true
+		};
+	}
 	let privacyDisguiseProvider = merged.privacyDisguiseProvider;
 	if (privacyDisguiseProvider !== 'google' && privacyDisguiseProvider !== 'microsoft') {
 		privacyDisguiseProvider = DEFAULTS.privacyDisguiseProvider;
@@ -160,6 +186,7 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 		privacyLockShortcut,
 		defaultGamePlayMode,
 		gamePauseShortcut,
+		gameFullscreenShortcut,
 		privacyDisguiseProvider,
 		privacyDisguiseService
 	};

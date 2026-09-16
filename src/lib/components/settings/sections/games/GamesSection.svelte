@@ -16,6 +16,14 @@
 		saveGamePauseShortcut,
 		type GamePauseShortcut
 	} from '$lib/utils/game-pause';
+	import {
+		DEFAULT_GAME_FULLSCREEN_SHORTCUT,
+		formatGameFullscreenShortcutLabel,
+		getGameFullscreenShortcut,
+		isValidGameFullscreenShortcut,
+		saveGameFullscreenShortcut,
+		type GameFullscreenShortcut
+	} from '$lib/utils/game-fullscreen';
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
 	import {
 		getTrayLifecycleState,
@@ -52,6 +60,10 @@
 
 	let pauseShortcut = $state<GamePauseShortcut>({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
 	let recordingPauseShortcut = $state(false);
+	let fullscreenShortcut = $state<GameFullscreenShortcut>({
+		...DEFAULT_GAME_FULLSCREEN_SHORTCUT
+	});
+	let recordingFullscreenShortcut = $state(false);
 	let trayLife = $state<TrayLifecycleState | null>(null);
 	let closeToTrayBusy = $state(false);
 
@@ -64,6 +76,11 @@
 	function resetPauseShortcut() {
 		pauseShortcut = saveGamePauseShortcut({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
 		toast.message('Pause shortcut reset to `');
+	}
+
+	function resetFullscreenShortcut() {
+		fullscreenShortcut = saveGameFullscreenShortcut({ ...DEFAULT_GAME_FULLSCREEN_SHORTCUT });
+		toast.message('Fullscreen shortcut reset to F');
 	}
 
 	async function onCloseToTrayToggle(checked: boolean) {
@@ -86,6 +103,7 @@
 
 	onMount(() => {
 		pauseShortcut = getGamePauseShortcut();
+		fullscreenShortcut = getGameFullscreenShortcut();
 		if (isTauriApp()) {
 			void getTrayLifecycleState(true).then((s) => {
 				trayLife = s;
@@ -123,6 +141,36 @@
 			pauseShortcut = saveGamePauseShortcut(next);
 			recordingPauseShortcut = false;
 			toast.success(`Pause shortcut set to ${formatGamePauseShortcutLabel(next)}`);
+		};
+		window.addEventListener('keydown', onKey, true);
+		return () => window.removeEventListener('keydown', onKey, true);
+	});
+
+	$effect(() => {
+		if (!recordingFullscreenShortcut) return;
+		const onKey = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				recordingFullscreenShortcut = false;
+				return;
+			}
+			e.preventDefault();
+			e.stopPropagation();
+			if (isModifierOnlyKeyboardCode(e.code)) return;
+			const next: GameFullscreenShortcut = {
+				code: e.code,
+				ctrlKey: e.ctrlKey,
+				shiftKey: e.shiftKey,
+				altKey: e.altKey,
+				metaKey: e.metaKey
+			};
+			if (!isValidGameFullscreenShortcut(next)) {
+				toast.error('That shortcut is already taken (pause, or Ctrl+Shift+, for settings).');
+				recordingFullscreenShortcut = false;
+				return;
+			}
+			fullscreenShortcut = saveGameFullscreenShortcut(next);
+			recordingFullscreenShortcut = false;
+			toast.success(`Fullscreen shortcut set to ${formatGameFullscreenShortcutLabel(next)}`);
 		};
 		window.addEventListener('keydown', onKey, true);
 		return () => window.removeEventListener('keydown', onKey, true);
@@ -200,6 +248,52 @@
 					onclick={resetPauseShortcut}
 				>
 					Reset to `
+				</Button>
+			</div>
+		</div>
+	{/if}
+
+	{#if sectionMatches(searchQuery, 'fullscreen full screen shortcut hotkey keyboard game f')}
+		<div id="settings-section-games-fullscreen-shortcut" class="scroll-mt-32 space-y-3">
+			<div>
+				<p class="text-sm font-medium">Fullscreen shortcut</p>
+				<p class="text-xs text-muted-foreground">
+					While a game is open, press this key to enter or leave fullscreen. Default is
+					<span class="font-mono">F</span>. Ignored while typing in a field.
+				</p>
+			</div>
+			<div
+				class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2 text-sm {recordingFullscreenShortcut
+					? 'border-primary bg-muted/40'
+					: ''}"
+			>
+				<span class="font-mono text-xs tabular-nums">
+					{recordingFullscreenShortcut
+						? 'Press keys… (or tap Cancel)'
+						: formatGameFullscreenShortcutLabel(fullscreenShortcut)}
+				</span>
+			</div>
+			<div class="flex flex-wrap gap-2">
+				<Button
+					type="button"
+					variant={recordingFullscreenShortcut ? 'secondary' : 'outline'}
+					size="sm"
+					disabled={busy}
+					aria-pressed={recordingFullscreenShortcut}
+					onclick={() => {
+						recordingFullscreenShortcut = !recordingFullscreenShortcut;
+					}}
+				>
+					{recordingFullscreenShortcut ? 'Cancel' : 'Record shortcut'}
+				</Button>
+				<Button
+					type="button"
+					variant="ghost"
+					size="sm"
+					disabled={busy}
+					onclick={resetFullscreenShortcut}
+				>
+					Reset to F
 				</Button>
 			</div>
 		</div>

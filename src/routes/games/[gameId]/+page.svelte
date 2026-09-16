@@ -34,18 +34,16 @@
 		ArrowLeft,
 		ThumbsUp,
 		ThumbsDown,
-		RotateCcw,
+		RefreshCw,
 		ScrollText,
 		Pause,
 		Play,
 		Download,
-		Gamepad2,
-		Menu
+		Gamepad2
 	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
-	import { GAME_MENU_KEY, sendGameKey } from '$lib/utils/game-key-tap';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -64,6 +62,11 @@
 		gamePauseShortcutMatches,
 		getGamePauseShortcut
 	} from '$lib/utils/game-pause';
+	import {
+		formatGameFullscreenShortcutLabel,
+		gameFullscreenShortcutMatches,
+		getGameFullscreenShortcut
+	} from '$lib/utils/game-fullscreen';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
@@ -130,6 +133,7 @@
 	let offlineBackendLabel = $state('…');
 	let gamePaused = $state(false);
 	let pauseShortcutLabel = $state('`');
+	let fullscreenShortcutLabel = $state('F');
 	let touchConsoleVisible = $state(false);
 	let touchConsoleAvailable = $state(false);
 	/** Frame started but never reported `load` — surfaces the retry hint below the player. */
@@ -228,6 +232,7 @@
 
 	function refreshPauseShortcutLabel() {
 		pauseShortcutLabel = formatGamePauseShortcutLabel(getGamePauseShortcut());
+		fullscreenShortcutLabel = formatGameFullscreenShortcutLabel(getGameFullscreenShortcut());
 	}
 
 	function setGamePausedState(paused: boolean) {
@@ -416,30 +421,6 @@
 		return true;
 	}
 
-	/**
-	 * Send Escape into the game: the game's own pause / options menu, not ours.
-	 *
-	 * Escape is the near-universal "open the game menu" key and a touch device has
-	 * no keyboard to press it with. It was previously reachable only as the touch
-	 * console's Y button, which meant finding the console, enabling it and
-	 * switching it ON before a game's own menu could be opened at all. It belongs
-	 * here instead, beside Pause and Fullscreen — the other two things you do to a
-	 * running game rather than inside one.
-	 *
-	 * Deliberately silent on success. This is a key press; a toast per press would
-	 * be noise. Failure does talk, because a button that does nothing and says
-	 * nothing is the worst of the three outcomes.
-	 */
-	function sendGameMenuKey() {
-		if (!gameSurfaceStarted) return;
-		if (sendGameKey(iframeElement ?? null, gamePlayerUrl, GAME_MENU_KEY)) return;
-		toast.error('Cannot reach this game to send Esc.', {
-			description: shouldProbePullerBackend()
-				? 'Online play needs the local relay; offline play needs a downloaded mirror.'
-				: 'This game runs on a third-party site, which will not accept injected keys.'
-		});
-	}
-
 	function toggleTouchConsole() {
 		if (touchConsoleVisible) {
 			setTouchConsoleVisible(false, 'toggle');
@@ -600,7 +581,14 @@
 		iframeElement = undefined;
 		await refreshPlayerUrl();
 		playerRemountKey += 1;
-		toast.message('Game relaunched — press Play to start again');
+		/*
+		 * Restarting a game means the game comes back, not a Play poster: the click that
+		 * asked for the restart is the gesture, and making the user press Play again is
+		 * a second gesture for something they already asked for. Set after the remount
+		 * so the fresh LazyGameFrame mounts already started.
+		 */
+		gameSurfaceStarted = true;
+		toast.message('Game restarted');
 	}
 
 	/**
@@ -734,6 +722,19 @@
 			e.stopPropagation();
 			toggleGamePause();
 		};
+		/*
+		 * Fullscreen has no reason to wait for the game to be started — the surface can go
+		 * fullscreen either way — but a bare `F` must never fire while the user is typing
+		 * into the page's own fields, same guard as pause.
+		 */
+		const onFullscreenHotkey = (e: KeyboardEvent) => {
+			const t = e.target as HTMLElement | null;
+			if (t?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+			if (!gameFullscreenShortcutMatches(e)) return;
+			e.preventDefault();
+			e.stopPropagation();
+			void toggleFullscreen();
+		};
 		const onEscapePseudoFullscreen = (e: KeyboardEvent) => {
 			if (e.key !== 'Escape') return;
 			if (!gameSurfaceEl || !isPseudoFullscreen(gameSurfaceEl)) return;
@@ -745,6 +746,7 @@
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		window.addEventListener('keydown', onPauseHotkey, true);
+		window.addEventListener('keydown', onFullscreenHotkey, true);
 		window.addEventListener('keydown', onEscapePseudoFullscreen, true);
 		document.addEventListener('fullscreenchange', syncGameFullscreenState);
 		document.addEventListener('webkitfullscreenchange', syncGameFullscreenState);
@@ -756,6 +758,7 @@
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 			window.removeEventListener('keydown', onPauseHotkey, true);
+			window.removeEventListener('keydown', onFullscreenHotkey, true);
 			window.removeEventListener('keydown', onEscapePseudoFullscreen, true);
 			document.removeEventListener('fullscreenchange', syncGameFullscreenState);
 			document.removeEventListener('webkitfullscreenchange', syncGameFullscreenState);
@@ -928,19 +931,6 @@
 						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
 					</Button>
 					{#if showConsoleButton}
-						<Button
-							onclick={sendGameMenuKey}
-							variant="outline"
-							size="sm"
-							class="w-full sm:w-auto"
-							disabled={!gameSurfaceStarted}
-							data-testid="game-menu-key"
-							title="Open the game's own menu (sends Esc into the game)"
-						>
-							<Menu class="mr-2 h-4 w-4" />
-							Game menu
-							<span class="ml-1 font-mono text-[10px] opacity-70">Esc</span>
-						</Button>
 						<button
 							type="button"
 							data-testid="touch-console-toggle"
@@ -962,11 +952,13 @@
 					<Button
 						onclick={() => void relaunchGameCompletely()}
 						variant="outline"
-						size="sm"
-						class="w-full sm:w-auto"
+						size="icon"
+						class="size-8 shrink-0"
+						data-testid="relaunch-game"
+						title="Restart the game"
+						aria-label="Restart the game"
 					>
-						<RotateCcw class="mr-2 h-4 w-4" />
-						Relaunch
+						<RefreshCw class="h-4 w-4" />
 					</Button>
 					<Button
 						onclick={toggleFullscreen}
@@ -974,9 +966,11 @@
 						size="sm"
 						class="w-full sm:w-auto"
 						aria-pressed={isGameFullscreen}
+						title={`Fullscreen (${fullscreenShortcutLabel})`}
 					>
 						<Maximize class="mr-2 h-4 w-4" />
 						{isGameFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+						<span class="ml-1 font-mono text-[10px] opacity-70">{fullscreenShortcutLabel}</span>
 					</Button>
 				</div>
 			</div>
@@ -1040,18 +1034,6 @@
 						{/if}
 					</Button>
 					{#if showConsoleButton}
-						<Button
-							variant="secondary"
-							size="sm"
-							class="shadow-md backdrop-blur-sm"
-							onclick={sendGameMenuKey}
-							disabled={!gameSurfaceStarted}
-							data-testid="game-menu-key-fs"
-							aria-label="Open the game's own menu (sends Esc into the game)"
-						>
-							<Menu class="mr-2 h-4 w-4" />
-							Game menu
-						</Button>
 						<button
 							type="button"
 							data-testid="touch-console-toggle-fs"
@@ -1070,13 +1052,14 @@
 					{/if}
 					<Button
 						variant="secondary"
-						size="sm"
-						class="shadow-md backdrop-blur-sm"
+						size="icon"
+						class="size-8 shrink-0 shadow-md backdrop-blur-sm"
 						onclick={() => void relaunchGameCompletely()}
-						aria-label="Relaunch game"
+						data-testid="relaunch-game-fs"
+						title="Restart the game"
+						aria-label="Restart the game"
 					>
-						<RotateCcw class="mr-2 h-4 w-4" />
-						Relaunch
+						<RefreshCw class="h-4 w-4" />
 					</Button>
 					<Button
 						variant="secondary"

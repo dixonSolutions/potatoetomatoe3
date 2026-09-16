@@ -17,7 +17,7 @@ use std::net::TcpListener;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Mutex, OnceLock};
-use tauri::Manager;
+use tauri::{Emitter, Manager};
 use tauri::path::BaseDirectory;
 
 static PULLER_PORT: OnceLock<u16> = OnceLock::new();
@@ -526,6 +526,25 @@ fn spawn_puller(app: &tauri::AppHandle) {
 /// painted yet, and the webview's own base colour is what WebKit clears to before the
 /// page's first frame.
 #[cfg(target_os = "linux")]
+/// Payload is `true` for dark. Mirrors the portal's `SettingChanged` to the frontend.
+const SYSTEM_COLOR_SCHEME_EVENT: &str = "system-color-scheme";
+
+/// The desktop's current colour scheme, for the page to read at startup.
+///
+/// `Ok(None)` is a platform or desktop that has no such notion — the page keeps its own
+/// `prefers-color-scheme` answer there rather than being told something wrong.
+#[tauri::command]
+fn desktop_color_scheme_is_dark() -> Option<bool> {
+  #[cfg(target_os = "linux")]
+  {
+    system_theme::desktop_prefers_dark().ok()
+  }
+  #[cfg(not(target_os = "linux"))]
+  {
+    None
+  }
+}
+
 fn paint_windows_from_theme(app: &tauri::AppHandle) {
   match system_theme::theme_window_background() {
     Some((r, g, b)) => {
@@ -595,6 +614,7 @@ pub fn run() {
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
       get_puller_base_url,
+      desktop_color_scheme_is_dark,
       ensure_puller,
       get_dev_harness_mode,
       is_tray_available,
@@ -632,8 +652,19 @@ pub fn run() {
         // theme — until the page repainted over it.
         let handle = app.handle().clone();
         paint_windows_from_theme(&handle);
-        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup, move |_dark| {
+        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup, move |dark| {
           paint_windows_from_theme(&handle);
+          /*
+           * The page is supposed to notice this through `prefers-color-scheme`, which
+           * WebKitGTK derives from the GTK settings we just wrote. It does not always
+           * arrive — under `tauri dev` the first switch after launch took seconds, and a
+           * webview that misses the media event has no other way to learn the desktop
+           * changed, so the page stayed in its launch scheme under a titlebar that had
+           * already followed. The portal told us directly; tell the page directly.
+           */
+          if let Err(e) = handle.emit(SYSTEM_COLOR_SCHEME_EVENT, dark) {
+            log::info!("could not announce colour-scheme change to the page: {e}");
+          }
         }) {
           log::info!("{why}");
         }

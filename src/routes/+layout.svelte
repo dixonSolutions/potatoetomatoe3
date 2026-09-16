@@ -20,6 +20,7 @@
 	import { toast } from 'svelte-sonner';
 	import { isGlobalDailyLimitExceeded } from '$lib/utils/play-recommendations';
 	import { ModeWatcher, resetMode, systemPrefersMode } from 'mode-watcher';
+	import { followNativeColorScheme } from '$lib/utils/system-color-scheme';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { setSettingsUiContext } from '$lib/settings-ui-context';
 	import {
@@ -514,7 +515,20 @@
 		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 		const onSchemeChange = () => systemPrefersMode.query();
 		darkQuery.addEventListener('change', onSchemeChange);
-		return () => darkQuery.removeEventListener('change', onSchemeChange);
+
+		/*
+		 * In the app the desktop portal is the source of truth, not the media query it is
+		 * supposed to drive — see `system-color-scheme.ts`. No-op in the browser.
+		 */
+		let unfollowNative: (() => void) | null = null;
+		void followNativeColorScheme().then((off) => {
+			unfollowNative = off;
+		});
+
+		return () => {
+			darkQuery.removeEventListener('change', onSchemeChange);
+			unfollowNative?.();
+		};
 	});
 </script>
 
