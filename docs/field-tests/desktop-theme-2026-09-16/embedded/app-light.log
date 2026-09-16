@@ -1,0 +1,51 @@
+[+94ms err] [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0 
+[+95ms err] [theme +36ms] portal Read color-scheme -> Some(false) in 1ms
+[+95ms err] [theme +36ms] apply(dark=false) changed=false; after apply: gtk-theme-name=Adwaita prefer-dark=false toplevels=0 
+[+97ms err] [theme +38ms] theme_bg_color -> Some((246, 245, 244))
+[+249ms out] [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0 
+[2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +36ms] portal Read color-scheme -> Some(false) in 1ms
+[2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +36ms] apply(dark=false) changed=false; after apply: gtk-theme-name=Adwaita prefer-dark=false toplevels=0 
+[2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +38ms] theme_bg_color -> Some((246, 245, 244))
+[2026-09-16][06:51:42][potato_tomato_lib][INFO] desktop colour-scheme is light
+[+249ms out] [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +190ms] theme_bg_color -> Some((246, 245, 244))
+[2026-09-16][06:51:42][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)
+[2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] setup: gtk-theme-name=Adwaita prefer-dark=false toplevels=1 {title="Potato Tomato" visible=true mapped=true realized=true size=1332x772 type=Toplevel}
+[+250ms out] [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(":1.1334186"))
+[+571ms err] 
+(potato-tomato-prod4:2543575): libayatana-appindicator-WARNING **: 16:51:43.205: libayatana-appindicator is deprecated. Please use libayatana-appindicator-glib in newly written code.
+[+571ms out] [2026-09-16][06:51:43][potato_tomato_lib][INFO] tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)
+[+739ms err] 
+(potato-tomato-prod4:2543575): Gtk-CRITICAL **: 16:51:43.370: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(potato-tomato-prod4:2543575): Gtk-CRITICAL **: 16:51:43.375: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+[+1002ms out] [2026-09-16][06:51:43][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)
+[+1266ms out] undefined
+[+1267ms out]  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "tsx" not found
+
+Did you mean "pnpm exec tsc"?
+[+1555ms out] [2026-09-16][06:51:44][potato_tomato_lib][INFO] ensure_puller: nothing healthy on 18787 — spawning
+[+1896ms out] [2026-09-16][06:51:44][potato_tomato_lib][INFO] ensure_puller: nothing healthy on 18787 — spawning
+[+2007ms out] [2026-09-16][06:51:44][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)
+[+2124ms out] [2026-09-16][06:51:44][potato_tomato_lib::system_theme][INFO] desktop switched to dark; after switch: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title="Potato Tomato" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title="" visible=false mapped=false realized=false size=1x1 type=Popup} {title="" visible=false mapped=false realized=false size=1x1 type=Popup}
+[+2124ms out] [2026-09-16][06:51:44][potato_tomato_lib::system_theme][INFO] [theme +2064ms] theme_bg_color -> Some((53, 53, 53))
+[+2124ms out] [2026-09-16][06:51:44][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)
+[+2250ms out] [2026-09-16][06:51:44][potato_tomato_lib][INFO] 2s after setup: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title="Potato Tomato" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title="" visible=false mapped=false realized=false size=1x1 type=Popup} {title="" visible=false mapped=false realized=false size=1x1 type=Popup}
+[+2300ms out] undefined
+[+2301ms out]  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "tsx" not found
+
+Did you mean "pnpm exec tsc"?
+[+2344ms out] [2026-09-16][06:51:44][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)
+[+2606ms out] undefined
+[+2606ms out]  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "tsx" not found
+
+Did you mean "pnpm exec tsc"?
+[+11064ms out] [2026-09-16][06:51:53][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787
+[+11088ms out] [2026-09-16][06:51:53][potato_tomato_lib][WARN] puller could not be started — offline download disabled
+[+12072ms out] [2026-09-16][06:51:54][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787
+[+12095ms out] [2026-09-16][06:51:54][potato_tomato_lib][WARN] puller could not be started — offline download disabled
+[+12409ms out] [2026-09-16][06:51:55][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787
+[+12439ms out] [2026-09-16][06:51:55][potato_tomato_lib][WARN] puller could not be started — offline download disabled
+[+24614ms out] [2026-09-16][06:52:07][potato_tomato_lib::system_theme][INFO] desktop switched to light; after switch: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title="Potato Tomato" visible=true mapped=true realized=true size=1442x842 type=Toplevel} {title="" visible=false mapped=false realized=false size=1x1 type=Popup} {title="" visible=false mapped=false realized=false size=1x1 type=Popup}
+[+24614ms out] [2026-09-16][06:52:07][potato_tomato_lib::system_theme][INFO] [theme +24554ms] theme_bg_color -> Some((246, 245, 244))
+[2026-09-16][06:52:07][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)
+[+46828ms err] free(): corrupted unsorted chunks

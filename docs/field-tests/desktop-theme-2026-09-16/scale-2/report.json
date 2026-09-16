@@ -1,0 +1,440 @@
+{
+  "startedAt": "2026-09-16T06:47:44.607Z",
+  "binary": "/tmp/potato-tomato-prod4",
+  "mode": "embedded build",
+  "env": {
+    "desktop": "GNOME / wayland",
+    "gnomeShell": "50.2",
+    "gtkTheme": "'Adwaita'",
+    "accent": "'blue'",
+    "schemeAtStart": "'prefer-dark'",
+    "monitor": {
+      "serial": 7,
+      "connector": "DP-2",
+      "mode": "1920x1080@60.000",
+      "scale": 1,
+      "scaleUnderTest": 2
+    }
+  },
+  "launch": {
+    "dark": {
+      "scheme": "dark",
+      "appExit": null,
+      "inspectorConnected": true,
+      "loaded": true,
+      "framesCaptured": 5,
+      "firstWindowAtMs": 759,
+      "firstWindowClass": "dark",
+      "firstWindowStats": {
+        "samples": 111328,
+        "mean": [
+          30,
+          30,
+          30
+        ],
+        "luminance": 0.118,
+        "lightFraction": 0,
+        "darkFraction": 1
+      },
+      "wrongSchemeFrames": 0,
+      "wrongSchemeMs": 0,
+      "wrongSchemeFirstFrame": null,
+      "extraWindowFrames": 0,
+      "extraWindowExample": null,
+      "settled": {
+        "file": "frames/0006-settled-dark.png",
+        "windows": [
+          {
+            "x": 272,
+            "y": 176,
+            "width": 1648,
+            "height": 912
+          }
+        ],
+        "stats": {
+          "samples": 349248,
+          "mean": [
+            71,
+            74,
+            67
+          ],
+          "luminance": 0.287,
+          "lightFraction": 0.1806,
+          "darkFraction": 0.7537
+        },
+        "class": "dark"
+      },
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": true,
+        "mediaLight": false,
+        "htmlDark": true,
+        "colorScheme": "dark",
+        "inlineColorScheme": "dark",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(30, 30, 30)",
+        "shellBg": "rgb(30, 30, 30)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 2,
+        "inner": [
+          960,
+          461
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "width": 1920,
+        "height": 1080
+      },
+      "frames": [
+        {
+          "file": "frames/0001-launch-dark.png",
+          "t": 23,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0002-launch-dark.png",
+          "t": 200,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0003-launch-dark.png",
+          "t": 372,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0004-launch-dark.png",
+          "t": 554,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0005-launch-dark.png",
+          "t": 759,
+          "windows": [
+            {
+              "x": 1088,
+              "y": 288,
+              "width": 800,
+              "height": 624
+            }
+          ],
+          "stats": {
+            "samples": 111328,
+            "mean": [
+              30,
+              30,
+              30
+            ],
+            "luminance": 0.118,
+            "lightFraction": 0,
+            "darkFraction": 1
+          },
+          "class": "dark",
+          "page": {
+            "readyState": "complete",
+            "mediaDark": true,
+            "htmlDark": true,
+            "colorScheme": "dark",
+            "shellBg": "rgb(30, 30, 30)",
+            "url": "tauri://localhost/home"
+          }
+        }
+      ]
+    },
+    "light": {
+      "scheme": "light",
+      "appExit": null,
+      "inspectorConnected": true,
+      "loaded": true,
+      "framesCaptured": 5,
+      "firstWindowAtMs": 736,
+      "firstWindowClass": "dark",
+      "firstWindowStats": {
+        "samples": 460768,
+        "mean": [
+          10,
+          10,
+          10
+        ],
+        "luminance": 0.04,
+        "lightFraction": 0.047,
+        "darkFraction": 0.953
+      },
+      "wrongSchemeFrames": 1,
+      "wrongSchemeMs": 0,
+      "wrongSchemeFirstFrame": "frames/0013-launch-light.png",
+      "extraWindowFrames": 0,
+      "extraWindowExample": null,
+      "settled": {
+        "file": "frames/0014-settled-light.png",
+        "windows": [
+          {
+            "x": 0,
+            "y": 64,
+            "width": 1920,
+            "height": 1024
+          }
+        ],
+        "stats": {
+          "samples": 460768,
+          "mean": [
+            214,
+            215,
+            211
+          ],
+          "luminance": 0.841,
+          "lightFraction": 0.8397,
+          "darkFraction": 0.1046
+        },
+        "class": "light"
+      },
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": false,
+        "mediaLight": true,
+        "htmlDark": false,
+        "colorScheme": "light",
+        "inlineColorScheme": "light",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(255, 255, 255)",
+        "shellBg": "rgb(255, 255, 255)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 2,
+        "inner": [
+          960,
+          461
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "width": 1920,
+        "height": 1080
+      },
+      "frames": [
+        {
+          "file": "frames/0009-launch-light.png",
+          "t": 5,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0010-launch-light.png",
+          "t": 185,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0011-launch-light.png",
+          "t": 361,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0012-launch-light.png",
+          "t": 556,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0013-launch-light.png",
+          "t": 736,
+          "windows": [
+            {
+              "x": 0,
+              "y": 64,
+              "width": 1920,
+              "height": 1024
+            }
+          ],
+          "stats": {
+            "samples": 460768,
+            "mean": [
+              10,
+              10,
+              10
+            ],
+            "luminance": 0.04,
+            "lightFraction": 0.047,
+            "darkFraction": 0.953
+          },
+          "class": "dark",
+          "page": {
+            "readyState": "complete",
+            "mediaDark": false,
+            "htmlDark": false,
+            "colorScheme": "light",
+            "shellBg": "rgb(255, 255, 255)",
+            "url": "tauri://localhost/home"
+          }
+        }
+      ]
+    }
+  },
+  "switch": [],
+  "resize": [],
+  "close": {
+    "dark": {
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM",
+        "t": 1989
+      },
+      "leftoverWindows": [
+        {
+          "x": 1072,
+          "y": 208,
+          "width": 848,
+          "height": 880
+        },
+        {
+          "x": 288,
+          "y": 208,
+          "width": 736,
+          "height": 864
+        }
+      ],
+      "file": "frames/0007-closed-dark.png",
+      "themeLog": [
+        "+92ms [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+93ms [theme +36ms] portal Read color-scheme -> Some(true) in 1ms",
+        "+107ms [theme +50ms] apply(dark=true) changed=true; after apply: gtk-theme-name=Adwaita prefer-dark=true toplevels=0",
+        "+110ms [theme +53ms] theme_bg_color -> Some((53, 53, 53))",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +36ms] portal Read color-scheme -> Some(true) in 1ms",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +50ms] apply(dark=true) changed=true; after apply: gtk-theme-name=Adwaita prefer-dark=true toplevels=0",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +53ms] theme_bg_color -> Some((53, 53, 53))",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib][INFO] desktop colour-scheme is dark",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +204ms] theme_bg_color -> Some((53, 53, 53))",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] setup: gtk-theme-name=Adwaita prefer-dark=true toplevels=1 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel}",
+        "+260ms [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(\":1.1333339\"))"
+      ]
+    },
+    "light": {
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM",
+        "t": 2020
+      },
+      "leftoverWindows": [],
+      "file": "frames/0015-closed-light.png",
+      "themeLog": [
+        "+95ms [theme +36ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+96ms [theme +38ms] portal Read color-scheme -> Some(false) in 1ms",
+        "+96ms [theme +38ms] apply(dark=false) changed=false; after apply: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+98ms [theme +40ms] theme_bg_color -> Some((246, 245, 244))",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] [theme +36ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] [theme +38ms] portal Read color-scheme -> Some(false) in 1ms",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] [theme +38ms] apply(dark=false) changed=false; after apply: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] [theme +40ms] theme_bg_color -> Some((246, 245, 244))",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib][INFO] desktop colour-scheme is light",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] [theme +203ms] theme_bg_color -> Some((246, 245, 244))",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] setup: gtk-theme-name=Adwaita prefer-dark=false toplevels=1 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel}",
+        "+262ms [2026-09-16][06:47:51][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(\":1.1333364\"))"
+      ]
+    }
+  },
+  "verdicts": [
+    {
+      "ok": true,
+      "name": "dark: page loaded",
+      "detail": "in 759ms"
+    },
+    {
+      "ok": true,
+      "name": "dark: first visible frame is dark",
+      "detail": "first frame at +759ms classified dark (lum 0.118, light 0)"
+    },
+    {
+      "ok": true,
+      "name": "dark: no wrong-scheme frames during launch",
+      "detail": "0 frame(s) over 0ms"
+    },
+    {
+      "ok": true,
+      "name": "dark: exactly one window during launch",
+      "detail": "one window throughout"
+    },
+    {
+      "ok": true,
+      "name": "dark: settled page is dark",
+      "detail": "classified dark (lum 0.287)"
+    },
+    {
+      "ok": true,
+      "name": "dark: window opened at its configured size",
+      "detail": "page inner 960×461 css px (expected ≥ 920×420), devicePixelRatio 2, on screen 1648×912 px"
+    },
+    {
+      "ok": true,
+      "name": "dark: prefers-color-scheme matches desktop",
+      "detail": "mediaDark=true htmlDark=true colorScheme=dark"
+    },
+    {
+      "ok": false,
+      "name": "dark: nothing left on screen after close",
+      "detail": "regions still differing from the pre-launch desktop [{\"x\":1072,\"y\":208,\"width\":848,\"height\":880},{\"x\":288,\"y\":208,\"width\":736,\"height\":864}] — check the frame: another window repainting underneath looks the same to this diff"
+    },
+    {
+      "ok": true,
+      "name": "light: page loaded",
+      "detail": "in 736ms"
+    },
+    {
+      "ok": false,
+      "name": "light: first visible frame is light",
+      "detail": "first frame at +736ms classified dark (lum 0.04, light 0.047)"
+    },
+    {
+      "ok": false,
+      "name": "light: no wrong-scheme frames during launch",
+      "detail": "1 frame(s) over 0ms — first frames/0013-launch-light.png"
+    },
+    {
+      "ok": true,
+      "name": "light: exactly one window during launch",
+      "detail": "one window throughout"
+    },
+    {
+      "ok": true,
+      "name": "light: settled page is light",
+      "detail": "classified light (lum 0.841)"
+    },
+    {
+      "ok": true,
+      "name": "light: window opened at its configured size",
+      "detail": "page inner 960×461 css px (expected ≥ 920×420), devicePixelRatio 2, on screen 1920×1024 px"
+    },
+    {
+      "ok": true,
+      "name": "light: prefers-color-scheme matches desktop",
+      "detail": "mediaDark=false htmlDark=false colorScheme=light"
+    },
+    {
+      "ok": true,
+      "name": "light: nothing left on screen after close",
+      "detail": "desktop matches pre-launch"
+    }
+  ]
+}

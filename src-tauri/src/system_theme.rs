@@ -33,6 +33,81 @@ use gtk::gio;
 use gtk::glib::{Variant, VariantTy};
 use gtk::prelude::*;
 use std::cell::RefCell;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::Mutex;
+use std::time::Instant;
+
+/// Lines logged before the Tauri log plugin exists — everything that happens ahead of
+/// `setup`, which is exactly the part that decides the launch colour. Buffered here and
+/// replayed through `log` once a logger is installed, and echoed to stderr in debug
+/// builds so a `tauri dev` terminal sees them live.
+static EARLY_LOG: Mutex<Vec<String>> = Mutex::new(Vec::new());
+static STARTED: Mutex<Option<Instant>> = Mutex::new(None);
+static LOGGER_READY: AtomicBool = AtomicBool::new(false);
+
+fn since_start_ms() -> u128 {
+  let mut started = STARTED.lock().unwrap();
+  started.get_or_insert_with(Instant::now).elapsed().as_millis()
+}
+
+/// Log a theme-bridge line, whether or not a logger exists yet.
+pub fn trace(line: impl Into<String>) {
+  let line = format!("[theme +{}ms] {}", since_start_ms(), line.into());
+  if LOGGER_READY.load(Ordering::SeqCst) {
+    log::info!("{line}");
+    return;
+  }
+  if cfg!(debug_assertions) {
+    eprintln!("{line}");
+  }
+  EARLY_LOG.lock().unwrap().push(line);
+}
+
+/// Replay everything logged before `setup` through the real logger, and log directly
+/// from here on.
+pub fn flush_early_log() {
+  for line in EARLY_LOG.lock().unwrap().drain(..) {
+    log::info!("{line}");
+  }
+  LOGGER_READY.store(true, Ordering::SeqCst);
+}
+
+/// The GTK-side inputs WebKit derives `prefers-color-scheme` from, plus every toplevel
+/// GTK window this process owns — a second toplevel is what a "ghost window" would be.
+pub fn gtk_state(context: &str) -> String {
+  let settings = gtk::Settings::default();
+  let theme = settings
+    .as_ref()
+    .and_then(|s| s.gtk_theme_name())
+    .map(|n| n.to_string())
+    .unwrap_or_else(|| "?".into());
+  let prefer_dark = settings
+    .as_ref()
+    .map(|s| s.is_gtk_application_prefer_dark_theme().to_string())
+    .unwrap_or_else(|| "?".into());
+  let toplevels: Vec<String> = gtk::Window::list_toplevels()
+    .iter()
+    .filter_map(|w| w.downcast_ref::<gtk::Window>())
+    .map(|w| {
+      let alloc = w.allocation();
+      format!(
+        "{{title={:?} visible={} mapped={} realized={} size={}x{} type={:?}}}",
+        w.title().map(|t| t.to_string()).unwrap_or_default(),
+        w.is_visible(),
+        w.is_mapped(),
+        w.is_realized(),
+        alloc.width(),
+        alloc.height(),
+        w.window_type()
+      )
+    })
+    .collect();
+  format!(
+    "{context}: gtk-theme-name={theme} prefer-dark={prefer_dark} toplevels={} {}",
+    toplevels.len(),
+    toplevels.join(" ")
+  )
+}
 
 const PORTAL_NAME: &str = "org.freedesktop.portal.Desktop";
 const PORTAL_PATH: &str = "/org/freedesktop/portal/desktop";
@@ -57,12 +132,22 @@ thread_local! {
 /// while a second one a moment later succeeds. That combination is what produced a white
 /// launch under a log line that said "dark" — the colour had already been skipped.
 pub fn desktop_prefers_dark() -> Result<bool, String> {
+  let _ = since_start_ms();
   gtk::init().map_err(|e| format!("GTK would not start, leaving light/dark alone: {e}"))?;
+  trace(gtk_state("after gtk::init"));
   let bus = session_bus()?;
-  let dark = read_color_scheme(&bus).ok_or_else(portal_unavailable)?;
+  let started = Instant::now();
+  let read = read_color_scheme(&bus);
+  trace(format!(
+    "portal Read color-scheme -> {:?} in {}ms",
+    read,
+    started.elapsed().as_millis()
+  ));
+  let dark = read.ok_or_else(portal_unavailable)?;
   // Settle GTK now so the colour read below resolves against the right variant. `setup`
   // writes it again from the shared answer; the second write is a no-op.
-  let _ = apply(dark);
+  let changed = apply(dark);
+  trace(format!("apply(dark={dark}) changed={changed}; {}", gtk_state("after apply")));
   Ok(dark)
 }
 
@@ -78,9 +163,11 @@ pub fn desktop_prefers_dark() -> Result<bool, String> {
 /// on its own default rather than on a guess.
 pub fn theme_window_background() -> Option<(u8, u8, u8)> {
   let widget = gtk::Box::new(gtk::Orientation::Horizontal, 0);
-  let rgba = widget.style_context().lookup_color("theme_bg_color")?;
+  let rgba = widget.style_context().lookup_color("theme_bg_color");
   let to_u8 = |v: f64| (v.clamp(0.0, 1.0) * 255.0).round() as u8;
-  Some((to_u8(rgba.red()), to_u8(rgba.green()), to_u8(rgba.blue())))
+  let colour = rgba.map(|rgba| (to_u8(rgba.red()), to_u8(rgba.green()), to_u8(rgba.blue())));
+  trace(format!("theme_bg_color -> {colour:?}"));
+  colour
 }
 
 /// Mirror an already-read scheme onto `GtkSettings`, and keep mirroring every change.
@@ -92,8 +179,15 @@ pub fn theme_window_background() -> Option<(u8, u8, u8)> {
 /// since. `SettingChanged` is no substitute: it announces a change, not the portal becoming
 /// ready, so without the retry one timed-out `Read` would leave a dark desktop light for
 /// the rest of the session.
-pub fn follow_desktop_color_scheme(scheme: &Result<bool, String>) -> Result<(), String> {
+///
+/// `on_change` runs on the GTK thread after each switch has been mirrored, so callers
+/// can repaint anything that was coloured from the old scheme.
+pub fn follow_desktop_color_scheme(
+  scheme: &Result<bool, String>,
+  on_change: impl Fn(bool) + 'static,
+) -> Result<(), String> {
   let bus = session_bus()?;
+  log::info!("{}", gtk_state("setup"));
 
   let scheme = match *scheme {
     Ok(dark) => Some(dark),
@@ -117,24 +211,40 @@ pub fn follow_desktop_color_scheme(scheme: &Result<bool, String>) -> Result<(), 
     Some(PORTAL_PATH),
     None,
     gio::DBusSignalFlags::NONE,
-    |_, _, _, _, _, params| {
+    move |_, sender, _, _, _, params| {
       // (namespace, key, value)
       let namespace = params.child_value(0).str().unwrap_or_default().to_owned();
       let key = params.child_value(1).str().unwrap_or_default().to_owned();
+      log::debug!("portal SettingChanged from {sender}: {namespace} {key}");
       if namespace != APPEARANCE_NS || key != COLOR_SCHEME_KEY {
         return;
       }
+      let value = params.child_value(2);
+      let dark = prefers_dark(&value);
+      log::debug!(
+        "portal color-scheme announced as {} -> dark={dark:?}",
+        value.print(true)
+      );
       // Both xdg-desktop-portal-gnome and -gtk announce the same change, so log from the
       // write rather than the signal or every switch is reported twice.
-      if let Some(dark) = prefers_dark(&params.child_value(2)) {
+      if let Some(dark) = dark {
         if apply(dark) {
-          log::info!("desktop switched to {}", if dark { "dark" } else { "light" });
+          log::info!(
+            "desktop switched to {}; {}",
+            if dark { "dark" } else { "light" },
+            gtk_state("after switch")
+          );
+          on_change(dark);
         }
       }
     },
   );
   // The subscription is meant to outlive this call; only process exit ends it.
   std::mem::forget(id);
+  log::info!(
+    "subscribed to portal SettingChanged (bus unique name {:?})",
+    bus.unique_name().map(|n| n.to_string())
+  );
 
   PORTAL_BUS.with(|slot| *slot.borrow_mut() = Some(bus));
   Ok(())

@@ -76,21 +76,32 @@ fn get_puller_base_url() -> String {
 }
 
 /// Health-check and (re)spawn the puller if it died — used by UI "Retry puller".
+///
+/// `async`, so Tauri runs it on its worker pool: a synchronous command runs on the GTK
+/// main thread, and this one waits up to twelve seconds for the puller to answer.
+/// Every one of those seconds froze the whole window — no repaint, no input, no
+/// desktop light/dark switch delivered — which is what made "follows the system" look
+/// broken whenever the puller was slow or missing: the frontend retries it at startup,
+/// right when the user is looking.
 #[tauri::command]
-fn ensure_puller(app: tauri::AppHandle) -> Result<String, String> {
-  let port = puller_port();
-  if wait_for_puller_health(port, 600) {
-    return Ok(get_puller_base_url());
-  }
-  log::info!("ensure_puller: nothing healthy on {} — spawning", port);
-  spawn_puller(&app);
-  if wait_for_puller_health(port, 12_000) {
-    Ok(get_puller_base_url())
-  } else {
-    Err(format!(
-      "puller failed to become healthy on http://127.0.0.1:{port}"
-    ))
-  }
+async fn ensure_puller(app: tauri::AppHandle) -> Result<String, String> {
+  tauri::async_runtime::spawn_blocking(move || {
+    let port = puller_port();
+    if wait_for_puller_health(port, 600) {
+      return Ok(get_puller_base_url());
+    }
+    log::info!("ensure_puller: nothing healthy on {} — spawning", port);
+    spawn_puller(&app);
+    if wait_for_puller_health(port, 12_000) {
+      Ok(get_puller_base_url())
+    } else {
+      Err(format!(
+        "puller failed to become healthy on http://127.0.0.1:{port}"
+      ))
+    }
+  })
+  .await
+  .map_err(|e| format!("puller check did not complete: {e}"))?
 }
 
 /// Development harness mode (`console-test` | `puller-test`) from env, or empty.
@@ -471,6 +482,28 @@ fn spawn_puller(app: &tauri::AppHandle) {
   log::warn!("puller could not be started — offline download disabled");
 }
 
+/// Paint every window, and the webview inside it, in the desktop's window colour.
+///
+/// Read from the GTK theme *now*, so after a live scheme switch it is the new scheme's
+/// colour. Both surfaces need it: the window shows through wherever the webview has not
+/// painted yet, and the webview's own base colour is what WebKit clears to before the
+/// page's first frame.
+#[cfg(target_os = "linux")]
+fn paint_windows_from_theme(app: &tauri::AppHandle) {
+  match system_theme::theme_window_background() {
+    Some((r, g, b)) => {
+      let base = tauri::window::Color(r, g, b, 255);
+      for (label, window) in app.webview_windows() {
+        match window.set_background_color(Some(base)) {
+          Ok(()) => log::info!("coloured {label} rgb({r}, {g}, {b})"),
+          Err(e) => log::info!("could not colour {label}: {e}"),
+        }
+      }
+    }
+    None => log::info!("theme defines no theme_bg_color; leaving the webview default"),
+  }
+}
+
 /// The generated context, with the window's background colour settled first.
 ///
 /// A webview paints white until the page does, so on a dark desktop the whole page load
@@ -549,36 +582,45 @@ pub fn run() {
       }
       #[cfg(target_os = "linux")]
       {
+        system_theme::flush_early_log();
         match scheme_for_setup {
           Ok(dark) => log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" }),
           Err(ref why) => log::info!("{why}"),
         }
-        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup) {
+        // Dress the window and the webview in the desktop's own window colour, and keep
+        // doing so every time the desktop switches. The colour matters twice: before the
+        // page paints, and in the strip a resize exposes before WebKit catches up. Both
+        // were left on the launch colour, so after a live light/dark switch every resize
+        // flashed the *old* scheme along the growing edge — the "ghost" of the previous
+        // theme — until the page repainted over it.
+        let handle = app.handle().clone();
+        paint_windows_from_theme(&handle);
+        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup, move |_dark| {
+          paint_windows_from_theme(&handle);
+        }) {
           log::info!("{why}");
         }
-        // The window config colour dresses the window; the webview is a separate surface
-        // drawn on top of it and paints white until the page does. That is the white that
-        // survived every window-level fix — the instruments could only see the window
-        // underneath it. This call is the one that reaches both.
-        match system_theme::theme_window_background() {
-          Some((r, g, b)) => {
-            let base = tauri::window::Color(r, g, b, 255);
-            log::info!("webview base colour from theme_bg_color: rgb({r}, {g}, {b})");
-            for (label, window) in app.webview_windows() {
-              match window.set_background_color(Some(base)) {
-                Ok(()) => log::info!("coloured {label}"),
-                Err(e) => log::info!("could not colour {label}: {e}"),
-              }
-            }
-          }
-          None => log::info!("theme defines no theme_bg_color; leaving the webview default"),
-        }
+        // A second look once the window has been mapped and painted: this is where a
+        // second toplevel, or a window that ended up a different size than configured,
+        // would show up.
+        gtk::glib::timeout_add_local_once(std::time::Duration::from_millis(2000), || {
+          log::info!("{}", system_theme::gtk_state("2s after setup"));
+        });
       }
       #[cfg(not(mobile))]
       {
         // Reserve port before spawn so get_puller_base_url matches the sidecar.
         let _ = puller_port();
-        spawn_puller(app.handle());
+        // Off the main thread: the spawn waits up to ten seconds per candidate for the
+        // puller to answer, and `setup` runs before GTK gets to pump a single event, so
+        // every second spent here was a second with no window on screen at all — and
+        // then a webview whose first frame was painted under a stalled main loop. The
+        // frontend already polls puller health and has a retry, so nothing needs the
+        // answer before first paint.
+        let handle = app.handle().clone();
+        std::thread::Builder::new()
+          .name("puller-launch".into())
+          .spawn(move || spawn_puller(&handle))?;
       }
       #[cfg(mobile)]
       log::info!("mobile build: puller capture sidecar is intentionally disabled");

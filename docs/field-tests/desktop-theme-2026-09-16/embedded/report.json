@@ -1,0 +1,2411 @@
+{
+  "startedAt": "2026-09-16T06:50:51.527Z",
+  "binary": "/tmp/potato-tomato-prod4",
+  "mode": "embedded build",
+  "env": {
+    "desktop": "GNOME / wayland",
+    "gnomeShell": "50.2",
+    "gtkTheme": "'Adwaita'",
+    "accent": "'blue'",
+    "schemeAtStart": "'prefer-dark'",
+    "monitor": {
+      "serial": 7,
+      "connector": "DP-2",
+      "mode": "1920x1080@60.000",
+      "scale": 1,
+      "scaleUnderTest": 1
+    }
+  },
+  "launch": {
+    "dark": {
+      "scheme": "dark",
+      "appExit": null,
+      "inspectorConnected": true,
+      "loaded": true,
+      "framesCaptured": 5,
+      "firstWindowAtMs": 621,
+      "firstWindowClass": "dark",
+      "firstWindowStats": {
+        "samples": 172800,
+        "mean": [
+          50,
+          50,
+          50
+        ],
+        "luminance": 0.198,
+        "lightFraction": 0.0002,
+        "darkFraction": 0.9991
+      },
+      "wrongSchemeFrames": 0,
+      "wrongSchemeMs": 0,
+      "wrongSchemeFirstFrame": null,
+      "extraWindowFrames": 0,
+      "extraWindowExample": null,
+      "settled": {
+        "file": "frames/0006-settled-dark.png",
+        "windows": [
+          {
+            "x": 304,
+            "y": 192,
+            "width": 1312,
+            "height": 720
+          }
+        ],
+        "stats": {
+          "samples": 215136,
+          "mean": [
+            63,
+            64,
+            64
+          ],
+          "luminance": 0.25,
+          "lightFraction": 0.1331,
+          "darkFraction": 0.8143
+        },
+        "class": "dark"
+      },
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": true,
+        "mediaLight": false,
+        "htmlDark": true,
+        "colorScheme": "dark",
+        "inlineColorScheme": "dark",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(30, 30, 30)",
+        "shellBg": "rgb(30, 30, 30)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 1,
+        "inner": [
+          1280,
+          673
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "width": 1920,
+        "height": 1080
+      },
+      "frames": [
+        {
+          "file": "frames/0001-launch-dark.png",
+          "t": 22,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0002-launch-dark.png",
+          "t": 210,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0003-launch-dark.png",
+          "t": 391,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0004-launch-dark.png",
+          "t": 621,
+          "windows": [
+            {
+              "x": 384,
+              "y": 272,
+              "width": 1168,
+              "height": 656
+            }
+          ],
+          "stats": {
+            "samples": 172800,
+            "mean": [
+              50,
+              50,
+              50
+            ],
+            "luminance": 0.198,
+            "lightFraction": 0.0002,
+            "darkFraction": 0.9991
+          },
+          "class": "dark"
+        },
+        {
+          "file": "frames/0005-launch-dark.png",
+          "t": 841,
+          "windows": [
+            {
+              "x": 320,
+              "y": 192,
+              "width": 1296,
+              "height": 304
+            }
+          ],
+          "stats": {
+            "samples": 79360,
+            "mean": [
+              30,
+              30,
+              30
+            ],
+            "luminance": 0.118,
+            "lightFraction": 0.0006,
+            "darkFraction": 0.9978
+          },
+          "class": "dark",
+          "page": {
+            "readyState": "complete",
+            "mediaDark": true,
+            "htmlDark": true,
+            "colorScheme": "dark",
+            "shellBg": "rgb(30, 30, 30)",
+            "url": "tauri://localhost/home"
+          }
+        }
+      ]
+    },
+    "light": {
+      "scheme": "light",
+      "appExit": null,
+      "inspectorConnected": true,
+      "loaded": true,
+      "framesCaptured": 6,
+      "firstWindowAtMs": 733,
+      "firstWindowClass": "light",
+      "firstWindowStats": {
+        "samples": 225504,
+        "mean": [
+          244,
+          243,
+          241
+        ],
+        "luminance": 0.952,
+        "lightFraction": 0.9936,
+        "darkFraction": 0.0016
+      },
+      "wrongSchemeFrames": 0,
+      "wrongSchemeMs": 0,
+      "wrongSchemeFirstFrame": null,
+      "extraWindowFrames": 0,
+      "extraWindowExample": null,
+      "settled": {
+        "file": "frames/0121-settled-light.png",
+        "windows": [
+          {
+            "x": 304,
+            "y": 192,
+            "width": 1312,
+            "height": 752
+          }
+        ],
+        "stats": {
+          "samples": 225504,
+          "mean": [
+            216,
+            216,
+            216
+          ],
+          "luminance": 0.847,
+          "lightFraction": 0.8422,
+          "darkFraction": 0.105
+        },
+        "class": "light"
+      },
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": false,
+        "mediaLight": true,
+        "htmlDark": false,
+        "colorScheme": "light",
+        "inlineColorScheme": "light",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(255, 255, 255)",
+        "shellBg": "rgb(255, 255, 255)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 1,
+        "inner": [
+          1280,
+          673
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "width": 1920,
+        "height": 1080
+      },
+      "frames": [
+        {
+          "file": "frames/0115-launch-light.png",
+          "t": 9,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0116-launch-light.png",
+          "t": 184,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0117-launch-light.png",
+          "t": 358,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0118-launch-light.png",
+          "t": 564,
+          "windows": [],
+          "stats": null,
+          "class": null
+        },
+        {
+          "file": "frames/0119-launch-light.png",
+          "t": 733,
+          "windows": [
+            {
+              "x": 304,
+              "y": 192,
+              "width": 1312,
+              "height": 752
+            }
+          ],
+          "stats": {
+            "samples": 225504,
+            "mean": [
+              244,
+              243,
+              241
+            ],
+            "luminance": 0.952,
+            "lightFraction": 0.9936,
+            "darkFraction": 0.0016
+          },
+          "class": "light"
+        },
+        {
+          "file": "frames/0120-launch-light.png",
+          "t": 898,
+          "windows": [
+            {
+              "x": 304,
+              "y": 192,
+              "width": 1312,
+              "height": 752
+            }
+          ],
+          "stats": {
+            "samples": 225504,
+            "mean": [
+              252,
+              252,
+              252
+            ],
+            "luminance": 0.989,
+            "lightFraction": 0.9936,
+            "darkFraction": 0.0016
+          },
+          "class": "light",
+          "page": {
+            "readyState": "complete",
+            "mediaDark": false,
+            "htmlDark": false,
+            "colorScheme": "light",
+            "shellBg": "rgb(255, 255, 255)",
+            "url": "tauri://localhost/home"
+          }
+        }
+      ]
+    }
+  },
+  "switch": [
+    {
+      "from": "dark",
+      "to": "light",
+      "pageFollowedMs": 211,
+      "mediaQueryMs": 97,
+      "htmlClassMs": 211,
+      "pageEvents": [
+        {
+          "t": 1524,
+          "what": "media-change",
+          "dark": false,
+          "sinceFlipMs": 118
+        },
+        {
+          "t": 1524,
+          "what": "html-class",
+          "dark": false,
+          "sinceFlipMs": 118
+        }
+      ],
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": false,
+        "mediaLight": true,
+        "htmlDark": false,
+        "colorScheme": "light",
+        "inlineColorScheme": "light",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(255, 255, 255)",
+        "shellBg": "rgb(255, 255, 255)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 1,
+        "inner": [
+          1280,
+          673
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "file": "frames/0007-switched-dark-to-light.png",
+        "rect": {
+          "x": 304,
+          "y": 184,
+          "width": 1332,
+          "height": 772,
+          "maximized": false
+        },
+        "stats": {
+          "samples": 235564,
+          "mean": [
+            215,
+            215,
+            214
+          ],
+          "luminance": 0.844,
+          "lightFraction": 0.8379,
+          "darkFraction": 0.1047
+        },
+        "class": "light"
+      },
+      "appLog": [
+        "[2026-09-16][06:50:55][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)",
+        "[2026-09-16][06:50:55][potato_tomato_lib::system_theme][INFO] desktop switched to light; after switch: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "[2026-09-16][06:50:55][potato_tomato_lib::system_theme][INFO] [theme +2042ms] theme_bg_color -> Some((246, 245, 244))",
+        "[2026-09-16][06:50:55][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)",
+        "[2026-09-16][06:50:55][potato_tomato_lib][INFO] 2s after setup: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "[2026-09-16][06:50:55][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)",
+        "undefined",
+        "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command \"tsx\" not found",
+        "Did you mean \"pnpm exec tsc\"?",
+        "undefined",
+        "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command \"tsx\" not found",
+        "Did you mean \"pnpm exec tsc\"?"
+      ]
+    },
+    {
+      "from": "light",
+      "to": "dark",
+      "pageFollowedMs": 206,
+      "mediaQueryMs": 95,
+      "htmlClassMs": 206,
+      "pageEvents": [
+        {
+          "t": 23972,
+          "what": "media-change",
+          "dark": true,
+          "sinceFlipMs": 122
+        },
+        {
+          "t": 23972,
+          "what": "html-class",
+          "dark": true,
+          "sinceFlipMs": 122
+        }
+      ],
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": true,
+        "mediaLight": false,
+        "htmlDark": true,
+        "colorScheme": "dark",
+        "inlineColorScheme": "dark",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(30, 30, 30)",
+        "shellBg": "rgb(30, 30, 30)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 1,
+        "inner": [
+          1390,
+          743
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "file": "frames/0060-switched-light-to-dark.png",
+        "rect": {
+          "x": 776,
+          "y": 192,
+          "width": 1442,
+          "height": 842,
+          "maximized": false
+        },
+        "stats": {
+          "samples": 223224,
+          "mean": [
+            60,
+            63,
+            62
+          ],
+          "luminance": 0.245,
+          "lightFraction": 0.1401,
+          "darkFraction": 0.8064
+        },
+        "class": "dark"
+      },
+      "appLog": [
+        "[2026-09-16][06:51:17][potato_tomato_lib::system_theme][INFO] desktop switched to dark; after switch: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1442x842 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "[2026-09-16][06:51:17][potato_tomato_lib::system_theme][INFO] [theme +24490ms] theme_bg_color -> Some((53, 53, 53))",
+        "[2026-09-16][06:51:17][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)"
+      ]
+    },
+    {
+      "from": "light",
+      "to": "dark",
+      "pageFollowedMs": 201,
+      "mediaQueryMs": 90,
+      "htmlClassMs": 201,
+      "pageEvents": [
+        {
+          "t": 1556,
+          "what": "media-change",
+          "dark": true,
+          "sinceFlipMs": 106
+        },
+        {
+          "t": 1556,
+          "what": "html-class",
+          "dark": true,
+          "sinceFlipMs": 106
+        }
+      ],
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": true,
+        "mediaLight": false,
+        "htmlDark": true,
+        "colorScheme": "dark",
+        "inlineColorScheme": "dark",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(30, 30, 30)",
+        "shellBg": "rgb(30, 30, 30)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 1,
+        "inner": [
+          1280,
+          673
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "file": "frames/0122-switched-light-to-dark.png",
+        "rect": {
+          "x": 304,
+          "y": 216,
+          "width": 1332,
+          "height": 772,
+          "maximized": false
+        },
+        "stats": {
+          "samples": 235564,
+          "mean": [
+            62,
+            64,
+            63
+          ],
+          "luminance": 0.248,
+          "lightFraction": 0.1277,
+          "darkFraction": 0.8153
+        },
+        "class": "dark"
+      },
+      "appLog": [
+        "[2026-09-16][06:51:44][potato_tomato_lib::system_theme][INFO] desktop switched to dark; after switch: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "[2026-09-16][06:51:44][potato_tomato_lib::system_theme][INFO] [theme +2064ms] theme_bg_color -> Some((53, 53, 53))",
+        "[2026-09-16][06:51:44][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)",
+        "[2026-09-16][06:51:44][potato_tomato_lib][INFO] 2s after setup: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "undefined",
+        "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command \"tsx\" not found",
+        "Did you mean \"pnpm exec tsc\"?",
+        "[2026-09-16][06:51:44][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)",
+        "undefined",
+        "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command \"tsx\" not found",
+        "Did you mean \"pnpm exec tsc\"?"
+      ]
+    },
+    {
+      "from": "dark",
+      "to": "light",
+      "pageFollowedMs": 125,
+      "mediaQueryMs": 125,
+      "htmlClassMs": 125,
+      "pageEvents": [
+        {
+          "t": 24000,
+          "what": "media-change",
+          "dark": false,
+          "sinceFlipMs": 79
+        },
+        {
+          "t": 24000,
+          "what": "html-class",
+          "dark": false,
+          "sinceFlipMs": 79
+        }
+      ],
+      "page": {
+        "readyState": "complete",
+        "url": "tauri://localhost/home",
+        "mediaDark": false,
+        "mediaLight": true,
+        "htmlDark": false,
+        "colorScheme": "light",
+        "inlineColorScheme": "light",
+        "rootBg": "rgba(0, 0, 0, 0)",
+        "bodyBg": "rgb(255, 255, 255)",
+        "shellBg": "rgb(255, 255, 255)",
+        "background": "Canvas",
+        "primary": "AccentColor",
+        "primaryResolved": "rgb(0, 122, 255)",
+        "devicePixelRatio": 1,
+        "inner": [
+          1390,
+          743
+        ],
+        "hasTauri": true,
+        "shellRendered": true
+      },
+      "screen": {
+        "file": "frames/0175-switched-dark-to-light.png",
+        "rect": {
+          "x": 264,
+          "y": 184,
+          "width": 1442,
+          "height": 842,
+          "maximized": false
+        },
+        "stats": {
+          "samples": 280209,
+          "mean": [
+            214,
+            215,
+            214
+          ],
+          "luminance": 0.841,
+          "lightFraction": 0.8326,
+          "darkFraction": 0.1099
+        },
+        "class": "light"
+      },
+      "appLog": [
+        "[2026-09-16][06:52:07][potato_tomato_lib::system_theme][INFO] desktop switched to light; after switch: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1442x842 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "[2026-09-16][06:52:07][potato_tomato_lib::system_theme][INFO] [theme +24554ms] theme_bg_color -> Some((246, 245, 244))",
+        "[2026-09-16][06:52:07][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)"
+      ]
+    }
+  ],
+  "resize": [
+    {
+      "scheme": "light",
+      "label": "launched-dark-switched-light",
+      "steps": [
+        {
+          "action": "maximize (Super+Up)",
+          "frames": 14,
+          "rect": {
+            "x": 0,
+            "y": 40,
+            "width": 1920,
+            "height": 1040,
+            "maximized": true
+          },
+          "worstExcess": 0.0001,
+          "worstFrame": "frames/0011-maximize-launched-dark-switched-light.png",
+          "worstBox": {
+            "x": 22,
+            "y": 104,
+            "width": 1878,
+            "height": 968
+          },
+          "settledAfterMs": 0,
+          "finalMismatch": 0.1245,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.0946,
+              "excess": 0,
+              "unsettled": 0.5052
+            },
+            {
+              "t": 254,
+              "mismatch": 0.1246,
+              "excess": 0.0001,
+              "unsettled": 0.0105
+            },
+            {
+              "t": 419,
+              "mismatch": 0.1246,
+              "excess": 0.0001,
+              "unsettled": 0.0105
+            },
+            {
+              "t": 604,
+              "mismatch": 0.1246,
+              "excess": 0.0001,
+              "unsettled": 0.0105
+            },
+            {
+              "t": 803,
+              "mismatch": 0.1246,
+              "excess": 0.0001,
+              "unsettled": 0.0104
+            },
+            {
+              "t": 980,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1162,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1326,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1491,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1676,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1850,
+              "mismatch": 0.1244,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 2023,
+              "mismatch": 0.1244,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 2203,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2392,
+              "mismatch": 0.1245,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "restore (Super+Down)",
+          "frames": 14,
+          "rect": {
+            "x": 304,
+            "y": 184,
+            "width": 1332,
+            "height": 772,
+            "maximized": false
+          },
+          "worstExcess": 0.001,
+          "worstFrame": "frames/0025-restore-launched-dark-switched-light.png",
+          "worstBox": {
+            "x": 312,
+            "y": 232,
+            "width": 1316,
+            "height": 716
+          },
+          "settledAfterMs": 988,
+          "finalMismatch": 0.1049,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.0971,
+              "excess": 0,
+              "unsettled": 0.5023
+            },
+            {
+              "t": 219,
+              "mismatch": 0.1059,
+              "excess": 0.001,
+              "unsettled": 0.0232
+            },
+            {
+              "t": 403,
+              "mismatch": 0.1059,
+              "excess": 0.001,
+              "unsettled": 0.0205
+            },
+            {
+              "t": 611,
+              "mismatch": 0.1059,
+              "excess": 0.001,
+              "unsettled": 0.0205
+            },
+            {
+              "t": 800,
+              "mismatch": 0.1059,
+              "excess": 0.001,
+              "unsettled": 0.0205
+            },
+            {
+              "t": 988,
+              "mismatch": 0.1059,
+              "excess": 0.001,
+              "unsettled": 0.0205
+            },
+            {
+              "t": 1163,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1337,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1524,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1710,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1894,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2064,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2257,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2425,
+              "mismatch": 0.1049,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "keyboard resize (Alt+F8, arrows)",
+          "during": {
+            "frames": 7,
+            "rect": {
+              "x": 304,
+              "y": 184,
+              "width": 1332,
+              "height": 772,
+              "maximized": false
+            },
+            "worstExcess": 0.0011,
+            "worstFrame": "frames/0040-keyresize-launched-dark-switched-light.png",
+            "worstBox": {
+              "x": 312,
+              "y": 238,
+              "width": 1316,
+              "height": 686
+            },
+            "settledAfterMs": 710,
+            "finalMismatch": 0.1103,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1114,
+                "excess": 0.0011,
+                "unsettled": 0.0277
+              },
+              {
+                "t": 178,
+                "mismatch": 0.1114,
+                "excess": 0.0011,
+                "unsettled": 0.0277
+              },
+              {
+                "t": 351,
+                "mismatch": 0.1114,
+                "excess": 0.0011,
+                "unsettled": 0.0277
+              },
+              {
+                "t": 533,
+                "mismatch": 0.1114,
+                "excess": 0.0011,
+                "unsettled": 0.0277
+              },
+              {
+                "t": 710,
+                "mismatch": 0.1114,
+                "excess": 0.0011,
+                "unsettled": 0.0277
+              },
+              {
+                "t": 877,
+                "mismatch": 0.1103,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1056,
+                "mismatch": 0.1103,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          },
+          "after": {
+            "frames": 9,
+            "rect": {
+              "x": 264,
+              "y": 184,
+              "width": 1442,
+              "height": 842,
+              "maximized": false
+            },
+            "worstExcess": 0,
+            "worstFrame": "frames/0049-keyresize-done-launched-dark-switched-light.png",
+            "worstBox": {
+              "x": 272,
+              "y": 232,
+              "width": 1426,
+              "height": 786
+            },
+            "settledAfterMs": 0,
+            "finalMismatch": 0.1098,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 187,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 359,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 548,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 726,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 925,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1118,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1295,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1474,
+                "mismatch": 0.1098,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          }
+        }
+      ],
+      "appLog": [
+        "[2026-09-16][06:51:04][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787",
+        "[2026-09-16][06:51:04][potato_tomato_lib][WARN] puller could not be started — offline download disabled",
+        "[2026-09-16][06:51:05][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787",
+        "[2026-09-16][06:51:05][potato_tomato_lib][WARN] puller could not be started — offline download disabled",
+        "[2026-09-16][06:51:05][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787",
+        "[2026-09-16][06:51:05][potato_tomato_lib][WARN] puller could not be started — offline download disabled"
+      ]
+    },
+    {
+      "scheme": "dark",
+      "label": "launched-dark",
+      "steps": [
+        {
+          "action": "maximize (Super+Up)",
+          "frames": 15,
+          "rect": {
+            "x": 0,
+            "y": 40,
+            "width": 1920,
+            "height": 1040,
+            "maximized": true
+          },
+          "worstExcess": 0.0005,
+          "worstFrame": "frames/0064-maximize-launched-dark.png",
+          "worstBox": {
+            "x": 22,
+            "y": 98,
+            "width": 1878,
+            "height": 974
+          },
+          "settledAfterMs": 0,
+          "finalMismatch": 0.176,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.1513,
+              "excess": 0,
+              "unsettled": 0.4489
+            },
+            {
+              "t": 200,
+              "mismatch": 0.1765,
+              "excess": 0.0005,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 383,
+              "mismatch": 0.1765,
+              "excess": 0.0005,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 564,
+              "mismatch": 0.1765,
+              "excess": 0.0005,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 740,
+              "mismatch": 0.1765,
+              "excess": 0.0005,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 909,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1089,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1258,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1429,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1610,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1777,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1942,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 2120,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 2303,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2479,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "restore (Super+Down)",
+          "frames": 14,
+          "rect": {
+            "x": 272,
+            "y": 192,
+            "width": 1442,
+            "height": 842,
+            "maximized": false
+          },
+          "worstExcess": 0.0016,
+          "worstFrame": "frames/0083-restore-launched-dark.png",
+          "worstBox": {
+            "x": 282,
+            "y": 262,
+            "width": 1424,
+            "height": 760
+          },
+          "settledAfterMs": 1276,
+          "finalMismatch": 0.1294,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.1268,
+              "excess": 0,
+              "unsettled": 0.3855
+            },
+            {
+              "t": 180,
+              "mismatch": 0.1296,
+              "excess": 0.0002,
+              "unsettled": 0.0359
+            },
+            {
+              "t": 354,
+              "mismatch": 0.1296,
+              "excess": 0.0002,
+              "unsettled": 0.0332
+            },
+            {
+              "t": 540,
+              "mismatch": 0.1296,
+              "excess": 0.0002,
+              "unsettled": 0.0332
+            },
+            {
+              "t": 716,
+              "mismatch": 0.1296,
+              "excess": 0.0002,
+              "unsettled": 0.0332
+            },
+            {
+              "t": 891,
+              "mismatch": 0.131,
+              "excess": 0.0016,
+              "unsettled": 0.0236
+            },
+            {
+              "t": 1087,
+              "mismatch": 0.131,
+              "excess": 0.0016,
+              "unsettled": 0.0236
+            },
+            {
+              "t": 1276,
+              "mismatch": 0.131,
+              "excess": 0.0016,
+              "unsettled": 0.0236
+            },
+            {
+              "t": 1463,
+              "mismatch": 0.1294,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1645,
+              "mismatch": 0.1294,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1826,
+              "mismatch": 0.1294,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2010,
+              "mismatch": 0.1294,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2183,
+              "mismatch": 0.1294,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2359,
+              "mismatch": 0.1294,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "keyboard resize (Alt+F8, arrows)",
+          "during": {
+            "frames": 7,
+            "rect": {
+              "x": 776,
+              "y": 192,
+              "width": 1442,
+              "height": 842,
+              "maximized": false
+            },
+            "worstExcess": 0.0021,
+            "worstFrame": "frames/0094-keyresize-launched-dark.png",
+            "worstBox": {
+              "x": 784,
+              "y": 268,
+              "width": 1066,
+              "height": 722
+            },
+            "settledAfterMs": 738,
+            "finalMismatch": 0.1444,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1465,
+                "excess": 0.0021,
+                "unsettled": 0.0394
+              },
+              {
+                "t": 180,
+                "mismatch": 0.1465,
+                "excess": 0.0021,
+                "unsettled": 0.0394
+              },
+              {
+                "t": 364,
+                "mismatch": 0.1465,
+                "excess": 0.0021,
+                "unsettled": 0.0394
+              },
+              {
+                "t": 561,
+                "mismatch": 0.1465,
+                "excess": 0.0021,
+                "unsettled": 0.0362
+              },
+              {
+                "t": 738,
+                "mismatch": 0.1465,
+                "excess": 0.0021,
+                "unsettled": 0.0362
+              },
+              {
+                "t": 913,
+                "mismatch": 0.1444,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1114,
+                "mismatch": 0.1444,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          },
+          "after": {
+            "frames": 8,
+            "rect": {
+              "x": 224,
+              "y": 192,
+              "width": 1552,
+              "height": 912,
+              "maximized": false
+            },
+            "worstExcess": 0,
+            "worstFrame": "frames/0103-keyresize-done-launched-dark.png",
+            "worstBox": {
+              "x": 232,
+              "y": 262,
+              "width": 1536,
+              "height": 794
+            },
+            "settledAfterMs": 0,
+            "finalMismatch": 0.1599,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 188,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 362,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 538,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 716,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 920,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1139,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1340,
+                "mismatch": 0.1599,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          }
+        }
+      ],
+      "appLog": []
+    },
+    {
+      "scheme": "dark",
+      "label": "launched-light-switched-dark",
+      "steps": [
+        {
+          "action": "maximize (Super+Up)",
+          "frames": 15,
+          "rect": {
+            "x": 0,
+            "y": 40,
+            "width": 1920,
+            "height": 1040,
+            "maximized": true
+          },
+          "worstExcess": 0.0004,
+          "worstFrame": "frames/0126-maximize-launched-light-switched-dark.png",
+          "worstBox": {
+            "x": 22,
+            "y": 98,
+            "width": 1878,
+            "height": 974
+          },
+          "settledAfterMs": 0,
+          "finalMismatch": 0.176,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.1373,
+              "excess": 0,
+              "unsettled": 0.54
+            },
+            {
+              "t": 209,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 394,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 574,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 759,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 926,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 1106,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 1267,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 1446,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 1605,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 1771,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 1945,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 2111,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0113
+            },
+            {
+              "t": 2285,
+              "mismatch": 0.1764,
+              "excess": 0.0004,
+              "unsettled": 0.0086
+            },
+            {
+              "t": 2475,
+              "mismatch": 0.176,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "restore (Super+Down)",
+          "frames": 14,
+          "rect": {
+            "x": 304,
+            "y": 216,
+            "width": 1332,
+            "height": 772,
+            "maximized": false
+          },
+          "worstExcess": 0.001,
+          "worstFrame": "frames/0141-restore-launched-light-switched-dark.png",
+          "worstBox": {
+            "x": 312,
+            "y": 264,
+            "width": 1316,
+            "height": 716
+          },
+          "settledAfterMs": 784,
+          "finalMismatch": 0.1281,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.1268,
+              "excess": 0,
+              "unsettled": 0.5985
+            },
+            {
+              "t": 222,
+              "mismatch": 0.1291,
+              "excess": 0.001,
+              "unsettled": 0.0233
+            },
+            {
+              "t": 411,
+              "mismatch": 0.1291,
+              "excess": 0.001,
+              "unsettled": 0.0207
+            },
+            {
+              "t": 586,
+              "mismatch": 0.1291,
+              "excess": 0.001,
+              "unsettled": 0.0207
+            },
+            {
+              "t": 784,
+              "mismatch": 0.1291,
+              "excess": 0.001,
+              "unsettled": 0.0207
+            },
+            {
+              "t": 964,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1154,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1344,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1546,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1725,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1913,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2109,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2287,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2468,
+              "mismatch": 0.1281,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "keyboard resize (Alt+F8, arrows)",
+          "during": {
+            "frames": 7,
+            "rect": {
+              "x": 304,
+              "y": 216,
+              "width": 1332,
+              "height": 772,
+              "maximized": false
+            },
+            "worstExcess": 0.0012,
+            "worstFrame": "frames/0156-keyresize-launched-light-switched-dark.png",
+            "worstBox": {
+              "x": 312,
+              "y": 264,
+              "width": 1316,
+              "height": 716
+            },
+            "settledAfterMs": 593,
+            "finalMismatch": 0.1439,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1451,
+                "excess": 0.0012,
+                "unsettled": 0.028
+              },
+              {
+                "t": 203,
+                "mismatch": 0.1451,
+                "excess": 0.0012,
+                "unsettled": 0.028
+              },
+              {
+                "t": 394,
+                "mismatch": 0.1451,
+                "excess": 0.0012,
+                "unsettled": 0.028
+              },
+              {
+                "t": 593,
+                "mismatch": 0.1451,
+                "excess": 0.0012,
+                "unsettled": 0.028
+              },
+              {
+                "t": 768,
+                "mismatch": 0.1439,
+                "excess": 0,
+                "unsettled": 0.0032
+              },
+              {
+                "t": 970,
+                "mismatch": 0.1439,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1153,
+                "mismatch": 0.1439,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          },
+          "after": {
+            "frames": 8,
+            "rect": {
+              "x": 776,
+              "y": 192,
+              "width": 1442,
+              "height": 842,
+              "maximized": false
+            },
+            "worstExcess": 0,
+            "worstFrame": "frames/0165-keyresize-done-launched-light-switched-dark.png",
+            "worstBox": {
+              "x": 784,
+              "y": 268,
+              "width": 1066,
+              "height": 722
+            },
+            "settledAfterMs": 0,
+            "finalMismatch": 0.1401,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 222,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 450,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 652,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 844,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1031,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1210,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1397,
+                "mismatch": 0.1401,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          }
+        }
+      ],
+      "appLog": [
+        "[2026-09-16][06:51:53][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787",
+        "[2026-09-16][06:51:53][potato_tomato_lib][WARN] puller could not be started — offline download disabled",
+        "[2026-09-16][06:51:54][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787",
+        "[2026-09-16][06:51:54][potato_tomato_lib][WARN] puller could not be started — offline download disabled",
+        "[2026-09-16][06:51:55][potato_tomato_lib][WARN] dev puller spawned but health check failed on port 18787",
+        "[2026-09-16][06:51:55][potato_tomato_lib][WARN] puller could not be started — offline download disabled"
+      ]
+    },
+    {
+      "scheme": "light",
+      "label": "launched-light",
+      "steps": [
+        {
+          "action": "maximize (Super+Up)",
+          "frames": 14,
+          "rect": {
+            "x": 0,
+            "y": 40,
+            "width": 1920,
+            "height": 1040,
+            "maximized": true
+          },
+          "worstExcess": 0.0007,
+          "worstFrame": "frames/0179-maximize-launched-light.png",
+          "worstBox": {
+            "x": 22,
+            "y": 104,
+            "width": 1878,
+            "height": 968
+          },
+          "settledAfterMs": 0,
+          "finalMismatch": 0.1317,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.0952,
+              "excess": 0,
+              "unsettled": 0.5512
+            },
+            {
+              "t": 197,
+              "mismatch": 0.1324,
+              "excess": 0.0007,
+              "unsettled": 0.0115
+            },
+            {
+              "t": 383,
+              "mismatch": 0.1324,
+              "excess": 0.0007,
+              "unsettled": 0.0115
+            },
+            {
+              "t": 552,
+              "mismatch": 0.1324,
+              "excess": 0.0007,
+              "unsettled": 0.0115
+            },
+            {
+              "t": 730,
+              "mismatch": 0.1324,
+              "excess": 0.0007,
+              "unsettled": 0.0115
+            },
+            {
+              "t": 908,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1090,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1270,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1452,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1662,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 1834,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 2013,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0.0027
+            },
+            {
+              "t": 2203,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2382,
+              "mismatch": 0.1317,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "restore (Super+Down)",
+          "frames": 14,
+          "rect": {
+            "x": 264,
+            "y": 184,
+            "width": 1442,
+            "height": 842,
+            "maximized": false
+          },
+          "worstExcess": 0.0011,
+          "worstFrame": "frames/0193-restore-launched-light.png",
+          "worstBox": {
+            "x": 272,
+            "y": 232,
+            "width": 1426,
+            "height": 786
+          },
+          "settledAfterMs": 720,
+          "finalMismatch": 0.1099,
+          "series": [
+            {
+              "t": 0,
+              "mismatch": 0.1007,
+              "excess": 0,
+              "unsettled": 0.4268
+            },
+            {
+              "t": 182,
+              "mismatch": 0.111,
+              "excess": 0.0011,
+              "unsettled": 0.0236
+            },
+            {
+              "t": 359,
+              "mismatch": 0.111,
+              "excess": 0.0011,
+              "unsettled": 0.0208
+            },
+            {
+              "t": 542,
+              "mismatch": 0.111,
+              "excess": 0.0011,
+              "unsettled": 0.0208
+            },
+            {
+              "t": 720,
+              "mismatch": 0.111,
+              "excess": 0.0011,
+              "unsettled": 0.0208
+            },
+            {
+              "t": 899,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1076,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1258,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1441,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1625,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1804,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 1982,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2169,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            },
+            {
+              "t": 2353,
+              "mismatch": 0.1099,
+              "excess": 0,
+              "unsettled": 0
+            }
+          ]
+        },
+        {
+          "action": "keyboard resize (Alt+F8, arrows)",
+          "during": {
+            "frames": 7,
+            "rect": {
+              "x": 264,
+              "y": 184,
+              "width": 1442,
+              "height": 842,
+              "maximized": false
+            },
+            "worstExcess": 0,
+            "worstFrame": "frames/0208-keyresize-launched-light.png",
+            "worstBox": {
+              "x": 272,
+              "y": 236,
+              "width": 1426,
+              "height": 782
+            },
+            "settledAfterMs": 0,
+            "finalMismatch": 0.1211,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.1191,
+                "excess": 0,
+                "unsettled": 0.0174
+              },
+              {
+                "t": 191,
+                "mismatch": 0.1191,
+                "excess": 0,
+                "unsettled": 0.0174
+              },
+              {
+                "t": 374,
+                "mismatch": 0.1191,
+                "excess": 0,
+                "unsettled": 0.0174
+              },
+              {
+                "t": 558,
+                "mismatch": 0.1191,
+                "excess": 0,
+                "unsettled": 0.0145
+              },
+              {
+                "t": 734,
+                "mismatch": 0.1211,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 935,
+                "mismatch": 0.1211,
+                "excess": 0,
+                "unsettled": 0
+              },
+              {
+                "t": 1128,
+                "mismatch": 0.1211,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          },
+          "after": {
+            "frames": 9,
+            "rect": {
+              "x": 224,
+              "y": 184,
+              "width": 1552,
+              "height": 912,
+              "maximized": false
+            },
+            "worstExcess": 0,
+            "worstFrame": "frames/0217-keyresize-done-launched-light.png",
+            "worstBox": {
+              "x": 232,
+              "y": 232,
+              "width": 1536,
+              "height": 824
+            },
+            "settledAfterMs": 922,
+            "finalMismatch": 0.1222,
+            "series": [
+              {
+                "t": 0,
+                "mismatch": 0.118,
+                "excess": 0,
+                "unsettled": 0.0206
+              },
+              {
+                "t": 189,
+                "mismatch": 0.118,
+                "excess": 0,
+                "unsettled": 0.0206
+              },
+              {
+                "t": 371,
+                "mismatch": 0.118,
+                "excess": 0,
+                "unsettled": 0.0206
+              },
+              {
+                "t": 555,
+                "mismatch": 0.118,
+                "excess": 0,
+                "unsettled": 0.0206
+              },
+              {
+                "t": 729,
+                "mismatch": 0.118,
+                "excess": 0,
+                "unsettled": 0.0206
+              },
+              {
+                "t": 922,
+                "mismatch": 0.118,
+                "excess": 0,
+                "unsettled": 0.0206
+              },
+              {
+                "t": 1104,
+                "mismatch": 0.1204,
+                "excess": 0,
+                "unsettled": 0.0122
+              },
+              {
+                "t": 1278,
+                "mismatch": 0.1204,
+                "excess": 0,
+                "unsettled": 0.0122
+              },
+              {
+                "t": 1465,
+                "mismatch": 0.1222,
+                "excess": 0,
+                "unsettled": 0
+              }
+            ]
+          }
+        }
+      ],
+      "appLog": []
+    }
+  ],
+  "close": {
+    "dark": {
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM",
+        "t": 46907
+      },
+      "leftoverWindows": [],
+      "file": "frames/0113-closed-dark.png",
+      "themeLog": [
+        "+91ms [theme +30ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+93ms [theme +32ms] portal Read color-scheme -> Some(true) in 1ms",
+        "+108ms [theme +47ms] apply(dark=true) changed=true; after apply: gtk-theme-name=Adwaita prefer-dark=true toplevels=0",
+        "+111ms [theme +50ms] theme_bg_color -> Some((53, 53, 53))",
+        "+263ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] [theme +30ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+263ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] [theme +32ms] portal Read color-scheme -> Some(true) in 1ms",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] [theme +47ms] apply(dark=true) changed=true; after apply: gtk-theme-name=Adwaita prefer-dark=true toplevels=0",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] [theme +50ms] theme_bg_color -> Some((53, 53, 53))",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib][INFO] desktop colour-scheme is dark",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] [theme +202ms] theme_bg_color -> Some((53, 53, 53))",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] setup: gtk-theme-name=Adwaita prefer-dark=true toplevels=1 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel}",
+        "+264ms [2026-09-16][06:50:53][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(\":1.1334015\"))",
+        "+2103ms [2026-09-16][06:50:55][potato_tomato_lib::system_theme][INFO] desktop switched to light; after switch: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "+2103ms [2026-09-16][06:50:55][potato_tomato_lib::system_theme][INFO] [theme +2042ms] theme_bg_color -> Some((246, 245, 244))",
+        "+2103ms [2026-09-16][06:50:55][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)",
+        "+2264ms [2026-09-16][06:50:55][potato_tomato_lib][INFO] 2s after setup: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "+24551ms [2026-09-16][06:51:17][potato_tomato_lib::system_theme][INFO] desktop switched to dark; after switch: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1442x842 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "+24552ms [2026-09-16][06:51:17][potato_tomato_lib::system_theme][INFO] [theme +24490ms] theme_bg_color -> Some((53, 53, 53))",
+        "+24552ms [2026-09-16][06:51:17][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)"
+      ]
+    },
+    "light": {
+      "exit": {
+        "code": null,
+        "signal": "SIGTERM",
+        "t": 46794
+      },
+      "leftoverWindows": [],
+      "file": "frames/0228-closed-light.png",
+      "themeLog": [
+        "+94ms [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+95ms [theme +36ms] portal Read color-scheme -> Some(false) in 1ms",
+        "+95ms [theme +36ms] apply(dark=false) changed=false; after apply: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+97ms [theme +38ms] theme_bg_color -> Some((246, 245, 244))",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +36ms] portal Read color-scheme -> Some(false) in 1ms",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +36ms] apply(dark=false) changed=false; after apply: gtk-theme-name=Adwaita prefer-dark=false toplevels=0",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +38ms] theme_bg_color -> Some((246, 245, 244))",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib][INFO] desktop colour-scheme is light",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] [theme +190ms] theme_bg_color -> Some((246, 245, 244))",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)",
+        "+249ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] setup: gtk-theme-name=Adwaita prefer-dark=false toplevels=1 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel}",
+        "+250ms [2026-09-16][06:51:42][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(\":1.1334186\"))",
+        "+2124ms [2026-09-16][06:51:44][potato_tomato_lib::system_theme][INFO] desktop switched to dark; after switch: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "+2124ms [2026-09-16][06:51:44][potato_tomato_lib::system_theme][INFO] [theme +2064ms] theme_bg_color -> Some((53, 53, 53))",
+        "+2124ms [2026-09-16][06:51:44][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)",
+        "+2250ms [2026-09-16][06:51:44][potato_tomato_lib][INFO] 2s after setup: gtk-theme-name=Adwaita prefer-dark=true toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1332x772 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "+24614ms [2026-09-16][06:52:07][potato_tomato_lib::system_theme][INFO] desktop switched to light; after switch: gtk-theme-name=Adwaita prefer-dark=false toplevels=3 {title=\"Potato Tomato\" visible=true mapped=true realized=true size=1442x842 type=Toplevel} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup} {title=\"\" visible=false mapped=false realized=false size=1x1 type=Popup}",
+        "+24614ms [2026-09-16][06:52:07][potato_tomato_lib::system_theme][INFO] [theme +24554ms] theme_bg_color -> Some((246, 245, 244))",
+        "+24614ms [2026-09-16][06:52:07][potato_tomato_lib][INFO] coloured main rgb(246, 245, 244)"
+      ]
+    }
+  },
+  "verdicts": [
+    {
+      "ok": true,
+      "name": "dark: page loaded",
+      "detail": "in 841ms"
+    },
+    {
+      "ok": true,
+      "name": "dark: first visible frame is dark",
+      "detail": "first frame at +621ms classified dark (lum 0.198, light 0.0002)"
+    },
+    {
+      "ok": true,
+      "name": "dark: no wrong-scheme frames during launch",
+      "detail": "0 frame(s) over 0ms"
+    },
+    {
+      "ok": true,
+      "name": "dark: exactly one window during launch",
+      "detail": "one window throughout"
+    },
+    {
+      "ok": true,
+      "name": "dark: settled page is dark",
+      "detail": "classified dark (lum 0.25)"
+    },
+    {
+      "ok": true,
+      "name": "dark: window opened at its configured size",
+      "detail": "page inner 1280×673 css px (expected ≥ 1200×600), devicePixelRatio 1, on screen 1312×720 px"
+    },
+    {
+      "ok": true,
+      "name": "dark: prefers-color-scheme matches desktop",
+      "detail": "mediaDark=true htmlDark=true colorScheme=dark"
+    },
+    {
+      "ok": true,
+      "name": "dark: nothing left on screen after close",
+      "detail": "desktop matches pre-launch"
+    },
+    {
+      "ok": true,
+      "name": "light: page loaded",
+      "detail": "in 898ms"
+    },
+    {
+      "ok": true,
+      "name": "light: first visible frame is light",
+      "detail": "first frame at +733ms classified light (lum 0.952, light 0.9936)"
+    },
+    {
+      "ok": true,
+      "name": "light: no wrong-scheme frames during launch",
+      "detail": "0 frame(s) over 0ms"
+    },
+    {
+      "ok": true,
+      "name": "light: exactly one window during launch",
+      "detail": "one window throughout"
+    },
+    {
+      "ok": true,
+      "name": "light: settled page is light",
+      "detail": "classified light (lum 0.847)"
+    },
+    {
+      "ok": true,
+      "name": "light: window opened at its configured size",
+      "detail": "page inner 1280×673 css px (expected ≥ 1200×600), devicePixelRatio 1, on screen 1312×752 px"
+    },
+    {
+      "ok": true,
+      "name": "light: prefers-color-scheme matches desktop",
+      "detail": "mediaDark=false htmlDark=false colorScheme=light"
+    },
+    {
+      "ok": true,
+      "name": "light: nothing left on screen after close",
+      "detail": "desktop matches pre-launch"
+    },
+    {
+      "ok": true,
+      "name": "live switch dark→light: page followed",
+      "detail": "in 211ms (media query 97ms, .dark class 211ms)"
+    },
+    {
+      "ok": true,
+      "name": "live switch dark→light: screen shows light",
+      "detail": "classified light (lum 0.844)"
+    },
+    {
+      "ok": true,
+      "name": "live switch light→dark: page followed",
+      "detail": "in 206ms (media query 95ms, .dark class 206ms)"
+    },
+    {
+      "ok": true,
+      "name": "live switch light→dark: screen shows dark",
+      "detail": "classified dark (lum 0.245)"
+    },
+    {
+      "ok": true,
+      "name": "live switch light→dark: page followed",
+      "detail": "in 201ms (media query 90ms, .dark class 201ms)"
+    },
+    {
+      "ok": true,
+      "name": "live switch light→dark: screen shows dark",
+      "detail": "classified dark (lum 0.248)"
+    },
+    {
+      "ok": true,
+      "name": "live switch dark→light: page followed",
+      "detail": "in 125ms (media query 125ms, .dark class 125ms)"
+    },
+    {
+      "ok": true,
+      "name": "live switch dark→light: screen shows light",
+      "detail": "classified light (lum 0.841)"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark-switched-light: maximize (Super+Up) — no stale-scheme area",
+      "detail": "worst 0.0% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark-switched-light: maximize (Super+Up) — settled promptly",
+      "detail": "still changing 0ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark-switched-light: restore (Super+Down) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark-switched-light: restore (Super+Down) — settled promptly",
+      "detail": "still changing 988ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark-switched-light: keyboard resize (Alt+F8, arrows) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark-switched-light: keyboard resize (Alt+F8, arrows) — settled promptly",
+      "detail": "still changing 710ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark: maximize (Super+Up) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark: maximize (Super+Up) — settled promptly",
+      "detail": "still changing 0ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark: restore (Super+Down) — no stale-scheme area",
+      "detail": "worst 0.2% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark: restore (Super+Down) — settled promptly",
+      "detail": "still changing 1276ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark: keyboard resize (Alt+F8, arrows) — no stale-scheme area",
+      "detail": "worst 0.2% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-dark: keyboard resize (Alt+F8, arrows) — settled promptly",
+      "detail": "still changing 738ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-light-switched-dark: maximize (Super+Up) — no stale-scheme area",
+      "detail": "worst 0.0% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-light-switched-dark: maximize (Super+Up) — settled promptly",
+      "detail": "still changing 0ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-light-switched-dark: restore (Super+Down) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-light-switched-dark: restore (Super+Down) — settled promptly",
+      "detail": "still changing 784ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-light-switched-dark: keyboard resize (Alt+F8, arrows) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-light-switched-dark: keyboard resize (Alt+F8, arrows) — settled promptly",
+      "detail": "still changing 593ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-light: maximize (Super+Up) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-light: maximize (Super+Up) — settled promptly",
+      "detail": "still changing 0ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-light: restore (Super+Down) — no stale-scheme area",
+      "detail": "worst 0.1% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-light: restore (Super+Down) — settled promptly",
+      "detail": "still changing 720ms after the action (content re-flow and thumbnail loads included)"
+    },
+    {
+      "ok": true,
+      "name": "launched-light: keyboard resize (Alt+F8, arrows) — no stale-scheme area",
+      "detail": "worst 0.0% of the page painted in the old scheme beyond the settled page"
+    },
+    {
+      "ok": true,
+      "name": "launched-light: keyboard resize (Alt+F8, arrows) — settled promptly",
+      "detail": "still changing 922ms after the action (content re-flow and thumbnail loads included)"
+    }
+  ]
+}
