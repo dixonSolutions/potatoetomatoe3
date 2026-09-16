@@ -97,8 +97,11 @@ fn read_color_scheme(bus: &gio::DBusConnection) -> Option<bool> {
   prefers_dark(&reply.child_value(0))
 }
 
-/// `1` is prefer-dark, `2` is prefer-light and `0` is no preference; anything else is a
-/// value this version of the spec does not define, and guessing at it would be worse than
+/// `1` is prefer-dark, and both `2` (prefer-light) and `0` (no preference) are "not dark":
+/// GNOME's Appearance panel writes `0` for Light and never writes `2`, so letting `0` skip
+/// the apply would leave a dark scheme this process already wrote stuck on. False is GTK's
+/// own default, so writing it is how the theme name gets the decision back. Anything else is
+/// a value this version of the spec does not define, and guessing at it would be worse than
 /// leaving the GTK theme to decide.
 ///
 /// The number arrives nested in variants, and how deeply depends on who answers: the
@@ -111,7 +114,7 @@ fn prefers_dark(value: &Variant) -> Option<bool> {
   }
   match value.get::<u32>()? {
     1 => Some(true),
-    2 => Some(false),
+    0 | 2 => Some(false),
     _ => None,
   }
 }
