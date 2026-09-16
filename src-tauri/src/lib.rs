@@ -526,6 +526,49 @@ fn spawn_puller(app: &tauri::AppHandle) {
 /// painted yet, and the webview's own base colour is what WebKit clears to before the
 /// page's first frame.
 #[cfg(target_os = "linux")]
+/// Register the tray, then settle everything that depends on whether it exists.
+#[cfg(not(mobile))]
+fn build_tray_now(app: &tauri::AppHandle) {
+  /*
+   * An A/B switch for the startup window flash: the tray is the only thing in the app
+   * that creates toplevels of its own (muda's GtkMenu, plus whatever libappindicator
+   * exports), so running once without it says whether a stray window belongs to it.
+   */
+  if std::env::var_os("POTATO_TOMATO_NO_TRAY").is_some() {
+    log::info!("POTATO_TOMATO_NO_TRAY set — skipping tray registration");
+    finish_tray_setup(false);
+    return;
+  }
+  // libappindicator-sys panics (does not return Err) when the .so is missing
+  // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
+  let tray_ok = match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| tray::build_tray(app)))
+  {
+    Ok(Ok(())) => true,
+    Ok(Err(e)) => {
+      log::warn!("system tray unavailable: {e}");
+      false
+    }
+    Err(_) => {
+      log::warn!("system tray unavailable: appindicator library missing or panic during init");
+      false
+    }
+  };
+  finish_tray_setup(tray_ok);
+}
+
+fn finish_tray_setup(tray_ok: bool) {
+  TRAY_AVAILABLE.store(tray_ok, Ordering::SeqCst);
+  let close_to_tray = compute_close_to_tray(tray_ok);
+  CLOSE_TO_TRAY.store(close_to_tray, Ordering::SeqCst);
+  if tray_ok && !close_to_tray {
+    log::info!(
+      "tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)"
+    );
+  } else if !tray_ok {
+    log::info!("no system tray — closing the window will quit the app");
+  }
+}
+
 /// Payload is `true` for dark. Mirrors the portal's `SettingChanged` to the frontend.
 const SYSTEM_COLOR_SCHEME_EVENT: &str = "system-color-scheme";
 
@@ -692,36 +735,45 @@ pub fn run() {
       }
       #[cfg(mobile)]
       log::info!("mobile build: puller capture sidecar is intentionally disabled");
-      // libappindicator-sys panics (does not return Err) when the .so is missing
-      // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
-      #[cfg(not(mobile))]
-      let tray_ok = match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        tray::build_tray(app.handle())
-      })) {
-        Ok(Ok(())) => true,
-        Ok(Err(e)) => {
-          log::warn!("system tray unavailable: {e}");
-          false
-        }
-        Err(_) => {
-          log::warn!(
-            "system tray unavailable: appindicator library missing or panic during init"
-          );
-          false
-        }
-      };
       #[cfg(mobile)]
-      let tray_ok = false;
-      TRAY_AVAILABLE.store(tray_ok, Ordering::SeqCst);
-      let close_to_tray = compute_close_to_tray(tray_ok);
-      CLOSE_TO_TRAY.store(close_to_tray, Ordering::SeqCst);
-      if tray_ok && !close_to_tray {
-        log::info!(
-          "tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)"
-        );
-      } else if !tray_ok {
-        log::info!("no system tray — closing the window will quit the app");
+      finish_tray_setup(false);
+      /*
+       * Building the tray realises muda's GtkMenu, and GTK gives that menu its own
+       * toplevel — the two 1x1 `Popup`s the startup log lists next to the real window.
+       * Done inside `setup` that happens while the app window exists but has not been
+       * mapped yet, so the popup is the first thing the compositor gets to show: a tiny
+       * window that appears and vanishes just before the app itself. Waiting for the
+       * real window to be mapped keeps the menu's plumbing behind it where it belongs.
+       */
+      #[cfg(all(not(mobile), target_os = "linux"))]
+      {
+        let handle = app.handle().clone();
+        match app.get_webview_window("main").map(|w| w.gtk_window()) {
+          Some(Ok(gtk_window)) => {
+            use gtk::prelude::{WidgetExt, WidgetExtManual};
+            if gtk_window.is_mapped() {
+              build_tray_now(&handle);
+            } else {
+              let once = std::cell::Cell::new(false);
+              gtk_window.connect_map_event(move |_, _| {
+                if !once.replace(true) {
+                  log::info!("{}", system_theme::gtk_state("window mapped; building tray"));
+                  build_tray_now(&handle);
+                }
+                gtk::glib::Propagation::Proceed
+              });
+            }
+          }
+          other => {
+            if let Some(Err(e)) = other {
+              log::warn!("no GTK window to hang tray setup off ({e}); building it now");
+            }
+            build_tray_now(&handle);
+          }
+        }
       }
+      #[cfg(all(not(mobile), not(target_os = "linux")))]
+      build_tray_now(app.handle());
       Ok(())
     })
     .on_window_event(|window, event| {
