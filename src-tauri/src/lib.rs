@@ -4,6 +4,9 @@ mod disguise;
 #[cfg(desktop)]
 mod tray;
 
+#[cfg(target_os = "linux")]
+mod system_theme;
+
 #[cfg(mobile)]
 mod tray {
   #[tauri::command]
@@ -497,6 +500,11 @@ pub fn run() {
             .build(),
         )?;
       }
+      // Kept after the logger so what it decided is visible, and before the slow work
+      // below so the webview learns the real scheme as early as it can: it reads that
+      // from GtkSettings, which on a portal-driven desktop does not yet know it is dark.
+      #[cfg(target_os = "linux")]
+      system_theme::follow_desktop_color_scheme();
       #[cfg(not(mobile))]
       {
         // Reserve port before spawn so get_puller_base_url matches the sidecar.
