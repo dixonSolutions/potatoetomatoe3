@@ -372,8 +372,32 @@ fn spawn_puller_dev(
     return Err(format!("dev puller entry missing: {}", puller_entry.display()));
   }
 
-  let mut cmd = std::process::Command::new("pnpm");
-  cmd.args(["exec", "tsx", "puller/src/index.ts"]).current_dir(repo_root());
+  /*
+   * `pnpm exec tsx` resolves against the *root* package, which never depends on tsx —
+   * in a workspace pnpm turns that into a recursive exec and fails with
+   * ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL, costing every dev launch a 10s health wait
+   * before the sidecar fallback takes over. Run the binary the puller package owns.
+   */
+  let root = repo_root();
+  let tsx = ["puller/node_modules/.bin/tsx", "node_modules/.bin/tsx"]
+    .iter()
+    .map(|rel| root.join(rel))
+    .find(|path| path.exists());
+
+  let mut cmd = match &tsx {
+    Some(path) => {
+      let mut cmd = std::process::Command::new(path);
+      cmd.arg("puller/src/index.ts");
+      cmd
+    }
+    /* No install layout we know — let pnpm resolve it from the puller package itself. */
+    None => {
+      let mut cmd = std::process::Command::new("pnpm");
+      cmd.args(["--filter", "./puller", "exec", "tsx", "src/index.ts"]);
+      cmd
+    }
+  };
+  cmd.current_dir(&root);
   spawn_with_env(cmd, games_dir, catalog_dir, port)
 }
 
