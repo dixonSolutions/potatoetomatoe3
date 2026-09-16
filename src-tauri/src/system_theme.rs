@@ -17,6 +17,17 @@
 //! No portal (no session bus, an older desktop, a Flatpak without the Settings portal)
 //! means no signal to mirror, so we leave `GtkSettings` exactly as we found it and the
 //! theme name keeps deciding, as it did before.
+//!
+//! Two phases, because they need different things: the colour the window is *built* with
+//! has to be decided before GTK exists — D-Bus alone can answer that — while writing to
+//! `GtkSettings` needs GTK up, which only happens once Tauri has started.
+//!
+//! Linux-only, and only because Linux needs it: Android's WebView, WebView2 and WKWebView
+//! all answer `prefers-color-scheme` from the OS themselves, so the page already follows
+//! there and a bridge would be a second opinion to disagree with. What is read here is the
+//! cross-desktop freedesktop spec, not a GNOME detail — KDE, Cinnamon and the wlroots
+//! portals publish the same `org.freedesktop.appearance color-scheme` — and the values are
+//! the spec's, so it is only GTK3's absence from that spec that is being patched over.
 
 use gtk::gio;
 use gtk::glib::Variant;
@@ -37,19 +48,26 @@ thread_local! {
 
 /// Mirror the desktop's colour-scheme onto `GtkSettings`, now and on every change.
 ///
-/// Call once, from the GTK thread, after Tauri has initialised GTK.
-pub fn follow_desktop_color_scheme() {
-  let bus = match gio::bus_get_sync(gio::BusType::Session, gio::Cancellable::NONE) {
-    Ok(bus) => bus,
-    Err(e) => {
-      log::info!("no session bus, leaving the GTK theme to decide light/dark: {e}");
-      return;
-    }
-  };
+/// What the desktop published, with nothing done about it yet.
+///
+/// Only D-Bus, so unlike the rest of this module it can be asked before GTK exists — which
+/// is the point: the window's background colour has to be decided before the window is,
+/// or the app spends the whole page load as a white sheet inside a dark window.
+pub fn desktop_prefers_dark() -> Result<bool, String> {
+  let bus = session_bus()?;
+  read_color_scheme(&bus).ok_or_else(portal_unavailable)
+}
 
-  match read_color_scheme(&bus) {
-    Some(dark) => apply(dark),
-    None => log::info!("appearance portal unavailable, leaving the GTK theme to decide light/dark"),
+/// Mirror the desktop's choice onto `GtkSettings`, now and on every change.
+///
+/// Call once from the GTK thread, after Tauri has initialised GTK. Returns what it read
+/// so the caller can report it.
+pub fn follow_desktop_color_scheme() -> Result<bool, String> {
+  let bus = session_bus()?;
+
+  let scheme = read_color_scheme(&bus).ok_or_else(portal_unavailable);
+  if let Ok(dark) = scheme {
+    let _ = apply(dark);
   }
 
   // Subscribed unconditionally: a desktop that cannot answer `Read` right now (portal
@@ -68,8 +86,12 @@ pub fn follow_desktop_color_scheme() {
       if namespace != APPEARANCE_NS || key != COLOR_SCHEME_KEY {
         return;
       }
+      // Both xdg-desktop-portal-gnome and -gtk announce the same change, so log from the
+      // write rather than the signal or every switch is reported twice.
       if let Some(dark) = prefers_dark(&params.child_value(2)) {
-        apply(dark);
+        if apply(dark) {
+          log::info!("desktop switched to {}", if dark { "dark" } else { "light" });
+        }
       }
     },
   );
@@ -77,6 +99,16 @@ pub fn follow_desktop_color_scheme() {
   std::mem::forget(id);
 
   PORTAL_BUS.with(|slot| *slot.borrow_mut() = Some(bus));
+  scheme
+}
+
+fn session_bus() -> Result<gio::DBusConnection, String> {
+  gio::bus_get_sync(gio::BusType::Session, gio::Cancellable::NONE)
+    .map_err(|e| format!("no session bus, leaving the GTK theme to decide light/dark: {e}"))
+}
+
+fn portal_unavailable() -> String {
+  "appearance portal unavailable, leaving the GTK theme to decide light/dark".to_owned()
 }
 
 fn read_color_scheme(bus: &gio::DBusConnection) -> Option<bool> {
@@ -119,13 +151,14 @@ fn prefers_dark(value: &Variant) -> Option<bool> {
   }
 }
 
-fn apply(dark: bool) {
+/// Returns whether this actually changed anything.
+fn apply(dark: bool) -> bool {
   let Some(settings) = gtk::Settings::default() else {
-    return;
+    return false;
   };
   if settings.is_gtk_application_prefer_dark_theme() == dark {
-    return;
+    return false;
   }
-  log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" });
   settings.set_gtk_application_prefer_dark_theme(dark);
+  true
 }
