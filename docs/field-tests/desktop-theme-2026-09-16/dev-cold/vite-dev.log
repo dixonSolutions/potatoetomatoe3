@@ -1,0 +1,45 @@
+▲ [WARNING] Cannot find base config file "./.svelte-kit/tsconfig.json" [tsconfig.json]
+
+    ../../../tsconfig.json:2:12:
+      2 │   "extends": "./.svelte-kit/tsconfig.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  VITE v7.1.12  ready in 1986 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.1.1.226:5173/
+  ➜  Network: http://100.118.238.2:5173/
+  ➜  Network: http://169.254.0.1:5173/
+  ➜  Network: http://169.254.0.1:5173/
+  ➜  Network: http://169.254.0.1:5173/
+▲ [WARNING] Cannot find base config file "./.svelte-kit/tsconfig.json" [tsconfig.json]
+
+    ../../../tsconfig.json:2:12:
+      2 │   "extends": "./.svelte-kit/tsconfig.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  VITE v7.1.12  ready in 1925 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.1.1.226:5173/
+  ➜  Network: http://100.118.238.2:5173/
+  ➜  Network: http://169.254.0.1:5173/
+  ➜  Network: http://169.254.0.1:5173/
+  ➜  Network: http://169.254.0.1:5173/
+▲ [WARNING] Cannot find base config file "./.svelte-kit/tsconfig.json" [tsconfig.json]
+
+    ../../../tsconfig.json:2:12:
+      2 │   "extends": "./.svelte-kit/tsconfig.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  VITE v7.1.12  ready in 1895 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.1.1.226:5173/
+  ➜  Network: http://100.118.238.2:5173/
+  ➜  Network: http://169.254.0.1:5173/
+  ➜  Network: http://169.254.0.1:5173/
+  ➜  Network: http://169.254.0.1:5173/

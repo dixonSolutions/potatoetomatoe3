@@ -1,0 +1,32 @@
+[+92ms err] [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0 
+[+93ms err] [theme +36ms] portal Read color-scheme -> Some(true) in 1ms
+[+107ms err] [theme +50ms] apply(dark=true) changed=true; after apply: gtk-theme-name=Adwaita prefer-dark=true toplevels=0 
+[+110ms err] [theme +53ms] theme_bg_color -> Some((53, 53, 53))
+[+260ms out] [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +35ms] after gtk::init: gtk-theme-name=Adwaita prefer-dark=false toplevels=0 
+[2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +36ms] portal Read color-scheme -> Some(true) in 1ms
+[2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +50ms] apply(dark=true) changed=true; after apply: gtk-theme-name=Adwaita prefer-dark=true toplevels=0 
+[2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +53ms] theme_bg_color -> Some((53, 53, 53))
+[2026-09-16][06:47:46][potato_tomato_lib][INFO] desktop colour-scheme is dark
+[+260ms out] [2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] [theme +204ms] theme_bg_color -> Some((53, 53, 53))
+[2026-09-16][06:47:46][potato_tomato_lib][INFO] coloured main rgb(53, 53, 53)
+[2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] setup: gtk-theme-name=Adwaita prefer-dark=true toplevels=1 {title="Potato Tomato" visible=true mapped=true realized=true size=1332x772 type=Toplevel}
+[2026-09-16][06:47:46][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(":1.1333339"))
+[+563ms err] 
+(potato-tomato-prod4:2517897): libayatana-appindicator-WARNING **: 16:47:46.900: libayatana-appindicator is deprecated. Please use libayatana-appindicator-glib in newly written code.
+[+567ms out] [2026-09-16][06:47:46][potato_tomato_lib][INFO] tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)
+[+762ms err] 
+(potato-tomato-prod4:2517897): Gtk-CRITICAL **: 16:47:47.021: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(potato-tomato-prod4:2517897): Gtk-CRITICAL **: 16:47:47.022: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+[+1012ms out] [2026-09-16][06:47:47][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)
+[+1274ms out] undefined
+[+1275ms out]  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "tsx" not found
+
+Did you mean "pnpm exec tsc"?
+[+1522ms out] [2026-09-16][06:47:47][potato_tomato_lib][INFO] ensure_puller: nothing healthy on 18787 — spawning
+[+1892ms out] [2026-09-16][06:47:48][potato_tomato_lib][INFO] ensure_puller: nothing healthy on 18787 — spawning
+[+1978ms out] [2026-09-16][06:47:48][potato_tomato_lib][INFO] puller started on port 18787 (data=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games, catalog=/home/borys/Projects/potatoetomatoe3/.claude/worktrees/bridge-cse_019wEnJFSMGnLEQApXmGcbBU/src-tauri/../static/games)
+[+2218ms out] undefined
+[+2219ms out]  ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "tsx" not found
+
+Did you mean "pnpm exec tsc"?
