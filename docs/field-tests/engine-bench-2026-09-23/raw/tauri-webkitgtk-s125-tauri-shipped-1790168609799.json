@@ -1,0 +1,606 @@
+{
+  "at": "2026-09-23T13:03:29.323Z",
+  "env": {
+    "engine": "tauri-webkitgtk",
+    "variant": "s125-tauri-shipped",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/60.5 Safari/605.1.15",
+    "webgl2": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 2.0",
+      "maxTextureSize": 16384
+    },
+    "webgl1": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 1.0",
+      "maxTextureSize": 16384
+    },
+    "devicePixelRatio": 2,
+    "viewport": "1536x881",
+    "screen": "1536x960",
+    "gameBox": "1280x720 CSS px",
+    "hardwareConcurrency": 8,
+    "deviceMemory": null,
+    "crossOriginIsolated": false,
+    "state": {
+      "visibility": "visible",
+      "focus": false,
+      "gameVisibility": null
+    },
+    "options": {
+      "variant": "s125-tauri-shipped",
+      "quick": false,
+      "delayMs": 3000,
+      "sampleMs": 8000,
+      "settleMs": 3000,
+      "taps": 60,
+      "latency": false,
+      "consolePhase": false,
+      "unityWarm": false,
+      "wasmCompile": true,
+      "workloads": [
+        "shrek-unity",
+        "sprites-canvas",
+        "sprites-canvas-heavy",
+        "sprites-webgl",
+        "gl-heavy",
+        "gl-light"
+      ]
+    },
+    "query": "?engine=tauri-webkitgtk&variant=collector&auto=1&collector=http://127.0.0.1:18800"
+  },
+  "hostAtStart": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T13:02:10.156Z",
+    "loadavg": [
+      4.93,
+      5.24,
+      5.86
+    ],
+    "cpuBusyPctSinceLastSnapshot": 28.8,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 42139,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "s125-tauri-shipped",
+    "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+  },
+  "baseline": {
+    "fps": 31,
+    "stalled": false,
+    "frameMs": {
+      "n": 93,
+      "mean": 32.22,
+      "p50": 32,
+      "p95": 33,
+      "p99": 33,
+      "max": 37
+    },
+    "jankOver25ms": 93,
+    "jankOver50ms": 0,
+    "scriptMs": null,
+    "state": {
+      "before": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      },
+      "after": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      }
+    }
+  },
+  "results": [
+    {
+      "workload": "shrek-unity",
+      "label": "Shrek Escape (Unity WebGL 2, 3D menu scene)",
+      "load": {
+        "htmlLoadedMs": 83,
+        "readyMs": 3841,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 31,
+          "stalled": false,
+          "frameMs": {
+            "n": 248,
+            "mean": 32.25,
+            "p50": 32,
+            "p95": 33,
+            "p99": 36,
+            "max": 38
+          },
+          "jankOver25ms": 248,
+          "jankOver50ms": 0,
+          "scriptMs": null,
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T13:02:28.603Z",
+        "loadavg": [
+          4.74,
+          5.18,
+          5.83
+        ],
+        "cpuBusyPctSinceLastSnapshot": 27.8,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 41129,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "s125-tauri-shipped",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+      }
+    },
+    {
+      "workload": "sprites-canvas",
+      "label": "Canvas 2D, 3000 drawImage sprites + tiles + text (typical 2D catalog game)",
+      "load": {
+        "htmlLoadedMs": 74,
+        "readyMs": 167,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 31.1,
+          "stalled": false,
+          "frameMs": {
+            "n": 249,
+            "mean": 32.2,
+            "p50": 32,
+            "p95": 33,
+            "p99": 37,
+            "max": 44
+          },
+          "jankOver25ms": 247,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 250,
+            "mean": 8.44,
+            "p50": 8,
+            "p95": 14,
+            "p99": 17,
+            "max": 19
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T13:02:40.363Z",
+        "loadavg": [
+          4.24,
+          5.06,
+          5.78
+        ],
+        "cpuBusyPctSinceLastSnapshot": 18.6,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 42073,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "s125-tauri-shipped",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+      }
+    },
+    {
+      "workload": "sprites-canvas-heavy",
+      "label": "Canvas 2D, 10000 drawImage sprites (throughput)",
+      "load": {
+        "htmlLoadedMs": 52,
+        "readyMs": 179,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 11.1,
+          "stalled": false,
+          "frameMs": {
+            "n": 89,
+            "mean": 90.16,
+            "p50": 89,
+            "p95": 121,
+            "p99": 143,
+            "max": 144
+          },
+          "jankOver25ms": 89,
+          "jankOver50ms": 89,
+          "scriptMs": {
+            "n": 90,
+            "mean": 30.26,
+            "p50": 27,
+            "p95": 41,
+            "p99": 44,
+            "max": 45
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T13:02:52.224Z",
+        "loadavg": [
+          4.12,
+          5.01,
+          5.75
+        ],
+        "cpuBusyPctSinceLastSnapshot": 34.8,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 41539,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "s125-tauri-shipped",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+      }
+    },
+    {
+      "workload": "sprites-webgl",
+      "label": "WebGL 1 batched sprites, 20000 (Pixi / Phaser 3 / Construct 3 style)",
+      "load": {
+        "htmlLoadedMs": 53,
+        "readyMs": 121,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 30.3,
+          "stalled": false,
+          "frameMs": {
+            "n": 243,
+            "mean": 32.97,
+            "p50": 32,
+            "p95": 41,
+            "p99": 44,
+            "max": 51
+          },
+          "jankOver25ms": 237,
+          "jankOver50ms": 1,
+          "scriptMs": {
+            "n": 244,
+            "mean": 4.06,
+            "p50": 4,
+            "p95": 5,
+            "p99": 8,
+            "max": 10
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T13:03:04.056Z",
+        "loadavg": [
+          4.47,
+          5.05,
+          5.76
+        ],
+        "cpuBusyPctSinceLastSnapshot": 39.4,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 41174,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "s125-tauri-shipped",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+      }
+    },
+    {
+      "workload": "gl-heavy",
+      "label": "Synthetic WebGL 2, GPU-bound",
+      "load": {
+        "htmlLoadedMs": 59,
+        "readyMs": 106,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 8.2,
+          "stalled": false,
+          "frameMs": {
+            "n": 65,
+            "mean": 121.26,
+            "p50": 123,
+            "p95": 219,
+            "p99": 225,
+            "max": 228
+          },
+          "jankOver25ms": 55,
+          "jankOver50ms": 37,
+          "scriptMs": {
+            "n": 66,
+            "mean": 8.06,
+            "p50": 7,
+            "p95": 13,
+            "p99": 18,
+            "max": 20
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T13:03:15.718Z",
+        "loadavg": [
+          3.93,
+          4.92,
+          5.71
+        ],
+        "cpuBusyPctSinceLastSnapshot": 36.8,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 41224,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "s125-tauri-shipped",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+      }
+    },
+    {
+      "workload": "gl-light",
+      "label": "Synthetic WebGL 2, light (should hold vsync)",
+      "load": {
+        "htmlLoadedMs": 45,
+        "readyMs": 85,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 31,
+          "stalled": false,
+          "frameMs": {
+            "n": 248,
+            "mean": 32.27,
+            "p50": 32,
+            "p95": 33,
+            "p99": 34,
+            "max": 35
+          },
+          "jankOver25ms": 248,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 249,
+            "mean": 0.59,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 1
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T13:03:27.429Z",
+        "loadavg": [
+          4.45,
+          5,
+          5.72
+        ],
+        "cpuBusyPctSinceLastSnapshot": 32.8,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 41058,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "s125-tauri-shipped",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+      }
+    }
+  ],
+  "wasm": {
+    "fetchMs": 388,
+    "bytes": 32576040,
+    "compile1Ms": 258,
+    "compile2Ms": 241
+  },
+  "hostAtEnd": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T13:03:29.565Z",
+    "loadavg": [
+      4.49,
+      5,
+      5.72
+    ],
+    "cpuBusyPctSinceLastSnapshot": 26.3,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 40738,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "s125-tauri-shipped",
+    "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+  },
+  "host": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T13:03:29.799Z",
+    "loadavg": [
+      4.49,
+      5,
+      5.72
+    ],
+    "cpuBusyPctSinceLastSnapshot": 25.2,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 40683,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "s125-tauri-shipped",
+    "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3"
+  }
+}

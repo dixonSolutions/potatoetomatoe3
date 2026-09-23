@@ -1,0 +1,109 @@
+### rep 1: tauri v-tauri-shipped
+[run] tauri/v-tauri-shipped start 20:17:27 load=18.92 16.91 17.93 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] tauri/v-tauri-shipped end 20:19:00 after 90s load=17.44 17.12 17.92 shield=false -> tauri-webkitgtk-v-tauri-shipped-1790158739192.json
+### rep 1: wk v-wk-default
+[run] wk/v-wk-default start 20:19:08 load=16.11 16.85 17.82 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-default end 20:20:40 after 90s load=15.95 16.64 17.66 shield=false -> webkitgtk-bare-v-wk-default-1790158839654.json
+### rep 1: chrome v-chromium
+[run] chrome/v-chromium start 20:20:48 load=15.28 16.47 17.59 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] chrome/v-chromium end 20:22:15 after 85s load=9.26 14.32 16.74 shield=false -> chromium-v-chromium-1790158934586.json
+### rep 1: wk v-wk-nolowpower
+[run] wk/v-wk-nolowpower start 20:22:23 load=8.84 14.07 16.63 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower end 20:23:52 after 87s load=12.57 13.78 16.28 shield=false -> webkitgtk-bare-v-wk-nolowpower-1790159031660.json
+### rep 1: wk v-wk-nolowpower-nodmabuf
+[run] wk/v-wk-nolowpower-nodmabuf start 20:24:00 load=11.97 13.64 16.22 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DISABLE_DMABUF_RENDERER=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-nodmabuf end 20:25:36 after 94s load=11.02 12.89 15.69 shield=false -> webkitgtk-bare-v-wk-nolowpower-nodmabuf-1790159136132.json
+### rep 1: wk v-wk-nolowpower-shm
+[run] wk/v-wk-nolowpower-shm start 20:25:44 load=10.37 12.73 15.62 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DMABUF_RENDERER_FORCE_SHM=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-shm end 20:27:12 after 86s load=11.49 12.67 15.35 shield=false -> webkitgtk-bare-v-wk-nolowpower-shm-1790159232006.json
+### rep 1: wk v-wk-nolowpower-skiacpu
+[run] wk/v-wk-nolowpower-skiacpu start 20:27:20 load=11.13 12.58 15.30 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-skiacpu end 20:28:47 after 86s load=10.50 12.30 14.97 shield=false -> webkitgtk-bare-v-wk-nolowpower-skiacpu-1790159327107.json
+### rep 1: wk v-wk-nolowpower-gputhreads0
+[run] wk/v-wk-nolowpower-gputhreads0 start 20:28:55 load=11.17 12.39 14.97 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_GPU_PAINTING_THREADS=0 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-gputhreads0 end 20:30:23 after 86s load=8.18 11.29 14.36 shield=false -> webkitgtk-bare-v-wk-nolowpower-gputhreads0-1790159422755.json
+### rep 1: wk v-wk-nolowpower-canvascpu
+[run] wk/v-wk-nolowpower-canvascpu start 20:30:31 load=8.95 11.35 14.35 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--setting enable-2d-canvas-acceleration=false query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-canvascpu end 20:32:05 after 92s load=8.77 10.78 13.87 shield=false -> webkitgtk-bare-v-wk-nolowpower-canvascpu-1790159525179.json
+### rep 1: wk v-wk-nolowpower-webglgpuprocess
+[run] wk/v-wk-nolowpower-webglgpuprocess start 20:32:13 load=9.29 10.82 13.85 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--feature UseGPUProcessForWebGL=true query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-webglgpuprocess end 20:33:42 after 87s load=10.92 10.91 13.60 shield=false -> webkitgtk-bare-v-wk-nolowpower-webglgpuprocess-1790159621444.json
+### rep 1: wk v-wk-nolowpower-nocompositing
+[run] wk/v-wk-nolowpower-nocompositing start 20:33:50 load=10.12 10.74 13.54 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DISABLE_COMPOSITING_MODE=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/v-wk-nolowpower-nocompositing end 20:35:18 after 86s load=8.92 10.18 13.08 shield=false -> webkitgtk-bare-v-wk-nolowpower-nocompositing-1790159717693.json
+### rep 1: tauri v-tauri-giomodule
+[run] tauri/v-tauri-giomodule start 20:35:26 load=8.25 9.99 12.98 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] tauri/v-tauri-giomodule end 20:36:53 after 86s load=8.45 9.63 12.59 shield=false -> tauri-webkitgtk-v-tauri-giomodule-1790159813069.json
+### rep 2: tauri v-tauri-shipped
+[run] tauri/v-tauri-shipped start 20:37:02 load=7.60 9.41 12.49 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] tauri/v-tauri-shipped end 20:38:30 after 87s load=6.62 8.77 12.00 shield=false -> tauri-webkitgtk-v-tauri-shipped-1790159909802.json
+### rep 2: wk v-wk-default
+[run] wk/v-wk-default start 20:38:39 load=8.25 9.04 12.05 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-default end 20:40:06 after 86s load=10.16 9.34 11.87 shield=false -> webkitgtk-bare-v-wk-default-1790160005814.json
+### rep 2: chrome v-chromium
+[run] chrome/v-chromium start 20:40:14 load=9.82 9.28 11.84 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] chrome/v-chromium end 20:41:40 after 84s load=14.52 10.56 12.05 shield=false -> chromium-v-chromium-1790160099739.json
+### rep 2: wk v-wk-nolowpower
+[run] wk/v-wk-nolowpower start 20:41:48 load=13.68 10.51 12.01 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower end 20:43:18 after 88s load=9.46 10.38 11.86 shield=false -> webkitgtk-bare-v-wk-nolowpower-1790160197699.json
+### rep 2: wk v-wk-nolowpower-nodmabuf
+[run] wk/v-wk-nolowpower-nodmabuf start 20:43:26 load=8.77 10.21 11.79 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DISABLE_DMABUF_RENDERER=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-nodmabuf end 20:44:55 after 87s load=8.76 9.62 11.43 shield=false -> webkitgtk-bare-v-wk-nolowpower-nodmabuf-1790160294393.json
+### rep 2: wk v-wk-nolowpower-shm
+[run] wk/v-wk-nolowpower-shm start 20:45:03 load=9.30 9.72 11.44 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DMABUF_RENDERER_FORCE_SHM=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-shm end 20:46:30 after 86s load=10.48 10.13 11.44 shield=false -> webkitgtk-bare-v-wk-nolowpower-shm-1790160390312.json
+### rep 2: wk v-wk-nolowpower-skiacpu
+[run] wk/v-wk-nolowpower-skiacpu start 20:46:39 load=9.47 9.93 11.36 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-skiacpu end 20:48:05 after 85s load=10.08 9.95 11.24 shield=false -> webkitgtk-bare-v-wk-nolowpower-skiacpu-1790160485289.json
+### rep 2: wk v-wk-nolowpower-gputhreads0
+[run] wk/v-wk-nolowpower-gputhreads0 start 20:48:13 load=9.14 9.75 11.16 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_GPU_PAINTING_THREADS=0 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-gputhreads0 end 20:49:48 after 91s load=24.11 14.53 12.72 shield=false -> webkitgtk-bare-v-wk-nolowpower-gputhreads0-1790160588175.json
+### rep 2: wk v-wk-nolowpower-canvascpu
+[run] wk/v-wk-nolowpower-canvascpu start 20:49:56 load=24.26 14.90 12.86 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--setting enable-2d-canvas-acceleration=false query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-canvascpu end 20:51:33 after 95s load=15.00 14.14 12.78 shield=false -> webkitgtk-bare-v-wk-nolowpower-canvascpu-1790160693331.json
+### rep 2: wk v-wk-nolowpower-webglgpuprocess
+[run] wk/v-wk-nolowpower-webglgpuprocess start 20:51:41 load=13.45 13.84 12.69 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--feature UseGPUProcessForWebGL=true query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-webglgpuprocess end 20:53:10 after 87s load=7.61 11.76 12.06 shield=false -> webkitgtk-bare-v-wk-nolowpower-webglgpuprocess-1790160789847.json
+### rep 2: wk v-wk-nolowpower-nocompositing
+[run] wk/v-wk-nolowpower-nocompositing start 20:53:18 load=8.53 11.83 12.08 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DISABLE_COMPOSITING_MODE=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/v-wk-nolowpower-nocompositing end 20:54:56 after 95s load=16.07 12.73 12.33 shield=false -> webkitgtk-bare-v-wk-nolowpower-nocompositing-1790160896257.json
+### rep 2: tauri v-tauri-giomodule
+[run] tauri/v-tauri-giomodule start 20:55:04 load=15.35 12.64 12.30 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] tauri/v-tauri-giomodule end 20:56:32 after 86s load=10.16 11.64 11.98 shield=false -> tauri-webkitgtk-v-tauri-giomodule-1790160991386.json
+### rep 3: tauri v-tauri-shipped
+[run] tauri/v-tauri-shipped start 20:56:40 load=9.74 11.53 11.95 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] tauri/v-tauri-shipped end 20:58:08 after 86s load=13.05 12.09 12.10 shield=false -> tauri-webkitgtk-v-tauri-shipped-1790161087662.json
+### rep 3: wk v-wk-default
+[run] wk/v-wk-default start 20:58:16 load=15.85 12.72 12.30 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-default end 20:59:52 after 92s load=20.51 15.27 13.26 shield=false -> webkitgtk-bare-v-wk-default-1790161191111.json
+### rep 3: chrome v-chromium
+[run] chrome/v-chromium start 21:00:00 load=19.51 15.15 13.23 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] chrome/v-chromium end 21:01:28 after 85s load=17.33 15.24 13.42 shield=false -> chromium-v-chromium-1790161287407.json
+### rep 3: wk v-wk-nolowpower
+[run] wk/v-wk-nolowpower start 21:01:36 load=17.44 15.33 13.47 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower end 21:03:11 after 92s load=15.30 15.38 13.68 shield=false -> webkitgtk-bare-v-wk-nolowpower-1790161390336.json
+### rep 3: wk v-wk-nolowpower-nodmabuf
+[run] wk/v-wk-nolowpower-nodmabuf start 21:03:19 load=14.56 15.22 13.64 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DISABLE_DMABUF_RENDERER=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-nodmabuf end 21:04:57 after 96s load=10.35 13.38 13.12 shield=false -> webkitgtk-bare-v-wk-nolowpower-nodmabuf-1790161496798.json
+### rep 3: wk v-wk-nolowpower-shm
+[run] wk/v-wk-nolowpower-shm start 21:05:05 load=11.53 13.57 13.19 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DMABUF_RENDERER_FORCE_SHM=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-shm end 21:06:36 after 88s load=13.56 14.23 13.49 shield=false -> webkitgtk-bare-v-wk-nolowpower-shm-1790161596172.json
+### rep 3: wk v-wk-nolowpower-skiacpu
+[run] wk/v-wk-nolowpower-skiacpu start 21:06:45 load=12.79 14.06 13.44 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-skiacpu end 21:08:14 after 87s load=12.09 13.86 13.45 shield=false -> webkitgtk-bare-v-wk-nolowpower-skiacpu-1790161693639.json
+### rep 3: wk v-wk-nolowpower-gputhreads0
+[run] wk/v-wk-nolowpower-gputhreads0 start 21:08:22 load=11.61 13.70 13.40 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_GPU_PAINTING_THREADS=0 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-gputhreads0 end 21:09:52 after 87s load=12.75 13.72 13.44 shield=false -> webkitgtk-bare-v-wk-nolowpower-gputhreads0-1790161791922.json
+### rep 3: wk v-wk-nolowpower-canvascpu
+[run] wk/v-wk-nolowpower-canvascpu start 21:10:00 load=13.17 13.79 13.47 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--setting enable-2d-canvas-acceleration=false query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-canvascpu end 21:11:43 after 100s load=12.10 14.09 13.67 shield=false -> webkitgtk-bare-v-wk-nolowpower-canvascpu-1790161903030.json
+### rep 3: wk v-wk-nolowpower-webglgpuprocess
+[run] wk/v-wk-nolowpower-webglgpuprocess start 21:11:51 load=14.97 14.64 13.85 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--feature UseGPUProcessForWebGL=true query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-webglgpuprocess end 21:13:22 after 89s load=11.99 14.05 13.74 shield=false -> webkitgtk-bare-v-wk-nolowpower-webglgpuprocess-1790162002804.json
+### rep 3: wk v-wk-nolowpower-nocompositing
+[run] wk/v-wk-nolowpower-nocompositing start 21:13:31 load=11.67 13.95 13.71 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_DISABLE_COMPOSITING_MODE=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/v-wk-nolowpower-nocompositing end 21:15:04 after 92s load=8.49 12.16 13.08 shield=false -> webkitgtk-bare-v-wk-nolowpower-nocompositing-1790162104539.json
+### rep 3: tauri v-tauri-giomodule
+[run] tauri/v-tauri-giomodule start 21:15:13 load=7.80 11.89 12.99 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] tauri/v-tauri-giomodule end 21:16:41 after 86s load=7.17 10.82 12.52 shield=false -> tauri-webkitgtk-v-tauri-giomodule-1790162200301.json
+### matrix $BENCH_DIR/matrices/variants.txt done 21:16:49

@@ -1,0 +1,37 @@
+### rep 1: tauri tauri-shipped
+[run] tauri/tauri-shipped start 21:20:42 load=5.06 7.86 10.90 shield=false envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] tauri/tauri-shipped end 21:27:33 after 402s load=12.05 12.78 12.56 shield=false cpu=334.7s -> tauri-webkitgtk-tauri-shipped-1790162852812.json
+### rep 1: chrome chromium
+[run] chrome/chromium start 21:27:41 load=12.52 12.87 12.59 shield=false envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] chrome/chromium end 21:33:49 after 362s load=12.66 12.63 12.61 shield=false cpu=472.7s -> chromium-chromium-1790163228166.json
+### rep 1: tauri tauri-nolowpower
+[run] tauri/tauri-nolowpower start 21:33:57 load=12.21 12.54 12.58 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] tauri/tauri-nolowpower end 21:40:13 after 371s load=13.39 10.67 11.61 shield=false cpu=386.2s -> tauri-webkitgtk-tauri-nolowpower-1790163613030.json
+### rep 1: tauri tauri-tuned
+[run] tauri/tauri-tuned start 21:40:21 load=12.96 10.62 11.60 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] tauri/tauri-tuned end 21:46:06 after 341s load=7.52 9.89 11.25 shield=false cpu=364.6s -> tauri-webkitgtk-tauri-tuned-1790163966319.json
+### rep 2: tauri tauri-shipped
+[run] tauri/tauri-shipped start 21:46:14 load=6.99 9.70 11.17 shield=false envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] tauri/tauri-shipped end 21:52:37 after 378s load=7.96 7.87 9.79 shield=false cpu=317.8s -> tauri-webkitgtk-tauri-shipped-1790164357260.json
+### rep 2: chrome chromium
+[run] chrome/chromium start 21:52:45 load=9.53 8.20 9.88 shield=false envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] chrome/chromium end 21:58:53 after 363s load=14.22 11.00 10.55 shield=false cpu=458.6s -> chromium-chromium-1790164732751.json
+### rep 2: tauri tauri-nolowpower
+[run] tauri/tauri-nolowpower start 21:59:02 load=14.61 11.13 10.59 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] tauri/tauri-nolowpower end 22:05:30 after 384s load=7.41 9.56 10.33 shield=false cpu=390.0s -> tauri-webkitgtk-tauri-nolowpower-1790165130031.json
+### rep 2: tauri tauri-tuned
+[run] tauri/tauri-tuned start 22:05:39 load=7.54 9.51 10.30 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] tauri/tauri-tuned end 22:11:28 after 345s load=8.17 10.02 10.48 shield=false cpu=357.4s -> tauri-webkitgtk-tauri-tuned-1790165488221.json
+### rep 3: tauri tauri-shipped
+[run] tauri/tauri-shipped start 22:11:36 load=7.83 9.92 10.44 shield=false envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] tauri/tauri-shipped end 22:18:10 after 389s load=7.25 9.22 10.08 shield=false cpu=329.0s -> tauri-webkitgtk-tauri-shipped-1790165890018.json
+### rep 3: chrome chromium
+[run] chrome/chromium start 22:18:19 load=7.11 9.13 10.04 shield=false envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] chrome/chromium end 22:24:27 after 364s load=13.98 11.98 11.01 shield=false cpu=445.8s -> chromium-chromium-1790166267303.json
+### rep 3: tauri tauri-nolowpower
+[run] tauri/tauri-nolowpower start 22:24:36 load=12.51 11.73 10.94 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] tauri/tauri-nolowpower end 22:30:40 after 360s load=7.72 10.27 10.72 shield=false cpu=359.9s -> tauri-webkitgtk-tauri-nolowpower-1790166639768.json
+### rep 3: tauri tauri-tuned
+[run] tauri/tauri-tuned start 22:30:48 load=7.85 10.21 10.69 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] tauri/tauri-tuned end 22:36:55 after 360s load=7.72 12.14 12.14 shield=false cpu=353.5s -> tauri-webkitgtk-tauri-tuned-1790167014731.json
+### matrix $BENCH_DIR/matrices/main2.txt done 22:37:03

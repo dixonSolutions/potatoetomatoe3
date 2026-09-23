@@ -1,0 +1,91 @@
+### rep 1: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:38:23 load=2.85 3.17 4.11 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=1
+[run] tauri/soak-giomodule end 23:38:40 after 17s load=2.80 3.14 4.08 shield=false cpu=34.2s -> tauri-webkitgtk-soak-giomodule-1790170720590.json
+### rep 1: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:38:49 load=3.16 3.20 4.09 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=1
+[run] tauri/soak-ldpreload end 23:39:06 after 17s load=3.67 3.31 4.11 shield=false cpu=34.8s -> tauri-webkitgtk-soak-ldpreload-1790170746270.json
+### rep 2: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:39:14 load=3.33 3.25 4.08 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=2
+[run] tauri/soak-giomodule end 23:39:32 after 17s load=3.93 3.39 4.11 shield=false cpu=34.8s -> tauri-webkitgtk-soak-giomodule-1790170771889.json
+### rep 2: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:39:40 load=3.63 3.34 4.09 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=2
+[run] tauri/soak-ldpreload end 23:39:58 after 18s load=4.75 3.59 4.16 shield=false cpu=35.4s -> tauri-webkitgtk-soak-ldpreload-1790170797553.json
+### rep 3: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:40:06 load=4.33 3.54 4.13 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=3
+[run] tauri/soak-giomodule end 23:40:25 after 18s load=4.43 3.61 4.15 shield=false cpu=35.2s -> tauri-webkitgtk-soak-giomodule-1790170824172.json
+### rep 3: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:40:33 load=4.31 3.60 4.14 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=3
+[run] tauri/soak-ldpreload end 23:40:51 after 18s load=3.81 3.53 4.10 shield=false cpu=35.6s -> tauri-webkitgtk-soak-ldpreload-1790170850820.json
+### rep 4: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:40:59 load=3.70 3.51 4.09 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=4
+[run] tauri/soak-giomodule end 23:41:18 after 18s load=3.99 3.59 4.10 shield=false cpu=35.1s -> tauri-webkitgtk-soak-giomodule-1790170877372.json
+### rep 4: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:41:26 load=3.68 3.53 4.08 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=4
+[run] tauri/soak-ldpreload end 23:41:43 after 17s load=5.16 3.87 4.18 shield=false cpu=34.7s -> tauri-webkitgtk-soak-ldpreload-1790170903810.json
+### rep 5: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:41:52 load=4.73 3.82 4.16 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=5
+[run] tauri/soak-giomodule end 23:42:10 after 18s load=4.99 3.95 4.20 shield=false cpu=35.0s -> tauri-webkitgtk-soak-giomodule-1790170929492.json
+### rep 5: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:42:18 load=4.75 3.91 4.19 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=5
+[run] tauri/soak-ldpreload end 23:42:36 after 17s load=4.73 3.95 4.19 shield=false cpu=34.1s -> tauri-webkitgtk-soak-ldpreload-1790170955878.json
+### rep 6: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:42:44 load=4.24 3.87 4.16 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=6
+[run] tauri/soak-giomodule end 23:43:01 after 17s load=4.18 3.88 4.16 shield=false cpu=34.5s -> tauri-webkitgtk-soak-giomodule-1790170981338.json
+### rep 6: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:43:09 load=3.70 3.78 4.13 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=6
+[run] tauri/soak-ldpreload end 23:43:27 after 17s load=3.96 3.83 4.14 shield=false cpu=35.3s -> tauri-webkitgtk-soak-ldpreload-1790171006893.json
+### rep 7: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:43:35 load=3.43 3.72 4.10 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=7
+[run] tauri/soak-giomodule end 23:43:52 after 17s load=3.29 3.67 4.07 shield=false cpu=34.6s -> tauri-webkitgtk-soak-giomodule-1790171032248.json
+### rep 7: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:44:00 load=3.24 3.65 4.06 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=7
+[run] tauri/soak-ldpreload end 23:44:19 after 18s load=3.16 3.60 4.04 shield=false cpu=35.7s -> tauri-webkitgtk-soak-ldpreload-1790171058393.json
+### rep 8: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:44:27 load=3.46 3.66 4.05 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=8
+[run] tauri/soak-giomodule end 23:44:45 after 18s load=4.34 3.83 4.10 shield=false cpu=34.4s -> tauri-webkitgtk-soak-giomodule-1790171084854.json
+### rep 8: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:44:54 load=4.37 3.85 4.10 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=8
+[run] tauri/soak-ldpreload end 23:45:12 after 18s load=5.36 4.09 4.18 shield=false cpu=35.0s -> tauri-webkitgtk-soak-ldpreload-1790171111584.json
+### rep 9: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:45:20 load=4.85 4.02 4.16 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=9
+[run] tauri/soak-giomodule end 23:45:38 after 17s load=6.38 4.39 4.27 shield=false cpu=34.7s -> tauri-webkitgtk-soak-giomodule-1790171137832.json
+### rep 9: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:45:46 load=5.47 4.26 4.23 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=9
+[run] tauri/soak-ldpreload end 23:46:03 after 17s load=5.33 4.29 4.24 shield=false cpu=34.1s -> tauri-webkitgtk-soak-ldpreload-1790171163274.json
+### rep 10: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:46:11 load=4.51 4.15 4.20 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=10
+[run] tauri/soak-giomodule end 23:46:29 after 17s load=4.40 4.15 4.20 shield=false cpu=34.2s -> tauri-webkitgtk-soak-giomodule-1790171188983.json
+### rep 10: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:46:37 load=4.21 4.12 4.18 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=10
+[run] tauri/soak-ldpreload end 23:46:54 after 17s load=5.61 4.45 4.29 shield=false cpu=34.9s -> tauri-webkitgtk-soak-ldpreload-1790171214475.json
+### rep 11: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:47:02 load=5.24 4.39 4.27 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=11
+[run] tauri/soak-giomodule end 23:47:20 after 17s load=5.34 4.46 4.30 shield=false cpu=34.4s -> tauri-webkitgtk-soak-giomodule-1790171240057.json
+### rep 11: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:47:28 load=4.92 4.39 4.28 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=11
+[run] tauri/soak-ldpreload end 23:47:46 after 18s load=4.68 4.37 4.27 shield=false cpu=34.2s -> tauri-webkitgtk-soak-ldpreload-1790171265830.json
+### rep 12: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:47:55 load=4.27 4.29 4.25 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=12
+[run] tauri/soak-giomodule end 23:48:12 after 17s load=4.11 4.24 4.23 shield=false cpu=34.2s -> tauri-webkitgtk-soak-giomodule-1790171291967.json
+### rep 12: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:48:20 load=4.56 4.33 4.26 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=12
+[run] tauri/soak-ldpreload end 23:48:38 after 17s load=5.54 4.55 4.33 shield=false cpu=33.9s -> tauri-webkitgtk-soak-ldpreload-1790171317629.json
+### rep 13: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:48:46 load=5.29 4.53 4.33 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=13
+[run] tauri/soak-giomodule end 23:49:03 after 17s load=4.83 4.47 4.31 shield=false cpu=34.7s -> tauri-webkitgtk-soak-giomodule-1790171343454.json
+### rep 13: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:49:11 load=4.32 4.37 4.28 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=13
+[run] tauri/soak-ldpreload end 23:49:29 after 17s load=5.14 4.57 4.35 shield=false cpu=33.9s -> tauri-webkitgtk-soak-ldpreload-1790171368845.json
+### rep 14: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:49:37 load=4.73 4.50 4.33 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=14
+[run] tauri/soak-giomodule end 23:49:54 after 17s load=4.54 4.48 4.33 shield=false cpu=34.7s -> tauri-webkitgtk-soak-giomodule-1790171394479.json
+### rep 14: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:50:02 load=4.17 4.40 4.30 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=14
+[run] tauri/soak-ldpreload end 23:50:20 after 17s load=5.31 4.65 4.39 shield=false cpu=33.8s -> tauri-webkitgtk-soak-ldpreload-1790171419944.json
+### rep 15: tauri soak-giomodule
+[run] tauri/soak-giomodule start 23:50:28 load=5.05 4.61 4.37 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=15
+[run] tauri/soak-giomodule end 23:50:45 after 17s load=4.39 4.48 4.34 shield=false cpu=34.0s -> tauri-webkitgtk-soak-giomodule-1790171445616.json
+### rep 15: tauri soak-ldpreload
+[run] tauri/soak-ldpreload start 23:50:54 load=4.20 4.44 4.33 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=workloads=shrek-unity&sample=2000&settle=500&latency=0&console=0&wasm=0&delay=500&rep=15
+[run] tauri/soak-ldpreload end 23:51:11 after 17s load=4.11 4.40 4.31 shield=false cpu=34.7s -> tauri-webkitgtk-soak-ldpreload-1790171471072.json
+### matrix $BENCH_DIR/matrices/soak.txt done 23:51:19
