@@ -7,3 +7,6 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Machine-written audit data and importer caches (see scripts/catalog-quality/)
+/scripts/data/
