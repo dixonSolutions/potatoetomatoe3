@@ -46,3 +46,7 @@ puller/wget-log*
 
 # Agent worktrees (Claude Code) are whole checkouts nested in this one
 .claude/worktrees/
+
+# Python bytecode
+__pycache__/
+*.pyc
