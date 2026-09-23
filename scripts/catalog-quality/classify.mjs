@@ -18,10 +18,12 @@
  *   node scripts/catalog-quality/classify.mjs --spot 20                     # random per tier
  */
 
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
 	AUDIT_DIR,
 	DATA_DIR,
+	GAMES_ROOT,
 	HOST_STATUS_PATH,
 	QUALITY_PATH,
 	LAUNCH_SAMPLE,
@@ -191,9 +193,23 @@ function percentileRanks(values) {
  */
 function probeVerdict(game, probe, unitySignal) {
 	const flags = [];
+	/*
+	 * Drive U 7 plays through the `local` route: the catalog's own online/embed.html, one
+	 * per game, which frames the game from jsDelivr (often in Ruffle). The Google Sites page
+	 * and the shared jsDelivr file the probe fetched are not what the app runs, so they
+	 * cannot make the game dead, a duplicate or the wrong game.
+	 */
+	if (game.localEmbed) {
+		if (!existsSync(join(GAMES_ROOT, game.id, 'online', 'embed.html'))) {
+			return { dead: 'no-local-embed', flags };
+		}
+		return { flags: ['local-route'] };
+	}
 	if (!probe) return { flags: ['unprobed'] };
 	const shellHost = probe.shell?.u ? new URL(probe.shell.u).hostname : null;
 	if (shellHost && AD_REDIRECT_HOSTS.has(shellHost)) return { dead: 'ad-redirect', flags };
+	/* A shell with no iframe is a page of its own, framed as it is by the direct route. */
+	if (probe.s === -1 && probe.e === 'no-iframe') return { flags: ['self-contained-shell'] };
 	if (probe.s === -1) return { dead: `no-target:${probe.e || 'shell'}`, flags };
 	if (probe.s === 0) return { dead: `unreachable:${probe.e || 'error'}`, flags };
 	if (probe.s >= 400) return { dead: `http-${probe.s}`, flags };
@@ -213,7 +229,11 @@ function probeVerdict(game, probe, unitySignal) {
 	if (fl.has('parked')) return { dead: 'parked-domain', flags };
 	if (fl.has('embed-disabled')) return { dead: 'portal-exclusive', flags };
 	if (fl.has('not-found')) return { dead: 'not-found-page', flags };
-	if (fl.has('swf')) return { dead: 'flash-swf', flags };
+	/*
+	 * A bare .swf: no frame can show it, but the desktop app's relay serves it in Ruffle
+	 * (src-tauri/src/relay.rs). Plays on desktop only — not broken, but capped at ok.
+	 */
+	if (fl.has('swf')) return { relayOnly: 'flash-via-relay', flags };
 	if (fl.has('unity-webplayer')) return { dead: 'unity-web-player-plugin', flags };
 	if (fl.has('flash-embed') && !fl.has('ruffle')) return { dead: 'flash-no-emulator', flags };
 	if (probe.jrs && (probe.jrs.s === 0 || probe.jrs.s >= 400)) {
@@ -247,8 +267,11 @@ function probeVerdict(game, probe, unitySignal) {
 /**
  * @returns {{ verified: boolean, failed: boolean, attempts: number, how?: string }}
  */
-function launchVerdict(record, verdict) {
+function launchVerdict(record, verdict, game) {
 	if (!record) return { verified: false, failed: false, attempts: 0 };
+	/* A test of a route the app does not use for this game (Drive U 7's remote URL) says nothing. */
+	const route = game.localEmbed ? 'local' : 'direct';
+	if ((record.route || 'direct') !== route) return { verified: false, failed: false, attempts: 0 };
 	const hist = record.hist || '';
 	/*
 	 * Only a strict pass counts as verified: the screen settled into a rich game picture
@@ -285,9 +308,25 @@ function launchVerdict(record, verdict) {
 		record.status === 'FRAME_ERROR' ||
 		record.status === 'PORTAL_REFUSED' ||
 		(record.text || []).some((t) => PORTAL_REFUSAL_RE.test(t));
+	/*
+	 * The launch test covers the first route that needs no desktop relay. Any game with an
+	 * online URL also has the desktop relay in its chain (planOnlineRoutes), which was not
+	 * tested, so failing here fails one route, not every route: the game is not broken, it
+	 * just is not known to play on the web and Android builds. Only a portal refusal
+	 * ("exclusively on CrazyGames.com" checks the page's own origin, which no relay can
+	 * fake) or a game with no other route (a catalog shell) counts as failed everywhere.
+	 */
+	const failedHere = retried || refused;
+	const hasOtherRoute = Boolean(game.onlineEmbedUrl || game.remotePlayUrl);
+	const everyRoute =
+		failedHere &&
+		(record.status === 'PORTAL_REFUSED' ||
+			(record.text || []).some((t) => PORTAL_REFUSAL_RE.test(t)) ||
+			!hasOtherRoute);
 	return {
 		verified: false,
-		failed: retried || refused,
+		failed: everyRoute,
+		firstRouteFailed: failedHere && !everyRoute,
 		hardFail: refused || /N$/.test(hist),
 		attempts: hist.length,
 		status: record.status
@@ -324,7 +363,7 @@ export function classifyCatalog() {
 		const signal = portalSignal(game, signals, unityCatalog);
 		const unityApi = portal === 'unity-play' ? signals.get(game.id) : null;
 		const verdict = probeVerdict(game, probe, unityApi);
-		const launch = launchVerdict(launches[game.id], verdict);
+		const launch = launchVerdict(launches[game.id], verdict, game);
 		const text = titleSignals(game);
 		const hosts = playHostsOf(game, probe);
 		let doe = 'likely-allowed';
@@ -465,6 +504,8 @@ export function classifyCatalog() {
 	/* ---- duplicates: shared embed URL, then same title ---- */
 	const byEmbed = new Map();
 	for (const row of rows) {
+		/* Drive U 7 plays its own per-game embed.html, so a shared remote file is no duplicate. */
+		if (row.game.localEmbed) continue;
 		const url = row.game.onlineEmbedUrl?.split('#')[0] || row.probe?.shell?.u;
 		if (!url) continue;
 		if (!byEmbed.has(url)) byEmbed.set(url, []);
@@ -524,6 +565,10 @@ export function classifyCatalog() {
 		if (launch.verified) launchP = 1;
 		else if (launch.failed) launchP = 0;
 		else if (verdict.dead) launchP = 0;
+		/* Failed the web/Android route; only the untested desktop relay is left. */ else if (
+			launch.firstRouteFailed
+		)
+			launchP = 0.1;
 		/* Plays only through the desktop app's relay; never on the web or Android builds. */ else if (
 			verdict.relayOnly
 		)
@@ -616,6 +661,7 @@ function wrongGameOf(row) {
 	}
 	if (
 		row.portal === 'drive-u-7' &&
+		!game.localEmbed &&
 		isTitleMismatch(game.name, probe?.t) &&
 		!/^classroom resources/i.test(probe?.t || '')
 	) {

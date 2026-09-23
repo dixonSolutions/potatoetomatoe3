@@ -5,7 +5,7 @@
  *
  * An HTTP 200 says nothing about whether a game renders — portals happily return 200 for
  * splash pages, ad gates and Flash stubs. This driver loads each game the way a user does
- * (the app's game page, click Play, wait for the frame to paint) and classifies the outcome.
+ * (the app's game page, which starts the frame by itself, then waits for it to paint) and classifies the outcome.
  *
  * "Painted" means both: a sized canvas (or video) somewhere in the frame tree, and a
  * screenshot of the game surface that is not a flat colour. A Unity build creates its
@@ -341,6 +341,22 @@ function isPainted(paint) {
 	return paint.colours >= 16 || (paint.colours >= 2 && paint.dominant < 0.9);
 }
 
+/**
+ * The first route of the app's play chain that works without the desktop relay
+ * (`planOnlineRoutes` in src/lib/utils/online-play-routing.ts): the catalog's own
+ * `online/embed.html` for Drive U 7 (`local`), the shell page for games with no embed URL,
+ * else the embed URL itself (`direct`). The relay is desktop-only and not tested here.
+ */
+function directRouteUrl(game) {
+	const id = encodeURIComponent(game.id);
+	if (game.localEmbed) return `/games/${id}/online/embed.html`;
+	return game.onlineEmbedUrl || `/games/${id}/online/index.html`;
+}
+
+function routeTested(game) {
+	return game.localEmbed ? 'local' : 'direct';
+}
+
 /** The iframe `allow` list LazyGameFrame gives every game. */
 const APP_IFRAME_ALLOW = 'fullscreen; autoplay; gamepad; microphone; camera';
 
@@ -351,7 +367,7 @@ const APP_IFRAME_ALLOW = 'fullscreen; autoplay; gamepad; microphone; camera';
  * interception, so nothing is added to the app or static/.
  */
 async function openHarness(page, game, opts) {
-	const src = game.onlineEmbedUrl || `/games/${encodeURIComponent(game.id)}/online/index.html`;
+	const src = directRouteUrl(game);
 	const harnessUrl = `${opts.baseUrl}/__launch-harness__/${encodeURIComponent(game.id)}`;
 	await page.route(harnessUrl, (route) =>
 		route.fulfill({
@@ -395,7 +411,12 @@ async function verifyGame(context, game, opts) {
 	const networkIdleFor = () => (inFlight.size ? 0 : Date.now() - lastNetworkAt);
 
 	const shotPath = opts.shotsDir ? join(opts.shotsDir, `${game.id}.jpg`) : null;
-	const base = { id: game.id, portal: portalOf(game), timeout: opts.launchTimeoutMs };
+	const base = {
+		id: game.id,
+		portal: portalOf(game),
+		route: opts.direct ? routeTested(game) : 'app',
+		timeout: opts.launchTimeoutMs
+	};
 	const started = Date.now();
 	try {
 		if (opts.direct) {
@@ -406,10 +427,8 @@ async function verifyGame(context, game, opts) {
 				timeout: 60_000
 			});
 
-			/* The player defers the iframe until the user asks for it. */
-			const playButton = page.getByRole('button', { name: /^Load and play/ });
-			await playButton.waitFor({ timeout: 30_000 });
-			await playButton.click();
+			/* The game page starts the frame by itself now; there is no Play button to press. */
+			await page.locator('iframe').first().waitFor({ timeout: 60_000 });
 		}
 		const clicked = Date.now();
 
@@ -579,6 +598,7 @@ function recordResult(cache, result, { recheck = false } = {}) {
 		status: result.status,
 		ms: result.ms,
 		timeout: result.timeout,
+		route: result.route,
 		how: result.how,
 		strict: result.strict,
 		settled: result.settled,
