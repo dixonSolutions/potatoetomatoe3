@@ -22,10 +22,15 @@
 //! It also serves Drive U 7 games' own document, the catalog's `online/embed.html`
 //! (`…/game/<id>/local`), so that third-party HTML runs on the relay's origin and not, as
 //! an app-made `blob:` would, on the app's.
+//!
+//! What it serves is never readable from another origin (no CORS headers: Ruffle reads the
+//! `.swf` from the relay's own origin), and a redirect from the game's host is followed only
+//! to the open web over http(s) — never to this machine or the local network.
 
 // Registered as a scheme on desktop only.
 #![cfg_attr(mobile, allow(dead_code))]
 
+use std::net::IpAddr;
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
 use std::time::Duration;
@@ -43,6 +48,8 @@ const USER_AGENT: &str =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15";
 /// A top document or a Flash file; anything bigger is not a game page.
 const MAX_BODY_BYTES: usize = 96 * 1024 * 1024;
+/// Redirects followed from the catalog URL before giving up.
+const MAX_REDIRECTS: usize = 8;
 
 fn client() -> &'static reqwest::Client {
   static CLIENT: OnceLock<reqwest::Client> = OnceLock::new();
@@ -51,18 +58,20 @@ fn client() -> &'static reqwest::Client {
       .user_agent(USER_AGENT)
       .connect_timeout(Duration::from_secs(15))
       .timeout(Duration::from_secs(90))
-      .redirect(reqwest::redirect::Policy::limited(8))
+      // Followed by hand in `fetch`, where each hop is checked (`check_redirect`).
+      .redirect(reqwest::redirect::Policy::none())
       .build()
       .expect("relay HTTP client")
   })
 }
 
+/// No `Access-Control-Allow-Origin`: what the relay fetched is for the relay's own pages
+/// (the game, and Ruffle reading its `.swf`), never for another origin to read.
 fn respond(status: StatusCode, content_type: &str, body: Vec<u8>) -> Response<Vec<u8>> {
   Response::builder()
     .status(status)
     .header(header::CONTENT_TYPE, content_type)
     .header(header::CACHE_CONTROL, "no-store")
-    .header(header::ACCESS_CONTROL_ALLOW_ORIGIN, "*")
     .body(body)
     .unwrap_or_else(|_| Response::new(Vec::new()))
 }
@@ -91,6 +100,98 @@ fn metadata_url(catalog: &Path, id: &str, keys: &[&str]) -> Option<reqwest::Url>
 /// The game's own online URL from its catalog metadata.
 fn embed_url(catalog: &Path, id: &str) -> Option<reqwest::Url> {
   metadata_url(catalog, id, &["onlineEmbedUrl", "remotePlayUrl"])
+}
+
+/// Is `ip` somewhere on the open internet — not this machine, the local network, or a
+/// range that is never routed there?
+pub(crate) fn is_public_ip(ip: IpAddr) -> bool {
+  match ip {
+    IpAddr::V4(v4) => {
+      let [a, b, ..] = v4.octets();
+      !(v4.is_loopback()
+        || v4.is_private()
+        || v4.is_link_local()
+        || v4.is_unspecified()
+        || v4.is_broadcast()
+        || v4.is_multicast()
+        || v4.is_documentation()
+        || a == 0
+        // Carrier-grade NAT (100.64.0.0/10), benchmarking (198.18.0.0/15), reserved (240/4).
+        || (a == 100 && (b & 0xc0) == 64)
+        || (a == 198 && (b & 0xfe) == 18)
+        || a >= 240)
+    }
+    IpAddr::V6(v6) => {
+      if let Some(v4) = v6.to_ipv4_mapped() {
+        return is_public_ip(IpAddr::V4(v4));
+      }
+      let [s0, s1, ..] = v6.segments();
+      !(v6.is_loopback()
+        || v6.is_unspecified()
+        || v6.is_multicast()
+        // Unique local (fc00::/7), link-local (fe80::/10), old site-local (fec0::/10).
+        || (s0 & 0xfe00) == 0xfc00
+        || (s0 & 0xffc0) == 0xfe80
+        || (s0 & 0xffc0) == 0xfec0
+        // Documentation (2001:db8::/32).
+        || (s0 == 0x2001 && s1 == 0x0db8))
+    }
+  }
+}
+
+/// Why a redirect may not go to `url`, judged from the URL alone: anything but http(s), a
+/// host that is this machine (`localhost`, `*.localhost`), or an address off the open
+/// internet.
+pub(crate) fn refuse_redirect_target(url: &reqwest::Url) -> Option<String> {
+  if !matches!(url.scheme(), "http" | "https") {
+    return Some(format!("redirect to {url} refused: not http(s)"));
+  }
+  let Some(host) = url.host_str() else {
+    return Some(format!("redirect to {url} refused: no host"));
+  };
+  let host = host.trim_start_matches('[').trim_end_matches(']');
+  if let Ok(ip) = host.parse::<IpAddr>() {
+    return (!is_public_ip(ip)).then(|| format!("redirect to {url} refused: {ip} is not public"));
+  }
+  let name = host.trim_end_matches('.').to_ascii_lowercase();
+  (name == "localhost" || name.ends_with(".localhost"))
+    .then(|| format!("redirect to {url} refused: {name} is this machine"))
+}
+
+/// Why a redirect's `host` may not be reached, given the addresses it resolved to; `None`
+/// when every one of them is public.
+pub(crate) fn refuse_resolved(host: &str, addrs: &[IpAddr]) -> Option<String> {
+  if addrs.is_empty() {
+    return Some(format!("{host} resolves to nothing"));
+  }
+  addrs
+    .iter()
+    .find(|ip| !is_public_ip(**ip))
+    .map(|ip| format!("{host} resolves to {ip}, which is not public"))
+}
+
+/// A redirect the relay may follow. Beyond the URL, the host's name is resolved and every
+/// address it has must be public: a name pointing into the local network is refused as the
+/// address itself would be. (The connection resolves the name again, so this narrows the
+/// window for a name that changes its answer rather than closing it.)
+async fn check_redirect(url: &reqwest::Url) -> Result<(), String> {
+  if let Some(why) = refuse_redirect_target(url) {
+    return Err(why);
+  }
+  let host = url.host_str().unwrap_or_default();
+  if host.starts_with('[') || host.parse::<IpAddr>().is_ok() {
+    return Ok(());
+  }
+  let port = url.port_or_known_default().unwrap_or(443);
+  let addrs: Vec<IpAddr> = tokio::net::lookup_host((host, port))
+    .await
+    .map_err(|e| format!("redirect to {url} refused: cannot resolve {host}: {e}"))?
+    .map(|addr| addr.ip())
+    .collect();
+  match refuse_resolved(host, &addrs) {
+    Some(why) => Err(format!("redirect to {url} refused: {why}")),
+    None => Ok(()),
+  }
 }
 
 fn is_flash(url: &reqwest::Url, content_type: &str) -> bool {
@@ -227,12 +328,36 @@ pub fn ruffle_page(id: &str, swf_url: &reqwest::Url) -> String {
   )
 }
 
+/// Fetch `url`, following its redirects only where `check_redirect` allows.
 async fn fetch(url: reqwest::Url) -> Result<(reqwest::Url, String, Vec<u8>), String> {
-  let response = client()
-    .get(url.clone())
-    .send()
-    .await
-    .map_err(|e| format!("{url}: {e}"))?;
+  let mut current = url.clone();
+  let mut hops = 0;
+  let response = loop {
+    let response = client()
+      .get(current.clone())
+      .send()
+      .await
+      .map_err(|e| format!("{current}: {e}"))?;
+    let location = response
+      .status()
+      .is_redirection()
+      .then(|| response.headers().get(header::LOCATION))
+      .flatten()
+      .and_then(|v| v.to_str().ok())
+      .map(str::to_string);
+    let Some(location) = location else {
+      break response;
+    };
+    hops += 1;
+    if hops > MAX_REDIRECTS {
+      return Err(format!("{url}: more than {MAX_REDIRECTS} redirects"));
+    }
+    let next = current
+      .join(&location)
+      .map_err(|e| format!("{current}: redirect to {location:?}: {e}"))?;
+    check_redirect(&next).await?;
+    current = next;
+  };
   if !response.status().is_success() {
     return Err(format!("{url}: HTTP {}", response.status()));
   }
@@ -433,6 +558,114 @@ mod tests {
     assert!(is_flash(&swf, ""));
     assert!(is_flash(&page, "application/x-shockwave-flash"));
     assert!(!is_flash(&page, "text/html"));
+  }
+
+  #[test]
+  fn relayed_pages_are_not_readable_from_other_origins() {
+    let res = respond(StatusCode::OK, "text/html", b"x".to_vec());
+    assert!(res
+      .headers()
+      .get(header::ACCESS_CONTROL_ALLOW_ORIGIN)
+      .is_none());
+    let res = error(StatusCode::NOT_FOUND, "no");
+    assert!(res
+      .headers()
+      .get(header::ACCESS_CONTROL_ALLOW_ORIGIN)
+      .is_none());
+  }
+
+  #[test]
+  fn redirects_stay_on_the_open_web() {
+    let refused = [
+      "file:///etc/passwd",
+      "ftp://files.example.com/x",
+      "data:text/html,hi",
+      "http://localhost/",
+      "http://LOCALHOST./admin",
+      "http://router.localhost/",
+      "http://127.0.0.1:8080/",
+      "http://127.8.9.10/",
+      "http://0.0.0.0/",
+      "http://10.1.2.3/",
+      "http://172.16.0.1/",
+      "http://172.31.255.255/",
+      "http://192.168.1.1/",
+      "http://169.254.169.254/latest/meta-data/",
+      "http://100.64.0.1/",
+      "http://198.18.0.1/",
+      "http://224.0.0.1/",
+      "http://255.255.255.255/",
+      "http://[::1]/",
+      "http://[::]/",
+      "http://[fe80::1]/",
+      "http://[fd12:3456::1]/",
+      "http://[::ffff:127.0.0.1]/",
+      "http://[::ffff:192.168.0.1]/",
+      "http://[2001:db8::1]/",
+    ];
+    for raw in refused {
+      let url = reqwest::Url::parse(raw).unwrap();
+      assert!(refuse_redirect_target(&url).is_some(), "{raw} should be refused");
+    }
+    let allowed = [
+      "https://cdn.jsdelivr.net/gh/u/r@1/index.html",
+      "http://prod.addictinggames.com/files/game.swf",
+      "https://8.8.8.8/",
+      "https://172.32.0.1/",
+      "https://[2606:4700:4700::1111]/",
+      "https://localhost.example.com/",
+    ];
+    for raw in allowed {
+      let url = reqwest::Url::parse(raw).unwrap();
+      assert!(refuse_redirect_target(&url).is_none(), "{raw} should be allowed");
+    }
+  }
+
+  #[test]
+  fn a_name_that_resolves_into_the_local_network_is_refused() {
+    let public: IpAddr = "93.184.215.14".parse().unwrap();
+    let private: IpAddr = "192.168.0.10".parse().unwrap();
+    let loopback: IpAddr = "::1".parse().unwrap();
+    assert!(refuse_resolved("cdn.example", &[public]).is_none());
+    assert!(refuse_resolved("rebind.example", &[public, private]).is_some());
+    assert!(refuse_resolved("rebind.example", &[loopback]).is_some());
+    assert!(refuse_resolved("nothing.example", &[]).is_some());
+    /* The whole check, through a real lookup: `localhost` never gets as far as DNS. */
+    let url = reqwest::Url::parse("http://localhost:9/").unwrap();
+    assert!(tauri::async_runtime::block_on(check_redirect(&url)).is_err());
+  }
+
+  /// A host answering every request with a redirect to `location`.
+  fn redirecting_host(location: &'static str) -> reqwest::Url {
+    use std::io::{Read, Write};
+    let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+    let port = listener.local_addr().unwrap().port();
+    std::thread::spawn(move || {
+      for stream in listener.incoming().take(4) {
+        let Ok(mut stream) = stream else { continue };
+        let mut buf = [0u8; 2048];
+        let _ = stream.read(&mut buf);
+        let _ = write!(
+          stream,
+          "HTTP/1.1 302 Found\r\nLocation: {location}\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        );
+      }
+    });
+    reqwest::Url::parse(&format!("http://127.0.0.1:{port}/game.html")).unwrap()
+  }
+
+  #[test]
+  fn a_redirect_into_the_local_network_is_not_followed() {
+    for location in [
+      "http://169.254.169.254/latest/meta-data/",
+      "http://localhost:1/admin",
+      "file:///etc/passwd",
+    ] {
+      let start = redirecting_host(location);
+      let result = tauri::async_runtime::block_on(fetch(start));
+      let err = result.expect_err(location);
+      assert!(err.contains("refused"), "{location}: {err}");
+    }
   }
 
   #[test]
