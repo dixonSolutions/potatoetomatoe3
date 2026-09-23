@@ -105,9 +105,8 @@ static EARLY_LOG: Mutex<Vec<String>> = Mutex::new(Vec::new());
 
 fn note(line: String) {
   let line = format!("full frame rate in power saver: {line}");
-  if cfg!(debug_assertions) {
-    eprintln!("{line}");
-  }
+  /* Release builds install no log plugin: stderr (the journal, for the Flatpak) it is. */
+  eprintln!("potato-tomato: {line}");
   if let Ok(mut early) = EARLY_LOG.lock() {
     early.push(line);
   }
