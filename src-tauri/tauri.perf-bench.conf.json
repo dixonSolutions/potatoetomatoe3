@@ -1,0 +1,19 @@
+{
+	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+	"build": {
+		"devUrl": "http://127.0.0.1:5173/dev/perf-bench?engine=webkitgtk-run1&auto=1",
+		"beforeDevCommand": ""
+	},
+	"app": {
+		"windows": [
+			{
+				"title": "Perf Bench (dev)",
+				"width": 1440,
+				"height": 900,
+				"resizable": true,
+				"fullscreen": false,
+				"visible": true
+			}
+		]
+	}
+}
