@@ -367,15 +367,17 @@ fn strip_unity_portal_bloat(html: &str) -> String {
 }
 
 /// The HTML an offline entry is served as: what the puller did before serving it.
+///
+/// The bridge always goes in inline. A copy the puller captured may already carry a
+/// `<script src="/game-storage-bridge.child.js">`, which it served itself; under
+/// `ptoffline://localhost/` that path is not a file, so the tag is dropped rather than
+/// trusted — it used to leave such a copy running with no bridge at all.
 pub fn offline_html(html: &str, mirror_root: &Path, id: &str) -> String {
-  let mut out = rewrite_vaulted_urls(html, mirror_root);
+  let mut out = crate::relay::strip_bridge_tags(&rewrite_vaulted_urls(html, mirror_root));
   if is_unity_game_html(&out) && !out.contains("__ptUnityInjectInstalled") {
     out = strip_unity_portal_bloat(&out);
     out =
       crate::relay::insert_first_in_head(&out, &format!("<script>{UNITY_INJECT_SOURCE}</script>"));
-  }
-  if out.contains("game-storage-bridge.child.js") {
-    return out;
   }
   crate::relay::insert_first_in_head(&out, &crate::relay::inline_bridge(id))
 }
@@ -918,6 +920,18 @@ mod tests {
     assert!(safe_join(root, "a/./b").is_some());
     assert!(!is_catalog_id("../g"));
     assert!(!is_catalog_id("g/h"));
+  }
+
+  #[test]
+  fn a_copy_that_carries_a_bridge_tag_still_gets_the_bridge() {
+    /* The puller served `/game-storage-bridge.child.js`; under ptoffline:// it is a 404. */
+    let roots = temp_roots("bridge-tag");
+    let mirror = roots.data.join("g/offline");
+    let html = "<html><head><script src=\"/game-storage-bridge.child.js\" data-pt-game=\"g\"></script><title>t</title></head><body></body></html>";
+    let out = offline_html(html, &mirror, "g");
+    assert!(!out.contains("game-storage-bridge.child.js"));
+    assert_eq!(out.matches("window.__ptGameId=\"g\"").count(), 1);
+    assert!(out.find("__ptGameId").unwrap() < out.find("<title>").unwrap());
   }
 
   fn profile_with(save: &str, databases: serde_json::Value) -> serde_json::Value {
