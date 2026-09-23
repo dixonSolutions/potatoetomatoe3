@@ -112,6 +112,30 @@ Resolution (the wait before the frame starts) is 13–73 ms for direct, relay an
 relays head to head on six games (`--force relay|puller`): median frame load 2.1 s for
 the in-process relay against 6.2 s for the Node one.
 
+### When a game crashes the web process
+
+WebKitGTK runs cross-origin frames in the page's own web process, so a game that crashes
+it takes the whole app page down: the window goes blank. The AddictingGames HTML5 titles
+above do exactly that. On Linux the app watches the webview's `web-process-terminated`
+signal ([`webview_crash.rs`](../src-tauri/src/webview_crash.rs)) and reloads the page the
+user was on, logging the reason and the URL.
+
+A game page is not simply reloaded into the same game, which would crash again and reload
+again. The crash is kept on the native side; the reloaded game page takes it once
+(`take_webview_crash`, [`webview-crash.ts`](../src/lib/utils/webview-crash.ts)) and, when it
+was this game, holds the frame back behind "This game crashed the player" with **Open in
+browser** and **Play here anyway**. Coming back to the game later starts it as usual.
+Automatic reloads are capped at three a minute; the fourth crash in a minute gets a static
+page with a link back to the games instead.
+
+Debug builds can crash the web process on purpose: the `debug_crash_webview` command, or
+`POTATO_TOMATO_DEBUG_CRASH_ON_GAME=<ms>` (once a game page has been open that long; every
+time with `POTATO_TOMATO_DEBUG_CRASH_REPEAT=1`). Verified in the Tauri app under the
+headless compositor: `addicting-flower-shop-2` crashed WebKit by itself, the page came
+back on its game page showing the notice with no game frame, and nothing crashed again;
+the debug trigger on `crazygames-foot-chinko` did the same, and with repeats the fourth
+crash in a minute got the static page and no reload.
+
 ### Offline copies and saves without Node
 
 `ptoffline://localhost/<id>/<path>` (`src-tauri/src/offline_games.rs`) serves a mirror

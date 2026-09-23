@@ -100,6 +100,7 @@
 	} from '$lib/utils/online-play-routing';
 	import { gameFrameSpokeSince, nativeGameFramesActive } from '$lib/utils/native-game-frames';
 	import { openExternalUrl } from '$lib/utils/open-external';
+	import { takeWebviewCrashOfGame, webviewCrashOnLoad } from '$lib/utils/webview-crash';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import { isImmersiveElement } from '$lib/utils/fullscreen';
@@ -202,10 +203,14 @@
 		const profile = withControlsHint(keyProfile, gameMetadata?.description ?? '');
 		return detectedControls(profile).some((c) => c.kind === 'gameplay');
 	});
-	/** Frame started but never reported `load` — surfaces the retry hint below the player. */
-	let frameStalled = $state(false);
 	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
 	let loadedGameId = $state('');
+	/**
+	 * The game whose page the desktop app reloaded after it crashed WebKit's web process.
+	 * Its frame is held back behind a notice: starting it again would crash again.
+	 */
+	let crashedGameId = $state('');
+	let crashNotice = $derived(Boolean(gameId) && crashedGameId === gameId);
 	/**
 	 * Always show Console on local/dev/Tauri. Do not gate on child chromeAvailable —
 	 * that bind lagged false and hid the control entirely.
@@ -213,8 +218,8 @@
 	let showConsoleButton = $derived(!isPublicSiteDeployment() || touchConsoleAvailable);
 
 	/*
-	 * Android has no puller, so the relay that plays X-Frame-Options hosts on desktop is
-	 * not on the table. Framing them yields chrome-error://chromewebdata/ — a dead black
+	 * Android has no relay (the desktop app plays X-Frame-Options hosts through its
+	 * in-process one). Framing them yields chrome-error://chromewebdata/ — a dead black
 	 * box with no explanation. Offer the system browser instead of a frame that cannot load.
 	 */
 	let unframeableEmbedUrl = $derived.by(() => {
@@ -236,6 +241,12 @@
 			return 'This game’s host';
 		}
 	});
+
+	/** The player chose to try the game that crashed once more. */
+	function playAfterCrash() {
+		appendPlayLog('info', 'ui', 'Starting the game again after it crashed', `game=${gameId}`);
+		crashedGameId = '';
+	}
 
 	async function openGameInBrowser() {
 		if (!unframeableEmbedUrl) return;
@@ -436,11 +447,6 @@
 		});
 	}
 
-	/** Play URLs served by the local puller relay rather than the game's own host. */
-	function isRelayPlayUrl(url: string): boolean {
-		return url.includes('/api/game-live/') || url.includes('/api/unity-play/');
-	}
-
 	/** When the current frame started loading, for the watchdog's proof-of-life check. */
 	let launchStartedAt = 0;
 	/** The play URL a relaunch is already moving away from — one failure, one step. */
@@ -463,7 +469,6 @@
 	 */
 	function handleFrameLoadState(state: 'loading' | 'loaded' | 'stalled', url: string) {
 		if (!gameId) return;
-		frameStalled = false;
 		if (state === 'loading') {
 			launchStartedAt = Date.now();
 			escalatingFrom = '';
@@ -494,7 +499,7 @@
 			'Game frame did not load in time',
 			`game=${gameId} url=${url}`
 		);
-		void retryThroughRelay('stalled');
+		void tryNextPlayRoute('stalled');
 	}
 
 	/** The frame's document is up: it said hello, or (same-origin) it has parsed a body. */
@@ -527,14 +532,11 @@
 			'Game frame loaded but never ran a script (blocked, error page, or not a page)',
 			`game=${id} url=${url}`
 		);
-		await retryThroughRelay('blank');
+		await tryNextPlayRoute('blank');
 	}
 
-	/**
-	 * Relaunch the game on the next route of its chain. The name predates the chain; the
-	 * stall notice's button still calls it.
-	 */
-	async function retryThroughRelay(reason = 'user') {
+	/** Relaunch the game on the next route of its chain. */
+	async function tryNextPlayRoute(reason: 'stalled' | 'blank') {
 		const id = gameId;
 		if (!id) return;
 		const failedUrl = gamePlayerUrl;
@@ -646,8 +648,7 @@
 		appendPlayLog('info', 'ui', 'Relaunch game completely', `game=${gameId}`);
 		setGamePausedState(false);
 		setTouchConsoleVisible(false, 'relaunch');
-		/* A manual relaunch is a fresh attempt — do not keep forcing the relay. */
-		frameStalled = false;
+		/* A manual relaunch is a fresh attempt: every route of the chain is tried again. */
 		clearDirectLaunchFailed(gameId);
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
@@ -690,7 +691,7 @@
 			touchConsoleVisible = false;
 			gamePlayerUrl = '';
 			playUrlReady = false;
-			frameStalled = false;
+			crashedGameId = '';
 			recommendedGames = [];
 		} else if (!soft) {
 			/* Same game re-entry (onMount + afterNavigate race) — do not wipe Console. */
@@ -743,7 +744,21 @@
 		 */
 		gamePlayerUrl = await getGamePlayerUrl(id, meta);
 		await Promise.race([profileReady, new Promise((done) => setTimeout(done, 600))]);
+		/*
+		 * Back from a crash of this very game (the app reloaded the page): hold the frame
+		 * behind a notice rather than start it — and crash — again.
+		 */
+		const crash = await takeWebviewCrashOfGame(id);
 		if (id !== gameId) return;
+		if (crash) {
+			crashedGameId = id;
+			appendPlayLog(
+				'warn',
+				'play-url',
+				'This game crashed the player; the app reloaded without starting it again',
+				`game=${id} reason=${crash.reason}`
+			);
+		}
 		playUrlReady = true;
 		void refreshOfflineCoverStatus(id);
 		loadedGameId = id;
@@ -776,6 +791,8 @@
 	});
 
 	onMount(() => {
+		/* Ask early whether this page load is the app coming back from a crash. */
+		void webviewCrashOnLoad();
 		networkOnline = isNetworkOnline();
 		refreshPlayerSettings();
 		privacyLocked = document.documentElement.hasAttribute('data-privacy-locked');
@@ -948,7 +965,7 @@
 	 * browser chrome goes on the next press on the in-game menu.
 	 */
 	$effect(() => {
-		if (loading || error || !gameSurfaceEl || !gameId || cannotFrameInApp) return;
+		if (loading || error || !gameSurfaceEl || !gameId || cannotFrameInApp || crashNotice) return;
 		/* Not over the lock screen or the daily-limit gate; it happens once they clear. */
 		if (privacyLocked || playLimitHold) return;
 		if (!playerSettings.autoFullscreen || autoFullscreenFor === gameId) return;
@@ -1044,11 +1061,6 @@
 		};
 		window.addEventListener(KEY_PROFILE_CHANGED, onProfile);
 		return () => window.removeEventListener(KEY_PROFILE_CHANGED, onProfile);
-	});
-
-	/* A stalled launch points at Play version / Retry puller — show where they are. */
-	$effect(() => {
-		if (frameStalled) untrack(() => (playOptionsOpen = true));
 	});
 
 	function applyPrivacyPauseToIframe(locked: boolean) {
@@ -1249,6 +1261,27 @@
 						</p>
 						<Button size="sm" onclick={() => void openGameInBrowser()}>Open in browser</Button>
 					</div>
+				{:else if crashNotice}
+					<div
+						class="flex h-full min-h-56 flex-col items-center justify-center gap-3 px-6 py-10 text-center"
+						role="alert"
+						data-testid="game-crashed-notice"
+					>
+						<p class="text-base font-semibold">This game crashed the player</p>
+						<p class="max-w-md text-sm text-muted-foreground">
+							The app reloaded instead of starting it again.{unframeableEmbedUrl.startsWith(
+								'https://'
+							)
+								? ' It may run in your browser.'
+								: ''}
+						</p>
+						<div class="flex flex-wrap justify-center gap-2">
+							{#if unframeableEmbedUrl.startsWith('https://')}
+								<Button size="sm" onclick={() => void openGameInBrowser()}>Open in browser</Button>
+							{/if}
+							<Button size="sm" variant="outline" onclick={playAfterCrash}>Play here anyway</Button>
+						</div>
+					</div>
 				{:else}
 					{#key playerRemountKey}
 						<LazyGameFrame
@@ -1275,34 +1308,6 @@
 					{/key}
 				{/if}
 			</div>
-			{#if frameStalled && gameSurfaceStarted}
-				<div
-					class="flex flex-col gap-2 border-t bg-amber-500/10 px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between"
-					role="status"
-				>
-					<div class="min-w-0">
-						<p class="font-medium">This game hasn't loaded yet.</p>
-						<p class="text-muted-foreground">
-							{#if isRelayPlayUrl(gamePlayerUrl)}
-								The local relay is not responding. Try Relaunch, or check Retry puller.
-							{:else if shouldProbePullerBackend()}
-								Its host may be blocking the app. Retrying through the local relay usually works.
-							{:else}
-								Its host may be slow or blocking the app. Try Relaunch, or switch Play from →
-								Offline (above) if you have it downloaded.
-							{/if}
-						</p>
-					</div>
-					<div class="flex shrink-0 gap-2">
-						{#if !isRelayPlayUrl(gamePlayerUrl) && shouldProbePullerBackend()}
-							<Button size="sm" onclick={() => void retryThroughRelay()}>Retry via relay</Button>
-						{/if}
-						<Button size="sm" variant="outline" onclick={() => void relaunchGameCompletely()}>
-							Relaunch
-						</Button>
-					</div>
-				</div>
-			{/if}
 			<!-- Overlay only — Console on/off lives in the toolbar and the in-game menu. -->
 			<TouchConsole
 				iframe={iframeElement ?? null}

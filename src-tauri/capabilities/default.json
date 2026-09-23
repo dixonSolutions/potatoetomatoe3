@@ -26,6 +26,7 @@
     "allow-native-identity",
     "allow-game-frames",
     "allow-offline-files",
+    "allow-webview-crash",
     "core:app:allow-version",
     "shell:default",
     {

@@ -66,12 +66,14 @@ export async function deleteNativeOfflineCopy(gameId: string): Promise<void> {
 	await invoke('offline_delete', { id: gameId });
 }
 
+/**
+ * The game's saves on disk, or `null` when it has none.
+ *
+ * @throws when the command fails (an unreadable or corrupt profile file, no IPC): that is
+ *   not "no saves", and must not be answered as such.
+ */
 export async function loadNativeGameProfile(gameId: string): Promise<GameBrowserProfile | null> {
-	try {
-		return await invoke<GameBrowserProfile | null>('game_profile_read', { id: gameId });
-	} catch {
-		return null;
-	}
+	return await invoke<GameBrowserProfile | null>('game_profile_read', { id: gameId });
 }
 
 export async function saveNativeGameProfile(
