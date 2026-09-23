@@ -141,7 +141,72 @@ const WRAP_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Wrap 
   document.getElementById('c').addEventListener('keydown', function (e) { window.canvasKeys.push(e.code); e.preventDefault(); });
 </script></body></html>`;
 
-function writeLabGame(id, name, files) {
+/*
+ * Third-party HTML the app plays from a document it makes itself (an app-made shell):
+ * a Drive U 7 style `online/embed.html` (the `local` route) and a page on a host that
+ * labels HTML `text/plain` (the `shell` route; jsDelivr, answered here by the test). The
+ * game saves the way Unity does — IDBFS: a `FILE_DATA` store with a `timestamp` index,
+ * walked with a key cursor — and reports what it can reach of the app around it.
+ */
+const SHELL_GAME = '_bridge-shell';
+const SHELL_BASE = 'https://cdn.jsdelivr.net/gh/pt-bridge-test/shell@1/';
+const REMOTE_GAME = '_bridge-remote';
+const REMOTE_PAGE = 'https://cdn.jsdelivr.net/gh/pt-bridge-test/remote@1/index.html';
+const SHELL_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Shell Lab</title>
+<script src="asset.js"></script>
+<script>
+  window.bootCount = Number(localStorage.getItem('save') || '0') + 1;
+  localStorage.setItem('save', String(window.bootCount));
+  window.bootCookie = document.cookie;
+  document.cookie = 'shell-cookie=' + window.bootCount + '; max-age=86400; path=/';
+  window.tryEscape = function () {
+    function probe(read) {
+      try { read(); return 'reached'; } catch (e) { return 'blocked:' + e.name; }
+    }
+    return {
+      origin: self.origin,
+      parentDocument: probe(function () { return parent.document.title; }),
+      topDocument: probe(function () { return top.document.title; }),
+      tauri: probe(function () { if (!parent.__TAURI_INTERNALS__) throw new Error('absent'); }),
+      appStorage: probe(function () { return parent.localStorage.length; }),
+      appSaves: probe(function () { return parent.__ptGameProfiles; }),
+      unityCache: probe(function () { indexedDB.open('UnityCache', 1); })
+    };
+  };
+  var req = indexedDB.open('/idbfs', 21);
+  req.onupgradeneeded = function (e) {
+    var db = e.target.result;
+    var tx = e.target.transaction;
+    var store = db.objectStoreNames.contains('FILE_DATA') ? tx.objectStore('FILE_DATA') : db.createObjectStore('FILE_DATA');
+    if (!store.indexNames.contains('timestamp')) store.createIndex('timestamp', 'timestamp', { unique: false });
+  };
+  req.onsuccess = function () {
+    var db = req.result;
+    var tx = db.transaction(['FILE_DATA'], 'readonly');
+    var entries = 0;
+    tx.objectStore('FILE_DATA').index('timestamp').openKeyCursor().onsuccess = function (ev) {
+      var cursor = ev.target.result;
+      if (!cursor) return;
+      if (cursor.key instanceof Date && typeof cursor.primaryKey === 'string') entries++;
+      cursor.continue();
+    };
+    var g = tx.objectStore('FILE_DATA').get('/idbfs/save.dat');
+    tx.oncomplete = function () {
+      var f = g.result;
+      window.idbState = (f ? 'u8:' + Array.from(f.contents).join('.') + (f.timestamp instanceof Date ? ':date' : ':nodate') : 'none') + '|' + entries;
+      var w = db.transaction(['FILE_DATA'], 'readwrite');
+      w.objectStore('FILE_DATA').put({ timestamp: new Date(), mode: 33206, contents: new Uint8Array([1, 2, window.bootCount]) }, '/idbfs/save.dat');
+    };
+  };
+</script></head><body>shell</body></html>`;
+const REMOTE_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Remote Lab</title>
+<script>
+  window.bootCount = Number(localStorage.getItem('save') || '0') + 1;
+  localStorage.setItem('save', String(window.bootCount));
+  window.parentReach = (function () { try { return typeof parent.document; } catch (e) { return 'blocked:' + e.name; } })();
+</script></head><body>remote</body></html>`;
+
+function writeLabGame(id, name, files, extra = {}) {
 	const dir = path.join(ROOT, 'static/games', id, 'online');
 	mkdirSync(dir, { recursive: true });
 	writeFileSync(
@@ -152,10 +217,35 @@ function writeLabGame(id, name, files) {
 			author: 'Test',
 			description: 'Fixture for pnpm bridge-test.',
 			thumbnail: '',
-			category: 'Test'
+			category: 'Test',
+			...extra
 		})
 	);
 	for (const [file, body] of Object.entries(files)) writeFileSync(path.join(dir, file), body);
+}
+
+/** What the test's jsDelivr answers: the remote page as text/plain, and the shell's asset. */
+async function routeShellHosts(ctx) {
+	await ctx.route('https://cdn.jsdelivr.net/gh/pt-bridge-test/**', (route) => {
+		const url = route.request().url();
+		const cors = { 'access-control-allow-origin': '*' };
+		if (url === REMOTE_PAGE) {
+			return route.fulfill({
+				status: 200,
+				headers: { ...cors, 'content-type': 'text/plain; charset=utf-8' },
+				body: REMOTE_HTML
+			});
+		}
+		if (url === `${SHELL_BASE}asset.js`) {
+			return route.fulfill({
+				status: 200,
+				headers: { ...cors, 'content-type': 'application/javascript' },
+				body: 'window.assetLoaded = true;'
+			});
+		}
+		return route.fulfill({ status: 404, headers: cors, body: '' });
+	});
+	return ctx;
 }
 
 function writeFixture() {
@@ -165,6 +255,13 @@ function writeFixture() {
 	});
 	writeLabGame(PLAIN_GAME, 'Plain Lab', { 'index.html': PLAIN_HTML });
 	writeLabGame(WRAP_GAME, 'Wrap Lab', { 'index.html': WRAP_HTML });
+	writeLabGame(
+		SHELL_GAME,
+		'Shell Lab',
+		{ 'embed.html': SHELL_HTML },
+		{ localEmbed: true, embedBaseUrl: SHELL_BASE }
+	);
+	writeLabGame(REMOTE_GAME, 'Remote Lab', {}, { onlineEmbedUrl: REMOTE_PAGE });
 	mkdirSync(path.join(FIXTURE_DIR, 'online'), { recursive: true });
 	writeFileSync(
 		path.join(FIXTURE_DIR, 'online/metadata.json'),
@@ -300,7 +397,7 @@ function writeEngineFixtures() {
 
 async function cleanup() {
 	rmSync(FIXTURE_DIR, { recursive: true, force: true });
-	for (const id of [NEST_GAME, PLAIN_GAME, WRAP_GAME]) {
+	for (const id of [NEST_GAME, PLAIN_GAME, WRAP_GAME, SHELL_GAME, REMOTE_GAME]) {
 		rmSync(path.join(ROOT, 'static/games', id), { recursive: true, force: true });
 	}
 	for (const engine of ENGINES) {
@@ -374,6 +471,8 @@ browser.newContext = async (options) => {
  */
 async function windowedPlayer(ctx) {
 	await ctx.addInitScript(() => {
+		/* Init scripts run in every frame; a sandboxed game frame has no storage to set. */
+		if (window !== window.top) return;
 		const key = 'potato-tomato-site-settings-v1';
 		let saved = {};
 		try {
@@ -440,8 +539,7 @@ async function play() {
 }
 
 async function relaunch() {
-	await page.locator('[data-testid="relaunch-game"]').click();
-	await sleep(300);
+	await relaunchLab(page);
 	return play();
 }
 
@@ -477,8 +575,14 @@ async function openLab(game, name) {
 	return p;
 }
 
+/*
+ * Restart the game, and wait for its old frame to go: the game first pushes its last save
+ * (a moment), and a check that finds the old frame still there would read the old game.
+ */
 async function relaunchLab(p) {
+	const old = p.frames().filter((f) => f !== p.mainFrame());
 	await p.locator('[data-testid="relaunch-game"]').click();
+	for (let i = 0; i < 100 && old.some((f) => !f.isDetached()); i++) await sleep(50);
 }
 
 /* A client-side navigation: the window, and whatever a check patched onto it, survives. */
@@ -996,6 +1100,194 @@ await shot(page, '02-game-running.png');
 		got
 	);
 	await wp.context().close();
+}
+
+/* ---------- app-made shells: third-party HTML, sandboxed away from the app ---------- */
+
+/**
+ * The frame of an app-made shell playing `game`: a sandboxed srcdoc, known by its bridge
+ * (Playwright reports its URL as `about:srcdoc`, or as nothing once the game is written in).
+ */
+async function shellFrame(target, game, ready, ms, arg = undefined) {
+	const deadline = Date.now() + ms;
+	let last = null;
+	while (Date.now() < deadline) {
+		for (const f of target.frames()) {
+			if (f === target.mainFrame() || /^https?:/.test(f.url())) continue;
+			try {
+				if ((await f.evaluate(() => window.__ptStorageBridge?.gameId ?? '')) !== game) continue;
+				last = f;
+				if (await f.evaluate(ready, arg)) return f;
+			} catch {
+				/* writing the game in, or reloading */
+			}
+		}
+		await sleep(150);
+	}
+	if (!last) throw new Error(`shell frame of ${game} not found`);
+	return last;
+}
+
+async function openShellLab(game, name) {
+	const ctx = await routeShellHosts(
+		await windowedPlayer(await browser.newContext({ viewport: { width: 1280, height: 900 } }))
+	);
+	const p = await ctx.newPage();
+	p.on('pageerror', (e) => console.log(`[pageerror ${game}]`, e.message));
+	await p.goto(`${BASE}/games/${game}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
+	await p.getByRole('heading', { name }).waitFor({ timeout: 180000 });
+	return p;
+}
+
+{
+	const hp = await openShellLab(SHELL_GAME, 'Shell Lab');
+	/*
+	 * `parent.__TAURI_INTERNALS__` is what the desktop app's page carries. Not defined here:
+	 * the app would take this page for the desktop app. Reading any such property across the
+	 * sandbox throws whether it exists or not, which is what the game sees in the app.
+	 */
+	let sf = await shellFrame(hp, SHELL_GAME, () => typeof window.idbState === 'string', 20000);
+	const sandbox = await hp.evaluate(
+		() => document.querySelector('iframe[sandbox]')?.getAttribute('sandbox') ?? null
+	);
+	check(
+		'Shell frame is sandboxed without the app origin',
+		Boolean(sandbox) && !sandbox.split(/\s+/).includes('allow-same-origin'),
+		String(sandbox)
+	);
+	const escape = await sf.evaluate(() => window.tryEscape());
+	check('Shell game runs with an opaque origin', escape.origin === 'null', escape.origin);
+	check(
+		'Shell game cannot reach parent.document or the top document',
+		escape.parentDocument.startsWith('blocked:') && escape.topDocument.startsWith('blocked:'),
+		`${escape.parentDocument} / ${escape.topDocument}`
+	);
+	check(
+		'Shell game cannot reach parent.__TAURI_INTERNALS__',
+		escape.tauri.startsWith('blocked:'),
+		escape.tauri
+	);
+	check(
+		"Shell game cannot reach the app's storage or its saves of other games",
+		escape.appStorage.startsWith('blocked:') && escape.appSaves.startsWith('blocked:'),
+		`${escape.appStorage} / ${escape.appSaves}`
+	);
+	check(
+		'Shell game loads its assets from its own host (<base>)',
+		await sf.evaluate(() => window.assetLoaded === true)
+	);
+	check(
+		'Shell game: caches are refused, as the opaque origin itself would',
+		escape.unityCache === 'blocked:SecurityError',
+		escape.unityCache
+	);
+	const firstBoot = await sf.evaluate(
+		() => `${window.bootCount}|${window.__ptStorageBridge?.virtual}|${window.idbState}`
+	);
+	check(
+		'Shell first boot: virtual storage and an in-memory IndexedDB',
+		firstBoot === '1|true|none|0',
+		firstBoot
+	);
+	await sleep(2500);
+	const shellProf = await storedProfile(hp, SHELL_GAME);
+	check(
+		'Shell saves reach the app: localStorage, cookie, IndexedDB',
+		savedBucket(shellProf)?.save === '1' &&
+			Boolean(shellProf?.profile.Default.cookies.find((c) => c.name === 'shell-cookie')) &&
+			Boolean(
+				shellProf?.profile.Default.indexedDB
+					.find((d) => d.name === '/idbfs')
+					?.records.some((r) => r.value.startsWith('__pt2:'))
+			),
+		JSON.stringify(savedBucket(shellProf))
+	);
+	await relaunchLab(hp);
+	sf = await shellFrame(
+		hp,
+		SHELL_GAME,
+		() => window.bootCount >= 2 && typeof window.idbState === 'string',
+		20000
+	);
+	const restored = await sf.evaluate(
+		() => `${window.bootCount}|${window.bootCookie}|${window.idbState}`
+	);
+	check(
+		'Shell relaunch boots onto its saves, with no reload (LS, cookie, IDB)',
+		restored === '2|shell-cookie=1|u8:1.2.1:date|1',
+		restored
+	);
+	await sleep(2500);
+	/* Games restart themselves with location.reload(); a sandboxed blob: could not. */
+	await sf.evaluate(() => setTimeout(() => location.reload(), 0));
+	sf = await shellFrame(
+		hp,
+		SHELL_GAME,
+		() => window.bootCount >= 3 && typeof window.idbState === 'string',
+		20000
+	);
+	const reloaded = await sf.evaluate(() => `${window.bootCount}|${window.idbState}`);
+	check(
+		'A shell game that reloads itself comes back on its saves',
+		reloaded === '3|u8:1.2.2:date|1',
+		reloaded
+	);
+	await sleep(2500);
+	/* A store slower than the loader waits: the game starts, then reloads once onto the saves. */
+	await reopenLab(hp, SHELL_GAME, async () => {
+		await hp.evaluate((game) => {
+			if (window.__ptGameProfiles) delete window.__ptGameProfiles[game];
+		}, SHELL_GAME);
+		await slowProfileStore(hp, 7000);
+	});
+	sf = await shellFrame(
+		hp,
+		SHELL_GAME,
+		() => window.bootCount >= 4 && typeof window.idbState === 'string',
+		30000
+	);
+	const late = await sf.evaluate(() => `${window.bootCount}|${window.idbState}`);
+	check(
+		'Shell, store slower than the loader waits: one reload onto the saves',
+		late === '4|u8:1.2.3:date|1',
+		late
+	);
+	await hp.evaluate(() => window.__fastProfileStore?.());
+	await sleep(2500);
+	/*
+	 * Leave for another game straight after a write, inside the push interval: only the
+	 * frame's last push, sent as it unloads, carries the write.
+	 */
+	await sf.evaluate(() => localStorage.setItem('last', 'final-push'));
+	await spaNavigate(hp, `/games/${PLAIN_GAME}`);
+	await settledFrame(hp, PLAIN_GAME, () => typeof window.bootCount === 'number', 20000);
+	await sleep(1500);
+	const afterSwitch = savedBucket(await storedProfile(hp, SHELL_GAME));
+	check(
+		"Switching games keeps the last game's final save push",
+		afterSwitch?.last === 'final-push',
+		JSON.stringify(afterSwitch)
+	);
+	await hp.context().close();
+}
+{
+	const rp = await openShellLab(REMOTE_GAME, 'Remote Lab');
+	let rf = await shellFrame(rp, REMOTE_GAME, () => typeof window.bootCount === 'number', 20000);
+	const reach = await rf.evaluate(() => `${self.origin}|${window.parentReach}|${window.bootCount}`);
+	check(
+		'A text/plain host’s HTML plays sandboxed (shell route)',
+		reach === 'null|blocked:SecurityError|1',
+		reach
+	);
+	await sleep(2500);
+	await relaunchLab(rp);
+	rf = await shellFrame(rp, REMOTE_GAME, () => window.bootCount >= 2, 20000);
+	check(
+		'A text/plain host’s game keeps its saves across a relaunch',
+		(await rf.evaluate(() => window.bootCount)) === 2,
+		`bootCount=${await rf.evaluate(() => window.bootCount)}`
+	);
+	await rp.context().close();
 }
 
 /* ---------- console ---------- */

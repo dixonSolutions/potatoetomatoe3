@@ -319,6 +319,48 @@ export function mayTouchGameSaves(
 	return action === 'push' && isClosed(source) && knownFrames.get(source) === gameId;
 }
 
+/** Frames asked to flush, and what to call when they say they have. */
+const flushWaiters = new Map<MessageEventSource, () => void>();
+
+/**
+ * Ask the game in `iframe` to push what it has not pushed yet, before the page takes the
+ * frame away (another game, another page, a restart).
+ *
+ * A frame counts on its `pagehide` push for the last of its saves, but a frame on an origin
+ * of its own — an app-made shell in its sandbox, a relayed game — runs in a process of its
+ * own in Chromium, and what it posts as its frame is removed never arrives. So the last
+ * push is asked for while the frame is still there. Resolves when the frame has answered
+ * (its push is queued by then), or after `timeoutMs` for a frame that cannot answer.
+ */
+export function flushGameFrame(
+	iframe: HTMLIFrameElement | null | undefined,
+	gameId: string,
+	timeoutMs = 500
+): Promise<void> {
+	let win: Window | null = null;
+	try {
+		win = iframe?.contentWindow ?? null;
+	} catch {
+		win = null;
+	}
+	if (!win || !gameId) return Promise.resolve();
+	const target = win;
+	return new Promise((resolve) => {
+		const done = () => {
+			clearTimeout(timer);
+			if (flushWaiters.get(target) === done) flushWaiters.delete(target);
+			resolve();
+		};
+		const timer = setTimeout(done, timeoutMs);
+		flushWaiters.set(target, done);
+		try {
+			target.postMessage({ type: GAME_STORAGE_MESSAGE_TYPE, action: 'flush', gameId }, '*');
+		} catch {
+			done();
+		}
+	});
+}
+
 export function attachGameStorageBridge(): () => void {
 	if (typeof window === 'undefined') return () => {};
 
@@ -330,12 +372,30 @@ export function attachGameStorageBridge(): () => void {
 			data?: GameBrowserProfile;
 		};
 		if (!msg || msg.type !== GAME_STORAGE_MESSAGE_TYPE || typeof msg.gameId !== 'string') return;
+		if (msg.action === 'flushed') {
+			if (event.source) flushWaiters.get(event.source)?.();
+			return;
+		}
 		if (msg.action !== 'pull' && msg.action !== 'push') return;
 		if (!mayTouchGameSaves(event.source, msg.gameId, msg.action)) return;
 		const gameId = msg.gameId;
 
 		if (msg.action === 'pull') {
-			void preloadGameBrowserProfile(gameId).then((stored) => {
+			/*
+			 * What this page already knows is the answer, as a same-origin frame reads it from
+			 * the bag: the stored profile plus every push since — once the pushes already queued
+			 * are in. A frame that reloads flushes its last push on the way out and asks for its
+			 * saves on the way back in; it must get that push back. A game in an app-made shell
+			 * waits on this answer before it starts.
+			 */
+			const queued = saveChains.get(gameId) ?? Promise.resolve();
+			const answer = queued
+				.catch(() => undefined)
+				.then(() => {
+					const known = knownProfile(gameId);
+					return known !== undefined ? known : preloadGameBrowserProfile(gameId);
+				});
+			void answer.then((stored) => {
 				/*
 				 * The read failed: say nothing. The frame keeps its pushes held and asks again
 				 * with backoff; answering "no saves" would let its first push replace them.

@@ -44,8 +44,20 @@ describe('planOnlineRoutes', () => {
 			localEmbed: true,
 			embedUrl: 'https://cdn.jsdelivr.net/gh/u/r@abc/index.html'
 		};
-		expect(planOnlineRoutes(jsdelivr)).toEqual(['local', 'shell', 'relay']);
+		/* The desktop app has the relay, an origin of its own; the sandboxed shell comes last. */
+		expect(planOnlineRoutes(jsdelivr)).toEqual(['local', 'relay', 'shell']);
 		expect(planOnlineRoutes({ ...jsdelivr, desktopApp: false })).toEqual(['local', 'shell']);
+	});
+
+	it('prefers the relay to a sandboxed shell for text/plain hosts on the desktop', () => {
+		const plain = { ...desktop, embedUrl: 'https://cdn.jsdelivr.net/gh/u/r@abc/index.html' };
+		expect(planOnlineRoutes(plain)).toEqual(['relay', 'shell']);
+		expect(planOnlineRoutes({ ...plain, desktopApp: false })).toEqual(['shell']);
+		expect(planOnlineRoutes({ ...plain, pullerRunning: true })).toEqual([
+			'relay',
+			'shell',
+			'puller'
+		]);
 	});
 
 	it('never frames a Google Sites page, which refuses everyone', () => {

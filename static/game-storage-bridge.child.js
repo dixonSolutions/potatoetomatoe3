@@ -1016,6 +1016,20 @@
 	 * Profile sources
 	 * ==================================================================== */
 	var origin = location.origin;
+	/* An app-made shell's document has an opaque origin ("null"): its loader says where to file the saves. */
+	try {
+		if (
+			origin === 'null' &&
+			window.__ptShell &&
+			window.__ptShell.gameId === gameId &&
+			typeof window.__ptShell.origin === 'string' &&
+			window.__ptShell.origin
+		) {
+			origin = window.__ptShell.origin;
+		}
+	} catch {
+		/* keep the document's own */
+	}
 	var NS = '__pt_vs:' + gameId + ':';
 
 	/*
@@ -1077,8 +1091,16 @@
 		}
 	}
 
+	/*
+	 * An app-made shell (`online-play-routing-shell.ts`): a loader in a sandboxed frame. It
+	 * asks the app for the saves before it writes the game into the document, and hands
+	 * the answer on here, since nothing in the sandbox can read the app's own copy.
+	 */
+	var shell = window.__ptShell && window.__ptShell.gameId === gameId ? window.__ptShell : null;
+
 	/** The profile the app preloaded, when the top frame is same-origin. undefined = unknown. */
 	function readSyncProfile() {
+		if (shell && hasOwn(shell, 'profile')) return shell.profile || null;
 		try {
 			var bag = window.top && window.top.__ptGameProfiles;
 			if (bag && hasOwn(bag, gameId)) return bag[gameId] || null;
@@ -1481,11 +1503,1250 @@
 		return changed;
 	}
 
+	/* Caches, not saves: large, rebuildable, and not worth shipping through postMessage. */
+	var SKIP_DB = /^(UnityCache|__pt)/i;
+
+	/* ======================================================================
+	 * In-memory IndexedDB, for a document with an opaque origin
+	 *
+	 * App-made shells (a jsDelivr page, a Drive U 7 embed) run in a sandboxed frame without
+	 * `allow-same-origin`, so nothing in them can reach the app. Such a document has no
+	 * storage of its own: localStorage, sessionStorage, cookies and IndexedDB all throw.
+	 * The virtual stores above stand in for the first three; this stands in for the last,
+	 * holding the game's databases in memory for the life of the document. The mirror below
+	 * reads them into the profile, and restores saved records into them, exactly as it does
+	 * with a real database — so the saves travel through the app either way.
+	 *
+	 * The transactions of a database run one at a time, in the order they were created,
+	 * which is a valid schedule for any mix of modes. Caches (`UnityCache`) are refused, as
+	 * the opaque origin itself refuses them: a build's data held in memory a second time
+	 * costs more than downloading it again, and every engine already copes with no cache.
+	 * ==================================================================== */
+	function createMemoryIdb(nativeCmp, refused) {
+		function fail(name, message) {
+			try {
+				return new DOMException(message, name);
+			} catch {
+				var err = new Error(message);
+				err.name = name;
+				return err;
+			}
+		}
+
+		/* One task per step. Timers are throttled in background tabs, and a cursor walk is a step per record. */
+		var tasks = [];
+		var channel = new MessageChannel();
+		channel.port1.onmessage = function () {
+			var fn = tasks.shift();
+			if (fn) fn();
+		};
+		function later(fn) {
+			tasks.push(fn);
+			channel.port2.postMessage(0);
+		}
+
+		function cmp(a, b) {
+			return nativeCmp(a, b);
+		}
+		function isKey(key) {
+			try {
+				nativeCmp(key, key);
+				return true;
+			} catch {
+				return false;
+			}
+		}
+		function copy(value) {
+			return structuredClone(value);
+		}
+		/* Keys handed out are copies: a game that mutates a Date it got back must not move a record. */
+		function outKey(key) {
+			return key !== null && typeof key === 'object' ? copy(key) : key;
+		}
+
+		/* `onsuccess` and friends, registered like the platform's: in order with addEventListener. */
+		function handlers(proto, types) {
+			types.forEach(function (type) {
+				var slot = '__pt_on' + type;
+				Object.defineProperty(proto, 'on' + type, {
+					configurable: true,
+					enumerable: true,
+					get: function () {
+						return this[slot] || null;
+					},
+					set: function (fn) {
+						var registered = hasOwn(this, slot);
+						Object.defineProperty(this, slot, {
+							configurable: true,
+							writable: true,
+							value: typeof fn === 'function' ? fn : null
+						});
+						if (registered) return;
+						nativeAdd.call(this, type, (ev) => {
+							var handler = this[slot];
+							if (handler) handler.call(this, ev);
+						});
+					}
+				});
+			});
+		}
+
+		/*
+		 * Fire `type` at `target`. An error bubbling up from a request is fired at each level
+		 * in turn, with the request as its target. Reports whether it was cancelled or stopped
+		 * (the platform clears the stop flag once dispatch is over, so it is noted on the way).
+		 */
+		function fire(target, type, init) {
+			init = init || {};
+			var ev = new Event(type, { bubbles: !!init.bubbles, cancelable: !!init.cancelable });
+			var stopped = false;
+			var stop = ev.stopPropagation;
+			var stopNow = ev.stopImmediatePropagation;
+			ev.stopPropagation = function () {
+				stopped = true;
+				stop.call(ev);
+			};
+			ev.stopImmediatePropagation = function () {
+				stopped = true;
+				stopNow.call(ev);
+			};
+			if (init.as) {
+				Object.defineProperty(ev, 'target', { value: init.as });
+				Object.defineProperty(ev, 'srcElement', { value: init.as });
+			}
+			if (init.props) {
+				for (var k in init.props) {
+					Object.defineProperty(ev, k, { value: init.props[k], enumerable: true });
+				}
+			}
+			target.dispatchEvent(ev);
+			return { prevented: ev.defaultPrevented, stopped: stopped };
+		}
+
+		function nameList(names) {
+			var list = names.slice().sort();
+			list.contains = function (name) {
+				return list.indexOf(String(name)) !== -1;
+			};
+			list.item = function (i) {
+				return i >= 0 && i < list.length ? list[i] : null;
+			};
+			return list;
+		}
+
+		/* ---------- key paths ---------- */
+		function normalizeKeyPath(path) {
+			if (path === undefined || path === null) return null;
+			return Array.isArray(path) ? path.map(String) : String(path);
+		}
+		function validKeyPath(path) {
+			if (Array.isArray(path)) {
+				return (
+					path.length > 0 &&
+					path.every(function (p) {
+						return validKeyPath(p);
+					})
+				);
+			}
+			if (path === '') return true;
+			return path.split('.').every(function (part) {
+				return part.length > 0;
+			});
+		}
+		function evaluate(value, path) {
+			if (Array.isArray(path)) {
+				var parts = [];
+				for (var i = 0; i < path.length; i++) {
+					var part = evaluate(value, path[i]);
+					if (part === undefined || !isKey(part)) return undefined;
+					parts.push(part);
+				}
+				return parts;
+			}
+			if (path === '') return value;
+			var cur = value;
+			var names = path.split('.');
+			for (var j = 0; j < names.length; j++) {
+				if (cur === null || cur === undefined) return undefined;
+				if (typeof cur === 'string') {
+					if (names[j] !== 'length') return undefined;
+					cur = cur.length;
+					continue;
+				}
+				if (typeof cur !== 'object' || !(names[j] in cur)) return undefined;
+				cur = cur[names[j]];
+			}
+			return cur;
+		}
+		function canInject(value, path) {
+			var cur = value;
+			var names = path.split('.');
+			for (var i = 0; i < names.length - 1; i++) {
+				if (cur === null || typeof cur !== 'object') return false;
+				if (cur[names[i]] === undefined) return true;
+				cur = cur[names[i]];
+			}
+			return cur !== null && typeof cur === 'object';
+		}
+		function inject(value, path, key) {
+			var cur = value;
+			var names = path.split('.');
+			for (var i = 0; i < names.length - 1; i++) {
+				if (cur[names[i]] === undefined) cur[names[i]] = {};
+				cur = cur[names[i]];
+			}
+			cur[names[names.length - 1]] = key;
+		}
+
+		/* ---------- sorted entries: { k: key, p: primary key, v: value } ---------- */
+		/* First index whose key is > `key` (strict) or >= `key`. */
+		function keyAt(entries, key, strict) {
+			var lo = 0;
+			var hi = entries.length;
+			while (lo < hi) {
+				var mid = (lo + hi) >> 1;
+				var c = cmp(entries[mid].k, key);
+				if (c < 0 || (strict && c === 0)) lo = mid + 1;
+				else hi = mid;
+			}
+			return lo;
+		}
+		/* The same by (key, primary key), the order of an index. */
+		function entryAt(entries, key, primary, strict) {
+			var lo = 0;
+			var hi = entries.length;
+			while (lo < hi) {
+				var mid = (lo + hi) >> 1;
+				var c = cmp(entries[mid].k, key);
+				if (c === 0) c = cmp(entries[mid].p, primary);
+				if (c < 0 || (strict && c === 0)) lo = mid + 1;
+				else hi = mid;
+			}
+			return lo;
+		}
+		function byKeyThenPrimary(a, b) {
+			var c = cmp(a.k, b.k);
+			return c !== 0 ? c : cmp(a.p, b.p);
+		}
+		function toRange(query, required) {
+			if (query === undefined || query === null) {
+				if (required) throw fail('DataError', 'No key or key range specified.');
+				return null;
+			}
+			if (query instanceof IDBKeyRange) return query;
+			if (!isKey(query)) throw fail('DataError', 'The parameter is not a valid key.');
+			return IDBKeyRange.only(query);
+		}
+		/* [from, to) of the entries inside `range`. */
+		function span(entries, range) {
+			if (!range) return [0, entries.length];
+			var from = range.lower === undefined ? 0 : keyAt(entries, range.lower, range.lowerOpen);
+			var to =
+				range.upper === undefined ? entries.length : keyAt(entries, range.upper, !range.upperOpen);
+			return [from, Math.max(from, to)];
+		}
+		function toCount(count) {
+			if (count === undefined) return Infinity;
+			var n = Number(count);
+			if (!isFinite(n) || n < 0 || n > 4294967295) {
+				throw new TypeError('The count is outside the unsigned long range.');
+			}
+			return Math.floor(n) || Infinity;
+		}
+
+		/* ---------- stored data ---------- */
+		var databases = Object.create(null);
+		var connections = [];
+
+		function newStore(name, keyPath, autoIncrement) {
+			return {
+				name: name,
+				keyPath: keyPath,
+				autoIncrement: autoIncrement,
+				current: 1,
+				records: [],
+				indexes: Object.create(null),
+				rev: 0,
+				cache: Object.create(null)
+			};
+		}
+		function indexKeys(meta, value) {
+			var key = evaluate(value, meta.keyPath);
+			if (key === undefined) return [];
+			if (meta.multiEntry && Array.isArray(key)) {
+				var keys = [];
+				for (var i = 0; i < key.length; i++) {
+					if (!isKey(key[i])) continue;
+					var seen = false;
+					for (var j = 0; j < keys.length && !seen; j++) seen = cmp(keys[j], key[i]) === 0;
+					if (!seen) keys.push(key[i]);
+				}
+				return keys;
+			}
+			return isKey(key) ? [key] : [];
+		}
+		function indexEntries(store, meta) {
+			var cached = store.cache[meta.name];
+			if (cached && cached.rev === store.rev) return cached.entries;
+			var entries = [];
+			for (var i = 0; i < store.records.length; i++) {
+				var rec = store.records[i];
+				var keys = indexKeys(meta, rec.v);
+				for (var j = 0; j < keys.length; j++) entries.push({ k: keys[j], p: rec.k, v: rec.v });
+			}
+			entries.sort(byKeyThenPrimary);
+			store.cache[meta.name] = { rev: store.rev, entries: entries };
+			return entries;
+		}
+		function checkUnique(store, value, primary) {
+			for (var name in store.indexes) {
+				var meta = store.indexes[name];
+				if (!meta.unique) continue;
+				var keys = indexKeys(meta, value);
+				if (!keys.length) continue;
+				var entries = indexEntries(store, meta);
+				for (var i = 0; i < keys.length; i++) {
+					for (var at = keyAt(entries, keys[i], false); at < entries.length; at++) {
+						if (cmp(entries[at].k, keys[i]) !== 0) break;
+						if (cmp(entries[at].p, primary) !== 0) {
+							throw fail('ConstraintError', "Unable to add key to index '" + name + "': at least one key does not satisfy the uniqueness requirements.");
+						}
+					}
+				}
+			}
+		}
+		function putRecord(store, key, value) {
+			var at = keyAt(store.records, key, false);
+			var rec = { k: key, p: key, v: value };
+			if (at < store.records.length && cmp(store.records[at].k, key) === 0) store.records[at] = rec;
+			else store.records.splice(at, 0, rec);
+			store.rev++;
+		}
+		function removeRange(store, range) {
+			var s = span(store.records, range);
+			if (s[1] <= s[0]) return;
+			store.records.splice(s[0], s[1] - s[0]);
+			store.rev++;
+		}
+		function snapshotDb(data) {
+			var stores = Object.create(null);
+			for (var name in data.stores) {
+				var s = data.stores[name];
+				var indexes = Object.create(null);
+				for (var i in s.indexes) indexes[i] = s.indexes[i];
+				stores[name] = { store: s, records: s.records.slice(), current: s.current, indexes: indexes };
+			}
+			return { version: data.version, stores: stores };
+		}
+		function restoreDb(data, snap) {
+			data.version = snap.version;
+			data.stores = Object.create(null);
+			for (var name in snap.stores) {
+				var e = snap.stores[name];
+				e.store.records = e.records;
+				e.store.current = e.current;
+				e.store.indexes = e.indexes;
+				e.store.rev++;
+				data.stores[name] = e.store;
+			}
+		}
+
+		/* ---------- scheduling: one job at a time per database ---------- */
+		var queues = Object.create(null);
+		function enqueue(name, job) {
+			var q = queues[name] || (queues[name] = { busy: false, jobs: [] });
+			q.jobs.push(job);
+			pump(q);
+		}
+		function pump(q) {
+			if (q.busy || !q.jobs.length) return;
+			q.busy = true;
+			var job = q.jobs.shift();
+			later(function () {
+				job(function () {
+					q.busy = false;
+					pump(q);
+				});
+			});
+		}
+
+		/* ---------- requests ---------- */
+		class MemRequest extends EventTarget {
+			constructor(source, transaction) {
+				super();
+				this.source = source;
+				this.transaction = transaction;
+				this.readyState = 'pending';
+				this.result = undefined;
+				this.error = null;
+			}
+		}
+		handlers(MemRequest.prototype, ['success', 'error']);
+
+		class MemOpenRequest extends MemRequest {
+			constructor() {
+				super(null, null);
+			}
+		}
+		handlers(MemOpenRequest.prototype, ['upgradeneeded', 'blocked']);
+
+		/* ---------- transactions ---------- */
+		class MemTransaction extends EventTarget {
+			constructor(db, names, mode) {
+				super();
+				this.db = db;
+				this.mode = mode;
+				this.error = null;
+				this.durability = 'default';
+				this._names = names;
+				this._requests = [];
+				this._state = 'pending';
+				this._undo = [];
+				this._stores = Object.create(null);
+				this._finish = null;
+				this._settled = false;
+				this._abortFired = false;
+				this._restore = null;
+			}
+			get objectStoreNames() {
+				return nameList(
+					this.mode === 'versionchange' ? Object.keys(this.db._data.stores) : this._names
+				);
+			}
+			objectStore(name) {
+				if (this._state === 'done') throw fail('InvalidStateError', 'The transaction has finished.');
+				name = String(name);
+				var data = this.db._data.stores[name];
+				if (!data || (this.mode !== 'versionchange' && this._names.indexOf(name) === -1)) {
+					throw fail('NotFoundError', 'The specified object store was not found.');
+				}
+				var store = this._stores[name];
+				if (!store || store._data !== data) store = this._stores[name] = new MemObjectStore(this, data);
+				return store;
+			}
+			abort() {
+				if (this._state === 'done') throw fail('InvalidStateError', 'The transaction has finished.');
+				this._abort(null);
+			}
+			commit() {
+				if (this._state === 'done') throw fail('InvalidStateError', 'The transaction has finished.');
+			}
+			/* Before the first write to `store`, remember how to put it back. */
+			_touch(store) {
+				if (this.mode === 'versionchange') return;
+				for (var i = 0; i < this._undo.length; i++) if (this._undo[i].store === store) return;
+				this._undo.push({ store: store, records: store.records.slice(), current: store.current });
+			}
+			_queue(request, op) {
+				if (this._state === 'done') {
+					throw fail('TransactionInactiveError', 'The transaction has finished.');
+				}
+				request.readyState = 'pending';
+				this._requests.push({ request: request, op: op });
+			}
+			_begin(finish) {
+				this._finish = finish;
+				if (this._state === 'done') {
+					if (this._abortFired) this._settle(false);
+					return;
+				}
+				this._state = 'running';
+				this._next();
+			}
+			_next() {
+				later(() => this._step());
+			}
+			_step() {
+				if (this._state === 'done') return;
+				var job = this._requests.shift();
+				if (!job) {
+					this._complete();
+					return;
+				}
+				var req = job.request;
+				var result;
+				try {
+					result = job.op();
+				} catch (e) {
+					req.readyState = 'done';
+					req.result = undefined;
+					req.error = e;
+					var atRequest = fire(req, 'error', { bubbles: true, cancelable: true });
+					var prevented = atRequest.prevented;
+					if (!atRequest.stopped) {
+						var atTx = fire(this, 'error', { bubbles: true, cancelable: true, as: req });
+						prevented = prevented || atTx.prevented;
+						if (!atTx.stopped) {
+							prevented =
+								fire(this.db, 'error', { bubbles: true, cancelable: true, as: req }).prevented ||
+								prevented;
+						}
+					}
+					if (!prevented) this._abort(e);
+					else if (this._state !== 'done') this._next();
+					return;
+				}
+				req.readyState = 'done';
+				req.error = null;
+				req.result = result;
+				fire(req, 'success');
+				if (this._state !== 'done') this._next();
+			}
+			_complete() {
+				this._state = 'done';
+				this._undo = [];
+				fire(this, 'complete');
+				this._settle(true);
+			}
+			_abort(error) {
+				if (this._state === 'done') return;
+				this._state = 'done';
+				this.error = error;
+				if (this.mode === 'versionchange') {
+					if (this._restore) this._restore();
+				} else {
+					for (var i = 0; i < this._undo.length; i++) {
+						var u = this._undo[i];
+						u.store.records = u.records;
+						u.store.current = u.current;
+						u.store.rev++;
+					}
+				}
+				this._undo = [];
+				var pending = this._requests;
+				this._requests = [];
+				later(() => {
+					for (var j = 0; j < pending.length; j++) {
+						var req = pending[j].request;
+						req.readyState = 'done';
+						req.result = undefined;
+						req.error = fail('AbortError', 'The transaction was aborted, so the request cannot be fulfilled.');
+						fire(req, 'error', { bubbles: true, cancelable: true });
+					}
+					var atTx = fire(this, 'abort', { bubbles: true });
+					if (!atTx.stopped) fire(this.db, 'abort', { bubbles: true, as: this });
+					this._abortFired = true;
+					this._settle(false);
+				});
+			}
+			_settle(committed) {
+				if (this._settled || !this._finish) return;
+				this._settled = true;
+				this._finish(committed);
+			}
+		}
+		handlers(MemTransaction.prototype, ['complete', 'error', 'abort']);
+
+		/* ---------- connections ---------- */
+		class MemDatabase extends EventTarget {
+			constructor(data) {
+				super();
+				this._data = data;
+				this.name = data.name;
+				this.version = data.version;
+				this._closed = false;
+				this._upgrade = null;
+			}
+			get objectStoreNames() {
+				return nameList(Object.keys(this._data.stores));
+			}
+			_upgrading() {
+				var tx = this._upgrade;
+				if (!tx || tx._state === 'done') {
+					throw fail('InvalidStateError', 'The database is not running a version change transaction.');
+				}
+				return tx;
+			}
+			createObjectStore(name, options) {
+				var tx = this._upgrading();
+				name = String(name);
+				if (this._data.stores[name]) {
+					throw fail('ConstraintError', 'An object store with the specified name already exists.');
+				}
+				var keyPath = normalizeKeyPath(options ? options.keyPath : null);
+				var autoIncrement = Boolean(options && options.autoIncrement);
+				if (keyPath !== null && !validKeyPath(keyPath)) {
+					throw fail('SyntaxError', 'The keyPath option is not a valid key path.');
+				}
+				if (autoIncrement && (keyPath === '' || Array.isArray(keyPath))) {
+					throw fail('InvalidAccessError', 'The autoIncrement option was set but the keyPath option was empty or an array.');
+				}
+				this._data.stores[name] = newStore(name, keyPath, autoIncrement);
+				return tx.objectStore(name);
+			}
+			deleteObjectStore(name) {
+				this._upgrading();
+				name = String(name);
+				if (!this._data.stores[name]) throw fail('NotFoundError', 'The specified object store was not found.');
+				delete this._data.stores[name];
+			}
+			transaction(storeNames, mode) {
+				if (this._closed) throw fail('InvalidStateError', 'The database connection is closing.');
+				if (this._upgrade && this._upgrade._state !== 'done') {
+					throw fail('InvalidStateError', 'A version change transaction is running.');
+				}
+				var names =
+					typeof storeNames === 'string'
+						? [storeNames]
+						: Array.prototype.slice.call(storeNames || []).map(String);
+				if (!names.length) throw fail('InvalidAccessError', 'The storeNames parameter was empty.');
+				var scope = [];
+				for (var i = 0; i < names.length; i++) {
+					if (!this._data.stores[names[i]]) {
+						throw fail('NotFoundError', 'One of the specified object stores was not found.');
+					}
+					if (scope.indexOf(names[i]) === -1) scope.push(names[i]);
+				}
+				mode = mode === undefined ? 'readonly' : String(mode);
+				if (mode !== 'readonly' && mode !== 'readwrite') {
+					throw new TypeError("The provided value '" + mode + "' is not a valid IDBTransactionMode.");
+				}
+				var tx = new MemTransaction(this, scope.sort(), mode);
+				enqueue(this.name, function (done) {
+					tx._begin(done);
+				});
+				return tx;
+			}
+			close() {
+				this._closed = true;
+				var at = connections.indexOf(this);
+				if (at !== -1) connections.splice(at, 1);
+			}
+		}
+		handlers(MemDatabase.prototype, ['abort', 'close', 'error', 'versionchange']);
+
+		/* ---------- object stores and indexes ---------- */
+		class MemObjectStore {
+			constructor(tx, data) {
+				this.transaction = tx;
+				this._data = data;
+			}
+			get name() {
+				return this._data.name;
+			}
+			get keyPath() {
+				var kp = this._data.keyPath;
+				return Array.isArray(kp) ? kp.slice() : kp;
+			}
+			get autoIncrement() {
+				return this._data.autoIncrement;
+			}
+			get indexNames() {
+				return nameList(Object.keys(this._data.indexes));
+			}
+			_check(write) {
+				var tx = this.transaction;
+				if (tx._state === 'done') throw fail('TransactionInactiveError', 'The transaction has finished.');
+				if (write && tx.mode === 'readonly') throw fail('ReadOnlyError', 'The transaction is read-only.');
+				if (tx.db._data.stores[this._data.name] !== this._data) {
+					throw fail('InvalidStateError', 'The object store has been deleted.');
+				}
+			}
+			_request(source, op) {
+				var req = new MemRequest(source, this.transaction);
+				this.transaction._queue(req, op);
+				return req;
+			}
+			put(value, key) {
+				return this._store(value, key, arguments.length > 1 && key !== undefined, false);
+			}
+			add(value, key) {
+				return this._store(value, key, arguments.length > 1 && key !== undefined, true);
+			}
+			_store(value, key, hasKey, noOverwrite) {
+				this._check(true);
+				var data = this._data;
+				var tx = this.transaction;
+				if (data.keyPath !== null && hasKey) {
+					throw fail('DataError', 'The object store uses in-line keys and the key parameter was provided.');
+				}
+				if (data.keyPath === null && !hasKey && !data.autoIncrement) {
+					throw fail('DataError', 'The object store uses out-of-line keys and has no key generator and the key parameter was not provided.');
+				}
+				if (hasKey && !isKey(key)) throw fail('DataError', 'The parameter is not a valid key.');
+				var clone = copy(value);
+				var k = hasKey ? copy(key) : undefined;
+				if (data.keyPath !== null) {
+					k = evaluate(clone, data.keyPath);
+					if (k !== undefined && !isKey(k)) {
+						throw fail('DataError', "Evaluating the object store's key path yielded a value that is not a valid key.");
+					}
+					if (k === undefined && !data.autoIncrement) {
+						throw fail('DataError', "Evaluating the object store's key path did not yield a value.");
+					}
+					if (k === undefined && !canInject(clone, data.keyPath)) {
+						throw fail('DataError', 'A generated key could not be inserted into the value.');
+					}
+				}
+				return this._request(this, function () {
+					tx._touch(data);
+					var key2 = k;
+					if (key2 === undefined) {
+						if (data.current > 9007199254740992) {
+							throw fail('ConstraintError', 'The key generator has reached its maximum.');
+						}
+						key2 = data.current++;
+						if (data.keyPath !== null) inject(clone, data.keyPath, key2);
+					}
+					var at = keyAt(data.records, key2, false);
+					if (noOverwrite && at < data.records.length && cmp(data.records[at].k, key2) === 0) {
+						throw fail('ConstraintError', 'Key already exists in the object store.');
+					}
+					checkUnique(data, clone, key2);
+					if (data.autoIncrement && typeof key2 === 'number' && key2 >= data.current) {
+						data.current = Math.floor(key2) + 1;
+					}
+					putRecord(data, key2, clone);
+					return outKey(key2);
+				});
+			}
+			get(query) {
+				this._check(false);
+				var range = toRange(query, true);
+				var data = this._data;
+				return this._request(this, function () {
+					var s = span(data.records, range);
+					return s[0] < s[1] ? copy(data.records[s[0]].v) : undefined;
+				});
+			}
+			getKey(query) {
+				this._check(false);
+				var range = toRange(query, true);
+				var data = this._data;
+				return this._request(this, function () {
+					var s = span(data.records, range);
+					return s[0] < s[1] ? outKey(data.records[s[0]].k) : undefined;
+				});
+			}
+			getAll(query, count) {
+				this._check(false);
+				var range = toRange(query, false);
+				var limit = toCount(count);
+				var data = this._data;
+				return this._request(this, function () {
+					var s = span(data.records, range);
+					var out = [];
+					for (var i = s[0]; i < s[1] && out.length < limit; i++) out.push(copy(data.records[i].v));
+					return out;
+				});
+			}
+			getAllKeys(query, count) {
+				this._check(false);
+				var range = toRange(query, false);
+				var limit = toCount(count);
+				var data = this._data;
+				return this._request(this, function () {
+					var s = span(data.records, range);
+					var out = [];
+					for (var i = s[0]; i < s[1] && out.length < limit; i++) out.push(outKey(data.records[i].k));
+					return out;
+				});
+			}
+			count(query) {
+				this._check(false);
+				var range = toRange(query, false);
+				var data = this._data;
+				return this._request(this, function () {
+					var s = span(data.records, range);
+					return s[1] - s[0];
+				});
+			}
+			delete(query) {
+				this._check(true);
+				var range = toRange(query, true);
+				var data = this._data;
+				var tx = this.transaction;
+				return this._request(this, function () {
+					tx._touch(data);
+					removeRange(data, range);
+					return undefined;
+				});
+			}
+			clear() {
+				this._check(true);
+				var data = this._data;
+				var tx = this.transaction;
+				return this._request(this, function () {
+					tx._touch(data);
+					if (data.records.length) {
+						data.records = [];
+						data.rev++;
+					}
+					return undefined;
+				});
+			}
+			openCursor(query, direction) {
+				return openCursor(this, null, query, direction, true);
+			}
+			openKeyCursor(query, direction) {
+				return openCursor(this, null, query, direction, false);
+			}
+			index(name) {
+				if (this.transaction._state === 'done') {
+					throw fail('InvalidStateError', 'The transaction has finished.');
+				}
+				var meta = this._data.indexes[String(name)];
+				if (!meta) throw fail('NotFoundError', 'The specified index was not found.');
+				return new MemIndex(this, meta);
+			}
+			createIndex(name, keyPath, options) {
+				var tx = this.transaction;
+				if (tx.mode !== 'versionchange') {
+					throw fail('InvalidStateError', 'The database is not running a version change transaction.');
+				}
+				this._check(false);
+				name = String(name);
+				if (this._data.indexes[name]) {
+					throw fail('ConstraintError', 'An index with the specified name already exists.');
+				}
+				keyPath = normalizeKeyPath(keyPath);
+				if (keyPath === null || !validKeyPath(keyPath)) {
+					throw fail('SyntaxError', 'The keyPath argument contains an invalid key path.');
+				}
+				var multiEntry = Boolean(options && options.multiEntry);
+				if (multiEntry && Array.isArray(keyPath)) {
+					throw fail('InvalidAccessError', 'The keyPath argument was an array and the multiEntry option is true.');
+				}
+				var meta = {
+					name: name,
+					keyPath: keyPath,
+					unique: Boolean(options && options.unique),
+					multiEntry: multiEntry
+				};
+				this._data.indexes[name] = meta;
+				this._data.rev++;
+				return new MemIndex(this, meta);
+			}
+			deleteIndex(name) {
+				if (this.transaction.mode !== 'versionchange') {
+					throw fail('InvalidStateError', 'The database is not running a version change transaction.');
+				}
+				this._check(false);
+				name = String(name);
+				if (!this._data.indexes[name]) throw fail('NotFoundError', 'The specified index was not found.');
+				delete this._data.indexes[name];
+				this._data.rev++;
+			}
+		}
+
+		class MemIndex {
+			constructor(store, meta) {
+				this.objectStore = store;
+				this._meta = meta;
+			}
+			get name() {
+				return this._meta.name;
+			}
+			get keyPath() {
+				var kp = this._meta.keyPath;
+				return Array.isArray(kp) ? kp.slice() : kp;
+			}
+			get unique() {
+				return this._meta.unique;
+			}
+			get multiEntry() {
+				return this._meta.multiEntry;
+			}
+			_check() {
+				this.objectStore._check(false);
+				if (this.objectStore._data.indexes[this._meta.name] !== this._meta) {
+					throw fail('InvalidStateError', 'The index has been deleted.');
+				}
+			}
+			_entries() {
+				return indexEntries(this.objectStore._data, this._meta);
+			}
+			_read(query, required, pick) {
+				this._check();
+				var range = toRange(query, required);
+				return this.objectStore._request(this, () => {
+					var entries = this._entries();
+					return pick(entries, span(entries, range));
+				});
+			}
+			get(query) {
+				return this._read(query, true, function (e, s) {
+					return s[0] < s[1] ? copy(e[s[0]].v) : undefined;
+				});
+			}
+			getKey(query) {
+				return this._read(query, true, function (e, s) {
+					return s[0] < s[1] ? outKey(e[s[0]].p) : undefined;
+				});
+			}
+			getAll(query, count) {
+				var limit = toCount(count);
+				return this._read(query, false, function (e, s) {
+					var out = [];
+					for (var i = s[0]; i < s[1] && out.length < limit; i++) out.push(copy(e[i].v));
+					return out;
+				});
+			}
+			getAllKeys(query, count) {
+				var limit = toCount(count);
+				return this._read(query, false, function (e, s) {
+					var out = [];
+					for (var i = s[0]; i < s[1] && out.length < limit; i++) out.push(outKey(e[i].p));
+					return out;
+				});
+			}
+			count(query) {
+				return this._read(query, false, function (e, s) {
+					return s[1] - s[0];
+				});
+			}
+			openCursor(query, direction) {
+				return openCursor(this.objectStore, this, query, direction, true);
+			}
+			openKeyCursor(query, direction) {
+				return openCursor(this.objectStore, this, query, direction, false);
+			}
+		}
+
+		/* ---------- cursors ---------- */
+		var DIRECTIONS = ['next', 'nextunique', 'prev', 'prevunique'];
+
+		class MemCursor {
+			constructor(source, store, index, range, direction, request) {
+				this.source = source;
+				this.direction = direction;
+				this.request = request;
+				this.key = undefined;
+				this.primaryKey = undefined;
+				this._store = store;
+				this._index = index;
+				this._range = range;
+				this._pos = null;
+				this._got = false;
+				this._value = undefined;
+			}
+			_entries() {
+				return this._index ? this._index._entries() : this._store._data.records;
+			}
+			/* One step in `direction`, to at least `key` (and `primary`) when given. Live: it seeks from where it was in the current data. */
+			_move(key, primary) {
+				var entries = this._entries();
+				var forward = this.direction === 'next' || this.direction === 'nextunique';
+				var unique = this.direction === 'nextunique' || this.direction === 'prevunique';
+				var s = span(entries, this._range);
+				var pos = this._pos;
+				var found = -1;
+				if (forward) {
+					var i = s[0];
+					if (pos) i = Math.max(i, unique ? keyAt(entries, pos.k, true) : entryAt(entries, pos.k, pos.p, true));
+					if (key !== undefined) {
+						i = Math.max(i, primary !== undefined ? entryAt(entries, key, primary, false) : keyAt(entries, key, false));
+					}
+					if (i < s[1]) found = i;
+				} else {
+					var j = s[1] - 1;
+					if (pos) j = Math.min(j, (unique ? keyAt(entries, pos.k, false) : entryAt(entries, pos.k, pos.p, false)) - 1);
+					if (key !== undefined) {
+						j = Math.min(j, (primary !== undefined ? entryAt(entries, key, primary, true) : keyAt(entries, key, true)) - 1);
+					}
+					if (j >= s[0] && unique) j = Math.max(s[0], keyAt(entries, entries[j].k, false));
+					if (j >= s[0]) found = j;
+				}
+				if (found === -1) {
+					this._pos = null;
+					this.key = undefined;
+					this.primaryKey = undefined;
+					this._value = undefined;
+					this._got = false;
+					return null;
+				}
+				var e = entries[found];
+				this._pos = { k: e.k, p: e.p };
+				this.key = outKey(e.k);
+				this.primaryKey = outKey(e.p);
+				this._value = this._withValue ? copy(e.v) : undefined;
+				this._got = true;
+				return this;
+			}
+			_advance(check) {
+				var tx = this._store.transaction;
+				if (tx._state === 'done') throw fail('TransactionInactiveError', 'The transaction has finished.');
+				if (this._index) this._index._check();
+				else this._store._check(false);
+				if (!this._got) {
+					throw fail('InvalidStateError', 'The cursor is being iterated or has iterated past its end.');
+				}
+				if (check) check();
+				this._got = false;
+				return tx;
+			}
+			continue(key) {
+				var tx = this._advance(() => {
+					if (key === undefined) return;
+					if (!isKey(key)) throw fail('DataError', 'The parameter is not a valid key.');
+					var c = cmp(key, this._pos.k);
+					var forward = this.direction.indexOf('next') === 0;
+					if ((forward && c <= 0) || (!forward && c >= 0)) {
+						throw fail('DataError', "The parameter is not past this cursor's position.");
+					}
+				});
+				tx._queue(this.request, () => this._move(key, undefined));
+			}
+			continuePrimaryKey(key, primary) {
+				var tx = this._advance(() => {
+					if (!this._index || this.direction.indexOf('unique') !== -1) {
+						throw fail('InvalidAccessError', 'continuePrimaryKey needs an index cursor that is not unique.');
+					}
+					if (!isKey(key) || !isKey(primary)) throw fail('DataError', 'The parameter is not a valid key.');
+				});
+				tx._queue(this.request, () => this._move(key, primary));
+			}
+			advance(count) {
+				var n = Number(count);
+				if (!isFinite(n) || n < 1) throw new TypeError('The count must be at least 1.');
+				n = Math.floor(n);
+				var tx = this._advance(null);
+				tx._queue(this.request, () => {
+					var out = null;
+					for (var i = 0; i < n; i++) {
+						out = this._move(undefined, undefined);
+						if (!out) break;
+					}
+					return out;
+				});
+			}
+			_writable() {
+				var tx = this._store.transaction;
+				if (tx._state === 'done') throw fail('TransactionInactiveError', 'The transaction has finished.');
+				if (tx.mode === 'readonly') throw fail('ReadOnlyError', 'The transaction is read-only.');
+				if (!this._got || !this._withValue) {
+					throw fail('InvalidStateError', 'The cursor is being iterated or has iterated past its end.');
+				}
+				return tx;
+			}
+			update(value) {
+				var tx = this._writable();
+				var data = this._store._data;
+				var primary = this._pos.p;
+				var clone = copy(value);
+				if (data.keyPath !== null) {
+					var k = evaluate(clone, data.keyPath);
+					if (k === undefined || !isKey(k) || cmp(k, primary) !== 0) {
+						throw fail('DataError', "The value's key does not match the cursor's primary key.");
+					}
+				}
+				var req = new MemRequest(this, tx);
+				tx._queue(req, function () {
+					checkUnique(data, clone, primary);
+					tx._touch(data);
+					putRecord(data, primary, clone);
+					return outKey(primary);
+				});
+				return req;
+			}
+			delete() {
+				var tx = this._writable();
+				var data = this._store._data;
+				var primary = this._pos.p;
+				var req = new MemRequest(this, tx);
+				tx._queue(req, function () {
+					tx._touch(data);
+					removeRange(data, IDBKeyRange.only(primary));
+					return undefined;
+				});
+				return req;
+			}
+		}
+		MemCursor.prototype._withValue = false;
+
+		class MemCursorWithValue extends MemCursor {
+			get value() {
+				return this._value;
+			}
+		}
+		MemCursorWithValue.prototype._withValue = true;
+
+		function openCursor(store, index, query, direction, withValue) {
+			if (index) index._check();
+			else store._check(false);
+			var range = toRange(query, false);
+			direction = direction === undefined ? 'next' : String(direction);
+			if (DIRECTIONS.indexOf(direction) === -1) {
+				throw new TypeError("The provided value '" + direction + "' is not a valid IDBCursorDirection.");
+			}
+			var source = index || store;
+			var req = new MemRequest(source, store.transaction);
+			var Cursor = withValue ? MemCursorWithValue : MemCursor;
+			var cursor = new Cursor(source, store, index, range, direction, req);
+			store.transaction._queue(req, function () {
+				return cursor._move(undefined, undefined);
+			});
+			return req;
+		}
+
+		/* ---------- the factory ---------- */
+		function open(name, version) {
+			if (arguments.length === 0) throw new TypeError('A database name is required.');
+			name = String(name);
+			var hasVersion = arguments.length > 1 && version !== undefined;
+			if (hasVersion) {
+				version = Number(version);
+				if (!isFinite(version) || version < 1 || version > 9007199254740991) {
+					throw new TypeError("Value is outside the 'unsigned long long' value range.");
+				}
+				version = Math.floor(version);
+			}
+			if (refused && refused.test(name)) {
+				throw fail('SecurityError', 'Access to the Indexed Database API is denied in this context.');
+			}
+			var req = new MemOpenRequest();
+			enqueue(name, function (done) {
+				var data = databases[name];
+				var oldVersion = data ? data.version : 0;
+				var newVersion = hasVersion ? version : oldVersion || 1;
+				req.readyState = 'done';
+				if (newVersion < oldVersion) {
+					req.error = fail('VersionError', 'The requested version (' + newVersion + ') is less than the existing version (' + oldVersion + ').');
+					fire(req, 'error', { bubbles: true, cancelable: true });
+					done();
+					return;
+				}
+				var created = !data;
+				if (!data) data = databases[name] = { name: name, version: 0, stores: Object.create(null) };
+				var conn = new MemDatabase(data);
+				if (newVersion === oldVersion) {
+					connections.push(conn);
+					req.result = conn;
+					fire(req, 'success');
+					done();
+					return;
+				}
+				var change = { oldVersion: oldVersion, newVersion: newVersion };
+				connections.slice().forEach(function (other) {
+					if (other.name === name && !other._closed) fire(other, 'versionchange', { props: change });
+				});
+				var before = snapshotDb(data);
+				data.version = newVersion;
+				conn.version = newVersion;
+				connections.push(conn);
+				var tx = new MemTransaction(conn, [], 'versionchange');
+				conn._upgrade = tx;
+				tx._restore = function () {
+					if (created) delete databases[name];
+					else restoreDb(data, before);
+					conn.version = oldVersion;
+				};
+				tx._finish = function (committed) {
+					conn._upgrade = null;
+					req.transaction = null;
+					if (committed) {
+						fire(req, 'success');
+					} else {
+						conn.close();
+						req.result = undefined;
+						req.error = fail('AbortError', 'The version change transaction was aborted.');
+						fire(req, 'error', { bubbles: true, cancelable: true });
+					}
+					done();
+				};
+				tx._state = 'running';
+				req.result = conn;
+				req.transaction = tx;
+				fire(req, 'upgradeneeded', {
+					props: { oldVersion: oldVersion, newVersion: newVersion, dataLoss: 'none' }
+				});
+				if (tx._state !== 'done') tx._next();
+			});
+			return req;
+		}
+
+		function deleteDatabase(name) {
+			if (arguments.length === 0) throw new TypeError('A database name is required.');
+			name = String(name);
+			var req = new MemOpenRequest();
+			enqueue(name, function (done) {
+				var data = databases[name];
+				var oldVersion = data ? data.version : 0;
+				connections.slice().forEach(function (conn) {
+					if (conn.name !== name) return;
+					fire(conn, 'versionchange', { props: { oldVersion: oldVersion, newVersion: null } });
+					conn.close();
+				});
+				delete databases[name];
+				req.readyState = 'done';
+				req.result = undefined;
+				fire(req, 'success', { props: { oldVersion: oldVersion, newVersion: null } });
+				done();
+			});
+			return req;
+		}
+
+		var factory = {
+			open: open,
+			deleteDatabase: deleteDatabase,
+			cmp: function (a, b) {
+				return nativeCmp(a, b);
+			},
+			databases: function () {
+				return Promise.resolve(
+					Object.keys(databases).map(function (name) {
+						return { name: name, version: databases[name].version };
+					})
+				);
+			}
+		};
+		return { factory: factory, Database: MemDatabase };
+	}
+
+	/*
+	 * A document with an opaque origin has no IndexedDB: give it one in memory. Only when
+	 * the real one really refuses — a probe open throws there, synchronously — so nothing
+	 * changes for a game on an origin of its own.
+	 */
+	var memoryIdb = null;
+	(function installMemoryIdb() {
+		var opaque = false;
+		try {
+			opaque = self.origin === 'null';
+		} catch {
+			/* no origin to read — treat as real */
+		}
+		if (
+			!opaque ||
+			!window.indexedDB ||
+			typeof structuredClone !== 'function' ||
+			typeof MessageChannel !== 'function' ||
+			typeof IDBKeyRange === 'undefined'
+		) {
+			return;
+		}
+		var real = window.indexedDB;
+		try {
+			var probe = real.open('__pt_probe');
+			probe.onsuccess = function () {
+				try {
+					probe.result.close();
+					real.deleteDatabase('__pt_probe');
+				} catch {
+					/* ignore */
+				}
+			};
+			return;
+		} catch {
+			/* SecurityError: this document may not keep databases */
+		}
+		try {
+			memoryIdb = createMemoryIdb(real.cmp.bind(real), SKIP_DB);
+			Object.defineProperty(window, 'indexedDB', {
+				configurable: true,
+				enumerable: true,
+				get: function () {
+					return memoryIdb.factory;
+				}
+			});
+		} catch {
+			memoryIdb = null;
+		}
+	})();
+
 	/* ======================================================================
 	 * IndexedDB mirror
 	 * ==================================================================== */
-	/* Caches, not saves: large, rebuildable, and not worth shipping through postMessage. */
-	var SKIP_DB = /^(UnityCache|__pt)/i;
 	var MAX_RECORD_CHARS = 8 * 1024 * 1024;
 	/*
 	 * Two views, name -> { name, version, objectStores[], records[] }:
@@ -1532,7 +2793,9 @@
 		return out;
 	}
 
-	var protoTransaction = window.IDBDatabase && IDBDatabase.prototype.transaction;
+	/* The unpatched `transaction` of whichever IndexedDB this document has. */
+	var DatabaseProto = memoryIdb ? memoryIdb.Database.prototype : window.IDBDatabase && IDBDatabase.prototype;
+	var protoTransaction = DatabaseProto && DatabaseProto.transaction;
 	var realOpen = null;
 
 	function withConnection(dbName, fn) {
@@ -1564,10 +2827,18 @@
 		}
 	}
 
-	/** Re-read the given stores (all when `names` is null) from the real database into the mirror. */
-	function snapshotStores(dbName, names) {
+	/**
+	 * Re-read the given stores (all when `names` is null) from the real database into the
+	 * mirror. `done`, when given, runs once the mirror holds what was read (or nothing was).
+	 */
+	function snapshotStores(dbName, names, done) {
+		done = done || function () {};
 		/* A mirror starts from a whole read, or it would push a database missing its other stores. */
 		if (!idbMirror[dbName]) names = null;
+		if (!idbConns[dbName] && !realOpen) {
+			done();
+			return;
+		}
 		withConnection(dbName, function (conn, ownConn) {
 			var all = storeNamesOf(conn);
 			var wanted = (names || all).filter(function (n) {
@@ -1575,6 +2846,7 @@
 			});
 			if (!wanted.length) {
 				if (ownConn) conn.close();
+				done();
 				return;
 			}
 			var tx = protoTransaction.call(conn, wanted, 'readonly');
@@ -1608,9 +2880,11 @@
 				if (ownConn) conn.close();
 				dirty = true;
 				schedulePush();
+				done();
 			};
 			tx.onabort = function () {
 				if (ownConn) conn.close();
+				done();
 			};
 		});
 	}
@@ -1633,11 +2907,24 @@
 		if (snapshotTimer) return;
 		snapshotTimer = setTimeout(runSnapshots, 400);
 	}
-	function runSnapshots() {
+	/* `done`, when given, runs once every snapshot started here has landed in the mirror. */
+	function runSnapshots(done) {
+		if (snapshotTimer) clearTimeout(snapshotTimer);
 		snapshotTimer = null;
 		var queue = snapshotQueue;
 		snapshotQueue = Object.create(null);
-		for (var name in queue) snapshotStores(name, queue[name] ? Object.keys(queue[name]) : null);
+		var names = Object.keys(queue);
+		var left = names.length;
+		if (!left) {
+			if (typeof done === 'function') done();
+			return;
+		}
+		names.forEach(function (name) {
+			snapshotStores(name, queue[name] ? Object.keys(queue[name]) : null, function () {
+				left--;
+				if (left === 0 && typeof done === 'function') done();
+			});
+		});
 	}
 
 	/**
@@ -1736,7 +3023,7 @@
 			});
 			return req;
 		};
-		IDBDatabase.prototype.transaction = function (names, mode) {
+		DatabaseProto.transaction = function (names, mode) {
 			var tx = protoTransaction.apply(this, arguments);
 			if (mode === 'readwrite') {
 				var conn = this;
@@ -1869,8 +3156,24 @@
 	var reloadWanted = false;
 	var pendingRestores = 0;
 
+	/*
+	 * A shell in its sandbox has no sessionStorage to carry the profile or the flag across
+	 * the reload. It needs no carry: its loader asks the app again on the next boot, and the
+	 * app has the saves by then. The one-reload guard rides on `window.name`, which is the
+	 * one thing a frame keeps across a reload with no storage at all.
+	 */
+	var SHELL_RELOADED = '__pt_reloaded:';
+	function shellReloaded() {
+		try {
+			return String(window.name).indexOf(SHELL_RELOADED) === 0;
+		} catch {
+			return true;
+		}
+	}
+
 	function canReloadOnce() {
-		if (Date.now() - BOOT_AT > RELOAD_WINDOW_MS || !realSS) return false;
+		if (Date.now() - BOOT_AT > RELOAD_WINDOW_MS) return false;
+		if (!realSS) return Boolean(shell) && !shellReloaded();
 		try {
 			return !realSS.getItem(NS + 'reloaded');
 		} catch (e) {
@@ -1882,6 +3185,15 @@
 	function maybeReload() {
 		if (!reloadWanted || pendingRestores > 0 || reloading) return;
 		reloading = true;
+		if (!realSS) {
+			try {
+				window.name = SHELL_RELOADED + window.name;
+			} catch {
+				/* canReloadOnce read it */
+			}
+			location.reload();
+			return;
+		}
 		try {
 			realSS.setItem(NS + 'reloaded', '1');
 		} catch (e) {
@@ -1958,6 +3270,14 @@
 			restoreOverwrite = true;
 		}
 		syncProfile = carried || readSyncProfile();
+		/* A shell that booted onto its saves after the one reload: done with the guard. */
+		if (shell && syncProfile !== undefined && shellReloaded()) {
+			try {
+				window.name = String(window.name).slice(SHELL_RELOADED.length);
+			} catch {
+				/* ignore */
+			}
+		}
 		if (syncProfile !== undefined) onProfile(syncProfile, false);
 
 		/*
@@ -2287,7 +3607,28 @@
 				focusTextField();
 				return;
 			case TYPE:
-				if (data.gameId !== gameId || data.action !== 'hydrate') return;
+				if (data.gameId !== gameId) return;
+				/*
+				 * The app is about to take this frame away (another game, another page). A frame
+				 * on an origin of its own may run in a process of its own (Chromium), and what it
+				 * sends from `pagehide` as its frame is removed never arrives: it pushes now,
+				 * database reads still waiting included, and says when it has.
+				 */
+				if (data.action === 'flush') {
+					if (event.source !== appWindow()) return;
+					var ack = function () {
+						flush();
+						try {
+							appWindow().postMessage({ type: TYPE, action: 'flushed', gameId: gameId }, '*');
+						} catch {
+							/* the app is gone too */
+						}
+					};
+					if (host || !snapshotTimer) ack();
+					else runSnapshots(ack);
+					return;
+				}
+				if (data.action !== 'hydrate') return;
 				/*
 				 * Saves come only from the app. Any window that can reach this one — an ad
 				 * frame inside the game, a popup it opened — could otherwise hand it a

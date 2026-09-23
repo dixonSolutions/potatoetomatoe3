@@ -18,6 +18,10 @@
 //! The Node puller did the same by proxying and rewriting every asset of the game, which
 //! is what made it slow. Fetches here go through reqwest with the OS trust store, so a
 //! network whose filter re-signs TLS with its own root CA still works.
+//!
+//! It also serves Drive U 7 games' own document, the catalog's `online/embed.html`
+//! (`…/game/<id>/local`), so that third-party HTML runs on the relay's origin and not, as
+//! an app-made `blob:` would, on the app's.
 
 // Registered as a scheme on desktop only.
 #![cfg_attr(mobile, allow(dead_code))]
@@ -71,17 +75,22 @@ fn error(status: StatusCode, message: &str) -> Response<Vec<u8>> {
   )
 }
 
-/// The game's own online URL from its catalog metadata.
-fn embed_url(catalog: &Path, id: &str) -> Option<reqwest::Url> {
+/// The first of `keys` in the game's catalog metadata that holds an http(s) URL.
+fn metadata_url(catalog: &Path, id: &str, keys: &[&str]) -> Option<reqwest::Url> {
   let raw = std::fs::read_to_string(catalog.join(id).join("online").join("metadata.json")).ok()?;
   let meta: serde_json::Value = serde_json::from_str(&raw).ok()?;
-  let url = ["onlineEmbedUrl", "remotePlayUrl"]
+  let url = keys
     .iter()
     .filter_map(|key| meta.get(*key).and_then(|v| v.as_str()))
     .map(str::trim)
     .find(|s| !s.is_empty())?;
   let parsed = reqwest::Url::parse(url).ok()?;
   matches!(parsed.scheme(), "https" | "http").then_some(parsed)
+}
+
+/// The game's own online URL from its catalog metadata.
+fn embed_url(catalog: &Path, id: &str) -> Option<reqwest::Url> {
+  metadata_url(catalog, id, &["onlineEmbedUrl", "remotePlayUrl"])
 }
 
 fn is_flash(url: &reqwest::Url, content_type: &str) -> bool {
@@ -156,8 +165,26 @@ pub fn insert_first_in_head(html: &str, tags: &str) -> String {
   format!("{tags}{html}")
 }
 
+/// Bridge tags a page already carries (a dev server or a capture wrote them). They load
+/// `/game-storage-bridge.child.js` from the page's own origin — a relay or an offline copy,
+/// which has no such file — and the bridge goes in inline anyway.
+pub fn strip_bridge_tags(html: &str) -> String {
+  static TAG: OnceLock<regex::Regex> = OnceLock::new();
+  TAG
+    .get_or_init(|| {
+      regex::Regex::new(
+        r"(?is)<script\b[^>]*game-storage-bridge\.child\.js[^>]*>\s*</script\s*>",
+      )
+      .expect("bridge tag regex")
+    })
+    .replace_all(html, "")
+    .into_owned()
+}
+
 /// A relayed HTML page: origin-relative URLs keep resolving to the origin.
 pub fn relay_html(html: &str, page_url: &reqwest::Url, id: &str) -> String {
+  let html = strip_bridge_tags(html);
+  let html = html.as_str();
   let base = format!(
     "<base href=\"{}\">",
     escape_attr(&base_href(html, page_url))
@@ -271,6 +298,28 @@ async fn game_page(catalog: &Path, id: &str) -> Response<Vec<u8>> {
   }
 }
 
+/// A Drive U 7 game: the catalog's own `online/embed.html` (the document inside the Google
+/// Sites gadget), its relative URLs resolving where the gadget's did.
+async fn game_local(catalog: &Path, id: &str) -> Response<Vec<u8>> {
+  let path = catalog.join(id).join("online").join("embed.html");
+  let bytes = match tokio::fs::read(&path).await {
+    Ok(bytes) if bytes.len() <= MAX_BODY_BYTES => bytes,
+    Ok(_) => return error(StatusCode::PAYLOAD_TOO_LARGE, "embed.html is too large"),
+    Err(_) => return error(StatusCode::NOT_FOUND, "no local embed for this game"),
+  };
+  let Some(base) =
+    metadata_url(catalog, id, &["embedBaseUrl"]).or_else(|| embed_url(catalog, id))
+  else {
+    return error(StatusCode::NOT_FOUND, "no base URL for this game's embed");
+  };
+  let html = String::from_utf8_lossy(&bytes);
+  respond(
+    StatusCode::OK,
+    "text/html; charset=utf-8",
+    relay_html(&html, &base, id).into_bytes(),
+  )
+}
+
 async fn game_swf(catalog: &Path, id: &str) -> Response<Vec<u8>> {
   let Some(url) = embed_url(catalog, id) else {
     return error(StatusCode::NOT_FOUND, "no online URL for this game");
@@ -306,13 +355,15 @@ pub(crate) fn percent_decode(input: &str) -> String {
   String::from_utf8_lossy(&out).into_owned()
 }
 
-/// `ptrelay://localhost/game/<id>` (the page) and `…/game/<id>/swf` (a Flash file).
+/// `ptrelay://localhost/game/<id>` (the page), `…/game/<id>/swf` (a Flash file) and
+/// `…/game/<id>/local` (the catalog's own `embed.html`).
 pub async fn handle(catalog: PathBuf, path: String) -> Response<Vec<u8>> {
   let path = percent_decode(&path);
   let parts: Vec<&str> = path.trim_matches('/').split('/').collect();
   match parts.as_slice() {
     ["game", id] if is_catalog_id(id) => game_page(&catalog, id).await,
     ["game", id, "swf"] if is_catalog_id(id) => game_swf(&catalog, id).await,
+    ["game", id, "local"] if is_catalog_id(id) => game_local(&catalog, id).await,
     _ => error(StatusCode::NOT_FOUND, "not a relay URL"),
   }
 }
@@ -382,6 +433,50 @@ mod tests {
     assert!(is_flash(&swf, ""));
     assert!(is_flash(&page, "application/x-shockwave-flash"));
     assert!(!is_flash(&page, "text/html"));
+  }
+
+  #[test]
+  fn relayed_html_drops_a_bridge_tag_it_already_carries() {
+    let page = reqwest::Url::parse("https://h.example/g/").unwrap();
+    let out = relay_html(
+      "<html><head><script src=\"/game-storage-bridge.child.js\" data-pt-game=\"g\"></script></head></html>",
+      &page,
+      "g",
+    );
+    assert!(!out.contains("game-storage-bridge.child.js"));
+    assert_eq!(out.matches("window.__ptGameId=").count(), 1);
+  }
+
+  #[test]
+  fn serves_the_catalog_embed_from_its_own_base() {
+    let catalog = std::env::temp_dir().join(format!("pt-relay-local-{}", std::process::id()));
+    let online = catalog.join("drive-game").join("online");
+    std::fs::create_dir_all(&online).unwrap();
+    std::fs::write(
+      online.join("metadata.json"),
+      r#"{"onlineEmbedUrl":"https://sites.google.com/view/x/drive-game","embedBaseUrl":"https://cdn.jsdelivr.net/gh/o/r@main/a/"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+      online.join("embed.html"),
+      "<html><head><title>t</title></head><body><script src=\"game.js\"></script></body></html>",
+    )
+    .unwrap();
+    let res = tauri::async_runtime::block_on(handle(
+      catalog.clone(),
+      "/game/drive-game/local".to_string(),
+    ));
+    assert_eq!(res.status(), StatusCode::OK);
+    let body = String::from_utf8(res.body().clone()).unwrap();
+    assert!(body.contains("<base href=\"https://cdn.jsdelivr.net/gh/o/r@main/a/\">"));
+    assert!(body.contains("window.__ptGameId=\"drive-game\""));
+    assert!(body.find("__ptGameId").unwrap() < body.find("game.js").unwrap());
+    let missing = tauri::async_runtime::block_on(handle(
+      catalog.clone(),
+      "/game/no-such-game/local".to_string(),
+    ));
+    assert_eq!(missing.status(), StatusCode::NOT_FOUND);
+    let _ = std::fs::remove_dir_all(&catalog);
   }
 
   #[test]

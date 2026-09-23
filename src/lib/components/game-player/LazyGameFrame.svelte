@@ -7,12 +7,19 @@
 		registerGameFrameHost
 	} from '$lib/utils/game-storage-bridge';
 	import { unlockGameIframeAudio } from '$lib/utils/game-audio';
+	import {
+		frameLoadsPerStart,
+		frameSandboxFor,
+		shellFrameSrcFor
+	} from '$lib/utils/online-play-routing-shell';
 
 	/**
 	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…`, `/puller-games/{id}/…`, or `/online/…`).
 	 * Same app origin keeps game localStorage aligned across online/offline; puller copies use `/puller-games/` (proxied in dev).
 	 * A separate document is required so the game keeps its own globals and relative asset paths;
-	 * rendering the bundle inline in Svelte would break typical builds.
+	 * rendering the bundle inline in Svelte would break typical builds. An app-made shell
+	 * (third-party HTML the app plays from a document of its own) is the exception to "same
+	 * origin": it is sandboxed away from the app's origin (`frameSandboxFor`).
 	 *
 	 * The game starts as soon as its play URL is known — there is no click-to-play step.
 	 * Until then (`gameUrl` empty) and until the frame fires `load` (or the stall watchdog
@@ -91,6 +98,17 @@
 		declaredOrientation = null;
 	});
 
+	/*
+	 * An app-made shell runs third-party HTML, so it gets a sandbox without the app's origin,
+	 * and its loader fires a `load` of its own before the game's (`online-play-routing-shell`).
+	 */
+	const sandbox = $derived(frameSandboxFor(gameUrl));
+	/* A shell's play URL only names it: the frame loads the shell's loader. */
+	const frameSrc = $derived(shellFrameSrcFor(gameUrl) ?? gameUrl);
+	const loadsPerStart = $derived(frameLoadsPerStart(gameUrl));
+	/** `load` events seen since the current start; the game is up after `loadsPerStart`. */
+	let loadsSeen = 0;
+
 	function reportLoadState(next: FrameLoadState) {
 		if (loadState === next) return;
 		loadState = next;
@@ -104,6 +122,7 @@
 	$effect(() => {
 		const url = gameUrl;
 		if (!started || !url) return;
+		loadsSeen = 0;
 		loadState = 'loading';
 		onLoadStateChange?.('loading', url);
 		const timer = window.setTimeout(
@@ -116,7 +135,9 @@
 	});
 
 	function handleFrameLoad() {
+		loadsSeen++;
 		if (iframeEl && gameId) noteGameFrameTree(iframeEl, gameId);
+		if (loadsSeen < loadsPerStart && loadState === 'loading') return;
 		reportLoadState('loaded');
 		bumpAudioUnlock();
 		focusFrameIfIdle();
@@ -220,17 +241,25 @@
 	}}
 >
 	{#if started && gameUrl}
-		<iframe
-			bind:this={iframeEl}
-			src={gameUrl}
-			{title}
-			class="h-full w-full border-0 bg-black"
-			loading="eager"
-			allowfullscreen
-			allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
-			referrerpolicy="no-referrer-when-downgrade"
-			onload={handleFrameLoad}
-		></iframe>
+		<!--
+			A frame's sandbox applies from its next navigation, so a change of sandbox (a route
+			moving between a shell and anything else) gets a new frame rather than a new `src`.
+			`sandbox` comes before `src` for the same reason.
+		-->
+		{#key sandbox}
+			<iframe
+				bind:this={iframeEl}
+				{sandbox}
+				src={frameSrc}
+				{title}
+				class="h-full w-full border-0 bg-black"
+				loading="eager"
+				allowfullscreen
+				allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
+				referrerpolicy="no-referrer-when-downgrade"
+				onload={handleFrameLoad}
+			></iframe>
+		{/key}
 	{/if}
 	{#if !posterGone}
 		<!--

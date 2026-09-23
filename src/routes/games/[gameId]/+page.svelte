@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { afterNavigate, goto } from '$app/navigation';
+	import { afterNavigate, goto, onNavigate } from '$app/navigation';
 	import { base, resolve } from '$app/paths';
 	import { browser } from '$app/environment';
 	import { onMount, tick, untrack } from 'svelte';
 	import {
+		RELAY_SCHEME,
 		loadGameMetadata,
 		loadAllGames,
 		getGamePlayerUrl,
@@ -38,7 +39,7 @@
 	import GameToolbar from '$lib/components/game-player/GameToolbar.svelte';
 	import InGameMenu from '$lib/components/game-player/in-game-menu/InGameMenu.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
-	import { preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
+	import { flushGameFrame, preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -98,7 +99,12 @@
 		isUnframeableInApp,
 		markPlayRouteFailed
 	} from '$lib/utils/online-play-routing';
-	import { gameFrameSpokeSince, nativeGameFramesActive } from '$lib/utils/native-game-frames';
+	import {
+		gameFrameSpokeSince,
+		nativeGameFramesActive,
+		watchGameFrameLife
+	} from '$lib/utils/native-game-frames';
+	import { isShellBlobUrl } from '$lib/utils/online-play-routing-shell';
 	import { openExternalUrl } from '$lib/utils/open-external';
 	import { takeWebviewCrashOfGame, webviewCrashOnLoad } from '$lib/utils/webview-crash';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
@@ -560,13 +566,16 @@
 
 	/**
 	 * A frame whose document should have run the bridge — a game's own page on desktop,
-	 * where it is injected natively, or a relay page — and stayed silent never ran at all.
-	 * `load` fires for a refused frame just the same, so this is the only way to see it.
+	 * where it is injected natively, a relay page, or an app-made shell (whose loader asks
+	 * for the saves before anything else) — and stayed silent never ran at all. `load` fires
+	 * for a refused frame just the same, so this is the only way to see it.
 	 */
 	async function confirmFrameRan(id: string, url: string, since: number) {
 		const kind = playRouteOfUrl(url);
 		const expectsWord =
-			kind === 'relay' || (kind === 'direct' && nativeGameFramesActive() && !isAppOriginUrl(url));
+			url.startsWith(`${RELAY_SCHEME}:`) ||
+			isShellBlobUrl(url) ||
+			(kind === 'direct' && nativeGameFramesActive() && !isAppOriginUrl(url));
 		if (!expectsWord) return;
 		await new Promise((resolve) => setTimeout(resolve, 1500));
 		if (id !== gameId || url !== gamePlayerUrl) return;
@@ -695,6 +704,8 @@
 		setTouchConsoleVisible(false, 'relaunch');
 		/* A manual relaunch is a fresh attempt: every route of the chain is tried again. */
 		clearDirectLaunchFailed(gameId);
+		/* The frame is about to go: its last save first (see `flushGameFrame`). */
+		await flushGameFrame(iframeElement, gameId);
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
 		await refreshPlayerUrl();
@@ -831,6 +842,16 @@
 		})();
 	}
 
+	/*
+	 * Leaving the game — for another game or another page — takes its frame away. The game
+	 * pushes its last save first: a frame on an origin of its own cannot once it is gone.
+	 * The navigation waits for that answer (a few milliseconds; half a second at most).
+	 */
+	onNavigate(() => {
+		if (!gameSurfaceStarted || !iframeElement || !gameId) return;
+		return flushGameFrame(iframeElement, gameId);
+	});
+
 	afterNavigate(({ from, to }) => {
 		if (!browser || !to) return;
 		const id = to.params?.gameId ?? '';
@@ -850,6 +871,8 @@
 		// `afterNavigate` does not fire for the route's initial hydration. Load the
 		// requested game here as well so direct links do not remain on "Loading game…".
 		if (gameId) void loadGamePage(gameId);
+		/* Proof of life from game frames, for the launch watchdog, on every platform. */
+		watchGameFrameLife();
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
 			/*

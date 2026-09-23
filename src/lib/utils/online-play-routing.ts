@@ -19,7 +19,10 @@
  * | Anything whose direct frame stays dead | (seen by the launch watchdog)          | next    |
  *
  * `local` and `shell` build an app-made document (a blob with `<base href>` back at the
- * origin and the bridge first in `<head>`), so they work on every platform with no server.
+ * origin and the bridge first in `<head>`), played in a sandbox so the third-party HTML
+ * never runs with the app's origin; that works on every platform with no server. The
+ * desktop app plays `local` through its relay instead, and tries the relay before a shell,
+ * so a game there keeps an origin of its own with real storage.
  * `relay` is the desktop app's in-process relay (`src-tauri/src/relay.rs`). `puller` is the
  * legacy Node relay, used only if one happens to be running already — the app never starts
  * it to play a game. When the chain runs out, the page offers the system browser.
@@ -121,11 +124,16 @@ export function planOnlineRoutes(input: PlayRouteInput): PlayRouteKind[] {
 	} else if (isFlashUrl(embed)) {
 		/* Only the relay can hand Ruffle the bytes. */
 	} else if (isTextPlainHtmlHost(embed)) {
+		/*
+		 * The relay gives the page an origin of its own, with real storage; a shell runs it
+		 * sandboxed, with storage the bridge keeps in memory. Where both exist, relay first.
+		 */
+		if (input.desktopApp) chain.push('relay');
 		chain.push('shell');
 	} else if (!isFrameBlockedHost(embed) && hostOf(embed) !== 'sites.google.com') {
 		chain.push('direct');
 	}
-	if (input.desktopApp && embed) chain.push('relay');
+	if (input.desktopApp && embed && !chain.includes('relay')) chain.push('relay');
 	if (input.pullerRunning) chain.push('puller');
 	return chain;
 }
