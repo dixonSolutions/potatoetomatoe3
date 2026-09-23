@@ -135,7 +135,11 @@ function pickSample(catalog, opts, recorded) {
 		return catalog.filter((game) => {
 			const entry = recorded?.get(game.id);
 			/* A refused frame is refused every time; everything else gets a patient retry. */
-			return entry && entry.status !== 'LAUNCHED' && entry.status !== 'FRAME_ERROR';
+			if (!entry || ['LAUNCHED', 'FRAME_ERROR', 'PORTAL_REFUSED'].includes(entry.status)) {
+				return false;
+			}
+			const said = [entry.gate || '', ...(entry.text || [])];
+			return !said.some((t) => REFUSED_TEXT_RE.test(t) || PORTAL_REFUSAL_RE.test(t));
 		});
 	}
 
@@ -235,6 +239,13 @@ async function pressStartButton(page) {
 
 /** Chrome's own error page inside a frame: the load failed and will not recover. */
 const REFUSED_TEXT_RE = /refused to connect|took too long to respond|ERR_[A-Z_]+/;
+
+/**
+ * The portal itself says no: CrazyGames' "This version of … can be played only on
+ * CrazyGames.com" site-lock, or a "Gone / no longer available" page.
+ */
+const PORTAL_REFUSAL_RE =
+	/can be played (?:only|exclusively) on|can only be played on|only playable on|is no longer available|this game has been removed/i;
 
 /** Visible loader text ("10% (8 / 79 MB)", "Loading...") means the game is still arriving. */
 const LOADING_TEXT_RE = /\b\d{1,3}\s?%|\bloading\b/i;
@@ -402,7 +413,7 @@ async function verifyGame(context, game, opts) {
 				nextRefusalCheck = Date.now() + 6_000;
 				if (page.frames().some((f) => f.url().startsWith('chrome-error://'))) break;
 				const texts = await collectFrameText(page);
-				if (texts.some((t) => REFUSED_TEXT_RE.test(t))) break;
+				if (texts.some((t) => REFUSED_TEXT_RE.test(t) || PORTAL_REFUSAL_RE.test(t))) break;
 			}
 			/*
 			 * Nothing painted and no request for a while: the game is stuck (a script error,
@@ -480,15 +491,18 @@ async function verifyGame(context, game, opts) {
 		 * canvas" is only a DOM game when nothing on screen still reads as loading.
 		 */
 		const loadingText = texts.find((t) => LOADING_TEXT_RE.test(t));
+		const portalRefused = texts.some((t) => PORTAL_REFUSAL_RE.test(t));
 		const status = frameError
 			? 'FRAME_ERROR'
-			: loadingText
-				? 'STILL_LOADING'
-				: lastCanvas
-					? 'BLANK_CANVAS'
-					: isPainted(paint)
-						? 'PAINTED_DOM'
-						: 'NO_RENDER';
+			: portalRefused
+				? 'PORTAL_REFUSED'
+				: loadingText
+					? 'STILL_LOADING'
+					: lastCanvas
+						? 'BLANK_CANVAS'
+						: isPainted(paint)
+							? 'PAINTED_DOM'
+							: 'NO_RENDER';
 		return {
 			...base,
 			status,
@@ -519,6 +533,7 @@ const STATUS_CODE = {
 	BLANK_CANVAS: 'C',
 	STILL_LOADING: 'S',
 	FRAME_ERROR: 'F',
+	PORTAL_REFUSED: 'R',
 	NO_RENDER: 'N',
 	ERROR: 'E'
 };

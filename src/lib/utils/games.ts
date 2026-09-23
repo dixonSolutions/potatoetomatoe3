@@ -16,6 +16,7 @@ import { resolveStaticOfflinePlayUrl, staticOfflineFileExists } from '$lib/utils
 import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 import { sizedThumbnailUrl } from '$lib/utils/thumbnail-size';
 import { readConsoleVisiblePref } from '$lib/utils/touch-console';
+import type { QualityFields } from '$lib/utils/catalog-quality';
 import {
 	decideOnlineRelay,
 	hasDirectLaunchFailed,
@@ -55,14 +56,20 @@ export interface GameMetadata {
 	bundledOffline?: boolean;
 }
 
-/** Lean catalog row from games-index shards (no description / embed URLs). */
+/**
+ * Lean catalog row from games-index shards (no description / embed URLs). `q` and `d` are
+ * the quality score and NSW DoE filter status — see `$lib/utils/catalog-quality`.
+ */
 export type GameIndexEntry = Pick<
 	GameMetadata,
 	'id' | 'name' | 'author' | 'category' | 'thumbnail' | 'engine'
->;
+> &
+	QualityFields;
 
 export interface CatalogManifest {
 	version: number;
+	/** 'quality' when shards run best-first (shard 0 is the top of the catalog). */
+	order?: 'quality';
 	total: number;
 	shardSize: number;
 	shardCount: number;
