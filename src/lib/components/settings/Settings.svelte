@@ -179,7 +179,9 @@
 			requestAnimationFrame(() => {
 				const el = document.getElementById(targetId);
 				if (!el) return;
-				el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+				/* A tall block (a list of sliders) shows from its top, not its middle. */
+				const tall = el.getBoundingClientRect().height > window.innerHeight / 2;
+				el.scrollIntoView({ block: tall ? 'start' : 'center', behavior: 'smooth' });
 				el.animate?.(
 					[
 						{ backgroundColor: 'color-mix(in oklab, var(--primary) 14%, transparent)' },

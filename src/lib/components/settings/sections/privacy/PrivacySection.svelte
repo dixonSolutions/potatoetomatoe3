@@ -410,7 +410,7 @@
 						}}
 						disabled={busy}
 					>
-						<Select.Trigger class="w-full sm:w-36" aria-label="Service">
+						<Select.Trigger class="w-full sm:w-44" aria-label="Service">
 							<span class="flex min-w-0 items-center gap-2">
 								{@render serviceIcon(activeService.serviceIcon)}
 								<span class="truncate">{activeService.label}</span>
