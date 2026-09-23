@@ -4,6 +4,7 @@
 	import { resolve } from '$app/paths';
 	import { loadCatalogIndex, type GameIndexEntry } from '$lib/utils/games';
 	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
+	import { warmGameLaunch } from '$lib/utils/network-warmup';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
 	import {
 		getBrowseShuffleSeed,
@@ -314,6 +315,9 @@
 						<a
 							href={resolve(`/games/${game.id}`)}
 							data-sveltekit-preload-data="hover"
+							onpointerenter={() => warmGameLaunch(game.id)}
+							ontouchstart={() => warmGameLaunch(game.id)}
+							onfocus={() => warmGameLaunch(game.id)}
 							class="group block overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm transition-colors hover:border-border"
 						>
 							<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
@@ -386,6 +390,9 @@
 								<a
 									href={resolve(`/games/${game.id}`)}
 									data-sveltekit-preload-data="hover"
+									onpointerenter={() => warmGameLaunch(game.id)}
+									ontouchstart={() => warmGameLaunch(game.id)}
+									onfocus={() => warmGameLaunch(game.id)}
 									class="block"
 								>
 									<div
@@ -467,6 +474,9 @@
 								<a
 									href={resolve(`/games/${game.id}`)}
 									data-sveltekit-preload-data="hover"
+									onpointerenter={() => warmGameLaunch(game.id)}
+									ontouchstart={() => warmGameLaunch(game.id)}
+									onfocus={() => warmGameLaunch(game.id)}
 									class="block"
 								>
 									<div

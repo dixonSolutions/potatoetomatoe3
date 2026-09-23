@@ -12,6 +12,7 @@
 		type GameIndexEntry
 	} from '$lib/utils/games';
 	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
+	import { warmGameLaunch } from '$lib/utils/network-warmup';
 	import { canUseLocalStorage } from '$lib/utils/browser-storage';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
@@ -567,7 +568,11 @@
 								<a
 									href={resolve(`/games/${game.id}`)}
 									class="block"
+									data-sveltekit-preload-data="hover"
 									onclick={(e) => openGame(game.id, e)}
+									onpointerenter={() => warmGameLaunch(game.id)}
+									ontouchstart={() => warmGameLaunch(game.id)}
+									onfocus={() => warmGameLaunch(game.id)}
 								>
 									<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 										<div class="relative aspect-square overflow-hidden bg-muted">
