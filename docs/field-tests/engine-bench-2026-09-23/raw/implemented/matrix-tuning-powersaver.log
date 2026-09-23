@@ -1,0 +1,19 @@
+### rep 1: tauri t-pp-off
+[run] tauri/t-pp-off start 01:29:59 load=1.91 2.76 3.63 shield=false env=POTATO_TOMATO_FULL_SPEED=0 args= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=shrek-unity,sprites-webgl,gl-light,sprites-canvas,gl-heavy&rep=1
+[run] tauri/t-pp-off end 01:31:19 after 79s load=2.80 2.87 3.60 shield=false -> tauri-webkitgtk-t-pp-off-1790177478615.json
+### rep 1: tauri t-pp-on
+[run] tauri/t-pp-on start 01:31:27 load=2.68 2.84 3.59 shield=false env= args= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=shrek-unity,sprites-webgl,gl-light,sprites-canvas,gl-heavy&rep=1
+[run] tauri/t-pp-on end 01:32:39 after 71s load=2.73 2.84 3.53 shield=false -> tauri-webkitgtk-t-pp-on-1790177558451.json
+### rep 2: tauri t-pp-off
+[run] tauri/t-pp-off start 01:32:47 load=2.47 2.78 3.50 shield=false env=POTATO_TOMATO_FULL_SPEED=0 args= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=shrek-unity,sprites-webgl,gl-light,sprites-canvas,gl-heavy&rep=2
+[run] tauri/t-pp-off end 01:34:02 after 74s load=2.63 2.74 3.43 shield=false -> tauri-webkitgtk-t-pp-off-1790177642121.json
+### rep 2: tauri t-pp-on
+[run] tauri/t-pp-on start 01:34:10 load=2.76 2.77 3.43 shield=false env= args= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=shrek-unity,sprites-webgl,gl-light,sprites-canvas,gl-heavy&rep=2
+[run] tauri/t-pp-on end 01:35:22 after 71s load=4.91 3.33 3.58 shield=false -> tauri-webkitgtk-t-pp-on-1790177721540.json
+### rep 3: tauri t-pp-off
+[run] tauri/t-pp-off start 01:35:30 load=4.62 3.32 3.57 shield=false env=POTATO_TOMATO_FULL_SPEED=0 args= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=shrek-unity,sprites-webgl,gl-light,sprites-canvas,gl-heavy&rep=3
+[run] tauri/t-pp-off end 01:36:42 after 71s load=3.22 3.19 3.50 shield=false -> tauri-webkitgtk-t-pp-off-1790177801462.json
+### rep 3: tauri t-pp-on
+[run] tauri/t-pp-on start 01:36:50 load=2.88 3.12 3.48 shield=false env= args= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=shrek-unity,sprites-webgl,gl-light,sprites-canvas,gl-heavy&rep=3
+[run] tauri/t-pp-on end 01:38:02 after 71s load=2.48 2.97 3.40 shield=false -> tauri-webkitgtk-t-pp-on-1790177881496.json
+### matrix /home/eva/Projects/SideProjects/potatoetomatoe3/.claude/worktrees/agent-aad81134c37ef49d6/docs/field-tests/engine-bench-2026-09-23/harness/matrices/tuning-powersaver.txt done 01:38:10

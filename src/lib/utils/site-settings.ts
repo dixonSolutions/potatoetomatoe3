@@ -4,6 +4,7 @@
  */
 
 import { canUseLocalStorage } from '$lib/utils/browser-storage';
+import type { GamePlayerSettings } from '$lib/utils/game-player-settings';
 
 export const SITE_SETTINGS_COOKIE = 'potato-tomato-settings';
 const LOCAL_STORAGE_KEY = 'potato-tomato-site-settings-v1';
@@ -54,6 +55,16 @@ export type SiteSettingsV1 = {
 	defaultGamePlayMode: GamePlayModePreference;
 	/** Toggle pause/resume while a game is playing (default: backtick `). */
 	gamePauseShortcut: PrivacyLockShortcut;
+	/**
+	 * Key that toggles fullscreen while a game is playing (default: F). Only acts when
+	 * `gamePlayer.fullscreenShortcutEnabled` is on — see `game-player-settings.ts`.
+	 */
+	gameFullscreenShortcut: PrivacyLockShortcut;
+	/**
+	 * Game player behaviour (auto fullscreen, in-game menu). Stored as written and
+	 * normalised on read by `game-player-settings.ts`; absent on installs that never saved it.
+	 */
+	gamePlayer?: Partial<GamePlayerSettings>;
 };
 
 export type GamePlayModePreference = 'online' | 'offline';
@@ -74,6 +85,13 @@ const DEFAULTS: SiteSettingsV1 = {
 	defaultGamePlayMode: 'online',
 	gamePauseShortcut: {
 		code: 'Backquote',
+		ctrlKey: false,
+		shiftKey: false,
+		altKey: false,
+		metaKey: false
+	},
+	gameFullscreenShortcut: {
+		code: 'KeyF',
 		ctrlKey: false,
 		shiftKey: false,
 		altKey: false,
@@ -144,6 +162,23 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 			metaKey: r.metaKey === true
 		};
 	}
+	let gameFullscreenShortcut = DEFAULTS.gameFullscreenShortcut;
+	const rawFullscreen = merged.gameFullscreenShortcut;
+	if (
+		rawFullscreen &&
+		typeof rawFullscreen === 'object' &&
+		typeof (rawFullscreen as PrivacyLockShortcut).code === 'string' &&
+		(rawFullscreen as PrivacyLockShortcut).code.length > 0
+	) {
+		const r = rawFullscreen as PrivacyLockShortcut;
+		gameFullscreenShortcut = {
+			code: r.code,
+			ctrlKey: r.ctrlKey === true,
+			shiftKey: r.shiftKey === true,
+			altKey: r.altKey === true,
+			metaKey: r.metaKey === true
+		};
+	}
 	let privacyDisguiseProvider = merged.privacyDisguiseProvider;
 	if (privacyDisguiseProvider !== 'google' && privacyDisguiseProvider !== 'microsoft') {
 		privacyDisguiseProvider = DEFAULTS.privacyDisguiseProvider;
@@ -160,6 +195,7 @@ function mergeCookieSettings(parsed: ParsedCookie): SiteSettingsV1 {
 		privacyLockShortcut,
 		defaultGamePlayMode,
 		gamePauseShortcut,
+		gameFullscreenShortcut,
 		privacyDisguiseProvider,
 		privacyDisguiseService
 	};

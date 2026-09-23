@@ -2,13 +2,23 @@
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
-	import { loadCatalogIndex, resolveGameThumbnailSrc, type GameIndexEntry } from '$lib/utils/games';
+	import { loadCatalogIndex, type GameIndexEntry } from '$lib/utils/games';
+	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
+	import { warmGameLaunch } from '$lib/utils/network-warmup';
+	import {
+		applyQualityFilter,
+		passesQualityFilter,
+		readQualityFilterPrefs,
+		suggestionPool,
+		topQualityGames
+	} from '$lib/utils/catalog-quality';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
 	import {
 		getBrowseShuffleSeed,
 		getHomeRecommendations,
 		getHomeRecommendationsAsync,
 		getRecentlyPlayedGames,
+		loadPlayAnalytics,
 		shuffleDeterministic
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -35,18 +45,20 @@
 	const recommendedSkeletonCount = 6;
 	const featuredSkeletonCount = 8;
 
-	function thumbUrl(game: GameIndexEntry) {
-		const status = offlineStatusMap[game.id];
-		const preferOffline = !networkOnline || Boolean(status?.offline);
-		return resolveGameThumbnailSrc(game.thumbnail, {
-			gameId: game.id,
-			preferOffline,
-			offlineThumbnailRel: status?.offlineThumbnail
-		});
-	}
+	/*
+	 * `sizes` for each row: the CSS width of one card box at each breakpoint, matching the
+	 * grid/flex classes below. Keep them in step when those classes change — a stale value
+	 * only costs sharpness or bytes, never layout.
+	 */
+	const CONTINUE_SIZES =
+		'(min-width: 1920px) 171px, (min-width: 1280px) 9.1vw, (min-width: 1024px) 10vw, (min-width: 768px) 12.5vw, (min-width: 640px) 16.7vw, 25vw';
+	const RECOMMENDED_SIZES = '(min-width: 768px) 280px, (min-width: 640px) 260px, 78vw';
+	const FEATURED_SIZES = '(min-width: 640px) 200px, 42vw';
+	/** The Continue grid is 11 wide at its widest: its first row is what paints first. */
+	const CONTINUE_PRIORITY_COUNT = 11;
 
-	function placeholderDataUrl() {
-		return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23222" width="256" height="256"/%3E%3Ctext fill="%23666" font-family="sans-serif" font-size="20" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
+	function prefersOfflineCover(game: GameIndexEntry): boolean {
+		return !networkOnline || Boolean(offlineStatusMap[game.id]?.offline);
 	}
 
 	function toggleFavourite(gameId: string, event: MouseEvent) {
@@ -96,6 +108,20 @@
 			const statusPromise = refreshOfflineStatuses();
 
 			/*
+			 * Continue shows what the user played, even a game since classed as broken; the
+			 * filler it adds for a thin history (all of it, on a first visit) comes only from
+			 * the strong tiers, not from every game that merely launches.
+			 */
+			const qualityFilter = readQualityFilterPrefs();
+			const playedIds = new Set(Object.keys(loadPlayAnalytics().perGame));
+			const continuePool = (games: GameIndexEntry[]) => [
+				...games.filter((g) => playedIds.has(g.id)),
+				...suggestionPool(
+					games.filter((g) => !playedIds.has(g.id) && passesQualityFilter(g, qualityFilter))
+				)
+			];
+
+			/*
 			 * The progress callback fires once per catalog shard — 27 of them. Rebuilding
 			 * Continue on every one meant 27 passes of getRecentlyPlayedGames, each of which
 			 * indexes and (when history is thin) shuffles and scores the whole 13k-row
@@ -110,50 +136,70 @@
 				allGames = partial;
 				if (!continuePainted) {
 					continuePainted = true;
-					continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(partial, prefs, 28));
+					continueGames = applyOfflineLibraryFilter(
+						getRecentlyPlayedGames(continuePool(partial), prefs, 28)
+					);
 					libraryReady = true;
 				}
 			});
 			if (generation !== loadGeneration) return;
 
-			continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
+			continueGames = applyOfflineLibraryFilter(
+				getRecentlyPlayedGames(continuePool(allGames), prefs, 28)
+			);
 			libraryReady = true;
 
 			const continueIds = new Set(continueGames.map((g) => g.id));
+			/*
+			 * Suggestions come from the games worth suggesting: tests, templates and games
+			 * that do not launch stay out (Continue above is the user's own history, so it
+			 * keeps everything), and the browse page's school-network filter carries over.
+			 */
+			const suggestable = applyQualityFilter(allGames, qualityFilter);
+			const recommendFrom = suggestionPool(suggestable);
 
 			/* Recommendations are nice-to-have — paint Continue first, then fill the rest. */
 			void (async () => {
 				try {
-					let rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
+					/*
+					 * Ask for enough to leave 14 once Continue's games are taken out: a thin
+					 * history fills Continue from this same recommender, so without the headroom
+					 * (the old retry dropped the filter) the two rows opened with the same games.
+					 */
+					const want = 14 + continueIds.size;
+					const notInContinue = (games: GameIndexEntry[]) =>
+						games.filter((g) => !continueIds.has(g.id)).slice(0, 14);
+					let rec = notInContinue(await getHomeRecommendationsAsync(recommendFrom, prefs, want));
 					if (generation !== loadGeneration) return;
-					rec = rec.filter((g) => !continueIds.has(g.id));
-					if (rec.length < 10) {
-						rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
-						if (generation !== loadGeneration) return;
-					}
 					if (rec.length === 0) {
-						rec = getHomeRecommendations(allGames, prefs, 14);
+						rec = notInContinue(getHomeRecommendations(recommendFrom, prefs, want));
 					}
 					recommendedGames = applyOfflineLibraryFilter(rec);
 
+					/* Featured: a per-session shuffle of the top of the catalog, not of all 13k games. */
 					const used = new Set([...continueGames, ...recommendedGames].map((g) => g.id));
 					featuredGames = applyOfflineLibraryFilter(
 						shuffleDeterministic(
-							allGames.filter((g) => !used.has(g.id)),
+							topQualityGames(suggestable).filter((g) => !used.has(g.id)),
 							getBrowseShuffleSeed() ^ 0xfed1
 						).slice(0, 16)
 					);
 
 					if (featuredGames.length < 8 && networkOnline) {
 						const need = 8 - featuredGames.length;
-						const extra = allGames
-							.filter((g) => !featuredGames.some((f) => f.id === g.id))
+						/* The index is best-first, so the head of the list is the best fallback. */
+						const extra = suggestable
+							.filter((g) => !used.has(g.id) && !featuredGames.some((f) => f.id === g.id))
 							.slice(0, need);
 						featuredGames = [...featuredGames, ...extra].slice(0, 16);
 					}
 					feedReady = true;
 				} catch {
-					recommendedGames = applyOfflineLibraryFilter(getHomeRecommendations(allGames, prefs, 14));
+					recommendedGames = applyOfflineLibraryFilter(
+						getHomeRecommendations(recommendFrom, prefs, 14 + continueIds.size)
+							.filter((g) => !continueIds.has(g.id))
+							.slice(0, 14)
+					);
 					feedReady = true;
 				}
 			})();
@@ -161,7 +207,9 @@
 			await statusPromise;
 			if (generation !== loadGeneration) return;
 			if (!networkOnline) {
-				continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
+				continueGames = applyOfflineLibraryFilter(
+					getRecentlyPlayedGames(continuePool(allGames), prefs, 28)
+				);
 			}
 		} catch (err) {
 			console.error('Home feed failed to load:', err);
@@ -307,23 +355,25 @@
 				<div
 					class="grid grid-cols-4 gap-1.5 sm:grid-cols-6 sm:gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11"
 				>
-					{#each continueGames as game (game.id)}
+					{#each continueGames as game, i (game.id)}
 						<a
 							href={resolve(`/games/${game.id}`)}
 							data-sveltekit-preload-data="hover"
+							onpointerenter={() => warmGameLaunch(game.id)}
+							ontouchstart={() => warmGameLaunch(game.id)}
+							onfocus={() => warmGameLaunch(game.id)}
 							class="group block overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm transition-colors hover:border-border"
 						>
 							<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
-								<img
-									src={thumbUrl(game)}
-									alt=""
-									loading="lazy"
-									decoding="async"
-									class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
-									onerror={(e) => {
-										const el = e.currentTarget as HTMLImageElement;
-										el.src = placeholderDataUrl();
-									}}
+								<GameCardImage
+									thumbnail={game.thumbnail}
+									gameId={game.id}
+									name={game.name}
+									sizes={CONTINUE_SIZES}
+									priority={i < CONTINUE_PRIORITY_COUNT}
+									preferOffline={prefersOfflineCover(game)}
+									offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
+									class="transition-transform duration-200 group-hover:scale-[1.03]"
 								/>
 							</div>
 							<div class="px-1 pt-1 pb-1.5">
@@ -384,22 +434,23 @@
 								<a
 									href={resolve(`/games/${game.id}`)}
 									data-sveltekit-preload-data="hover"
+									onpointerenter={() => warmGameLaunch(game.id)}
+									ontouchstart={() => warmGameLaunch(game.id)}
+									onfocus={() => warmGameLaunch(game.id)}
 									class="block"
 								>
 									<div
 										class="relative overflow-hidden rounded-xl border border-border/60 bg-muted shadow-sm transition-shadow hover:shadow-md"
 									>
 										<div class="relative aspect-video bg-muted">
-											<img
-												src={thumbUrl(game)}
-												alt=""
-												loading="lazy"
-												decoding="async"
-												class="h-full w-full object-cover"
-												onerror={(e) => {
-													const el = e.currentTarget as HTMLImageElement;
-													el.src = placeholderDataUrl();
-												}}
+											<GameCardImage
+												thumbnail={game.thumbnail}
+												gameId={game.id}
+												name={game.name}
+												sizes={RECOMMENDED_SIZES}
+												boxAspect={16 / 9}
+												preferOffline={prefersOfflineCover(game)}
+												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
 											/>
 											<button
 												type="button"
@@ -467,22 +518,22 @@
 								<a
 									href={resolve(`/games/${game.id}`)}
 									data-sveltekit-preload-data="hover"
+									onpointerenter={() => warmGameLaunch(game.id)}
+									ontouchstart={() => warmGameLaunch(game.id)}
+									onfocus={() => warmGameLaunch(game.id)}
 									class="block"
 								>
 									<div
 										class="overflow-hidden rounded-xl border border-border/60 bg-card transition-shadow hover:shadow-md"
 									>
 										<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
-											<img
-												src={thumbUrl(game)}
-												alt=""
-												loading="lazy"
-												decoding="async"
-												class="h-full w-full object-cover"
-												onerror={(e) => {
-													const el = e.currentTarget as HTMLImageElement;
-													el.src = placeholderDataUrl();
-												}}
+											<GameCardImage
+												thumbnail={game.thumbnail}
+												gameId={game.id}
+												name={game.name}
+												sizes={FEATURED_SIZES}
+												preferOffline={prefersOfflineCover(game)}
+												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
 											/>
 											<button
 												type="button"

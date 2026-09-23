@@ -1,0 +1,28 @@
+### rep 1: tauri tauri-shipped
+[run] tauri/tauri-shipped start 19:01:25 load=2.07 2.84 4.58 envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] tauri/tauri-shipped end 19:07:50 after 379s load=2.91 3.14 4.16 -> tauri-webkitgtk-tauri-shipped-1790154469881.json
+### rep 1: chrome chromium
+[run] chrome/chromium start 19:07:58 load=2.76 3.11 4.15 envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] chrome/chromium end 19:13:45 after 341s load=5.52 4.35 4.38 -> chromium-chromium-1790154825354.json
+### rep 1: tauri tauri-nolowpower
+[run] tauri/tauri-nolowpower start 19:13:53 load=5.16 4.29 4.36 envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=1
+[run] tauri/tauri-nolowpower end 19:19:49 after 350s load=4.34 4.89 4.66 -> tauri-webkitgtk-tauri-nolowpower-1790155189761.json
+### rep 2: tauri tauri-shipped
+[run] tauri/tauri-shipped start 19:19:58 load=4.39 4.89 4.66 envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] tauri/tauri-shipped end 19:26:22 after 378s load=6.80 5.90 5.16 -> tauri-webkitgtk-tauri-shipped-1790155582145.json
+### rep 2: chrome chromium
+[run] chrome/chromium start 19:26:30 load=6.54 5.87 5.16 envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] chrome/chromium end 19:32:20 after 344s load=4.61 5.80 5.38 -> chromium-chromium-1790155940430.json
+### rep 2: tauri tauri-nolowpower
+[run] tauri/tauri-nolowpower start 19:32:28 load=4.24 5.71 5.35 envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=2
+[run] tauri/tauri-nolowpower end 19:38:32 after 357s load=11.79 8.22 6.43 -> tauri-webkitgtk-tauri-nolowpower-1790156311956.json
+### rep 3: tauri tauri-shipped
+[run] tauri/tauri-shipped start 19:38:40 load=11.27 8.22 6.45 envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] tauri/tauri-shipped end 19:45:24 after 396s load=9.17 10.85 8.54 -> tauri-webkitgtk-tauri-shipped-1790156724278.json
+### rep 3: chrome chromium
+[run] chrome/chromium start 19:45:32 load=9.25 10.82 8.55 envs= extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] chrome/chromium end 20:01:13 after 911s load=28.56 27.99 19.63 -> chromium-chromium-1790157672531.json
+### rep 3: tauri tauri-nolowpower
+[run] tauri/tauri-nolowpower start 20:01:21 load=27.53 27.78 19.66 envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=8000&sample=10000&settle=4000&taps=40&rep=3
+[run] tauri/tauri-nolowpower end 20:07:59 after 384s load=16.94 21.87 20.16 -> tauri-webkitgtk-tauri-nolowpower-1790158079403.json
+### matrix $BENCH_DIR/matrices/main.txt done 20:08:07

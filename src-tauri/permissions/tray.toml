@@ -10,8 +10,8 @@ commands.allow = ["get_puller_base_url"]
 
 [[permission]]
 identifier = "allow-ensure-puller"
-description = "Allow the frontend to health-check and respawn the local puller sidecar"
-commands.allow = ["ensure_puller"]
+description = "Allow the frontend to check for, and start on demand, the local puller (offline downloads)"
+commands.allow = ["ensure_puller", "puller_running"]
 
 [[permission]]
 identifier = "allow-get-dev-harness-mode"
@@ -37,3 +37,18 @@ commands.allow = ["download_and_install_apk", "can_install_apk", "open_install_p
 identifier = "allow-native-identity"
 description = "Allow the frontend to mirror the privacy disguise onto the native window/task label and icon"
 commands.allow = ["native_identity_target", "set_native_disguise", "clear_native_disguise"]
+
+[[permission]]
+identifier = "allow-game-frames"
+description = "Allow the frontend to install the in-frame game bridge for the game it is launching"
+commands.allow = ["native_game_frames_supported", "set_game_frame_context", "clear_game_frame_context"]
+
+[[permission]]
+identifier = "allow-offline-files"
+description = "Allow the frontend to read offline copies and per-game saves from the app's games folder"
+commands.allow = ["offline_statuses", "offline_entry", "offline_delete", "game_profile_read", "game_profile_write", "game_profile_delete"]
+
+[[permission]]
+identifier = "allow-webview-crash"
+description = "Allow the reloaded page to learn that the web process crashed (and, in debug builds, to crash it on purpose)"
+commands.allow = ["take_webview_crash", "debug_crash_webview"]

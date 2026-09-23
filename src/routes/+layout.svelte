@@ -4,7 +4,6 @@
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
-	import { base } from '$app/paths';
 	import {
 		cacheLoadedAppAssets,
 		ensureOfflineServiceWorker
@@ -16,10 +15,11 @@
 	import TopBar from '$lib/components/TopBar.svelte';
 	import PrivacyGate from '$lib/components/privacy-gateway/PrivacyGate.svelte';
 	import PlayLimitGate from '$lib/components/play-limit-gateway/PlayLimitGate.svelte';
-	import Settings from '$lib/components/settings/Settings.svelte';
+	import type SettingsComponent from '$lib/components/settings/Settings.svelte';
 	import { toast } from 'svelte-sonner';
 	import { isGlobalDailyLimitExceeded } from '$lib/utils/play-recommendations';
 	import { ModeWatcher, resetMode, systemPrefersMode } from 'mode-watcher';
+	import { followNativeColorScheme } from '$lib/utils/system-color-scheme';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { setSettingsUiContext } from '$lib/settings-ui-context';
 	import {
@@ -86,6 +86,28 @@
 		!initialPrivacyHead.privacyModeEnabled || !!initialPrivacyHead.privacySessionUnlocked
 	);
 	let settingsOpen = $state(false);
+	/*
+	 * Settings is the largest thing in the shell — six sections, their dialogs and the
+	 * settings search — and it was parsed on every page load for a dialog most visits never
+	 * open. Load it on first open, and otherwise once the page has finished loading so it is
+	 * cached (by the offline worker too) before anyone needs it without a network.
+	 */
+	let Settings = $state<typeof SettingsComponent | null>(null);
+	let settingsImport: Promise<void> | null = null;
+	function loadSettings(): Promise<void> {
+		settingsImport ??= import('$lib/components/settings/Settings.svelte')
+			.then((m) => {
+				Settings = m.default;
+			})
+			.catch((err) => {
+				settingsImport = null;
+				console.warn('Settings failed to load:', err);
+			});
+		return settingsImport;
+	}
+	$effect(() => {
+		if (settingsOpen) void loadSettings();
+	});
 	let decoyTitle = $state(initialPrivacyHead.decoyTitle ?? 'Google Docs');
 	/** Prefer SSR disguise URL; never default to the brand logo (that caused privacy-login tab flashes). */
 	let decoyFavicon = $state(
@@ -343,7 +365,7 @@
 				playLimitToastIssued = true;
 				toast.error('Daily playtime limit reached', {
 					description:
-						'Use “Disable time limit” on the overlay or change the cap in Settings → Analytics.'
+						'Use “Disable time limit” on the overlay or change the cap in Settings → Play time.'
 				});
 			}
 		} else if (!exceeded) {
@@ -374,6 +396,18 @@
 
 		/* Android self-update. No-ops on every other target and when already current. */
 		startAutoApkUpdate();
+
+		/* Settings off the critical path: after `load` (covers in view are in), when idle. */
+		const prefetchSettings = () => {
+			/* WebKitGTK has no requestIdleCallback. */
+			if (typeof window.requestIdleCallback === 'function') {
+				window.requestIdleCallback(() => void loadSettings(), { timeout: 5000 });
+			} else {
+				setTimeout(() => void loadSettings(), 2000);
+			}
+		};
+		if (document.readyState === 'complete') prefetchSettings();
+		else window.addEventListener('load', prefetchSettings, { once: true });
 
 		const onPlayLimitsChanged = () => refreshPlayLimitLock();
 		window.addEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
@@ -425,7 +459,7 @@
 					} else {
 						toast.message('Closing quits the app', {
 							description: life.trayAvailable
-								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → Games after installing an AppIndicator extension.'
+								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → App after installing an AppIndicator extension.'
 								: 'No system tray was found. Closing the window fully quits Potato Tomato (and stops background downloads).'
 						});
 					}
@@ -514,7 +548,20 @@
 		const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 		const onSchemeChange = () => systemPrefersMode.query();
 		darkQuery.addEventListener('change', onSchemeChange);
-		return () => darkQuery.removeEventListener('change', onSchemeChange);
+
+		/*
+		 * In the app the desktop portal is the source of truth, not the media query it is
+		 * supposed to drive — see `system-color-scheme.ts`. No-op in the browser.
+		 */
+		let unfollowNative: (() => void) | null = null;
+		void followNativeColorScheme().then((off) => {
+			unfollowNative = off;
+		});
+
+		return () => {
+			darkQuery.removeEventListener('change', onSchemeChange);
+			unfollowNative?.();
+		};
 	});
 </script>
 
@@ -530,7 +577,7 @@
 	{/key}
 </svelte:head>
 
-{#if !isDevHarnessRoute && (!privacyEnabled || privacyUnlocked)}
+{#if Settings && !isDevHarnessRoute && (!privacyEnabled || privacyUnlocked)}
 	<Settings
 		bind:open={settingsOpen}
 		onApplied={() => {

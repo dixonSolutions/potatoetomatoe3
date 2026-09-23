@@ -1,6 +1,7 @@
 /**
- * Unified offline download API — routes to the puller backend (desktop / local dev)
- * or browser IndexedDB + service worker (GitHub Pages / static hosting).
+ * Unified offline download API — routes to the desktop app's own file backend (the puller
+ * is started only to capture a download), a dev puller (`pnpm dev` in a browser), or
+ * browser IndexedDB + service worker (GitHub Pages / static hosting, Android).
  */
 
 export type { GameOfflineStatus, DownloadProgress } from './offline-downloader-puller';
@@ -43,8 +44,16 @@ export function isBundledOfflineGame(gameId: string): boolean {
 }
 
 import {
+	deleteNativeOfflineCopy,
+	fetchNativeOfflineStatus,
+	fetchNativeOfflineStatuses,
+	nativeOfflineEntry,
+	nativeOfflineUrl
+} from './offline-native';
+import {
 	deletePullerOfflineCopy,
 	cancelPullerGameDownload,
+	fetchPullerJobs,
 	fetchPullerDownloadProgress,
 	fetchPullerGameOfflineStatus,
 	fetchPullerOfflineStatuses,
@@ -120,6 +129,36 @@ export function bundledOfflineStatus(): Record<string, GameOfflineStatus> {
 	return out;
 }
 
+/**
+ * Set once this session has started the puller for a download (desktop app). Only then can
+ * a download be in progress, so only then is the puller asked about one.
+ */
+let nativeDownloaderStarted = false;
+
+/** Games the on-demand downloader is capturing right now (desktop app). */
+async function nativeDownloadsInProgress(): Promise<Record<string, GameOfflineStatus>> {
+	if (!nativeDownloaderStarted) return {};
+	const jobs = await fetchPullerJobs();
+	const out: Record<string, GameOfflineStatus> = {};
+	for (const id of jobs?.active ?? []) {
+		out[id] = { online: true, offline: false, downloading: true };
+	}
+	return out;
+}
+
+/** Start the downloader (the puller, for Playwright capture) and hand it the game. */
+async function startNativeDownload(gameId: string): Promise<{ started: boolean; message: string }> {
+	const { ensurePullerFromTauri } = await import('./offline-downloader-puller');
+	if (!(await ensurePullerFromTauri())) {
+		return {
+			started: false,
+			message: 'The downloader did not start. Try again in a moment, or restart the app.'
+		};
+	}
+	nativeDownloaderStarted = true;
+	return startPullerGameDownload(gameId);
+}
+
 /** Downloaded / in-progress / bundled only — not every catalog id. */
 export async function fetchDownloadedStatuses(
 	force = false
@@ -127,6 +166,10 @@ export async function fetchDownloadedStatuses(
 	const bundled = bundledOfflineStatus();
 	const backend = await getOfflineBackend(force);
 
+	if (backend === 'native') {
+		const onDisk = await fetchNativeOfflineStatuses();
+		return { ...bundled, ...onDisk, ...(await nativeDownloadsInProgress()) };
+	}
 	if (backend === 'puller') {
 		const remote = await fetchPullerOfflineStatuses(force);
 		return { ...bundled, ...remote };
@@ -148,6 +191,17 @@ export async function fetchOfflineStatusesForIds(
 	const bundled = bundledOfflineStatus();
 	const backend = await getOfflineBackend(force);
 
+	if (backend === 'native') {
+		const onDisk = await fetchNativeOfflineStatuses(unique);
+		const busy = await nativeDownloadsInProgress();
+		const out: Record<string, GameOfflineStatus> = {};
+		for (const id of unique) {
+			const status = busy[id] ?? onDisk[id];
+			if (bundled[id]) out[id] = { ...status, ...bundled[id], offline: true };
+			else if (status) out[id] = status;
+		}
+		return out;
+	}
 	if (backend === 'puller') {
 		const remote = await fetchPullerOfflineStatusesForIds(unique, force);
 		const out: Record<string, GameOfflineStatus> = { ...remote };
@@ -189,6 +243,12 @@ export async function fetchGameOfflineStatus(
 	const bundled = bundledOfflineStatus()[gameId];
 	const backend = await getOfflineBackend(force);
 
+	if (backend === 'native') {
+		const status =
+			(await nativeDownloadsInProgress())[gameId] ?? (await fetchNativeOfflineStatus(gameId));
+		if (bundled) return { ...bundled, ...status, offline: true };
+		return status ?? { online: true, offline: false, downloading: false };
+	}
 	if (backend === 'puller') {
 		const status = await fetchPullerGameOfflineStatus(gameId, force);
 		if (bundled) return { ...bundled, ...status, offline: true };
@@ -216,6 +276,7 @@ export async function startGameDownload(
 	gameId: string
 ): Promise<{ started: boolean; message: string }> {
 	const backend = await getOfflineBackend(true);
+	if (backend === 'native') return startNativeDownload(gameId);
 	if (backend === 'puller') return startPullerGameDownload(gameId);
 
 	if (backend === 'browser') {
@@ -249,6 +310,11 @@ export async function fetchDownloadProgress(gameId: string): Promise<DownloadPro
 		return fetchPullerDownloadProgress(gameId);
 	}
 	const backend = await getOfflineBackend();
+	if (backend === 'native') {
+		return nativeDownloaderStarted
+			? fetchPullerDownloadProgress(gameId)
+			: { state: 'idle', progress: 0, message: 'No active job' };
+	}
 	if (backend === 'puller') return fetchPullerDownloadProgress(gameId);
 	if (backend === 'browser') return getBrowserDownloadProgress(gameId);
 	return { state: 'idle', progress: 0, message: 'Unavailable' };
@@ -258,6 +324,13 @@ export async function deleteOfflineCopy(gameId: string): Promise<void> {
 	const backend = await getOfflineBackend(true);
 	if (browserPullerDownloads.has(gameId)) {
 		untrackBrowserPullerDownload(gameId);
+	}
+	if (backend === 'native') {
+		if ((await nativeDownloadsInProgress())[gameId]) {
+			throw new Error('Cannot delete while the download is in progress');
+		}
+		await deleteNativeOfflineCopy(gameId);
+		return;
 	}
 	if (backend === 'puller') {
 		await deletePullerOfflineCopy(gameId);
@@ -293,7 +366,7 @@ export async function pollDownloadUntilDone(
 		}
 	}
 	const backend = await getOfflineBackend(true);
-	if (backend === 'puller') {
+	if (backend === 'puller' || backend === 'native') {
 		return pollPullerDownloadUntilDone(gameId, onProgress, intervalMs);
 	}
 	if (backend === 'browser') {
@@ -311,7 +384,7 @@ export async function cancelGameDownload(gameId: string, discardCache: boolean):
 		if (discardCache) await deleteBrowserOfflineCopy(gameId);
 		return;
 	}
-	if (backend === 'puller') {
+	if (backend === 'puller' || backend === 'native') {
 		await cancelPullerGameDownload(gameId, discardCache);
 		return;
 	}
@@ -333,6 +406,11 @@ export async function getOfflinePlayUrl(gameId: string): Promise<string | null> 
 	}
 
 	const backend = await getOfflineBackend();
+
+	if (backend === 'native') {
+		const entry = await nativeOfflineEntry(gameId);
+		return entry ? nativeOfflineUrl(gameId, entry) : null;
+	}
 
 	if (backend === 'browser') {
 		const { isBrowserGameDownloaded, resolveBrowserOfflinePlayUrl } = await import(

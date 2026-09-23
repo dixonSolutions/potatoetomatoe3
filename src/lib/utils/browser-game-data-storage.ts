@@ -1,10 +1,6 @@
 /** IndexedDB persistence for per-game browser profiles (GitHub Pages / browser fallback). */
 
-import {
-	emptyGameBrowserProfile,
-	isGameBrowserProfile,
-	type GameBrowserProfile
-} from './game-browser-profile';
+import { isGameBrowserProfile, type GameBrowserProfile } from './game-browser-profile';
 
 const DB_NAME = 'potatotomato-browser-data-v1';
 const DB_VERSION = 1;
@@ -24,6 +20,12 @@ function openDb(): Promise<IDBDatabase> {
 	});
 }
 
+/**
+ * The game's saved profile, or `null` when there is none.
+ *
+ * @throws when IndexedDB fails, or holds something for this game that is not a profile
+ *   (only valid profiles are ever written). Neither is "no saves".
+ */
 export async function loadBrowserGameProfile(gameId: string): Promise<GameBrowserProfile | null> {
 	if (typeof indexedDB === 'undefined') return null;
 	const db = await openDb();
@@ -32,18 +34,23 @@ export async function loadBrowserGameProfile(gameId: string): Promise<GameBrowse
 		tx.onerror = () => reject(tx.error ?? new Error('IndexedDB read failed'));
 		const req = tx.objectStore(PROFILES_STORE).get(gameId);
 		req.onsuccess = () => {
-			const result = req.result as GameBrowserProfile | undefined;
-			if (result && isGameBrowserProfile(result)) {
+			const result = req.result as unknown;
+			if (result === undefined || result === null) {
+				resolve(null);
+			} else if (isGameBrowserProfile(result)) {
 				resolve(result);
 			} else {
-				resolve(null);
+				reject(new Error('IndexedDB holds a record for this game that is not a profile'));
 			}
 		};
 		req.onerror = () => reject(req.error ?? new Error('IndexedDB read failed'));
 	});
 }
 
-export async function saveBrowserGameProfile(gameId: string, profile: GameBrowserProfile): Promise<void> {
+export async function saveBrowserGameProfile(
+	gameId: string,
+	profile: GameBrowserProfile
+): Promise<void> {
 	if (typeof indexedDB === 'undefined') return;
 	if (!isGameBrowserProfile(profile)) {
 		throw new Error('Invalid browser profile');

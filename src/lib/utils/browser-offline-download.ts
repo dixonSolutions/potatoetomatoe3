@@ -1,6 +1,5 @@
 /** Client-side mirror of same-origin online shells into IndexedDB (GitHub Pages). */
 
-import { shouldProbePullerBackend } from './offline-deployment';
 import { base } from '$app/paths';
 import {
 	deleteStoredGame,
@@ -108,11 +107,16 @@ function revokeBlobUrl(gameId: string): void {
 	}
 }
 
-function injectStorageBridge(html: string): string {
+/**
+ * First thing in <head>: the bridge swaps in the game's virtual storage, so it must run
+ * before any game script. A blob: URL carries no game id in its path, hence the attribute.
+ */
+function injectStorageBridge(html: string, gameId: string): string {
 	const bridgeSrc = `${window.location.origin}${appBase()}/game-storage-bridge.child.js`;
 	if (html.includes('game-storage-bridge.child.js')) return html;
-	const tag = `<script src="${bridgeSrc}"></script>`;
-	if (html.includes('</head>')) return html.replace('</head>', `${tag}</head>`);
+	const safeId = gameId.replace(/["<>&]/g, '');
+	const tag = `<script src="${bridgeSrc}" data-pt-game="${safeId}"></script>`;
+	if (/<head[\s>]/i.test(html)) return html.replace(/<head([^>]*)>/i, (m) => m + tag);
 	return `${tag}${html}`;
 }
 
@@ -121,7 +125,7 @@ export async function createBrowserOfflineBlobUrl(gameId: string): Promise<strin
 	const record = await getGameFile(gameId, 'online/index.html');
 	if (!record?.data) return null;
 	let html = new TextDecoder().decode(record.data);
-	html = injectStorageBridge(html);
+	html = injectStorageBridge(html, gameId);
 	revokeBlobUrl(gameId);
 	const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
 	blobUrlByGame.set(gameId, url);
@@ -269,60 +273,41 @@ export function iframeSrcLooksLikeUnity(src: string): boolean {
 	}
 }
 
-/** OpenFL / Lime HTML5 (G-Switch etc.) — must use game-live, not unity-play. */
-export function htmlLooksLikeOpenFl(html: string): boolean {
-	return /lime\.embed\s*\(|id=["']openfl-content["']|openfl-content/i.test(html);
-}
-
-/** Unity WebGL document markers (must run on raw HTML — never after inject.js). */
-export function htmlLooksLikeUnityDocument(html: string): boolean {
-	if (htmlLooksLikeOpenFl(html)) return false;
-	/*
-	 * CrazyGames portal shells mention Unity loader URLs but need game-live
-	 * (proxy the shell). Do not classify as Unity → unity-play.
-	 */
-	if (/Crazygames\.load\s*\(|useLocalGF\s*=|gfBuildPath\s*=/i.test(html)) return false;
-	if (
-		/"moduleJsonUrl"\s*:\s*"https?:\/\//i.test(html) &&
-		/"unityLoaderUrl"\s*:\s*"https?:\/\//i.test(html)
-	) {
-		return false;
-	}
-	return /UnityLoader|createUnityInstance|unityWebglLoaderUrl|Build\/[^"' ]+\.json/i.test(html);
-}
-
-/** Fetch embed HTML and decide Unity vs OpenFL/other. */
-export async function remoteEmbedLooksLikeUnity(src: string): Promise<boolean> {
-	if (iframeSrcLooksLikeUnity(src)) return true;
-	/*
-	 * The fetch below is cross-origin to a portal host that sends no CORS headers, so it
-	 * can only ever fail — it exists to pick between two *relay* hosts. Where no relay can
-	 * run (Tauri mobile, public site) that is an 8-second timeout and a console CORS error
-	 * on every game page, for an answer nothing will use. Fall back to the URL heuristic.
-	 */
-	if (!shouldProbePullerBackend()) return false;
-	try {
-		const res = await fetch(src, {
-			cache: 'no-store',
-			signal: AbortSignal.timeout(8_000),
-			redirect: 'follow'
-		});
-		if (!res.ok) return false;
-		const html = (await res.text()).slice(0, 256_000);
-		if (htmlLooksLikeOpenFl(html)) return false;
-		return htmlLooksLikeUnityDocument(html);
-	} catch {
-		/* Unknown host — prefer game-live (rewrites all assets) over unity-play. */
-		return false;
-	}
-}
+/*
+ * The Unity check used to also fetch the embed itself to sniff its HTML — a cross-origin
+ * request (up to 8 s) on every game page, to choose between two puller relay hosts. The
+ * play path no longer uses the puller relay, so the URL heuristic is all anything needs.
+ */
 
 export type OnlineShellExternalInfo = {
 	external: boolean;
-	/** Prefer puller unity-play (CDN assets + inject) over full game-live relay. */
+	/** The embed looks like Unity (catalog engine, or a Unity CDN host/path). */
 	unityLike: boolean;
 	iframeSrc: string | null;
 };
+
+/**
+ * The third-party page a catalog shell (`online/index.html`) frames, if that is all it
+ * does. Same-origin fetch only — nothing here touches the game's host.
+ */
+export async function readOnlineShellIframeSrc(gameId: string): Promise<string | null> {
+	try {
+		const res = await fetch(absoluteGameOnlineUrl(gameId, 'index.html'));
+		if (!res.ok) return null;
+		const iframeSrc = extractIframeSrc(await res.text());
+		if (!iframeSrc) return null;
+		const parsed = new URL(iframeSrc);
+		/*
+		 * Only a web page on another host is framed in the shell's place. Anything else
+		 * (`javascript:`, `data:`, `blob:`) would run as the app page's own frame — `javascript:`
+		 * with the app's origin — and has no business being a play URL.
+		 */
+		if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return null;
+		return parsed.origin !== window.location.origin ? iframeSrc : null;
+	} catch {
+		return null;
+	}
+}
 
 /**
  * Peek the online shell for a cross-origin iframe and whether it looks like Unity.
@@ -337,7 +322,7 @@ export async function probeOnlineShellExternal(gameId: string): Promise<OnlineSh
 			try {
 				const embed = metadata.onlineEmbedUrl.trim();
 				if (new URL(embed).origin !== window.location.origin) {
-					const unityLike = metadata.engine === 'unity' || (await remoteEmbedLooksLikeUnity(embed));
+					const unityLike = metadata.engine === 'unity' || iframeSrcLooksLikeUnity(embed);
 					return {
 						external: true,
 						unityLike,
@@ -361,7 +346,7 @@ export async function probeOnlineShellExternal(gameId: string): Promise<OnlineSh
 		if (!iframeSrc) return empty;
 		const external = new URL(iframeSrc).origin !== window.location.origin;
 		if (!external) return empty;
-		const unityLike = metadata?.engine === 'unity' || (await remoteEmbedLooksLikeUnity(iframeSrc));
+		const unityLike = metadata?.engine === 'unity' || iframeSrcLooksLikeUnity(iframeSrc);
 		return {
 			external: true,
 			unityLike,

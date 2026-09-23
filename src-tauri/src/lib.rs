@@ -1,5 +1,13 @@
 mod apk_update;
 mod disguise;
+mod display_scale;
+mod frame_first_input;
+mod game_frame_tuning;
+mod game_frames;
+mod offline_games;
+mod power_profile;
+mod relay;
+mod webview_crash;
 
 #[cfg(desktop)]
 mod tray;
@@ -17,6 +25,8 @@ use std::net::TcpListener;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Mutex, OnceLock};
+#[cfg(target_os = "linux")]
+use tauri::Emitter;
 use tauri::Manager;
 use tauri::path::BaseDirectory;
 
@@ -33,6 +43,17 @@ const DEFAULT_PULLER_PORT: u16 = 18787;
 /// When an existing puller is already healthy on 18787, reuse that port (no second spawn).
 fn reserve_puller_port() -> u16 {
   *PULLER_PORT.get_or_init(|| {
+    /*
+     * `PULLER_PORT` pins it, the same variable the puller itself reads. Several dev
+     * checkouts on one machine each run their own puller, and without a pin every app
+     * would adopt whichever of them answered on 18787 first.
+     */
+    if let Some(port) = std::env::var("PULLER_PORT")
+      .ok()
+      .and_then(|raw| raw.trim().parse::<u16>().ok())
+    {
+      return port;
+    }
     if wait_for_puller_health(DEFAULT_PULLER_PORT, 250) {
       log::info!("default puller port {} already healthy — will reuse", DEFAULT_PULLER_PORT);
       return DEFAULT_PULLER_PORT;
@@ -72,30 +93,48 @@ fn compute_close_to_tray(tray_ok: bool) -> bool {
   !is_gnome_desktop()
 }
 
-#[tauri::command]
-fn get_puller_base_url() -> String {
+fn puller_base_url() -> String {
   format!("http://127.0.0.1:{}", puller_port())
 }
 
-/// Health-check and (re)spawn the puller if it died — used by UI "Retry puller".
+/// `async` for the same reason as `ensure_puller`: the first call reserves the port, which
+/// probes 18787 for up to a quarter of a second, and a synchronous command would do that on
+/// the GTK main thread while the window is starting.
+#[tauri::command]
+async fn get_puller_base_url() -> String {
+  tauri::async_runtime::spawn_blocking(puller_base_url)
+    .await
+    .unwrap_or_else(|_| format!("http://127.0.0.1:{DEFAULT_PULLER_PORT}"))
+}
+
+/// Whether a puller answers right now. Never starts one: nothing the app does to *play* a
+/// game needs the puller any more, so a probe must not be what brings it up.
+#[tauri::command]
+async fn puller_running() -> bool {
+  tauri::async_runtime::spawn_blocking(|| wait_for_puller_health(puller_port(), 300))
+    .await
+    .unwrap_or(false)
+}
+
+/// Health-check the puller and start it if it is not running — the downloader calls this
+/// when the user asks for an offline copy, which is the one thing that still needs Node
+/// (Playwright capture).
 ///
 /// `async`, so Tauri runs it on its worker pool: a synchronous command runs on the GTK
 /// main thread, and this one waits up to twelve seconds for the puller to answer.
 /// Every one of those seconds froze the whole window — no repaint, no input, no
-/// desktop light/dark switch delivered — which is what made "follows the system" look
-/// broken whenever the puller was slow or missing: the frontend retries it at startup,
-/// right when the user is looking.
+/// desktop light/dark switch delivered.
 #[tauri::command]
 async fn ensure_puller(app: tauri::AppHandle) -> Result<String, String> {
   tauri::async_runtime::spawn_blocking(move || {
     let port = puller_port();
     if wait_for_puller_health(port, 600) {
-      return Ok(get_puller_base_url());
+      return Ok(puller_base_url());
     }
     log::info!("ensure_puller: nothing healthy on {} — spawning", port);
     spawn_puller(&app);
     if wait_for_puller_health(port, 12_000) {
-      Ok(get_puller_base_url())
+      Ok(puller_base_url())
     } else {
       Err(format!(
         "puller failed to become healthy on http://127.0.0.1:{port}"
@@ -245,6 +284,18 @@ fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
 
   log::error!("resource_dir unavailable — cannot resolve catalog for offline puller");
   PathBuf::from("/nonexistent/potato-tomato-catalog")
+}
+
+/// The games data dir and the bundled catalog, resolved once: the offline and relay schemes
+/// ask on every request, and resolving the catalog can log a warning each time.
+pub(crate) fn game_roots(app: &tauri::AppHandle) -> offline_games::GameRoots {
+  static ROOTS: OnceLock<offline_games::GameRoots> = OnceLock::new();
+  ROOTS
+    .get_or_init(|| offline_games::GameRoots {
+      data: games_data_dir(app),
+      catalog: catalog_dir(app),
+    })
+    .clone()
 }
 
 fn puller_env(app: &tauri::AppHandle) -> (PathBuf, PathBuf, u16) {
@@ -519,6 +570,69 @@ fn spawn_puller(app: &tauri::AppHandle) {
   log::warn!("puller could not be started — offline download disabled");
 }
 
+/// Register the tray, then settle everything that depends on whether it exists.
+#[cfg(not(mobile))]
+fn build_tray_now(app: &tauri::AppHandle) {
+  /*
+   * An A/B switch for the startup window flash: the tray is the only thing in the app
+   * that creates toplevels of its own (muda's GtkMenu, plus whatever libappindicator
+   * exports), so running once without it says whether a stray window belongs to it.
+   */
+  if std::env::var_os("POTATO_TOMATO_NO_TRAY").is_some() {
+    log::info!("POTATO_TOMATO_NO_TRAY set — skipping tray registration");
+    finish_tray_setup(false);
+    return;
+  }
+  // libappindicator-sys panics (does not return Err) when the .so is missing
+  // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
+  let tray_ok = match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| tray::build_tray(app)))
+  {
+    Ok(Ok(())) => true,
+    Ok(Err(e)) => {
+      log::warn!("system tray unavailable: {e}");
+      false
+    }
+    Err(_) => {
+      log::warn!("system tray unavailable: appindicator library missing or panic during init");
+      false
+    }
+  };
+  finish_tray_setup(tray_ok);
+}
+
+fn finish_tray_setup(tray_ok: bool) {
+  TRAY_AVAILABLE.store(tray_ok, Ordering::SeqCst);
+  let close_to_tray = compute_close_to_tray(tray_ok);
+  CLOSE_TO_TRAY.store(close_to_tray, Ordering::SeqCst);
+  if tray_ok && !close_to_tray {
+    log::info!(
+      "tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)"
+    );
+  } else if !tray_ok {
+    log::info!("no system tray — closing the window will quit the app");
+  }
+}
+
+/// Payload is `true` for dark. Mirrors the portal's `SettingChanged` to the frontend.
+#[cfg(target_os = "linux")]
+const SYSTEM_COLOR_SCHEME_EVENT: &str = "system-color-scheme";
+
+/// The desktop's current colour scheme, for the page to read at startup.
+///
+/// `Ok(None)` is a platform or desktop that has no such notion — the page keeps its own
+/// `prefers-color-scheme` answer there rather than being told something wrong.
+#[tauri::command]
+fn desktop_color_scheme_is_dark() -> Option<bool> {
+  #[cfg(target_os = "linux")]
+  {
+    system_theme::desktop_prefers_dark().ok()
+  }
+  #[cfg(not(target_os = "linux"))]
+  {
+    None
+  }
+}
+
 /// Paint every window, and the webview inside it, in the desktop's window colour.
 ///
 /// Read from the GTK theme *now*, so after a live scheme switch it is the new scheme's
@@ -549,9 +663,10 @@ fn paint_windows_from_theme(app: &tauri::AppHandle) {
 /// already painted by then. Config is the one place early enough. These are WebKit's own
 /// canvas colours per `color-scheme`, so the gap matches what the page paints next.
 #[cfg_attr(not(target_os = "linux"), allow(unused_variables))]
-fn context(desktop_scheme: &Result<bool, String>) -> tauri::Context {
-  #[allow(unused_mut)]
-  let mut context = tauri::generate_context!();
+fn context(
+  #[allow(unused_mut)] mut context: tauri::Context,
+  desktop_scheme: &Result<bool, String>,
+) -> tauri::Context {
   #[cfg(target_os = "linux")]
   if let Ok(dark) = *desktop_scheme {
     // `theme` is what tao acts on, and it acts while building the window — before the
@@ -580,6 +695,10 @@ fn context(desktop_scheme: &Result<bool, String>) -> tauri::Context {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+  let generated = tauri::generate_context!();
+  // First, while this is the only thread: the power-saver module is chosen through
+  // environment variables that WebKit's web processes inherit (`power_profile.rs`).
+  power_profile::prepare(&generated.config().identifier);
   // One portal read, shared: the window's colour is decided from it before the window
   // exists, and `setup` mirrors the same answer onto GtkSettings once GTK is up.
   #[cfg(target_os = "linux")]
@@ -588,13 +707,40 @@ pub fn run() {
   let desktop_scheme: Result<bool, String> = Err(String::new());
   // `setup` needs its own copy: the context is still built inline at `.run()` below, where
   // Tauri expects it.
+  #[cfg(target_os = "linux")]
   let scheme_for_setup = desktop_scheme.clone();
 
-  tauri::Builder::default()
-    .plugin(tauri_plugin_shell::init())
+  let mut builder = tauri::Builder::default().plugin(tauri_plugin_shell::init());
+  if let Some(probe) = game_frames::frame_probe_plugin() {
+    builder = builder.plugin(probe);
+  }
+  #[cfg(desktop)]
+  {
+    builder = builder
+      .register_asynchronous_uri_scheme_protocol(relay::SCHEME, |ctx, request, responder| {
+        let catalog = game_roots(ctx.app_handle()).catalog;
+        let path = request.uri().path().to_string();
+        tauri::async_runtime::spawn(async move {
+          responder.respond(relay::handle(catalog, path).await);
+        });
+      })
+      .register_asynchronous_uri_scheme_protocol(
+        offline_games::SCHEME,
+        |ctx, request, responder| {
+          let roots = game_roots(ctx.app_handle());
+          let path = request.uri().path().to_string();
+          tauri::async_runtime::spawn(async move {
+            responder.respond(offline_games::handle(roots, path).await);
+          });
+        },
+      );
+  }
+  builder
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
       get_puller_base_url,
+      puller_running,
+      desktop_color_scheme_is_dark,
       ensure_puller,
       get_dev_harness_mode,
       is_tray_available,
@@ -607,7 +753,22 @@ pub fn run() {
       apk_update::open_install_permission_settings,
       disguise::native_identity_target,
       disguise::set_native_disguise,
-      disguise::clear_native_disguise
+      disguise::clear_native_disguise,
+      game_frames::native_game_frames_supported,
+      game_frames::set_game_frame_context,
+      game_frames::clear_game_frame_context,
+      power_profile::full_speed_status,
+      power_profile::set_full_speed_setting,
+      display_scale::display_scale_status,
+      frame_first_input::lift_game_frame_throttle,
+      offline_games::offline_statuses,
+      offline_games::offline_entry,
+      offline_games::offline_delete,
+      offline_games::game_profile_read,
+      offline_games::game_profile_write,
+      offline_games::game_profile_delete,
+      webview_crash::take_webview_crash,
+      webview_crash::debug_crash_webview
     ])
     .setup(move |app| {
       if cfg!(debug_assertions) {
@@ -620,6 +781,7 @@ pub fn run() {
       #[cfg(target_os = "linux")]
       {
         system_theme::flush_early_log();
+        power_profile::flush_early_log();
         match scheme_for_setup {
           Ok(dark) => log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" }),
           Err(ref why) => log::info!("{why}"),
@@ -632,10 +794,26 @@ pub fn run() {
         // theme — until the page repainted over it.
         let handle = app.handle().clone();
         paint_windows_from_theme(&handle);
-        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup, move |_dark| {
+        if let Err(why) = system_theme::follow_desktop_color_scheme(&scheme_for_setup, move |dark| {
           paint_windows_from_theme(&handle);
+          /*
+           * The page is supposed to notice this through `prefers-color-scheme`, which
+           * WebKitGTK derives from the GTK settings we just wrote. It does not always
+           * arrive — under `tauri dev` the first switch after launch took seconds, and a
+           * webview that misses the media event has no other way to learn the desktop
+           * changed, so the page stayed in its launch scheme under a titlebar that had
+           * already followed. The portal told us directly; tell the page directly.
+           */
+          if let Err(e) = handle.emit(SYSTEM_COLOR_SCHEME_EVENT, dark) {
+            log::info!("could not announce colour-scheme change to the page: {e}");
+          }
         }) {
           log::info!("{why}");
+        }
+        // A game that crashes WebKit's web process takes the app page with it; reload
+        // where the user was, without walking straight back into the same game.
+        if let Some(window) = app.get_webview_window("main") {
+          webview_crash::watch(&window);
         }
         // A second look once the window has been mapped and painted: this is where a
         // second toplevel, or a window that ended up a different size than configured,
@@ -644,56 +822,63 @@ pub fn run() {
           log::info!("{}", system_theme::gtk_state("2s after setup"));
         });
       }
+      /*
+       * No puller at startup. Games play straight from their hosts with the bridge put into
+       * their frames natively (`game_frames.rs`), a few through the in-process relay
+       * (`relay.rs`); offline copies and saves are read from disk here
+       * (`offline_games.rs`). The Node process is started by `ensure_puller` when the user
+       * downloads a game, the one job that still needs Playwright — so a normal session
+       * never pays for it, and its port is not even reserved until then.
+       */
       #[cfg(not(mobile))]
-      {
-        // Reserve port before spawn so get_puller_base_url matches the sidecar.
-        let _ = puller_port();
-        // Off the main thread: the spawn waits up to ten seconds per candidate for the
-        // puller to answer, and `setup` runs before GTK gets to pump a single event, so
-        // every second spent here was a second with no window on screen at all — and
-        // then a webview whose first frame was painted under a stalled main loop. The
-        // frontend already polls puller health and has a retry, so nothing needs the
-        // answer before first paint.
-        let handle = app.handle().clone();
-        std::thread::Builder::new()
-          .name("puller-launch".into())
-          .spawn(move || spawn_puller(&handle))?;
-      }
+      log::info!("puller not started: it runs on demand for offline downloads");
       #[cfg(mobile)]
       log::info!("mobile build: puller capture sidecar is intentionally disabled");
-      // libappindicator-sys panics (does not return Err) when the .so is missing
-      // — e.g. Flatpak without shared-modules ayatana. Catch so the app still runs.
-      #[cfg(not(mobile))]
-      let tray_ok = match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        tray::build_tray(app.handle())
-      })) {
-        Ok(Ok(())) => true,
-        Ok(Err(e)) => {
-          log::warn!("system tray unavailable: {e}");
-          false
-        }
-        Err(_) => {
-          log::warn!(
-            "system tray unavailable: appindicator library missing or panic during init"
-          );
-          false
-        }
-      };
       #[cfg(mobile)]
-      let tray_ok = false;
-      TRAY_AVAILABLE.store(tray_ok, Ordering::SeqCst);
-      let close_to_tray = compute_close_to_tray(tray_ok);
-      CLOSE_TO_TRAY.store(close_to_tray, Ordering::SeqCst);
-      if tray_ok && !close_to_tray {
-        log::info!(
-          "tray registered but close-to-tray disabled (GNOME/Silverblue — closing the window will quit)"
-        );
-      } else if !tray_ok {
-        log::info!("no system tray — closing the window will quit the app");
+      finish_tray_setup(false);
+      /*
+       * Building the tray realises muda's GtkMenu, and GTK gives that menu its own
+       * toplevel — the two 1x1 `Popup`s the startup log lists next to the real window.
+       * Done inside `setup` that happens while the app window exists but has not been
+       * mapped yet, so the popup is the first thing the compositor gets to show: a tiny
+       * window that appears and vanishes just before the app itself. Waiting for the
+       * real window to be mapped keeps the menu's plumbing behind it where it belongs.
+       */
+      #[cfg(all(not(mobile), target_os = "linux"))]
+      {
+        let handle = app.handle().clone();
+        match app.get_webview_window("main").map(|w| w.gtk_window()) {
+          Some(Ok(gtk_window)) => {
+            use gtk::prelude::{WidgetExt, WidgetExtManual};
+            if gtk_window.is_mapped() {
+              build_tray_now(&handle);
+            } else {
+              let once = std::cell::Cell::new(false);
+              gtk_window.connect_map_event(move |_, _| {
+                if !once.replace(true) {
+                  log::info!("{}", system_theme::gtk_state("window mapped; building tray"));
+                  build_tray_now(&handle);
+                }
+                gtk::glib::Propagation::Proceed
+              });
+            }
+          }
+          other => {
+            if let Some(Err(e)) = other {
+              log::warn!("no GTK window to hang tray setup off ({e}); building it now");
+            }
+            build_tray_now(&handle);
+          }
+        }
       }
+      #[cfg(all(not(mobile), not(target_os = "linux")))]
+      build_tray_now(app.handle());
       Ok(())
     })
     .on_window_event(|window, event| {
+      // Close-to-tray is desktop-only; mobile has no window close to intercept.
+      #[cfg(mobile)]
+      let _ = (window, event);
       #[cfg(desktop)]
       if let tauri::WindowEvent::CloseRequested { api, .. } = event {
         if CLOSE_TO_TRAY.load(Ordering::SeqCst) {
@@ -707,6 +892,6 @@ pub fn run() {
         }
       }
     })
-    .run(context(&desktop_scheme))
+    .run(context(generated, &desktop_scheme))
     .expect("error while running tauri application");
 }

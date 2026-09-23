@@ -1,0 +1,3 @@
+tauri tauri-shipped
+chrome chromium
+tauri tauri-nolowpower LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so

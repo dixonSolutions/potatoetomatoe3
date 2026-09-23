@@ -4,6 +4,7 @@
  */
 
 import type { TouchDirection, TouchKeyCode } from '$lib/utils/touch-console';
+import { nativeGameFramesActive } from '$lib/utils/native-game-frames';
 
 /**
  * Cross-platform touch-first heuristic. Browsers do not expose physical
@@ -257,9 +258,13 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
  * The injected script sets this marker in every frame, including this one, so its presence
  * here means it is present in the game frame as well. See
  * `src-tauri/gen/android/app/src/main/res/raw/native_touch_bridge.js`.
+ *
+ * The Linux desktop app does the same with a WebKitGTK user script, installed per launch
+ * and never in the app's own document (`native-game-frames.ts`).
  */
 export function hasNativeFrameBridge(): boolean {
 	if (typeof window === 'undefined') return false;
+	if (nativeGameFramesActive()) return true;
 	return Boolean((window as unknown as { __ptNativeBridge?: unknown }).__ptNativeBridge);
 }
 
@@ -303,6 +308,20 @@ export type TouchBridgeMessage = {
 	/** When set, child bridge replies with potato-tomato-touch-input-ack (dev harness). */
 	ackId?: string;
 };
+
+/**
+ * The in-frame bridge records which element the game bound its key handler to (a canvas
+ * that listens itself, say) and exposes it — prefer that over body when it is there.
+ */
+function bridgeDispatchTarget(win: Window): EventTarget | null {
+	try {
+		const pick = (win as Window & { __ptKeyDispatchTarget?: () => EventTarget | null })
+			.__ptKeyDispatchTarget;
+		return typeof pick === 'function' ? pick() : null;
+	} catch {
+		return null;
+	}
+}
 
 export class KeyDispatcher {
 	private held = new Set<TouchKeyCode>();
@@ -455,7 +474,8 @@ export class KeyDispatcher {
 			 * bubbles, so canvas-level listeners are the only ones that miss it, and those
 			 * are rare — a canvas needs tabindex and focus to take key events naturally.
 			 */
-			const primary = t.doc.body ?? t.doc.documentElement ?? t.canvas ?? t.win;
+			const primary =
+				bridgeDispatchTarget(t.win) ?? t.doc.body ?? t.doc.documentElement ?? t.canvas ?? t.win;
 			primary.dispatchEvent(makeEvent());
 		} catch {
 			/* ignore */
@@ -571,18 +591,36 @@ export class KeyDispatcher {
 	/**
 	 * Convert a normalized joystick vector into direction key codes using an 8-way gate.
 	 * Deadzone is applied by the caller (pass 0,0 when inside deadzone).
+	 *
+	 * Pass the codes currently held to get hysteresis: a direction engages at 0.35 but
+	 * only lets go below 0.22. Without it a thumb resting near a diagonal chattered the
+	 * second key on and off every frame — the game saw rapid taps instead of a hold.
 	 */
 	static directionsFromVector(
 		x: number,
 		y: number,
-		mapping: Record<TouchDirection, TouchKeyCode[]>
+		mapping: Record<TouchDirection, TouchKeyCode[]>,
+		held?: ReadonlySet<TouchKeyCode> | readonly TouchKeyCode[]
 	): TouchKeyCode[] {
+		const heldSet = held ? new Set(held) : null;
+		const ENGAGE = 0.35;
+		const RELEASE = 0.22;
+		const on = (dir: TouchDirection, value: number) => {
+			const wasOn = Boolean(
+				heldSet && mapping[dir].length && mapping[dir].every((c) => heldSet.has(c))
+			);
+			return value > (wasOn ? RELEASE : ENGAGE);
+		};
 		const codes: TouchKeyCode[] = [];
-		const threshold = 0.35;
-		if (y < -threshold) codes.push(...mapping.up);
-		if (y > threshold) codes.push(...mapping.down);
-		if (x < -threshold) codes.push(...mapping.left);
-		if (x > threshold) codes.push(...mapping.right);
+		if (on('up', -y)) codes.push(...mapping.up);
+		if (on('down', y)) codes.push(...mapping.down);
+		if (on('left', -x)) codes.push(...mapping.left);
+		if (on('right', x)) codes.push(...mapping.right);
 		return codes;
+	}
+
+	/** Direction codes the joystick channel is holding right now. */
+	joystickCodes(): ReadonlySet<TouchKeyCode> {
+		return this.joystickHeld;
 	}
 }

@@ -23,12 +23,16 @@ if (!process.env.PUBLIC_OFFLINE_DEPLOYMENT?.trim() && process.env.TAURI_ENV_PLAT
 
 const repoRoot = path.resolve('.');
 
-/** Skip inotify on huge trees (catalog / build outputs) — otherwise `pnpm dev` hits ENOSPC. */
+/**
+ * Skip inotify on huge trees (catalog / build outputs) — otherwise `pnpm dev` hits ENOSPC.
+ * `.claude` holds agent worktrees, whole checkouts whose writes are not this server's. It is
+ * matched relative to this checkout so a server started inside a worktree still watches itself.
+ */
 function ignoreHeavyWatchPath(watchPath: string): boolean {
 	const abs = path.resolve(watchPath);
 	const rel = path.relative(repoRoot, abs).replace(/\\/g, '/');
 	if (!rel || rel.startsWith('..')) return false;
-	return /^(static\/games|build|build-flatpak|\.flatpak-builder|\.svelte-kit|src-tauri\/target|node_modules)(\/|$)/.test(
+	return /^(static\/games|build|build-flatpak|\.flatpak-builder|\.svelte-kit|src-tauri\/target|node_modules|\.claude)(\/|$)/.test(
 		rel
 	);
 }

@@ -2,6 +2,10 @@
 	/**
 	 * Glass virtual joystick — Pointer Events, no dependencies.
 	 * Emits a normalized vector {x,y} in [-1,1] (y positive = down).
+	 *
+	 * Moving it is an explicit mode (`editMode`), not a long press. A 2s hold used to turn
+	 * the stick into a drag handle mid-game — holding a direction for two seconds is just
+	 * walking, and it dropped the key and started moving the control instead.
 	 */
 	let {
 		size = 112,
@@ -9,6 +13,7 @@
 		opacity = 0.72,
 		disabled = false,
 		editing = false,
+		editMode = false,
 		onVector,
 		onHoldEditStart,
 		onHoldEditDrag,
@@ -19,6 +24,8 @@
 		opacity?: number;
 		disabled?: boolean;
 		editing?: boolean;
+		/** Layout-edit mode: a press drags the control instead of steering. */
+		editMode?: boolean;
 		onVector?: (v: { x: number; y: number }) => void;
 		onHoldEditStart?: () => void;
 		onHoldEditDrag?: (delta: { x: number; y: number }) => void;
@@ -26,26 +33,19 @@
 	} = $props();
 
 	let rootEl = $state<HTMLDivElement | null>(null);
-	let pointerId = $state<number | null>(null);
+	let pointerId: number | null = null;
 	let thumbX = $state(0);
 	let thumbY = $state(0);
 	let active = $state(false);
 
-	let holdTimer: ReturnType<typeof setTimeout> | null = null;
-	let holdStart: { x: number; y: number } | null = null;
-	let holdEditing = $state(false);
-	let holdMoved = false;
+	let dragStart: { x: number; y: number } | null = null;
+	let dragging = $state(false);
+	/* Measured once per press: a layout read on every pointermove is pure input latency. */
+	let center = { x: 0, y: 0 };
 
 	const radius = $derived(size / 2);
 	const thumbSize = $derived(Math.max(36, size * 0.42));
 	const maxTravel = $derived(radius - thumbSize / 2);
-
-	function clearHold() {
-		if (holdTimer != null) {
-			clearTimeout(holdTimer);
-			holdTimer = null;
-		}
-	}
 
 	function emitZero() {
 		thumbX = 0;
@@ -55,12 +55,8 @@
 	}
 
 	function updateFromClient(clientX: number, clientY: number) {
-		if (!rootEl) return;
-		const rect = rootEl.getBoundingClientRect();
-		const cx = rect.left + rect.width / 2;
-		const cy = rect.top + rect.height / 2;
-		let dx = clientX - cx;
-		let dy = clientY - cy;
+		let dx = clientX - center.x;
+		let dy = clientY - center.y;
 		const dist = Math.hypot(dx, dy);
 		if (dist > maxTravel && dist > 0) {
 			dx = (dx / dist) * maxTravel;
@@ -85,10 +81,6 @@
 		if (pointerId != null) return;
 		if (e.button != null && e.button !== 0) return;
 		pointerId = e.pointerId;
-		holdStart = { x: e.clientX, y: e.clientY };
-		holdMoved = false;
-		holdEditing = false;
-		active = true;
 		try {
 			rootEl?.setPointerCapture(e.pointerId);
 		} catch {
@@ -97,51 +89,48 @@
 		e.preventDefault();
 		e.stopPropagation();
 
-		clearHold();
-		holdTimer = setTimeout(() => {
-			holdTimer = null;
-			if (pointerId == null || holdMoved) return;
-			holdEditing = true;
-			emitZero();
+		if (editMode) {
+			dragStart = { x: e.clientX, y: e.clientY };
+			dragging = true;
 			onHoldEditStart?.();
-		}, 2000);
+			return;
+		}
 
-		if (!holdEditing) updateFromClient(e.clientX, e.clientY);
+		const rect = rootEl?.getBoundingClientRect();
+		center = rect
+			? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+			: { x: e.clientX, y: e.clientY };
+		active = true;
+		updateFromClient(e.clientX, e.clientY);
 	}
 
 	function onPointerMove(e: PointerEvent) {
-		if (pointerId !== e.pointerId || !holdStart) return;
-		const dx = e.clientX - holdStart.x;
-		const dy = e.clientY - holdStart.y;
-		if (!holdEditing && Math.hypot(dx, dy) > 10) {
-			holdMoved = true;
-			clearHold();
-		}
-		if (holdEditing || editing) {
-			e.preventDefault();
-			e.stopPropagation();
-			onHoldEditDrag?.({ x: dx, y: dy });
-			return;
-		}
+		if (pointerId !== e.pointerId) return;
 		e.preventDefault();
 		e.stopPropagation();
+		if (dragging && dragStart) {
+			onHoldEditDrag?.({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+			return;
+		}
 		updateFromClient(e.clientX, e.clientY);
 	}
 
 	function onPointerUp(e: PointerEvent) {
 		if (pointerId !== e.pointerId) return;
-		const wasHoldEdit = holdEditing;
-		clearHold();
+		const wasDragging = dragging;
 		try {
 			rootEl?.releasePointerCapture(e.pointerId);
 		} catch {
 			/* ignore */
 		}
 		pointerId = null;
-		holdStart = null;
-		holdEditing = false;
+		dragStart = null;
+		dragging = false;
+		if (wasDragging) {
+			onHoldEditEnd?.(e.type !== 'pointercancel');
+			return;
+		}
 		emitZero();
-		onHoldEditEnd?.(wasHoldEdit);
 	}
 </script>
 
@@ -150,7 +139,8 @@
 	data-testid="touch-joystick"
 	class="pt-touch-joystick touch-none select-none"
 	class:pt-touch-joystick--active={active}
-	class:pt-touch-joystick--editing={holdEditing || editing}
+	class:pt-touch-joystick--editing={dragging || editing}
+	class:pt-touch-joystick--edit-mode={editMode}
 	style={`width:${size}px;height:${size}px;opacity:${opacity};`}
 	role="application"
 	aria-label="Virtual joystick"
@@ -208,6 +198,11 @@
 		box-shadow:
 			0 6px 18px rgb(0 0 0 / 0.45),
 			inset 0 1px 0 rgb(255 255 255 / 0.55);
+	}
+	.pt-touch-joystick--edit-mode {
+		cursor: move;
+		outline: 2px dashed rgb(255 255 255 / 0.55);
+		outline-offset: 4px;
 	}
 	.pt-touch-joystick--editing {
 		outline: 2px dashed rgb(255 85 102 / 0.9);

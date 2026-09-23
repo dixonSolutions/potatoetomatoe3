@@ -1,0 +1,12 @@
+[2026-09-23][13:06:44][potato_tomato_lib::system_theme][INFO] subscribed to portal SettingChanged (bus unique name Some(":1.230"))
+[2026-09-23][13:06:44][potato_tomato_lib][INFO] POTATO_TOMATO_NO_TRAY set — skipping tray registration
+[2026-09-23][13:06:44][potato_tomato_lib][INFO] no system tray — closing the window will quit the app
+[2026-09-23][13:06:45][potato_tomato_lib][INFO] puller started on port 18787 (data=<worktree>/src-tauri/../static/games, catalog=<worktree>/src-tauri/../static/games)
+[2026-09-23][13:06:46][potato_tomato_lib][INFO] 2s after setup: gtk-theme-name=Adwaita prefer-dark=false toplevels=1 {title="Perf Bench (dev)" visible=true mapped=true realized=true size=1536x928 type=Toplevel}
+[puller] listening on http://127.0.0.1:18787
+[puller] games data: <worktree>/src-tauri/../static/games
+[2026-09-23][13:06:46][potato_tomato_lib][INFO] dev puller healthy on port 18787
+[7:29:10.622488076] [811270]  INFO Camera camera_manager.cpp:340 libcamera v0.7.0
+[7:29:10.629788778] [811271]  INFO Camera camera_manager.cpp:223 Adding camera '\_SB_.PC00.XHCI.RHUB.HS05-5:1.0-30c9:00d3' for pipeline handler uvcvideo
+
+(WebKitWebProcess:811027): GLib-ERROR **: 23:06:56.731: getauxval () failed: Interrupted system call

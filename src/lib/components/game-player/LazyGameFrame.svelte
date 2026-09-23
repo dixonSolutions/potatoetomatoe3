@@ -1,16 +1,29 @@
 <script lang="ts">
-	import { tick } from 'svelte';
-	import Button from '$lib/components/ui/button/button.svelte';
-	import { Play } from 'lucide-svelte';
-	import { captureGameStorageFromIframe } from '$lib/utils/game-storage-bridge';
+	import { tick, untrack } from 'svelte';
+	import { Loader2 } from 'lucide-svelte';
+	import {
+		captureGameStorageFromIframe,
+		noteGameFrameTree,
+		registerGameFrameHost
+	} from '$lib/utils/game-storage-bridge';
 	import { unlockGameIframeAudio } from '$lib/utils/game-audio';
+	import {
+		frameLoadsPerStart,
+		frameSandboxFor,
+		shellFrameSrcFor
+	} from '$lib/utils/online-play-routing-shell';
 
 	/**
 	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…`, `/puller-games/{id}/…`, or `/online/…`).
 	 * Same app origin keeps game localStorage aligned across online/offline; puller copies use `/puller-games/` (proxied in dev).
 	 * A separate document is required so the game keeps its own globals and relative asset paths;
-	 * rendering the bundle inline in Svelte would break typical builds.
-	 * `src` is attached only after Play so heavy assets are not loaded on navigation alone.
+	 * rendering the bundle inline in Svelte would break typical builds. An app-made shell
+	 * (third-party HTML the app plays from a document of its own) is the exception to "same
+	 * origin": it is sandboxed away from the app's origin (`frameSandboxFor`).
+	 *
+	 * The game starts as soon as its play URL is known — there is no click-to-play step.
+	 * Until then (`gameUrl` empty) and until the frame fires `load` (or the stall watchdog
+	 * gives up on it), the cover art stays up as a loading backdrop, then fades out.
 	 */
 	let {
 		gameUrl,
@@ -20,6 +33,7 @@
 		iframeAllow,
 		fillContainer = false,
 		startDisabled = false,
+		held = false,
 		stallTimeoutMs = 25_000,
 		started = $bindable(false),
 		onIframeReady,
@@ -32,8 +46,15 @@
 		iframeAllow?: string;
 		/** When true, fill the parent (fullscreen / flex child) instead of fixed 16:9. */
 		fillContainer?: boolean;
-		/** Prevent starting while an online/offline play URL is being resolved. */
+		/** Hold the frame back while the online/offline play URL is still being resolved. */
 		startDisabled?: boolean;
+		/**
+		 * Hold a started game off screen (the privacy lock): the frame shows `about:blank`,
+		 * so nothing in it runs or plays sound, and nothing is reported about it. Released,
+		 * it loads `gameUrl` as it is then — the page's current play URL, not the one the
+		 * frame had when it was held.
+		 */
+		held?: boolean;
 		/**
 		 * How long a frame may go without firing `load` before it counts as stalled.
 		 * `load` waits for every subresource, and a Unity build is tens of megabytes, so
@@ -42,6 +63,7 @@
 		 * handled by host policy in `online-play-routing`, not here.
 		 */
 		stallTimeoutMs?: number;
+		/** True once the frame has been given its URL. Set here; the page only reads it. */
 		started?: boolean;
 		onIframeReady?: (el: HTMLIFrameElement | null) => void;
 		/**
@@ -84,6 +106,17 @@
 		declaredOrientation = null;
 	});
 
+	/*
+	 * An app-made shell runs third-party HTML, so it gets a sandbox without the app's origin,
+	 * and its loader fires a `load` of its own before the game's (`online-play-routing-shell`).
+	 */
+	const sandbox = $derived(frameSandboxFor(gameUrl));
+	/* A shell's play URL only names it: the frame loads the shell's loader. */
+	const frameSrc = $derived(shellFrameSrcFor(gameUrl) ?? gameUrl);
+	const loadsPerStart = $derived(frameLoadsPerStart(gameUrl));
+	/** `load` events seen since the current start; the game is up after `loadsPerStart`. */
+	let loadsSeen = 0;
+
 	function reportLoadState(next: FrameLoadState) {
 		if (loadState === next) return;
 		loadState = next;
@@ -92,11 +125,13 @@
 
 	/**
 	 * Watchdog per (started, url) pair. Cleared by the iframe `load` handler; a URL swap
-	 * restarts it so a relay upgrade gets its own grace period.
+	 * restarts it so a relay upgrade gets its own grace period. Off while the frame is held:
+	 * a held frame is not loading anything, and releasing it starts a fresh watch.
 	 */
 	$effect(() => {
 		const url = gameUrl;
-		if (!started || !url) return;
+		if (!started || !url || held) return;
+		loadsSeen = 0;
 		loadState = 'loading';
 		onLoadStateChange?.('loading', url);
 		const timer = window.setTimeout(
@@ -109,8 +144,14 @@
 	});
 
 	function handleFrameLoad() {
+		/* `about:blank` while held: not the game, and nothing to report. */
+		if (held) return;
+		loadsSeen++;
+		if (iframeEl && gameId) noteGameFrameTree(iframeEl, gameId);
+		if (loadsSeen < loadsPerStart && loadState === 'loading') return;
 		reportLoadState('loaded');
 		bumpAudioUnlock();
+		focusFrameIfIdle();
 	}
 
 	function bumpAudioUnlock() {
@@ -121,14 +162,44 @@
 		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 3000);
 	}
 
-	function startGame() {
-		started = true;
-		/* Kick unlock from the user gesture that starts play (WebKitGTK needs this). */
-		void tick().then(() => {
-			bumpAudioUnlock();
-			iframeEl?.focus?.();
-		});
+	/**
+	 * Hand the keyboard to the game — unless the user is already somewhere else on the
+	 * page (a settings field, a dialog), which a game starting by itself must not steal.
+	 */
+	function focusFrameIfIdle() {
+		const active = document.activeElement;
+		if (active && active !== document.body && active !== iframeEl) return;
+		iframeEl?.focus?.();
 	}
+
+	/*
+	 * The frame loads as soon as there is a URL to load. It used to wait for a Play click,
+	 * which WebKitGTK wanted as the gesture that unlocks audio; audio is now unlocked by the
+	 * first press on the surface or the player's menus, and by the bridge inside the frame.
+	 */
+	$effect(() => {
+		if (started || startDisabled || !gameUrl) return;
+		untrack(() => {
+			started = true;
+			void tick().then(() => {
+				bumpAudioUnlock();
+				focusFrameIfIdle();
+			});
+		});
+	});
+
+	/* The cover stays up until the game has something to show, then fades away. */
+	const posterVisible = $derived(!started || loadState === 'loading');
+	let posterGone = $state(false);
+
+	$effect(() => {
+		if (posterVisible) {
+			posterGone = false;
+			return;
+		}
+		const timer = window.setTimeout(() => (posterGone = true), 400);
+		return () => clearTimeout(timer);
+	});
 
 	let lastReadyEl: HTMLIFrameElement | null | undefined = undefined;
 
@@ -145,14 +216,27 @@
 		}
 	});
 
+	/*
+	 * This frame is where the game's saves come from: only it, and frames nested in it, may
+	 * pull or push them (`game-storage-bridge.ts`).
+	 *
+	 * A frame hosts the game it was started with, for as long as it exists. The page keys
+	 * this component on the game, so a new game gets a new frame; were the id to change
+	 * under a running frame anyway, registering it again under the new id would hand the
+	 * old game's documents — and the last save they push as they unload — to the new game.
+	 */
+	let hostedFor: { frame: HTMLIFrameElement; id: string } | null = null;
 	$effect(() => {
-		const id = gameId;
-		const active = started;
-		const frame = iframeEl;
+		const frame = started ? iframeEl : null;
+		if (!frame) return;
+		const id = hostedFor?.frame === frame ? hostedFor.id : gameId;
+		if (!id) return;
+		hostedFor = { frame, id };
+		const unregister = registerGameFrameHost(frame, id);
 		return () => {
-			if (active && frame && id) {
-				void captureGameStorageFromIframe(frame, id);
-			}
+			/* On its way out, a same-origin game hands over what it has not pushed yet. */
+			void captureGameStorageFromIframe(frame, id);
+			unregister();
 		};
 	});
 </script>
@@ -169,52 +253,64 @@
 		if (started) bumpAudioUnlock();
 	}}
 >
-	{#if !started}
-		<button
-			type="button"
-			class="group absolute inset-0 flex w-full flex-col items-center justify-center gap-3 ring-offset-background outline-none focus-visible:ring-2 focus-visible:ring-ring"
-			onclick={startGame}
-			disabled={startDisabled}
-			aria-label="Load and play {title}"
+	{#if started && gameUrl}
+		<!--
+			A frame's sandbox applies from its next navigation, so a change of sandbox (a route
+			moving between a shell and anything else) gets a new frame rather than a new `src`.
+			`sandbox` comes before `src` for the same reason.
+		-->
+		{#key sandbox}
+			<iframe
+				bind:this={iframeEl}
+				{sandbox}
+				src={held ? 'about:blank' : frameSrc}
+				{title}
+				class="h-full w-full border-0 bg-black"
+				class:invisible={held}
+				aria-hidden={held ? 'true' : undefined}
+				loading="eager"
+				allowfullscreen
+				allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
+				referrerpolicy="no-referrer-when-downgrade"
+				onload={handleFrameLoad}
+			></iframe>
+		{/key}
+	{/if}
+	{#if !posterGone}
+		<!--
+			A loading backdrop, not a button: presses fall through to the frame, so a game that
+			is already drawing before its last asset lands can be played straight away.
+		-->
+		<div
+			class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-300 {posterVisible
+				? 'opacity-100'
+				: 'opacity-0'}"
+			data-testid="game-loading-poster"
+			aria-hidden={!posterVisible}
 		>
 			<img
 				src={posterUrl}
 				alt=""
 				class="absolute inset-0 h-full w-full object-cover"
-				loading="lazy"
 				decoding="async"
 				draggable="false"
 			/>
 			<div
-				class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-background/20"
+				class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/30"
 				aria-hidden="true"
 			></div>
-			<span
-				class="relative z-[1] max-w-[90%] truncate px-2 text-center text-lg font-semibold text-foreground drop-shadow-sm sm:text-xl"
+			<!-- On a card of its own: cover art is anything from white to black. -->
+			<div
+				class="relative z-[1] flex max-w-[90%] flex-col items-center gap-1 rounded-2xl border border-border/60 bg-background/80 px-5 py-3 text-center shadow-lg backdrop-blur-md"
 			>
-				{title}
-			</span>
-			<span class="relative z-[1] flex items-center gap-2">
-				<Button type="button" size="lg" class="pointer-events-none gap-2 shadow-md">
-					<Play class="h-5 w-5 fill-current" aria-hidden="true" />
-					{startDisabled ? 'Preparing play…' : 'Play'}
-				</Button>
-			</span>
-			<span class="relative z-[1] max-w-md px-4 text-center text-xs text-muted-foreground">
-				Load game on demand — avoids pulling heavy assets until you start.
-			</span>
-		</button>
-	{:else}
-		<iframe
-			bind:this={iframeEl}
-			src={gameUrl}
-			{title}
-			class="h-full w-full border-0 bg-black"
-			loading="eager"
-			allowfullscreen
-			allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
-			referrerpolicy="no-referrer-when-downgrade"
-			onload={handleFrameLoad}
-		></iframe>
+				<span class="max-w-full truncate text-base font-semibold text-foreground sm:text-lg">
+					{title}
+				</span>
+				<span class="flex items-center gap-2 text-sm text-muted-foreground" role="status">
+					<Loader2 class="size-4 animate-spin" aria-hidden="true" />
+					Starting…
+				</span>
+			</div>
+		</div>
 	{/if}
 </div>

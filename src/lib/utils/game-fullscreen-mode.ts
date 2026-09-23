@@ -1,0 +1,216 @@
+/**
+ * Putting a game "in fullscreen" is two separate things, done separately on purpose:
+ *
+ *   1. **The game fills the viewport.** A CSS class (`pseudo-fullscreen`) on the game
+ *      surface — no permission needed, works on every engine, and it is what the player
+ *      layout, the in-game menu and the hidden top bar key on.
+ *   2. **The browser or window chrome goes away.** The Fullscreen API on the whole
+ *      document in a browser, the native window in the Tauri desktop app.
+ *
+ * (2) is best-effort. Browsers only grant the Fullscreen API inside a user gesture, and a
+ * game that opens by itself has none unless the click that navigated here is still fresh.
+ * When (2) is refused the game still fills the window, and the next press on the in-game
+ * menu upgrades to real fullscreen.
+ *
+ * The document is made fullscreen, not the surface: an element in fullscreen hides
+ * everything outside it, and toasts, dialogs and menus render into `<body>`. Leaving
+ * browser fullscreen (Esc, the browser's own UI) keeps (1), so the game keeps filling the
+ * window; the in-game menu's Exit fullscreen is what returns to the windowed page.
+ */
+
+import {
+	enterPseudoFullscreen,
+	exitFullscreen,
+	exitPseudoFullscreen,
+	getFullscreenElement,
+	isPseudoFullscreen,
+	requestFullscreen
+} from '$lib/utils/fullscreen';
+import { isTauriApp, isTauriMobileBuild } from '$lib/utils/offline-deployment';
+
+export type ChromeFullscreen = 'tauri-window' | 'document' | 'none';
+
+type DocumentWithFullscreenFlags = Document & { webkitFullscreenEnabled?: boolean };
+
+/**
+ * How to hide the browser/window chrome here, or `none` when it cannot be done right now.
+ *
+ * @param userActivation `navigator.userActivation.isActive` where the browser reports
+ *   it, otherwise null. A known `false` skips the request instead of letting it fail.
+ */
+export function pickChromeFullscreen(env: {
+	tauriDesktop: boolean;
+	documentApi: boolean;
+	userActivation: boolean | null;
+}): ChromeFullscreen {
+	if (env.tauriDesktop) return 'tauri-window';
+	if (!env.documentApi) return 'none';
+	if (env.userActivation === false) return 'none';
+	return 'document';
+}
+
+function documentFullscreenAvailable(): boolean {
+	if (typeof document === 'undefined') return false;
+	const doc = document as DocumentWithFullscreenFlags;
+	if (typeof doc.fullscreenEnabled === 'boolean') return doc.fullscreenEnabled;
+	if (typeof doc.webkitFullscreenEnabled === 'boolean') return doc.webkitFullscreenEnabled;
+	return typeof Element !== 'undefined' && 'requestFullscreen' in Element.prototype;
+}
+
+function currentUserActivation(): boolean | null {
+	if (typeof navigator === 'undefined') return null;
+	const ua = (navigator as Navigator & { userActivation?: { isActive: boolean } }).userActivation;
+	return ua ? ua.isActive : null;
+}
+
+function isTauriDesktop(): boolean {
+	return isTauriApp() && !isTauriMobileBuild();
+}
+
+/** Chrome was hidden by us, and how — so leaving restores exactly what was there. */
+let chromeOwned: ChromeFullscreen = 'none';
+/** The first attempt had no gesture to ride on; the next menu press may try again. */
+let upgradePending = false;
+/**
+ * Bumped by every enter and exit, so an enter that finishes after a newer call knows it
+ * is stale; `latest` is what that newest call asked for.
+ */
+let generation = 0;
+let latest: 'enter' | 'exit' = 'exit';
+/* Read through a call: after an await, `latest` may be what another call set. */
+function newestCallWasExit(): boolean {
+	return latest === 'exit';
+}
+/*
+ * Native window calls, one at a time and in the order they were made. An enter still
+ * waiting on the window when an exit came in used to finish after it and leave the window
+ * fullscreen with the game back in the page. Window calls need no gesture, so queueing
+ * them costs nothing.
+ */
+let windowCalls: Promise<unknown> = Promise.resolve();
+
+/**
+ * @returns `owned` when this call made the window fullscreen, `already` when it was
+ *   fullscreen before (F11, the window manager — not ours to undo), `failed` when the
+ *   window API is unavailable (for instance the capability is not granted).
+ */
+function setTauriWindowFullscreen(on: boolean): Promise<'owned' | 'already' | 'failed'> {
+	const call = windowCalls.then(async (): Promise<'owned' | 'already' | 'failed'> => {
+		try {
+			const { getCurrentWindow } = await import('@tauri-apps/api/window');
+			const win = getCurrentWindow();
+			if (on && (await win.isFullscreen())) return 'already';
+			await win.setFullscreen(on);
+			return 'owned';
+		} catch {
+			return 'failed';
+		}
+	});
+	windowCalls = call;
+	return call;
+}
+
+function requestDocumentFullscreen(): Promise<boolean> {
+	if (getFullscreenElement()) return Promise.resolve(true); /* F11 or an earlier upgrade */
+	/* Called synchronously from the gesture's task — no await before the request. */
+	return requestFullscreen(document.documentElement).then(
+		() => {
+			chromeOwned = 'document';
+			return true;
+		},
+		() => false
+	);
+}
+
+async function hideChrome(): Promise<boolean> {
+	const activation = currentUserActivation();
+	const documentApi = documentFullscreenAvailable();
+	const how = pickChromeFullscreen({
+		tauriDesktop: isTauriDesktop(),
+		documentApi,
+		userActivation: activation
+	});
+	if (how === 'tauri-window') {
+		const result = await setTauriWindowFullscreen(true);
+		if (result === 'owned') chromeOwned = 'tauri-window';
+		if (result !== 'failed') return true;
+		/*
+		 * No window API: WebKitGTK fullscreens its window for the document Fullscreen API
+		 * too, gesture permitting. The await above spent this task's activation, so this
+		 * only works from the next press on the in-game menu.
+		 */
+		return false;
+	}
+	if (how === 'none') return false;
+	return requestDocumentFullscreen();
+}
+
+/**
+ * Make `surface` immersive. Always fills the viewport; hides the chrome when allowed.
+ * Call from inside a user gesture whenever there is one.
+ */
+export async function enterGameFullscreen(surface: Element): Promise<void> {
+	const call = ++generation;
+	latest = 'enter';
+	enterPseudoFullscreen(surface);
+	const hidden = await hideChrome();
+	if (call !== generation) {
+		/*
+		 * Left (or entered again) while the chrome was still going: whatever this call took,
+		 * a newer exit wants given back.
+		 */
+		if (newestCallWasExit() && chromeOwned !== 'none') await releaseChrome();
+		return;
+	}
+	upgradePending = !hidden;
+}
+
+/**
+ * A press on the in-game menu is a user gesture: if the automatic fullscreen could only
+ * fill the window, hide the chrome now. Once per automatic start — after the user leaves
+ * browser fullscreen on purpose this never pulls them back in.
+ */
+export function upgradeGameFullscreenOnGesture(surface: Element | null | undefined): void {
+	if (!upgradePending || !surface || !isPseudoFullscreen(surface)) return;
+	upgradePending = false;
+	/*
+	 * Always the document API here: a pending upgrade means either there was no gesture
+	 * (browsers) or the Tauri window API was unavailable, and WebKitGTK fullscreens its
+	 * window for the document API as well.
+	 */
+	if (documentFullscreenAvailable()) void requestDocumentFullscreen();
+}
+
+/** Leave immersive mode entirely: surface back in the page, chrome restored. */
+export async function exitGameFullscreen(surface: Element | null | undefined): Promise<void> {
+	++generation;
+	latest = 'exit';
+	upgradePending = false;
+	if (surface) exitPseudoFullscreen(surface);
+	await releaseChrome();
+}
+
+/** Give back the chrome this module hid (the window, or the document's fullscreen). */
+async function releaseChrome(): Promise<void> {
+	const owned = chromeOwned;
+	chromeOwned = 'none';
+	if (owned === 'tauri-window') {
+		await setTauriWindowFullscreen(false);
+		return;
+	}
+	if (getFullscreenElement()) {
+		try {
+			await exitFullscreen();
+		} catch {
+			/* already left */
+		}
+	}
+}
+
+/**
+ * The browser left fullscreen by itself (Esc, its own UI). The game keeps filling the
+ * window; only the bookkeeping changes, so leaving later does not try to exit twice.
+ */
+export function noteDocumentFullscreenChange(): void {
+	if (chromeOwned === 'document' && !getFullscreenElement()) chromeOwned = 'none';
+}

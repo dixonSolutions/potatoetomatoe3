@@ -1,0 +1,97 @@
+### rep 1: tauri t-soak
+[run] tauri/t-soak start 01:58:22 load=2.90 2.87 3.16 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=1
+[run] tauri/t-soak end 01:58:50 after 27s load=4.06 3.14 3.24 shield=false -> tauri-webkitgtk-t-soak-1790179129202.json
+### rep 2: tauri t-soak
+[run] tauri/t-soak start 01:58:58 load=4.71 3.31 3.30 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=2
+[run] tauri/t-soak end 01:59:21 after 23s load=4.09 3.27 3.28 shield=false -> tauri-webkitgtk-t-soak-1790179161111.json
+### rep 3: tauri t-soak
+[run] tauri/t-soak start 01:59:29 load=4.32 3.33 3.30 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=3
+[run] tauri/t-soak end 01:59:54 after 24s load=4.82 3.55 3.37 shield=false -> tauri-webkitgtk-t-soak-1790179193261.json
+### rep 4: tauri t-soak
+[run] tauri/t-soak start 02:00:02 load=4.92 3.61 3.39 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=4
+[run] tauri/t-soak end 02:00:25 after 23s load=6.35 4.12 3.57 shield=false -> tauri-webkitgtk-t-soak-1790179225385.json
+### rep 5: tauri t-soak
+[run] tauri/t-soak start 02:00:33 load=7.92 4.49 3.69 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=5
+[run] tauri/t-soak end 02:00:58 after 24s load=7.68 4.72 3.79 shield=false -> tauri-webkitgtk-t-soak-1790179258138.json
+### rep 6: tauri t-soak
+[run] tauri/t-soak start 02:01:06 load=7.76 4.83 3.84 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=6
+[run] tauri/t-soak end 02:01:28 after 22s load=6.88 4.81 3.85 shield=false -> tauri-webkitgtk-t-soak-1790179288573.json
+### rep 7: tauri t-soak
+[run] tauri/t-soak start 02:01:36 load=6.69 4.83 3.87 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=7
+[run] tauri/t-soak end 02:01:59 after 22s load=5.83 4.75 3.86 shield=false -> tauri-webkitgtk-t-soak-1790179318956.json
+### rep 8: tauri t-soak
+[run] tauri/t-soak start 02:02:07 load=5.40 4.69 3.85 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=8
+[run] tauri/t-soak end 02:02:38 after 31s load=5.11 4.66 3.87 shield=false -> tauri-webkitgtk-t-soak-1790179358507.json
+### rep 9: tauri t-soak
+[run] tauri/t-soak start 02:02:46 load=4.47 4.54 3.84 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=9
+[run] tauri/t-soak end 02:03:13 after 26s load=4.63 4.55 3.86 shield=false -> tauri-webkitgtk-t-soak-1790179393009.json
+### rep 10: tauri t-soak
+[run] tauri/t-soak start 02:03:21 load=4.55 4.53 3.86 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=10
+[run] tauri/t-soak end 02:03:43 after 22s load=4.07 4.42 3.84 shield=false -> tauri-webkitgtk-t-soak-1790179423800.json
+### rep 11: tauri t-soak
+[run] tauri/t-soak start 02:03:51 load=3.76 4.34 3.81 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=11
+[run] tauri/t-soak end 02:04:14 after 22s load=3.81 4.30 3.81 shield=false -> tauri-webkitgtk-t-soak-1790179454013.json
+### rep 12: tauri t-soak
+[run] tauri/t-soak start 02:04:22 load=3.53 4.23 3.79 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=12
+[run] tauri/t-soak end 02:04:49 after 27s load=4.18 4.32 3.84 shield=false -> tauri-webkitgtk-t-soak-1790179488851.json
+### rep 13: tauri t-soak
+[run] tauri/t-soak start 02:04:57 load=3.62 4.19 3.80 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=13
+[run] tauri/t-soak end 02:05:20 after 22s load=4.60 4.39 3.88 shield=false -> tauri-webkitgtk-t-soak-1790179519920.json
+### rep 14: tauri t-soak
+[run] tauri/t-soak start 02:05:28 load=4.28 4.33 3.86 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=14
+[run] tauri/t-soak end 02:05:50 after 22s load=4.18 4.30 3.86 shield=false -> tauri-webkitgtk-t-soak-1790179550702.json
+### rep 15: tauri t-soak
+[run] tauri/t-soak start 02:05:58 load=3.93 4.25 3.85 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=15
+[run] tauri/t-soak end 02:06:23 after 24s load=4.20 4.28 3.87 shield=false -> tauri-webkitgtk-t-soak-1790179582683.json
+### rep 16: tauri t-soak
+[run] tauri/t-soak start 02:06:31 load=3.86 4.20 3.85 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=16
+[run] tauri/t-soak end 02:06:53 after 22s load=3.72 4.15 3.84 shield=false -> tauri-webkitgtk-t-soak-1790179613340.json
+### rep 17: tauri t-soak
+[run] tauri/t-soak start 02:07:02 load=3.22 4.03 3.80 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=17
+[run] tauri/t-soak end 02:07:33 after 31s load=4.02 4.14 3.85 shield=false -> tauri-webkitgtk-t-soak-1790179652906.json
+### rep 18: tauri t-soak
+[run] tauri/t-soak start 02:07:41 load=3.48 4.02 3.81 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=18
+[run] tauri/t-soak end 02:08:04 after 22s load=4.00 4.09 3.84 shield=false -> tauri-webkitgtk-t-soak-1790179683174.json
+### rep 19: tauri t-soak
+[run] tauri/t-soak start 02:08:12 load=3.69 4.02 3.82 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=19
+[run] tauri/t-soak end 02:08:34 after 22s load=3.61 3.98 3.81 shield=false -> tauri-webkitgtk-t-soak-1790179714175.json
+### rep 20: tauri t-soak
+[run] tauri/t-soak start 02:08:42 load=3.21 3.89 3.78 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=20
+[run] tauri/t-soak end 02:09:04 after 22s load=3.26 3.86 3.77 shield=false -> tauri-webkitgtk-t-soak-1790179744884.json
+### rep 21: tauri t-soak
+[run] tauri/t-soak start 02:09:13 load=3.22 3.83 3.77 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=21
+[run] tauri/t-soak end 02:09:40 after 27s load=4.22 4.01 3.83 shield=false -> tauri-webkitgtk-t-soak-1790179779732.json
+### rep 22: tauri t-soak
+[run] tauri/t-soak start 02:09:48 load=4.03 3.97 3.82 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=22
+[run] tauri/t-soak end 02:10:10 after 22s load=3.76 3.91 3.80 shield=false -> tauri-webkitgtk-t-soak-1790179810788.json
+### rep 23: tauri t-soak
+[run] tauri/t-soak start 02:10:19 load=3.54 3.86 3.79 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=23
+[run] tauri/t-soak end 02:10:42 after 23s load=3.37 3.79 3.76 shield=false -> tauri-webkitgtk-t-soak-1790179841516.json
+### rep 24: tauri t-soak
+[run] tauri/t-soak start 02:10:50 load=3.26 3.76 3.75 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=24
+[run] tauri/t-soak end 02:11:12 after 22s load=3.74 3.82 3.77 shield=false -> tauri-webkitgtk-t-soak-1790179872672.json
+### rep 25: tauri t-soak
+[run] tauri/t-soak start 02:11:21 load=3.47 3.76 3.75 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=25
+[run] tauri/t-soak end 02:11:43 after 22s load=4.02 3.86 3.78 shield=false -> tauri-webkitgtk-t-soak-1790179902967.json
+### rep 26: tauri t-soak
+[run] tauri/t-soak start 02:11:51 load=3.48 3.75 3.75 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=26
+[run] tauri/t-soak end 02:12:13 after 22s load=4.22 3.90 3.80 shield=false -> tauri-webkitgtk-t-soak-1790179933216.json
+### rep 27: tauri t-soak
+[run] tauri/t-soak start 02:12:21 load=4.12 3.88 3.79 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=27
+[run] tauri/t-soak end 02:12:44 after 22s load=3.69 3.79 3.77 shield=false -> tauri-webkitgtk-t-soak-1790179963949.json
+### rep 28: tauri t-soak
+[run] tauri/t-soak start 02:12:52 load=3.12 3.67 3.73 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=28
+[run] tauri/t-soak end 02:13:14 after 22s load=4.43 3.91 3.80 shield=false -> tauri-webkitgtk-t-soak-1790179994606.json
+### rep 29: tauri t-soak
+[run] tauri/t-soak start 02:13:22 load=3.97 3.83 3.78 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=29
+[run] tauri/t-soak end 02:13:46 after 23s load=4.51 3.97 3.83 shield=false -> tauri-webkitgtk-t-soak-1790180025259.json
+### rep 30: tauri t-soak
+[run] tauri/t-soak start 02:13:54 load=4.31 3.94 3.82 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=30
+[run] tauri/t-soak end 02:14:16 after 22s load=4.26 3.96 3.83 shield=false -> tauri-webkitgtk-t-soak-1790180056371.json
+### rep 31: tauri t-soak
+[run] tauri/t-soak start 02:14:24 load=4.08 3.93 3.82 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=31
+[run] tauri/t-soak end 02:14:47 after 22s load=4.41 4.00 3.84 shield=false -> tauri-webkitgtk-t-soak-1790180086779.json
+### rep 32: tauri t-soak
+[run] tauri/t-soak start 02:14:55 load=4.14 3.95 3.83 shield=false env= args= query=delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=32
+[run] tauri/t-soak end 02:15:17 after 22s load=4.19 3.96 3.83 shield=false -> tauri-webkitgtk-t-soak-1790180117371.json
+### matrix /home/eva/Projects/SideProjects/potatoetomatoe3/.claude/worktrees/agent-aad81134c37ef49d6/docs/field-tests/engine-bench-2026-09-23/harness/matrices/tuning-soak.txt done 02:15:25

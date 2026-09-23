@@ -1,68 +1,95 @@
 /**
- * Decides whether an *online* launch goes straight to the game's own URL (what the
- * public web build does, and what works) or through the local puller relay.
+ * How an online launch reaches the game, and what it falls back to when that fails.
  *
- * Background: the desktop app used to force every catalog game that had an
- * `onlineEmbedUrl` through `/api/game-live/:id`. That relay re-fetches and rewrites
- * every asset in Node, so the same games that load instantly in a browser stalled,
- * froze, or never started in the app. The relay is only genuinely required when we
- * must run code *inside* a cross-origin game document — i.e. the touch console.
+ * Every platform starts the same way the public site always has: the game's own URL in a
+ * plain iframe. The desktop app used to send launches through the Node puller instead —
+ * a relay that re-fetched and rewrote every asset of the game — which made launches slow
+ * and the app hard to run. It no longer needs to: the desktop webview injects the in-frame
+ * bridge into the game's frames itself (`native-game-frames.ts`), which is what the relay
+ * existed for.
  *
- * Everything here is pure so the policy can be unit tested without a puller.
+ * What remains are games that a plain iframe cannot show, each with its own fix:
+ *
+ * | Games                                  | Why direct fails                       | Route   |
+ * | -------------------------------------- | -------------------------------------- | ------- |
+ * | Drive U 7 (catalog `localEmbed`)       | Sites refuses framing; jsDelivr serves | `local` |
+ * |                                        | HTML as `text/plain`                   |         |
+ * | Other HTML on a `text/plain` host      | wrong content type                     | `shell` |
+ * | Flash `.swf` on prod.addictinggames    | `X-Frame-Options`, no CORS for Ruffle  | `relay` |
+ * | Anything whose direct frame stays dead | (seen by the launch watchdog)          | next    |
+ *
+ * `local` and `shell` build an app-made document (a blob with `<base href>` back at the
+ * origin and the bridge first in `<head>`), played in a sandbox so the third-party HTML
+ * never runs with the app's origin; that works on every platform with no server. The
+ * desktop app plays `local` through its relay instead, and tries the relay before a shell,
+ * so a game there keeps an origin of its own with real storage.
+ * `relay` is the desktop app's in-process relay (`src-tauri/src/relay.rs`). `puller` is the
+ * legacy Node relay, used only if one happens to be running already — the app never starts
+ * it to play a game. When the chain runs out, the page offers the system browser.
+ *
+ * The chain itself is pure so it can be tested without a network.
  */
 
-export type OnlineRelayReason =
-	| 'public-site'
-	| 'no-puller-platform'
-	| 'same-origin'
-	| 'frame-blocked-host'
-	| 'console-needs-bridge'
-	| 'direct-launch-failed'
-	| 'unity-embed'
-	| 'direct';
+export type PlayRouteKind = 'direct' | 'local' | 'shell' | 'relay' | 'puller';
+
+/** Serve `.html` as `text/plain`, so a frame shows the source instead of the game. */
+const TEXT_PLAIN_HTML_HOSTS = ['cdn.jsdelivr.net'];
 
 /**
- * Hosts that refuse to be framed by anyone, so a direct launch renders a blank frame.
- * Verified with response headers against a real catalog embed for each host:
+ * Hosts that refuse to be framed by anyone, so a direct launch is a guaranteed blank frame
+ * (which still fires `load`, so no timeout can see it). Checked against a catalog embed each
+ * on 2026-09-23:
  *
- *   www.coolmathgames.com    x-frame-options: SAMEORIGIN
- *   prod.addictinggames.com  x-frame-options: SAMEORIGIN + frame-ancestors 'self'
- *   sites.google.com         x-frame-options: DENY
+ *   prod.addictinggames.com  x-frame-options: SAMEORIGIN, frame-ancestors 'self'
  *
- * These are the only catalog hosts that need the relay unconditionally — the big ones
- * (games.crazygames.com, play.unity.com, cdn2.addictinggames.com, cdn.jsdelivr.net)
- * send no framing restrictions and play fine on their own URL.
- *
- * A frame refusal still fires the iframe `load` event, so the launch watchdog cannot
- * detect it; this list is what keeps those games working.
+ * `sites.google.com` (DENY) is not listed because every catalog entry on it ships the game
+ * document as `online/embed.html`, which is what plays. `www.coolmathgames.com` used to send
+ * SAMEORIGIN; the `public_games/` URLs the catalog uses no longer do.
  */
-const FRAME_BLOCKED_HOSTS = ['coolmathgames.com', 'prod.addictinggames.com', 'sites.google.com'];
+const FRAME_BLOCKED_HOSTS = ['prod.addictinggames.com'];
+
+function hostOf(url: string | null | undefined): string {
+	const raw = url?.trim();
+	if (!raw) return '';
+	try {
+		return new URL(raw).hostname.toLowerCase();
+	} catch {
+		return '';
+	}
+}
+
+function hostMatches(host: string, list: readonly string[]): boolean {
+	return Boolean(host) && list.some((h) => host === h || host.endsWith(`.${h}`));
+}
 
 /** True when `url`'s host is known to send X-Frame-Options / restrictive frame-ancestors. */
 export function isFrameBlockedHost(url: string | null | undefined): boolean {
+	return hostMatches(hostOf(url), FRAME_BLOCKED_HOSTS);
+}
+
+/** True for hosts that label HTML `text/plain` (a frame would show source text). */
+export function isTextPlainHtmlHost(url: string | null | undefined): boolean {
+	return hostMatches(hostOf(url), TEXT_PLAIN_HTML_HOSTS);
+}
+
+/** A Flash file: no browser plays one in a frame; only Ruffle can, given its bytes. */
+export function isFlashUrl(url: string | null | undefined): boolean {
 	const raw = url?.trim();
 	if (!raw) return false;
-	let host: string;
 	try {
-		host = new URL(raw).hostname.toLowerCase();
+		return new URL(raw).pathname.toLowerCase().endsWith('.swf');
 	} catch {
 		return false;
 	}
-	return FRAME_BLOCKED_HOSTS.some((blocked) => host === blocked || host.endsWith(`.${blocked}`));
 }
 
 /**
- * True when a direct launch is a guaranteed blank frame *and* no relay exists to rescue
- * it — i.e. the Tauri mobile builds, which ship no puller sidecar.
+ * True when a direct launch is a guaranteed blank frame *and* this platform has no relay to
+ * rescue it — the mobile builds. The desktop app has its in-process relay; the page offers
+ * the system browser instead of a frame that cannot load.
  *
- * `decideOnlineRelay` short-circuits on `!pullerSupported` before it ever reaches the
- * `frameBlockedHost` branch, which is correct (there is no relay to route to) but left
- * Android rendering a dead iframe for every `sites.google.com` / CoolMath /
- * addictinggames title. Verified on a Galaxy Tab Active3: the frame navigates to
- * `chrome-error://chromewebdata/` after the host refuses with
- * `frame-ancestors https://google-admin.corp.google.com/`.
- *
- * The UI uses this to offer the system browser instead of a frame that cannot load.
+ * `pullerSupported` is what the page passes for "desktop app" (it predates the in-process
+ * relay); the name is kept so the call site does not change.
  */
 export function isUnframeableInApp(input: {
 	localApp: boolean;
@@ -72,110 +99,108 @@ export function isUnframeableInApp(input: {
 	return input.localApp && !input.pullerSupported && input.frameBlockedHost;
 }
 
-export interface OnlineRelayInput {
-	/** Desktop/mobile app build rather than the hosted public site. */
-	localApp: boolean;
-	/** The puller sidecar can run on this platform (false for Tauri mobile builds). */
-	pullerSupported: boolean;
-	/** The user has the touch console switched on for this game. */
-	consoleWanted: boolean;
-	/** Online play resolves to a different origin than the app shell. */
-	externalEmbed: boolean;
-	/** A previous direct launch of this game did not produce a loaded frame. */
-	directLaunchFailed: boolean;
-	/** Catalog `engine` field. */
-	engine?: string | null;
-	/** Online play resolves to a host that refuses framing (see `isFrameBlockedHost`). */
-	frameBlockedHost?: boolean;
+export interface PlayRouteInput {
+	/** The desktop app, which has the in-process relay. */
+	desktopApp: boolean;
+	/** A puller already answers on this machine. It is never started for play. */
+	pullerRunning: boolean;
+	/** The catalog's online URL (`onlineEmbedUrl`, else `remotePlayUrl`). */
+	embedUrl: string | null;
+	/** The catalog ships the playable document as `online/embed.html`. */
+	localEmbed: boolean;
 }
-
-export interface OnlineRelayDecision {
-	/** Route through the puller relay. */
-	relay: boolean;
-	/**
-	 * Relay is worth having but not worth waiting for — launch direct rather than
-	 * blocking when the puller is not already healthy.
-	 */
-	relayOptional: boolean;
-	reason: OnlineRelayReason;
-}
-
-const DIRECT = (reason: OnlineRelayReason): OnlineRelayDecision => ({
-	relay: false,
-	relayOptional: false,
-	reason
-});
 
 /**
- * Relay policy for a single online launch.
- *
- * `relayOptional` distinguishes "the relay improves this game" (Unity ad/framework
- * patching) from "the relay is the only thing that can work" (touch console into a
- * cross-origin document). Callers must never block a launch on an optional relay.
+ * Every way to play this game online, best first. Empty means nothing in the app can show
+ * it (a Flash file on a platform without the relay) — offer the system browser.
  */
-export function decideOnlineRelay(input: OnlineRelayInput): OnlineRelayDecision {
-	/* The public site has no local puller; it launches direct and that path works. */
-	if (!input.localApp) return DIRECT('public-site');
-	/* Tauri mobile ships no sidecar — behave exactly like the web build. */
-	if (!input.pullerSupported) return DIRECT('no-puller-platform');
-	/* Same-origin catalog shells are already injectable; a relay adds only latency. */
-	if (!input.externalEmbed) return DIRECT('same-origin');
-
-	/*
-	 * The host refuses framing outright, so a direct launch is a guaranteed blank frame.
-	 * Nothing but the relay can play these.
-	 */
-	if (input.frameBlockedHost) {
-		return { relay: true, relayOptional: false, reason: 'frame-blocked-host' };
+export function planOnlineRoutes(input: PlayRouteInput): PlayRouteKind[] {
+	const embed = input.embedUrl?.trim() || null;
+	const chain: PlayRouteKind[] = [];
+	if (input.localEmbed) chain.push('local');
+	if (!embed) {
+		/* A catalog shell under /games/<id>/online/ — same origin, framed as it is. */
+		if (!input.localEmbed) chain.push('direct');
+	} else if (isFlashUrl(embed)) {
+		/* Only the relay can hand Ruffle the bytes. */
+	} else if (isTextPlainHtmlHost(embed)) {
+		/*
+		 * The relay gives the page an origin of its own, with real storage; a shell runs it
+		 * sandboxed, with storage the bridge keeps in memory. Where both exist, relay first.
+		 */
+		if (input.desktopApp) chain.push('relay');
+		chain.push('shell');
+	} else if (!isFrameBlockedHost(embed) && hostOf(embed) !== 'sites.google.com') {
+		chain.push('direct');
 	}
-
-	/* Only a proxy can put our input bridge inside a third-party game document. */
-	if (input.consoleWanted) {
-		return { relay: true, relayOptional: false, reason: 'console-needs-bridge' };
-	}
-
-	/* The frame watchdog saw this game fail to load direct — the relay is the retry. */
-	if (input.directLaunchFailed) {
-		return { relay: true, relayOptional: false, reason: 'direct-launch-failed' };
-	}
-
-	/*
-	 * Unity embeds benefit from the proxy host (ad stubs + framework path patches),
-	 * but a cold puller must not add a multi-second stall to every Unity launch.
-	 */
-	if ((input.engine ?? '').toLowerCase() === 'unity') {
-		return { relay: true, relayOptional: true, reason: 'unity-embed' };
-	}
-
-	return DIRECT('direct');
+	if (input.desktopApp && embed && !chain.includes('relay')) chain.push('relay');
+	if (input.pullerRunning) chain.push('puller');
+	return chain;
 }
 
-const DIRECT_FAILED_PREFIX = 'potato-tomato-direct-launch-failed:';
+/** The first route of `plan` that has not already failed for this game. */
+export function nextPlayRoute(
+	plan: readonly PlayRouteKind[],
+	failed: readonly PlayRouteKind[]
+): PlayRouteKind | null {
+	return plan.find((kind) => !failed.includes(kind)) ?? null;
+}
 
-/** Session-scoped: a direct online launch of this game produced no loaded frame. */
+/* ------------------------------------------------------------------------------------
+ * Which routes failed for a game, this session
+ * ---------------------------------------------------------------------------------- */
+
+const FAILED_PREFIX = 'potato-tomato-play-route-failed:';
+
+function readFailed(gameId: string): PlayRouteKind[] {
+	if (typeof sessionStorage === 'undefined' || !gameId) return [];
+	try {
+		const raw = sessionStorage.getItem(FAILED_PREFIX + gameId);
+		const parsed: unknown = raw ? JSON.parse(raw) : [];
+		return Array.isArray(parsed)
+			? (parsed.filter((k) => typeof k === 'string') as PlayRouteKind[])
+			: [];
+	} catch {
+		return [];
+	}
+}
+
+/** Session-scoped: this route did not produce a running game frame. */
+export function markPlayRouteFailed(gameId: string, kind: PlayRouteKind): void {
+	if (typeof sessionStorage === 'undefined' || !gameId) return;
+	const failed = readFailed(gameId);
+	if (failed.includes(kind)) return;
+	try {
+		sessionStorage.setItem(FAILED_PREFIX + gameId, JSON.stringify([...failed, kind]));
+	} catch {
+		/* private mode / quota */
+	}
+}
+
+export function failedPlayRoutes(gameId: string): PlayRouteKind[] {
+	return readFailed(gameId);
+}
+
+export function clearPlayRouteFailures(gameId: string): void {
+	if (typeof sessionStorage === 'undefined' || !gameId) return;
+	try {
+		sessionStorage.removeItem(FAILED_PREFIX + gameId);
+	} catch {
+		/* private mode / quota */
+	}
+}
+
+/** @deprecated The chain has more than one step now; use `markPlayRouteFailed`. */
 export function markDirectLaunchFailed(gameId: string): void {
-	if (typeof sessionStorage === 'undefined' || !gameId) return;
-	try {
-		sessionStorage.setItem(DIRECT_FAILED_PREFIX + gameId, '1');
-	} catch {
-		/* private mode / quota */
-	}
+	markPlayRouteFailed(gameId, 'direct');
 }
 
+/** @deprecated Use `clearPlayRouteFailures`. */
 export function clearDirectLaunchFailed(gameId: string): void {
-	if (typeof sessionStorage === 'undefined' || !gameId) return;
-	try {
-		sessionStorage.removeItem(DIRECT_FAILED_PREFIX + gameId);
-	} catch {
-		/* private mode / quota */
-	}
+	clearPlayRouteFailures(gameId);
 }
 
+/** @deprecated Use `failedPlayRoutes`. */
 export function hasDirectLaunchFailed(gameId: string): boolean {
-	if (typeof sessionStorage === 'undefined' || !gameId) return false;
-	try {
-		return sessionStorage.getItem(DIRECT_FAILED_PREFIX + gameId) === '1';
-	} catch {
-		return false;
-	}
+	return readFailed(gameId).includes('direct');
 }

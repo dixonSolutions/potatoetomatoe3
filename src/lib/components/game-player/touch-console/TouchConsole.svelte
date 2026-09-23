@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
-	import { Check, ChevronDown, GripHorizontal } from 'lucide-svelte';
+	import { Check, ChevronDown, GripHorizontal, Keyboard, Move, RotateCcw } from 'lucide-svelte';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
+	import ControlsMenu from './ControlsMenu.svelte';
 	import {
 		TOUCH_CONSOLE_CHANGED,
 		directionsForJoystickScheme,
+		getDefaultTouchLayout,
+		keyLabel,
 		getEffectiveConfig,
 		saveLayout,
 		setJoystickScheme,
@@ -21,6 +24,9 @@
 		emptyKeyProfile,
 		keyProfileCodes,
 		keyProfileSaysNoKeyboard,
+		keyPurpose,
+		planExtraControls,
+		withControlsHint,
 		observeKeyProfile,
 		planControlVisibility,
 		type KeyProfile
@@ -32,7 +38,7 @@
 		resolveInjectable,
 		isTouchOnlyDevice
 	} from '$lib/utils/touch-input-dispatch';
-	import { isLocalAppDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
+	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 
 	let {
@@ -50,7 +56,13 @@
 		/** Whether the parent should show the Console toolbar button. */
 		chromeAvailable = $bindable(false),
 		/** Auto-enable on touch-only devices asks the parent to turn Console on. */
-		onRequestShow
+		onRequestShow,
+		/** Height of chrome drawn over the top of the game (fullscreen toolbar), in px. */
+		topInset = 0,
+		/** Controls menu (detected keys + full keyboard); opened from the toolbar or the panel. */
+		menuOpen = $bindable(false),
+		/** Catalog description — often names the controls before the game has loaded. */
+		controlsHint = ''
 	}: {
 		iframe?: HTMLIFrameElement | null;
 		gameId?: string;
@@ -61,6 +73,9 @@
 		visible?: boolean;
 		chromeAvailable?: boolean;
 		onRequestShow?: () => void;
+		topInset?: number;
+		menuOpen?: boolean;
+		controlsHint?: string;
 	} = $props();
 
 	const isMobile = new IsMobile();
@@ -105,6 +120,12 @@
 	 */
 	let schemeMenuOpen = $state(false);
 	let schemeMenuEl = $state<HTMLDivElement | null>(null);
+	/**
+	 * Layout editing is a mode you switch on, not a long press. While it is on, pressing
+	 * any control drags it and sends no key; while it is off, controls can be held for as
+	 * long as the game needs without ever turning into drag handles.
+	 */
+	let editMode = $state(false);
 
 	const DIRECTION_CODES: Record<TouchJoystickScheme, TouchKeyCode[]> = {
 		arrows: ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'],
@@ -121,8 +142,15 @@
 	const SCHEME_MENU_W = 152;
 	const SCHEME_MENU_H = 8 + SCHEME_OPTIONS.length * 28;
 
-	const profileCodes = $derived(keyProfileCodes(appliedProfile));
-	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(appliedProfile));
+	/*
+	 * What the layout plans from (settled, plus the catalog's own controls text) and what
+	 * the menu shows (live, same hint). Both include the catalog description, which often
+	 * names the controls before the game has loaded a single script.
+	 */
+	const planProfile = $derived(withControlsHint(appliedProfile, controlsHint));
+	const menuProfile = $derived(withControlsHint(liveProfile, controlsHint));
+	const profileCodes = $derived(keyProfileCodes(planProfile));
+	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(planProfile));
 	/*
 	 * "Nothing listens" is the one verdict that can be premature. A Unity title binds its
 	 * key handler only once wasm is up, so the bridge's early sweep honestly reports an
@@ -139,7 +167,7 @@
 	 * `KeyW` is not a reason to silently move the stick off the arrows the player chose.
 	 */
 	const detectedScheme = $derived.by<TouchJoystickScheme | null>(() => {
-		if (appliedProfile.declared.length === 0) return null;
+		if (planProfile.declared.length === 0) return null;
 		const arrows = DIRECTION_CODES.arrows.some((c) => profileCodes.has(c));
 		const wasd = DIRECTION_CODES.wasd.some((c) => profileCodes.has(c));
 		if (arrows === wasd) return null;
@@ -156,9 +184,6 @@
 			: directionsForJoystickScheme(effectiveScheme)
 	);
 
-	/** False on Tauri mobile, which ships no sidecar — so hints must not mention one. */
-	const pullerSupported = $derived(shouldProbePullerBackend());
-
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
 	/*
@@ -167,7 +192,7 @@
 	 */
 	const JOYSTICK_ID = '__joystick';
 	const visibilityPlan = $derived(
-		planControlVisibility(appliedProfile, [
+		planControlVisibility(planProfile, [
 			{ id: JOYSTICK_ID, codes: [...DIRECTION_CODES[effectiveScheme]] },
 			...layout.buttons.map((b) => ({ id: b.id, codes: buttonCodes(b.id) }))
 		])
@@ -195,7 +220,8 @@
 		started && visible && !paused && !privacyLocked && !injectable && canUseTouchBridge(playerUrl)
 	);
 	const showOverlay = $derived(started && visible && !paused && !privacyLocked && injectable);
-	const showSurface = $derived(started && visible);
+	const showSurface = $derived(started && (visible || menuOpen));
+	const showMenu = $derived(menuOpen && started && !privacyLocked && !editMode);
 	const showBlockedHint = $derived(
 		started && visible && !paused && !privacyLocked && !injectable && !canUseTouchBridge(playerUrl)
 	);
@@ -301,6 +327,21 @@
 		return pct * (axis === 'x' ? surfaceW : surfaceH);
 	}
 
+	/**
+	 * Where a control is drawn, kept wholly on the game surface.
+	 *
+	 * Layouts are stored as fractions of the surface, so a layout made on a tall screen
+	 * put its lowest button partly below the edge of a short landscape phone — the default
+	 * Space pill was cut in half there. Clamping at render keeps every control reachable
+	 * without rewriting what the player saved.
+	 */
+	function controlPos(xPct: number, yPct: number, w: number, h: number): string {
+		const pad = 4;
+		const left = Math.max(pad, Math.min(pctToPx(xPct, 'x'), surfaceW - w - pad));
+		const top = Math.max(pad, Math.min(pctToPx(yPct, 'y'), surfaceH - h - pad));
+		return `left:${left}px;top:${surfaceOffsetY + top}px;`;
+	}
+
 	function clampPct(n: number): number {
 		return Math.max(0, Math.min(1, n));
 	}
@@ -390,8 +431,26 @@
 			dispatcher.setJoystickCodes([]);
 			return;
 		}
-		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, effectiveDirections);
+		const held = dispatcher.joystickCodes();
+		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, effectiveDirections, held);
+		/* A light tick when the stick engages a new direction — not on every move. */
+		if (config.haptics && codes.some((c) => !held.has(c))) buzz(4);
 		dispatcher.setJoystickCodes(codes);
+	}
+
+	function buzz(ms: number) {
+		try {
+			navigator.vibrate?.(ms);
+		} catch {
+			/* ignore */
+		}
+	}
+
+	function resetLayout() {
+		const fresh = getDefaultTouchLayout(orientation);
+		saveLayout(orientation, fresh, gameId || null);
+		config = getEffectiveConfig(gameId || null, orientation);
+		layoutDraft = null;
 	}
 
 	function buttonCodes(id: string): string[] {
@@ -454,6 +513,76 @@
 	$effect(() => {
 		if (!showOverlay || editingControl !== null) schemeMenuOpen = false;
 	});
+
+	/* Hiding the console ends an edit session. */
+	$effect(() => {
+		if (!showOverlay) {
+			untrack(() => {
+				if (editMode) editMode = false;
+			});
+		}
+	});
+
+	/* The menu closes with the game (relaunch, lock screen). */
+	$effect(() => {
+		if (!started || privacyLocked) {
+			untrack(() => {
+				if (menuOpen) menuOpen = false;
+			});
+		}
+	});
+
+	/* Entering edit mode must not leave keys held from a press that started before it. */
+	$effect(() => {
+		if (editMode) {
+			untrack(() => {
+				dispatcher.releaseAll();
+				menuOpen = false;
+			});
+		}
+	});
+
+	/*
+	 * The dynamic part of the console: keys the game needs that the pad does not have yet.
+	 * Only strong evidence earns a button — named in the controls, or seen in use — and
+	 * only game keys, never shortcuts or letters the game reads as typed text.
+	 */
+	const coveredCodes = $derived.by(() => {
+		const codes: string[] = [];
+		if (joystickFate !== 'hide') codes.push(...DIRECTION_CODES[effectiveScheme]);
+		for (const b of layout.buttons) {
+			if ((visibilityPlan[b.id] ?? 'show') !== 'hide') codes.push(...buttonCodes(b.id));
+		}
+		return codes;
+	});
+	const extraControls = $derived(planExtraControls(planProfile, coveredCodes, 4));
+
+	function purposeOf(codes: string[]): string {
+		for (const c of codes) if (keyPurpose(planProfile, c)) return keyPurpose(planProfile, c);
+		return '';
+	}
+
+	/**
+	 * Put the caret in the game's text box so the device keyboard opens. Same-origin
+	 * frames are focused directly (inside this tap, so mobile browsers allow the keyboard);
+	 * otherwise the bridge is asked to do it.
+	 */
+	function typeWithDevice() {
+		menuOpen = false;
+		const target = resolveInjectable(iframe);
+		try {
+			const focus = (target?.win as (Window & { __ptFocusTextField?: () => boolean }) | undefined)
+				?.__ptFocusTextField;
+			if (typeof focus === 'function' && focus()) return;
+		} catch {
+			/* cross-origin — fall through to the bridge */
+		}
+		try {
+			iframe?.contentWindow?.postMessage({ type: 'potato-tomato-focus-text' }, '*');
+		} catch {
+			/* ignore */
+		}
+	}
 
 	/* Move focus into the popup so a keyboard (or a TV remote) can leave it again. */
 	$effect(() => {
@@ -615,7 +744,7 @@
 						return;
 					}
 				} catch {
-					/* Cross-origin puller frame: load may have already fired before this effect. */
+					/* Cross-origin game frame: load may have already fired before this effect. */
 					const src = frame.getAttribute('src') || frame.src || '';
 					if (src && src !== 'about:blank' && frame.contentWindow) markLoaded();
 				}
@@ -716,7 +845,7 @@
 	<div
 		bind:this={surfaceEl}
 		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
-		aria-hidden={!showOverlay}
+		aria-hidden={!showOverlay && !showMenu}
 		onpointerdowncapture={keepGameFocused}
 	>
 		{#if waitingForInjection}
@@ -726,9 +855,7 @@
 				onpointerdown={keepGameFocused}
 			>
 				<span class="mb-1 block font-medium text-emerald-400">Console enabled</span>
-				{pullerSupported
-					? 'Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…'
-					: 'Waiting for the game frame so controls can inject…'}
+				Waiting for the game frame so controls can inject…
 			</div>
 		{:else if showBlockedHint || unavailableHint}
 			<div
@@ -736,17 +863,9 @@
 				role="status"
 			>
 				<span class="mb-1 block font-medium text-amber-400">Console blocked</span>
-				{#if pullerSupported}
-					Online play needs the puller proxy; offline play needs a downloaded mirror. Raw
-					third-party embeds cannot receive controls.
-				{:else}
-					<!--
-						No sidecar on this platform, so there is no proxy to escalate to. Say what the user
-						can actually do instead of naming a process they cannot start.
-					-->
-					This game runs on a third-party site, which will not accept injected controls. Touch the game
-					directly, or download it for offline play to use the console.
-				{/if}
+				<!-- Say what the user can do; there is no process to start or proxy to retry. -->
+				This game runs on a third-party site, which will not accept injected controls. Touch the game
+				directly, or download it for offline play to use the console.
 			</div>
 		{/if}
 
@@ -762,7 +881,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[46%] items-center gap-1 rounded-full border border-white/25 bg-black/35 px-2.5 text-[10px] font-semibold tracking-wide text-white/90 shadow-sm backdrop-blur-md outline-none"
+					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-border/70 bg-background/80 px-2.5 text-[10px] font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-md outline-none"
 					class:border-emerald-400={effectiveScheme !== config.joystickScheme}
 					aria-label="Joystick key scheme"
 					aria-haspopup="listbox"
@@ -779,8 +898,10 @@
 				</button>
 				<button
 					type="button"
-					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white/80"
-					aria-label="Hold, then drag to move the whole console"
+					data-console-control
+					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-md"
+					aria-label="Drag to move the whole console"
+					title="Drag to move the whole console"
 					onpointerdown={(e) => {
 						e.preventDefault();
 						e.stopPropagation();
@@ -792,29 +913,22 @@
 						}
 						const start = { x: e.clientX, y: e.clientY };
 						let editing = false;
-						let cancelled = false;
-						const timer = setTimeout(() => {
-							if (cancelled) return;
-							editing = true;
-							beginEdit('console');
-						}, 650);
+						/*
+						 * The grip does nothing but move the console, so a drag starts as soon
+						 * as the finger travels a few pixels — no long press to discover.
+						 */
 						const onMove = (ev: PointerEvent) => {
 							if (ev.pointerId !== e.pointerId) return;
 							const dx = ev.clientX - start.x;
 							const dy = ev.clientY - start.y;
-							/*
-							 * Minor touch jitter should not cancel the long-press. Once editing
-							 * begins, pointer capture keeps the drag alive outside the grip.
-							 */
-							if (!editing && Math.hypot(dx, dy) > 24) {
-								cancelled = true;
-								clearTimeout(timer);
+							if (!editing && Math.hypot(dx, dy) > 4) {
+								editing = true;
+								beginEdit('console');
 							}
 							if (editing) dragControl('console', { x: dx, y: dy });
 						};
 						const onUp = (ev: PointerEvent) => {
 							if (ev.pointerId !== e.pointerId) return;
-							clearTimeout(timer);
 							window.removeEventListener('pointermove', onMove, true);
 							window.removeEventListener('pointerup', onUp, true);
 							window.removeEventListener('pointercancel', onUp, true);
@@ -825,7 +939,7 @@
 							} catch {
 								/* Ignore releases after a WebView pointer cancellation. */
 							}
-							endEdit(editing);
+							endEdit(editing && ev.type !== 'pointercancel');
 						};
 						window.addEventListener('pointermove', onMove, true);
 						window.addEventListener('pointerup', onUp, true);
@@ -834,20 +948,67 @@
 				>
 					<GripHorizontal class="size-4" />
 				</button>
+				<div class="pointer-events-auto absolute top-2 right-2 z-10 flex items-center gap-1">
+					{#if editMode}
+						<button
+							type="button"
+							data-console-control
+							class="flex h-7 items-center justify-center rounded-full border border-border/70 bg-background/80 px-2 text-foreground shadow-sm backdrop-blur-md"
+							aria-label="Reset layout to default"
+							title="Reset layout to default"
+							onclick={resetLayout}
+						>
+							<RotateCcw class="size-3.5" />
+						</button>
+					{:else}
+						<button
+							type="button"
+							data-console-control
+							data-testid="console-controls-toggle"
+							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-md {menuOpen
+								? 'border-emerald-500/80 bg-emerald-500 text-white'
+								: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
+							aria-label={menuOpen ? 'Hide controls' : 'Show controls'}
+							aria-pressed={menuOpen}
+							title="Controls — what this game uses, and every key"
+							onclick={() => (menuOpen = !menuOpen)}
+						>
+							<Keyboard class="size-3.5" />
+						</button>
+					{/if}
+					<button
+						type="button"
+						data-console-control
+						data-testid="console-edit-toggle"
+						class="flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-semibold backdrop-blur-md {editMode
+							? 'border-rose-500/80 bg-rose-500 text-white'
+							: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
+						aria-label={editMode ? 'Done editing layout' : 'Edit layout'}
+						aria-pressed={editMode}
+						title={editMode ? 'Done — controls work again' : 'Move controls'}
+						onclick={() => (editMode = !editMode)}
+					>
+						{#if editMode}
+							Done
+						{:else}
+							<Move class="size-3.5" />
+						{/if}
+					</button>
+				</div>
 				<!--
 					Controls that quietly disappear read as a bug. One short badge says the
 					layout was trimmed on purpose and what it was trimmed against.
 				-->
 				{#if noKeyboardSettled}
 					<span
-						class="pointer-events-none absolute top-2 right-3 z-10 rounded-full border border-amber-400/50 bg-black/40 px-2 py-0.5 text-[10px] font-semibold text-amber-200 backdrop-blur-md"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-amber-700 backdrop-blur-md dark:text-amber-300"
 						title="Nothing in this game listens for key presses — touch the game directly."
 					>
 						No keys used
 					</span>
 				{:else if hiddenControlCount > 0}
 					<span
-						class="pointer-events-none absolute top-2 right-3 z-10 rounded-full border border-emerald-400/50 bg-black/40 px-2 py-0.5 text-[10px] font-semibold text-emerald-200 backdrop-blur-md"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 backdrop-blur-md dark:text-emerald-300"
 						title="Hidden because this game's own control list does not mention them."
 					>
 						−{hiddenControlCount} unused
@@ -872,7 +1033,7 @@
 				></button>
 				<div
 					bind:this={schemeMenuEl}
-					class="pointer-events-auto absolute z-30 overflow-hidden rounded-2xl border border-white/20 bg-black/60 p-1 shadow-[0_10px_40px_rgb(0_0_0_/0.45)] backdrop-blur-xl"
+					class="pointer-events-auto absolute z-30 overflow-hidden rounded-2xl border border-border bg-popover/95 p-1 text-popover-foreground shadow-xl backdrop-blur-xl"
 					role="listbox"
 					aria-label="Joystick key scheme"
 					tabindex="-1"
@@ -885,31 +1046,83 @@
 							data-console-control
 							role="option"
 							aria-selected={effectiveScheme === opt.value}
-							class="flex h-7 w-full items-center justify-between rounded-xl px-2.5 text-[10px] font-semibold tracking-wide text-white/90 outline-none focus-visible:ring-1 focus-visible:ring-white/50 {effectiveScheme ===
+							class="flex h-7 w-full items-center justify-between rounded-xl px-2.5 text-[10px] font-semibold tracking-wide outline-none hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring {effectiveScheme ===
 							opt.value
-								? 'bg-white/15'
+								? 'bg-accent text-accent-foreground'
 								: ''}"
 							onclick={() => pickScheme(opt.value)}
 						>
 							<span class="truncate">{opt.label}</span>
 							{#if effectiveScheme === opt.value}
-								<Check class="size-3 shrink-0 text-emerald-300" />
+								<Check class="size-3 shrink-0 text-emerald-600 dark:text-emerald-400" />
 							{/if}
 						</button>
 					{/each}
 				</div>
 			{/if}
 
+			{#if extraControls.length && !editMode}
+				<!--
+					Added from detection: the keys this game needs that the pad lacks, just above it.
+				-->
+				<div
+					class="pointer-events-none absolute z-10 flex gap-1.5"
+					data-testid="console-extras"
+					style={`left:${Math.max(4, pctToPx(layout.console.xPct, 'x'))}px;top:${Math.max(
+						surfaceOffsetY + topInset + 4,
+						surfaceOffsetY + pctToPx(layout.console.yPct, 'y') - 50
+					)}px;`}
+				>
+					{#each extraControls as extra (extra.code)}
+						<TouchButton
+							label={keyLabel(extra.code)}
+							caption={extra.purpose}
+							size={Math.round(42 * scale)}
+							width={extra.purpose
+								? Math.round(Math.min(120, Math.max(46, extra.purpose.length * 6.2 + 18)) * scale)
+								: undefined}
+							opacity={config.opacity}
+							accent="slate"
+							onPress={() => {
+								dispatcher.down([extra.code]);
+								if (config.haptics) buzz(8);
+							}}
+							onRelease={() => dispatcher.up([extra.code])}
+						/>
+					{/each}
+				</div>
+			{/if}
+
+			{#if editMode}
+				<div
+					class="pointer-events-none absolute inset-x-0 z-30 flex justify-center"
+					style={`top:${surfaceOffsetY + topInset + 8}px;`}
+					role="status"
+				>
+					<span
+						class="rounded-full border border-rose-500/60 bg-popover/90 px-3 py-1 text-[11px] font-semibold text-popover-foreground shadow-md backdrop-blur-md"
+					>
+						Drag any control to move it · tap Done when finished
+					</span>
+				</div>
+			{/if}
+
 			{#if joystickFate !== 'hide'}
 				<div
 					class="absolute"
-					style={`left:${pctToPx(layout.joystick.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(layout.joystick.yPct, 'y')}px;`}
+					style={controlPos(
+						layout.joystick.xPct,
+						layout.joystick.yPct,
+						Math.round(layout.joystick.size * scale),
+						Math.round(layout.joystick.size * scale)
+					)}
 				>
 					<TouchJoystick
 						size={Math.round(layout.joystick.size * scale)}
 						deadzone={layout.joystick.deadzone}
 						opacity={joystickFate === 'dim' ? config.opacity * 0.4 : config.opacity}
 						editing={editingControl === 'joystick'}
+						{editMode}
 						disabled={Boolean(editingControl && editingControl !== 'joystick')}
 						onVector={onJoystickVector}
 						onHoldEditStart={() => beginEdit('joystick')}
@@ -924,26 +1137,27 @@
 				{#if fate !== 'hide'}
 					<div
 						class="absolute"
-						style={`left:${pctToPx(btn.xPct, 'x')}px;top:${surfaceOffsetY + pctToPx(btn.yPct, 'y')}px;`}
+						style={controlPos(
+							btn.xPct,
+							btn.yPct,
+							buttonWidth(btn) ?? Math.round(btn.size * scale),
+							Math.round(btn.size * scale)
+						)}
 					>
 						<TouchButton
 							label={btn.label}
+							caption={purposeOf(buttonCodes(btn.id))}
 							size={Math.round(btn.size * scale)}
 							width={buttonWidth(btn)}
 							opacity={fate === 'dim' ? config.opacity * 0.4 : config.opacity}
 							accent={buttonAccent(btn.id)}
 							editing={editingControl === btn.id}
+							{editMode}
 							disabled={Boolean(editingControl && editingControl !== btn.id)}
 							onPress={() => {
 								if (editingControl) return;
 								dispatcher.down(buttonCodes(btn.id));
-								if (config.haptics) {
-									try {
-										navigator.vibrate?.(8);
-									} catch {
-										/* ignore */
-									}
-								}
+								if (config.haptics) buzz(8);
 							}}
 							onRelease={() => dispatcher.up(buttonCodes(btn.id))}
 							onHoldEditStart={() => beginEdit(btn.id)}
@@ -953,6 +1167,25 @@
 					</div>
 				{/if}
 			{/each}
+		{/if}
+
+		{#if showMenu && surfaceW > 0}
+			<div
+				class="pointer-events-none absolute inset-x-0 z-40 flex justify-center px-2"
+				style={`top:${surfaceOffsetY + topInset + 8}px;max-height:${Math.max(160, surfaceH - topInset - 16)}px;`}
+			>
+				<ControlsMenu
+					profile={menuProfile}
+					canSend={injectable}
+					onDown={(code) => {
+						dispatcher.down([code]);
+						if (config.haptics) buzz(6);
+					}}
+					onUp={(code) => dispatcher.up([code])}
+					onClose={() => (menuOpen = false)}
+					onTypeWithDevice={typeWithDevice}
+				/>
+			</div>
 		{/if}
 	</div>
 {/if}
