@@ -106,8 +106,11 @@
 	import { isImmersiveElement } from '$lib/utils/fullscreen';
 	import { setGameImmersive } from '$lib/utils/game-immersive';
 	import { toast } from 'svelte-sonner';
+	import { warmGameLaunchFromMetadata } from '$lib/utils/network-warmup';
 
 	let gameMetadata: GameMetadata | null = $state(null);
+	/* Open the embed host's connection while the play URL is still being resolved. */
+	$effect(() => warmGameLaunchFromMetadata(gameMetadata));
 	let recommendedGames: GameIndexEntry[] = $state([]);
 	let loading = $state(true);
 	let error = $state('');
