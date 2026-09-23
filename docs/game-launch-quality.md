@@ -4,6 +4,18 @@ Investigation of "very few games actually launch" (2026-08-10). Measured against
 dev build (`pnpm dev`) with the puller sidecar up, plus direct probes of every distinct
 embed host in the catalog.
 
+> **Measured under the old routing.** Every number in this document up to "Portal
+> orientation gates" was taken when the desktop app and `pnpm dev` played online embeds
+> through the puller's Node relay (`/api/game-live`, `/api/unity-play`). Play no longer
+> works that way: a launch walks a route chain — `direct` → `local` (the catalog's
+> `embed.html` in a blob) → `shell` (host HTML in a blob with `<base>`) → `relay` (the
+> desktop app's in-process relay, `relay.rs`) → `puller` (only if one is already running;
+> never started for play) → Open in browser — and on the desktop app the in-frame bridge is
+> injected natively into the game's own frames. See
+> [native-first.md](./native-first.md#play-path-no-puller), which also has the before/after
+> launch measurements for the new path. The findings below are kept as measured; notes in
+> _italics_ say what changed since.
+
 The launch pipeline itself is **not** the problem. `LazyGameFrame.svelte` renders a
 plain iframe and Unity Play titles launch and play correctly. Failures come from the
 embed URLs the catalog points at, and from where the app is running.
@@ -21,6 +33,12 @@ Each class is independent — a game can be affected by more than one.
 | Dead embed URL     |      6 | Everywhere                    | `origin + undefined` (**pruned**)                |
 | Phantom entry      |      1 | Everywhere                    | Generator scanned its own output dir (**fixed**) |
 
+_Since the route chain: the Drive U 7 games among the frame-blocked and wrong-content-type
+classes play from the catalog's `embed.html` in a blob (`local`), on every platform
+including the public site; other `text/plain` hosts get the `shell` route; AddictingGames
+Flash (`prod.addictinggames.com`, `SAMEORIGIN`) goes through the desktop app's in-process
+relay; Coolmath's `public_games/` URLs no longer refuse framing and play direct._
+
 ### 1. Network filter (largest class)
 
 On a NSW Department of Education network the edge proxy MITM-intercepts TLS and returns
@@ -37,19 +55,21 @@ Blocked hosts include `games.crazygames.com`, `app-*.games.s3.yandex.net`,
 
 **The puller does not help here.** It fetches from the same machine, so it hits the same
 filter. Node's fetch does not trust the DoE root CA, so the relay fails with
-`{"error":"fetch failed"}` and the iframe renders empty.
+`{"error":"fetch failed"}` and the iframe renders empty. _The in-process relay that
+replaced it trusts the OS roots, the DoE CA included, but it fetches from the same machine
+too: a blocked host is still a 403._
 
 Measured launch rate per portal on a filtered network (20-game random sample each,
 driven through the app's real resolution path):
 
-| Portal         | Games |           Launched |
-| -------------- | ----: | -----------------: |
-| Unity Play     | 3,772 |              20/20 |
-| Drive U 7      |   546 | 20/20 (via puller) |
-| CrazyGames     | 4,215 |               0/20 |
-| Playhop        | 2,404 |               0/20 |
-| AddictingGames | 1,181 |               1/20 |
-| Coolmath       |   405 |               0/20 |
+| Portal         | Games |                        Launched |
+| -------------- | ----: | ------------------------------: |
+| Unity Play     | 3,772 |                           20/20 |
+| Drive U 7      |   546 | 20/20 (via puller, old routing) |
+| CrazyGames     | 4,215 |                            0/20 |
+| Playhop        | 2,404 |                            0/20 |
+| AddictingGames | 1,181 |                            1/20 |
+| Coolmath       |   405 |                            0/20 |
 
 ## Measured launch rate on an unfiltered network
 
@@ -102,8 +122,12 @@ These 546 games can never load in a direct iframe on **any** network:
 - 215 point at `cdn.jsdelivr.net`, which serves HTML as `Content-Type: text/plain`
   so the browser shows source text instead of rendering a page.
 
-They only work because the puller refetches server-side and re-serves same-origin with a
-corrected content type. **On the GitHub Pages build there is no puller, so all 546 fail.**
+They only worked because the puller refetched server-side and re-served same-origin with a
+corrected content type. **On the GitHub Pages build there was no puller, so all 546
+failed.** _Now the catalog ships each one's playable document as `online/embed.html`, played
+from a blob with the bridge first (the `local` route) on every platform, the public site
+included. In the Tauri bench the jsDelivr and Sites games play from it in 0.3–1.9 s, where
+two of four were dead frames through the puller._
 
 ### 3. Local shells are not local
 
@@ -112,6 +136,9 @@ third party — 408 of them `abinbins.github.io`. Only a thumbnail lives in thei
 directory. Seven have no iframe or no `index.html` at all.
 
 ## Relay gap: JS-constructed asset URLs
+
+_Old routing only: CrazyGames titles now play direct, with the bridge injected natively on
+the desktop app, so nothing depends on the relay rewriting them._
 
 `rewriteHtmlForLiveSession` in `puller/src/live/proxy.ts` rewrites `src`/`href`
 attributes and CSS `url()`. It cannot see URLs that a page builds at runtime in
@@ -153,10 +180,9 @@ that is one CDN request in a browser became a serialised proxy crawl — hence t
 and the freezes. Worse, the launch first waited up to **12 seconds** for a cold puller
 before it would even start.
 
-The relay is only genuinely required when we must run our own code _inside_ a
-cross-origin game document — the touch console — or when the host refuses to be framed
-at all. [`online-play-routing.ts`](../src/lib/utils/online-play-routing.ts) makes that
-policy explicit and unit-testable:
+The first fix kept the Node relay for what seemed to need it — our own code _inside_ a
+cross-origin game document (the touch console), and hosts that refuse to be framed — and
+sent everything else direct. That interim policy, in `online-play-routing.ts` at the time:
 
 | Situation                                          | Route            |
 | -------------------------------------------------- | ---------------- |
@@ -169,27 +195,43 @@ policy explicit and unit-testable:
 | Unity embed                                        | relay, optional  |
 | Everything else                                    | direct           |
 
-"Optional" means the relay is used only if the puller is _already_ healthy — a cold
-sidecar never delays the launch. Mandatory relays wait at most 4s, then fall back to the
-direct URL rather than leaving a black frame.
+_It is gone too. The puller is no longer started with the app or for play, and the
+console no longer needs a relay: the desktop webview injects the bridge into the game's
+own frames. A launch now walks the route chain (`planOnlineRoutes` in
+[`online-play-routing.ts`](../src/lib/utils/online-play-routing.ts)):_
 
-Two supporting changes make the fallback safe:
+| Route    | What the frame loads                                                          | Platforms            |
+| -------- | ----------------------------------------------------------------------------- | -------------------- |
+| `direct` | The game's own URL; on desktop the bridge is injected into its frames         | all                  |
+| `local`  | The catalog's `online/embed.html` (Drive U 7) from a blob, bridge first       | all                  |
+| `shell`  | HTML a host labels `text/plain` (jsDelivr), fetched into a blob with `<base>` | all                  |
+| `relay`  | `ptrelay://localhost/game/<id>`: the in-process relay (`relay.rs`)            | desktop              |
+| `puller` | The Node relay — only if a puller already answers; never started              | desktop / `pnpm dev` |
+| —        | Every route failed: a toast offers **Open in browser**                        | all                  |
+
+Two supporting pieces carried over and changed shape:
 
 - **A launch watchdog.** `LazyGameFrame` reports `loading` / `loaded` / `stalled`. A frame
-  that never fires `load` within 25s records a session-scoped failure for that game, so
-  the next resolve escalates to the relay, and the user gets a "Retry via relay" action
-  instead of a black box. The timeout is deliberately generous: `load` waits for every
-  subresource, and a Unity build is tens of megabytes — a false stall would push a working
-  game onto the slow path.
-- **A frame-blocked host list.** A framing refusal still fires `load`, so no watchdog can
-  see it. `coolmathgames.com`, `prod.addictinggames.com` and `sites.google.com` are routed
-  to the relay up front, verified against response headers for a real catalog embed each.
+  that never fires `load` within 25s, or (on desktop) loads without its document ever
+  running a script, marks that route failed for the session and the page moves on to the
+  next route by itself. _It used to leave a "Retry via relay" action under the player;
+  the user now hears about it only when every route failed._ The timeout is deliberately
+  generous: `load` waits for every subresource, and a Unity build is tens of megabytes — a
+  false stall would push a working game onto a worse route. A frame that already said
+  hello is left alone however late its `load` is.
+- **A frame-blocked host list.** A framing refusal still fires `load`, so no timeout can
+  see it. `prod.addictinggames.com` skips `direct` (checked against a catalog embed on
+  2026-09-23). `sites.google.com` games play from `embed.html` instead, and
+  `coolmathgames.com` has stopped refusing frames for the `public_games/` URLs the catalog
+  uses.
 
 ### The touch console does not need the proxy either
 
 `ensureTouchCapablePlayUrl` started at the relay for every online game. It now tries, in
-order: direct DOM dispatch into a same-origin document, an inject/bridge URL the game is
-already on, and only then the relay. See [touch-console.md](./touch-console.md).
+order: direct DOM dispatch into a same-origin document, a bridge already inside the game
+frame (native injection on the desktop app and Android, or an app-made shell, relay page
+or offline copy), and on the public site a hosted relay. See
+[touch-console.md](./touch-console.md).
 
 ## Portal orientation gates — why CrazyGames titles never started
 
@@ -359,7 +401,7 @@ WebView looking like a phone: `userAgent` is set on the window in
 `tauri.android.conf.json`. Verified live — `mobile:false`, no popup, build fetched, 100%.
 
 This is scoped to `tauri.android.conf.json` on purpose. Desktop and Flatpak keep their
-real user agent; they have the relay and never tripped this check anyway.
+real user agent, which is not a phone's, so they never trip this check.
 
 Safe because nothing in the app reads the user agent to decide it is mobile.
 `isTouchOnlyDevice()` uses `maxTouchPoints` + `(pointer: coarse)` + `(hover: hover)`, and
@@ -368,7 +410,8 @@ does not affect, so the touch console still auto-enables.
 
 ## Error reporting makes every failure look the same
 
-Two issues make diagnosis harder than it should be:
+_Both fixed since: the launch watchdog above, and the game page no longer mentions the
+puller for playing._ As measured then, two issues made diagnosis harder than it should be:
 
 - `LazyGameFrame.svelte` sets no load timeout and no error handler, so a failed launch
   renders as a black box.
@@ -409,22 +452,22 @@ Ordered by games recovered per unit of work.
    titles that never launch. Browse surfaces are currently dominated by dead games; the
    recommendation rail beside a working Unity title was four CrazyGames entries, three of
    which do not run. This improves perceived quality without fixing a single game.
-3. **CrazyGames relay rewriting — 4,215 games, currently 33%.** Rewrite JS-constructed
-   asset URLs so the loader and per-game CDN hosts route through the relay and receive
-   the touch bridge. Diagnose the remaining 8/12 failures first; they are not all the
-   same cause.
-4. **Surface real launch errors.** Add an iframe load timeout and distinguish "puller
-   down" from "upstream fetch failed". Today every failure is a black box, which is why
-   the previous field report reached the wrong conclusion.
-5. **Flag puller-only games.** The 546 Drive U 7 titles cannot work without the relay and
-   should not ship to the Pages build as playable.
+3. ~~**CrazyGames relay rewriting — 4,215 games, currently 33%.**~~ _Moot: CrazyGames
+   plays direct and the desktop app injects the bridge natively, so no relay rewriting is
+   involved. The failures still need diagnosing on their own terms._
+4. ~~**Surface real launch errors.**~~ _Done: the launch watchdog walks the route chain
+   and says when every route failed._
+5. ~~**Flag puller-only games.**~~ _Moot: the 546 Drive U 7 titles play from the catalog's
+   `embed.html` without any relay, the Pages build included._
 6. **Decide the network story.** On a filtered network the only things that work are
    offline mirrors built elsewhere, or a relay whose fetches originate outside the filter
    (`workers/unity-play-proxy` via `PUBLIC_PLAY_PROXY_URL`). No catalog edit changes this.
 
 ## Reproducing the measurements
 
-Launch verification needs the dev server and puller up:
+The numbers above were taken with the dev server and puller up (old routing). With the
+current routing the puller is not needed, and when one is running it is only the last
+route:
 
 ```bash
 pnpm dev --port 5178

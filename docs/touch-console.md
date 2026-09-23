@@ -16,7 +16,8 @@ flowchart TD
 
     overlay --> cap{Injectable?}
     cap -->|deepestSameOriginDoc finds canvas doc| dispatch[touch-input-dispatch]
-    cap -->|nested cross-origin / external / tauri puller| unavailable[Show controls-unavailable note]
+    cap -->|bridge inside the game frame: native injection, app-made shell, relay page, offline copy| bridgepath[postMessage bridge]
+    cap -->|cross-origin frame with no bridge in it| unavailable[Show controls-unavailable note]
 
     subgraph controls [Glass controls - pointer-events auto]
         joy[TouchJoystick vector] --> translate[Map vector to held direction keys]
@@ -24,6 +25,7 @@ flowchart TD
     end
     translate --> dispatch
     dispatch -->|keydown/keyup with code+keyCode+bubbles+composed, canvas focused| gamedoc[Game document]
+    bridgepath -->|potato-tomato-touch-input| gamedoc
 
     The in-game **Console** control lives in the page toolbar (with Pause / Fullscreen) and in the in-game menu over a fullscreen game — not as a floating switch over the game. Turning it on shows the glass joystick / buttons overlay.
 
@@ -42,44 +44,76 @@ flowchart TD
 
 ### Same-origin matrix (injectability)
 
-| Play URL pattern                                                                    | Top iframe vs app   | Game document injectable?                                                                                                                                          |
-| ----------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `/games/{id}/offline/…`                                                             | Same-origin         | **Yes** (DOM or postMessage bridge)                                                                                                                                |
-| `/puller-games/{id}/offline/…` (dev proxy)                                          | Same-origin         | **Yes**                                                                                                                                                            |
-| `/browser-offline/{id}/…`                                                           | Same-origin         | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; use puller full scrape) |
-| `/api/unity-play/{id}` (Vite / Pages SW relay)                                      | Same-origin         | **Yes** — inject.js in game doc                                                                                                                                    |
-| `/api/game-live/{id}` (relay: Vite proxy, Tauri, or `offline-sw.js` → local puller) | Same-origin         | **Yes** — the relay answers on this origin, so the game document is injectable on every deployment, the public site included                                       |
-| `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}`                                         | Cross-origin Worker | **Yes** via postMessage bridge                                                                                                                                     |
-| `blob:…`                                                                            | Same-origin         | Same as browser-offline                                                                                                                                            |
-| `/unity/player.html?src=…`                                                          | Same-origin shell   | **No** — nested cross-origin `#game`                                                                                                                               |
-| `/games/{id}/online/index.html`                                                     | Same-origin shell   | **No** — nested external embed                                                                                                                                     |
-| Direct `https://…` embed                                                            | Cross-origin        | **No** without local puller live relay                                                                                                                             |
-| `http://127.0.0.1:<port>/api/unity-play/…` (Tauri/Flatpak puller)                   | Cross-origin        | **Yes** via postMessage bridge — prefer this for Unity iframe shells (abinbins)                                                                                    |
-| `http://127.0.0.1:<port>/api/game-live/…` (Tauri/Flatpak puller)                    | Cross-origin        | **Yes** via postMessage bridge for non-Unity external embeds (not for nested Unity shells)                                                                         |
+Online play resolves to a chain of routes, best first — `direct` → `local` (the catalog's
+`embed.html` in a blob) → `shell` (host HTML in a blob with `<base>`) → `relay` (the desktop
+app's in-process relay) → `puller` (only if one is already running) → Open in browser. See
+[native-first.md](./native-first.md#play-path-no-puller). What the console can reach depends
+on the route and the platform:
 
-The puller’s **main job** is offline download (`/api/offline`). Live relay (`/api/game-live`) is an extra capability of a running puller, wherever it runs: on the public site `offline-sw.js` forwards the same-origin relay paths to a puller on the visitor's own machine, so the console works there too when one is up.
+| Play URL                                                                  | Route / where                                    | Top iframe vs app   | Game document injectable?                                                                                                                                                          |
+| ------------------------------------------------------------------------- | ------------------------------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Direct `https://…` embed                                                  | `direct`, desktop app (Linux)                    | Cross-origin        | **Yes** via postMessage bridge — the webview injects it into the game frame at document start (`game_frames.rs`)                                                                   |
+| Direct `https://…` embed                                                  | `direct`, Android                                | Cross-origin        | **Yes** via `native_touch_bridge.js` (below)                                                                                                                                       |
+| Direct `https://…` embed                                                  | `direct`, public site / `pnpm dev` in a browser  | Cross-origin        | **No**                                                                                                                                                                             |
+| `blob:` of `online/embed.html` (Drive U 7)                                | `local`, everywhere                              | Same-origin         | **Yes** — the bridge is first in the blob's HTML                                                                                                                                   |
+| `blob:` of host HTML with `<base>` (jsDelivr serves HTML as `text/plain`) | `shell`, everywhere                              | Same-origin         | **Yes** — the bridge is first in the blob's HTML                                                                                                                                   |
+| `ptrelay://localhost/game/{id}`                                           | `relay`, desktop app                             | Cross-origin        | **Yes** via postMessage bridge — the relay page carries it                                                                                                                         |
+| `http://127.0.0.1:<port>/api/game-live/…` / `/api/unity-play/…`           | `puller`, only when a puller already runs        | Cross-origin        | **Yes** via postMessage bridge                                                                                                                                                     |
+| `/api/game-live/{id}` / `/api/unity-play/{id}` on the app origin          | Vite proxy or `offline-sw.js` → a running puller | Same-origin         | **Yes** — only while a puller runs on this machine                                                                                                                                 |
+| `PUBLIC_PLAY_PROXY_URL/api/unity-play/{id}`                               | public site, hosted Unity proxy                  | Cross-origin Worker | **Yes** via postMessage bridge                                                                                                                                                     |
+| `ptoffline://localhost/{id}/…`                                            | desktop offline copy                             | Cross-origin        | **Yes** via postMessage bridge — the bridge is first in the served HTML                                                                                                            |
+| `/games/{id}/offline/…`                                                   | bundled / static offline copy                    | Same-origin         | **Yes** (DOM or postMessage bridge)                                                                                                                                                |
+| `/puller-games/{id}/offline/…`                                            | dev proxy                                        | Same-origin         | **Yes**                                                                                                                                                                            |
+| `/browser-offline/{id}/…`, `blob:` offline shells                         | browser download                                 | Same-origin         | **Yes** if canvas in top doc; **No** if the online shell only wraps a cross-origin iframe (browser IndexedDB refuses shell-only “offline”; the desktop app's download captures it) |
+| `/unity/player.html?src=…`                                                | Unity embed, no native frames                    | Same-origin shell   | **No** — nested cross-origin `#game`. The desktop app skips this wrapper and frames the Unity page itself                                                                          |
+| `/games/{id}/online/index.html`                                           | catalog shell, no native frames                  | Same-origin shell   | **No** — nested external embed. The desktop app unwraps a shell that only frames a third-party page                                                                                |
 
-Without a relay, touch on the public web app needs the game document to be same-origin already — a browser download saved under `/browser-offline/`, a bundled mirror, or a self-hosted game. That is the case worth optimising for: **Download for offline** on the web makes the console work for that title as a side effect, because the mirror is then served from this origin.
+The puller's job is offline download (`/api/offline`). Its live relay (`/api/game-live`)
+is a play route only as the last one before Open in browser, and only when a puller is
+already running: the desktop app never starts one to play, and on the public site
+`offline-sw.js` forwards the same-origin relay paths to a puller on the visitor's own
+machine when one is up.
 
-Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks permanent offline play. Live relay covers the “play online with touch now” case without a download.
+Without a bridge, touch on the public web app needs the game document to be same-origin
+already — a browser download saved under `/browser-offline/`, a bundled mirror, an
+app-made shell, or a self-hosted game. That is the case worth optimising for: **Download
+for offline** on the web makes the console work for that title as a side effect, because
+the mirror is then served from this origin.
+
+Expanding puller mirroring ([offline-downloader.md](./offline-downloader.md)) unlocks
+permanent offline play.
 
 **Rule of thumb:** take the cheapest path that works, in this order.
 
 1. **Direct DOM dispatch.** If `resolveInjectable(iframe)` finds a canvas in a same-origin
    document, the console already has a target. No proxy, no reload, no added latency.
-2. **An inject/bridge URL already loaded** — an offline mirror, or a relay URL the game is
-   on anyway (`canUseTouchBridge`).
-3. **The puller relay**, only for a genuinely cross-origin game. This reloads the game
-   through Node, so it is the last resort rather than the default.
+2. **A bridge already inside the game frame** (`canUseTouchBridge`) — the desktop app
+   (Linux) and Android inject it into every game frame natively; offline copies, app-made
+   shells and relay pages carry it in their HTML.
+3. **On the public site, a hosted relay** that puts the game back on this origin
+   (`PUBLIC_PLAY_PROXY_URL`). A game playing from its own host is never reloaded through a
+   proxy just for the console.
 
 Offline + console → **inject** into the mirrored HTML. Never inject into a same-origin
 shell that only wraps a cross-origin Unity iframe — that causes Unity “Script error” when
 the console steals focus.
 
 `ensureTouchCapablePlayUrl` in [`+page.svelte`](../src/routes/games/[gameId]/+page.svelte)
-implements exactly this order. It used to start at step 3 for every online game, which
-reloaded games that were already injectable and put the relay's latency on the critical
-path for launches that never needed it.
+implements exactly this order. It used to start at the puller relay for every online game,
+which reloaded games that were already injectable and put the relay's latency on the
+critical path for launches that never needed it.
+
+### Native injection on the desktop (Linux)
+
+The desktop app does in WebKitGTK what Android does below. While a launch resolves, the
+page calls `set_game_frame_context` ([`game_frames.rs`](../src-tauri/src/game_frames.rs)),
+which installs `game-storage-bridge.child.js` as a user script that runs at document start
+in every frame, before the page's own script. A preamble decides the frame's part: the
+outermost frame the app did not serve itself is the game (full bridge under the game's
+id); frames inside it get the bridge without an id, plus console input relayed down from
+the game frame; known ad hosts get nothing. So a game played straight from its own host
+takes console input with no relay at all. Details in
+[native-first.md](./native-first.md#the-bridge-in-cross-origin-game-frames).
 
 ### Native injection removes the need for a proxy (Android)
 
@@ -174,10 +208,11 @@ outside-click handler alone would leave the menu stuck open.
 
 ### Platforms with no sidecar (Tauri mobile)
 
-`shouldProbePullerBackend()` is false on Android and iOS: those builds ship no puller, so
-steps 2 and 3 above do not exist for a cross-origin game. The console is available for
-same-origin catalog shells and downloaded mirrors, and unavailable for third-party embeds
-— on a touch device the game still takes real touches directly.
+`shouldProbePullerBackend()` is false on Android and iOS: those builds ship no puller and
+no relay. On Android the console still reaches cross-origin games through native
+injection (above); where that is unavailable (an old WebView, iOS) it works for same-origin
+catalog shells and downloaded mirrors only — on a touch device the game still takes real
+touches directly.
 
 Anything that names the puller must be gated on `shouldProbePullerBackend()`, not on
 `isLocalAppDeployment()`. Both are true in the desktop app, but only the former is false
@@ -185,11 +220,11 @@ on mobile — gating on deployment is why the Android build showed “Starting p
 Retry puller button, a 12-second wait for a sidecar that cannot start, and advice to run
 `pnpm puller:start` on a tablet.
 
-**Unity iframe shells (abinbins / similar):** when the puller is up, play resolves to `/api/unity-play/:id` (unwrap remote HTML, inject, absolutize CDN asset URLs). When the puller is down, the desktop UI shows a Retry-puller warning — launching the nested shell alone usually fails with a masked Unity `Script error`.
+**Unity iframe shells (abinbins / similar):** on the desktop app the Unity page is framed from its own host, with the bridge injected natively; the `/unity/player.html` wrapper is skipped. Elsewhere Unity embeds play inside that wrapper, which the console cannot reach, and `/api/unity-play/:id` (unwrap remote HTML, inject, absolutize CDN asset URLs) is used only when a puller already runs. _Under the old routing_ the desktop app sent every Unity title through `/api/unity-play/:id` and showed a Retry-puller warning when the puller was down; launching the nested shell alone usually failed with a masked Unity `Script error`.
 
-**OpenFL / Lime (G-Switch 3):** abinbins hosts these next to Unity builds. The app must **not** treat every abinbins URL as Unity — OpenFL goes through `/api/game-live/:id` with a `<base href>` that includes the live session prefix so runtime `assets/…` loads succeed.
+**OpenFL / Lime (G-Switch 3):** abinbins hosts these next to Unity builds. The app must **not** treat every abinbins URL as Unity: an OpenFL page played through the puller's `/api/game-live/:id` needs a `<base href>` that includes the live session prefix so runtime `assets/…` loads succeed. Played direct (the desktop default now), its assets resolve against its own host.
 
-**CrazyGames (Color Tunnel):** treat as a **portal shell**, not a Unity document. Online play uses **game-live** to proxy the real CrazyGames HTML (gameframe + CrazySDK stay intact). Do **not** unwrap into a synthetic UnityLoader page — that caused `CrazySDK` / `isModularized` crashes. Touch may not reach the nested cross-origin gameframe; playability comes first. Blank `engine` → game-live is correct.
+**CrazyGames (Color Tunnel):** treat as a **portal shell**, not a Unity document. Online play frames the real CrazyGames page (gameframe + CrazySDK stay intact); on the desktop app the portal page is the game frame and the nested gameframe gets console input relayed down to it. Do **not** unwrap into a synthetic UnityLoader page — that caused `CrazySDK` / `isModularized` crashes. Playability comes first.
 
 ### Touch postMessage bridge
 
@@ -205,7 +240,9 @@ Live probe: `resolveInjectable(iframe)` for same-origin; `canUseTouchBridge(play
 
 ### Unity / live embeds on GitHub Pages (local puller + Service Worker)
 
-HTTPS Pages must not iframe `http://127.0.0.1` (mixed content). Instead:
+The public site has no native injection and no relay of its own. A visitor who runs a
+puller can still get the console on cross-origin embeds. HTTPS Pages must not iframe
+`http://127.0.0.1` (mixed content). Instead:
 
 1. On your machine: `pnpm puller:start` (listens on `127.0.0.1:18787`).
 2. Open the Pages site; the app registers [`offline-sw.js`](../static/offline-sw.js).
@@ -435,7 +472,7 @@ Assets live in [`docs/touch-console/assets/`](./touch-console/assets/) in chrono
 - Click passthrough vs Tap Zone (opt-in full-surface Space / bound key)
 - Binding picker (key + mouseClick) and add/remove controls per game
 - Broader puller `generic` mirroring coverage for permanent offline play
-- Optional hosted live-relay Worker (today `/api/game-live` needs local puller)
+- Optional hosted live-relay Worker for the public site (today its `/api/game-live` needs a local puller; the desktop app needs neither)
 - Genre / engine mapping presets + crowdsourced profiles
 - Hardware gamepad passthrough and virtual trackpad / cursor mode
 - Compact mobile game-page chrome (Play first, icon grid) from the mockup HTML
