@@ -148,15 +148,25 @@ fn cache_dir(identifier: &str) -> Option<PathBuf> {
   Some(base.join(identifier))
 }
 
-/// Per-launch directory for the flag: tmpfs, so a crashed session cannot leave it behind
-/// across a reboot. Falls back to the cache directory.
-fn run_dir(identifier: &str, tuning_dir: &Path) -> PathBuf {
-  let base = std::env::var_os("XDG_RUNTIME_DIR")
+/// Per-launch directory for the flag, created: under the runtime directory (tmpfs, so a
+/// crashed session cannot leave it behind across a reboot), else under the cache directory.
+fn create_run_dir(identifier: &str, tuning_dir: &Path) -> Result<PathBuf, String> {
+  let pid = std::process::id().to_string();
+  let runtime = std::env::var_os("XDG_RUNTIME_DIR")
     .map(PathBuf::from)
     .filter(|p| p.is_absolute() && p.is_dir())
-    .map(|p| p.join(identifier).join("full-speed"))
-    .unwrap_or_else(|| tuning_dir.join("run"));
-  base.join(std::process::id().to_string())
+    .map(|p| p.join(identifier).join("full-speed").join(&pid));
+  let mut last_error = String::new();
+  for dir in runtime
+    .into_iter()
+    .chain([tuning_dir.join("run").join(&pid)])
+  {
+    match std::fs::create_dir_all(&dir) {
+      Ok(()) => return Ok(dir),
+      Err(e) => last_error = format!("could not create {}: {e}", dir.display()),
+    }
+  }
+  Err(last_error)
 }
 
 fn read_json<T: for<'de> Deserialize<'de>>(path: &Path) -> Option<T> {
@@ -262,8 +272,7 @@ fn install(identifier: &str, tuning_dir: &Path, hash: &str) -> Result<PathBuf, S
     }
   }
 
-  let run = run_dir(identifier, tuning_dir);
-  std::fs::create_dir_all(&run).map_err(|e| format!("could not create {}: {e}", run.display()))?;
+  let run = create_run_dir(identifier, tuning_dir)?;
   clean_stale_runs(&run);
   let flag = run.join("game-open");
   let _ = std::fs::remove_file(&flag);
@@ -285,7 +294,10 @@ fn install(identifier: &str, tuning_dir: &Path, hash: &str) -> Result<PathBuf, S
 pub fn prepare(identifier: &str) {
   let started = Instant::now();
   let hash = module_hash(MODULE);
-  let tuning_dir = cache_dir(identifier).map(|dir| dir.join("webkit-tuning"));
+  /* Only WebKitGTK has this throttle: elsewhere, touch nothing. */
+  let tuning_dir = cfg!(target_os = "linux")
+    .then(|| cache_dir(identifier).map(|dir| dir.join("webkit-tuning")))
+    .flatten();
   let prefs = tuning_dir
     .as_ref()
     .and_then(|dir| read_json::<Prefs>(&dir.join("settings.json")))
