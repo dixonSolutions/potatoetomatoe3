@@ -1937,6 +1937,12 @@
 		if (carried) {
 			try {
 				realSS.removeItem(NS + 'carry');
+				/*
+				 * The reload the flag guarded is done. Left set, it barred every later launch
+				 * in this tab from reloading onto saves written elsewhere meanwhile. There is
+				 * no loop to guard against here: a boot from a carried profile never pulls.
+				 */
+				realSS.removeItem(NS + 'reloaded');
 			} catch (e) {
 				/* ignore */
 			}
