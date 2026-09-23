@@ -28,4 +28,4 @@ gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.shell welcome-dialog-last-shown-version '999'
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"
 exec gnome-shell --headless --wayland --no-x11 --mode=user \
-  --virtual-monitor "${PTBENCH_MONITOR:-1920x1080@60}" --wayland-display=ptbench-bench
+  --virtual-monitor "${PTBENCH_MONITOR:-1920x1080@60}" --wayland-display="${PTBENCH_DISPLAY:-ptbench-bench}"

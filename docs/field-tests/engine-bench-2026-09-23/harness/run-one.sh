@@ -36,7 +36,7 @@ printf "%s\n%s" "$label" "$query" | curl -s -X POST --data-binary @- "$COLLECTOR
 marker=$(mktemp "$BENCH_DIR/logs/start-marker.XXXXXX")
 log=$BENCH_DIR/logs/$kind-$label-$(date +%s).log
 export DBUS_SESSION_BUS_ADDRESS="$(cat "$BENCH_DIR/compositor.bus")"
-export WAYLAND_DISPLAY=ptbench-bench GDK_BACKEND=wayland XDG_SESSION_TYPE=wayland
+export WAYLAND_DISPLAY=${PTBENCH_DISPLAY:-ptbench-bench} GDK_BACKEND=wayland XDG_SESSION_TYPE=wayland
 unset DISPLAY
 shield() {
   gdbus call --session --dest org.gnome.Shell.ScreenShield --object-path /org/gnome/ScreenSaver \
