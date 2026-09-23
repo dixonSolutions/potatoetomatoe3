@@ -1,0 +1,19 @@
+### rep 1: wk s125-wk-tuned-dprcap
+[run] wk/s125-wk-tuned-dprcap start 23:28:52 load=4.36 5.16 5.16 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra=--dpr-cap 1.25 query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/s125-wk-tuned-dprcap end 23:30:18 after 85s load=3.77 4.90 5.08 shield=false cpu=92.7s -> webkitgtk-bare-s125-wk-tuned-dprcap-1790170217551.json
+### rep 1: chrome s125-chromium
+[run] chrome/s125-chromium start 23:30:26 load=3.41 4.78 5.04 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] chrome/s125-chromium end 23:31:50 after 83s load=2.51 4.16 4.80 shield=false cpu=82.8s -> chromium-s125-chromium-1790170310261.json
+### rep 2: wk s125-wk-tuned-dprcap
+[run] wk/s125-wk-tuned-dprcap start 23:31:59 load=2.35 4.08 4.76 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra=--dpr-cap 1.25 query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/s125-wk-tuned-dprcap end 23:33:25 after 85s load=2.52 3.80 4.61 shield=false cpu=91.7s -> webkitgtk-bare-s125-wk-tuned-dprcap-1790170404116.json
+### rep 2: chrome s125-chromium
+[run] chrome/s125-chromium start 23:33:33 load=2.48 3.77 4.59 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] chrome/s125-chromium end 23:34:57 after 83s load=2.90 3.56 4.45 shield=false cpu=83.3s -> chromium-s125-chromium-1790170496608.json
+### rep 3: wk s125-wk-tuned-dprcap
+[run] wk/s125-wk-tuned-dprcap start 23:35:05 load=3.31 3.63 4.46 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra=--dpr-cap 1.25 query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/s125-wk-tuned-dprcap end 23:36:31 after 85s load=2.06 3.19 4.23 shield=false cpu=91.9s -> webkitgtk-bare-s125-wk-tuned-dprcap-1790170590720.json
+### rep 3: chrome s125-chromium
+[run] chrome/s125-chromium start 23:36:39 load=1.89 3.11 4.19 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] chrome/s125-chromium end 23:38:04 after 83s load=3.00 3.21 4.14 shield=false cpu=83.0s -> chromium-s125-chromium-1790170683097.json
+### matrix $BENCH_DIR/matrices/scale125-extra.txt done 23:38:12

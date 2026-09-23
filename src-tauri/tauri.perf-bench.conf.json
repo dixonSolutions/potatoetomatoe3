@@ -1,7 +1,8 @@
 {
 	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+	"identifier": "com.potatotomato.games.perfbench",
 	"build": {
-		"devUrl": "http://127.0.0.1:5173/dev/perf-bench?engine=webkitgtk-run1&auto=1",
+		"devUrl": "http://127.0.0.1:5180/dev/perf-bench?engine=tauri-webkitgtk&variant=collector&auto=1",
 		"beforeDevCommand": ""
 	},
 	"app": {

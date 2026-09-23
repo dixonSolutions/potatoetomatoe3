@@ -1,0 +1,12 @@
+tauri v-tauri-shipped
+wk v-wk-default
+chrome v-chromium
+wk v-wk-nolowpower LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so
+wk v-wk-nolowpower-nodmabuf LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so WEBKIT_DISABLE_DMABUF_RENDERER=1
+wk v-wk-nolowpower-shm LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so WEBKIT_DMABUF_RENDERER_FORCE_SHM=1
+wk v-wk-nolowpower-skiacpu LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1
+wk v-wk-nolowpower-gputhreads0 LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so WEBKIT_SKIA_GPU_PAINTING_THREADS=0
+wk v-wk-nolowpower-canvascpu LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so -- --setting enable-2d-canvas-acceleration=false
+wk v-wk-nolowpower-webglgpuprocess LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so -- --feature UseGPUProcessForWebGL=true
+wk v-wk-nolowpower-nocompositing LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so WEBKIT_DISABLE_COMPOSITING_MODE=1
+tauri v-tauri-giomodule GIO_EXTRA_MODULES=@BENCH_DIR@/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed

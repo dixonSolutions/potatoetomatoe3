@@ -1,0 +1,56 @@
+### rep 1: tauri s125-tauri-shipped
+[run] tauri/s125-tauri-shipped start 22:43:17 load=1.67 4.89 8.78 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] tauri/s125-tauri-shipped end 22:44:43 after 85s load=1.80 4.21 8.20 shield=false cpu=74.6s -> tauri-webkitgtk-s125-tauri-shipped-1790167482375.json
+### rep 1: chrome s125-chromium
+[run] chrome/s125-chromium start 22:44:51 load=1.76 4.12 8.13 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] chrome/s125-chromium end 22:46:15 after 83s load=2.43 3.80 7.66 shield=false cpu=82.7s -> chromium-s125-chromium-1790167574577.json
+### rep 1: tauri s125-tauri-nolowpower
+[run] tauri/s125-tauri-nolowpower start 22:46:23 load=2.28 3.72 7.60 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] tauri/s125-tauri-nolowpower end 22:47:48 after 84s load=3.35 3.70 7.25 shield=false cpu=85.4s -> tauri-webkitgtk-s125-tauri-nolowpower-1790167668649.json
+### rep 1: tauri s125-tauri-tuned
+[run] tauri/s125-tauri-tuned start 22:47:57 load=3.08 3.64 7.21 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] tauri/s125-tauri-tuned end 22:49:23 after 85s load=4.35 4.12 7.08 shield=false cpu=91.8s -> tauri-webkitgtk-s125-tauri-tuned-1790167762367.json
+### rep 1: wk s125-wk-nolowpower-skiacpu
+[run] wk/s125-wk-nolowpower-skiacpu start 22:49:31 load=4.14 4.09 7.04 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/s125-wk-nolowpower-skiacpu end 22:50:57 after 85s load=2.44 3.63 6.62 shield=false cpu=85.0s -> webkitgtk-bare-s125-wk-nolowpower-skiacpu-1790167856400.json
+### rep 1: wk s125-wk-nolowpower-dprcap125
+[run] wk/s125-wk-nolowpower-dprcap125 start 22:51:05 load=2.13 3.53 6.55 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--dpr-cap 1.25 query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=1
+[run] wk/s125-wk-nolowpower-dprcap125 end 22:52:31 after 85s load=3.12 3.47 6.27 shield=false cpu=89.5s -> webkitgtk-bare-s125-wk-nolowpower-dprcap125-1790167950963.json
+### rep 2: tauri s125-tauri-shipped
+[run] tauri/s125-tauri-shipped start 22:52:39 load=3.02 3.44 6.22 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] tauri/s125-tauri-shipped end 22:54:05 after 85s load=3.63 3.50 6.00 shield=false cpu=75.4s -> tauri-webkitgtk-s125-tauri-shipped-1790168045055.json
+### rep 2: chrome s125-chromium
+[run] chrome/s125-chromium start 22:54:14 load=3.38 3.45 5.95 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] chrome/s125-chromium end 22:55:38 after 83s load=5.18 3.89 5.89 shield=false cpu=83.1s -> chromium-s125-chromium-1790168137943.json
+### rep 2: tauri s125-tauri-nolowpower
+[run] tauri/s125-tauri-nolowpower start 22:55:46 load=4.86 3.86 5.86 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] tauri/s125-tauri-nolowpower end 22:57:12 after 85s load=4.90 4.20 5.81 shield=false cpu=85.4s -> tauri-webkitgtk-s125-tauri-nolowpower-1790168232436.json
+### rep 2: tauri s125-tauri-tuned
+[run] tauri/s125-tauri-tuned start 22:57:20 load=4.47 4.13 5.77 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] tauri/s125-tauri-tuned end 22:58:47 after 85s load=7.45 5.27 6.03 shield=false cpu=88.4s -> tauri-webkitgtk-s125-tauri-tuned-1790168326491.json
+### rep 2: wk s125-wk-nolowpower-skiacpu
+[run] wk/s125-wk-nolowpower-skiacpu start 22:58:55 load=6.45 5.13 5.98 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/s125-wk-nolowpower-skiacpu end 23:00:21 after 85s load=4.53 4.88 5.82 shield=false cpu=82.5s -> webkitgtk-bare-s125-wk-nolowpower-skiacpu-1790168421001.json
+### rep 2: wk s125-wk-nolowpower-dprcap125
+[run] wk/s125-wk-nolowpower-dprcap125 start 23:00:29 load=4.51 4.87 5.80 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--dpr-cap 1.25 query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=2
+[run] wk/s125-wk-nolowpower-dprcap125 end 23:01:55 after 85s load=5.29 5.33 5.90 shield=false cpu=87.8s -> webkitgtk-bare-s125-wk-nolowpower-dprcap125-1790168515554.json
+### rep 3: tauri s125-tauri-shipped
+[run] tauri/s125-tauri-shipped start 23:02:04 load=5.19 5.30 5.88 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] tauri/s125-tauri-shipped end 23:03:30 after 85s load=4.49 5.00 5.72 shield=false cpu=74.1s -> tauri-webkitgtk-s125-tauri-shipped-1790168609799.json
+### rep 3: chrome s125-chromium
+[run] chrome/s125-chromium start 23:03:38 load=4.69 5.03 5.73 shield=false envs= extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] chrome/s125-chromium end 23:05:02 after 83s load=7.57 5.91 5.98 shield=false cpu=81.5s -> chromium-s125-chromium-1790168702302.json
+### rep 3: tauri s125-tauri-nolowpower
+[run] tauri/s125-tauri-nolowpower start 23:05:10 load=7.15 5.88 5.97 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] tauri/s125-tauri-nolowpower end 23:06:35 after 84s load=4.55 5.39 5.79 shield=false cpu=85.6s -> tauri-webkitgtk-s125-tauri-nolowpower-1790168795876.json
+### rep 3: tauri s125-tauri-tuned
+[run] tauri/s125-tauri-tuned start 23:06:44 load=4.01 5.25 5.74 shield=false envs=GIO_EXTRA_MODULES=$BENCH_DIR/shim/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] tauri/s125-tauri-tuned process exited early
+[run] tauri/s125-tauri-tuned end 23:25:31 after 1114s load=6.09 5.48 5.23 shield=false cpu=2.0s -> 
+### rep 3: wk s125-wk-nolowpower-skiacpu
+[run] wk/s125-wk-nolowpower-skiacpu start 23:25:39 load=5.46 5.37 5.19 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 extra= query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/s125-wk-nolowpower-skiacpu end 23:27:05 after 85s load=6.01 5.57 5.28 shield=false cpu=82.5s -> webkitgtk-bare-s125-wk-nolowpower-skiacpu-1790170024723.json
+### rep 3: wk s125-wk-nolowpower-dprcap125
+[run] wk/s125-wk-nolowpower-dprcap125 start 23:27:13 load=5.85 5.54 5.27 shield=false envs=LD_PRELOAD=$BENCH_DIR/shim/no-power-saver.so extra=--dpr-cap 1.25 query=delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&rep=3
+[run] wk/s125-wk-nolowpower-dprcap125 end 23:28:40 after 86s load=4.87 5.28 5.20 shield=false cpu=88.6s -> webkitgtk-bare-s125-wk-nolowpower-dprcap125-1790170120533.json
+### matrix $BENCH_DIR/matrices/scale125.txt done 23:28:48
