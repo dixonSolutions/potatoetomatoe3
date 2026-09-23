@@ -22,8 +22,18 @@
 		getGameFullscreenShortcut,
 		isValidGameFullscreenShortcut,
 		saveGameFullscreenShortcut,
+		setGameFullscreenShortcutEnabled,
 		type GameFullscreenShortcut
 	} from '$lib/utils/game-fullscreen';
+	import {
+		DEFAULT_GAME_PLAYER_SETTINGS,
+		getGamePlayerSettings,
+		saveGamePlayerSettings,
+		type GamePlayerSettings,
+		type InGameMenuAccess,
+		type InGameMenuButtonSize,
+		type InGameMenuCorner
+	} from '$lib/utils/game-player-settings';
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
 	import {
 		getTrayLifecycleState,
@@ -58,6 +68,60 @@
 		}
 	];
 
+	const ACCESS_OPTIONS: { value: InGameMenuAccess; label: string; hint: string }[] = [
+		{
+			value: 'button',
+			label: 'Menu button',
+			hint: 'A small, faint button in a corner of the game. Tap or click it to open the menu.'
+		},
+		{
+			value: 'hover',
+			label: 'Hover at the edge',
+			hint: 'Nothing over the game. Move the mouse to the edge by the chosen corner to reveal the menu. Touch screens still get the button.'
+		},
+		{
+			value: 'both',
+			label: 'Button and hover',
+			hint: 'The button, and the menu also opens when the mouse reaches that edge.'
+		}
+	];
+
+	const SIZE_OPTIONS: { value: InGameMenuButtonSize; label: string }[] = [
+		{ value: 'auto', label: 'Auto (small with a mouse, medium on touch)' },
+		{ value: 'small', label: 'Small' },
+		{ value: 'medium', label: 'Medium' },
+		{ value: 'large', label: 'Large' }
+	];
+
+	const CORNER_OPTIONS: { value: InGameMenuCorner; label: string }[] = [
+		{ value: 'top-left', label: 'Top left' },
+		{ value: 'top-right', label: 'Top right' },
+		{ value: 'bottom-left', label: 'Bottom left' },
+		{ value: 'bottom-right', label: 'Bottom right' }
+	];
+
+	/* Search keywords per block; the "nothing matches" note checks all of them. */
+	const KW = {
+		playSource: 'game play online offline default version unity download',
+		fullscreen: 'open games fullscreen full screen auto automatic immersive start',
+		menu: 'in-game menu button hover corner position size overlay edge touch fullscreen exit',
+		pause: 'pause resume shortcut backtick hotkey keyboard game',
+		fullscreenKey: 'fullscreen full screen shortcut hotkey keyboard game f key',
+		tray: 'tray close quit background gnome silverblue desktop'
+	} as const;
+	/* "while playing" names the whole group, so it shows every block in it. */
+	const groupHit = $derived(sectionMatches(searchQuery, 'while playing'));
+	const show = $derived({
+		playSource: sectionMatches(searchQuery, KW.playSource),
+		fullscreen: groupHit || sectionMatches(searchQuery, KW.fullscreen),
+		menu: groupHit || sectionMatches(searchQuery, KW.menu),
+		pause: groupHit || sectionMatches(searchQuery, KW.pause),
+		fullscreenKey: groupHit || sectionMatches(searchQuery, KW.fullscreenKey),
+		tray: sectionMatches(searchQuery, KW.tray)
+	});
+	const showPlayer = $derived(show.fullscreen || show.menu || show.pause || show.fullscreenKey);
+
+	let player = $state<GamePlayerSettings>({ ...DEFAULT_GAME_PLAYER_SETTINGS });
 	let pauseShortcut = $state<GamePauseShortcut>({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
 	let recordingPauseShortcut = $state(false);
 	let fullscreenShortcut = $state<GameFullscreenShortcut>({
@@ -73,6 +137,10 @@
 		saveDefaultGamePlayMode(value);
 	}
 
+	function savePlayer(patch: Partial<GamePlayerSettings>) {
+		player = saveGamePlayerSettings(patch);
+	}
+
 	function resetPauseShortcut() {
 		pauseShortcut = saveGamePauseShortcut({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
 		toast.message('Pause shortcut reset to `');
@@ -81,6 +149,18 @@
 	function resetFullscreenShortcut() {
 		fullscreenShortcut = saveGameFullscreenShortcut({ ...DEFAULT_GAME_FULLSCREEN_SHORTCUT });
 		toast.message('Fullscreen shortcut reset to F');
+	}
+
+	function onFullscreenShortcutToggle(on: boolean) {
+		player = { ...player, fullscreenShortcutEnabled: setGameFullscreenShortcutEnabled(on) };
+		recordingFullscreenShortcut = false;
+		if (on && !isValidGameFullscreenShortcut(fullscreenShortcut)) {
+			/* The saved key is taken (pause moved onto it meanwhile): pick another one now. */
+			recordingFullscreenShortcut = true;
+			toast.message(
+				`${formatGameFullscreenShortcutLabel(fullscreenShortcut)} is taken — press a new key`
+			);
+		}
 	}
 
 	async function onCloseToTrayToggle(checked: boolean) {
@@ -102,6 +182,7 @@
 	}
 
 	onMount(() => {
+		player = getGamePlayerSettings();
 		pauseShortcut = getGamePauseShortcut();
 		fullscreenShortcut = getGameFullscreenShortcut();
 		if (isTauriApp()) {
@@ -177,8 +258,39 @@
 	});
 </script>
 
+{#snippet shortcutRecorder(opts: {
+	label: string;
+	recording: boolean;
+	onToggleRecording: () => void;
+	resetLabel: string;
+	onReset: () => void;
+})}
+	<div class="flex flex-wrap items-center gap-2">
+		<span
+			class="inline-flex min-w-16 items-center justify-center rounded-md border border-dashed px-3 py-1.5 font-mono text-xs tabular-nums {opts.recording
+				? 'border-primary bg-muted/40'
+				: ''}"
+		>
+			{opts.recording ? 'Press keys…' : opts.label}
+		</span>
+		<Button
+			type="button"
+			variant={opts.recording ? 'secondary' : 'outline'}
+			size="sm"
+			disabled={busy}
+			aria-pressed={opts.recording}
+			onclick={opts.onToggleRecording}
+		>
+			{opts.recording ? 'Cancel' : 'Record shortcut'}
+		</Button>
+		<Button type="button" variant="ghost" size="sm" disabled={busy} onclick={opts.onReset}>
+			{opts.resetLabel}
+		</Button>
+	</div>
+{/snippet}
+
 <div class="space-y-6">
-	{#if sectionMatches(searchQuery, 'game play online offline default version unity download')}
+	{#if show.playSource}
 		<div id="settings-section-games-default-mode" class="scroll-mt-32 space-y-2">
 			<Label>Default play source</Label>
 			<p class="text-xs text-muted-foreground">
@@ -195,7 +307,7 @@
 					{OPTIONS.find((o) => o.value === defaultPlayMode)?.label ?? 'Choose…'}
 				</Select.Trigger>
 				<Select.Content>
-					{#each OPTIONS as opt}
+					{#each OPTIONS as opt (opt.value)}
 						<Select.Item value={opt.value}>{opt.label}</Select.Item>
 					{/each}
 				</Select.Content>
@@ -206,100 +318,170 @@
 		</div>
 	{/if}
 
-	{#if sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game')}
-		<div id="settings-section-games-pause-shortcut" class="scroll-mt-32 space-y-3">
+	{#if showPlayer}
+		<section
+			id="settings-section-games-player"
+			class="scroll-mt-32 space-y-5 rounded-lg border p-4"
+			aria-labelledby="settings-games-player-title"
+		>
 			<div>
-				<p class="text-sm font-medium">Pause / resume shortcut</p>
+				<h3 id="settings-games-player-title" class="text-sm font-semibold">While playing</h3>
 				<p class="text-xs text-muted-foreground">
-					While a game is playing, press this key to pause or resume (like the console key in
-					Xonotic). Default is the backtick <span class="font-mono">`</span>. Ignored while typing
-					in a field.
+					Fullscreen, the in-game menu, and keys that act on the game.
 				</p>
 			</div>
-			<div
-				class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2 text-sm {recordingPauseShortcut
-					? 'border-primary bg-muted/40'
-					: ''}"
-			>
-				<span class="font-mono text-xs tabular-nums">
-					{recordingPauseShortcut
-						? 'Press keys… (or tap Cancel)'
-						: formatGamePauseShortcutLabel(pauseShortcut)}
-				</span>
-			</div>
-			<div class="flex flex-wrap gap-2">
-				<Button
-					type="button"
-					variant={recordingPauseShortcut ? 'secondary' : 'outline'}
-					size="sm"
-					disabled={busy}
-					aria-pressed={recordingPauseShortcut}
-					onclick={() => {
-						recordingPauseShortcut = !recordingPauseShortcut;
-					}}
+
+			{#if show.fullscreen}
+				<div
+					id="settings-section-games-auto-fullscreen"
+					class="flex scroll-mt-32 items-start justify-between gap-4"
 				>
-					{recordingPauseShortcut ? 'Cancel' : 'Record shortcut'}
-				</Button>
-				<Button
-					type="button"
-					variant="ghost"
-					size="sm"
-					disabled={busy}
-					onclick={resetPauseShortcut}
-				>
-					Reset to `
-				</Button>
-			</div>
-		</div>
+					<div class="min-w-0 space-y-1">
+						<Label for="games-auto-fullscreen" class="text-sm font-medium"
+							>Open games in fullscreen</Label
+						>
+						<p class="text-xs text-muted-foreground">
+							Games fill the screen as soon as they start. Use the in-game menu to leave fullscreen
+							or go back to the games.
+						</p>
+					</div>
+					<Switch
+						id="games-auto-fullscreen"
+						checked={player.autoFullscreen}
+						disabled={busy}
+						onCheckedChange={(v) => savePlayer({ autoFullscreen: Boolean(v) })}
+					/>
+				</div>
+			{/if}
+
+			{#if show.menu}
+				<div id="settings-section-games-menu" class="scroll-mt-32 space-y-3">
+					<div>
+						<p class="text-sm font-medium">In-game menu</p>
+						<p class="text-xs text-muted-foreground">
+							The only thing over a fullscreen game: Pause, Restart, Console, Controls, Exit
+							fullscreen and Back to games.
+						</p>
+					</div>
+					<div class="space-y-2">
+						<div class="flex items-center justify-between gap-3">
+							<Label class="text-sm font-normal text-muted-foreground">Show it with</Label>
+							<Select.Root
+								type="single"
+								value={player.menuAccess}
+								onValueChange={(v) => v && savePlayer({ menuAccess: v as InGameMenuAccess })}
+								disabled={busy}
+							>
+								<Select.Trigger class="w-44 shrink-0" aria-label="Show in-game menu with">
+									{ACCESS_OPTIONS.find((o) => o.value === player.menuAccess)?.label}
+								</Select.Trigger>
+								<Select.Content>
+									{#each ACCESS_OPTIONS as opt (opt.value)}
+										<Select.Item value={opt.value}>{opt.label}</Select.Item>
+									{/each}
+								</Select.Content>
+							</Select.Root>
+						</div>
+						<p class="text-xs text-muted-foreground">
+							{ACCESS_OPTIONS.find((o) => o.value === player.menuAccess)?.hint ?? ''}
+						</p>
+						<div class="flex items-center justify-between gap-3">
+							<Label class="text-sm font-normal text-muted-foreground">Button size</Label>
+							<Select.Root
+								type="single"
+								value={player.menuButtonSize}
+								onValueChange={(v) =>
+									v && savePlayer({ menuButtonSize: v as InGameMenuButtonSize })}
+								disabled={busy}
+							>
+								<Select.Trigger class="w-44 shrink-0" aria-label="Menu button size">
+									{player.menuButtonSize === 'auto'
+										? 'Auto'
+										: SIZE_OPTIONS.find((o) => o.value === player.menuButtonSize)?.label}
+								</Select.Trigger>
+								<Select.Content>
+									{#each SIZE_OPTIONS as opt (opt.value)}
+										<Select.Item value={opt.value}>{opt.label}</Select.Item>
+									{/each}
+								</Select.Content>
+							</Select.Root>
+						</div>
+						<div class="flex items-center justify-between gap-3">
+							<Label class="text-sm font-normal text-muted-foreground">Corner</Label>
+							<Select.Root
+								type="single"
+								value={player.menuCorner}
+								onValueChange={(v) => v && savePlayer({ menuCorner: v as InGameMenuCorner })}
+								disabled={busy}
+							>
+								<Select.Trigger class="w-44 shrink-0" aria-label="Menu corner">
+									{CORNER_OPTIONS.find((o) => o.value === player.menuCorner)?.label}
+								</Select.Trigger>
+								<Select.Content>
+									{#each CORNER_OPTIONS as opt (opt.value)}
+										<Select.Item value={opt.value}>{opt.label}</Select.Item>
+									{/each}
+								</Select.Content>
+							</Select.Root>
+						</div>
+					</div>
+				</div>
+			{/if}
+
+			{#if show.pause}
+				<div id="settings-section-games-pause-shortcut" class="scroll-mt-32 space-y-2">
+					<div>
+						<p class="text-sm font-medium">Pause / resume shortcut</p>
+						<p class="text-xs text-muted-foreground">
+							Pauses or resumes the game (like the console key in Xonotic). Default is the backtick
+							<span class="font-mono">`</span>. Ignored while typing in a field.
+						</p>
+					</div>
+					{@render shortcutRecorder({
+						label: formatGamePauseShortcutLabel(pauseShortcut),
+						recording: recordingPauseShortcut,
+						onToggleRecording: () => (recordingPauseShortcut = !recordingPauseShortcut),
+						resetLabel: 'Reset to `',
+						onReset: resetPauseShortcut
+					})}
+				</div>
+			{/if}
+
+			{#if show.fullscreenKey}
+				<div id="settings-section-games-fullscreen-shortcut" class="scroll-mt-32 space-y-2">
+					<div class="flex items-start justify-between gap-4">
+						<div class="min-w-0 space-y-1">
+							<Label for="games-fullscreen-shortcut" class="text-sm font-medium"
+								>Fullscreen shortcut</Label
+							>
+							<p class="text-xs text-muted-foreground">
+								Off by default — plenty of games use <span class="font-mono">F</span> themselves, and
+								the in-game menu enters and leaves fullscreen. When on, the key toggles fullscreen except
+								while typing in a field.
+							</p>
+						</div>
+						<Switch
+							id="games-fullscreen-shortcut"
+							checked={player.fullscreenShortcutEnabled}
+							disabled={busy}
+							onCheckedChange={(v) => onFullscreenShortcutToggle(Boolean(v))}
+						/>
+					</div>
+					{#if player.fullscreenShortcutEnabled}
+						{@render shortcutRecorder({
+							label: formatGameFullscreenShortcutLabel(fullscreenShortcut),
+							recording: recordingFullscreenShortcut,
+							onToggleRecording: () => (recordingFullscreenShortcut = !recordingFullscreenShortcut),
+							resetLabel: 'Reset to F',
+							onReset: resetFullscreenShortcut
+						})}
+					{/if}
+				</div>
+			{/if}
+		</section>
 	{/if}
 
-	{#if sectionMatches(searchQuery, 'fullscreen full screen shortcut hotkey keyboard game f')}
-		<div id="settings-section-games-fullscreen-shortcut" class="scroll-mt-32 space-y-3">
-			<div>
-				<p class="text-sm font-medium">Fullscreen shortcut</p>
-				<p class="text-xs text-muted-foreground">
-					While a game is open, press this key to enter or leave fullscreen. Default is
-					<span class="font-mono">F</span>. Ignored while typing in a field.
-				</p>
-			</div>
-			<div
-				class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2 text-sm {recordingFullscreenShortcut
-					? 'border-primary bg-muted/40'
-					: ''}"
-			>
-				<span class="font-mono text-xs tabular-nums">
-					{recordingFullscreenShortcut
-						? 'Press keys… (or tap Cancel)'
-						: formatGameFullscreenShortcutLabel(fullscreenShortcut)}
-				</span>
-			</div>
-			<div class="flex flex-wrap gap-2">
-				<Button
-					type="button"
-					variant={recordingFullscreenShortcut ? 'secondary' : 'outline'}
-					size="sm"
-					disabled={busy}
-					aria-pressed={recordingFullscreenShortcut}
-					onclick={() => {
-						recordingFullscreenShortcut = !recordingFullscreenShortcut;
-					}}
-				>
-					{recordingFullscreenShortcut ? 'Cancel' : 'Record shortcut'}
-				</Button>
-				<Button
-					type="button"
-					variant="ghost"
-					size="sm"
-					disabled={busy}
-					onclick={resetFullscreenShortcut}
-				>
-					Reset to F
-				</Button>
-			</div>
-		</div>
-	{/if}
-
-	{#if trayLife && sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
+	{#if trayLife && show.tray}
 		<div
 			id="settings-section-games-close-to-tray"
 			class="flex scroll-mt-32 items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
@@ -332,7 +514,7 @@
 		</div>
 	{/if}
 
-	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'game play online offline default version unity download') && !sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game') && !sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
+	{#if searchQuery.trim() && !show.playSource && !showPlayer && !(trayLife && show.tray)}
 		<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
 	{/if}
 </div>

@@ -113,7 +113,7 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		title: 'Games',
 		panel: 'games',
 		sectionKeywords:
-			'games play online offline default version unity download bundled pause resume shortcut tray quit close',
+			'games play online offline default version unity download bundled pause resume shortcut tray quit close fullscreen in-game menu while playing',
 		subsections: [
 			{
 				id: 'sub-games-default-mode',
@@ -122,10 +122,29 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				keywords: 'default online offline play source version bundled download'
 			},
 			{
+				id: 'sub-games-auto-fullscreen',
+				label: 'Open games in fullscreen',
+				scrollTargetId: 'settings-section-games-auto-fullscreen',
+				keywords: 'open games fullscreen full screen auto automatic immersive start while playing'
+			},
+			{
+				id: 'sub-games-menu',
+				label: 'In-game menu',
+				scrollTargetId: 'settings-section-games-menu',
+				keywords:
+					'in-game menu button hover edge corner position size touch overlay exit fullscreen back'
+			},
+			{
 				id: 'sub-games-pause-shortcut',
 				label: 'Pause / resume shortcut',
 				scrollTargetId: 'settings-section-games-pause-shortcut',
 				keywords: 'pause resume shortcut backtick hotkey keyboard game xonotic'
+			},
+			{
+				id: 'sub-games-fullscreen-shortcut',
+				label: 'Fullscreen shortcut',
+				scrollTargetId: 'settings-section-games-fullscreen-shortcut',
+				keywords: 'fullscreen full screen shortcut hotkey keyboard f key toggle'
 			},
 			{
 				id: 'sub-games-close-to-tray',
