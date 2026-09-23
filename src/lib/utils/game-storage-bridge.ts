@@ -68,19 +68,37 @@ export function preloadGameBrowserProfile(gameId: string): Promise<GameBrowserPr
 
 /** One write at a time per game, so two quick pushes cannot interleave load → merge → save. */
 const saveChains = new Map<string, Promise<void>>();
+/**
+ * Pushes that arrived while a write was running, folded into one. A game that writes every
+ * frame pushes every 800 ms; against a store slower than that (a busy puller), chaining one
+ * whole-profile write per push queued copies without bound. Folding is exact: merging is
+ * per origin bucket and per database, newest wins, so merge(merge(a, b), c) is what writing
+ * a, b and c in turn would have stored.
+ */
+const pendingSaves = new Map<string, { incoming: GameBrowserProfile; done: Promise<void> }>();
 
 function queueSave(gameId: string, incoming: GameBrowserProfile): Promise<void> {
+	const waiting = pendingSaves.get(gameId);
+	if (waiting) {
+		waiting.incoming = mergeGameBrowserProfiles(waiting.incoming, incoming);
+		return waiting.done;
+	}
 	const prev = saveChains.get(gameId) ?? Promise.resolve();
+	const entry = { incoming, done: Promise.resolve() };
+	pendingSaves.set(gameId, entry);
 	const next = prev
 		.catch(() => undefined)
 		.then(async () => {
+			/* From here on a new push starts the next write instead of joining this one. */
+			pendingSaves.delete(gameId);
 			const bag = profileBag();
 			const existing =
 				bag && bag[gameId] !== undefined ? bag[gameId] : await loadGameBrowserProfile(gameId);
-			const merged = mergeGameBrowserProfiles(existing, incoming);
+			const merged = mergeGameBrowserProfiles(existing, entry.incoming);
 			rememberProfile(gameId, merged);
 			await saveGameBrowserProfile(gameId, merged);
 		});
+	entry.done = next;
 	saveChains.set(gameId, next);
 	return next;
 }
