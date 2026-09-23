@@ -2266,7 +2266,8 @@
 				return;
 			case TYPE:
 				if (data.gameId !== gameId || data.action !== 'hydrate') return;
-				if (host || (profileSettled && syncProfile !== undefined)) return;
+				/* One answer per boot: retried pulls each get one, and only the first counts. */
+				if (host || profileSettled) return;
 				onProfile(data.data || null, true);
 				return;
 			default:
@@ -2278,15 +2279,27 @@
 	});
 
 	if (syncProfile === undefined) {
-		try {
-			appWindow().postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');
-		} catch (e) {
-			profileSettled = true;
-		}
-		/* Parent never answered (older shell): stop holding writes back. */
-		setTimeout(function () {
-			if (!profileSettled) onProfile(null, false);
-		}, 4000);
+		/*
+		 * A slow answer is not "no saves". Settling on a timeout (it used to, after 4s)
+		 * let the empty boot's defaults be pushed and merged over the real profile
+		 * whenever the store took longer than that to read — a busy or cold puller — and
+		 * the real saves, arriving next, were then older than the defaults and ignored.
+		 * Ask again instead, and keep holding pushes until an answer comes; meanwhile
+		 * writes still reach this origin's cache, which the next boot starts from.
+		 */
+		var pullDelay = 4000;
+		var sendPull = function () {
+			if (profileSettled) return;
+			try {
+				appWindow().postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');
+			} catch (e) {
+				/* retried below */
+			}
+			if (pullDelay > 64000) return;
+			setTimeout(sendPull, pullDelay);
+			pullDelay *= 2;
+		};
+		sendPull();
 	}
 	nativeAdd.call(window, 'pagehide', flush);
 	nativeAdd.call(window, 'beforeunload', flush);
