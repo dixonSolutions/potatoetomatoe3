@@ -25,7 +25,9 @@ use std::net::TcpListener;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Mutex, OnceLock};
-use tauri::{Emitter, Manager};
+#[cfg(target_os = "linux")]
+use tauri::Emitter;
+use tauri::Manager;
 use tauri::path::BaseDirectory;
 
 static PULLER_PORT: OnceLock<u16> = OnceLock::new();
@@ -612,6 +614,7 @@ fn finish_tray_setup(tray_ok: bool) {
 }
 
 /// Payload is `true` for dark. Mirrors the portal's `SettingChanged` to the frontend.
+#[cfg(target_os = "linux")]
 const SYSTEM_COLOR_SCHEME_EVENT: &str = "system-color-scheme";
 
 /// The desktop's current colour scheme, for the page to read at startup.
@@ -704,6 +707,7 @@ pub fn run() {
   let desktop_scheme: Result<bool, String> = Err(String::new());
   // `setup` needs its own copy: the context is still built inline at `.run()` below, where
   // Tauri expects it.
+  #[cfg(target_os = "linux")]
   let scheme_for_setup = desktop_scheme.clone();
 
   let mut builder = tauri::Builder::default().plugin(tauri_plugin_shell::init());
@@ -872,6 +876,9 @@ pub fn run() {
       Ok(())
     })
     .on_window_event(|window, event| {
+      // Close-to-tray is desktop-only; mobile has no window close to intercept.
+      #[cfg(mobile)]
+      let _ = (window, event);
       #[cfg(desktop)]
       if let tauri::WindowEvent::CloseRequested { api, .. } = event {
         if CLOSE_TO_TRAY.load(Ordering::SeqCst) {
