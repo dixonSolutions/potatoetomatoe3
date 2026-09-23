@@ -277,7 +277,28 @@ const browser = await chromium.launch({
 	/* Software WebGL, so engines that need a GL context boot headless too. */
 	args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist']
 });
-const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+
+/*
+ * Games open fullscreen by default now; these checks drive the windowed toolbar, so the
+ * desktop contexts turn that off (the phone context keeps it and uses the in-game menu).
+ */
+async function windowedPlayer(ctx) {
+	await ctx.addInitScript(() => {
+		const key = 'potato-tomato-site-settings-v1';
+		let saved = {};
+		try {
+			saved = JSON.parse(localStorage.getItem(key) || '{}') || {};
+		} catch {
+			saved = {};
+		}
+		saved.gamePlayer = { ...(saved.gamePlayer || {}), autoFullscreen: false };
+		localStorage.setItem(key, JSON.stringify(saved));
+	});
+	return ctx;
+}
+const context = await windowedPlayer(
+	await browser.newContext({ viewport: { width: 1280, height: 900 } })
+);
 const page = await context.newPage();
 page.on('pageerror', (e) => console.log('[pageerror]', e.message));
 
@@ -299,14 +320,13 @@ async function gameFrame() {
 	throw new Error('game frame not found');
 }
 
+/* Games start by themselves once the play URL resolves: just wait for the frame. */
 async function play() {
-	const btn = page.getByRole('button', { name: /play/i }).first();
-	await btn.click();
 	return gameFrame();
 }
 
 async function relaunch() {
-	await page.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
+	await page.locator('[data-testid="relaunch-game"]').click();
 	await sleep(300);
 	return play();
 }
@@ -421,8 +441,6 @@ await page.evaluate(async (game) => {
 	for (const k of Object.keys(sessionStorage))
 		if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
 }, GAME);
-await page.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-await sleep(300);
 await page.evaluate(() => {
 	/* Hide the bag from the frame so it must use postMessage. */
 	const bag = window.__ptGameProfiles;
@@ -438,7 +456,7 @@ await page.evaluate(() => {
 			value: bag
 		});
 });
-await page.getByRole('button', { name: /play/i }).first().click();
+await page.locator('[data-testid="relaunch-game"]').click();
 await sleep(3500);
 frame = await gameFrame();
 await frame.waitForFunction(() => window.idbState, null, { timeout: 5000 });
@@ -656,13 +674,14 @@ for (const engine of ENGINES) {
 		console.log(`SKIP  ${engine.name}: engine build not available (offline?)`);
 		continue;
 	}
-	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+	const ctx = await windowedPlayer(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
 	const ep = await ctx.newPage();
 	const errors = [];
 	ep.on('pageerror', (e) => errors.push(e.message));
 	await ep.goto(`${BASE}/games/${engine.id}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 	await ep.getByRole('heading', { name: `${engine.name} Lab` }).waitFor({ timeout: 180000 });
-	await ep.getByRole('button', { name: /play/i }).first().click();
 	await ep.locator('[data-testid="touch-console-toggle"]').click();
 	await ep.locator('[data-testid="touch-joystick"]').waitFor({ timeout: 15000 });
 	/* Engines register keys during boot; the bridge reports within a second of that. */
@@ -742,22 +761,21 @@ const mobile = await browser.newContext({
 const mp = await mobile.newPage();
 await mp.goto(`${BASE}/games/${GAME}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 await mp.getByRole('heading', { name: 'Console Lab' }).waitFor();
-await mp.getByRole('button', { name: /play/i }).first().click();
-await sleep(1500);
-const toggle = mp.locator('[data-testid="touch-console-toggle"]');
-if ((await toggle.getAttribute('aria-pressed')) !== 'true') await toggle.click();
-await mp
-	.getByRole('button', { name: 'Fullscreen' })
-	.click()
-	.catch(() => {});
-await sleep(1200);
+await sleep(2500);
+/* On a phone the game opens fullscreen; the in-game menu is the only chrome over it. */
+const menuButton = mp.locator('[data-testid="in-game-menu-button"]');
+await menuButton.waitFor({ timeout: 8000 });
+if ((await mp.locator('[data-testid="touch-joystick"]').count()) === 0) {
+	await menuButton.tap();
+	await mp.locator('[data-testid="in-game-menu-console"]').tap();
+	await sleep(1200);
+}
 await shot(mp, '11-mobile-console.png');
-const fsControls = mp.locator('[data-testid="controls-menu-toggle-fs"]');
-await fsControls.waitFor({ timeout: 8000 });
-await fsControls.click();
+await menuButton.tap();
+await mp.locator('[data-testid="in-game-menu-controls"]').tap();
 await sleep(800);
 check(
-	'Controls menu opens from the fullscreen toolbar on a phone',
+	'Controls menu opens from the in-game menu on a phone',
 	(await mp.locator('[data-testid="controls-menu"]').count()) === 1
 );
 await shot(mp, '12-mobile-controls.png');
