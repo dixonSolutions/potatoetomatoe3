@@ -227,44 +227,74 @@ If the puller is not running, the iframe shows an error page telling you to star
 | Hold on a control      | Just a held key, for as long as the game needs (charge, sprint, crouch). Holding never turns a control into a drag handle — that used to drop the key after 2 s mid-game.                                     |
 | Move (✥) on panel      | Layout-edit mode. Every control shows a dashed outline; dragging one moves it and sends no key. ↺ resets the layout, **Done** leaves the mode.                                                                |
 | Drag the panel grip    | Moves the whole compact console at once. Starts after a few pixels of travel — the grip does nothing else, so there is no long press to discover.                                                             |
-| Keyboard (⌨) on panel | Opens the on-screen keyboard — see below.                                                                                                                                                                     |
+| Controls (⌨) on panel | Opens the Controls menu — see below.                                                                                                                                                                          |
 | Pause / privacy lock   | Overlay hides and all keys are released.                                                                                                                                                                      |
 
 ### The game's own menu
 
 Escape opens almost every game's own pause / options menu. It is the **Esc** face
-button on the console, and a key on the on-screen keyboard. A separate "Game menu"
+button on the console, and a key in the Controls menu. A separate "Game menu"
 toolbar button used to send the same key from the page chrome; it duplicated the
 console and was removed.
 
 This is the game's Escape, not the app's: it does not exit the game, leave
 fullscreen, or close the page.
 
-### On-screen keyboard and live key detection
+### Controls menu, live key detection and the dynamic console
 
-The ⌨ button on the console panel opens a glass keyboard over the top of the game with
-every key the console can send. Keys are real holds (press = keydown, release = keyup),
-and several can be held at once.
+**Controls** sits in the player toolbar next to Console (and in the fullscreen bar), with
+a ⌨ shortcut on the console panel. It opens a glass menu over the top of the game — not
+a keyboard parked on it:
 
-It is lit by **live key detection** — what the running game actually reads:
+- **Controls detected** — what this game reads and what each key does ("↑ ↓ ← → Move",
+  "J Jump"), five rows high and scrolling beyond that. Keys that do the same thing share a
+  row. Every key cap is a real hold (press = keydown, release = keyup).
+- **All keys** — the full board, for accessibility and for anything detection missed.
+- **Search** filters both, by key or by what it does ("jump").
 
-| Evidence | Colour | Where it comes from                                                                                                |
-| -------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| In use   | green  | The game handled a press of it (called `preventDefault`) — from a real keyboard or the console. Grows as you play. |
-| Listed   | blue   | Named in the game's own controls text (portal `"controls": {"text": …}` blurbs).                                   |
-| Likely   | amber  | Found in the game's key-handler or inline-script source.                                                           |
+Evidence behind each key:
 
-**Detected** lists only the lit keys, strongest first, so the keys a game needs are one
-tap away; **All keys** is the full board for anything detection missed. The same evidence
-trims the console itself: with "in use" or "listed" evidence, face buttons whose keys the
-game never mentions are hidden (the "−N unused" badge); with only "likely" evidence they
-are dimmed.
+| Evidence | Colour | Where it comes from                                                                                              |
+| -------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
+| In use   | green  | The game handled a press of it (`preventDefault`) — real keyboard or console. Grows as you play.                 |
+| Listed   | blue   | Named in the game's controls text: the portal blurb, an in-page "How to play" panel, or the catalog description. |
+| Likely   | amber  | Found in the game's key-handler or inline-script source.                                                         |
+
+**Purposes** come from reading that controls text ([`controls-text.ts`](../src/lib/utils/controls-text.ts)):
+"Arrow keys = move", "Move: WASD", "Press J to jump and X to shoot", "Jump with Space",
+"W - Forward / S - Backward". It is deliberately conservative — a named key decides which
+console buttons are hidden, so inventing one costs the player a control. Run over the
+13.6k catalog descriptions it reads controls from ~460 of them, and the false positives
+that turned up there (numbered lists, `watch?v=` links, clock times, emoticons, "Round 2 –
+Sonic", "Return to the castle", accented words split into letters) are all covered by
+tests in [`controls-text.spec.ts`](../src/lib/utils/controls-text.spec.ts).
+
+**What kind of key it is** ([`key-profile.ts`](../src/lib/utils/key-profile.ts) `keyKind`):
+
+- **Game control** — press it on the console.
+- **Shortcut** — the game only ever handled it with Ctrl / Alt / Meta held (Ctrl+S). Listed,
+  never put on the pad: the console cannot send the combination, and a bare S is not it.
+- **Typing** — the player typed into a text box in the game (the bridge sees keys land on
+  an editable element, or one take focus), or a handler compares against most of the
+  alphabet. Letters with no other evidence are text entry: the menu offers **Type**, which
+  puts the caret in the game's text box so the device keyboard opens, instead of growing a
+  button per letter. A letter the controls name, or that was seen driving play, stays a
+  game control even when the game also has a text box.
+
+**The dynamic console.** The same evidence reshapes the pad itself:
+
+- With "listed" evidence, face buttons whose keys the game never mentions are hidden
+  (the "−N unused" badge); with only "likely" or "in use" evidence they are dimmed — one
+  press of Space says Space matters, not that Z does not.
+- Game controls the pad lacks (listed or in use, not shortcuts or typing) are **added**
+  as small buttons just above the panel, captioned with what they do — at most four.
+- Buttons whose key has a known purpose carry it as a caption ("Space · Dash").
 
 On Android the detector is [`native_touch_bridge.js`](../src-tauri/gen/android/app/src/main/res/raw/native_touch_bridge.js);
 on the web and desktop it is the same logic inside
-[`game-storage-bridge.child.js`](../static/game-storage-bridge.child.js), which also adds
-the live "in use" signal. Both post `potato-tomato-key-profile`, merged in
-[`key-profile.ts`](../src/lib/utils/key-profile.ts).
+[`game-storage-bridge.child.js`](../static/game-storage-bridge.child.js), which also
+reports live use, shortcuts, text entry and the raw controls text. Both post
+`potato-tomato-key-profile`, merged in [`key-profile.ts`](../src/lib/utils/key-profile.ts).
 
 ### Latency
 
@@ -350,7 +380,8 @@ layout, opacity, or scale does not write storage until Save is selected.
 |------|------|
 | `src/lib/utils/touch-console.ts` | Persistence + defaults |
 | `src/lib/utils/touch-input-dispatch.ts` | Injectability + `KeyDispatcher` |
-| `src/lib/utils/key-profile.ts` | Live key detection: merge reports, evidence per key, what to hide |
+| `src/lib/utils/key-profile.ts` | Live key detection: merge reports, evidence and kind per key, what to hide and add |
+| `src/lib/utils/controls-text.ts` | Read a game's controls text: which keys, and what each does |
 | `static/game-storage-bridge.child.js` | In-frame bridge: key detection, console input, virtual storage |
 | `src/lib/components/game-player/touch-console/` | Overlay UI |
 | `src/lib/components/settings/sections/touch-controls/` | Settings panel |

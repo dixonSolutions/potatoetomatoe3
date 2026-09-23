@@ -8,6 +8,8 @@
 	 */
 	let {
 		label = 'A',
+		/** What the key does in this game ("Jump"), shown small under the label. */
+		caption = '',
 		size = 52,
 		/** Wider than `size` for pill controls (e.g. Space). Defaults to `size`. */
 		width = undefined as number | undefined,
@@ -23,6 +25,7 @@
 		onHoldEditEnd
 	}: {
 		label?: string;
+		caption?: string;
 		size?: number;
 		width?: number;
 		opacity?: number;
@@ -132,6 +135,7 @@
 	class:pt-touch-btn--pill={isPill}
 	style={`width:${boxW}px;height:${size}px;opacity:${opacity};--pt-accent-border:${accentBorder};--pt-accent-fill:${accentFill};font-size:${Math.max(11, size * (isPill ? 0.28 : 0.32))}px;`}
 	aria-label={`Action ${label}`}
+	title={caption || undefined}
 	{disabled}
 	onpointerdown={onPointerDown}
 	onpointermove={onPointerMove}
@@ -139,6 +143,9 @@
 	onpointercancel={onPointerUp}
 >
 	<span class="pt-touch-btn__label">{label}</span>
+	{#if caption}
+		<span class="pt-touch-btn__caption" style={`max-width:${boxW - 8}px;`}>{caption}</span>
+	{/if}
 </button>
 
 <style>
@@ -157,6 +164,7 @@
 		backdrop-filter: blur(14px) saturate(150%);
 		display: grid;
 		place-items: center;
+		align-content: center;
 		transition:
 			transform 80ms ease,
 			box-shadow 80ms ease;
@@ -180,6 +188,19 @@
 	.pt-touch-btn--editing {
 		outline: 2px dashed rgb(255 85 102 / 0.9);
 		outline-offset: 3px;
+	}
+	.pt-touch-btn__caption {
+		display: block;
+		margin-top: 1px;
+		overflow: hidden;
+		font-size: 8px;
+		font-weight: 600;
+		line-height: 1.1;
+		letter-spacing: 0.01em;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		opacity: 0.85;
+		text-shadow: 0 1px 2px rgb(0 0 0 / 0.5);
 	}
 	.pt-touch-btn__label {
 		text-shadow: 0 1px 2px rgb(0 0 0 / 0.45);

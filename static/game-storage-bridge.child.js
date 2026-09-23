@@ -181,8 +181,36 @@
 			sourceBytes: 0,
 			declared: {},
 			inferred: {},
-			used: {}
+			used: {},
+			/* Keys the game handled only with Ctrl / Alt / Meta held: shortcuts, not play. */
+			shortcuts: {},
+			/* The player typed into a text field — letters there are typing. */
+			textEntry: false,
+			/* The game's own controls text, forwarded for the app to read purposes from. */
+			controlsText: ''
 		};
+
+		function isEditable(el) {
+			if (!el || el.nodeType !== 1) return false;
+			if (el.isContentEditable) return true;
+			var tag = el.tagName;
+			if (tag === 'TEXTAREA') return true;
+			if (tag !== 'INPUT') return false;
+			var type = (el.getAttribute('type') || 'text').toLowerCase();
+			return /^(text|search|email|password|number|tel|url)$/.test(type);
+		}
+
+		var CONTROLS_HINT = /\b(arrow|wasd|space\s*bar|spacebar|press|keys?|controls?)\b/i;
+		function noteControlsText(text) {
+			if (!text) return;
+			var t = String(text)
+				.replace(/[ \t\f\v\r]+/g, ' ')
+				.replace(/\n\s*/g, '\n')
+				.trim();
+			if (!t || !CONTROLS_HINT.test(t) || profile.controlsText.indexOf(t.slice(0, 80)) !== -1) return;
+			var next = (profile.controlsText ? profile.controlsText + '\n' : '') + t.slice(0, 1200);
+			profile.controlsText = next.slice(0, 3000);
+		}
 		function noteHandlerSource(fn) {
 			if (profile.sources.length >= 60 || profile.sourceBytes >= 400000) return;
 			var src = '';
@@ -270,8 +298,37 @@
 						.replace(/\\u003c[^\\]*?\\u003e/g, ' ')
 						.replace(/<[^>]*>/g, ' ');
 					scanProse(prose, profile.declared);
+					/* Keep the markup's line breaks: the app reads "heading / list item" structure. */
+					noteControlsText(
+						m[1]
+							.replace(/\\n/g, '\n')
+							.replace(/\\u003c/gi, '<')
+							.replace(/\\u003e/gi, '>')
+							.replace(/<\s*(br|\/p|\/li|\/h\d|\/div)\b[^>]*>/gi, '\n')
+							.replace(/<[^>]*>/g, ' ')
+					);
 				}
 				scanCodes(text, profile.inferred);
+			}
+			/*
+			 * Controls panels shipped in the page itself ("How to play", "#controls") and the
+			 * page description. Only text that talks about keys is kept; the app decides what
+			 * each key does.
+			 */
+			try {
+				var panels = document.querySelectorAll(
+					'[id*="control" i], [class*="control" i], [id*="instruction" i], [class*="instruction" i], [id*="how-to" i], [class*="how-to" i], [id*="howto" i], [class*="howto" i]'
+				);
+				for (var p = 0; p < panels.length && p < 12; p++) {
+					var el = panels[p];
+					if (el.tagName === 'VIDEO' || el.tagName === 'AUDIO') continue;
+					var txt = el.innerText || el.textContent || '';
+					if (txt.length > 0 && txt.length < 1500) noteControlsText(txt);
+				}
+				var meta = document.querySelector('meta[name="description"], meta[property="og:description"]');
+				if (meta) noteControlsText(meta.getAttribute('content'));
+			} catch (e) {
+				/* detection must never break the page */
 			}
 		}
 
@@ -312,7 +369,10 @@
 				listenerCount: profile.listenerCount,
 				declared: list(profile.declared),
 				inferred: list(profile.inferred),
-				used: list(profile.used)
+				used: list(profile.used),
+				shortcuts: list(profile.shortcuts),
+				textEntry: profile.textEntry,
+				controlsText: profile.controlsText
 			};
 			var fp =
 				payload.listens +
@@ -321,7 +381,13 @@
 				'|' +
 				payload.inferred.join(',') +
 				'|' +
-				payload.used.join(',');
+				payload.used.join(',') +
+				'|' +
+				payload.shortcuts.join(',') +
+				'|' +
+				payload.textEntry +
+				'|' +
+				payload.controlsText.length;
 			if (fp === lastFingerprint) return;
 			lastFingerprint = fp;
 			reportsSent++;
@@ -345,12 +411,37 @@
 			'keydown',
 			function (ev) {
 				var code = ev && ev.code;
-				if (!code || !EMITTABLE[code] || profile.used[code]) return;
+				if (!code || !EMITTABLE[code]) return;
+				/* Typing into a text box is text entry, not a control the game binds. */
+				if (isEditable(ev.target)) {
+					if (!profile.textEntry) {
+						profile.textEntry = true;
+						scheduleReport();
+					}
+					return;
+				}
+				var modified = ev.ctrlKey || ev.metaKey || ev.altKey;
+				var bag = modified ? profile.shortcuts : profile.used;
+				if (bag[code]) return;
 				setTimeout(function () {
-					if (!ev.defaultPrevented || profile.used[code]) return;
-					profile.used[code] = 1;
+					if (!ev.defaultPrevented || bag[code]) return;
+					bag[code] = 1;
 					scheduleReport();
 				}, 0);
+			},
+			true
+		);
+
+		/* A text box the player focuses means some keys are for typing. */
+		nativeAdd.call(
+			document,
+			'focusin',
+			function (ev) {
+				if (profile.textEntry || !isEditable(ev.target)) return;
+				var el = ev.target;
+				if (!el.offsetWidth && !el.offsetHeight) return;
+				profile.textEntry = true;
+				scheduleReport();
 			},
 			true
 		);
@@ -1629,6 +1720,28 @@
 		} catch (e) {}
 	}
 
+	/**
+	 * Put the caret in the game's text box so the device keyboard comes up — typing a name
+	 * or a code is the device keyboard's job, not a grid of console buttons.
+	 */
+	function focusTextField() {
+		try {
+			var fields = document.querySelectorAll(
+				'input:not([type]), input[type="text"], input[type="search"], input[type="email"], input[type="number"], input[type="tel"], input[type="url"], input[type="password"], textarea, [contenteditable="true"]'
+			);
+			for (var i = 0; i < fields.length; i++) {
+				var el = fields[i];
+				if (el.disabled || (!el.offsetWidth && !el.offsetHeight)) continue;
+				el.focus({ preventScroll: false });
+				return true;
+			}
+		} catch (e) {
+			/* ignore */
+		}
+		return false;
+	}
+	window.__ptFocusTextField = focusTextField;
+
 	/* Focus the game once per press burst, not on every key — focus() forces layout. */
 	function focusGameOnce() {
 		try {
@@ -1713,6 +1826,9 @@
 				return;
 			case 'potato-tomato-game-pause':
 				setGamePaused(!!data.paused);
+				return;
+			case 'potato-tomato-focus-text':
+				focusTextField();
 				return;
 			case TYPE:
 				if (data.gameId !== gameId || data.action !== 'hydrate') return;

@@ -39,7 +39,8 @@
 		Pause,
 		Play,
 		Download,
-		Gamepad2
+		Gamepad2,
+		Keyboard
 	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
@@ -131,6 +132,8 @@
 	let pauseShortcutLabel = $state('`');
 	let touchConsoleVisible = $state(false);
 	let touchConsoleAvailable = $state(false);
+	/** Controls menu: detected keys with what they do, plus every key for accessibility. */
+	let controlsMenuOpen = $state(false);
 	/** Frame started but never reported `load` — surfaces the retry hint below the player. */
 	let frameStalled = $state(false);
 	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
@@ -926,6 +929,19 @@
 							<Gamepad2 class="h-4 w-4" />
 							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
 						</button>
+						<Button
+							onclick={() => (controlsMenuOpen = !controlsMenuOpen)}
+							variant={controlsMenuOpen ? 'default' : 'outline'}
+							size="sm"
+							class="w-full sm:w-auto"
+							disabled={!gameSurfaceStarted}
+							aria-pressed={controlsMenuOpen}
+							data-testid="controls-menu-toggle"
+							title="What this game's keys do — detected controls and every key"
+						>
+							<Keyboard class="mr-2 h-4 w-4" />
+							Controls
+						</Button>
 					{/if}
 					<Button
 						onclick={() => void relaunchGameCompletely()}
@@ -1023,6 +1039,19 @@
 							<Gamepad2 class="h-4 w-4" />
 							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
 						</button>
+						<Button
+							variant={controlsMenuOpen ? 'default' : 'secondary'}
+							size="sm"
+							class="shadow-md backdrop-blur-sm"
+							onclick={() => (controlsMenuOpen = !controlsMenuOpen)}
+							disabled={!gameSurfaceStarted}
+							aria-pressed={controlsMenuOpen}
+							data-testid="controls-menu-toggle-fs"
+							aria-label="Controls"
+						>
+							<Keyboard class="mr-2 h-4 w-4" />
+							Controls
+						</Button>
 					{/if}
 					<Button
 						variant="secondary"
@@ -1144,6 +1173,8 @@
 				started={gameSurfaceStarted}
 				visible={touchConsoleVisible}
 				bind:chromeAvailable={touchConsoleAvailable}
+				bind:menuOpen={controlsMenuOpen}
+				controlsHint={gameMetadata.description}
 				topInset={isGameFullscreen ? 48 : 0}
 				onRequestShow={() => {
 					gameSurfaceStarted = true;

@@ -9,7 +9,9 @@
  *   - IndexedDB records keep their types (Uint8Array, Date) through the profile;
  *   - live key detection: declared keys listed, keys the game handles promoted to "in use";
  *   - the console: one keydown per press (no duplicate dispatch), holds never turn into
- *     layout edits, joystick hysteresis, the on-screen keyboard, explicit edit mode;
+ *     layout edits, joystick hysteresis, explicit edit mode;
+ *   - the Controls menu (purposes, search, grouping), console buttons added from detection,
+ *     and shortcut / typing classification;
  *   - the toolbar no longer carries a separate "Game menu" button.
  *
  * It writes a tiny fixture game to static/games/_bridge-lab (gitignored; the leading
@@ -53,6 +55,7 @@ const FIXTURE_HTML = `<!doctype html>
 <style>body{margin:0;background:#123;color:#fff;font:14px sans-serif}canvas{display:block;width:100%;height:60vh;background:#246}</style>
 </head><body>
 <canvas id="c" tabindex="0"></canvas>
+<input id="name" placeholder="Your name" style="font-size:16px">
 <pre id="out"></pre>
 <script>
   var out = document.getElementById('out');
@@ -60,6 +63,7 @@ const FIXTURE_HTML = `<!doctype html>
     out.textContent = 'boot=' + window.bootCount + ' bootCookie=[' + window.bootCookie + '] idb=' + (window.idbState||'-') + '\\nkeys=' + window.keysSeen.join(',') + (extra||'');
   }
   window.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && e.code === 'KeyS') { e.preventDefault(); window.saved = true; return; }
     window.keysSeen.push(e.code);
     if (e.code === 'KeyJ' || e.code.indexOf('Arrow') === 0) e.preventDefault();
     render();
@@ -371,57 +375,128 @@ check(
 	joyKeys.join(',')
 );
 
-/* ---------- keyboard + live detection ---------- */
-await page.locator('[data-testid="console-keyboard-toggle"]').click();
-await page.locator('[data-testid="onscreen-keyboard"]').waitFor();
-await sleep(1500);
-await shot(page, '04-keyboard-detected.png');
-const detectedCodes = await page
-	.locator('[data-testid="onscreen-keyboard-detected"] [data-code]')
-	.evaluateAll((els) => els.map((e) => `${e.dataset.code}:${e.dataset.evidence}`));
+/* ---------- controls menu + live detection ---------- */
 check(
-	'Detected keys include declared J / Space / arrows',
-	['KeyJ', 'Space', 'ArrowUp'].every((c) => detectedCodes.some((d) => d.startsWith(c + ':'))),
-	detectedCodes.join(' ')
+	'No keyboard slab over the game',
+	(await page.locator('[data-testid="onscreen-keyboard"]').count()) === 0
+);
+const extras = page.locator('[data-testid="console-extras"]');
+check(
+	'Console grew a J button from detection, captioned with its purpose',
+	(await extras.getByRole('button', { name: 'Action J' }).count()) === 1 &&
+		(await extras.innerText()).includes('Jump'),
+	await extras.innerText().catch(() => '(none)')
 );
 check(
-	'Arrow left marked in use (seen handled live)',
-	detectedCodes.includes('ArrowLeft:used'),
-	detectedCodes.join(' ')
+	'Space button captioned with what it does',
+	(await page.getByRole('button', { name: 'Action Space' }).innerText()).includes('Dash')
+);
+await shot(page, '04-console-dynamic.png');
+
+await page.locator('[data-testid="controls-menu-toggle"]').click();
+const menu = page.locator('[data-testid="controls-menu"]');
+await menu.waitFor();
+await sleep(600);
+await shot(page, '05-controls-menu.png');
+const rows = await menu
+	.locator('[data-section="gameplay"] li')
+	.evaluateAll((els) => els.map((e) => `${e.dataset.codes}|${e.innerText.replace(/\s+/g, ' ')}`));
+check(
+	'Menu lists J with its purpose',
+	rows.some((r) => r.startsWith('KeyJ|') && r.includes('Jump')),
+	rows.join(' ; ')
+);
+check(
+	'Menu lists arrows as Move and Space as Dash',
+	rows.some((r) => /ArrowUp/.test(r.split('|')[0]) && r.includes('Move')) &&
+		rows.some((r) => r.startsWith('Space|') && r.includes('Dash'))
+);
+check(
+	'ArrowLeft marked in use (seen handled live)',
+	rows.some((r) => /ArrowLeft/.test(r.split('|')[0]) && /in use/i.test(r))
+);
+check(
+	'Keys that do the same thing share one row',
+	rows.some((r) => r.split('|')[0].split(' ').length === 4 && r.includes('Move')),
+	rows.join(' ; ')
+);
+const listBox = await menu.locator('[data-testid="controls-list"]').boundingBox();
+check(
+	'List is compact (about five rows, then scrolls)',
+	listBox.height <= 240,
+	`h=${listBox.height}`
 );
 
+await menu.getByRole('searchbox').fill('jump');
+await sleep(150);
+const found = await menu
+	.locator('[data-section="gameplay"] li')
+	.evaluateAll((els) => els.map((e) => e.dataset.codes));
+check('Search by purpose finds J only', found.join(',') === 'KeyJ', found.join(','));
+await shot(page, '06-controls-search.png');
+
 await frame.evaluate(() => (window.keysSeen.length = 0));
-const jKey = page.locator('[data-testid="onscreen-keyboard-detected"] [data-code="KeyJ"]');
-await jKey.hover();
+const jCap = menu.locator('button[data-code="KeyJ"]');
+await jCap.hover();
 await page.mouse.down();
 await sleep(120);
 await page.mouse.up();
 check(
-	'Keyboard J reaches the game once',
+	'Pressing J in the menu reaches the game once',
 	(await frame.evaluate(() => window.keysSeen.join(','))) === 'KeyJ'
 );
 await sleep(1200);
-const jEvidence = await page
-	.locator('[data-testid="onscreen-keyboard-detected"] [data-code="KeyJ"]')
-	.getAttribute('data-evidence');
-check('J promoted to "in use" after the game handled it', jEvidence === 'used', jEvidence);
-await shot(page, '05-keyboard-live.png');
-
-await page.getByRole('button', { name: 'All keys' }).click();
-await sleep(200);
-await shot(page, '06-keyboard-all.png');
-await frame.evaluate(() => (window.keysSeen.length = 0));
-await page.locator('[data-testid="onscreen-keyboard-all"] [data-code="KeyQ"]').click();
 check(
-	'All-keys board sends an undetected key too',
+	'J promoted to "in use" after the game handled it',
+	(await menu.locator('li[data-code="KeyJ"] [data-evidence]').getAttribute('data-evidence')) ===
+		'used'
+);
+await menu.getByRole('searchbox').fill('');
+
+await menu.getByRole('tab', { name: 'All keys' }).click();
+await sleep(200);
+await shot(page, '07-controls-all-keys.png');
+await frame.evaluate(() => (window.keysSeen.length = 0));
+await menu.locator('[data-testid="controls-keyboard"] [data-code="KeyQ"]').click();
+check(
+	'All keys board sends an undetected key',
 	(await frame.evaluate(() => window.keysSeen.join(','))) === 'KeyQ'
 );
-await page.getByRole('button', { name: 'Close keyboard' }).click();
+await menu.getByRole('tab', { name: /Controls detected/ }).click();
+await menu.getByRole('button', { name: 'Close controls' }).click();
+
+/* Shortcut and typing classification, from real keyboard use inside the game. */
+await frame.locator('#c').click();
+await page.keyboard.press('Control+s');
+await frame.locator('#name').click();
+await page.keyboard.type('ab');
+await sleep(1500);
+await page.locator('[data-testid="controls-menu-toggle"]').click();
+await menu.waitFor();
+await sleep(300);
+check(
+	'Ctrl+S classified as a shortcut, not a game key',
+	(await menu.locator('[data-section="shortcut"] button[data-code="KeyS"]').count()) === 1 &&
+		(await menu.locator('[data-section="gameplay"] button[data-code="KeyS"]').count()) === 0
+);
+check(
+	'Typing into the text box is not counted as game keys',
+	(await menu.locator('[data-section="gameplay"] button[data-code="KeyA"]').count()) === 0 &&
+		(await menu.locator('[data-section="typing"]').count()) === 1
+);
+await shot(page, '08-controls-typing.png');
+await frame.evaluate(() => document.activeElement && document.activeElement.blur());
+await menu.locator('[data-testid="type-with-device"]').click();
+await sleep(300);
+check(
+	'"Type" puts the caret in the game\'s text box',
+	(await frame.evaluate(() => document.activeElement && document.activeElement.id)) === 'name'
+);
 
 /* ---------- edit mode ---------- */
 await page.locator('[data-testid="console-edit-toggle"]').click();
 await sleep(200);
-await shot(page, '07-edit-mode.png');
+await shot(page, '09-edit-mode.png');
 await frame.evaluate(() => (window.keysSeen.length = 0));
 await aBtn.scrollIntoViewIfNeeded();
 const before = await aBtn.boundingBox();
@@ -439,7 +514,7 @@ check(
 );
 check('Edit mode sends no keys', (await frame.evaluate(() => window.keysSeen.length)) === 0);
 await page.locator('[data-testid="console-edit-toggle"]').click();
-await shot(page, '08-after-edit.png');
+await shot(page, '10-after-edit.png');
 
 /* ---------- mobile landscape ---------- */
 const mobile = await browser.newContext({
@@ -460,13 +535,16 @@ await mp
 	.click()
 	.catch(() => {});
 await sleep(1200);
-await shot(mp, '09-mobile-console.png');
-await mp
-	.locator('[data-testid="console-keyboard-toggle"]')
-	.click()
-	.catch(() => {});
+await shot(mp, '11-mobile-console.png');
+const fsControls = mp.locator('[data-testid="controls-menu-toggle-fs"]');
+await fsControls.waitFor({ timeout: 8000 });
+await fsControls.click();
 await sleep(800);
-await shot(mp, '10-mobile-keyboard.png');
+check(
+	'Controls menu opens from the fullscreen toolbar on a phone',
+	(await mp.locator('[data-testid="controls-menu"]').count()) === 1
+);
+await shot(mp, '12-mobile-controls.png');
 
 await browser.close();
 await cleanup();

@@ -6,6 +6,10 @@ import {
 	keyProfileConfidence,
 	keyProfileSaysNoKeyboard,
 	keyEvidence,
+	keyKind,
+	detectedControls,
+	planExtraControls,
+	withControlsHint,
 	mergeKeyProfile,
 	parseKeyProfileMessage
 } from './key-profile';
@@ -17,6 +21,9 @@ type Report = {
 	declared: string[];
 	inferred: string[];
 	used: string[];
+	purposes: Record<string, string>;
+	shortcuts: string[];
+	textEntry: boolean;
 };
 
 const report = (over: Partial<Report> = {}): Report => ({
@@ -26,6 +33,9 @@ const report = (over: Partial<Report> = {}): Report => ({
 	declared: [],
 	inferred: [],
 	used: [],
+	purposes: {},
+	shortcuts: [],
+	textEntry: false,
 	...over
 });
 
@@ -115,13 +125,14 @@ describe('live use', () => {
 		expect(android?.used).toEqual([]);
 	});
 
-	it('treats a key the game was seen handling as strong evidence', () => {
+	it('counts a key seen in use as present, but never as licence to hide the rest', () => {
 		const p = mergeKeyProfile(
 			emptyKeyProfile('g'),
 			report({ used: ['KeyJ'], inferred: ['KeyK'] }),
 			1
 		);
-		expect(keyProfileConfidence(p)).toBe('strong');
+		/* One press of J says J matters — not that every other button is unused. */
+		expect(keyProfileConfidence(p)).toBe('weak');
 		expect(keyEvidence(p, 'KeyJ')).toBe('used');
 		expect(keyEvidence(p, 'KeyK')).toBe('inferred');
 		expect(keyEvidence(p, 'KeyL')).toBe('none');
@@ -188,5 +199,124 @@ describe('planControlVisibility', () => {
 		const plan = planControlVisibility(profile, DEFAULTS);
 		expect(Object.values(plan)).not.toContain('hide');
 		expect(Object.values(plan).every((f) => f === 'dim')).toBe(true);
+	});
+});
+
+describe('controls text and purposes', () => {
+	it('reads purposes from forwarded controls text and declares its keys', () => {
+		const parsed = parseKeyProfileMessage({
+			type: 'potato-tomato-key-profile',
+			v: 1,
+			listens: true,
+			controlsText: 'Arrow keys = move, Press J to jump'
+		});
+		const p = mergeKeyProfile(emptyKeyProfile('g'), parsed!, 1);
+		expect(p.declared).toEqual(expect.arrayContaining(['KeyJ', 'ArrowLeft']));
+		expect(p.purposes.KeyJ).toBe('Jump');
+		expect(keyProfileConfidence(p)).toBe('strong');
+	});
+
+	it('drops purposes for keys the console cannot send', () => {
+		const parsed = parseKeyProfileMessage({
+			type: 'potato-tomato-key-profile',
+			v: 1,
+			controlsText: 'F5 = reload, Tab = map'
+		});
+		expect(parsed?.purposes).toEqual({});
+	});
+
+	it('folds a catalog description in as declared controls', () => {
+		const p = withControlsHint(
+			emptyKeyProfile('g'),
+			'Race to the finish! Use the arrow keys to steer and Space to boost.'
+		);
+		expect(p.declared).toEqual(expect.arrayContaining(['ArrowUp', 'Space']));
+		expect(p.purposes.Space).toBe('Boost');
+		expect(withControlsHint(p, 'A fun game about cats.')).toBe(p);
+	});
+});
+
+describe('keyKind', () => {
+	it('treats a key only ever handled with a modifier as a shortcut', () => {
+		const p = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({ shortcuts: ['KeyS'], used: ['Space'] }),
+			1
+		);
+		expect(keyKind(p, 'KeyS')).toBe('shortcut');
+		expect(keyKind(p, 'Space')).toBe('gameplay');
+	});
+
+	it('treats unexplained letters as typing once the game has a text box', () => {
+		const p = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({ textEntry: true, inferred: ['KeyQ', 'KeyW'], declared: ['KeyW'] }),
+			1
+		);
+		expect(keyKind(p, 'KeyQ')).toBe('typing');
+		/* Named in the controls: still a game key, text box or not. */
+		expect(keyKind(p, 'KeyW')).toBe('gameplay');
+		expect(keyKind(p, 'Space')).toBe('gameplay');
+	});
+
+	it('spots a handler that reads the whole alphabet as text input', () => {
+		const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((c) => `Key${c}`);
+		const p = mergeKeyProfile(emptyKeyProfile('g'), report({ inferred: letters }), 1);
+		expect(keyKind(p, 'KeyQ')).toBe('typing');
+	});
+
+	it('lists gameplay before shortcuts and typing, strongest evidence first', () => {
+		const p = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({
+				textEntry: true,
+				used: ['Space'],
+				declared: ['KeyJ'],
+				inferred: ['KeyQ'],
+				shortcuts: ['KeyS'],
+				purposes: { KeyJ: 'Jump' }
+			}),
+			1
+		);
+		expect(detectedControls(p).map((c) => `${c.code}:${c.kind}`)).toEqual([
+			'Space:gameplay',
+			'KeyJ:gameplay',
+			'KeyS:shortcut',
+			'KeyQ:typing'
+		]);
+	});
+});
+
+describe('planExtraControls', () => {
+	const profile = (over: Partial<Report>) => mergeKeyProfile(emptyKeyProfile('g'), report(over), 1);
+
+	it('adds strongly evidenced keys the console lacks', () => {
+		const p = profile({ declared: ['KeyJ', 'Space', 'ArrowLeft'], purposes: { KeyJ: 'Jump' } });
+		const extras = planExtraControls(p, [
+			'Space',
+			'ArrowUp',
+			'ArrowDown',
+			'ArrowLeft',
+			'ArrowRight'
+		]);
+		expect(extras.map((e) => e.code)).toEqual(['KeyJ']);
+		expect(extras[0].purpose).toBe('Jump');
+	});
+
+	it('never adds keys that are only guessed from source, typed, or shortcuts', () => {
+		const p = profile({ inferred: ['KeyK'], shortcuts: ['KeyS'], textEntry: true, used: ['KeyQ'] });
+		/* KeyQ was seen in use, so it is gameplay despite the text box. */
+		expect(planExtraControls(p, []).map((e) => e.code)).toEqual(['KeyQ']);
+	});
+
+	it('skips a second direction set that only repeats the stick', () => {
+		const move = { KeyW: 'Move', KeyA: 'Move', KeyS: 'Move', KeyD: 'Move', ArrowUp: 'Move' };
+		const p = profile({ declared: ['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp'], purposes: move });
+		expect(planExtraControls(p, ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'])).toEqual([]);
+	});
+
+	it('caps how many it adds', () => {
+		const p = profile({ declared: ['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6'] });
+		expect(planExtraControls(p, [], 4)).toHaveLength(4);
 	});
 });

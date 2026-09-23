@@ -3,11 +3,12 @@
 	import { Check, ChevronDown, GripHorizontal, Keyboard, Move, RotateCcw } from 'lucide-svelte';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
-	import OnScreenKeyboard from './OnScreenKeyboard.svelte';
+	import ControlsMenu from './ControlsMenu.svelte';
 	import {
 		TOUCH_CONSOLE_CHANGED,
 		directionsForJoystickScheme,
 		getDefaultTouchLayout,
+		keyLabel,
 		getEffectiveConfig,
 		saveLayout,
 		setJoystickScheme,
@@ -23,6 +24,8 @@
 		emptyKeyProfile,
 		keyProfileCodes,
 		keyProfileSaysNoKeyboard,
+		planExtraControls,
+		withControlsHint,
 		observeKeyProfile,
 		planControlVisibility,
 		type KeyProfile
@@ -54,7 +57,11 @@
 		/** Auto-enable on touch-only devices asks the parent to turn Console on. */
 		onRequestShow,
 		/** Height of chrome drawn over the top of the game (fullscreen toolbar), in px. */
-		topInset = 0
+		topInset = 0,
+		/** Controls menu (detected keys + full keyboard); opened from the toolbar or the panel. */
+		menuOpen = $bindable(false),
+		/** Catalog description — often names the controls before the game has loaded. */
+		controlsHint = ''
 	}: {
 		iframe?: HTMLIFrameElement | null;
 		gameId?: string;
@@ -66,6 +73,8 @@
 		chromeAvailable?: boolean;
 		onRequestShow?: () => void;
 		topInset?: number;
+		menuOpen?: boolean;
+		controlsHint?: string;
 	} = $props();
 
 	const isMobile = new IsMobile();
@@ -116,8 +125,6 @@
 	 * long as the game needs without ever turning into drag handles.
 	 */
 	let editMode = $state(false);
-	/** On-screen keyboard: every key, lit by live detection. */
-	let keyboardOpen = $state(false);
 
 	const DIRECTION_CODES: Record<TouchJoystickScheme, TouchKeyCode[]> = {
 		arrows: ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'],
@@ -134,8 +141,15 @@
 	const SCHEME_MENU_W = 152;
 	const SCHEME_MENU_H = 8 + SCHEME_OPTIONS.length * 28;
 
-	const profileCodes = $derived(keyProfileCodes(appliedProfile));
-	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(appliedProfile));
+	/*
+	 * What the layout plans from (settled, plus the catalog's own controls text) and what
+	 * the menu shows (live, same hint). Both include the catalog description, which often
+	 * names the controls before the game has loaded a single script.
+	 */
+	const planProfile = $derived(withControlsHint(appliedProfile, controlsHint));
+	const menuProfile = $derived(withControlsHint(liveProfile, controlsHint));
+	const profileCodes = $derived(keyProfileCodes(planProfile));
+	const noKeyboardDetected = $derived(keyProfileSaysNoKeyboard(planProfile));
 	/*
 	 * "Nothing listens" is the one verdict that can be premature. A Unity title binds its
 	 * key handler only once wasm is up, so the bridge's early sweep honestly reports an
@@ -152,7 +166,7 @@
 	 * `KeyW` is not a reason to silently move the stick off the arrows the player chose.
 	 */
 	const detectedScheme = $derived.by<TouchJoystickScheme | null>(() => {
-		if (appliedProfile.declared.length === 0) return null;
+		if (planProfile.declared.length === 0) return null;
 		const arrows = DIRECTION_CODES.arrows.some((c) => profileCodes.has(c));
 		const wasd = DIRECTION_CODES.wasd.some((c) => profileCodes.has(c));
 		if (arrows === wasd) return null;
@@ -180,7 +194,7 @@
 	 */
 	const JOYSTICK_ID = '__joystick';
 	const visibilityPlan = $derived(
-		planControlVisibility(appliedProfile, [
+		planControlVisibility(planProfile, [
 			{ id: JOYSTICK_ID, codes: [...DIRECTION_CODES[effectiveScheme]] },
 			...layout.buttons.map((b) => ({ id: b.id, codes: buttonCodes(b.id) }))
 		])
@@ -208,7 +222,8 @@
 		started && visible && !paused && !privacyLocked && !injectable && canUseTouchBridge(playerUrl)
 	);
 	const showOverlay = $derived(started && visible && !paused && !privacyLocked && injectable);
-	const showSurface = $derived(started && visible);
+	const showSurface = $derived(started && (visible || menuOpen));
+	const showMenu = $derived(menuOpen && started && !privacyLocked && !editMode);
 	const showBlockedHint = $derived(
 		started && visible && !paused && !privacyLocked && !injectable && !canUseTouchBridge(playerUrl)
 	);
@@ -501,12 +516,20 @@
 		if (!showOverlay || editingControl !== null) schemeMenuOpen = false;
 	});
 
-	/* Hiding the console ends an edit session and closes the keyboard. */
+	/* Hiding the console ends an edit session. */
 	$effect(() => {
 		if (!showOverlay) {
 			untrack(() => {
 				if (editMode) editMode = false;
-				if (keyboardOpen) keyboardOpen = false;
+			});
+		}
+	});
+
+	/* The menu closes with the game (relaunch, lock screen). */
+	$effect(() => {
+		if (!started || privacyLocked) {
+			untrack(() => {
+				if (menuOpen) menuOpen = false;
 			});
 		}
 	});
@@ -516,10 +539,52 @@
 		if (editMode) {
 			untrack(() => {
 				dispatcher.releaseAll();
-				keyboardOpen = false;
+				menuOpen = false;
 			});
 		}
 	});
+
+	/*
+	 * The dynamic part of the console: keys the game needs that the pad does not have yet.
+	 * Only strong evidence earns a button — named in the controls, or seen in use — and
+	 * only game keys, never shortcuts or letters the game reads as typed text.
+	 */
+	const coveredCodes = $derived.by(() => {
+		const codes: string[] = [];
+		if (joystickFate !== 'hide') codes.push(...DIRECTION_CODES[effectiveScheme]);
+		for (const b of layout.buttons) {
+			if ((visibilityPlan[b.id] ?? 'show') !== 'hide') codes.push(...buttonCodes(b.id));
+		}
+		return codes;
+	});
+	const extraControls = $derived(planExtraControls(planProfile, coveredCodes, 4));
+
+	function purposeOf(codes: string[]): string {
+		for (const c of codes) if (planProfile.purposes[c]) return planProfile.purposes[c];
+		return '';
+	}
+
+	/**
+	 * Put the caret in the game's text box so the device keyboard opens. Same-origin
+	 * frames are focused directly (inside this tap, so mobile browsers allow the keyboard);
+	 * otherwise the bridge is asked to do it.
+	 */
+	function typeWithDevice() {
+		menuOpen = false;
+		const target = resolveInjectable(iframe);
+		try {
+			const focus = (target?.win as (Window & { __ptFocusTextField?: () => boolean }) | undefined)
+				?.__ptFocusTextField;
+			if (typeof focus === 'function' && focus()) return;
+		} catch {
+			/* cross-origin — fall through to the bridge */
+		}
+		try {
+			iframe?.contentWindow?.postMessage({ type: 'potato-tomato-focus-text' }, '*');
+		} catch {
+			/* ignore */
+		}
+	}
 
 	/* Move focus into the popup so a keyboard (or a TV remote) can leave it again. */
 	$effect(() => {
@@ -782,7 +847,7 @@
 	<div
 		bind:this={surfaceEl}
 		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
-		aria-hidden={!showOverlay}
+		aria-hidden={!showOverlay && !showMenu}
 		onpointerdowncapture={keepGameFocused}
 	>
 		{#if waitingForInjection}
@@ -911,14 +976,14 @@
 						<button
 							type="button"
 							data-console-control
-							data-testid="console-keyboard-toggle"
-							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-md {keyboardOpen
+							data-testid="console-controls-toggle"
+							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-md {menuOpen
 								? 'border-emerald-300/80 bg-emerald-500/40 text-white'
 								: 'border-white/25 bg-black/35 text-white/85'}"
-							aria-label={keyboardOpen ? 'Hide keyboard' : 'Show keyboard'}
-							aria-pressed={keyboardOpen}
-							title="Keyboard — every key, lit by what this game uses"
-							onclick={() => (keyboardOpen = !keyboardOpen)}
+							aria-label={menuOpen ? 'Hide controls' : 'Show controls'}
+							aria-pressed={menuOpen}
+							title="Controls — what this game uses, and every key"
+							onclick={() => (menuOpen = !menuOpen)}
 						>
 							<Keyboard class="size-3.5" />
 						</button>
@@ -1008,21 +1073,35 @@
 				</div>
 			{/if}
 
-			{#if keyboardOpen && !editMode}
+			{#if extraControls.length && !editMode}
+				<!--
+					Added from detection: the keys this game needs that the pad lacks, just above it.
+				-->
 				<div
-					class="pointer-events-none absolute inset-x-0 z-40 flex justify-center px-2"
-					style={`top:${surfaceOffsetY + topInset + 8}px;max-height:${Math.max(120, (surfaceH - topInset) * 0.62)}px;`}
+					class="pointer-events-none absolute z-10 flex gap-1.5"
+					data-testid="console-extras"
+					style={`left:${Math.max(4, pctToPx(layout.console.xPct, 'x'))}px;top:${Math.max(
+						surfaceOffsetY + topInset + 4,
+						surfaceOffsetY + pctToPx(layout.console.yPct, 'y') - 50
+					)}px;`}
 				>
-					<OnScreenKeyboard
-						profile={liveProfile}
-						opacity={Math.max(0.85, config.opacity)}
-						onDown={(code) => {
-							dispatcher.down([code]);
-							if (config.haptics) buzz(6);
-						}}
-						onUp={(code) => dispatcher.up([code])}
-						onClose={() => (keyboardOpen = false)}
-					/>
+					{#each extraControls as extra (extra.code)}
+						<TouchButton
+							label={keyLabel(extra.code)}
+							caption={extra.purpose}
+							size={Math.round(42 * scale)}
+							width={extra.purpose
+								? Math.round(Math.min(120, Math.max(46, extra.purpose.length * 6.2 + 18)) * scale)
+								: undefined}
+							opacity={config.opacity}
+							accent="slate"
+							onPress={() => {
+								dispatcher.down([extra.code]);
+								if (config.haptics) buzz(8);
+							}}
+							onRelease={() => dispatcher.up([extra.code])}
+						/>
+					{/each}
 				</div>
 			{/if}
 
@@ -1079,6 +1158,7 @@
 					>
 						<TouchButton
 							label={btn.label}
+							caption={purposeOf(buttonCodes(btn.id))}
 							size={Math.round(btn.size * scale)}
 							width={buttonWidth(btn)}
 							opacity={fate === 'dim' ? config.opacity * 0.4 : config.opacity}
@@ -1099,6 +1179,25 @@
 					</div>
 				{/if}
 			{/each}
+		{/if}
+
+		{#if showMenu && surfaceW > 0}
+			<div
+				class="pointer-events-none absolute inset-x-0 z-40 flex justify-center px-2"
+				style={`top:${surfaceOffsetY + topInset + 8}px;max-height:${Math.max(160, surfaceH - topInset - 16)}px;`}
+			>
+				<ControlsMenu
+					profile={menuProfile}
+					canSend={injectable}
+					onDown={(code) => {
+						dispatcher.down([code]);
+						if (config.haptics) buzz(6);
+					}}
+					onUp={(code) => dispatcher.up([code])}
+					onClose={() => (menuOpen = false)}
+					onTypeWithDevice={typeWithDevice}
+				/>
+			</div>
 		{/if}
 	</div>
 {/if}
