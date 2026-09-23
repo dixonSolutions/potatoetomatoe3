@@ -1017,6 +1017,33 @@
 	 * ==================================================================== */
 	var origin = location.origin;
 	var NS = '__pt_vs:' + gameId + ':';
+
+	/*
+	 * One set of stores per game per origin.
+	 *
+	 * Portal shells, relayed pages and offline mirrors nest the real game in a same-origin
+	 * frame, and every one of those documents gets this bridge. When each kept stores of
+	 * its own, one game's saves lived in two copies over the same cache, and whichever
+	 * frame pushed last replaced the other's localStorage bucket and databases: a shell
+	 * SDK writing one key after the game saved rolled the save back. The outermost bridge
+	 * of the game on this origin owns the stores and talks to the app; nested bridges
+	 * borrow its stores and hand it their database connections.
+	 */
+	var host = null;
+	try {
+		var parentBridge = window.parent !== window && window.parent.__ptStorageBridge;
+		if (
+			parentBridge &&
+			parentBridge.shared &&
+			parentBridge.gameId === gameId &&
+			parentBridge.origin === origin
+		) {
+			host = parentBridge.shared;
+		}
+	} catch (e) {
+		/* cross-origin parent — this frame owns its stores */
+	}
+
 	var realLS = null;
 	var realSS = null;
 	try {
@@ -1117,9 +1144,18 @@
 
 	var persistTimer = null;
 	var persisters = [];
+	/*
+	 * Writing the cache rewrites the whole store (one JSON string per store), however small
+	 * the change: about 15-30 ms for a 1 MB store in Chromium, most of it the synchronous
+	 * setItem. Every 60 ms, a game that saves a counter each frame spent a third or more of
+	 * its main thread here. Once a second is enough for a cache: pause, pagehide, teardown
+	 * and the late-profile reload all write it out at once, and the push to the app runs on
+	 * its own timer.
+	 */
+	var PERSIST_MS = 1000;
 	function schedulePersist() {
 		if (persistTimer) return;
-		persistTimer = setTimeout(persistNow, 60);
+		persistTimer = setTimeout(persistNow, PERSIST_MS);
 	}
 	function persistNow() {
 		if (persistTimer) {
@@ -1146,8 +1182,6 @@
 			changed = true;
 			onChange();
 		}
-		var proto = typeof Storage !== 'undefined' ? Storage.prototype : Object.prototype;
-		var api = Object.create(proto);
 		var methods = {
 			getItem: function (key) {
 				key = String(key);
@@ -1177,49 +1211,57 @@
 				return index >= 0 && index < keys.length ? keys[index] : null;
 			}
 		};
-		for (var m in methods) {
-			Object.defineProperty(api, m, { value: methods[m], writable: true, configurable: true });
-		}
-		var proxy = new Proxy(api, {
-			get: function (target, prop) {
-				if (typeof prop === 'symbol') return target[prop];
-				if (prop === 'length') return Object.keys(data).length;
-				if (hasOwn(methods, prop)) return methods[prop];
-				if (prop in data) return data[prop];
-				if (prop in target) {
-					var v = target[prop];
-					return typeof v === 'function' ? v : undefined;
-				}
-				return undefined;
-			},
-			set: function (target, prop, value) {
-				if (typeof prop === 'symbol' || hasOwn(methods, prop) || prop === 'length') return true;
-				methods.setItem(prop, value);
-				return true;
-			},
-			has: function (target, prop) {
-				return typeof prop === 'string' && (prop in data || hasOwn(methods, prop));
-			},
-			deleteProperty: function (target, prop) {
-				if (typeof prop === 'string') methods.removeItem(prop);
-				return true;
-			},
-			ownKeys: function () {
-				return Object.keys(data);
-			},
-			getOwnPropertyDescriptor: function (target, prop) {
-				if (typeof prop === 'string' && prop in data) {
-					return { value: data[prop], writable: true, enumerable: true, configurable: true };
-				}
-				return undefined;
-			},
-			defineProperty: function (target, prop, desc) {
-				if (typeof prop === 'string' && desc && 'value' in desc) methods.setItem(prop, desc.value);
-				return true;
+		/*
+		 * A Storage-shaped view of `data`. Taking the prototype as a parameter lets a nested
+		 * frame of the same game get a view whose `instanceof Storage` holds in its own realm
+		 * while reading and writing the very same data.
+		 */
+		function proxyFor(proto) {
+			var api = Object.create(proto);
+			for (var m in methods) {
+				Object.defineProperty(api, m, { value: methods[m], writable: true, configurable: true });
 			}
-		});
+			return new Proxy(api, {
+				get: function (target, prop) {
+					if (typeof prop === 'symbol') return target[prop];
+					if (prop === 'length') return Object.keys(data).length;
+					if (hasOwn(methods, prop)) return methods[prop];
+					if (prop in data) return data[prop];
+					if (prop in target) {
+						var v = target[prop];
+						return typeof v === 'function' ? v : undefined;
+					}
+					return undefined;
+				},
+				set: function (target, prop, value) {
+					if (typeof prop === 'symbol' || hasOwn(methods, prop) || prop === 'length') return true;
+					methods.setItem(prop, value);
+					return true;
+				},
+				has: function (target, prop) {
+					return typeof prop === 'string' && (prop in data || hasOwn(methods, prop));
+				},
+				deleteProperty: function (target, prop) {
+					if (typeof prop === 'string') methods.removeItem(prop);
+					return true;
+				},
+				ownKeys: function () {
+					return Object.keys(data);
+				},
+				getOwnPropertyDescriptor: function (target, prop) {
+					if (typeof prop === 'string' && prop in data) {
+						return { value: data[prop], writable: true, enumerable: true, configurable: true };
+					}
+					return undefined;
+				},
+				defineProperty: function (target, prop, desc) {
+					if (typeof prop === 'string' && desc && 'value' in desc) methods.setItem(prop, desc.value);
+					return true;
+				}
+			});
+		}
 		return {
-			proxy: proxy,
+			proxyFor: proxyFor,
 			snapshot: function () {
 				var out = {};
 				for (var k in data) out[k] = data[k];
@@ -1334,47 +1376,63 @@
 	var virtual = { installed: false, cookiesInstalled: false, ls: null, ss: null, cookies: null };
 
 	(function installVirtualStorage() {
-		var ls = createVirtualStorage(realLS, NS + 'ls', touch);
-		var ss = createVirtualStorage(realSS, NS + 'ss', function () {
-			dirty = true;
-			schedulePersist();
-			schedulePush();
-		});
-		var cookies = createCookieJar(realLS, NS + 'ck', touch);
-		try {
-			Object.defineProperty(window, 'localStorage', {
-				configurable: true,
-				enumerable: true,
-				get: function () {
-					return ls.proxy;
-				}
+		var ls, ss, cookies;
+		if (host) {
+			/* Nested frame of a game whose stores a parent frame already owns. */
+			ls = host.ls;
+			ss = host.ss;
+			cookies = host.cookies;
+		} else {
+			ls = createVirtualStorage(realLS, NS + 'ls', touch);
+			ss = createVirtualStorage(realSS, NS + 'ss', function () {
+				dirty = true;
+				schedulePersist();
+				schedulePush();
 			});
-			Object.defineProperty(window, 'sessionStorage', {
-				configurable: true,
-				enumerable: true,
-				get: function () {
-					return ss.proxy;
-				}
-			});
-			if (window.localStorage !== ls.proxy) throw new Error('override refused');
-			virtual.installed = true;
-		} catch (e) {
-			virtual.installed = false;
+			cookies = createCookieJar(realLS, NS + 'ck', touch);
 		}
-		try {
-			Object.defineProperty(document, 'cookie', {
-				configurable: true,
-				enumerable: true,
-				get: function () {
-					return cookies.serialize();
-				},
-				set: function (v) {
-					cookies.set(v);
-				}
-			});
-			virtual.cookiesInstalled = true;
-		} catch (e) {
-			/* real cookies stay in use */
+		var proto = typeof Storage !== 'undefined' ? Storage.prototype : Object.prototype;
+		var lsProxy = ls.proxyFor(proto);
+		var ssProxy = ss.proxyFor(proto);
+		/* When the owner fell back to the real store, so does every frame that shares it. */
+		if (!host || host.installed) {
+			try {
+				Object.defineProperty(window, 'localStorage', {
+					configurable: true,
+					enumerable: true,
+					get: function () {
+						return lsProxy;
+					}
+				});
+				Object.defineProperty(window, 'sessionStorage', {
+					configurable: true,
+					enumerable: true,
+					get: function () {
+						return ssProxy;
+					}
+				});
+				if (window.localStorage !== lsProxy) throw new Error('override refused');
+				virtual.installed = true;
+			} catch (e) {
+				virtual.installed = false;
+			}
+		}
+		if (!host || host.cookiesInstalled) {
+			try {
+				Object.defineProperty(document, 'cookie', {
+					configurable: true,
+					enumerable: true,
+					get: function () {
+						return cookies.serialize();
+					},
+					set: function (v) {
+						cookies.set(v);
+					}
+				});
+				virtual.cookiesInstalled = true;
+			} catch (e) {
+				/* real cookies stay in use */
+			}
 		}
 		virtual.ls = ls;
 		virtual.ss = ss;
@@ -1429,17 +1487,24 @@
 	/* Caches, not saves: large, rebuildable, and not worth shipping through postMessage. */
 	var SKIP_DB = /^(UnityCache|__pt)/i;
 	var MAX_RECORD_CHARS = 8 * 1024 * 1024;
-	/* name -> { name, version, objectStores[], records[] } */
-	var idbProfile = Object.create(null);
+	/*
+	 * Two views, name -> { name, version, objectStores[], records[] }:
+	 *   idbSaved   what the saved profile holds — the source of restores;
+	 *   idbMirror  what this frame has read back from the real database — what it pushes.
+	 * Only databases this frame has actually read are pushed. Pushing the saved copy of a
+	 * database the frame never opened (a shell frame, or a game that opens its save
+	 * database late) replaced newer records written elsewhere with that stale copy.
+	 */
+	var idbSaved = Object.create(null);
+	var idbMirror = Object.create(null);
 	var idbHydrated = Object.create(null);
 	var idbConns = Object.create(null);
 	/* Set on the boot after a late-restore reload: the carried profile wins over the database. */
 	var restoreOverwrite = false;
-	var pendingIdbHydrate = [];
 
 	function ensureDb(name) {
-		if (!idbProfile[name]) idbProfile[name] = { name: name, version: 1, objectStores: [], records: [] };
-		return idbProfile[name];
+		if (!idbMirror[name]) idbMirror[name] = { name: name, version: 1, objectStores: [], records: [] };
+		return idbMirror[name];
 	}
 
 	function loadIdbProfile(profile) {
@@ -1448,10 +1513,10 @@
 		for (var i = 0; i < def.indexedDB.length; i++) {
 			var db = def.indexedDB[i];
 			if (!db || typeof db.name !== 'string' || SKIP_DB.test(db.name)) continue;
-			idbProfile[db.name] = {
+			idbSaved[db.name] = {
 				name: db.name,
 				version: db.version || 1,
-				objectStores: (db.objectStores || []).slice(),
+				objectStores: Array.isArray(db.objectStores) ? db.objectStores.slice() : [],
 				records: Array.isArray(db.records) ? db.records.slice() : []
 			};
 		}
@@ -1499,16 +1564,15 @@
 		}
 	}
 
-	/** Re-read the given stores from the real database into the profile. */
+	/** Re-read the given stores (all when `names` is null) from the real database into the mirror. */
 	function snapshotStores(dbName, names) {
+		/* A mirror starts from a whole read, or it would push a database missing its other stores. */
+		if (!idbMirror[dbName]) names = null;
 		withConnection(dbName, function (conn, ownConn) {
 			var all = storeNamesOf(conn);
 			var wanted = (names || all).filter(function (n) {
 				return all.indexOf(n) !== -1;
 			});
-			var entry = ensureDb(dbName);
-			entry.version = conn.version || entry.version;
-			entry.objectStores = all;
 			if (!wanted.length) {
 				if (ownConn) conn.close();
 				return;
@@ -1532,6 +1596,10 @@
 				};
 			});
 			tx.oncomplete = function () {
+				/* Created only once the read is complete: an empty entry pushed early wipes the save. */
+				var entry = ensureDb(dbName);
+				entry.version = conn.version || entry.version;
+				entry.objectStores = all;
 				entry.records = entry.records
 					.filter(function (r) {
 						return wanted.indexOf(r.storeName) === -1;
@@ -1581,7 +1649,7 @@
 	 * meantime is fresh-game defaults, and the frame is about to reload onto the saves.
 	 */
 	function hydrateConnection(conn, dbName, done, overwrite) {
-		var saved = idbProfile[dbName];
+		var saved = idbSaved[dbName];
 		if (!saved || !saved.records.length || idbHydrated[dbName]) return done(0);
 		var all = storeNamesOf(conn);
 		var byStore = Object.create(null);
@@ -1630,6 +1698,30 @@
 		};
 	}
 
+	/*
+	 * A connection the game just opened — in this frame, or in a nested frame of the same
+	 * game that hands its connections to this one. Restores run on it straight away, queued
+	 * ahead of the game's own transactions, so its first reads already see restored data.
+	 */
+	function adoptConnection(dbName, conn) {
+		idbConns[dbName] = conn;
+		try {
+			nativeAdd.call(conn, 'close', function () {
+				if (idbConns[dbName] === conn) delete idbConns[dbName];
+			});
+		} catch (e) {
+			/* ignore */
+		}
+		hydrateConnection(
+			conn,
+			dbName,
+			function () {
+				scheduleSnapshot(dbName, null);
+			},
+			restoreOverwrite
+		);
+	}
+
 	(function installIdbShim() {
 		if (!window.indexedDB || !protoTransaction) return;
 		realOpen = window.indexedDB.open.bind(window.indexedDB);
@@ -1639,24 +1731,8 @@
 			if (SKIP_DB.test(dbName)) return req;
 			/* Registered before the game's own onsuccess, so its first reads see restored data. */
 			nativeAdd.call(req, 'success', function () {
-				var conn = req.result;
-				idbConns[dbName] = conn;
-				try {
-					nativeAdd.call(conn, 'close', function () {
-						if (idbConns[dbName] === conn) delete idbConns[dbName];
-					});
-				} catch (e) {
-					/* ignore */
-				}
-				/* Queued ahead of the game's own transactions, so this restore is never late. */
-				hydrateConnection(
-					conn,
-					dbName,
-					function () {
-						scheduleSnapshot(dbName, null);
-					},
-					restoreOverwrite
-				);
+				if (host) host.adoptConnection(dbName, req.result);
+				else adoptConnection(dbName, req.result);
 			});
 			return req;
 		};
@@ -1673,7 +1749,8 @@
 						stores = null;
 					}
 					nativeAdd.call(tx, 'complete', function () {
-						scheduleSnapshot(dbName, stores);
+						if (host) host.scheduleSnapshot(dbName, stores);
+						else scheduleSnapshot(dbName, stores);
 					});
 				}
 			}
@@ -1719,8 +1796,8 @@
 		var session = {};
 		session[origin] = virtual.installed ? virtual.ss.snapshot() : snapshotReal(realSS);
 		var dbs = [];
-		for (var name in idbProfile) {
-			var db = idbProfile[name];
+		for (var name in idbMirror) {
+			var db = idbMirror[name];
 			dbs.push({
 				name: db.name,
 				version: db.version,
@@ -1750,8 +1827,9 @@
 		/*
 		 * Never push before the saved profile is known — an empty boot would overwrite it —
 		 * nor while reloading onto a late profile, when memory may still hold the defaults.
+		 * A nested frame never pushes: the frame that owns its stores does.
 		 */
-		if (!dirty || !profileSettled || reloading || reloadWanted) return;
+		if (host || !dirty || !profileSettled || reloading || reloadWanted) return;
 		dirty = false;
 		try {
 			appWindow().postMessage(
@@ -1769,6 +1847,14 @@
 	}
 
 	function flush() {
+		if (host) {
+			try {
+				host.flush();
+			} catch (e) {
+				/* owner already gone */
+			}
+			return;
+		}
 		persistNow();
 		pushToParent();
 	}
@@ -1833,6 +1919,8 @@
 						function (added) {
 							pendingRestores--;
 							if (added > 0 && reloadable) reloadWanted = true;
+							/* The mirror must hold what was restored before it is pushed. */
+							if (added > 0) scheduleSnapshot(dbName, null);
 							maybeReload();
 						},
 						overwrite
@@ -1850,40 +1938,62 @@
 		if (dirty) schedulePush();
 	}
 
-	/* A profile carried across a late-restore reload beats everything else. */
-	var carried = readJSON(realSS, NS + 'carry');
-	if (carried) {
-		try {
-			realSS.removeItem(NS + 'carry');
-		} catch (e) {
-			/* ignore */
+	/* A nested frame of a hosted game has no profile of its own to load: its owner does that. */
+	var syncProfile = host ? null : undefined;
+	if (!host) {
+		/* A profile carried across a late-restore reload beats everything else. */
+		var carried = readJSON(realSS, NS + 'carry');
+		if (carried) {
+			try {
+				realSS.removeItem(NS + 'carry');
+				/*
+				 * The reload the flag guarded is done. Left set, it barred every later launch
+				 * in this tab from reloading onto saves written elsewhere meanwhile. There is
+				 * no loop to guard against here: a boot from a carried profile never pulls.
+				 */
+				realSS.removeItem(NS + 'reloaded');
+			} catch (e) {
+				/* ignore */
+			}
+			restoreOverwrite = true;
 		}
-		restoreOverwrite = true;
-	}
-	var syncProfile = carried || readSyncProfile();
-	if (syncProfile !== undefined) onProfile(syncProfile, false);
+		syncProfile = carried || readSyncProfile();
+		if (syncProfile !== undefined) onProfile(syncProfile, false);
 
-	/*
-	 * Some engines refuse to let `window.localStorage` be redefined. The game then writes
-	 * the real store directly, so no write is ever seen — sample it on a timer instead.
-	 */
-	if (!virtual.installed) {
-		setInterval(function () {
-			dirty = true;
-			schedulePush();
-		}, 5000);
+		/*
+		 * Some engines refuse to let `window.localStorage` be redefined. The game then writes
+		 * the real store directly, so no write is ever seen — sample it on a timer instead.
+		 */
+		if (!virtual.installed) {
+			setInterval(function () {
+				dirty = true;
+				schedulePush();
+			}, 5000);
+		}
 	}
 
 	window.__ptStorageBridge = {
 		gameId: gameId,
+		origin: origin,
 		virtual: virtual.installed,
 		flush: flush,
 		/* Same-origin parent teardown: hand over unsaved changes directly, no message hop. */
 		takeDirtySnapshot: function () {
-			if (!dirty || !profileSettled || reloading || reloadWanted) return null;
+			if (host || !dirty || !profileSettled || reloading || reloadWanted) return null;
 			dirty = false;
 			persistNow();
 			return buildProfile();
+		},
+		/* What a nested frame of this game on this origin borrows (see `host` above). */
+		shared: host || {
+			installed: virtual.installed,
+			cookiesInstalled: virtual.cookiesInstalled,
+			ls: virtual.ls,
+			ss: virtual.ss,
+			cookies: virtual.cookies,
+			adoptConnection: adoptConnection,
+			scheduleSnapshot: scheduleSnapshot,
+			flush: flush
 		}
 	};
 
@@ -2020,14 +2130,21 @@
 	 * double-stepped, toggled menus open and shut, and the extra work showed as input lag.
 	 * An element that registered its own key listener gets the event (it bubbles on up to
 	 * body, document and window from there); otherwise body, which Scratch requires.
+	 *
+	 * A listening canvas wins over a listening wrapper around it: the event bubbles from
+	 * the canvas through the wrapper, but never down from the wrapper into the canvas, so
+	 * picking whichever registered first left a canvas-bound game deaf to the console.
 	 */
 	function keyDispatchTarget() {
+		var wrapper = null;
 		for (var i = 0; i < keyTargets.length; i++) {
 			var el = keyTargets[i];
+			if (!el.isConnected) continue;
+			if (el.tagName === 'CANVAS') return el;
 			/* Only the game surface itself — never a text box or a menu that happens to listen. */
-			if (el.isConnected && (el.tagName === 'CANVAS' || el.querySelector('canvas'))) return el;
+			if (!wrapper && el.querySelector('canvas')) wrapper = el;
 		}
-		return document.body || document.documentElement || document;
+		return wrapper || document.body || document.documentElement || document;
 	}
 	window.__ptKeyDispatchTarget = keyDispatchTarget;
 
@@ -2171,7 +2288,14 @@
 				return;
 			case TYPE:
 				if (data.gameId !== gameId || data.action !== 'hydrate') return;
-				if (profileSettled && syncProfile !== undefined) return;
+				/*
+				 * Saves come only from the app. Any window that can reach this one — an ad
+				 * frame inside the game, a popup it opened — could otherwise hand it a
+				 * profile, which the bridge would apply, reload onto and push as the save.
+				 */
+				if (event.source !== appWindow()) return;
+				/* One answer per boot: retried pulls each get one, and only the first counts. */
+				if (host || profileSettled) return;
 				onProfile(data.data || null, true);
 				return;
 			default:
@@ -2183,16 +2307,209 @@
 	});
 
 	if (syncProfile === undefined) {
-		try {
-			appWindow().postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');
-		} catch (e) {
-			profileSettled = true;
-		}
-		/* Parent never answered (older shell): stop holding writes back. */
-		setTimeout(function () {
-			if (!profileSettled) onProfile(null, false);
-		}, 4000);
+		/*
+		 * A slow answer is not "no saves". Settling on a timeout (it used to, after 4s)
+		 * let the empty boot's defaults be pushed and merged over the real profile
+		 * whenever the store took longer than that to read — a busy or cold puller — and
+		 * the real saves, arriving next, were then older than the defaults and ignored.
+		 * Ask again instead, and keep holding pushes until an answer comes; meanwhile
+		 * writes still reach this origin's cache, which the next boot starts from.
+		 */
+		var pullDelay = 4000;
+		var sendPull = function () {
+			if (profileSettled) return;
+			try {
+				appWindow().postMessage({ type: TYPE, action: 'pull', gameId: gameId }, '*');
+			} catch (e) {
+				/* retried below */
+			}
+			if (pullDelay > 64000) return;
+			setTimeout(sendPull, pullDelay);
+			pullDelay *= 2;
+		};
+		sendPull();
 	}
 	nativeAdd.call(window, 'pagehide', flush);
 	nativeAdd.call(window, 'beforeunload', flush);
+})();
+
+/* ==========================================================================
+ * Pointer lock guard — a self-contained block (own scope, own state); nothing
+ * above depends on it and it depends on nothing above.
+ *
+ * Games that grab the mouse (`requestPointerLock()`, FPS-style mouse look) keep it.
+ * This adds the way out and tells the app when it matters:
+ *
+ *   - `pointerlockchange` → posts {type:'potato-tomato-pointer-lock', state:'locked' |
+ *     'unlocked'} to the app, which shows a one-line hint;
+ *   - presses on a hidden cursor (`cursor: none`) with no lock, three within 2.5 s →
+ *     state:'stuck', since that looks exactly like a cursor stuck on the game;
+ *   - two quick double-clicks → `exitPointerLock()`, the cursor forced visible until the
+ *     game locks again, the unlocking press and the clicks right after it swallowed (a
+ *     game that locks on click would otherwise re-lock at once) → state:'released'.
+ *
+ * Esc is untouched: browsers release a lock on Esc themselves. Runs in frames only — the
+ * app watches its own document. The gesture rules mirror `isUnlockGesture` in
+ * src/lib/utils/pointer-lock.ts; pointer-lock.spec.ts runs this block against the same
+ * cases, so change both together.
+ * ========================================================================== */
+(function () {
+	if (window.top === window || window.__ptPointerLockGuard) return;
+	window.__ptPointerLockGuard = true;
+
+	var MSG = 'potato-tomato-pointer-lock';
+	var PRESSES = 4;
+	var PAIR_MAX_MS = 400;
+	var TOTAL_MAX_MS = 1400;
+	var PAUSE_RATIO = 1.25;
+	var MAX_TRAVEL_PX = 48;
+	var STUCK_PRESSES = 3;
+	var STUCK_WINDOW_MS = 2500;
+	var SWALLOW_MS = 600;
+	var STYLE_ID = '__pt-cursor-visible';
+
+	var presses = [];
+	var stuckAt = [];
+	var stuckReported = false;
+	var travel = 0;
+	var lastPointerDownAt = -Infinity;
+	var swallowUntil = 0;
+
+	function post(state) {
+		var msg = { type: MSG, state: state };
+		try {
+			(window.top || window.parent).postMessage(msg, '*');
+		} catch (e) {
+			try {
+				window.parent.postMessage(msg, '*');
+			} catch (e2) {
+				/* detached */
+			}
+		}
+	}
+
+	function isUnlockGesture(list) {
+		if (list.length < PRESSES) return false;
+		var a = list[list.length - 4];
+		var b = list[list.length - 3];
+		var c = list[list.length - 2];
+		var d = list[list.length - 1];
+		var total = d.at - a.at;
+		if (total < 0 || total > TOTAL_MAX_MS) return false;
+		var firstPair = b.at - a.at;
+		var pause = c.at - b.at;
+		var secondPair = d.at - c.at;
+		if (firstPair > PAIR_MAX_MS || secondPair > PAIR_MAX_MS) return false;
+		if (pause < Math.max(firstPair, secondPair) * PAUSE_RATIO) return false;
+		return d.travel - a.travel <= MAX_TRAVEL_PX;
+	}
+	/* Exposed for pointer-lock.spec.ts, which checks it against the TypeScript rules. */
+	window.__ptIsUnlockGesture = isUnlockGesture;
+
+	function cursorHidden(target) {
+		if (!target || target.nodeType !== 1) return false;
+		try {
+			return window.getComputedStyle(target).cursor === 'none';
+		} catch (e) {
+			return false;
+		}
+	}
+
+	function showCursor() {
+		if (document.getElementById(STYLE_ID)) return;
+		var style = document.createElement('style');
+		style.id = STYLE_ID;
+		style.textContent = '*,*::before,*::after{cursor:auto!important}';
+		(document.head || document.documentElement).appendChild(style);
+	}
+
+	function restoreCursor() {
+		var style = document.getElementById(STYLE_ID);
+		if (style && style.parentNode) style.parentNode.removeChild(style);
+	}
+
+	function release() {
+		presses = [];
+		stuckAt = [];
+		stuckReported = false;
+		swallowUntil = Date.now() + SWALLOW_MS;
+		try {
+			if (document.pointerLockElement && document.exitPointerLock) document.exitPointerLock();
+		} catch (e) {
+			/* nothing to release */
+		}
+		showCursor();
+		post('released');
+	}
+
+	function swallow(e) {
+		e.preventDefault();
+		if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+	}
+
+	function onPress(e) {
+		var now = Date.now();
+		if (now <= swallowUntil) {
+			/* The unlocking press's own mousedown, or a click right after it. */
+			swallow(e);
+			return;
+		}
+		if (e.button !== 0) return;
+		if (e.type === 'pointerdown') {
+			if (e.pointerType && e.pointerType !== 'mouse') return;
+			lastPointerDownAt = now;
+		} else if (now - lastPointerDownAt < 100) {
+			return; /* the mousedown twin of a pointerdown already counted */
+		}
+		var locked = Boolean(document.pointerLockElement);
+		var hidden = !locked && cursorHidden(e.target);
+		if (!locked && !hidden) {
+			presses = [];
+			return;
+		}
+		presses.push({ at: now, travel: travel });
+		if (presses.length > PRESSES) presses.shift();
+		if (isUnlockGesture(presses)) {
+			swallow(e);
+			release();
+			return;
+		}
+		if (!hidden) return;
+		var recent = [];
+		for (var i = 0; i < stuckAt.length; i++) {
+			if (now - stuckAt[i] <= STUCK_WINDOW_MS) recent.push(stuckAt[i]);
+		}
+		recent.push(now);
+		stuckAt = recent;
+		if (!stuckReported && stuckAt.length >= STUCK_PRESSES) {
+			stuckReported = true;
+			post('stuck');
+		}
+	}
+
+	function onFollowUp(e) {
+		if (Date.now() <= swallowUntil) swallow(e);
+	}
+
+	window.addEventListener(
+		'mousemove',
+		function (e) {
+			travel += Math.abs(e.movementX || 0) + Math.abs(e.movementY || 0);
+		},
+		true
+	);
+	window.addEventListener('pointerdown', onPress, true);
+	window.addEventListener('mousedown', onPress, true);
+	['pointerup', 'mouseup', 'click', 'dblclick'].forEach(function (type) {
+		window.addEventListener(type, onFollowUp, true);
+	});
+	document.addEventListener('pointerlockchange', function () {
+		presses = [];
+		if (document.pointerLockElement) {
+			restoreCursor();
+			post('locked');
+		} else {
+			post('unlocked');
+		}
+	});
 })();

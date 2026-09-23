@@ -4,6 +4,7 @@
  */
 
 import { canUseLocalStorage } from '$lib/utils/browser-storage';
+import type { GamePlayerSettings } from '$lib/utils/game-player-settings';
 
 export const SITE_SETTINGS_COOKIE = 'potato-tomato-settings';
 const LOCAL_STORAGE_KEY = 'potato-tomato-site-settings-v1';
@@ -54,8 +55,16 @@ export type SiteSettingsV1 = {
 	defaultGamePlayMode: GamePlayModePreference;
 	/** Toggle pause/resume while a game is playing (default: backtick `). */
 	gamePauseShortcut: PrivacyLockShortcut;
-	/** Toggle fullscreen while a game is playing (default: F). */
+	/**
+	 * Key that toggles fullscreen while a game is playing (default: F). Only acts when
+	 * `gamePlayer.fullscreenShortcutEnabled` is on — see `game-player-settings.ts`.
+	 */
 	gameFullscreenShortcut: PrivacyLockShortcut;
+	/**
+	 * Game player behaviour (auto fullscreen, in-game menu). Stored as written and
+	 * normalised on read by `game-player-settings.ts`; absent on installs that never saved it.
+	 */
+	gamePlayer?: Partial<GamePlayerSettings>;
 };
 
 export type GamePlayModePreference = 'online' | 'offline';

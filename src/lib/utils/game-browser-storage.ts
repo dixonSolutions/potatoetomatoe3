@@ -1,5 +1,6 @@
 /**
- * Unified per-game browser profile storage (disk via puller or IndexedDB on public site).
+ * Unified per-game browser profile storage: disk in the desktop app (read and written by the
+ * app itself, in the layout the puller used), disk via a dev puller, or IndexedDB.
  */
 
 import { canUseLocalStorage } from '$lib/utils/browser-storage';
@@ -22,8 +23,14 @@ import {
 	savePullerBrowserProfile
 } from './puller-browser-data';
 import { isPublicSiteDeployment } from './offline-deployment';
+import {
+	deleteNativeGameProfile,
+	hasNativeOfflineBackend,
+	loadNativeGameProfile,
+	saveNativeGameProfile
+} from './offline-native';
 
-export type BrowserDataBackend = 'puller' | 'browser' | 'none';
+export type BrowserDataBackend = 'native' | 'puller' | 'browser' | 'none';
 
 const STORAGE_PREFIX = 'potato-tomato-game-browser-data-';
 
@@ -62,6 +69,7 @@ export async function getBrowserDataBackend(force = false): Promise<BrowserDataB
 	if (isPublicSiteDeployment()) {
 		return isBrowserGameDataSupported() ? 'browser' : 'none';
 	}
+	if (hasNativeOfflineBackend()) return 'native';
 	if (await isPullerBrowserDataAvailable(force)) {
 		return 'puller';
 	}
@@ -82,6 +90,20 @@ async function migrateLegacyIfNeeded(
 	return migrated;
 }
 
+/**
+ * Desktop saves live on disk. While the puller was down they fell back to IndexedDB, so a
+ * game with nothing on disk may still have its saves there — move them across once.
+ */
+async function loadNativeWithFallback(gameId: string): Promise<GameBrowserProfile | null> {
+	const onDisk = await loadNativeGameProfile(gameId);
+	if (onDisk || !isBrowserGameDataSupported()) return onDisk;
+	const stranded = await loadBrowserGameProfile(gameId);
+	if (stranded && (await saveNativeGameProfile(gameId, stranded))) {
+		await deleteBrowserGameProfile(gameId);
+	}
+	return stranded;
+}
+
 export async function loadGameBrowserProfile(
 	gameId: string,
 	playOrigin = typeof window !== 'undefined' ? window.location.origin : ''
@@ -89,7 +111,9 @@ export async function loadGameBrowserProfile(
 	const backend = await getBrowserDataBackend();
 	let profile: GameBrowserProfile | null = null;
 
-	if (backend === 'puller') {
+	if (backend === 'native') {
+		profile = await loadNativeWithFallback(gameId);
+	} else if (backend === 'puller') {
 		profile = await loadPullerBrowserProfile(gameId);
 	} else if (backend === 'browser') {
 		profile = await loadBrowserGameProfile(gameId);
@@ -98,11 +122,16 @@ export async function loadGameBrowserProfile(
 	return await migrateLegacyIfNeeded(gameId, profile, playOrigin);
 }
 
-export async function saveGameBrowserProfile(gameId: string, profile: GameBrowserProfile): Promise<void> {
+export async function saveGameBrowserProfile(
+	gameId: string,
+	profile: GameBrowserProfile
+): Promise<void> {
 	if (!isGameBrowserProfile(profile)) return;
 	const backend = await getBrowserDataBackend();
 
-	if (backend === 'puller') {
+	if (backend === 'native') {
+		if (await saveNativeGameProfile(gameId, profile)) return;
+	} else if (backend === 'puller') {
 		const ok = await savePullerBrowserProfile(gameId, profile);
 		if (ok) return;
 	}
@@ -114,7 +143,9 @@ export async function saveGameBrowserProfile(gameId: string, profile: GameBrowse
 
 export async function deleteGameBrowserProfile(gameId: string): Promise<void> {
 	const backend = await getBrowserDataBackend();
-	if (backend === 'puller') {
+	if (backend === 'native') {
+		await deleteNativeGameProfile(gameId);
+	} else if (backend === 'puller') {
 		await deletePullerBrowserProfile(gameId);
 	}
 	if (isBrowserGameDataSupported()) {
@@ -125,6 +156,8 @@ export async function deleteGameBrowserProfile(gameId: string): Promise<void> {
 
 export function describeBrowserDataBackend(backend: BrowserDataBackend): string {
 	switch (backend) {
+		case 'native':
+			return 'Disk (app data folder)';
 		case 'puller':
 			return 'Disk (puller data folder)';
 		case 'browser':

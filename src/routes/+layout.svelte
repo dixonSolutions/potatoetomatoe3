@@ -366,7 +366,7 @@
 				playLimitToastIssued = true;
 				toast.error('Daily playtime limit reached', {
 					description:
-						'Use “Disable time limit” on the overlay or change the cap in Settings → Analytics.'
+						'Use “Disable time limit” on the overlay or change the cap in Settings → Play time.'
 				});
 			}
 		} else if (!exceeded) {
@@ -460,7 +460,7 @@
 					} else {
 						toast.message('Closing quits the app', {
 							description: life.trayAvailable
-								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → Games after installing an AppIndicator extension.'
+								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → App after installing an AppIndicator extension.'
 								: 'No system tray was found. Closing the window fully quits Potato Tomato (and stops background downloads).'
 						});
 					}

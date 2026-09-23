@@ -20,19 +20,19 @@ import {
 	sizedThumbnailUrl,
 	thumbnailSrcset
 } from '$lib/utils/thumbnail-size';
-import { readConsoleVisiblePref } from '$lib/utils/touch-console';
 import {
-	decideOnlineRelay,
-	hasDirectLaunchFailed,
-	isFrameBlockedHost
+	failedPlayRoutes,
+	markPlayRouteFailed,
+	nextPlayRoute,
+	planOnlineRoutes,
+	type PlayRouteKind
 } from '$lib/utils/online-play-routing';
-
-/**
- * How long a launch may wait for a cold puller when the relay is mandatory (touch
- * console / direct-launch retry). Kept short: the touch console runs its own longer
- * wait when the user turns it on, so the launch path never needs to block for that.
- */
-const RELAY_LAUNCH_WAIT_MS = 4000;
+import {
+	nativeGameFramesSupported,
+	prepareNativeGameFrames,
+	watchGameFrameLife
+} from '$lib/utils/native-game-frames';
+import { OFFLINE_SCHEME } from '$lib/utils/offline-native';
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -433,6 +433,7 @@ export function isLocalOfflinePlayUrl(url: string): boolean {
 	const trimmed = url.trim();
 	if (!trimmed) return false;
 	if (trimmed.startsWith('blob:')) return true;
+	if (trimmed.startsWith(`${OFFLINE_SCHEME}:`)) return true;
 	if (trimmed.includes('/browser-offline/')) return true;
 	if (trimmed.includes('/puller-games/')) return true;
 	if (trimmed.includes('/games/') && trimmed.includes('/offline/')) return true;
@@ -452,6 +453,16 @@ function resolveOfflineUnityPlayUrl(offlineUrl: string, gameId: string): string 
 	return unityPlayerShellUrl(offlineUrl, gameId, unityOfflineAssetsBase(gameId));
 }
 
+/** The catalog's online URL: its own embed, else the remote page it was imported from. */
+function catalogEmbedUrl(metadata: GameMetadata | null): string | null {
+	return metadata?.onlineEmbedUrl?.trim() || metadata?.remotePlayUrl?.trim() || null;
+}
+
+function onlineShellUrl(gameId: string): string {
+	return `${base}/games/${gameId}/online/index.html`;
+}
+
+/** The plain online URL, with no route decided — what the frame shows when nothing else can. */
 function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): string {
 	const embed = metadata?.onlineEmbedUrl?.trim();
 	if (embed) {
@@ -461,34 +472,186 @@ function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): st
 		return embed;
 	}
 
-	const onlineShell = `${base}/games/${gameId}/online/index.html`;
+	const onlineShell = onlineShellUrl(gameId);
 	if (metadata?.engine === 'unity') {
 		return unityPlayerShellUrl(onlineShell, gameId);
 	}
 	return onlineShell;
 }
 
-/** External http(s) catalog embed that cannot be same-origin without the local puller. */
-function hasExternalOnlineEmbed(metadata: GameMetadata | null): boolean {
-	const embed = metadata?.onlineEmbedUrl?.trim() || metadata?.remotePlayUrl?.trim();
-	if (!embed) return false;
+/** The desktop app's in-process relay (`src-tauri/src/relay.rs`). */
+export const RELAY_SCHEME = 'ptrelay';
+
+/** Which route produced each play URL handed out, so the watchdog knows what failed. */
+const routeByUrl = new Map<string, PlayRouteKind>();
+
+function remember(url: string, kind: PlayRouteKind): string {
+	routeByUrl.set(url, kind);
+	return url;
+}
+
+/**
+ * The route a play URL came from; `null` for offline copies and anything this module did
+ * not resolve (those have nothing to fall back to online).
+ */
+export function playRouteOfUrl(url: string | null | undefined): PlayRouteKind | null {
+	const u = url?.trim();
+	if (!u) return null;
+	const known = routeByUrl.get(u);
+	if (known) return known;
+	if (u.startsWith(`${RELAY_SCHEME}:`)) return 'relay';
+	if (u.includes('/api/game-live/') || u.includes('/api/unity-play/')) return 'puller';
+	if (isLocalOfflinePlayUrl(u)) return null;
+	return 'direct';
+}
+
+/**
+ * A catalog shell that only frames a third-party page. Where the desktop app bridges
+ * cross-origin frames itself, the wrapper is one document too many — and a wall between
+ * the console and the game — so the game's own URL is framed instead.
+ */
+async function unwrapOnlineShell(gameId: string): Promise<string | null> {
 	try {
-		const url = new URL(embed);
-		return url.protocol === 'http:' || url.protocol === 'https:';
+		const { readOnlineShellIframeSrc } = await import('./browser-offline-download');
+		return await readOnlineShellIframeSrc(gameId);
+	} catch {
+		return null;
+	}
+}
+
+/** A puller that already answers — it is never started for play. */
+async function pullerAlreadyRunning(): Promise<boolean> {
+	if (isPublicSiteDeployment() || !shouldProbePullerBackend()) return false;
+	try {
+		const { isPullerRunning } = await import('./offline-downloader-puller');
+		return await isPullerRunning();
 	} catch {
 		return false;
 	}
 }
 
+async function urlForRoute(
+	kind: PlayRouteKind,
+	gameId: string,
+	metadata: GameMetadata | null,
+	nativeFrames: boolean
+): Promise<string | null> {
+	const embed = catalogEmbedUrl(metadata);
+	const unity = metadata?.engine === 'unity';
+	switch (kind) {
+		case 'direct': {
+			if (metadata?.onlineEmbedUrl?.trim()) {
+				const url = metadata.onlineEmbedUrl.trim();
+				return unity && !nativeFrames ? unityPlayerShellUrl(url, gameId) : url;
+			}
+			if (nativeFrames) {
+				const inner = await unwrapOnlineShell(gameId);
+				if (inner) return inner;
+			}
+			return resolveOnlinePlayUrl(metadata, gameId);
+		}
+		case 'local': {
+			const { createLocalEmbedShell } = await import('./online-play-routing-shell');
+			return createLocalEmbedShell(gameId);
+		}
+		case 'shell': {
+			if (!embed) return null;
+			const { createRemoteShell } = await import('./online-play-routing-shell');
+			return createRemoteShell(gameId, embed);
+		}
+		case 'relay': {
+			if (!embed) return null;
+			/*
+			 * The relay fetches the catalog URL itself; the query and fragment ride along only
+			 * so the page sees them in `location` (Playhop's SDK reads `#origin=` from there).
+			 */
+			let tail = '';
+			try {
+				const parsed = new URL(embed);
+				tail = parsed.search + parsed.hash;
+			} catch {
+				/* unparseable embed: the relay has its own copy anyway */
+			}
+			return `${RELAY_SCHEME}://localhost/game/${encodeURIComponent(gameId)}${tail}`;
+		}
+		case 'puller': {
+			const { pullerUnityPlayUrl, pullerLiveGameUrl } = await import('./offline-downloader-puller');
+			return unity ? pullerUnityPlayUrl(gameId, base) : pullerLiveGameUrl(gameId, base);
+		}
+	}
+}
+
+export interface OnlinePlayRoute {
+	url: string;
+	/** `null` when every route failed and `url` is only the plain online URL. */
+	kind: PlayRouteKind | null;
+}
+
 /**
- * Whether online play for this game ends up in a third-party document — either a direct
- * cross-origin embed or a locally written `embed.html` that only points at one. Those are
- * the games the touch console cannot reach without a proxy; everything else is same-origin
- * and injectable as-is.
+ * The online play URL: the first route of the game's chain that has not already failed
+ * this session (see `planOnlineRoutes`). A route that cannot even be built — a shell whose
+ * HTML will not download — counts as failed on the spot.
  */
-function onlinePlayIsCrossOrigin(metadata: GameMetadata | null): boolean {
-	if (metadata?.localEmbed) return true;
-	return hasExternalOnlineEmbed(metadata);
+export async function resolveOnlinePlayRoute(
+	gameId: string,
+	metadata: GameMetadata | null
+): Promise<OnlinePlayRoute> {
+	const nativeFrames = await nativeGameFramesSupported();
+	const input = {
+		desktopApp: nativeFrames,
+		pullerRunning: false,
+		embedUrl: catalogEmbedUrl(metadata),
+		localEmbed: Boolean(metadata?.localEmbed)
+	};
+	let plan = planOnlineRoutes(input);
+	for (let attempt = 0; attempt < 8; attempt++) {
+		let kind = nextPlayRoute(plan, failedPlayRoutes(gameId));
+		if (!kind && !plan.includes('puller') && (await pullerAlreadyRunning())) {
+			plan = planOnlineRoutes({ ...input, pullerRunning: true });
+			kind = nextPlayRoute(plan, failedPlayRoutes(gameId));
+		}
+		if (!kind) break;
+		const url = await urlForRoute(kind, gameId, metadata, nativeFrames);
+		if (url) {
+			exhausted.delete(gameId);
+			return { url: remember(url, kind), kind };
+		}
+		markPlayRouteFailed(gameId, kind);
+		appendPlayLog('warn', 'play-url', `Play route ${kind} unavailable`, `game=${gameId}`);
+	}
+	exhausted.add(gameId);
+	return { url: resolveOnlinePlayUrl(metadata, gameId), kind: null };
+}
+
+/** Games whose last online resolution found no route left to try. */
+const exhausted = new Set<string>();
+
+/**
+ * True when the last online resolution for this game had no untried route and fell back
+ * to the plain online URL — the watchdog's cue to stop relaunching and tell the user.
+ */
+export function playRoutesExhausted(gameId: string): boolean {
+	return exhausted.has(gameId);
+}
+
+/**
+ * On desktop, hand the native side this launch before the frame exists: the bridge goes
+ * into the game's own frames when the top document is the game's (direct), and only
+ * into frames nested inside it when the top document brings the bridge itself.
+ */
+async function prepareFramesFor(gameId: string, url: string): Promise<void> {
+	if (!(await nativeGameFramesSupported())) return;
+	const kind = playRouteOfUrl(url);
+	const topHasBridge = kind !== 'direct' || url.startsWith(`${base}/`) || url.startsWith('/');
+	let ownOrigins: string[] = [];
+	try {
+		const { getPullerBaseUrl } = await import('./offline-downloader-puller');
+		ownOrigins = [new URL(getPullerBaseUrl()).origin];
+	} catch {
+		/* no puller origin to exclude */
+	}
+	watchGameFrameLife();
+	await prepareNativeGameFrames({ gameId, topHasBridge, ownOrigins });
 }
 
 async function offlineAvailable(gameId: string): Promise<boolean> {
@@ -500,11 +663,10 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 		return true;
 	}
 	/*
-	 * Puller status offline:false is authoritative while the puller is up.
-	 * When puller is down (browser/none), still accept a same-origin disk mirror
-	 * so offline launch survives temporary puller outages.
+	 * A file backend's offline:false is authoritative. Otherwise still accept a same-origin
+	 * disk mirror so an offline launch survives the backend being unreachable.
 	 */
-	if (status && backend === 'puller') return false;
+	if (status && (backend === 'puller' || backend === 'native')) return false;
 	if (!isPublicSiteDeployment()) {
 		return staticOfflineFileExists(gameId, base);
 	}
@@ -520,12 +682,26 @@ export async function getGamePlayerUrl(
 	gameId: string,
 	metadataOverride?: GameMetadata | null
 ): Promise<string> {
+	const url = await resolveGamePlayerUrl(gameId, metadataOverride);
+	await prepareFramesFor(gameId, url);
+	return url;
+}
+
+async function resolveGamePlayerUrl(
+	gameId: string,
+	metadataOverride?: GameMetadata | null
+): Promise<string> {
 	const metadata =
 		metadataOverride === undefined ? await loadGameMetadata(gameId) : metadataOverride;
 
-	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;
 	const mode = networkOnline ? getGamePlayMode(gameId) : 'offline';
+	/*
+	 * Only an offline launch needs to know about offline copies. Asking costs a backend
+	 * lookup (and, in `pnpm dev`, a puller probe), and an online launch now starts the
+	 * game the moment this resolves, so the common case must not wait on it.
+	 */
+	const hasOffline = mode === 'offline' ? await offlineAvailable(gameId) : false;
 
 	if (!networkOnline) {
 		if (hasOffline) {
@@ -606,107 +782,8 @@ export async function getGamePlayerUrl(
 	}
 
 	/*
-	 * Online launch routing. The public site plays external embeds directly and that
-	 * path is the reliable one, so the app defaults to the same URL. The puller relay
-	 * re-fetches and rewrites every asset through Node, which is what made desktop
-	 * launches stall or never start — reserve it for launches that genuinely need code
-	 * running inside a cross-origin game document (touch console), or for retrying a
-	 * game whose direct launch already failed. See `decideOnlineRelay`.
-	 */
-	const localApp = !isPublicSiteDeployment();
-	const pullerSupported = shouldProbePullerBackend();
-	const relayPossible = localApp && pullerSupported;
-	const consoleWanted = relayPossible && readConsoleVisiblePref(gameId);
-	const directFailed = relayPossible && hasDirectLaunchFailed(gameId);
-
-	let externalEmbed = onlinePlayIsCrossOrigin(metadata);
-	let externalUnityShell = false;
-	/*
-	 * A host that answers with X-Frame-Options still fires the iframe `load` event, so
-	 * the launch watchdog cannot see the refusal — the user just gets a blank frame.
-	 * These hosts have to be routed to the relay up front.
-	 */
-	let frameBlockedHost = isFrameBlockedHost(
-		metadata?.onlineEmbedUrl?.trim() || metadata?.remotePlayUrl?.trim()
-	);
-	/*
-	 * Probing the shell costs a fetch plus a cross-origin Unity sniff. Only pay for it
-	 * when a relay is actually on the table — otherwise it is pure launch latency.
-	 */
-	if (relayPossible && !externalEmbed && (consoleWanted || directFailed)) {
-		try {
-			const { probeOnlineShellExternal } = await import('./browser-offline-download');
-			const shell = await probeOnlineShellExternal(gameId);
-			externalEmbed = shell.external;
-			externalUnityShell = shell.unityLike;
-			frameBlockedHost = frameBlockedHost || isFrameBlockedHost(shell.iframeSrc);
-		} catch {
-			/* ignore probe failures */
-		}
-	}
-
-	const relayDecision = decideOnlineRelay({
-		localApp,
-		pullerSupported,
-		consoleWanted,
-		externalEmbed,
-		directLaunchFailed: directFailed,
-		engine: metadata?.engine,
-		frameBlockedHost
-	});
-
-	if (relayDecision.relay) {
-		const {
-			syncPullerBaseUrlFromTauri,
-			isPullerAvailable,
-			waitForPuller,
-			pullerUnityPlayUrl,
-			pullerLiveGameUrl
-		} = await import('./offline-downloader-puller');
-		/* Packaged Flatpak: sync port; isPullerAvailable falls back to Rust ensure_puller. */
-		await syncPullerBaseUrlFromTauri();
-		/*
-		 * An optional relay must never block: waiting on a cold sidecar used to add a
-		 * multi-second stall to every launch. Direct play is a good outcome here.
-		 */
-		const waitMs = relayDecision.relayOptional ? 0 : RELAY_LAUNCH_WAIT_MS;
-		const pullerUp =
-			(await isPullerAvailable(true)) || (waitMs > 0 ? await waitForPuller(waitMs) : false);
-		if (pullerUp) {
-			const preferUnityHost = metadata?.engine === 'unity' || externalUnityShell;
-			const url = preferUnityHost
-				? pullerUnityPlayUrl(gameId, base)
-				: pullerLiveGameUrl(gameId, base);
-			appendPlayLog(
-				'info',
-				'play-url',
-				`Resolved online play via puller relay (${relayDecision.reason})`,
-				`game=${gameId} engine=${metadata?.engine ?? 'unknown'} unityHost=${preferUnityHost} url=${url}`
-			);
-			return url;
-		}
-		appendPlayLog(
-			relayDecision.relayOptional ? 'info' : 'warn',
-			'play-url',
-			relayDecision.relayOptional
-				? `Puller not ready — launching direct instead of waiting`
-				: `Puller unavailable — falling back to the direct online URL`,
-			`game=${gameId} reason=${relayDecision.reason}`
-		);
-	} else {
-		appendPlayLog(
-			'info',
-			'play-url',
-			`Online play stays direct (${relayDecision.reason})`,
-			`game=${gameId} engine=${metadata?.engine ?? 'unknown'}`
-		);
-	}
-
-	/*
-	 * Unity online without a local puller:
-	 * 1) Optional hosted PUBLIC_PLAY_PROXY_URL (Cloudflare Worker)
-	 * 2) Public site: same-origin /api/unity-play/:id via offline-sw → local puller :18787
-	 * 3) Else player.html shell (touch unavailable)
+	 * Unity online with a hosted play proxy (`PUBLIC_PLAY_PROXY_URL`, a Cloudflare Worker
+	 * whose fetches originate outside a filtered network). Opt-in by build configuration.
 	 */
 	if (metadata?.engine === 'unity') {
 		const playProxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.replace(
@@ -723,49 +800,16 @@ export async function getGamePlayerUrl(
 			);
 			return url;
 		}
-		if (isPublicSiteDeployment()) {
-			const { ensureOfflineServiceWorker } = await import('./browser-offline-download');
-			await ensureOfflineServiceWorker();
-			const url = `${base}/api/unity-play/${encodeURIComponent(gameId)}`.replace(/\/{2,}/g, '/');
-			appendPlayLog(
-				'info',
-				'play-url',
-				`Resolved Unity play via service-worker → local puller relay`,
-				`game=${gameId} url=${url}`
-			);
-			return url;
-		}
 	}
 
-	/*
-	 * Public site: live relay for external embeds when a local puller is reachable via SW.
-	 */
-	if (hasExternalOnlineEmbed(metadata) && isPublicSiteDeployment()) {
-		const { isPullerAvailable, sameOriginLiveGameUrl } = await import(
-			'./offline-downloader-puller'
-		);
-		if (await isPullerAvailable(true, { ignoreDeploymentGate: true })) {
-			const { ensureOfflineServiceWorker } = await import('./browser-offline-download');
-			await ensureOfflineServiceWorker();
-			const url = sameOriginLiveGameUrl(gameId, base);
-			appendPlayLog(
-				'info',
-				'play-url',
-				`Resolved live relay via service-worker → local puller`,
-				`game=${gameId} url=${url}`
-			);
-			return url;
-		}
-	}
-
-	const onlineUrl = resolveOnlinePlayUrl(metadata, gameId);
+	const route = await resolveOnlinePlayRoute(gameId, metadata);
 	appendPlayLog(
-		'info',
+		route.kind ? 'info' : 'warn',
 		'play-url',
-		`Resolved online play URL`,
-		`game=${gameId} engine=${metadata?.engine ?? 'unknown'} url=${onlineUrl}`
+		route.kind ? `Resolved online play (${route.kind})` : `Every play route failed`,
+		`game=${gameId} engine=${metadata?.engine ?? 'unknown'} url=${route.url}`
 	);
-	return onlineUrl;
+	return route.url;
 }
 
 /** Whether the game can be played while the device has no network connection. */
@@ -806,6 +850,8 @@ export function iframeAllowForUrl(url: string): string | undefined {
 		url.includes('127.0.0.1') ||
 		url.includes('localhost') ||
 		url.startsWith('blob:') ||
+		url.startsWith(`${RELAY_SCHEME}:`) ||
+		url.startsWith(`${OFFLINE_SCHEME}:`) ||
 		(url.includes('/games/') && (url.includes('/online/') || url.includes('/offline/'))) ||
 		(() => {
 			try {
