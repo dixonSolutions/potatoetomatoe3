@@ -77,14 +77,17 @@ export const KEY_PROFILE_CHANGED = 'potato-tomato-key-profile-changed';
 /**
  * How much the console is allowed to act on what it knows.
  *
- * - `none`   nothing reported yet — leave the layout exactly as the user configured it.
- * - `weak`   codes were read out of handler source. Minified engines and wasm hide most
- *            of their comparisons, so an absent code is not evidence of an unused key:
- *            enough to fade a control, never enough to remove one.
- * - `strong` the game's own control blurb named the keys. Safe to hide the rest.
+ * Only what the running game does counts. Text — a portal blurb, a "How to play" panel,
+ * the catalog description — says what a page *claims*, and reading prose is guesswork
+ * however careful the parser; it supplies captions and an "unconfirmed" list, never the
+ * layout.
  *
- * Keys seen in use count as present, but never license hiding on their own: the first
- * press tells us Space matters, not that Z does not.
+ * - `none`   no runtime evidence yet — leave the layout exactly as the user configured it.
+ * - `weak`   keys found in handler source, or seen handled. Enough to fade a control,
+ *            never to remove one: one press of Space says Space matters, not that Z does
+ *            not, and minified or wasm engines hide most of their comparisons.
+ * - `strong` the game's engine registered its keys through its API (Phaser, PlayCanvas,
+ *            GDevelop, Kaboom, Scratch blocks) — an exact list. Safe to hide the rest.
  */
 export type KeyProfileConfidence = 'none' | 'weak' | 'strong';
 
@@ -94,8 +97,17 @@ export type KeyProfile = {
 	listens: boolean;
 	/** Total key listeners seen across reporting frames — diagnostics only. */
 	listenerCount: number;
-	/** Codes named by the game's own controls text. */
+	/**
+	 * Codes *mentioned* in text (controls blurbs, page panels, the catalog description).
+	 * Unverified — shown as such, used for captions, never for the layout.
+	 */
 	declared: string[];
+	/** Codes the game's engine registered through its own API — exact. */
+	bound: string[];
+	/** Purposes the engine itself names (Phaser `addKeys({ jump: 'SPACE' })`). */
+	boundPurposes: Record<string, string>;
+	/** Engine the bridge recognised, when any ("phaser3", "playcanvas", …). */
+	engine: string;
 	/** Codes read out of handler and script source. */
 	inferred: string[];
 	/**
@@ -120,6 +132,9 @@ export function emptyKeyProfile(gameId: string): KeyProfile {
 		listens: false,
 		listenerCount: 0,
 		declared: [],
+		bound: [],
+		boundPurposes: {},
+		engine: '',
 		inferred: [],
 		used: [],
 		purposes: {},
@@ -168,6 +183,9 @@ type RawReport = {
 	declared: string[];
 	inferred: string[];
 	used: string[];
+	bound?: string[];
+	boundPurposes?: Record<string, string>;
+	engine?: string;
 	purposes: Record<string, string>;
 	/** Codes named by `controlsText`, read on this side. */
 	declaredText?: string[];
@@ -191,7 +209,10 @@ export function parseKeyProfileMessage(data: unknown): RawReport | null {
 		used: sanitizeCodes(d.used),
 		...controlsFromText(d.controlsText),
 		shortcuts: sanitizeCodes(d.shortcuts),
-		textEntry: d.textEntry === true
+		textEntry: d.textEntry === true,
+		bound: sanitizeCodes(d.bound),
+		boundPurposes: sanitizePurposes(d.boundPurposes),
+		engine: typeof d.engine === 'string' && /^[a-z0-9]{1,16}$/.test(d.engine) ? d.engine : ''
 	};
 }
 
@@ -226,6 +247,9 @@ export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: nu
 	const inferred = [...new Set([...previous.inferred, ...report.inferred])].sort();
 	const used = [...new Set([...previous.used, ...report.used])].sort();
 	const shortcuts = [...new Set([...previous.shortcuts, ...report.shortcuts])].sort();
+	const bound = [...new Set([...previous.bound, ...(report.bound ?? [])])].sort();
+	const boundPurposes = { ...(report.boundPurposes ?? {}), ...previous.boundPurposes };
+	const engine = previous.engine || report.engine || '';
 	const textEntry = previous.textEntry || report.textEntry;
 	/* First purpose wins: the controls text does not change while a game runs. */
 	const purposes = { ...report.purposes, ...previous.purposes };
@@ -252,6 +276,9 @@ export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: nu
 		used.every((c, i) => c === previous.used[i]) &&
 		shortcuts.length === previous.shortcuts.length &&
 		textEntry === previous.textEntry &&
+		bound.length === previous.bound.length &&
+		Object.keys(boundPurposes).length === Object.keys(previous.boundPurposes).length &&
+		engine === previous.engine &&
 		purposesSame;
 	if (unchanged) return previous;
 	return {
@@ -261,6 +288,9 @@ export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: nu
 		declared,
 		inferred,
 		used,
+		bound,
+		boundPurposes,
+		engine,
 		purposes,
 		shortcuts,
 		textEntry,
@@ -270,31 +300,44 @@ export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: nu
 }
 
 export function keyProfileConfidence(profile: KeyProfile): KeyProfileConfidence {
-	if (profile.declared.length > 0) return 'strong';
+	if (profile.bound.length > 0) return 'strong';
 	if (profile.inferred.length > 0 || profile.used.length > 0) return 'weak';
 	return 'none';
 }
 
-/** Every code the profile has any evidence for. */
+/** Every code the running game gave evidence for. Text mentions are not evidence. */
 export function keyProfileCodes(profile: KeyProfile): Set<string> {
-	return new Set([...profile.declared, ...profile.used, ...profile.inferred]);
+	return new Set([...profile.bound, ...profile.used, ...profile.inferred]);
 }
 
-/** How sure the profile is about one code — drives the Controls menu's highlighting. */
-export type KeyEvidence = 'used' | 'declared' | 'inferred' | 'none';
+/**
+ * How we know about one code, most reliable first.
+ *
+ * - `used`     the game handled a press of it
+ * - `bound`    its engine registered it
+ * - `inferred` it appears in key-handler source
+ * - `declared` only *mentioned* in text — unconfirmed
+ */
+export type KeyEvidence = 'used' | 'bound' | 'inferred' | 'declared' | 'none';
 
 export function keyEvidence(profile: KeyProfile, code: string): KeyEvidence {
 	if (profile.used.includes(code)) return 'used';
-	if (profile.declared.includes(code)) return 'declared';
+	if (profile.bound.includes(code)) return 'bound';
 	if (profile.inferred.includes(code)) return 'inferred';
+	if (profile.declared.includes(code)) return 'declared';
 	return 'none';
+}
+
+/** What a key does: the engine's own name for it first, then the controls text. */
+export function keyPurpose(profile: KeyProfile, code: string): string {
+	return profile.boundPurposes[code] ?? profile.purposes[code] ?? '';
 }
 
 /**
  * Fold the catalog's own description into a profile.
  *
- * Catalog blurbs often carry the controls ("Use the arrow keys to move and Space to
- * jump") before the game has loaded a single script, so they count as declared.
+ * Catalog blurbs often name the controls ("Use the arrow keys to move and Space to
+ * jump"). That is text, so it only adds *mentions* and captions — never layout decisions.
  */
 export function withControlsHint(
 	profile: KeyProfile,
@@ -344,7 +387,7 @@ export function keyProfileLooksLikeTyping(profile: KeyProfile): boolean {
 }
 
 export function keyKind(profile: KeyProfile, code: string): KeyKind {
-	const named = profile.declared.includes(code) || profile.used.includes(code);
+	const named = profile.bound.includes(code) || profile.used.includes(code);
 	if (profile.shortcuts.includes(code) && !named) return 'shortcut';
 	if (TEXT_CODE.test(code) && !named && keyProfileLooksLikeTyping(profile)) return 'typing';
 	return 'gameplay';
@@ -357,12 +400,18 @@ export type DetectedControl = {
 	purpose: string;
 };
 
-const EVIDENCE_RANK: Record<KeyEvidence, number> = { used: 0, declared: 1, inferred: 2, none: 3 };
+const EVIDENCE_RANK: Record<KeyEvidence, number> = {
+	used: 0,
+	bound: 1,
+	inferred: 2,
+	declared: 3,
+	none: 4
+};
 const KIND_RANK: Record<KeyKind, number> = { gameplay: 0, shortcut: 1, typing: 2 };
 
 /** Every key with any evidence, gameplay first, strongest first. */
 export function detectedControls(profile: KeyProfile): DetectedControl[] {
-	const codes = new Set([...keyProfileCodes(profile), ...profile.shortcuts]);
+	const codes = new Set([...keyProfileCodes(profile), ...profile.declared, ...profile.shortcuts]);
 	const out: DetectedControl[] = [];
 	for (const code of codes) {
 		const seen = keyEvidence(profile, code);
@@ -372,7 +421,7 @@ export function detectedControls(profile: KeyProfile): DetectedControl[] {
 			code,
 			evidence,
 			kind: keyKind(profile, code),
-			purpose: profile.purposes[code] ?? ''
+			purpose: keyPurpose(profile, code)
 		});
 	}
 	return out.sort(
@@ -404,11 +453,11 @@ export function planExtraControls(
 ): DetectedControl[] {
 	const have = new Set(covered);
 	const stickPurposes = new Set(
-		[...have].map((c) => profile.purposes[c]).filter((p): p is string => Boolean(p))
+		[...have].map((c) => keyPurpose(profile, c)).filter((p): p is string => Boolean(p))
 	);
 	return detectedControls(profile)
 		.filter((c) => c.kind === 'gameplay')
-		.filter((c) => c.evidence === 'used' || c.evidence === 'declared')
+		.filter((c) => c.evidence === 'used' || c.evidence === 'bound')
 		.filter((c) => !have.has(c.code))
 		.filter((c) => {
 			const set = DIRECTION_SETS.find((s) => s.includes(c.code));
@@ -450,7 +499,9 @@ export function planControlVisibility(
 	controls: ControlSpec[]
 ): Record<string, ControlFate> {
 	const confidence = keyProfileConfidence(profile);
-	const codes = keyProfileCodes(profile);
+	/* Exact evidence: the engine bound it, or the game was seen handling it. */
+	const sure = new Set([...profile.bound, ...profile.used]);
+	const likely = new Set(profile.inferred);
 	const plan: Record<string, ControlFate> = {};
 	let anyShown = false;
 
@@ -460,12 +511,22 @@ export function planControlVisibility(
 			anyShown = true;
 			continue;
 		}
-		if (control.codes.some((c) => codes.has(c))) {
+		if (control.codes.some((c) => sure.has(c))) {
 			plan[control.id] = 'show';
 			anyShown = true;
 			continue;
 		}
-		plan[control.id] = confidence === 'strong' ? 'hide' : 'dim';
+		if (confidence === 'weak') {
+			plan[control.id] = likely.size && control.codes.some((c) => likely.has(c)) ? 'show' : 'dim';
+			if (plan[control.id] === 'show') anyShown = true;
+			continue;
+		}
+		/*
+		 * Strong: the engine's list is exact for the engine, but a game can also bind a raw
+		 * DOM listener beside it (a pause key, say) — a key found in handler source fades
+		 * instead of vanishing.
+		 */
+		plan[control.id] = control.codes.some((c) => likely.has(c)) ? 'dim' : 'hide';
 	}
 
 	if (!anyShown) {
@@ -492,6 +553,9 @@ export function readCachedKeyProfile(gameId: string): KeyProfile {
 			declared: sanitizeCodes(parsed.declared),
 			inferred: sanitizeCodes(parsed.inferred),
 			used: sanitizeCodes(parsed.used),
+			bound: sanitizeCodes(parsed.bound),
+			boundPurposes: sanitizePurposes(parsed.boundPurposes),
+			engine: typeof parsed.engine === 'string' ? parsed.engine.slice(0, 16) : '',
 			purposes: sanitizePurposes(parsed.purposes),
 			shortcuts: sanitizeCodes(parsed.shortcuts),
 			textEntry: parsed.textEntry === true,

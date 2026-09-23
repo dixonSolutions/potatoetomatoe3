@@ -24,6 +24,8 @@ type Report = {
 	purposes: Record<string, string>;
 	shortcuts: string[];
 	textEntry: boolean;
+	bound: string[];
+	boundPurposes: Record<string, string>;
 };
 
 const report = (over: Partial<Report> = {}): Report => ({
@@ -36,6 +38,8 @@ const report = (over: Partial<Report> = {}): Report => ({
 	purposes: {},
 	shortcuts: [],
 	textEntry: false,
+	bound: [],
+	boundPurposes: {},
 	...over
 });
 
@@ -102,13 +106,20 @@ describe('mergeKeyProfile', () => {
 });
 
 describe('confidence', () => {
-	it('is strong only when the game declared its own controls', () => {
-		const declared = mergeKeyProfile(emptyKeyProfile('g'), report({ declared: ['Space'] }), 1);
+	it('is strong only when the engine registered the keys', () => {
+		const bound = mergeKeyProfile(emptyKeyProfile('g'), report({ bound: ['Space'] }), 1);
 		const inferredOnly = mergeKeyProfile(emptyKeyProfile('g'), report({ inferred: ['Space'] }), 1);
-		expect(keyProfileConfidence(declared)).toBe('strong');
+		expect(keyProfileConfidence(bound)).toBe('strong');
 		expect(keyProfileConfidence(inferredOnly)).toBe('weak');
 		expect(keyProfileConfidence(emptyKeyProfile('g'))).toBe('none');
-		expect(keyProfileCodes(declared).has('Space')).toBe(true);
+		expect(keyProfileCodes(bound).has('Space')).toBe(true);
+	});
+
+	it('never acts on text: a key only mentioned in text is no evidence at all', () => {
+		const mentioned = mergeKeyProfile(emptyKeyProfile('g'), report({ declared: ['Space'] }), 1);
+		expect(keyProfileConfidence(mentioned)).toBe('none');
+		expect(keyProfileCodes(mentioned).has('Space')).toBe(false);
+		expect(keyEvidence(mentioned, 'Space')).toBe('declared');
 	});
 });
 
@@ -177,14 +188,29 @@ describe('planControlVisibility', () => {
 		expect(Object.values(plan).every((f) => f === 'show')).toBe(true);
 	});
 
-	it('hides what a declared control list does not mention', () => {
+	it('hides what the engine did not bind', () => {
 		const profile = mergeKeyProfile(
 			emptyKeyProfile('g'),
-			report({ declared: ['Space', 'ArrowLeft'] }),
+			report({ bound: ['Space', 'ArrowLeft'] }),
 			1
 		);
 		const plan = planControlVisibility(profile, DEFAULTS);
 		expect(plan).toEqual({ __joystick: 'show', a: 'hide', b: 'hide', space: 'show' });
+	});
+
+	it('fades rather than hides a key the engine missed but a handler mentions', () => {
+		const profile = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({ bound: ['Space', 'ArrowLeft'], inferred: ['KeyZ'] }),
+			1
+		);
+		expect(planControlVisibility(profile, DEFAULTS).a).toBe('dim');
+	});
+
+	it('leaves the layout alone when only text names the controls', () => {
+		const profile = mergeKeyProfile(emptyKeyProfile('g'), report({ declared: ['Space'] }), 1);
+		const plan = planControlVisibility(profile, DEFAULTS);
+		expect(Object.values(plan).every((f) => f === 'show')).toBe(true);
 	});
 
 	it('only fades when the evidence is an inferred source scan', () => {
@@ -194,8 +220,8 @@ describe('planControlVisibility', () => {
 	});
 
 	it('never empties the console — a trim that hides everything is a parse error', () => {
-		/* KeyA is what "tap a key" used to parse to: strong evidence matching no control. */
-		const profile = mergeKeyProfile(emptyKeyProfile('g'), report({ declared: ['KeyA'] }), 1);
+		/* Strong evidence that matches no control at all. */
+		const profile = mergeKeyProfile(emptyKeyProfile('g'), report({ bound: ['KeyA'] }), 1);
 		const plan = planControlVisibility(profile, DEFAULTS);
 		expect(Object.values(plan)).not.toContain('hide');
 		expect(Object.values(plan).every((f) => f === 'dim')).toBe(true);
@@ -213,7 +239,17 @@ describe('controls text and purposes', () => {
 		const p = mergeKeyProfile(emptyKeyProfile('g'), parsed!, 1);
 		expect(p.declared).toEqual(expect.arrayContaining(['KeyJ', 'ArrowLeft']));
 		expect(p.purposes.KeyJ).toBe('Jump');
-		expect(keyProfileConfidence(p)).toBe('strong');
+		/* Text is a caption source, not evidence. */
+		expect(keyProfileConfidence(p)).toBe('none');
+	});
+
+	it("prefers the engine's own name for a key over the text", () => {
+		const p = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({ bound: ['Space'], boundPurposes: { Space: 'Fire' }, purposes: { Space: 'Jump' } }),
+			1
+		);
+		expect(detectedControls(p)[0].purpose).toBe('Fire');
 	});
 
 	it('drops purposes for keys the console cannot send', () => {
@@ -250,11 +286,11 @@ describe('keyKind', () => {
 	it('treats unexplained letters as typing once the game has a text box', () => {
 		const p = mergeKeyProfile(
 			emptyKeyProfile('g'),
-			report({ textEntry: true, inferred: ['KeyQ', 'KeyW'], declared: ['KeyW'] }),
+			report({ textEntry: true, inferred: ['KeyQ', 'KeyW'], bound: ['KeyW'] }),
 			1
 		);
 		expect(keyKind(p, 'KeyQ')).toBe('typing');
-		/* Named in the controls: still a game key, text box or not. */
+		/* Bound by the engine: still a game key, text box or not. */
 		expect(keyKind(p, 'KeyW')).toBe('gameplay');
 		expect(keyKind(p, 'Space')).toBe('gameplay');
 	});
@@ -271,7 +307,7 @@ describe('keyKind', () => {
 			report({
 				textEntry: true,
 				used: ['Space'],
-				declared: ['KeyJ'],
+				bound: ['KeyJ'],
 				inferred: ['KeyQ'],
 				shortcuts: ['KeyS'],
 				purposes: { KeyJ: 'Jump' }
@@ -291,7 +327,7 @@ describe('planExtraControls', () => {
 	const profile = (over: Partial<Report>) => mergeKeyProfile(emptyKeyProfile('g'), report(over), 1);
 
 	it('adds strongly evidenced keys the console lacks', () => {
-		const p = profile({ declared: ['KeyJ', 'Space', 'ArrowLeft'], purposes: { KeyJ: 'Jump' } });
+		const p = profile({ bound: ['KeyJ', 'Space', 'ArrowLeft'], purposes: { KeyJ: 'Jump' } });
 		const extras = planExtraControls(p, [
 			'Space',
 			'ArrowUp',
@@ -303,20 +339,26 @@ describe('planExtraControls', () => {
 		expect(extras[0].purpose).toBe('Jump');
 	});
 
-	it('never adds keys that are only guessed from source, typed, or shortcuts', () => {
-		const p = profile({ inferred: ['KeyK'], shortcuts: ['KeyS'], textEntry: true, used: ['KeyQ'] });
+	it('never adds keys that are only mentioned, guessed from source, typed, or shortcuts', () => {
+		const p = profile({
+			declared: ['KeyM'],
+			inferred: ['KeyK'],
+			shortcuts: ['KeyS'],
+			textEntry: true,
+			used: ['KeyQ']
+		});
 		/* KeyQ was seen in use, so it is gameplay despite the text box. */
 		expect(planExtraControls(p, []).map((e) => e.code)).toEqual(['KeyQ']);
 	});
 
 	it('skips a second direction set that only repeats the stick', () => {
 		const move = { KeyW: 'Move', KeyA: 'Move', KeyS: 'Move', KeyD: 'Move', ArrowUp: 'Move' };
-		const p = profile({ declared: ['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp'], purposes: move });
+		const p = profile({ bound: ['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp'], purposes: move });
 		expect(planExtraControls(p, ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'])).toEqual([]);
 	});
 
 	it('caps how many it adds', () => {
-		const p = profile({ declared: ['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6'] });
+		const p = profile({ bound: ['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6'] });
 		expect(planExtraControls(p, [], 4)).toHaveLength(4);
 	});
 });

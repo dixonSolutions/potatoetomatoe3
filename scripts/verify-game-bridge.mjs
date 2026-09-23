@@ -23,8 +23,8 @@
  *   pnpm bridge-test -- --out /tmp/shots  # also save screenshots of each stage
  *   CHROMIUM_PATH=/path/to/chrome pnpm bridge-test
  */
-import { spawn } from 'node:child_process';
-import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync, spawn } from 'node:child_process';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -105,8 +105,129 @@ function writeFixture() {
 	writeFileSync(path.join(FIXTURE_DIR, 'online/index.html'), FIXTURE_HTML);
 }
 
+/*
+ * Real engine builds, to check the bridge reads keys from the engines themselves — not
+ * from imitations of their APIs. Fetched once with `npm pack` into node_modules/.cache;
+ * without network these checks are reported as skipped, never as passes.
+ */
+const ENGINE_CACHE = path.join(ROOT, 'node_modules/.cache/pt-bridge-engines');
+const ENGINES = [
+	{
+		id: '_bridge-phaser3',
+		name: 'Phaser 3',
+		pkg: 'phaser',
+		ver: '3.80.1',
+		file: 'dist/phaser.min.js',
+		game: `new Phaser.Game({ type: Phaser.CANVAS, width: 320, height: 240, banner: false,
+  scene: { create: function () {
+    this.input.keyboard.addKeys({ jump: 'SPACE', dash: 'K', left: 'A', right: 'D' });
+    this.input.keyboard.createCursorKeys();
+    this.input.keyboard.on('keydown-P', function () {});
+  } } });`,
+		bound: ['Space', 'KeyK', 'KeyA', 'KeyD', 'ArrowUp', 'ShiftLeft', 'KeyP'],
+		purposes: { Space: 'Jump', KeyK: 'Dash' },
+		extra: { code: 'KeyK', caption: 'Dash' },
+		hidden: ['Action B', 'Action Esc']
+	},
+	{
+		id: '_bridge-phaserce',
+		name: 'Phaser CE',
+		pkg: 'phaser-ce',
+		ver: '2.20.0',
+		file: 'build/phaser.min.js',
+		game: `new Phaser.Game(320, 240, Phaser.CANVAS, '', { create: function () {
+    this.game.input.keyboard.addKeys({ fire: Phaser.Keyboard.F });
+    this.game.input.keyboard.createCursorKeys();
+  } });`,
+		bound: ['KeyF', 'ArrowLeft', 'ArrowRight'],
+		purposes: { KeyF: 'Fire' },
+		extra: { code: 'KeyF', caption: 'Fire' },
+		hidden: ['Action A', 'Action B']
+	},
+	{
+		id: '_bridge-playcanvas',
+		name: 'PlayCanvas',
+		pkg: 'playcanvas',
+		ver: '1.73.4',
+		file: 'build/playcanvas.min.js',
+		game: `var kb = new pc.Keyboard(window);
+  (function loop() { kb.isPressed(pc.KEY_SPACE); kb.wasPressed(pc.KEY_E); kb.update(); requestAnimationFrame(loop); })();`,
+		bound: ['Space', 'KeyE'],
+		purposes: {},
+		extra: { code: 'KeyE', caption: '' },
+		hidden: ['Action A']
+	},
+	{
+		id: '_bridge-kaplay',
+		name: 'Kaplay',
+		pkg: 'kaplay',
+		ver: '3001.0.19',
+		file: 'dist/kaplay.js',
+		game: `kaplay({ global: true, width: 320, height: 240 });
+  onKeyPress('space', function () {});
+  onKeyDown('left', function () {});
+  onUpdate(function () { isKeyDown('x'); });`,
+		bound: ['Space', 'ArrowLeft', 'KeyX'],
+		purposes: {},
+		extra: null,
+		hidden: ['Action B']
+	}
+];
+
+function ensureEngine(engine) {
+	const dir = path.join(ENGINE_CACHE, `${engine.pkg}-${engine.ver}`);
+	const file = path.join(dir, 'package', engine.file);
+	if (existsSync(file)) return file;
+	try {
+		mkdirSync(dir, { recursive: true });
+		execFileSync(
+			'npm',
+			['pack', `${engine.pkg}@${engine.ver}`, '--silent', '--pack-destination', dir],
+			{
+				stdio: 'ignore'
+			}
+		);
+		const tgz = readdirSync(dir).find((f) => f.endsWith('.tgz'));
+		execFileSync('tar', ['xzf', path.join(dir, tgz), '-C', dir]);
+		return existsSync(file) ? file : null;
+	} catch {
+		return null;
+	}
+}
+
+function writeEngineFixtures() {
+	for (const engine of ENGINES) {
+		const lib = ensureEngine(engine);
+		engine.available = Boolean(lib);
+		if (!lib) continue;
+		const dir = path.join(ROOT, 'static/games', engine.id, 'online');
+		mkdirSync(dir, { recursive: true });
+		copyFileSync(lib, path.join(dir, 'engine.js'));
+		writeFileSync(
+			path.join(dir, 'metadata.json'),
+			JSON.stringify({
+				id: engine.id,
+				name: `${engine.name} Lab`,
+				author: 'Test',
+				description: 'Engine fixture for pnpm bridge-test.',
+				thumbnail: '',
+				category: 'Test'
+			})
+		);
+		writeFileSync(
+			path.join(dir, 'index.html'),
+			`<!doctype html><html><head><meta charset="utf-8"><title>${engine.name}</title>` +
+				`<style>body{margin:0;background:#111}</style><script src="engine.js"></script></head>` +
+				`<body><script>\n${engine.game}\n</script></body></html>`
+		);
+	}
+}
+
 async function cleanup() {
 	rmSync(FIXTURE_DIR, { recursive: true, force: true });
+	for (const engine of ENGINES) {
+		rmSync(path.join(ROOT, 'static/games', engine.id), { recursive: true, force: true });
+	}
 	if (server) server.kill('SIGTERM');
 }
 
@@ -140,6 +261,7 @@ async function shot(target, name) {
 }
 
 writeFixture();
+writeEngineFixtures();
 process.on('SIGINT', () => void cleanup().then(() => process.exit(130)));
 if (!BASE) BASE = await startServer();
 
@@ -150,9 +272,11 @@ function check(name, ok, detail = '') {
 }
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const browser = await chromium.launch(
-	process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}
-);
+const browser = await chromium.launch({
+	...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+	/* Software WebGL, so engines that need a GL context boot headless too. */
+	args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist']
+});
 const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await context.newPage();
 page.on('pageerror', (e) => console.log('[pageerror]', e.message));
@@ -344,8 +468,8 @@ await page.mouse.down();
 await sleep(2600);
 const heldLong = await frame.evaluate(() => window.keysSeen.slice());
 check(
-	'Unused A/B/X/Esc buttons hidden by detection',
-	(await page.getByRole('button', { name: 'Action A' }).count()) === 0
+	'Controls text alone hides nothing (A still on the console)',
+	(await page.getByRole('button', { name: 'Action A' }).count()) === 1
 );
 check(
 	'Holding Space for 2.6s keeps it a key press (no edit mode)',
@@ -382,10 +506,8 @@ check(
 );
 const extras = page.locator('[data-testid="console-extras"]');
 check(
-	'Console grew a J button from detection, captioned with its purpose',
-	(await extras.getByRole('button', { name: 'Action J' }).count()) === 1 &&
-		(await extras.innerText()).includes('Jump'),
-	await extras.innerText().catch(() => '(none)')
+	'Controls text alone adds nothing (no J button before the game uses J)',
+	(await page.getByRole('button', { name: 'Action J' }).count()) === 0
 );
 check(
 	'Space button captioned with what it does',
@@ -398,27 +520,30 @@ const menu = page.locator('[data-testid="controls-menu"]');
 await menu.waitFor();
 await sleep(600);
 await shot(page, '05-controls-menu.png');
-const rows = await menu
-	.locator('[data-section="gameplay"] li')
-	.evaluateAll((els) => els.map((e) => `${e.dataset.codes}|${e.innerText.replace(/\s+/g, ' ')}`));
+const menuRows = (section) =>
+	menu
+		.locator(`[data-section="${section}"] li`)
+		.evaluateAll((els) => els.map((e) => `${e.dataset.codes}|${e.innerText.replace(/\s+/g, ' ')}`));
+const confirmed = await menuRows('gameplay');
+const mentionedRows = await menuRows('mentioned');
+const confirmedText = confirmed.join(' ; ');
 check(
-	'Menu lists J with its purpose',
-	rows.some((r) => r.startsWith('KeyJ|') && r.includes('Jump')),
-	rows.join(' ; ')
+	'Confirmed controls: only what the game did — ArrowLeft handled, J in its key handler',
+	confirmed.length === 2 &&
+		confirmed.some((r) => /ArrowLeft/.test(r) && /in use/i.test(r)) &&
+		confirmed.some((r) => r.startsWith('KeyJ|') && /likely/i.test(r) && r.includes('Jump')),
+	confirmedText
 );
 check(
-	'Menu lists arrows as Move and Space as Dash',
-	rows.some((r) => /ArrowUp/.test(r.split('|')[0]) && r.includes('Move')) &&
-		rows.some((r) => r.startsWith('Space|') && r.includes('Dash'))
-);
-check(
-	'ArrowLeft marked in use (seen handled live)',
-	rows.some((r) => /ArrowLeft/.test(r.split('|')[0]) && /in use/i.test(r))
+	'Text-only keys listed apart as unconfirmed, with their captions',
+	mentionedRows.some((r) => r.startsWith('Space|') && r.includes('Dash')) &&
+		!mentionedRows.some((r) => r.startsWith('KeyJ|')),
+	mentionedRows.join(' ; ')
 );
 check(
 	'Keys that do the same thing share one row',
-	rows.some((r) => r.split('|')[0].split(' ').length === 4 && r.includes('Move')),
-	rows.join(' ; ')
+	mentionedRows.some((r) => r.split('|')[0].split(' ').length === 3 && r.includes('Move')),
+	mentionedRows.join(' ; ')
 );
 const listBox = await menu.locator('[data-testid="controls-list"]').boundingBox();
 check(
@@ -430,7 +555,7 @@ check(
 await menu.getByRole('searchbox').fill('jump');
 await sleep(150);
 const found = await menu
-	.locator('[data-section="gameplay"] li')
+	.locator('li[data-codes]')
 	.evaluateAll((els) => els.map((e) => e.dataset.codes));
 check('Search by purpose finds J only', found.join(',') === 'KeyJ', found.join(','));
 await shot(page, '06-controls-search.png');
@@ -447,9 +572,10 @@ check(
 );
 await sleep(1200);
 check(
-	'J promoted to "in use" after the game handled it',
-	(await menu.locator('li[data-code="KeyJ"] [data-evidence]').getAttribute('data-evidence')) ===
-		'used'
+	'J confirmed ("in use") once the game handled it',
+	(await menu
+		.locator('[data-section="gameplay"] li[data-code="KeyJ"] [data-evidence]')
+		.getAttribute('data-evidence')) === 'used'
 );
 await menu.getByRole('searchbox').fill('');
 
@@ -464,6 +590,14 @@ check(
 );
 await menu.getByRole('tab', { name: /Controls detected/ }).click();
 await menu.getByRole('button', { name: 'Close controls' }).click();
+await sleep(600);
+check(
+	'…and only then the console grows a J button, captioned "Jump"',
+	(await extras.getByRole('button', { name: 'Action J' }).count()) === 1 &&
+		(await extras.innerText()).includes('Jump'),
+	await extras.innerText().catch(() => '(none)')
+);
+await shot(page, '04b-console-after-use.png');
 
 /* Shortcut and typing classification, from real keyboard use inside the game. */
 await frame.locator('#c').click();
@@ -515,6 +649,88 @@ check(
 check('Edit mode sends no keys', (await frame.evaluate(() => window.keysSeen.length)) === 0);
 await page.locator('[data-testid="console-edit-toggle"]').click();
 await shot(page, '10-after-edit.png');
+
+/* ---------- real engines: keys read from the engine, not from text ---------- */
+for (const engine of ENGINES) {
+	if (!engine.available) {
+		console.log(`SKIP  ${engine.name}: engine build not available (offline?)`);
+		continue;
+	}
+	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+	const ep = await ctx.newPage();
+	const errors = [];
+	ep.on('pageerror', (e) => errors.push(e.message));
+	await ep.goto(`${BASE}/games/${engine.id}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
+	await ep.getByRole('heading', { name: `${engine.name} Lab` }).waitFor({ timeout: 180000 });
+	await ep.getByRole('button', { name: /play/i }).first().click();
+	await ep.locator('[data-testid="touch-console-toggle"]').click();
+	await ep.locator('[data-testid="touch-joystick"]').waitFor({ timeout: 15000 });
+	/* Engines register keys during boot; the bridge reports within a second of that. */
+	await sleep(3500);
+	await ep.locator('[data-testid="controls-menu-toggle"]').click();
+	const em = ep.locator('[data-testid="controls-menu"]');
+	await em.waitFor();
+	await sleep(400);
+	const rows = await em.locator('li[data-codes]').evaluateAll((els) =>
+		els.map((e) => ({
+			codes: e.dataset.codes.split(' '),
+			evidence: e.querySelector('[data-evidence]')?.getAttribute('data-evidence'),
+			text: e.innerText.replace(/\s+/g, ' ')
+		}))
+	);
+	const evidenceOf = (code) => rows.find((r) => r.codes.includes(code))?.evidence;
+	const missing = engine.bound.filter((c) => evidenceOf(c) !== 'bound');
+	check(
+		`${engine.name}: keys read from the engine as "bound"`,
+		missing.length === 0,
+		missing.length
+			? `missing ${missing.join(',')} — rows: ${rows.map((r) => r.codes.join('+') + ':' + r.evidence).join(' ')}`
+			: engine.bound.join(',')
+	);
+	const wrongPurposes = Object.entries(engine.purposes).filter(
+		([code, purpose]) => !rows.find((r) => r.codes.includes(code))?.text.includes(purpose)
+	);
+	if (Object.keys(engine.purposes).length) {
+		check(
+			`${engine.name}: purposes taken from the engine's own key names`,
+			wrongPurposes.length === 0,
+			wrongPurposes.map(([c, p]) => `${c}≠${p}`).join(' ')
+		);
+	}
+	if (OUT && engine === ENGINES[0]) {
+		/* The menu follows the system theme: capture it both ways. */
+		await em.scrollIntoViewIfNeeded();
+		await shot(ep, '21-menu-light.png');
+		await ep.emulateMedia({ colorScheme: 'dark' });
+		await sleep(400);
+		await shot(ep, '22-menu-dark.png');
+		await ep.emulateMedia({ colorScheme: 'light' });
+	}
+	await em.getByRole('button', { name: 'Close controls' }).click();
+	await sleep(500);
+	const stillShown = [];
+	for (const name of engine.hidden) {
+		if ((await ep.getByRole('button', { name, exact: true }).count()) > 0) stillShown.push(name);
+	}
+	check(
+		`${engine.name}: console drops buttons the engine never bound`,
+		stillShown.length === 0,
+		stillShown.join(',')
+	);
+	if (engine.extra) {
+		const ex = ep.locator('[data-testid="console-extras"]');
+		const label = engine.extra.code.replace(/^Key|^Digit/, '');
+		check(
+			`${engine.name}: console adds the bound ${label} key${engine.extra.caption ? ` ("${engine.extra.caption}")` : ''}`,
+			(await ex.getByRole('button', { name: `Action ${label}` }).count()) === 1 &&
+				(!engine.extra.caption || (await ex.innerText()).includes(engine.extra.caption)),
+			await ex.innerText().catch(() => '(none)')
+		);
+	}
+	check(`${engine.name}: no page errors`, errors.length === 0, errors.slice(0, 2).join(' | '));
+	await shot(ep, `20-${engine.id.replace('_bridge-', '')}.png`);
+	await ctx.close();
+}
 
 /* ---------- mobile landscape ---------- */
 const mobile = await browser.newContext({

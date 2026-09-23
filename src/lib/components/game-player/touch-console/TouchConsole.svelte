@@ -24,6 +24,7 @@
 		emptyKeyProfile,
 		keyProfileCodes,
 		keyProfileSaysNoKeyboard,
+		keyPurpose,
 		planExtraControls,
 		withControlsHint,
 		observeKeyProfile,
@@ -560,7 +561,7 @@
 	const extraControls = $derived(planExtraControls(planProfile, coveredCodes, 4));
 
 	function purposeOf(codes: string[]): string {
-		for (const c of codes) if (planProfile.purposes[c]) return planProfile.purposes[c];
+		for (const c of codes) if (keyPurpose(planProfile, c)) return keyPurpose(planProfile, c);
 		return '';
 	}
 
@@ -893,7 +894,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-white/25 bg-black/35 px-2.5 text-[10px] font-semibold tracking-wide text-white/90 shadow-sm backdrop-blur-md outline-none"
+					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-border/70 bg-background/80 px-2.5 text-[10px] font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-md outline-none"
 					class:border-emerald-400={effectiveScheme !== config.joystickScheme}
 					aria-label="Joystick key scheme"
 					aria-haspopup="listbox"
@@ -911,7 +912,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-white/25 bg-white/10 text-white/80"
+					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-md"
 					aria-label="Drag to move the whole console"
 					title="Drag to move the whole console"
 					onpointerdown={(e) => {
@@ -965,7 +966,7 @@
 						<button
 							type="button"
 							data-console-control
-							class="flex h-7 items-center justify-center rounded-full border border-white/25 bg-black/35 px-2 text-white/85 backdrop-blur-md"
+							class="flex h-7 items-center justify-center rounded-full border border-border/70 bg-background/80 px-2 text-foreground shadow-sm backdrop-blur-md"
 							aria-label="Reset layout to default"
 							title="Reset layout to default"
 							onclick={resetLayout}
@@ -978,8 +979,8 @@
 							data-console-control
 							data-testid="console-controls-toggle"
 							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-md {menuOpen
-								? 'border-emerald-300/80 bg-emerald-500/40 text-white'
-								: 'border-white/25 bg-black/35 text-white/85'}"
+								? 'border-emerald-500/80 bg-emerald-500 text-white'
+								: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
 							aria-label={menuOpen ? 'Hide controls' : 'Show controls'}
 							aria-pressed={menuOpen}
 							title="Controls — what this game uses, and every key"
@@ -993,8 +994,8 @@
 						data-console-control
 						data-testid="console-edit-toggle"
 						class="flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-semibold backdrop-blur-md {editMode
-							? 'border-rose-300/80 bg-rose-500/45 text-white'
-							: 'border-white/25 bg-black/35 text-white/85'}"
+							? 'border-rose-500/80 bg-rose-500 text-white'
+							: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
 						aria-label={editMode ? 'Done editing layout' : 'Edit layout'}
 						aria-pressed={editMode}
 						title={editMode ? 'Done — controls work again' : 'Move controls'}
@@ -1013,14 +1014,14 @@
 				-->
 				{#if noKeyboardSettled}
 					<span
-						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-400/50 bg-black/40 px-2 py-0.5 text-[10px] font-semibold text-amber-200 backdrop-blur-md"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-amber-700 backdrop-blur-md dark:text-amber-300"
 						title="Nothing in this game listens for key presses — touch the game directly."
 					>
 						No keys used
 					</span>
 				{:else if hiddenControlCount > 0}
 					<span
-						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-400/50 bg-black/40 px-2 py-0.5 text-[10px] font-semibold text-emerald-200 backdrop-blur-md"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 backdrop-blur-md dark:text-emerald-300"
 						title="Hidden because this game's own control list does not mention them."
 					>
 						−{hiddenControlCount} unused
@@ -1045,7 +1046,7 @@
 				></button>
 				<div
 					bind:this={schemeMenuEl}
-					class="pointer-events-auto absolute z-30 overflow-hidden rounded-2xl border border-white/20 bg-black/60 p-1 shadow-[0_10px_40px_rgb(0_0_0_/0.45)] backdrop-blur-xl"
+					class="pointer-events-auto absolute z-30 overflow-hidden rounded-2xl border border-border bg-popover/95 p-1 text-popover-foreground shadow-xl backdrop-blur-xl"
 					role="listbox"
 					aria-label="Joystick key scheme"
 					tabindex="-1"
@@ -1058,15 +1059,15 @@
 							data-console-control
 							role="option"
 							aria-selected={effectiveScheme === opt.value}
-							class="flex h-7 w-full items-center justify-between rounded-xl px-2.5 text-[10px] font-semibold tracking-wide text-white/90 outline-none focus-visible:ring-1 focus-visible:ring-white/50 {effectiveScheme ===
+							class="flex h-7 w-full items-center justify-between rounded-xl px-2.5 text-[10px] font-semibold tracking-wide outline-none hover:bg-accent focus-visible:ring-1 focus-visible:ring-ring {effectiveScheme ===
 							opt.value
-								? 'bg-white/15'
+								? 'bg-accent text-accent-foreground'
 								: ''}"
 							onclick={() => pickScheme(opt.value)}
 						>
 							<span class="truncate">{opt.label}</span>
 							{#if effectiveScheme === opt.value}
-								<Check class="size-3 shrink-0 text-emerald-300" />
+								<Check class="size-3 shrink-0 text-emerald-600 dark:text-emerald-400" />
 							{/if}
 						</button>
 					{/each}
@@ -1112,7 +1113,7 @@
 					role="status"
 				>
 					<span
-						class="rounded-full border border-rose-300/60 bg-black/55 px-3 py-1 text-[11px] font-semibold text-white shadow-md backdrop-blur-md"
+						class="rounded-full border border-rose-500/60 bg-popover/90 px-3 py-1 text-[11px] font-semibold text-popover-foreground shadow-md backdrop-blur-md"
 					>
 						Drag any control to move it · tap Done when finished
 					</span>

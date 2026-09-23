@@ -252,22 +252,40 @@ a keyboard parked on it:
 - **All keys** — the full board, for accessibility and for anything detection missed.
 - **Search** filters both, by key or by what it does ("jump").
 
-Evidence behind each key:
+**Only what the running game does decides anything.** Page and description text says
+what a page _claims_ — reading prose is guesswork however careful the parser — so it
+supplies captions and an "unconfirmed" list, never the console layout.
 
-| Evidence | Colour | Where it comes from                                                                                              |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
-| In use   | green  | The game handled a press of it (`preventDefault`) — real keyboard or console. Grows as you play.                 |
-| Listed   | blue   | Named in the game's controls text: the portal blurb, an in-page "How to play" panel, or the catalog description. |
-| Likely   | amber  | Found in the game's key-handler or inline-script source.                                                         |
+Evidence behind each key, most reliable first:
 
-**Purposes** come from reading that controls text ([`controls-text.ts`](../src/lib/utils/controls-text.ts)):
-"Arrow keys = move", "Move: WASD", "Press J to jump and X to shoot", "Jump with Space",
-"W - Forward / S - Backward". It is deliberately conservative — a named key decides which
-console buttons are hidden, so inventing one costs the player a control. Run over the
-13.6k catalog descriptions it reads controls from ~460 of them, and the false positives
-that turned up there (numbered lists, `watch?v=` links, clock times, emoticons, "Round 2 –
-Sonic", "Return to the castle", accented words split into letters) are all covered by
-tests in [`controls-text.spec.ts`](../src/lib/utils/controls-text.spec.ts).
+| Evidence  | Where it comes from                                                                                      | Effect on the console              |
+| --------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| In use    | The game handled a press (`preventDefault`) — real keyboard or console. Grows as you play.               | Shown; added if the pad lacks it   |
+| Bound     | The game's **engine** registered it, read from the engine at runtime (below). Exact.                     | Shown; added; other buttons hidden |
+| Likely    | A literal in a function the game registered as a key handler.                                            | Shown; never hides or adds         |
+| Mentioned | Only named in text: portal blurb, in-page "How to play", catalog description. Listed as "not confirmed". | Caption only                       |
+
+**Engine bindings** ([`game-storage-bridge.child.js`](../static/game-storage-bridge.child.js)) —
+the bridge hooks the key APIs of the engine as the game calls them, catching the engine
+the moment its global is assigned so boot-time registrations are seen:
+
+| Engine        | Hooked                                                                             | Purposes                            |
+| ------------- | ---------------------------------------------------------------------------------- | ----------------------------------- |
+| Phaser 3      | `KeyboardPlugin.addKey / addKeys / createCursorKeys / checkDown / on('keydown-X')` | `addKeys({ jump: 'SPACE' })` → Jump |
+| Phaser 2 / CE | `Keyboard.addKey / addKeys / isDown / createCursorKeys / addKeyCapture`            | same                                |
+| PlayCanvas    | `Keyboard.isPressed / wasPressed / wasReleased`                                    | —                                   |
+| GDevelop      | `gdjs.evtTools.input.isKeyPressed / wasKeyReleased / wasKeyJustPressed`            | —                                   |
+| Kaboom/Kaplay | `onKeyPress / onKeyDown / isKeyDown / …` (globals or context)                      | —                                   |
+| Scratch       | the project's "when key pressed" / "key pressed?" blocks                           | —                                   |
+
+`pnpm bridge-test` runs real Phaser 3, Phaser CE, PlayCanvas and Kaplay builds (fetched
+with `npm pack`) and checks their keys come through as Bound. Unity keeps its input map
+inside wasm and exposes nothing, so for Unity titles only live use is reliable.
+
+Only Bound evidence lets the console _hide_ buttons, and a button whose key a handler
+mentions fades instead of vanishing (a game can bind a raw DOM listener beside its
+engine). In use / Likely evidence alone only fades. Keys are added to the pad only when
+Bound or In use.
 
 **What kind of key it is** ([`key-profile.ts`](../src/lib/utils/key-profile.ts) `keyKind`):
 
@@ -278,16 +296,17 @@ tests in [`controls-text.spec.ts`](../src/lib/utils/controls-text.spec.ts).
   an editable element, or one take focus), or a handler compares against most of the
   alphabet. Letters with no other evidence are text entry: the menu offers **Type**, which
   puts the caret in the game's text box so the device keyboard opens, instead of growing a
-  button per letter. A letter the controls name, or that was seen driving play, stays a
+  button per letter. A letter the engine bound, or that was seen driving play, stays a
   game control even when the game also has a text box.
 
 **The dynamic console.** The same evidence reshapes the pad itself:
 
-- With "listed" evidence, face buttons whose keys the game never mentions are hidden
-  (the "−N unused" badge); with only "likely" or "in use" evidence they are dimmed — one
-  press of Space says Space matters, not that Z does not.
-- Game controls the pad lacks (listed or in use, not shortcuts or typing) are **added**
-  as small buttons just above the panel, captioned with what they do — at most four.
+- With Bound evidence, face buttons whose keys the engine never bound are hidden (the
+  "−N unused" badge); with only Likely or In use evidence they are dimmed — one press of
+  Space says Space matters, not that Z does not. Text never hides anything.
+- Game controls the pad lacks (Bound or In use — never Mentioned, shortcuts or typing)
+  are **added** as small buttons just above the panel, captioned with what they do — at
+  most four.
 - Buttons whose key has a known purpose carry it as a caption ("Space · Dash").
 
 On Android the detector is [`native_touch_bridge.js`](../src-tauri/gen/android/app/src/main/res/raw/native_touch_bridge.js);

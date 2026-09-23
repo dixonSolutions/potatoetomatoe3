@@ -308,7 +308,11 @@
 							.replace(/<[^>]*>/g, ' ')
 					);
 				}
-				scanCodes(text, profile.inferred);
+				/*
+				 * Not scanned for key literals: inline script text is mostly data and prose
+				 * (a JSON controls blurb says "Space" too). Only functions the game actually
+				 * registers as key handlers count as code evidence.
+				 */
 			}
 			/*
 			 * Controls panels shipped in the page itself ("How to play", "#controls") and the
@@ -350,6 +354,329 @@
 			return window.innerWidth >= 200 && window.innerHeight >= 150;
 		}
 
+		/* ------------------------------------------------------------------
+		 * Engine bindings — the reliable source.
+		 *
+		 * Text says what a page *claims*; handler source says what a function *mentions*.
+		 * Neither is what the game binds. Engines that register keys through an API tell us
+		 * exactly, at runtime, so the bridge listens to those APIs as the game calls them:
+		 *
+		 *   Phaser 3      KeyboardPlugin.addKey / addKeys / createCursorKeys / on('keydown-X')
+		 *   Phaser 2 / CE Keyboard.addKey / addKeys / isDown / createCursorKeys / addKeyCapture
+		 *   PlayCanvas    Keyboard.isPressed / wasPressed / wasReleased (polled every frame)
+		 *   GDevelop      gdjs.evtTools.input.isKeyPressed / wasKeyReleased / …
+		 *   Kaboom/Kaplay onKeyPress / onKeyDown / isKeyDown / … (global or context)
+		 *   Scratch       the project's own "when key pressed" / "key pressed?" blocks
+		 *
+		 * Engines are found as they load — a setter on the global the engine assigns — so
+		 * keys registered during boot are caught too. Unity keeps its input map inside wasm
+		 * and exposes nothing; for Unity only live use (below) is reliable.
+		 * ------------------------------------------------------------------ */
+		profile.bound = {};
+		profile.boundPurpose = {};
+		profile.engine = '';
+
+		var NAMED = {
+			SPACE: 'Space', SPACEBAR: 'Space', ENTER: 'Enter', RETURN: 'Enter',
+			ESC: 'Escape', ESCAPE: 'Escape', SHIFT: 'ShiftLeft', LSHIFT: 'ShiftLeft',
+			SHIFTLEFT: 'ShiftLeft', CTRL: 'ControlLeft', CONTROL: 'ControlLeft', LCONTROL: 'ControlLeft',
+			LCTRL: 'ControlLeft', CONTROLLEFT: 'ControlLeft', UP: 'ArrowUp', DOWN: 'ArrowDown',
+			LEFT: 'ArrowLeft', RIGHT: 'ArrowRight', ARROWUP: 'ArrowUp', ARROWDOWN: 'ArrowDown',
+			ARROWLEFT: 'ArrowLeft', ARROWRIGHT: 'ArrowRight', UPARROW: 'ArrowUp', DOWNARROW: 'ArrowDown',
+			LEFTARROW: 'ArrowLeft', RIGHTARROW: 'ArrowRight', ZERO: 'Digit0', ONE: 'Digit1', TWO: 'Digit2',
+			THREE: 'Digit3', FOUR: 'Digit4', FIVE: 'Digit5', SIX: 'Digit6', SEVEN: 'Digit7',
+			EIGHT: 'Digit8', NINE: 'Digit9'
+		};
+
+		/** Engine key name / number / Key object → KeyboardEvent.code, or null. */
+		function engineKeyCode(k, keyCodes) {
+			if (k == null) return null;
+			if (typeof k === 'number') return codeFromLegacyKeyCode(k);
+			if (typeof k === 'object') {
+				if (typeof k.keyCode === 'number') return codeFromLegacyKeyCode(k.keyCode);
+				return null;
+			}
+			var s = String(k).trim();
+			if (!s) return null;
+			if (EMITTABLE[s]) return s;
+			var up = s.toUpperCase().replace(/[\s_-]+/g, '');
+			if (NAMED[up]) return NAMED[up];
+			/* GDevelop: "Num0".."Num9"; Scratch: "left arrow" (collapsed above). */
+			var num = /^NUM(?:PAD)?([0-9])$/.exec(up);
+			if (num) return 'Digit' + num[1];
+			if (keyCodes && typeof keyCodes[up] === 'number') return codeFromLegacyKeyCode(keyCodes[up]);
+			if (s.length === 1) return codeFromKeyName(s);
+			return null;
+		}
+
+		/* "moveLeft" → "Move left", "jump" → "Jump". */
+		function humanize(name) {
+			var s = String(name)
+				.replace(/([a-z])([A-Z])/g, '$1 $2')
+				.replace(/[_-]+/g, ' ')
+				.trim()
+				.toLowerCase();
+			return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+		}
+
+		function noteBound(code, purpose) {
+			if (!code || !EMITTABLE[code]) return;
+			var fresh = !profile.bound[code];
+			var named = purpose && !profile.boundPurpose[code];
+			if (!fresh && !named) return;
+			profile.bound[code] = 1;
+			if (named) profile.boundPurpose[code] = String(purpose).slice(0, 28);
+			scheduleReport();
+		}
+
+		function noteKeyList(keys, keyCodes) {
+			if (keys == null) return;
+			if (typeof keys === 'string') {
+				var parts = keys.split(',');
+				for (var i = 0; i < parts.length; i++) noteBound(engineKeyCode(parts[i], keyCodes));
+				return;
+			}
+			if (Array.isArray(keys)) {
+				for (var j = 0; j < keys.length; j++) noteBound(engineKeyCode(keys[j], keyCodes));
+				return;
+			}
+			if (typeof keys === 'object') {
+				/* { jump: 'SPACE', left: 'A' } — the property names say what each key does. */
+				for (var name in keys) {
+					if (hasOwn(keys, name)) noteBound(engineKeyCode(keys[name], keyCodes), humanize(name));
+				}
+				return;
+			}
+			noteBound(engineKeyCode(keys, keyCodes));
+		}
+
+		/** Call `observe(args)` before every call of `obj[name]`; never throws into the game. */
+		function tap(obj, name, observe) {
+			try {
+				var orig = obj && obj[name];
+				if (typeof orig !== 'function' || orig.__ptTapped) return;
+				var wrapped = function () {
+					try {
+						observe(arguments, this);
+					} catch (e) {
+						/* observation must never cost the call */
+					}
+					return orig.apply(this, arguments);
+				};
+				wrapped.__ptTapped = true;
+				try {
+					wrapped.toString = function () {
+						return Function.prototype.toString.call(orig);
+					};
+				} catch (e) {
+					/* ignore */
+				}
+				obj[name] = wrapped;
+			} catch (e) {
+				/* frozen object — leave it */
+			}
+		}
+
+		var CURSORS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', 'ShiftLeft'];
+
+		function hookPhaser(P) {
+			if (!P || typeof P !== 'object' && typeof P !== 'function') return;
+			var K3 = P.Input && P.Input.Keyboard;
+			if (K3 && K3.KeyboardPlugin && K3.KeyboardPlugin.prototype) {
+				var proto3 = K3.KeyboardPlugin.prototype;
+				var codes3 = K3.KeyCodes;
+				profile.engine = 'phaser3';
+				tap(proto3, 'addKey', function (a) {
+					noteKeyList(a[0], codes3);
+				});
+				tap(proto3, 'addKeys', function (a) {
+					noteKeyList(a[0], codes3);
+				});
+				tap(proto3, 'createCursorKeys', function () {
+					for (var i = 0; i < CURSORS.length; i++) noteBound(CURSORS[i]);
+				});
+				tap(proto3, 'checkDown', function (a) {
+					noteKeyList(a[0], codes3);
+				});
+				var onKey = function (a) {
+					var m = /^key(?:down|up)-(\w+)$/i.exec(String(a[0] || ''));
+					if (m) noteBound(engineKeyCode(m[1], codes3));
+				};
+				tap(proto3, 'on', onKey);
+				tap(proto3, 'once', onKey);
+				tap(proto3, 'addListener', onKey);
+			}
+			var K2 = P.Keyboard;
+			if (K2 && K2.prototype && typeof K2.prototype.addKey === 'function') {
+				var proto2 = K2.prototype;
+				profile.engine = profile.engine || 'phaser2';
+				tap(proto2, 'addKey', function (a) {
+					noteKeyList(a[0], K2);
+				});
+				tap(proto2, 'addKeys', function (a) {
+					noteKeyList(a[0], K2);
+				});
+				tap(proto2, 'isDown', function (a) {
+					noteKeyList(a[0], K2);
+				});
+				tap(proto2, 'createCursorKeys', function () {
+					for (var i = 0; i < 4; i++) noteBound(CURSORS[i]);
+				});
+				tap(proto2, 'addKeyCapture', function (a) {
+					noteKeyList(a[0], K2);
+				});
+			}
+		}
+
+		function hookPlayCanvas(pc) {
+			var proto = pc && pc.Keyboard && pc.Keyboard.prototype;
+			if (!proto) return;
+			profile.engine = 'playcanvas';
+			var observe = function (a) {
+				if (typeof a[0] === 'number' && !profile.bound[codeFromLegacyKeyCode(a[0])]) {
+					noteBound(codeFromLegacyKeyCode(a[0]));
+				}
+			};
+			tap(proto, 'isPressed', observe);
+			tap(proto, 'wasPressed', observe);
+			tap(proto, 'wasReleased', observe);
+		}
+
+		function hookGDevelop(gdjs) {
+			var input = gdjs && gdjs.evtTools && gdjs.evtTools.input;
+			if (!input) return;
+			profile.engine = 'gdevelop';
+			var observe = function (a) {
+				noteBound(engineKeyCode(a[1]));
+			};
+			var names = ['isKeyPressed', 'wasKeyReleased', 'wasKeyJustPressed'];
+			for (var i = 0; i < names.length; i++) tap(input, names[i], observe);
+		}
+
+		var KABOOM_FNS = [
+			'onKeyPress', 'onKeyDown', 'onKeyRelease', 'onKeyPressRepeat',
+			'isKeyDown', 'isKeyPressed', 'isKeyReleased', 'isKeyPressedRepeat',
+			'keyPress', 'keyDown', 'keyRelease'
+		];
+		function kaboomObserve(a) {
+			if (typeof a[0] === 'function') return; /* any key */
+			noteKeyList(a[0]);
+		}
+		function hookKaboomContext(ctx) {
+			if (!ctx || typeof ctx !== 'object') return;
+			profile.engine = profile.engine || 'kaboom';
+			for (var i = 0; i < KABOOM_FNS.length; i++) tap(ctx, KABOOM_FNS[i], kaboomObserve);
+		}
+
+		/* Scratch has no API to hook, but its project is data: read the key blocks. */
+		function scanScratch() {
+			var vm = null;
+			try {
+				vm = (window.scaffolding && window.scaffolding.vm) || window.vm || null;
+			} catch (e) {
+				return;
+			}
+			var targets = vm && vm.runtime && vm.runtime.targets;
+			if (!targets || !targets.length) return;
+			profile.engine = 'scratch';
+			for (var t = 0; t < targets.length; t++) {
+				var blocks = targets[t] && targets[t].blocks && targets[t].blocks._blocks;
+				if (!blocks) continue;
+				for (var id in blocks) {
+					var b = blocks[id];
+					if (!b || (b.opcode !== 'event_whenkeypressed' && b.opcode !== 'sensing_keyoptions')) continue;
+					var f = b.fields && b.fields.KEY_OPTION;
+					var v = f && f.value;
+					if (v && v !== 'any') noteBound(engineKeyCode(v));
+				}
+			}
+		}
+
+		function scanEngines() {
+			try {
+				if (window.Phaser) hookPhaser(window.Phaser);
+				if (window.pc) hookPlayCanvas(window.pc);
+				if (window.gdjs) hookGDevelop(window.gdjs);
+				for (var i = 0; i < KABOOM_FNS.length; i++) {
+					if (typeof window[KABOOM_FNS[i]] === 'function') tap(window, KABOOM_FNS[i], kaboomObserve);
+				}
+				scanScratch();
+			} catch (e) {
+				/* ignore */
+			}
+		}
+
+		/*
+		 * Catch engines the moment their global is assigned, before the game's boot code
+		 * registers its keys. A classic-script `var Phaser` or UMD `root.Phaser = …` goes
+		 * through the setter; engines kept in module scope are found by the sweeps instead.
+		 */
+		function trapGlobal(name, onSet) {
+			try {
+				var existing = Object.getOwnPropertyDescriptor(window, name);
+				if (existing && !existing.configurable) return;
+				if (existing && 'value' in existing) {
+					onSet(existing.value);
+					return;
+				}
+				var value;
+				Object.defineProperty(window, name, {
+					configurable: true,
+					enumerable: true,
+					get: function () {
+						return value;
+					},
+					set: function (v) {
+						value = v;
+						try {
+							onSet(v);
+						} catch (e) {
+							/* ignore */
+						}
+					}
+				});
+			} catch (e) {
+				/* ignore */
+			}
+		}
+		trapGlobal('Phaser', hookPhaser);
+		trapGlobal('pc', hookPlayCanvas);
+		trapGlobal('gdjs', hookGDevelop);
+		['kaboom', 'kaplay'].forEach(function (name) {
+			trapGlobal(name, function (factory) {
+				if (typeof factory !== 'function' || factory.__ptTapped) return;
+				var wrapped = function () {
+					var ctx = factory.apply(this, arguments);
+					hookKaboomContext(ctx);
+					return ctx;
+				};
+				wrapped.__ptTapped = true;
+				Object.defineProperty(window, name, {
+					configurable: true,
+					enumerable: true,
+					writable: true,
+					value: wrapped
+				});
+			});
+		});
+		for (var kf = 0; kf < KABOOM_FNS.length; kf++) {
+			(function (fn) {
+				trapGlobal(fn, function (v) {
+					if (typeof v !== 'function' || v.__ptTapped) return;
+					/* Replace the stored value with a tapped one, then drop the trap. */
+					var holder = {};
+					holder[fn] = v;
+					tap(holder, fn, kaboomObserve);
+					Object.defineProperty(window, fn, {
+						configurable: true,
+						enumerable: true,
+						writable: true,
+						value: holder[fn]
+					});
+				});
+			})(KABOOM_FNS[kf]);
+		}
+
 		var reportTimer = null;
 		var reportsSent = 0;
 		var lastFingerprint = '';
@@ -371,6 +698,9 @@
 				inferred: list(profile.inferred),
 				used: list(profile.used),
 				shortcuts: list(profile.shortcuts),
+				bound: list(profile.bound),
+				boundPurposes: profile.boundPurpose,
+				engine: profile.engine,
 				textEntry: profile.textEntry,
 				controlsText: profile.controlsText
 			};
@@ -387,7 +717,11 @@
 				'|' +
 				payload.textEntry +
 				'|' +
-				payload.controlsText.length;
+				payload.controlsText.length +
+				'|' +
+				payload.bound.join(',') +
+				'|' +
+				Object.keys(payload.boundPurposes).length;
 			if (fp === lastFingerprint) return;
 			lastFingerprint = fp;
 			reportsSent++;
@@ -452,6 +786,7 @@
 		watchHandlerProperty(document, 'onkeyup');
 
 		function sweep() {
+			scanEngines();
 			try {
 				collectDeclared();
 			} catch (e) {
@@ -464,8 +799,11 @@
 		} else {
 			sweep();
 		}
+		setTimeout(sweep, 1000);
 		setTimeout(sweep, 2500);
 		setTimeout(sweep, 8000);
+		/* Scratch projects and late-registered engine keys keep arriving; keep looking a while. */
+		setTimeout(sweep, 15000);
 		return { profile: profile };
 	})();
 

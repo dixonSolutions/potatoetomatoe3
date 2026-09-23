@@ -17,6 +17,7 @@
 		detectedControls,
 		keyEvidence,
 		keyProfileLooksLikeTyping,
+		keyPurpose,
 		type DetectedControl,
 		type KeyEvidence,
 		type KeyProfile
@@ -72,16 +73,18 @@
 
 	const EVIDENCE_LABEL: Record<KeyEvidence, string> = {
 		used: 'In use',
-		declared: 'Listed',
+		bound: 'Bound',
 		inferred: 'Likely',
+		declared: 'Mentioned',
 		none: ''
 	};
 
 	/* What to say when the controls text gave no purpose. */
 	const EVIDENCE_FALLBACK: Record<KeyEvidence, string> = {
 		used: 'The game responds to it',
-		declared: 'Named in the game’s controls',
-		inferred: 'Found in the game’s code',
+		bound: 'Registered by the game engine',
+		inferred: 'Found in the game’s key handling',
+		declared: 'Only mentioned in text',
 		none: ''
 	};
 
@@ -102,10 +105,18 @@
 	}
 
 	const filtered = $derived(all.filter((c) => matches(c, query)));
-	const gameplay = $derived(grouped(filtered.filter((c) => c.kind === 'gameplay')));
+	/* Confirmed by the running game; text-only mentions are listed apart, as unconfirmed. */
+	const gameplay = $derived(
+		grouped(filtered.filter((c) => c.kind === 'gameplay' && c.evidence !== 'declared'))
+	);
+	const mentioned = $derived(
+		grouped(filtered.filter((c) => c.kind === 'gameplay' && c.evidence === 'declared'))
+	);
 	const shortcuts = $derived(grouped(filtered.filter((c) => c.kind === 'shortcut')));
 	const typing = $derived(filtered.filter((c) => c.kind === 'typing'));
-	const gameplayCount = $derived(grouped(all.filter((c) => c.kind === 'gameplay')).length);
+	const gameplayCount = $derived(
+		grouped(all.filter((c) => c.kind === 'gameplay' && c.evidence !== 'declared')).length
+	);
 
 	type Group = {
 		key: string;
@@ -115,7 +126,13 @@
 		purpose: string;
 	};
 
-	const RANK: Record<KeyEvidence, number> = { used: 0, declared: 1, inferred: 2, none: 3 };
+	const RANK: Record<KeyEvidence, number> = {
+		used: 0,
+		bound: 1,
+		inferred: 2,
+		declared: 3,
+		none: 4
+	};
 
 	/*
 	 * Keys that do the same thing share a row — "↑ ↓ ← → Move" is one control, not four —
@@ -195,33 +212,34 @@
 	function dot(evidence: KeyEvidence): string {
 		switch (evidence) {
 			case 'used':
-				return 'bg-emerald-400';
-			case 'declared':
-				return 'bg-sky-400';
+				return 'bg-emerald-500';
+			case 'bound':
+				return 'bg-sky-500';
 			case 'inferred':
-				return 'bg-amber-300';
+				return 'bg-amber-500';
 			default:
-				return 'bg-white/30';
+				return 'bg-muted-foreground/50';
 		}
 	}
 
+	/* Evidence tints that read on both the light and the dark popover. */
 	function capClass(evidence: KeyEvidence): string {
 		switch (evidence) {
 			case 'used':
-				return 'border-emerald-300/90 bg-emerald-400/25';
-			case 'declared':
-				return 'border-sky-300/80 bg-sky-400/20';
+				return 'border-emerald-500/70 bg-emerald-500/15 text-emerald-900 dark:text-emerald-100';
+			case 'bound':
+				return 'border-sky-500/70 bg-sky-500/15 text-sky-950 dark:text-sky-100';
 			case 'inferred':
-				return 'border-amber-300/60 bg-amber-300/10';
+				return 'border-amber-500/60 bg-amber-500/10 text-amber-950 dark:text-amber-100';
 			default:
-				return 'border-white/15 bg-white/5 text-white/50';
+				return 'border-border bg-muted text-muted-foreground';
 		}
 	}
 </script>
 
 {#snippet row(g: Group, pressable: boolean)}
 	<li
-		class="flex min-h-11 items-center gap-2.5 rounded-xl px-1.5 py-1 hover:bg-white/5"
+		class="flex min-h-11 items-center gap-2.5 rounded-xl px-1.5 py-1 hover:bg-accent/60"
 		data-code={g.codes[0]}
 		data-codes={g.codes.join(' ')}
 	>
@@ -246,15 +264,19 @@
 				</button>
 			{/each}
 		</span>
-		<span class="min-w-0 flex-1 truncate text-[13px] {g.purpose ? 'text-white' : 'text-white/60'}">
+		<span
+			class="min-w-0 flex-1 truncate text-[13px] {g.purpose
+				? 'text-foreground'
+				: 'text-muted-foreground'}"
+		>
 			{#if g.kind === 'shortcut'}
-				{g.purpose || 'Shortcut'} <span class="text-white/55">· with Ctrl / ⌘</span>
+				{g.purpose || 'Shortcut'} <span class="text-muted-foreground">· with Ctrl / ⌘</span>
 			{:else}
 				{g.purpose || EVIDENCE_FALLBACK[g.evidence]}
 			{/if}
 		</span>
 		<span
-			class="flex shrink-0 items-center gap-1 text-[10px] font-semibold tracking-wide text-white/70 uppercase"
+			class="flex shrink-0 items-center gap-1 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
 			data-evidence={g.evidence}
 		>
 			<i class="size-2 rounded-full {dot(g.evidence)}"></i>{EVIDENCE_LABEL[g.evidence]}
@@ -263,7 +285,7 @@
 {/snippet}
 
 <div
-	class="pointer-events-auto flex max-h-full w-[min(440px,94%)] flex-col gap-2 rounded-2xl border border-white/20 bg-black/75 p-2.5 text-white shadow-[0_10px_40px_rgb(0_0_0_/0.5)] backdrop-blur-xl"
+	class="pointer-events-auto flex max-h-full w-[min(440px,94%)] flex-col gap-2 rounded-2xl border border-border bg-popover/95 p-2.5 text-popover-foreground shadow-xl backdrop-blur-xl"
 	role="dialog"
 	aria-label="Game controls"
 	tabindex="-1"
@@ -273,14 +295,16 @@
 >
 	<div class="flex items-center gap-2">
 		<div
-			class="flex rounded-full border border-white/15 bg-white/5 p-0.5 text-[11px] font-semibold"
+			class="flex rounded-full border border-border bg-muted p-0.5 text-[11px] font-semibold"
 			role="tablist"
 		>
 			<button
 				type="button"
 				role="tab"
 				data-console-control
-				class="rounded-full px-2.5 py-1 {tab === 'detected' ? 'bg-white/20' : 'text-white/70'}"
+				class="rounded-full px-2.5 py-1 {tab === 'detected'
+					? 'bg-background text-foreground shadow-sm'
+					: 'text-muted-foreground'}"
 				aria-selected={tab === 'detected'}
 				onclick={() => (tab = 'detected')}
 			>
@@ -290,7 +314,9 @@
 				type="button"
 				role="tab"
 				data-console-control
-				class="rounded-full px-2.5 py-1 {tab === 'all' ? 'bg-white/20' : 'text-white/70'}"
+				class="rounded-full px-2.5 py-1 {tab === 'all'
+					? 'bg-background text-foreground shadow-sm'
+					: 'text-muted-foreground'}"
 				aria-selected={tab === 'all'}
 				onclick={() => (tab = 'all')}
 			>
@@ -300,7 +326,7 @@
 		<button
 			type="button"
 			data-console-control
-			class="ml-auto flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10"
+			class="ml-auto flex size-7 shrink-0 items-center justify-center rounded-full border border-border bg-muted hover:bg-accent"
 			aria-label="Close controls"
 			onclick={onClose}
 		>
@@ -309,13 +335,13 @@
 	</div>
 
 	<label
-		class="flex h-8 items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-2.5 text-[13px] focus-within:border-white/40"
+		class="flex h-8 items-center gap-2 rounded-lg border border-input bg-background px-2.5 text-[13px] focus-within:ring-2 focus-within:ring-ring/50"
 	>
 		<Search class="size-3.5 shrink-0 opacity-70" />
 		<input
 			type="search"
 			data-console-control
-			class="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-white/45"
+			class="min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-muted-foreground"
 			placeholder="Search a key or what it does"
 			aria-label="Search controls"
 			bind:value={query}
@@ -323,7 +349,7 @@
 	</label>
 
 	{#if !canSend}
-		<p class="px-1 text-[11px] text-amber-200/90" role="status">
+		<p class="px-1 text-[11px] text-amber-700 dark:text-amber-300" role="status">
 			This game frame can’t receive keys from here — keys are listed but won’t press.
 		</p>
 	{/if}
@@ -335,12 +361,14 @@
 			data-testid="controls-list"
 		>
 			{#if all.length === 0}
-				<p class="px-1 py-3 text-xs text-white/75" role="status">
+				<p class="px-1 py-3 text-xs text-muted-foreground" role="status">
 					Listening for the keys this game reads… They appear here as they are found, and as you
 					play. <b>All keys</b> has every key meanwhile.
 				</p>
 			{:else if filtered.length === 0}
-				<p class="px-1 py-3 text-xs text-white/70" role="status">Nothing matches “{query}”.</p>
+				<p class="px-1 py-3 text-xs text-muted-foreground" role="status">
+					Nothing matches “{query}”.
+				</p>
 			{:else}
 				{#if gameplay.length}
 					<ul aria-label="Game controls" data-section="gameplay">
@@ -349,9 +377,22 @@
 						{/each}
 					</ul>
 				{/if}
+				{#if mentioned.length}
+					<p
+						class="mt-2 mb-0.5 px-1.5 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
+						title="Named in the game’s description or page text, but not seen in the running game"
+					>
+						Mentioned in text · not confirmed
+					</p>
+					<ul aria-label="Mentioned in text" data-section="mentioned">
+						{#each mentioned as g (g.key)}
+							{@render row(g, true)}
+						{/each}
+					</ul>
+				{/if}
 				{#if shortcuts.length}
 					<p
-						class="mt-2 mb-0.5 px-1.5 text-[10px] font-semibold tracking-wide text-white/55 uppercase"
+						class="mt-2 mb-0.5 px-1.5 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
 					>
 						Shortcuts
 					</p>
@@ -363,11 +404,11 @@
 				{/if}
 				{#if typing.length || typingGame}
 					<div
-						class="mt-2 flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2"
+						class="mt-2 flex items-center gap-2 rounded-xl border border-border bg-muted px-2.5 py-2"
 						data-section="typing"
 					>
 						<KeyboardIcon class="size-4 shrink-0 opacity-80" />
-						<p class="min-w-0 flex-1 text-[12px] leading-snug text-white/80">
+						<p class="min-w-0 flex-1 text-[12px] leading-snug text-muted-foreground">
 							This game takes typed text{typing.length
 								? ` (${typing.length} letter${typing.length === 1 ? '' : 's'})`
 								: ''} — use your device keyboard for that.
@@ -377,7 +418,7 @@
 								type="button"
 								data-console-control
 								data-testid="type-with-device"
-								class="shrink-0 rounded-full border border-white/25 bg-white/15 px-2.5 py-1 text-[11px] font-semibold"
+								class="shrink-0 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold text-foreground hover:bg-accent"
 								onclick={onTypeWithDevice}
 							>
 								Type
@@ -393,7 +434,7 @@
 				<div class="flex justify-center gap-1">
 					{#each keys as code (code)}
 						{@const evidence = keyEvidence(profile, code)}
-						{@const hit = matches({ code, purpose: profile.purposes[code] }, query)}
+						{@const hit = matches({ code, purpose: keyPurpose(profile, code) }, query)}
 						<button
 							type="button"
 							data-console-control
@@ -403,8 +444,8 @@
 								evidence
 							)} {pressed[code] ? 'scale-95 brightness-150' : ''} {hit ? '' : 'opacity-25'}"
 							style={`flex:${WIDE[code] ?? 1} 1 0;`}
-							title={profile.purposes[code] ?? ''}
-							aria-label={`${keyLabel(code)}${profile.purposes[code] ? ` — ${profile.purposes[code]}` : ''}`}
+							title={keyPurpose(profile, code)}
+							aria-label={`${keyLabel(code)}${keyPurpose(profile, code) ? ` — ${keyPurpose(profile, code)}` : ''}`}
 							onpointerdown={(e) => press(e, code)}
 							onpointerup={release}
 							onpointercancel={release}
