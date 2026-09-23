@@ -16,7 +16,7 @@
 	import TopBar from '$lib/components/TopBar.svelte';
 	import PrivacyGate from '$lib/components/privacy-gateway/PrivacyGate.svelte';
 	import PlayLimitGate from '$lib/components/play-limit-gateway/PlayLimitGate.svelte';
-	import Settings from '$lib/components/settings/Settings.svelte';
+	import type SettingsComponent from '$lib/components/settings/Settings.svelte';
 	import { toast } from 'svelte-sonner';
 	import { isGlobalDailyLimitExceeded } from '$lib/utils/play-recommendations';
 	import { ModeWatcher, resetMode, systemPrefersMode } from 'mode-watcher';
@@ -87,6 +87,28 @@
 		!initialPrivacyHead.privacyModeEnabled || !!initialPrivacyHead.privacySessionUnlocked
 	);
 	let settingsOpen = $state(false);
+	/*
+	 * Settings is the largest thing in the shell — six sections, their dialogs and the
+	 * settings search — and it was parsed on every page load for a dialog most visits never
+	 * open. Load it on first open, and otherwise once the page has finished loading so it is
+	 * cached (by the offline worker too) before anyone needs it without a network.
+	 */
+	let Settings = $state<typeof SettingsComponent | null>(null);
+	let settingsImport: Promise<void> | null = null;
+	function loadSettings(): Promise<void> {
+		settingsImport ??= import('$lib/components/settings/Settings.svelte')
+			.then((m) => {
+				Settings = m.default;
+			})
+			.catch((err) => {
+				settingsImport = null;
+				console.warn('Settings failed to load:', err);
+			});
+		return settingsImport;
+	}
+	$effect(() => {
+		if (settingsOpen) void loadSettings();
+	});
 	let decoyTitle = $state(initialPrivacyHead.decoyTitle ?? 'Google Docs');
 	/** Prefer SSR disguise URL; never default to the brand logo (that caused privacy-login tab flashes). */
 	let decoyFavicon = $state(
@@ -376,6 +398,18 @@
 		/* Android self-update. No-ops on every other target and when already current. */
 		startAutoApkUpdate();
 
+		/* Settings off the critical path: after `load` (covers in view are in), when idle. */
+		const prefetchSettings = () => {
+			/* WebKitGTK has no requestIdleCallback. */
+			if (typeof window.requestIdleCallback === 'function') {
+				window.requestIdleCallback(() => void loadSettings(), { timeout: 5000 });
+			} else {
+				setTimeout(() => void loadSettings(), 2000);
+			}
+		};
+		if (document.readyState === 'complete') prefetchSettings();
+		else window.addEventListener('load', prefetchSettings, { once: true });
+
 		const onPlayLimitsChanged = () => refreshPlayLimitLock();
 		window.addEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
 
@@ -544,7 +578,7 @@
 	{/key}
 </svelte:head>
 
-{#if !isDevHarnessRoute && (!privacyEnabled || privacyUnlocked)}
+{#if Settings && !isDevHarnessRoute && (!privacyEnabled || privacyUnlocked)}
 	<Settings
 		bind:open={settingsOpen}
 		onApplied={() => {
