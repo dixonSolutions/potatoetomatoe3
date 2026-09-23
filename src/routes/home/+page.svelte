@@ -5,12 +5,19 @@
 	import { loadCatalogIndex, type GameIndexEntry } from '$lib/utils/games';
 	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
 	import { warmGameLaunch } from '$lib/utils/network-warmup';
+	import {
+		applyQualityFilter,
+		passesQualityFilter,
+		readQualityFilterPrefs,
+		topQualityGames
+	} from '$lib/utils/catalog-quality';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
 	import {
 		getBrowseShuffleSeed,
 		getHomeRecommendations,
 		getHomeRecommendationsAsync,
 		getRecentlyPlayedGames,
+		loadPlayAnalytics,
 		shuffleDeterministic
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -100,6 +107,15 @@
 			const statusPromise = refreshOfflineStatuses();
 
 			/*
+			 * Continue shows what the user played, even a game since classed as broken; the
+			 * filler it adds for a thin history comes only from games worth suggesting.
+			 */
+			const qualityFilter = readQualityFilterPrefs();
+			const playedIds = new Set(Object.keys(loadPlayAnalytics().perGame));
+			const continuePool = (games: GameIndexEntry[]) =>
+				games.filter((g) => playedIds.has(g.id) || passesQualityFilter(g, qualityFilter));
+
+			/*
 			 * The progress callback fires once per catalog shard — 27 of them. Rebuilding
 			 * Continue on every one meant 27 passes of getRecentlyPlayedGames, each of which
 			 * indexes and (when history is thin) shuffles and scores the whole 13k-row
@@ -114,50 +130,64 @@
 				allGames = partial;
 				if (!continuePainted) {
 					continuePainted = true;
-					continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(partial, prefs, 28));
+					continueGames = applyOfflineLibraryFilter(
+						getRecentlyPlayedGames(continuePool(partial), prefs, 28)
+					);
 					libraryReady = true;
 				}
 			});
 			if (generation !== loadGeneration) return;
 
-			continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
+			continueGames = applyOfflineLibraryFilter(
+				getRecentlyPlayedGames(continuePool(allGames), prefs, 28)
+			);
 			libraryReady = true;
 
 			const continueIds = new Set(continueGames.map((g) => g.id));
+			/*
+			 * Suggestions come from the games worth suggesting: tests, templates and games
+			 * that do not launch stay out (Continue above is the user's own history, so it
+			 * keeps everything), and the browse page's school-network filter carries over.
+			 */
+			const suggestable = applyQualityFilter(allGames, qualityFilter);
 
 			/* Recommendations are nice-to-have — paint Continue first, then fill the rest. */
 			void (async () => {
 				try {
-					let rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
+					let rec = await getHomeRecommendationsAsync(suggestable, prefs, 14);
 					if (generation !== loadGeneration) return;
 					rec = rec.filter((g) => !continueIds.has(g.id));
 					if (rec.length < 10) {
-						rec = await getHomeRecommendationsAsync(allGames, prefs, 14);
+						rec = await getHomeRecommendationsAsync(suggestable, prefs, 14);
 						if (generation !== loadGeneration) return;
 					}
 					if (rec.length === 0) {
-						rec = getHomeRecommendations(allGames, prefs, 14);
+						rec = getHomeRecommendations(suggestable, prefs, 14);
 					}
 					recommendedGames = applyOfflineLibraryFilter(rec);
 
+					/* Featured: a per-session shuffle of the top of the catalog, not of all 13k games. */
 					const used = new Set([...continueGames, ...recommendedGames].map((g) => g.id));
 					featuredGames = applyOfflineLibraryFilter(
 						shuffleDeterministic(
-							allGames.filter((g) => !used.has(g.id)),
+							topQualityGames(suggestable).filter((g) => !used.has(g.id)),
 							getBrowseShuffleSeed() ^ 0xfed1
 						).slice(0, 16)
 					);
 
 					if (featuredGames.length < 8 && networkOnline) {
 						const need = 8 - featuredGames.length;
-						const extra = allGames
-							.filter((g) => !featuredGames.some((f) => f.id === g.id))
+						/* The index is best-first, so the head of the list is the best fallback. */
+						const extra = suggestable
+							.filter((g) => !used.has(g.id) && !featuredGames.some((f) => f.id === g.id))
 							.slice(0, need);
 						featuredGames = [...featuredGames, ...extra].slice(0, 16);
 					}
 					feedReady = true;
 				} catch {
-					recommendedGames = applyOfflineLibraryFilter(getHomeRecommendations(allGames, prefs, 14));
+					recommendedGames = applyOfflineLibraryFilter(
+						getHomeRecommendations(suggestable, prefs, 14)
+					);
 					feedReady = true;
 				}
 			})();
@@ -165,7 +195,9 @@
 			await statusPromise;
 			if (generation !== loadGeneration) return;
 			if (!networkOnline) {
-				continueGames = applyOfflineLibraryFilter(getRecentlyPlayedGames(allGames, prefs, 28));
+				continueGames = applyOfflineLibraryFilter(
+					getRecentlyPlayedGames(continuePool(allGames), prefs, 28)
+				);
 			}
 		} catch (err) {
 			console.error('Home feed failed to load:', err);
