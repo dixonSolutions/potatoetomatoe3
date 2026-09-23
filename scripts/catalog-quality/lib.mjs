@@ -309,6 +309,8 @@ const BODY_FLAGS = [
 	/* Flash needs an emulator; a page that ships Ruffle is fine, a bare .swf embed is not. */
 	['flash-embed', /\.swf["'?]/i],
 	['ruffle', /ruffle/i],
+	/* CrazyGames marks CrazyGames-exclusive builds; embedded elsewhere they show "Oooops". */
+	['embed-disabled', /"disableEmbedding"\s*:\s*true/],
 	/* The pre-2018 Unity browser plugin (NPAPI) — no current browser can run these. */
 	['unity-webplayer', /UnityObject2?\.js|\.unity3d["'?]/i]
 ];
