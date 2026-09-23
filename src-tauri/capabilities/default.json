@@ -23,6 +23,7 @@
     "allow-apk-self-update",
     "allow-native-identity",
     "allow-game-frames",
+    "allow-offline-files",
     "core:app:allow-version",
     "shell:default",
     {

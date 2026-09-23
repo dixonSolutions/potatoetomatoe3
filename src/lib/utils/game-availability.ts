@@ -37,7 +37,8 @@ async function shouldProbeStaticOfflineMirror(
 	if (statusOffline) return false;
 	if (statusOffline === undefined) return true;
 	const backend = await getOfflineBackend();
-	return backend !== 'puller';
+	/* A file backend already looked at the disk; its answer is the answer. */
+	return backend !== 'puller' && backend !== 'native';
 }
 
 /** Whether online and/or offline copies exist for a game. */

@@ -17,6 +17,7 @@
  *
  * Options: --app http://127.0.0.1:5177  --port 18795 (collector)  --timeout 60000
  *          --settle 1500  --out <file.json>  --browser <chrome path>  --per-portal 2
+ *          --offline <ids> (launch from the offline copy)  --download <ids> (download first)
  */
 
 import { spawn } from 'node:child_process';
@@ -54,7 +55,9 @@ function parseArgs() {
 			value('--browser', '') ||
 			process.env.PLAY_PATH_BROWSER ||
 			path.join(process.env.HOME ?? '', '.cache/ms-playwright/chromium-1228/chrome-linux64/chrome'),
-		headed: args.includes('--headed')
+		headed: args.includes('--headed'),
+		offlineIds: value('--offline', '').split(',').filter(Boolean),
+		downloadIds: value('--download', '').split(',').filter(Boolean)
 	};
 }
 
@@ -125,7 +128,10 @@ function startCollector(opts, state, onResult) {
 				return;
 			}
 			state.lastActivity = Date.now();
-			if (req.url === '/hello') console.log(`[bench] launcher up: ${data?.userAgent}`);
+			if (req.url === '/hello') {
+				console.log(`[bench] launcher up: ${data?.userAgent} backend=${data?.offlineBackend}`);
+			}
+			if (req.url === '/download') console.log(`[bench] download ${JSON.stringify(data)}`);
 			if (req.url === '/start') state.current = data?.id ?? null;
 			if (req.url === '/result') onResult(data);
 		});
@@ -213,7 +219,9 @@ async function main() {
 		label: opts.label,
 		timeoutMs: opts.timeoutMs,
 		stallMs: opts.stallMs,
-		settleMs: opts.settleMs
+		settleMs: opts.settleMs,
+		offlineIds: opts.offlineIds,
+		downloadIds: opts.downloadIds
 	};
 	const results = [];
 	const reported = new Set();
@@ -231,7 +239,7 @@ async function main() {
 		const deepest = r.frames?.reduce((m, f) => Math.max(m, f.depth ?? 0), 0) ?? 0;
 		const bridged = [...new Set((r.frames ?? []).filter((f) => f.bridge).map((f) => f.depth))];
 		console.log(
-			`${r.bucket.padEnd(16)} ${r.id.slice(0, 40).padEnd(40)} resolve${fmt(r.resolveMs)} load${fmt(r.loadMs)} canvas${fmt(r.canvasMs)} depth=${deepest} bridge@${bridged.join('/') || '-'} ${r.stalled ? 'STALLED ' : ''}${r.error} ${r.urls?.[r.urls.length - 1]?.slice(0, 90) ?? ''}`
+			`${r.bucket.padEnd(16)} ${r.id.slice(0, 40).padEnd(40)} resolve${fmt(r.resolveMs)} load${fmt(r.loadMs)} canvas${fmt(r.canvasMs)} depth=${deepest} bridge@${bridged.join('/') || '-'} ${r.stalled ? 'STALLED ' : ''}${r.error} [${(r.routes ?? []).join('>')}] ${r.urls?.[r.urls.length - 1]?.slice(0, 80) ?? ''}`
 		);
 	};
 	const server = startCollector(opts, state, record);
@@ -259,7 +267,8 @@ async function main() {
 				return;
 			}
 			if (state.current) sawLauncher = true;
-			const limit = !sawLauncher && opts.mode === 'tauri' ? hangMs + 600_000 : hangMs;
+			const firstGrace = (opts.mode === 'tauri' ? 600_000 : 0) + opts.downloadIds.length * 300_000;
+			const limit = !sawLauncher ? hangMs + firstGrace : hangMs;
 			if (Date.now() - state.lastActivity < limit) return;
 			const hung =
 				state.current && !reported.has(state.current) ? state.current : state.remaining()[0];

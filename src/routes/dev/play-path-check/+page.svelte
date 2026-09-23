@@ -12,8 +12,25 @@
 	 */
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { getGamePlayerUrl, iframeAllowForUrl, loadGameMetadata } from '$lib/utils/games';
-	import { clearDirectLaunchFailed } from '$lib/utils/online-play-routing';
+	import {
+		getGamePlayerUrl,
+		iframeAllowForUrl,
+		loadGameMetadata,
+		playRouteOfUrl
+	} from '$lib/utils/games';
+	import { clearPlayRouteFailures, markPlayRouteFailed } from '$lib/utils/online-play-routing';
+	import { saveGamePlayMode } from '$lib/utils/game-play-mode';
+	import {
+		fetchGameOfflineStatus,
+		getOfflineBackend,
+		pollDownloadUntilDone,
+		startGameDownload
+	} from '$lib/utils/offline-downloader';
+	import {
+		gameFrameSpokeSince,
+		nativeGameFramesActive,
+		watchGameFrameLife
+	} from '$lib/utils/native-game-frames';
 
 	type ProbeReport = {
 		type: 'pt-frame-probe';
@@ -37,12 +54,20 @@
 		stallMs: number;
 		/** Keep a painted game running this long, so late frames still report. */
 		settleMs: number;
+		/** Launch these from their offline copy (play mode "offline") instead of online. */
+		offlineIds?: string[];
+		/** Before launching, download these for offline play and report how it went. */
+		downloadIds?: string[];
 	};
 
 	type LaunchResult = {
 		id: string;
 		label: string;
 		urls: string[];
+		/** Route of each URL tried, in order (`direct`, `local`, `shell`, `relay`, `puller`). */
+		routes: string[];
+		/** Why the launch moved on from a route: `<route>:stalled` or `<route>:silent`. */
+		escalations: string[];
 		resolveMs: number | null;
 		loadMs: number | null;
 		canvasMs: number | null;
@@ -89,6 +114,8 @@
 			id,
 			label: config.label,
 			urls: [],
+			routes: [],
+			escalations: [],
 			resolveMs: null,
 			loadMs: null,
 			canvasMs: null,
@@ -98,7 +125,8 @@
 			error: '',
 			frames: []
 		};
-		clearDirectLaunchFailed(id);
+		clearPlayRouteFailures(id);
+		saveGamePlayMode(id, config.offlineIds?.includes(id) ? 'offline' : 'online');
 		const t0 = Date.now();
 		let canvasSeen: (() => void) | null = null;
 		const onProbe = (event: MessageEvent) => {
@@ -117,28 +145,52 @@
 			}
 		};
 		window.addEventListener('message', onProbe);
+		watchGameFrameLife();
 		try {
 			const metadata = await loadGameMetadata(id);
-			const url = await getGamePlayerUrl(id, metadata);
-			result.resolveMs = Date.now() - t0;
-			result.urls.push(url);
-			const loaded = new Promise<void>((resolve) => {
-				onFrameLoad = resolve;
-			});
 			const painted = new Promise<void>((resolve) => {
 				canvasSeen = resolve;
 			});
-			frameAllow = iframeAllowForUrl(url);
-			frameUrl = url;
-			frameKey++;
-			const stallMs = config.stallMs || DEFAULT_STALL_MS;
-			const loadOutcome = await Promise.race([
-				loaded.then(() => 'loaded' as const),
-				sleep(stallMs).then(() => 'stalled' as const)
-			]);
-			if (loadOutcome === 'loaded') {
-				result.loadMs = Date.now() - t0;
-			} else {
+			/*
+			 * The game page's watchdog, step for step: a frame that never loads, or loads
+			 * without running a script, moves the launch to the next route of its chain.
+			 */
+			for (let attempt = 0; attempt < 5; attempt++) {
+				const url = await getGamePlayerUrl(id, metadata);
+				if (result.resolveMs === null) result.resolveMs = Date.now() - t0;
+				const kind = playRouteOfUrl(url);
+				if (result.urls.includes(url)) break;
+				result.urls.push(url);
+				result.routes.push(kind ?? 'offline');
+				const loaded = new Promise<void>((resolve) => {
+					onFrameLoad = resolve;
+				});
+				const frameStart = Date.now();
+				frameAllow = iframeAllowForUrl(url);
+				frameUrl = url;
+				frameKey++;
+				const stallMs = config.stallMs || DEFAULT_STALL_MS;
+				const loadOutcome = await Promise.race([
+					loaded.then(() => 'loaded' as const),
+					sleep(stallMs).then(() => 'stalled' as const)
+				]);
+				let failed = loadOutcome === 'stalled';
+				if (loadOutcome === 'loaded') {
+					result.loadMs = Date.now() - t0;
+					const expectsWord =
+						kind === 'relay' ||
+						(kind === 'direct' && nativeGameFramesActive() && !url.startsWith('/'));
+					if (expectsWord && result.canvasMs === null) {
+						await sleep(1500);
+						failed = !gameFrameSpokeSince(id, frameStart);
+					}
+				}
+				if (!failed || !kind) {
+					result.stalled = loadOutcome === 'stalled';
+					break;
+				}
+				result.escalations.push(`${kind}:${loadOutcome === 'stalled' ? 'stalled' : 'silent'}`);
+				markPlayRouteFailed(id, kind);
 				result.stalled = true;
 			}
 			const remaining = Math.max(0, config.timeoutMs - (Date.now() - t0));
@@ -167,7 +219,31 @@
 				status = `No collector on ${collector}: ${e instanceof Error ? e.message : e}`;
 				return;
 			}
-			await post('/hello', { userAgent: navigator.userAgent, origin: location.origin });
+			await post('/hello', {
+				userAgent: navigator.userAgent,
+				origin: location.origin,
+				offlineBackend: await getOfflineBackend(true)
+			});
+			for (const id of config.downloadIds ?? []) {
+				/* The desktop app starts its downloader only now, on the first download. */
+				status = `downloading ${id}`;
+				const t0 = Date.now();
+				let outcome: unknown;
+				try {
+					const start = await startGameDownload(id);
+					outcome = start.started
+						? await pollDownloadUntilDone(id, () => {})
+						: { state: 'not-started', message: start.message };
+				} catch (e) {
+					outcome = { state: 'threw', message: e instanceof Error ? e.message : String(e) };
+				}
+				await post('/download', {
+					id,
+					ms: Date.now() - t0,
+					outcome,
+					status: await fetchGameOfflineStatus(id, true)
+				});
+			}
 			for (let i = 0; i < config.ids.length; i++) {
 				const id = config.ids[i]!;
 				status = `${i + 1}/${config.ids.length} ${id}`;
