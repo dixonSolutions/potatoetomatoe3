@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { tick } from 'svelte';
-	import Button from '$lib/components/ui/button/button.svelte';
-	import { Play } from 'lucide-svelte';
+	import { tick, untrack } from 'svelte';
+	import { Loader2 } from 'lucide-svelte';
 	import { captureGameStorageFromIframe } from '$lib/utils/game-storage-bridge';
 	import { unlockGameIframeAudio } from '$lib/utils/game-audio';
 
@@ -10,7 +9,10 @@
 	 * Same app origin keeps game localStorage aligned across online/offline; puller copies use `/puller-games/` (proxied in dev).
 	 * A separate document is required so the game keeps its own globals and relative asset paths;
 	 * rendering the bundle inline in Svelte would break typical builds.
-	 * `src` is attached only after Play so heavy assets are not loaded on navigation alone.
+	 *
+	 * The game starts as soon as its play URL is known — there is no click-to-play step.
+	 * The cover art stays over the frame as a loading backdrop until the frame fires `load`
+	 * (or the stall watchdog gives up on it), then fades out.
 	 */
 	let {
 		gameUrl,
@@ -32,7 +34,7 @@
 		iframeAllow?: string;
 		/** When true, fill the parent (fullscreen / flex child) instead of fixed 16:9. */
 		fillContainer?: boolean;
-		/** Prevent starting while an online/offline play URL is being resolved. */
+		/** Hold the frame back while the online/offline play URL is still being resolved. */
 		startDisabled?: boolean;
 		/**
 		 * How long a frame may go without firing `load` before it counts as stalled.
@@ -42,6 +44,7 @@
 		 * handled by host policy in `online-play-routing`, not here.
 		 */
 		stallTimeoutMs?: number;
+		/** True once the frame has been given its URL. Set here; the page only reads it. */
 		started?: boolean;
 		onIframeReady?: (el: HTMLIFrameElement | null) => void;
 		/**
@@ -111,6 +114,7 @@
 	function handleFrameLoad() {
 		reportLoadState('loaded');
 		bumpAudioUnlock();
+		focusFrameIfIdle();
 	}
 
 	function bumpAudioUnlock() {
@@ -121,14 +125,44 @@
 		window.setTimeout(() => unlockGameIframeAudio(iframeEl), 3000);
 	}
 
-	function startGame() {
-		started = true;
-		/* Kick unlock from the user gesture that starts play (WebKitGTK needs this). */
-		void tick().then(() => {
-			bumpAudioUnlock();
-			iframeEl?.focus?.();
-		});
+	/**
+	 * Hand the keyboard to the game — unless the user is already somewhere else on the
+	 * page (a settings field, a dialog), which a game starting by itself must not steal.
+	 */
+	function focusFrameIfIdle() {
+		const active = document.activeElement;
+		if (active && active !== document.body && active !== iframeEl) return;
+		iframeEl?.focus?.();
 	}
+
+	/*
+	 * The frame loads as soon as there is a URL to load. It used to wait for a Play click,
+	 * which WebKitGTK wanted as the gesture that unlocks audio; audio is now unlocked by the
+	 * first press on the surface or the player's menus, and by the bridge inside the frame.
+	 */
+	$effect(() => {
+		if (started || startDisabled || !gameUrl) return;
+		untrack(() => {
+			started = true;
+			void tick().then(() => {
+				bumpAudioUnlock();
+				focusFrameIfIdle();
+			});
+		});
+	});
+
+	/* The cover stays up until the game has something to show, then fades away. */
+	const posterVisible = $derived(!started || loadState === 'loading');
+	let posterGone = $state(false);
+
+	$effect(() => {
+		if (posterVisible) {
+			posterGone = false;
+			return;
+		}
+		const timer = window.setTimeout(() => (posterGone = true), 400);
+		return () => clearTimeout(timer);
+	});
 
 	let lastReadyEl: HTMLIFrameElement | null | undefined = undefined;
 
@@ -169,42 +203,7 @@
 		if (started) bumpAudioUnlock();
 	}}
 >
-	{#if !started}
-		<button
-			type="button"
-			class="group absolute inset-0 flex w-full flex-col items-center justify-center gap-3 ring-offset-background outline-none focus-visible:ring-2 focus-visible:ring-ring"
-			onclick={startGame}
-			disabled={startDisabled}
-			aria-label="Load and play {title}"
-		>
-			<img
-				src={posterUrl}
-				alt=""
-				class="absolute inset-0 h-full w-full object-cover"
-				loading="lazy"
-				decoding="async"
-				draggable="false"
-			/>
-			<div
-				class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-background/20"
-				aria-hidden="true"
-			></div>
-			<span
-				class="relative z-[1] max-w-[90%] truncate px-2 text-center text-lg font-semibold text-foreground drop-shadow-sm sm:text-xl"
-			>
-				{title}
-			</span>
-			<span class="relative z-[1] flex items-center gap-2">
-				<Button type="button" size="lg" class="pointer-events-none gap-2 shadow-md">
-					<Play class="h-5 w-5 fill-current" aria-hidden="true" />
-					{startDisabled ? 'Preparing play…' : 'Play'}
-				</Button>
-			</span>
-			<span class="relative z-[1] max-w-md px-4 text-center text-xs text-muted-foreground">
-				Load game on demand — avoids pulling heavy assets until you start.
-			</span>
-		</button>
-	{:else}
+	{#if started}
 		<iframe
 			bind:this={iframeEl}
 			src={gameUrl}
@@ -216,5 +215,42 @@
 			referrerpolicy="no-referrer-when-downgrade"
 			onload={handleFrameLoad}
 		></iframe>
+	{/if}
+	{#if !posterGone}
+		<!--
+			A loading backdrop, not a button: presses fall through to the frame, so a game that
+			is already drawing before its last asset lands can be played straight away.
+		-->
+		<div
+			class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-300 {posterVisible
+				? 'opacity-100'
+				: 'opacity-0'}"
+			data-testid="game-loading-poster"
+			aria-hidden={!posterVisible}
+		>
+			<img
+				src={posterUrl}
+				alt=""
+				class="absolute inset-0 h-full w-full object-cover"
+				decoding="async"
+				draggable="false"
+			/>
+			<div
+				class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/30"
+				aria-hidden="true"
+			></div>
+			<span
+				class="relative z-[1] max-w-[90%] truncate px-2 text-center text-lg font-semibold text-foreground drop-shadow-sm sm:text-xl"
+			>
+				{title}
+			</span>
+			<span
+				class="relative z-[1] flex items-center gap-2 text-sm text-muted-foreground"
+				role="status"
+			>
+				<Loader2 class="size-4 animate-spin" aria-hidden="true" />
+				Starting…
+			</span>
+		</div>
 	{/if}
 </div>
