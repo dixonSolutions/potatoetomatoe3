@@ -27,6 +27,7 @@
 	} from '$lib/utils/offline-downloader';
 	import { invalidateOfflineBackendCache } from '$lib/utils/offline-runtime';
 	import { shouldProbePullerBackend } from '$lib/utils/offline-deployment';
+	import { hasNativeOfflineBackend } from '$lib/utils/offline-native';
 	import { getGameMeta } from '$lib/utils/browser-offline-storage';
 	import { onlineShellHasExternalIframe } from '$lib/utils/browser-offline-download';
 	import {
@@ -71,19 +72,19 @@
 	let pollGeneration = $state(0);
 
 	let statusReady = $state(false);
-	let pullerStartupSettled = $state(!isLocalAppDeployment());
+	let pullerStartupSettled = $state(!isLocalAppDeployment() || hasNativeOfflineBackend());
 	let retryingPuller = $state(false);
 	let bundled = $derived(isBundledOfflineGame(gameId));
 	let offlineReady = $derived(offlineBackend !== 'none');
 	let backendLabel = $derived(describeOfflineBackend(offlineBackend));
 	/*
-	 * Puller affordances are gated on `shouldProbePullerBackend`, not on
-	 * `isLocalAppDeployment`. Both are true in the desktop app, but only the former is
-	 * false on Tauri mobile, which ships no sidecar. Gating on deployment alone made the
-	 * Android build show "Starting puller", a Retry puller button, and advice to run
-	 * `pnpm puller:start` — on a tablet, for a process that can never exist there.
+	 * Puller affordances ("Starting puller", Retry) are for `pnpm dev` in a plain browser
+	 * only. The desktop app reads its game files itself and starts the downloader when a
+	 * download begins, so there is nothing to wait for or retry; Tauri mobile ships no
+	 * sidecar at all. Gating on deployment alone once made the Android build show "Starting
+	 * puller" and advice to run `pnpm puller:start` — on a tablet.
 	 */
-	let pullerSupported = $derived(shouldProbePullerBackend());
+	let pullerSupported = $derived(shouldProbePullerBackend() && !hasNativeOfflineBackend());
 	let waitingForPuller = $derived(
 		pullerSupported && !pullerStartupSettled && offlineBackend !== 'puller'
 	);
@@ -104,7 +105,7 @@
 		if (canDownload || downloading || status?.offline || bundled) return '';
 		if (!networkOnline) return 'Connect to the internet to download this game.';
 		if (!offlineReady) return 'Offline downloads are unavailable in this environment.';
-		if (!onlineAvailable) return 'This game has no online shell the puller can capture.';
+		if (!onlineAvailable) return 'This game has nothing online the downloader can capture.';
 		return '';
 	});
 	let hasPartialCache = $derived(Boolean(status?.partialCache && (status.cacheFileCount ?? 0) > 0));
@@ -161,7 +162,8 @@
 		 */
 		if (!pullerSupported) {
 			pullerStartupSettled = true;
-		} else if (isLocalAppDeployment()) {
+		} else {
+			/* `pnpm dev` in a browser: wait for the dev puller the dev script starts. */
 			void waitForPuller(15_000).then(async (available) => {
 				pullerStartupSettled = true;
 				if (!available) return;
@@ -253,7 +255,12 @@
 		if (!canDownload || downloading) return;
 		downloading = true;
 		const generation = ++pollGeneration;
-		progress = { state: 'pending', progress: 0, message: 'Starting…' };
+		progress = {
+			state: 'pending',
+			progress: 0,
+			/* The desktop app starts its downloader on demand; that takes a few seconds. */
+			message: offlineBackend === 'native' ? 'Starting the downloader…' : 'Starting…'
+		};
 		appendPlayLog(
 			'info',
 			'download',
@@ -497,18 +504,15 @@
 			</p>
 		{:else if pullerMissingHint}
 			<p class="text-xs text-muted-foreground">
-				The local puller is unavailable right now. Use <span class="font-medium">Retry puller</span
-				>, restart the desktop app sidecar, or run
+				No dev puller is running, so downloads go to browser storage. Run
 				<code class="rounded bg-muted px-1">pnpm puller:start</code> for full game file downloads on
-				disk. Console, pause inject, and offline mirrors need the puller.
+				disk, then <span class="font-medium">Retry puller</span>.
 			</p>
-			{#if externalEmbedOnly}
-				<p class="text-xs text-amber-600 dark:text-amber-400">
-					This title loads Unity (or another host) inside a nested cross-origin iframe. Without the
-					puller, play falls back to that shell and usually fails with a Unity
-					<span class="font-medium">Script error</span>. Retry the puller before launching.
-				</p>
-			{/if}
+		{:else if offlineBackend === 'native'}
+			<p class="text-xs text-muted-foreground">
+				Downloads are saved as game files on disk (captured in a background browser, ads stripped).
+				The downloader starts when you download a game.
+			</p>
 		{:else if offlineBackend === 'browser'}
 			<p class="text-xs text-muted-foreground">
 				Downloads are saved in this browser via IndexedDB. Same-origin game files work offline.

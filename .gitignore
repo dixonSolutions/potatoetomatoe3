@@ -43,3 +43,6 @@ vite.config.ts.timestamp-*
 *storybook.log
 storybook-static
 puller/wget-log*
+
+# Agent worktrees (Claude Code) are whole checkouts nested in this one
+.claude/worktrees/

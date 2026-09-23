@@ -80,7 +80,9 @@ export default defineConfig({
 				'**/build-flatpak/**',
 				'**/build/**',
 				'**/node_modules/**',
-				'**/src-tauri/target/**'
+				'**/src-tauri/target/**',
+				/* Agent worktrees are whole checkouts; their writes are not this server's. */
+				'**/.claude/**'
 			],
 			followSymlinks: false
 		}

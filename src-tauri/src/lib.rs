@@ -1,5 +1,8 @@
 mod apk_update;
 mod disguise;
+mod game_frames;
+mod offline_games;
+mod relay;
 
 #[cfg(desktop)]
 mod tray;
@@ -33,6 +36,17 @@ const DEFAULT_PULLER_PORT: u16 = 18787;
 /// When an existing puller is already healthy on 18787, reuse that port (no second spawn).
 fn reserve_puller_port() -> u16 {
   *PULLER_PORT.get_or_init(|| {
+    /*
+     * `PULLER_PORT` pins it, the same variable the puller itself reads. Several dev
+     * checkouts on one machine each run their own puller, and without a pin every app
+     * would adopt whichever of them answered on 18787 first.
+     */
+    if let Some(port) = std::env::var("PULLER_PORT")
+      .ok()
+      .and_then(|raw| raw.trim().parse::<u16>().ok())
+    {
+      return port;
+    }
     if wait_for_puller_health(DEFAULT_PULLER_PORT, 250) {
       log::info!("default puller port {} already healthy — will reuse", DEFAULT_PULLER_PORT);
       return DEFAULT_PULLER_PORT;
@@ -72,30 +86,48 @@ fn compute_close_to_tray(tray_ok: bool) -> bool {
   !is_gnome_desktop()
 }
 
-#[tauri::command]
-fn get_puller_base_url() -> String {
+fn puller_base_url() -> String {
   format!("http://127.0.0.1:{}", puller_port())
 }
 
-/// Health-check and (re)spawn the puller if it died — used by UI "Retry puller".
+/// `async` for the same reason as `ensure_puller`: the first call reserves the port, which
+/// probes 18787 for up to a quarter of a second, and a synchronous command would do that on
+/// the GTK main thread while the window is starting.
+#[tauri::command]
+async fn get_puller_base_url() -> String {
+  tauri::async_runtime::spawn_blocking(puller_base_url)
+    .await
+    .unwrap_or_else(|_| format!("http://127.0.0.1:{DEFAULT_PULLER_PORT}"))
+}
+
+/// Whether a puller answers right now. Never starts one: nothing the app does to *play* a
+/// game needs the puller any more, so a probe must not be what brings it up.
+#[tauri::command]
+async fn puller_running() -> bool {
+  tauri::async_runtime::spawn_blocking(|| wait_for_puller_health(puller_port(), 300))
+    .await
+    .unwrap_or(false)
+}
+
+/// Health-check the puller and start it if it is not running — the downloader calls this
+/// when the user asks for an offline copy, which is the one thing that still needs Node
+/// (Playwright capture).
 ///
 /// `async`, so Tauri runs it on its worker pool: a synchronous command runs on the GTK
 /// main thread, and this one waits up to twelve seconds for the puller to answer.
 /// Every one of those seconds froze the whole window — no repaint, no input, no
-/// desktop light/dark switch delivered — which is what made "follows the system" look
-/// broken whenever the puller was slow or missing: the frontend retries it at startup,
-/// right when the user is looking.
+/// desktop light/dark switch delivered.
 #[tauri::command]
 async fn ensure_puller(app: tauri::AppHandle) -> Result<String, String> {
   tauri::async_runtime::spawn_blocking(move || {
     let port = puller_port();
     if wait_for_puller_health(port, 600) {
-      return Ok(get_puller_base_url());
+      return Ok(puller_base_url());
     }
     log::info!("ensure_puller: nothing healthy on {} — spawning", port);
     spawn_puller(&app);
     if wait_for_puller_health(port, 12_000) {
-      Ok(get_puller_base_url())
+      Ok(puller_base_url())
     } else {
       Err(format!(
         "puller failed to become healthy on http://127.0.0.1:{port}"
@@ -245,6 +277,18 @@ fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
 
   log::error!("resource_dir unavailable — cannot resolve catalog for offline puller");
   PathBuf::from("/nonexistent/potato-tomato-catalog")
+}
+
+/// The games data dir and the bundled catalog, resolved once: the offline and relay schemes
+/// ask on every request, and resolving the catalog can log a warning each time.
+pub(crate) fn game_roots(app: &tauri::AppHandle) -> offline_games::GameRoots {
+  static ROOTS: OnceLock<offline_games::GameRoots> = OnceLock::new();
+  ROOTS
+    .get_or_init(|| offline_games::GameRoots {
+      data: games_data_dir(app),
+      catalog: catalog_dir(app),
+    })
+    .clone()
 }
 
 fn puller_env(app: &tauri::AppHandle) -> (PathBuf, PathBuf, u16) {
@@ -519,13 +563,6 @@ fn spawn_puller(app: &tauri::AppHandle) {
   log::warn!("puller could not be started — offline download disabled");
 }
 
-/// Paint every window, and the webview inside it, in the desktop's window colour.
-///
-/// Read from the GTK theme *now*, so after a live scheme switch it is the new scheme's
-/// colour. Both surfaces need it: the window shows through wherever the webview has not
-/// painted yet, and the webview's own base colour is what WebKit clears to before the
-/// page's first frame.
-#[cfg(target_os = "linux")]
 /// Register the tray, then settle everything that depends on whether it exists.
 #[cfg(not(mobile))]
 fn build_tray_now(app: &tauri::AppHandle) {
@@ -588,6 +625,13 @@ fn desktop_color_scheme_is_dark() -> Option<bool> {
   }
 }
 
+/// Paint every window, and the webview inside it, in the desktop's window colour.
+///
+/// Read from the GTK theme *now*, so after a live scheme switch it is the new scheme's
+/// colour. Both surfaces need it: the window shows through wherever the webview has not
+/// painted yet, and the webview's own base colour is what WebKit clears to before the
+/// page's first frame.
+#[cfg(target_os = "linux")]
 fn paint_windows_from_theme(app: &tauri::AppHandle) {
   match system_theme::theme_window_background() {
     Some((r, g, b)) => {
@@ -652,11 +696,36 @@ pub fn run() {
   // Tauri expects it.
   let scheme_for_setup = desktop_scheme.clone();
 
-  tauri::Builder::default()
-    .plugin(tauri_plugin_shell::init())
+  let mut builder = tauri::Builder::default().plugin(tauri_plugin_shell::init());
+  if let Some(probe) = game_frames::frame_probe_plugin() {
+    builder = builder.plugin(probe);
+  }
+  #[cfg(desktop)]
+  {
+    builder = builder
+      .register_asynchronous_uri_scheme_protocol(relay::SCHEME, |ctx, request, responder| {
+        let catalog = game_roots(ctx.app_handle()).catalog;
+        let path = request.uri().path().to_string();
+        tauri::async_runtime::spawn(async move {
+          responder.respond(relay::handle(catalog, path).await);
+        });
+      })
+      .register_asynchronous_uri_scheme_protocol(
+        offline_games::SCHEME,
+        |ctx, request, responder| {
+          let roots = game_roots(ctx.app_handle());
+          let path = request.uri().path().to_string();
+          tauri::async_runtime::spawn(async move {
+            responder.respond(offline_games::handle(roots, path).await);
+          });
+        },
+      );
+  }
+  builder
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
       get_puller_base_url,
+      puller_running,
       desktop_color_scheme_is_dark,
       ensure_puller,
       get_dev_harness_mode,
@@ -670,7 +739,16 @@ pub fn run() {
       apk_update::open_install_permission_settings,
       disguise::native_identity_target,
       disguise::set_native_disguise,
-      disguise::clear_native_disguise
+      disguise::clear_native_disguise,
+      game_frames::native_game_frames_supported,
+      game_frames::set_game_frame_context,
+      game_frames::clear_game_frame_context,
+      offline_games::offline_statuses,
+      offline_games::offline_entry,
+      offline_games::offline_delete,
+      offline_games::game_profile_read,
+      offline_games::game_profile_write,
+      offline_games::game_profile_delete
     ])
     .setup(move |app| {
       if cfg!(debug_assertions) {
@@ -718,21 +796,16 @@ pub fn run() {
           log::info!("{}", system_theme::gtk_state("2s after setup"));
         });
       }
+      /*
+       * No puller at startup. Games play straight from their hosts with the bridge put into
+       * their frames natively (`game_frames.rs`), a few through the in-process relay
+       * (`relay.rs`); offline copies and saves are read from disk here
+       * (`offline_games.rs`). The Node process is started by `ensure_puller` when the user
+       * downloads a game, the one job that still needs Playwright — so a normal session
+       * never pays for it, and its port is not even reserved until then.
+       */
       #[cfg(not(mobile))]
-      {
-        // Reserve port before spawn so get_puller_base_url matches the sidecar.
-        let _ = puller_port();
-        // Off the main thread: the spawn waits up to ten seconds per candidate for the
-        // puller to answer, and `setup` runs before GTK gets to pump a single event, so
-        // every second spent here was a second with no window on screen at all — and
-        // then a webview whose first frame was painted under a stalled main loop. The
-        // frontend already polls puller health and has a retry, so nothing needs the
-        // answer before first paint.
-        let handle = app.handle().clone();
-        std::thread::Builder::new()
-          .name("puller-launch".into())
-          .spawn(move || spawn_puller(&handle))?;
-      }
+      log::info!("puller not started: it runs on demand for offline downloads");
       #[cfg(mobile)]
       log::info!("mobile build: puller capture sidecar is intentionally disabled");
       #[cfg(mobile)]
