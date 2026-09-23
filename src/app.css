@@ -256,10 +256,14 @@
 	box-shadow: none;
 }
 
+/*
+ * Every game opens this way by default now (see game-fullscreen-mode.ts), so it must stay
+ * under the privacy gate (9999) and the daily-limit gate (9998) that cover the whole app.
+ */
 .game-player-surface.pseudo-fullscreen {
 	position: fixed;
 	inset: 0;
-	z-index: 9999;
+	z-index: 9000;
 	width: 100vw;
 	height: 100dvh;
 }

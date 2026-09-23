@@ -204,11 +204,11 @@
 			onclick={toggleFromButton}
 		>
 			<span
-				class="flex items-center justify-center rounded-full border border-border/60 bg-background/70 text-foreground shadow-md backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 {open
+				class="flex items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 {open
 					? 'opacity-100'
 					: touch
-						? 'opacity-60'
-						: 'opacity-35'}"
+						? 'opacity-70'
+						: 'opacity-45'}"
 				style={`width:${metrics.visual}px;height:${metrics.visual}px;`}
 			>
 				<Menu style={`width:${metrics.icon}px;height:${metrics.icon}px;`} aria-hidden="true" />

@@ -11,8 +11,8 @@
 	 * rendering the bundle inline in Svelte would break typical builds.
 	 *
 	 * The game starts as soon as its play URL is known — there is no click-to-play step.
-	 * The cover art stays over the frame as a loading backdrop until the frame fires `load`
-	 * (or the stall watchdog gives up on it), then fades out.
+	 * Until then (`gameUrl` empty) and until the frame fires `load` (or the stall watchdog
+	 * gives up on it), the cover art stays up as a loading backdrop, then fades out.
 	 */
 	let {
 		gameUrl,
@@ -203,7 +203,7 @@
 		if (started) bumpAudioUnlock();
 	}}
 >
-	{#if started}
+	{#if started && gameUrl}
 		<iframe
 			bind:this={iframeEl}
 			src={gameUrl}
@@ -239,18 +239,18 @@
 				class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/30"
 				aria-hidden="true"
 			></div>
-			<span
-				class="relative z-[1] max-w-[90%] truncate px-2 text-center text-lg font-semibold text-foreground drop-shadow-sm sm:text-xl"
+			<!-- On a card of its own: cover art is anything from white to black. -->
+			<div
+				class="relative z-[1] flex max-w-[90%] flex-col items-center gap-1 rounded-2xl border border-border/60 bg-background/80 px-5 py-3 text-center shadow-lg backdrop-blur-md"
 			>
-				{title}
-			</span>
-			<span
-				class="relative z-[1] flex items-center gap-2 text-sm text-muted-foreground"
-				role="status"
-			>
-				<Loader2 class="size-4 animate-spin" aria-hidden="true" />
-				Starting…
-			</span>
+				<span class="max-w-full truncate text-base font-semibold text-foreground sm:text-lg">
+					{title}
+				</span>
+				<span class="flex items-center gap-2 text-sm text-muted-foreground" role="status">
+					<Loader2 class="size-4 animate-spin" aria-hidden="true" />
+					Starting…
+				</span>
+			</div>
 		</div>
 	{/if}
 </div>

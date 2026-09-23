@@ -144,6 +144,11 @@
 	 */
 	let gameSurfaceStarted = $state(false);
 	let gamePlayerUrl = $state('');
+	/**
+	 * The first play URL for this game is resolved (and the saves had their head start).
+	 * The player shows the cover before this; the frame is only handed a URL after it.
+	 */
+	let playUrlReady = $state(false);
 	/** Bumps on full relaunch so the iframe remounts even when the URL is unchanged. */
 	let playerRemountKey = $state(0);
 	let logsOpen = $state(false);
@@ -680,6 +685,7 @@
 			gamePaused = false;
 			touchConsoleVisible = false;
 			gamePlayerUrl = '';
+			playUrlReady = false;
 			frameStalled = false;
 			recommendedGames = [];
 		} else if (!soft) {
@@ -712,22 +718,31 @@
 
 		/*
 		 * Read the game's saves alongside the play URL, so the frame's storage bridge can
-		 * boot from them synchronously. The frame starts the moment loading ends, so give
-		 * the read a short head start rather than have the bridge reload the game once the
-		 * saves land.
+		 * boot from them synchronously. The frame starts the moment loading ends; the read
+		 * normally finishes long before the URL does, and the cap below only stops a hung
+		 * backend from holding the game back. Late saves still arrive (the bridge pulls them
+		 * and reloads the frame once), so a bounded wait is all this is worth.
 		 */
 		const profileReady = preloadGameBrowserProfile(id);
+
+		/*
+		 * Show the page and the game's cover now: resolving the play URL can take a while
+		 * (probing a relay, an offline copy), and a spinner over the cover in the player —
+		 * already fullscreen — reads as the game starting, where a blank "Loading game…"
+		 * page read as nothing happening. The frame itself waits for `playUrlReady`.
+		 */
+		loading = false;
 
 		/*
 		 * Resolve the playable URL before loading the full recommendation catalog.
 		 * The catalog is useful below the fold, but must not delay the first game frame.
 		 */
 		gamePlayerUrl = await getGamePlayerUrl(id, meta);
-		await Promise.race([profileReady, new Promise((done) => setTimeout(done, 1500))]);
+		await Promise.race([profileReady, new Promise((done) => setTimeout(done, 600))]);
 		if (id !== gameId) return;
+		playUrlReady = true;
 		void refreshOfflineCoverStatus(id);
 		loadedGameId = id;
-		loading = false;
 
 		/* Console preference survives remounts / double-loads / accidental hard refresh. */
 		restoreTouchConsolePref(id);
@@ -921,13 +936,17 @@
 	}
 
 	/*
-	 * Open fullscreen as soon as the game starts ("Open games in fullscreen", on by
-	 * default). Once per visit: a player who leaves fullscreen stays out of it for this
-	 * game, restarts included. Without a fresh gesture the game fills the window and the
+	 * Open fullscreen as soon as the player appears ("Open games in fullscreen", on by
+	 * default) — with the cover and spinner while the game starts, so the click that
+	 * opened the game is still fresh enough for the browser to allow real fullscreen.
+	 * Once per visit: a player who leaves fullscreen stays out of it for this game,
+	 * restarts included. Without a fresh gesture the game fills the window and the
 	 * browser chrome goes on the next press on the in-game menu.
 	 */
 	$effect(() => {
-		if (!gameSurfaceStarted || !gameSurfaceEl || !gameId || cannotFrameInApp) return;
+		if (loading || error || !gameSurfaceEl || !gameId || cannotFrameInApp) return;
+		/* Not over the lock screen or the daily-limit gate; it happens once they clear. */
+		if (privacyLocked || playLimitHold) return;
 		if (!playerSettings.autoFullscreen || autoFullscreenFor === gameId) return;
 		autoFullscreenFor = gameId;
 		untrack(() => {
@@ -1230,10 +1249,12 @@
 					{#key playerRemountKey}
 						<LazyGameFrame
 							{gameId}
-							gameUrl={fixMalformedGamePlayerUrl(
-								gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
-								gameId
-							)}
+							gameUrl={playUrlReady
+								? fixMalformedGamePlayerUrl(
+										gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
+										gameId
+									)
+								: ''}
 							iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
 							posterUrl={posterUrlFor(gameMetadata)}
 							title={gameMetadata.name}
