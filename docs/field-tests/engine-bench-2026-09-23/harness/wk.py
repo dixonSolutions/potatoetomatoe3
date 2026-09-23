@@ -32,6 +32,14 @@ ap.add_argument("--dump-gpu")
 ap.add_argument("--size", default="1440x900")
 ap.add_argument("--click-at", help="X,Y in view coordinates: a real (GDK) click there")
 ap.add_argument("--click-after", type=float, default=6.0)
+ap.add_argument("--key", help="GDK key name (F24, Shift_L…): a synthetic GDK key press+release")
+ap.add_argument("--key-after", type=float, default=6.0)
+ap.add_argument(
+    "--key-via",
+    default="view",
+    choices=("view", "main"),
+    help="view: gtk_widget_event on the WebKitWebView; main: gtk_main_do_event (window path)",
+)
 a = ap.parse_args()
 
 ctx = WebKit2.WebContext.new_ephemeral()
@@ -155,5 +163,35 @@ if a.click_at:
         return False
 
     GLib.timeout_add(int(a.click_after * 1000), click)
+
+if a.key:
+    gi.require_version("Gdk", "3.0")
+    from gi.repository import Gdk  # noqa: E402
+
+    def key():
+        keyval = Gdk.keyval_from_name(a.key)
+        keymap = Gdk.Keymap.get_for_display(Gdk.Display.get_default())
+        ok, entries = keymap.get_entries_for_keyval(keyval)
+        hw = entries[0].keycode if ok and entries else 0
+        kbd = Gdk.Display.get_default().get_default_seat().get_keyboard()
+        for etype in (Gdk.EventType.KEY_PRESS, Gdk.EventType.KEY_RELEASE):
+            ev = Gdk.Event.new(etype)
+            ev.key.window = view.get_window()
+            ev.key.send_event = 0
+            ev.key.time = Gtk.get_current_event_time() or 1
+            ev.key.state = 0
+            ev.key.keyval = keyval
+            ev.key.hardware_keycode = hw
+            ev.key.group = 0
+            ev.key.is_modifier = 1 if a.key.startswith(("Shift", "Control", "Alt", "Super")) else 0
+            ev.set_device(kbd)
+            if a.key_via == "view":
+                view.event(ev)
+            else:
+                Gtk.main_do_event(ev)
+        print("wk: key %s (keyval %#x, hw %d) via %s" % (a.key, keyval, hw, a.key_via), flush=True)
+        return False
+
+    GLib.timeout_add(int(a.key_after * 1000), key)
 Gtk.main()
 sys.exit(0)

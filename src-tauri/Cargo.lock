@@ -2699,11 +2699,13 @@ name = "potato-tomato"
 version = "0.0.1"
 dependencies = [
  "base64 0.22.1",
+ "cc",
  "futures-util",
  "gtk",
  "jni",
  "log",
  "ndk-context",
+ "pkg-config",
  "regex",
  "reqwest 0.12.24",
  "serde",

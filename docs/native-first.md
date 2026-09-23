@@ -146,6 +146,86 @@ on-disk layout, so existing mirrors and saves are where they were. The frontend'
 `native` offline backend uses them; **Download for offline** starts the puller on
 demand (`ensure_puller`) for the capture and polls it. Health probes never start it.
 
+## WebKitGTK tuning for games (Linux)
+
+The engine bench ([report](field-tests/engine-bench-2026-09-23/REPORT.md)) found that
+most of what made games slower in the Linux app than in Chromium was not engine speed but
+three WebKitGTK behaviours meant for documents. The app keeps WebKitGTK and switches each
+off while a game is on screen. Everything starts with `set_game_frame_context` and ends
+when the game page is left ([`game_frame_tuning.rs`](../src-tauri/src/game_frame_tuning.rs));
+each part falls back to the old behaviour on its own, and none of it exists on Android
+(Chromium WebView) or on the public site. Measured in the app's own binary (the report's
+[Implemented](field-tests/engine-bench-2026-09-23/REPORT.md#implemented-2026-09-24)
+section): in power saver, Unity and WebGL sprites 31 → 60 fps with a game open; a
+cross-origin probe frame 30 → 60 fps from its first second; at 125 %, GPU-bound WebGL
+8 → 19 fps and WebGL sprites 31 → 60 (Chromium: 21 and 60).
+
+- **Power saver** ([`power_profile.rs`](../src-tauri/src/power_profile.rs),
+  [`gio/full-speed-power-monitor.c`](../src-tauri/gio/full-speed-power-monitor.c)).
+  WebKitGTK halves `requestAnimationFrame` to 30 fps whenever GLib's power-profile monitor,
+  asked in the web process, says power-saver, and GNOME turns that on by itself on low
+  battery. `build.rs` compiles a 23 kB GIO module against gio-2.0 (with the `cc` crate) and
+  the binary embeds it; at startup, before any thread or webview exists, the app writes it
+  to `<cache>/<identifier>/webkit-tuning/gio/<hash>/` and prepends that directory to
+  `GIO_EXTRA_MODULES`, with `GIO_USE_POWER_PROFILE_MONITOR=potato-full-speed`. WebKit's web
+  processes inherit both. The module wraps GLib's own monitor (D-Bus, or the portal in a
+  Flatpak), forwards its answer and its change signal, and reports "not in power saver"
+  only while a flag file exists — the app creates it when a game frame starts and removes
+  it when the game page is left, and the module follows it through a `GFileMonitor`. It
+  takes over only in a `WebKitWebProcess` started by the app; anywhere else (a browser
+  opened from the app inherits the environment) GIO uses its normal monitor. Nothing is
+  bundled or installed, so the Flatpak manifest needs nothing for it: the cache directory
+  and the flag's runtime directory are the same inside the sandbox for the web processes.
+  Setting: **Full frame rate in power saver** (Playing, on by default, read at startup).
+  - Fallback: no module in the binary (no C compiler or gio-2.0 headers at build time: a
+    cargo warning), the setting off, a failed write, a module GIO cannot load, or
+    `GIO_USE_POWER_PROFILE_MONITOR` already set by the user — WebKit's normal behaviour,
+    and one log line saying why.
+  - Crash guard: the bench saw one unexplained web-process abort (a GLib `getauxval`
+    error) in 24 launches with the first, unconditional version of the module. The app's
+    `web-process-terminated` handler reports crashes here; two in a session with the
+    module active, or one within 30 s of startup, turn it off for the following launches
+    of that module build (`disabled-after-crash.json`, logged). Switching the setting off
+    and on again retries. The soak test of this version is in the report.
+- **The cross-origin frame throttle**
+  ([`frame_first_input.rs`](../src-tauri/src/frame_first_input.rs)). WebKit runs a
+  cross-origin frame the user has not interacted with at 30 fps, and every game is
+  cross-origin to the app page. The throttle lifts on the first click, or on the first key
+  press while the frame has focus; measured, a real key press and a GDK key event sent to
+  the `WebKitWebView` both lift it (30 → 60 fps), and neither does without frame focus.
+  So there is no "click to play" cover: once a game document has announced itself (the
+  native preamble, or the bridge asking for its saves) and its frame holds focus,
+  [`native-game-frames.ts`](../src/lib/utils/native-game-frames.ts) asks for one F24 press,
+  sent natively as a GDK event. F24 is on no normal keyboard and no game binds it (WebKit
+  reports `key: "Unidentified"`, `keyCode: 135`); the app's in-frame script swallows it in
+  capture phase before any game listener. Nested frames a portal loads inside the game
+  announce themselves too and get their own press. If the press never happens, the
+  player's first input lifts the throttle, as before. Like a real key press, it counts as
+  a user gesture for that document: for WebKit's activation window a game could start
+  audio, go fullscreen or lock the pointer by itself (`window.open` does nothing in the
+  app, which has no new-window handler). `POTATO_TOMATO_FIRST_INPUT=0` turns it off for a
+  run.
+- **Fractional scaling** ([`display_scale.rs`](../src-tauri/src/display_scale.rs),
+  [`game_frame_tuning.js`](../src-tauri/src/game_frame_tuning.js)). GTK3 has no fractional
+  scaling, so at 125 % WebKitGTK renders at scale 2 (`devicePixelRatio` 2) and the
+  compositor scales down: 2.56 times the pixels, and GPU-bound games lose more than half
+  their frame rate. At each game start the app reads the real scale of the window's
+  monitor from `org.gnome.Mutter.DisplayConfig.GetCurrentState` and a document-start
+  script caps `devicePixelRatio` in game frames at it, only when WebKit's is higher. The
+  app's own UI keeps its scale. Wayland, a logical monitor layout and a matched monitor
+  are required; anything else (another desktop, X11, no access to the bus name) means no
+  cap. The Flatpak gets `--talk-name=org.gnome.Mutter.DisplayConfig` for it. Setting:
+  **Render games at your display's scale (faster)** (Playing → Game resolution, on by
+  default, from the next game). The picture is slightly softer: WebKit scales the canvas
+  up to 2 and the compositor back down to 1.25. A game that reads `devicePixelRatio` from
+  CSS media queries rather than the property still sees 2.
+
+Not shipped: Skia CPU painting (`WEBKIT_SKIA_ENABLE_CPU_RENDERING=1`) wins Canvas 2D by
+~35 % on this 12-core machine but costs WebGL at 125 % and competes with everything else
+for the CPU. It is a whole-process switch set at startup like the GIO module, so it could
+become an opt-in ("smoother 2D games") once measured on a 2–4-core laptop and a
+discrete-GPU desktop.
+
 ## Native runtime diagnostics
 
 In the packaged webview DevTools:

@@ -24,7 +24,9 @@
  *                        throttled before the user interacts with them)
  *   ?ms=<n>              sampling window (default 4000)
  *   ?windows=<n>         measure n windows back to back (default 1); each line also counts
- *                        the trusted pointerdowns the document has seen so far
+ *                        the trusted pointerdowns and keydowns the document has seen so far
+ *   ?focus=1             focus the embedded frame once it has loaded (keyboard input then
+ *                        goes to the frame's document, as in the app's game player)
  */
 (function () {
 	var q = new URLSearchParams(location.search);
@@ -34,12 +36,27 @@
 	if (q.get('embed')) {
 		var f = document.createElement('iframe');
 		f.src = q.get('embed');
+		if (q.get('focus') === '1') {
+			f.addEventListener('load', function () {
+				f.focus();
+			});
+		}
 		document.body.appendChild(f);
 	}
 	var WINDOWS = Number(q.get('windows')) || 1;
 	var clicks = 0;
+	var keys = [];
 	document.addEventListener('pointerdown', function (e) {
 		if (e.isTrusted) clicks++;
+	});
+	['keydown', 'keyup'].forEach(function (type) {
+		window.addEventListener(
+			type,
+			function (e) {
+				if (e.isTrusted) keys.push(type + ':' + e.key + '/' + e.code + '/' + e.keyCode);
+			},
+			true
+		);
 	});
 	var g = document.getElementById('c').getContext('2d');
 	var n = 0, t0 = 0, w = 0;
@@ -53,7 +70,7 @@
 		w++;
 		fetch(collector + '/progress', {
 			method: 'POST',
-			body: 'raf-probe ' + label + ' window=' + w + ' trustedClicks=' + clicks + ' origin=' +
+			body: 'raf-probe ' + label + ' window=' + w + ' trustedClicks=' + clicks + ' trustedKeys=' + (keys.join(',') || '-') + ' origin=' +
 				location.origin + ' fps=' + fps.toFixed(1) + ' dpr=' + devicePixelRatio + ' vis=' +
 				document.visibilityState + ' ua=' +
 				(/Chrome\/[\d.]+/.exec(navigator.userAgent) || /AppleWebKit\/[\d.]+/.exec(navigator.userAgent) || [''])[0]

@@ -1,7 +1,11 @@
 mod apk_update;
 mod disguise;
+mod display_scale;
+mod frame_first_input;
+mod game_frame_tuning;
 mod game_frames;
 mod offline_games;
+mod power_profile;
 mod relay;
 mod webview_crash;
 
@@ -656,9 +660,10 @@ fn paint_windows_from_theme(app: &tauri::AppHandle) {
 /// already painted by then. Config is the one place early enough. These are WebKit's own
 /// canvas colours per `color-scheme`, so the gap matches what the page paints next.
 #[cfg_attr(not(target_os = "linux"), allow(unused_variables))]
-fn context(desktop_scheme: &Result<bool, String>) -> tauri::Context {
-  #[allow(unused_mut)]
-  let mut context = tauri::generate_context!();
+fn context(
+  #[allow(unused_mut)] mut context: tauri::Context,
+  desktop_scheme: &Result<bool, String>,
+) -> tauri::Context {
   #[cfg(target_os = "linux")]
   if let Ok(dark) = *desktop_scheme {
     // `theme` is what tao acts on, and it acts while building the window — before the
@@ -687,6 +692,10 @@ fn context(desktop_scheme: &Result<bool, String>) -> tauri::Context {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+  let generated = tauri::generate_context!();
+  // First, while this is the only thread: the power-saver module is chosen through
+  // environment variables that WebKit's web processes inherit (`power_profile.rs`).
+  power_profile::prepare(&generated.config().identifier);
   // One portal read, shared: the window's colour is decided from it before the window
   // exists, and `setup` mirrors the same answer onto GtkSettings once GTK is up.
   #[cfg(target_os = "linux")]
@@ -744,6 +753,10 @@ pub fn run() {
       game_frames::native_game_frames_supported,
       game_frames::set_game_frame_context,
       game_frames::clear_game_frame_context,
+      power_profile::full_speed_status,
+      power_profile::set_full_speed_setting,
+      display_scale::display_scale_status,
+      frame_first_input::lift_game_frame_throttle,
       offline_games::offline_statuses,
       offline_games::offline_entry,
       offline_games::offline_delete,
@@ -764,6 +777,7 @@ pub fn run() {
       #[cfg(target_os = "linux")]
       {
         system_theme::flush_early_log();
+        power_profile::flush_early_log();
         match scheme_for_setup {
           Ok(dark) => log::info!("desktop colour-scheme is {}", if dark { "dark" } else { "light" }),
           Err(ref why) => log::info!("{why}"),
@@ -871,6 +885,6 @@ pub fn run() {
         }
       }
     })
-    .run(context(&desktop_scheme))
+    .run(context(generated, &desktop_scheme))
     .expect("error while running tauri application");
 }

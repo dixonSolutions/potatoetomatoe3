@@ -36,6 +36,16 @@
 		type InGameMenuCorner
 	} from '$lib/utils/game-player-settings';
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
+	import {
+		displayScaleHint,
+		fetchDisplayScaleStatus,
+		fetchFullSpeedStatus,
+		fullSpeedHint,
+		syncFullSpeedSetting,
+		webkitTuningSupported,
+		type DisplayScaleStatus,
+		type FullSpeedStatus
+	} from '$lib/utils/webkit-tuning';
 	import SettingsAdvanced from '../../shared/SettingsAdvanced.svelte';
 	import SettingsGroup from '../../shared/SettingsGroup.svelte';
 	import SettingsRow from '../../shared/SettingsRow.svelte';
@@ -83,9 +93,27 @@
 		...DEFAULT_GAME_FULLSCREEN_SHORTCUT
 	});
 	let recordingFullscreenShortcut = $state(false);
+	/* Linux desktop app only: WebKitGTK tunings (src-tauri/src/game_frame_tuning.rs). */
+	let tuningSupported = $state(false);
+	let fullSpeedStatus = $state<FullSpeedStatus | null>(null);
+	let displayStatus = $state<DisplayScaleStatus | null>(null);
 
 	function savePlayer(patch: Partial<GamePlayerSettings>) {
 		player = saveGamePlayerSettings(patch);
+	}
+
+	function onFullSpeedToggle(on: boolean) {
+		savePlayer({ fullSpeedInPowerSaver: on });
+		void syncFullSpeedSetting(on);
+	}
+
+	async function loadTuningStatus() {
+		tuningSupported = await webkitTuningSupported();
+		if (!tuningSupported) return;
+		[fullSpeedStatus, displayStatus] = await Promise.all([
+			fetchFullSpeedStatus(),
+			fetchDisplayScaleStatus()
+		]);
 	}
 
 	function onPlaySourceChange(value: GamePlayMode) {
@@ -120,6 +148,7 @@
 		playSource = getDefaultGamePlayMode();
 		pauseShortcut = getGamePauseShortcut();
 		fullscreenShortcut = getGameFullscreenShortcut();
+		void loadTuningStatus();
 	});
 
 	/** Capture the next non-modifier key while `recording` is on; Escape cancels. */
@@ -242,6 +271,24 @@
 		</SettingsRow>
 	</SettingsGroup>
 
+	{#if tuningSupported}
+		<SettingsGroup title="Performance">
+			<SettingsRow
+				id="settings-section-games-full-speed"
+				label="Full frame rate in power saver"
+				labelFor="games-full-speed"
+				hint={fullSpeedHint(player.fullSpeedInPowerSaver, fullSpeedStatus)}
+				inline
+			>
+				<Switch
+					id="games-full-speed"
+					checked={player.fullSpeedInPowerSaver}
+					onCheckedChange={(v) => onFullSpeedToggle(Boolean(v))}
+				/>
+			</SettingsRow>
+		</SettingsGroup>
+	{/if}
+
 	<SettingsGroup title="Shortcuts">
 		<SettingsRow
 			id="settings-section-games-pause-shortcut"
@@ -312,4 +359,26 @@
 			/>
 		</SettingsRow>
 	</SettingsAdvanced>
+
+	{#if tuningSupported}
+		<SettingsAdvanced
+			title="Game resolution"
+			hint="How games draw on a display with fractional scaling."
+			anchors={['settings-section-games-display-scale']}
+		>
+			<SettingsRow
+				id="settings-section-games-display-scale"
+				label="Render games at your display's scale (faster)"
+				labelFor="games-display-scale"
+				hint={displayScaleHint(displayStatus)}
+				inline
+			>
+				<Switch
+					id="games-display-scale"
+					checked={player.renderAtDisplayScale}
+					onCheckedChange={(v) => savePlayer({ renderAtDisplayScale: Boolean(v) })}
+				/>
+			</SettingsRow>
+		</SettingsAdvanced>
+	{/if}
 </div>

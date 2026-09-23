@@ -1,0 +1,218 @@
+{
+  "at": "2026-09-23T16:02:37.992Z",
+  "env": {
+    "engine": "tauri-webkitgtk",
+    "variant": "t-soak",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/60.5 Safari/605.1.15",
+    "webgl2": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 2.0",
+      "maxTextureSize": 16384
+    },
+    "webgl1": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 1.0",
+      "maxTextureSize": 16384
+    },
+    "devicePixelRatio": 2,
+    "viewport": "1536x881",
+    "screen": "1536x960",
+    "gameBox": "1280x720 CSS px",
+    "hardwareConcurrency": 8,
+    "deviceMemory": null,
+    "crossOriginIsolated": false,
+    "state": {
+      "visibility": "visible",
+      "focus": false,
+      "gameVisibility": null
+    },
+    "options": {
+      "variant": "t-soak",
+      "quick": false,
+      "delayMs": 2000,
+      "sampleMs": 4000,
+      "settleMs": 2000,
+      "taps": 60,
+      "latency": false,
+      "consolePhase": false,
+      "unityWarm": true,
+      "wasmCompile": false,
+      "gameOpen": true,
+      "throttleProbe": false,
+      "workloads": [
+        "shrek-unity"
+      ]
+    },
+    "query": "?engine=tauri-webkitgtk&variant=collector&auto=1&collector=http://127.0.0.1:18833"
+  },
+  "hostAtStart": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T16:02:16.470Z",
+    "loadavg": [
+      4.72,
+      4.57,
+      3.82
+    ],
+    "cpuBusyPctSinceLastSnapshot": 22.5,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 36480,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "t-soak",
+    "benchQuery": "delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=8"
+  },
+  "baseline": {
+    "fps": 31.1,
+    "stalled": false,
+    "frameMs": {
+      "n": 93,
+      "mean": 32.2,
+      "p50": 32,
+      "p95": 33,
+      "p99": 33,
+      "max": 34
+    },
+    "jankOver25ms": 93,
+    "jankOver50ms": 0,
+    "scriptMs": null,
+    "state": {
+      "before": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      },
+      "after": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      }
+    }
+  },
+  "results": [
+    {
+      "workload": "shrek-unity",
+      "label": "Shrek Escape (Unity WebGL 2, 3D menu scene)",
+      "load": {
+        "htmlLoadedMs": 4832,
+        "readyMs": 8179,
+        "warmReadyMs": 3418
+      },
+      "surface": {
+        "backing": "1598x898",
+        "css": "1278x718",
+        "gameDpr": 1.25
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 53,
+          "stalled": false,
+          "frameMs": {
+            "n": 212,
+            "mean": 18.85,
+            "p50": 16,
+            "p95": 21,
+            "p99": 32,
+            "max": 405
+          },
+          "jankOver25ms": 5,
+          "jankOver50ms": 1,
+          "scriptMs": null,
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T16:02:37.989Z",
+        "loadavg": [
+          5.11,
+          4.66,
+          3.87
+        ],
+        "cpuBusyPctSinceLastSnapshot": 34.7,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 35029,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "t-soak",
+        "benchQuery": "delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=8"
+      }
+    }
+  ],
+  "wasm": null,
+  "hostAtEnd": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T16:02:38.238Z",
+    "loadavg": [
+      5.11,
+      4.66,
+      3.87
+    ],
+    "cpuBusyPctSinceLastSnapshot": 27,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 35061,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "t-soak",
+    "benchQuery": "delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=8"
+  },
+  "host": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T16:02:38.506Z",
+    "loadavg": [
+      5.11,
+      4.66,
+      3.87
+    ],
+    "cpuBusyPctSinceLastSnapshot": 31.2,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 35143,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "t-soak",
+    "benchQuery": "delay=2000&sample=4000&settle=2000&latency=0&console=0&wasm=0&gameOpen=1&workloads=shrek-unity&rep=8"
+  }
+}

@@ -23,6 +23,10 @@ finish-args:
   - --talk-name=com.canonical.indicator.application
   # Host can read tray icon PNG written under $XDG_RUNTIME_DIR/potato-tomato-tray
   - --filesystem=xdg-run/potato-tomato-tray:create
+  # The monitor's real (fractional) scale, read at each game start so games render at 125 %
+  # instead of GTK3's 200 % (src-tauri/src/display_scale.rs; only GetCurrentState is called).
+  # Without it games keep WebKit's scale, as before.
+  - --talk-name=org.gnome.Mutter.DisplayConfig
 
 modules:
   # Required at runtime by tray-icon / libappindicator-sys (not in GNOME Platform).
