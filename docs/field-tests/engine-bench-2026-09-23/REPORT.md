@@ -595,6 +595,8 @@ probe: `/dev-bench/raf-probe.html?embed=<same page on another origin>&windows=3`
 - `raw/matrix-*.log` — harness logs: start/end time, load average, shield state, engine CPU
   seconds per run.
 - `raw/gpu-webkitgtk.txt`, `raw/gpu-chromium.txt` — `webkit://gpu` and `chrome://gpu`.
+- `raw/implemented/` — the runs behind [Implemented](#implemented-2026-09-24): reports,
+  matrix logs, the probe lines, and `soak-summary.txt`.
 - `harness/` — compositor, setup, run and matrix scripts, the bare WebKitGTK window
   (`wk.py`), the power-saver shim and GIO module sources, matrix definitions,
   `aggregate.py` (all metrics per configuration) and `report-tables.py` (the tables in
@@ -602,3 +604,148 @@ probe: `/dev-bench/raf-probe.html?embed=<same page on another origin>&windows=3`
 - The bench itself: `src/routes/dev/perf-bench/+page.svelte`, `static/dev-bench/`
   (`sprites.html`, `gl-scene.html`, `raf-probe.html`), `scripts/perf-bench-collector.mjs`,
   `src-tauri/tauri.perf-bench.conf.json`.
+
+## Implemented (2026-09-24)
+
+Decision (b) items 1–3 are in the app; item 4 (Skia CPU painting) is not shipped and is
+mentioned in [`docs/native-first.md`](../../native-first.md) as a possible opt-in. How
+each part works, its fallbacks and its settings are in that document ("WebKitGTK tuning
+for games"). Two things changed from the plan above:
+
+- **The power-saver module wraps GLib's own monitor instead of replacing it.** It creates
+  the D-Bus monitor (the portal one in a Flatpak) through the same extension point,
+  forwards its answer and change signal, and reports "not in power saver" only while a
+  flag file exists, which the app creates when a game frame starts and removes when the
+  game page is left. Outside games WebKit still saves power. `build.rs` builds it (the
+  `cc` crate, against gio-2.0), the binary embeds it and writes it to the cache directory
+  at startup, so no package format ships a second file.
+- **No "click to play" cover.** Measured below: a key press inside the focused game frame
+  lifts the cross-origin throttle as a click does, and so does a key event the app sends
+  to the `WebKitWebView` itself. The app sends one F24 press once the game frame has
+  focus, and swallows it in the frame before any game listener.
+
+### Method
+
+The app's own debug binary (the bench's Tauri config with identifier
+`com.potatotomato.games.tuningbench`, wiped before every run) in a private headless GNOME
+Shell (`harness/compositor.sh`, with its own display name through `PTBENCH_DISPLAY`),
+power profile `power-saver` on AC for every run, load average 2–5. Configurations differ
+only in an environment variable that turns one part off for that run
+(`POTATO_TOMATO_FULL_SPEED=0`, `POTATO_TOMATO_FIRST_INPUT=0`, `POTATO_TOMATO_DPR_CAP=0`);
+"all off" is the app as it shipped before. Interleaved, 3 runs each, median (min–max).
+The bench page ran with `gameOpen=1`: it samples its own rAF first, with no game open,
+then sets the native game-frame context as the game page does and loads the workloads
+(`harness/matrices/tuning-*.txt`). Raw reports and logs are in `raw/implemented/`.
+
+### 1. Full frame rate in power saver (scale 1)
+
+| configuration                  | page rAF, no game | Shrek (Unity)    | Canvas 2D 3k     | WebGL sprites 20k | GL heavy         | GL light |
+| ------------------------------ | ----------------- | ---------------- | ---------------- | ----------------- | ---------------- | -------- |
+| module off (as shipped before) | 31.0              | 31.0             | 31.0             | 31.0 (31.0–31.1)  | 27.4 (27.4–27.5) | 31.0     |
+| module on (default)            | 31.0              | 60.0 (59.9–60.0) | 39.6 (39.5–40.4) | 60.0 (59.9–60.0)  | 27.5 (27.4–27.5) | 60.0     |
+
+Frame time p95 33 → 18 ms on Shrek, WebGL sprites and GL light. The page's own rAF stays
+at 31 with the module on: with no game open, WebKit follows power saver as before. GL heavy
+is GPU-bound below 30 fps either way. In a bare WebKitGTK view the web process follows the
+flag within a frame or two: 31 fps; flag created → 58.3 in the 3 s window it landed in,
+then 60; flag removed → 42.9, then 31.
+
+### 2. The cross-origin throttle and the first key press
+
+Which input lifts it: bare WebKitGTK (`wk.py --key`), `raf-probe.html` from another
+origin in a frame the parent focuses on load (`?focus=1`), power saver masked, input at
+6 s, 3 s windows:
+
+| input at 6 s                                                             | child before | child after                          |
+| ------------------------------------------------------------------------ | ------------ | ------------------------------------ |
+| none                                                                     | 30.2         | 30.0, 29.8                           |
+| GDK F24 press + release sent to the `WebKitWebView` (`gtk_widget_event`) | 30.1         | 56.7 (the window it landed in), 60.0 |
+| the same through `gtk_main_do_event` (the window's event path)           | 30.0         | 56.7, 60.0                           |
+| GDK F24 while the frame does **not** have focus                          | 30.1         | 30.0 (the parent document got it)    |
+| GDK `Shift_L` (a bare modifier)                                          | 29.9         | 56.7, 60.0                           |
+| a real key (`x`) through the compositor (Mutter RemoteDesktop)           | 29.9         | 50.3, 60.0                           |
+| a real F24 through the compositor                                        | 29.5         | 29.1 (no F24 on its keymap)          |
+
+So (a) a key the player presses while the game frame has focus lifts the throttle, and
+(b) a GDK key event the app sends lifts it too; neither does without frame focus. WebKit
+reports the synthetic F24 as `key: "Unidentified"`, `code: "Unidentified"`,
+`keyCode: 135` (the virtual keyboard's keymap has no F24 keycode). A bare modifier works
+as well but means something in many games; F24 is on no normal keyboard and no game binds
+it.
+
+In the app (`throttle=1`: the same probe from the other loopback name as a native game
+frame, focused on load as the player does):
+
+| configuration             | 1.5–4.5 s after load | 4.5–7.5 s        | 7.5–10.5 s       | 10.5–13.5 s      |
+| ------------------------- | -------------------- | ---------------- | ---------------- | ---------------- |
+| first key off (as before) | 30.3 (30.2–30.3)     | 30.9 (30.8–30.9) | 31.0 (28.8–31.0) | 31.0 (28.6–31.0) |
+| first key on (default)    | 60.1 (60.0–60.2)     | 60.0             | 60.0             | 60.0             |
+
+One F24 per run in the log, and the probe's own capture-phase key listeners never saw it:
+the app's in-frame script stopped it first.
+
+### 3. Fractional scaling (125 %, 1920×1200 virtual monitor)
+
+| configuration                  | game DPR, backing | Shrek (Unity) | Canvas 2D 3k     | WebGL sprites 20k | GL heavy         | GL light |
+| ------------------------------ | ----------------- | ------------- | ---------------- | ----------------- | ---------------- | -------- |
+| all off (as shipped before)    | 2, 2556×1436      | 31.0          | 31.0 (30.9–31.1) | 31.0 (30.5–31.0)  | 8.3 (7.9–8.4)    | 31.0     |
+| power saver fixed, no cap      | 2, 2556×1436      | 60.0          | 41.8 (38.9–43.4) | 46.6 (45.6–52.8)  | 8.4 (8.1–8.4)    | 60.0     |
+| all on (default)               | 1.25, 1598×898    | 60.0          | 42.1 (41.3–42.3) | 60.0              | 19.4 (17.7–19.5) | 60.0     |
+| Chromium (§4, `s125-chromium`) | 1.25, 1598×898    | 60.0          | 42.8             | 59.9              | 20.9             | 60.0     |
+
+GL heavy frame time p95 219 → 87 ms. The bench page itself stays at DPR 2 (the app's UI is
+not capped); the app logs `devicePixelRatio capped at 1.25 (display at 1.25, WebKit at 2)`.
+With all three parts on, the app is within 1.5 fps of Chromium on every workload here.
+
+### Flatpak
+
+The same debug binary, run inside the installed app's Flatpak sandbox
+(`flatpak run --command=<binary> com.potatotomato.games`: the app's finish-args, the GNOME
+50 runtime with GLib 2.88.3 and its own WebKitGTK 4.1) against the private compositor.
+The module compiled on the host loaded in the sandbox's web process and wrapped GLib's
+**portal** monitor: page rAF 31 with no game, GL light and WebGL sprites 60 with a game
+open. The cache directory (`~/.var/app/com.potatotomato.games/cache/…`) and the flag's
+runtime directory needed nothing from the manifest. Mutter's `DisplayConfig` is not
+reachable from the sandbox without `--talk-name=org.gnome.Mutter.DisplayConfig`
+(ServiceUnknown, so no cap: the fallback); with it, now in the manifest, the game frames
+got 1.25 and a 1598×898 backing store at 125 %, as on the host.
+
+### Crash guard and soak
+
+- The guard, end to end: `SIGABRT` to the web process 8 s after start. The app logged
+  "turned off after the game engine crashed 8 s after the app started; off from the next
+  launch" and wrote `disabled-after-crash.json`; the next launch logged "not in use";
+  `POTATO_TOMATO_FULL_SPEED=1` loaded the module anyway.
+- Soak (`harness/matrices/tuning-soak.txt`, summarised by `harness/soak-summary.py`): 32
+  launches of the app with the module, each loading Shrek cold and then warm (64 Unity
+  starts) with a game open and power saver on: **0 web-process crashes**. The module ran
+  in every launch's web process (wrapping the D-Bus monitor); Shrek ran at 59.5 fps
+  (53–59.9), Unity cold start 3.5 s (3.3–8.2 s). The other ~25 launches with the module in
+  this session (the tables above, smoke and Flatpak runs) did not crash either, apart from
+  the deliberate `SIGABRT`. Against the first version's 1 in 24 this does not prove the
+  abort gone, but it did not recur.
+- About the one abort the first version of the module saw ("GLib-ERROR: getauxval ()
+  failed: Interrupted system call"), a hypothesis, not verified: GLib's `g_check_setuid()`
+  reads `errno` after `getauxval()`, and JavaScriptCore suspends threads for GC with a
+  signal whose handler can leave `errno` set, so the check fails when a suspension lands
+  in between. GLib runs that check when a process first resolves a D-Bus address. The
+  replacing module answered without D-Bus, so the web process made its first bus
+  connection later, possibly in the middle of Unity's load; the wrapping module creates
+  GLib's D-Bus or portal monitor when the web process starts, as WebKit does without the
+  module.
+
+### What is left
+
+- The cap needs GNOME (Mutter's `DisplayConfig`). On KDE, wlroots desktops and X11, games
+  keep DPR 2 at fractional scales; a reader for another compositor's scale would cover
+  them.
+- The first key lands in whatever frame has focus. A portal that loads its game in a
+  nested frame and focuses it gets a second press when that frame announces itself (up to
+  four per launch), but a nested frame that never gets focus stays throttled until the
+  player's first input.
+- Like a real key press, the F24 gives the game document transient user activation: for
+  WebKit's activation window it could start audio, go fullscreen or lock the pointer by
+  itself. `window.open` does nothing in the app.
+- Untouched by this: Unity's cold start (§5, ~1 s behind Chromium) and WebKit's
+  synchronous WebGL submission (§1: GL heavy script 7 ms per frame against Chromium's 1).
+  Chromium was not re-run for this section.

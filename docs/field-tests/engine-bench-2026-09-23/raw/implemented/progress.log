@@ -1,0 +1,748 @@
+2026-09-23T14:38:38.987Z raf-probe nokey-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.4 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:39.000Z raf-probe nokey-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:42.002Z raf-probe nokey-parent window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:42.052Z raf-probe nokey-child window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.8 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:45.019Z raf-probe nokey-parent window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:45.084Z raf-probe nokey-child window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:48.035Z raf-probe nokey-parent window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:38:48.136Z raf-probe nokey-child window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.8 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:16.934Z raf-probe f24view-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=59.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:16.981Z raf-probe f24view-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.1 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:19.964Z raf-probe f24view-parent window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:20.015Z raf-probe f24view-child window=2 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://localhost:5183 fps=56.7 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:22.982Z raf-probe f24view-parent window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:23.031Z raf-probe f24view-child window=3 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:25.999Z raf-probe f24view-parent window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:39:26.048Z raf-probe f24view-child window=4 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:12.613Z raf-probe f24nofocus-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.1 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:12.645Z raf-probe f24nofocus-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.1 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:15.645Z raf-probe f24nofocus-parent window=2 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:15.678Z raf-probe f24nofocus-child window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:18.678Z raf-probe f24nofocus-parent window=3 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:18.728Z raf-probe f24nofocus-child window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.8 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:21.695Z raf-probe f24nofocus-parent window=4 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:21.764Z raf-probe f24nofocus-child window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:38.579Z raf-probe f24main-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:38.596Z raf-probe f24main-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:41.596Z raf-probe f24main-parent window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:41.629Z raf-probe f24main-child window=2 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://localhost:5183 fps=56.7 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:44.614Z raf-probe f24main-parent window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:44.646Z raf-probe f24main-child window=3 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:47.630Z raf-probe f24main-parent window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:40:47.663Z raf-probe f24main-child window=4 trustedClicks=0 trustedKeys=Unidentified/Unidentified/135 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:04.184Z raf-probe shift-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:04.199Z raf-probe shift-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:07.200Z raf-probe shift-parent window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:07.233Z raf-probe shift-child window=2 trustedClicks=0 trustedKeys=Shift/ShiftLeft/16 origin=http://localhost:5183 fps=56.7 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:10.217Z raf-probe shift-parent window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:10.271Z raf-probe shift-child window=3 trustedClicks=0 trustedKeys=Shift/ShiftLeft/16 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:13.239Z raf-probe shift-parent window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=59.5 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:41:13.287Z raf-probe shift-child window=4 trustedClicks=0 trustedKeys=Shift/ShiftLeft/16 origin=http://localhost:5183 fps=59.6 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:49.303Z raf-probe realf24-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:49.336Z raf-probe realf24-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.5 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:52.322Z raf-probe realf24-parent window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=59.3 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:52.388Z raf-probe realf24-child window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:55.354Z raf-probe realf24-parent window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=59.7 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:55.420Z raf-probe realf24-child window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.3 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:58.369Z raf-probe realf24-parent window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:42:58.478Z raf-probe realf24-child window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.1 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:30.417Z raf-probe realx2-parent window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:30.433Z raf-probe realx2-child window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=29.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:33.434Z raf-probe realx2-parent window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:33.467Z raf-probe realx2-child window=2 trustedClicks=0 trustedKeys=keyup:x/KeyX/88 origin=http://localhost:5183 fps=50.3 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:36.450Z raf-probe realx2-parent window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:36.485Z raf-probe realx2-child window=3 trustedClicks=0 trustedKeys=keyup:x/KeyX/88 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:39.472Z raf-probe realx2-parent window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=59.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:43:39.502Z raf-probe realx2-child window=4 trustedClicks=0 trustedKeys=keyup:x/KeyX/88 origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:51:10.619Z raf-probe toggle1 window=1 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:51:13.651Z raf-probe toggle1 window=2 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=58.3 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:51:16.667Z raf-probe toggle1 window=3 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:51:19.713Z raf-probe toggle1 window=4 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=42.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:51:22.775Z raf-probe toggle1 window=5 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T14:51:25.836Z raf-probe toggle1 window=6 trustedClicks=0 trustedKeys=- origin=http://127.0.0.1:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:30:06.248Z tauri-webkitgtk/t-pp-off: engine=tauri-webkitgtk variant=t-pp-off dpr=1
+2026-09-23T15:30:09.478Z tauri-webkitgtk/t-pp-off: baseline rAF (no game)
+2026-09-23T15:30:12.504Z tauri-webkitgtk/t-pp-off: baseline 31 fps
+2026-09-23T15:30:12.542Z tauri-webkitgtk/t-pp-off: game open: native game-frame context set
+2026-09-23T15:30:12.543Z tauri-webkitgtk/t-pp-off: shrek-unity: loading
+2026-09-23T15:30:19.911Z tauri-webkitgtk/t-pp-off: shrek-unity: ready in 7060 ms, settling
+2026-09-23T15:30:22.918Z tauri-webkitgtk/t-pp-off: shrek-unity: frames, console hidden
+2026-09-23T15:30:31.187Z tauri-webkitgtk/t-pp-off: sprites-webgl: loading
+2026-09-23T15:30:31.639Z tauri-webkitgtk/t-pp-off: sprites-webgl: ready in 147 ms, settling
+2026-09-23T15:30:34.642Z tauri-webkitgtk/t-pp-off: sprites-webgl: frames, console hidden
+2026-09-23T15:30:42.946Z tauri-webkitgtk/t-pp-off: gl-light: loading
+2026-09-23T15:30:43.308Z tauri-webkitgtk/t-pp-off: gl-light: ready in 57 ms, settling
+2026-09-23T15:30:46.311Z tauri-webkitgtk/t-pp-off: gl-light: frames, console hidden
+2026-09-23T15:30:54.578Z tauri-webkitgtk/t-pp-off: sprites-canvas: loading
+2026-09-23T15:30:55.072Z tauri-webkitgtk/t-pp-off: sprites-canvas: ready in 186 ms, settling
+2026-09-23T15:30:58.089Z tauri-webkitgtk/t-pp-off: sprites-canvas: frames, console hidden
+2026-09-23T15:31:06.395Z tauri-webkitgtk/t-pp-off: gl-heavy: loading
+2026-09-23T15:31:06.773Z tauri-webkitgtk/t-pp-off: gl-heavy: ready in 71 ms, settling
+2026-09-23T15:31:09.775Z tauri-webkitgtk/t-pp-off: gl-heavy: frames, console hidden
+2026-09-23T15:31:18.621Z tauri-webkitgtk/t-pp-off: done (posted to collector)
+2026-09-23T15:31:29.666Z tauri-webkitgtk/t-pp-on: engine=tauri-webkitgtk variant=t-pp-on dpr=1
+2026-09-23T15:31:32.900Z tauri-webkitgtk/t-pp-on: baseline rAF (no game)
+2026-09-23T15:31:35.919Z tauri-webkitgtk/t-pp-on: baseline 31 fps
+2026-09-23T15:31:35.985Z tauri-webkitgtk/t-pp-on: game open: native game-frame context set
+2026-09-23T15:31:35.987Z tauri-webkitgtk/t-pp-on: shrek-unity: loading
+2026-09-23T15:31:39.857Z tauri-webkitgtk/t-pp-on: shrek-unity: ready in 3564 ms, settling
+2026-09-23T15:31:42.865Z tauri-webkitgtk/t-pp-on: shrek-unity: frames, console hidden
+2026-09-23T15:31:51.137Z tauri-webkitgtk/t-pp-on: sprites-webgl: loading
+2026-09-23T15:31:51.604Z tauri-webkitgtk/t-pp-on: sprites-webgl: ready in 158 ms, settling
+2026-09-23T15:31:54.607Z tauri-webkitgtk/t-pp-on: sprites-webgl: frames, console hidden
+2026-09-23T15:32:02.898Z tauri-webkitgtk/t-pp-on: gl-light: loading
+2026-09-23T15:32:03.277Z tauri-webkitgtk/t-pp-on: gl-light: ready in 72 ms, settling
+2026-09-23T15:32:06.279Z tauri-webkitgtk/t-pp-on: gl-light: frames, console hidden
+2026-09-23T15:32:14.554Z tauri-webkitgtk/t-pp-on: sprites-canvas: loading
+2026-09-23T15:32:15.024Z tauri-webkitgtk/t-pp-on: sprites-canvas: ready in 162 ms, settling
+2026-09-23T15:32:18.039Z tauri-webkitgtk/t-pp-on: sprites-canvas: frames, console hidden
+2026-09-23T15:32:26.349Z tauri-webkitgtk/t-pp-on: gl-heavy: loading
+2026-09-23T15:32:26.719Z tauri-webkitgtk/t-pp-on: gl-heavy: ready in 66 ms, settling
+2026-09-23T15:32:29.722Z tauri-webkitgtk/t-pp-on: gl-heavy: frames, console hidden
+2026-09-23T15:32:38.458Z tauri-webkitgtk/t-pp-on: done (posted to collector)
+2026-09-23T15:32:49.638Z tauri-webkitgtk/t-pp-off: engine=tauri-webkitgtk variant=t-pp-off dpr=1
+2026-09-23T15:32:52.892Z tauri-webkitgtk/t-pp-off: baseline rAF (no game)
+2026-09-23T15:32:55.914Z tauri-webkitgtk/t-pp-off: baseline 31 fps
+2026-09-23T15:32:55.948Z tauri-webkitgtk/t-pp-off: game open: native game-frame context set
+2026-09-23T15:32:55.949Z tauri-webkitgtk/t-pp-off: shrek-unity: loading
+2026-09-23T15:33:03.443Z tauri-webkitgtk/t-pp-off: shrek-unity: ready in 7185 ms, settling
+2026-09-23T15:33:06.455Z tauri-webkitgtk/t-pp-off: shrek-unity: frames, console hidden
+2026-09-23T15:33:14.738Z tauri-webkitgtk/t-pp-off: sprites-webgl: loading
+2026-09-23T15:33:15.188Z tauri-webkitgtk/t-pp-off: sprites-webgl: ready in 142 ms, settling
+2026-09-23T15:33:18.190Z tauri-webkitgtk/t-pp-off: sprites-webgl: frames, console hidden
+2026-09-23T15:33:26.490Z tauri-webkitgtk/t-pp-off: gl-light: loading
+2026-09-23T15:33:26.857Z tauri-webkitgtk/t-pp-off: gl-light: ready in 63 ms, settling
+2026-09-23T15:33:29.859Z tauri-webkitgtk/t-pp-off: gl-light: frames, console hidden
+2026-09-23T15:33:38.170Z tauri-webkitgtk/t-pp-off: sprites-canvas: loading
+2026-09-23T15:33:38.636Z tauri-webkitgtk/t-pp-off: sprites-canvas: ready in 157 ms, settling
+2026-09-23T15:33:41.643Z tauri-webkitgtk/t-pp-off: sprites-canvas: frames, console hidden
+2026-09-23T15:33:49.940Z tauri-webkitgtk/t-pp-off: gl-heavy: loading
+2026-09-23T15:33:50.313Z tauri-webkitgtk/t-pp-off: gl-heavy: ready in 69 ms, settling
+2026-09-23T15:33:53.317Z tauri-webkitgtk/t-pp-off: gl-heavy: frames, console hidden
+2026-09-23T15:34:02.128Z tauri-webkitgtk/t-pp-off: done (posted to collector)
+2026-09-23T15:34:12.593Z tauri-webkitgtk/t-pp-on: engine=tauri-webkitgtk variant=t-pp-on dpr=1
+2026-09-23T15:34:15.872Z tauri-webkitgtk/t-pp-on: baseline rAF (no game)
+2026-09-23T15:34:18.892Z tauri-webkitgtk/t-pp-on: baseline 31 fps
+2026-09-23T15:34:18.960Z tauri-webkitgtk/t-pp-on: game open: native game-frame context set
+2026-09-23T15:34:18.962Z tauri-webkitgtk/t-pp-on: shrek-unity: loading
+2026-09-23T15:34:22.879Z tauri-webkitgtk/t-pp-on: shrek-unity: ready in 3611 ms, settling
+2026-09-23T15:34:25.888Z tauri-webkitgtk/t-pp-on: shrek-unity: frames, console hidden
+2026-09-23T15:34:34.181Z tauri-webkitgtk/t-pp-on: sprites-webgl: loading
+2026-09-23T15:34:34.694Z tauri-webkitgtk/t-pp-on: sprites-webgl: ready in 205 ms, settling
+2026-09-23T15:34:37.697Z tauri-webkitgtk/t-pp-on: sprites-webgl: frames, console hidden
+2026-09-23T15:34:45.972Z tauri-webkitgtk/t-pp-on: gl-light: loading
+2026-09-23T15:34:46.338Z tauri-webkitgtk/t-pp-on: gl-light: ready in 58 ms, settling
+2026-09-23T15:34:49.340Z tauri-webkitgtk/t-pp-on: gl-light: frames, console hidden
+2026-09-23T15:34:57.600Z tauri-webkitgtk/t-pp-on: sprites-canvas: loading
+2026-09-23T15:34:58.055Z tauri-webkitgtk/t-pp-on: sprites-canvas: ready in 147 ms, settling
+2026-09-23T15:35:01.057Z tauri-webkitgtk/t-pp-on: sprites-canvas: frames, console hidden
+2026-09-23T15:35:09.362Z tauri-webkitgtk/t-pp-on: gl-heavy: loading
+2026-09-23T15:35:09.737Z tauri-webkitgtk/t-pp-on: gl-heavy: ready in 71 ms, settling
+2026-09-23T15:35:12.740Z tauri-webkitgtk/t-pp-on: gl-heavy: frames, console hidden
+2026-09-23T15:35:21.546Z tauri-webkitgtk/t-pp-on: done (posted to collector)
+2026-09-23T15:35:32.589Z tauri-webkitgtk/t-pp-off: engine=tauri-webkitgtk variant=t-pp-off dpr=1
+2026-09-23T15:35:35.839Z tauri-webkitgtk/t-pp-off: baseline rAF (no game)
+2026-09-23T15:35:38.860Z tauri-webkitgtk/t-pp-off: baseline 31.1 fps
+2026-09-23T15:35:38.933Z tauri-webkitgtk/t-pp-off: game open: native game-frame context set
+2026-09-23T15:35:38.934Z tauri-webkitgtk/t-pp-off: shrek-unity: loading
+2026-09-23T15:35:42.678Z tauri-webkitgtk/t-pp-off: shrek-unity: ready in 3439 ms, settling
+2026-09-23T15:35:45.703Z tauri-webkitgtk/t-pp-off: shrek-unity: frames, console hidden
+2026-09-23T15:35:54.028Z tauri-webkitgtk/t-pp-off: sprites-webgl: loading
+2026-09-23T15:35:54.513Z tauri-webkitgtk/t-pp-off: sprites-webgl: ready in 178 ms, settling
+2026-09-23T15:35:57.515Z tauri-webkitgtk/t-pp-off: sprites-webgl: frames, console hidden
+2026-09-23T15:36:05.852Z tauri-webkitgtk/t-pp-off: gl-light: loading
+2026-09-23T15:36:06.226Z tauri-webkitgtk/t-pp-off: gl-light: ready in 66 ms, settling
+2026-09-23T15:36:09.228Z tauri-webkitgtk/t-pp-off: gl-light: frames, console hidden
+2026-09-23T15:36:17.512Z tauri-webkitgtk/t-pp-off: sprites-canvas: loading
+2026-09-23T15:36:17.983Z tauri-webkitgtk/t-pp-off: sprites-canvas: ready in 162 ms, settling
+2026-09-23T15:36:21.004Z tauri-webkitgtk/t-pp-off: sprites-canvas: frames, console hidden
+2026-09-23T15:36:29.289Z tauri-webkitgtk/t-pp-off: gl-heavy: loading
+2026-09-23T15:36:29.657Z tauri-webkitgtk/t-pp-off: gl-heavy: ready in 64 ms, settling
+2026-09-23T15:36:32.659Z tauri-webkitgtk/t-pp-off: gl-heavy: frames, console hidden
+2026-09-23T15:36:41.469Z tauri-webkitgtk/t-pp-off: done (posted to collector)
+2026-09-23T15:36:52.597Z tauri-webkitgtk/t-pp-on: engine=tauri-webkitgtk variant=t-pp-on dpr=1
+2026-09-23T15:36:55.847Z tauri-webkitgtk/t-pp-on: baseline rAF (no game)
+2026-09-23T15:36:58.867Z tauri-webkitgtk/t-pp-on: baseline 31.1 fps
+2026-09-23T15:36:58.899Z tauri-webkitgtk/t-pp-on: game open: native game-frame context set
+2026-09-23T15:36:58.901Z tauri-webkitgtk/t-pp-on: shrek-unity: loading
+2026-09-23T15:37:02.787Z tauri-webkitgtk/t-pp-on: shrek-unity: ready in 3581 ms, settling
+2026-09-23T15:37:05.792Z tauri-webkitgtk/t-pp-on: shrek-unity: frames, console hidden
+2026-09-23T15:37:14.090Z tauri-webkitgtk/t-pp-on: sprites-webgl: loading
+2026-09-23T15:37:14.587Z tauri-webkitgtk/t-pp-on: sprites-webgl: ready in 187 ms, settling
+2026-09-23T15:37:17.588Z tauri-webkitgtk/t-pp-on: sprites-webgl: frames, console hidden
+2026-09-23T15:37:25.875Z tauri-webkitgtk/t-pp-on: gl-light: loading
+2026-09-23T15:37:26.245Z tauri-webkitgtk/t-pp-on: gl-light: ready in 65 ms, settling
+2026-09-23T15:37:29.247Z tauri-webkitgtk/t-pp-on: gl-light: frames, console hidden
+2026-09-23T15:37:37.509Z tauri-webkitgtk/t-pp-on: sprites-canvas: loading
+2026-09-23T15:37:37.982Z tauri-webkitgtk/t-pp-on: sprites-canvas: ready in 163 ms, settling
+2026-09-23T15:37:41.010Z tauri-webkitgtk/t-pp-on: sprites-canvas: frames, console hidden
+2026-09-23T15:37:49.306Z tauri-webkitgtk/t-pp-on: gl-heavy: loading
+2026-09-23T15:37:49.672Z tauri-webkitgtk/t-pp-on: gl-heavy: ready in 63 ms, settling
+2026-09-23T15:37:52.679Z tauri-webkitgtk/t-pp-on: gl-heavy: frames, console hidden
+2026-09-23T15:38:01.502Z tauri-webkitgtk/t-pp-on: done (posted to collector)
+2026-09-23T15:38:26.271Z tauri-webkitgtk/t-fi-off: engine=tauri-webkitgtk variant=t-fi-off dpr=1
+2026-09-23T15:38:28.506Z tauri-webkitgtk/t-fi-off: baseline rAF (no game)
+2026-09-23T15:38:31.528Z tauri-webkitgtk/t-fi-off: baseline 31 fps
+2026-09-23T15:38:31.557Z tauri-webkitgtk/t-fi-off: game open: native game-frame context set
+2026-09-23T15:38:31.559Z tauri-webkitgtk/t-fi-off: throttle probe: http://localhost:5183/dev-bench/raf-probe.html?label=tp-t-fi-off&collector=http%3A%2F%2F127.0.0.1%3A18833&windows=4&ms=3000
+2026-09-23T15:38:34.561Z tauri-webkitgtk/t-fi-off: throttle probe: focus IFRAME hasFocus=false
+2026-09-23T15:38:36.114Z raf-probe tp-t-fi-off window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:38:39.160Z raf-probe tp-t-fi-off window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:38:42.216Z raf-probe tp-t-fi-off window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=28.8 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:38:45.255Z raf-probe tp-t-fi-off window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=28.6 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:38:57.470Z tauri-webkitgtk/t-fi-off: done (posted to collector)
+2026-09-23T15:39:09.642Z tauri-webkitgtk/t-fi-on: engine=tauri-webkitgtk variant=t-fi-on dpr=1
+2026-09-23T15:39:11.950Z tauri-webkitgtk/t-fi-on: baseline rAF (no game)
+2026-09-23T15:39:14.971Z tauri-webkitgtk/t-fi-on: baseline 31 fps
+2026-09-23T15:39:15.008Z tauri-webkitgtk/t-fi-on: game open: native game-frame context set
+2026-09-23T15:39:15.009Z tauri-webkitgtk/t-fi-on: throttle probe: http://localhost:5183/dev-bench/raf-probe.html?label=tp-t-fi-on&collector=http%3A%2F%2F127.0.0.1%3A18833&windows=4&ms=3000
+2026-09-23T15:39:18.015Z tauri-webkitgtk/t-fi-on: throttle probe: focus IFRAME hasFocus=false
+2026-09-23T15:39:19.572Z raf-probe tp-t-fi-on window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:39:22.587Z raf-probe tp-t-fi-on window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:39:25.624Z raf-probe tp-t-fi-on window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:39:28.638Z raf-probe tp-t-fi-on window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:39:40.542Z tauri-webkitgtk/t-fi-on: done (posted to collector)
+2026-09-23T15:39:51.760Z tauri-webkitgtk/t-fi-off: engine=tauri-webkitgtk variant=t-fi-off dpr=1
+2026-09-23T15:39:54.025Z tauri-webkitgtk/t-fi-off: baseline rAF (no game)
+2026-09-23T15:39:57.045Z tauri-webkitgtk/t-fi-off: baseline 31 fps
+2026-09-23T15:39:57.077Z tauri-webkitgtk/t-fi-off: game open: native game-frame context set
+2026-09-23T15:39:57.078Z tauri-webkitgtk/t-fi-off: throttle probe: http://localhost:5183/dev-bench/raf-probe.html?label=tp-t-fi-off&collector=http%3A%2F%2F127.0.0.1%3A18833&windows=4&ms=3000
+2026-09-23T15:40:00.080Z tauri-webkitgtk/t-fi-off: throttle probe: focus IFRAME hasFocus=false
+2026-09-23T15:40:01.630Z raf-probe tp-t-fi-off window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.3 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:04.669Z raf-probe tp-t-fi-off window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.9 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:07.732Z raf-probe tp-t-fi-off window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:10.765Z raf-probe tp-t-fi-off window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:22.586Z tauri-webkitgtk/t-fi-off: done (posted to collector)
+2026-09-23T15:40:33.302Z tauri-webkitgtk/t-fi-on: engine=tauri-webkitgtk variant=t-fi-on dpr=1
+2026-09-23T15:40:35.541Z tauri-webkitgtk/t-fi-on: baseline rAF (no game)
+2026-09-23T15:40:38.560Z tauri-webkitgtk/t-fi-on: baseline 31 fps
+2026-09-23T15:40:38.595Z tauri-webkitgtk/t-fi-on: game open: native game-frame context set
+2026-09-23T15:40:38.597Z tauri-webkitgtk/t-fi-on: throttle probe: http://localhost:5183/dev-bench/raf-probe.html?label=tp-t-fi-on&collector=http%3A%2F%2F127.0.0.1%3A18833&windows=4&ms=3000
+2026-09-23T15:40:41.600Z tauri-webkitgtk/t-fi-on: throttle probe: focus IFRAME hasFocus=false
+2026-09-23T15:40:43.143Z raf-probe tp-t-fi-on window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.2 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:46.160Z raf-probe tp-t-fi-on window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:49.176Z raf-probe tp-t-fi-on window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:40:52.192Z raf-probe tp-t-fi-on window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:41:04.128Z tauri-webkitgtk/t-fi-on: done (posted to collector)
+2026-09-23T15:41:14.819Z tauri-webkitgtk/t-fi-off: engine=tauri-webkitgtk variant=t-fi-off dpr=1
+2026-09-23T15:41:17.081Z tauri-webkitgtk/t-fi-off: baseline rAF (no game)
+2026-09-23T15:41:20.102Z tauri-webkitgtk/t-fi-off: baseline 31 fps
+2026-09-23T15:41:20.136Z tauri-webkitgtk/t-fi-off: game open: native game-frame context set
+2026-09-23T15:41:20.138Z tauri-webkitgtk/t-fi-off: throttle probe: http://localhost:5183/dev-bench/raf-probe.html?label=tp-t-fi-off&collector=http%3A%2F%2F127.0.0.1%3A18833&windows=4&ms=3000
+2026-09-23T15:41:23.140Z tauri-webkitgtk/t-fi-off: throttle probe: focus IFRAME hasFocus=false
+2026-09-23T15:41:24.693Z raf-probe tp-t-fi-off window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.3 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:41:27.742Z raf-probe tp-t-fi-off window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=30.8 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:41:30.778Z raf-probe tp-t-fi-off window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:41:33.810Z raf-probe tp-t-fi-off window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=31.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:41:45.676Z tauri-webkitgtk/t-fi-off: done (posted to collector)
+2026-09-23T15:41:56.424Z tauri-webkitgtk/t-fi-on: engine=tauri-webkitgtk variant=t-fi-on dpr=1
+2026-09-23T15:41:58.674Z tauri-webkitgtk/t-fi-on: baseline rAF (no game)
+2026-09-23T15:42:01.696Z tauri-webkitgtk/t-fi-on: baseline 31 fps
+2026-09-23T15:42:01.732Z tauri-webkitgtk/t-fi-on: game open: native game-frame context set
+2026-09-23T15:42:01.733Z tauri-webkitgtk/t-fi-on: throttle probe: http://localhost:5183/dev-bench/raf-probe.html?label=tp-t-fi-on&collector=http%3A%2F%2F127.0.0.1%3A18833&windows=4&ms=3000
+2026-09-23T15:42:04.736Z tauri-webkitgtk/t-fi-on: throttle probe: focus IFRAME hasFocus=false
+2026-09-23T15:42:06.292Z raf-probe tp-t-fi-on window=1 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.1 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:42:09.324Z raf-probe tp-t-fi-on window=2 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:42:12.342Z raf-probe tp-t-fi-on window=3 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:42:15.358Z raf-probe tp-t-fi-on window=4 trustedClicks=0 trustedKeys=- origin=http://localhost:5183 fps=60.0 dpr=1 vis=visible ua=AppleWebKit/605.1.15
+2026-09-23T15:42:27.205Z tauri-webkitgtk/t-fi-on: done (posted to collector)
+2026-09-23T15:45:34.377Z tauri-webkitgtk/t125-shipped: engine=tauri-webkitgtk variant=t125-shipped dpr=2
+2026-09-23T15:45:37.626Z tauri-webkitgtk/t125-shipped: baseline rAF (no game)
+2026-09-23T15:45:40.647Z tauri-webkitgtk/t125-shipped: baseline 31 fps
+2026-09-23T15:45:40.660Z tauri-webkitgtk/t125-shipped: game open: native game-frame context set
+2026-09-23T15:45:40.662Z tauri-webkitgtk/t125-shipped: gl-heavy: loading
+2026-09-23T15:45:41.081Z tauri-webkitgtk/t125-shipped: gl-heavy: ready in 113 ms, settling
+2026-09-23T15:45:44.084Z tauri-webkitgtk/t125-shipped: gl-heavy: frames, console hidden
+2026-09-23T15:45:52.393Z tauri-webkitgtk/t125-shipped: sprites-webgl: loading
+2026-09-23T15:45:52.872Z tauri-webkitgtk/t125-shipped: sprites-webgl: ready in 171 ms, settling
+2026-09-23T15:45:55.874Z tauri-webkitgtk/t125-shipped: sprites-webgl: frames, console hidden
+2026-09-23T15:46:04.176Z tauri-webkitgtk/t125-shipped: shrek-unity: loading
+2026-09-23T15:46:08.105Z tauri-webkitgtk/t125-shipped: shrek-unity: ready in 3621 ms, settling
+2026-09-23T15:46:11.117Z tauri-webkitgtk/t125-shipped: shrek-unity: frames, console hidden
+2026-09-23T15:46:19.373Z tauri-webkitgtk/t125-shipped: sprites-canvas: loading
+2026-09-23T15:46:19.834Z tauri-webkitgtk/t125-shipped: sprites-canvas: ready in 154 ms, settling
+2026-09-23T15:46:22.835Z tauri-webkitgtk/t125-shipped: sprites-canvas: frames, console hidden
+2026-09-23T15:46:31.164Z tauri-webkitgtk/t125-shipped: gl-light: loading
+2026-09-23T15:46:31.568Z tauri-webkitgtk/t125-shipped: gl-light: ready in 84 ms, settling
+2026-09-23T15:46:34.557Z tauri-webkitgtk/t125-shipped: gl-light: frames, console hidden
+2026-09-23T15:46:43.343Z tauri-webkitgtk/t125-shipped: done (posted to collector)
+2026-09-23T15:46:54.426Z tauri-webkitgtk/t125-nocap: engine=tauri-webkitgtk variant=t125-nocap dpr=2
+2026-09-23T15:46:57.705Z tauri-webkitgtk/t125-nocap: baseline rAF (no game)
+2026-09-23T15:47:00.725Z tauri-webkitgtk/t125-nocap: baseline 31.1 fps
+2026-09-23T15:47:00.748Z tauri-webkitgtk/t125-nocap: game open: native game-frame context set
+2026-09-23T15:47:00.750Z tauri-webkitgtk/t125-nocap: gl-heavy: loading
+2026-09-23T15:47:01.157Z tauri-webkitgtk/t125-nocap: gl-heavy: ready in 97 ms, settling
+2026-09-23T15:47:04.160Z tauri-webkitgtk/t125-nocap: gl-heavy: frames, console hidden
+2026-09-23T15:47:12.467Z tauri-webkitgtk/t125-nocap: sprites-webgl: loading
+2026-09-23T15:47:12.939Z tauri-webkitgtk/t125-nocap: sprites-webgl: ready in 167 ms, settling
+2026-09-23T15:47:15.941Z tauri-webkitgtk/t125-nocap: sprites-webgl: frames, console hidden
+2026-09-23T15:47:24.237Z tauri-webkitgtk/t125-nocap: shrek-unity: loading
+2026-09-23T15:47:27.938Z tauri-webkitgtk/t125-nocap: shrek-unity: ready in 3394 ms, settling
+2026-09-23T15:47:30.948Z tauri-webkitgtk/t125-nocap: shrek-unity: frames, console hidden
+2026-09-23T15:47:39.230Z tauri-webkitgtk/t125-nocap: sprites-canvas: loading
+2026-09-23T15:47:39.687Z tauri-webkitgtk/t125-nocap: sprites-canvas: ready in 152 ms, settling
+2026-09-23T15:47:42.739Z tauri-webkitgtk/t125-nocap: sprites-canvas: frames, console hidden
+2026-09-23T15:47:51.064Z tauri-webkitgtk/t125-nocap: gl-light: loading
+2026-09-23T15:47:51.436Z tauri-webkitgtk/t125-nocap: gl-light: ready in 68 ms, settling
+2026-09-23T15:47:54.438Z tauri-webkitgtk/t125-nocap: gl-light: frames, console hidden
+2026-09-23T15:48:03.201Z tauri-webkitgtk/t125-nocap: done (posted to collector)
+2026-09-23T15:48:14.485Z tauri-webkitgtk/t125-tuned: engine=tauri-webkitgtk variant=t125-tuned dpr=2
+2026-09-23T15:48:17.742Z tauri-webkitgtk/t125-tuned: baseline rAF (no game)
+2026-09-23T15:48:20.764Z tauri-webkitgtk/t125-tuned: baseline 31 fps
+2026-09-23T15:48:20.784Z tauri-webkitgtk/t125-tuned: game open: native game-frame context set
+2026-09-23T15:48:20.785Z tauri-webkitgtk/t125-tuned: gl-heavy: loading
+2026-09-23T15:48:21.208Z tauri-webkitgtk/t125-tuned: gl-heavy: ready in 116 ms, settling
+2026-09-23T15:48:24.211Z tauri-webkitgtk/t125-tuned: gl-heavy: frames, console hidden
+2026-09-23T15:48:32.522Z tauri-webkitgtk/t125-tuned: sprites-webgl: loading
+2026-09-23T15:48:32.975Z tauri-webkitgtk/t125-tuned: sprites-webgl: ready in 146 ms, settling
+2026-09-23T15:48:35.978Z tauri-webkitgtk/t125-tuned: sprites-webgl: frames, console hidden
+2026-09-23T15:48:44.279Z tauri-webkitgtk/t125-tuned: shrek-unity: loading
+2026-09-23T15:48:48.131Z tauri-webkitgtk/t125-tuned: shrek-unity: ready in 3545 ms, settling
+2026-09-23T15:48:51.134Z tauri-webkitgtk/t125-tuned: shrek-unity: frames, console hidden
+2026-09-23T15:48:59.420Z tauri-webkitgtk/t125-tuned: sprites-canvas: loading
+2026-09-23T15:48:59.888Z tauri-webkitgtk/t125-tuned: sprites-canvas: ready in 159 ms, settling
+2026-09-23T15:49:02.889Z tauri-webkitgtk/t125-tuned: sprites-canvas: frames, console hidden
+2026-09-23T15:49:11.208Z tauri-webkitgtk/t125-tuned: gl-light: loading
+2026-09-23T15:49:11.614Z tauri-webkitgtk/t125-tuned: gl-light: ready in 96 ms, settling
+2026-09-23T15:49:14.616Z tauri-webkitgtk/t125-tuned: gl-light: frames, console hidden
+2026-09-23T15:49:23.385Z tauri-webkitgtk/t125-tuned: done (posted to collector)
+2026-09-23T15:49:34.442Z tauri-webkitgtk/t125-shipped: engine=tauri-webkitgtk variant=t125-shipped dpr=2
+2026-09-23T15:49:37.682Z tauri-webkitgtk/t125-shipped: baseline rAF (no game)
+2026-09-23T15:49:40.701Z tauri-webkitgtk/t125-shipped: baseline 31 fps
+2026-09-23T15:49:40.723Z tauri-webkitgtk/t125-shipped: game open: native game-frame context set
+2026-09-23T15:49:40.724Z tauri-webkitgtk/t125-shipped: gl-heavy: loading
+2026-09-23T15:49:41.141Z tauri-webkitgtk/t125-shipped: gl-heavy: ready in 111 ms, settling
+2026-09-23T15:49:44.143Z tauri-webkitgtk/t125-shipped: gl-heavy: frames, console hidden
+2026-09-23T15:49:52.565Z tauri-webkitgtk/t125-shipped: sprites-webgl: loading
+2026-09-23T15:49:53.050Z tauri-webkitgtk/t125-shipped: sprites-webgl: ready in 177 ms, settling
+2026-09-23T15:49:56.052Z tauri-webkitgtk/t125-shipped: sprites-webgl: frames, console hidden
+2026-09-23T15:50:04.342Z tauri-webkitgtk/t125-shipped: shrek-unity: loading
+2026-09-23T15:50:08.123Z tauri-webkitgtk/t125-shipped: shrek-unity: ready in 3475 ms, settling
+2026-09-23T15:50:11.150Z tauri-webkitgtk/t125-shipped: shrek-unity: frames, console hidden
+2026-09-23T15:50:19.442Z tauri-webkitgtk/t125-shipped: sprites-canvas: loading
+2026-09-23T15:50:19.945Z tauri-webkitgtk/t125-shipped: sprites-canvas: ready in 195 ms, settling
+2026-09-23T15:50:22.976Z tauri-webkitgtk/t125-shipped: sprites-canvas: frames, console hidden
+2026-09-23T15:50:31.277Z tauri-webkitgtk/t125-shipped: gl-light: loading
+2026-09-23T15:50:31.660Z tauri-webkitgtk/t125-shipped: gl-light: ready in 75 ms, settling
+2026-09-23T15:50:34.663Z tauri-webkitgtk/t125-shipped: gl-light: frames, console hidden
+2026-09-23T15:50:43.474Z tauri-webkitgtk/t125-shipped: done (posted to collector)
+2026-09-23T15:50:54.489Z tauri-webkitgtk/t125-nocap: engine=tauri-webkitgtk variant=t125-nocap dpr=2
+2026-09-23T15:50:57.737Z tauri-webkitgtk/t125-nocap: baseline rAF (no game)
+2026-09-23T15:51:00.758Z tauri-webkitgtk/t125-nocap: baseline 31.1 fps
+2026-09-23T15:51:00.779Z tauri-webkitgtk/t125-nocap: game open: native game-frame context set
+2026-09-23T15:51:00.780Z tauri-webkitgtk/t125-nocap: gl-heavy: loading
+2026-09-23T15:51:01.222Z tauri-webkitgtk/t125-nocap: gl-heavy: ready in 132 ms, settling
+2026-09-23T15:51:04.225Z tauri-webkitgtk/t125-nocap: gl-heavy: frames, console hidden
+2026-09-23T15:51:12.512Z tauri-webkitgtk/t125-nocap: sprites-webgl: loading
+2026-09-23T15:51:12.975Z tauri-webkitgtk/t125-nocap: sprites-webgl: ready in 159 ms, settling
+2026-09-23T15:51:15.978Z tauri-webkitgtk/t125-nocap: sprites-webgl: frames, console hidden
+2026-09-23T15:51:24.282Z tauri-webkitgtk/t125-nocap: shrek-unity: loading
+2026-09-23T15:51:28.166Z tauri-webkitgtk/t125-nocap: shrek-unity: ready in 3578 ms, settling
+2026-09-23T15:51:31.176Z tauri-webkitgtk/t125-nocap: shrek-unity: frames, console hidden
+2026-09-23T15:51:39.496Z tauri-webkitgtk/t125-nocap: sprites-canvas: loading
+2026-09-23T15:51:39.963Z tauri-webkitgtk/t125-nocap: sprites-canvas: ready in 161 ms, settling
+2026-09-23T15:51:42.971Z tauri-webkitgtk/t125-nocap: sprites-canvas: frames, console hidden
+2026-09-23T15:51:51.301Z tauri-webkitgtk/t125-nocap: gl-light: loading
+2026-09-23T15:51:51.676Z tauri-webkitgtk/t125-nocap: gl-light: ready in 71 ms, settling
+2026-09-23T15:51:54.679Z tauri-webkitgtk/t125-nocap: gl-light: frames, console hidden
+2026-09-23T15:52:03.442Z tauri-webkitgtk/t125-nocap: done (posted to collector)
+2026-09-23T15:52:14.477Z tauri-webkitgtk/t125-tuned: engine=tauri-webkitgtk variant=t125-tuned dpr=2
+2026-09-23T15:52:17.722Z tauri-webkitgtk/t125-tuned: baseline rAF (no game)
+2026-09-23T15:52:20.741Z tauri-webkitgtk/t125-tuned: baseline 31 fps
+2026-09-23T15:52:20.761Z tauri-webkitgtk/t125-tuned: game open: native game-frame context set
+2026-09-23T15:52:20.763Z tauri-webkitgtk/t125-tuned: gl-heavy: loading
+2026-09-23T15:52:21.167Z tauri-webkitgtk/t125-tuned: gl-heavy: ready in 98 ms, settling
+2026-09-23T15:52:24.170Z tauri-webkitgtk/t125-tuned: gl-heavy: frames, console hidden
+2026-09-23T15:52:32.490Z tauri-webkitgtk/t125-tuned: sprites-webgl: loading
+2026-09-23T15:52:32.950Z tauri-webkitgtk/t125-tuned: sprites-webgl: ready in 154 ms, settling
+2026-09-23T15:52:35.952Z tauri-webkitgtk/t125-tuned: sprites-webgl: frames, console hidden
+2026-09-23T15:52:44.253Z tauri-webkitgtk/t125-tuned: shrek-unity: loading
+2026-09-23T15:52:48.022Z tauri-webkitgtk/t125-tuned: shrek-unity: ready in 3460 ms, settling
+2026-09-23T15:52:51.030Z tauri-webkitgtk/t125-tuned: shrek-unity: frames, console hidden
+2026-09-23T15:52:59.368Z tauri-webkitgtk/t125-tuned: sprites-canvas: loading
+2026-09-23T15:52:59.840Z tauri-webkitgtk/t125-tuned: sprites-canvas: ready in 162 ms, settling
+2026-09-23T15:53:02.852Z tauri-webkitgtk/t125-tuned: sprites-canvas: frames, console hidden
+2026-09-23T15:53:11.157Z tauri-webkitgtk/t125-tuned: gl-light: loading
+2026-09-23T15:53:11.527Z tauri-webkitgtk/t125-tuned: gl-light: ready in 64 ms, settling
+2026-09-23T15:53:14.529Z tauri-webkitgtk/t125-tuned: gl-light: frames, console hidden
+2026-09-23T15:53:23.265Z tauri-webkitgtk/t125-tuned: done (posted to collector)
+2026-09-23T15:53:34.463Z tauri-webkitgtk/t125-shipped: engine=tauri-webkitgtk variant=t125-shipped dpr=2
+2026-09-23T15:53:37.712Z tauri-webkitgtk/t125-shipped: baseline rAF (no game)
+2026-09-23T15:53:40.732Z tauri-webkitgtk/t125-shipped: baseline 31 fps
+2026-09-23T15:53:40.763Z tauri-webkitgtk/t125-shipped: game open: native game-frame context set
+2026-09-23T15:53:40.765Z tauri-webkitgtk/t125-shipped: gl-heavy: loading
+2026-09-23T15:53:41.181Z tauri-webkitgtk/t125-shipped: gl-heavy: ready in 108 ms, settling
+2026-09-23T15:53:44.183Z tauri-webkitgtk/t125-shipped: gl-heavy: frames, console hidden
+2026-09-23T15:53:52.503Z tauri-webkitgtk/t125-shipped: sprites-webgl: loading
+2026-09-23T15:53:52.980Z tauri-webkitgtk/t125-shipped: sprites-webgl: ready in 171 ms, settling
+2026-09-23T15:53:55.982Z tauri-webkitgtk/t125-shipped: sprites-webgl: frames, console hidden
+2026-09-23T15:54:04.255Z tauri-webkitgtk/t125-shipped: shrek-unity: loading
+2026-09-23T15:54:08.219Z tauri-webkitgtk/t125-shipped: shrek-unity: ready in 3660 ms, settling
+2026-09-23T15:54:11.225Z tauri-webkitgtk/t125-shipped: shrek-unity: frames, console hidden
+2026-09-23T15:54:19.522Z tauri-webkitgtk/t125-shipped: sprites-canvas: loading
+2026-09-23T15:54:19.999Z tauri-webkitgtk/t125-shipped: sprites-canvas: ready in 171 ms, settling
+2026-09-23T15:54:23.015Z tauri-webkitgtk/t125-shipped: sprites-canvas: frames, console hidden
+2026-09-23T15:54:31.291Z tauri-webkitgtk/t125-shipped: gl-light: loading
+2026-09-23T15:54:31.684Z tauri-webkitgtk/t125-shipped: gl-light: ready in 88 ms, settling
+2026-09-23T15:54:34.686Z tauri-webkitgtk/t125-shipped: gl-light: frames, console hidden
+2026-09-23T15:54:43.464Z tauri-webkitgtk/t125-shipped: done (posted to collector)
+2026-09-23T15:54:54.491Z tauri-webkitgtk/t125-nocap: engine=tauri-webkitgtk variant=t125-nocap dpr=2
+2026-09-23T15:54:57.746Z tauri-webkitgtk/t125-nocap: baseline rAF (no game)
+2026-09-23T15:55:00.765Z tauri-webkitgtk/t125-nocap: baseline 31 fps
+2026-09-23T15:55:00.817Z tauri-webkitgtk/t125-nocap: game open: native game-frame context set
+2026-09-23T15:55:00.819Z tauri-webkitgtk/t125-nocap: gl-heavy: loading
+2026-09-23T15:55:01.252Z tauri-webkitgtk/t125-nocap: gl-heavy: ready in 123 ms, settling
+2026-09-23T15:55:04.254Z tauri-webkitgtk/t125-nocap: gl-heavy: frames, console hidden
+2026-09-23T15:55:12.537Z tauri-webkitgtk/t125-nocap: sprites-webgl: loading
+2026-09-23T15:55:13.029Z tauri-webkitgtk/t125-nocap: sprites-webgl: ready in 188 ms, settling
+2026-09-23T15:55:16.030Z tauri-webkitgtk/t125-nocap: sprites-webgl: frames, console hidden
+2026-09-23T15:55:24.314Z tauri-webkitgtk/t125-nocap: shrek-unity: loading
+2026-09-23T15:55:27.976Z tauri-webkitgtk/t125-nocap: shrek-unity: ready in 3354 ms, settling
+2026-09-23T15:55:30.986Z tauri-webkitgtk/t125-nocap: shrek-unity: frames, console hidden
+2026-09-23T15:55:39.301Z tauri-webkitgtk/t125-nocap: sprites-canvas: loading
+2026-09-23T15:55:39.764Z tauri-webkitgtk/t125-nocap: sprites-canvas: ready in 156 ms, settling
+2026-09-23T15:55:42.774Z tauri-webkitgtk/t125-nocap: sprites-canvas: frames, console hidden
+2026-09-23T15:55:51.105Z tauri-webkitgtk/t125-nocap: gl-light: loading
+2026-09-23T15:55:51.480Z tauri-webkitgtk/t125-nocap: gl-light: ready in 71 ms, settling
+2026-09-23T15:55:54.483Z tauri-webkitgtk/t125-nocap: gl-light: frames, console hidden
+2026-09-23T15:56:03.289Z tauri-webkitgtk/t125-nocap: done (posted to collector)
+2026-09-23T15:56:14.513Z tauri-webkitgtk/t125-tuned: engine=tauri-webkitgtk variant=t125-tuned dpr=2
+2026-09-23T15:56:17.762Z tauri-webkitgtk/t125-tuned: baseline rAF (no game)
+2026-09-23T15:56:20.782Z tauri-webkitgtk/t125-tuned: baseline 31 fps
+2026-09-23T15:56:20.799Z tauri-webkitgtk/t125-tuned: game open: native game-frame context set
+2026-09-23T15:56:20.803Z tauri-webkitgtk/t125-tuned: gl-heavy: loading
+2026-09-23T15:56:21.232Z tauri-webkitgtk/t125-tuned: gl-heavy: ready in 122 ms, settling
+2026-09-23T15:56:24.236Z tauri-webkitgtk/t125-tuned: gl-heavy: frames, console hidden
+2026-09-23T15:56:32.575Z tauri-webkitgtk/t125-tuned: sprites-webgl: loading
+2026-09-23T15:56:33.045Z tauri-webkitgtk/t125-tuned: sprites-webgl: ready in 165 ms, settling
+2026-09-23T15:56:36.052Z tauri-webkitgtk/t125-tuned: sprites-webgl: frames, console hidden
+2026-09-23T15:56:44.363Z tauri-webkitgtk/t125-tuned: shrek-unity: loading
+2026-09-23T15:56:48.013Z tauri-webkitgtk/t125-tuned: shrek-unity: ready in 3342 ms, settling
+2026-09-23T15:56:51.021Z tauri-webkitgtk/t125-tuned: shrek-unity: frames, console hidden
+2026-09-23T15:56:59.305Z tauri-webkitgtk/t125-tuned: sprites-canvas: loading
+2026-09-23T15:56:59.774Z tauri-webkitgtk/t125-tuned: sprites-canvas: ready in 161 ms, settling
+2026-09-23T15:57:02.790Z tauri-webkitgtk/t125-tuned: sprites-canvas: frames, console hidden
+2026-09-23T15:57:11.111Z tauri-webkitgtk/t125-tuned: gl-light: loading
+2026-09-23T15:57:11.500Z tauri-webkitgtk/t125-tuned: gl-light: ready in 83 ms, settling
+2026-09-23T15:57:14.503Z tauri-webkitgtk/t125-tuned: gl-light: frames, console hidden
+2026-09-23T15:57:23.315Z tauri-webkitgtk/t125-tuned: done (posted to collector)
+2026-09-23T15:58:25.048Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T15:58:27.332Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T15:58:30.351Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T15:58:30.373Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T15:58:30.373Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T15:58:34.092Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3414 ms, settling
+2026-09-23T15:58:36.473Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T15:58:40.493Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T15:58:47.967Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 7171 ms
+2026-09-23T15:58:49.208Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T15:59:00.581Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T15:59:02.828Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T15:59:05.855Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T15:59:05.879Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T15:59:05.882Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T15:59:09.886Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3696 ms, settling
+2026-09-23T15:59:12.289Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T15:59:16.301Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T15:59:20.264Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3660 ms
+2026-09-23T15:59:21.117Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T15:59:32.091Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T15:59:34.353Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T15:59:37.373Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T15:59:37.390Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T15:59:37.392Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T15:59:42.273Z tauri-webkitgtk/t-soak: shrek-unity: ready in 4574 ms, settling
+2026-09-23T15:59:44.713Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T15:59:48.739Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T15:59:52.760Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3428 ms
+2026-09-23T15:59:53.267Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:00:04.737Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:00:07.037Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:00:10.058Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:00:10.079Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:00:10.081Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:00:13.889Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3503 ms, settling
+2026-09-23T16:00:16.368Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:00:20.388Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:00:24.876Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3888 ms
+2026-09-23T16:00:25.391Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:00:36.325Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:00:38.609Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:00:41.613Z tauri-webkitgtk/t-soak: baseline 30.8 fps
+2026-09-23T16:00:41.638Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:00:41.638Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:00:46.228Z tauri-webkitgtk/t-soak: shrek-unity: ready in 4277 ms, settling
+2026-09-23T16:00:48.229Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:00:52.245Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:00:57.537Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 4659 ms
+2026-09-23T16:00:58.145Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:01:08.713Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:01:10.957Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:01:13.980Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:01:14.000Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:01:14.001Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:01:17.704Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3396 ms, settling
+2026-09-23T16:01:20.096Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:01:24.116Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:01:27.828Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3409 ms
+2026-09-23T16:01:28.580Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:01:39.134Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:01:41.388Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:01:44.407Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:01:44.430Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:01:44.433Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:01:48.318Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3580 ms, settling
+2026-09-23T16:01:50.672Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:01:54.682Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:01:58.239Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3252 ms
+2026-09-23T16:01:58.961Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:02:14.224Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:02:16.475Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:02:19.494Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:02:19.516Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:02:19.517Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:02:28.005Z tauri-webkitgtk/t-soak: shrek-unity: ready in 8179 ms, settling
+2026-09-23T16:02:30.008Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:02:34.026Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:02:37.747Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3418 ms
+2026-09-23T16:02:38.513Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:02:49.086Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:02:51.341Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:02:54.357Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:02:54.379Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:02:54.381Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:03:02.295Z tauri-webkitgtk/t-soak: shrek-unity: ready in 7606 ms, settling
+2026-09-23T16:03:04.649Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:03:08.670Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:03:12.492Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3241 ms
+2026-09-23T16:03:13.014Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:03:23.710Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:03:25.968Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:03:28.988Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:03:29.012Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:03:29.013Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:03:33.039Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3721 ms, settling
+2026-09-23T16:03:35.395Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:03:39.408Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:03:42.974Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3263 ms
+2026-09-23T16:03:43.806Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:03:54.137Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:03:56.384Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:03:59.404Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:03:59.428Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:03:59.430Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:04:03.156Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3420 ms, settling
+2026-09-23T16:04:05.493Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:04:09.513Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:04:13.515Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3428 ms
+2026-09-23T16:04:14.018Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:04:24.669Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:04:26.904Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:04:29.924Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:04:29.947Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:04:29.948Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:04:38.106Z tauri-webkitgtk/t-soak: shrek-unity: ready in 7851 ms, settling
+2026-09-23T16:04:40.489Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:04:44.504Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:04:48.339Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3269 ms
+2026-09-23T16:04:48.858Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:05:00.118Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:05:02.357Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:05:05.379Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:05:05.404Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:05:05.406Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:05:09.176Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3470 ms, settling
+2026-09-23T16:05:11.577Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:05:15.597Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:05:19.117Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3218 ms
+2026-09-23T16:05:19.926Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:05:30.580Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:05:32.836Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:05:35.855Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:05:35.878Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:05:35.881Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:05:40.055Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3869 ms, settling
+2026-09-23T16:05:42.314Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:05:46.331Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:05:50.223Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3350 ms
+2026-09-23T16:05:50.708Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:06:01.053Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:06:03.298Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:06:06.317Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:06:06.340Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:06:06.341Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:06:10.162Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3515 ms, settling
+2026-09-23T16:06:12.531Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:06:16.540Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:06:22.174Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 5092 ms
+2026-09-23T16:06:22.689Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:06:33.790Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:06:36.051Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:06:39.070Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:06:39.088Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:06:39.089Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:06:42.927Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3529 ms, settling
+2026-09-23T16:06:44.932Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:06:48.957Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:06:52.548Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3289 ms
+2026-09-23T16:06:53.346Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:07:08.943Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:07:11.211Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:07:14.237Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:07:14.260Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:07:14.262Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:07:22.112Z tauri-webkitgtk/t-soak: shrek-unity: ready in 7542 ms, settling
+2026-09-23T16:07:24.475Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:07:28.491Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:07:32.066Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3271 ms
+2026-09-23T16:07:32.911Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:07:43.824Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:07:46.054Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:07:49.075Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:07:49.098Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:07:49.101Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:07:52.673Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3268 ms, settling
+2026-09-23T16:07:54.683Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:07:58.702Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:08:02.698Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3404 ms
+2026-09-23T16:08:03.180Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:08:14.341Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:08:16.576Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:08:19.595Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:08:19.622Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:08:19.624Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:08:23.415Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3483 ms, settling
+2026-09-23T16:08:25.769Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:08:29.789Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:08:33.428Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3335 ms
+2026-09-23T16:08:34.181Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:08:44.868Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:08:47.135Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:08:50.155Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:08:50.175Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:08:50.178Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:08:54.007Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3526 ms, settling
+2026-09-23T16:08:56.374Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:09:00.387Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:09:04.088Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3398 ms
+2026-09-23T16:09:04.890Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:09:15.275Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:09:17.534Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:09:20.555Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:09:20.578Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:09:20.579Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:09:28.859Z tauri-webkitgtk/t-soak: shrek-unity: ready in 7971 ms, settling
+2026-09-23T16:09:31.216Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:09:35.237Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:09:38.962Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3422 ms
+2026-09-23T16:09:39.745Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:09:50.762Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:09:53.029Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:09:56.050Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:09:56.074Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:09:56.075Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:09:59.930Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3550 ms, settling
+2026-09-23T16:10:02.361Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:10:06.385Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:10:10.263Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3319 ms
+2026-09-23T16:10:10.795Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:10:21.275Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:10:23.548Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:10:26.568Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:10:26.585Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:10:26.586Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:10:30.679Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3785 ms, settling
+2026-09-23T16:10:33.020Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:10:37.033Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:10:40.711Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3375 ms
+2026-09-23T16:10:41.523Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:10:52.740Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:10:55.016Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:10:58.036Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:10:58.061Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:10:58.062Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:11:01.880Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3508 ms, settling
+2026-09-23T16:11:04.216Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:11:08.240Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:11:12.178Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3358 ms
+2026-09-23T16:11:12.678Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:11:23.165Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:11:25.406Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:11:28.425Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:11:28.446Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:11:28.448Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:11:32.291Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3533 ms, settling
+2026-09-23T16:11:34.626Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:11:38.652Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:11:42.472Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3247 ms
+2026-09-23T16:11:42.973Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:11:53.693Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:11:55.967Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:11:58.987Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:11:59.007Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:11:59.009Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:12:02.675Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3361 ms, settling
+2026-09-23T16:12:05.031Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:12:09.050Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:12:12.760Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3140 ms
+2026-09-23T16:12:13.222Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:12:24.168Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:12:26.386Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:12:29.405Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:12:29.426Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:12:29.428Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:12:33.239Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3505 ms, settling
+2026-09-23T16:12:35.585Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:12:39.596Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:12:43.435Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3308 ms
+2026-09-23T16:12:43.955Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:12:54.713Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:12:56.977Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:12:59.997Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:13:00.023Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:13:00.026Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:13:03.782Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3451 ms, settling
+2026-09-23T16:13:06.183Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:13:10.194Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:13:13.884Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3387 ms
+2026-09-23T16:13:14.613Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:13:25.169Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:13:27.421Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:13:30.442Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:13:30.463Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:13:30.465Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:13:34.330Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3560 ms, settling
+2026-09-23T16:13:36.696Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:13:40.718Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:13:44.461Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3439 ms
+2026-09-23T16:13:45.265Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:13:56.598Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:13:58.854Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:14:01.873Z tauri-webkitgtk/t-soak: baseline 31.1 fps
+2026-09-23T16:14:01.892Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:14:01.894Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:14:05.710Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3509 ms, settling
+2026-09-23T16:14:08.055Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:14:12.064Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:14:15.616Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3248 ms
+2026-09-23T16:14:16.377Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:14:26.929Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:14:29.162Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:14:32.184Z tauri-webkitgtk/t-soak: baseline 31 fps
+2026-09-23T16:14:32.198Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:14:32.200Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:14:36.005Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3497 ms, settling
+2026-09-23T16:14:38.401Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:14:42.412Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:14:46.271Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3302 ms
+2026-09-23T16:14:46.785Z tauri-webkitgtk/t-soak: done (posted to collector)
+2026-09-23T16:14:57.464Z tauri-webkitgtk/t-soak: engine=tauri-webkitgtk variant=t-soak dpr=2
+2026-09-23T16:14:59.737Z tauri-webkitgtk/t-soak: baseline rAF (no game)
+2026-09-23T16:15:02.746Z tauri-webkitgtk/t-soak: baseline 30.8 fps
+2026-09-23T16:15:02.776Z tauri-webkitgtk/t-soak: game open: native game-frame context set
+2026-09-23T16:15:02.778Z tauri-webkitgtk/t-soak: shrek-unity: loading
+2026-09-23T16:15:06.644Z tauri-webkitgtk/t-soak: shrek-unity: ready in 3560 ms, settling
+2026-09-23T16:15:08.966Z tauri-webkitgtk/t-soak: shrek-unity: frames, console hidden
+2026-09-23T16:15:12.985Z tauri-webkitgtk/t-soak: shrek-unity: second (warm) load
+2026-09-23T16:15:16.598Z tauri-webkitgtk/t-soak: shrek-unity: warm ready in 3311 ms
+2026-09-23T16:15:17.377Z tauri-webkitgtk/t-soak: done (posted to collector)
