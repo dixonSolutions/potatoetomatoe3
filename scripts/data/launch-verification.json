@@ -1,893 +1,1995 @@
 {
-  "generatedAt": "2026-08-10T07:45:10.500Z",
+  "generatedAt": "2026-09-23T12:37:59.278Z",
   "results": [
     {
-      "id": "10-minutes-till-dawn",
-      "portal": "local",
+      "id": "addicting-old-school-hangman",
+      "portal": "addictinggames",
+      "timeout": 120000,
       "status": "LAUNCHED",
-      "ms": 59957,
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 100184,
       "how": "canvas",
-      "frame": "http://localhost:5178/api/unity-play/10-minutes-till-dawn"
+      "w": 960,
+      "h": 540,
+      "paint": {
+        "colours": 86,
+        "dominant": 0.739
+      },
+      "frame": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/old-school-hangman/index.html"
     },
     {
-      "id": "1-on-1-basketball",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 153143,
-      "frames": [
-        "http://localhost:5178/games/1-on-1-basketball",
-        "http://localhost:5178/api/game-live/1-on-1-basketball"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://sites.google.com/view/drive-u-7-home/1-on-1-basketball' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acc",
-        "Failed to load resource: net::ERR_FAILED",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Access to fetch at 'https://sites.google.com/view/drive-u-7-home/1-on-1-basketball' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acc"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://sites.google.com/view/drive-u-7-home/1-on-1-basketball",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_FAILED https://sites.google.com/view/drive-u-7-home/1-on-1-basketball",
-        "net::ERR_FAILED https://sites.google.com/view/drive-u-7-home/1-on-1-basketball"
-      ]
-    },
-    {
-      "id": "addicting-bloons-tower-defense-3",
+      "id": "addicting-stickman-slaughter",
       "portal": "addictinggames",
+      "timeout": 120000,
       "status": "NO_RENDER",
-      "ms": 152035,
+      "ms": 120574,
+      "paint": {
+        "colours": 5,
+        "dominant": 0.991
+      },
+      "text": [],
       "frames": [
-        "http://localhost:5178/games/addicting-bloons-tower-defense-3",
-        "http://localhost:5178/api/game-live/addicting-bloons-tower-defense-3"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: the server responded with a status of 502 ()"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "addicting-classic-freecell-solitaire",
-      "portal": "addictinggames",
-      "status": "NO_RENDER",
-      "ms": 151902,
-      "frames": [
-        "http://localhost:5178/games/addicting-classic-freecell-solitaire",
-        "http://localhost:5178/api/game-live/addicting-classic-freecell-solitaire",
+        "http://127.0.0.1:5176/__launch-harness__/addicting-stickman-slaughter",
+        "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/stickman-slaughter/",
         "about:blank"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Access to XMLHttpRequest at 'https://swag-services.shockwave.com/v1/user' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Access-Contro"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "addicting-departments-of-colombia",
-      "portal": "addictinggames",
-      "status": "NO_RENDER",
-      "ms": 152536,
-      "frames": [
-        "http://localhost:5178/games/addicting-departments-of-colombia",
-        "http://localhost:5178/api/game-live/addicting-departments-of-colombia/1f3d2ce6a4f6ab7d5aa77cdf/games/departmen",
-        "https://classroom.google.com/sharewidget?usegapi=1&size=32&url=https%3A%2F%2Fwww.playgeography.com%2F&origin=h",
-        "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Flocalhost%3A5178&jsh=m%3B%2F_%2Fscs%",
-        "about:blank",
-        "https://cdn.intergient.com/pageos/V.20260803.1/iframe/iframe.html"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Access to fetch at 'https://www.playgeography.com/games/departments-of-colombia/?embed' from origin 'http://localhost:5178' has been blocked by CORS policy: No "
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R"
-      ]
-    },
-    {
-      "id": "addicting-kirkaio",
-      "portal": "addictinggames",
-      "status": "LAUNCHED",
-      "ms": 9344,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/game-live/addicting-kirkaio"
-    },
-    {
-      "id": "addicting-heart-break",
-      "portal": "addictinggames",
-      "status": "NO_RENDER",
-      "ms": 152763,
-      "frames": [
-        "http://localhost:5178/games/addicting-heart-break",
-        "https://itch.io/embed-hotlink"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Access to fetch at 'https://html-classic.itch.zone/html/3253645/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Access-Cont"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/game-live/addicting-heart-break/c1ef83e1458e1bde6792fa44/html/3253645/Build/WebGLBui",
-        "net::ERR_ABORTED http://localhost:5178/api/game-live/addicting-heart-break/c1ef83e1458e1bde6792fa44/html/3253645/Build/WebGLBui",
-        "net::ERR_ABORTED http://localhost:5178/api/game-live/addicting-heart-break/c1ef83e1458e1bde6792fa44/html/3253645/Build/WebGLBui",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui"
-      ]
-    },
-    {
-      "id": "addicting-shanghai-mahjong",
-      "portal": "addictinggames",
-      "status": "NO_RENDER",
-      "ms": 152623,
-      "frames": [
-        "http://localhost:5178/games/addicting-shanghai-mahjong",
-        "http://localhost:5178/api/game-live/addicting-shanghai-mahjong",
-        "about:blank"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Access to XMLHttpRequest at 'https://swag-services.shockwave.com/v1/user' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Access-Contro",
-        "Failed to load resource: net::ERR_FAILED",
-        "Failed to load resource: the server responded with a status of 404 (Not Found)"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_FAILED https://swag-services.shockwave.com/v1/user",
-        "net::ERR_ABORTED https://www.google-analytics.com/g/collect?v=2&tid=G-5TP8QHSV8N&gtm=45je6852v9124948057za20g&_p=1786345296793&"
-      ]
-    },
-    {
-      "id": "addicting-toy-factory",
-      "portal": "addictinggames",
-      "status": "NO_RENDER",
-      "ms": 152312,
-      "frames": [
-        "http://localhost:5178/games/addicting-toy-factory",
-        "http://localhost:5178/api/game-live/addicting-toy-factory",
-        "about:blank"
-      ],
-      "consoleErrors": [
-        "Access to XMLHttpRequest at 'https://swag-services.shockwave.com/v1/user' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Access-Contro",
-        "Failed to load resource: net::ERR_FAILED",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://swag-services.shockwave.com/v1/user",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R"
-      ]
-    },
-    {
-      "id": "batman-the-cobblebot-caper",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 154806,
-      "frames": [
-        "http://localhost:5178/games/batman-the-cobblebot-caper",
-        "http://localhost:5178/api/game-live/batman-the-cobblebot-caper"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "bike-trials-winter-2",
-      "portal": "local",
-      "status": "NO_RENDER",
-      "ms": 152580,
-      "frames": [
-        "http://localhost:5178/games/bike-trials-winter-2",
-        "http://localhost:5178/api/unity-play/bike-trials-winter-2"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/games/bike-trials-winter-2/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/bike-trials-winter-2/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/bike-trials-winter-2/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/bike-trials-winter-2/online/index.html"
-      ]
-    },
-    {
-      "id": "coolmath-1-push",
-      "portal": "coolmath",
-      "status": "LAUNCHED",
-      "ms": 8890,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/game-live/coolmath-1-push"
-    },
-    {
-      "id": "car-drawing",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 152048,
-      "frames": [
-        "http://localhost:5178/games/car-drawing",
-        "http://localhost:5178/api/unity-play/car-drawing"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2mLQ9c2rKBkM5LE1dMRxakIyaBudYUmCjwScdtroH9k6SdcJOkvfaQPWeva0Fh",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui"
-      ]
-    },
-    {
-      "id": "coolmath-catch-the-candy-mech",
-      "portal": "coolmath",
-      "status": "LAUNCHED",
-      "ms": 5356,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/game-live/coolmath-catch-the-candy-mech"
-    },
-    {
-      "id": "coolmath-a-strange-creature-joined-my-party",
-      "portal": "coolmath",
-      "status": "NO_RENDER",
-      "ms": 151420,
-      "frames": [
-        "http://localhost:5178/games/coolmath-a-strange-creature-joined-my-party",
-        "http://localhost:5178/api/game-live/coolmath-a-strange-creature-joined-my-party"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://www.coolmathgames.com/sites/default/files/public_games/42321/' from origin 'http://localhost:5178' has been blocked by CORS policy: ",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://www.coolmathgames.com/sites/default/files/public_games/42321/' from origin 'http://localhost:5178' has been blocked by CORS policy: ",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/42321/",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/42321/",
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/42321/"
-      ]
-    },
-    {
-      "id": "crazygames-blaster-pranks",
-      "portal": "crazygames",
-      "status": "LAUNCHED",
-      "ms": 41040,
-      "how": "canvas",
-      "frame": "https://blaster-pranks.game-files.crazygames.com/unity/unity2020/blaster-pranks.html"
-    },
-    {
-      "id": "coolmath-cookie-clicker",
-      "portal": "coolmath",
-      "status": "NO_RENDER",
-      "ms": 151464,
-      "frames": [
-        "http://localhost:5178/games/coolmath-cookie-clicker",
-        "http://localhost:5178/api/game-live/coolmath-cookie-clicker"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://www.coolmathgames.com/sites/default/files/public_games/55844/' from origin 'http://localhost:5178' has been blocked by CORS policy: ",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://www.coolmathgames.com/sites/default/files/public_games/55844/' from origin 'http://localhost:5178' has been blocked by CORS policy: ",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/55844/",
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/55844/",
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/55844/",
-        "net::ERR_FAILED https://www.coolmathgames.com/sites/default/files/public_games/55844/"
-      ]
-    },
-    {
-      "id": "crazygames-city-car-driving-simulator-online",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 152431,
-      "frames": [
-        "http://localhost:5178/games/crazygames-city-car-driving-simulator-online",
-        "http://localhost:5178/api/game-live/crazygames-city-car-driving-simulator-online",
-        "about:blank",
-        "https://cm.g.doubleclick.net/partnerpixels?url=http%3A%2F%2Flocalhost%3A5178%2Fapi%2Fgame-live%2Fcrazygames-ci",
-        "https://city-car-driving-simulator-online.game-files.crazygames.com/unity/unity2020/city-car-driving-simulator",
-        "https://ads.pubmatic.com/AdServer/js/user_sync.html?kdntuid=1&p=156561"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: the server responded with a status of 400 (Bad Request)",
-        "Bidder config for appnexus not found. Disabling for this session.",
-        "Access to fetch at 'https://games.crazygames.com/en_US/city-car-driving-simulator-online/index.html' from origin 'http://localhost:5178' has been blocked by COR",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/game-live/crazygames-city-car-driving-simulator-online/5be2c931622f64e2d9751937/_ext",
-        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/city-car-driving-simulator-online/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/city-car-driving-simulator-online/index.html"
-      ]
-    },
-    {
-      "id": "crazygames-dodge-the-walls",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 154590,
-      "frames": [
-        "http://localhost:5178/games/crazygames-dodge-the-walls",
-        "http://localhost:5178/api/game-live/crazygames-dodge-the-walls",
-        "chrome-error://chromewebdata/",
-        "https://cm.g.doubleclick.net/partnerpixels?url=http%3A%2F%2Flocalhost%3A5178%2Fapi%2Fgame-live%2Fcrazygames-do",
-        "about:blank",
-        "chrome-error://chromewebdata/"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://games.crazygames.com/en_US/dodge-the-walls/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acce",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://games.crazygames.com/en_US/dodge-the-walls/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acce",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://games.crazygames.com/en_US/dodge-the-walls/index.html",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "crazygames-foot-battle-ball",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 152164,
-      "frames": [
-        "http://localhost:5178/games/crazygames-foot-battle-ball",
-        "http://localhost:5178/api/game-live/crazygames-foot-battle-ball",
-        "chrome-error://chromewebdata/",
-        "about:blank",
-        "https://cm.g.doubleclick.net/partnerpixels?url=http%3A%2F%2Flocalhost%3A5178%2Fapi%2Fgame-live%2Fcrazygames-fo",
-        "chrome-error://chromewebdata/"
-      ],
-      "consoleErrors": [
-        "Bidder config for appnexus not found. Disabling for this session.",
-        "Access to fetch at 'https://games.crazygames.com/en_US/foot-battle-ball/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acc",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://games.crazygames.com/en_US/foot-battle-ball/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acc"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/foot-battle-ball/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/foot-battle-ball/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/foot-battle-ball/index.html"
-      ]
-    },
-    {
-      "id": "crazygames-horror-tale-3-the-witch",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 151172,
-      "frames": [
-        "http://localhost:5178/games/crazygames-horror-tale-3-the-witch",
-        "http://localhost:5178/api/game-live/crazygames-horror-tale-3-the-witch",
-        "chrome-error://chromewebdata/",
-        "about:blank",
-        "https://cm.g.doubleclick.net/partnerpixels?url=http%3A%2F%2Flocalhost%3A5178%2Fapi%2Fgame-live%2Fcrazygames-ho",
-        "chrome-error://chromewebdata/"
-      ],
-      "consoleErrors": [
-        "Bidder config for appnexus not found. Disabling for this session.",
-        "Access to fetch at 'https://games.crazygames.com/en_US/horror-tale-3-the-witch/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: ",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://games.crazygames.com/en_US/horror-tale-3-the-witch/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: "
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/horror-tale-3-the-witch/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/horror-tale-3-the-witch/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/horror-tale-3-the-witch/index.html"
-      ]
-    },
-    {
-      "id": "crazygames-life-in-the-static",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 153313,
-      "frames": [
-        "http://localhost:5178/games/crazygames-life-in-the-static",
-        "http://localhost:5178/api/game-live/crazygames-life-in-the-static"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://games.crazygames.com/en_US/life-in-the-static/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'A",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://games.crazygames.com/en_US/life-in-the-static/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'A",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://games.crazygames.com/en_US/life-in-the-static/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/life-in-the-static/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/life-in-the-static/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/life-in-the-static/index.html"
-      ]
-    },
-    {
-      "id": "crazygames-monster-makeup-3d",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 152272,
-      "frames": [
-        "http://localhost:5178/games/crazygames-monster-makeup-3d",
-        "http://localhost:5178/api/game-live/crazygames-monster-makeup-3d",
-        "chrome-error://chromewebdata/",
-        "about:blank",
-        "chrome-error://chromewebdata/",
-        "chrome-error://chromewebdata/"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://games.crazygames.com/en_US/monster-makeup-3d/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Ac",
-        "Failed to load resource: net::ERR_FAILED",
-        "Access to fetch at 'https://games.crazygames.com/en_US/monster-makeup-3d/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Ac",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://games.crazygames.com/en_US/monster-makeup-3d/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/monster-makeup-3d/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/monster-makeup-3d/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/monster-makeup-3d/index.html"
-      ]
-    },
-    {
-      "id": "crazygames-parkour-master-2",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 151882,
-      "frames": [
-        "http://localhost:5178/games/crazygames-parkour-master-2",
-        "http://localhost:5178/api/game-live/crazygames-parkour-master-2",
-        "https://parkour-master-2.game-files.crazygames.com/gameframe/up-aps/aps-script-1.4.20.html?game_slug=parkour-m",
-        "about:blank",
-        "https://cm.g.doubleclick.net/partnerpixels?url=http%3A%2F%2Flocalhost%3A5178%2Fapi%2Fgame-live%2Fcrazygames-pa",
-        "https://parkour-master-2.game-files.crazygames.com/unity/unity2020/parkour-master-2.html"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://games.crazygames.com/en_US/parkour-master-2/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'Acc",
-        "Failed to load resource: net::ERR_FAILED",
-        "Failed to load resource: the server responded with a status of 400 (Bad Request)",
-        "Bidder config for appnexus not found. Disabling for this session."
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://games.crazygames.com/en_US/parkour-master-2/index.html",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "crazygames-rope-stitch-puzzle",
-      "portal": "crazygames",
-      "status": "NO_RENDER",
-      "ms": 152158,
-      "frames": [
-        "http://localhost:5178/games/crazygames-rope-stitch-puzzle",
-        "http://localhost:5178/api/game-live/crazygames-rope-stitch-puzzle",
-        "about:blank",
-        "https://cm.g.doubleclick.net/partnerpixels?url=http%3A%2F%2Flocalhost%3A5178%2Fapi%2Fgame-live%2Fcrazygames-ro",
-        "https://rope-stitch-puzzle.game-files.crazygames.com/unity/unity2020/rope-stitch-puzzle.html",
-        "https://ib.adnxs.com/getuid?https://cs.ssp.cadent.com/umcheck?if=true&apnxid=$UID&redirect=https%3A%2F%2Ffast."
-      ],
-      "consoleErrors": [
-        "Failed to load resource: the server responded with a status of 400 (Bad Request)",
-        "Bidder config for appnexus not found. Disabling for this session.",
-        "Access to fetch at 'https://games.crazygames.com/en_US/rope-stitch-puzzle/index.html' from origin 'http://localhost:5178' has been blocked by CORS policy: No 'A",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/game-live/crazygames-rope-stitch-puzzle/ab8ab1e98eddb5159e0f9cdd/_ext?u=https%3A%2F%",
-        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/rope-stitch-puzzle/index.html",
-        "net::ERR_FAILED https://games.crazygames.com/en_US/rope-stitch-puzzle/index.html"
-      ]
-    },
-    {
-      "id": "diep-io",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 153186,
-      "frames": [
-        "http://localhost:5178/games/diep-io",
-        "http://localhost:5178/api/unity-play/diep-io"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2WeU9d-DtEVIsBDBsLKKSSvxqxxQ6scs0tcZ-Mp6UL6ERsc8s1yCuIQlXAlY9L",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui"
-      ]
-    },
-    {
-      "id": "friday-night-funkin-vs-anemones-fall",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 158325,
-      "frames": [
-        "http://localhost:5178/games/friday-night-funkin-vs-anemones-fall",
-        "http://localhost:5178/api/game-live/friday-night-funkin-vs-anemones-fall",
-        "http://localhost:5178/api/game-live/friday-night-funkin-vs-anemones-fall/31d07a26119ce0bda7d86f2a/_ext?u=https",
-        "https://n-qcdc32fwctkao6xve7mupb3zirrdteu62l26vvy-0lu-script.googleusercontent.com/userCodeAppPanel",
-        "https://n-qcdc32fwctkao6xve7mupb3zirrdteu62l26vvy-0lu-script.googleusercontent.com/blank"
-      ],
-      "consoleErrors": [
-        "Access to fetch at 'https://sites.google.com/view/drive-u-7-home/friday-n-funkin-series/friday-night-funkin-vs-anemones-fall' from origin 'http://localhost:5178",
-        "Failed to load resource: net::ERR_FAILED",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Access to fetch at 'https://sites.google.com/view/drive-u-7-home/friday-n-funkin-series/friday-night-funkin-vs-anemones-fall' from origin 'http://localhost:5178"
-      ],
-      "failedRequests": [
-        "net::ERR_FAILED https://sites.google.com/view/drive-u-7-home/friday-n-funkin-series/friday-night-funkin-vs-anemones-fall",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "lego-lego-lego",
-      "portal": "unity-play",
-      "status": "LAUNCHED",
-      "ms": 7430,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/unity-play/lego-lego-lego"
-    },
-    {
-      "id": "geodash-2",
-      "portal": "local",
-      "status": "NO_RENDER",
-      "ms": 160789,
-      "frames": [
-        "http://localhost:5178/games/geodash-2",
-        "http://localhost:5178/api/game-live/geodash-2"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: the server responded with a status of 502 ()",
-        "Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED https://let3r45jj02l930rzh903me09f3g9lhh5fz66play356hhjz30.com/geodash-2/",
-        "net::ERR_ABORTED http://localhost:5178/games/geodash-2/online/index.html",
-        "net::ERR_ABORTED https://let3r45jj02l930rzh903me09f3g9lhh5fz66play356hhjz30.com/geodash-2/",
-        "net::ERR_ABORTED https://let3r45jj02l930rzh903me09f3g9lhh5fz66play356hhjz30.com/geodash-2/"
-      ]
-    },
-    {
-      "id": "minecraft-builder",
-      "portal": "local",
-      "status": "NO_RENDER",
-      "ms": 152414,
-      "frames": [
-        "http://localhost:5178/games/minecraft-builder",
-        "http://localhost:5178/api/unity-play/minecraft-builder"
-      ],
-      "consoleErrors": [
-        "Refused to get unsafe header \"ETag\"",
-        "Refused to get unsafe header \"ETag\"",
-        "Refused to get unsafe header \"ETag\"",
-        "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/games/minecraft-builder/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/minecraft-builder/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/minecraft-builder/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/minecraft-builder/online/index.html"
-      ]
-    },
-    {
-      "id": "playhop-be-a-lucky-block-get-brainrot-529597",
-      "portal": "playhop",
-      "status": "LAUNCHED",
-      "ms": 41666,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/game-live/playhop-be-a-lucky-block-get-brainrot-529597"
-    },
-    {
-      "id": "playhop-1-jump-on-the-keyboard-540983",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 152236,
-      "frames": [
-        "http://localhost:5178/games/playhop-1-jump-on-the-keyboard-540983",
-        "http://localhost:5178/api/game-live/playhop-1-jump-on-the-keyboard-540983"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-1-jump-on-the-keyboard-540983/c50caada17f7100aa0"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui"
-      ]
-    },
-    {
-      "id": "playhop-carx-drift-230969",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 152754,
-      "frames": [
-        "http://localhost:5178/games/playhop-carx-drift-230969",
-        "http://localhost:5178/api/game-live/playhop-carx-drift-230969"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-carx-drift-230969/cdd4f0a20bf4e16c29cc327e/sdk.j"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_ABORTED http://localhost:5178/api/unity-play/playhop-carx-drift-230969"
-      ]
-    },
-    {
-      "id": "playhop-cupcake-maker-game-for-kids-237344",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 152424,
-      "frames": [
-        "http://localhost:5178/games/playhop-cupcake-maker-game-for-kids-237344",
-        "http://localhost:5178/api/game-live/playhop-cupcake-maker-game-for-kids-237344"
-      ],
-      "consoleErrors": [
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-cupcake-maker-game-for-kids-237344/5427c65929849"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health",
-        "net::ERR_ABORTED http://localhost:5178/api/offline/health"
-      ]
-    },
-    {
-      "id": "playhop-fbi-open-up-191541",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 151372,
-      "frames": [
-        "http://localhost:5178/games/playhop-fbi-open-up-191541",
-        "http://localhost:5178/api/game-live/playhop-fbi-open-up-191541"
-      ],
-      "consoleErrors": [
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-fbi-open-up-191541/0874dc4f13a2c453c200df36/sdk."
-      ],
-      "failedRequests": []
-    },
-    {
-      "id": "playhop-gt-cars-city-racing",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 159001,
-      "frames": [
-        "http://localhost:5178/games/playhop-gt-cars-city-racing",
-        "http://localhost:5178/api/game-live/playhop-gt-cars-city-racing"
-      ],
-      "consoleErrors": [
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-gt-cars-city-racing/666149783ea0d6ab28a2a6a4/sdk"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED https://app-394068.games.s3.yandex.net/394068/x905mzvjqiyffmu63lj8z1yyf7smspov/index.html?sdk=%2Fsdk%2F_%2Fv2.",
-        "net::ERR_ABORTED https://app-394068.games.s3.yandex.net/394068/x905mzvjqiyffmu63lj8z1yyf7smspov/index.html?sdk=%2Fsdk%2F_%2Fv2.",
-        "net::ERR_ABORTED https://app-394068.games.s3.yandex.net/394068/x905mzvjqiyffmu63lj8z1yyf7smspov/index.html?sdk=%2Fsdk%2F_%2Fv2.",
-        "net::ERR_ABORTED https://app-394068.games.s3.yandex.net/394068/x905mzvjqiyffmu63lj8z1yyf7smspov/index.html?sdk=%2Fsdk%2F_%2Fv2."
-      ]
-    },
-    {
-      "id": "playhop-ks-2-snipers-292954",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 152520,
-      "frames": [
-        "http://localhost:5178/games/playhop-ks-2-snipers-292954",
-        "http://localhost:5178/api/game-live/playhop-ks-2-snipers-292954"
-      ],
-      "consoleErrors": [
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-ks-2-snipers-292954/d7761ce33e284ced52f0f739/sdk"
-      ],
-      "failedRequests": []
-    },
-    {
-      "id": "playhop-penalty-challenge-multiplayer-96636",
-      "portal": "playhop",
-      "status": "LAUNCHED",
-      "ms": 15458,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/game-live/playhop-penalty-challenge-multiplayer-96636"
-    },
-    {
-      "id": "playhop-monster-bash",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 152529,
-      "frames": [
-        "http://localhost:5178/games/playhop-monster-bash",
-        "http://localhost:5178/api/game-live/playhop-monster-bash"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-monster-bash/88c555c4b3f2080049aa77c8/sdk.js:1:2"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_ABORTED http://localhost:5178/api/unity-play/playhop-monster-bash"
-      ]
-    },
-    {
-      "id": "playhop-runic-chains-536388",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 151869,
-      "frames": [
-        "http://localhost:5178/games/playhop-runic-chains-536388",
-        "http://localhost:5178/api/game-live/playhop-runic-chains-536388"
-      ],
-      "consoleErrors": [
-        "SDK initialization failed Error: Get external iframe timeout\n    at http://localhost:5178/api/game-live/playhop-runic-chains-536388/1b9659782975499ff4c5e4c9/sdk"
-      ],
-      "failedRequests": []
-    },
-    {
-      "id": "playhop-sprunki-sonic-exe",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 159419,
-      "frames": [
-        "http://localhost:5178/games/playhop-sprunki-sonic-exe",
-        "http://localhost:5178/api/game-live/playhop-sprunki-sonic-exe"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: the server responded with a status of 502 ()"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm",
-        "net::ERR_ABORTED https://app-387093.games.s3.yandex.net/387093/kgu41wp30w2g3ikof2kdqnq1wxlduzin/index.html?sdk=%2Fsdk%2F_%2Fv2."
-      ]
-    },
-    {
-      "id": "playhop-toca-world-hack-mod",
-      "portal": "playhop",
-      "status": "NO_RENDER",
-      "ms": 152143,
-      "frames": [
-        "http://localhost:5178/games/playhop-toca-world-hack-mod",
-        "http://localhost:5178/api/game-live/playhop-toca-world-hack-mod"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: the server responded with a status of 502 ()"
-      ],
-      "failedRequests": [
-        "net::ERR_ABORTED https://app-393987.games.s3.yandex.net/393987/3g3vb62nizoysw0tucebgufv5ngpdplv/index.html?sdk=%2Fsdk%2F_%2Fv2.",
-        "net::ERR_ABORTED https://app-393987.games.s3.yandex.net/393987/3g3vb62nizoysw0tucebgufv5ngpdplv/index.html?sdk=%2Fsdk%2F_%2Fv2.",
-        "net::ERR_ABORTED https://app-393987.games.s3.yandex.net/393987/3g3vb62nizoysw0tucebgufv5ngpdplv/index.html?sdk=%2Fsdk%2F_%2Fv2."
-      ]
-    },
-    {
-      "id": "rubens-fortnite-rip-off",
-      "portal": "unity-play",
-      "status": "LAUNCHED",
-      "ms": 31723,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/unity-play/rubens-fortnite-rip-off"
-    },
-    {
-      "id": "riddle-school-3",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 151499,
-      "frames": [
-        "http://localhost:5178/games/riddle-school-3",
-        "http://localhost:5178/api/game-live/riddle-school-3"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d0ZrS-CdhtN9kj0rNXJFqgn_53rXhm6s-lOjsFW9BSSN822ML8MOHh4ZXrFasQo",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm"
-      ]
-    },
-    {
-      "id": "run-3-editor",
-      "portal": "local",
-      "status": "LAUNCHED",
-      "ms": 64653,
-      "how": "canvas",
-      "frame": "http://localhost:5178/api/unity-play/run-3-editor"
-    },
-    {
-      "id": "the-classroom-3",
-      "portal": "drive-u-7",
-      "status": "NO_RENDER",
-      "ms": 153134,
-      "frames": [
-        "http://localhost:5178/games/the-classroom-3",
-        "http://localhost:5178/api/game-live/the-classroom-3"
-      ],
-      "consoleErrors": [
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite",
-        "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameSite"
-      ],
-      "failedRequests": [
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d0ZrS-CdhtN9kj0rNXJFqgn_53rXhm6s-lOjsFW9BSSN822ML8MOHh4ZXrFasQo",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d2gHlkoMJsLiKvLPxPXzASIZvuqbAKvnGDGycqi8xrnLqfIOBPurMaVT2DEfu3R",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d3an4AE4gcaGACn4cZUJ54408YRv6MWbWnoHHe4u-NvrhDy04jWQecci1_ERlui",
-        "net::ERR_BLOCKED_BY_RESPONSE.NotSameSite https://sites.google.com/sitesv-images-rt/ACHe0d287FbqkCj7uya9w-9qaCFIoC53SMpunleALoEA94V7j-F2P3rBO5B7aCQzbwrm"
-      ]
-    },
-    {
-      "id": "top-speed-3d",
-      "portal": "local",
-      "status": "NO_RENDER",
-      "ms": 153625,
-      "frames": [
-        "http://localhost:5178/games/top-speed-3d",
-        "http://localhost:5178/api/game-live/top-speed-3d"
       ],
       "consoleErrors": [],
       "failedRequests": [
-        "net::ERR_ABORTED http://localhost:5178/games/top-speed-3d/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/top-speed-3d/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/top-speed-3d/online/index.html",
-        "net::ERR_ABORTED http://localhost:5178/games/top-speed-3d/online/index.html"
+        "net::ERR_ABORTED https://cdn2.addictinggames.com/cdn-cgi/challenge-platform/h/g/jsd/oneshot/330e41bb475c/0.5361100208443296:179"
       ]
+    },
+    {
+      "id": "addicting-like-a-boss",
+      "portal": "addictinggames",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 140497,
+      "paint": null,
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/addicting-like-a-boss",
+        "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/like-a-boss/index.h",
+        "about:blank",
+        "about:blank"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "failedRequests": []
+    },
+    {
+      "id": "addicting-the-last-ninja",
+      "portal": "addictinggames",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 121020,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/addicting-the-last-ninja",
+        "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/last-ninja/index.ht"
+      ],
+      "consoleErrors": [
+        "Permissions policy violation: accelerometer is not allowed in this document.",
+        "Permissions policy violation: accelerometer is not allowed in this document."
+      ],
+      "failedRequests": []
+    },
+    {
+      "id": "addicting-the-path",
+      "portal": "addictinggames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 121702,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 46,
+        "dominant": 0.642
+      },
+      "frame": "https://cdn2.addictinggames.com/addictinggames-content/ag-assets/content-items/html5-games/path/index.html"
+    },
+    {
+      "id": "blockpost",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 121126,
+      "paint": {
+        "colours": 376,
+        "dominant": 0.36
+      },
+      "text": [
+        "Blockpost 6% of 22MB Loading..."
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/blockpost",
+        "http://127.0.0.1:5176/games/blockpost/online/index.html",
+        "https://airoyale007.github.io/blockpost2/"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "car-chase-3d",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 121456,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/car-chase-3d",
+        "https://play.unity.com/api/v1/games/game/969bebf3-b2f2-4fed-84fb-0d94177e99b1/build/latest/frame"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "color-sorter-v100",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 121371,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/color-sorter-v100",
+        "https://play.unity.com/api/v1/games/game/df0bc05b-62d7-40d5-a632-f6017eb21916/build/latest/frame"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "coolmath-apple-worm",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 119774,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 213,
+        "dominant": 0.361
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/49138/"
+    },
+    {
+      "id": "coolmath-block-toggle",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 10132,
+      "how": "canvas",
+      "w": 720,
+      "h": 510,
+      "paint": {
+        "colours": 59,
+        "dominant": 0.404
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/32937/"
+    },
+    {
+      "id": "coolmath-bind",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 61676,
+      "how": "canvas",
+      "w": 512,
+      "h": 512,
+      "paint": {
+        "colours": 5,
+        "dominant": 0.64
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/38398/"
+    },
+    {
+      "id": "coolmath-banana-duck",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 90158,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 6,
+        "dominant": 0.438
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/50837/"
+    },
+    {
+      "id": "coolmath-boo",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 65090,
+      "how": "canvas",
+      "w": 960,
+      "h": 600,
+      "paint": {
+        "colours": 52,
+        "dominant": 0.345
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/33436/"
+    },
+    {
+      "id": "coolmath-bugongo-snowy-peaks",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 47983,
+      "how": "canvas",
+      "w": 640,
+      "h": 384,
+      "paint": {
+        "colours": 3,
+        "dominant": 0.67
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/37028/"
+    },
+    {
+      "id": "coolmath-bouncy-woods",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 119682,
+      "how": "canvas",
+      "w": 750,
+      "h": 960,
+      "paint": {
+        "colours": 19,
+        "dominant": 0.514
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/54634/"
+    },
+    {
+      "id": "coolmath-burdies",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 40613,
+      "how": "canvas",
+      "w": 640,
+      "h": 960,
+      "paint": {
+        "colours": 101,
+        "dominant": 0.661
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/12531/"
+    },
+    {
+      "id": "coolmath-brain-for-monster-truck",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 127432,
+      "paint": {
+        "colours": 2,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-brain-for-monster-truck",
+        "https://www.coolmathgames.com/sites/default/files/public_games/49468/",
+        "about:blank",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2",
+        "https://cdn.intergient.com/pageos/X-20260903-1-PRECONTENT-SIGNALS/iframe/iframe.html"
+      ],
+      "consoleErrors": [
+        "Permissions policy violation: accelerometer is not allowed in this document.",
+        "Permissions policy violation: accelerometer is not allowed in this document.",
+        "SYNC.JS: There was a problem while setting up the TCF IFRAME LOCATOR API: SecurityError: Failed to read a named property '__tcfapiLocator' from 'Window': Blocke"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1",
+        "net::ERR_ABORTED https://prod.us-east-1.cxm-bcn.publisher-services.amazon.dev/v1/recordVendorsLoaded"
+      ]
+    },
+    {
+      "id": "coolmath-carrot-quest",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 15475,
+      "how": "canvas",
+      "w": 650,
+      "h": 800,
+      "paint": {
+        "colours": 81,
+        "dominant": 0.582
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/26460/"
+    },
+    {
+      "id": "coolmath-cheese-route",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 42268,
+      "how": "canvas",
+      "w": 853,
+      "h": 480,
+      "paint": {
+        "colours": 68,
+        "dominant": 0.143
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/23121/"
+    },
+    {
+      "id": "coolmath-bygone-treasures-shop",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 120865,
+      "paint": {
+        "colours": 8,
+        "dominant": 0.998
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-bygone-treasures-shop",
+        "https://www.coolmathgames.com/sites/default/files/public_games/53565/",
+        "about:blank",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2",
+        "https://cdn.intergient.com/pageos/X-20260903-1-PRECONTENT-SIGNALS/iframe/iframe.html"
+      ],
+      "consoleErrors": [
+        "SYNC.JS: There was a problem while setting up the TCF IFRAME LOCATOR API: SecurityError: Failed to read a named property '__tcfapiLocator' from 'Window': Blocke",
+        "Failed to load resource: net::ERR_CONNECTION_CLOSED",
+        "Failed to load resource: net::ERR_CONNECTION_CLOSED"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1",
+        "net::ERR_ABORTED https://id5-sync.com/g/v2/123.json",
+        "net::ERR_CONNECTION_CLOSED https://visitor.fiftyt.com/p.gif?ev=sync&bstep=2&p=ey&uid=2U14Sjg-OE10HhaCcj28kHIQN5aMHdehg5U2HoWXyKx0",
+        "net::ERR_CONNECTION_CLOSED https://static.aroa.io/sync/sync.php?eyeid=28iLMO3eqJnLbln3zwW7Y3-2MVwfQyB0U5KdaoP7WzYg"
+      ]
+    },
+    {
+      "id": "coolmath-candle-guy",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "NO_RENDER",
+      "ms": 121349,
+      "paint": {
+        "colours": 2,
+        "dominant": 0.987
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-candle-guy",
+        "https://www.coolmathgames.com/sites/default/files/public_games/42987/"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Refused to execute script from 'https://www.coolmathgames.com/sites/default/files/public_games/42987/Build/cmg.js' because its MIME type ('text/html') is not ex"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://www.coolmathgames.com/sites/default/files/public_games/42987/Build/cmg.js"
+      ]
+    },
+    {
+      "id": "coolmath-code-panda",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 64046,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 48,
+        "dominant": 0.78
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/37432/"
+    },
+    {
+      "id": "coolmath-code-maze",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 139975,
+      "paint": null,
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-code-maze",
+        "https://www.coolmathgames.com/sites/default/files/public_games/52580/",
+        "about:blank",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.coolmathgames.com%2Fsites%2Fdefault%2Ffiles%2",
+        "https://cdn.intergient.com/pageos/X-20260903-1-PRECONTENT-SIGNALS/iframe/iframe.html"
+      ],
+      "consoleErrors": [
+        "SYNC.JS: There was a problem while setting up the TCF IFRAME LOCATOR API: SecurityError: Failed to read a named property '__tcfapiLocator' from 'Window': Blocke"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1"
+      ]
+    },
+    {
+      "id": "coolmath-color-cars-parking",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 120533,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 58,
+        "dominant": 0.907
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/52356/"
+    },
+    {
+      "id": "coolmath-connect-me-factory",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 31922,
+      "how": "canvas",
+      "w": 320,
+      "h": 480,
+      "paint": {
+        "colours": 255,
+        "dominant": 0.629
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/22503/"
+    },
+    {
+      "id": "coolmath-color-filler",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "PAINTED_DOM",
+      "ms": 121641,
+      "paint": {
+        "colours": 7,
+        "dominant": 0.359
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-color-filler",
+        "https://www.coolmathgames.com/sites/default/files/public_games/33722/"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "coolmath-consumable-controls",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 34441,
+      "how": "canvas",
+      "w": 720,
+      "h": 510,
+      "paint": {
+        "colours": 53,
+        "dominant": 0.585
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/33998/"
+    },
+    {
+      "id": "coolmath-conjugate",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "PAINTED_DOM",
+      "ms": 121668,
+      "paint": {
+        "colours": 6,
+        "dominant": 0.568
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-conjugate",
+        "https://www.coolmathgames.com/sites/default/files/public_games/25670/"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "crazygames-2048-balls",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 41868,
+      "how": "canvas",
+      "w": 340,
+      "h": 604,
+      "paint": {
+        "colours": 135,
+        "dominant": 0.665
+      },
+      "frame": "https://2048-balls.game-files.crazygames.com/2048-balls/1/index.html"
+    },
+    {
+      "id": "coolmath-cross-the-gap",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 95904,
+      "how": "canvas",
+      "w": 720,
+      "h": 648,
+      "paint": {
+        "colours": 2,
+        "dominant": 0.618
+      },
+      "frame": "https://www.coolmathgames.com/sites/default/files/public_games/32390/"
+    },
+    {
+      "id": "coolmath-cookie-chomp",
+      "portal": "coolmath",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 122058,
+      "paint": {
+        "colours": 3,
+        "dominant": 0.995
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/coolmath-cookie-chomp",
+        "https://www.coolmathgames.com/sites/default/files/public_games/25052/"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "crazygames-block-tour-kfz",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 66657,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 39,
+        "dominant": 0.933
+      },
+      "frame": "https://files.crazygames.com/block-tour-kfz/29/index.html"
+    },
+    {
+      "id": "crazygames-clash-of-skulls",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 67100,
+      "how": "canvas",
+      "w": 1536,
+      "h": 900,
+      "paint": {
+        "colours": 75,
+        "dominant": 0.92
+      },
+      "frame": "https://clash-of-skulls.game-files.crazygames.com/clash-of-skulls/1/index.html"
+    },
+    {
+      "id": "crazygames-cube-vs-ball-clicker",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 121190,
+      "paint": {
+        "colours": 64,
+        "dominant": 0.748
+      },
+      "text": [
+        "Cube vs Ball Clicker 17% (2 / 10 MB) More games on CrazyGames.com"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/crazygames-cube-vs-ball-clicker",
+        "https://games.crazygames.com/en_US/cube-vs-ball-clicker/index.html",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fcube-vs-ball-click",
+        "about:blank",
+        "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=127.0.0.1#{%22bundle%22:{%22origin%22:0},%22opt",
+        "https://google-bidout-d.openx.net/w/1.0/pd?plm=5"
+      ],
+      "consoleErrors": [
+        "Bidder config for appnexus not found. Disabling for this session.",
+        "Timeout hit during video auction",
+        "Timeout hit during obtaining video rendering information",
+        "SYNC.JS: There was a problem while setting up the TCF IFRAME LOCATOR API: SecurityError: Failed to read a named property '__tcfapiLocator' from 'Window': Blocke"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "net::ERR_ABORTED https://imasdk.googleapis.com/js/core/bridge3.790.0_en.html",
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1"
+      ]
+    },
+    {
+      "id": "crazygames-fantasy-idle-tycoon-2",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "PAINTED_DOM",
+      "ms": 120506,
+      "paint": {
+        "colours": 26,
+        "dominant": 0.203
+      },
+      "text": [
+        "More games on CrazyGames.com"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/crazygames-fantasy-idle-tycoon-2",
+        "https://games.crazygames.com/en_US/fantasy-idle-tycoon-2/index.html",
+        "about:blank",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Ffantasy-idle-tycoo",
+        "about:blank"
+      ],
+      "consoleErrors": [
+        "Timeout hit during video auction",
+        "Bidder config for appnexus not found. Disabling for this session.",
+        "Timeout hit during obtaining video rendering information"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://imasdk.googleapis.com/js/core/bridge3.790.0_en.html",
+        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1"
+      ]
+    },
+    {
+      "id": "crazygames-feet-s-doctor-urgent-care",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "PAINTED_DOM",
+      "ms": 118528,
+      "paint": {
+        "colours": 24,
+        "dominant": 0.203
+      },
+      "text": [
+        "More games on CrazyGames.com"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/crazygames-feet-s-doctor-urgent-care",
+        "https://games.crazygames.com/en_US/feet-s-doctor-urgent-care/index.html"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_HTTP2_PING_FAILED"
+      ],
+      "failedRequests": [
+        "net::ERR_HTTP2_PING_FAILED https://builds.crazygames.com/gameframe/static/js/6854.a3ce75a53ab765591967.js"
+      ]
+    },
+    {
+      "id": "crazygames-fishing-clicker-3d",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 120934,
+      "paint": {
+        "colours": 104,
+        "dominant": 0.182
+      },
+      "text": [
+        "Fishing Clicker 3D 50% (10 / 20 MB) More games on CrazyGames.com"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/crazygames-fishing-clicker-3d",
+        "https://games.crazygames.com/en_US/fishing-clicker-3d/index.html",
+        "about:blank",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Ffishing-clicker-3d",
+        "about:blank",
+        "https://fishing-clicker-3d.game-files.crazygames.com/unity/unity2020/fishing-clicker-3d.html"
+      ],
+      "consoleErrors": [
+        "Timeout hit during video auction",
+        "Timeout hit during obtaining video rendering information",
+        "Bidder config for appnexus not found. Disabling for this session."
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://imasdk.googleapis.com/js/core/bridge3.790.0_en.html",
+        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1"
+      ]
+    },
+    {
+      "id": "crazygames-hexa-sort",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 121613,
+      "paint": {
+        "colours": 135,
+        "dominant": 0.23
+      },
+      "text": [
+        "Hexa Sort 15% (7 / 43 MB) More games on CrazyGames.com"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/crazygames-hexa-sort",
+        "https://games.crazygames.com/en_US/hexa-sort/index.html",
+        "about:blank",
+        "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fgames.crazygames.com%2Fen_US%2Fhexa-sort%2Findex.",
+        "about:blank",
+        "https://hexa-sort.game-files.crazygames.com/unity/unity2020/hexa-sort.html"
+      ],
+      "consoleErrors": [
+        "Timeout hit during video auction",
+        "Bidder config for appnexus not found. Disabling for this session.",
+        "Timeout hit during obtaining video rendering information"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "net::ERR_ABORTED https://imasdk.googleapis.com/js/core/bridge3.791.0_en.html",
+        "net::ERR_ABORTED https://pagead2.googlesyndication.com/pagead/ping?e=1"
+      ]
+    },
+    {
+      "id": "crazygames-particle-clicker",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 36561,
+      "how": "canvas",
+      "w": 400,
+      "h": 400,
+      "paint": {
+        "colours": 109,
+        "dominant": 0.737
+      },
+      "frame": "https://particle-clicker.game-files.crazygames.com/particle-clicker/1/index.html"
+    },
+    {
+      "id": "crazygames-more-ore",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 122534,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 94,
+        "dominant": 0.233
+      },
+      "frame": "https://more-ore.game-files.crazygames.com/more-ore/5/index.html"
+    },
+    {
+      "id": "crazygames-pool-hustlers",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 34274,
+      "how": "canvas",
+      "w": 1024,
+      "h": 640,
+      "paint": {
+        "colours": 122,
+        "dominant": 0.177
+      },
+      "frame": "https://pool-hustlers.game-files.crazygames.com/pool-hustlers/3/index.html"
+    },
+    {
+      "id": "crazygames-samurai-madness",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 29703,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 234,
+        "dominant": 0.534
+      },
+      "frame": "https://samuraimadness.com/?v=v1.0.43"
+    },
+    {
+      "id": "crazygames-smarty-bubbles",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 52513,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 127,
+        "dominant": 0.102
+      },
+      "frame": "https://smarty-bubbles.game-files.crazygames.com/smarty-bubbles/1/index.html"
+    },
+    {
+      "id": "crazygames-spider-solitaire-2-suits",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 70029,
+      "how": "canvas",
+      "w": 880,
+      "h": 600,
+      "paint": {
+        "colours": 29,
+        "dominant": 0.923
+      },
+      "frame": "https://games.gameboss.com/spidersolitaire2suits/index.html"
+    },
+    {
+      "id": "crazygames-stickman-challenge",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 61330,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 19,
+        "dominant": 0.939
+      },
+      "frame": "https://stickman-challenge.game-files.crazygames.com/stickman-challenge/2/index.html"
+    },
+    {
+      "id": "crazygames-table-tennis-world-tour",
+      "portal": "crazygames",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 92024,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 100,
+        "dominant": 0.846
+      },
+      "frame": "https://table-tennis-world-tour.game-files.crazygames.com/table-tennis-world-tour/1/index.html"
+    },
+    {
+      "id": "dreadhead-parkour",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 43234,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 365,
+        "dominant": 0.06
+      },
+      "frame": "https://abinbins.github.io/a7/dreadhead-parkour/"
+    },
+    {
+      "id": "cubes-king",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "PAINTED_DOM",
+      "ms": 121619,
+      "paint": {
+        "colours": 16,
+        "dominant": 0.634
+      },
+      "text": [
+        "Cubes King"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/cubes-king",
+        "http://127.0.0.1:5176/games/cubes-king/online/index.html",
+        "https://abinbins.github.io/a7/cubes-king/"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "cyber-cars-punk-racing",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 122232,
+      "paint": {
+        "colours": 593,
+        "dominant": 0.369
+      },
+      "text": [
+        "Cyber Cars Punk Racing 2% of 49MB Loading..."
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/cyber-cars-punk-racing",
+        "http://127.0.0.1:5176/games/cyber-cars-punk-racing/online/index.html",
+        "https://abinbins.github.io/a4/cyber-cars-punk-racing/"
+      ],
+      "consoleErrors": [
+        "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 405 ()"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://abinbins.github.io/a4/cyber-cars-punk-racing/prebid4.12.0.js"
+      ]
+    },
+    {
+      "id": "flappy-raven",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 68756,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 53,
+        "dominant": 0.138
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/142464fd-b8e2-487d-853f-ccac09c1c113/build/latest/frame"
+    },
+    {
+      "id": "flappy-bird-cover",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 106178,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 35,
+        "dominant": 0.629
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/343b2bd0-5f52-43e8-a1c1-a0c0dd37fc67/build/latest/frame"
+    },
+    {
+      "id": "fnf-games-dino-age",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 121983,
+      "paint": {
+        "colours": 455,
+        "dominant": 0.047
+      },
+      "text": [
+        "26010601 DINO AGE Downloading file: 26%"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/fnf-games-dino-age",
+        "https://fnf-games.io/embed/dino-age?preroll=0",
+        "https://dino-age.1games.io/",
+        "about:blank"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "fnf-games-fnf-character-test-playground-4",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 72571,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 71,
+        "dominant": 0.166
+      },
+      "frame": "https://gamaverse.com/c/f/g/fnf-x-coryxkenshin-shogun-showdown/?embd"
+    },
+    {
+      "id": "fnf-games-fnf-vs-nyan-cat",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 49407,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 70,
+        "dominant": 0.166
+      },
+      "frame": "https://gamaverse.com/c/f/g/fnf-vs-nyan-cat-friday-nyan-funkin/?embd"
+    },
+    {
+      "id": "fnf-games-fnf-vs-ronald-mcdonald-full-week",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 39474,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 137,
+        "dominant": 0.151
+      },
+      "frame": "https://ext.minijuegosgratis.com/fnf-mcdonald/index.html"
+    },
+    {
+      "id": "fnf-games-fnf-x-parappa-i-scream",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 55632,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 113,
+        "dominant": 0.16
+      },
+      "frame": "https://gamaverse.com/c/f/g/fnf-x-parappa-i-scream/?embd"
+    },
+    {
+      "id": "fnf-games-fnf-x-fnaf-night-life",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 71629,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 70,
+        "dominant": 0.166
+      },
+      "frame": "https://gamaverse.com/c/f/g/fnf-x-fnaf-night-life/?embd"
+    },
+    {
+      "id": "fnf-games-k-pop-hunters-rumi-vs-demons",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 3,
+      "ms": 58213,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 48,
+        "dominant": 0.786
+      },
+      "frame": "https://st.8games.net/12/8g/igra-kej-pop-okhotnitsy-rumi-protiv-demonov/"
+    },
+    {
+      "id": "fnf-games-meeland-io",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 1,
+      "ms": 29520,
+      "how": "canvas",
+      "w": 1152,
+      "h": 603,
+      "paint": {
+        "colours": 47,
+        "dominant": 0.149
+      },
+      "frame": "https://meeland.io/"
+    },
+    {
+      "id": "fnf-games-sprunki-blocks",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 3,
+      "ms": 65268,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 103,
+        "dominant": 0.36
+      },
+      "frame": "https://st.8games.net/9/8g/igra-bloki-sprunki/"
+    },
+    {
+      "id": "foot-chinko",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 22053,
+      "how": "canvas",
+      "w": 768,
+      "h": 1024,
+      "paint": {
+        "colours": 47,
+        "dominant": 0.161
+      },
+      "frame": "https://abinbins.github.io/a4/foot-chinko/"
+    },
+    {
+      "id": "fnf-games-tower-rise",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 121245,
+      "paint": {
+        "colours": 343,
+        "dominant": 0.129
+      },
+      "text": [
+        "26090307 TOWER RISE Downloading file: 47%"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/fnf-games-tower-rise",
+        "https://fnf-games.io/embed/tower-rise?preroll=0",
+        "https://1games.io/game/tower-rise/"
+      ],
+      "consoleErrors": [],
+      "failedRequests": [
+        "net::ERR_ABORTED https://gma.readyplayer1.xyz/?_=2.1790166088258"
+      ]
+    },
+    {
+      "id": "fnf-games-veck-io",
+      "portal": "fnf-games",
+      "timeout": 120000,
+      "status": "STILL_LOADING",
+      "ms": 122010,
+      "paint": {
+        "colours": 479,
+        "dominant": 0.06
+      },
+      "text": [
+        "99%"
+      ],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/fnf-games-veck-io",
+        "https://fnf-games.io/embed/veck-io?preroll=0",
+        "https://veck.io/",
+        "about:blank",
+        "about:blank",
+        "about:blank"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()",
+        "Access to fetch at 'https://rp.liadm.com/j?dtstmp=1790166137585&did=did-006r&se=e30&duid=53745463cc21--01m373ey7pyhg9qdrj9ec2szet&tv=11.35.0&pu=http%3A%2F%2F127",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to fetch at 'https://rp.liadm.com/j?dtstmp=1790166137585&did=did-006r&se=e30&duid=53745463cc21--01m373ey7pyhg9qdrj9ec2szet&tv=11.35.0&pu=http%3A%2F%2F127"
+      ],
+      "failedRequests": [
+        "net::ERR_ABORTED https://hb-vntsm-com.global.ssl.fastly.net/v4/srv/g.txt",
+        "net::ERR_ABORTED https://sync.intentiq.com/profiles_engine/ProfilesEngineServlet?at=20&mi=10&secure=1&dpi=786374107&iiqidtype=2",
+        "net::ERR_FAILED https://rp.liadm.com/j?dtstmp=1790166137585&did=did-006r&se=e30&duid=53745463cc21--01m373ey7pyhg9qdrj9ec2szet&",
+        "net::ERR_FAILED https://rp.liadm.com/j?dtstmp=1790166137585&did=did-006r&se=e30&duid=53745463cc21--01m373ey7pyhg9qdrj9ec2szet&"
+      ]
+    },
+    {
+      "id": "football-masters",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 61361,
+      "how": "canvas",
+      "w": 1066,
+      "h": 640,
+      "paint": {
+        "colours": 28,
+        "dominant": 0.971
+      },
+      "frame": "https://abinbins.github.io/a4/football-masters/"
+    },
+    {
+      "id": "gamejam-2020",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 102675,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 90,
+        "dominant": 0.193
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/93154435-dbdc-4212-8680-359a1e3db16b/build/latest/frame"
+    },
+    {
+      "id": "greg-v202",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 123196,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 65,
+        "dominant": 0.629
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/b5ee14f5-9df3-4ceb-a8cf-0e68c7141df7/build/latest/frame"
+    },
+    {
+      "id": "head-soccer-2023",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 121905,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 99,
+        "dominant": 0.94
+      },
+      "frame": "https://abinbins.github.io/a4/head-soccer-2023/"
+    },
+    {
+      "id": "iron-snout",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 30256,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 53,
+        "dominant": 0.837
+      },
+      "frame": "https://abinbins.github.io/a/iron-snout/"
+    },
+    {
+      "id": "junior-programmer-player-control",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 24852,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 71,
+        "dominant": 0.158
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/c543904a-e137-47d7-a9e4-be93c621adce/build/latest/frame"
+    },
+    {
+      "id": "indigos-quest",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 93505,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 49,
+        "dominant": 0.775
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/7f297211-7991-4c09-a1b3-0e46588d3ddf/build/latest/frame"
+    },
+    {
+      "id": "monkey-mart",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 8320,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 447,
+        "dominant": 0.102
+      },
+      "frame": "https://abinbins.github.io/a8/monkey-mart/"
+    },
+    {
+      "id": "monster-tracks",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 58990,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 87,
+        "dominant": 0.243
+      },
+      "frame": "https://abinbins.github.io/a5/monster-tracks/"
+    },
+    {
+      "id": "lego-town-builder",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 121307,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/lego-town-builder",
+        "https://play.unity.com/api/v1/games/game/8325ce56-c0a9-44b6-bbad-3b2ec3b7151e/build/latest/frame"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "mimicrow",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 121539,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/mimicrow",
+        "https://play.unity.com/api/v1/games/game/6b19496a-6b6b-41b4-a531-b2ec40b1ff1b/build/latest/frame"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "multiple-car-race-prototype",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 55641,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 87,
+        "dominant": 0.168
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/abbcdcd7-01ec-4bc0-bfdb-7a0e6a2897e8/build/latest/frame"
+    },
+    {
+      "id": "my-pony-my-little-race",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 48996,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 383,
+        "dominant": 0.196
+      },
+      "frame": "https://abinbins.github.io/a5/my-pony-my-little-race/"
+    },
+    {
+      "id": "playhop-animals-on-the-shelves",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 23674,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 71,
+        "dominant": 0.164
+      },
+      "frame": "https://app-413378.games.s3.yandex.net/413378/m52tk4jlvghuflcpvgc8ixe94g0u1i4i/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af11"
+    },
+    {
+      "id": "parkour-games",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 72907,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 40,
+        "dominant": 0.722
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/21fa00f7-fe9d-4779-90fd-fa79c3c68ecc/build/latest/frame"
+    },
+    {
+      "id": "old-west-sheriff",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 120738,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/old-west-sheriff",
+        "https://play.unity.com/api/v1/games/game/2742f6da-32e6-4ada-9298-475daaa47b9d/build/latest/frame"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "playhop-bubble-fantasia-537121",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 17666,
+      "how": "canvas",
+      "w": 720,
+      "h": 800,
+      "paint": {
+        "colours": 39,
+        "dominant": 0.605
+      },
+      "frame": "https://app-537121.games.s3.yandex.net/537121/9gtrcvl1aa56m7zb6n7qx4v4ln2bmfot/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af11"
+    },
+    {
+      "id": "playhop-break-the-command-block-the-playground-mod",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 126882,
+      "paint": {
+        "colours": 122,
+        "dominant": 0.262
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/playhop-break-the-command-block-the-playground-mod",
+        "https://app-386428.games.s3.yandex.net/386428/mhhdoue1so28rqrkckmy1ym8m82o887w/index.html?sdk=%2Fsdk%2F_%2Fv2."
+      ],
+      "consoleErrors": [
+        "Failed init player data\n",
+        "CRASH Init Leaderboard:  Cannot read properties of null (reading 'getLeaderboards')",
+        "CRASH Get Payments:  getPayments is not defined",
+        "Failed - Game Ready"
+      ],
+      "failedRequests": []
+    },
+    {
+      "id": "playhop-civilization-age-of-conquest",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 82790,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 33,
+        "dominant": 0.725
+      },
+      "frame": "https://app-444555.games.s3.yandex.net/444555/k1hm99vrcm4x64taqt6y0hgzwovhemtl/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af11"
+    },
+    {
+      "id": "playhop-fnaf-merge-the-battle-of-the-animatronics-504260",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 78943,
+      "how": "canvas",
+      "w": 1920,
+      "h": 1080,
+      "paint": {
+        "colours": 107,
+        "dominant": 0.93
+      },
+      "frame": "https://app-504260.games.s3.yandex.net/504260/6zikg1ddluxev5bzzg7a5skzl5s8fn0h/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af11"
+    },
+    {
+      "id": "playhop-italian-animals-create-all-brainrot",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 21634,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 339,
+        "dominant": 0.76
+      },
+      "frame": "https://app-465545.games.s3.yandex.net/465545/7y1rhl70ir41w4dz938o22ln0qy4q6u2/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af11"
+    },
+    {
+      "id": "playhop-hero-match-490665",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 32293,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 443,
+        "dominant": 0.026
+      },
+      "frame": "https://app-490665.games.s3.yandex.net/490665/36thdf0tytivs7xvnipbnusdtgky2lbn/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af11"
+    },
+    {
+      "id": "playhop-knights-brides",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 37930,
+      "how": "canvas",
+      "w": 1280,
+      "h": 720,
+      "paint": {
+        "colours": 245,
+        "dominant": 0.669
+      },
+      "frame": "https://app-180663.games.s3.yandex.net/180663/cfxzlv9a3qk0vn0dilg80gynktsb3eqk/index.html"
+    },
+    {
+      "id": "playhop-pop-bubble-around",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 47977,
+      "paint": {
+        "colours": 6,
+        "dominant": 0.999
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/playhop-pop-bubble-around",
+        "https://app-460021.games.s3.yandex.net/460021/8dvkq6d5ulx8dk4u0x7ij0tjb6sk3obz/index.html?sdk=%2Fsdk%2F_%2Fv2."
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "playhop-zuma-boom-98746",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 51909,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 227,
+        "dominant": 0.079
+      },
+      "frame": "https://app-98746.games.s3.yandex.net/98746/tmi8fqx5rucimdmd7q8umkh8pezq4xxo/index.html?sdk=%2Fsdk%2F_%2Fv2.9dd6b8af111e"
+    },
+    {
+      "id": "pool-club",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 31638,
+      "how": "canvas",
+      "w": 1024,
+      "h": 640,
+      "paint": {
+        "colours": 107,
+        "dominant": 0.809
+      },
+      "frame": "https://abinbins.github.io/a6/pool-club/"
+    },
+    {
+      "id": "raft-wars-multiplayer",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 6629,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 441,
+        "dominant": 0.213
+      },
+      "frame": "https://abinbins.github.io/a6/raft-wars-multiplayer/"
+    },
+    {
+      "id": "playhop-stick-war-infinity-duel-187413",
+      "portal": "playhop",
+      "timeout": 120000,
+      "status": "NO_RENDER",
+      "ms": 120752,
+      "paint": {
+        "colours": 3,
+        "dominant": 0.994
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/playhop-stick-war-infinity-duel-187413",
+        "https://app-187413.games.s3.yandex.net/187413/uzrlya534gfz5otm8vy145e28fkbteyc/index.html?sdk=%2Fsdk%2F_%2Fv2."
+      ],
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_CONNECTION_RESET",
+        "Failed to load resource: net::ERR_CONNECTION_RESET",
+        "wasm streaming compile failed: TypeError: WebAssembly compilation aborted: Network error: Response body loading was aborted",
+        "falling back to ArrayBuffer instantiation"
+      ],
+      "failedRequests": [
+        "net::ERR_CONNECTION_RESET https://app-187413.games.s3.yandex.net/187413/uzrlya534gfz5otm8vy145e28fkbteyc/Build/test1.data",
+        "net::ERR_CONNECTION_RESET https://app-187413.games.s3.yandex.net/187413/uzrlya534gfz5otm8vy145e28fkbteyc/Build/test1.wasm"
+      ]
+    },
+    {
+      "id": "squish-run",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 15732,
+      "how": "canvas",
+      "w": 1600,
+      "h": 900,
+      "paint": {
+        "colours": 109,
+        "dominant": 0.357
+      },
+      "frame": "https://abinbins.github.io/a6/squish-run/"
+    },
+    {
+      "id": "slope-2",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 62858,
+      "how": "canvas",
+      "w": 1136,
+      "h": 600,
+      "paint": {
+        "colours": 49,
+        "dominant": 0.626
+      },
+      "frame": "https://abinbins.github.io/a6/slope-2/"
+    },
+    {
+      "id": "puzzles",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "BLANK_CANVAS",
+      "ms": 120480,
+      "paint": {
+        "colours": 1,
+        "dominant": 1
+      },
+      "text": [],
+      "frames": [
+        "http://127.0.0.1:5176/__launch-harness__/puzzles",
+        "https://play.unity.com/api/v1/games/game/2e06c871-a3dd-4be1-bc55-83deefef5331/build/latest/frame"
+      ],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "id": "super-liquid-soccer",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 104757,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 102,
+        "dominant": 0.299
+      },
+      "frame": "https://abinbins.github.io/a3/super-liquid-soccer/"
+    },
+    {
+      "id": "stupid-but-many",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 114320,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 17,
+        "dominant": 0.637
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/28058dc2-0a55-4734-b100-308bc16be4b5/build/latest/frame"
+    },
+    {
+      "id": "swatforce-vs-terrorists",
+      "portal": "local",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 68412,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 104,
+        "dominant": 0.254
+      },
+      "frame": "https://abinbins.github.io/a3/swatforce-vs-terrorists/"
+    },
+    {
+      "id": "the-final-nightmare",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 63000,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 38,
+        "dominant": 0.588
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/2105fb41-6d28-4aff-be11-c80cb5fec690/build/latest/frame"
+    },
+    {
+      "id": "warlyroblox-the-first-obby",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 14580,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 123,
+        "dominant": 0.096
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/b9e20669-73d0-4804-aff5-6e9883a6f673/build/latest/frame"
+    },
+    {
+      "id": "tierra-del-sol",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 91281,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 28,
+        "dominant": 0.279
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/8c462a92-611a-48ab-87b2-e5fc75d40164/build/latest/frame"
+    },
+    {
+      "id": "week-1-player-control",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LAUNCHED",
+      "strict": true,
+      "settled": true,
+      "pressed": 0,
+      "ms": 15568,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 106,
+        "dominant": 0.144
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/2ea1c398-2c60-4c26-94af-d37f69308039/build/latest/frame"
+    },
+    {
+      "id": "vr3dmediaviewer-demo",
+      "portal": "unity-play",
+      "timeout": 120000,
+      "status": "LOADER",
+      "strict": true,
+      "settled": false,
+      "pressed": 0,
+      "ms": 116614,
+      "how": "canvas",
+      "w": 1152,
+      "h": 648,
+      "paint": {
+        "colours": 473,
+        "dominant": 0.042
+      },
+      "frame": "https://play.unity.com/api/v1/games/game/b2f162f9-d925-4b43-b0dd-5696623a1b79/build/latest/frame"
     }
   ]
 }

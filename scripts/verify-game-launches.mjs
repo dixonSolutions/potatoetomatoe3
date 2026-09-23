@@ -55,8 +55,8 @@ const LAUNCH_CACHE_PATH = join(AUDIT_DIR, 'launch.json');
  * timeout reports working games as broken. With --gpu most titles paint in under 15s.
  */
 const DEFAULT_LAUNCH_TIMEOUT_MS = 45_000;
-/** After the first painted frame, how long to wait for the screen to settle. */
-const SETTLE_MS = 15_000;
+/** After the first painted frame, how long to watch for a settled game screen. */
+const OBSERVE_MS = 40_000;
 /** Give up on a blank game once this long has passed with no network activity at all. */
 const STALL_MIN_MS = 45_000;
 const STALL_QUIET_MS = 25_000;
@@ -230,6 +230,16 @@ async function pressStartButton(page) {
 				await button.click({ timeout: 3000 });
 				return true;
 			}
+			/* Image buttons (Coolmath's Play To Max loader): no text, but an id, class or alt. */
+			const imageButton = frame
+				.locator(
+					'[id*="play-button" i], [id*="playbutton" i], [id="play" i], [class*="play-button" i], [class*="playbutton" i], [class*="btn-play" i], img[alt*="play" i]'
+				)
+				.first();
+			if ((await imageButton.count()) && (await imageButton.isVisible())) {
+				await imageButton.click({ timeout: 3000 });
+				return true;
+			}
 		} catch {
 			/* Cross-origin frame navigated away mid-query; try the next one. */
 		}
@@ -311,11 +321,14 @@ function surfaceChange(before, after) {
 }
 
 /**
- * A logo on a flat background: portal splash screens (AddictingGames, Ninja Kiwi, Max
- * Games) look like this for a few seconds before the game replaces them.
+ * A game screen, as opposed to a loader: at least 30 colours on the coarse grid and no one
+ * colour covering 90 % of it. Loaders measured: Coolmath spinner 25/0.97, Awesome Tanks
+ * loading 47/0.97, Ninja Kiwi 33/0.96, "FREE PLAY" splash 34/0.91; game screens: Ball
+ * Surfer 3D 39/0.59, Checkers 103/0.61, Bubble Spinner 147/0.48. Minimalist games (100
+ * Arrows, two colours) fail this and stay unconfirmed rather than verified.
  */
-function looksLikeSplash(paint) {
-	return paint.colours < 25 && paint.dominant >= 0.7;
+function isRich(paint) {
+	return Boolean(paint && paint.colours >= 30 && paint.dominant < 0.9);
 }
 
 /*
@@ -362,13 +375,24 @@ async function verifyGame(context, game, opts) {
 	page.on('requestfailed', (req) => {
 		failedRequests.push(`${req.failure()?.errorText || 'failed'} ${req.url().slice(0, 110)}`);
 	});
-	/* Last time any frame's network moved: a game still downloading is not a stalled game. */
+	/*
+	 * Network activity, to tell a stuck game from a slow one. Request events fire only at the
+	 * start and end of a request, and a Unity or CrazyGames build is often one 50 MB fetch,
+	 * so "no event for 25 s" is not "idle": count requests still in flight as activity too.
+	 */
 	let lastNetworkAt = Date.now();
-	const markNetwork = () => {
+	const inFlight = new Set();
+	page.on('request', (req) => {
+		inFlight.add(req);
+		lastNetworkAt = Date.now();
+	});
+	const settle = (req) => {
+		inFlight.delete(req);
 		lastNetworkAt = Date.now();
 	};
-	page.on('request', markNetwork);
-	page.on('requestfinished', markNetwork);
+	page.on('requestfinished', settle);
+	page.on('requestfailed', settle);
+	const networkIdleFor = () => (inFlight.size ? 0 : Date.now() - lastNetworkAt);
 
 	const shotPath = opts.shotsDir ? join(opts.shotsDir, `${game.id}.jpg`) : null;
 	const base = { id: game.id, portal: portalOf(game), timeout: opts.launchTimeoutMs };
@@ -423,7 +447,7 @@ async function verifyGame(context, game, opts) {
 			if (
 				!opts.patient &&
 				Date.now() - clicked > STALL_MIN_MS &&
-				Date.now() - lastNetworkAt > STALL_QUIET_MS
+				networkIdleFor() > STALL_QUIET_MS
 			) {
 				break;
 			}
@@ -433,34 +457,42 @@ async function verifyGame(context, game, opts) {
 				lastPaint = await surfacePaint(page, null);
 				if (isPainted(lastPaint)) {
 					/*
-					 * Wait for the picture to settle: a splash logo or a moving loading bar
-					 * paints too. Accept once two samples 3 s apart match (and it is not a
-					 * bare splash), or when the settle window runs out with something still
-					 * painted — an animated title screen never holds still.
+					 * Something painted — but a portal splash, a publisher logo and a loading
+					 * bar all paint. Watch for up to OBSERVE_MS for a game screen: rich
+					 * (many colours, not one flat background), holding still for 3 s, with
+					 * no loading text anywhere in the frame tree. Hand review of screenshots
+					 * found every looser rule passing Coolmath, CrazyGames and Ninja Kiwi
+					 * loaders as launches.
 					 */
-					const settleUntil = Math.min(deadline, Date.now() + SETTLE_MS);
+					const observeUntil = Math.min(deadline, Date.now() + OBSERVE_MS);
 					let previous = lastPaint;
 					let settled = false;
-					while (Date.now() < settleUntil) {
+					while (Date.now() < observeUntil) {
 						await page.waitForTimeout(3000);
 						const current = await surfacePaint(page, null);
 						if (!current) break;
-						if (
-							isPainted(current) &&
-							!looksLikeSplash(current) &&
-							surfaceChange(previous, current) <= 0.15
-						) {
-							settled = true;
-							break;
+						if (isRich(current) && surfaceChange(previous, current) <= 0.15) {
+							const loading = (await collectFrameText(page)).some((t) => LOADING_TEXT_RE.test(t));
+							if (!loading) {
+								settled = true;
+								break;
+							}
 						}
 						previous = current;
+						/* A loader can hide the play button until it finishes; offer a press again. */
+						if (pressed < 3 && Date.now() >= nextPress) {
+							nextPress = Date.now() + 12_000;
+							if (await pressStartButton(page)) pressed += 1;
+						}
 					}
 					const paint = (await surfacePaint(page, shotPath)) || lastPaint;
 					if (!isPainted(paint)) continue;
 					const texts = await collectFrameText(page);
 					return {
 						...base,
-						status: 'LAUNCHED',
+						/* Painted, but never became a settled game screen: a loader or splash. */
+						status: settled ? 'LAUNCHED' : 'LOADER',
+						strict: true,
 						settled,
 						pressed,
 						ms: Date.now() - clicked,
@@ -532,6 +564,7 @@ const STATUS_CODE = {
 	PAINTED_DOM: 'D',
 	BLANK_CANVAS: 'C',
 	STILL_LOADING: 'S',
+	LOADER: 'O',
 	FRAME_ERROR: 'F',
 	PORTAL_REFUSED: 'R',
 	NO_RENDER: 'N',
@@ -547,6 +580,7 @@ function recordResult(cache, result, { recheck = false } = {}) {
 		ms: result.ms,
 		timeout: result.timeout,
 		how: result.how,
+		strict: result.strict,
 		settled: result.settled,
 		w: result.w,
 		h: result.h,

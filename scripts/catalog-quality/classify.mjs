@@ -30,7 +30,7 @@ import {
 	portalOf,
 	readJson,
 	stratifiedSample,
-	writeJsonAtomic
+	writeKeyedJsonLines
 } from './lib.mjs';
 import { playHostsOf } from './host-status.mjs';
 import { cleanDisplayName, isTitleMismatch, titleKey, titleSignals } from './heuristics.mjs';
@@ -251,20 +251,16 @@ function launchVerdict(record, verdict) {
 	if (!record) return { verified: false, failed: false, attempts: 0 };
 	const hist = record.hist || '';
 	/*
-	 * A pass whose final screenshot is a logo on a flat background, and which never held
-	 * still, may have been a portal splash rather than the game: not verified until rechecked.
+	 * Only a strict pass counts as verified: the screen settled into a rich game picture
+	 * with no loading text. Earlier, looser passes (Coolmath and CrazyGames loaders counted
+	 * as launches, found by reviewing screenshots) are unconfirmed until re-tested.
 	 */
-	const splash =
-		record.status === 'LAUNCHED' &&
-		record.settled !== true &&
-		record.paint &&
-		record.paint.colours < 25 &&
-		record.paint.dominant >= 0.7;
-	/* Status, not history: a --recheck that failed replaces an earlier doubtful pass. */
-	if (record.status === 'LAUNCHED' && !splash) {
+	if (record.status === 'LAUNCHED' && record.strict) {
 		return { verified: true, failed: false, attempts: hist.length };
 	}
-	if (splash) return { verified: false, failed: false, attempts: hist.length, status: 'SPLASH' };
+	if (record.status === 'LAUNCHED' || record.status === 'LOADER') {
+		return { verified: false, failed: false, attempts: hist.length, status: record.status };
+	}
 	/*
 	 * The launch test frames games directly, like the web and Android builds. A game whose
 	 * host refuses framing is expected to fail there and still plays through the desktop
@@ -273,8 +269,14 @@ function launchVerdict(record, verdict) {
 	if (verdict?.relayOnly) {
 		return { verified: false, failed: false, attempts: hist.length, status: record.status };
 	}
-	/* Failed on a retry with the generous timeout (≥150 s): believe it. */
-	const retried = hist.length >= 2 && (record.timeout || 0) >= 150_000;
+	/*
+	 * Failed on a retry with the generous timeout (≥150 s): believe it — unless a canvas
+	 * was there and simply never drew. Unity builds that launched in 15 s early in the run
+	 * stayed blank later on the same machine under load, so a blank canvas says more about
+	 * the test machine than the game. Those stay unconfirmed.
+	 */
+	const retried =
+		hist.length >= 2 && (record.timeout || 0) >= 150_000 && record.status !== 'BLANK_CANVAS';
 	/*
 	 * The browser refused the frame, or the portal did ("can be played exclusively on
 	 * CrazyGames.com", "Gone"): no amount of waiting changes that.
@@ -347,24 +349,30 @@ export function classifyCatalog() {
 		const bucket = (portalLaunch[row.portal] ||= {
 			tested: 0,
 			launched: 0,
-			failed: 0,
-			unsure: 0
+			painted: 0,
+			unsure: 0,
+			failed: 0
 		});
 		if (row.launch.attempts && sampleIds.has(row.game.id)) {
 			bucket.tested += 1;
 			if (row.launch.verified) bucket.launched += 1;
 			else if (row.launch.failed || row.launch.hardFail) bucket.failed += 1;
-			/* Painted but unconfirmed (a DOM game, a splash, still loading at the deadline). */ else
+			/* Passed the looser first-pass check and was not re-tested under the strict one. */ else if (
+				row.launch.status === 'LAUNCHED'
+			)
+				bucket.painted += 1;
+			/* Painted but unconfirmed (a DOM game, a loader, still loading at the deadline). */ else
 				bucket.unsure += 1;
 		}
 	}
 	for (const bucket of Object.values(portalLaunch)) {
 		/*
-		 * Laplace-smoothed so a portal with three tests cannot claim 100 %; an unconfirmed
-		 * result counts as half a launch rather than as a failure.
+		 * Laplace-smoothed so a portal with three tests cannot claim 100 %. A loose pass
+		 * counts three quarters of a launch, an unconfirmed result under half: most loose
+		 * passes that were re-tested held, most unconfirmed ones were slow loaders.
 		 */
-		bucket.rate =
-			Math.round(((bucket.launched + 0.5 * bucket.unsure + 1) / (bucket.tested + 2)) * 1000) / 1000;
+		const credit = bucket.launched + 0.75 * bucket.painted + 0.4 * bucket.unsure;
+		bucket.rate = Math.round(((credit + 1) / (bucket.tested + 2)) * 1000) / 1000;
 	}
 
 	/* ---- per-portal percentiles of rating and popularity ---- */
@@ -706,17 +714,21 @@ function main() {
 			why: row.reasons.slice(0, 4)
 		};
 	}
-	writeJsonAtomic(QUALITY_PATH, {
-		version: 1,
-		generatedAt: new Date().toISOString(),
-		method: 'See docs/catalog-quality.md',
-		tierBands: TIER_BANDS,
-		tierCounts,
-		tierByPortal,
-		doeCounts,
-		portalLaunch,
-		portalStats,
-		games
+	/* One game per line, so a rerun's diff shows which games moved. */
+	writeKeyedJsonLines(QUALITY_PATH, {
+		header: {
+			version: 1,
+			generatedAt: new Date().toISOString(),
+			method: 'See docs/catalog-quality.md',
+			tierBands: TIER_BANDS,
+			tierCounts,
+			tierByPortal,
+			doeCounts,
+			portalLaunch,
+			portalStats
+		},
+		key: 'games',
+		entries: Object.entries(games)
 	});
 	console.log('tiers:', tierCounts);
 	console.log('doe:', doeCounts);
