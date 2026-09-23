@@ -56,7 +56,8 @@ export function preloadGameBrowserProfile(gameId: string): Promise<GameBrowserPr
 		.then((profile) => {
 			/* Never downgrade a profile a push already refreshed while this read ran. */
 			const bag = profileBag();
-			if (bag && bag[gameId] && !profile) return bag[gameId];
+			const current = bag ? bag[gameId] : undefined;
+			if (current && (!profile || current.updatedAt >= profile.updatedAt)) return current;
 			rememberProfile(gameId, profile);
 			return profile;
 		})

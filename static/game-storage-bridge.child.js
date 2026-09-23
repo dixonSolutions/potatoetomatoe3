@@ -1401,7 +1401,8 @@
 			}
 			meta.ts = bucket.ts || Date.now();
 			var ssBucket = def.sessionStorage && def.sessionStorage[bucket.origin];
-			if (ssBucket && virtual.ss.isEmpty()) virtual.ss.replace(cleanBucket(ssBucket, bucket.ts === 0));
+			/* `force` carries a profile across the late-restore reload, past the session the empty boot persisted. */
+			if (ssBucket && (force || virtual.ss.isEmpty())) virtual.ss.replace(cleanBucket(ssBucket, bucket.ts === 0));
 		} else if (!bucket && !initialized && Array.isArray(def.cookies) && def.cookies.length) {
 			virtual.cookies.replace(def.cookies);
 			changed = true;
