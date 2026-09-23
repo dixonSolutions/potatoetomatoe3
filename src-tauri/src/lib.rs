@@ -1,6 +1,7 @@
 mod apk_update;
 mod disguise;
 mod game_frames;
+mod relay;
 
 #[cfg(desktop)]
 mod tray;
@@ -667,6 +668,17 @@ pub fn run() {
   let mut builder = tauri::Builder::default().plugin(tauri_plugin_shell::init());
   if let Some(probe) = game_frames::frame_probe_plugin() {
     builder = builder.plugin(probe);
+  }
+  #[cfg(desktop)]
+  {
+    builder =
+      builder.register_asynchronous_uri_scheme_protocol(relay::SCHEME, |ctx, request, responder| {
+        let catalog = catalog_dir(ctx.app_handle());
+        let path = request.uri().path().to_string();
+        tauri::async_runtime::spawn(async move {
+          responder.respond(relay::handle(catalog, path).await);
+        });
+      });
   }
   builder
     .invoke_handler(tauri::generate_handler![
