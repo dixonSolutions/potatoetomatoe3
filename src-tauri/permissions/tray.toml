@@ -37,3 +37,8 @@ commands.allow = ["download_and_install_apk", "can_install_apk", "open_install_p
 identifier = "allow-native-identity"
 description = "Allow the frontend to mirror the privacy disguise onto the native window/task label and icon"
 commands.allow = ["native_identity_target", "set_native_disguise", "clear_native_disguise"]
+
+[[permission]]
+identifier = "allow-game-frames"
+description = "Allow the frontend to install the in-frame game bridge for the game it is launching"
+commands.allow = ["native_game_frames_supported", "set_game_frame_context", "clear_game_frame_context"]

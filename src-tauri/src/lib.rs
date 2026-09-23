@@ -1,5 +1,6 @@
 mod apk_update;
 mod disguise;
+mod game_frames;
 
 #[cfg(desktop)]
 mod tray;
@@ -33,6 +34,17 @@ const DEFAULT_PULLER_PORT: u16 = 18787;
 /// When an existing puller is already healthy on 18787, reuse that port (no second spawn).
 fn reserve_puller_port() -> u16 {
   *PULLER_PORT.get_or_init(|| {
+    /*
+     * `PULLER_PORT` pins it, the same variable the puller itself reads. Several dev
+     * checkouts on one machine each run their own puller, and without a pin every app
+     * would adopt whichever of them answered on 18787 first.
+     */
+    if let Some(port) = std::env::var("PULLER_PORT")
+      .ok()
+      .and_then(|raw| raw.trim().parse::<u16>().ok())
+    {
+      return port;
+    }
     if wait_for_puller_health(DEFAULT_PULLER_PORT, 250) {
       log::info!("default puller port {} already healthy — will reuse", DEFAULT_PULLER_PORT);
       return DEFAULT_PULLER_PORT;
@@ -652,8 +664,11 @@ pub fn run() {
   // Tauri expects it.
   let scheme_for_setup = desktop_scheme.clone();
 
-  tauri::Builder::default()
-    .plugin(tauri_plugin_shell::init())
+  let mut builder = tauri::Builder::default().plugin(tauri_plugin_shell::init());
+  if let Some(probe) = game_frames::frame_probe_plugin() {
+    builder = builder.plugin(probe);
+  }
+  builder
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
       get_puller_base_url,
@@ -670,7 +685,10 @@ pub fn run() {
       apk_update::open_install_permission_settings,
       disguise::native_identity_target,
       disguise::set_native_disguise,
-      disguise::clear_native_disguise
+      disguise::clear_native_disguise,
+      game_frames::native_game_frames_supported,
+      game_frames::set_game_frame_context,
+      game_frames::clear_game_frame_context
     ])
     .setup(move |app| {
       if cfg!(debug_assertions) {

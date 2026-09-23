@@ -45,6 +45,9 @@ tokio = { version = "1", features = ["fs", "io-util"] }
 # builds on Linux, so this adds a name in scope, not a crate to the graph.
 [target.'cfg(target_os = "linux")'.dependencies]
 gtk = "0.18"
+# The WebKitGTK handle behind Tauri's webview, to swap the game-frame user script per
+# launch (`game_frames.rs`). Pinned to what wry already builds with, so it adds no crate.
+webkit2gtk = { version = "=2.0.2", features = ["v2_38"] }
 
 # Firing the package-installer Intent needs a JNI hop into MainActivity; there is no
 # portable Tauri API for "open this content:// with an explicit MIME type".

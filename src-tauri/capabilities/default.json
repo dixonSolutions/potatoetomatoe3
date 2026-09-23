@@ -22,6 +22,7 @@
     "allow-open-external-url",
     "allow-apk-self-update",
     "allow-native-identity",
+    "allow-game-frames",
     "core:app:allow-version",
     "shell:default",
     {
