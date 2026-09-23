@@ -296,7 +296,14 @@ export async function readOnlineShellIframeSrc(gameId: string): Promise<string |
 		if (!res.ok) return null;
 		const iframeSrc = extractIframeSrc(await res.text());
 		if (!iframeSrc) return null;
-		return new URL(iframeSrc).origin !== window.location.origin ? iframeSrc : null;
+		const parsed = new URL(iframeSrc);
+		/*
+		 * Only a web page on another host is framed in the shell's place. Anything else
+		 * (`javascript:`, `data:`, `blob:`) would run as the app page's own frame — `javascript:`
+		 * with the app's origin — and has no business being a play URL.
+		 */
+		if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return null;
+		return parsed.origin !== window.location.origin ? iframeSrc : null;
 	} catch {
 		return null;
 	}
