@@ -1144,9 +1144,18 @@
 
 	var persistTimer = null;
 	var persisters = [];
+	/*
+	 * Writing the cache rewrites the whole store (one JSON string per store), however small
+	 * the change: about 15-30 ms for a 1 MB store in Chromium, most of it the synchronous
+	 * setItem. Every 60 ms, a game that saves a counter each frame spent a third or more of
+	 * its main thread here. Once a second is enough for a cache: pause, pagehide, teardown
+	 * and the late-profile reload all write it out at once, and the push to the app runs on
+	 * its own timer.
+	 */
+	var PERSIST_MS = 1000;
 	function schedulePersist() {
 		if (persistTimer) return;
-		persistTimer = setTimeout(persistNow, 60);
+		persistTimer = setTimeout(persistNow, PERSIST_MS);
 	}
 	function persistNow() {
 		if (persistTimer) {
