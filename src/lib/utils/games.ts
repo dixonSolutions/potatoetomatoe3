@@ -57,6 +57,8 @@ export interface GameMetadata {
 	remotePlayUrl?: string;
 	/** Catalog importer wrote online/embed.html for puller live/unity proxies. */
 	localEmbed?: boolean;
+	/** Where the relative URLs of `online/embed.html` resolve (the gadget's own base). */
+	embedBaseUrl?: string;
 	/** Shipped with a pre-built offline copy under static/games/{id}/offline/. */
 	bundledOffline?: boolean;
 }
@@ -489,6 +491,17 @@ function resolveOnlinePlayUrl(metadata: GameMetadata | null, gameId: string): st
 /** The desktop app's in-process relay (`src-tauri/src/relay.rs`). */
 export const RELAY_SCHEME = 'ptrelay';
 
+function httpUrlOrUndefined(raw: string | null | undefined): string | undefined {
+	const url = raw?.trim();
+	if (!url) return undefined;
+	try {
+		const { protocol } = new URL(url);
+		return protocol === 'https:' || protocol === 'http:' ? url : undefined;
+	} catch {
+		return undefined;
+	}
+}
+
 /** Which route produced each play URL handed out, so the watchdog knows what failed. */
 const routeByUrl = new Map<string, PlayRouteKind>();
 
@@ -558,8 +571,14 @@ async function urlForRoute(
 			return resolveOnlinePlayUrl(metadata, gameId);
 		}
 		case 'local': {
+			/*
+			 * The desktop app serves the document through its relay: an origin of its own,
+			 * with real storage. Elsewhere it plays from a sandboxed app-made shell.
+			 */
+			if (nativeFrames)
+				return `${RELAY_SCHEME}://localhost/game/${encodeURIComponent(gameId)}/local`;
 			const { createLocalEmbedShell } = await import('./online-play-routing-shell');
-			return createLocalEmbedShell(gameId);
+			return createLocalEmbedShell(gameId, httpUrlOrUndefined(metadata?.embedBaseUrl));
 		}
 		case 'shell': {
 			if (!embed) return null;

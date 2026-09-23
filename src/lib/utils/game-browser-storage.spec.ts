@@ -28,7 +28,9 @@ vi.mock('@tauri-apps/api/core', () => ({
 	invoke: (command: string, args?: unknown) => env.invoke(command, args)
 }));
 
-const { GameProfileReadError, loadGameBrowserProfile } = await import('./game-browser-storage');
+const { GameProfileReadError, loadGameBrowserProfile, saveGameBrowserProfile } = await import(
+	'./game-browser-storage'
+);
 const { loadPullerBrowserProfile } = await import('./puller-browser-data');
 const { loadNativeGameProfile } = await import('./offline-native');
 const { loadBrowserGameProfile } = await import('./browser-game-data-storage');
@@ -161,6 +163,19 @@ describe('native (desktop app) saves', () => {
 	it('returns what is on disk', async () => {
 		env.invoke = async (command) => (command === 'game_profile_read' ? saves() : null);
 		expect(await loadGameBrowserProfile('g')).toEqual(saves());
+	});
+
+	it('reports a disk write that failed, instead of writing the saves to IndexedDB', async () => {
+		/* IndexedDB is never read back while the disk has a profile: a write there was lost. */
+		env.invoke = async (command) => {
+			if (command === 'game_profile_write') throw 'No space left on device';
+			return null;
+		};
+		const idb = fakeIndexedDB({ record: undefined });
+		const open = vi.spyOn(idb, 'open');
+		vi.stubGlobal('indexedDB', idb);
+		await expect(saveGameBrowserProfile('g', saves())).rejects.toBe('No space left on device');
+		expect(open).not.toHaveBeenCalled();
 	});
 });
 

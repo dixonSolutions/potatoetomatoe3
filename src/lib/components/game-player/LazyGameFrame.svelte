@@ -7,12 +7,19 @@
 		registerGameFrameHost
 	} from '$lib/utils/game-storage-bridge';
 	import { unlockGameIframeAudio } from '$lib/utils/game-audio';
+	import {
+		frameLoadsPerStart,
+		frameSandboxFor,
+		shellFrameSrcFor
+	} from '$lib/utils/online-play-routing-shell';
 
 	/**
 	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…`, `/puller-games/{id}/…`, or `/online/…`).
 	 * Same app origin keeps game localStorage aligned across online/offline; puller copies use `/puller-games/` (proxied in dev).
 	 * A separate document is required so the game keeps its own globals and relative asset paths;
-	 * rendering the bundle inline in Svelte would break typical builds.
+	 * rendering the bundle inline in Svelte would break typical builds. An app-made shell
+	 * (third-party HTML the app plays from a document of its own) is the exception to "same
+	 * origin": it is sandboxed away from the app's origin (`frameSandboxFor`).
 	 *
 	 * The game starts as soon as its play URL is known — there is no click-to-play step.
 	 * Until then (`gameUrl` empty) and until the frame fires `load` (or the stall watchdog
@@ -26,6 +33,7 @@
 		iframeAllow,
 		fillContainer = false,
 		startDisabled = false,
+		held = false,
 		stallTimeoutMs = 25_000,
 		started = $bindable(false),
 		onIframeReady,
@@ -40,6 +48,13 @@
 		fillContainer?: boolean;
 		/** Hold the frame back while the online/offline play URL is still being resolved. */
 		startDisabled?: boolean;
+		/**
+		 * Hold a started game off screen (the privacy lock): the frame shows `about:blank`,
+		 * so nothing in it runs or plays sound, and nothing is reported about it. Released,
+		 * it loads `gameUrl` as it is then — the page's current play URL, not the one the
+		 * frame had when it was held.
+		 */
+		held?: boolean;
 		/**
 		 * How long a frame may go without firing `load` before it counts as stalled.
 		 * `load` waits for every subresource, and a Unity build is tens of megabytes, so
@@ -91,6 +106,17 @@
 		declaredOrientation = null;
 	});
 
+	/*
+	 * An app-made shell runs third-party HTML, so it gets a sandbox without the app's origin,
+	 * and its loader fires a `load` of its own before the game's (`online-play-routing-shell`).
+	 */
+	const sandbox = $derived(frameSandboxFor(gameUrl));
+	/* A shell's play URL only names it: the frame loads the shell's loader. */
+	const frameSrc = $derived(shellFrameSrcFor(gameUrl) ?? gameUrl);
+	const loadsPerStart = $derived(frameLoadsPerStart(gameUrl));
+	/** `load` events seen since the current start; the game is up after `loadsPerStart`. */
+	let loadsSeen = 0;
+
 	function reportLoadState(next: FrameLoadState) {
 		if (loadState === next) return;
 		loadState = next;
@@ -99,11 +125,13 @@
 
 	/**
 	 * Watchdog per (started, url) pair. Cleared by the iframe `load` handler; a URL swap
-	 * restarts it so a relay upgrade gets its own grace period.
+	 * restarts it so a relay upgrade gets its own grace period. Off while the frame is held:
+	 * a held frame is not loading anything, and releasing it starts a fresh watch.
 	 */
 	$effect(() => {
 		const url = gameUrl;
-		if (!started || !url) return;
+		if (!started || !url || held) return;
+		loadsSeen = 0;
 		loadState = 'loading';
 		onLoadStateChange?.('loading', url);
 		const timer = window.setTimeout(
@@ -116,7 +144,11 @@
 	});
 
 	function handleFrameLoad() {
+		/* `about:blank` while held: not the game, and nothing to report. */
+		if (held) return;
+		loadsSeen++;
 		if (iframeEl && gameId) noteGameFrameTree(iframeEl, gameId);
+		if (loadsSeen < loadsPerStart && loadState === 'loading') return;
 		reportLoadState('loaded');
 		bumpAudioUnlock();
 		focusFrameIfIdle();
@@ -187,22 +219,24 @@
 	/*
 	 * This frame is where the game's saves come from: only it, and frames nested in it, may
 	 * pull or push them (`game-storage-bridge.ts`).
+	 *
+	 * A frame hosts the game it was started with, for as long as it exists. The page keys
+	 * this component on the game, so a new game gets a new frame; were the id to change
+	 * under a running frame anyway, registering it again under the new id would hand the
+	 * old game's documents — and the last save they push as they unload — to the new game.
 	 */
+	let hostedFor: { frame: HTMLIFrameElement; id: string } | null = null;
 	$effect(() => {
-		const id = gameId;
 		const frame = started ? iframeEl : null;
-		if (!frame || !id) return;
-		return registerGameFrameHost(frame, id);
-	});
-
-	$effect(() => {
-		const id = gameId;
-		const active = started;
-		const frame = iframeEl;
+		if (!frame) return;
+		const id = hostedFor?.frame === frame ? hostedFor.id : gameId;
+		if (!id) return;
+		hostedFor = { frame, id };
+		const unregister = registerGameFrameHost(frame, id);
 		return () => {
-			if (active && frame && id) {
-				void captureGameStorageFromIframe(frame, id);
-			}
+			/* On its way out, a same-origin game hands over what it has not pushed yet. */
+			void captureGameStorageFromIframe(frame, id);
+			unregister();
 		};
 	});
 </script>
@@ -220,17 +254,27 @@
 	}}
 >
 	{#if started && gameUrl}
-		<iframe
-			bind:this={iframeEl}
-			src={gameUrl}
-			{title}
-			class="h-full w-full border-0 bg-black"
-			loading="eager"
-			allowfullscreen
-			allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
-			referrerpolicy="no-referrer-when-downgrade"
-			onload={handleFrameLoad}
-		></iframe>
+		<!--
+			A frame's sandbox applies from its next navigation, so a change of sandbox (a route
+			moving between a shell and anything else) gets a new frame rather than a new `src`.
+			`sandbox` comes before `src` for the same reason.
+		-->
+		{#key sandbox}
+			<iframe
+				bind:this={iframeEl}
+				{sandbox}
+				src={held ? 'about:blank' : frameSrc}
+				{title}
+				class="h-full w-full border-0 bg-black"
+				class:invisible={held}
+				aria-hidden={held ? 'true' : undefined}
+				loading="eager"
+				allowfullscreen
+				allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
+				referrerpolicy="no-referrer-when-downgrade"
+				onload={handleFrameLoad}
+			></iframe>
+		{/key}
 	{/if}
 	{#if !posterGone}
 		<!--

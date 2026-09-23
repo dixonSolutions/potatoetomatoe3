@@ -9,16 +9,26 @@ const store = vi.hoisted(() => ({
 	writes: [] as Array<{ gameId: string; profile: GameBrowserProfile }>,
 	/** When set, each write waits until the test lets it finish. */
 	slow: false,
-	release: [] as Array<() => void>
+	release: [] as Array<() => void>,
+	/** Reads made of the store. */
+	reads: 0,
+	/** How many of the next writes fail (a disk write the desktop app could not make). */
+	writeFails: 0
 }));
 
 vi.mock('./game-browser-storage', () => ({
 	loadGameBrowserProfile: async (gameId: string) => {
+		store.reads++;
 		if (store.readFails.has(gameId)) throw new Error('store unavailable');
 		return store.saved.get(gameId) ?? null;
 	},
 	saveGameBrowserProfile: (gameId: string, profile: GameBrowserProfile) =>
-		new Promise<void>((resolve) => {
+		new Promise<void>((resolve, reject) => {
+			if (store.writeFails > 0) {
+				store.writeFails--;
+				reject(new Error('disk full'));
+				return;
+			}
 			const copy = JSON.parse(JSON.stringify(profile)) as GameBrowserProfile;
 			store.writes.push({ gameId, profile: copy });
 			const finish = () => {
@@ -35,6 +45,7 @@ const {
 	GAME_STORAGE_MESSAGE_TYPE,
 	attachGameStorageBridge,
 	captureGameStorageFromIframe,
+	flushGameFrame,
 	mayTouchGameSaves,
 	noteGameFrameTree,
 	preloadGameBrowserProfile,
@@ -116,6 +127,8 @@ beforeEach(() => {
 	store.writes = [];
 	store.slow = false;
 	store.release = [];
+	store.reads = 0;
+	store.writeFails = 0;
 });
 
 afterEach(() => {
@@ -203,6 +216,66 @@ describe('a failed save read is not "no saves"', () => {
 		expect(await preloadGameBrowserProfile('never-read')).toBeUndefined();
 	});
 
+	it('answers a pull from what the page already knows, with no read', async () => {
+		/* An app-made shell's loader waits on this answer before the game starts. */
+		const app = fakeAppWindow();
+		vi.stubGlobal('window', app);
+		const stop = attachGameStorageBridge();
+		const frame = fakeWindow(app);
+		const unregister = registerGameFrameHost(hostFrame(frame), 'known-pull');
+		const saves = profileWith({ 'https://a': { level: '7' } });
+		store.saved.set('known-pull', saves);
+		await preloadGameBrowserProfile('known-pull');
+		const readsBefore = store.reads;
+
+		app.send(frame, 'pull', 'known-pull');
+		await settle();
+		expect(hydrates(frame)).toEqual([expect.objectContaining({ data: saves })]);
+		expect(store.reads).toBe(readsBefore);
+		unregister();
+		stop();
+	});
+
+	it('answers a pull that follows a push with that push in it (a frame reloading)', async () => {
+		const app = fakeAppWindow();
+		vi.stubGlobal('window', app);
+		const stop = attachGameStorageBridge();
+		const frame = fakeWindow(app);
+		const unregister = registerGameFrameHost(hostFrame(frame), 'reloading');
+		store.saved.set('reloading', profileWith({ 'https://a': { level: '1' } }));
+		await preloadGameBrowserProfile('reloading');
+		/* A slow store: the push's write is still running when the pull comes in. */
+		store.slow = true;
+		app.send(frame, 'push', 'reloading', profileWith({ 'https://a': { level: '2' } }));
+		app.send(frame, 'pull', 'reloading');
+		await settle();
+		store.release.shift()?.();
+		await settle();
+		const answers = hydrates(frame);
+		expect(answers).toHaveLength(1);
+		expect(
+			(answers[0].data as GameBrowserProfile).profile.Default.localStorage['https://a']
+		).toEqual({ level: '2' });
+		unregister();
+		stop();
+	});
+
+	it('holds a push whose write failed and writes it on a retry', async () => {
+		vi.useFakeTimers();
+		store.writeFails = 2;
+		await captureGameStorageFromIframe(pushFrom('https://a', 'save', '5'), 'write-fails');
+		expect(store.writes).toEqual([]);
+		/* A newer push while the first is held: both land, newest on top. */
+		await captureGameStorageFromIframe(pushFrom('https://a', 'late', 'y'), 'write-fails');
+		expect(store.writes).toEqual([]);
+
+		await vi.advanceTimersByTimeAsync(2_000);
+		expect(store.writes).toHaveLength(1);
+		expect(store.saved.get('write-fails')?.profile.Default.localStorage).toEqual({
+			'https://a': { late: 'y' }
+		});
+	});
+
 	it('holds pushes while the stored profile cannot be read, then merges them over it', async () => {
 		vi.useFakeTimers();
 		store.saved.set(
@@ -284,6 +357,30 @@ describe("a game's saves belong to the frame hosting it", () => {
 		expect(mayTouchGameSaves(game as unknown as Window, 'a', 'pull')).toBe(false);
 	});
 
+	it('keeps a frame with its first game when the page moves on: A → B keeps A’s last push', () => {
+		const app = fakeWindow();
+		const frameA = fakeWindow(app);
+		const iframeA = hostFrame(frameA);
+		const unregisterA = registerGameFrameHost(iframeA, 'a');
+		/* The page switches to game b while a's frame is still up, and asks to host b in it. */
+		const stray = registerGameFrameHost(iframeA, 'b');
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'a', 'push')).toBe(true);
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'b', 'pull')).toBe(false);
+		stray();
+		unregisterA();
+		/* Reused once a is unregistered: its windows still belong to a. */
+		const reused = registerGameFrameHost(iframeA, 'b');
+		reused();
+		const frameB = fakeWindow(app);
+		const unregisterB = registerGameFrameHost(hostFrame(frameB), 'b');
+		/* a's frame goes; its last push, sent as it unloads, is still a's. */
+		detach(frameA);
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'a', 'push')).toBe(true);
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'b', 'push')).toBe(false);
+		expect(mayTouchGameSaves(frameB as unknown as Window, 'b', 'pull')).toBe(true);
+		unregisterB();
+	});
+
 	it('remembers frames that spoke while attached, even if they appeared after load', () => {
 		const app = fakeWindow();
 		const game = fakeWindow(app);
@@ -293,6 +390,47 @@ describe("a game's saves belong to the frame hosting it", () => {
 		unregister();
 		detach(late);
 		expect(mayTouchGameSaves(late as unknown as Window, 'a', 'push')).toBe(true);
+	});
+
+	it('asks a frame for its last push before it goes, and waits for the answer', async () => {
+		const app = fakeAppWindow();
+		vi.stubGlobal('window', app);
+		const stop = attachGameStorageBridge();
+		const game = fakeWindow(app);
+		const iframe = hostFrame(game);
+		const unregister = registerGameFrameHost(iframe, 'leaving');
+		/* The bridge in the frame: push what it holds, then say so. */
+		game.postMessage.mockImplementation((msg: { action?: string }) => {
+			if (msg.action !== 'flush') return;
+			app.send(game, 'push', 'leaving', profileWith({ 'https://x': { last: 'yes' } }));
+			app.send(game, 'flushed', 'leaving');
+		});
+		let settled = false;
+		const flushed = flushGameFrame(iframe, 'leaving').then(() => (settled = true));
+		await settle();
+		expect(settled).toBe(true);
+		await flushed;
+		await settle();
+		expect(store.saved.get('leaving')?.profile.Default.localStorage['https://x']).toEqual({
+			last: 'yes'
+		});
+		unregister();
+		stop();
+	});
+
+	it('gives up on a frame that cannot answer', async () => {
+		vi.useFakeTimers();
+		const app = fakeAppWindow();
+		vi.stubGlobal('window', app);
+		const stop = attachGameStorageBridge();
+		const game = fakeWindow(app);
+		let settled = false;
+		void flushGameFrame(hostFrame(game), 'silent', 300).then(() => (settled = true));
+		await vi.advanceTimersByTimeAsync(299);
+		expect(settled).toBe(false);
+		await vi.advanceTimersByTimeAsync(2);
+		expect(settled).toBe(true);
+		stop();
 	});
 
 	it('writes nothing for a push from a foreign frame', async () => {

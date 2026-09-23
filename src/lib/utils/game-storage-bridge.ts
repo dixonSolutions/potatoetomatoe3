@@ -118,9 +118,10 @@ const pendingSaves = new Map<
 	{ incoming: GameBrowserProfile | null; done: Promise<void> }
 >();
 /**
- * Pushes that could not be merged because the stored profile could not be read. Kept in
- * memory, under anything pushed later, until a read succeeds: writing them on their own
- * would replace the saves, and dropping them would lose the session.
+ * Pushes that could not be merged because the stored profile could not be read, or whose
+ * write failed. Kept in memory, under anything pushed later, until a read and a write
+ * succeed: writing them on their own would replace the saves, and dropping them would lose
+ * the session.
  */
 const heldSaves = new Map<string, GameBrowserProfile>();
 const heldRetry = new Map<string, { timer: ReturnType<typeof setTimeout> | null; delay: number }>();
@@ -183,10 +184,29 @@ function queueSave(gameId: string, incoming: GameBrowserProfile | null): Promise
 					return;
 				}
 			}
-			clearHeldRetry(gameId);
 			const merged = mergeGameBrowserProfiles(existing, unsaved);
 			rememberProfile(gameId, merged);
-			await saveGameBrowserProfile(gameId, merged);
+			try {
+				await saveGameBrowserProfile(gameId, merged);
+			} catch (error) {
+				/*
+				 * Not written (the desktop app's disk write failed). Held and tried again with
+				 * backoff, like pushes whose stored profile could not be read: dropped, it was
+				 * the session's progress that went, and writing it elsewhere hid it from the
+				 * next load.
+				 */
+				const since = heldSaves.get(gameId);
+				heldSaves.set(gameId, since ? mergeGameBrowserProfiles(merged, since) : merged);
+				retryHeldSave(gameId);
+				appendPlayLog(
+					'warn',
+					'saves',
+					"Could not write this game's saves — holding them to try again",
+					`game=${gameId} ${error instanceof Error ? error.message : String(error)}`
+				);
+				return;
+			}
+			clearHeldRetry(gameId);
 		});
 	entry.done = next;
 	saveChains.set(gameId, next);
@@ -210,9 +230,19 @@ const knownFrames = new WeakMap<object, string>();
 /* Portal shells nest the game a few frames deep; nothing legitimate goes this far. */
 const MAX_FRAME_DEPTH = 12;
 
+/**
+ * A window is attributed to the first game it was seen hosting, and never moved to
+ * another: the game page gives every game a frame of its own, so a window that shows up
+ * under a second game is the first game's frame being reused, and its last push — sent
+ * as it unloads — still belongs to the first.
+ */
+function rememberWindow(win: object, gameId: string): void {
+	if (!knownFrames.has(win)) knownFrames.set(win, gameId);
+}
+
 function rememberFrameTree(win: Window | null, gameId: string, depth = 0): void {
 	if (!win || depth > MAX_FRAME_DEPTH) return;
-	knownFrames.set(win, gameId);
+	rememberWindow(win, gameId);
 	let count = 0;
 	try {
 		count = win.frames.length;
@@ -235,6 +265,9 @@ function rememberFrameTree(win: Window | null, gameId: string, depth = 0): void 
  * it, may read or write the game's saves. Returns the unregister function.
  */
 export function registerGameFrameHost(iframe: HTMLIFrameElement, gameId: string): () => void {
+	const hosting = hostedFrames.get(iframe);
+	/* A frame already hosting another game keeps it (see `rememberWindow`). */
+	if (hosting !== undefined && hosting !== gameId) return () => {};
 	hostedFrames.set(iframe, gameId);
 	rememberFrameTree(iframe.contentWindow, gameId);
 	return () => {
@@ -308,7 +341,7 @@ export function mayTouchGameSaves(
 ): boolean {
 	if (!isWindow(source)) return false;
 	if (isInsideHostOf(source, gameId)) {
-		knownFrames.set(source, gameId);
+		rememberWindow(source, gameId);
 		return true;
 	}
 	/*
@@ -317,6 +350,48 @@ export function mayTouchGameSaves(
 	 * only if that window was seen hosting this game while it was attached.
 	 */
 	return action === 'push' && isClosed(source) && knownFrames.get(source) === gameId;
+}
+
+/** Frames asked to flush, and what to call when they say they have. */
+const flushWaiters = new Map<MessageEventSource, () => void>();
+
+/**
+ * Ask the game in `iframe` to push what it has not pushed yet, before the page takes the
+ * frame away (another game, another page, a restart).
+ *
+ * A frame counts on its `pagehide` push for the last of its saves, but a frame on an origin
+ * of its own — an app-made shell in its sandbox, a relayed game — runs in a process of its
+ * own in Chromium, and what it posts as its frame is removed never arrives. So the last
+ * push is asked for while the frame is still there. Resolves when the frame has answered
+ * (its push is queued by then), or after `timeoutMs` for a frame that cannot answer.
+ */
+export function flushGameFrame(
+	iframe: HTMLIFrameElement | null | undefined,
+	gameId: string,
+	timeoutMs = 500
+): Promise<void> {
+	let win: Window | null = null;
+	try {
+		win = iframe?.contentWindow ?? null;
+	} catch {
+		win = null;
+	}
+	if (!win || !gameId) return Promise.resolve();
+	const target = win;
+	return new Promise((resolve) => {
+		const done = () => {
+			clearTimeout(timer);
+			if (flushWaiters.get(target) === done) flushWaiters.delete(target);
+			resolve();
+		};
+		const timer = setTimeout(done, timeoutMs);
+		flushWaiters.set(target, done);
+		try {
+			target.postMessage({ type: GAME_STORAGE_MESSAGE_TYPE, action: 'flush', gameId }, '*');
+		} catch {
+			done();
+		}
+	});
 }
 
 export function attachGameStorageBridge(): () => void {
@@ -330,12 +405,30 @@ export function attachGameStorageBridge(): () => void {
 			data?: GameBrowserProfile;
 		};
 		if (!msg || msg.type !== GAME_STORAGE_MESSAGE_TYPE || typeof msg.gameId !== 'string') return;
+		if (msg.action === 'flushed') {
+			if (event.source) flushWaiters.get(event.source)?.();
+			return;
+		}
 		if (msg.action !== 'pull' && msg.action !== 'push') return;
 		if (!mayTouchGameSaves(event.source, msg.gameId, msg.action)) return;
 		const gameId = msg.gameId;
 
 		if (msg.action === 'pull') {
-			void preloadGameBrowserProfile(gameId).then((stored) => {
+			/*
+			 * What this page already knows is the answer, as a same-origin frame reads it from
+			 * the bag: the stored profile plus every push since — once the pushes already queued
+			 * are in. A frame that reloads flushes its last push on the way out and asks for its
+			 * saves on the way back in; it must get that push back. A game in an app-made shell
+			 * waits on this answer before it starts.
+			 */
+			const queued = saveChains.get(gameId) ?? Promise.resolve();
+			const answer = queued
+				.catch(() => undefined)
+				.then(() => {
+					const known = knownProfile(gameId);
+					return known !== undefined ? known : preloadGameBrowserProfile(gameId);
+				});
+			void answer.then((stored) => {
 				/*
 				 * The read failed: say nothing. The frame keeps its pushes held and asks again
 				 * with backoff; answering "no saves" would let its first push replace them.

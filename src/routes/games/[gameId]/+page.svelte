@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { afterNavigate, goto } from '$app/navigation';
+	import { afterNavigate, goto, onNavigate } from '$app/navigation';
 	import { base, resolve } from '$app/paths';
 	import { browser } from '$app/environment';
-	import { onMount, tick, untrack } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import {
+		RELAY_SCHEME,
 		loadGameMetadata,
 		loadAllGames,
 		getGamePlayerUrl,
@@ -33,12 +34,11 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { ArrowLeft, ThumbsUp, ThumbsDown, Play, Download } from 'lucide-svelte';
-	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import GameToolbar from '$lib/components/game-player/GameToolbar.svelte';
 	import InGameMenu from '$lib/components/game-player/in-game-menu/InGameMenu.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
-	import { preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
+	import { flushGameFrame, preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -98,7 +98,13 @@
 		isUnframeableInApp,
 		markPlayRouteFailed
 	} from '$lib/utils/online-play-routing';
-	import { gameFrameSpokeSince, nativeGameFramesActive } from '$lib/utils/native-game-frames';
+	import {
+		gameFrameSpokeSince,
+		nativeGameFramesActive,
+		releaseNativeGameFrames,
+		watchGameFrameLife
+	} from '$lib/utils/native-game-frames';
+	import { isShellBlobUrl, releaseOnlineShells } from '$lib/utils/online-play-routing-shell';
 	import { openExternalUrl } from '$lib/utils/open-external';
 	import { takeWebviewCrashOfGame, webviewCrashOnLoad } from '$lib/utils/webview-crash';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
@@ -192,6 +198,13 @@
 	 * gate: both used to hold it back simply by being in the way of the Play button.
 	 */
 	let privacyLocked = $state(false);
+	/*
+	 * While locked, the frame is held on a blank page (LazyGameFrame `held`) and the play URL
+	 * is left alone. A refresh asked for meanwhile runs at unlock, before the frame is let go,
+	 * so the game comes back once, on the URL it should be on now.
+	 */
+	let refreshWhenUnlocked = false;
+	let heldForRefresh = $state(false);
 	let playLimitHold = $state(false);
 	/* One hint per kind per visit: an FPS locks and unlocks on every pause. */
 	let pointerLockHintShown = false;
@@ -512,7 +525,8 @@
 	 * The user hears about it only when every route has failed.
 	 */
 	function handleFrameLoadState(state: 'loading' | 'loaded' | 'stalled', url: string) {
-		if (!gameId) return;
+		/* A frame held behind the lock screen is not a launch to judge (LazyGameFrame `held`). */
+		if (!gameId || privacyLocked) return;
 		if (state === 'loading') {
 			launchStartedAt = Date.now();
 			escalatingFrom = '';
@@ -560,16 +574,19 @@
 
 	/**
 	 * A frame whose document should have run the bridge — a game's own page on desktop,
-	 * where it is injected natively, or a relay page — and stayed silent never ran at all.
-	 * `load` fires for a refused frame just the same, so this is the only way to see it.
+	 * where it is injected natively, a relay page, or an app-made shell (whose loader asks
+	 * for the saves before anything else) — and stayed silent never ran at all. `load` fires
+	 * for a refused frame just the same, so this is the only way to see it.
 	 */
 	async function confirmFrameRan(id: string, url: string, since: number) {
 		const kind = playRouteOfUrl(url);
 		const expectsWord =
-			kind === 'relay' || (kind === 'direct' && nativeGameFramesActive() && !isAppOriginUrl(url));
+			url.startsWith(`${RELAY_SCHEME}:`) ||
+			isShellBlobUrl(url) ||
+			(kind === 'direct' && nativeGameFramesActive() && !isAppOriginUrl(url));
 		if (!expectsWord) return;
 		await new Promise((resolve) => setTimeout(resolve, 1500));
-		if (id !== gameId || url !== gamePlayerUrl) return;
+		if (id !== gameId || url !== gamePlayerUrl || privacyLocked) return;
 		if (gameFrameSpokeSince(id, since)) return;
 		appendPlayLog(
 			'warn',
@@ -583,7 +600,8 @@
 	/** Relaunch the game on the next route of its chain. */
 	async function tryNextPlayRoute(reason: 'stalled' | 'blank') {
 		const id = gameId;
-		if (!id) return;
+		/* Never behind the lock screen: the frame there is held on a blank page on purpose. */
+		if (!id || privacyLocked) return;
 		const failedUrl = gamePlayerUrl;
 		if (!failedUrl || escalatingFrom === failedUrl) return;
 		escalatingFrom = failedUrl;
@@ -605,6 +623,11 @@
 		);
 		const nextUrl = await getGamePlayerUrl(id, gameMetadata);
 		if (id !== gameId || gamePlayerUrl !== failedUrl) return;
+		if (privacyLocked) {
+			/* Locked meanwhile: the failed route is marked, and the unlock resolves past it. */
+			refreshWhenUnlocked = true;
+			return;
+		}
 		if (playRoutesExhausted(id) || nextUrl === failedUrl) {
 			/* Leave the frame as it is — a slow game may still come up. */
 			notifyNoPlayRouteLeft(reason);
@@ -647,15 +670,26 @@
 		});
 	}
 
+	/**
+	 * Resolve the play URL again (network change, a download, a new play mode) and move the
+	 * frame only if it changed: the same URL again must never restart a running game.
+	 *
+	 * Not while the privacy lock is on — the frame is held on a blank page then, and a
+	 * resolve could only start the game behind the lock screen. It runs on unlock instead.
+	 */
 	async function refreshPlayerUrl() {
 		const id = gameId;
 		if (!id) return;
+		if (privacyLocked) {
+			refreshWhenUnlocked = true;
+			return;
+		}
 		const generation = ++playerUrlRefreshGeneration;
 		playerUrlRefreshPending = true;
 		try {
 			const nextUrl = await getGamePlayerUrl(id, gameMetadata);
 			if (generation !== playerUrlRefreshGeneration || id !== gameId) return;
-			gamePlayerUrl = nextUrl;
+			if (nextUrl !== gamePlayerUrl) gamePlayerUrl = nextUrl;
 		} finally {
 			if (generation === playerUrlRefreshGeneration) {
 				playerUrlRefreshPending = false;
@@ -695,6 +729,8 @@
 		setTouchConsoleVisible(false, 'relaunch');
 		/* A manual relaunch is a fresh attempt: every route of the chain is tried again. */
 		clearDirectLaunchFailed(gameId);
+		/* The frame is about to go: its last save first (see `flushGameFrame`). */
+		await flushGameFrame(iframeElement, gameId);
 		gameSurfaceStarted = false;
 		iframeElement = undefined;
 		await refreshPlayerUrl();
@@ -707,23 +743,40 @@
 		toast.message('Game restarted');
 	}
 
+	/** The load running now: a second call for the same game joins it instead of racing it. */
+	let pageLoad: { id: string; soft: boolean; done: Promise<void> } | null = null;
+
 	/**
 	 * @param soft When true, refresh URL/metadata only — never wipe Play / Console.
 	 *             Same-game hard reloads also keep Console (session pref + loadedGameId).
 	 */
-	async function loadGamePage(id: string, opts?: { soft?: boolean }) {
+	function loadGamePage(id: string, opts?: { soft?: boolean }): Promise<void> {
+		const soft = Boolean(opts?.soft);
+		if (pageLoad && pageLoad.id === id && pageLoad.soft === soft) return pageLoad.done;
+		const done = loadGamePageNow(id, soft).finally(() => {
+			if (pageLoad?.done === done) pageLoad = null;
+		});
+		pageLoad = { id, soft, done };
+		return done;
+	}
+
+	async function loadGamePageNow(id: string, soft: boolean) {
 		if (!id) {
 			error = 'Game not found';
 			loading = false;
 			return;
 		}
 
-		const soft = Boolean(opts?.soft);
 		const switchingGame = id !== loadedGameId;
 
 		if (!soft && switchingGame) {
 			/* The surface is about to unmount; leave fullscreen with it, not after it. */
 			if (isGameFullscreen) void leaveFullscreen();
+			/*
+			 * The last game's frame is gone with it (the frame is keyed on the game), so its
+			 * app-made shells can go too. Never while a frame could still be showing one.
+			 */
+			releaseOnlineShells();
 			autoFullscreenFor = '';
 			inGameMenuOpen = false;
 			playOptionsOpen = false;
@@ -739,7 +792,7 @@
 			crashedGameId = '';
 			recommendedGames = [];
 		} else if (!soft) {
-			/* Same game re-entry (onMount + afterNavigate race) — do not wipe Console. */
+			/* Same game entered again (a navigation to its own URL) — do not wipe Console. */
 			error = '';
 		}
 
@@ -831,6 +884,21 @@
 		})();
 	}
 
+	/*
+	 * Leaving the game — for another game or another page — takes its frame away. The game
+	 * pushes its last save first: a frame on an origin of its own cannot once it is gone.
+	 * The navigation waits for that answer (a few milliseconds; half a second at most).
+	 */
+	onNavigate(() => {
+		if (!gameSurfaceStarted || !iframeElement || !gameId) return;
+		return flushGameFrame(iframeElement, gameId);
+	});
+
+	/*
+	 * The one place the game is loaded. SvelteKit runs `afterNavigate` when the page mounts
+	 * (a direct link, a reload) as well as after every navigation to it; loading from
+	 * `onMount` too ran every direct launch twice, resolving the play URL twice.
+	 */
 	afterNavigate(({ from, to }) => {
 		if (!browser || !to) return;
 		const id = to.params?.gameId ?? '';
@@ -847,9 +915,8 @@
 		refreshPlayerSettings();
 		privacyLocked = document.documentElement.hasAttribute('data-privacy-locked');
 		playLimitHold = isGlobalDailyLimitExceeded();
-		// `afterNavigate` does not fire for the route's initial hydration. Load the
-		// requested game here as well so direct links do not remain on "Loading game…".
-		if (gameId) void loadGamePage(gameId);
+		/* Proof of life from game frames, for the launch watchdog, on every platform. */
+		watchGameFrameLife();
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
 			/*
@@ -864,12 +931,11 @@
 
 		const onPrivacyLocked = (e: Event) => {
 			const d = (e as CustomEvent<{ locked: boolean }>).detail;
-			privacyLocked = d?.locked ?? false;
-			applyPrivacyPauseToIframe(d?.locked ?? false);
+			setPrivacyLocked(d?.locked ?? false);
 		};
 		const onSettingsApplied = () => {
 			refreshPauseShortcutLabel();
-			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
+			setPrivacyLocked(document.documentElement.hasAttribute('data-privacy-locked'));
 		};
 		const onPlayLimitsChanged = () => {
 			playLimitHold = isGlobalDailyLimitExceeded();
@@ -965,6 +1031,12 @@
 			void exitGameFullscreen(gameSurfaceEl);
 			playerLayout.destroy();
 			setGameImmersive(false);
+			/*
+			 * No game is on screen any more: the desktop webview stops putting the bridge into
+			 * new frames under this game's id, and this visit's app-made shells are revoked.
+			 */
+			void releaseNativeGameFrames();
+			releaseOnlineShells();
 		};
 	});
 
@@ -1113,47 +1185,27 @@
 		return () => window.removeEventListener(KEY_PROFILE_CHANGED, onProfile);
 	});
 
-	function applyPrivacyPauseToIframe(locked: boolean) {
-		if (!iframeElement) return;
-		const pauseVisual = getPrivacyPauseGameWhileLocked();
-
-		/*
-		 * Always silence output on the privacy lock screen so cross-origin Unity/WebGL
-		 * audio cannot leak through the disguise. Blanking is the only reliable parent-side
-		 * control for cross-origin iframes; restore src on unlock to resume play.
-		 */
-		if (locked) {
-			if (!iframeElement.dataset.privacySrc) {
-				const current = iframeElement.getAttribute('src') || iframeElement.src || '';
-				if (current && current !== 'about:blank') {
-					iframeElement.dataset.privacySrc = current;
-				}
-			}
-			if (iframeElement.getAttribute('src') !== 'about:blank') {
-				iframeElement.setAttribute('src', 'about:blank');
-			}
-			if (pauseVisual) {
-				iframeElement.style.visibility = 'hidden';
-				iframeElement.setAttribute('aria-hidden', 'true');
-			}
+	/**
+	 * The privacy lock. The game frame is held on a blank page while it is on (LazyGameFrame
+	 * `held`): nothing in it runs, so no cross-origin Unity/WebGL audio leaks through the
+	 * disguise, and blanking is the only parent-side control a cross-origin frame has. It
+	 * used to be done by writing `src` behind Svelte's back, which the launch watchdog took
+	 * for a failed launch — it escalated, Svelte wrote the next route's URL, and the game
+	 * played behind the lock screen; unlocking then put back the URL from before the lock.
+	 */
+	function setPrivacyLocked(locked: boolean) {
+		if (locked === privacyLocked) return;
+		if (locked || !refreshWhenUnlocked) {
+			privacyLocked = locked;
 			return;
 		}
-
-		const restore = iframeElement.dataset.privacySrc;
-		if (restore) {
-			iframeElement.setAttribute('src', restore);
-			delete iframeElement.dataset.privacySrc;
-		}
-		iframeElement.style.visibility = '';
-		iframeElement.removeAttribute('aria-hidden');
-	}
-
-	$effect(() => {
-		if (!iframeElement) return;
-		void tick().then(() => {
-			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
+		refreshWhenUnlocked = false;
+		heldForRefresh = true;
+		privacyLocked = false;
+		void refreshPlayerUrl().finally(() => {
+			heldForRefresh = false;
 		});
-	});
+	}
 
 	$effect(() => {
 		if (!gameSurfaceStarted || !gameId) return;
@@ -1295,9 +1347,11 @@
 			{/if}
 			<div class="game-player-surface__frame relative min-h-0 w-full flex-1">
 				<!--
-					Key only on explicit relaunch. Including gamePlayerUrl in the key remounted
-					the frame on every console/proxy URL upgrade and reset bind:started → false,
-					so Console appeared stuck Off and the overlay never showed.
+					Key on the game and on explicit relaunch. Including gamePlayerUrl in the key
+					remounted the frame on every console/proxy URL upgrade and reset bind:started →
+					false, so Console appeared stuck Off and the overlay never showed. The game is
+					in it so a new game never inherits the last one's frame: re-registered under the
+					new id, that frame's final save push for the old game was refused.
 				-->
 				{#if cannotFrameInApp}
 					<div
@@ -1333,7 +1387,7 @@
 						</div>
 					</div>
 				{:else}
-					{#key playerRemountKey}
+					{#key `${gameId}\n${playerRemountKey}`}
 						<LazyGameFrame
 							{gameId}
 							gameUrl={playUrlReady
@@ -1348,6 +1402,7 @@
 							fillContainer={isGameFullscreen || playerLayout.isCompact}
 							startDisabled={!gameSurfaceStarted &&
 								(playerUrlRefreshPending || privacyLocked || playLimitHold)}
+							held={privacyLocked || heldForRefresh}
 							bind:started={gameSurfaceStarted}
 							onIframeReady={(el) => {
 								const next = el ?? undefined;

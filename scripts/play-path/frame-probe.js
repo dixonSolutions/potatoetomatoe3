@@ -56,6 +56,15 @@
 		}
 	}
 
+	/* Can this frame reach into the app page — its document, or the desktop app's IPC? */
+	function can(read) {
+		try {
+			return read() !== false;
+		} catch {
+			return false;
+		}
+	}
+
 	function bridgeState() {
 		var b = window.__ptStorageBridge;
 		return {
@@ -63,7 +72,14 @@
 			bridgeGameId: b ? String(b.gameId || '') : '',
 			virtual: Boolean(b && b.virtual),
 			nativeBridge: Boolean(window.__ptNativeGameFrame),
-			nativeRole: window.__ptNativeGameFrame ? String(window.__ptNativeGameFrame.role || '') : ''
+			nativeRole: window.__ptNativeGameFrame ? String(window.__ptNativeGameFrame.role || '') : '',
+			origin: String(self.origin),
+			appDocument: can(function () {
+				return typeof window.top.document.title === 'string';
+			}),
+			appIpc: can(function () {
+				return Boolean(window.top.__TAURI_INTERNALS__);
+			})
 		};
 	}
 

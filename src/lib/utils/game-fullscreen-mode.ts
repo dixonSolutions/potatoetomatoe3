@@ -71,22 +71,43 @@ function isTauriDesktop(): boolean {
 let chromeOwned: ChromeFullscreen = 'none';
 /** The first attempt had no gesture to ride on; the next menu press may try again. */
 let upgradePending = false;
+/**
+ * Bumped by every enter and exit, so an enter that finishes after a newer call knows it
+ * is stale; `latest` is what that newest call asked for.
+ */
+let generation = 0;
+let latest: 'enter' | 'exit' = 'exit';
+/* Read through a call: after an await, `latest` may be what another call set. */
+function newestCallWasExit(): boolean {
+	return latest === 'exit';
+}
+/*
+ * Native window calls, one at a time and in the order they were made. An enter still
+ * waiting on the window when an exit came in used to finish after it and leave the window
+ * fullscreen with the game back in the page. Window calls need no gesture, so queueing
+ * them costs nothing.
+ */
+let windowCalls: Promise<unknown> = Promise.resolve();
 
 /**
  * @returns `owned` when this call made the window fullscreen, `already` when it was
  *   fullscreen before (F11, the window manager — not ours to undo), `failed` when the
  *   window API is unavailable (for instance the capability is not granted).
  */
-async function setTauriWindowFullscreen(on: boolean): Promise<'owned' | 'already' | 'failed'> {
-	try {
-		const { getCurrentWindow } = await import('@tauri-apps/api/window');
-		const win = getCurrentWindow();
-		if (on && (await win.isFullscreen())) return 'already';
-		await win.setFullscreen(on);
-		return 'owned';
-	} catch {
-		return 'failed';
-	}
+function setTauriWindowFullscreen(on: boolean): Promise<'owned' | 'already' | 'failed'> {
+	const call = windowCalls.then(async (): Promise<'owned' | 'already' | 'failed'> => {
+		try {
+			const { getCurrentWindow } = await import('@tauri-apps/api/window');
+			const win = getCurrentWindow();
+			if (on && (await win.isFullscreen())) return 'already';
+			await win.setFullscreen(on);
+			return 'owned';
+		} catch {
+			return 'failed';
+		}
+	});
+	windowCalls = call;
+	return call;
 }
 
 function requestDocumentFullscreen(): Promise<boolean> {
@@ -129,8 +150,19 @@ async function hideChrome(): Promise<boolean> {
  * Call from inside a user gesture whenever there is one.
  */
 export async function enterGameFullscreen(surface: Element): Promise<void> {
+	const call = ++generation;
+	latest = 'enter';
 	enterPseudoFullscreen(surface);
-	upgradePending = !(await hideChrome());
+	const hidden = await hideChrome();
+	if (call !== generation) {
+		/*
+		 * Left (or entered again) while the chrome was still going: whatever this call took,
+		 * a newer exit wants given back.
+		 */
+		if (newestCallWasExit() && chromeOwned !== 'none') await releaseChrome();
+		return;
+	}
+	upgradePending = !hidden;
 }
 
 /**
@@ -151,8 +183,15 @@ export function upgradeGameFullscreenOnGesture(surface: Element | null | undefin
 
 /** Leave immersive mode entirely: surface back in the page, chrome restored. */
 export async function exitGameFullscreen(surface: Element | null | undefined): Promise<void> {
+	++generation;
+	latest = 'exit';
 	upgradePending = false;
 	if (surface) exitPseudoFullscreen(surface);
+	await releaseChrome();
+}
+
+/** Give back the chrome this module hid (the window, or the document's fullscreen). */
+async function releaseChrome(): Promise<void> {
 	const owned = chromeOwned;
 	chromeOwned = 'none';
 	if (owned === 'tauri-window') {

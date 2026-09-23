@@ -26,6 +26,14 @@
 
 	const ALL_ROUTES: PlayRouteKind[] = ['direct', 'local', 'shell', 'relay', 'puller'];
 	import { saveGamePlayMode } from '$lib/utils/game-play-mode';
+	import { registerGameFrameHost } from '$lib/utils/game-storage-bridge';
+	import {
+		frameLoadsPerStart,
+		frameSandboxFor,
+		isShellBlobUrl,
+		releaseOnlineShells,
+		shellFrameSrcFor
+	} from '$lib/utils/online-play-routing-shell';
 	import {
 		fetchGameOfflineStatus,
 		getOfflineBackend,
@@ -95,6 +103,15 @@
 	let frameAllow = $state<string | undefined>(undefined);
 	let frameKey = $state(0);
 	let frameEl = $state<HTMLIFrameElement | undefined>(undefined);
+	/** The game the frame is launching: it hosts that game's saves, as on the game page. */
+	let frameGameId = $state('');
+
+	$effect(() => {
+		const frame = frameEl;
+		const id = frameGameId;
+		if (!frame || !id) return;
+		return registerGameFrameHost(frame, id);
+	});
 
 	/** Same rule as the game page: a frame whose document runs is not a failed launch. */
 	function frameIsRunning(id: string, since: number): boolean {
@@ -185,11 +202,17 @@
 				if (result.urls.includes(url)) break;
 				result.urls.push(url);
 				result.routes.push(kind ?? 'offline');
+				/* An app-made shell's loader loads before the game it writes in: count both. */
+				let loadsLeft = frameLoadsPerStart(url);
 				const loaded = new Promise<void>((resolve) => {
-					onFrameLoad = resolve;
+					onFrameLoad = () => {
+						loadsLeft--;
+						if (loadsLeft <= 0) resolve();
+					};
 				});
 				const frameStart = Date.now();
 				frameAllow = iframeAllowForUrl(url);
+				frameGameId = id;
 				frameUrl = url;
 				frameKey++;
 				const stallMs = config.stallMs || DEFAULT_STALL_MS;
@@ -201,7 +224,8 @@
 				if (loadOutcome === 'loaded') {
 					result.loadMs = Date.now() - t0;
 					const expectsWord =
-						kind === 'relay' ||
+						url.startsWith('ptrelay:') ||
+						isShellBlobUrl(url) ||
 						(kind === 'direct' && nativeGameFramesActive() && !url.startsWith('/'));
 					if (expectsWord && result.canvasMs === null) {
 						await sleep(1500);
@@ -225,7 +249,9 @@
 			window.removeEventListener('message', onProbe);
 			onFrameLoad = null;
 			frameUrl = '';
+			frameGameId = '';
 			frameKey++;
+			releaseOnlineShells(id);
 		}
 		return result;
 	}
@@ -287,9 +313,11 @@
 	<div class="relative min-h-0 flex-1 bg-black">
 		{#key frameKey}
 			{#if frameUrl}
+				<!-- As the game page frames it (LazyGameFrame): a shell is its sandboxed loader. -->
 				<iframe
 					bind:this={frameEl}
-					src={frameUrl}
+					sandbox={frameSandboxFor(frameUrl)}
+					src={shellFrameSrcFor(frameUrl) ?? frameUrl}
 					title="bench"
 					class="h-full w-full border-0"
 					allowfullscreen
