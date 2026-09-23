@@ -333,6 +333,30 @@ describe("a game's saves belong to the frame hosting it", () => {
 		expect(mayTouchGameSaves(game as unknown as Window, 'a', 'pull')).toBe(false);
 	});
 
+	it('keeps a frame with its first game when the page moves on: A → B keeps A’s last push', () => {
+		const app = fakeWindow();
+		const frameA = fakeWindow(app);
+		const iframeA = hostFrame(frameA);
+		const unregisterA = registerGameFrameHost(iframeA, 'a');
+		/* The page switches to game b while a's frame is still up, and asks to host b in it. */
+		const stray = registerGameFrameHost(iframeA, 'b');
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'a', 'push')).toBe(true);
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'b', 'pull')).toBe(false);
+		stray();
+		unregisterA();
+		/* Reused once a is unregistered: its windows still belong to a. */
+		const reused = registerGameFrameHost(iframeA, 'b');
+		reused();
+		const frameB = fakeWindow(app);
+		const unregisterB = registerGameFrameHost(hostFrame(frameB), 'b');
+		/* a's frame goes; its last push, sent as it unloads, is still a's. */
+		detach(frameA);
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'a', 'push')).toBe(true);
+		expect(mayTouchGameSaves(frameA as unknown as Window, 'b', 'push')).toBe(false);
+		expect(mayTouchGameSaves(frameB as unknown as Window, 'b', 'pull')).toBe(true);
+		unregisterB();
+	});
+
 	it('remembers frames that spoke while attached, even if they appeared after load', () => {
 		const app = fakeWindow();
 		const game = fakeWindow(app);

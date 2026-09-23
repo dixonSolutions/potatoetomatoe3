@@ -219,22 +219,24 @@
 	/*
 	 * This frame is where the game's saves come from: only it, and frames nested in it, may
 	 * pull or push them (`game-storage-bridge.ts`).
+	 *
+	 * A frame hosts the game it was started with, for as long as it exists. The page keys
+	 * this component on the game, so a new game gets a new frame; were the id to change
+	 * under a running frame anyway, registering it again under the new id would hand the
+	 * old game's documents — and the last save they push as they unload — to the new game.
 	 */
+	let hostedFor: { frame: HTMLIFrameElement; id: string } | null = null;
 	$effect(() => {
-		const id = gameId;
 		const frame = started ? iframeEl : null;
-		if (!frame || !id) return;
-		return registerGameFrameHost(frame, id);
-	});
-
-	$effect(() => {
-		const id = gameId;
-		const active = started;
-		const frame = iframeEl;
+		if (!frame) return;
+		const id = hostedFor?.frame === frame ? hostedFor.id : gameId;
+		if (!id) return;
+		hostedFor = { frame, id };
+		const unregister = registerGameFrameHost(frame, id);
 		return () => {
-			if (active && frame && id) {
-				void captureGameStorageFromIframe(frame, id);
-			}
+			/* On its way out, a same-origin game hands over what it has not pushed yet. */
+			void captureGameStorageFromIframe(frame, id);
+			unregister();
 		};
 	});
 </script>

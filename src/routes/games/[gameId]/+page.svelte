@@ -1342,9 +1342,11 @@
 			{/if}
 			<div class="game-player-surface__frame relative min-h-0 w-full flex-1">
 				<!--
-					Key only on explicit relaunch. Including gamePlayerUrl in the key remounted
-					the frame on every console/proxy URL upgrade and reset bind:started → false,
-					so Console appeared stuck Off and the overlay never showed.
+					Key on the game and on explicit relaunch. Including gamePlayerUrl in the key
+					remounted the frame on every console/proxy URL upgrade and reset bind:started →
+					false, so Console appeared stuck Off and the overlay never showed. The game is
+					in it so a new game never inherits the last one's frame: re-registered under the
+					new id, that frame's final save push for the old game was refused.
 				-->
 				{#if cannotFrameInApp}
 					<div
@@ -1380,7 +1382,7 @@
 						</div>
 					</div>
 				{:else}
-					{#key playerRemountKey}
+					{#key `${gameId}\n${playerRemountKey}`}
 						<LazyGameFrame
 							{gameId}
 							gameUrl={playUrlReady

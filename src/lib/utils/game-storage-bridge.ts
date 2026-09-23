@@ -210,9 +210,19 @@ const knownFrames = new WeakMap<object, string>();
 /* Portal shells nest the game a few frames deep; nothing legitimate goes this far. */
 const MAX_FRAME_DEPTH = 12;
 
+/**
+ * A window is attributed to the first game it was seen hosting, and never moved to
+ * another: the game page gives every game a frame of its own, so a window that shows up
+ * under a second game is the first game's frame being reused, and its last push — sent
+ * as it unloads — still belongs to the first.
+ */
+function rememberWindow(win: object, gameId: string): void {
+	if (!knownFrames.has(win)) knownFrames.set(win, gameId);
+}
+
 function rememberFrameTree(win: Window | null, gameId: string, depth = 0): void {
 	if (!win || depth > MAX_FRAME_DEPTH) return;
-	knownFrames.set(win, gameId);
+	rememberWindow(win, gameId);
 	let count = 0;
 	try {
 		count = win.frames.length;
@@ -235,6 +245,9 @@ function rememberFrameTree(win: Window | null, gameId: string, depth = 0): void 
  * it, may read or write the game's saves. Returns the unregister function.
  */
 export function registerGameFrameHost(iframe: HTMLIFrameElement, gameId: string): () => void {
+	const hosting = hostedFrames.get(iframe);
+	/* A frame already hosting another game keeps it (see `rememberWindow`). */
+	if (hosting !== undefined && hosting !== gameId) return () => {};
 	hostedFrames.set(iframe, gameId);
 	rememberFrameTree(iframe.contentWindow, gameId);
 	return () => {
@@ -308,7 +321,7 @@ export function mayTouchGameSaves(
 ): boolean {
 	if (!isWindow(source)) return false;
 	if (isInsideHostOf(source, gameId)) {
-		knownFrames.set(source, gameId);
+		rememberWindow(source, gameId);
 		return true;
 	}
 	/*
