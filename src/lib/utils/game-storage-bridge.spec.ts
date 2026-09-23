@@ -35,7 +35,10 @@ const {
 	GAME_STORAGE_MESSAGE_TYPE,
 	attachGameStorageBridge,
 	captureGameStorageFromIframe,
-	preloadGameBrowserProfile
+	mayTouchGameSaves,
+	noteGameFrameTree,
+	preloadGameBrowserProfile,
+	registerGameFrameHost
 } = await import('./game-storage-bridge');
 
 function profileWith(buckets: Record<string, Record<string, string>>): GameBrowserProfile {
@@ -65,6 +68,16 @@ function fakeWindow(parent?: FakeWindow): FakeWindow {
 	win.parent = parent ?? win;
 	parent?.frames.push(win);
 	return win;
+}
+
+/** The frame going away: detached windows report closed and have no parent. */
+function detach(win: FakeWindow): void {
+	win.closed = true;
+	win.parent = null;
+}
+
+function hostFrame(win: FakeWindow): HTMLIFrameElement {
+	return { contentWindow: win } as unknown as HTMLIFrameElement;
 }
 
 /** The app window: the message target, and where the preloaded profiles live. */
@@ -144,6 +157,7 @@ describe('a failed save read is not "no saves"', () => {
 		vi.stubGlobal('window', app);
 		const stop = attachGameStorageBridge();
 		const frame = fakeWindow(app);
+		const unregister = registerGameFrameHost(hostFrame(frame), 'pull-fail');
 		const saves = profileWith({ 'https://a': { level: '9' } });
 		store.saved.set('pull-fail', saves);
 		store.readFails.add('pull-fail');
@@ -158,6 +172,7 @@ describe('a failed save read is not "no saves"', () => {
 		app.send(frame, 'pull', 'pull-fail');
 		await settle();
 		expect(hydrates(frame)).toEqual([expect.objectContaining({ data: saves })]);
+		unregister();
 		stop();
 	});
 
@@ -166,10 +181,12 @@ describe('a failed save read is not "no saves"', () => {
 		vi.stubGlobal('window', app);
 		const stop = attachGameStorageBridge();
 		const frame = fakeWindow(app);
+		const unregister = registerGameFrameHost(hostFrame(frame), 'no-saves');
 
 		app.send(frame, 'pull', 'no-saves');
 		await settle();
 		expect(hydrates(frame)).toEqual([expect.objectContaining({ data: null })]);
+		unregister();
 		stop();
 	});
 
@@ -210,5 +227,94 @@ describe('a failed save read is not "no saves"', () => {
 			'https://a': { late: 'x' },
 			'https://offline': { save: '12' }
 		});
+	});
+});
+
+describe("a game's saves belong to the frame hosting it", () => {
+	it('accepts the hosting frame and frames nested in it, for that game only', () => {
+		const app = fakeWindow();
+		const game = fakeWindow(app);
+		const shell = fakeWindow(game);
+		const inner = fakeWindow(shell);
+		const unregister = registerGameFrameHost(hostFrame(game), 'a');
+
+		expect(mayTouchGameSaves(game as unknown as Window, 'a', 'pull')).toBe(true);
+		expect(mayTouchGameSaves(inner as unknown as Window, 'a', 'push')).toBe(true);
+		/* A frame inside game a cannot read or write game b's saves. */
+		expect(mayTouchGameSaves(inner as unknown as Window, 'b', 'pull')).toBe(false);
+		expect(mayTouchGameSaves(inner as unknown as Window, 'b', 'push')).toBe(false);
+		unregister();
+	});
+
+	it('refuses frames outside the hosting frame, the app itself included', () => {
+		const app = fakeWindow();
+		const game = fakeWindow(app);
+		const ad = fakeWindow(app);
+		const otherGame = fakeWindow(app);
+		const unregisterA = registerGameFrameHost(hostFrame(game), 'a');
+		const unregisterB = registerGameFrameHost(hostFrame(otherGame), 'b');
+
+		expect(mayTouchGameSaves(ad as unknown as Window, 'a', 'push')).toBe(false);
+		expect(mayTouchGameSaves(app as unknown as Window, 'a', 'pull')).toBe(false);
+		expect(mayTouchGameSaves(otherGame as unknown as Window, 'a', 'push')).toBe(false);
+		expect(mayTouchGameSaves(null, 'a', 'push')).toBe(false);
+		unregisterA();
+		unregisterB();
+	});
+
+	it('lets a closing frame flush only the game it was seen hosting', () => {
+		const app = fakeWindow();
+		const game = fakeWindow(app);
+		const nested = fakeWindow(game);
+		const stranger = fakeWindow(app);
+		const iframe = hostFrame(game);
+		const unregister = registerGameFrameHost(iframe, 'a');
+		noteGameFrameTree(iframe, 'a');
+		unregister();
+		detach(game);
+		detach(nested);
+		detach(stranger);
+
+		expect(mayTouchGameSaves(game as unknown as Window, 'a', 'push')).toBe(true);
+		expect(mayTouchGameSaves(nested as unknown as Window, 'a', 'push')).toBe(true);
+		expect(mayTouchGameSaves(game as unknown as Window, 'b', 'push')).toBe(false);
+		/* Closed is not enough: it has to have been one of this game's frames. */
+		expect(mayTouchGameSaves(stranger as unknown as Window, 'a', 'push')).toBe(false);
+		/* And a closing frame only flushes; it cannot read. */
+		expect(mayTouchGameSaves(game as unknown as Window, 'a', 'pull')).toBe(false);
+	});
+
+	it('remembers frames that spoke while attached, even if they appeared after load', () => {
+		const app = fakeWindow();
+		const game = fakeWindow(app);
+		const unregister = registerGameFrameHost(hostFrame(game), 'a');
+		const late = fakeWindow(game);
+		expect(mayTouchGameSaves(late as unknown as Window, 'a', 'pull')).toBe(true);
+		unregister();
+		detach(late);
+		expect(mayTouchGameSaves(late as unknown as Window, 'a', 'push')).toBe(true);
+	});
+
+	it('writes nothing for a push from a foreign frame', async () => {
+		const app = fakeAppWindow();
+		vi.stubGlobal('window', app);
+		const stop = attachGameStorageBridge();
+		const game = fakeWindow(app);
+		const nested = fakeWindow(game);
+		const foreign = fakeWindow(app);
+		const unregister = registerGameFrameHost(hostFrame(game), 'mine');
+
+		app.send(foreign, 'push', 'mine', profileWith({ 'https://x': { save: '999' } }));
+		app.send(nested, 'push', 'theirs', profileWith({ 'https://x': { save: '999' } }));
+		app.send(foreign, 'pull', 'mine');
+		await settle();
+		expect(store.writes).toEqual([]);
+		expect(foreign.postMessage).not.toHaveBeenCalled();
+
+		app.send(nested, 'push', 'mine', profileWith({ 'https://x': { save: '1' } }));
+		await settle();
+		expect(store.writes.map((w) => w.gameId)).toEqual(['mine']);
+		unregister();
+		stop();
 	});
 });

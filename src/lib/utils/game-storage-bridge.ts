@@ -7,9 +7,12 @@
  * profile this module preloads onto `window.__ptGameProfiles` when it can read it
  * synchronously (same-origin frames), and pulls it over postMessage otherwise.
  *
- * Nothing is answered or written on the strength of a failed read. The frame holds its
- * pushes until it has an answer and asks again with backoff; the app holds pushes it could
- * not merge until the stored profile can be read.
+ * Two rules hold everything else up:
+ *   - A game's saves are read and written only by the frame the page hosts that game in
+ *     (`registerGameFrameHost`), or a frame nested inside it.
+ *   - Nothing is answered or written on the strength of a failed read. The frame holds its
+ *     pushes until it has an answer and asks again with backoff; the app holds pushes it
+ *     could not merge until the stored profile can be read.
  */
 
 import {
@@ -190,31 +193,130 @@ function queueSave(gameId: string, incoming: GameBrowserProfile | null): Promise
 	return next;
 }
 
-/** True when `source` is a frame nested somewhere inside this window. */
-function isDescendantFrame(source: MessageEventSource | null): boolean {
-	if (!source || typeof window === 'undefined') return false;
-	const visit = (win: Window, depth: number): boolean => {
-		if (depth > 6) return false;
-		let count = 0;
+/* ------------------------------------------------------------------------------------
+ * Which frame may touch which game's saves
+ * ---------------------------------------------------------------------------------- */
+
+/** Frames the page is hosting a game in, with that game's id. */
+const hostedFrames = new Map<HTMLIFrameElement, string>();
+/**
+ * Windows seen inside a frame hosting a game, with that game's id. A window keeps its
+ * identity across navigations of its frame, and after the frame is removed: that is what
+ * lets a frame's last push, sent from `pagehide` once it is no longer in the frame tree,
+ * through — for the game it was hosting, and no other. Weak, so a removed game's documents
+ * are not kept alive by it.
+ */
+const knownFrames = new WeakMap<object, string>();
+/* Portal shells nest the game a few frames deep; nothing legitimate goes this far. */
+const MAX_FRAME_DEPTH = 12;
+
+function rememberFrameTree(win: Window | null, gameId: string, depth = 0): void {
+	if (!win || depth > MAX_FRAME_DEPTH) return;
+	knownFrames.set(win, gameId);
+	let count = 0;
+	try {
+		count = win.frames.length;
+	} catch {
+		return;
+	}
+	for (let i = 0; i < count; i++) {
+		let child: Window | null = null;
 		try {
-			count = win.frames.length;
+			child = win.frames[i];
+		} catch {
+			continue;
+		}
+		rememberFrameTree(child, gameId, depth + 1);
+	}
+}
+
+/**
+ * The page hosts `gameId` in `iframe`: from now on only that frame, and frames nested in
+ * it, may read or write the game's saves. Returns the unregister function.
+ */
+export function registerGameFrameHost(iframe: HTMLIFrameElement, gameId: string): () => void {
+	hostedFrames.set(iframe, gameId);
+	rememberFrameTree(iframe.contentWindow, gameId);
+	return () => {
+		if (hostedFrames.get(iframe) !== gameId) return;
+		/* Documents still in it flush on pagehide, after it has left the tree. */
+		rememberFrameTree(iframe.contentWindow, gameId);
+		hostedFrames.delete(iframe);
+	};
+}
+
+/**
+ * Note every frame currently inside the hosting frame — the frame's `load` is a good time:
+ * a portal shell has built its game frame by then. A frame nested in the game that never
+ * spoke while attached can then still flush on its way out.
+ */
+export function noteGameFrameTree(iframe: HTMLIFrameElement, gameId: string): void {
+	if (hostedFrames.get(iframe) === gameId) rememberFrameTree(iframe.contentWindow, gameId);
+}
+
+function isWindow(source: MessageEventSource | null): source is Window {
+	if (!source || typeof source !== 'object') return false;
+	try {
+		return 'parent' in source && typeof (source as Window).postMessage === 'function';
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * True when `source` is the window of a frame this page hosts `gameId` in, or a window
+ * nested under it. Walks up through `parent`, which every window may read, cross-origin
+ * included — so a native-injected game frame on its own host qualifies, and a frame the
+ * page did not create for this game (another game's, an ad in the app page) does not.
+ */
+function isInsideHostOf(source: Window, gameId: string): boolean {
+	const hosts = new Set<Window>();
+	for (const [iframe, id] of hostedFrames) {
+		if (id !== gameId) continue;
+		const win = iframe.contentWindow;
+		if (win) hosts.add(win);
+	}
+	if (!hosts.size) return false;
+	let win: Window = source;
+	for (let depth = 0; depth <= MAX_FRAME_DEPTH; depth++) {
+		if (hosts.has(win)) return true;
+		let parent: Window | null = null;
+		try {
+			parent = win.parent;
 		} catch {
 			return false;
 		}
-		for (let i = 0; i < count; i++) {
-			let child: Window | null = null;
-			try {
-				child = win.frames[i];
-			} catch {
-				continue;
-			}
-			if (!child) continue;
-			if (child === source) return true;
-			if (visit(child, depth + 1)) return true;
-		}
+		if (!parent || parent === win) return false;
+		win = parent;
+	}
+	return false;
+}
+
+function isClosed(win: Window): boolean {
+	try {
+		return win.closed;
+	} catch {
 		return false;
-	};
-	return visit(window, 0);
+	}
+}
+
+/** Whether a storage message about `gameId` from `source` may be acted on. */
+export function mayTouchGameSaves(
+	source: MessageEventSource | null,
+	gameId: string,
+	action: string
+): boolean {
+	if (!isWindow(source)) return false;
+	if (isInsideHostOf(source, gameId)) {
+		knownFrames.set(source, gameId);
+		return true;
+	}
+	/*
+	 * A frame being torn down flushes from its pagehide, by which point it is no longer in
+	 * the frame tree — its window reports closed, and has no parent to walk. Its push counts
+	 * only if that window was seen hosting this game while it was attached.
+	 */
+	return action === 'push' && isClosed(source) && knownFrames.get(source) === gameId;
 }
 
 export function attachGameStorageBridge(): () => void {
@@ -229,13 +331,7 @@ export function attachGameStorageBridge(): () => void {
 		};
 		if (!msg || msg.type !== GAME_STORAGE_MESSAGE_TYPE || typeof msg.gameId !== 'string') return;
 		if (msg.action !== 'pull' && msg.action !== 'push') return;
-		/*
-		 * Only the game frames this page hosts may read or write a game's saves. A frame
-		 * being torn down flushes from its pagehide, by which point it is no longer in the
-		 * frame tree — its WindowProxy reports closed, which no live foreign window does.
-		 */
-		const closingFrame = msg.action === 'push' && Boolean((event.source as Window | null)?.closed);
-		if (!isDescendantFrame(event.source) && !closingFrame) return;
+		if (!mayTouchGameSaves(event.source, msg.gameId, msg.action)) return;
 		const gameId = msg.gameId;
 
 		if (msg.action === 'pull') {

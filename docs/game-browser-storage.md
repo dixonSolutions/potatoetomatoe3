@@ -99,7 +99,17 @@ per database (`mergeGameBrowserProfiles`) instead of replacing the whole profile
 serialises writes per game. Pushes that arrive while a write is running are folded into
 one next write, so a slow store cannot queue a profile copy per push.
 
-The app side answers `pull` / `push` only for frames nested in the page.
+**A game's saves belong to the frame hosting it.** `LazyGameFrame` registers its iframe
+with the game's id (`registerGameFrameHost`), and a `pull` or `push` for game X is acted on
+only when it comes from that iframe's window or a window nested under it. The check walks
+`source.parent` up to the hosting iframe's `contentWindow` — `parent` is readable across
+origins, so native-injected game frames on their own host and nested portal frames pass,
+while a frame in the app page outside the game, or a frame inside game X naming game Y,
+does not. (Any frame nested in the page used to be able to read or write any game's saves
+by naming it.) A frame being torn down flushes from `pagehide`, when it is no longer in
+the frame tree and has no parent to walk: its push counts only if that window was seen
+inside the frame hosting that game — noted at registration, on the frame's `load`, and on
+every message it sent while attached.
 
 Injection:
 

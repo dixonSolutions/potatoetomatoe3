@@ -11,6 +11,9 @@
  *     profile store slower than the pull used to wait for, a forged `hydrate`, and a store
  *     whose reads fail (not "no saves": nothing is written over them, and the game gets
  *     them once the store reads again);
+ *   - a game's saves are read and written only from the frame hosting that game: a frame
+ *     inside it asking for another game's saves, and a frame in the app page outside it,
+ *     are ignored;
  *   - live key detection: declared keys listed, keys the game handles promoted to "in use";
  *   - the console: one keydown per press (no duplicate dispatch), a canvas that listens
  *     itself gets the key even inside a listening wrapper, holds never turn into layout
@@ -889,6 +892,84 @@ await shot(page, '02-game-running.png');
 		`save=${savedAfter}`
 	);
 
+	/*
+	 * A game's saves belong to the frame hosting it. Any frame nested in the page used to
+	 * be able to pull or push any game's profile by naming it.
+	 */
+	const hosted = await settledFrame(
+		sp,
+		PLAIN_GAME,
+		() => typeof window.bootCount === 'number',
+		15000
+	);
+	const evilProfile = (origin) => ({
+		schemaVersion: 1,
+		updatedAt: Date.now(),
+		profile: {
+			Default: {
+				localStorage: { [origin]: { save: '999', __pt_ts: String(Date.now() + 1e9) } },
+				sessionStorage: {},
+				cookies: [],
+				indexedDB: []
+			}
+		}
+	});
+	/* A frame inside this game (an ad, say) asks for and writes another game's saves. */
+	await hosted.evaluate(
+		({ other, evil }) => {
+			const f = document.createElement('iframe');
+			f.srcdoc = `<script>
+				window.answers = [];
+				addEventListener('message', (e) => {
+					if (e.data && e.data.type === 'potato-tomato-game-storage') answers.push(e.data);
+				});
+				const msg = { type: 'potato-tomato-game-storage', gameId: ${JSON.stringify(other)} };
+				top.postMessage({ ...msg, action: 'pull' }, '*');
+				top.postMessage({ ...msg, action: 'push', data: ${JSON.stringify(evil)} }, '*');
+			</script>`;
+			f.id = 'foreign-in-game';
+			document.body.appendChild(f);
+		},
+		{ other: NEST_GAME, evil: evilProfile('https://foreign.example') }
+	);
+	/* A frame in the app page, outside the game's frame, writes this game's saves. */
+	await sp.evaluate(
+		({ game, evil }) => {
+			const f = document.createElement('iframe');
+			f.srcdoc = `<script>
+				window.answers = [];
+				addEventListener('message', (e) => {
+					if (e.data && e.data.type === 'potato-tomato-game-storage') answers.push(e.data);
+				});
+				const msg = { type: 'potato-tomato-game-storage', gameId: ${JSON.stringify(game)} };
+				top.postMessage({ ...msg, action: 'pull' }, '*');
+				top.postMessage({ ...msg, action: 'push', data: ${JSON.stringify(evil)} }, '*');
+			</script>`;
+			f.id = 'foreign-in-app';
+			f.style.display = 'none';
+			document.body.appendChild(f);
+		},
+		{ game: PLAIN_GAME, evil: evilProfile('https://foreign.example') }
+	);
+	await sleep(2500);
+	const otherGame = await storedProfile(sp, NEST_GAME);
+	const answersInGame = await hosted.evaluate(
+		() => document.getElementById('foreign-in-game')?.contentWindow?.answers?.length ?? -1
+	);
+	check(
+		"A frame inside one game cannot read or write another game's saves",
+		otherGame === null && answersInGame === 0,
+		`other game stored=${JSON.stringify(savedBucket(otherGame))} answers=${answersInGame}`
+	);
+	const plainNow = await storedProfile(sp, PLAIN_GAME);
+	const answersInApp = await sp.evaluate(
+		() => document.getElementById('foreign-in-app')?.contentWindow?.answers?.length ?? -1
+	);
+	check(
+		"A frame outside the game's frame cannot read or write its saves",
+		!plainNow?.profile.Default.localStorage['https://foreign.example'] && answersInApp === 0,
+		`buckets=${Object.keys(plainNow?.profile.Default.localStorage ?? {}).join(',')} answers=${answersInApp}`
+	);
 	await sp.context().close();
 }
 {
