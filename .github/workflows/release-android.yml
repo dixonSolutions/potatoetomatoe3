@@ -52,7 +52,14 @@ jobs:
           distribution: temurin
           java-version: '17'
           cache: gradle
+      # The action's default is `tools platform-tools`, and `tools` is the long-obsolete
+      # SDK Tools package Google has now dropped from the repository, so `sdkmanager
+      # tools` exits 1 with "Failed to find package 'tools'" and takes the publish with
+      # it. Nothing here wants it: the compiler pieces come from the sdkmanager call
+      # below, and Gradle drives the build. Naming `packages` explicitly skips it.
       - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
       - uses: dtolnay/rust-toolchain@stable
       # The aarch64 build was recompiling every crate from scratch on every release
       # (~10 min of the APK step). `shared-key` keeps the entry off the job id so the
