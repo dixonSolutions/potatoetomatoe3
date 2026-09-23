@@ -2314,6 +2314,10 @@
 		 * the real saves, arriving next, were then older than the defaults and ignored.
 		 * Ask again instead, and keep holding pushes until an answer comes; meanwhile
 		 * writes still reach this origin's cache, which the next boot starts from.
+		 *
+		 * No answer at all is what the app gives when it could not read the saves (a store
+		 * error): it never says "no saves" for that. So this keeps asking, every 64 s once
+		 * the backoff is spent, for as long as the game runs — the saves may come back.
 		 */
 		var pullDelay = 4000;
 		var sendPull = function () {
@@ -2323,9 +2327,8 @@
 			} catch (e) {
 				/* retried below */
 			}
-			if (pullDelay > 64000) return;
 			setTimeout(sendPull, pullDelay);
-			pullDelay *= 2;
+			if (pullDelay < 64000) pullDelay *= 2;
 		};
 		sendPull();
 	}

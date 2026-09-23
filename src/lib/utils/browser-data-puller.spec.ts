@@ -24,9 +24,7 @@ describe('puller browser-data disk I/O', () => {
 		const { readGameBrowserProfile, writeGameBrowserProfile } = await import(
 			'../../../puller/src/browser-data.js'
 		);
-		const { emptyGameBrowserProfile } = await import(
-			'../../../puller/src/browser-data-profile.js'
-		);
+		const { emptyGameBrowserProfile } = await import('../../../puller/src/browser-data-profile.js');
 
 		const profile = emptyGameBrowserProfile();
 		profile.profile.Default.localStorage['http://localhost'] = { score: '42' };
@@ -49,12 +47,39 @@ describe('puller browser-data disk I/O', () => {
 		expect(JSON.parse(metaRaw).updatedAt).toBeGreaterThan(0);
 	});
 
+	it('fails a read of a profile it cannot parse instead of calling it empty', async () => {
+		const { readGameBrowserProfile, writeGameBrowserProfile } = await import(
+			'../../../puller/src/browser-data.js'
+		);
+		const { emptyGameBrowserProfile } = await import('../../../puller/src/browser-data-profile.js');
+
+		expect(await readGameBrowserProfile(gameId)).toBeNull();
+		const profile = emptyGameBrowserProfile();
+		profile.profile.Default.localStorage['http://localhost'] = { score: '42' };
+		await writeGameBrowserProfile(gameId, profile);
+
+		const localPath = path.join(tmpRoot, gameId, 'data', 'profile/Default/localStorage.json');
+		await fs.writeFile(localPath, '{"http://localhost": {"score": ', 'utf-8');
+		await expect(readGameBrowserProfile(gameId)).rejects.toThrow();
+
+		await fs.writeFile(localPath, '["wrong", "kind"]', 'utf-8');
+		await expect(readGameBrowserProfile(gameId)).rejects.toThrow('wrong kind');
+
+		await fs.writeFile(localPath, '{"http://localhost": {"score": "42"}}', 'utf-8');
+		const dbDir = path.join(tmpRoot, gameId, 'data', 'profile/Default/indexeddb/game-db');
+		await fs.mkdir(dbDir, { recursive: true });
+		await fs.writeFile(path.join(dbDir, 'records.json'), '[{"storeName":', 'utf-8');
+		await expect(readGameBrowserProfile(gameId)).rejects.toThrow();
+
+		await fs.rm(dbDir, { recursive: true });
+		const back = await readGameBrowserProfile(gameId);
+		expect(back?.profile.Default.localStorage['http://localhost']).toEqual({ score: '42' });
+	});
+
 	it('delete removes data tree', async () => {
 		const { readGameBrowserProfile, writeGameBrowserProfile, deleteGameBrowserProfile } =
 			await import('../../../puller/src/browser-data.js');
-		const { emptyGameBrowserProfile } = await import(
-			'../../../puller/src/browser-data-profile.js'
-		);
+		const { emptyGameBrowserProfile } = await import('../../../puller/src/browser-data-profile.js');
 
 		const profile = emptyGameBrowserProfile();
 		await writeGameBrowserProfile(gameId, profile);

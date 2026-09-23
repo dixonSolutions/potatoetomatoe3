@@ -6,6 +6,10 @@
  * virtual localStorage / sessionStorage / cookie jar of its own. It boots from the
  * profile this module preloads onto `window.__ptGameProfiles` when it can read it
  * synchronously (same-origin frames), and pulls it over postMessage otherwise.
+ *
+ * Nothing is answered or written on the strength of a failed read. The frame holds its
+ * pushes until it has an answer and asks again with backoff; the app holds pushes it could
+ * not merge until the stored profile can be read.
  */
 
 import {
@@ -14,6 +18,7 @@ import {
 	type GameBrowserProfile
 } from './game-browser-profile';
 import { loadGameBrowserProfile, saveGameBrowserProfile } from './game-browser-storage';
+import { appendPlayLog } from './play-diagnostics-log';
 
 export const GAME_STORAGE_MESSAGE_TYPE = 'potato-tomato-game-storage';
 
@@ -27,13 +32,14 @@ type ProfileBag = Record<string, GameBrowserProfile | null>;
 
 /**
  * Profiles the child bridge can read synchronously at boot. A key that is present with
- * `null` means "known to have no saves" — the bridge then skips the postMessage pull.
+ * `null` means "known to have no saves" — the bridge then skips the postMessage pull. A
+ * game whose read failed has no key at all, so its frame pulls and waits.
  */
 function profileBag(): ProfileBag | null {
 	if (typeof window === 'undefined') return null;
 	const w = window as unknown as { __ptGameProfiles?: ProfileBag };
 	if (!w.__ptGameProfiles) w.__ptGameProfiles = Object.create(null) as ProfileBag;
-	return w.__ptGameProfiles;
+	return w.__ptGameProfiles ?? null;
 }
 
 function rememberProfile(gameId: string, profile: GameBrowserProfile | null): void {
@@ -41,26 +47,55 @@ function rememberProfile(gameId: string, profile: GameBrowserProfile | null): vo
 	if (bag) bag[gameId] = profile;
 }
 
-const inflight = new Map<string, Promise<GameBrowserProfile | null>>();
+/** What this page already knows of the game's saves; `undefined` when it knows nothing. */
+function knownProfile(gameId: string): GameBrowserProfile | null | undefined {
+	const bag = profileBag();
+	return bag ? bag[gameId] : undefined;
+}
+
+function reportReadFailure(gameId: string, error: unknown, what: string): void {
+	appendPlayLog(
+		'warn',
+		'saves',
+		`Could not read this game's saves — ${what}`,
+		`game=${gameId} ${error instanceof Error ? error.message : String(error)}`
+	);
+}
+
+const inflight = new Map<string, Promise<GameBrowserProfile | null | undefined>>();
 
 /**
  * Load a game's saved profile ahead of launch so the frame can boot from it without a
  * round trip. Safe to call repeatedly; concurrent calls share one read.
+ *
+ * Resolves to the profile, `null` when the game has no saves, or `undefined` when the read
+ * failed and nothing earlier in this session says what the saves are. Never rejects.
  */
-export function preloadGameBrowserProfile(gameId: string): Promise<GameBrowserProfile | null> {
+export function preloadGameBrowserProfile(
+	gameId: string
+): Promise<GameBrowserProfile | null | undefined> {
 	if (!gameId) return Promise.resolve(null);
 	const pending = inflight.get(gameId);
 	if (pending) return pending;
 	const task = loadGameBrowserProfile(gameId)
-		.catch(() => null)
-		.then((profile) => {
-			/* Never downgrade a profile a push already refreshed while this read ran. */
-			const bag = profileBag();
-			const current = bag ? bag[gameId] : undefined;
-			if (current && (!profile || current.updatedAt >= profile.updatedAt)) return current;
-			rememberProfile(gameId, profile);
-			return profile;
-		})
+		.then(
+			(profile) => {
+				/* Never downgrade a profile a push already refreshed while this read ran. */
+				const current = knownProfile(gameId);
+				if (current && (!profile || current.updatedAt >= profile.updatedAt)) return current;
+				rememberProfile(gameId, profile);
+				return profile;
+			},
+			(error: unknown) => {
+				/*
+				 * Not "no saves". Leave the bag alone, so a same-origin frame pulls instead of
+				 * booting empty, and fall back only on what an earlier read (plus the pushes
+				 * since) established.
+				 */
+				reportReadFailure(gameId, error, 'the game waits for them');
+				return knownProfile(gameId);
+			}
+		)
 		.finally(() => inflight.delete(gameId));
 	inflight.set(gameId, task);
 	return task;
@@ -75,12 +110,47 @@ const saveChains = new Map<string, Promise<void>>();
  * per origin bucket and per database, newest wins, so merge(merge(a, b), c) is what writing
  * a, b and c in turn would have stored.
  */
-const pendingSaves = new Map<string, { incoming: GameBrowserProfile; done: Promise<void> }>();
+const pendingSaves = new Map<
+	string,
+	{ incoming: GameBrowserProfile | null; done: Promise<void> }
+>();
+/**
+ * Pushes that could not be merged because the stored profile could not be read. Kept in
+ * memory, under anything pushed later, until a read succeeds: writing them on their own
+ * would replace the saves, and dropping them would lose the session.
+ */
+const heldSaves = new Map<string, GameBrowserProfile>();
+const heldRetry = new Map<string, { timer: ReturnType<typeof setTimeout> | null; delay: number }>();
+const HELD_RETRY_FIRST_MS = 2_000;
+const HELD_RETRY_MAX_MS = 60_000;
 
-function queueSave(gameId: string, incoming: GameBrowserProfile): Promise<void> {
+function retryHeldSave(gameId: string): void {
+	const state = heldRetry.get(gameId) ?? { timer: null, delay: HELD_RETRY_FIRST_MS };
+	if (state.timer) return;
+	const delay = state.delay;
+	state.delay = Math.min(delay * 2, HELD_RETRY_MAX_MS);
+	state.timer = setTimeout(() => {
+		state.timer = null;
+		/* A write already queued folds the held pushes in when it runs. */
+		if (heldSaves.has(gameId) && !pendingSaves.has(gameId)) void queueSave(gameId, null);
+	}, delay);
+	heldRetry.set(gameId, state);
+}
+
+function clearHeldRetry(gameId: string): void {
+	const state = heldRetry.get(gameId);
+	if (state?.timer) clearTimeout(state.timer);
+	heldRetry.delete(gameId);
+}
+
+function queueSave(gameId: string, incoming: GameBrowserProfile | null): Promise<void> {
 	const waiting = pendingSaves.get(gameId);
 	if (waiting) {
-		waiting.incoming = mergeGameBrowserProfiles(waiting.incoming, incoming);
+		if (incoming) {
+			waiting.incoming = waiting.incoming
+				? mergeGameBrowserProfiles(waiting.incoming, incoming)
+				: incoming;
+		}
 		return waiting.done;
 	}
 	const prev = saveChains.get(gameId) ?? Promise.resolve();
@@ -91,10 +161,27 @@ function queueSave(gameId: string, incoming: GameBrowserProfile): Promise<void> 
 		.then(async () => {
 			/* From here on a new push starts the next write instead of joining this one. */
 			pendingSaves.delete(gameId);
-			const bag = profileBag();
-			const existing =
-				bag && bag[gameId] !== undefined ? bag[gameId] : await loadGameBrowserProfile(gameId);
-			const merged = mergeGameBrowserProfiles(existing, entry.incoming);
+			/* Pushes held back by an earlier failed read are older: they go underneath. */
+			const held = heldSaves.get(gameId);
+			heldSaves.delete(gameId);
+			const unsaved =
+				held && entry.incoming
+					? mergeGameBrowserProfiles(held, entry.incoming)
+					: (entry.incoming ?? held);
+			if (!unsaved) return;
+			let existing = knownProfile(gameId);
+			if (existing === undefined) {
+				try {
+					existing = await loadGameBrowserProfile(gameId);
+				} catch (error) {
+					heldSaves.set(gameId, unsaved);
+					retryHeldSave(gameId);
+					reportReadFailure(gameId, error, 'holding its progress until they can be read');
+					return;
+				}
+			}
+			clearHeldRetry(gameId);
+			const merged = mergeGameBrowserProfiles(existing, unsaved);
 			rememberProfile(gameId, merged);
 			await saveGameBrowserProfile(gameId, merged);
 		});
@@ -141,6 +228,7 @@ export function attachGameStorageBridge(): () => void {
 			data?: GameBrowserProfile;
 		};
 		if (!msg || msg.type !== GAME_STORAGE_MESSAGE_TYPE || typeof msg.gameId !== 'string') return;
+		if (msg.action !== 'pull' && msg.action !== 'push') return;
 		/*
 		 * Only the game frames this page hosts may read or write a game's saves. A frame
 		 * being torn down flushes from its pagehide, by which point it is no longer in the
@@ -152,18 +240,23 @@ export function attachGameStorageBridge(): () => void {
 
 		if (msg.action === 'pull') {
 			void preloadGameBrowserProfile(gameId).then((stored) => {
+				/*
+				 * The read failed: say nothing. The frame keeps its pushes held and asks again
+				 * with backoff; answering "no saves" would let its first push replace them.
+				 */
+				if (stored === undefined) return;
 				const source = event.source as Window | null;
 				if (!source || typeof source.postMessage !== 'function') return;
-				/* Always answer — `null` tells the bridge there is nothing to wait for. */
+				/* `null` tells the bridge there is nothing to wait for. */
 				source.postMessage(
-					{ type: GAME_STORAGE_MESSAGE_TYPE, action: 'hydrate', gameId, data: stored ?? null },
+					{ type: GAME_STORAGE_MESSAGE_TYPE, action: 'hydrate', gameId, data: stored },
 					'*'
 				);
 			});
 			return;
 		}
 
-		if (msg.action === 'push' && msg.data && isGameBrowserProfile(msg.data)) {
+		if (msg.data && isGameBrowserProfile(msg.data)) {
 			void queueSave(gameId, msg.data);
 		}
 	};

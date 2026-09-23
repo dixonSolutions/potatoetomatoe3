@@ -6,11 +6,12 @@ See also: [offline-downloader.md](./offline-downloader.md) for game file mirrors
 
 ## Backend selection
 
-| Deployment                     | Backend            | Where profiles live                                                |
-| ------------------------------ | ------------------ | ------------------------------------------------------------------ |
-| **Public site** (GitHub Pages) | `browser`          | IndexedDB `potatotomato-browser-data-v1` → store `browserProfiles` |
-| **Local app** + puller         | `puller`           | `{GAMES_DATA_DIR}/{gameId}/data/` on disk                          |
-| **Local app**, puller down     | `browser` fallback | Same IndexedDB store                                               |
+| Deployment                        | Backend            | Where profiles live                                                   |
+| --------------------------------- | ------------------ | --------------------------------------------------------------------- |
+| **Public site** (GitHub Pages)    | `browser`          | IndexedDB `potatotomato-browser-data-v1` → store `browserProfiles`    |
+| **Desktop app**                   | `native`           | `{games data dir}/{gameId}/data/`, read and written by the app itself |
+| **`pnpm dev`** in a browser       | `puller`           | `{GAMES_DATA_DIR}/{gameId}/data/` on disk, through the dev puller     |
+| **`pnpm dev`**, no puller running | `browser` fallback | Same IndexedDB store                                                  |
 
 Detection reuses `offline-deployment.ts` (`PUBLIC_OFFLINE_DEPLOYMENT`, Tauri, localhost, etc.).
 
@@ -63,8 +64,10 @@ keyed by catalog id:
      late profile brings saves the game booted without, the frame reloads once, carrying
      the profile across the reload so it wins over anything written in between. The
      answer is accepted only from the app window (`top`), and only the first one counts.
-     A slow answer is not "no saves": the pull is repeated with backoff (4 s … 64 s) and
-     pushes stay held until an answer arrives.
+     A slow answer is not "no saves": the pull is repeated with backoff (4 s … 64 s, then
+     every 64 s for as long as the game runs) and pushes stay held until an answer
+     arrives. No answer at all is also what the app gives when it could not read the
+     saves (see [Failed reads](#failed-reads)).
 - Changes are pushed back (debounced, and on pause / `pagehide`) only once the saved
   profile is known, so an empty boot can never overwrite real saves. The origin's cache
   copy is written at most once a second (and at once on pause, `pagehide`, teardown and
@@ -91,11 +94,12 @@ open. `UnityCache` (a rebuildable asset cache) is not mirrored.
 If a browser refuses to let `window.localStorage` be redefined, the bridge falls back to
 hydrating and sampling the real store.
 
-The app side (`src/lib/utils/game-storage-bridge.ts`) answers `pull` / `push` only for
-frames nested in the page, merges pushes per origin bucket and per database
-(`mergeGameBrowserProfiles`) instead of replacing the whole profile, and serialises
-writes per game. Pushes that arrive while a write is running are folded into one next
-write, so a slow store cannot queue a profile copy per push.
+The app side (`src/lib/utils/game-storage-bridge.ts`) merges pushes per origin bucket and
+per database (`mergeGameBrowserProfiles`) instead of replacing the whole profile, and
+serialises writes per game. Pushes that arrive while a write is running are folded into
+one next write, so a slow store cannot queue a profile copy per push.
+
+The app side answers `pull` / `push` only for frames nested in the page.
 
 Injection:
 
@@ -111,15 +115,40 @@ Parent handler: `attachGameStorageBridge()` in `+layout.svelte`; preload:
 
 End-to-end check: `pnpm bridge-test` (see [dev-test-harnesses.md](./dev-test-harnesses.md)).
 
+## Failed reads
+
+A failed read is not "no saves". `loadGameBrowserProfile` resolves to the profile, to `null`
+when the game has none, and throws `GameProfileReadError` when the store could not say:
+
+| Backend   | "No saves"                            | A failed read (throws)                                                                   |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `native`  | no `data/` dir, or nothing in it      | `game_profile_read` fails: a file that cannot be read or does not parse (logged by Rust) |
+| `puller`  | `GET /api/browser-data/{id}` is a 404 | the puller is gone, answers another error (a file it cannot parse is now a 500), or junk |
+| `browser` | no record in `browserProfiles`        | IndexedDB cannot be opened or read, or holds a record that is not a profile              |
+
+Before this, every one of those failures came back as `null`. The bridge's rule — never
+push before the saved profile is known — relies on that answer, so a transient failure let
+the next write replace the real saves with what one session wrote. Now:
+
+- The preload leaves `__ptGameProfiles[id]` unset, so a same-origin frame pulls instead of
+  booting from "no saves".
+- A `pull` is not answered unless the read succeeds (or this page already knows the saves
+  from an earlier read and the pushes since). The frame keeps its pushes held and asks
+  again with backoff.
+- A `push` that needs the stored profile to merge into, when it cannot be read, is held in
+  memory under anything pushed later and retried (2 s, doubling to 60 s). Nothing is
+  written until a read succeeds.
+
+The native write still falls back to IndexedDB when the disk write fails. That is a write
+failure, outside this rule; the IndexedDB copy is read back only while nothing is on disk.
+
 ## Limitations
 
 - **Third-party embeds** (Poki iframe, external CDN shells): saves stay on the embed origin; not mirrored.
 - **httpOnly cookies** cannot be restored from JS.
-- **A failed profile read looks like "no saves".** `loadGameBrowserProfile` returns `null`
-  both when a game has no profile and when the read fails (puller error, IndexedDB
-  error). The app then answers the pull with `null`, and if the following write succeeds
-  it stores only what that session wrote. Telling the two apart needs the loaders to
-  report failures.
+- **A profile file that stays unreadable blocks syncing that game.** Its frames keep their
+  own per-origin cache (`__pt_vs:*`), so progress on that origin survives, but nothing is
+  written to the profile until the file is fixed or removed.
 - Profiles are **per browser / per machine** (like offline downloads), not synced to GitHub.
 
 ## Legacy migration

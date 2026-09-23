@@ -478,8 +478,18 @@ fn profile_dir(roots: &GameRoots, id: &str) -> Result<PathBuf, String> {
   Ok(roots.data.join(id).join("data"))
 }
 
-fn read_json(path: &Path) -> Option<serde_json::Value> {
-  serde_json::from_str(&std::fs::read_to_string(path).ok()?).ok()
+/// A profile file: `Ok(None)` when it does not exist, `Err` when it exists but could not be
+/// read or does not parse. The two must not be confused — a profile read that swallowed an
+/// error came back as "no saves", and the next write replaced the real ones.
+fn read_json(path: &Path) -> Result<Option<serde_json::Value>, String> {
+  let text = match std::fs::read_to_string(path) {
+    Ok(text) => text,
+    Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+    Err(e) => return Err(format!("{}: {e}", path.display())),
+  };
+  serde_json::from_str(&text)
+    .map(Some)
+    .map_err(|e| format!("{}: {e}", path.display()))
 }
 
 fn write_json_atomic(path: &Path, value: &serde_json::Value) -> Result<(), String> {
@@ -492,22 +502,48 @@ fn write_json_atomic(path: &Path, value: &serde_json::Value) -> Result<(), Strin
   std::fs::rename(&tmp, path).map_err(|e| format!("{}: {e}", path.display()))
 }
 
+/// The game's saved profile, `Ok(None)` when it has none, and `Err` when any part of it is
+/// there but cannot be read: the frontend then holds the game's pushes rather than writing
+/// one session's data over files it could not see.
 pub fn read_profile(roots: &GameRoots, id: &str) -> Result<Option<serde_json::Value>, String> {
   let dir = profile_dir(roots, id)?;
   if !dir.exists() {
     return Ok(None);
   }
-  let meta = read_json(&dir.join(PROFILE_META));
-  let local = read_json(&dir.join(PROFILE_LOCAL)).unwrap_or_else(|| serde_json::json!({}));
-  let session = read_json(&dir.join(PROFILE_SESSION)).unwrap_or_else(|| serde_json::json!({}));
-  let cookies = read_json(&dir.join(PROFILE_COOKIES)).unwrap_or_else(|| serde_json::json!([]));
+  let result = read_profile_dir(&dir);
+  if let Err(why) = &result {
+    log::warn!("could not read the saves of {id}: {why}");
+  }
+  result
+}
+
+fn read_profile_dir(dir: &Path) -> Result<Option<serde_json::Value>, String> {
+  let meta = read_json(&dir.join(PROFILE_META))?;
+  let local = read_json(&dir.join(PROFILE_LOCAL))?.unwrap_or_else(|| serde_json::json!({}));
+  let session = read_json(&dir.join(PROFILE_SESSION))?.unwrap_or_else(|| serde_json::json!({}));
+  let cookies = read_json(&dir.join(PROFILE_COOKIES))?.unwrap_or_else(|| serde_json::json!([]));
+  if !local.is_object() || !session.is_object() || !cookies.is_array() {
+    return Err(format!("{}: profile files hold the wrong kind of JSON", dir.display()));
+  }
   let mut databases = Vec::new();
-  if let Ok(entries) = std::fs::read_dir(dir.join(PROFILE_IDB)) {
-    let mut entries: Vec<_> = entries.flatten().filter(|e| e.path().is_dir()).collect();
-    entries.sort_by_key(|e| e.file_name());
+  let idb_root = dir.join(PROFILE_IDB);
+  let entries = match std::fs::read_dir(&idb_root) {
+    Ok(entries) => Some(entries),
+    Err(e) if e.kind() == std::io::ErrorKind::NotFound => None,
+    Err(e) => return Err(format!("{}: {e}", idb_root.display())),
+  };
+  if let Some(entries) = entries {
+    let mut dirs = Vec::new();
     for entry in entries {
-      let db_meta = read_json(&entry.path().join("meta.json")).unwrap_or_default();
-      let records = read_json(&entry.path().join("records.json"))
+      let entry = entry.map_err(|e| format!("{}: {e}", idb_root.display()))?;
+      if entry.path().is_dir() {
+        dirs.push(entry);
+      }
+    }
+    dirs.sort_by_key(|e| e.file_name());
+    for entry in dirs {
+      let db_meta = read_json(&entry.path().join("meta.json"))?.unwrap_or_default();
+      let records = read_json(&entry.path().join("records.json"))?
         .filter(|r| r.is_array())
         .unwrap_or_else(|| serde_json::json!([]));
       databases.push(serde_json::json!({
@@ -842,5 +878,35 @@ mod tests {
     assert!(back["updatedAt"].as_f64().unwrap() > 5.0);
     delete_profile(&roots, "g").unwrap();
     assert!(read_profile(&roots, "g").unwrap().is_none());
+  }
+
+  #[test]
+  fn a_profile_that_cannot_be_read_is_an_error_not_no_saves() {
+    let roots = temp_roots("profile-unreadable");
+    let data = roots.data.join("g/data");
+    /* Files that are simply absent are no saves. */
+    std::fs::create_dir_all(&data).unwrap();
+    assert!(read_profile(&roots, "g").unwrap().is_none());
+
+    write(&data.join("meta.json"), r#"{"schemaVersion":1,"updatedAt":7}"#);
+    write(&data.join(PROFILE_LOCAL), r#"{"https://h":{"save":"#);
+    assert!(read_profile(&roots, "g").is_err(), "truncated localStorage.json");
+
+    write(&data.join(PROFILE_LOCAL), r#"["not", "an", "object"]"#);
+    assert!(read_profile(&roots, "g").is_err(), "localStorage.json of the wrong kind");
+
+    write(&data.join(PROFILE_LOCAL), r#"{"https://h":{"save":"3"}}"#);
+    write(&data.join("profile/Default/indexeddb/_idbfs/meta.json"), r#"{"name":"/idbfs""#);
+    assert!(read_profile(&roots, "g").is_err(), "corrupt database meta");
+
+    std::fs::remove_file(data.join("profile/Default/indexeddb/_idbfs/meta.json")).unwrap();
+    /* A path that cannot be read as a file (here a directory) is an I/O error. */
+    std::fs::create_dir_all(data.join(PROFILE_COOKIES)).unwrap();
+    assert!(read_profile(&roots, "g").is_err(), "unreadable cookies.json");
+
+    std::fs::remove_dir(data.join(PROFILE_COOKIES)).unwrap();
+    let back = read_profile(&roots, "g").unwrap().unwrap();
+    assert_eq!(back["profile"]["Default"]["localStorage"]["https://h"]["save"], "3");
+    assert_eq!(back["profile"]["Default"]["cookies"], serde_json::json!([]));
   }
 }
