@@ -130,6 +130,7 @@ export class JsonCache {
 		this.version = version;
 		const existing = readJson(path);
 		this.results = existing?.version === version && existing.results ? existing.results : {};
+		this.changed = new Set();
 		this.dirty = false;
 		this.lastFlush = Date.now();
 	}
@@ -144,12 +145,23 @@ export class JsonCache {
 
 	set(key, value) {
 		this.results[key] = value;
+		this.changed.add(key);
 		this.dirty = true;
 		if (Date.now() - this.lastFlush > 20_000) this.flush();
 	}
 
 	flush() {
 		if (!this.dirty) return;
+		/*
+		 * Two runs may share a cache (a sample and a top-tier pass in parallel). Re-read the
+		 * file and lay only this run's changes over it, so neither erases the other's work.
+		 */
+		const onDisk = readJson(this.path);
+		if (onDisk?.version === this.version && onDisk.results) {
+			const merged = { ...onDisk.results };
+			for (const key of this.changed) merged[key] = this.results[key];
+			this.results = merged;
+		}
 		const entries = Object.entries(this.results).sort(([a], [b]) => a.localeCompare(b));
 		writeKeyedJsonLines(this.path, {
 			header: {
@@ -480,4 +492,52 @@ export function isFrameRefused(record) {
 		if (value.includes("'none'") || value === "'self'") return true;
 	}
 	return false;
+}
+
+/** mulberry32 — small, seedable, good enough for sampling. */
+export function seededRandom(seed) {
+	let a = seed >>> 0;
+	return () => {
+		a = (a + 0x6d2b79f5) >>> 0;
+		let t = a;
+		t = Math.imul(t ^ (t >>> 15), t | 1);
+		t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+		return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+	};
+}
+
+export function hashString(text) {
+	let h = 2166136261;
+	for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
+	return h >>> 0;
+}
+
+/** The launch-test sample documented in docs/catalog-quality.md: 40 per portal, seed 2026. */
+export const LAUNCH_SAMPLE = { perPortal: 40, seed: 2026 };
+
+/**
+ * Stratified random sample: games grouped by portal, each group sorted by id, shuffled with
+ * a seed derived from the portal name, first `perPortal` taken. Deterministic, so the
+ * classifier can tell which launch results are the unbiased sample and which are top-tier
+ * checks (which would inflate a portal's launch rate).
+ */
+export function stratifiedSample(catalog, { perPortal, seed, portal = null }) {
+	const byPortal = new Map();
+	for (const game of catalog) {
+		const name = portalOf(game);
+		if (portal && name !== portal) continue;
+		if (!byPortal.has(name)) byPortal.set(name, []);
+		byPortal.get(name).push(game);
+	}
+	const picked = [];
+	for (const [name, games] of byPortal) {
+		const sorted = [...games].sort((a, b) => a.id.localeCompare(b.id));
+		const rand = seededRandom(seed ^ hashString(name));
+		for (let i = sorted.length - 1; i > 0; i--) {
+			const j = Math.floor(rand() * (i + 1));
+			[sorted[i], sorted[j]] = [sorted[j], sorted[i]];
+		}
+		picked.push(...sorted.slice(0, perPortal));
+	}
+	return picked;
 }
