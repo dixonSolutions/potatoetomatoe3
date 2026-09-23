@@ -630,9 +630,14 @@ async function resolveGamePlayerUrl(
 	const metadata =
 		metadataOverride === undefined ? await loadGameMetadata(gameId) : metadataOverride;
 
-	const hasOffline = await offlineAvailable(gameId);
 	const networkOnline = typeof navigator === 'undefined' || navigator.onLine;
 	const mode = networkOnline ? getGamePlayMode(gameId) : 'offline';
+	/*
+	 * Only an offline launch needs to know about offline copies. Asking costs a backend
+	 * lookup (and, in `pnpm dev`, a puller probe), and an online launch now starts the
+	 * game the moment this resolves, so the common case must not wait on it.
+	 */
+	const hasOffline = mode === 'offline' ? await offlineAvailable(gameId) : false;
 
 	if (!networkOnline) {
 		if (hasOffline) {
