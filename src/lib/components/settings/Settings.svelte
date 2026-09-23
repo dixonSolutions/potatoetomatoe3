@@ -57,6 +57,12 @@
 	/* ---- The open section's unsaved edits ---- */
 
 	let draft = $state.raw<SettingsSectionDraft | null>(null);
+	/*
+	 * Which draft is registered, kept outside reactivity. The outgoing section's teardown
+	 * can run after the incoming one registered, and a read of `draft` there may still see
+	 * the outgoing value while the switch is being applied, which cleared the new one.
+	 */
+	let registered: SettingsSectionDraft | null = null;
 	const pending = $derived(draft?.pending ?? 0);
 	let saving = $state(false);
 	let saveError = $state('');
@@ -67,10 +73,13 @@
 			return revealId;
 		},
 		registerDraft(next) {
+			registered = next;
 			draft = next;
 			saveError = '';
 			return () => {
-				if (draft === next) draft = null;
+				if (registered !== next) return;
+				registered = null;
+				draft = null;
 			};
 		},
 		applied: () => onApplied?.(),
