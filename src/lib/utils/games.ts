@@ -508,8 +508,21 @@ async function urlForRoute(
 			const { createRemoteShell } = await import('./online-play-routing-shell');
 			return createRemoteShell(gameId, embed);
 		}
-		case 'relay':
-			return embed ? `${RELAY_SCHEME}://localhost/game/${encodeURIComponent(gameId)}` : null;
+		case 'relay': {
+			if (!embed) return null;
+			/*
+			 * The relay fetches the catalog URL itself; the query and fragment ride along only
+			 * so the page sees them in `location` (Playhop's SDK reads `#origin=` from there).
+			 */
+			let tail = '';
+			try {
+				const parsed = new URL(embed);
+				tail = parsed.search + parsed.hash;
+			} catch {
+				/* unparseable embed: the relay has its own copy anyway */
+			}
+			return `${RELAY_SCHEME}://localhost/game/${encodeURIComponent(gameId)}${tail}`;
+		}
 		case 'puller': {
 			const { pullerUnityPlayUrl, pullerLiveGameUrl } = await import('./offline-downloader-puller');
 			return unity ? pullerUnityPlayUrl(gameId, base) : pullerLiveGameUrl(gameId, base);

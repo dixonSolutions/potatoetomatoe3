@@ -18,7 +18,13 @@
 		loadGameMetadata,
 		playRouteOfUrl
 	} from '$lib/utils/games';
-	import { clearPlayRouteFailures, markPlayRouteFailed } from '$lib/utils/online-play-routing';
+	import {
+		clearPlayRouteFailures,
+		markPlayRouteFailed,
+		type PlayRouteKind
+	} from '$lib/utils/online-play-routing';
+
+	const ALL_ROUTES: PlayRouteKind[] = ['direct', 'local', 'shell', 'relay', 'puller'];
 	import { saveGamePlayMode } from '$lib/utils/game-play-mode';
 	import {
 		fetchGameOfflineStatus,
@@ -58,6 +64,8 @@
 		offlineIds?: string[];
 		/** Before launching, download these for offline play and report how it went. */
 		downloadIds?: string[];
+		/** Launch every game on this route only (to compare the relays head to head). */
+		forceRoute?: PlayRouteKind;
 	};
 
 	type LaunchResult = {
@@ -139,6 +147,9 @@
 		};
 		clearPlayRouteFailures(id);
 		saveGamePlayMode(id, config.offlineIds?.includes(id) ? 'offline' : 'online');
+		if (config.forceRoute) {
+			for (const kind of ALL_ROUTES) if (kind !== config.forceRoute) markPlayRouteFailed(id, kind);
+		}
 		const t0 = Date.now();
 		let canvasSeen: (() => void) | null = null;
 		const onProbe = (event: MessageEvent) => {

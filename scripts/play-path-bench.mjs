@@ -18,6 +18,7 @@
  * Options: --app http://127.0.0.1:5177  --port 18795 (collector)  --timeout 60000
  *          --settle 1500  --out <file.json>  --browser <chrome path>  --per-portal 2
  *          --offline <ids> (launch from the offline copy)  --download <ids> (download first)
+ *          --force relay|puller (every game on that route only, to compare the relays)
  */
 
 import { spawn } from 'node:child_process';
@@ -57,7 +58,8 @@ function parseArgs() {
 			path.join(process.env.HOME ?? '', '.cache/ms-playwright/chromium-1228/chrome-linux64/chrome'),
 		headed: args.includes('--headed'),
 		offlineIds: value('--offline', '').split(',').filter(Boolean),
-		downloadIds: value('--download', '').split(',').filter(Boolean)
+		downloadIds: value('--download', '').split(',').filter(Boolean),
+		forceRoute: value('--force', '') || undefined
 	};
 }
 
@@ -221,7 +223,8 @@ async function main() {
 		stallMs: opts.stallMs,
 		settleMs: opts.settleMs,
 		offlineIds: opts.offlineIds,
-		downloadIds: opts.downloadIds
+		downloadIds: opts.downloadIds,
+		forceRoute: opts.forceRoute
 	};
 	const results = [];
 	const reported = new Set();
