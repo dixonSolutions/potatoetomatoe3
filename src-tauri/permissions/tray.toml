@@ -47,3 +47,8 @@ commands.allow = ["native_game_frames_supported", "set_game_frame_context", "cle
 identifier = "allow-offline-files"
 description = "Allow the frontend to read offline copies and per-game saves from the app's games folder"
 commands.allow = ["offline_statuses", "offline_entry", "offline_delete", "game_profile_read", "game_profile_write", "game_profile_delete"]
+
+[[permission]]
+identifier = "allow-webview-crash"
+description = "Allow the reloaded page to learn that the web process crashed (and, in debug builds, to crash it on purpose)"
+commands.allow = ["take_webview_crash", "debug_crash_webview"]

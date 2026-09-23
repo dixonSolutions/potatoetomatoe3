@@ -100,6 +100,7 @@
 	} from '$lib/utils/online-play-routing';
 	import { gameFrameSpokeSince, nativeGameFramesActive } from '$lib/utils/native-game-frames';
 	import { openExternalUrl } from '$lib/utils/open-external';
+	import { takeWebviewCrashOfGame, webviewCrashOnLoad } from '$lib/utils/webview-crash';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
 	import { isImmersiveElement } from '$lib/utils/fullscreen';
@@ -205,6 +206,12 @@
 	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
 	let loadedGameId = $state('');
 	/**
+	 * The game whose page the desktop app reloaded after it crashed WebKit's web process.
+	 * Its frame is held back behind a notice: starting it again would crash again.
+	 */
+	let crashedGameId = $state('');
+	let crashNotice = $derived(Boolean(gameId) && crashedGameId === gameId);
+	/**
 	 * Always show Console on local/dev/Tauri. Do not gate on child chromeAvailable —
 	 * that bind lagged false and hid the control entirely.
 	 */
@@ -234,6 +241,12 @@
 			return 'This game’s host';
 		}
 	});
+
+	/** The player chose to try the game that crashed once more. */
+	function playAfterCrash() {
+		appendPlayLog('info', 'ui', 'Starting the game again after it crashed', `game=${gameId}`);
+		crashedGameId = '';
+	}
 
 	async function openGameInBrowser() {
 		if (!unframeableEmbedUrl) return;
@@ -678,6 +691,7 @@
 			touchConsoleVisible = false;
 			gamePlayerUrl = '';
 			playUrlReady = false;
+			crashedGameId = '';
 			recommendedGames = [];
 		} else if (!soft) {
 			/* Same game re-entry (onMount + afterNavigate race) — do not wipe Console. */
@@ -730,7 +744,21 @@
 		 */
 		gamePlayerUrl = await getGamePlayerUrl(id, meta);
 		await Promise.race([profileReady, new Promise((done) => setTimeout(done, 600))]);
+		/*
+		 * Back from a crash of this very game (the app reloaded the page): hold the frame
+		 * behind a notice rather than start it — and crash — again.
+		 */
+		const crash = await takeWebviewCrashOfGame(id);
 		if (id !== gameId) return;
+		if (crash) {
+			crashedGameId = id;
+			appendPlayLog(
+				'warn',
+				'play-url',
+				'This game crashed the player; the app reloaded without starting it again',
+				`game=${id} reason=${crash.reason}`
+			);
+		}
 		playUrlReady = true;
 		void refreshOfflineCoverStatus(id);
 		loadedGameId = id;
@@ -763,6 +791,8 @@
 	});
 
 	onMount(() => {
+		/* Ask early whether this page load is the app coming back from a crash. */
+		void webviewCrashOnLoad();
 		networkOnline = isNetworkOnline();
 		refreshPlayerSettings();
 		privacyLocked = document.documentElement.hasAttribute('data-privacy-locked');
@@ -935,7 +965,7 @@
 	 * browser chrome goes on the next press on the in-game menu.
 	 */
 	$effect(() => {
-		if (loading || error || !gameSurfaceEl || !gameId || cannotFrameInApp) return;
+		if (loading || error || !gameSurfaceEl || !gameId || cannotFrameInApp || crashNotice) return;
 		/* Not over the lock screen or the daily-limit gate; it happens once they clear. */
 		if (privacyLocked || playLimitHold) return;
 		if (!playerSettings.autoFullscreen || autoFullscreenFor === gameId) return;
@@ -1230,6 +1260,27 @@
 							it. Open it in your browser instead — the touch console won't be available there.
 						</p>
 						<Button size="sm" onclick={() => void openGameInBrowser()}>Open in browser</Button>
+					</div>
+				{:else if crashNotice}
+					<div
+						class="flex h-full min-h-56 flex-col items-center justify-center gap-3 px-6 py-10 text-center"
+						role="alert"
+						data-testid="game-crashed-notice"
+					>
+						<p class="text-base font-semibold">This game crashed the player</p>
+						<p class="max-w-md text-sm text-muted-foreground">
+							The app reloaded instead of starting it again.{unframeableEmbedUrl.startsWith(
+								'https://'
+							)
+								? ' It may run in your browser.'
+								: ''}
+						</p>
+						<div class="flex flex-wrap justify-center gap-2">
+							{#if unframeableEmbedUrl.startsWith('https://')}
+								<Button size="sm" onclick={() => void openGameInBrowser()}>Open in browser</Button>
+							{/if}
+							<Button size="sm" variant="outline" onclick={playAfterCrash}>Play here anyway</Button>
+						</div>
 					</div>
 				{:else}
 					{#key playerRemountKey}
