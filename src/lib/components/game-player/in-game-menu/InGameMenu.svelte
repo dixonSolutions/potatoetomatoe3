@@ -3,7 +3,7 @@
 	 * The in-game menu: the only chrome over a fullscreen game.
 	 *
 	 * Reached by a small, faint button in one corner (the default), by moving the mouse
-	 * into a thin hot zone along that corner's edge, or both — see Settings → Games. Touch
+	 * into a thin hot zone along that corner's edge, or both — see Settings → Playing. Touch
 	 * cannot hover, so a touch device always gets the button.
 	 *
 	 * It is game chrome, so it never takes the keyboard from the game: presses on it are

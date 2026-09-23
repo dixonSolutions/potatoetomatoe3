@@ -25,7 +25,7 @@ flowchart TD
     translate --> dispatch
     dispatch -->|keydown/keyup with code+keyCode+bubbles+composed, canvas focused| gamedoc[Game document]
 
-    The in-game **Console** control lives in the page toolbar (with Pause / Fullscreen) and in the fullscreen chrome — not as a floating switch over the game. Turning it on shows the glass joystick / buttons overlay.
+    The in-game **Console** control lives in the page toolbar (with Pause / Fullscreen) and in the in-game menu over a fullscreen game — not as a floating switch over the game. Turning it on shows the glass joystick / buttons overlay.
 
     settings[Settings - Touch Controls] --> draft[(unsaved settings draft)]
     draft --> saveSplit[shared settings Save / Discard]
@@ -242,7 +242,7 @@ fullscreen, or close the page.
 
 ### Controls menu, live key detection and the dynamic console
 
-**Controls** sits in the player toolbar next to Console (and in the fullscreen bar), with
+**Controls** sits in the player toolbar next to Console (and in the in-game menu), with
 a ⌨ shortcut on the console panel. It opens a glass menu over the top of the game — not
 a keyboard parked on it:
 
@@ -340,9 +340,13 @@ Five-finger toggle was removed: iOS/iPadOS reserves multi-finger system gestures
 
 **Current v1** keeps a zero-dep Pointer Events stick + hold-drag helper. Next layout pass should adopt **interact.js** for resize (today only position is drag-editable in-game; size is via Settings sliders / scale) and keep nipplejs optional.
 
-## Related: game fullscreen on iOS
+## Related: game fullscreen
 
-`requestFullscreen()` is blocked on iPhone (all browsers use WebKit). [`src/lib/utils/fullscreen.ts`](../src/lib/utils/fullscreen.ts) tries the native API first, then falls back to a `.pseudo-fullscreen` class (`position: fixed; inset: 0; height: 100dvh`) on the game surface — same button label either way. Escape exits the CSS fallback.
+Games open fullscreen by default, with an in-game menu as the only chrome over them —
+see [`in-game-menu.md`](./in-game-menu.md). The game filling the window is a
+`.pseudo-fullscreen` class on the surface (`position: fixed; inset: 0; height: 100dvh`),
+which works everywhere including iPhone, where `requestFullscreen()` is blocked. Esc is
+left to the game; the in-game menu's **Exit fullscreen** returns to the page.
 
 ## Data model
 
@@ -381,7 +385,7 @@ layout, opacity, or scale does not write storage until Save is selected.
 
 ## Settings
 
-**Settings → Touch Controls** ([`TouchControlsSection.svelte`](../src/lib/components/settings/sections/touch-controls/TouchControlsSection.svelte)):
+**Settings → Controls** ([`ControlsSection.svelte`](../src/lib/components/settings/sections/controls/ControlsSection.svelte)):
 
 - Enable / availability / opacity / scale / haptics
 - Auto-enable by default on touch-only devices; keyboard-capable devices stay off until switched on
@@ -391,7 +395,7 @@ layout, opacity, or scale does not write storage until Save is selected.
   components; unsaved opacity, scale, size, and position changes update it immediately
 - Separate appearance, layout, and mapping groups without compressing them below the preview
 - Copy landscape → portrait, reset
-- Key mapping recorder (same pattern as Games pause shortcut)
+- Key mapping recorder (same pattern as the Playing pause shortcut)
 
 ## Source map
 
@@ -403,7 +407,7 @@ layout, opacity, or scale does not write storage until Save is selected.
 | `src/lib/utils/controls-text.ts` | Read a game's controls text: which keys, and what each does |
 | `static/game-storage-bridge.child.js` | In-frame bridge: key detection, console input, virtual storage |
 | `src/lib/components/game-player/touch-console/` | Overlay UI |
-| `src/lib/components/settings/sections/touch-controls/` | Settings panel |
+| `src/lib/components/settings/sections/controls/` | Settings panel |
 | `src/routes/games/[gameId]/+page.svelte` | Mount point inside `gameSurfaceEl` |
 
 ## Design history (assets)

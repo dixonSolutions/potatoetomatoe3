@@ -1,7 +1,7 @@
 /**
  * Optional in-game fullscreen key (F once turned on).
  *
- * Off unless the user switches it on in Settings → Games: games are opened fullscreen
+ * Off unless the user switches it on in Settings → Playing: games are opened fullscreen
  * and left through the in-game menu, and a bare `F` belongs to the game — plenty of them
  * use it. The key itself is stored even while the switch is off, so turning it back on
  * restores whatever was recorded.

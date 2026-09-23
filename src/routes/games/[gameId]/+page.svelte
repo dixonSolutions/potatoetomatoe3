@@ -824,7 +824,7 @@
 			toggleGamePause();
 		};
 		/*
-		 * Opt-in only (Settings → Games): a bare `F` belongs to the game, and the in-game
+		 * Opt-in only (Settings → Playing): a bare `F` belongs to the game, and the in-game
 		 * menu is the way in and out of fullscreen. Never fires while typing in a field.
 		 */
 		const onFullscreenHotkey = (e: KeyboardEvent) => {
