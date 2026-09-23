@@ -9,6 +9,7 @@
 		loadAllGames,
 		getGamePlayerUrl,
 		playRouteOfUrl,
+		playRoutesExhausted,
 		canPlayGameOffline,
 		fixMalformedGamePlayerUrl,
 		resolveGameThumbnailSrc,
@@ -76,7 +77,6 @@
 	import { canUseTouchBridge, resolveInjectable } from '$lib/utils/touch-input-dispatch';
 	import {
 		clearDirectLaunchFailed,
-		failedPlayRoutes,
 		isFrameBlockedHost,
 		isUnframeableInApp,
 		markPlayRouteFailed
@@ -410,6 +410,20 @@
 			void confirmFrameRan(gameId, url, launchStartedAt || Date.now());
 			return;
 		}
+		if (frameIsRunning(gameId, launchStartedAt || Date.now())) {
+			/*
+			 * `load` waits for every subresource; one slow ad or analytics request holds it
+			 * back while the game itself is already playing. Relaunching that would restart
+			 * a running game on a worse route.
+			 */
+			appendPlayLog(
+				'info',
+				'play-url',
+				'Game frame still loading, but the game is running — leaving it',
+				`game=${gameId} url=${url}`
+			);
+			return;
+		}
 		appendPlayLog(
 			'warn',
 			'play-url',
@@ -417,6 +431,17 @@
 			`game=${gameId} url=${url}`
 		);
 		void retryThroughRelay('stalled');
+	}
+
+	/** The frame's document is up: it said hello, or (same-origin) it has parsed a body. */
+	function frameIsRunning(id: string, since: number): boolean {
+		if (gameFrameSpokeSince(id, since)) return true;
+		try {
+			const doc = iframeElement?.contentDocument;
+			return Boolean(doc && doc.readyState !== 'loading' && doc.body?.childElementCount);
+		} catch {
+			return false;
+		}
 	}
 
 	/**
@@ -467,31 +492,47 @@
 			`Play route ${kind} failed (${reason}) — trying the next one`,
 			`game=${id} url=${failedUrl}`
 		);
+		const nextUrl = await getGamePlayerUrl(id, gameMetadata);
+		if (id !== gameId || gamePlayerUrl !== failedUrl) return;
+		if (playRoutesExhausted(id) || nextUrl === failedUrl) {
+			/* Leave the frame as it is — a slow game may still come up. */
+			notifyNoPlayRouteLeft(reason);
+			return;
+		}
 		/*
 		 * Swap the URL only — bumping playerRemountKey would reset bind:started and drop
 		 * the user back to the Play poster.
 		 */
-		await refreshPlayerUrl();
-		if (id !== gameId) return;
-		const next = playRouteOfUrl(gamePlayerUrl);
-		if (gamePlayerUrl === failedUrl || !next || failedPlayRoutes(id).includes(next)) {
-			notifyNoPlayRouteLeft(id);
-			return;
-		}
+		gamePlayerUrl = nextUrl;
 		gameSurfaceStarted = true;
 	}
 
 	/** Every route failed: say so once, and offer the game's own page in the browser. */
-	function notifyNoPlayRouteLeft(id: string) {
-		appendPlayLog('warn', 'play-url', 'No play route left for this game', `game=${id}`);
+	function notifyNoPlayRouteLeft(reason: string) {
+		appendPlayLog(
+			'warn',
+			'play-url',
+			'No play route left for this game',
+			`game=${gameId} reason=${reason}`
+		);
 		const page = unframeableEmbedUrl;
+		const browser = page.startsWith('https://')
+			? { label: 'Open in browser', onClick: () => void openGameInBrowser() }
+			: undefined;
+		if (reason === 'stalled') {
+			toast.error('This game is slow to start.', {
+				description: browser
+					? 'It may still load here. If not, it may play in your browser.'
+					: 'It may still load. If not, try Relaunch.',
+				action: browser
+			});
+			return;
+		}
 		toast.error("This game can't run inside the app.", {
-			description: page.startsWith('https://')
+			description: browser
 				? 'Its host blocks being played in other apps. It may still play in your browser.'
 				: 'Try Relaunch, or switch Play from → Offline if you have it downloaded.',
-			action: page.startsWith('https://')
-				? { label: 'Open in browser', onClick: () => void openGameInBrowser() }
-				: undefined
+			action: browser
 		});
 	}
 

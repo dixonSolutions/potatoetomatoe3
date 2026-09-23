@@ -461,9 +461,8 @@ export function playRouteOfUrl(url: string | null | undefined): PlayRouteKind | 
  */
 async function unwrapOnlineShell(gameId: string): Promise<string | null> {
 	try {
-		const { probeOnlineShellExternal } = await import('./browser-offline-download');
-		const shell = await probeOnlineShellExternal(gameId);
-		return shell.external && shell.iframeSrc ? shell.iframeSrc : null;
+		const { readOnlineShellIframeSrc } = await import('./browser-offline-download');
+		return await readOnlineShellIframeSrc(gameId);
 	} catch {
 		return null;
 	}
@@ -549,11 +548,26 @@ export async function resolveOnlinePlayRoute(
 		}
 		if (!kind) break;
 		const url = await urlForRoute(kind, gameId, metadata, nativeFrames);
-		if (url) return { url: remember(url, kind), kind };
+		if (url) {
+			exhausted.delete(gameId);
+			return { url: remember(url, kind), kind };
+		}
 		markPlayRouteFailed(gameId, kind);
 		appendPlayLog('warn', 'play-url', `Play route ${kind} unavailable`, `game=${gameId}`);
 	}
+	exhausted.add(gameId);
 	return { url: resolveOnlinePlayUrl(metadata, gameId), kind: null };
+}
+
+/** Games whose last online resolution found no route left to try. */
+const exhausted = new Set<string>();
+
+/**
+ * True when the last online resolution for this game had no untried route and fell back
+ * to the plain online URL — the watchdog's cue to stop relaunching and tell the user.
+ */
+export function playRoutesExhausted(gameId: string): boolean {
+	return exhausted.has(gameId);
 }
 
 /**

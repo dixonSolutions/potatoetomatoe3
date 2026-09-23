@@ -86,6 +86,18 @@
 	let frameUrl = $state('');
 	let frameAllow = $state<string | undefined>(undefined);
 	let frameKey = $state(0);
+	let frameEl = $state<HTMLIFrameElement | undefined>(undefined);
+
+	/** Same rule as the game page: a frame whose document runs is not a failed launch. */
+	function frameIsRunning(id: string, since: number): boolean {
+		if (gameFrameSpokeSince(id, since)) return true;
+		try {
+			const doc = frameEl?.contentDocument;
+			return Boolean(doc && doc.readyState !== 'loading' && doc.body?.childElementCount);
+		} catch {
+			return false;
+		}
+	}
 
 	let onFrameLoad: (() => void) | null = null;
 
@@ -174,7 +186,7 @@
 					loaded.then(() => 'loaded' as const),
 					sleep(stallMs).then(() => 'stalled' as const)
 				]);
-				let failed = loadOutcome === 'stalled';
+				let failed = loadOutcome === 'stalled' && !frameIsRunning(id, frameStart);
 				if (loadOutcome === 'loaded') {
 					result.loadMs = Date.now() - t0;
 					const expectsWord =
@@ -265,6 +277,7 @@
 		{#key frameKey}
 			{#if frameUrl}
 				<iframe
+					bind:this={frameEl}
 					src={frameUrl}
 					title="bench"
 					class="h-full w-full border-0"
