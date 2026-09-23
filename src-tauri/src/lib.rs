@@ -3,6 +3,7 @@ mod disguise;
 mod game_frames;
 mod offline_games;
 mod relay;
+mod webview_crash;
 
 #[cfg(desktop)]
 mod tray;
@@ -748,7 +749,9 @@ pub fn run() {
       offline_games::offline_delete,
       offline_games::game_profile_read,
       offline_games::game_profile_write,
-      offline_games::game_profile_delete
+      offline_games::game_profile_delete,
+      webview_crash::take_webview_crash,
+      webview_crash::debug_crash_webview
     ])
     .setup(move |app| {
       if cfg!(debug_assertions) {
@@ -788,6 +791,11 @@ pub fn run() {
           }
         }) {
           log::info!("{why}");
+        }
+        // A game that crashes WebKit's web process takes the app page with it; reload
+        // where the user was, without walking straight back into the same game.
+        if let Some(window) = app.get_webview_window("main") {
+          webview_crash::watch(&window);
         }
         // A second look once the window has been mapped and painted: this is where a
         // second toplevel, or a window that ended up a different size than configured,

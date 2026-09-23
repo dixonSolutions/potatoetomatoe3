@@ -8,7 +8,12 @@
  *     the preloaded profile) and over the postMessage pull (one reload);
  *   - IndexedDB records keep their types (Uint8Array, Date) through the profile;
  *   - saves survive a same-origin shell nesting the game (one set of stores per game), a
- *     profile store slower than the pull used to wait for, and a forged `hydrate`;
+ *     profile store slower than the pull used to wait for, a forged `hydrate`, and a store
+ *     whose reads fail (not "no saves": nothing is written over them, and the game gets
+ *     them once the store reads again);
+ *   - a game's saves are read and written only from the frame hosting that game: a frame
+ *     inside it asking for another game's saves, and a frame in the app page outside it,
+ *     are ignored;
  *   - live key detection: declared keys listed, keys the game handles promoted to "in use";
  *   - the console: one keydown per press (no duplicate dispatch), a canvas that listens
  *     itself gets the key even inside a listening wrapper, holds never turn into layout
@@ -410,7 +415,7 @@ async function gameFrame() {
  * context mid-wait). Falls back to whatever frame is there when `ms` runs out, so the
  * check that follows reports what it found instead of a timeout.
  */
-async function settledFrame(target, game, ready, ms, file = '') {
+async function settledFrame(target, game, ready, ms, file = '', arg = undefined) {
 	const deadline = Date.now() + ms;
 	let last = null;
 	while (Date.now() < deadline) {
@@ -418,7 +423,7 @@ async function settledFrame(target, game, ready, ms, file = '') {
 		if (f) {
 			last = f;
 			try {
-				if (await f.evaluate(ready)) return f;
+				if (await f.evaluate(ready, arg)) return f;
 			} catch {
 				/* navigating */
 			}
@@ -448,7 +453,10 @@ async function storedProfile(target = page, game = GAME) {
 				req.onsuccess = () => {
 					const db = req.result;
 					if (!db.objectStoreNames.contains('browserProfiles')) return resolve(null);
-					const g = db.transaction('browserProfiles').objectStore('browserProfiles').get(game);
+					const store = db.transaction('browserProfiles').objectStore('browserProfiles');
+					/* The real read, even while `failProfileReads` makes the app's reads fail. */
+					const get = IDBObjectStore.prototype.get.__real || IDBObjectStore.prototype.get;
+					const g = get.call(store, game);
 					g.onsuccess = () => resolve(g.result ?? null);
 				};
 				req.onerror = () => resolve(null);
@@ -529,6 +537,48 @@ async function slowProfileStore(p, ms) {
 		};
 		window.__fastProfileStore = () => delete indexedDB.open;
 	}, ms);
+}
+
+/*
+ * Make every read of the app's profile store fail, while writes still work: a puller that
+ * answers 500, an IndexedDB error, the desktop app's saves command failing. `heal` undoes it.
+ */
+async function failProfileReads(p) {
+	await p.evaluate(() => {
+		const real = IDBObjectStore.prototype.get.__real || IDBObjectStore.prototype.get;
+		const failing = function (key) {
+			if (this.name !== 'browserProfiles') return real.call(this, key);
+			const req = {
+				result: undefined,
+				error: new DOMException('Simulated read failure', 'UnknownError'),
+				onsuccess: null,
+				onerror: null
+			};
+			setTimeout(() => req.onerror?.(new Event('error')), 0);
+			return req;
+		};
+		failing.__real = real;
+		IDBObjectStore.prototype.get = failing;
+		window.__healProfileReads = () => {
+			IDBObjectStore.prototype.get = real;
+		};
+	});
+}
+
+/* The app page's own view of saves, as a same-origin frame reads it at boot. */
+async function showProfileBag(p) {
+	await p.evaluate(() => {
+		Object.defineProperty(window, '__ptGameProfiles', {
+			configurable: true,
+			writable: true,
+			value: Object.create(null)
+		});
+	});
+}
+
+/** The first localStorage bucket of a stored profile (a lab game saves on one origin). */
+function savedBucket(profile) {
+	return profile ? Object.values(profile.profile.Default.localStorage)[0] : undefined;
 }
 
 /* Cross-origin frames cannot read the preloaded profile: hide it so the frame must pull. */
@@ -789,6 +839,137 @@ await shot(page, '02-game-running.png');
 	);
 	const stored = await after.evaluate(() => localStorage.getItem('save'));
 	check('A hydrate that does not come from the app is ignored', stored === '4', `save=${stored}`);
+	/* Back to a fast store, and let the last writes through the slow one land first. */
+	await sp.evaluate(() => window.__fastProfileStore?.());
+	for (let i = 0; i < 100; i++) {
+		if (savedBucket(await storedProfile(sp, PLAIN_GAME))?.save === stored) break;
+		await sleep(200);
+	}
+
+	/*
+	 * A store whose reads fail. The app used to answer that with "no saves": the frame (here
+	 * same-origin, booting from the page's preloaded profiles) started empty and its first
+	 * push replaced the real saves. Now the app says nothing until it can read them.
+	 */
+	const savedBefore = savedBucket(await storedProfile(sp, PLAIN_GAME))?.save;
+	await reopenLab(sp, PLAIN_GAME, async () => {
+		await sp.evaluate(() => {
+			for (const k of Object.keys(localStorage))
+				if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+		});
+		await showProfileBag(sp);
+		await failProfileReads(sp);
+	});
+	await settledFrame(sp, PLAIN_GAME, () => typeof window.bootCount === 'number', 15000);
+	await sleep(3000);
+	const savedDuring = savedBucket(await storedProfile(sp, PLAIN_GAME))?.save;
+	check(
+		'Failing profile store: the empty boot is not written over the saves',
+		Boolean(savedBefore) && savedDuring === savedBefore,
+		`before=${savedBefore} during=${savedDuring}`
+	);
+	await sp.evaluate(() => window.__healProfileReads());
+	const expected = Number(savedBefore) + 1;
+	const healed = await settledFrame(
+		sp,
+		PLAIN_GAME,
+		(n) => window.bootCount === n,
+		25000,
+		'',
+		expected
+	);
+	const healedBoot = await healed.evaluate(() => window.bootCount);
+	check(
+		'Failing profile store: once it reads again, the game gets its saves back',
+		healedBoot === expected,
+		`bootCount=${healedBoot} expected=${expected}`
+	);
+	await sleep(2500);
+	const savedAfter = savedBucket(await storedProfile(sp, PLAIN_GAME))?.save;
+	check(
+		'Failing profile store: saves continue from the real ones',
+		savedAfter === String(expected),
+		`save=${savedAfter}`
+	);
+
+	/*
+	 * A game's saves belong to the frame hosting it. Any frame nested in the page used to
+	 * be able to pull or push any game's profile by naming it.
+	 */
+	const hosted = await settledFrame(
+		sp,
+		PLAIN_GAME,
+		() => typeof window.bootCount === 'number',
+		15000
+	);
+	const evilProfile = (origin) => ({
+		schemaVersion: 1,
+		updatedAt: Date.now(),
+		profile: {
+			Default: {
+				localStorage: { [origin]: { save: '999', __pt_ts: String(Date.now() + 1e9) } },
+				sessionStorage: {},
+				cookies: [],
+				indexedDB: []
+			}
+		}
+	});
+	/* A frame inside this game (an ad, say) asks for and writes another game's saves. */
+	await hosted.evaluate(
+		({ other, evil }) => {
+			const f = document.createElement('iframe');
+			f.srcdoc = `<script>
+				window.answers = [];
+				addEventListener('message', (e) => {
+					if (e.data && e.data.type === 'potato-tomato-game-storage') answers.push(e.data);
+				});
+				const msg = { type: 'potato-tomato-game-storage', gameId: ${JSON.stringify(other)} };
+				top.postMessage({ ...msg, action: 'pull' }, '*');
+				top.postMessage({ ...msg, action: 'push', data: ${JSON.stringify(evil)} }, '*');
+			</script>`;
+			f.id = 'foreign-in-game';
+			document.body.appendChild(f);
+		},
+		{ other: NEST_GAME, evil: evilProfile('https://foreign.example') }
+	);
+	/* A frame in the app page, outside the game's frame, writes this game's saves. */
+	await sp.evaluate(
+		({ game, evil }) => {
+			const f = document.createElement('iframe');
+			f.srcdoc = `<script>
+				window.answers = [];
+				addEventListener('message', (e) => {
+					if (e.data && e.data.type === 'potato-tomato-game-storage') answers.push(e.data);
+				});
+				const msg = { type: 'potato-tomato-game-storage', gameId: ${JSON.stringify(game)} };
+				top.postMessage({ ...msg, action: 'pull' }, '*');
+				top.postMessage({ ...msg, action: 'push', data: ${JSON.stringify(evil)} }, '*');
+			</script>`;
+			f.id = 'foreign-in-app';
+			f.style.display = 'none';
+			document.body.appendChild(f);
+		},
+		{ game: PLAIN_GAME, evil: evilProfile('https://foreign.example') }
+	);
+	await sleep(2500);
+	const otherGame = await storedProfile(sp, NEST_GAME);
+	const answersInGame = await hosted.evaluate(
+		() => document.getElementById('foreign-in-game')?.contentWindow?.answers?.length ?? -1
+	);
+	check(
+		"A frame inside one game cannot read or write another game's saves",
+		otherGame === null && answersInGame === 0,
+		`other game stored=${JSON.stringify(savedBucket(otherGame))} answers=${answersInGame}`
+	);
+	const plainNow = await storedProfile(sp, PLAIN_GAME);
+	const answersInApp = await sp.evaluate(
+		() => document.getElementById('foreign-in-app')?.contentWindow?.answers?.length ?? -1
+	);
+	check(
+		"A frame outside the game's frame cannot read or write its saves",
+		!plainNow?.profile.Default.localStorage['https://foreign.example'] && answersInApp === 0,
+		`buckets=${Object.keys(plainNow?.profile.Default.localStorage ?? {}).join(',')} answers=${answersInApp}`
+	);
 	await sp.context().close();
 }
 {

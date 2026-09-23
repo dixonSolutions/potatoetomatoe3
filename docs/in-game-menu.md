@@ -80,8 +80,9 @@ controls were detected), Exit fullscreen, Back to games.
 One row of icon buttons with tooltips
 ([`GameToolbar.svelte`](../src/lib/components/game-player/GameToolbar.svelte)): Pause,
 Restart, Fullscreen, and Console and Controls only when they apply. Logs and the play
-version / offline copy panel are under **More**; the panel opens by itself when a launch
-stalls, since that is when it is needed.
+version / offline copy panel are under **More**. A launch that stalls needs nothing from
+it: the watchdog moves the game along its route chain by itself and says so only when
+every route failed ([native-first.md](./native-first.md#launch-watchdog)).
 
 ## Cursor lock
 

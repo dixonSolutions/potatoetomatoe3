@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { tick, untrack } from 'svelte';
 	import { Loader2 } from 'lucide-svelte';
-	import { captureGameStorageFromIframe } from '$lib/utils/game-storage-bridge';
+	import {
+		captureGameStorageFromIframe,
+		noteGameFrameTree,
+		registerGameFrameHost
+	} from '$lib/utils/game-storage-bridge';
 	import { unlockGameIframeAudio } from '$lib/utils/game-audio';
 
 	/**
@@ -112,6 +116,7 @@
 	});
 
 	function handleFrameLoad() {
+		if (iframeEl && gameId) noteGameFrameTree(iframeEl, gameId);
 		reportLoadState('loaded');
 		bumpAudioUnlock();
 		focusFrameIfIdle();
@@ -177,6 +182,17 @@
 		} else {
 			onIframeReady?.(el);
 		}
+	});
+
+	/*
+	 * This frame is where the game's saves come from: only it, and frames nested in it, may
+	 * pull or push them (`game-storage-bridge.ts`).
+	 */
+	$effect(() => {
+		const id = gameId;
+		const frame = started ? iframeEl : null;
+		if (!frame || !id) return;
+		return registerGameFrameHost(frame, id);
 	});
 
 	$effect(() => {

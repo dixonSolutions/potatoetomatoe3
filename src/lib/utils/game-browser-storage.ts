@@ -1,6 +1,12 @@
 /**
  * Unified per-game browser profile storage: disk in the desktop app (read and written by the
  * app itself, in the layout the puller used), disk via a dev puller, or IndexedDB.
+ *
+ * A read has three answers, and the difference between the last two matters: the profile,
+ * `null` when the game has no saves, or a thrown `GameProfileReadError` when the store could
+ * not be read. The in-frame bridge never pushes before the saved profile is known, and a
+ * failed read reported as "no saves" let the next write replace the real saves with what
+ * one session wrote.
  */
 
 import { canUseLocalStorage } from '$lib/utils/browser-storage';
@@ -31,6 +37,22 @@ import {
 } from './offline-native';
 
 export type BrowserDataBackend = 'native' | 'puller' | 'browser' | 'none';
+
+/**
+ * The store holding a game's saves could not be read: a puller error, an IndexedDB error,
+ * the native saves command failing. Not "no saves" — nothing may be written over the stored
+ * profile on the strength of it.
+ */
+export class GameProfileReadError extends Error {
+	readonly gameId: string;
+
+	constructor(gameId: string, cause: unknown) {
+		const why = cause instanceof Error ? cause.message : String(cause);
+		super(`Could not read the saves of ${gameId}: ${why}`, { cause });
+		this.name = 'GameProfileReadError';
+		this.gameId = gameId;
+	}
+}
 
 const STORAGE_PREFIX = 'potato-tomato-game-browser-data-';
 
@@ -85,8 +107,12 @@ async function migrateLegacyIfNeeded(
 	const legacy = loadLegacyShellSnapshot(gameId);
 	if (!legacy) return null;
 	const migrated = mergeLegacyLocalStorage(emptyGameBrowserProfile(), origin, legacy.localStorage);
-	await saveGameBrowserProfile(gameId, migrated);
-	clearLegacyShellSnapshot(gameId);
+	try {
+		await saveGameBrowserProfile(gameId, migrated);
+		clearLegacyShellSnapshot(gameId);
+	} catch {
+		/* Keep the old snapshot: the next load migrates it again. */
+	}
 	return migrated;
 }
 
@@ -104,19 +130,28 @@ async function loadNativeWithFallback(gameId: string): Promise<GameBrowserProfil
 	return stranded;
 }
 
+/**
+ * The game's saved profile, or `null` when it has none.
+ *
+ * @throws GameProfileReadError when the store could not be read. Never answer that with
+ *   "no saves": a write made on the strength of it replaces the real ones.
+ */
 export async function loadGameBrowserProfile(
 	gameId: string,
 	playOrigin = typeof window !== 'undefined' ? window.location.origin : ''
 ): Promise<GameBrowserProfile | null> {
-	const backend = await getBrowserDataBackend();
 	let profile: GameBrowserProfile | null = null;
-
-	if (backend === 'native') {
-		profile = await loadNativeWithFallback(gameId);
-	} else if (backend === 'puller') {
-		profile = await loadPullerBrowserProfile(gameId);
-	} else if (backend === 'browser') {
-		profile = await loadBrowserGameProfile(gameId);
+	try {
+		const backend = await getBrowserDataBackend();
+		if (backend === 'native') {
+			profile = await loadNativeWithFallback(gameId);
+		} else if (backend === 'puller') {
+			profile = await loadPullerBrowserProfile(gameId);
+		} else if (backend === 'browser') {
+			profile = await loadBrowserGameProfile(gameId);
+		}
+	} catch (error) {
+		throw error instanceof GameProfileReadError ? error : new GameProfileReadError(gameId, error);
 	}
 
 	return await migrateLegacyIfNeeded(gameId, profile, playOrigin);
