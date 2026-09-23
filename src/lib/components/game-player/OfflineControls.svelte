@@ -235,7 +235,7 @@
 			} else if (!opts?.silent) {
 				toast.error('Puller still unavailable', {
 					description:
-						'You are in the desktop app, but the local puller process is down. Click Retry again, or run pnpm puller:start.'
+						'Downloads to disk need the dev puller. Run pnpm puller:start, then Retry puller. Playing does not need it.'
 				});
 			}
 		} finally {
