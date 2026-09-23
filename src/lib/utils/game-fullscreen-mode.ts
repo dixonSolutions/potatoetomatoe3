@@ -72,37 +72,56 @@ let chromeOwned: ChromeFullscreen = 'none';
 /** The first attempt had no gesture to ride on; the next menu press may try again. */
 let upgradePending = false;
 
-async function setTauriWindowFullscreen(on: boolean): Promise<boolean> {
+/**
+ * @returns `owned` when this call made the window fullscreen, `already` when it was
+ *   fullscreen before (F11, the window manager — not ours to undo), `failed` when the
+ *   window API is unavailable (for instance the capability is not granted).
+ */
+async function setTauriWindowFullscreen(on: boolean): Promise<'owned' | 'already' | 'failed'> {
 	try {
 		const { getCurrentWindow } = await import('@tauri-apps/api/window');
 		const win = getCurrentWindow();
-		if (on && (await win.isFullscreen())) return false; /* already fullscreen: not ours */
+		if (on && (await win.isFullscreen())) return 'already';
 		await win.setFullscreen(on);
-		return true;
+		return 'owned';
 	} catch {
-		return false;
+		return 'failed';
 	}
 }
 
+function requestDocumentFullscreen(): Promise<boolean> {
+	if (getFullscreenElement()) return Promise.resolve(true); /* F11 or an earlier upgrade */
+	/* Called synchronously from the gesture's task — no await before the request. */
+	return requestFullscreen(document.documentElement).then(
+		() => {
+			chromeOwned = 'document';
+			return true;
+		},
+		() => false
+	);
+}
+
 async function hideChrome(): Promise<boolean> {
+	const activation = currentUserActivation();
+	const documentApi = documentFullscreenAvailable();
 	const how = pickChromeFullscreen({
 		tauriDesktop: isTauriDesktop(),
-		documentApi: documentFullscreenAvailable(),
-		userActivation: currentUserActivation()
+		documentApi,
+		userActivation: activation
 	});
 	if (how === 'tauri-window') {
-		if (await setTauriWindowFullscreen(true)) chromeOwned = 'tauri-window';
-		return true;
-	}
-	if (how === 'none') return false;
-	if (getFullscreenElement()) return true; /* already fullscreen (F11 or earlier upgrade) */
-	try {
-		await requestFullscreen(document.documentElement);
-		chromeOwned = 'document';
-		return true;
-	} catch {
+		const result = await setTauriWindowFullscreen(true);
+		if (result === 'owned') chromeOwned = 'tauri-window';
+		if (result !== 'failed') return true;
+		/*
+		 * No window API: WebKitGTK fullscreens its window for the document Fullscreen API
+		 * too, gesture permitting. The await above spent this task's activation, so this
+		 * only works from the next press on the in-game menu.
+		 */
 		return false;
 	}
+	if (how === 'none') return false;
+	return requestDocumentFullscreen();
 }
 
 /**
@@ -122,7 +141,12 @@ export async function enterGameFullscreen(surface: Element): Promise<void> {
 export function upgradeGameFullscreenOnGesture(surface: Element | null | undefined): void {
 	if (!upgradePending || !surface || !isPseudoFullscreen(surface)) return;
 	upgradePending = false;
-	void hideChrome();
+	/*
+	 * Always the document API here: a pending upgrade means either there was no gesture
+	 * (browsers) or the Tauri window API was unavailable, and WebKitGTK fullscreens its
+	 * window for the document API as well.
+	 */
+	if (documentFullscreenAvailable()) void requestDocumentFullscreen();
 }
 
 /** Leave immersive mode entirely: surface back in the page, chrome restored. */
