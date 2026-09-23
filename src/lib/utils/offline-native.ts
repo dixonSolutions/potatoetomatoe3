@@ -76,16 +76,17 @@ export async function loadNativeGameProfile(gameId: string): Promise<GameBrowser
 	return await invoke<GameBrowserProfile | null>('game_profile_read', { id: gameId });
 }
 
+/**
+ * Write the game's saves to disk.
+ *
+ * @throws when the write failed. The caller keeps the saves and tries again: the disk is
+ *   the only place the desktop app reads them back from.
+ */
 export async function saveNativeGameProfile(
 	gameId: string,
 	profile: GameBrowserProfile
-): Promise<boolean> {
-	try {
-		await invoke('game_profile_write', { id: gameId, profile });
-		return true;
-	} catch {
-		return false;
-	}
+): Promise<void> {
+	await invoke('game_profile_write', { id: gameId, profile });
 }
 
 export async function deleteNativeGameProfile(gameId: string): Promise<boolean> {

@@ -118,9 +118,10 @@ const pendingSaves = new Map<
 	{ incoming: GameBrowserProfile | null; done: Promise<void> }
 >();
 /**
- * Pushes that could not be merged because the stored profile could not be read. Kept in
- * memory, under anything pushed later, until a read succeeds: writing them on their own
- * would replace the saves, and dropping them would lose the session.
+ * Pushes that could not be merged because the stored profile could not be read, or whose
+ * write failed. Kept in memory, under anything pushed later, until a read and a write
+ * succeed: writing them on their own would replace the saves, and dropping them would lose
+ * the session.
  */
 const heldSaves = new Map<string, GameBrowserProfile>();
 const heldRetry = new Map<string, { timer: ReturnType<typeof setTimeout> | null; delay: number }>();
@@ -183,10 +184,29 @@ function queueSave(gameId: string, incoming: GameBrowserProfile | null): Promise
 					return;
 				}
 			}
-			clearHeldRetry(gameId);
 			const merged = mergeGameBrowserProfiles(existing, unsaved);
 			rememberProfile(gameId, merged);
-			await saveGameBrowserProfile(gameId, merged);
+			try {
+				await saveGameBrowserProfile(gameId, merged);
+			} catch (error) {
+				/*
+				 * Not written (the desktop app's disk write failed). Held and tried again with
+				 * backoff, like pushes whose stored profile could not be read: dropped, it was
+				 * the session's progress that went, and writing it elsewhere hid it from the
+				 * next load.
+				 */
+				const since = heldSaves.get(gameId);
+				heldSaves.set(gameId, since ? mergeGameBrowserProfiles(merged, since) : merged);
+				retryHeldSave(gameId);
+				appendPlayLog(
+					'warn',
+					'saves',
+					"Could not write this game's saves — holding them to try again",
+					`game=${gameId} ${error instanceof Error ? error.message : String(error)}`
+				);
+				return;
+			}
+			clearHeldRetry(gameId);
 		});
 	entry.done = next;
 	saveChains.set(gameId, next);

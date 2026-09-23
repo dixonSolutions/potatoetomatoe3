@@ -11,7 +11,9 @@ const store = vi.hoisted(() => ({
 	slow: false,
 	release: [] as Array<() => void>,
 	/** Reads made of the store. */
-	reads: 0
+	reads: 0,
+	/** How many of the next writes fail (a disk write the desktop app could not make). */
+	writeFails: 0
 }));
 
 vi.mock('./game-browser-storage', () => ({
@@ -21,7 +23,12 @@ vi.mock('./game-browser-storage', () => ({
 		return store.saved.get(gameId) ?? null;
 	},
 	saveGameBrowserProfile: (gameId: string, profile: GameBrowserProfile) =>
-		new Promise<void>((resolve) => {
+		new Promise<void>((resolve, reject) => {
+			if (store.writeFails > 0) {
+				store.writeFails--;
+				reject(new Error('disk full'));
+				return;
+			}
 			const copy = JSON.parse(JSON.stringify(profile)) as GameBrowserProfile;
 			store.writes.push({ gameId, profile: copy });
 			const finish = () => {
@@ -121,6 +128,7 @@ beforeEach(() => {
 	store.slow = false;
 	store.release = [];
 	store.reads = 0;
+	store.writeFails = 0;
 });
 
 afterEach(() => {
@@ -250,6 +258,22 @@ describe('a failed save read is not "no saves"', () => {
 		).toEqual({ level: '2' });
 		unregister();
 		stop();
+	});
+
+	it('holds a push whose write failed and writes it on a retry', async () => {
+		vi.useFakeTimers();
+		store.writeFails = 2;
+		await captureGameStorageFromIframe(pushFrom('https://a', 'save', '5'), 'write-fails');
+		expect(store.writes).toEqual([]);
+		/* A newer push while the first is held: both land, newest on top. */
+		await captureGameStorageFromIframe(pushFrom('https://a', 'late', 'y'), 'write-fails');
+		expect(store.writes).toEqual([]);
+
+		await vi.advanceTimersByTimeAsync(2_000);
+		expect(store.writes).toHaveLength(1);
+		expect(store.saved.get('write-fails')?.profile.Default.localStorage).toEqual({
+			'https://a': { late: 'y' }
+		});
 	});
 
 	it('holds pushes while the stored profile cannot be read, then merges them over it', async () => {

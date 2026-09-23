@@ -124,8 +124,13 @@ async function loadNativeWithFallback(gameId: string): Promise<GameBrowserProfil
 	const onDisk = await loadNativeGameProfile(gameId);
 	if (onDisk || !isBrowserGameDataSupported()) return onDisk;
 	const stranded = await loadBrowserGameProfile(gameId);
-	if (stranded && (await saveNativeGameProfile(gameId, stranded))) {
-		await deleteBrowserGameProfile(gameId);
+	if (stranded) {
+		try {
+			await saveNativeGameProfile(gameId, stranded);
+			await deleteBrowserGameProfile(gameId);
+		} catch {
+			/* Left where it is: the next load moves it. */
+		}
 	}
 	return stranded;
 }
@@ -157,6 +162,13 @@ export async function loadGameBrowserProfile(
 	return await migrateLegacyIfNeeded(gameId, profile, playOrigin);
 }
 
+/**
+ * Write the game's saves where the loader reads them from.
+ *
+ * @throws when the desktop app could not write them to disk. They used to go to IndexedDB
+ *   instead, which the loader never reads while the disk has a profile of the game — the
+ *   write was as good as lost. The caller holds the saves and tries again.
+ */
 export async function saveGameBrowserProfile(
 	gameId: string,
 	profile: GameBrowserProfile
@@ -165,8 +177,10 @@ export async function saveGameBrowserProfile(
 	const backend = await getBrowserDataBackend();
 
 	if (backend === 'native') {
-		if (await saveNativeGameProfile(gameId, profile)) return;
-	} else if (backend === 'puller') {
+		await saveNativeGameProfile(gameId, profile);
+		return;
+	}
+	if (backend === 'puller') {
 		const ok = await savePullerBrowserProfile(gameId, profile);
 		if (ok) return;
 	}

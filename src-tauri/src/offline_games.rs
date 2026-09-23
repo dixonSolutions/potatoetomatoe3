@@ -470,6 +470,17 @@ const PROFILE_LOCAL: &str = "profile/Default/localStorage.json";
 const PROFILE_SESSION: &str = "profile/Default/sessionStorage.json";
 const PROFILE_COOKIES: &str = "profile/Default/cookies.json";
 const PROFILE_IDB: &str = "profile/Default/indexeddb";
+/// Beside `data/`: the saves a write is replacing, for the moment of the swap.
+const PROFILE_PREVIOUS: &str = "data.previous";
+/// Beside `data/`: a profile being written, before it is swapped in.
+const PROFILE_WRITING: &str = "data.writing-";
+
+/// Profile reads, writes and deletes, one at a time: a read never sees a write half swapped.
+static PROFILE_IO: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+fn profile_io() -> std::sync::MutexGuard<'static, ()> {
+  PROFILE_IO.lock().unwrap_or_else(|e| e.into_inner())
+}
 
 fn profile_dir(roots: &GameRoots, id: &str) -> Result<PathBuf, String> {
   if !is_catalog_id(id) {
@@ -506,10 +517,18 @@ fn write_json_atomic(path: &Path, value: &serde_json::Value) -> Result<(), Strin
 /// there but cannot be read: the frontend then holds the game's pushes rather than writing
 /// one session's data over files it could not see.
 pub fn read_profile(roots: &GameRoots, id: &str) -> Result<Option<serde_json::Value>, String> {
+  let _io = profile_io();
   let dir = profile_dir(roots, id)?;
-  if !dir.exists() {
-    return Ok(None);
-  }
+  let dir = if dir.exists() {
+    dir
+  } else {
+    /* A write that stopped between its two renames left the saves here. */
+    let previous = dir.with_file_name(PROFILE_PREVIOUS);
+    if !previous.exists() {
+      return Ok(None);
+    }
+    previous
+  };
   let result = read_profile_dir(&dir);
   if let Err(why) = &result {
     log::warn!("could not read the saves of {id}: {why}");
@@ -579,11 +598,43 @@ fn read_profile_dir(dir: &Path) -> Result<Option<serde_json::Value>, String> {
   })))
 }
 
+/// A database's directory: its name made safe for a path, and a hash of the name so two
+/// names that come out the same (`/idbfs` and `_idbfs`) keep a directory each.
+fn database_dir_name(name: &str) -> String {
+  let safe: String = name
+    .chars()
+    .take(64)
+    .map(|c| {
+      if c.is_ascii_alphanumeric() || matches!(c, '.' | '_' | '-') {
+        c
+      } else {
+        '_'
+      }
+    })
+    .collect();
+  let safe = safe.trim_start_matches('.');
+  let safe = if safe.is_empty() { "_" } else { safe };
+  /* FNV-1a: stable across builds and platforms, unlike the std hasher. */
+  let mut hash: u64 = 0xcbf2_9ce4_8422_2325;
+  for byte in name.as_bytes() {
+    hash ^= u64::from(*byte);
+    hash = hash.wrapping_mul(0x0100_0000_01b3);
+  }
+  format!("{safe}-{hash:016x}")
+}
+
+/// Write the game's saves: all of the profile, or none of it.
+///
+/// The files are written into a directory of their own beside `data/`, which then takes
+/// its place with two renames. A write that fails, or a process that dies, part way leaves
+/// the saves that were there before — the old in-place write could leave half a profile,
+/// localStorage from one push and databases from the one before.
 pub fn write_profile(
   roots: &GameRoots,
   id: &str,
   profile: &serde_json::Value,
 ) -> Result<(), String> {
+  let _io = profile_io();
   let dir = profile_dir(roots, id)?;
   let default = profile
     .get("profile")
@@ -607,41 +658,77 @@ pub fn write_profile(
     .ok_or("indexedDB missing")?;
   let now = std::time::SystemTime::now()
     .duration_since(std::time::UNIX_EPOCH)
-    .map(|d| d.as_millis() as u64)
-    .unwrap_or(0);
-  write_json_atomic(
-    &dir.join(PROFILE_META),
-    &serde_json::json!({ "schemaVersion": 1, "updatedAt": now }),
-  )?;
-  write_json_atomic(&dir.join(PROFILE_LOCAL), local)?;
-  write_json_atomic(&dir.join(PROFILE_SESSION), session)?;
-  write_json_atomic(&dir.join(PROFILE_COOKIES), cookies)?;
-  let idb_root = dir.join(PROFILE_IDB);
-  if let Ok(entries) = std::fs::read_dir(&idb_root) {
-    for entry in entries.flatten() {
-      if entry.path().is_dir() {
-        let _ = std::fs::remove_dir_all(entry.path());
-      }
+    .unwrap_or_default();
+  let game_dir = dir.parent().ok_or("profile directory has no parent")?;
+  std::fs::create_dir_all(game_dir).map_err(|e| format!("{}: {e}", game_dir.display()))?;
+  clear_abandoned_writes(game_dir);
+  let staging = game_dir.join(format!(
+    "{PROFILE_WRITING}{}-{}",
+    std::process::id(),
+    now.as_nanos()
+  ));
+  let written = write_profile_tree(
+    &staging,
+    now.as_millis() as u64,
+    [local, session, cookies],
+    databases,
+  )
+  .and_then(|()| swap_in(&staging, &dir));
+  if written.is_err() {
+    let _ = std::fs::remove_dir_all(&staging);
+  }
+  written
+}
+
+/// Directories left by writes that never finished (the app was killed mid-write).
+fn clear_abandoned_writes(game_dir: &Path) {
+  let Ok(entries) = std::fs::read_dir(game_dir) else {
+    return;
+  };
+  for entry in entries.flatten() {
+    if entry.file_name().to_string_lossy().starts_with(PROFILE_WRITING) {
+      let _ = std::fs::remove_dir_all(entry.path());
     }
   }
+}
+
+/// Put the fully written `staging` where `dir` is. `dir` steps aside first and is removed
+/// last, so there is always one complete profile on disk: before the swap `dir`, between
+/// the renames `data.previous` (which reads fall back to), and after it the new one.
+fn swap_in(staging: &Path, dir: &Path) -> Result<(), String> {
+  let previous = dir.with_file_name(PROFILE_PREVIOUS);
+  if dir.exists() {
+    /* A leftover from a swap that stopped half way; `dir` is the newer of the two. */
+    if previous.exists() {
+      std::fs::remove_dir_all(&previous).map_err(|e| format!("{}: {e}", previous.display()))?;
+    }
+    std::fs::rename(dir, &previous).map_err(|e| format!("{}: {e}", dir.display()))?;
+  }
+  if let Err(e) = std::fs::rename(staging, dir) {
+    if previous.exists() && !dir.exists() {
+      let _ = std::fs::rename(&previous, dir);
+    }
+    return Err(format!("{}: {e}", dir.display()));
+  }
+  if previous.exists() {
+    let _ = std::fs::remove_dir_all(&previous);
+  }
+  Ok(())
+}
+
+fn write_profile_tree(
+  root: &Path,
+  updated_at: u64,
+  [local, session, cookies]: [&serde_json::Value; 3],
+  databases: &[serde_json::Value],
+) -> Result<(), String> {
+  write_json_atomic(&root.join(PROFILE_LOCAL), local)?;
+  write_json_atomic(&root.join(PROFILE_SESSION), session)?;
+  write_json_atomic(&root.join(PROFILE_COOKIES), cookies)?;
+  let idb_root = root.join(PROFILE_IDB);
   for db in databases {
     let name = db.get("name").and_then(|n| n.as_str()).unwrap_or("db");
-    let safe: String = name
-      .chars()
-      .map(|c| {
-        if c.is_ascii_alphanumeric() || matches!(c, '.' | '_' | '-') {
-          c
-        } else {
-          '_'
-        }
-      })
-      .collect();
-    let safe = if safe.is_empty() || safe == "." || safe == ".." {
-      "_".to_string()
-    } else {
-      safe
-    };
-    let db_dir = idb_root.join(safe);
+    let db_dir = idb_root.join(database_dir_name(name));
     write_json_atomic(
       &db_dir.join("meta.json"),
       &serde_json::json!({
@@ -657,13 +744,23 @@ pub fn write_profile(
         .unwrap_or(&serde_json::json!([])),
     )?;
   }
-  Ok(())
+  /* Last: a profile directory with its meta file is a complete one. */
+  write_json_atomic(
+    &root.join(PROFILE_META),
+    &serde_json::json!({ "schemaVersion": 1, "updatedAt": updated_at }),
+  )
 }
 
 pub fn delete_profile(roots: &GameRoots, id: &str) -> Result<(), String> {
+  let _io = profile_io();
   let dir = profile_dir(roots, id)?;
-  if dir.exists() {
-    std::fs::remove_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
+  for path in [dir.with_file_name(PROFILE_PREVIOUS), dir.clone()] {
+    if path.exists() {
+      std::fs::remove_dir_all(&path).map_err(|e| format!("{}: {e}", path.display()))?;
+    }
+  }
+  if let Some(game_dir) = dir.parent() {
+    clear_abandoned_writes(game_dir);
   }
   Ok(())
 }
@@ -823,6 +920,102 @@ mod tests {
     assert!(!is_catalog_id("g/h"));
   }
 
+  fn profile_with(save: &str, databases: serde_json::Value) -> serde_json::Value {
+    serde_json::json!({
+      "schemaVersion": 1, "updatedAt": 5,
+      "profile": { "Default": {
+        "localStorage": { "https://h": { "save": save } },
+        "sessionStorage": {},
+        "cookies": [],
+        "indexedDB": databases
+      }}
+    })
+  }
+
+  #[test]
+  fn databases_whose_names_look_alike_keep_a_directory_each() {
+    let roots = temp_roots("profile-names");
+    let databases = serde_json::json!([
+      { "name": "/idbfs", "version": 21, "objectStores": ["FILE_DATA"], "records": [{ "storeName": "FILE_DATA", "key": "a", "value": "1" }] },
+      { "name": "_idbfs", "version": 1, "objectStores": ["s"], "records": [{ "storeName": "s", "key": "b", "value": "2" }] }
+    ]);
+    assert_ne!(database_dir_name("/idbfs"), database_dir_name("_idbfs"));
+    write_profile(&roots, "g", &profile_with("1", databases)).unwrap();
+    let back = read_profile(&roots, "g").unwrap().unwrap();
+    let mut names: Vec<String> = back["profile"]["Default"]["indexedDB"]
+      .as_array()
+      .unwrap()
+      .iter()
+      .map(|db| db["name"].as_str().unwrap().to_string())
+      .collect();
+    names.sort();
+    assert_eq!(names, ["/idbfs", "_idbfs"]);
+    /* A name made only of what a path cannot hold still gets a usable directory. */
+    assert!(database_dir_name("..").starts_with('_'));
+    assert!(!database_dir_name("../../x").contains('/'));
+  }
+
+  #[test]
+  fn a_write_that_fails_leaves_the_saves_that_were_there() {
+    let roots = temp_roots("profile-atomic");
+    let no_databases = serde_json::json!([]);
+    write_profile(&roots, "g", &profile_with("1", no_databases.clone())).unwrap();
+    /* Not a profile at all: refused before anything on disk changes. */
+    assert!(write_profile(&roots, "g", &serde_json::json!({ "profile": {} })).is_err());
+    let back = read_profile(&roots, "g").unwrap().unwrap();
+    assert_eq!(back["profile"]["Default"]["localStorage"]["https://h"]["save"], "1");
+    /* The disk refuses the new files: the old profile is still whole. */
+    #[cfg(unix)]
+    {
+      use std::os::unix::fs::PermissionsExt;
+      let game_dir = roots.data.join("g");
+      std::fs::set_permissions(&game_dir, std::fs::Permissions::from_mode(0o555)).unwrap();
+      let refused = write_profile(&roots, "g", &profile_with("2", no_databases.clone()));
+      std::fs::set_permissions(&game_dir, std::fs::Permissions::from_mode(0o755)).unwrap();
+      /* Root ignores the permission; the check only means something when it applied. */
+      if refused.is_err() {
+        let back = read_profile(&roots, "g").unwrap().unwrap();
+        assert_eq!(back["profile"]["Default"]["localStorage"]["https://h"]["save"], "1");
+      }
+    }
+    write_profile(&roots, "g", &profile_with("3", no_databases)).unwrap();
+    let back = read_profile(&roots, "g").unwrap().unwrap();
+    assert_eq!(back["profile"]["Default"]["localStorage"]["https://h"]["save"], "3");
+    /* Nothing is left beside the profile: no staging copy, no previous one. */
+    let mut left: Vec<String> = std::fs::read_dir(roots.data.join("g"))
+      .unwrap()
+      .flatten()
+      .map(|e| e.file_name().to_string_lossy().into_owned())
+      .collect();
+    left.sort();
+    assert_eq!(left, ["data"]);
+  }
+
+  #[test]
+  fn a_write_cut_off_between_its_renames_still_reads_back() {
+    let roots = temp_roots("profile-swap");
+    write_profile(&roots, "g", &profile_with("7", serde_json::json!([]))).unwrap();
+    let data = roots.data.join("g/data");
+    /* The app died after moving the old profile aside, before the new one took its place. */
+    std::fs::rename(&data, roots.data.join("g").join(PROFILE_PREVIOUS)).unwrap();
+    std::fs::create_dir_all(roots.data.join("g").join(format!("{PROFILE_WRITING}1-2/profile")))
+      .unwrap();
+    let back = read_profile(&roots, "g").unwrap().unwrap();
+    assert_eq!(back["profile"]["Default"]["localStorage"]["https://h"]["save"], "7");
+    /* The next write cleans up after it. */
+    write_profile(&roots, "g", &profile_with("8", serde_json::json!([]))).unwrap();
+    let back = read_profile(&roots, "g").unwrap().unwrap();
+    assert_eq!(back["profile"]["Default"]["localStorage"]["https://h"]["save"], "8");
+    let left: Vec<String> = std::fs::read_dir(roots.data.join("g"))
+      .unwrap()
+      .flatten()
+      .map(|e| e.file_name().to_string_lossy().into_owned())
+      .collect();
+    assert_eq!(left, ["data"]);
+    delete_profile(&roots, "g").unwrap();
+    assert!(read_profile(&roots, "g").unwrap().is_none());
+  }
+
   #[test]
   fn entry_html_gets_the_bridge_and_vaulted_urls() {
     let roots = temp_roots("html");
@@ -866,7 +1059,9 @@ mod tests {
       .is_file());
     assert!(roots
       .data
-      .join("g/data/profile/Default/indexeddb/_idbfs/records.json")
+      .join("g/data/profile/Default/indexeddb")
+      .join(database_dir_name("/idbfs"))
+      .join("records.json")
       .is_file());
     let back = read_profile(&roots, "g").unwrap().unwrap();
     assert_eq!(
