@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { onMount, untrack } from 'svelte';
+	import { SvelteSet } from 'svelte/reactivity';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
@@ -71,7 +72,7 @@
 		{}
 	);
 	let fuse: Fuse<GameIndexEntry> | null = $state(null);
-	let favouriteIds = $state<Set<string>>(new Set());
+	const favouriteIds = new SvelteSet<string>();
 	let columnCount = $state(4);
 
 	/*
@@ -96,7 +97,6 @@
 			likeGame(gameId);
 			favouriteIds.add(gameId);
 		}
-		favouriteIds = new Set(favouriteIds);
 	}
 
 	function openGame(gameId: string, event: MouseEvent) {
@@ -152,7 +152,12 @@
 		}
 		const u = new URL($page.url.href);
 		u.searchParams.set('sort', v);
-		void goto(`${u.pathname}${u.search}`, { replaceState: true, keepFocus: true, noScroll: true });
+		// eslint-disable-next-line svelte/no-navigation-without-resolve -- resolve() takes no query string; the path part is resolve('/games')
+		void goto(`${resolve('/games')}${u.search}`, {
+			replaceState: true,
+			keepFocus: true,
+			noScroll: true
+		});
 		/* Any order but the shards' own needs the full catalog for a correct global order. */
 		if (v !== 'quality' && catalogProgress && !catalogProgress.complete) {
 			void loadCatalogIndex(applyCatalogUpdate, { eager: true });
@@ -252,7 +257,8 @@
 			schoolNetworkOnly = params.get('school') === '1' || Boolean(filterPrefs.schoolNetworkOnly);
 
 			const prefs = getPreferences();
-			favouriteIds = new Set(prefs.liked);
+			favouriteIds.clear();
+			for (const id of prefs.liked) favouriteIds.add(id);
 
 			void refreshDownloadedStatuses();
 
@@ -558,7 +564,7 @@
 				{selectedCategoryValue.label}
 			</Select.Trigger>
 			<Select.Content>
-				{#each categories as category}
+				{#each categories as category (category)}
 					<Select.Item value={category}>
 						{category === 'all'
 							? 'All Categories'

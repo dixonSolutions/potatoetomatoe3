@@ -4,7 +4,6 @@
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
-	import { base } from '$app/paths';
 	import {
 		cacheLoadedAppAssets,
 		ensureOfflineServiceWorker
