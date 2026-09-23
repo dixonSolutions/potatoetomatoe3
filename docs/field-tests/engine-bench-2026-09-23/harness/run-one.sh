@@ -49,7 +49,8 @@ prof=""
 case "$kind" in
   tauri)
     # Its own identifier (com.potatotomato.games.perfbench): wiping it is a cold start.
-    rm -rf "$HOME/.local/share/com.potatotomato.games.perfbench" "$HOME/.cache/com.potatotomato.games.perfbench"
+    ident=${PTBENCH_IDENTIFIER:-com.potatotomato.games.perfbench}
+    rm -rf "$HOME/.local/share/$ident" "$HOME/.cache/$ident"
     env "${envs[@]}" POTATO_TOMATO_NO_TRAY=1 POTATO_TOMATO_NO_CLOSE_TO_TRAY=1 \
       setsid "$BENCH_DIR/potato-tomato-perfbench" "${extra[@]}" > "$log" 2>&1 &
     ;;

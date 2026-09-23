@@ -27,10 +27,18 @@
 	 *   warm=0             skip Unity's second (warm-cache) load
 	 *   wasm=0             skip the WebAssembly compile timing
 	 *   quick=1            short phases, for smoke runs
+	 *   gameOpen=1         after the baseline, the Linux app treats the bench as an open game,
+	 *                      as the game page is (native game-frame context: full frame rate in
+	 *                      power saver, the display-scale cap in the workload frames)
+	 *   throttle=1         instead of the workloads: `raf-probe.html` from the other loopback
+	 *                      name (a cross-origin frame, like every game), focused on load as the
+	 *                      game player does, for 4 × 3 s; the probe posts its own rates to the
+	 *                      collector's progress log. With gameOpen=1 it is a native game frame.
 	 */
 	import { onMount, tick } from 'svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
 	import { KeyDispatcher } from '$lib/utils/touch-input-dispatch';
+	import { prepareNativeGameFrames } from '$lib/utils/native-game-frames';
 
 	type Workload = { id: string; label: string; url: string; unity: boolean };
 
@@ -106,6 +114,8 @@
 			consolePhase: q.get('console') !== '0',
 			unityWarm: q.get('warm') !== '0',
 			wasmCompile: q.get('wasm') !== '0',
+			gameOpen: q.get('gameOpen') === '1',
+			throttleProbe: q.get('throttle') === '1',
 			workloads: pick
 				? pick
 						.split(',')
@@ -576,6 +586,28 @@
 		return out;
 	}
 
+	/** The cross-origin frame throttle, as a game frame meets it (see `throttle=1`). */
+	async function throttleProbe() {
+		const other = location.hostname === '127.0.0.1' ? 'localhost' : '127.0.0.1';
+		const url =
+			`${location.protocol}//${other}:${location.port}/dev-bench/raf-probe.html` +
+			`?label=${encodeURIComponent(`tp-${opts.variant}`)}` +
+			`&collector=${encodeURIComponent(collectorBase)}&windows=4&ms=3000`;
+		note(`throttle probe: ${url}`);
+		const frame = iframeEl;
+		frame?.addEventListener('load', () => frame.focus(), { once: true });
+		frameSrc = url;
+		await tick();
+		await sleep(3000);
+		const focus = `${document.activeElement?.tagName ?? 'none'} hasFocus=${document.hasFocus()}`;
+		note(`throttle probe: focus ${focus}`);
+		/* The probe measures 4 × 3 s from 1.5 s after its load; loopback by name can take a few s. */
+		await sleep(22000);
+		frameSrc = 'about:blank';
+		await tick();
+		return { workload: 'throttle-probe', url, note: 'rates in the progress log (raf-probe tp-…)' };
+	}
+
 	async function run() {
 		if (status !== 'idle' && !status.startsWith('done')) return;
 		log = [];
@@ -611,7 +643,19 @@
 		note('baseline rAF (no game)');
 		const baseline = await sampleFrames(window as unknown as GameWin, 3000);
 		note(`baseline ${baseline.fps} fps`);
-		for (const w of opts.workloads) {
+		/*
+		 * After the baseline, so that one still shows the page with no game open (in the Linux
+		 * app, power saver applies there) and the workloads show a game page.
+		 */
+		if (opts.gameOpen) {
+			const native = await prepareNativeGameFrames({
+				gameId: 'perf-bench',
+				topHasBridge: !opts.throttleProbe
+			});
+			note(`game open: native game-frame context ${native ? 'set' : 'unavailable'}`);
+		}
+		if (opts.throttleProbe) results.push(await throttleProbe());
+		for (const w of opts.throttleProbe ? [] : opts.workloads) {
 			try {
 				results.push(await runWorkload(w));
 			} catch (e) {

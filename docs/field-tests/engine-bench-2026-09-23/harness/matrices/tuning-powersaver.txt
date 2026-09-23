@@ -1,0 +1,4 @@
+# Implemented tuning (2026-09-24), real Tauri binary, query with gameOpen=1: full frame rate
+# in power saver off (env override) and on (the shipped default).
+tauri t-pp-off POTATO_TOMATO_FULL_SPEED=0
+tauri t-pp-on
