@@ -600,33 +600,23 @@
 		} catch (e) {
 			return;
 		}
-		ptTouchFocus();
-		var canvas =
-			document.querySelector('canvas') ||
-			document.querySelector(
-				'#openfl-content canvas, #unity-canvas, #gameContainer canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
-			);
-		var targets = [];
-		if (canvas) targets.push(canvas);
-		var openfl = document.getElementById('openfl-content');
-		if (openfl) targets.push(openfl);
-		if (document.body) targets.push(document.body);
-		if (document.documentElement) targets.push(document.documentElement);
-		targets.push(document, window);
-		var seen = {};
-		for (var i = 0; i < targets.length; i++) {
-			var t = targets[i];
-			if (!t || seen[t]) continue;
-			seen[t] = true;
-			try {
-				t.dispatchEvent(event);
-			} catch (e) {}
-		}
+		/*
+		 * One target only. Key events bubble, so firing at canvas, body, html, document
+		 * and window in turn delivered each press to a window listener five times.
+		 */
+		var target =
+			(typeof window.__ptKeyDispatchTarget === 'function' && window.__ptKeyDispatchTarget()) ||
+			document.body ||
+			document.documentElement ||
+			document;
+		try {
+			target.dispatchEvent(event);
+		} catch (e) {}
 	}
 
 	function ptTouchInputDown(codes) {
 		if (!codes || !codes.length) return;
-		ptTouchFocus();
+		if (!Object.keys(ptTouchHeld).length) ptTouchFocus();
 		for (var i = 0; i < codes.length; i++) {
 			var code = codes[i];
 			if (!code || ptTouchHeld[code]) continue;
@@ -691,6 +681,11 @@
 
 	function handleTouchInputMessage(data) {
 		if (!data || data.type !== 'potato-tomato-touch-input') return;
+		/*
+		 * The storage bridge runs in this document too and already handles console input.
+		 * Handling it here as well pressed every key twice.
+		 */
+		if (window.__ptStorageBridge) return;
 		var action = data.action;
 		var codes = Array.isArray(data.codes)
 			? data.codes

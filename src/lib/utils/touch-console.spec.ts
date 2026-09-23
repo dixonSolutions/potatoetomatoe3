@@ -61,6 +61,22 @@ describe('touch-input-dispatch', () => {
 		);
 	});
 
+	it('holds a joystick direction through wobble near the threshold', () => {
+		const mapping = DEFAULT_TOUCH_MAPPING.directions;
+		/* 0.3 is below the engage point: nothing held yet, nothing pressed. */
+		expect(KeyDispatcher.directionsFromVector(-0.3, 0, mapping)).toEqual([]);
+		/* Once held, the same 0.3 keeps it held instead of chattering off and on. */
+		const held = new Set(mapping.left);
+		expect(KeyDispatcher.directionsFromVector(-0.3, 0, mapping, held)).toEqual(mapping.left);
+		/* Well below the release point it lets go. */
+		expect(KeyDispatcher.directionsFromVector(-0.1, 0, mapping, held)).toEqual([]);
+		/* A held diagonal survives the thumb drifting towards one axis. */
+		const diag = new Set([...mapping.left, ...mapping.down]);
+		expect(KeyDispatcher.directionsFromVector(-0.8, 0.25, mapping, diag).sort()).toEqual(
+			[...mapping.left, ...mapping.down].sort()
+		);
+	});
+
 	afterEach(() => {
 		vi.unstubAllGlobals();
 	});

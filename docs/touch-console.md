@@ -30,7 +30,7 @@ flowchart TD
     settings[Settings - Touch Controls] --> draft[(unsaved settings draft)]
     draft --> saveSplit[shared settings Save / Discard]
     saveSplit --> store[(touch-console store: global + per-game)]
-    editmode[In-game hold-2s edit mode] --> store
+    editmode[In-game Move mode, toggled on the panel] --> store
     store --> overlay
 ```
 
@@ -218,36 +218,113 @@ If the puller is not running, the iframe shows an error page telling you to star
 
 ## Gestures and UX
 
-| Action               | Behavior                                                                                                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Gamepad switch       | Blue on/off switch for the console (when enabled / availability allows).                                                                                                                                      |
-| Joystick             | Analog stick → 8-way keys. Scheme picker: **Arrows** (default) or **WASD** — stored in touch settings.                                                                                                        |
-| Space                | Glass pill button → `Space` (same overlay as A/B/X/Y).                                                                                                                                                        |
-| A / B / X / Esc      | Hold = keydown, release = keyup (Z / Enter / Shift / Escape by default; remappable). The fourth face button is labelled by what it sends, because Escape is the one whose job is not guessable from a letter. |
-| Hold on a control    | After 650 ms, enter drag mode (dashed highlight), move, release commits to store.                                                                                                                             |
-| Hold on panel grip   | After 650 ms, drag the whole compact console rectangle. Pointer capture keeps the drag active after the finger leaves the grip.                                                                               |
-| Pause / privacy lock | Overlay hides and all keys are released.                                                                                                                                                                      |
+| Action                 | Behavior                                                                                                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gamepad switch         | Blue on/off switch for the console (when enabled / availability allows).                                                                                                                                      |
+| Joystick               | Analog stick → 8-way keys. Scheme picker: **Arrows** (default) or **WASD** — stored in touch settings.                                                                                                        |
+| Space                  | Glass pill button → `Space` (same overlay as A/B/X/Y).                                                                                                                                                        |
+| A / B / X / Esc        | Hold = keydown, release = keyup (Z / Enter / Shift / Escape by default; remappable). The fourth face button is labelled by what it sends, because Escape is the one whose job is not guessable from a letter. |
+| Hold on a control      | Just a held key, for as long as the game needs (charge, sprint, crouch). Holding never turns a control into a drag handle — that used to drop the key after 2 s mid-game.                                     |
+| Move (✥) on panel      | Layout-edit mode. Every control shows a dashed outline; dragging one moves it and sends no key. ↺ resets the layout, **Done** leaves the mode.                                                                |
+| Drag the panel grip    | Moves the whole compact console at once. Starts after a few pixels of travel — the grip does nothing else, so there is no long press to discover.                                                             |
+| Controls (⌨) on panel | Opens the Controls menu — see below.                                                                                                                                                                          |
+| Pause / privacy lock   | Overlay hides and all keys are released.                                                                                                                                                                      |
 
 ### The game's own menu
 
-Escape is how almost every game opens its own pause / options menu, and a touch
-device has no keyboard to press it with. It is reachable two ways, and the
-important one is not the console:
-
-- **Game menu** in the player toolbar, beside Pause / Relaunch / Fullscreen.
-  Available whenever the game frame can receive keys, whether or not the console
-  is enabled or switched on. This is the answer to "how do I open the game's
-  menu" — the console is a control pad, and needing to find it, enable it and
-  switch it ON before a game's menu is reachable at all was the wrong shape.
-- **Esc** on the console overlay, for players who already have the pad up.
-
-Both go through the same dispatch path as every other console key
-([`game-key-tap.ts`](../src/lib/utils/game-key-tap.ts) →
-`KeyDispatcher.tap`), so a game that cannot receive console input cannot receive
-this either — and the toolbar button says so rather than doing nothing quietly.
+Escape opens almost every game's own pause / options menu. It is the **Esc** face
+button on the console, and a key in the Controls menu. A separate "Game menu"
+toolbar button used to send the same key from the page chrome; it duplicated the
+console and was removed.
 
 This is the game's Escape, not the app's: it does not exit the game, leave
 fullscreen, or close the page.
+
+### Controls menu, live key detection and the dynamic console
+
+**Controls** sits in the player toolbar next to Console (and in the fullscreen bar), with
+a ⌨ shortcut on the console panel. It opens a glass menu over the top of the game — not
+a keyboard parked on it:
+
+- **Controls detected** — what this game reads and what each key does ("↑ ↓ ← → Move",
+  "J Jump"), five rows high and scrolling beyond that. Keys that do the same thing share a
+  row. Every key cap is a real hold (press = keydown, release = keyup).
+- **All keys** — the full board, for accessibility and for anything detection missed.
+- **Search** filters both, by key or by what it does ("jump").
+
+**Only what the running game does decides anything.** Page and description text says
+what a page _claims_ — reading prose is guesswork however careful the parser — so it
+supplies captions and an "unconfirmed" list, never the console layout.
+
+Evidence behind each key, most reliable first:
+
+| Evidence  | Where it comes from                                                                                      | Effect on the console              |
+| --------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| In use    | The game handled a press (`preventDefault`) — real keyboard or console. Grows as you play.               | Shown; added if the pad lacks it   |
+| Bound     | The game's **engine** registered it, read from the engine at runtime (below). Exact.                     | Shown; added; other buttons hidden |
+| Likely    | A literal in a function the game registered as a key handler.                                            | Shown; never hides or adds         |
+| Mentioned | Only named in text: portal blurb, in-page "How to play", catalog description. Listed as "not confirmed". | Caption only                       |
+
+**Engine bindings** ([`game-storage-bridge.child.js`](../static/game-storage-bridge.child.js)) —
+the bridge hooks the key APIs of the engine as the game calls them, catching the engine
+the moment its global is assigned so boot-time registrations are seen:
+
+| Engine        | Hooked                                                                             | Purposes                            |
+| ------------- | ---------------------------------------------------------------------------------- | ----------------------------------- |
+| Phaser 3      | `KeyboardPlugin.addKey / addKeys / createCursorKeys / checkDown / on('keydown-X')` | `addKeys({ jump: 'SPACE' })` → Jump |
+| Phaser 2 / CE | `Keyboard.addKey / addKeys / isDown / createCursorKeys / addKeyCapture`            | same                                |
+| PlayCanvas    | `Keyboard.isPressed / wasPressed / wasReleased`                                    | —                                   |
+| GDevelop      | `gdjs.evtTools.input.isKeyPressed / wasKeyReleased / wasKeyJustPressed`            | —                                   |
+| Kaboom/Kaplay | `onKeyPress / onKeyDown / isKeyDown / …` (globals or context)                      | —                                   |
+| Scratch       | the project's "when key pressed" / "key pressed?" blocks                           | —                                   |
+
+`pnpm bridge-test` runs real Phaser 3, Phaser CE, PlayCanvas and Kaplay builds (fetched
+with `npm pack`) and checks their keys come through as Bound. Unity keeps its input map
+inside wasm and exposes nothing, so for Unity titles only live use is reliable.
+
+Only Bound evidence lets the console _hide_ buttons, and a button whose key a handler
+mentions fades instead of vanishing (a game can bind a raw DOM listener beside its
+engine). In use / Likely evidence alone only fades. Keys are added to the pad only when
+Bound or In use.
+
+**What kind of key it is** ([`key-profile.ts`](../src/lib/utils/key-profile.ts) `keyKind`):
+
+- **Game control** — press it on the console.
+- **Shortcut** — the game only ever handled it with Ctrl / Alt / Meta held (Ctrl+S). Listed,
+  never put on the pad: the console cannot send the combination, and a bare S is not it.
+- **Typing** — the player typed into a text box in the game (the bridge sees keys land on
+  an editable element, or one take focus), or a handler compares against most of the
+  alphabet. Letters with no other evidence are text entry: the menu offers **Type**, which
+  puts the caret in the game's text box so the device keyboard opens, instead of growing a
+  button per letter. A letter the engine bound, or that was seen driving play, stays a
+  game control even when the game also has a text box.
+
+**The dynamic console.** The same evidence reshapes the pad itself:
+
+- With Bound evidence, face buttons whose keys the engine never bound are hidden (the
+  "−N unused" badge); with only Likely or In use evidence they are dimmed — one press of
+  Space says Space matters, not that Z does not. Text never hides anything.
+- Game controls the pad lacks (Bound or In use — never Mentioned, shortcuts or typing)
+  are **added** as small buttons just above the panel, captioned with what they do — at
+  most four.
+- Buttons whose key has a known purpose carry it as a caption ("Space · Dash").
+
+On Android the detector is [`native_touch_bridge.js`](../src-tauri/gen/android/app/src/main/res/raw/native_touch_bridge.js);
+on the web and desktop it is the same logic inside
+[`game-storage-bridge.child.js`](../static/game-storage-bridge.child.js), which also
+reports live use, shortcuts, text entry and the raw controls text. Both post
+`potato-tomato-key-profile`, merged in [`key-profile.ts`](../src/lib/utils/key-profile.ts).
+
+### Latency
+
+One press is one event. The bridge used to fire each synthetic key at canvas, body, html,
+document and window in turn — and since key events bubble, a window listener saw every
+press up to five times; on Unity pages `inject.js` handled the same message too. Now a
+key is dispatched once, at the element the game bound its key handler to (else `body`),
+the game is focused once per press burst rather than per key, and the joystick measures
+itself once per touch instead of on every move. The stick also has hysteresis (engage at
+0.35, release at 0.22), so a thumb resting near a diagonal holds the key instead of
+tapping it every frame.
 
 Five-finger toggle was removed: iOS/iPadOS reserves multi-finger system gestures, Android OEM skins bind 3+ finger shortcuts, and the button is discoverable without fighting the OS.
 
@@ -322,7 +399,9 @@ layout, opacity, or scale does not write storage until Save is selected.
 |------|------|
 | `src/lib/utils/touch-console.ts` | Persistence + defaults |
 | `src/lib/utils/touch-input-dispatch.ts` | Injectability + `KeyDispatcher` |
-| `src/lib/utils/game-key-tap.ts` | One-off key sends from chrome (Game menu / Esc) |
+| `src/lib/utils/key-profile.ts` | Live key detection: merge reports, evidence and kind per key, what to hide and add |
+| `src/lib/utils/controls-text.ts` | Read a game's controls text: which keys, and what each does |
+| `static/game-storage-bridge.child.js` | In-frame bridge: key detection, console input, virtual storage |
 | `src/lib/components/game-player/touch-console/` | Overlay UI |
 | `src/lib/components/settings/sections/touch-controls/` | Settings panel |
 | `src/routes/games/[gameId]/+page.svelte` | Mount point inside `gameSurfaceEl` |

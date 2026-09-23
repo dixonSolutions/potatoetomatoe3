@@ -108,11 +108,16 @@ function revokeBlobUrl(gameId: string): void {
 	}
 }
 
-function injectStorageBridge(html: string): string {
+/**
+ * First thing in <head>: the bridge swaps in the game's virtual storage, so it must run
+ * before any game script. A blob: URL carries no game id in its path, hence the attribute.
+ */
+function injectStorageBridge(html: string, gameId: string): string {
 	const bridgeSrc = `${window.location.origin}${appBase()}/game-storage-bridge.child.js`;
 	if (html.includes('game-storage-bridge.child.js')) return html;
-	const tag = `<script src="${bridgeSrc}"></script>`;
-	if (html.includes('</head>')) return html.replace('</head>', `${tag}</head>`);
+	const safeId = gameId.replace(/["<>&]/g, '');
+	const tag = `<script src="${bridgeSrc}" data-pt-game="${safeId}"></script>`;
+	if (/<head[\s>]/i.test(html)) return html.replace(/<head([^>]*)>/i, (m) => m + tag);
 	return `${tag}${html}`;
 }
 
@@ -121,7 +126,7 @@ export async function createBrowserOfflineBlobUrl(gameId: string): Promise<strin
 	const record = await getGameFile(gameId, 'online/index.html');
 	if (!record?.data) return null;
 	let html = new TextDecoder().decode(record.data);
-	html = injectStorageBridge(html);
+	html = injectStorageBridge(html, gameId);
 	revokeBlobUrl(gameId);
 	const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
 	blobUrlByGame.set(gameId, url);
