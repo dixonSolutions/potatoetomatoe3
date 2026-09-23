@@ -259,13 +259,22 @@
 				if (!done) resolve();
 			}, ms + 5000);
 		});
+		const wallMs = win.performance.now() - t0;
 		const s = stats(intervals);
 		const spanMs = intervals.reduce((a, b) => a + b, 0);
 		/* The workload's own per-frame script time over the same window (sprites, gl-scene). */
 		const scriptMs = work ? stats(work.scriptMs.slice(scriptFrom)) : null;
 		if (work && work.scriptMs.length > 4000) work.scriptMs.length = 0;
+		/*
+		 * A loop that stopped (no frame callbacks at all) must not report the rate of the few
+		 * intervals it did get: one 16.6 ms interval once read as "60 fps" for a window that
+		 * was not being presented. Stalled phases count against the wall clock instead.
+		 */
+		const perSecond = (ms: number) =>
+			ms ? Math.round((intervals.length / (ms / 1000)) * 10) / 10 : 0;
 		return {
-			fps: spanMs ? Math.round((intervals.length / (spanMs / 1000)) * 10) / 10 : 0,
+			fps: done ? perSecond(spanMs) : perSecond(wallMs),
+			stalled: !done,
 			frameMs: s,
 			jankOver25ms: intervals.filter((i) => i > 25).length,
 			jankOver50ms: intervals.filter((i) => i > 50).length,

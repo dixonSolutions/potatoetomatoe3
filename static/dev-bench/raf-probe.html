@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>rAF probe</title>
+<style>
+	html, body { margin: 0; height: 100%; background: #111; color: #ddd; font: 14px system-ui; }
+	iframe { width: 640px; height: 360px; border: 0; display: block; }
+	canvas { width: 320px; height: 180px; display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="320" height="180"></canvas>
+<script>
+/*
+ * Minimal rAF-rate probe for the perf bench (dev only). Draws a changing canvas each frame
+ * (a page that paints nothing can be throttled as visually idle), measures its own rAF rate
+ * for `ms`, and POSTs one line to the collector's /progress.
+ *
+ *   ?label=<text>        tag for the line
+ *   ?collector=<url>     collector base (default http://127.0.0.1:18799)
+ *   ?embed=<url>         also load <url> in an iframe (point it at another origin, e.g.
+ *                        localhost vs 127.0.0.1, to see whether cross-origin frames are
+ *                        throttled before the user interacts with them)
+ *   ?ms=<n>              sampling window (default 4000)
+ *   ?windows=<n>         measure n windows back to back (default 1); each line also counts
+ *                        the trusted pointerdowns the document has seen so far
+ */
+(function () {
+	var q = new URLSearchParams(location.search);
+	var label = q.get('label') || (window === top ? 'top' : 'frame');
+	var collector = (q.get('collector') || 'http://127.0.0.1:18799').replace(/\/$/, '');
+	var MS = Number(q.get('ms')) || 4000;
+	if (q.get('embed')) {
+		var f = document.createElement('iframe');
+		f.src = q.get('embed');
+		document.body.appendChild(f);
+	}
+	var WINDOWS = Number(q.get('windows')) || 1;
+	var clicks = 0;
+	document.addEventListener('pointerdown', function (e) {
+		if (e.isTrusted) clicks++;
+	});
+	var g = document.getElementById('c').getContext('2d');
+	var n = 0, t0 = 0, w = 0;
+	function frame(t) {
+		g.fillStyle = 'hsl(' + ((t / 5) % 360) + ',70%,50%)';
+		g.fillRect(0, 0, 320, 180);
+		if (!t0) t0 = t;
+		n++;
+		if (t - t0 < MS) return requestAnimationFrame(frame);
+		var fps = (n - 1) / ((t - t0) / 1000);
+		w++;
+		fetch(collector + '/progress', {
+			method: 'POST',
+			body: 'raf-probe ' + label + ' window=' + w + ' trustedClicks=' + clicks + ' origin=' +
+				location.origin + ' fps=' + fps.toFixed(1) + ' dpr=' + devicePixelRatio + ' vis=' +
+				document.visibilityState + ' ua=' +
+				(/Chrome\/[\d.]+/.exec(navigator.userAgent) || /AppleWebKit\/[\d.]+/.exec(navigator.userAgent) || [''])[0]
+		});
+		/* `windows=N`: keep measuring back to back, e.g. before and after a real click. */
+		if (w < WINDOWS) {
+			n = 0;
+			t0 = 0;
+			requestAnimationFrame(frame);
+		}
+	}
+	setTimeout(function () { requestAnimationFrame(frame); }, 1500);
+})();
+</script>
+</body>
+</html>
