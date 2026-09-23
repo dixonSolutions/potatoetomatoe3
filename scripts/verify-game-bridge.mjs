@@ -794,19 +794,24 @@ await shot(page, '02-game-running.png');
 {
 	const wp = await openLab(WRAP_GAME, 'Wrap Lab');
 	const wf = await settledFrame(wp, WRAP_GAME, () => Array.isArray(window.canvasKeys), 15000);
-	await wp.locator('[data-testid="controls-menu-toggle"]').click();
-	const wm = wp.locator('[data-testid="controls-menu"]');
-	await wm.waitFor();
-	await wm.getByRole('tab', { name: 'All keys' }).click();
-	await sleep(200);
-	await wm.locator('[data-testid="controls-keyboard"] [data-code="KeyQ"]').click();
+	/*
+	 * The toolbar's Controls button only shows once a game has controls detected, and this
+	 * bare lab has none, so press a console button instead: the same dispatch path.
+	 */
+	await wp.locator('[data-testid="touch-console-toggle"]').click();
+	const spaceBtn = wp.getByRole('button', { name: 'Action Space' });
+	await spaceBtn.waitFor({ timeout: 8000 });
+	await spaceBtn.hover();
+	await wp.mouse.down();
+	await sleep(150);
+	await wp.mouse.up();
 	await sleep(200);
 	const got = await wf.evaluate(
 		() => `${window.canvasKeys.join(',')}|${window.wrapKeys.join(',')}`
 	);
 	check(
 		'A listening canvas inside a listening wrapper gets console keys',
-		got === 'KeyQ|KeyQ',
+		got === 'Space|Space',
 		got
 	);
 	await wp.context().close();
