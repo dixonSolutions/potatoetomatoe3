@@ -2115,14 +2115,21 @@
 	 * double-stepped, toggled menus open and shut, and the extra work showed as input lag.
 	 * An element that registered its own key listener gets the event (it bubbles on up to
 	 * body, document and window from there); otherwise body, which Scratch requires.
+	 *
+	 * A listening canvas wins over a listening wrapper around it: the event bubbles from
+	 * the canvas through the wrapper, but never down from the wrapper into the canvas, so
+	 * picking whichever registered first left a canvas-bound game deaf to the console.
 	 */
 	function keyDispatchTarget() {
+		var wrapper = null;
 		for (var i = 0; i < keyTargets.length; i++) {
 			var el = keyTargets[i];
+			if (!el.isConnected) continue;
+			if (el.tagName === 'CANVAS') return el;
 			/* Only the game surface itself — never a text box or a menu that happens to listen. */
-			if (el.isConnected && (el.tagName === 'CANVAS' || el.querySelector('canvas'))) return el;
+			if (!wrapper && el.querySelector('canvas')) wrapper = el;
 		}
-		return document.body || document.documentElement || document;
+		return wrapper || document.body || document.documentElement || document;
 	}
 	window.__ptKeyDispatchTarget = keyDispatchTarget;
 
