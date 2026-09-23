@@ -53,7 +53,7 @@ Healthy Flatpak expectations:
 - Offline download controls report the puller backend (not `Browser storage`) and
   the puller health endpoint answers
 
-Android Settings → Updates downloads the latest `.apk` asset from this repository’s
+Android Settings → App downloads the latest `.apk` asset from this repository’s
 GitHub Releases. Flatpak updates remain system-managed (`flatpak update`).
 
 Android APK packaging must stay under the ZIP32 **65535 entry** limit. The Android
