@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sprite bench scene</title>
+<script src="/game-storage-bridge.child.js"></script>
+<style>
+	html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+	canvas { display: block; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<canvas id="c" tabindex="-1"></canvas>
+<script>
+/*
+ * Fixed 2D sprite workload for the perf bench (dev only), shaped like what most of the
+ * catalog does every frame: a scrolling tiled background, a few thousand rotated, scaled,
+ * alpha-blended sprites out of one PNG atlas, and a line of HUD text.
+ *
+ *   ?renderer=canvas  Canvas 2D drawImage per sprite (Construct 2 / Phaser CANVAS /
+ *                     CreateJS / hand-rolled canvas games). The default.
+ *   ?renderer=webgl   The same scene as one batched WebGL draw per frame (Pixi, Phaser 3,
+ *                     Construct 3): JS fills a vertex buffer, the GPU does the rest.
+ *   ?count=N          Sprites (default 3000).
+ *   ?dpr=device|<n>   Backing-store scale. Default `device` (Construct's high-DPI mode);
+ *                     `1` is what engines that ignore devicePixelRatio do.
+ *
+ * Positions come from a seeded PRNG, so every engine draws the same scene. Per frame the
+ * script time (update + issuing the draws) goes to `window.__benchWork.scriptMs`; the GPU
+ * and compositor cost shows up in frame pacing instead. Any keydown flips the tint, so the
+ * frame after a key is visibly different.
+ */
+(function () {
+	var params = new URLSearchParams(location.search);
+	var mode = params.get('renderer') === 'webgl' ? 'webgl' : 'canvas';
+	var COUNT = Number(params.get('count')) || 3000;
+	var dprParam = params.get('dpr') || 'device';
+	var FRAME = 64, COLS = 4, ROWS = 4, TILE = 128;
+
+	var canvas = document.getElementById('c');
+	var work = (window.__benchWork = { mode: mode, count: COUNT, scriptMs: [], frames: 0 });
+	window.__benchScene = { renderer: mode, count: COUNT, dpr: dprParam };
+
+	/* Seeded PRNG so the scene is identical everywhere. */
+	var seed = 1234567;
+	function rnd() {
+		seed = (seed * 1664525 + 1013904223) >>> 0;
+		return seed / 4294967296;
+	}
+
+	/* Build the atlas once: 16 sprite frames + one background tile, then round-trip it
+	 * through a PNG so the draws sample a decoded image like a real game's. */
+	function buildAtlas() {
+		var a = document.createElement('canvas');
+		a.width = FRAME * COLS + TILE;
+		a.height = Math.max(FRAME * ROWS, TILE);
+		var g = a.getContext('2d');
+		for (var i = 0; i < COLS * ROWS; i++) {
+			var x = (i % COLS) * FRAME, y = Math.floor(i / COLS) * FRAME;
+			var hue = (i * 360) / (COLS * ROWS);
+			var grad = g.createRadialGradient(x + 26, y + 24, 4, x + 32, y + 32, 30);
+			grad.addColorStop(0, 'hsl(' + hue + ',90%,80%)');
+			grad.addColorStop(1, 'hsla(' + hue + ',80%,40%,0)');
+			g.fillStyle = grad;
+			g.beginPath();
+			for (var k = 0; k < 10; k++) {
+				var r = k % 2 ? 14 : 30, ang = (k * Math.PI) / 5 + i;
+				g.lineTo(x + 32 + Math.cos(ang) * r, y + 32 + Math.sin(ang) * r);
+			}
+			g.closePath();
+			g.fill();
+		}
+		var tx = FRAME * COLS;
+		for (var ty = 0; ty < TILE; ty += 16) {
+			for (var tx2 = 0; tx2 < TILE; tx2 += 16) {
+				g.fillStyle = ((tx2 + ty) / 16) % 2 ? '#1d2b3a' : '#243548';
+				g.fillRect(tx + tx2, ty, 16, 16);
+			}
+		}
+		return new Promise(function (resolve) {
+			a.toBlob(function (blob) {
+				var img = new Image();
+				img.onload = function () {
+					resolve(img);
+				};
+				img.src = URL.createObjectURL(blob);
+			}, 'image/png');
+		});
+	}
+
+	var sprites = [];
+	for (var i = 0; i < COUNT; i++) {
+		sprites.push({
+			x: rnd(), y: rnd(),
+			vx: (rnd() - 0.5) * 0.004, vy: (rnd() - 0.5) * 0.004,
+			rot: rnd() * 6.283, vr: (rnd() - 0.5) * 0.1,
+			s: 0.4 + rnd() * 0.8, a: 0.5 + rnd() * 0.5,
+			f: Math.floor(rnd() * COLS * ROWS)
+		});
+	}
+	var tint = 0;
+	window.addEventListener('keydown', function () {
+		tint = (tint + 1) % 3;
+	});
+
+	function dpr() {
+		return dprParam === 'device' ? window.devicePixelRatio || 1 : Number(dprParam) || 1;
+	}
+	function resize() {
+		var d = dpr();
+		var w = Math.round(canvas.clientWidth * d), h = Math.round(canvas.clientHeight * d);
+		if (canvas.width !== w || canvas.height !== h) {
+			canvas.width = w;
+			canvas.height = h;
+		}
+		return d;
+	}
+	function update() {
+		for (var i = 0; i < sprites.length; i++) {
+			var p = sprites[i];
+			p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+			if (p.x < 0 || p.x > 1) p.vx = -p.vx;
+			if (p.y < 0 || p.y > 1) p.vy = -p.vy;
+		}
+	}
+	function record(t0) {
+		var ms = performance.now() - t0;
+		if (work.scriptMs.length < 5000) work.scriptMs.push(ms);
+		work.frames++;
+	}
+
+	function startCanvas(img) {
+		var ctx = canvas.getContext('2d');
+		var TINTS = ['#ffffff', '#ffd27a', '#8ad8ff'];
+		function frame(ms) {
+			var t0 = performance.now();
+			var d = resize();
+			var W = canvas.width, H = canvas.height;
+			update();
+			ctx.setTransform(1, 0, 0, 1, 0, 0);
+			ctx.globalAlpha = 1;
+			var scroll = ((ms * 0.05) % TILE) * d, tile = TILE * d;
+			for (var ty = -tile; ty < H + tile; ty += tile) {
+				for (var tx = -tile; tx < W + tile; tx += tile) {
+					ctx.drawImage(img, FRAME * COLS, 0, TILE, TILE, tx + scroll, ty + scroll * 0.5, tile, tile);
+				}
+			}
+			for (var i = 0; i < sprites.length; i++) {
+				var p = sprites[i];
+				var c = Math.cos(p.rot) * p.s * d, s = Math.sin(p.rot) * p.s * d;
+				ctx.setTransform(c, s, -s, c, p.x * W, p.y * H);
+				ctx.globalAlpha = p.a;
+				ctx.drawImage(img, (p.f % COLS) * FRAME, Math.floor(p.f / COLS) * FRAME, FRAME, FRAME, -32, -32, 64, 64);
+			}
+			ctx.setTransform(d, 0, 0, d, 0, 0);
+			ctx.globalAlpha = 1;
+			ctx.fillStyle = TINTS[tint];
+			ctx.font = '600 20px system-ui, sans-serif';
+			ctx.fillText('Score ' + work.frames + '   sprites ' + COUNT, 16, 32);
+			record(t0);
+			requestAnimationFrame(frame);
+		}
+		requestAnimationFrame(frame);
+	}
+
+	function startWebGL(img) {
+		var gl = canvas.getContext('webgl', { antialias: false, alpha: false, premultipliedAlpha: false });
+		if (!gl) { document.body.textContent = 'no webgl'; return; }
+		function sh(type, src) {
+			var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+			if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+			return s;
+		}
+		var prog = gl.createProgram();
+		gl.attachShader(prog, sh(gl.VERTEX_SHADER,
+			'attribute vec2 p;attribute vec2 uv;attribute float a;uniform vec2 res;varying vec2 v;varying float va;' +
+			'void main(){v=uv;va=a;gl_Position=vec4(p/res*2.0-1.0,0,1);gl_Position.y=-gl_Position.y;}'));
+		gl.attachShader(prog, sh(gl.FRAGMENT_SHADER,
+			'precision mediump float;varying vec2 v;varying float va;uniform sampler2D tex;uniform vec3 tint;' +
+			'void main(){vec4 c=texture2D(tex,v);gl_FragColor=vec4(c.rgb*tint,c.a*va);}'));
+		gl.linkProgram(prog);
+		gl.useProgram(prog);
+		var tex = gl.createTexture();
+		gl.bindTexture(gl.TEXTURE_2D, tex);
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+		var AW = img.width, AH = img.height;
+
+		var MAXQ = COUNT + 400;
+		var FLOATS = 5; /* x, y, u, v, alpha */
+		var verts = new Float32Array(MAXQ * 4 * FLOATS);
+		var idx = new Uint16Array(Math.min(MAXQ, 16383) * 6);
+		for (var q = 0; q < idx.length / 6; q++) {
+			idx.set([q * 4, q * 4 + 1, q * 4 + 2, q * 4 + 2, q * 4 + 1, q * 4 + 3], q * 6);
+		}
+		var vb = gl.createBuffer(), ib = gl.createBuffer();
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
+		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, idx, gl.STATIC_DRAW);
+		gl.bindBuffer(gl.ARRAY_BUFFER, vb);
+		gl.bufferData(gl.ARRAY_BUFFER, verts.byteLength, gl.DYNAMIC_DRAW);
+		var lp = gl.getAttribLocation(prog, 'p'), luv = gl.getAttribLocation(prog, 'uv'), la = gl.getAttribLocation(prog, 'a');
+		gl.enableVertexAttribArray(lp); gl.enableVertexAttribArray(luv); gl.enableVertexAttribArray(la);
+		gl.vertexAttribPointer(lp, 2, gl.FLOAT, false, FLOATS * 4, 0);
+		gl.vertexAttribPointer(luv, 2, gl.FLOAT, false, FLOATS * 4, 8);
+		gl.vertexAttribPointer(la, 1, gl.FLOAT, false, FLOATS * 4, 16);
+		var uRes = gl.getUniformLocation(prog, 'res'), uTint = gl.getUniformLocation(prog, 'tint');
+		gl.enable(gl.BLEND);
+		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+		var TINTS = [[1, 1, 1], [1, 0.8, 0.5], [0.55, 0.85, 1]];
+
+		var n = 0;
+		function quad(cx, cy, hw, hh, c, s, u0, v0, u1, v1, a) {
+			var o = n * 4 * FLOATS;
+			var ax = c * hw, ay = s * hw, bx = -s * hh, by = c * hh;
+			verts[o] = cx - ax - bx; verts[o + 1] = cy - ay - by; verts[o + 2] = u0; verts[o + 3] = v0; verts[o + 4] = a;
+			verts[o + 5] = cx + ax - bx; verts[o + 6] = cy + ay - by; verts[o + 7] = u1; verts[o + 8] = v0; verts[o + 9] = a;
+			verts[o + 10] = cx - ax + bx; verts[o + 11] = cy - ay + by; verts[o + 12] = u0; verts[o + 13] = v1; verts[o + 14] = a;
+			verts[o + 15] = cx + ax + bx; verts[o + 16] = cy + ay + by; verts[o + 17] = u1; verts[o + 18] = v1; verts[o + 19] = a;
+			n++;
+		}
+		function flush() {
+			if (!n) return;
+			gl.bufferSubData(gl.ARRAY_BUFFER, 0, verts.subarray(0, n * 4 * FLOATS));
+			var per = idx.length / 6;
+			for (var first = 0; first < n; first += per) {
+				/* 16-bit indices cap a draw at 16383 quads; rebase the attribute offsets. */
+				var cnt = Math.min(per, n - first);
+				var off = first * 4 * FLOATS * 4;
+				gl.vertexAttribPointer(lp, 2, gl.FLOAT, false, FLOATS * 4, off);
+				gl.vertexAttribPointer(luv, 2, gl.FLOAT, false, FLOATS * 4, off + 8);
+				gl.vertexAttribPointer(la, 1, gl.FLOAT, false, FLOATS * 4, off + 16);
+				gl.drawElements(gl.TRIANGLES, cnt * 6, gl.UNSIGNED_SHORT, 0);
+			}
+			n = 0;
+		}
+		function frame(ms) {
+			var t0 = performance.now();
+			var d = resize();
+			var W = canvas.width, H = canvas.height;
+			update();
+			gl.viewport(0, 0, W, H);
+			gl.uniform2f(uRes, W, H);
+			gl.uniform3fv(uTint, TINTS[tint]);
+			gl.clearColor(0, 0, 0, 1);
+			gl.clear(gl.COLOR_BUFFER_BIT);
+			var scroll = ((ms * 0.05) % TILE) * d, tile = TILE * d;
+			var tu0 = (FRAME * COLS) / AW, tu1 = (FRAME * COLS + TILE) / AW, tv1 = TILE / AH;
+			for (var ty = -tile; ty < H + tile; ty += tile) {
+				for (var tx = -tile; tx < W + tile; tx += tile) {
+					if (n >= MAXQ) break;
+					quad(tx + scroll + tile / 2, ty + scroll * 0.5 + tile / 2, tile / 2, tile / 2, 1, 0, tu0, 0, tu1, tv1, 1);
+				}
+			}
+			for (var i = 0; i < sprites.length && n < MAXQ; i++) {
+				var p = sprites[i];
+				var fx = (p.f % COLS) * FRAME, fy = Math.floor(p.f / COLS) * FRAME;
+				var h = 32 * p.s * d;
+				quad(p.x * W, p.y * H, h, h, Math.cos(p.rot), Math.sin(p.rot), fx / AW, fy / AH, (fx + FRAME) / AW, (fy + FRAME) / AH, p.a);
+			}
+			flush();
+			record(t0);
+			requestAnimationFrame(frame);
+		}
+		requestAnimationFrame(frame);
+	}
+
+	buildAtlas().then(function (img) {
+		work.ready = true;
+		if (mode === 'webgl') startWebGL(img);
+		else startCanvas(img);
+	});
+})();
+</script>
+</body>
+</html>

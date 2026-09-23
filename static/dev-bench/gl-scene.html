@@ -72,7 +72,11 @@
 		if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
 	}
 
+	/* Script time per frame (issuing the draws), read by the bench. */
+	var work = (window.__benchWork = { mode: 'webgl2', scriptMs: [], frames: 0 });
+
 	function frame(ms) {
+		var t0 = performance.now();
 		resize();
 		var t = ms / 1000;
 		gl.viewport(0, 0, canvas.width, canvas.height);
@@ -85,6 +89,8 @@
 			gl.uniform3f(uOff, Math.cos(a) * (i / DRAWS), Math.sin(a) * (i / DRAWS), (i % 7) / 7);
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 		}
+		if (work.scriptMs.length < 5000) work.scriptMs.push(performance.now() - t0);
+		work.frames++;
 		requestAnimationFrame(frame);
 	}
 	window.__benchScene = { heavy: heavy, iter: ITER, draws: DRAWS };
