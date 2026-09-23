@@ -328,7 +328,7 @@
 							<!-- Hidden, not unmounted, while searching, so unsaved edits survive a search. -->
 							<div class:hidden={searching && wide.current}>
 								{#if active === 'playing'}
-									<GamesSection searchQuery="" />
+									<GamesSection />
 								{:else if active === 'controls'}
 									<ControlsSection />
 								{:else if active === 'sound'}
