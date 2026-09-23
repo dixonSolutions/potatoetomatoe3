@@ -627,3 +627,15 @@ export function formatTouchKeyCode(code: string): string {
 export function codesToLabel(codes: TouchKeyCode[]): string {
 	return codes.map(formatTouchKeyCode).join(' + ');
 }
+
+const ARROW_GLYPH: Record<string, string> = {
+	ArrowUp: '↑',
+	ArrowDown: '↓',
+	ArrowLeft: '←',
+	ArrowRight: '→'
+};
+
+/** Short label for a key cap: arrows as glyphs, everything else as `formatTouchKeyCode`. */
+export function keyLabel(code: string): string {
+	return ARROW_GLYPH[code] ?? formatTouchKeyCode(code);
+}

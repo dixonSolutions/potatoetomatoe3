@@ -39,11 +39,13 @@
 		Pause,
 		Play,
 		Download,
-		Gamepad2
+		Gamepad2,
+		Keyboard
 	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
+	import { preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -136,6 +138,8 @@
 	let fullscreenShortcutLabel = $state('F');
 	let touchConsoleVisible = $state(false);
 	let touchConsoleAvailable = $state(false);
+	/** Controls menu: detected keys with what they do, plus every key for accessibility. */
+	let controlsMenuOpen = $state(false);
 	/** Frame started but never reported `load` — surfaces the retry hint below the player. */
 	let frameStalled = $state(false);
 	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
@@ -643,6 +647,12 @@
 		}
 
 		/*
+		 * Read the game's saves now, while the poster is up, so the frame's storage bridge
+		 * can boot from them synchronously instead of waiting on a round trip after Play.
+		 */
+		void preloadGameBrowserProfile(id);
+
+		/*
 		 * Resolve the playable URL before loading the full recommendation catalog.
 		 * The catalog is useful below the fold, but must not delay the first game frame.
 		 */
@@ -948,6 +958,19 @@
 							<Gamepad2 class="h-4 w-4" />
 							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
 						</button>
+						<Button
+							onclick={() => (controlsMenuOpen = !controlsMenuOpen)}
+							variant={controlsMenuOpen ? 'default' : 'outline'}
+							size="sm"
+							class="w-full sm:w-auto"
+							disabled={!gameSurfaceStarted}
+							aria-pressed={controlsMenuOpen}
+							data-testid="controls-menu-toggle"
+							title="What this game's keys do — detected controls and every key"
+						>
+							<Keyboard class="mr-2 h-4 w-4" />
+							Controls
+						</Button>
 					{/if}
 					<Button
 						onclick={() => void relaunchGameCompletely()}
@@ -1049,6 +1072,19 @@
 							<Gamepad2 class="h-4 w-4" />
 							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
 						</button>
+						<Button
+							variant={controlsMenuOpen ? 'default' : 'secondary'}
+							size="sm"
+							class="shadow-md backdrop-blur-sm"
+							onclick={() => (controlsMenuOpen = !controlsMenuOpen)}
+							disabled={!gameSurfaceStarted}
+							aria-pressed={controlsMenuOpen}
+							data-testid="controls-menu-toggle-fs"
+							aria-label="Controls"
+						>
+							<Keyboard class="mr-2 h-4 w-4" />
+							Controls
+						</Button>
 					{/if}
 					<Button
 						variant="secondary"
@@ -1171,6 +1207,9 @@
 				started={gameSurfaceStarted}
 				visible={touchConsoleVisible}
 				bind:chromeAvailable={touchConsoleAvailable}
+				bind:menuOpen={controlsMenuOpen}
+				controlsHint={gameMetadata.description}
+				topInset={isGameFullscreen ? 48 : 0}
 				onRequestShow={() => {
 					gameSurfaceStarted = true;
 					setTouchConsoleVisible(true, 'auto-show');
