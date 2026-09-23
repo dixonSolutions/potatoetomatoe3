@@ -18,6 +18,10 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
 tauri-build = { version = "2.6.3", features = [] }
+# Build the full-speed GIO module (`gio/`, see build.rs) against the system GLib on Linux.
+# Both are already in the graph (ring, system-deps), so this adds no crate.
+cc = "1"
+pkg-config = "0.3"
 
 [dependencies]
 serde_json = "1.0"

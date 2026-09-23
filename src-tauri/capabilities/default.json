@@ -27,6 +27,7 @@
     "allow-game-frames",
     "allow-offline-files",
     "allow-webview-crash",
+    "allow-webkit-tuning",
     "core:app:allow-version",
     "shell:default",
     {

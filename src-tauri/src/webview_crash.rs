@@ -196,6 +196,7 @@ mod linux {
 
   pub fn attach(view: &webkit2gtk::WebView) {
     view.connect_web_process_terminated(|view, reason| {
+      crate::power_profile::web_process_terminated(reason_name(reason));
       let url = view.uri().map(|u| u.to_string()).unwrap_or_default();
       let (crash, reload) = note_crash(&url, reason_name(reason));
       if reload {

@@ -39,6 +39,14 @@ pub struct GameFrameContext {
   /// shell, an offline mirror), so frames inside it must not claim the game's profile.
   #[serde(default)]
   pub top_has_bridge: bool,
+  /// Settings → Playing: cap game frames' `devicePixelRatio` at the display's real scale
+  /// (`game_frame_tuning.rs`).
+  #[serde(default)]
+  pub cap_dpr: bool,
+  /// Settings → Playing: ignore power saver while this game is open (`power_profile.rs`).
+  /// Absent means the default, on.
+  #[serde(default)]
+  pub full_speed: Option<bool>,
 }
 
 /// Catalog ids as they occur (`crazygames-2048`, `minecraft-1.8.8`, `2016 - diamond run`),
@@ -176,9 +184,18 @@ pub async fn set_game_frame_context(
   #[cfg(target_os = "linux")]
   {
     let source = frame_script(&context);
-    tauri::async_runtime::spawn_blocking(move || linux::swap(&webview, Some(source)))
-      .await
-      .map_err(|e| e.to_string())??;
+    tauri::async_runtime::spawn_blocking(move || {
+      linux::swap(&webview, Some(source))?;
+      crate::game_frame_tuning::begin(
+        &webview,
+        &context.app_origin,
+        context.cap_dpr,
+        context.full_speed,
+      );
+      Ok::<(), String>(())
+    })
+    .await
+    .map_err(|e| e.to_string())??;
     Ok(true)
   }
   #[cfg(not(target_os = "linux"))]
@@ -193,9 +210,12 @@ pub async fn set_game_frame_context(
 pub async fn clear_game_frame_context(webview: tauri::Webview) -> Result<(), String> {
   #[cfg(target_os = "linux")]
   {
-    tauri::async_runtime::spawn_blocking(move || linux::swap(&webview, None))
-      .await
-      .map_err(|e| e.to_string())??;
+    tauri::async_runtime::spawn_blocking(move || {
+      crate::game_frame_tuning::end(&webview);
+      linux::swap(&webview, None)
+    })
+    .await
+    .map_err(|e| e.to_string())??;
   }
   #[cfg(not(target_os = "linux"))]
   let _ = webview;
@@ -233,6 +253,8 @@ mod tests {
       app_origin: "tauri://localhost".into(),
       own_origins: vec!["http://127.0.0.1:18787".into()],
       top_has_bridge: false,
+      cap_dpr: false,
+      full_speed: None,
     }
   }
 

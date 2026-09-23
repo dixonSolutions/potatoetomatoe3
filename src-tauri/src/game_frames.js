@@ -105,6 +105,16 @@ function ptGameFramePreamble(CTX) {
 	} else {
 		window.__ptGameId = '';
 		/*
+		 * Tell the app a nested frame started (no game id: nothing here is proof of life).
+		 * It gives the frame one key press to lift WebKit's cross-origin rAF throttle once it
+		 * has focus (src-tauri/src/frame_first_input.rs).
+		 */
+		try {
+			window.top.postMessage({ type: 'potato-tomato-game-frame', role: role, gameId: '' }, '*');
+		} catch {
+			/* top unreachable */
+		}
+		/*
 		 * Console input reaches the game frame by postMessage and its bridge forwards it to
 		 * every child frame. Without a game id the bridge here does not listen, so dispatch it
 		 * into this document and pass it further down.

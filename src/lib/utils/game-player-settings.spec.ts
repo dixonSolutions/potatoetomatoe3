@@ -18,7 +18,9 @@ describe('game player settings', () => {
 			menuAccess: 'button',
 			menuButtonSize: 'auto',
 			menuCorner: 'top-left',
-			fullscreenShortcutEnabled: false
+			fullscreenShortcutEnabled: false,
+			fullSpeedInPowerSaver: true,
+			renderAtDisplayScale: true
 		});
 	});
 
@@ -29,21 +31,27 @@ describe('game player settings', () => {
 				menuAccess: 'hover',
 				menuButtonSize: 'large',
 				menuCorner: 'bottom-right',
-				fullscreenShortcutEnabled: true
+				fullscreenShortcutEnabled: true,
+				fullSpeedInPowerSaver: false,
+				renderAtDisplayScale: false
 			})
 		).toEqual({
 			autoFullscreen: false,
 			menuAccess: 'hover',
 			menuButtonSize: 'large',
 			menuCorner: 'bottom-right',
-			fullscreenShortcutEnabled: true
+			fullscreenShortcutEnabled: true,
+			fullSpeedInPowerSaver: false,
+			renderAtDisplayScale: false
 		});
 		expect(
 			normalizeGamePlayerSettings({
 				autoFullscreen: 'yes',
 				menuAccess: 'swipe',
 				menuButtonSize: 3,
-				menuCorner: 'middle'
+				menuCorner: 'middle',
+				fullSpeedInPowerSaver: 'on',
+				renderAtDisplayScale: 1
 			})
 		).toEqual(DEFAULT_GAME_PLAYER_SETTINGS);
 	});

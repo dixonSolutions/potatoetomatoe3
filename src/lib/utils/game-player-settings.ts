@@ -1,6 +1,7 @@
 /**
  * How the game player behaves around a running game: whether games open fullscreen, how
- * the in-game menu is reached while they do, and whether a key toggles fullscreen at all.
+ * the in-game menu is reached while they do, whether a key toggles fullscreen at all, and
+ * two engine tunings of the Linux desktop app (`src-tauri/src/game_frame_tuning.rs`).
  *
  * Stored in the site settings under `gamePlayer` and normalised on every read, so an
  * older build's value, a hand-edited one or a half-written one can never put the player
@@ -30,6 +31,16 @@ export type GamePlayerSettings = {
 	menuCorner: InGameMenuCorner;
 	/** A key that toggles fullscreen. Off by default: the in-game menu is the way in and out. */
 	fullscreenShortcutEnabled: boolean;
+	/**
+	 * Linux desktop: games keep their full frame rate while the system is in power saver
+	 * (WebKitGTK halves it otherwise). Read by the app at startup.
+	 */
+	fullSpeedInPowerSaver: boolean;
+	/**
+	 * Linux desktop: on a fractional-scaled display, games render at the display's real
+	 * scale instead of WebKitGTK's rounded-up one. Applies from the next game start.
+	 */
+	renderAtDisplayScale: boolean;
 };
 
 export const GAME_PLAYER_SETTINGS_CHANGED = 'potato-tomato-game-player-settings-changed';
@@ -39,7 +50,9 @@ export const DEFAULT_GAME_PLAYER_SETTINGS: GamePlayerSettings = {
 	menuAccess: 'button',
 	menuButtonSize: 'auto',
 	menuCorner: 'top-left',
-	fullscreenShortcutEnabled: false
+	fullscreenShortcutEnabled: false,
+	fullSpeedInPowerSaver: true,
+	renderAtDisplayScale: true
 };
 
 const ACCESS: readonly InGameMenuAccess[] = ['button', 'hover', 'both'];
@@ -83,7 +96,13 @@ export function normalizeGamePlayerSettings(
 		fullscreenShortcutEnabled:
 			typeof r.fullscreenShortcutEnabled === 'boolean'
 				? r.fullscreenShortcutEnabled
-				: !isLegacyDefaultShortcut(legacyFullscreenShortcut)
+				: !isLegacyDefaultShortcut(legacyFullscreenShortcut),
+		fullSpeedInPowerSaver:
+			typeof r.fullSpeedInPowerSaver === 'boolean'
+				? r.fullSpeedInPowerSaver
+				: d.fullSpeedInPowerSaver,
+		renderAtDisplayScale:
+			typeof r.renderAtDisplayScale === 'boolean' ? r.renderAtDisplayScale : d.renderAtDisplayScale
 	};
 }
 

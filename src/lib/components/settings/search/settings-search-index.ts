@@ -151,6 +151,20 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				scrollTargetId: 'settings-section-games-menu-button',
 				keywords:
 					'in-game menu button size small medium large corner position top bottom left right'
+			},
+			{
+				id: 'sub-games-full-speed',
+				label: 'Full frame rate in power saver',
+				scrollTargetId: 'settings-section-games-full-speed',
+				keywords:
+					'power saver saving battery low power mode fps frame rate 30 60 slow laggy smooth performance linux'
+			},
+			{
+				id: 'sub-games-display-scale',
+				label: "Render games at your display's scale",
+				scrollTargetId: 'settings-section-games-display-scale',
+				keywords:
+					'display scale scaling fractional 125 150 hidpi dpi resolution pixel ratio sharp blurry fps performance faster linux'
 			}
 		]
 	},
