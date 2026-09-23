@@ -9,6 +9,7 @@
 		applyQualityFilter,
 		passesQualityFilter,
 		readQualityFilterPrefs,
+		suggestionPool,
 		topQualityGames
 	} from '$lib/utils/catalog-quality';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
@@ -108,12 +109,17 @@
 
 			/*
 			 * Continue shows what the user played, even a game since classed as broken; the
-			 * filler it adds for a thin history comes only from games worth suggesting.
+			 * filler it adds for a thin history (all of it, on a first visit) comes only from
+			 * the strong tiers, not from every game that merely launches.
 			 */
 			const qualityFilter = readQualityFilterPrefs();
 			const playedIds = new Set(Object.keys(loadPlayAnalytics().perGame));
-			const continuePool = (games: GameIndexEntry[]) =>
-				games.filter((g) => playedIds.has(g.id) || passesQualityFilter(g, qualityFilter));
+			const continuePool = (games: GameIndexEntry[]) => [
+				...games.filter((g) => playedIds.has(g.id)),
+				...suggestionPool(
+					games.filter((g) => !playedIds.has(g.id) && passesQualityFilter(g, qualityFilter))
+				)
+			];
 
 			/*
 			 * The progress callback fires once per catalog shard — 27 of them. Rebuilding
@@ -150,19 +156,23 @@
 			 * keeps everything), and the browse page's school-network filter carries over.
 			 */
 			const suggestable = applyQualityFilter(allGames, qualityFilter);
+			const recommendFrom = suggestionPool(suggestable);
 
 			/* Recommendations are nice-to-have — paint Continue first, then fill the rest. */
 			void (async () => {
 				try {
-					let rec = await getHomeRecommendationsAsync(suggestable, prefs, 14);
+					/*
+					 * Ask for enough to leave 14 once Continue's games are taken out: a thin
+					 * history fills Continue from this same recommender, so without the headroom
+					 * (the old retry dropped the filter) the two rows opened with the same games.
+					 */
+					const want = 14 + continueIds.size;
+					const notInContinue = (games: GameIndexEntry[]) =>
+						games.filter((g) => !continueIds.has(g.id)).slice(0, 14);
+					let rec = notInContinue(await getHomeRecommendationsAsync(recommendFrom, prefs, want));
 					if (generation !== loadGeneration) return;
-					rec = rec.filter((g) => !continueIds.has(g.id));
-					if (rec.length < 10) {
-						rec = await getHomeRecommendationsAsync(suggestable, prefs, 14);
-						if (generation !== loadGeneration) return;
-					}
 					if (rec.length === 0) {
-						rec = getHomeRecommendations(suggestable, prefs, 14);
+						rec = notInContinue(getHomeRecommendations(recommendFrom, prefs, want));
 					}
 					recommendedGames = applyOfflineLibraryFilter(rec);
 
@@ -186,7 +196,9 @@
 					feedReady = true;
 				} catch {
 					recommendedGames = applyOfflineLibraryFilter(
-						getHomeRecommendations(suggestable, prefs, 14)
+						getHomeRecommendations(recommendFrom, prefs, 14 + continueIds.size)
+							.filter((g) => !continueIds.has(g.id))
+							.slice(0, 14)
 					);
 					feedReady = true;
 				}

@@ -106,6 +106,11 @@
 	import { isImmersiveElement } from '$lib/utils/fullscreen';
 	import { setGameImmersive } from '$lib/utils/game-immersive';
 	import { toast } from 'svelte-sonner';
+	import {
+		applyQualityFilter,
+		readQualityFilterPrefs,
+		suggestionPool
+	} from '$lib/utils/catalog-quality';
 	import { warmGameLaunchFromMetadata } from '$lib/utils/network-warmup';
 
 	let gameMetadata: GameMetadata | null = $state(null);
@@ -811,7 +816,10 @@
 		void (async () => {
 			await afterGameFrameSettles();
 			if (gameId !== id) return;
-			const allGames = await loadAllGames();
+			/* Same rules as Home: no tests or broken games, and suggestions from the strong tiers. */
+			const allGames = suggestionPool(
+				applyQualityFilter(await loadAllGames(), readQualityFilterPrefs())
+			);
 			const prefs = getPreferences();
 			let rec = getRecommendationsForGamePage(allGames, meta, id, prefs, 4);
 			if (!networkOnline) {

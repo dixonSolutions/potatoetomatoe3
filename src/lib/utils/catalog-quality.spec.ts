@@ -10,6 +10,7 @@ import {
 	passesQualityFilter,
 	qualityScore,
 	qualityTier,
+	suggestionPool,
 	topQualityGames,
 	type DoeStatus
 } from './catalog-quality';
@@ -139,5 +140,17 @@ describe('topQualityGames', () => {
 		const featured = Array.from({ length: 24 }, (_, i) => row(`f${i}`, 85));
 		const games = [...featured, row('g', 65)];
 		expect(topQualityGames(games)).toHaveLength(24);
+	});
+});
+
+describe('suggestionPool', () => {
+	it('suggests from the featured and good tiers when there are enough of them', () => {
+		const games = [row('f', 85), row('g', 65), row('o', 45), row('j', 25)];
+		expect(suggestionPool(games, 2).map((g) => g.id)).toEqual(['f', 'g']);
+	});
+
+	it('falls back to every game it was given when the strong tiers are too thin', () => {
+		const games = [row('f', 85), row('o', 45), row('o2', 50)];
+		expect(suggestionPool(games, 2).map((g) => g.id)).toEqual(['f', 'o', 'o2']);
 	});
 });

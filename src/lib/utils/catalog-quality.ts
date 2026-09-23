@@ -110,6 +110,19 @@ export function countHiddenByDefault(games: readonly QualityFields[]): number {
 	return hidden;
 }
 
+/**
+ * What suggestions are drawn from: the featured and good tiers, when there are enough of them
+ * to personalise from. "ok" is everything that merely launches — thousands of thin student
+ * uploads — fine to find by searching or browsing, not to put in front of someone unasked.
+ */
+export function suggestionPool<T extends QualityFields>(games: readonly T[], min = 200): T[] {
+	const strong = games.filter((game) => {
+		const tier = qualityTier(game);
+		return tier === 'featured' || tier === 'good';
+	});
+	return strong.length >= min ? strong : games.slice();
+}
+
 /** The strongest games, for "Featured"-style rows: featured tier, topped up with good. */
 export function topQualityGames<T extends QualityFields>(games: readonly T[]): T[] {
 	const featured = games.filter((game) => qualityTier(game) === 'featured');
