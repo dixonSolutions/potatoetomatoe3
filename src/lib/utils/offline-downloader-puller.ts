@@ -1,6 +1,7 @@
 /** HTTP client for the local puller backend (Tauri / `pnpm dev`). */
 
 import { isTauriMobileBuild, shouldProbePullerBackend } from './offline-deployment';
+import { hasNativeOfflineBackend, nativeOfflineUrl } from './offline-native';
 
 export interface GameOfflineStatus {
 	online: boolean;
@@ -83,9 +84,11 @@ export async function syncPullerBaseUrlFromTauri(): Promise<string | null> {
 }
 
 /**
- * Ask the native shell to health-check (and respawn) the puller.
- * Prefer this in packaged Flatpak/Tauri — WebKit fetch to 127.0.0.1 is flaky
- * from `tauri://` while Rust loopback checks are reliable.
+ * Ask the native shell to start the puller if it is not running, and wait for it.
+ *
+ * Only offline downloads call this (Playwright capture is the one job left that needs
+ * Node): the app no longer starts the puller at launch, and nothing on the play path
+ * waits for it.
  */
 export async function ensurePullerFromTauri(): Promise<string | null> {
 	if (!shouldProbePullerBackend()) return null;
@@ -146,11 +149,34 @@ export async function isPullerAvailable(
 	if (await probePullerHealthHttp()) return cacheResult(true);
 
 	/*
-	 * Packaged WebViews often fail cross-origin loopback fetch even when the
-	 * sidecar is healthy — confirm via Rust ensure_puller before giving up.
+	 * Packaged WebViews often fail cross-origin loopback fetch even when the sidecar is
+	 * healthy — ask Rust, which checks loopback directly. It only looks: a health probe
+	 * must never be what starts the puller (it used to be, through `ensure_puller`, so
+	 * every offline badge on the home page brought Node up).
 	 */
-	if (await ensurePullerFromTauri()) return cacheResult(true);
-	return cacheResult(false);
+	return cacheResult(await pullerRunningPerTauri());
+}
+
+async function pullerRunningPerTauri(): Promise<boolean> {
+	if (!shouldProbePullerBackend()) return false;
+	try {
+		if (!(await canInvokeTauriPuller())) return false;
+		const { invoke } = await import('@tauri-apps/api/core');
+		return (await invoke<boolean>('puller_running')) === true;
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * A puller that already answers — started for a download, or by hand for development.
+ * Never starts one and never waits; the play path uses this to offer the legacy relay as
+ * a last resort only when it costs nothing.
+ */
+export async function isPullerRunning(): Promise<boolean> {
+	if (!shouldProbePullerBackend()) return false;
+	await syncPullerBaseUrlFromTauri();
+	return (await probePullerHealthHttp()) || (await pullerRunningPerTauri());
 }
 
 async function probePullerHealthHttp(): Promise<boolean> {
@@ -172,7 +198,8 @@ async function probePullerHealthHttp(): Promise<boolean> {
 }
 
 /**
- * Wait until the puller answers health (native app startup). Returns false on timeout.
+ * Start the puller if it is not running and wait until it answers health — for an
+ * offline download, the one thing that still needs it. Returns false on timeout.
  */
 export async function waitForPuller(timeoutMs = 15_000): Promise<boolean> {
 	const deadline = Date.now() + Math.max(0, timeoutMs);
@@ -434,6 +461,8 @@ export function shouldUsePullerGameProxy(): boolean {
 
 export function pullerOfflinePlayUrl(gameId: string, basePath = '', entry = 'index.html'): string {
 	const safeEntry = entry.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
+	/* The desktop app reads the puller's folder itself — no Node process in the way. */
+	if (hasNativeOfflineBackend()) return nativeOfflineUrl(gameId, safeEntry);
 	if (shouldUsePullerGameProxy()) {
 		return `${getPullerGameProxyPrefix(basePath)}/${encodeURIComponent(gameId)}/offline/${safeEntry}`;
 	}

@@ -8,6 +8,8 @@
 		loadGameMetadata,
 		loadAllGames,
 		getGamePlayerUrl,
+		playRouteOfUrl,
+		playRoutesExhausted,
 		canPlayGameOffline,
 		fixMalformedGamePlayerUrl,
 		resolveGameThumbnailSrc,
@@ -94,8 +96,9 @@
 		clearDirectLaunchFailed,
 		isFrameBlockedHost,
 		isUnframeableInApp,
-		markDirectLaunchFailed
+		markPlayRouteFailed
 	} from '$lib/utils/online-play-routing';
+	import { gameFrameSpokeSince, nativeGameFramesActive } from '$lib/utils/native-game-frames';
 	import { openExternalUrl } from '$lib/utils/open-external';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
@@ -336,28 +339,21 @@
 	}
 
 	/**
-	 * True when the public site can put a game back on its own origin: either a hosted
-	 * play-proxy worker is configured, or a puller is running on this machine and
-	 * `offline-sw.js` can relay /api/unity-play and /api/game-live to it.
+	 * True when the public site can put a game back on its own origin: a hosted play-proxy
+	 * worker (`PUBLIC_PLAY_PROXY_URL`) is configured for this build.
 	 */
 	async function publicSiteRelayReachable(): Promise<boolean> {
 		const proxy = (import.meta.env.PUBLIC_PLAY_PROXY_URL as string | undefined)?.trim();
-		if (proxy) return true;
-		try {
-			const { isPullerAvailable } = await import('$lib/utils/offline-downloader-puller');
-			/* ignoreDeploymentGate bypasses the availability cache too, so this always re-probes. */
-			return await isPullerAvailable(true, { ignoreDeploymentGate: true });
-		} catch {
-			return false;
-		}
+		return Boolean(proxy);
 	}
 
 	/**
 	 * Make the console usable for the current frame, preferring the cheapest path:
 	 *   1. direct DOM dispatch into a same-origin game document,
-	 *   2. an existing inject/bridge URL (offline mirror or puller proxy already loaded),
-	 *   3. the puller relay — only for genuinely cross-origin games, since it reloads
-	 *      the game through a Node proxy.
+	 *   2. a bridge already inside the game frame — the desktop app and Android put one into
+	 *      every game frame natively, and offline copies and app-made shells carry one,
+	 *   3. on the public site, a hosted relay that puts the game back on this origin.
+	 * A game playing from its own host is never reloaded through a proxy just for this.
 	 */
 	async function ensureTouchCapablePlayUrl(): Promise<boolean> {
 		if (consoleCanReachFrameDirectly()) {
@@ -378,115 +374,34 @@
 				gameSurfaceStarted = true;
 				return true;
 			}
-			toast.error('Console needs an offline mirror with inject support for this game.');
+			toast.error('Console needs an offline copy with the in-game bridge for this game.');
 			return false;
 		}
 
-		/*
-		 * Neither the public site nor Tauri mobile runs a puller of its own, so the loopback
-		 * wait below has nothing to wait for. The public site does have two relays that put
-		 * the game back on this origin — `offline-sw.js` forwarding /api/… to a puller
-		 * running on the visitor's own machine, and a hosted PUBLIC_PLAY_PROXY_URL worker —
-		 * so re-resolve the play URL in case either became reachable after page load.
-		 */
-		if (!shouldProbePullerBackend()) {
-			if (isPublicSiteDeployment() && (await publicSiteRelayReachable())) {
-				await refreshPlayerUrl();
-				if (canUseTouchBridge(gamePlayerUrl)) {
-					gameSurfaceStarted = true;
-					appendPlayLog(
-						'info',
-						'ui',
-						'Touch console using same-origin relay on the public site',
-						`game=${gameId} url=${gamePlayerUrl}`
-					);
-					return true;
-				}
-			}
-			appendPlayLog(
-				'info',
-				'ui',
-				'Touch console unavailable — third-party embed and no relay on this platform',
-				`game=${gameId} url=${gamePlayerUrl}`
-			);
-			toast.error('Console cannot reach this game.', {
-				description:
-					'It runs on a third-party site. Touch the game directly, or download it for offline play.'
-			});
-			return false;
-		}
-
-		const {
-			isPullerAvailable,
-			syncPullerBaseUrlFromTauri,
-			waitForPuller,
-			invalidatePullerAvailabilityCache,
-			pullerLiveGameUrl,
-			pullerUnityPlayUrl
-		} = await import('$lib/utils/offline-downloader-puller');
-		const { invalidateOfflineBackendCache } = await import('$lib/utils/offline-runtime');
-		await syncPullerBaseUrlFromTauri();
-		invalidatePullerAvailabilityCache();
-		invalidateOfflineBackendCache();
-		/* isPullerAvailable falls back to Rust ensure_puller when WebKit loopback fetch fails. */
-		const pullerUp =
-			(await isPullerAvailable(true, { ignoreDeploymentGate: true })) ||
-			(await waitForPuller(12_000));
-		if (!pullerUp) {
-			/* Offline mirror can still host the console without a live puller. */
-			const { getOfflinePlayUrl } = await import('$lib/utils/offline-downloader');
-			const offlineUrl = await getOfflinePlayUrl(gameId);
-			if (offlineUrl && canUseTouchBridge(offlineUrl)) {
-				gamePlayerUrl = offlineUrl;
+		if (isPublicSiteDeployment() && (await publicSiteRelayReachable())) {
+			await refreshPlayerUrl();
+			if (canUseTouchBridge(gamePlayerUrl)) {
 				gameSurfaceStarted = true;
-				toast.message('Puller down — using offline mirror for console');
+				appendPlayLog(
+					'info',
+					'ui',
+					'Touch console using same-origin relay on the public site',
+					`game=${gameId} url=${gamePlayerUrl}`
+				);
 				return true;
 			}
-			toast.error('Console needs the local puller for online play.', {
-				description: 'Use Retry puller, restart the app, or run pnpm puller:start.'
-			});
-			return false;
 		}
-
-		const prev = gamePlayerUrl;
-		await refreshPlayerUrl();
-		if (!canUseTouchBridge(gamePlayerUrl)) {
-			/*
-			 * Unity iframe shells must use unity-play (CDN + inject). Non-Unity
-			 * external shells (OpenFL/Lime on abinbins, etc.) use game-live.
-			 * Catalog wrappers alone leave nested games without the touch bridge.
-			 */
-			let preferUnityPlay = gameMetadata?.engine === 'unity';
-			if (!preferUnityPlay) {
-				try {
-					const { probeOnlineShellExternal } = await import('$lib/utils/browser-offline-download');
-					preferUnityPlay = (await probeOnlineShellExternal(gameId)).unityLike;
-				} catch {
-					/* ignore */
-				}
-			}
-			const proxyUrl = preferUnityPlay
-				? pullerUnityPlayUrl(gameId, base)
-				: pullerLiveGameUrl(gameId, base);
-			if (proxyUrl !== gamePlayerUrl) {
-				gamePlayerUrl = proxyUrl;
-			}
-		}
-		if (!canUseTouchBridge(gamePlayerUrl)) {
-			toast.error('Could not open a puller proxy URL for touch console.', {
-				description: `Still on ${gamePlayerUrl || '(empty)'}`
-			});
-			return false;
-		}
-		if (gamePlayerUrl !== prev) {
-			/*
-			 * Do not bump playerRemountKey — remounting LazyGameFrame resets
-			 * bind:started and hides the console overlay.
-			 */
-			gameSurfaceStarted = true;
-			toast.message('Reloading through puller proxy for the console…');
-		}
-		return true;
+		appendPlayLog(
+			'info',
+			'ui',
+			'Touch console unavailable — third-party embed and no bridge in its frame',
+			`game=${gameId} url=${gamePlayerUrl}`
+		);
+		toast.error('Console cannot reach this game.', {
+			description:
+				'It runs on a third-party site. Touch the game directly, or download it for offline play.'
+		});
+		return false;
 	}
 
 	function toggleTouchConsole() {
@@ -513,13 +428,8 @@
 				window.setTimeout(() => unlockGameIframeAudio(iframeElement), 1000);
 			});
 			if (!ok) {
-				appendPlayLog('warn', 'ui', 'Touch console on but proxy incomplete', `game=${gameId}`);
-				toast.error(
-					'Console is ON, but the game frame still needs the puller or an offline mirror.',
-					{
-						description: 'Check Retry puller, or switch Play from → Offline if downloaded.'
-					}
-				);
+				/* ensureTouchCapablePlayUrl already said why. */
+				appendPlayLog('warn', 'ui', 'Touch console on but cannot reach the game', `game=${gameId}`);
 				return;
 			}
 			appendPlayLog('info', 'ui', 'Touch console ready', `game=${gameId} url=${gamePlayerUrl}`);
@@ -531,69 +441,163 @@
 		return url.includes('/api/game-live/') || url.includes('/api/unity-play/');
 	}
 
+	/** When the current frame started loading, for the watchdog's proof-of-life check. */
+	let launchStartedAt = 0;
+	/** The play URL a relaunch is already moving away from — one failure, one step. */
+	let escalatingFrom = '';
+
+	function isAppOriginUrl(url: string): boolean {
+		try {
+			return new URL(url, window.location.href).origin === window.location.origin;
+		} catch {
+			return false;
+		}
+	}
+
 	/**
-	 * Launch watchdog. A frame that never fires `load` used to stay black with no
-	 * explanation; now a stalled direct launch is recorded so the next resolve escalates
-	 * to the relay, and the user gets a one-click retry.
+	 * Launch watchdog. It walks the game's route chain on its own — direct → app-made
+	 * shell → the desktop app's in-process relay → a puller only if one is already running
+	 * (`resolveOnlinePlayRoute`) — whenever a frame never fires `load`, or loads without
+	 * ever running a script (a host refusing to be framed, an error page, a Flash file).
+	 * The user hears about it only when every route has failed.
 	 */
 	function handleFrameLoadState(state: 'loading' | 'loaded' | 'stalled', url: string) {
 		if (!gameId) return;
+		frameStalled = false;
 		if (state === 'loading') {
-			frameStalled = false;
+			launchStartedAt = Date.now();
+			escalatingFrom = '';
 			return;
 		}
 		if (state === 'loaded') {
-			frameStalled = false;
-			clearDirectLaunchFailed(gameId);
 			appendPlayLog('info', 'play-url', 'Game frame loaded', `game=${gameId} url=${url}`);
+			void confirmFrameRan(gameId, url, launchStartedAt || Date.now());
 			return;
 		}
-
-		frameStalled = true;
+		if (frameIsRunning(gameId, launchStartedAt || Date.now())) {
+			/*
+			 * `load` waits for every subresource; one slow ad or analytics request holds it
+			 * back while the game itself is already playing. Relaunching that would restart
+			 * a running game on a worse route.
+			 */
+			appendPlayLog(
+				'info',
+				'play-url',
+				'Game frame still loading, but the game is running — leaving it',
+				`game=${gameId} url=${url}`
+			);
+			return;
+		}
 		appendPlayLog(
 			'warn',
 			'play-url',
 			'Game frame did not load in time',
 			`game=${gameId} url=${url}`
 		);
+		void retryThroughRelay('stalled');
+	}
 
-		const alreadyRelayed = isRelayPlayUrl(url);
-		const canEscalate =
-			!alreadyRelayed && shouldProbePullerBackend() && getGamePlayMode(gameId) !== 'offline';
-		if (!canEscalate) {
+	/** The frame's document is up: it said hello, or (same-origin) it has parsed a body. */
+	function frameIsRunning(id: string, since: number): boolean {
+		if (gameFrameSpokeSince(id, since)) return true;
+		try {
+			const doc = iframeElement?.contentDocument;
+			return Boolean(doc && doc.readyState !== 'loading' && doc.body?.childElementCount);
+		} catch {
+			return false;
+		}
+	}
+
+	/**
+	 * A frame whose document should have run the bridge — a game's own page on desktop,
+	 * where it is injected natively, or a relay page — and stayed silent never ran at all.
+	 * `load` fires for a refused frame just the same, so this is the only way to see it.
+	 */
+	async function confirmFrameRan(id: string, url: string, since: number) {
+		const kind = playRouteOfUrl(url);
+		const expectsWord =
+			kind === 'relay' || (kind === 'direct' && nativeGameFramesActive() && !isAppOriginUrl(url));
+		if (!expectsWord) return;
+		await new Promise((resolve) => setTimeout(resolve, 1500));
+		if (id !== gameId || url !== gamePlayerUrl) return;
+		if (gameFrameSpokeSince(id, since)) return;
+		appendPlayLog(
+			'warn',
+			'play-url',
+			'Game frame loaded but never ran a script (blocked, error page, or not a page)',
+			`game=${id} url=${url}`
+		);
+		await retryThroughRelay('blank');
+	}
+
+	/**
+	 * Relaunch the game on the next route of its chain. The name predates the chain; the
+	 * stall notice's button still calls it.
+	 */
+	async function retryThroughRelay(reason = 'user') {
+		const id = gameId;
+		if (!id) return;
+		const failedUrl = gamePlayerUrl;
+		if (!failedUrl || escalatingFrom === failedUrl) return;
+		escalatingFrom = failedUrl;
+		const kind = playRouteOfUrl(failedUrl);
+		if (!kind || getGamePlayMode(id) === 'offline') {
+			/* An offline copy, or a URL no route produced: nothing to fall back to. */
+			appendPlayLog('warn', 'play-url', `Game frame failed (${reason})`, `game=${id}`);
 			toast.error('This game is not loading.', {
-				description: alreadyRelayed
-					? 'The local relay is not responding — try Relaunch, or Retry puller.'
-					: 'Try Relaunch, or switch Play from → Offline if you have it downloaded.'
+				description: 'Try Relaunch, or switch Play from → Online.'
 			});
 			return;
 		}
-
-		markDirectLaunchFailed(gameId);
-		toast.error("This game didn't start.", {
-			description: 'It can be retried through the local relay (slower, but more compatible).',
-			action: {
-				label: 'Retry via relay',
-				onClick: () => void retryThroughRelay()
-			}
-		});
-	}
-
-	async function retryThroughRelay() {
-		if (!gameId) return;
-		markDirectLaunchFailed(gameId);
-		appendPlayLog('info', 'ui', 'Retrying launch through the puller relay', `game=${gameId}`);
+		markPlayRouteFailed(id, kind);
+		appendPlayLog(
+			'info',
+			'play-url',
+			`Play route ${kind} failed (${reason}) — trying the next one`,
+			`game=${id} url=${failedUrl}`
+		);
+		const nextUrl = await getGamePlayerUrl(id, gameMetadata);
+		if (id !== gameId || gamePlayerUrl !== failedUrl) return;
+		if (playRoutesExhausted(id) || nextUrl === failedUrl) {
+			/* Leave the frame as it is — a slow game may still come up. */
+			notifyNoPlayRouteLeft(reason);
+			return;
+		}
 		/*
 		 * Swap the URL only — bumping playerRemountKey would reset bind:started and drop
 		 * the user back to the Play poster.
 		 */
-		await refreshPlayerUrl();
+		gamePlayerUrl = nextUrl;
 		gameSurfaceStarted = true;
-		if (!isRelayPlayUrl(gamePlayerUrl)) {
-			toast.error('Could not reach the local relay.', {
-				description: 'Use Retry puller in Offline controls, or run pnpm puller:start.'
+	}
+
+	/** Every route failed: say so once, and offer the game's own page in the browser. */
+	function notifyNoPlayRouteLeft(reason: string) {
+		appendPlayLog(
+			'warn',
+			'play-url',
+			'No play route left for this game',
+			`game=${gameId} reason=${reason}`
+		);
+		const page = unframeableEmbedUrl;
+		const browser = page.startsWith('https://')
+			? { label: 'Open in browser', onClick: () => void openGameInBrowser() }
+			: undefined;
+		if (reason === 'stalled') {
+			toast.error('This game is slow to start.', {
+				description: browser
+					? 'It may still load here. If not, it may play in your browser.'
+					: 'It may still load. If not, try Relaunch.',
+				action: browser
 			});
+			return;
 		}
+		toast.error("This game can't run inside the app.", {
+			description: browser
+				? 'Its host blocks being played in other apps. It may still play in your browser.'
+				: 'Try Relaunch, or switch Play from → Offline if you have it downloaded.',
+			action: browser
+		});
 	}
 
 	async function refreshPlayerUrl() {

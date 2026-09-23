@@ -12,6 +12,8 @@
     "core:window:allow-hide",
     "core:window:allow-set-focus",
     "core:window:allow-unminimize",
+    "core:window:allow-set-fullscreen",
+    "core:window:allow-is-fullscreen",
     "core:event:allow-emit",
     "core:event:allow-listen",
     "allow-sync-tray-recent",
@@ -22,6 +24,8 @@
     "allow-open-external-url",
     "allow-apk-self-update",
     "allow-native-identity",
+    "allow-game-frames",
+    "allow-offline-files",
     "core:app:allow-version",
     "shell:default",
     {

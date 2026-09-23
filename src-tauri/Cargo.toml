@@ -34,17 +34,30 @@ tauri-plugin-log = "2"
 tauri-plugin-shell = "2"
 # APK self-update: stream the release asset to disk with progress rather than handing
 # the URL to a browser. rustls avoids dragging in OpenSSL for the Android cross-build.
-reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "stream"] }
+# `rustls-tls-native-roots` adds the OS trust store to the bundled roots, for the game relay
+# (`relay.rs`): a school network that re-signs TLS with its own root CA has that CA installed
+# on its machines, and nowhere in webpki-roots.
+reqwest = { version = "0.12", default-features = false, features = [
+  "rustls-tls",
+  "rustls-tls-native-roots",
+  "stream"
+] }
 futures-util = "0.3"
 # Disguise icons cross the IPC boundary as base64 PNG (a raw RGBA array would be ~1 MB of JSON).
 base64 = "0.22"
 tokio = { version = "1", features = ["fs", "io-util"] }
+# The offline-copy HTML fixes the puller used to apply (`offline_games.rs`); already in the
+# graph through Tauri.
+regex = "1"
 
 # `gtk::Settings` + the appearance portal, so the webview is told the desktop's real
 # light/dark choice rather than what the GTK theme name implies. Same 0.18 Tauri already
 # builds on Linux, so this adds a name in scope, not a crate to the graph.
 [target.'cfg(target_os = "linux")'.dependencies]
 gtk = "0.18"
+# The WebKitGTK handle behind Tauri's webview, to swap the game-frame user script per
+# launch (`game_frames.rs`). Pinned to what wry already builds with, so it adds no crate.
+webkit2gtk = { version = "=2.0.2", features = ["v2_38"] }
 
 # Firing the package-installer Intent needs a JNI hop into MainActivity; there is no
 # portable Tauri API for "open this content:// with an explicit MIME type".
