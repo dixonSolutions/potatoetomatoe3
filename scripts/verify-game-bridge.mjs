@@ -362,7 +362,28 @@ browser.newContext = async (options) => {
 	await ctx.route('**/api/browser-data/**', (route) => route.abort());
 	return ctx;
 };
-const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+
+/*
+ * Games open fullscreen by default now; these checks drive the windowed toolbar, so the
+ * desktop contexts turn that off (the phone context keeps it and uses the in-game menu).
+ */
+async function windowedPlayer(ctx) {
+	await ctx.addInitScript(() => {
+		const key = 'potato-tomato-site-settings-v1';
+		let saved = {};
+		try {
+			saved = JSON.parse(localStorage.getItem(key) || '{}') || {};
+		} catch {
+			saved = {};
+		}
+		saved.gamePlayer = { ...(saved.gamePlayer || {}), autoFullscreen: false };
+		localStorage.setItem(key, JSON.stringify(saved));
+	});
+	return ctx;
+}
+const context = await windowedPlayer(
+	await browser.newContext({ viewport: { width: 1280, height: 900 } })
+);
 const page = await context.newPage();
 page.on('pageerror', (e) => console.log('[pageerror]', e.message));
 
@@ -408,14 +429,13 @@ async function settledFrame(target, game, ready, ms, file = '') {
 	return last;
 }
 
+/* Games start by themselves once the play URL resolves: just wait for the frame. */
 async function play() {
-	const btn = page.getByRole('button', { name: /play/i }).first();
-	await btn.click();
 	return gameFrame();
 }
 
 async function relaunch() {
-	await page.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
+	await page.locator('[data-testid="relaunch-game"]').click();
 	await sleep(300);
 	return play();
 }
@@ -437,21 +457,44 @@ async function storedProfile(target = page, game = GAME) {
 	);
 }
 
-/** Open a lab game in its own context, press Play, and hand back its page. */
+/** Open a lab game in its own windowed context (it starts by itself) and hand back its page. */
 async function openLab(game, name) {
-	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+	const ctx = await windowedPlayer(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
 	const p = await ctx.newPage();
 	p.on('pageerror', (e) => console.log(`[pageerror ${game}]`, e.message));
 	await p.goto(`${BASE}/games/${game}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 	await p.getByRole('heading', { name }).waitFor({ timeout: 180000 });
-	await p.getByRole('button', { name: /play/i }).first().click();
 	return p;
 }
 
 async function relaunchLab(p) {
-	await p.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(300);
-	await p.getByRole('button', { name: /play/i }).first().click();
+	await p.locator('[data-testid="relaunch-game"]').click();
+}
+
+/* A client-side navigation: the window, and whatever a check patched onto it, survives. */
+async function spaNavigate(p, path) {
+	await p.evaluate((path) => {
+		const a = document.createElement('a');
+		a.href = path;
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+	}, path);
+}
+
+/**
+ * Relaunch used to leave a Play poster to set things up behind; Restart now brings the
+ * game straight back. Leave for the catalog instead (the game page unmounts and flushes),
+ * run `setup` with no game running, and come back to a game that starts by itself.
+ */
+async function reopenLab(p, game, setup) {
+	await spaNavigate(p, '/home');
+	await p.waitForURL(/\/home/);
+	await sleep(500);
+	await setup();
+	await spaNavigate(p, `/games/${game}`);
 }
 
 /*
@@ -593,8 +636,6 @@ await page.evaluate(async (game) => {
 	for (const k of Object.keys(sessionStorage))
 		if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
 }, GAME);
-await page.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-await sleep(300);
 await page.evaluate(() => {
 	/* Hide the bag from the frame so it must use postMessage. */
 	const bag = window.__ptGameProfiles;
@@ -610,7 +651,7 @@ await page.evaluate(() => {
 			value: bag
 		});
 });
-await page.getByRole('button', { name: /play/i }).first().click();
+await page.locator('[data-testid="relaunch-game"]').click();
 /* The answer, the restore and the reload take a variable while on a busy dev server. */
 frame = await settledFrame(page, GAME, () => window.bootCount >= 4 && window.idbState, 15000);
 check(
@@ -658,20 +699,19 @@ await shot(page, '02-game-running.png');
 		JSON.stringify(nestDb?.records.map((r) => r.value))
 	);
 	/* Fresh origin, pulled: the frame that owns the stores reloads, the nested game reads the saves. */
-	await np.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(500);
-	await np.evaluate(async () => {
-		for (const k of Object.keys(localStorage))
-			if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
-		for (const k of Object.keys(sessionStorage))
-			if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
-		await new Promise((r) => {
-			const d = indexedDB.deleteDatabase('nest-db');
-			d.onsuccess = d.onerror = d.onblocked = () => r();
+	await reopenLab(np, NEST_GAME, async () => {
+		await np.evaluate(async () => {
+			for (const k of Object.keys(localStorage))
+				if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+			for (const k of Object.keys(sessionStorage))
+				if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
+			await new Promise((r) => {
+				const d = indexedDB.deleteDatabase('nest-db');
+				d.onsuccess = d.onerror = d.onblocked = () => r();
+			});
 		});
+		await hideProfileBag(np, NEST_GAME);
 	});
-	await hideProfileBag(np, NEST_GAME);
-	await np.getByRole('button', { name: /play/i }).first().click();
 	nf = await settledFrame(
 		np,
 		NEST_GAME,
@@ -699,15 +739,14 @@ await shot(page, '02-game-running.png');
 	await relaunchLab(sp);
 	await settledFrame(sp, PLAIN_GAME, () => window.bootCount === 2, 15000);
 	await sleep(2500);
-	await sp.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(500);
-	await sp.evaluate(() => {
-		for (const k of Object.keys(localStorage))
-			if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+	await reopenLab(sp, PLAIN_GAME, async () => {
+		await sp.evaluate(() => {
+			for (const k of Object.keys(localStorage))
+				if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+		});
+		await hideProfileBag(sp, PLAIN_GAME);
+		await slowProfileStore(sp, 6000);
 	});
-	await hideProfileBag(sp, PLAIN_GAME);
-	await slowProfileStore(sp, 6000);
-	await sp.getByRole('button', { name: /play/i }).first().click();
 	const slow = await settledFrame(sp, PLAIN_GAME, () => window.bootCount >= 3, 25000);
 	check(
 		'Slow profile store: the game still boots onto its saves',
@@ -716,9 +755,7 @@ await shot(page, '02-game-running.png');
 	);
 	await sleep(2500);
 	/* Before the app has answered, something else in the game frame forges the answer. */
-	await sp.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(500);
-	await sp.getByRole('button', { name: /play/i }).first().click();
+	await relaunchLab(sp);
 	const forged = await settledFrame(
 		sp,
 		PLAIN_GAME,
@@ -976,13 +1013,14 @@ for (const engine of ENGINES) {
 		console.log(`SKIP  ${engine.name}: engine build not available (offline?)`);
 		continue;
 	}
-	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+	const ctx = await windowedPlayer(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
 	const ep = await ctx.newPage();
 	const errors = [];
 	ep.on('pageerror', (e) => errors.push(e.message));
 	await ep.goto(`${BASE}/games/${engine.id}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 	await ep.getByRole('heading', { name: `${engine.name} Lab` }).waitFor({ timeout: 180000 });
-	await ep.getByRole('button', { name: /play/i }).first().click();
 	await ep.locator('[data-testid="touch-console-toggle"]').click();
 	await ep.locator('[data-testid="touch-joystick"]').waitFor({ timeout: 15000 });
 	/* Engines register keys during boot; the bridge reports within a second of that. */
@@ -1062,22 +1100,21 @@ const mobile = await browser.newContext({
 const mp = await mobile.newPage();
 await mp.goto(`${BASE}/games/${GAME}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 await mp.getByRole('heading', { name: 'Console Lab' }).waitFor();
-await mp.getByRole('button', { name: /play/i }).first().click();
-await sleep(1500);
-const toggle = mp.locator('[data-testid="touch-console-toggle"]');
-if ((await toggle.getAttribute('aria-pressed')) !== 'true') await toggle.click();
-await mp
-	.getByRole('button', { name: 'Fullscreen' })
-	.click()
-	.catch(() => {});
-await sleep(1200);
+await sleep(2500);
+/* On a phone the game opens fullscreen; the in-game menu is the only chrome over it. */
+const menuButton = mp.locator('[data-testid="in-game-menu-button"]');
+await menuButton.waitFor({ timeout: 8000 });
+if ((await mp.locator('[data-testid="touch-joystick"]').count()) === 0) {
+	await menuButton.tap();
+	await mp.locator('[data-testid="in-game-menu-console"]').tap();
+	await sleep(1200);
+}
 await shot(mp, '11-mobile-console.png');
-const fsControls = mp.locator('[data-testid="controls-menu-toggle-fs"]');
-await fsControls.waitFor({ timeout: 8000 });
-await fsControls.click();
+await menuButton.tap();
+await mp.locator('[data-testid="in-game-menu-controls"]').tap();
 await sleep(800);
 check(
-	'Controls menu opens from the fullscreen toolbar on a phone',
+	'Controls menu opens from the in-game menu on a phone',
 	(await mp.locator('[data-testid="controls-menu"]').count()) === 1
 );
 await shot(mp, '12-mobile-controls.png');

@@ -426,7 +426,7 @@
 					} else {
 						toast.message('Closing quits the app', {
 							description: life.trayAvailable
-								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → Playing after installing an AppIndicator extension.'
+								? 'On GNOME/Silverblue the tray icon is usually hidden. Use Quit in the top bar, or enable close-to-tray in Settings → App after installing an AppIndicator extension.'
 								: 'No system tray was found. Closing the window fully quits Potato Tomato (and stops background downloads).'
 						});
 					}

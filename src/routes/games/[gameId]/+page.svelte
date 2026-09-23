@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { base, resolve } from '$app/paths';
 	import { browser } from '$app/environment';
-	import { onMount, tick } from 'svelte';
+	import { onMount, tick, untrack } from 'svelte';
 	import {
 		loadGameMetadata,
 		loadAllGames,
@@ -25,25 +25,16 @@
 		recordGamePlay,
 		getRecommendationsForGamePage,
 		recordPlaytimeMs,
-		isTodayPlayLimitReached
+		isTodayPlayLimitReached,
+		isGlobalDailyLimitExceeded
 	} from '$lib/utils/play-recommendations';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import {
-		Maximize,
-		ArrowLeft,
-		ThumbsUp,
-		ThumbsDown,
-		RefreshCw,
-		ScrollText,
-		Pause,
-		Play,
-		Download,
-		Gamepad2,
-		Keyboard
-	} from 'lucide-svelte';
+	import { ArrowLeft, ThumbsUp, ThumbsDown, Play, Download } from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
+	import GameToolbar from '$lib/components/game-player/GameToolbar.svelte';
+	import InGameMenu from '$lib/components/game-player/in-game-menu/InGameMenu.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
 	import { preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
@@ -67,8 +58,34 @@
 	import {
 		formatGameFullscreenShortcutLabel,
 		gameFullscreenShortcutMatches,
-		getGameFullscreenShortcut
+		getActiveGameFullscreenShortcut
 	} from '$lib/utils/game-fullscreen';
+	import {
+		enterGameFullscreen,
+		exitGameFullscreen,
+		noteDocumentFullscreenChange,
+		upgradeGameFullscreenOnGesture
+	} from '$lib/utils/game-fullscreen-mode';
+	import {
+		GAME_PLAYER_SETTINGS_CHANGED,
+		getGamePlayerSettings,
+		menuButtonMetrics,
+		showsMenuButton,
+		type GamePlayerSettings
+	} from '$lib/utils/game-player-settings';
+	import {
+		POINTER_LOCK_GUARD_FLAG,
+		parsePointerLockMessage,
+		watchDocumentPointerLock,
+		type PointerLockState
+	} from '$lib/utils/pointer-lock';
+	import {
+		KEY_PROFILE_CHANGED,
+		detectedControls,
+		readCachedKeyProfile,
+		withControlsHint,
+		type KeyProfile
+	} from '$lib/utils/key-profile';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
 	import { iframeAllowForUrl } from '$lib/utils/games';
@@ -82,12 +99,7 @@
 	import { openExternalUrl } from '$lib/utils/open-external';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
 	import { GamePlayerLayout } from '$lib/hooks/game-player-layout.svelte';
-	import {
-		toggleFullscreen as toggleElementFullscreen,
-		isImmersiveElement,
-		isPseudoFullscreen,
-		exitPseudoFullscreen
-	} from '$lib/utils/fullscreen';
+	import { isImmersiveElement } from '$lib/utils/fullscreen';
 	import { setGameImmersive } from '$lib/utils/game-immersive';
 	import { toast } from 'svelte-sonner';
 
@@ -125,9 +137,18 @@
 		userPreference = null;
 	}
 
-	/** True after the user clicks Play — avoids loading the game bundle until then. */
+	/**
+	 * True once the game frame has been given its URL. Games start by themselves as soon as
+	 * the play URL is resolved; LazyGameFrame sets this, and it drops back to false only
+	 * while switching games or relaunching.
+	 */
 	let gameSurfaceStarted = $state(false);
 	let gamePlayerUrl = $state('');
+	/**
+	 * The first play URL for this game is resolved (and the saves had their head start).
+	 * The player shows the cover before this; the frame is only handed a URL after it.
+	 */
+	let playUrlReady = $state(false);
 	/** Bumps on full relaunch so the iframe remounts even when the URL is unchanged. */
 	let playerRemountKey = $state(0);
 	let logsOpen = $state(false);
@@ -135,11 +156,49 @@
 	let offlineBackendLabel = $state('…');
 	let gamePaused = $state(false);
 	let pauseShortcutLabel = $state('`');
-	let fullscreenShortcutLabel = $state('F');
+	/** Empty while the (opt-in) fullscreen shortcut is off, so no button advertises a key. */
+	let fullscreenShortcutLabel = $state('');
 	let touchConsoleVisible = $state(false);
 	let touchConsoleAvailable = $state(false);
 	/** Controls menu: detected keys with what they do, plus every key for accessibility. */
 	let controlsMenuOpen = $state(false);
+	let playerSettings = $state<GamePlayerSettings>(getGamePlayerSettings());
+	let inGameMenuOpen = $state(false);
+	/** Play version + offline copy, folded under the toolbar's More menu. */
+	let playOptionsOpen = $state(false);
+	/** Game id auto-fullscreen already ran for — once per visit, so leaving it sticks. */
+	let autoFullscreenFor = '';
+	/*
+	 * Touch cannot hover, so the in-game menu keeps its button on touch devices. A coarse
+	 * primary pointer says so up front; a touch seen on the page says so on hybrids.
+	 */
+	let coarsePointer = $state(false);
+	let touchSeen = $state(false);
+	let touchDevice = $derived(coarsePointer || touchSeen);
+	/*
+	 * A game that starts by itself must not start behind the lock screen or the daily-limit
+	 * gate: both used to hold it back simply by being in the way of the Play button.
+	 */
+	let privacyLocked = $state(false);
+	let playLimitHold = $state(false);
+	/* One hint per kind per visit: an FPS locks and unlocks on every pause. */
+	let pointerLockHintShown = false;
+	let stuckCursorHintShown = false;
+	/** Where "Back to games" goes: the list the player came from, else all games. */
+	let cameFromList = false;
+	/* The console's top-anchored panels start below a top-corner menu button. */
+	let inGameMenuTopInset = $derived.by(() => {
+		if (!isGameFullscreen || !playerSettings.menuCorner.startsWith('top')) return 0;
+		if (!showsMenuButton(playerSettings.menuAccess, touchDevice)) return 0;
+		return menuButtonMetrics(playerSettings.menuButtonSize, touchDevice).hit + 12;
+	});
+	/** Live key profile — decides whether Controls has anything to show. */
+	let keyProfile = $state<KeyProfile | null>(null);
+	let controlsDetected = $derived.by(() => {
+		if (!keyProfile) return false;
+		const profile = withControlsHint(keyProfile, gameMetadata?.description ?? '');
+		return detectedControls(profile).some((c) => c.kind === 'gameplay');
+	});
 	/** Frame started but never reported `load` — surfaces the retry hint below the player. */
 	let frameStalled = $state(false);
 	/** Last game id that finished (or started) a hard load — used to avoid wiping Console. */
@@ -200,9 +259,8 @@
 	function restoreTouchConsolePref(id: string) {
 		if (!readConsoleVisiblePref(id)) return;
 		/*
-		 * Restore the Console *preference* only — do not auto-start the iframe.
-		 * Forcing gameSurfaceStarted here skipped LazyGameFrame's Play gesture, so
-		 * WebKit/Unity often came up black; Pause then made recovery impossible.
+		 * Restore the Console *preference* only. The frame starts by itself once the play
+		 * URL is known; forcing gameSurfaceStarted from here would start it before that.
 		 */
 		const alreadyOn = touchConsoleVisible;
 		touchConsoleVisible = true;
@@ -236,7 +294,13 @@
 
 	function refreshPauseShortcutLabel() {
 		pauseShortcutLabel = formatGamePauseShortcutLabel(getGamePauseShortcut());
-		fullscreenShortcutLabel = formatGameFullscreenShortcutLabel(getGameFullscreenShortcut());
+		const fullscreenKey = getActiveGameFullscreenShortcut();
+		fullscreenShortcutLabel = fullscreenKey ? formatGameFullscreenShortcutLabel(fullscreenKey) : '';
+	}
+
+	function refreshPlayerSettings() {
+		playerSettings = getGamePlayerSettings();
+		refreshPauseShortcutLabel();
 	}
 
 	function setGamePausedState(paused: boolean) {
@@ -586,10 +650,8 @@
 		await refreshPlayerUrl();
 		playerRemountKey += 1;
 		/*
-		 * Restarting a game means the game comes back, not a Play poster: the click that
-		 * asked for the restart is the gesture, and making the user press Play again is
-		 * a second gesture for something they already asked for. Set after the remount
-		 * so the fresh LazyGameFrame mounts already started.
+		 * Set after the remount so the fresh LazyGameFrame mounts already started, inside
+		 * the click that asked for the restart (a gesture WebKitGTK audio can use).
 		 */
 		gameSurfaceStarted = true;
 		toast.message('Game restarted');
@@ -610,12 +672,20 @@
 		const switchingGame = id !== loadedGameId;
 
 		if (!soft && switchingGame) {
+			/* The surface is about to unmount; leave fullscreen with it, not after it. */
+			if (isGameFullscreen) void leaveFullscreen();
+			autoFullscreenFor = '';
+			inGameMenuOpen = false;
+			playOptionsOpen = false;
+			pointerLockHintShown = false;
+			stuckCursorHintShown = false;
 			loading = true;
 			error = '';
 			gameSurfaceStarted = false;
 			gamePaused = false;
 			touchConsoleVisible = false;
 			gamePlayerUrl = '';
+			playUrlReady = false;
 			frameStalled = false;
 			recommendedGames = [];
 		} else if (!soft) {
@@ -647,19 +717,32 @@
 		}
 
 		/*
-		 * Read the game's saves now, while the poster is up, so the frame's storage bridge
-		 * can boot from them synchronously instead of waiting on a round trip after Play.
+		 * Read the game's saves alongside the play URL, so the frame's storage bridge can
+		 * boot from them synchronously. The frame starts the moment loading ends; the read
+		 * normally finishes long before the URL does, and the cap below only stops a hung
+		 * backend from holding the game back. Late saves still arrive (the bridge pulls them
+		 * and reloads the frame once), so a bounded wait is all this is worth.
 		 */
-		void preloadGameBrowserProfile(id);
+		const profileReady = preloadGameBrowserProfile(id);
+
+		/*
+		 * Show the page and the game's cover now: resolving the play URL can take a while
+		 * (probing a relay, an offline copy), and a spinner over the cover in the player —
+		 * already fullscreen — reads as the game starting, where a blank "Loading game…"
+		 * page read as nothing happening. The frame itself waits for `playUrlReady`.
+		 */
+		loading = false;
 
 		/*
 		 * Resolve the playable URL before loading the full recommendation catalog.
 		 * The catalog is useful below the fold, but must not delay the first game frame.
 		 */
 		gamePlayerUrl = await getGamePlayerUrl(id, meta);
+		await Promise.race([profileReady, new Promise((done) => setTimeout(done, 600))]);
+		if (id !== gameId) return;
+		playUrlReady = true;
 		void refreshOfflineCoverStatus(id);
 		loadedGameId = id;
-		loading = false;
 
 		/* Console preference survives remounts / double-loads / accidental hard refresh. */
 		restoreTouchConsolePref(id);
@@ -679,16 +762,20 @@
 		})();
 	}
 
-	afterNavigate(({ to }) => {
+	afterNavigate(({ from, to }) => {
 		if (!browser || !to) return;
 		const id = to.params?.gameId ?? '';
 		if (!id) return;
+		/* Came here from a list inside the app: "Back to games" can simply go back to it. */
+		cameFromList = Boolean(from?.route?.id && from.route.id !== '/games/[gameId]');
 		void loadGamePage(id);
 	});
 
 	onMount(() => {
 		networkOnline = isNetworkOnline();
-		refreshPauseShortcutLabel();
+		refreshPlayerSettings();
+		privacyLocked = document.documentElement.hasAttribute('data-privacy-locked');
+		playLimitHold = isGlobalDailyLimitExceeded();
 		// `afterNavigate` does not fire for the route's initial hydration. Load the
 		// requested game here as well so direct links do not remain on "Loading game…".
 		if (gameId) void loadGamePage(gameId);
@@ -706,11 +793,15 @@
 
 		const onPrivacyLocked = (e: Event) => {
 			const d = (e as CustomEvent<{ locked: boolean }>).detail;
+			privacyLocked = d?.locked ?? false;
 			applyPrivacyPauseToIframe(d?.locked ?? false);
 		};
 		const onSettingsApplied = () => {
 			refreshPauseShortcutLabel();
 			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
+		};
+		const onPlayLimitsChanged = () => {
+			playLimitHold = isGlobalDailyLimitExceeded();
 		};
 		const onGamePlayModeChanged = (e: Event) => {
 			const d = (e as CustomEvent<{ gameId: string }>).detail;
@@ -733,48 +824,74 @@
 			toggleGamePause();
 		};
 		/*
-		 * Fullscreen has no reason to wait for the game to be started — the surface can go
-		 * fullscreen either way — but a bare `F` must never fire while the user is typing
-		 * into the page's own fields, same guard as pause.
+		 * Opt-in only (Settings → Playing): a bare `F` belongs to the game, and the in-game
+		 * menu is the way in and out of fullscreen. Never fires while typing in a field.
 		 */
 		const onFullscreenHotkey = (e: KeyboardEvent) => {
+			const shortcut = getActiveGameFullscreenShortcut();
+			if (!shortcut) return;
 			const t = e.target as HTMLElement | null;
 			if (t?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
-			if (!gameFullscreenShortcutMatches(e)) return;
+			if (!gameFullscreenShortcutMatches(e, shortcut)) return;
 			e.preventDefault();
 			e.stopPropagation();
 			void toggleFullscreen();
 		};
-		const onEscapePseudoFullscreen = (e: KeyboardEvent) => {
-			if (e.key !== 'Escape') return;
-			if (!gameSurfaceEl || !isPseudoFullscreen(gameSurfaceEl)) return;
-			exitPseudoFullscreen(gameSurfaceEl);
+		/*
+		 * Esc is deliberately not bound here: many games open their pause menu with it.
+		 * Browsers still leave their own fullscreen on Esc; the game keeps filling the
+		 * window, and the in-game menu's Exit fullscreen returns to the page.
+		 */
+		const onFullscreenChange = () => {
+			noteDocumentFullscreenChange();
 			syncGameFullscreenState();
 		};
+		const onFirstTouch = (e: PointerEvent) => {
+			if (e.pointerType === 'touch') touchSeen = true;
+		};
+		const coarseQuery = window.matchMedia?.('(pointer: coarse)');
+		const onCoarseChange = () => (coarsePointer = Boolean(coarseQuery?.matches));
+		onCoarseChange();
+		const onPointerLockMessage = (e: MessageEvent) => {
+			if (e.source === window) return;
+			const state = parsePointerLockMessage(e.data);
+			if (state) onPointerLockState(state);
+		};
+		/* The page's own document: nothing locks it today, but a same-origin game could. */
+		const detachPagePointerGuard = watchDocumentPointerLock(document, onPointerLockState);
+
 		window.addEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 		window.addEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
+		window.addEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
+		window.addEventListener(GAME_PLAYER_SETTINGS_CHANGED, refreshPlayerSettings);
 		window.addEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 		window.addEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		window.addEventListener('keydown', onPauseHotkey, true);
 		window.addEventListener('keydown', onFullscreenHotkey, true);
-		window.addEventListener('keydown', onEscapePseudoFullscreen, true);
-		document.addEventListener('fullscreenchange', syncGameFullscreenState);
-		document.addEventListener('webkitfullscreenchange', syncGameFullscreenState);
+		window.addEventListener('pointerdown', onFirstTouch, true);
+		window.addEventListener('message', onPointerLockMessage);
+		coarseQuery?.addEventListener?.('change', onCoarseChange);
+		document.addEventListener('fullscreenchange', onFullscreenChange);
+		document.addEventListener('webkitfullscreenchange', onFullscreenChange);
 
 		return () => {
 			detachNetwork();
+			detachPagePointerGuard();
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);
+			window.removeEventListener('potato-tomato-play-limits-changed', onPlayLimitsChanged);
+			window.removeEventListener(GAME_PLAYER_SETTINGS_CHANGED, refreshPlayerSettings);
 			window.removeEventListener(GAME_PLAY_MODE_CHANGED, onGamePlayModeChanged);
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 			window.removeEventListener('keydown', onPauseHotkey, true);
 			window.removeEventListener('keydown', onFullscreenHotkey, true);
-			window.removeEventListener('keydown', onEscapePseudoFullscreen, true);
-			document.removeEventListener('fullscreenchange', syncGameFullscreenState);
-			document.removeEventListener('webkitfullscreenchange', syncGameFullscreenState);
-			if (gameSurfaceEl && isPseudoFullscreen(gameSurfaceEl)) {
-				exitPseudoFullscreen(gameSurfaceEl);
-			}
+			window.removeEventListener('pointerdown', onFirstTouch, true);
+			window.removeEventListener('message', onPointerLockMessage);
+			coarseQuery?.removeEventListener?.('change', onCoarseChange);
+			document.removeEventListener('fullscreenchange', onFullscreenChange);
+			document.removeEventListener('webkitfullscreenchange', onFullscreenChange);
+			/* Leaving the page leaves fullscreen: restore the window and the browser chrome. */
+			void exitGameFullscreen(gameSurfaceEl);
 			playerLayout.destroy();
 			setGameImmersive(false);
 		};
@@ -792,13 +909,143 @@
 		const immersive = isImmersiveElement(gameSurfaceEl ?? null);
 		isGameFullscreen = immersive;
 		setGameImmersive(immersive);
+		if (!immersive && inGameMenuOpen) inGameMenuOpen = false;
+	}
+
+	/** Must run inside the click that asked for it: browsers need the gesture. */
+	async function enterFullscreen() {
+		if (!gameSurfaceEl) return;
+		const done = enterGameFullscreen(gameSurfaceEl);
+		/* The surface fills the window synchronously; the browser chrome follows. */
+		syncGameFullscreenState();
+		await done;
+		syncGameFullscreenState();
+	}
+
+	/** Back to the windowed page — the player stays on the game. */
+	async function leaveFullscreen() {
+		const done = exitGameFullscreen(gameSurfaceEl);
+		syncGameFullscreenState();
+		await done;
+		syncGameFullscreenState();
 	}
 
 	async function toggleFullscreen() {
-		if (!gameSurfaceEl) return;
-		await toggleElementFullscreen(gameSurfaceEl);
-		syncGameFullscreenState();
+		if (isGameFullscreen) await leaveFullscreen();
+		else await enterFullscreen();
 	}
+
+	/*
+	 * Open fullscreen as soon as the player appears ("Open games in fullscreen", on by
+	 * default) — with the cover and spinner while the game starts, so the click that
+	 * opened the game is still fresh enough for the browser to allow real fullscreen.
+	 * Once per visit: a player who leaves fullscreen stays out of it for this game,
+	 * restarts included. Without a fresh gesture the game fills the window and the
+	 * browser chrome goes on the next press on the in-game menu.
+	 */
+	$effect(() => {
+		if (loading || error || !gameSurfaceEl || !gameId || cannotFrameInApp) return;
+		/* Not over the lock screen or the daily-limit gate; it happens once they clear. */
+		if (privacyLocked || playLimitHold) return;
+		if (!playerSettings.autoFullscreen || autoFullscreenFor === gameId) return;
+		autoFullscreenFor = gameId;
+		untrack(() => {
+			if (!isGameFullscreen) void enterFullscreen();
+		});
+	});
+
+	/** Any press on the in-game menu: spend the gesture on audio and real fullscreen. */
+	function onInGameMenuGesture() {
+		upgradeGameFullscreenOnGesture(gameSurfaceEl);
+		void import('$lib/utils/game-audio').then(({ unlockGameIframeAudio }) =>
+			unlockGameIframeAudio(iframeElement)
+		);
+	}
+
+	/** Give the keyboard back to the game after its chrome was used. */
+	function focusGameFrame() {
+		const frame = iframeElement;
+		if (!frame) return;
+		try {
+			frame.focus();
+			frame.contentWindow?.focus();
+		} catch {
+			/* cross-origin focus can throw on older engines */
+		}
+	}
+
+	async function backToGames() {
+		await leaveFullscreen();
+		if (cameFromList && history.length > 1) {
+			history.back();
+			return;
+		}
+		await goto(resolve('/games'));
+	}
+
+	function onPointerLockState(state: PointerLockState) {
+		if (state === 'released') {
+			toast.message('Cursor unlocked', { duration: 2000 });
+			return;
+		}
+		if (state === 'locked' && !pointerLockHintShown) {
+			pointerLockHintShown = true;
+			toast.message('Site locked the cursor — double-click twice to unlock', {
+				duration: 5000
+			});
+		} else if (state === 'stuck' && !stuckCursorHintShown && !pointerLockHintShown) {
+			stuckCursorHintShown = true;
+			toast.message('Cursor hidden by the game — double-click twice to show it', {
+				duration: 5000
+			});
+		}
+	}
+
+	/*
+	 * Same-origin frames served without the bridge (so without its pointer lock guard) get
+	 * the parent's copy. Checked on every load: the bridge sets its flag at the top of the
+	 * document, long before `load`. Cross-origin frames throw here and rely on the bridge.
+	 */
+	$effect(() => {
+		const frame = iframeElement;
+		if (!frame) return;
+		let detach = () => {};
+		const attach = () => {
+			detach();
+			detach = () => {};
+			try {
+				const win = frame.contentWindow as (Window & Record<string, unknown>) | null;
+				const doc = frame.contentDocument;
+				if (!win || !doc || win[POINTER_LOCK_GUARD_FLAG]) return;
+				detach = watchDocumentPointerLock(doc, onPointerLockState);
+			} catch {
+				/* cross-origin */
+			}
+		};
+		frame.addEventListener('load', attach);
+		return () => {
+			frame.removeEventListener('load', attach);
+			detach();
+		};
+	});
+
+	/* What the game reads, as the console's detection reports it — for the Controls button. */
+	$effect(() => {
+		const id = gameId;
+		if (!id || !browser) return;
+		keyProfile = readCachedKeyProfile(id);
+		const onProfile = (e: Event) => {
+			const profile = (e as CustomEvent<KeyProfile>).detail;
+			if (profile?.gameId === id) keyProfile = profile;
+		};
+		window.addEventListener(KEY_PROFILE_CHANGED, onProfile);
+		return () => window.removeEventListener(KEY_PROFILE_CHANGED, onProfile);
+	});
+
+	/* A stalled launch points at Play version / Retry puller — show where they are. */
+	$effect(() => {
+		if (frameStalled) untrack(() => (playOptionsOpen = true));
+	});
 
 	function applyPrivacyPauseToIframe(locked: boolean) {
 		if (!iframeElement) return;
@@ -910,95 +1157,30 @@
 						{/if}
 					</div>
 				</div>
-				<div
-					class="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-end"
-				>
-					<Button
-						onclick={() => void openPlayLogs()}
-						variant="outline"
-						size="sm"
-						class="w-full sm:w-auto"
-					>
-						<ScrollText class="mr-2 h-4 w-4" />
-						View logs
-					</Button>
-					<Button
-						onclick={toggleGamePause}
-						variant={gamePaused ? 'default' : 'outline'}
-						size="sm"
-						class="w-full sm:w-auto"
-						disabled={!gameSurfaceStarted}
-						aria-pressed={gamePaused}
-						title={`Pause / resume (${pauseShortcutLabel})`}
-					>
-						{#if gamePaused}
-							<Play class="mr-2 h-4 w-4 fill-current" />
-							Resume
-						{:else}
-							<Pause class="mr-2 h-4 w-4" />
-							Pause
-						{/if}
-						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
-					</Button>
-					{#if showConsoleButton}
-						<button
-							type="button"
-							data-testid="touch-console-toggle"
-							onclick={toggleTouchConsole}
-							aria-pressed={touchConsoleVisible}
-							title={touchConsoleVisible
-								? 'Touch console is enabled — tap to disable'
-								: gameSurfaceStarted
-									? 'Touch console is disabled — tap to enable'
-									: 'Start the game and show touch console'}
-							class="inline-flex h-8 w-full shrink-0 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium transition-colors sm:w-auto {touchConsoleVisible
-								? 'border border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/70 hover:bg-emerald-500'
-								: 'border border-dashed border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground'}"
-						>
-							<Gamepad2 class="h-4 w-4" />
-							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
-						</button>
-						<Button
-							onclick={() => (controlsMenuOpen = !controlsMenuOpen)}
-							variant={controlsMenuOpen ? 'default' : 'outline'}
-							size="sm"
-							class="w-full sm:w-auto"
-							disabled={!gameSurfaceStarted}
-							aria-pressed={controlsMenuOpen}
-							data-testid="controls-menu-toggle"
-							title="What this game's keys do — detected controls and every key"
-						>
-							<Keyboard class="mr-2 h-4 w-4" />
-							Controls
-						</Button>
-					{/if}
-					<Button
-						onclick={() => void relaunchGameCompletely()}
-						variant="outline"
-						size="icon"
-						class="size-8 shrink-0"
-						data-testid="relaunch-game"
-						title="Restart the game"
-						aria-label="Restart the game"
-					>
-						<RefreshCw class="h-4 w-4" />
-					</Button>
-					<Button
-						onclick={toggleFullscreen}
-						variant="outline"
-						size="sm"
-						class="w-full sm:w-auto"
-						aria-pressed={isGameFullscreen}
-						title={`Fullscreen (${fullscreenShortcutLabel})`}
-					>
-						<Maximize class="mr-2 h-4 w-4" />
-						{isGameFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
-						<span class="ml-1 font-mono text-[10px] opacity-70">{fullscreenShortcutLabel}</span>
-					</Button>
-				</div>
+				<GameToolbar
+					started={gameSurfaceStarted}
+					paused={gamePaused}
+					{pauseShortcutLabel}
+					fullscreen={isGameFullscreen}
+					{fullscreenShortcutLabel}
+					consoleAvailable={showConsoleButton}
+					consoleOn={touchConsoleVisible}
+					controlsAvailable={controlsDetected}
+					controlsOpen={controlsMenuOpen}
+					bind:playOptionsOpen
+					onTogglePause={toggleGamePause}
+					onRestart={() => void relaunchGameCompletely()}
+					onToggleFullscreen={() => void toggleFullscreen()}
+					onToggleConsole={toggleTouchConsole}
+					onToggleControls={() => (controlsMenuOpen = !controlsMenuOpen)}
+					onOpenLogs={() => void openPlayLogs()}
+				/>
 			</div>
-			<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
-			<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
+			<!-- Folded under More → kept mounted, so a download in progress keeps its state. -->
+			<div class={playOptionsOpen ? '' : 'hidden'} data-testid="play-options">
+				<PlayVersionSelector {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
+				<OfflineControls {gameId} metadata={gameMetadata} onPlayUrlChange={refreshPlayerUrl} />
+			</div>
 		</div>
 
 		{#if isPublicSiteDeployment()}
@@ -1026,89 +1208,6 @@
 			class="game-player-surface relative mb-6 flex flex-col overflow-hidden rounded-lg border bg-card shadow-lg sm:mb-8"
 			style={!isGameFullscreen && playerLayout.isCompact ? playerLayout.surfaceStyle : undefined}
 		>
-			{#if isGameFullscreen}
-				<div
-					class="absolute top-2 left-2 z-20 flex flex-wrap justify-start gap-1 sm:top-3 sm:left-3"
-				>
-					<Button
-						variant="secondary"
-						size="sm"
-						class="shadow-md backdrop-blur-sm"
-						onclick={() => void openPlayLogs()}
-						aria-label="View logs"
-					>
-						<ScrollText class="mr-2 h-4 w-4" />
-						Logs
-					</Button>
-					<Button
-						variant="secondary"
-						size="sm"
-						class="shadow-md backdrop-blur-sm"
-						onclick={toggleGamePause}
-						disabled={!gameSurfaceStarted}
-						aria-label={gamePaused ? 'Resume game' : 'Pause game'}
-					>
-						{#if gamePaused}
-							<Play class="mr-2 h-4 w-4 fill-current" />
-							Resume
-						{:else}
-							<Pause class="mr-2 h-4 w-4" />
-							Pause
-						{/if}
-					</Button>
-					{#if showConsoleButton}
-						<button
-							type="button"
-							data-testid="touch-console-toggle-fs"
-							onclick={toggleTouchConsole}
-							aria-pressed={touchConsoleVisible}
-							aria-label={touchConsoleVisible
-								? 'Console enabled — tap to disable'
-								: 'Console disabled — tap to enable'}
-							class="inline-flex h-8 shrink-0 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium shadow-md transition-colors {touchConsoleVisible
-								? 'border border-emerald-400 bg-emerald-600 text-white ring-2 ring-emerald-400/80 hover:bg-emerald-500'
-								: 'border border-transparent bg-secondary text-secondary-foreground backdrop-blur-sm hover:bg-secondary/80'}"
-						>
-							<Gamepad2 class="h-4 w-4" />
-							{touchConsoleVisible ? 'Console enabled' : 'Console disabled'}
-						</button>
-						<Button
-							variant={controlsMenuOpen ? 'default' : 'secondary'}
-							size="sm"
-							class="shadow-md backdrop-blur-sm"
-							onclick={() => (controlsMenuOpen = !controlsMenuOpen)}
-							disabled={!gameSurfaceStarted}
-							aria-pressed={controlsMenuOpen}
-							data-testid="controls-menu-toggle-fs"
-							aria-label="Controls"
-						>
-							<Keyboard class="mr-2 h-4 w-4" />
-							Controls
-						</Button>
-					{/if}
-					<Button
-						variant="secondary"
-						size="icon"
-						class="size-8 shrink-0 shadow-md backdrop-blur-sm"
-						onclick={() => void relaunchGameCompletely()}
-						data-testid="relaunch-game-fs"
-						title="Restart the game"
-						aria-label="Restart the game"
-					>
-						<RefreshCw class="h-4 w-4" />
-					</Button>
-					<Button
-						variant="secondary"
-						size="sm"
-						class="shadow-md backdrop-blur-sm"
-						onclick={toggleFullscreen}
-						aria-label="Exit fullscreen"
-					>
-						<Maximize class="mr-2 h-4 w-4" />
-						Exit
-					</Button>
-				</div>
-			{/if}
 			{#if gamePaused && gameSurfaceStarted}
 				<div
 					class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background/80 px-4 text-center backdrop-blur-[2px]"
@@ -1150,15 +1249,18 @@
 					{#key playerRemountKey}
 						<LazyGameFrame
 							{gameId}
-							gameUrl={fixMalformedGamePlayerUrl(
-								gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
-								gameId
-							)}
+							gameUrl={playUrlReady
+								? fixMalformedGamePlayerUrl(
+										gamePlayerUrl || `${base}/games/${gameId}/online/index.html`,
+										gameId
+									)
+								: ''}
 							iframeAllow={iframeAllowForUrl(gamePlayerUrl)}
 							posterUrl={posterUrlFor(gameMetadata)}
 							title={gameMetadata.name}
 							fillContainer={isGameFullscreen || playerLayout.isCompact}
-							startDisabled={playerUrlRefreshPending && !gameSurfaceStarted}
+							startDisabled={!gameSurfaceStarted &&
+								(playerUrlRefreshPending || privacyLocked || playLimitHold)}
 							bind:started={gameSurfaceStarted}
 							onIframeReady={(el) => {
 								const next = el ?? undefined;
@@ -1183,7 +1285,7 @@
 								Its host may be blocking the app. Retrying through the local relay usually works.
 							{:else}
 								Its host may be slow or blocking the app. Try Relaunch, or switch Play from →
-								Offline if you have it downloaded.
+								Offline (above) if you have it downloaded.
 							{/if}
 						</p>
 					</div>
@@ -1197,7 +1299,7 @@
 					</div>
 				</div>
 			{/if}
-			<!-- Overlay only — Console on/off lives in the page toolbar with Pause / Fullscreen. -->
+			<!-- Overlay only — Console on/off lives in the toolbar and the in-game menu. -->
 			<TouchConsole
 				iframe={iframeElement ?? null}
 				{gameId}
@@ -1209,12 +1311,33 @@
 				bind:chromeAvailable={touchConsoleAvailable}
 				bind:menuOpen={controlsMenuOpen}
 				controlsHint={gameMetadata.description}
-				topInset={isGameFullscreen ? 48 : 0}
+				topInset={inGameMenuTopInset}
 				onRequestShow={() => {
 					gameSurfaceStarted = true;
 					setTouchConsoleVisible(true, 'auto-show');
 				}}
 			/>
+			{#if isGameFullscreen}
+				<InGameMenu
+					bind:open={inGameMenuOpen}
+					corner={playerSettings.menuCorner}
+					access={playerSettings.menuAccess}
+					buttonSize={playerSettings.menuButtonSize}
+					touch={touchDevice}
+					paused={gamePaused}
+					consoleAvailable={showConsoleButton}
+					consoleOn={touchConsoleVisible}
+					controlsAvailable={controlsDetected && gameSurfaceStarted}
+					onGesture={onInGameMenuGesture}
+					onTogglePause={toggleGamePause}
+					onRestart={() => void relaunchGameCompletely()}
+					onToggleConsole={toggleTouchConsole}
+					onOpenControls={() => (controlsMenuOpen = true)}
+					onExitFullscreen={() => void leaveFullscreen()}
+					onBack={() => void backToGames()}
+					onClosed={focusGameFrame}
+				/>
+			{/if}
 		</div>
 
 		<div class="mb-8">

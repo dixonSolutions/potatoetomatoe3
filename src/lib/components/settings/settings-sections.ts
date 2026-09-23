@@ -1,5 +1,5 @@
 import { Clock, Gamepad2, Joystick, Shield, Smartphone, Volume2 } from 'lucide-svelte';
-import { isTauriAndroidBuild } from '$lib/utils/offline-deployment';
+import { isTauriAndroidBuild, isTauriApp, isTauriMobileBuild } from '$lib/utils/offline-deployment';
 import { SETTINGS_SECTION_ORDER, type SettingsSectionId } from './settings-section-ids';
 
 export type { SettingsSectionId } from './settings-section-ids';
@@ -27,16 +27,19 @@ const DEFS: Record<SettingsSectionId, Omit<SettingsSectionDef, 'id'>> = {
 		description: 'Daily limit and what gets recommended.',
 		icon: Clock
 	},
-	app: { title: 'App', description: 'Version and updates.', icon: Smartphone }
+	app: { title: 'App', description: 'Updates, and what closing the window does.', icon: Smartphone }
 };
 
 export const SETTINGS_SECTIONS: readonly SettingsSectionDef[] = SETTINGS_SECTION_ORDER.map(
 	(id) => ({ id, ...DEFS[id] })
 );
 
-/** The App section only has something to show where the app can update itself. */
+/**
+ * The App section only has something to show in an installed app: updates where it can
+ * update itself (Android), the close-to-tray switch on the desktop.
+ */
 export function isSettingsSectionAvailable(id: SettingsSectionId): boolean {
-	if (id === 'app') return isTauriAndroidBuild();
+	if (id === 'app') return isTauriAndroidBuild() || (isTauriApp() && !isTauriMobileBuild());
 	return true;
 }
 

@@ -110,28 +110,47 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 	},
 	{
 		id: 'search-sec-games',
-		title: 'Games',
-		panel: 'games',
+		title: 'Playing',
+		panel: 'playing',
 		sectionKeywords:
-			'games play online offline default version unity download bundled pause resume shortcut tray quit close',
+			'games play playing online offline default version unity download bundled pause resume shortcut fullscreen in-game menu',
 		subsections: [
 			{
+				id: 'sub-games-auto-fullscreen',
+				label: 'Open games in fullscreen',
+				scrollTargetId: 'settings-section-games-auto-fullscreen',
+				keywords: 'open games fullscreen full screen auto automatic immersive start'
+			},
+			{
+				id: 'sub-games-menu',
+				label: 'In-game menu',
+				scrollTargetId: 'settings-section-games-menu',
+				keywords: 'in-game menu button hover edge touch overlay exit fullscreen back show'
+			},
+			{
 				id: 'sub-games-default-mode',
-				label: 'Default play source',
+				label: 'Play source',
 				scrollTargetId: 'settings-section-games-default-mode',
 				keywords: 'default online offline play source version bundled download'
 			},
 			{
 				id: 'sub-games-pause-shortcut',
-				label: 'Pause / resume shortcut',
+				label: 'Pause and resume shortcut',
 				scrollTargetId: 'settings-section-games-pause-shortcut',
 				keywords: 'pause resume shortcut backtick hotkey keyboard game xonotic'
 			},
 			{
-				id: 'sub-games-close-to-tray',
-				label: 'Close to tray',
-				scrollTargetId: 'settings-section-games-close-to-tray',
-				keywords: 'tray close quit background gnome silverblue desktop appindicator'
+				id: 'sub-games-fullscreen-shortcut',
+				label: 'Fullscreen shortcut',
+				scrollTargetId: 'settings-section-games-fullscreen-shortcut',
+				keywords: 'fullscreen full screen shortcut hotkey keyboard f key toggle'
+			},
+			{
+				id: 'sub-games-menu-button',
+				label: 'Menu button size and corner',
+				scrollTargetId: 'settings-section-games-menu-button',
+				keywords:
+					'in-game menu button size small medium large corner position top bottom left right'
 			}
 		]
 	},
@@ -184,13 +203,20 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 		id: 'search-sec-updates',
 		title: 'App',
 		panel: 'app',
-		sectionKeywords: 'update apk android download release github about version latest',
+		sectionKeywords:
+			'update apk android download release github about version latest tray close quit window',
 		subsections: [
 			{
 				id: 'sub-updates-android',
 				label: 'Version and updates',
 				scrollTargetId: 'settings-section-updates-android',
 				keywords: 'android apk download latest github release update install'
+			},
+			{
+				id: 'sub-app-close-to-tray',
+				label: 'Keep running in the tray',
+				scrollTargetId: 'settings-section-app-close-to-tray',
+				keywords: 'tray close quit background gnome silverblue desktop appindicator window'
 			}
 		]
 	}

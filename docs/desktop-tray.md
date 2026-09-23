@@ -20,7 +20,7 @@ Defaults:
 - Tray registered **and** not GNOME → close-to-tray **on**
 - Tray missing, or GNOME/Silverblue → close-to-tray **off** (so ✕ does not leave a stranded background process)
 - Override with env: `POTATO_TOMATO_CLOSE_TO_TRAY=1` or `POTATO_TOMATO_NO_CLOSE_TO_TRAY=1`
-- Toggle anytime in **Settings → Playing → Keep running in tray when closing**
+- Toggle anytime in **Settings → App → Keep running in the tray**
 
 ## Fedora Silverblue / GNOME
 
@@ -34,7 +34,7 @@ Without that extension:
 To use close-to-tray on Silverblue:
 
 1. Install an AppIndicator / KStatusNotifierItem GNOME extension.
-2. Enable **Keep running in tray when closing** in Settings → Playing.
+2. Enable **Keep running in the tray** in Settings → App.
 
 Kill a stuck old build:
 

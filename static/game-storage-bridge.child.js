@@ -2332,3 +2332,184 @@
 	nativeAdd.call(window, 'pagehide', flush);
 	nativeAdd.call(window, 'beforeunload', flush);
 })();
+
+/* ==========================================================================
+ * Pointer lock guard — a self-contained block (own scope, own state); nothing
+ * above depends on it and it depends on nothing above.
+ *
+ * Games that grab the mouse (`requestPointerLock()`, FPS-style mouse look) keep it.
+ * This adds the way out and tells the app when it matters:
+ *
+ *   - `pointerlockchange` → posts {type:'potato-tomato-pointer-lock', state:'locked' |
+ *     'unlocked'} to the app, which shows a one-line hint;
+ *   - presses on a hidden cursor (`cursor: none`) with no lock, three within 2.5 s →
+ *     state:'stuck', since that looks exactly like a cursor stuck on the game;
+ *   - two quick double-clicks → `exitPointerLock()`, the cursor forced visible until the
+ *     game locks again, the unlocking press and the clicks right after it swallowed (a
+ *     game that locks on click would otherwise re-lock at once) → state:'released'.
+ *
+ * Esc is untouched: browsers release a lock on Esc themselves. Runs in frames only — the
+ * app watches its own document. The gesture rules mirror `isUnlockGesture` in
+ * src/lib/utils/pointer-lock.ts; pointer-lock.spec.ts runs this block against the same
+ * cases, so change both together.
+ * ========================================================================== */
+(function () {
+	if (window.top === window || window.__ptPointerLockGuard) return;
+	window.__ptPointerLockGuard = true;
+
+	var MSG = 'potato-tomato-pointer-lock';
+	var PRESSES = 4;
+	var PAIR_MAX_MS = 400;
+	var TOTAL_MAX_MS = 1400;
+	var PAUSE_RATIO = 1.25;
+	var MAX_TRAVEL_PX = 48;
+	var STUCK_PRESSES = 3;
+	var STUCK_WINDOW_MS = 2500;
+	var SWALLOW_MS = 600;
+	var STYLE_ID = '__pt-cursor-visible';
+
+	var presses = [];
+	var stuckAt = [];
+	var stuckReported = false;
+	var travel = 0;
+	var lastPointerDownAt = -Infinity;
+	var swallowUntil = 0;
+
+	function post(state) {
+		var msg = { type: MSG, state: state };
+		try {
+			(window.top || window.parent).postMessage(msg, '*');
+		} catch (e) {
+			try {
+				window.parent.postMessage(msg, '*');
+			} catch (e2) {
+				/* detached */
+			}
+		}
+	}
+
+	function isUnlockGesture(list) {
+		if (list.length < PRESSES) return false;
+		var a = list[list.length - 4];
+		var b = list[list.length - 3];
+		var c = list[list.length - 2];
+		var d = list[list.length - 1];
+		var total = d.at - a.at;
+		if (total < 0 || total > TOTAL_MAX_MS) return false;
+		var firstPair = b.at - a.at;
+		var pause = c.at - b.at;
+		var secondPair = d.at - c.at;
+		if (firstPair > PAIR_MAX_MS || secondPair > PAIR_MAX_MS) return false;
+		if (pause < Math.max(firstPair, secondPair) * PAUSE_RATIO) return false;
+		return d.travel - a.travel <= MAX_TRAVEL_PX;
+	}
+	/* Exposed for pointer-lock.spec.ts, which checks it against the TypeScript rules. */
+	window.__ptIsUnlockGesture = isUnlockGesture;
+
+	function cursorHidden(target) {
+		if (!target || target.nodeType !== 1) return false;
+		try {
+			return window.getComputedStyle(target).cursor === 'none';
+		} catch (e) {
+			return false;
+		}
+	}
+
+	function showCursor() {
+		if (document.getElementById(STYLE_ID)) return;
+		var style = document.createElement('style');
+		style.id = STYLE_ID;
+		style.textContent = '*,*::before,*::after{cursor:auto!important}';
+		(document.head || document.documentElement).appendChild(style);
+	}
+
+	function restoreCursor() {
+		var style = document.getElementById(STYLE_ID);
+		if (style && style.parentNode) style.parentNode.removeChild(style);
+	}
+
+	function release() {
+		presses = [];
+		stuckAt = [];
+		stuckReported = false;
+		swallowUntil = Date.now() + SWALLOW_MS;
+		try {
+			if (document.pointerLockElement && document.exitPointerLock) document.exitPointerLock();
+		} catch (e) {
+			/* nothing to release */
+		}
+		showCursor();
+		post('released');
+	}
+
+	function swallow(e) {
+		e.preventDefault();
+		if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+	}
+
+	function onPress(e) {
+		var now = Date.now();
+		if (now <= swallowUntil) {
+			/* The unlocking press's own mousedown, or a click right after it. */
+			swallow(e);
+			return;
+		}
+		if (e.button !== 0) return;
+		if (e.type === 'pointerdown') {
+			if (e.pointerType && e.pointerType !== 'mouse') return;
+			lastPointerDownAt = now;
+		} else if (now - lastPointerDownAt < 100) {
+			return; /* the mousedown twin of a pointerdown already counted */
+		}
+		var locked = Boolean(document.pointerLockElement);
+		var hidden = !locked && cursorHidden(e.target);
+		if (!locked && !hidden) {
+			presses = [];
+			return;
+		}
+		presses.push({ at: now, travel: travel });
+		if (presses.length > PRESSES) presses.shift();
+		if (isUnlockGesture(presses)) {
+			swallow(e);
+			release();
+			return;
+		}
+		if (!hidden) return;
+		var recent = [];
+		for (var i = 0; i < stuckAt.length; i++) {
+			if (now - stuckAt[i] <= STUCK_WINDOW_MS) recent.push(stuckAt[i]);
+		}
+		recent.push(now);
+		stuckAt = recent;
+		if (!stuckReported && stuckAt.length >= STUCK_PRESSES) {
+			stuckReported = true;
+			post('stuck');
+		}
+	}
+
+	function onFollowUp(e) {
+		if (Date.now() <= swallowUntil) swallow(e);
+	}
+
+	window.addEventListener(
+		'mousemove',
+		function (e) {
+			travel += Math.abs(e.movementX || 0) + Math.abs(e.movementY || 0);
+		},
+		true
+	);
+	window.addEventListener('pointerdown', onPress, true);
+	window.addEventListener('mousedown', onPress, true);
+	['pointerup', 'mouseup', 'click', 'dblclick'].forEach(function (type) {
+		window.addEventListener(type, onFollowUp, true);
+	});
+	document.addEventListener('pointerlockchange', function () {
+		presses = [];
+		if (document.pointerLockElement) {
+			restoreCursor();
+			post('locked');
+		} else {
+			post('unlocked');
+		}
+	});
+})();
