@@ -209,7 +209,13 @@
 </script>
 
 <Dialog.Root bind:open={() => open, requestOpenChange}>
-	<Dialog.Content class="flex h-[min(44rem,92dvh)] flex-col gap-0 overflow-hidden p-0 sm:max-w-4xl">
+	<!-- On a phone, focusing the search box on open would cover the list with the keyboard. -->
+	<Dialog.Content
+		class="flex h-[min(44rem,92dvh)] flex-col gap-0 overflow-hidden p-0 sm:max-w-4xl"
+		onOpenAutoFocus={(e) => {
+			if (!wide.current) e.preventDefault();
+		}}
+	>
 		<div class="grid min-h-0 flex-1 sm:grid-cols-[13.5rem_minmax(0,1fr)]">
 			<aside
 				class={cn(
