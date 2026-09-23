@@ -2266,6 +2266,12 @@
 				return;
 			case TYPE:
 				if (data.gameId !== gameId || data.action !== 'hydrate') return;
+				/*
+				 * Saves come only from the app. Any window that can reach this one — an ad
+				 * frame inside the game, a popup it opened — could otherwise hand it a
+				 * profile, which the bridge would apply, reload onto and push as the save.
+				 */
+				if (event.source !== appWindow()) return;
 				/* One answer per boot: retried pulls each get one, and only the first counts. */
 				if (host || profileSettled) return;
 				onProfile(data.data || null, true);
