@@ -103,7 +103,7 @@
 		nativeGameFramesActive,
 		watchGameFrameLife
 	} from '$lib/utils/native-game-frames';
-	import { isShellBlobUrl } from '$lib/utils/online-play-routing-shell';
+	import { isShellBlobUrl, releaseOnlineShells } from '$lib/utils/online-play-routing-shell';
 	import { openExternalUrl } from '$lib/utils/open-external';
 	import { takeWebviewCrashOfGame, webviewCrashOnLoad } from '$lib/utils/webview-crash';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
@@ -670,7 +670,8 @@
 	}
 
 	/**
-	 * Resolve the play URL again (network change, a download, a new play mode).
+	 * Resolve the play URL again (network change, a download, a new play mode) and move the
+	 * frame only if it changed: the same URL again must never restart a running game.
 	 *
 	 * Not while the privacy lock is on — the frame is held on a blank page then, and a
 	 * resolve could only start the game behind the lock screen. It runs on unlock instead.
@@ -687,7 +688,7 @@
 		try {
 			const nextUrl = await getGamePlayerUrl(id, gameMetadata);
 			if (generation !== playerUrlRefreshGeneration || id !== gameId) return;
-			gamePlayerUrl = nextUrl;
+			if (nextUrl !== gamePlayerUrl) gamePlayerUrl = nextUrl;
 		} finally {
 			if (generation === playerUrlRefreshGeneration) {
 				playerUrlRefreshPending = false;
@@ -741,23 +742,40 @@
 		toast.message('Game restarted');
 	}
 
+	/** The load running now: a second call for the same game joins it instead of racing it. */
+	let pageLoad: { id: string; soft: boolean; done: Promise<void> } | null = null;
+
 	/**
 	 * @param soft When true, refresh URL/metadata only — never wipe Play / Console.
 	 *             Same-game hard reloads also keep Console (session pref + loadedGameId).
 	 */
-	async function loadGamePage(id: string, opts?: { soft?: boolean }) {
+	function loadGamePage(id: string, opts?: { soft?: boolean }): Promise<void> {
+		const soft = Boolean(opts?.soft);
+		if (pageLoad && pageLoad.id === id && pageLoad.soft === soft) return pageLoad.done;
+		const done = loadGamePageNow(id, soft).finally(() => {
+			if (pageLoad?.done === done) pageLoad = null;
+		});
+		pageLoad = { id, soft, done };
+		return done;
+	}
+
+	async function loadGamePageNow(id: string, soft: boolean) {
 		if (!id) {
 			error = 'Game not found';
 			loading = false;
 			return;
 		}
 
-		const soft = Boolean(opts?.soft);
 		const switchingGame = id !== loadedGameId;
 
 		if (!soft && switchingGame) {
 			/* The surface is about to unmount; leave fullscreen with it, not after it. */
 			if (isGameFullscreen) void leaveFullscreen();
+			/*
+			 * The last game's frame is gone with it (the frame is keyed on the game), so its
+			 * app-made shells can go too. Never while a frame could still be showing one.
+			 */
+			releaseOnlineShells();
 			autoFullscreenFor = '';
 			inGameMenuOpen = false;
 			playOptionsOpen = false;
@@ -773,7 +791,7 @@
 			crashedGameId = '';
 			recommendedGames = [];
 		} else if (!soft) {
-			/* Same game re-entry (onMount + afterNavigate race) — do not wipe Console. */
+			/* Same game entered again (a navigation to its own URL) — do not wipe Console. */
 			error = '';
 		}
 
@@ -875,6 +893,11 @@
 		return flushGameFrame(iframeElement, gameId);
 	});
 
+	/*
+	 * The one place the game is loaded. SvelteKit runs `afterNavigate` when the page mounts
+	 * (a direct link, a reload) as well as after every navigation to it; loading from
+	 * `onMount` too ran every direct launch twice, resolving the play URL twice.
+	 */
 	afterNavigate(({ from, to }) => {
 		if (!browser || !to) return;
 		const id = to.params?.gameId ?? '';
@@ -891,9 +914,6 @@
 		refreshPlayerSettings();
 		privacyLocked = document.documentElement.hasAttribute('data-privacy-locked');
 		playLimitHold = isGlobalDailyLimitExceeded();
-		// `afterNavigate` does not fire for the route's initial hydration. Load the
-		// requested game here as well so direct links do not remain on "Loading game…".
-		if (gameId) void loadGamePage(gameId);
 		/* Proof of life from game frames, for the launch watchdog, on every platform. */
 		watchGameFrameLife();
 		const detachNetwork = subscribeNetworkStatus((online) => {
@@ -1010,6 +1030,8 @@
 			void exitGameFullscreen(gameSurfaceEl);
 			playerLayout.destroy();
 			setGameImmersive(false);
+			/* This visit's app-made shells are revoked. */
+			releaseOnlineShells();
 		};
 	});
 
