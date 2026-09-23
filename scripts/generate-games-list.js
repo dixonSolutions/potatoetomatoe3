@@ -3,6 +3,12 @@
 import { readdirSync, existsSync, writeFileSync, readFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import {
+	INDEX_ORDER,
+	compareLeanEntries,
+	loadQualityMap,
+	toLeanEntry
+} from './catalog-quality/index-entry.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -155,20 +161,16 @@ function writeGamesIndex(allMetadata) {
 	const indexDir = join(GAMES_ROOT, 'games-index');
 	mkdirSync(indexDir, { recursive: true });
 
-	const lean = allMetadata.map((entry) => ({
-		id: entry.id,
-		name: entry.name ?? '',
-		author: entry.author ?? '',
-		category: entry.category ?? 'misc',
-		thumbnail: entry.thumbnail ?? '',
-		...(entry.engine ? { engine: entry.engine } : {})
-	}));
+	/* Quality score + DoE status per game, from scripts/catalog-quality/classify.mjs. */
+	const quality = loadQualityMap();
+	const lean = allMetadata.map((entry) => toLeanEntry(entry, quality.get(entry.id)));
+	const scored = lean.filter((entry) => Number.isFinite(entry.q)).length;
 
-	/* A–Z shards so All Games can lazy-load the next page as you scroll. */
-	lean.sort(
-		(a, b) =>
-			a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }) || a.id.localeCompare(b.id)
-	);
+	/*
+	 * Best games first, so the first shard All Games and Home paint is the top of the
+	 * catalog, not whatever sorts first alphabetically ("!!!", "0.02", "002", …).
+	 */
+	lean.sort(compareLeanEntries);
 
 	const categories = [...new Set(lean.map((g) => g.category).filter(Boolean))].sort((a, b) =>
 		a.localeCompare(b)
@@ -183,6 +185,7 @@ function writeGamesIndex(allMetadata) {
 
 	const manifest = {
 		version: 1,
+		order: INDEX_ORDER,
 		total: lean.length,
 		shardSize: INDEX_SHARD_SIZE,
 		shardCount,
@@ -191,7 +194,7 @@ function writeGamesIndex(allMetadata) {
 	writeFileSync(join(indexDir, 'manifest.json'), JSON.stringify(manifest));
 
 	console.log(
-		`✅ Generated games index: ${lean.length} games in ${shardCount} shards (${INDEX_SHARD_SIZE}/shard)`
+		`✅ Generated games index: ${lean.length} games in ${shardCount} shards (${INDEX_SHARD_SIZE}/shard), ${scored} with a quality score`
 	);
 	console.log(`   Saved to: static/games/games-index/`);
 }
