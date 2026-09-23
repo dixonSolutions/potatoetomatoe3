@@ -1290,6 +1290,85 @@ async function openShellLab(game, name) {
 	await rp.context().close();
 }
 
+/*
+ * The privacy lock, turned on while a game is still loading. The frame used to be sent to
+ * about:blank behind Svelte's back: the launch watchdog took the blank page for a failed
+ * launch and moved the game to its next route, which Svelte then loaded — behind the lock
+ * screen — and unlocking put back the URL from before the lock.
+ */
+{
+	const PASSWORD = 'pt-test';
+	const ctx = await routeShellHosts(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
+	await ctx.addInitScript((hash) => {
+		if (window !== window.top) return;
+		const key = 'potato-tomato-site-settings-v1';
+		let saved = {};
+		try {
+			saved = JSON.parse(localStorage.getItem(key) || '{}') || {};
+		} catch {
+			saved = {};
+		}
+		saved.gamePlayer = { ...(saved.gamePlayer || {}), autoFullscreen: false };
+		saved.privacyModeEnabled = true;
+		saved.privacyPasswordHash = hash;
+		saved.privacyLockShortcut = {
+			code: 'F9',
+			ctrlKey: false,
+			shiftKey: false,
+			altKey: false,
+			metaKey: false
+		};
+		localStorage.setItem(key, JSON.stringify(saved));
+		if (!sessionStorage.getItem('pt-test-privacy-started')) {
+			sessionStorage.setItem('pt-test-privacy-started', '1');
+			sessionStorage.setItem('potato-tomato-privacy-session-ok', '1');
+		}
+	}, 'ba298c117e13f864931c2a2648d391991640d3d745e04afab3252be449c654ff');
+	const lp = await ctx.newPage();
+	lp.on('pageerror', (e) => console.log('[pageerror privacy]', e.message));
+	await lp.goto(`${BASE}/games/${REMOTE_GAME}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
+	await lp.getByRole('heading', { name: 'Remote Lab' }).waitFor({ timeout: 180000 });
+	let lf = await shellFrame(lp, REMOTE_GAME, () => typeof window.bootCount === 'number', 20000);
+	const bootBefore = await lf.evaluate(() => window.bootCount);
+	await sleep(2500);
+	const gameFrameSrc = () =>
+		lp.evaluate(() => document.querySelector('iframe[sandbox]')?.getAttribute('src') ?? null);
+	/* Restart the game, and lock (the shortcut) while it is loading. */
+	await relaunchLab(lp);
+	await lp.evaluate(() =>
+		window.dispatchEvent(new KeyboardEvent('keydown', { code: 'F9', key: 'F9' }))
+	);
+	/* A network change asks for the play URL again; locked, nothing may come of it yet. */
+	await lp.evaluate(() => window.dispatchEvent(new Event('online')));
+	await sleep(4000);
+	const whileLocked = {
+		locked: await lp.evaluate(() => document.documentElement.hasAttribute('data-privacy-locked')),
+		src: (await gameFrameSrc())?.slice(0, 22) ?? null,
+		failedRoutes: await lp.evaluate(
+			(game) => sessionStorage.getItem(`potato-tomato-play-route-failed:${game}`),
+			REMOTE_GAME
+		)
+	};
+	check(
+		'Privacy lock holds the game on a blank page, and nothing relaunches it behind the lock',
+		whileLocked.locked && whileLocked.src === 'about:blank' && whileLocked.failedRoutes === null,
+		JSON.stringify(whileLocked)
+	);
+	await lp.locator('input[type="password"]').fill(PASSWORD);
+	await lp.locator('input[type="password"]').press('Enter');
+	lf = await shellFrame(lp, REMOTE_GAME, (n) => window.bootCount > n, 20000, bootBefore);
+	const unlockedBoot = await lf.evaluate(() => window.bootCount);
+	const unlockedSrc = (await gameFrameSrc()) ?? '';
+	check(
+		'Unlocking brings the game back on its current play URL, onto its saves',
+		unlockedBoot > bootBefore && unlockedSrc.startsWith('data:text/html'),
+		`bootCount=${bootBefore}→${unlockedBoot} src=${unlockedSrc.slice(0, 22)}`
+	);
+	await ctx.close();
+}
+
 /* ---------- console ---------- */
 await page.locator('[data-testid="touch-console-toggle"]').click();
 await page.locator('[data-testid="touch-joystick"]').waitFor({ timeout: 8000 });

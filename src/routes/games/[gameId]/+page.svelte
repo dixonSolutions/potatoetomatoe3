@@ -3,7 +3,7 @@
 	import { afterNavigate, goto, onNavigate } from '$app/navigation';
 	import { base, resolve } from '$app/paths';
 	import { browser } from '$app/environment';
-	import { onMount, tick, untrack } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import {
 		RELAY_SCHEME,
 		loadGameMetadata,
@@ -34,7 +34,6 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { ArrowLeft, ThumbsUp, ThumbsDown, Play, Download } from 'lucide-svelte';
-	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import GameToolbar from '$lib/components/game-player/GameToolbar.svelte';
 	import InGameMenu from '$lib/components/game-player/in-game-menu/InGameMenu.svelte';
@@ -198,6 +197,13 @@
 	 * gate: both used to hold it back simply by being in the way of the Play button.
 	 */
 	let privacyLocked = $state(false);
+	/*
+	 * While locked, the frame is held on a blank page (LazyGameFrame `held`) and the play URL
+	 * is left alone. A refresh asked for meanwhile runs at unlock, before the frame is let go,
+	 * so the game comes back once, on the URL it should be on now.
+	 */
+	let refreshWhenUnlocked = false;
+	let heldForRefresh = $state(false);
 	let playLimitHold = $state(false);
 	/* One hint per kind per visit: an FPS locks and unlocks on every pause. */
 	let pointerLockHintShown = false;
@@ -518,7 +524,8 @@
 	 * The user hears about it only when every route has failed.
 	 */
 	function handleFrameLoadState(state: 'loading' | 'loaded' | 'stalled', url: string) {
-		if (!gameId) return;
+		/* A frame held behind the lock screen is not a launch to judge (LazyGameFrame `held`). */
+		if (!gameId || privacyLocked) return;
 		if (state === 'loading') {
 			launchStartedAt = Date.now();
 			escalatingFrom = '';
@@ -578,7 +585,7 @@
 			(kind === 'direct' && nativeGameFramesActive() && !isAppOriginUrl(url));
 		if (!expectsWord) return;
 		await new Promise((resolve) => setTimeout(resolve, 1500));
-		if (id !== gameId || url !== gamePlayerUrl) return;
+		if (id !== gameId || url !== gamePlayerUrl || privacyLocked) return;
 		if (gameFrameSpokeSince(id, since)) return;
 		appendPlayLog(
 			'warn',
@@ -592,7 +599,8 @@
 	/** Relaunch the game on the next route of its chain. */
 	async function tryNextPlayRoute(reason: 'stalled' | 'blank') {
 		const id = gameId;
-		if (!id) return;
+		/* Never behind the lock screen: the frame there is held on a blank page on purpose. */
+		if (!id || privacyLocked) return;
 		const failedUrl = gamePlayerUrl;
 		if (!failedUrl || escalatingFrom === failedUrl) return;
 		escalatingFrom = failedUrl;
@@ -614,6 +622,11 @@
 		);
 		const nextUrl = await getGamePlayerUrl(id, gameMetadata);
 		if (id !== gameId || gamePlayerUrl !== failedUrl) return;
+		if (privacyLocked) {
+			/* Locked meanwhile: the failed route is marked, and the unlock resolves past it. */
+			refreshWhenUnlocked = true;
+			return;
+		}
 		if (playRoutesExhausted(id) || nextUrl === failedUrl) {
 			/* Leave the frame as it is — a slow game may still come up. */
 			notifyNoPlayRouteLeft(reason);
@@ -656,9 +669,19 @@
 		});
 	}
 
+	/**
+	 * Resolve the play URL again (network change, a download, a new play mode).
+	 *
+	 * Not while the privacy lock is on — the frame is held on a blank page then, and a
+	 * resolve could only start the game behind the lock screen. It runs on unlock instead.
+	 */
 	async function refreshPlayerUrl() {
 		const id = gameId;
 		if (!id) return;
+		if (privacyLocked) {
+			refreshWhenUnlocked = true;
+			return;
+		}
 		const generation = ++playerUrlRefreshGeneration;
 		playerUrlRefreshPending = true;
 		try {
@@ -887,12 +910,11 @@
 
 		const onPrivacyLocked = (e: Event) => {
 			const d = (e as CustomEvent<{ locked: boolean }>).detail;
-			privacyLocked = d?.locked ?? false;
-			applyPrivacyPauseToIframe(d?.locked ?? false);
+			setPrivacyLocked(d?.locked ?? false);
 		};
 		const onSettingsApplied = () => {
 			refreshPauseShortcutLabel();
-			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
+			setPrivacyLocked(document.documentElement.hasAttribute('data-privacy-locked'));
 		};
 		const onPlayLimitsChanged = () => {
 			playLimitHold = isGlobalDailyLimitExceeded();
@@ -1136,47 +1158,27 @@
 		return () => window.removeEventListener(KEY_PROFILE_CHANGED, onProfile);
 	});
 
-	function applyPrivacyPauseToIframe(locked: boolean) {
-		if (!iframeElement) return;
-		const pauseVisual = getPrivacyPauseGameWhileLocked();
-
-		/*
-		 * Always silence output on the privacy lock screen so cross-origin Unity/WebGL
-		 * audio cannot leak through the disguise. Blanking is the only reliable parent-side
-		 * control for cross-origin iframes; restore src on unlock to resume play.
-		 */
-		if (locked) {
-			if (!iframeElement.dataset.privacySrc) {
-				const current = iframeElement.getAttribute('src') || iframeElement.src || '';
-				if (current && current !== 'about:blank') {
-					iframeElement.dataset.privacySrc = current;
-				}
-			}
-			if (iframeElement.getAttribute('src') !== 'about:blank') {
-				iframeElement.setAttribute('src', 'about:blank');
-			}
-			if (pauseVisual) {
-				iframeElement.style.visibility = 'hidden';
-				iframeElement.setAttribute('aria-hidden', 'true');
-			}
+	/**
+	 * The privacy lock. The game frame is held on a blank page while it is on (LazyGameFrame
+	 * `held`): nothing in it runs, so no cross-origin Unity/WebGL audio leaks through the
+	 * disguise, and blanking is the only parent-side control a cross-origin frame has. It
+	 * used to be done by writing `src` behind Svelte's back, which the launch watchdog took
+	 * for a failed launch — it escalated, Svelte wrote the next route's URL, and the game
+	 * played behind the lock screen; unlocking then put back the URL from before the lock.
+	 */
+	function setPrivacyLocked(locked: boolean) {
+		if (locked === privacyLocked) return;
+		if (locked || !refreshWhenUnlocked) {
+			privacyLocked = locked;
 			return;
 		}
-
-		const restore = iframeElement.dataset.privacySrc;
-		if (restore) {
-			iframeElement.setAttribute('src', restore);
-			delete iframeElement.dataset.privacySrc;
-		}
-		iframeElement.style.visibility = '';
-		iframeElement.removeAttribute('aria-hidden');
-	}
-
-	$effect(() => {
-		if (!iframeElement) return;
-		void tick().then(() => {
-			applyPrivacyPauseToIframe(document.documentElement.hasAttribute('data-privacy-locked'));
+		refreshWhenUnlocked = false;
+		heldForRefresh = true;
+		privacyLocked = false;
+		void refreshPlayerUrl().finally(() => {
+			heldForRefresh = false;
 		});
-	});
+	}
 
 	$effect(() => {
 		if (!gameSurfaceStarted || !gameId) return;
@@ -1371,6 +1373,7 @@
 							fillContainer={isGameFullscreen || playerLayout.isCompact}
 							startDisabled={!gameSurfaceStarted &&
 								(playerUrlRefreshPending || privacyLocked || playLimitHold)}
+							held={privacyLocked || heldForRefresh}
 							bind:started={gameSurfaceStarted}
 							onIframeReady={(el) => {
 								const next = el ?? undefined;

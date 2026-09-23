@@ -33,6 +33,7 @@
 		iframeAllow,
 		fillContainer = false,
 		startDisabled = false,
+		held = false,
 		stallTimeoutMs = 25_000,
 		started = $bindable(false),
 		onIframeReady,
@@ -47,6 +48,13 @@
 		fillContainer?: boolean;
 		/** Hold the frame back while the online/offline play URL is still being resolved. */
 		startDisabled?: boolean;
+		/**
+		 * Hold a started game off screen (the privacy lock): the frame shows `about:blank`,
+		 * so nothing in it runs or plays sound, and nothing is reported about it. Released,
+		 * it loads `gameUrl` as it is then — the page's current play URL, not the one the
+		 * frame had when it was held.
+		 */
+		held?: boolean;
 		/**
 		 * How long a frame may go without firing `load` before it counts as stalled.
 		 * `load` waits for every subresource, and a Unity build is tens of megabytes, so
@@ -117,11 +125,12 @@
 
 	/**
 	 * Watchdog per (started, url) pair. Cleared by the iframe `load` handler; a URL swap
-	 * restarts it so a relay upgrade gets its own grace period.
+	 * restarts it so a relay upgrade gets its own grace period. Off while the frame is held:
+	 * a held frame is not loading anything, and releasing it starts a fresh watch.
 	 */
 	$effect(() => {
 		const url = gameUrl;
-		if (!started || !url) return;
+		if (!started || !url || held) return;
 		loadsSeen = 0;
 		loadState = 'loading';
 		onLoadStateChange?.('loading', url);
@@ -135,6 +144,8 @@
 	});
 
 	function handleFrameLoad() {
+		/* `about:blank` while held: not the game, and nothing to report. */
+		if (held) return;
 		loadsSeen++;
 		if (iframeEl && gameId) noteGameFrameTree(iframeEl, gameId);
 		if (loadsSeen < loadsPerStart && loadState === 'loading') return;
@@ -250,9 +261,11 @@
 			<iframe
 				bind:this={iframeEl}
 				{sandbox}
-				src={frameSrc}
+				src={held ? 'about:blank' : frameSrc}
 				{title}
 				class="h-full w-full border-0 bg-black"
+				class:invisible={held}
+				aria-hidden={held ? 'true' : undefined}
 				loading="eager"
 				allowfullscreen
 				allow={iframeAllow || DEFAULT_IFRAME_ALLOW}
