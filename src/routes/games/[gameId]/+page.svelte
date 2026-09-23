@@ -101,6 +101,7 @@
 	import {
 		gameFrameSpokeSince,
 		nativeGameFramesActive,
+		releaseNativeGameFrames,
 		watchGameFrameLife
 	} from '$lib/utils/native-game-frames';
 	import { isShellBlobUrl, releaseOnlineShells } from '$lib/utils/online-play-routing-shell';
@@ -1030,7 +1031,11 @@
 			void exitGameFullscreen(gameSurfaceEl);
 			playerLayout.destroy();
 			setGameImmersive(false);
-			/* This visit's app-made shells are revoked. */
+			/*
+			 * No game is on screen any more: the desktop webview stops putting the bridge into
+			 * new frames under this game's id, and this visit's app-made shells are revoked.
+			 */
+			void releaseNativeGameFrames();
 			releaseOnlineShells();
 		};
 	});
