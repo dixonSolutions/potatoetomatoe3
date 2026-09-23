@@ -79,7 +79,8 @@ export const KEY_PROFILE_CHANGED = 'potato-tomato-key-profile-changed';
  * - `weak`   codes were read out of handler source. Minified engines and wasm hide most
  *            of their comparisons, so an absent code is not evidence of an unused key:
  *            enough to fade a control, never enough to remove one.
- * - `strong` the game's own control blurb named the keys. Safe to hide the rest.
+ * - `strong` the game's own control blurb named the keys, or the game was seen handling
+ *            them live (it called preventDefault on the press). Safe to hide the rest.
  */
 export type KeyProfileConfidence = 'none' | 'weak' | 'strong';
 
@@ -93,6 +94,11 @@ export type KeyProfile = {
 	declared: string[];
 	/** Codes read out of handler and script source. */
 	inferred: string[];
+	/**
+	 * Codes the game was seen handling while it ran — it called `preventDefault` on a
+	 * press, from the real keyboard or from the console. Grows as the player plays.
+	 */
+	used: string[];
 	/** How many distinct frames have reported. */
 	frames: number;
 	updatedAt: number;
@@ -105,6 +111,7 @@ export function emptyKeyProfile(gameId: string): KeyProfile {
 		listenerCount: 0,
 		declared: [],
 		inferred: [],
+		used: [],
 		frames: 0,
 		updatedAt: 0
 	};
@@ -128,6 +135,7 @@ type RawReport = {
 	listenerCount: number;
 	declared: string[];
 	inferred: string[];
+	used: string[];
 };
 
 /** Null when the message is not a well-formed profile report. */
@@ -141,7 +149,9 @@ export function parseKeyProfileMessage(data: unknown): RawReport | null {
 		listens: d.listens === true,
 		listenerCount: Math.min(count, 10000),
 		declared: sanitizeCodes(d.declared),
-		inferred: sanitizeCodes(d.inferred)
+		inferred: sanitizeCodes(d.inferred),
+		/* Optional: the Android bridge does not observe live use. */
+		used: sanitizeCodes(d.used)
 	};
 }
 
@@ -156,6 +166,7 @@ export function parseKeyProfileMessage(data: unknown): RawReport | null {
 export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: number): KeyProfile {
 	const declared = [...new Set([...previous.declared, ...report.declared])].sort();
 	const inferred = [...new Set([...previous.inferred, ...report.inferred])].sort();
+	const used = [...new Set([...previous.used, ...report.used])].sort();
 	const listens = previous.listens || report.listens;
 	const listenerCount = Math.max(previous.listenerCount, report.listenerCount);
 	/*
@@ -172,8 +183,10 @@ export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: nu
 		listenerCount === previous.listenerCount &&
 		declared.length === previous.declared.length &&
 		inferred.length === previous.inferred.length &&
+		used.length === previous.used.length &&
 		declared.every((c, i) => c === previous.declared[i]) &&
-		inferred.every((c, i) => c === previous.inferred[i]);
+		inferred.every((c, i) => c === previous.inferred[i]) &&
+		used.every((c, i) => c === previous.used[i]);
 	if (unchanged) return previous;
 	return {
 		gameId: previous.gameId,
@@ -181,20 +194,31 @@ export function mergeKeyProfile(previous: KeyProfile, report: RawReport, now: nu
 		listenerCount,
 		declared,
 		inferred,
+		used,
 		frames: previous.frames + 1,
 		updatedAt: now
 	};
 }
 
 export function keyProfileConfidence(profile: KeyProfile): KeyProfileConfidence {
-	if (profile.declared.length > 0) return 'strong';
+	if (profile.declared.length > 0 || profile.used.length > 0) return 'strong';
 	if (profile.inferred.length > 0) return 'weak';
 	return 'none';
 }
 
 /** Every code the profile has any evidence for. */
 export function keyProfileCodes(profile: KeyProfile): Set<string> {
-	return new Set([...profile.declared, ...profile.inferred]);
+	return new Set([...profile.declared, ...profile.used, ...profile.inferred]);
+}
+
+/** How sure the profile is about one code — drives the on-screen keyboard's highlighting. */
+export type KeyEvidence = 'used' | 'declared' | 'inferred' | 'none';
+
+export function keyEvidence(profile: KeyProfile, code: string): KeyEvidence {
+	if (profile.used.includes(code)) return 'used';
+	if (profile.declared.includes(code)) return 'declared';
+	if (profile.inferred.includes(code)) return 'inferred';
+	return 'none';
 }
 
 /**
@@ -270,6 +294,7 @@ export function readCachedKeyProfile(gameId: string): KeyProfile {
 			listenerCount: typeof parsed.listenerCount === 'number' ? parsed.listenerCount : 0,
 			declared: sanitizeCodes(parsed.declared),
 			inferred: sanitizeCodes(parsed.inferred),
+			used: sanitizeCodes(parsed.used),
 			frames: typeof parsed.frames === 'number' ? parsed.frames : 0,
 			updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : 0
 		};

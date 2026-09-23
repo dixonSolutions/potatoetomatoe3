@@ -1,6 +1,10 @@
 <script lang="ts">
 	/**
 	 * Glass action button — press = keydown, release = keyup (via callbacks).
+	 *
+	 * A button can be held for as long as the game needs (charge, sprint, crouch). Moving
+	 * it is an explicit layout-edit mode rather than a 2s long press, which used to drop
+	 * the held key and turn the button into a drag handle mid-game.
 	 */
 	let {
 		label = 'A',
@@ -11,6 +15,7 @@
 		accent = 'green',
 		disabled = false,
 		editing = false,
+		editMode = false,
 		onPress,
 		onRelease,
 		onHoldEditStart,
@@ -24,6 +29,8 @@
 		accent?: 'green' | 'blue' | 'red' | 'amber' | 'slate';
 		disabled?: boolean;
 		editing?: boolean;
+		/** Layout-edit mode: a press drags the control instead of sending its key. */
+		editMode?: boolean;
 		onPress?: () => void;
 		onRelease?: () => void;
 		onHoldEditStart?: () => void;
@@ -35,13 +42,11 @@
 	const isPill = $derived(boxW > size * 1.15);
 
 	let rootEl = $state<HTMLButtonElement | null>(null);
-	let pointerId = $state<number | null>(null);
+	let pointerId: number | null = null;
 	let pressed = $state(false);
 
-	let holdTimer: ReturnType<typeof setTimeout> | null = null;
-	let holdStart: { x: number; y: number } | null = null;
-	let holdEditing = $state(false);
-	let holdMoved = false;
+	let dragStart: { x: number; y: number } | null = null;
+	let dragging = $state(false);
 
 	const accentBorder = $derived(
 		accent === 'green'
@@ -66,22 +71,11 @@
 						: 'rgb(251 191 36 / 0.22)'
 	);
 
-	function clearHold() {
-		if (holdTimer != null) {
-			clearTimeout(holdTimer);
-			holdTimer = null;
-		}
-	}
-
 	function onPointerDown(e: PointerEvent) {
 		if (disabled) return;
 		if (pointerId != null) return;
 		if (e.button != null && e.button !== 0) return;
 		pointerId = e.pointerId;
-		holdStart = { x: e.clientX, y: e.clientY };
-		holdMoved = false;
-		holdEditing = false;
-		pressed = true;
 		try {
 			rootEl?.setPointerCapture(e.pointerId);
 		} catch {
@@ -90,50 +84,41 @@
 		e.preventDefault();
 		e.stopPropagation();
 
-		clearHold();
-		holdTimer = setTimeout(() => {
-			holdTimer = null;
-			if (pointerId == null || holdMoved) return;
-			holdEditing = true;
-			pressed = false;
-			onRelease?.();
+		if (editMode) {
+			dragStart = { x: e.clientX, y: e.clientY };
+			dragging = true;
 			onHoldEditStart?.();
-		}, 2000);
-
+			return;
+		}
+		pressed = true;
 		onPress?.();
 	}
 
 	function onPointerMove(e: PointerEvent) {
-		if (pointerId !== e.pointerId || !holdStart) return;
-		const dx = e.clientX - holdStart.x;
-		const dy = e.clientY - holdStart.y;
-		if (!holdEditing && Math.hypot(dx, dy) > 10) {
-			holdMoved = true;
-			clearHold();
-		}
-		if (holdEditing || editing) {
-			e.preventDefault();
-			e.stopPropagation();
-			onHoldEditDrag?.({ x: dx, y: dy });
-		}
+		if (pointerId !== e.pointerId || !dragging || !dragStart) return;
+		e.preventDefault();
+		e.stopPropagation();
+		onHoldEditDrag?.({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
 	}
 
 	function onPointerUp(e: PointerEvent) {
 		if (pointerId !== e.pointerId) return;
-		const wasHoldEdit = holdEditing;
+		const wasDragging = dragging;
 		const wasPressed = pressed;
-		clearHold();
 		try {
 			rootEl?.releasePointerCapture(e.pointerId);
 		} catch {
 			/* ignore */
 		}
 		pointerId = null;
-		holdStart = null;
-		holdEditing = false;
+		dragStart = null;
+		dragging = false;
 		pressed = false;
-		if (wasPressed && !wasHoldEdit) onRelease?.();
-		onHoldEditEnd?.(wasHoldEdit);
+		if (wasDragging) {
+			onHoldEditEnd?.(e.type !== 'pointercancel');
+			return;
+		}
+		if (wasPressed) onRelease?.();
 	}
 </script>
 
@@ -142,11 +127,12 @@
 	type="button"
 	class="pt-touch-btn touch-none select-none"
 	class:pt-touch-btn--pressed={pressed}
-	class:pt-touch-btn--editing={holdEditing || editing}
+	class:pt-touch-btn--editing={dragging || editing}
+	class:pt-touch-btn--edit-mode={editMode}
 	class:pt-touch-btn--pill={isPill}
 	style={`width:${boxW}px;height:${size}px;opacity:${opacity};--pt-accent-border:${accentBorder};--pt-accent-fill:${accentFill};font-size:${Math.max(11, size * (isPill ? 0.28 : 0.32))}px;`}
 	aria-label={`Action ${label}`}
-	disabled={disabled}
+	{disabled}
 	onpointerdown={onPointerDown}
 	onpointermove={onPointerMove}
 	onpointerup={onPointerUp}
@@ -185,6 +171,11 @@
 		box-shadow:
 			0 2px 10px rgb(0 0 0 / 0.4),
 			inset 0 1px 0 rgb(255 255 255 / 0.15);
+	}
+	.pt-touch-btn--edit-mode {
+		cursor: move;
+		outline: 2px dashed rgb(255 255 255 / 0.55);
+		outline-offset: 3px;
 	}
 	.pt-touch-btn--editing {
 		outline: 2px dashed rgb(255 85 102 / 0.9);

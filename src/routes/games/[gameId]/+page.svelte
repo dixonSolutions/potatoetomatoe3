@@ -39,13 +39,12 @@
 		Pause,
 		Play,
 		Download,
-		Gamepad2,
-		Menu
+		Gamepad2
 	} from 'lucide-svelte';
 	import { getPrivacyPauseGameWhileLocked } from '$lib/utils/privacy-mode';
 	import LazyGameFrame from '$lib/components/game-player/LazyGameFrame.svelte';
 	import TouchConsole from '$lib/components/game-player/touch-console/TouchConsole.svelte';
-	import { GAME_MENU_KEY, sendGameKey } from '$lib/utils/game-key-tap';
+	import { preloadGameBrowserProfile } from '$lib/utils/game-storage-bridge';
 	import OfflineControls from '$lib/components/game-player/OfflineControls.svelte';
 	import PlayVersionSelector from '$lib/components/game-player/PlayVersionSelector.svelte';
 	import PlayLogsDialog from '$lib/components/game-player/PlayLogsDialog.svelte';
@@ -416,30 +415,6 @@
 		return true;
 	}
 
-	/**
-	 * Send Escape into the game: the game's own pause / options menu, not ours.
-	 *
-	 * Escape is the near-universal "open the game menu" key and a touch device has
-	 * no keyboard to press it with. It was previously reachable only as the touch
-	 * console's Y button, which meant finding the console, enabling it and
-	 * switching it ON before a game's own menu could be opened at all. It belongs
-	 * here instead, beside Pause and Fullscreen — the other two things you do to a
-	 * running game rather than inside one.
-	 *
-	 * Deliberately silent on success. This is a key press; a toast per press would
-	 * be noise. Failure does talk, because a button that does nothing and says
-	 * nothing is the worst of the three outcomes.
-	 */
-	function sendGameMenuKey() {
-		if (!gameSurfaceStarted) return;
-		if (sendGameKey(iframeElement ?? null, gamePlayerUrl, GAME_MENU_KEY)) return;
-		toast.error('Cannot reach this game to send Esc.', {
-			description: shouldProbePullerBackend()
-				? 'Online play needs the local relay; offline play needs a downloaded mirror.'
-				: 'This game runs on a third-party site, which will not accept injected keys.'
-		});
-	}
-
 	function toggleTouchConsole() {
 		if (touchConsoleVisible) {
 			setTouchConsoleVisible(false, 'toggle');
@@ -653,6 +628,12 @@
 		if (!soft && switchingGame && networkOnline) {
 			recordGamePlay(id, meta.category, meta.author);
 		}
+
+		/*
+		 * Read the game's saves now, while the poster is up, so the frame's storage bridge
+		 * can boot from them synchronously instead of waiting on a round trip after Play.
+		 */
+		void preloadGameBrowserProfile(id);
 
 		/*
 		 * Resolve the playable URL before loading the full recommendation catalog.
@@ -928,19 +909,6 @@
 						<span class="ml-1 font-mono text-[10px] opacity-70">{pauseShortcutLabel}</span>
 					</Button>
 					{#if showConsoleButton}
-						<Button
-							onclick={sendGameMenuKey}
-							variant="outline"
-							size="sm"
-							class="w-full sm:w-auto"
-							disabled={!gameSurfaceStarted}
-							data-testid="game-menu-key"
-							title="Open the game's own menu (sends Esc into the game)"
-						>
-							<Menu class="mr-2 h-4 w-4" />
-							Game menu
-							<span class="ml-1 font-mono text-[10px] opacity-70">Esc</span>
-						</Button>
 						<button
 							type="button"
 							data-testid="touch-console-toggle"
@@ -1040,18 +1008,6 @@
 						{/if}
 					</Button>
 					{#if showConsoleButton}
-						<Button
-							variant="secondary"
-							size="sm"
-							class="shadow-md backdrop-blur-sm"
-							onclick={sendGameMenuKey}
-							disabled={!gameSurfaceStarted}
-							data-testid="game-menu-key-fs"
-							aria-label="Open the game's own menu (sends Esc into the game)"
-						>
-							<Menu class="mr-2 h-4 w-4" />
-							Game menu
-						</Button>
 						<button
 							type="button"
 							data-testid="touch-console-toggle-fs"
@@ -1188,6 +1144,7 @@
 				started={gameSurfaceStarted}
 				visible={touchConsoleVisible}
 				bind:chromeAvailable={touchConsoleAvailable}
+				topInset={isGameFullscreen ? 48 : 0}
 				onRequestShow={() => {
 					gameSurfaceStarted = true;
 					setTouchConsoleVisible(true, 'auto-show');

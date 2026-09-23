@@ -2,13 +2,16 @@
 
 Native, development-only workbenches for debugging the **puller proxy** and **touch console** injection paths without duplicating production logic.
 
-| Command                                     | Window              | Purpose                                                                                                                               |
-| ------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm console-test`                         | Console Test (dev)  | Online/offline injection, TouchConsole, manual key/event commands, correlated acks                                                    |
-| `pnpm puller-test`                          | Puller Test (dev)   | Puller health, download lifecycle, jobs, mirror verify, proxy play                                                                    |
-| `pnpm desktop-theme-test -- --binary <app>` | the real app window | Linux desktop field test: launch colour, live light/dark switch, resize repaint, ghost windows — measured from compositor screenshots |
+| Command                                     | Window              | Purpose                                                                                                                                                                                               |
+| ------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm console-test`                         | Console Test (dev)  | Online/offline injection, TouchConsole, manual key/event commands, correlated acks                                                                                                                    |
+| `pnpm puller-test`                          | Puller Test (dev)   | Puller health, download lifecycle, jobs, mirror verify, proxy play                                                                                                                                    |
+| `pnpm desktop-theme-test -- --binary <app>` | the real app window | Linux desktop field test: launch colour, live light/dark switch, resize repaint, ghost windows — measured from compositor screenshots                                                                 |
+| `pnpm bridge-test`                          | headless Chromium   | In-game bridge end to end: virtual storage (isolation, save, relaunch, fresh origin, postMessage pull), typed IndexedDB, live key detection, on-screen keyboard, single dispatch per press, Move mode |
 
-These scripts launch **Tauri debug** with a thin config override. The puller process is owned by Tauri (`src-tauri/src/lib.rs`) — the same lifecycle as `pnpm app`.
+`pnpm bridge-test` starts its own Vite dev server (or reuses one: `-- --url http://localhost:5173`), writes a fixture game to `static/games/_bridge-lab` and removes it afterwards. `-- --out <dir>` saves a screenshot of each stage; `CHROMIUM_PATH` picks the browser binary.
+
+The Tauri scripts launch **Tauri debug** with a thin config override. The puller process is owned by Tauri (`src-tauri/src/lib.rs`) — the same lifecycle as `pnpm app`.
 
 ## Quick start
 

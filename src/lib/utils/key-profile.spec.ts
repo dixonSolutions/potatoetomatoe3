@@ -5,6 +5,7 @@ import {
 	keyProfileCodes,
 	keyProfileConfidence,
 	keyProfileSaysNoKeyboard,
+	keyEvidence,
 	mergeKeyProfile,
 	parseKeyProfileMessage
 } from './key-profile';
@@ -15,6 +16,7 @@ type Report = {
 	listenerCount: number;
 	declared: string[];
 	inferred: string[];
+	used: string[];
 };
 
 const report = (over: Partial<Report> = {}): Report => ({
@@ -23,6 +25,7 @@ const report = (over: Partial<Report> = {}): Report => ({
 	listenerCount: 1,
 	declared: [],
 	inferred: [],
+	used: [],
 	...over
 });
 
@@ -96,6 +99,40 @@ describe('confidence', () => {
 		expect(keyProfileConfidence(inferredOnly)).toBe('weak');
 		expect(keyProfileConfidence(emptyKeyProfile('g'))).toBe('none');
 		expect(keyProfileCodes(declared).has('Space')).toBe(true);
+	});
+});
+
+describe('live use', () => {
+	it('reads `used` when present and tolerates reports without it', () => {
+		const withUsed = parseKeyProfileMessage({
+			type: 'potato-tomato-key-profile',
+			v: 1,
+			listens: true,
+			used: ['KeyJ', 'NotAKey']
+		});
+		expect(withUsed?.used).toEqual(['KeyJ']);
+		const android = parseKeyProfileMessage({ type: 'potato-tomato-key-profile', v: 1 });
+		expect(android?.used).toEqual([]);
+	});
+
+	it('treats a key the game was seen handling as strong evidence', () => {
+		const p = mergeKeyProfile(
+			emptyKeyProfile('g'),
+			report({ used: ['KeyJ'], inferred: ['KeyK'] }),
+			1
+		);
+		expect(keyProfileConfidence(p)).toBe('strong');
+		expect(keyEvidence(p, 'KeyJ')).toBe('used');
+		expect(keyEvidence(p, 'KeyK')).toBe('inferred');
+		expect(keyEvidence(p, 'KeyL')).toBe('none');
+	});
+
+	it('grows as more keys are used, and reports a change each time', () => {
+		const first = mergeKeyProfile(emptyKeyProfile('g'), report({ used: ['Space'] }), 1);
+		const second = mergeKeyProfile(first, report({ used: ['ArrowLeft'] }), 2);
+		expect(second).not.toBe(first);
+		expect(second.used).toEqual(['ArrowLeft', 'Space']);
+		expect(mergeKeyProfile(second, report({ used: ['Space'] }), 3)).toBe(second);
 	});
 });
 

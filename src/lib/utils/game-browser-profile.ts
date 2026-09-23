@@ -75,6 +75,38 @@ export function isGameBrowserProfile(value: unknown): value is GameBrowserProfil
 	);
 }
 
+/**
+ * Fold a profile pushed by a game frame into the stored one.
+ *
+ * A frame only knows its own origin: online play and the puller's offline mirror are
+ * different origins, and each pushes just its own localStorage bucket. Replacing the
+ * whole profile on every push threw the other origin's saves away. Origin buckets and
+ * databases are therefore replaced one by one; cookies belong to the game rather than an
+ * origin (the bridge keeps one virtual jar per game), so the incoming jar wins.
+ */
+export function mergeGameBrowserProfiles(
+	existing: GameBrowserProfile | null,
+	incoming: GameBrowserProfile
+): GameBrowserProfile {
+	if (!existing) return { ...incoming, updatedAt: Date.now() };
+	const prev = existing.profile.Default;
+	const next = incoming.profile.Default;
+	const byName = new Map(prev.indexedDB.map((db) => [db.name, db]));
+	for (const db of next.indexedDB) byName.set(db.name, db);
+	return {
+		schemaVersion: incoming.schemaVersion,
+		updatedAt: Date.now(),
+		profile: {
+			Default: {
+				localStorage: { ...prev.localStorage, ...next.localStorage },
+				sessionStorage: { ...prev.sessionStorage, ...next.sessionStorage },
+				cookies: next.cookies,
+				indexedDB: [...byName.values()]
+			}
+		}
+	};
+}
+
 /** Merge legacy single-origin localStorage snapshot into a profile. */
 export function mergeLegacyLocalStorage(
 	profile: GameBrowserProfile,

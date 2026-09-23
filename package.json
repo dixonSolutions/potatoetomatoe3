@@ -9,6 +9,7 @@
     "console-test": "node scripts/tauri-dev-harness.mjs console-test",
     "puller-test": "node scripts/tauri-dev-harness.mjs puller-test",
     "desktop-theme-test": "node scripts/verify-desktop-theme.mjs",
+    "bridge-test": "node scripts/verify-game-bridge.mjs",
     "build": "node scripts/generate-games-list.js && vite build && node scripts/prepare-github-pages.mjs",
     "tauri": "tauri",
     "tauri:dev": "pnpm app",
