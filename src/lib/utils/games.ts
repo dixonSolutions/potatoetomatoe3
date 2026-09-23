@@ -14,7 +14,12 @@ import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/off
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
 import { resolveStaticOfflinePlayUrl, staticOfflineFileExists } from '$lib/utils/offline-play-url';
 import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
-import { sizedThumbnailUrl } from '$lib/utils/thumbnail-size';
+import {
+	decodeHtmlEntitiesInUrl,
+	isDeadThumbnailUrl,
+	sizedThumbnailUrl,
+	thumbnailSrcset
+} from '$lib/utils/thumbnail-size';
 import { readConsoleVisiblePref } from '$lib/utils/touch-console';
 import {
 	decideOnlineRelay,
@@ -109,22 +114,35 @@ function offlineAssetUrl(gameId: string, relPath: string): string {
 	return `${b}/games/${encodeURIComponent(gameId)}/offline/${safe}`.replace(/\/{2,}/g, '/');
 }
 
+/** A locally stored offline cover, when one should win over the catalog cover. */
+function offlineThumbnailSrc(
+	options?: ThumbnailResolveOptions & { gameId?: string }
+): string | null {
+	if (!options?.preferOffline) return null;
+	if (options.offlineThumbnailUrl?.trim()) return options.offlineThumbnailUrl.trim();
+	const rel = options.offlineThumbnailRel?.trim();
+	if (rel) {
+		/* Browser backend may stash a blob:/https: URL in offlineThumbnail */
+		if (/^(blob:|https?:)/i.test(rel)) return rel;
+		if (options.gameId) return offlineAssetUrl(options.gameId, rel);
+	}
+	return null;
+}
+
+/** A catalog value that names no loadable cover: a `.gitkeep` stand-in or a dead link. */
+function isMissingThumbnail(t: string): boolean {
+	return t.endsWith('.gitkeep') || isDeadThumbnailUrl(t);
+}
+
 /** Safe `src` for game cards: blank `thumbnail` does not hit `/games/.../404`. */
 export function resolveGameThumbnailSrc(
 	thumbnail: string | undefined | null,
 	options?: ThumbnailResolveOptions & { gameId?: string }
 ): string {
-	if (options?.preferOffline) {
-		if (options.offlineThumbnailUrl?.trim()) return options.offlineThumbnailUrl.trim();
-		const rel = options.offlineThumbnailRel?.trim();
-		if (rel) {
-			/* Browser backend may stash a blob:/https: URL in offlineThumbnail */
-			if (/^(blob:|https?:)/i.test(rel)) return rel;
-			if (options.gameId) return offlineAssetUrl(options.gameId, rel);
-		}
-	}
+	const offline = offlineThumbnailSrc(options);
+	if (offline) return offline;
 	const t = thumbnail?.trim();
-	if (!t || t.endsWith('/.gitkeep') || t.endsWith('.gitkeep')) return MISSING_THUMB_DATA_URI;
+	if (!t || isMissingThumbnail(t)) return MISSING_THUMB_DATA_URI;
 	if (t.startsWith('data:')) return t;
 	/*
 	 * Remote portal covers are full-resolution originals — up to 2730x1535 for a 138px
@@ -133,6 +151,39 @@ export function resolveGameThumbnailSrc(
 	if (/^https?:\/\//i.test(t)) return sizedThumbnailUrl(t, options?.targetPx);
 	if (t.startsWith('/')) return `${base}${t}`;
 	return t;
+}
+
+export type GameThumbnailSources = {
+	/** First URL to try, or null when there is no cover worth requesting. */
+	src: string | null;
+	/** Resized candidates for `src`'s host, to pair with the card's `sizes`. */
+	srcset?: string;
+	/** The untouched original, for when the resized request fails. */
+	fallbackSrc?: string;
+};
+
+/**
+ * Everything a card `<img>` needs: a right-sized `srcset` where the portal can resize, and
+ * the original to fall back to when that fails. `boxAspect` is the card box's
+ * width/height (see `thumbnailSrcset`).
+ */
+export function resolveGameThumbnailSources(
+	thumbnail: string | undefined | null,
+	options?: Omit<ThumbnailResolveOptions, 'targetPx'> & { gameId?: string; boxAspect?: number }
+): GameThumbnailSources {
+	const offline = offlineThumbnailSrc(options);
+	if (offline) return { src: offline };
+	const t = thumbnail?.trim();
+	if (!t || isMissingThumbnail(t)) return { src: null };
+	if (/^https?:\/\//i.test(t)) {
+		const original = decodeHtmlEntitiesInUrl(t);
+		const sized = thumbnailSrcset(original, options?.boxAspect);
+		return sized
+			? { src: sized.src, srcset: sized.srcset, fallbackSrc: original }
+			: { src: original };
+	}
+	if (t.startsWith('/')) return { src: `${base}${t}` };
+	return { src: t };
 }
 
 let cachedManifest: CatalogManifest | null = null;

@@ -2,7 +2,8 @@
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
-	import { loadCatalogIndex, resolveGameThumbnailSrc, type GameIndexEntry } from '$lib/utils/games';
+	import { loadCatalogIndex, type GameIndexEntry } from '$lib/utils/games';
+	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
 	import { getPreferences, likeGame, removePreference } from '$lib/utils/preferences';
 	import {
 		getBrowseShuffleSeed,
@@ -35,18 +36,20 @@
 	const recommendedSkeletonCount = 6;
 	const featuredSkeletonCount = 8;
 
-	function thumbUrl(game: GameIndexEntry) {
-		const status = offlineStatusMap[game.id];
-		const preferOffline = !networkOnline || Boolean(status?.offline);
-		return resolveGameThumbnailSrc(game.thumbnail, {
-			gameId: game.id,
-			preferOffline,
-			offlineThumbnailRel: status?.offlineThumbnail
-		});
-	}
+	/*
+	 * `sizes` for each row: the CSS width of one card box at each breakpoint, matching the
+	 * grid/flex classes below. Keep them in step when those classes change — a stale value
+	 * only costs sharpness or bytes, never layout.
+	 */
+	const CONTINUE_SIZES =
+		'(min-width: 1920px) 171px, (min-width: 1280px) 9.1vw, (min-width: 1024px) 10vw, (min-width: 768px) 12.5vw, (min-width: 640px) 16.7vw, 25vw';
+	const RECOMMENDED_SIZES = '(min-width: 768px) 280px, (min-width: 640px) 260px, 78vw';
+	const FEATURED_SIZES = '(min-width: 640px) 200px, 42vw';
+	/** The Continue grid is 11 wide at its widest: its first row is what paints first. */
+	const CONTINUE_PRIORITY_COUNT = 11;
 
-	function placeholderDataUrl() {
-		return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23222" width="256" height="256"/%3E%3Ctext fill="%23666" font-family="sans-serif" font-size="20" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
+	function prefersOfflineCover(game: GameIndexEntry): boolean {
+		return !networkOnline || Boolean(offlineStatusMap[game.id]?.offline);
 	}
 
 	function toggleFavourite(gameId: string, event: MouseEvent) {
@@ -307,23 +310,22 @@
 				<div
 					class="grid grid-cols-4 gap-1.5 sm:grid-cols-6 sm:gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-11"
 				>
-					{#each continueGames as game (game.id)}
+					{#each continueGames as game, i (game.id)}
 						<a
 							href={resolve(`/games/${game.id}`)}
 							data-sveltekit-preload-data="hover"
 							class="group block overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm transition-colors hover:border-border"
 						>
 							<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
-								<img
-									src={thumbUrl(game)}
-									alt=""
-									loading="lazy"
-									decoding="async"
-									class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
-									onerror={(e) => {
-										const el = e.currentTarget as HTMLImageElement;
-										el.src = placeholderDataUrl();
-									}}
+								<GameCardImage
+									thumbnail={game.thumbnail}
+									gameId={game.id}
+									name={game.name}
+									sizes={CONTINUE_SIZES}
+									priority={i < CONTINUE_PRIORITY_COUNT}
+									preferOffline={prefersOfflineCover(game)}
+									offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
+									class="transition-transform duration-200 group-hover:scale-[1.03]"
 								/>
 							</div>
 							<div class="px-1 pt-1 pb-1.5">
@@ -390,16 +392,14 @@
 										class="relative overflow-hidden rounded-xl border border-border/60 bg-muted shadow-sm transition-shadow hover:shadow-md"
 									>
 										<div class="relative aspect-video bg-muted">
-											<img
-												src={thumbUrl(game)}
-												alt=""
-												loading="lazy"
-												decoding="async"
-												class="h-full w-full object-cover"
-												onerror={(e) => {
-													const el = e.currentTarget as HTMLImageElement;
-													el.src = placeholderDataUrl();
-												}}
+											<GameCardImage
+												thumbnail={game.thumbnail}
+												gameId={game.id}
+												name={game.name}
+												sizes={RECOMMENDED_SIZES}
+												boxAspect={16 / 9}
+												preferOffline={prefersOfflineCover(game)}
+												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
 											/>
 											<button
 												type="button"
@@ -473,16 +473,13 @@
 										class="overflow-hidden rounded-xl border border-border/60 bg-card transition-shadow hover:shadow-md"
 									>
 										<div class="relative aspect-square overflow-hidden rounded-t-xl bg-muted">
-											<img
-												src={thumbUrl(game)}
-												alt=""
-												loading="lazy"
-												decoding="async"
-												class="h-full w-full object-cover"
-												onerror={(e) => {
-													const el = e.currentTarget as HTMLImageElement;
-													el.src = placeholderDataUrl();
-												}}
+											<GameCardImage
+												thumbnail={game.thumbnail}
+												gameId={game.id}
+												name={game.name}
+												sizes={FEATURED_SIZES}
+												preferOffline={prefersOfflineCover(game)}
+												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
 											/>
 											<button
 												type="button"

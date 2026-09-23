@@ -8,10 +8,10 @@
 		loadCatalogIndex,
 		loadCatalogManifest,
 		loadMoreCatalogShards,
-		resolveGameThumbnailSrc,
 		type CatalogLoadProgress,
 		type GameIndexEntry
 	} from '$lib/utils/games';
+	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
 	import { canUseLocalStorage } from '$lib/utils/browser-storage';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
@@ -59,14 +59,15 @@
 	let favouriteIds = $state<Set<string>>(new Set());
 	let columnCount = $state(4);
 
-	function thumbUrl(game: GameIndexEntry) {
-		const status = offlineStatusMap[game.id];
-		const preferOffline = !networkOnline || Boolean(status?.offline);
-		return resolveGameThumbnailSrc(game.thumbnail, {
-			gameId: game.id,
-			preferOffline,
-			offlineThumbnailRel: status?.offlineThumbnail
-		});
+	/*
+	 * CSS width of one card's square image at each breakpoint, matching the grid classes
+	 * below (1/2/3/4 columns in a 1920px-max container).
+	 */
+	const CARD_IMAGE_SIZES =
+		'(min-width: 1920px) 450px, (min-width: 1024px) 24vw, (min-width: 768px) 32vw, (min-width: 640px) 48vw, 94vw';
+
+	function prefersOfflineCover(game: GameIndexEntry): boolean {
+		return !networkOnline || Boolean(offlineStatusMap[game.id]?.offline);
 	}
 
 	function toggleFavourite(gameId: string, event: MouseEvent) {
@@ -570,16 +571,16 @@
 								>
 									<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 										<div class="relative aspect-square overflow-hidden bg-muted">
-											<img
-												src={thumbUrl(game)}
+											<GameCardImage
+												thumbnail={game.thumbnail}
+												gameId={game.id}
+												name={game.name}
 												alt={game.name}
-												loading="lazy"
-												decoding="async"
-												class="h-full w-full object-cover transition-transform group-hover:scale-110"
-												onerror={(e) => {
-													(e.currentTarget as HTMLImageElement).src =
-														'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23ddd" width="256" height="256"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
-												}}
+												sizes={CARD_IMAGE_SIZES}
+												priority={vRow.index === 0}
+												preferOffline={prefersOfflineCover(game)}
+												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
+												class="transition-transform group-hover:scale-110"
 											/>
 											{#if offlineStatusMap[game.id]?.offline}
 												<div
