@@ -455,6 +455,42 @@
 	/** The play URL a relaunch is already moving away from — one failure, one step. */
 	let escalatingFrom = '';
 
+	/** Waiting for the current game frame to load or give up — see `afterGameFrameSettles`. */
+	let frameSettleWaiters: (() => void)[] = [];
+
+	function settleGameFrame() {
+		const waiters = frameSettleWaiters;
+		frameSettleWaiters = [];
+		for (const resolve of waiters) resolve();
+	}
+
+	/**
+	 * Resolves once the game frame has loaded or stalled (at most `capMs`), then at the next
+	 * idle moment. The recommendations need all 28 catalog shards, and fetched during a launch
+	 * they compete with the game's own download on a slow link — for cards below the fold.
+	 */
+	function afterGameFrameSettles(capMs = 8000): Promise<void> {
+		return new Promise((resolve) => {
+			const idle = () => {
+				/* WebKitGTK has no requestIdleCallback. */
+				if (typeof window.requestIdleCallback === 'function') {
+					window.requestIdleCallback(() => resolve(), { timeout: 3000 });
+				} else {
+					setTimeout(resolve, 500);
+				}
+			};
+			const cap = setTimeout(() => {
+				frameSettleWaiters = frameSettleWaiters.filter((w) => w !== done);
+				idle();
+			}, capMs);
+			const done = () => {
+				clearTimeout(cap);
+				idle();
+			};
+			frameSettleWaiters.push(done);
+		});
+	}
+
 	function isAppOriginUrl(url: string): boolean {
 		try {
 			return new URL(url, window.location.href).origin === window.location.origin;
@@ -477,6 +513,7 @@
 			escalatingFrom = '';
 			return;
 		}
+		settleGameFrame();
 		if (state === 'loaded') {
 			appendPlayLog('info', 'play-url', 'Game frame loaded', `game=${gameId} url=${url}`);
 			void confirmFrameRan(gameId, url, launchStartedAt || Date.now());
@@ -772,6 +809,8 @@
 		if (soft) return;
 
 		void (async () => {
+			await afterGameFrameSettles();
+			if (gameId !== id) return;
 			const allGames = await loadAllGames();
 			const prefs = getPreferences();
 			let rec = getRecommendationsForGamePage(allGames, meta, id, prefs, 4);
