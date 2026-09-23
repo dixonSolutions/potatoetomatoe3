@@ -19,6 +19,9 @@
 //! is what made it slow. Fetches here go through reqwest with the OS trust store, so a
 //! network whose filter re-signs TLS with its own root CA still works.
 
+// Registered as a scheme on desktop only.
+#![cfg_attr(mobile, allow(dead_code))]
+
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
 use std::time::Duration;

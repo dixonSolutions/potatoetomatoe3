@@ -563,13 +563,6 @@ fn spawn_puller(app: &tauri::AppHandle) {
   log::warn!("puller could not be started — offline download disabled");
 }
 
-/// Paint every window, and the webview inside it, in the desktop's window colour.
-///
-/// Read from the GTK theme *now*, so after a live scheme switch it is the new scheme's
-/// colour. Both surfaces need it: the window shows through wherever the webview has not
-/// painted yet, and the webview's own base colour is what WebKit clears to before the
-/// page's first frame.
-#[cfg(target_os = "linux")]
 /// Register the tray, then settle everything that depends on whether it exists.
 #[cfg(not(mobile))]
 fn build_tray_now(app: &tauri::AppHandle) {
@@ -632,6 +625,13 @@ fn desktop_color_scheme_is_dark() -> Option<bool> {
   }
 }
 
+/// Paint every window, and the webview inside it, in the desktop's window colour.
+///
+/// Read from the GTK theme *now*, so after a live scheme switch it is the new scheme's
+/// colour. Both surfaces need it: the window shows through wherever the webview has not
+/// painted yet, and the webview's own base colour is what WebKit clears to before the
+/// page's first frame.
+#[cfg(target_os = "linux")]
 fn paint_windows_from_theme(app: &tauri::AppHandle) {
   match system_theme::theme_window_background() {
     Some((r, g, b)) => {

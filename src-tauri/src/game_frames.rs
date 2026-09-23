@@ -14,6 +14,9 @@
 //! Android has its own document-start bridge (`native_touch_bridge.js`, installed by
 //! `MainActivity`), so nothing here runs there.
 
+// Only the Linux webview can install the script; elsewhere the commands answer "unsupported".
+#![cfg_attr(not(target_os = "linux"), allow(dead_code))]
+
 use serde::Deserialize;
 
 /// The shared in-frame bridge, byte for byte what the web build serves.

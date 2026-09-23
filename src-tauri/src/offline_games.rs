@@ -14,6 +14,9 @@
 //!
 //! Downloading still needs the puller (Playwright capture); it is started on demand.
 
+// The scheme is registered on desktop only; mobile builds keep the commands and nothing else.
+#![cfg_attr(mobile, allow(dead_code))]
+
 use std::collections::HashMap;
 use std::path::{Component, Path, PathBuf};
 use std::sync::OnceLock;
