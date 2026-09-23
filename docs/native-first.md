@@ -83,6 +83,35 @@ however late its `load` is: one slow ad request holds `load` back while the game
 plays. Failed routes are remembered per game for the session (**Relaunch** clears them).
 The user sees a toast only when every route failed, with **Open in browser** offered.
 
+### Measured (2026-09-23)
+
+`scripts/play-path-bench.mjs` launches a stable two-per-class sample through the real
+`getGamePlayerUrl` in the Tauri webview (WebKitGTK 2.52, headless compositor) and in
+Chromium, and reports from inside the frames (see the script's header). "Before" is the
+puller relay as it shipped, with a puller running; "after" is this path with **no puller
+at all**. The machine was shared with other benchmarks (load average 12–16 on 14 cores),
+so single timings are noisy; the counts and the per-class routes are the result.
+
+| Run                                      | Loaded | First canvas | Median resolve |
+| ---------------------------------------- | -----: | -----------: | -------------: |
+| Tauri before (puller relay)              |  16/20 |        10/20 |          69 ms |
+| Tauri after (no puller)                  |  18/20 |        12/20 |          39 ms |
+| Chromium before (puller relay)           |  17/20 |         9/20 |          67 ms |
+| Chromium after (no puller, web behavior) |  14/20 |        12/20 |          61 ms |
+
+Per class, in Tauri: Unity Play direct 0.9–2.0 s to canvas (1.2–2.0 s on the relay);
+Coolmath direct 0.3 s where the relay took 9.9 s; both AddictingGames Flash titles now
+play in Ruffle through the in-process relay (1.8 s; the Node relay never loaded them);
+the jsDelivr and Sites Drive U 7 games play from `embed.html` (0.3–1.9 s) where two of
+four were dead frames. Both AddictingGames HTML5 titles crash the WebKitGTK web process
+before and after — a WebGL crash that reproduces in a bare WebKitGTK view and goes away
+with WebGL disabled, so it is the engine in this environment, not the routing.
+
+Resolution (the wait before the frame starts) is 13–73 ms for direct, relay and
+`embed.html` routes, 139–189 ms for the Sites games (the `embed.html` fetch). The two
+relays head to head on six games (`--force relay|puller`): median frame load 2.1 s for
+the in-process relay against 6.2 s for the Node one.
+
 ### Offline copies and saves without Node
 
 `ptoffline://localhost/<id>/<path>` (`src-tauri/src/offline_games.rs`) serves a mirror
