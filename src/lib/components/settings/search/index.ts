@@ -3,10 +3,12 @@ export {
 	wordsQuery,
 	wordsMatchQuery,
 	computeGlobalSearchResults,
+	groupSearchResultsBySection,
 	sectionMatches
 } from './settings-search-engine';
 export type {
 	SettingsSearchSub,
 	SettingsSearchSectionDef,
-	SearchResultSection
+	SearchResultSection,
+	SearchResultGroup
 } from './settings-search-types';

@@ -8,7 +8,12 @@
  *     the preloaded profile) and over the postMessage pull (one reload);
  *   - IndexedDB records keep their types (Uint8Array, Date) through the profile;
  *   - saves survive a same-origin shell nesting the game (one set of stores per game), a
- *     profile store slower than the pull used to wait for, and a forged `hydrate`;
+ *     profile store slower than the pull used to wait for, a forged `hydrate`, and a store
+ *     whose reads fail (not "no saves": nothing is written over them, and the game gets
+ *     them once the store reads again);
+ *   - a game's saves are read and written only from the frame hosting that game: a frame
+ *     inside it asking for another game's saves, and a frame in the app page outside it,
+ *     are ignored;
  *   - live key detection: declared keys listed, keys the game handles promoted to "in use";
  *   - the console: one keydown per press (no duplicate dispatch), a canvas that listens
  *     itself gets the key even inside a listening wrapper, holds never turn into layout
@@ -136,7 +141,72 @@ const WRAP_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Wrap 
   document.getElementById('c').addEventListener('keydown', function (e) { window.canvasKeys.push(e.code); e.preventDefault(); });
 </script></body></html>`;
 
-function writeLabGame(id, name, files) {
+/*
+ * Third-party HTML the app plays from a document it makes itself (an app-made shell):
+ * a Drive U 7 style `online/embed.html` (the `local` route) and a page on a host that
+ * labels HTML `text/plain` (the `shell` route; jsDelivr, answered here by the test). The
+ * game saves the way Unity does — IDBFS: a `FILE_DATA` store with a `timestamp` index,
+ * walked with a key cursor — and reports what it can reach of the app around it.
+ */
+const SHELL_GAME = '_bridge-shell';
+const SHELL_BASE = 'https://cdn.jsdelivr.net/gh/pt-bridge-test/shell@1/';
+const REMOTE_GAME = '_bridge-remote';
+const REMOTE_PAGE = 'https://cdn.jsdelivr.net/gh/pt-bridge-test/remote@1/index.html';
+const SHELL_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Shell Lab</title>
+<script src="asset.js"></script>
+<script>
+  window.bootCount = Number(localStorage.getItem('save') || '0') + 1;
+  localStorage.setItem('save', String(window.bootCount));
+  window.bootCookie = document.cookie;
+  document.cookie = 'shell-cookie=' + window.bootCount + '; max-age=86400; path=/';
+  window.tryEscape = function () {
+    function probe(read) {
+      try { read(); return 'reached'; } catch (e) { return 'blocked:' + e.name; }
+    }
+    return {
+      origin: self.origin,
+      parentDocument: probe(function () { return parent.document.title; }),
+      topDocument: probe(function () { return top.document.title; }),
+      tauri: probe(function () { if (!parent.__TAURI_INTERNALS__) throw new Error('absent'); }),
+      appStorage: probe(function () { return parent.localStorage.length; }),
+      appSaves: probe(function () { return parent.__ptGameProfiles; }),
+      unityCache: probe(function () { indexedDB.open('UnityCache', 1); })
+    };
+  };
+  var req = indexedDB.open('/idbfs', 21);
+  req.onupgradeneeded = function (e) {
+    var db = e.target.result;
+    var tx = e.target.transaction;
+    var store = db.objectStoreNames.contains('FILE_DATA') ? tx.objectStore('FILE_DATA') : db.createObjectStore('FILE_DATA');
+    if (!store.indexNames.contains('timestamp')) store.createIndex('timestamp', 'timestamp', { unique: false });
+  };
+  req.onsuccess = function () {
+    var db = req.result;
+    var tx = db.transaction(['FILE_DATA'], 'readonly');
+    var entries = 0;
+    tx.objectStore('FILE_DATA').index('timestamp').openKeyCursor().onsuccess = function (ev) {
+      var cursor = ev.target.result;
+      if (!cursor) return;
+      if (cursor.key instanceof Date && typeof cursor.primaryKey === 'string') entries++;
+      cursor.continue();
+    };
+    var g = tx.objectStore('FILE_DATA').get('/idbfs/save.dat');
+    tx.oncomplete = function () {
+      var f = g.result;
+      window.idbState = (f ? 'u8:' + Array.from(f.contents).join('.') + (f.timestamp instanceof Date ? ':date' : ':nodate') : 'none') + '|' + entries;
+      var w = db.transaction(['FILE_DATA'], 'readwrite');
+      w.objectStore('FILE_DATA').put({ timestamp: new Date(), mode: 33206, contents: new Uint8Array([1, 2, window.bootCount]) }, '/idbfs/save.dat');
+    };
+  };
+</script></head><body>shell</body></html>`;
+const REMOTE_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Remote Lab</title>
+<script>
+  window.bootCount = Number(localStorage.getItem('save') || '0') + 1;
+  localStorage.setItem('save', String(window.bootCount));
+  window.parentReach = (function () { try { return typeof parent.document; } catch (e) { return 'blocked:' + e.name; } })();
+</script></head><body>remote</body></html>`;
+
+function writeLabGame(id, name, files, extra = {}) {
 	const dir = path.join(ROOT, 'static/games', id, 'online');
 	mkdirSync(dir, { recursive: true });
 	writeFileSync(
@@ -147,10 +217,35 @@ function writeLabGame(id, name, files) {
 			author: 'Test',
 			description: 'Fixture for pnpm bridge-test.',
 			thumbnail: '',
-			category: 'Test'
+			category: 'Test',
+			...extra
 		})
 	);
 	for (const [file, body] of Object.entries(files)) writeFileSync(path.join(dir, file), body);
+}
+
+/** What the test's jsDelivr answers: the remote page as text/plain, and the shell's asset. */
+async function routeShellHosts(ctx) {
+	await ctx.route('https://cdn.jsdelivr.net/gh/pt-bridge-test/**', (route) => {
+		const url = route.request().url();
+		const cors = { 'access-control-allow-origin': '*' };
+		if (url === REMOTE_PAGE) {
+			return route.fulfill({
+				status: 200,
+				headers: { ...cors, 'content-type': 'text/plain; charset=utf-8' },
+				body: REMOTE_HTML
+			});
+		}
+		if (url === `${SHELL_BASE}asset.js`) {
+			return route.fulfill({
+				status: 200,
+				headers: { ...cors, 'content-type': 'application/javascript' },
+				body: 'window.assetLoaded = true;'
+			});
+		}
+		return route.fulfill({ status: 404, headers: cors, body: '' });
+	});
+	return ctx;
 }
 
 function writeFixture() {
@@ -160,6 +255,13 @@ function writeFixture() {
 	});
 	writeLabGame(PLAIN_GAME, 'Plain Lab', { 'index.html': PLAIN_HTML });
 	writeLabGame(WRAP_GAME, 'Wrap Lab', { 'index.html': WRAP_HTML });
+	writeLabGame(
+		SHELL_GAME,
+		'Shell Lab',
+		{ 'embed.html': SHELL_HTML },
+		{ localEmbed: true, embedBaseUrl: SHELL_BASE }
+	);
+	writeLabGame(REMOTE_GAME, 'Remote Lab', {}, { onlineEmbedUrl: REMOTE_PAGE });
 	mkdirSync(path.join(FIXTURE_DIR, 'online'), { recursive: true });
 	writeFileSync(
 		path.join(FIXTURE_DIR, 'online/metadata.json'),
@@ -295,7 +397,7 @@ function writeEngineFixtures() {
 
 async function cleanup() {
 	rmSync(FIXTURE_DIR, { recursive: true, force: true });
-	for (const id of [NEST_GAME, PLAIN_GAME, WRAP_GAME]) {
+	for (const id of [NEST_GAME, PLAIN_GAME, WRAP_GAME, SHELL_GAME, REMOTE_GAME]) {
 		rmSync(path.join(ROOT, 'static/games', id), { recursive: true, force: true });
 	}
 	for (const engine of ENGINES) {
@@ -362,7 +464,30 @@ browser.newContext = async (options) => {
 	await ctx.route('**/api/browser-data/**', (route) => route.abort());
 	return ctx;
 };
-const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+
+/*
+ * Games open fullscreen by default now; these checks drive the windowed toolbar, so the
+ * desktop contexts turn that off (the phone context keeps it and uses the in-game menu).
+ */
+async function windowedPlayer(ctx) {
+	await ctx.addInitScript(() => {
+		/* Init scripts run in every frame; a sandboxed game frame has no storage to set. */
+		if (window !== window.top) return;
+		const key = 'potato-tomato-site-settings-v1';
+		let saved = {};
+		try {
+			saved = JSON.parse(localStorage.getItem(key) || '{}') || {};
+		} catch {
+			saved = {};
+		}
+		saved.gamePlayer = { ...(saved.gamePlayer || {}), autoFullscreen: false };
+		localStorage.setItem(key, JSON.stringify(saved));
+	});
+	return ctx;
+}
+const context = await windowedPlayer(
+	await browser.newContext({ viewport: { width: 1280, height: 900 } })
+);
 const page = await context.newPage();
 page.on('pageerror', (e) => console.log('[pageerror]', e.message));
 
@@ -389,7 +514,7 @@ async function gameFrame() {
  * context mid-wait). Falls back to whatever frame is there when `ms` runs out, so the
  * check that follows reports what it found instead of a timeout.
  */
-async function settledFrame(target, game, ready, ms, file = '') {
+async function settledFrame(target, game, ready, ms, file = '', arg = undefined) {
 	const deadline = Date.now() + ms;
 	let last = null;
 	while (Date.now() < deadline) {
@@ -397,7 +522,7 @@ async function settledFrame(target, game, ready, ms, file = '') {
 		if (f) {
 			last = f;
 			try {
-				if (await f.evaluate(ready)) return f;
+				if (await f.evaluate(ready, arg)) return f;
 			} catch {
 				/* navigating */
 			}
@@ -408,15 +533,13 @@ async function settledFrame(target, game, ready, ms, file = '') {
 	return last;
 }
 
+/* Games start by themselves once the play URL resolves: just wait for the frame. */
 async function play() {
-	const btn = page.getByRole('button', { name: /play/i }).first();
-	await btn.click();
 	return gameFrame();
 }
 
 async function relaunch() {
-	await page.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(300);
+	await relaunchLab(page);
 	return play();
 }
 
@@ -428,7 +551,10 @@ async function storedProfile(target = page, game = GAME) {
 				req.onsuccess = () => {
 					const db = req.result;
 					if (!db.objectStoreNames.contains('browserProfiles')) return resolve(null);
-					const g = db.transaction('browserProfiles').objectStore('browserProfiles').get(game);
+					const store = db.transaction('browserProfiles').objectStore('browserProfiles');
+					/* The real read, even while `failProfileReads` makes the app's reads fail. */
+					const get = IDBObjectStore.prototype.get.__real || IDBObjectStore.prototype.get;
+					const g = get.call(store, game);
 					g.onsuccess = () => resolve(g.result ?? null);
 				};
 				req.onerror = () => resolve(null);
@@ -437,21 +563,50 @@ async function storedProfile(target = page, game = GAME) {
 	);
 }
 
-/** Open a lab game in its own context, press Play, and hand back its page. */
+/** Open a lab game in its own windowed context (it starts by itself) and hand back its page. */
 async function openLab(game, name) {
-	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+	const ctx = await windowedPlayer(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
 	const p = await ctx.newPage();
 	p.on('pageerror', (e) => console.log(`[pageerror ${game}]`, e.message));
 	await p.goto(`${BASE}/games/${game}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 	await p.getByRole('heading', { name }).waitFor({ timeout: 180000 });
-	await p.getByRole('button', { name: /play/i }).first().click();
 	return p;
 }
 
+/*
+ * Restart the game, and wait for its old frame to go: the game first pushes its last save
+ * (a moment), and a check that finds the old frame still there would read the old game.
+ */
 async function relaunchLab(p) {
-	await p.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(300);
-	await p.getByRole('button', { name: /play/i }).first().click();
+	const old = p.frames().filter((f) => f !== p.mainFrame());
+	await p.locator('[data-testid="relaunch-game"]').click();
+	for (let i = 0; i < 100 && old.some((f) => !f.isDetached()); i++) await sleep(50);
+}
+
+/* A client-side navigation: the window, and whatever a check patched onto it, survives. */
+async function spaNavigate(p, path) {
+	await p.evaluate((path) => {
+		const a = document.createElement('a');
+		a.href = path;
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+	}, path);
+}
+
+/**
+ * Relaunch used to leave a Play poster to set things up behind; Restart now brings the
+ * game straight back. Leave for the catalog instead (the game page unmounts and flushes),
+ * run `setup` with no game running, and come back to a game that starts by itself.
+ */
+async function reopenLab(p, game, setup) {
+	await spaNavigate(p, '/home');
+	await p.waitForURL(/\/home/);
+	await sleep(500);
+	await setup();
+	await spaNavigate(p, `/games/${game}`);
 }
 
 /*
@@ -486,6 +641,48 @@ async function slowProfileStore(p, ms) {
 		};
 		window.__fastProfileStore = () => delete indexedDB.open;
 	}, ms);
+}
+
+/*
+ * Make every read of the app's profile store fail, while writes still work: a puller that
+ * answers 500, an IndexedDB error, the desktop app's saves command failing. `heal` undoes it.
+ */
+async function failProfileReads(p) {
+	await p.evaluate(() => {
+		const real = IDBObjectStore.prototype.get.__real || IDBObjectStore.prototype.get;
+		const failing = function (key) {
+			if (this.name !== 'browserProfiles') return real.call(this, key);
+			const req = {
+				result: undefined,
+				error: new DOMException('Simulated read failure', 'UnknownError'),
+				onsuccess: null,
+				onerror: null
+			};
+			setTimeout(() => req.onerror?.(new Event('error')), 0);
+			return req;
+		};
+		failing.__real = real;
+		IDBObjectStore.prototype.get = failing;
+		window.__healProfileReads = () => {
+			IDBObjectStore.prototype.get = real;
+		};
+	});
+}
+
+/* The app page's own view of saves, as a same-origin frame reads it at boot. */
+async function showProfileBag(p) {
+	await p.evaluate(() => {
+		Object.defineProperty(window, '__ptGameProfiles', {
+			configurable: true,
+			writable: true,
+			value: Object.create(null)
+		});
+	});
+}
+
+/** The first localStorage bucket of a stored profile (a lab game saves on one origin). */
+function savedBucket(profile) {
+	return profile ? Object.values(profile.profile.Default.localStorage)[0] : undefined;
 }
 
 /* Cross-origin frames cannot read the preloaded profile: hide it so the frame must pull. */
@@ -593,8 +790,6 @@ await page.evaluate(async (game) => {
 	for (const k of Object.keys(sessionStorage))
 		if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
 }, GAME);
-await page.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-await sleep(300);
 await page.evaluate(() => {
 	/* Hide the bag from the frame so it must use postMessage. */
 	const bag = window.__ptGameProfiles;
@@ -610,7 +805,7 @@ await page.evaluate(() => {
 			value: bag
 		});
 });
-await page.getByRole('button', { name: /play/i }).first().click();
+await page.locator('[data-testid="relaunch-game"]').click();
 /* The answer, the restore and the reload take a variable while on a busy dev server. */
 frame = await settledFrame(page, GAME, () => window.bootCount >= 4 && window.idbState, 15000);
 check(
@@ -658,20 +853,19 @@ await shot(page, '02-game-running.png');
 		JSON.stringify(nestDb?.records.map((r) => r.value))
 	);
 	/* Fresh origin, pulled: the frame that owns the stores reloads, the nested game reads the saves. */
-	await np.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(500);
-	await np.evaluate(async () => {
-		for (const k of Object.keys(localStorage))
-			if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
-		for (const k of Object.keys(sessionStorage))
-			if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
-		await new Promise((r) => {
-			const d = indexedDB.deleteDatabase('nest-db');
-			d.onsuccess = d.onerror = d.onblocked = () => r();
+	await reopenLab(np, NEST_GAME, async () => {
+		await np.evaluate(async () => {
+			for (const k of Object.keys(localStorage))
+				if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+			for (const k of Object.keys(sessionStorage))
+				if (k.startsWith('__pt_vs:')) sessionStorage.removeItem(k);
+			await new Promise((r) => {
+				const d = indexedDB.deleteDatabase('nest-db');
+				d.onsuccess = d.onerror = d.onblocked = () => r();
+			});
 		});
+		await hideProfileBag(np, NEST_GAME);
 	});
-	await hideProfileBag(np, NEST_GAME);
-	await np.getByRole('button', { name: /play/i }).first().click();
 	nf = await settledFrame(
 		np,
 		NEST_GAME,
@@ -699,15 +893,14 @@ await shot(page, '02-game-running.png');
 	await relaunchLab(sp);
 	await settledFrame(sp, PLAIN_GAME, () => window.bootCount === 2, 15000);
 	await sleep(2500);
-	await sp.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(500);
-	await sp.evaluate(() => {
-		for (const k of Object.keys(localStorage))
-			if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+	await reopenLab(sp, PLAIN_GAME, async () => {
+		await sp.evaluate(() => {
+			for (const k of Object.keys(localStorage))
+				if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+		});
+		await hideProfileBag(sp, PLAIN_GAME);
+		await slowProfileStore(sp, 6000);
 	});
-	await hideProfileBag(sp, PLAIN_GAME);
-	await slowProfileStore(sp, 6000);
-	await sp.getByRole('button', { name: /play/i }).first().click();
 	const slow = await settledFrame(sp, PLAIN_GAME, () => window.bootCount >= 3, 25000);
 	check(
 		'Slow profile store: the game still boots onto its saves',
@@ -716,9 +909,7 @@ await shot(page, '02-game-running.png');
 	);
 	await sleep(2500);
 	/* Before the app has answered, something else in the game frame forges the answer. */
-	await sp.getByRole('button', { name: 'Relaunch', exact: true }).first().click();
-	await sleep(500);
-	await sp.getByRole('button', { name: /play/i }).first().click();
+	await relaunchLab(sp);
 	const forged = await settledFrame(
 		sp,
 		PLAIN_GAME,
@@ -752,27 +943,430 @@ await shot(page, '02-game-running.png');
 	);
 	const stored = await after.evaluate(() => localStorage.getItem('save'));
 	check('A hydrate that does not come from the app is ignored', stored === '4', `save=${stored}`);
+	/* Back to a fast store, and let the last writes through the slow one land first. */
+	await sp.evaluate(() => window.__fastProfileStore?.());
+	for (let i = 0; i < 100; i++) {
+		if (savedBucket(await storedProfile(sp, PLAIN_GAME))?.save === stored) break;
+		await sleep(200);
+	}
+
+	/*
+	 * A store whose reads fail. The app used to answer that with "no saves": the frame (here
+	 * same-origin, booting from the page's preloaded profiles) started empty and its first
+	 * push replaced the real saves. Now the app says nothing until it can read them.
+	 */
+	const savedBefore = savedBucket(await storedProfile(sp, PLAIN_GAME))?.save;
+	await reopenLab(sp, PLAIN_GAME, async () => {
+		await sp.evaluate(() => {
+			for (const k of Object.keys(localStorage))
+				if (k.startsWith('__pt_vs:')) localStorage.removeItem(k);
+		});
+		await showProfileBag(sp);
+		await failProfileReads(sp);
+	});
+	await settledFrame(sp, PLAIN_GAME, () => typeof window.bootCount === 'number', 15000);
+	await sleep(3000);
+	const savedDuring = savedBucket(await storedProfile(sp, PLAIN_GAME))?.save;
+	check(
+		'Failing profile store: the empty boot is not written over the saves',
+		Boolean(savedBefore) && savedDuring === savedBefore,
+		`before=${savedBefore} during=${savedDuring}`
+	);
+	await sp.evaluate(() => window.__healProfileReads());
+	const expected = Number(savedBefore) + 1;
+	const healed = await settledFrame(
+		sp,
+		PLAIN_GAME,
+		(n) => window.bootCount === n,
+		25000,
+		'',
+		expected
+	);
+	const healedBoot = await healed.evaluate(() => window.bootCount);
+	check(
+		'Failing profile store: once it reads again, the game gets its saves back',
+		healedBoot === expected,
+		`bootCount=${healedBoot} expected=${expected}`
+	);
+	await sleep(2500);
+	const savedAfter = savedBucket(await storedProfile(sp, PLAIN_GAME))?.save;
+	check(
+		'Failing profile store: saves continue from the real ones',
+		savedAfter === String(expected),
+		`save=${savedAfter}`
+	);
+
+	/*
+	 * A game's saves belong to the frame hosting it. Any frame nested in the page used to
+	 * be able to pull or push any game's profile by naming it.
+	 */
+	const hosted = await settledFrame(
+		sp,
+		PLAIN_GAME,
+		() => typeof window.bootCount === 'number',
+		15000
+	);
+	const evilProfile = (origin) => ({
+		schemaVersion: 1,
+		updatedAt: Date.now(),
+		profile: {
+			Default: {
+				localStorage: { [origin]: { save: '999', __pt_ts: String(Date.now() + 1e9) } },
+				sessionStorage: {},
+				cookies: [],
+				indexedDB: []
+			}
+		}
+	});
+	/* A frame inside this game (an ad, say) asks for and writes another game's saves. */
+	await hosted.evaluate(
+		({ other, evil }) => {
+			const f = document.createElement('iframe');
+			f.srcdoc = `<script>
+				window.answers = [];
+				addEventListener('message', (e) => {
+					if (e.data && e.data.type === 'potato-tomato-game-storage') answers.push(e.data);
+				});
+				const msg = { type: 'potato-tomato-game-storage', gameId: ${JSON.stringify(other)} };
+				top.postMessage({ ...msg, action: 'pull' }, '*');
+				top.postMessage({ ...msg, action: 'push', data: ${JSON.stringify(evil)} }, '*');
+			</script>`;
+			f.id = 'foreign-in-game';
+			document.body.appendChild(f);
+		},
+		{ other: NEST_GAME, evil: evilProfile('https://foreign.example') }
+	);
+	/* A frame in the app page, outside the game's frame, writes this game's saves. */
+	await sp.evaluate(
+		({ game, evil }) => {
+			const f = document.createElement('iframe');
+			f.srcdoc = `<script>
+				window.answers = [];
+				addEventListener('message', (e) => {
+					if (e.data && e.data.type === 'potato-tomato-game-storage') answers.push(e.data);
+				});
+				const msg = { type: 'potato-tomato-game-storage', gameId: ${JSON.stringify(game)} };
+				top.postMessage({ ...msg, action: 'pull' }, '*');
+				top.postMessage({ ...msg, action: 'push', data: ${JSON.stringify(evil)} }, '*');
+			</script>`;
+			f.id = 'foreign-in-app';
+			f.style.display = 'none';
+			document.body.appendChild(f);
+		},
+		{ game: PLAIN_GAME, evil: evilProfile('https://foreign.example') }
+	);
+	await sleep(2500);
+	const otherGame = await storedProfile(sp, NEST_GAME);
+	const answersInGame = await hosted.evaluate(
+		() => document.getElementById('foreign-in-game')?.contentWindow?.answers?.length ?? -1
+	);
+	check(
+		"A frame inside one game cannot read or write another game's saves",
+		otherGame === null && answersInGame === 0,
+		`other game stored=${JSON.stringify(savedBucket(otherGame))} answers=${answersInGame}`
+	);
+	const plainNow = await storedProfile(sp, PLAIN_GAME);
+	const answersInApp = await sp.evaluate(
+		() => document.getElementById('foreign-in-app')?.contentWindow?.answers?.length ?? -1
+	);
+	check(
+		"A frame outside the game's frame cannot read or write its saves",
+		!plainNow?.profile.Default.localStorage['https://foreign.example'] && answersInApp === 0,
+		`buckets=${Object.keys(plainNow?.profile.Default.localStorage ?? {}).join(',')} answers=${answersInApp}`
+	);
 	await sp.context().close();
 }
 {
 	const wp = await openLab(WRAP_GAME, 'Wrap Lab');
 	const wf = await settledFrame(wp, WRAP_GAME, () => Array.isArray(window.canvasKeys), 15000);
-	await wp.locator('[data-testid="controls-menu-toggle"]').click();
-	const wm = wp.locator('[data-testid="controls-menu"]');
-	await wm.waitFor();
-	await wm.getByRole('tab', { name: 'All keys' }).click();
-	await sleep(200);
-	await wm.locator('[data-testid="controls-keyboard"] [data-code="KeyQ"]').click();
+	/*
+	 * The toolbar's Controls button only shows once a game has controls detected, and this
+	 * bare lab has none, so press a console button instead: the same dispatch path.
+	 */
+	await wp.locator('[data-testid="touch-console-toggle"]').click();
+	const spaceBtn = wp.getByRole('button', { name: 'Action Space' });
+	await spaceBtn.waitFor({ timeout: 8000 });
+	await spaceBtn.hover();
+	await wp.mouse.down();
+	await sleep(150);
+	await wp.mouse.up();
 	await sleep(200);
 	const got = await wf.evaluate(
 		() => `${window.canvasKeys.join(',')}|${window.wrapKeys.join(',')}`
 	);
 	check(
 		'A listening canvas inside a listening wrapper gets console keys',
-		got === 'KeyQ|KeyQ',
+		got === 'Space|Space',
 		got
 	);
 	await wp.context().close();
+}
+
+/* ---------- app-made shells: third-party HTML, sandboxed away from the app ---------- */
+
+/**
+ * The frame of an app-made shell playing `game`: a sandboxed srcdoc, known by its bridge
+ * (Playwright reports its URL as `about:srcdoc`, or as nothing once the game is written in).
+ */
+async function shellFrame(target, game, ready, ms, arg = undefined) {
+	const deadline = Date.now() + ms;
+	let last = null;
+	while (Date.now() < deadline) {
+		for (const f of target.frames()) {
+			if (f === target.mainFrame() || /^https?:/.test(f.url())) continue;
+			try {
+				if ((await f.evaluate(() => window.__ptStorageBridge?.gameId ?? '')) !== game) continue;
+				last = f;
+				if (await f.evaluate(ready, arg)) return f;
+			} catch {
+				/* writing the game in, or reloading */
+			}
+		}
+		await sleep(150);
+	}
+	if (!last) throw new Error(`shell frame of ${game} not found`);
+	return last;
+}
+
+async function openShellLab(game, name) {
+	const ctx = await routeShellHosts(
+		await windowedPlayer(await browser.newContext({ viewport: { width: 1280, height: 900 } }))
+	);
+	const p = await ctx.newPage();
+	p.on('pageerror', (e) => console.log(`[pageerror ${game}]`, e.message));
+	await p.goto(`${BASE}/games/${game}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
+	await p.getByRole('heading', { name }).waitFor({ timeout: 180000 });
+	return p;
+}
+
+{
+	const hp = await openShellLab(SHELL_GAME, 'Shell Lab');
+	/*
+	 * `parent.__TAURI_INTERNALS__` is what the desktop app's page carries. Not defined here:
+	 * the app would take this page for the desktop app. Reading any such property across the
+	 * sandbox throws whether it exists or not, which is what the game sees in the app.
+	 */
+	let sf = await shellFrame(hp, SHELL_GAME, () => typeof window.idbState === 'string', 20000);
+	const sandbox = await hp.evaluate(
+		() => document.querySelector('iframe[sandbox]')?.getAttribute('sandbox') ?? null
+	);
+	check(
+		'Shell frame is sandboxed without the app origin',
+		Boolean(sandbox) && !sandbox.split(/\s+/).includes('allow-same-origin'),
+		String(sandbox)
+	);
+	const escape = await sf.evaluate(() => window.tryEscape());
+	check('Shell game runs with an opaque origin', escape.origin === 'null', escape.origin);
+	check(
+		'Shell game cannot reach parent.document or the top document',
+		escape.parentDocument.startsWith('blocked:') && escape.topDocument.startsWith('blocked:'),
+		`${escape.parentDocument} / ${escape.topDocument}`
+	);
+	check(
+		'Shell game cannot reach parent.__TAURI_INTERNALS__',
+		escape.tauri.startsWith('blocked:'),
+		escape.tauri
+	);
+	check(
+		"Shell game cannot reach the app's storage or its saves of other games",
+		escape.appStorage.startsWith('blocked:') && escape.appSaves.startsWith('blocked:'),
+		`${escape.appStorage} / ${escape.appSaves}`
+	);
+	check(
+		'Shell game loads its assets from its own host (<base>)',
+		await sf.evaluate(() => window.assetLoaded === true)
+	);
+	check(
+		'Shell game: caches are refused, as the opaque origin itself would',
+		escape.unityCache === 'blocked:SecurityError',
+		escape.unityCache
+	);
+	const firstBoot = await sf.evaluate(
+		() => `${window.bootCount}|${window.__ptStorageBridge?.virtual}|${window.idbState}`
+	);
+	check(
+		'Shell first boot: virtual storage and an in-memory IndexedDB',
+		firstBoot === '1|true|none|0',
+		firstBoot
+	);
+	await sleep(2500);
+	const shellProf = await storedProfile(hp, SHELL_GAME);
+	check(
+		'Shell saves reach the app: localStorage, cookie, IndexedDB',
+		savedBucket(shellProf)?.save === '1' &&
+			Boolean(shellProf?.profile.Default.cookies.find((c) => c.name === 'shell-cookie')) &&
+			Boolean(
+				shellProf?.profile.Default.indexedDB
+					.find((d) => d.name === '/idbfs')
+					?.records.some((r) => r.value.startsWith('__pt2:'))
+			),
+		JSON.stringify(savedBucket(shellProf))
+	);
+	await relaunchLab(hp);
+	sf = await shellFrame(
+		hp,
+		SHELL_GAME,
+		() => window.bootCount >= 2 && typeof window.idbState === 'string',
+		20000
+	);
+	const restored = await sf.evaluate(
+		() => `${window.bootCount}|${window.bootCookie}|${window.idbState}`
+	);
+	check(
+		'Shell relaunch boots onto its saves, with no reload (LS, cookie, IDB)',
+		restored === '2|shell-cookie=1|u8:1.2.1:date|1',
+		restored
+	);
+	await sleep(2500);
+	/* Games restart themselves with location.reload(); a sandboxed blob: could not. */
+	await sf.evaluate(() => setTimeout(() => location.reload(), 0));
+	sf = await shellFrame(
+		hp,
+		SHELL_GAME,
+		() => window.bootCount >= 3 && typeof window.idbState === 'string',
+		20000
+	);
+	const reloaded = await sf.evaluate(() => `${window.bootCount}|${window.idbState}`);
+	check(
+		'A shell game that reloads itself comes back on its saves',
+		reloaded === '3|u8:1.2.2:date|1',
+		reloaded
+	);
+	await sleep(2500);
+	/* A store slower than the loader waits: the game starts, then reloads once onto the saves. */
+	await reopenLab(hp, SHELL_GAME, async () => {
+		await hp.evaluate((game) => {
+			if (window.__ptGameProfiles) delete window.__ptGameProfiles[game];
+		}, SHELL_GAME);
+		await slowProfileStore(hp, 7000);
+	});
+	sf = await shellFrame(
+		hp,
+		SHELL_GAME,
+		() => window.bootCount >= 4 && typeof window.idbState === 'string',
+		30000
+	);
+	const late = await sf.evaluate(() => `${window.bootCount}|${window.idbState}`);
+	check(
+		'Shell, store slower than the loader waits: one reload onto the saves',
+		late === '4|u8:1.2.3:date|1',
+		late
+	);
+	await hp.evaluate(() => window.__fastProfileStore?.());
+	await sleep(2500);
+	/*
+	 * Leave for another game straight after a write, inside the push interval: only the
+	 * frame's last push, sent as it unloads, carries the write.
+	 */
+	await sf.evaluate(() => localStorage.setItem('last', 'final-push'));
+	await spaNavigate(hp, `/games/${PLAIN_GAME}`);
+	await settledFrame(hp, PLAIN_GAME, () => typeof window.bootCount === 'number', 20000);
+	await sleep(1500);
+	const afterSwitch = savedBucket(await storedProfile(hp, SHELL_GAME));
+	check(
+		"Switching games keeps the last game's final save push",
+		afterSwitch?.last === 'final-push',
+		JSON.stringify(afterSwitch)
+	);
+	await hp.context().close();
+}
+{
+	const rp = await openShellLab(REMOTE_GAME, 'Remote Lab');
+	let rf = await shellFrame(rp, REMOTE_GAME, () => typeof window.bootCount === 'number', 20000);
+	const reach = await rf.evaluate(() => `${self.origin}|${window.parentReach}|${window.bootCount}`);
+	check(
+		'A text/plain host’s HTML plays sandboxed (shell route)',
+		reach === 'null|blocked:SecurityError|1',
+		reach
+	);
+	await sleep(2500);
+	await relaunchLab(rp);
+	rf = await shellFrame(rp, REMOTE_GAME, () => window.bootCount >= 2, 20000);
+	check(
+		'A text/plain host’s game keeps its saves across a relaunch',
+		(await rf.evaluate(() => window.bootCount)) === 2,
+		`bootCount=${await rf.evaluate(() => window.bootCount)}`
+	);
+	await rp.context().close();
+}
+
+/*
+ * The privacy lock, turned on while a game is still loading. The frame used to be sent to
+ * about:blank behind Svelte's back: the launch watchdog took the blank page for a failed
+ * launch and moved the game to its next route, which Svelte then loaded — behind the lock
+ * screen — and unlocking put back the URL from before the lock.
+ */
+{
+	const PASSWORD = 'pt-test';
+	const ctx = await routeShellHosts(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
+	await ctx.addInitScript((hash) => {
+		if (window !== window.top) return;
+		const key = 'potato-tomato-site-settings-v1';
+		let saved = {};
+		try {
+			saved = JSON.parse(localStorage.getItem(key) || '{}') || {};
+		} catch {
+			saved = {};
+		}
+		saved.gamePlayer = { ...(saved.gamePlayer || {}), autoFullscreen: false };
+		saved.privacyModeEnabled = true;
+		saved.privacyPasswordHash = hash;
+		saved.privacyLockShortcut = {
+			code: 'F9',
+			ctrlKey: false,
+			shiftKey: false,
+			altKey: false,
+			metaKey: false
+		};
+		localStorage.setItem(key, JSON.stringify(saved));
+		if (!sessionStorage.getItem('pt-test-privacy-started')) {
+			sessionStorage.setItem('pt-test-privacy-started', '1');
+			sessionStorage.setItem('potato-tomato-privacy-session-ok', '1');
+		}
+	}, 'ba298c117e13f864931c2a2648d391991640d3d745e04afab3252be449c654ff');
+	const lp = await ctx.newPage();
+	lp.on('pageerror', (e) => console.log('[pageerror privacy]', e.message));
+	await lp.goto(`${BASE}/games/${REMOTE_GAME}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
+	await lp.getByRole('heading', { name: 'Remote Lab' }).waitFor({ timeout: 180000 });
+	let lf = await shellFrame(lp, REMOTE_GAME, () => typeof window.bootCount === 'number', 20000);
+	const bootBefore = await lf.evaluate(() => window.bootCount);
+	await sleep(2500);
+	const gameFrameSrc = () =>
+		lp.evaluate(() => document.querySelector('iframe[sandbox]')?.getAttribute('src') ?? null);
+	/* Restart the game, and lock (the shortcut) while it is loading. */
+	await relaunchLab(lp);
+	await lp.evaluate(() =>
+		window.dispatchEvent(new KeyboardEvent('keydown', { code: 'F9', key: 'F9' }))
+	);
+	/* A network change asks for the play URL again; locked, nothing may come of it yet. */
+	await lp.evaluate(() => window.dispatchEvent(new Event('online')));
+	await sleep(4000);
+	const whileLocked = {
+		locked: await lp.evaluate(() => document.documentElement.hasAttribute('data-privacy-locked')),
+		src: (await gameFrameSrc())?.slice(0, 22) ?? null,
+		failedRoutes: await lp.evaluate(
+			(game) => sessionStorage.getItem(`potato-tomato-play-route-failed:${game}`),
+			REMOTE_GAME
+		)
+	};
+	check(
+		'Privacy lock holds the game on a blank page, and nothing relaunches it behind the lock',
+		whileLocked.locked && whileLocked.src === 'about:blank' && whileLocked.failedRoutes === null,
+		JSON.stringify(whileLocked)
+	);
+	await lp.locator('input[type="password"]').fill(PASSWORD);
+	await lp.locator('input[type="password"]').press('Enter');
+	lf = await shellFrame(lp, REMOTE_GAME, (n) => window.bootCount > n, 20000, bootBefore);
+	const unlockedBoot = await lf.evaluate(() => window.bootCount);
+	const unlockedSrc = (await gameFrameSrc()) ?? '';
+	check(
+		'Unlocking brings the game back on its current play URL, onto its saves',
+		unlockedBoot > bootBefore && unlockedSrc.startsWith('data:text/html'),
+		`bootCount=${bootBefore}→${unlockedBoot} src=${unlockedSrc.slice(0, 22)}`
+	);
+	await ctx.close();
 }
 
 /* ---------- console ---------- */
@@ -976,13 +1570,14 @@ for (const engine of ENGINES) {
 		console.log(`SKIP  ${engine.name}: engine build not available (offline?)`);
 		continue;
 	}
-	const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+	const ctx = await windowedPlayer(
+		await browser.newContext({ viewport: { width: 1280, height: 900 } })
+	);
 	const ep = await ctx.newPage();
 	const errors = [];
 	ep.on('pageerror', (e) => errors.push(e.message));
 	await ep.goto(`${BASE}/games/${engine.id}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 	await ep.getByRole('heading', { name: `${engine.name} Lab` }).waitFor({ timeout: 180000 });
-	await ep.getByRole('button', { name: /play/i }).first().click();
 	await ep.locator('[data-testid="touch-console-toggle"]').click();
 	await ep.locator('[data-testid="touch-joystick"]').waitFor({ timeout: 15000 });
 	/* Engines register keys during boot; the bridge reports within a second of that. */
@@ -1062,22 +1657,21 @@ const mobile = await browser.newContext({
 const mp = await mobile.newPage();
 await mp.goto(`${BASE}/games/${GAME}`, { waitUntil: 'domcontentloaded', timeout: 180000 });
 await mp.getByRole('heading', { name: 'Console Lab' }).waitFor();
-await mp.getByRole('button', { name: /play/i }).first().click();
-await sleep(1500);
-const toggle = mp.locator('[data-testid="touch-console-toggle"]');
-if ((await toggle.getAttribute('aria-pressed')) !== 'true') await toggle.click();
-await mp
-	.getByRole('button', { name: 'Fullscreen' })
-	.click()
-	.catch(() => {});
-await sleep(1200);
+await sleep(2500);
+/* On a phone the game opens fullscreen; the in-game menu is the only chrome over it. */
+const menuButton = mp.locator('[data-testid="in-game-menu-button"]');
+await menuButton.waitFor({ timeout: 8000 });
+if ((await mp.locator('[data-testid="touch-joystick"]').count()) === 0) {
+	await menuButton.tap();
+	await mp.locator('[data-testid="in-game-menu-console"]').tap();
+	await sleep(1200);
+}
 await shot(mp, '11-mobile-console.png');
-const fsControls = mp.locator('[data-testid="controls-menu-toggle-fs"]');
-await fsControls.waitFor({ timeout: 8000 });
-await fsControls.click();
+await menuButton.tap();
+await mp.locator('[data-testid="in-game-menu-controls"]').tap();
 await sleep(800);
 check(
-	'Controls menu opens from the fullscreen toolbar on a phone',
+	'Controls menu opens from the in-game menu on a phone',
 	(await mp.locator('[data-testid="controls-menu"]').count()) === 1
 );
 await shot(mp, '12-mobile-controls.png');

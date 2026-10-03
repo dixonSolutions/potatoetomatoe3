@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-webkit-tuning"
+description = "Allow the frontend to read and set the Linux WebKitGTK game tunings (full frame rate in power saver, display scale) and to send a game frame its first key press"
+commands.allow = ["full_speed_status", "set_full_speed_setting", "display_scale_status", "lift_game_frame_throttle"]

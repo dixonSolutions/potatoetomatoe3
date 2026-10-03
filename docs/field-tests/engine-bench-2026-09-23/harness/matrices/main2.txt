@@ -1,0 +1,4 @@
+tauri tauri-shipped
+chrome chromium
+tauri tauri-nolowpower LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so
+tauri tauri-tuned GIO_EXTRA_MODULES=@BENCH_DIR@/giomodule GIO_USE_POWER_PROFILE_MONITOR=full-speed WEBKIT_SKIA_ENABLE_CPU_RENDERING=1

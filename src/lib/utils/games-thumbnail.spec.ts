@@ -4,16 +4,14 @@ vi.mock('$app/paths', () => ({ base: '' }));
 
 vi.mock('$lib/utils/offline-downloader-puller', () => ({
 	shouldUsePullerGameProxy: vi.fn(() => true),
-	pullerOfflineAssetUrl: vi.fn(
-		(gameId: string, relPath: string, basePath = '') =>
-			`${basePath}/puller-games/${gameId}/offline/${relPath}`.replace(/\/{2,}/g, '/')
+	pullerOfflineAssetUrl: vi.fn((gameId: string, relPath: string, basePath = '') =>
+		`${basePath}/puller-games/${gameId}/offline/${relPath}`.replace(/\/{2,}/g, '/')
 	)
 }));
 
 vi.mock('$lib/utils/offline-deployment', async () => {
-	const actual = await vi.importActual<typeof import('./offline-deployment')>(
-		'./offline-deployment'
-	);
+	const actual =
+		await vi.importActual<typeof import('./offline-deployment')>('./offline-deployment');
 	return {
 		...actual,
 		shouldProbePullerBackend: vi.fn(() => false),
@@ -21,7 +19,7 @@ vi.mock('$lib/utils/offline-deployment', async () => {
 	};
 });
 
-import { resolveGameThumbnailSrc } from './games';
+import { resolveGameThumbnailSources, resolveGameThumbnailSrc } from './games';
 import { shouldUsePullerGameProxy } from './offline-downloader-puller';
 import { shouldProbePullerBackend } from './offline-deployment';
 
@@ -60,5 +58,49 @@ describe('resolveGameThumbnailSrc offline covers', () => {
 			offlineThumbnailRel: 'blob:http://localhost/abc'
 		});
 		expect(src).toBe('blob:http://localhost/abc');
+	});
+});
+
+describe('resolveGameThumbnailSources', () => {
+	const CRAZY =
+		'https://imgs.crazygames.com/cover?metadata=none&amp;quality=100&amp;width=1200&amp;height=630';
+
+	it('offers resized candidates and keeps the unescaped original as the fallback', () => {
+		const sources = resolveGameThumbnailSources(CRAZY, { gameId: 'demo', boxAspect: 1 });
+		expect(sources.srcset?.split(', ')).toHaveLength(4);
+		expect(new URL(sources.src!).searchParams.get('width')).toBe('384');
+		expect(sources.fallbackSrc).toBe(
+			'https://imgs.crazygames.com/cover?metadata=none&quality=100&width=1200&height=630'
+		);
+	});
+
+	it('uses the original alone for hosts without a resizer', () => {
+		expect(resolveGameThumbnailSources('https://cdn.example/cover.jpg')).toEqual({
+			src: 'https://cdn.example/cover.jpg'
+		});
+	});
+
+	it('requests nothing for missing or known-dead covers', () => {
+		expect(resolveGameThumbnailSources('')).toEqual({ src: null });
+		expect(resolveGameThumbnailSources('/games/x/online/assets/.gitkeep')).toEqual({ src: null });
+		expect(
+			resolveGameThumbnailSources('https://sites.google.com/sitesv-images-rt/ACHe0d2gHlko')
+		).toEqual({ src: null });
+	});
+
+	it('prefers the offline cover and never resizes it', () => {
+		expect(
+			resolveGameThumbnailSources(CRAZY, {
+				gameId: 'demo',
+				preferOffline: true,
+				offlineThumbnailRel: 'assets/thumbnail.png'
+			})
+		).toEqual({ src: '/puller-games/demo/offline/assets/thumbnail.png' });
+	});
+
+	it('serves local catalog covers as they are', () => {
+		expect(resolveGameThumbnailSources('/games/x/online/assets/thumb.png')).toEqual({
+			src: '/games/x/online/assets/thumb.png'
+		});
 	});
 });

@@ -1,0 +1,526 @@
+{
+  "at": "2026-09-23T15:48:02.695Z",
+  "env": {
+    "engine": "tauri-webkitgtk",
+    "variant": "t125-nocap",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/60.5 Safari/605.1.15",
+    "webgl2": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 2.0",
+      "maxTextureSize": 16384
+    },
+    "webgl1": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 1.0",
+      "maxTextureSize": 16384
+    },
+    "devicePixelRatio": 2,
+    "viewport": "1536x881",
+    "screen": "1536x960",
+    "gameBox": "1280x720 CSS px",
+    "hardwareConcurrency": 8,
+    "deviceMemory": null,
+    "crossOriginIsolated": false,
+    "state": {
+      "visibility": "visible",
+      "focus": false,
+      "gameVisibility": null
+    },
+    "options": {
+      "variant": "t125-nocap",
+      "quick": false,
+      "delayMs": 3000,
+      "sampleMs": 8000,
+      "settleMs": 3000,
+      "taps": 60,
+      "latency": false,
+      "consolePhase": false,
+      "unityWarm": false,
+      "wasmCompile": false,
+      "gameOpen": true,
+      "throttleProbe": false,
+      "workloads": [
+        "gl-heavy",
+        "sprites-webgl",
+        "shrek-unity",
+        "sprites-canvas",
+        "gl-light"
+      ]
+    },
+    "query": "?engine=tauri-webkitgtk&variant=collector&auto=1&collector=http://127.0.0.1:18833"
+  },
+  "hostAtStart": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T15:46:57.699Z",
+    "loadavg": [
+      3.34,
+      3.36,
+      3.57
+    ],
+    "cpuBusyPctSinceLastSnapshot": 21.1,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 36115,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "t125-nocap",
+    "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+  },
+  "baseline": {
+    "fps": 31.1,
+    "stalled": false,
+    "frameMs": {
+      "n": 93,
+      "mean": 32.2,
+      "p50": 32,
+      "p95": 33,
+      "p99": 33,
+      "max": 33
+    },
+    "jankOver25ms": 93,
+    "jankOver50ms": 0,
+    "scriptMs": null,
+    "state": {
+      "before": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      },
+      "after": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      }
+    }
+  },
+  "results": [
+    {
+      "workload": "gl-heavy",
+      "label": "Synthetic WebGL 2, GPU-bound",
+      "load": {
+        "htmlLoadedMs": 54,
+        "readyMs": 97,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 8.4,
+          "stalled": false,
+          "frameMs": {
+            "n": 67,
+            "mean": 119.64,
+            "p50": 122,
+            "p95": 220,
+            "p99": 222,
+            "max": 222
+          },
+          "jankOver25ms": 48,
+          "jankOver50ms": 40,
+          "scriptMs": {
+            "n": 68,
+            "mean": 7.76,
+            "p50": 8,
+            "p95": 9,
+            "p99": 10,
+            "max": 10
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T15:47:12.456Z",
+        "loadavg": [
+          2.87,
+          3.26,
+          3.53
+        ],
+        "cpuBusyPctSinceLastSnapshot": 15.2,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 36141,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "t125-nocap",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+      }
+    },
+    {
+      "workload": "sprites-webgl",
+      "label": "WebGL 1 batched sprites, 20000 (Pixi / Phaser 3 / Construct 3 style)",
+      "load": {
+        "htmlLoadedMs": 78,
+        "readyMs": 167,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 46.6,
+          "stalled": false,
+          "frameMs": {
+            "n": 373,
+            "mean": 21.46,
+            "p50": 21,
+            "p95": 32,
+            "p99": 36,
+            "max": 37
+          },
+          "jankOver25ms": 79,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 374,
+            "mean": 3.82,
+            "p50": 4,
+            "p95": 5,
+            "p99": 5,
+            "max": 9
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T15:47:24.231Z",
+        "loadavg": [
+          2.74,
+          3.21,
+          3.51
+        ],
+        "cpuBusyPctSinceLastSnapshot": 14.5,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 36136,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "t125-nocap",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+      }
+    },
+    {
+      "workload": "shrek-unity",
+      "label": "Shrek Escape (Unity WebGL 2, 3D menu scene)",
+      "load": {
+        "htmlLoadedMs": 69,
+        "readyMs": 3394,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 60,
+          "stalled": false,
+          "frameMs": {
+            "n": 480,
+            "mean": 16.66,
+            "p50": 17,
+            "p95": 19,
+            "p99": 19,
+            "max": 28
+          },
+          "jankOver25ms": 1,
+          "jankOver50ms": 0,
+          "scriptMs": null,
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T15:47:39.225Z",
+        "loadavg": [
+          2.94,
+          3.24,
+          3.52
+        ],
+        "cpuBusyPctSinceLastSnapshot": 23,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 34760,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "t125-nocap",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+      }
+    },
+    {
+      "workload": "sprites-canvas",
+      "label": "Canvas 2D, 3000 drawImage sprites + tiles + text (typical 2D catalog game)",
+      "load": {
+        "htmlLoadedMs": 48,
+        "readyMs": 152,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 41.8,
+          "stalled": false,
+          "frameMs": {
+            "n": 335,
+            "mean": 23.93,
+            "p50": 22,
+            "p95": 33,
+            "p99": 40,
+            "max": 58
+          },
+          "jankOver25ms": 85,
+          "jankOver50ms": 1,
+          "scriptMs": {
+            "n": 336,
+            "mean": 7.94,
+            "p50": 7,
+            "p95": 14,
+            "p99": 15,
+            "max": 18
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T15:47:51.034Z",
+        "loadavg": [
+          2.96,
+          3.22,
+          3.51
+        ],
+        "cpuBusyPctSinceLastSnapshot": 19.8,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 35735,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "t125-nocap",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+      }
+    },
+    {
+      "workload": "gl-light",
+      "label": "Synthetic WebGL 2, light (should hold vsync)",
+      "load": {
+        "htmlLoadedMs": 44,
+        "readyMs": 68,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "2556x1436",
+        "css": "1278x718",
+        "gameDpr": 2
+      },
+      "widgets": null,
+      "frames": {
+        "consoleOff": {
+          "fps": 60,
+          "stalled": false,
+          "frameMs": {
+            "n": 480,
+            "mean": 16.66,
+            "p50": 17,
+            "p95": 19,
+            "p99": 20,
+            "max": 27
+          },
+          "jankOver25ms": 1,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 481,
+            "mean": 0.58,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 1
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": null
+      },
+      "latency": null,
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T15:48:02.693Z",
+        "loadavg": [
+          3.2,
+          3.27,
+          3.52
+        ],
+        "cpuBusyPctSinceLastSnapshot": 16.6,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 35717,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "t125-nocap",
+        "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+      }
+    }
+  ],
+  "wasm": null,
+  "hostAtEnd": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T15:48:02.926Z",
+    "loadavg": [
+      3.2,
+      3.27,
+      3.52
+    ],
+    "cpuBusyPctSinceLastSnapshot": 22.3,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 35696,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "t125-nocap",
+    "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+  },
+  "host": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T15:48:03.195Z",
+    "loadavg": [
+      3.2,
+      3.27,
+      3.52
+    ],
+    "cpuBusyPctSinceLastSnapshot": 33.3,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 35554,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "t125-nocap",
+    "benchQuery": "delay=3000&sample=8000&settle=3000&latency=0&console=0&warm=0&wasm=0&gameOpen=1&workloads=gl-heavy,sprites-webgl,shrek-unity,sprites-canvas,gl-light&rep=1"
+  }
+}

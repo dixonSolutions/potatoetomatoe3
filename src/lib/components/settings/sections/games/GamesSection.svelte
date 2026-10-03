@@ -1,8 +1,9 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label/label.svelte';
+	import { onMount } from 'svelte';
+	import { toast } from 'svelte-sonner';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import * as Select from '$lib/components/ui/select';
-	import { sectionMatches } from '$lib/components/settings/search';
+	import { Kbd } from '$lib/components/ui/kbd';
+	import { Switch } from '$lib/components/ui/switch';
 	import {
 		getDefaultGamePlayMode,
 		saveDefaultGamePlayMode,
@@ -16,48 +17,107 @@
 		saveGamePauseShortcut,
 		type GamePauseShortcut
 	} from '$lib/utils/game-pause';
+	import {
+		DEFAULT_GAME_FULLSCREEN_SHORTCUT,
+		formatGameFullscreenShortcutLabel,
+		getGameFullscreenShortcut,
+		isValidGameFullscreenShortcut,
+		saveGameFullscreenShortcut,
+		setGameFullscreenShortcutEnabled,
+		type GameFullscreenShortcut
+	} from '$lib/utils/game-fullscreen';
+	import {
+		DEFAULT_GAME_PLAYER_SETTINGS,
+		getGamePlayerSettings,
+		saveGamePlayerSettings,
+		type GamePlayerSettings,
+		type InGameMenuAccess,
+		type InGameMenuButtonSize,
+		type InGameMenuCorner
+	} from '$lib/utils/game-player-settings';
 	import { isModifierOnlyKeyboardCode } from '$lib/utils/privacy-mode';
 	import {
-		getTrayLifecycleState,
-		setCloseToTrayEnabled,
-		type TrayLifecycleState
-	} from '$lib/utils/desktop-tray';
-	import { isTauriApp } from '$lib/utils/offline-deployment';
-	import { Switch } from '$lib/components/ui/switch';
-	import { toast } from 'svelte-sonner';
-	import { onMount } from 'svelte';
+		displayScaleHint,
+		fetchDisplayScaleStatus,
+		fetchFullSpeedStatus,
+		fullSpeedHint,
+		syncFullSpeedSetting,
+		webkitTuningSupported,
+		type DisplayScaleStatus,
+		type FullSpeedStatus
+	} from '$lib/utils/webkit-tuning';
+	import SettingsAdvanced from '../../shared/SettingsAdvanced.svelte';
+	import SettingsGroup from '../../shared/SettingsGroup.svelte';
+	import SettingsRow from '../../shared/SettingsRow.svelte';
+	import SettingsSelect from '../../shared/SettingsSelect.svelte';
 
-	let {
-		searchQuery,
-		busy = false,
-		defaultPlayMode = $bindable<GamePlayMode>('online')
-	}: {
-		searchQuery: string;
-		busy?: boolean;
-		defaultPlayMode?: GamePlayMode;
-	} = $props();
+	/*
+	 * Playing: how a game opens and what sits over it. Everything here applies at once;
+	 * there is nothing to Save.
+	 */
 
-	const OPTIONS: { value: GamePlayMode; label: string; hint: string }[] = [
-		{
-			value: 'online',
-			label: 'Online',
-			hint: 'Use the online shell or CDN embed when both versions exist.'
-		},
-		{
-			value: 'offline',
-			label: 'Offline',
-			hint: 'Prefer bundled or downloaded copies when available.'
-		}
+	const PLAY_SOURCE_OPTIONS: { value: GamePlayMode; label: string; hint: string }[] = [
+		{ value: 'online', label: 'Online', hint: 'The online copy loads first when both exist.' },
+		{ value: 'offline', label: 'Offline', hint: 'A downloaded or bundled copy loads first.' }
 	];
 
+	const ACCESS_OPTIONS: { value: InGameMenuAccess; label: string; hint: string }[] = [
+		{ value: 'button', label: 'A menu button', hint: 'A small, faint button in a corner.' },
+		{
+			value: 'hover',
+			label: 'Hovering the edge',
+			hint: 'Move the mouse to the edge by the corner. Touch keeps the button.'
+		},
+		{ value: 'both', label: 'Button and hover', hint: 'The button, and the edge opens it too.' }
+	];
+
+	const SIZE_OPTIONS: { value: InGameMenuButtonSize; label: string }[] = [
+		{ value: 'auto', label: 'Auto' },
+		{ value: 'small', label: 'Small' },
+		{ value: 'medium', label: 'Medium' },
+		{ value: 'large', label: 'Large' }
+	];
+
+	const CORNER_OPTIONS: { value: InGameMenuCorner; label: string }[] = [
+		{ value: 'top-left', label: 'Top left' },
+		{ value: 'top-right', label: 'Top right' },
+		{ value: 'bottom-left', label: 'Bottom left' },
+		{ value: 'bottom-right', label: 'Bottom right' }
+	];
+
+	let player = $state<GamePlayerSettings>({ ...DEFAULT_GAME_PLAYER_SETTINGS });
+	let playSource = $state<GamePlayMode>('online');
 	let pauseShortcut = $state<GamePauseShortcut>({ ...DEFAULT_GAME_PAUSE_SHORTCUT });
 	let recordingPauseShortcut = $state(false);
-	let trayLife = $state<TrayLifecycleState | null>(null);
-	let closeToTrayBusy = $state(false);
+	let fullscreenShortcut = $state<GameFullscreenShortcut>({
+		...DEFAULT_GAME_FULLSCREEN_SHORTCUT
+	});
+	let recordingFullscreenShortcut = $state(false);
+	/* Linux desktop app only: WebKitGTK tunings (src-tauri/src/game_frame_tuning.rs). */
+	let tuningSupported = $state(false);
+	let fullSpeedStatus = $state<FullSpeedStatus | null>(null);
+	let displayStatus = $state<DisplayScaleStatus | null>(null);
 
-	function onDefaultChange(value: string | undefined) {
-		if (value !== 'online' && value !== 'offline') return;
-		defaultPlayMode = value;
+	function savePlayer(patch: Partial<GamePlayerSettings>) {
+		player = saveGamePlayerSettings(patch);
+	}
+
+	function onFullSpeedToggle(on: boolean) {
+		savePlayer({ fullSpeedInPowerSaver: on });
+		void syncFullSpeedSetting(on);
+	}
+
+	async function loadTuningStatus() {
+		tuningSupported = await webkitTuningSupported();
+		if (!tuningSupported) return;
+		[fullSpeedStatus, displayStatus] = await Promise.all([
+			fetchFullSpeedStatus(),
+			fetchDisplayScaleStatus()
+		]);
+	}
+
+	function onPlaySourceChange(value: GamePlayMode) {
+		playSource = value;
 		saveDefaultGamePlayMode(value);
 	}
 
@@ -66,179 +126,259 @@
 		toast.message('Pause shortcut reset to `');
 	}
 
-	async function onCloseToTrayToggle(checked: boolean) {
-		closeToTrayBusy = true;
-		try {
-			const next = await setCloseToTrayEnabled(checked);
-			trayLife = {
-				...(trayLife ?? { trayAvailable: false, closeToTray: false }),
-				closeToTray: next
-			};
+	function resetFullscreenShortcut() {
+		fullscreenShortcut = saveGameFullscreenShortcut({ ...DEFAULT_GAME_FULLSCREEN_SHORTCUT });
+		toast.message('Fullscreen shortcut reset to F');
+	}
+
+	function onFullscreenShortcutToggle(on: boolean) {
+		player = { ...player, fullscreenShortcutEnabled: setGameFullscreenShortcutEnabled(on) };
+		recordingFullscreenShortcut = false;
+		if (on && !isValidGameFullscreenShortcut(fullscreenShortcut)) {
+			/* The saved key is taken (pause moved onto it meanwhile): pick another one now. */
+			recordingFullscreenShortcut = true;
 			toast.message(
-				next
-					? 'Closing the window will keep the app in the tray'
-					: 'Closing the window will quit the app'
+				`${formatGameFullscreenShortcutLabel(fullscreenShortcut)} is taken — press a new key`
 			);
-		} finally {
-			closeToTrayBusy = false;
 		}
 	}
 
 	onMount(() => {
+		player = getGamePlayerSettings();
+		playSource = getDefaultGamePlayMode();
 		pauseShortcut = getGamePauseShortcut();
-		if (isTauriApp()) {
-			void getTrayLifecycleState(true).then((s) => {
-				trayLife = s;
-			});
-		}
+		fullscreenShortcut = getGameFullscreenShortcut();
+		void loadTuningStatus();
 	});
 
-	$effect(() => {
-		const next = getDefaultGamePlayMode();
-		if (defaultPlayMode !== next) defaultPlayMode = next;
-	});
-
-	$effect(() => {
-		if (!recordingPauseShortcut) return;
+	/** Capture the next non-modifier key while `recording` is on; Escape cancels. */
+	function recordKey(
+		recording: boolean,
+		stop: () => void,
+		accept: (s: GamePauseShortcut) => void
+	): (() => void) | undefined {
+		if (!recording) return;
 		const onKey = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
-				recordingPauseShortcut = false;
+				stop();
 				return;
 			}
 			e.preventDefault();
 			e.stopPropagation();
 			if (isModifierOnlyKeyboardCode(e.code)) return;
-			const next: GamePauseShortcut = {
+			accept({
 				code: e.code,
 				ctrlKey: e.ctrlKey,
 				shiftKey: e.shiftKey,
 				altKey: e.altKey,
 				metaKey: e.metaKey
-			};
-			if (!isValidGamePauseShortcut(next)) {
-				toast.error('That shortcut is reserved (Ctrl+Shift+, opens settings).');
-				recordingPauseShortcut = false;
-				return;
-			}
-			pauseShortcut = saveGamePauseShortcut(next);
-			recordingPauseShortcut = false;
-			toast.success(`Pause shortcut set to ${formatGamePauseShortcutLabel(next)}`);
+			});
+			stop();
 		};
 		window.addEventListener('keydown', onKey, true);
 		return () => window.removeEventListener('keydown', onKey, true);
-	});
+	}
+
+	$effect(() =>
+		recordKey(
+			recordingPauseShortcut,
+			() => (recordingPauseShortcut = false),
+			(next) => {
+				if (!isValidGamePauseShortcut(next)) {
+					toast.error('That shortcut is reserved (Ctrl+Shift+, opens settings).');
+					return;
+				}
+				pauseShortcut = saveGamePauseShortcut(next);
+				toast.success(`Pause shortcut set to ${formatGamePauseShortcutLabel(next)}`);
+			}
+		)
+	);
+
+	$effect(() =>
+		recordKey(
+			recordingFullscreenShortcut,
+			() => (recordingFullscreenShortcut = false),
+			(next) => {
+				if (!isValidGameFullscreenShortcut(next)) {
+					toast.error('That shortcut is already taken (pause, or Ctrl+Shift+, for settings).');
+					return;
+				}
+				fullscreenShortcut = saveGameFullscreenShortcut(next);
+				toast.success(`Fullscreen shortcut set to ${formatGameFullscreenShortcutLabel(next)}`);
+			}
+		)
+	);
 </script>
 
+{#snippet recorder(opts: {
+	label: string;
+	recording: boolean;
+	onToggle: () => void;
+	resetLabel: string;
+	onReset: () => void;
+})}
+	<Kbd class="h-8 min-w-12 px-2 text-xs">{opts.recording ? 'Press keys…' : opts.label}</Kbd>
+	<Button
+		type="button"
+		variant={opts.recording ? 'secondary' : 'outline'}
+		size="sm"
+		aria-pressed={opts.recording}
+		onclick={opts.onToggle}
+	>
+		{opts.recording ? 'Cancel' : 'Record'}
+	</Button>
+	<Button type="button" variant="ghost" size="sm" onclick={opts.onReset}>{opts.resetLabel}</Button>
+{/snippet}
+
 <div class="space-y-6">
-	{#if sectionMatches(searchQuery, 'game play online offline default version unity download')}
-		<div id="settings-section-games-default-mode" class="scroll-mt-32 space-y-2">
-			<Label>Default play source</Label>
-			<p class="text-xs text-muted-foreground">
-				When a game offers both online and offline copies, which version loads first. You can still
-				switch per game on its detail page.
-			</p>
-			<Select.Root
-				type="single"
-				value={defaultPlayMode}
-				onValueChange={onDefaultChange}
-				disabled={busy}
-			>
-				<Select.Trigger class="w-full">
-					{OPTIONS.find((o) => o.value === defaultPlayMode)?.label ?? 'Choose…'}
-				</Select.Trigger>
-				<Select.Content>
-					{#each OPTIONS as opt}
-						<Select.Item value={opt.value}>{opt.label}</Select.Item>
-					{/each}
-				</Select.Content>
-			</Select.Root>
-			<p class="text-xs text-muted-foreground">
-				{OPTIONS.find((o) => o.value === defaultPlayMode)?.hint ?? ''}
-			</p>
-		</div>
-	{/if}
-
-	{#if sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game')}
-		<div id="settings-section-games-pause-shortcut" class="scroll-mt-32 space-y-3">
-			<div>
-				<p class="text-sm font-medium">Pause / resume shortcut</p>
-				<p class="text-xs text-muted-foreground">
-					While a game is playing, press this key to pause or resume (like the console key in
-					Xonotic). Default is the backtick <span class="font-mono">`</span>. Ignored while typing
-					in a field.
-				</p>
-			</div>
-			<div
-				class="flex flex-wrap items-center gap-2 rounded-md border border-dashed px-3 py-2 text-sm {recordingPauseShortcut
-					? 'border-primary bg-muted/40'
-					: ''}"
-			>
-				<span class="font-mono text-xs tabular-nums">
-					{recordingPauseShortcut
-						? 'Press keys… (or tap Cancel)'
-						: formatGamePauseShortcutLabel(pauseShortcut)}
-				</span>
-			</div>
-			<div class="flex flex-wrap gap-2">
-				<Button
-					type="button"
-					variant={recordingPauseShortcut ? 'secondary' : 'outline'}
-					size="sm"
-					disabled={busy}
-					aria-pressed={recordingPauseShortcut}
-					onclick={() => {
-						recordingPauseShortcut = !recordingPauseShortcut;
-					}}
-				>
-					{recordingPauseShortcut ? 'Cancel' : 'Record shortcut'}
-				</Button>
-				<Button
-					type="button"
-					variant="ghost"
-					size="sm"
-					disabled={busy}
-					onclick={resetPauseShortcut}
-				>
-					Reset to `
-				</Button>
-			</div>
-		</div>
-	{/if}
-
-	{#if trayLife && sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
-		<div
-			id="settings-section-games-close-to-tray"
-			class="flex scroll-mt-32 items-start justify-between gap-4 rounded-md bg-muted/30 p-4"
+	<SettingsGroup>
+		<SettingsRow
+			id="settings-section-games-auto-fullscreen"
+			label="Open games in fullscreen"
+			labelFor="games-auto-fullscreen"
+			hint="Games fill the screen as soon as they start."
+			inline
 		>
-			<div class="min-w-0 space-y-1">
-				<Label for="games-close-to-tray" class="text-sm font-medium"
-					>Keep running in tray when closing</Label
-				>
-				<p class="text-xs text-muted-foreground">
-					{#if !trayLife.trayAvailable}
-						No system tray was detected. Closing the window always quits. On Fedora Silverblue /
-						GNOME, install an AppIndicator extension if you want a tray icon.
-					{:else}
-						When on, closing the window hides to the tray (puller keeps running). When off, close
-						fully quits — recommended on GNOME/Silverblue where tray icons are often invisible. Use <strong
-							>Quit</strong
-						> in the top bar anytime.
-					{/if}
-				</p>
-			</div>
 			<Switch
-				id="games-close-to-tray"
-				checked={trayLife.closeToTray}
-				disabled={busy || closeToTrayBusy || !trayLife.trayAvailable}
-				onCheckedChange={(v) => {
-					void onCloseToTrayToggle(Boolean(v));
-				}}
-				aria-label="Keep running in tray when closing"
+				id="games-auto-fullscreen"
+				checked={player.autoFullscreen}
+				onCheckedChange={(v) => savePlayer({ autoFullscreen: Boolean(v) })}
 			/>
-		</div>
+		</SettingsRow>
+		<SettingsRow
+			id="settings-section-games-menu"
+			label="In-game menu"
+			hint={ACCESS_OPTIONS.find((o) => o.value === player.menuAccess)?.hint}
+		>
+			<SettingsSelect
+				label="Show the in-game menu with"
+				value={player.menuAccess}
+				options={ACCESS_OPTIONS}
+				onValueChange={(v) => savePlayer({ menuAccess: v })}
+			/>
+		</SettingsRow>
+		<SettingsRow
+			id="settings-section-games-default-mode"
+			label="Play source"
+			hint={PLAY_SOURCE_OPTIONS.find((o) => o.value === playSource)?.hint}
+		>
+			<SettingsSelect
+				label="Play source"
+				value={playSource}
+				options={PLAY_SOURCE_OPTIONS}
+				onValueChange={onPlaySourceChange}
+			/>
+		</SettingsRow>
+	</SettingsGroup>
+
+	{#if tuningSupported}
+		<SettingsGroup title="Performance">
+			<SettingsRow
+				id="settings-section-games-full-speed"
+				label="Full frame rate in power saver"
+				labelFor="games-full-speed"
+				hint={fullSpeedHint(player.fullSpeedInPowerSaver, fullSpeedStatus)}
+				inline
+			>
+				<Switch
+					id="games-full-speed"
+					checked={player.fullSpeedInPowerSaver}
+					onCheckedChange={(v) => onFullSpeedToggle(Boolean(v))}
+				/>
+			</SettingsRow>
+		</SettingsGroup>
 	{/if}
 
-	{#if searchQuery.trim() && !sectionMatches(searchQuery, 'game play online offline default version unity download') && !sectionMatches(searchQuery, 'pause resume shortcut backtick hotkey keyboard game') && !sectionMatches(searchQuery, 'tray close quit background gnome silverblue desktop')}
-		<p class="py-6 text-center text-xs text-muted-foreground">No options match your search.</p>
+	<SettingsGroup title="Shortcuts">
+		<SettingsRow
+			id="settings-section-games-pause-shortcut"
+			label="Pause and resume"
+			hint="Works while a game is open, except in a text field."
+		>
+			{@render recorder({
+				label: formatGamePauseShortcutLabel(pauseShortcut),
+				recording: recordingPauseShortcut,
+				onToggle: () => (recordingPauseShortcut = !recordingPauseShortcut),
+				resetLabel: 'Reset to `',
+				onReset: resetPauseShortcut
+			})}
+		</SettingsRow>
+		<SettingsRow
+			id="settings-section-games-fullscreen-shortcut"
+			label="Fullscreen shortcut"
+			labelFor="games-fullscreen-shortcut"
+			hint={player.fullscreenShortcutEnabled
+				? 'Toggles fullscreen while a game is open, except in a text field.'
+				: 'Off by default: many games use F, and the in-game menu does this.'}
+			inline
+		>
+			<Switch
+				id="games-fullscreen-shortcut"
+				checked={player.fullscreenShortcutEnabled}
+				onCheckedChange={(v) => onFullscreenShortcutToggle(Boolean(v))}
+			/>
+			{#snippet below()}
+				{#if player.fullscreenShortcutEnabled}
+					<div class="flex flex-wrap items-center gap-2">
+						{@render recorder({
+							label: formatGameFullscreenShortcutLabel(fullscreenShortcut),
+							recording: recordingFullscreenShortcut,
+							onToggle: () => (recordingFullscreenShortcut = !recordingFullscreenShortcut),
+							resetLabel: 'Reset to F',
+							onReset: resetFullscreenShortcut
+						})}
+					</div>
+				{/if}
+			{/snippet}
+		</SettingsRow>
+	</SettingsGroup>
+
+	<SettingsAdvanced
+		title="Menu button"
+		hint="Size and corner of the in-game menu button."
+		anchors={['settings-section-games-menu-button']}
+	>
+		<SettingsRow
+			id="settings-section-games-menu-button"
+			label="Size"
+			hint="Auto is small with a mouse and medium on touch."
+		>
+			<SettingsSelect
+				label="Menu button size"
+				value={player.menuButtonSize}
+				options={SIZE_OPTIONS}
+				onValueChange={(v) => savePlayer({ menuButtonSize: v })}
+			/>
+		</SettingsRow>
+		<SettingsRow label="Corner" hint="Where the button sits, and where hovering opens the menu.">
+			<SettingsSelect
+				label="Menu corner"
+				value={player.menuCorner}
+				options={CORNER_OPTIONS}
+				onValueChange={(v) => savePlayer({ menuCorner: v })}
+			/>
+		</SettingsRow>
+	</SettingsAdvanced>
+
+	{#if tuningSupported}
+		<SettingsAdvanced
+			title="Game resolution"
+			hint="How games draw on a display with fractional scaling."
+			anchors={['settings-section-games-display-scale']}
+		>
+			<SettingsRow
+				id="settings-section-games-display-scale"
+				label="Render games at your display's scale (faster)"
+				labelFor="games-display-scale"
+				hint={displayScaleHint(displayStatus)}
+				inline
+			>
+				<Switch
+					id="games-display-scale"
+					checked={player.renderAtDisplayScale}
+					onCheckedChange={(v) => savePlayer({ renderAtDisplayScale: Boolean(v) })}
+				/>
+			</SettingsRow>
+		</SettingsAdvanced>
 	{/if}
 </div>

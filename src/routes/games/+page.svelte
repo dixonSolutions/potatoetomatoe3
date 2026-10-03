@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { onMount, untrack } from 'svelte';
+	import { SvelteSet } from 'svelte/reactivity';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
@@ -8,18 +9,26 @@
 		loadCatalogIndex,
 		loadCatalogManifest,
 		loadMoreCatalogShards,
-		resolveGameThumbnailSrc,
 		type CatalogLoadProgress,
 		type GameIndexEntry
 	} from '$lib/utils/games';
+	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
+	import { warmGameLaunch } from '$lib/utils/network-warmup';
 	import { canUseLocalStorage } from '$lib/utils/browser-storage';
+	import {
+		applyQualityFilter,
+		compareByQuality,
+		countHiddenByDefault,
+		readQualityFilterPrefs,
+		writeQualityFilterPrefs
+	} from '$lib/utils/catalog-quality';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
 	import * as Card from '$lib/components/ui/card';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import * as Select from '$lib/components/ui/select';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { Heart, ArrowUpDown, HardDrive } from 'lucide-svelte';
+	import { Heart, ArrowUpDown, HardDrive, Eye, GraduationCap } from 'lucide-svelte';
 	import Fuse from 'fuse.js';
 	import { likeGame, removePreference } from '$lib/utils/preferences';
 	import {
@@ -32,7 +41,8 @@
 	import { WifiOff } from 'lucide-svelte';
 	import { createWindowVirtualizer } from '@tanstack/svelte-virtual';
 
-	type SortKey = 'name' | 'author' | 'category' | 'random';
+	type SortKey = 'quality' | 'name' | 'author' | 'category' | 'random';
+	const SORT_KEYS: SortKey[] = ['quality', 'name', 'author', 'category', 'random'];
 	const BROWSE_SORT_LS = 'potato-tomato-games-browse-sort';
 	const SEARCH_DEBOUNCE_MS = 150;
 	const ROW_ESTIMATE_PX = 360;
@@ -47,7 +57,13 @@
 	let searchQuery = $state('');
 	let debouncedSearch = $state('');
 	let selectedCategory = $state('all');
-	let sortBy = $state<SortKey>('name');
+	let sortBy = $state<SortKey>('quality');
+	/* Shards run best-first when the manifest says so; older indexes were A–Z. */
+	let shardsQualityOrdered = $state(false);
+	/* Tests, templates and games that do not launch stay out unless asked for. */
+	let showAllGames = $state(false);
+	/* Only games whose hosts are not known to be blocked by the NSW DoE filter. */
+	let schoolNetworkOnly = $state(false);
 	let sortReversed = $state(false);
 	let showFavouritesOnly = $state(false);
 	let showDownloadedOnly = $state(false);
@@ -56,17 +72,18 @@
 		{}
 	);
 	let fuse: Fuse<GameIndexEntry> | null = $state(null);
-	let favouriteIds = $state<Set<string>>(new Set());
+	const favouriteIds = new SvelteSet<string>();
 	let columnCount = $state(4);
 
-	function thumbUrl(game: GameIndexEntry) {
-		const status = offlineStatusMap[game.id];
-		const preferOffline = !networkOnline || Boolean(status?.offline);
-		return resolveGameThumbnailSrc(game.thumbnail, {
-			gameId: game.id,
-			preferOffline,
-			offlineThumbnailRel: status?.offlineThumbnail
-		});
+	/*
+	 * CSS width of one card's square image at each breakpoint, matching the grid classes
+	 * below (1/2/3/4 columns in a 1920px-max container).
+	 */
+	const CARD_IMAGE_SIZES =
+		'(min-width: 1920px) 450px, (min-width: 1024px) 24vw, (min-width: 768px) 32vw, (min-width: 640px) 48vw, 94vw';
+
+	function prefersOfflineCover(game: GameIndexEntry): boolean {
+		return !networkOnline || Boolean(offlineStatusMap[game.id]?.offline);
 	}
 
 	function toggleFavourite(gameId: string, event: MouseEvent) {
@@ -80,7 +97,6 @@
 			likeGame(gameId);
 			favouriteIds.add(gameId);
 		}
-		favouriteIds = new Set(favouriteIds);
 	}
 
 	function openGame(gameId: string, event: MouseEvent) {
@@ -109,13 +125,15 @@
 	let selectedSortValue = $derived({
 		value: sortBy,
 		label:
-			sortBy === 'name'
-				? 'Name (A–Z)'
-				: sortBy === 'author'
-					? 'Author'
-					: sortBy === 'category'
-						? 'Category'
-						: 'Shuffle (random)'
+			sortBy === 'quality'
+				? 'Best first'
+				: sortBy === 'name'
+					? 'Name (A–Z)'
+					: sortBy === 'author'
+						? 'Author'
+						: sortBy === 'category'
+							? 'Category'
+							: 'Shuffle (random)'
 	});
 
 	function toggleSortDirection() {
@@ -134,11 +152,22 @@
 		}
 		const u = new URL($page.url.href);
 		u.searchParams.set('sort', v);
-		void goto(`${u.pathname}${u.search}`, { replaceState: true, keepFocus: true, noScroll: true });
-		/* Author / category / shuffle need the full catalog for a correct global order. */
-		if (v !== 'name' && catalogProgress && !catalogProgress.complete) {
+		// eslint-disable-next-line svelte/no-navigation-without-resolve -- resolve() takes no query string; the path part is resolve('/games')
+		void goto(`${resolve('/games')}${u.search}`, {
+			replaceState: true,
+			keepFocus: true,
+			noScroll: true
+		});
+		/* Any order but the shards' own needs the full catalog for a correct global order. */
+		if (v !== 'quality' && catalogProgress && !catalogProgress.complete) {
 			void loadCatalogIndex(applyCatalogUpdate, { eager: true });
 		}
+	}
+
+	function setQualityFilter(next: { showAll?: boolean; schoolNetworkOnly?: boolean }) {
+		if (next.showAll !== undefined) showAllGames = next.showAll;
+		if (next.schoolNetworkOnly !== undefined) schoolNetworkOnly = next.schoolNetworkOnly;
+		writeQualityFilterPrefs({ showAll: showAllGames, schoolNetworkOnly });
 	}
 
 	function rebuildFuse(list: GameIndexEntry[]) {
@@ -213,20 +242,23 @@
 			debouncedSearch = searchQuery;
 			selectedCategory = params.get('category') || 'all';
 			const urlSort = params.get('sort') as SortKey | null;
-			const allowed: SortKey[] = ['name', 'author', 'category', 'random'];
 			const fromLs = canUseLocalStorage()
 				? (localStorage.getItem(BROWSE_SORT_LS) as SortKey | null)
 				: null;
 			sortBy =
-				urlSort && allowed.includes(urlSort)
+				urlSort && SORT_KEYS.includes(urlSort)
 					? urlSort
-					: fromLs && allowed.includes(fromLs)
+					: fromLs && SORT_KEYS.includes(fromLs)
 						? fromLs
-						: 'name';
+						: 'quality';
 			sortReversed = params.get('reversed') === '1';
+			const filterPrefs = readQualityFilterPrefs();
+			showAllGames = params.get('all') === '1' || Boolean(filterPrefs.showAll);
+			schoolNetworkOnly = params.get('school') === '1' || Boolean(filterPrefs.schoolNetworkOnly);
 
 			const prefs = getPreferences();
-			favouriteIds = new Set(prefs.liked);
+			favouriteIds.clear();
+			for (const id of prefs.liked) favouriteIds.add(id);
 
 			void refreshDownloadedStatuses();
 
@@ -235,12 +267,13 @@
 				await loadCatalogIndex(applyCatalogUpdate, { eager: false });
 				const manifest = await loadCatalogManifest();
 				catalogCategories = manifest.categories;
+				shardsQualityOrdered = manifest.order === 'quality';
 				/*
-				 * Global search / non-name sorts need the full index eventually.
+				 * Global search / other sorts need the full index eventually.
 				 * Kick a quiet background fill only when the user already searched
-				 * or picked a sort that is not the default A–Z browse path.
+				 * or picked a sort that is not the default best-first browse path.
 				 */
-				if (searchQuery.trim() || sortBy !== 'name') {
+				if (searchQuery.trim() || sortBy !== 'quality' || !shardsQualityOrdered) {
 					void loadCatalogIndex(applyCatalogUpdate, { eager: true });
 				}
 			} catch (err) {
@@ -276,6 +309,18 @@
 		void loadCatalogIndex(applyCatalogUpdate, { eager: true });
 	});
 
+	/*
+	 * A narrow filter over a partly loaded catalog leaves a handful of rows and nothing to
+	 * scroll, so scroll-driven shard loading never fires. Load the rest instead.
+	 */
+	let fullCatalogRequested = false;
+	$effect(() => {
+		if (!browser || loading || catalogProgress?.complete || fullCatalogRequested) return;
+		if (!schoolNetworkOnly && selectedCategory === 'all') return;
+		fullCatalogRequested = true;
+		void loadCatalogIndex(applyCatalogUpdate, { eager: true });
+	});
+
 	let restrictToDownloaded = $derived(!networkOnline || showDownloadedOnly);
 
 	let filteredGames = $derived.by(() => {
@@ -289,6 +334,15 @@
 			results = filterDownloadedGames(results, offlineStatusMap);
 		}
 
+		/*
+		 * Favourites and downloads are the user's own picks: never hide those as tests or
+		 * broken. The school-network filter still applies when it is on.
+		 */
+		results = applyQualityFilter(results, {
+			showAll: showAllGames || showFavouritesOnly || restrictToDownloaded,
+			schoolNetworkOnly
+		});
+
 		if (debouncedSearch.trim() && fuse) {
 			const searchResults = fuse.search(debouncedSearch);
 			const searchIds = new Set(searchResults.map((r) => r.item.id));
@@ -301,15 +355,21 @@
 			);
 		}
 
-		/* Shards are A–Z — skip a full sort for the default browse path. */
-		if (sortBy === 'name' && !sortReversed) {
+		/* Shards are best-first — skip a full sort for the default browse path. */
+		if (sortBy === 'quality' && !sortReversed && shardsQualityOrdered) {
 			return results;
 		}
 
 		const sorted = [...results];
 		switch (sortBy) {
+			case 'quality':
+				sorted.sort(compareByQuality);
+				if (sortReversed) sorted.reverse();
+				break;
 			case 'name':
-				sorted.sort((a, b) => b.name.localeCompare(a.name));
+				sorted.sort((a, b) =>
+					sortReversed ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+				);
 				break;
 			case 'author':
 				sorted.sort((a, b) =>
@@ -410,6 +470,8 @@
 	});
 
 	let downloadedCount = $derived(filterDownloadedGames(games, offlineStatusMap).length);
+	/* Hidden rows sit at the end of the best-first index, so count them once it has loaded. */
+	let hiddenCount = $derived(catalogProgress?.complete ? countHiddenByDefault(games) : 0);
 	let catalogLoading = $derived(catalogProgress != null && catalogProgress.complete === false);
 </script>
 
@@ -433,17 +495,17 @@
 	<div class="mb-8">
 		<h1 class="mb-4 text-4xl font-bold">All games</h1>
 		<p class="max-w-2xl text-muted-foreground">
-			Full library in A–Z order (or shuffle). The first page appears immediately; more games load as
-			you scroll. Search pulls in the rest of the catalog when you type.
+			Best games first. Development tests and games that no longer load are hidden — use Show all to
+			include them. More games load as you scroll; search pulls in the rest of the catalog.
 		</p>
 	</div>
 
-	<div class="mb-8 flex flex-col gap-4 sm:flex-row">
+	<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
 		<Input
 			type="text"
 			placeholder="Search games..."
 			bind:value={searchQuery}
-			class="w-full sm:flex-1"
+			class="w-full sm:min-w-[14rem] sm:flex-1"
 		/>
 
 		<Button
@@ -458,6 +520,28 @@
 		>
 			<HardDrive class="mr-2 h-4 w-4" />
 			{restrictToDownloaded ? 'Downloaded' : 'Downloaded only'}
+		</Button>
+
+		<Button
+			variant={schoolNetworkOnly ? 'default' : 'outline'}
+			onclick={() => setQualityFilter({ schoolNetworkOnly: !schoolNetworkOnly })}
+			class="w-full sm:w-auto"
+			aria-pressed={schoolNetworkOnly}
+			title="Only games whose sites are not known to be blocked by the NSW Department of Education web filter"
+		>
+			<GraduationCap class="mr-2 h-4 w-4" />
+			School network
+		</Button>
+
+		<Button
+			variant={showAllGames ? 'default' : 'outline'}
+			onclick={() => setQualityFilter({ showAll: !showAllGames })}
+			class="w-full sm:w-auto"
+			aria-pressed={showAllGames}
+			title="Include development tests, templates and games that failed to load"
+		>
+			<Eye class="mr-2 h-4 w-4" />
+			Show all
 		</Button>
 
 		<Button
@@ -480,7 +564,7 @@
 				{selectedCategoryValue.label}
 			</Select.Trigger>
 			<Select.Content>
-				{#each categories as category}
+				{#each categories as category (category)}
 					<Select.Item value={category}>
 						{category === 'all'
 							? 'All Categories'
@@ -495,13 +579,14 @@
 				type="single"
 				value={sortBy}
 				onValueChange={(v) => {
-					if (v === 'name' || v === 'author' || v === 'category' || v === 'random') setSortBy(v);
+					if (SORT_KEYS.includes(v as SortKey)) setSortBy(v as SortKey);
 				}}
 			>
 				<Select.Trigger class="flex-1 sm:w-44">
 					{selectedSortValue.label}
 				</Select.Trigger>
 				<Select.Content>
+					<Select.Item value="quality">Best first</Select.Item>
 					<Select.Item value="name">Name (A–Z)</Select.Item>
 					<Select.Item value="author">Author</Select.Item>
 					<Select.Item value="category">Category</Select.Item>
@@ -534,7 +619,7 @@
 			<p class="text-muted-foreground">
 				{!networkOnline
 					? 'No downloaded games available offline yet'
-					: searchQuery || selectedCategory !== 'all'
+					: searchQuery || selectedCategory !== 'all' || schoolNetworkOnly
 						? 'No games match your filters'
 						: 'No games available yet'}
 			</p>
@@ -547,6 +632,15 @@
 					· catalog {catalogProgress.loadedGames}/{catalogProgress.total}
 				{/if}
 			</span>
+			{#if hiddenCount > 0 && !showAllGames}
+				<button
+					type="button"
+					class="text-xs underline underline-offset-2 hover:text-foreground"
+					onclick={() => setQualityFilter({ showAll: true })}
+				>
+					{hiddenCount} tests and broken games hidden — show all
+				</button>
+			{/if}
 			{#if catalogLoading}
 				<span class="text-xs">Loading catalog…</span>
 			{/if}
@@ -566,20 +660,24 @@
 								<a
 									href={resolve(`/games/${game.id}`)}
 									class="block"
+									data-sveltekit-preload-data="hover"
 									onclick={(e) => openGame(game.id, e)}
+									onpointerenter={() => warmGameLaunch(game.id)}
+									ontouchstart={() => warmGameLaunch(game.id)}
+									onfocus={() => warmGameLaunch(game.id)}
 								>
 									<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
 										<div class="relative aspect-square overflow-hidden bg-muted">
-											<img
-												src={thumbUrl(game)}
+											<GameCardImage
+												thumbnail={game.thumbnail}
+												gameId={game.id}
+												name={game.name}
 												alt={game.name}
-												loading="lazy"
-												decoding="async"
-												class="h-full w-full object-cover transition-transform group-hover:scale-110"
-												onerror={(e) => {
-													(e.currentTarget as HTMLImageElement).src =
-														'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256"%3E%3Crect fill="%23ddd" width="256" height="256"/%3E%3Ctext fill="%23999" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
-												}}
+												sizes={CARD_IMAGE_SIZES}
+												priority={vRow.index === 0}
+												preferOffline={prefersOfflineCover(game)}
+												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
+												class="transition-transform group-hover:scale-110"
 											/>
 											{#if offlineStatusMap[game.id]?.offline}
 												<div

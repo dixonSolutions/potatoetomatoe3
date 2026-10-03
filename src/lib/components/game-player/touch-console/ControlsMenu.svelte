@@ -11,8 +11,12 @@
 	 *
 	 * "All keys" is the full board, for accessibility and for anything detection missed.
 	 * Search filters both by key or by what it does.
+	 *
+	 * Kept quiet on purpose: tabs, search and close share one header row, evidence is a
+	 * coloured dot (named in its tooltip), and keys only the text mentions stay folded
+	 * while the game has confirmed others.
 	 */
-	import { Search, X, Keyboard as KeyboardIcon } from 'lucide-svelte';
+	import { ChevronRight, Search, X, Keyboard as KeyboardIcon } from 'lucide-svelte';
 	import {
 		detectedControls,
 		keyEvidence,
@@ -90,6 +94,11 @@
 
 	let tab = $state<Tab>('detected');
 	let query = $state('');
+	/**
+	 * Keys only the description mentions stay folded while the running game has confirmed
+	 * others: they are guesses, and a long list of guesses buries the keys that matter.
+	 */
+	let showMentioned = $state(false);
 
 	const all = $derived(detectedControls(profile));
 	const typingGame = $derived(keyProfileLooksLikeTyping(profile));
@@ -117,6 +126,8 @@
 	const gameplayCount = $derived(
 		grouped(all.filter((c) => c.kind === 'gameplay' && c.evidence !== 'declared')).length
 	);
+	/* Unfolded when there is nothing else to show, or when searching. */
+	const mentionedOpen = $derived(showMentioned || gameplay.length === 0 || Boolean(query.trim()));
 
 	type Group = {
 		key: string;
@@ -239,7 +250,7 @@
 
 {#snippet row(g: Group, pressable: boolean)}
 	<li
-		class="flex min-h-11 items-center gap-2.5 rounded-xl px-1.5 py-1 hover:bg-accent/60"
+		class="flex min-h-10 items-center gap-2.5 rounded-lg px-1.5 py-0.5 hover:bg-accent/60"
 		data-code={g.codes[0]}
 		data-codes={g.codes.join(' ')}
 	>
@@ -275,11 +286,14 @@
 				{g.purpose || EVIDENCE_FALLBACK[g.evidence]}
 			{/if}
 		</span>
+		<!-- How we know, as a dot: the word on every row was more noise than help. -->
 		<span
-			class="flex shrink-0 items-center gap-1 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
+			class="flex size-4 shrink-0 items-center justify-center"
 			data-evidence={g.evidence}
+			title={EVIDENCE_LABEL[g.evidence]}
 		>
-			<i class="size-2 rounded-full {dot(g.evidence)}"></i>{EVIDENCE_LABEL[g.evidence]}
+			<i class="size-2 rounded-full {dot(g.evidence)}" aria-hidden="true"></i>
+			<span class="sr-only">{EVIDENCE_LABEL[g.evidence]}</span>
 		</span>
 	</li>
 {/snippet}
@@ -323,30 +337,30 @@
 				All keys
 			</button>
 		</div>
+		<!-- Search shares the header row: one line of chrome above the keys, not two. -->
+		<label
+			class="flex h-7 min-w-0 flex-1 items-center gap-1.5 rounded-full border border-input bg-background px-2.5 text-[12px] focus-within:ring-2 focus-within:ring-ring/50"
+		>
+			<Search class="size-3.5 shrink-0 opacity-70" />
+			<input
+				type="search"
+				data-console-control
+				class="min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-muted-foreground"
+				placeholder="Search"
+				aria-label="Search a key or what it does"
+				bind:value={query}
+			/>
+		</label>
 		<button
 			type="button"
 			data-console-control
-			class="ml-auto flex size-7 shrink-0 items-center justify-center rounded-full border border-border bg-muted hover:bg-accent"
+			class="flex size-7 shrink-0 items-center justify-center rounded-full border border-border bg-muted hover:bg-accent"
 			aria-label="Close controls"
 			onclick={onClose}
 		>
 			<X class="size-3.5" />
 		</button>
 	</div>
-
-	<label
-		class="flex h-8 items-center gap-2 rounded-lg border border-input bg-background px-2.5 text-[13px] focus-within:ring-2 focus-within:ring-ring/50"
-	>
-		<Search class="size-3.5 shrink-0 opacity-70" />
-		<input
-			type="search"
-			data-console-control
-			class="min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-muted-foreground"
-			placeholder="Search a key or what it does"
-			aria-label="Search controls"
-			bind:value={query}
-		/>
-	</label>
 
 	{#if !canSend}
 		<p class="px-1 text-[11px] text-amber-700 dark:text-amber-300" role="status">
@@ -378,13 +392,21 @@
 					</ul>
 				{/if}
 				{#if mentioned.length}
-					<p
-						class="mt-2 mb-0.5 px-1.5 text-[10px] font-semibold tracking-wide text-muted-foreground uppercase"
+					<button
+						type="button"
+						data-console-control
+						class="mt-1.5 mb-0.5 flex w-full items-center gap-1 rounded-md px-1.5 py-0.5 text-left text-[10px] font-semibold tracking-wide text-muted-foreground uppercase hover:text-foreground"
 						title="Named in the game’s description or page text, but not seen in the running game"
+						aria-expanded={mentionedOpen}
+						data-testid="controls-mentioned-toggle"
+						onclick={() => (showMentioned = !mentionedOpen)}
 					>
-						Mentioned in text · not confirmed
-					</p>
-					<ul aria-label="Mentioned in text" data-section="mentioned">
+						<ChevronRight
+							class="size-3 shrink-0 transition-transform {mentionedOpen ? 'rotate-90' : ''}"
+						/>
+						Mentioned in text · not confirmed ({mentioned.length})
+					</button>
+					<ul aria-label="Mentioned in text" data-section="mentioned" hidden={!mentionedOpen}>
 						{#each mentioned as g (g.key)}
 							{@render row(g, true)}
 						{/each}

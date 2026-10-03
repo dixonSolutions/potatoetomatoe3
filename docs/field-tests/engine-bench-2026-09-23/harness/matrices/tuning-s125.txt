@@ -1,0 +1,5 @@
+# Implemented tuning at 125 % (1920x1200 virtual monitor, gdctl --scale 1.25), gameOpen=1.
+# shipped: all tuning off; nocap: power saver fixed, no DPR cap; tuned: the shipped default.
+tauri t125-shipped POTATO_TOMATO_FULL_SPEED=0 POTATO_TOMATO_DPR_CAP=0
+tauri t125-nocap POTATO_TOMATO_DPR_CAP=0
+tauri t125-tuned

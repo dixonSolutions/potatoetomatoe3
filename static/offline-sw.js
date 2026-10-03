@@ -116,16 +116,36 @@ function pullerRelayErrorHtml(kind, gameId, reason) {
 		'</title>' +
 		'<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#111;color:#ddd;' +
 		'font:400 0.95rem/1.5 system-ui,sans-serif;padding:1.5rem;text-align:center}' +
-		'code{background:#222;padding:0.15rem 0.4rem;border-radius:4px}</style></head><body>' +
-		'<div><p><strong>Local puller required for touch-enabled play</strong></p>' +
-		'<p>This page relays <code>' +
+		'code{background:#222;padding:0.15rem 0.4rem;border-radius:4px}' +
+		'button{font:inherit;color:inherit;background:#2a2a2a;border:1px solid #444;border-radius:6px;' +
+		'padding:0.4rem 0.9rem;cursor:pointer}button:hover{background:#333}</style></head><body>' +
+		'<div><p><strong>The local game relay is not responding</strong></p>' +
+		'<p>Nothing reached <code>' +
 		pathHint +
-		'</code> to <code>http://127.0.0.1:18787</code> via the service worker.</p>' +
-		'<p>On this machine run:</p><p><code>pnpm puller:start</code></p>' +
+		'</code>. The relay starts on its own — this is usually temporary.</p>' +
+		'<p><button type="button" onclick="location.reload()">Try again</button></p>' +
 		'<p style="opacity:.75;font-size:.85rem">' +
 		safeReason +
 		'</p></div></body></html>'
 	);
+}
+
+/**
+ * The app serves these paths itself — the Vite dev proxy under `pnpm app`, the packaged
+ * app's own relay — and a worker that jumps straight to `http://127.0.0.1:18787` turned
+ * every one of those launches into a cross-origin fetch the WebView refuses, so the game
+ * frame rendered the relay error page instead of the game. Ask the network first and keep
+ * the loopback relay for the deployment with nothing behind these paths (GitHub Pages).
+ */
+function relayNetworkFirst(request, viaPuller) {
+	return fetch(request)
+		.then(function (res) {
+			if (res && res.status < 400) return res;
+			return viaPuller();
+		})
+		.catch(function () {
+			return viaPuller();
+		});
 }
 
 function relayPullerHtml(targetUrl, kind, gameId) {
@@ -504,7 +524,11 @@ self.addEventListener('fetch', function (event) {
 	const unityPlayMatch = pathname.match(/\/api\/unity-play\/([^/]+)\/?$/);
 	if (unityPlayMatch && event.request.method === 'GET') {
 		const gameId = decodeURIComponent(unityPlayMatch[1]);
-		event.respondWith(relayUnityPlay(gameId));
+		event.respondWith(
+			relayNetworkFirst(event.request, function () {
+				return relayUnityPlay(gameId);
+			})
+		);
 		return;
 	}
 
@@ -518,9 +542,11 @@ self.addEventListener('fetch', function (event) {
 			(rest ? '/' + rest : '') +
 			url.search;
 		event.respondWith(
-			rest
-				? relayPullerPassthrough(target, 'live', gameId)
-				: relayPullerHtml(target, 'live', gameId)
+			relayNetworkFirst(event.request, function () {
+				return rest
+					? relayPullerPassthrough(target, 'live', gameId)
+					: relayPullerHtml(target, 'live', gameId);
+			})
 		);
 		return;
 	}

@@ -1,0 +1,6 @@
+launches (logs): 32 results: 32
+module active in web process: 32 wraps: ['dbus']
+unity starts: 64 cold ready ms median 3531.0 range (3268, 8179)
+warm ready ms median 3354.0
+shrek fps median 59.5 range (53, 59.9)
+crash lines: 0

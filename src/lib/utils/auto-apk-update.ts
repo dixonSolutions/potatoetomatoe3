@@ -7,7 +7,7 @@
  *
  * Deliberately quiet on failure: a filtered network, a rate-limited GitHub API, or no
  * release yet are all normal, and none of them are worth interrupting someone mid-game.
- * Failures surface in Settings → Updates, where the user asked for them.
+ * Failures surface in Settings → App, where the user asked for them.
  */
 
 import { toast } from 'svelte-sonner';

@@ -1,0 +1,1177 @@
+{
+  "at": "2026-09-23T12:11:27.569Z",
+  "env": {
+    "engine": "tauri-webkitgtk",
+    "variant": "tauri-tuned",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/60.5 Safari/605.1.15",
+    "webgl2": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 2.0",
+      "maxTextureSize": 16384
+    },
+    "webgl1": {
+      "renderer": "Apple GPU",
+      "vendor": "Apple Inc.",
+      "version": "WebGL 1.0",
+      "maxTextureSize": 16384
+    },
+    "devicePixelRatio": 1,
+    "viewport": "1440x853",
+    "screen": "1920x1080",
+    "gameBox": "1280x720 CSS px",
+    "hardwareConcurrency": 8,
+    "deviceMemory": null,
+    "crossOriginIsolated": false,
+    "state": {
+      "visibility": "visible",
+      "focus": false,
+      "gameVisibility": null
+    },
+    "options": {
+      "variant": "tauri-tuned",
+      "quick": false,
+      "delayMs": 8000,
+      "sampleMs": 10000,
+      "settleMs": 4000,
+      "taps": 40,
+      "latency": true,
+      "consolePhase": true,
+      "unityWarm": true,
+      "wasmCompile": true,
+      "workloads": [
+        "shrek-unity",
+        "sprites-canvas",
+        "sprites-canvas-heavy",
+        "sprites-webgl",
+        "gl-heavy",
+        "gl-light"
+      ]
+    },
+    "query": "?engine=tauri-webkitgtk&variant=collector&auto=1&collector=http://127.0.0.1:18800"
+  },
+  "hostAtStart": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T12:05:50.360Z",
+    "loadavg": [
+      10.28,
+      10.05,
+      10.47
+    ],
+    "cpuBusyPctSinceLastSnapshot": 55.9,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 35773,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "tauri-tuned",
+    "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+  },
+  "baseline": {
+    "fps": 62,
+    "stalled": false,
+    "frameMs": {
+      "n": 185,
+      "mean": 16.14,
+      "p50": 16,
+      "p95": 17,
+      "p99": 18,
+      "max": 18
+    },
+    "jankOver25ms": 0,
+    "jankOver50ms": 0,
+    "scriptMs": null,
+    "state": {
+      "before": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      },
+      "after": {
+        "visibility": "visible",
+        "focus": false,
+        "gameVisibility": "visible"
+      }
+    }
+  },
+  "results": [
+    {
+      "workload": "shrek-unity",
+      "label": "Shrek Escape (Unity WebGL 2, 3D menu scene)",
+      "load": {
+        "htmlLoadedMs": 79,
+        "readyMs": 5004,
+        "warmReadyMs": 4007
+      },
+      "surface": {
+        "backing": "1278x718",
+        "css": "1278x718",
+        "gameDpr": 1
+      },
+      "widgets": {
+        "buttons": 5,
+        "joystick": true
+      },
+      "frames": {
+        "consoleOff": {
+          "fps": 55.2,
+          "stalled": false,
+          "frameMs": {
+            "n": 552,
+            "mean": 18.11,
+            "p50": 17,
+            "p95": 30,
+            "p99": 44,
+            "max": 104
+          },
+          "jankOver25ms": 42,
+          "jankOver50ms": 1,
+          "scriptMs": null,
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": {
+          "fps": 58.7,
+          "stalled": false,
+          "frameMs": {
+            "n": 587,
+            "mean": 17.03,
+            "p50": 17,
+            "p95": 22,
+            "p99": 29,
+            "max": 40
+          },
+          "jankOver25ms": 13,
+          "jankOver50ms": 0,
+          "scriptMs": null,
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        }
+      },
+      "latency": {
+        "button": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.78,
+            "p50": 2,
+            "p95": 2,
+            "p99": 3,
+            "max": 5
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 17.13,
+            "p50": 17,
+            "p95": 21,
+            "p99": 22,
+            "max": 42
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 34.45,
+            "p50": 33,
+            "p95": 39,
+            "p99": 41,
+            "max": 67
+          },
+          "missed": 0
+        },
+        "joystick": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.3,
+            "p50": 1,
+            "p95": 2,
+            "p99": 2,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 17.35,
+            "p50": 16,
+            "p95": 25,
+            "p99": 37,
+            "max": 57
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 35.58,
+            "p50": 32,
+            "p95": 46,
+            "p99": 61,
+            "max": 96
+          },
+          "missed": 0
+        },
+        "bridge": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.43,
+            "p50": 1,
+            "p95": 2,
+            "p99": 2,
+            "max": 4
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 14.25,
+            "p50": 14,
+            "p95": 19,
+            "p99": 22,
+            "max": 28
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 31.9,
+            "p50": 31,
+            "p95": 41,
+            "p99": 48,
+            "max": 53
+          },
+          "missed": 0
+        }
+      },
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T12:07:02.540Z",
+        "loadavg": [
+          14.58,
+          11.47,
+          10.93
+        ],
+        "cpuBusyPctSinceLastSnapshot": 64.8,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 36420,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "tauri-tuned",
+        "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+      }
+    },
+    {
+      "workload": "sprites-canvas",
+      "label": "Canvas 2D, 3000 drawImage sprites + tiles + text (typical 2D catalog game)",
+      "load": {
+        "htmlLoadedMs": 71,
+        "readyMs": 174,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "1278x718",
+        "css": "1278x718",
+        "gameDpr": 1
+      },
+      "widgets": {
+        "buttons": 5,
+        "joystick": true
+      },
+      "frames": {
+        "consoleOff": {
+          "fps": 48.6,
+          "stalled": false,
+          "frameMs": {
+            "n": 486,
+            "mean": 20.58,
+            "p50": 22,
+            "p95": 26,
+            "p99": 29,
+            "max": 35
+          },
+          "jankOver25ms": 35,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 487,
+            "mean": 10.81,
+            "p50": 12,
+            "p95": 14,
+            "p99": 16,
+            "max": 18
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": {
+          "fps": 44.8,
+          "stalled": false,
+          "frameMs": {
+            "n": 448,
+            "mean": 22.34,
+            "p50": 23,
+            "p95": 28,
+            "p99": 31,
+            "max": 50
+          },
+          "jankOver25ms": 119,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 449,
+            "mean": 10.16,
+            "p50": 10,
+            "p95": 14,
+            "p99": 15,
+            "max": 25
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        }
+      },
+      "latency": {
+        "button": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.05,
+            "p50": 1,
+            "p95": 1,
+            "p99": 2,
+            "max": 4
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 17.13,
+            "p50": 17,
+            "p95": 22,
+            "p99": 23,
+            "max": 46
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 43.85,
+            "p50": 45,
+            "p95": 54,
+            "p99": 55,
+            "max": 79
+          },
+          "missed": 0
+        },
+        "joystick": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 0.85,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 16.9,
+            "p50": 17,
+            "p95": 22,
+            "p99": 22,
+            "max": 24
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 42.23,
+            "p50": 42,
+            "p95": 50,
+            "p99": 52,
+            "max": 54
+          },
+          "missed": 0
+        },
+        "bridge": null
+      },
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T12:07:53.784Z",
+        "loadavg": [
+          10.06,
+          10.84,
+          10.75
+        ],
+        "cpuBusyPctSinceLastSnapshot": 41.6,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 37460,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "tauri-tuned",
+        "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+      }
+    },
+    {
+      "workload": "sprites-canvas-heavy",
+      "label": "Canvas 2D, 10000 drawImage sprites (throughput)",
+      "load": {
+        "htmlLoadedMs": 61,
+        "readyMs": 160,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "1278x718",
+        "css": "1278x718",
+        "gameDpr": 1
+      },
+      "widgets": {
+        "buttons": 5,
+        "joystick": true
+      },
+      "frames": {
+        "consoleOff": {
+          "fps": 15.4,
+          "stalled": false,
+          "frameMs": {
+            "n": 155,
+            "mean": 64.74,
+            "p50": 67,
+            "p95": 83,
+            "p99": 89,
+            "max": 95
+          },
+          "jankOver25ms": 155,
+          "jankOver50ms": 127,
+          "scriptMs": {
+            "n": 156,
+            "mean": 35.4,
+            "p50": 38,
+            "p95": 44,
+            "p99": 49,
+            "max": 58
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": {
+          "fps": 15.3,
+          "stalled": false,
+          "frameMs": {
+            "n": 154,
+            "mean": 65.3,
+            "p50": 67,
+            "p95": 84,
+            "p99": 87,
+            "max": 89
+          },
+          "jankOver25ms": 154,
+          "jankOver50ms": 126,
+          "scriptMs": {
+            "n": 155,
+            "mean": 35.21,
+            "p50": 37,
+            "p95": 45,
+            "p99": 49,
+            "max": 49
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        }
+      },
+      "latency": {
+        "button": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.05,
+            "p50": 1,
+            "p95": 1,
+            "p99": 2,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 42.83,
+            "p50": 41,
+            "p95": 57,
+            "p99": 59,
+            "max": 75
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 105.9,
+            "p50": 105,
+            "p95": 132,
+            "p99": 133,
+            "max": 138
+          },
+          "missed": 0
+        },
+        "joystick": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 0.98,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 41.75,
+            "p50": 44,
+            "p95": 51,
+            "p99": 52,
+            "max": 54
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 111,
+            "p50": 115,
+            "p95": 130,
+            "p99": 130,
+            "max": 134
+          },
+          "missed": 0
+        },
+        "bridge": null
+      },
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T12:08:55.328Z",
+        "loadavg": [
+          8.5,
+          10.13,
+          10.51
+        ],
+        "cpuBusyPctSinceLastSnapshot": 45.5,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 37021,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "tauri-tuned",
+        "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+      }
+    },
+    {
+      "workload": "sprites-webgl",
+      "label": "WebGL 1 batched sprites, 20000 (Pixi / Phaser 3 / Construct 3 style)",
+      "load": {
+        "htmlLoadedMs": 65,
+        "readyMs": 162,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "1278x718",
+        "css": "1278x718",
+        "gameDpr": 1
+      },
+      "widgets": {
+        "buttons": 5,
+        "joystick": true
+      },
+      "frames": {
+        "consoleOff": {
+          "fps": 49.6,
+          "stalled": false,
+          "frameMs": {
+            "n": 496,
+            "mean": 20.17,
+            "p50": 18,
+            "p95": 34,
+            "p99": 54,
+            "max": 86
+          },
+          "jankOver25ms": 75,
+          "jankOver50ms": 9,
+          "scriptMs": {
+            "n": 497,
+            "mean": 6.74,
+            "p50": 5,
+            "p95": 17,
+            "p99": 27,
+            "max": 45
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": {
+          "fps": 40.1,
+          "stalled": false,
+          "frameMs": {
+            "n": 401,
+            "mean": 24.92,
+            "p50": 25,
+            "p95": 35,
+            "p99": 39,
+            "max": 59
+          },
+          "jankOver25ms": 187,
+          "jankOver50ms": 1,
+          "scriptMs": {
+            "n": 402,
+            "mean": 4.19,
+            "p50": 4,
+            "p95": 6,
+            "p99": 8,
+            "max": 13
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        }
+      },
+      "latency": {
+        "button": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.48,
+            "p50": 1,
+            "p95": 2,
+            "p99": 4,
+            "max": 8
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 19.75,
+            "p50": 19,
+            "p95": 31,
+            "p99": 33,
+            "max": 38
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 42.55,
+            "p50": 40,
+            "p95": 62,
+            "p99": 65,
+            "max": 78
+          },
+          "missed": 0
+        },
+        "joystick": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 19.15,
+            "p50": 17,
+            "p95": 31,
+            "p99": 35,
+            "max": 59
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 42.3,
+            "p50": 40,
+            "p95": 57,
+            "p99": 72,
+            "max": 83
+          },
+          "missed": 0
+        },
+        "bridge": null
+      },
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T12:09:44.526Z",
+        "loadavg": [
+          14.35,
+          11.57,
+          10.99
+        ],
+        "cpuBusyPctSinceLastSnapshot": 78.3,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 37396,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "tauri-tuned",
+        "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+      }
+    },
+    {
+      "workload": "gl-heavy",
+      "label": "Synthetic WebGL 2, GPU-bound",
+      "load": {
+        "htmlLoadedMs": 63,
+        "readyMs": 97,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "1278x718",
+        "css": "1278x718",
+        "gameDpr": 1
+      },
+      "widgets": {
+        "buttons": 5,
+        "joystick": true
+      },
+      "frames": {
+        "consoleOff": {
+          "fps": 20.3,
+          "stalled": false,
+          "frameMs": {
+            "n": 203,
+            "mean": 49.37,
+            "p50": 50,
+            "p95": 69,
+            "p99": 77,
+            "max": 79
+          },
+          "jankOver25ms": 185,
+          "jankOver50ms": 100,
+          "scriptMs": {
+            "n": 204,
+            "mean": 7.24,
+            "p50": 7,
+            "p95": 9,
+            "p99": 12,
+            "max": 22
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": {
+          "fps": 17.6,
+          "stalled": false,
+          "frameMs": {
+            "n": 176,
+            "mean": 56.8,
+            "p50": 58,
+            "p95": 65,
+            "p99": 82,
+            "max": 88
+          },
+          "jankOver25ms": 170,
+          "jankOver50ms": 157,
+          "scriptMs": {
+            "n": 177,
+            "mean": 6.94,
+            "p50": 7,
+            "p95": 9,
+            "p99": 9,
+            "max": 10
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        }
+      },
+      "latency": {
+        "button": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 0.57,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 40.48,
+            "p50": 40,
+            "p95": 63,
+            "p99": 68,
+            "max": 69
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 94.55,
+            "p50": 98,
+            "p95": 118,
+            "p99": 118,
+            "max": 122
+          },
+          "missed": 0
+        },
+        "joystick": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 0.25,
+            "p50": 0,
+            "p95": 1,
+            "p99": 1,
+            "max": 1
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 33.48,
+            "p50": 26,
+            "p95": 60,
+            "p99": 60,
+            "max": 62
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 90.08,
+            "p50": 87,
+            "p95": 118,
+            "p99": 121,
+            "max": 121
+          },
+          "missed": 0
+        },
+        "bridge": null
+      },
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T12:10:37.648Z",
+        "loadavg": [
+          8.95,
+          10.57,
+          10.68
+        ],
+        "cpuBusyPctSinceLastSnapshot": 38.6,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 37527,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "tauri-tuned",
+        "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+      }
+    },
+    {
+      "workload": "gl-light",
+      "label": "Synthetic WebGL 2, light (should hold vsync)",
+      "load": {
+        "htmlLoadedMs": 53,
+        "readyMs": 77,
+        "warmReadyMs": null
+      },
+      "surface": {
+        "backing": "1278x718",
+        "css": "1278x718",
+        "gameDpr": 1
+      },
+      "widgets": {
+        "buttons": 5,
+        "joystick": true
+      },
+      "frames": {
+        "consoleOff": {
+          "fps": 59.9,
+          "stalled": false,
+          "frameMs": {
+            "n": 599,
+            "mean": 16.69,
+            "p50": 17,
+            "p95": 18,
+            "p99": 20,
+            "max": 35
+          },
+          "jankOver25ms": 2,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 600,
+            "mean": 0.52,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 5
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        },
+        "consoleOn": {
+          "fps": 53.7,
+          "stalled": false,
+          "frameMs": {
+            "n": 538,
+            "mean": 18.61,
+            "p50": 18,
+            "p95": 25,
+            "p99": 27,
+            "max": 46
+          },
+          "jankOver25ms": 19,
+          "jankOver50ms": 0,
+          "scriptMs": {
+            "n": 539,
+            "mean": 0.58,
+            "p50": 1,
+            "p95": 1,
+            "p99": 1,
+            "max": 2
+          },
+          "state": {
+            "before": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            },
+            "after": {
+              "visibility": "visible",
+              "focus": false,
+              "gameVisibility": "visible"
+            }
+          }
+        }
+      },
+      "latency": {
+        "button": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.63,
+            "p50": 2,
+            "p95": 2,
+            "p99": 2,
+            "max": 3
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 12.43,
+            "p50": 12,
+            "p95": 23,
+            "p99": 23,
+            "max": 34
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 30.1,
+            "p50": 31,
+            "p95": 38,
+            "p99": 41,
+            "max": 59
+          },
+          "missed": 0
+        },
+        "joystick": {
+          "dispatchToGameKeydownMs": {
+            "n": 40,
+            "mean": 1.1,
+            "p50": 1,
+            "p95": 2,
+            "p99": 2,
+            "max": 2
+          },
+          "dispatchToNextGameFrameMs": {
+            "n": 40,
+            "mean": 10.48,
+            "p50": 10,
+            "p95": 17,
+            "p99": 18,
+            "max": 21
+          },
+          "dispatchToSecondGameFrameMs": {
+            "n": 40,
+            "mean": 27.65,
+            "p50": 28,
+            "p95": 39,
+            "p99": 39,
+            "max": 40
+          },
+          "missed": 0
+        },
+        "bridge": null
+      },
+      "host": {
+        "power": {
+          "profile": "power-saver",
+          "acOnline": "1",
+          "battery": "100",
+          "batteryStatus": "Full"
+        },
+        "at": "2026-09-23T12:11:25.494Z",
+        "loadavg": [
+          8.44,
+          10.1,
+          10.51
+        ],
+        "cpuBusyPctSinceLastSnapshot": 39.5,
+        "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+        "cpuCount": 14,
+        "memFreeMiB": 37833,
+        "memTotalMiB": 62731,
+        "kernel": "7.0.0-31-generic",
+        "hostname": "eva",
+        "benchTag": "tauri-tuned",
+        "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+      }
+    }
+  ],
+  "wasm": {
+    "fetchMs": 434,
+    "bytes": 32576040,
+    "compile1Ms": 331,
+    "compile2Ms": 302
+  },
+  "hostAtEnd": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T12:11:27.872Z",
+    "loadavg": [
+      8.44,
+      10.1,
+      10.51
+    ],
+    "cpuBusyPctSinceLastSnapshot": 48.2,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 37451,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "tauri-tuned",
+    "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+  },
+  "host": {
+    "power": {
+      "profile": "power-saver",
+      "acOnline": "1",
+      "battery": "100",
+      "batteryStatus": "Full"
+    },
+    "at": "2026-09-23T12:11:28.221Z",
+    "loadavg": [
+      8.17,
+      10.02,
+      10.48
+    ],
+    "cpuBusyPctSinceLastSnapshot": 42.8,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "cpuCount": 14,
+    "memFreeMiB": 37472,
+    "memTotalMiB": 62731,
+    "kernel": "7.0.0-31-generic",
+    "hostname": "eva",
+    "benchTag": "tauri-tuned",
+    "benchQuery": "delay=8000&sample=10000&settle=4000&taps=40&rep=2"
+  }
+}

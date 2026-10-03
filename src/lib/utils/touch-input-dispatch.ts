@@ -4,6 +4,7 @@
  */
 
 import type { TouchDirection, TouchKeyCode } from '$lib/utils/touch-console';
+import { nativeGameFramesActive } from '$lib/utils/native-game-frames';
 
 /**
  * Cross-platform touch-first heuristic. Browsers do not expose physical
@@ -257,9 +258,13 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
  * The injected script sets this marker in every frame, including this one, so its presence
  * here means it is present in the game frame as well. See
  * `src-tauri/gen/android/app/src/main/res/raw/native_touch_bridge.js`.
+ *
+ * The Linux desktop app does the same with a WebKitGTK user script, installed per launch
+ * and never in the app's own document (`native-game-frames.ts`).
  */
 export function hasNativeFrameBridge(): boolean {
 	if (typeof window === 'undefined') return false;
+	if (nativeGameFramesActive()) return true;
 	return Boolean((window as unknown as { __ptNativeBridge?: unknown }).__ptNativeBridge);
 }
 

@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 /**
- * Rebuild games-index shards from existing shard JSON (no full catalog scan).
- * Sorts A–Z so All Games can lazy-load pages as you scroll.
+ * Rebuild games-index shards from existing shard JSON (no full catalog scan), re-applying
+ * the latest scripts/data/catalog-quality.json and sorting best-first, so the first shard
+ * All Games and Home load is the top of the catalog.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+	INDEX_ORDER,
+	compareLeanEntries,
+	loadQualityMap,
+	toLeanEntry
+} from './catalog-quality/index-entry.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const indexDir = path.join(root, 'static/games/games-index');
@@ -18,6 +25,7 @@ if (!fs.existsSync(manifestPath)) {
 }
 
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const quality = loadQualityMap();
 const lean = [];
 for (let i = 0; i < manifest.shardCount; i++) {
 	const shardPath = path.join(indexDir, `shard-${String(i).padStart(3, '0')}.json`);
@@ -26,14 +34,18 @@ for (let i = 0; i < manifest.shardCount; i++) {
 		process.exit(1);
 	}
 	const shard = JSON.parse(fs.readFileSync(shardPath, 'utf8'));
-	if (Array.isArray(shard)) lean.push(...shard);
+	if (Array.isArray(shard)) {
+		for (const entry of shard) {
+			/* Drop stale scores first: a game the classifier no longer lists must not keep one. */
+			const rest = { ...entry };
+			delete rest.q;
+			delete rest.d;
+			lean.push(toLeanEntry(rest, quality.get(entry.id)));
+		}
+	}
 }
 
-lean.sort(
-	(a, b) =>
-		String(a.name ?? '').localeCompare(String(b.name ?? ''), undefined, { sensitivity: 'base' }) ||
-		String(a.id ?? '').localeCompare(String(b.id ?? ''))
-);
+lean.sort(compareLeanEntries);
 
 const categories = [...new Set(lean.map((g) => g.category).filter(Boolean))].sort((a, b) =>
 	a.localeCompare(b)
@@ -56,6 +68,7 @@ for (let i = shardCount; i < manifest.shardCount; i++) {
 
 const next = {
 	version: 1,
+	order: INDEX_ORDER,
 	total: lean.length,
 	shardSize: INDEX_SHARD_SIZE,
 	shardCount,
@@ -63,5 +76,5 @@ const next = {
 };
 fs.writeFileSync(manifestPath, JSON.stringify(next));
 console.log(
-	`Reindexed ${lean.length} games into ${shardCount} A–Z shards (${INDEX_SHARD_SIZE}/shard)`
+	`Reindexed ${lean.length} games into ${shardCount} best-first shards (${INDEX_SHARD_SIZE}/shard)`
 );

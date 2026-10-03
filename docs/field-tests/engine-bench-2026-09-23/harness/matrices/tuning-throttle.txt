@@ -1,0 +1,4 @@
+# Implemented tuning: the cross-origin frame throttle, query throttle=1&gameOpen=1. First-input
+# key off (env override) and on (the shipped default).
+tauri t-fi-off POTATO_TOMATO_FIRST_INPUT=0
+tauri t-fi-on

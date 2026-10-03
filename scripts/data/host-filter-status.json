@@ -1,0 +1,2488 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-23T09:48:49.938Z",
+  "method": "Per-host NSW DoE filter status from on-network measurements, then same-site and category reasoning. See docs/nsw-doe-filtering.md.",
+  "legend": {
+    "blocked": "Measured blocked on a DoE network.",
+    "likely-blocked": "Same site as a measured block, or a category DoE blocks for students.",
+    "likely-allowed": "Measured reachable on a DoE network, or a service DoE itself uses.",
+    "unknown": "No evidence either way."
+  },
+  "sources": {
+    "measured": {
+      "title": "docs/game-launch-quality.md — probes and launches on a NSW DoE network, 2026-08-10",
+      "url": "docs/game-launch-quality.md"
+    },
+    "doeWebFiltering2021": {
+      "title": "NSW DoE staff \"Web filtering\" how-to page (last updated 09-Mar-2021), released under GIPA",
+      "url": "https://www.righttoknow.org.au/request/7353/response/21020/attach/4/r%20Web%20Page%20for%20release.pdf?cookie_passthrough=1"
+    },
+    "tnfs2013": {
+      "title": "DoE Technology News for Schools (2013): uncategorised sites blocked for students",
+      "url": "https://schoolsequella.det.nsw.edu.au/file/e659394c-b7b1-4f5e-8cbf-887d555538cc/1/TNFS01-11PDF.zip/TNFS03.pdf"
+    },
+    "googleWorkspace": {
+      "title": "DoE provides Google Workspace; schools publish on sites.google.com/education.nsw.gov.au",
+      "url": "https://education.nsw.gov.au/technology/products-and-services/software/googleworkspace"
+    }
+  },
+  "gameCountsByStatus": {
+    "blocked": 7633,
+    "likely-allowed": 8683,
+    "likely-blocked": 1109,
+    "unknown": 203
+  },
+  "hosts": {
+    "games.crazygames.com": {
+      "status": "blocked",
+      "evidence": "Returned the \"NSW DoE Secure Internet at Edge\" 403 block page on a DoE network.",
+      "source": "measured",
+      "games": 4215,
+      "portals": {
+        "crazygames": 4215
+      },
+      "roles": {
+        "embed": 4215
+      }
+    },
+    "cdn.play.unity.com": {
+      "status": "likely-allowed",
+      "evidence": "Reachable on a DoE network; 20/20 sampled Unity Play games launched there.",
+      "source": "measured",
+      "games": 3772,
+      "portals": {
+        "unity-play": 3772
+      },
+      "roles": {
+        "assets": 3772
+      }
+    },
+    "play.unity.com": {
+      "status": "likely-allowed",
+      "evidence": "Reachable on a DoE network; 20/20 sampled Unity Play games launched there.",
+      "source": "measured",
+      "games": 3772,
+      "portals": {
+        "unity-play": 3772
+      },
+      "roles": {
+        "embed": 3772
+      }
+    },
+    "app-*.games.s3.yandex.net": {
+      "status": "blocked",
+      "evidence": "Returned the \"NSW DoE Secure Internet at Edge\" 403 block page on a DoE network.",
+      "source": "measured",
+      "games": 2401,
+      "portals": {
+        "playhop": 2401
+      },
+      "roles": {
+        "embed": 2401
+      }
+    },
+    "fnf-games.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 635,
+      "portals": {
+        "fnf-games": 635
+      },
+      "roles": {
+        "embed": 635
+      }
+    },
+    "cdn2.addictinggames.com": {
+      "status": "blocked",
+      "evidence": "Returned the \"NSW DoE Secure Internet at Edge\" 403 block page on a DoE network.",
+      "source": "measured",
+      "games": 612,
+      "portals": {
+        "addictinggames": 612
+      },
+      "roles": {
+        "embed": 612
+      }
+    },
+    "abinbins.github.io": {
+      "status": "likely-allowed",
+      "evidence": "Reachable on a DoE network (measured). Other github.io sites are categorised separately.",
+      "source": "measured",
+      "games": 408,
+      "portals": {
+        "local": 408
+      },
+      "roles": {
+        "shell-iframe": 408
+      }
+    },
+    "www.coolmathgames.com": {
+      "status": "blocked",
+      "evidence": "Returned the \"NSW DoE Secure Internet at Edge\" 403 block page on a DoE network.",
+      "source": "measured",
+      "games": 405,
+      "portals": {
+        "coolmath": 405
+      },
+      "roles": {
+        "embed": 405
+      }
+    },
+    "cdn.jsdelivr.net": {
+      "status": "likely-allowed",
+      "evidence": "Reachable on a DoE network; 20/20 sampled Drive U 7 games (jsDelivr content) launched there via the relay.",
+      "source": "measured",
+      "games": 400,
+      "portals": {
+        "drive-u-7": 400
+      },
+      "roles": {
+        "gadget": 185,
+        "embed": 215
+      }
+    },
+    "prod.addictinggames.com": {
+      "status": "likely-blocked",
+      "evidence": "Same site as cdn2.addictinggames.com, which is blocked.",
+      "source": "measured",
+      "games": 341,
+      "portals": {
+        "addictinggames": 341
+      },
+      "roles": {
+        "embed": 341
+      }
+    },
+    "sites.google.com": {
+      "status": "likely-allowed",
+      "evidence": "DoE schools publish on sites.google.com and Drive U 7 pages were fetched there; a single Google Site can still be categorised on its own.",
+      "source": "googleWorkspace",
+      "games": 331,
+      "portals": {
+        "drive-u-7": 331
+      },
+      "roles": {
+        "embed": 331
+      }
+    },
+    "let3r45jj02l930rzh903me09f3g9lhh5fz66play356hhjz30.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 73,
+      "portals": {
+        "local": 73
+      },
+      "roles": {
+        "shell-iframe": 73
+      }
+    },
+    "cdn.mathgames.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 40,
+      "portals": {
+        "addictinggames": 40
+      },
+      "roles": {
+        "embed": 40
+      }
+    },
+    "www.playgeography.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 15,
+      "portals": {
+        "addictinggames": 15
+      },
+      "roles": {
+        "embed": 15
+      }
+    },
+    "foony.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 5,
+      "portals": {
+        "addictinggames": 5
+      },
+      "roles": {
+        "embed": 5
+      }
+    },
+    "html5.gamedistribution.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 4,
+      "portals": {
+        "addictinggames": 4
+      },
+      "roles": {
+        "embed": 4
+      }
+    },
+    "content.shockwave.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 3,
+      "portals": {
+        "addictinggames": 3
+      },
+      "roles": {
+        "embed": 3
+      }
+    },
+    "html-classic.itch.zone": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 3,
+      "portals": {
+        "addictinggames": 3
+      },
+      "roles": {
+        "embed": 3
+      }
+    },
+    "indie.fun": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 3,
+      "portals": {
+        "addictinggames": 3
+      },
+      "roles": {
+        "redirect": 3
+      }
+    },
+    "playhop.com": {
+      "status": "likely-blocked",
+      "evidence": "Yandex Games / Playhop; its game hosts are blocked.",
+      "source": "measured",
+      "games": 3,
+      "portals": {
+        "playhop": 3
+      },
+      "roles": {
+        "embed": 3
+      }
+    },
+    "www.modd.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 3,
+      "portals": {
+        "addictinggames": 3
+      },
+      "roles": {
+        "embed": 3
+      }
+    },
+    "www.rebubbled.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 3,
+      "portals": {
+        "addictinggames": 3
+      },
+      "roles": {
+        "embed": 3
+      }
+    },
+    "addictinggames.gameskite.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 2,
+      "portals": {
+        "addictinggames": 2
+      },
+      "roles": {
+        "embed": 2
+      }
+    },
+    "games.gamepix.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 2,
+      "portals": {
+        "addictinggames": 2
+      },
+      "roles": {
+        "embed": 2
+      }
+    },
+    "play.gamepix.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 2,
+      "portals": {
+        "addictinggames": 2
+      },
+      "roles": {
+        "redirect": 2
+      }
+    },
+    "www.innogames.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 2,
+      "portals": {
+        "addictinggames": 2
+      },
+      "roles": {
+        "redirect": 2
+      }
+    },
+    "www.resagit.in": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 2,
+      "portals": {
+        "addictinggames": 2
+      },
+      "roles": {
+        "redirect": 2
+      }
+    },
+    "1v1-lol-online.github.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "local": 1
+      },
+      "roles": {
+        "shell-iframe": 1
+      }
+    },
+    "3wayint.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "a.imperialhero.org": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "a.imperiaonline.org": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ad.doubleclick.net": {
+      "status": "likely-blocked",
+      "evidence": "Gambling or ad-serving host; both categories are routinely blocked for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ad.sfgame.net": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "airoyale007.github.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "local": 1
+      },
+      "roles": {
+        "shell-iframe": 1
+      }
+    },
+    "amt-storage.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "apps.apple.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "battleclub.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "battledudes.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "bighole.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "brickbreaker.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "bubbits.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "buildroyale.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "cardlike.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "chemz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "chessarena.gg": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "chessarena.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "clanker.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "clashball.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "combines.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "craftnite.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "craftz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "crowdedcity.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "cwl.proclive.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "cyberbrawl.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "deadshot.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "diep.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "domains.atom.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "ducklings.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "embed.yorg3.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "eparkour.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ev.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "expireddomains.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "exploder.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "facebook.foxfilm.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ferge.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "findcat.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "fite.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "gameknot.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "gifthunter2.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "gogh-strike.surge.sh": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "github": 1
+      },
+      "roles": {
+        "shell-iframe": 1
+      }
+    },
+    "gunzer.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "heroesofglory-center.shinezone.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "hextank.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "hexwars.net": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "html5.gamemonetize.co": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "html5.gamemonetize.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "hury.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "iframe.herozerogame.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "impostor.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "inklink.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "io.gamemonetize.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "iog.schoolbreak.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "iogames.space": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "julgames.freezenova.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "junon.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "karting.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "keymash.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "khanwars.onelink.me": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "kirka.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "kize.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "kour.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "krew.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ladypopular.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "ladypopular.onelink.me": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "laserz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "leagueofpixels.eu": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "litemint.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "littlebigsnake.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "lordz2.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "lp.empireww3.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "lurkers.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "manablade.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "merc.zone": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "minigolfclub.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "minipoly.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "mobsmash.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "moomoo.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "mope.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "neoinvade.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "oceanbound.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "om.elvenar.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "om.forgeofempires.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "overeasy.club": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "local": 1
+      },
+      "roles": {
+        "shell-iframe": 1
+      }
+    },
+    "parkour.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "petz.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "phrasicle.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "play.bruh.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "play.diebrary.rip": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "play.mars-tomorrow.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "play.typeracer.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "playgama.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "playhex.online": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "pounce.sh": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "pung.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "pvpz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "randass.surge.sh": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "relmz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "richup.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "royaledudes.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "s3.eponesh.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "playhop": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "sandstrike.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "searide.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "shellshock.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "shotwars.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "skillfite.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "slay.one": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "slayerz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "slush.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "smartle-addictinggames.web.app": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "space.game": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "speedboats.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "squadd.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "stabfish2.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "suroi.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "taming.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tanked.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tankroyale.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tetrads.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tgw.onelink.me": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tinytanks.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tochki.online": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "towerz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "traitors.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "triset.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tuggowar.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "turrets.easel.games": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "tyran.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "unfairmazes.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "venge.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "voxiom.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "warbrokers.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "warz.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "worldofkarts.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ww2.game": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "ww38.petz.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "ww38.speedboats.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "ww38.warz.lol": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.addictinggames.com": {
+      "status": "likely-blocked",
+      "evidence": "Same site as cdn2.addictinggames.com, which is blocked.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.battlestick2.net": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.bulletleague.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.callofwar.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.casinoworld.com": {
+      "status": "likely-blocked",
+      "evidence": "Gambling or ad-serving host; both categories are routinely blocked for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.conflictnations.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.dragonawaken.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.dreamworks.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.eternalfury.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.familiars.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.fieldsoffury.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.flyingstart.co": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.gamehollywood.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.imperiaonline.org": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.julgames.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.khanwars.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.kixeye.com": {
+      "status": "likely-blocked",
+      "evidence": "A games portal or browser-game publisher; the Games category is staff-only for students.",
+      "source": "doeWebFiltering2021",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.littlewargame.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.multicave.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.obumogames.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.onlinegames.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "www.schoolofdragons.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.supremacy1914.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www.venge.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "www4.imperialhero.org": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "xembongdaxoilactvg.tv": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "yorg3.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "yp3d.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "zairuc.com": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "redirect": 1
+      }
+    },
+    "zapper.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    },
+    "zombusterz.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 1,
+      "portals": {
+        "addictinggames": 1
+      },
+      "roles": {
+        "embed": 1
+      }
+    }
+  },
+  "thumbnailHosts": {
+    "play.unity.com": {
+      "status": "likely-allowed",
+      "evidence": "Reachable on a DoE network; 20/20 sampled Unity Play games launched there.",
+      "source": "measured",
+      "games": 3772,
+      "portals": {
+        "unity-play": 3772
+      },
+      "roles": {
+        "thumbnail": 3772
+      }
+    },
+    "imgs.crazygames.com": {
+      "status": "likely-blocked",
+      "evidence": "Same site as games.crazygames.com, which is blocked.",
+      "source": "measured",
+      "games": 3218,
+      "portals": {
+        "crazygames": 3218
+      },
+      "roles": {
+        "thumbnail": 3218
+      }
+    },
+    "avatars.mds.yandex.net": {
+      "status": "unknown",
+      "evidence": "No measurement and no category evidence. The vendor lookups need a CAPTCHA; DoE blocks uncategorised sites for students, so a small or new host may well be blocked.",
+      "source": "tnfs2013",
+      "games": 2403,
+      "portals": {
+        "playhop": 2403
+      },
+      "roles": {
+        "thumbnail": 2403
+      }
+    },
+    "prod.addictinggames.com": {
+      "status": "likely-blocked",
+      "evidence": "Same site as cdn2.addictinggames.com, which is blocked.",
+      "source": "measured",
+      "games": 1175,
+      "portals": {
+        "addictinggames": 1175
+      },
+      "roles": {
+        "thumbnail": 1175
+      }
+    },
+    "fnf-games.io": {
+      "status": "likely-blocked",
+      "evidence": "A .io browser game; most .io game domains were blocked on a DoE network and Games is a staff-only category.",
+      "source": "measured",
+      "games": 635,
+      "portals": {
+        "fnf-games": 635
+      },
+      "roles": {
+        "thumbnail": 635
+      }
+    },
+    "sites.google.com": {
+      "status": "likely-allowed",
+      "evidence": "DoE schools publish on sites.google.com and Drive U 7 pages were fetched there; a single Google Site can still be categorised on its own.",
+      "source": "googleWorkspace",
+      "games": 546,
+      "portals": {
+        "drive-u-7": 546
+      },
+      "roles": {
+        "thumbnail": 546
+      }
+    }
+  }
+}

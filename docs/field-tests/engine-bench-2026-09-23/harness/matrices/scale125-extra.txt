@@ -1,0 +1,2 @@
+wk s125-wk-tuned-dprcap LD_PRELOAD=@BENCH_DIR@/shim/no-power-saver.so WEBKIT_SKIA_ENABLE_CPU_RENDERING=1 -- --dpr-cap 1.25
+chrome s125-chromium

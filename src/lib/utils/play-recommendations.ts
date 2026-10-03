@@ -8,7 +8,6 @@
 import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import type { GameIndexEntry, GameMetadata } from '$lib/utils/games';
 import type { GamePreferences } from '$lib/utils/preferences';
-import Fuse from 'fuse.js';
 import { cpuMatMulVec, scoreWithTensorFlow } from '$lib/utils/recommendation-tf';
 
 const STORAGE_KEY = 'potato-tomato-play-analytics';
@@ -560,6 +559,61 @@ export async function getHomeRecommendationsAsync(
 	return combined.slice(0, limit).map((s) => s.game);
 }
 
+/**
+ * Words that say nothing about what a game is: portal suffixes the importers left in names
+ * ("… 🕹️ Play on CrazyGames") and filler every title shares.
+ */
+const SIMILARITY_STOP_WORDS = new Set([
+	'the',
+	'and',
+	'for',
+	'play',
+	'online',
+	'game',
+	'games',
+	'crazygames',
+	'unblocked',
+	'free'
+]);
+
+function nameTokens(name: string): Set<string> {
+	const out = new Set<string>();
+	for (const word of name.toLowerCase().split(/[^\p{L}\p{N}]+/u)) {
+		if (word.length >= 3 && !SIMILARITY_STOP_WORDS.has(word)) out.add(word);
+	}
+	return out;
+}
+
+export type SimilarityProfile = { category: string; author: string; tokens: Set<string> };
+
+export function similarityProfile(game: RecommendableGame): SimilarityProfile {
+	return { category: game.category, author: game.author, tokens: nameTokens(game.name) };
+}
+
+/**
+ * How alike two games look from their catalog row alone, 0..1: same category, shared
+ * words in the name, same author — weighted as the fuzzy search it replaces was.
+ *
+ * That search (Fuse over every row, keyed on category/name/author) ran synchronously on
+ * the player page and took 2.5 s on a fast desktop for the 13.6k-game catalog — measured
+ * as one long task starting right after a card click, which held the Play button (and
+ * with it the game) until it finished. A school laptop is several times slower. This is
+ * one pass of set lookups, a few milliseconds for the whole catalog.
+ */
+export function gameSimilarity(profile: SimilarityProfile, game: RecommendableGame): number {
+	let score = 0;
+	if (game.category && game.category === profile.category) score += 0.45;
+	if (game.author && game.author === profile.author) score += 0.2;
+	if (profile.tokens.size > 0) {
+		const other = nameTokens(game.name);
+		let shared = 0;
+		for (const token of other) if (profile.tokens.has(token)) shared++;
+		const union = profile.tokens.size + other.size - shared;
+		if (union > 0) score += 0.35 * (shared / union);
+	}
+	return score;
+}
+
 export function getRecommendationsForGamePage(
 	allGames: RecommendableGame[],
 	current: RecommendableGame,
@@ -583,21 +637,7 @@ export function getRecommendationsForGamePage(
 	const authNorm = normalizeWeights(analytics.authorWeights);
 	const likedAuthors = likedAuthorHints(prefs, byId);
 
-	const fuse = new Fuse(allGames, {
-		keys: [
-			{ name: 'category', weight: 0.45 },
-			{ name: 'name', weight: 0.35 },
-			{ name: 'author', weight: 0.2 }
-		],
-		threshold: 0.42,
-		includeScore: true
-	});
-	const query = `${current.category} ${current.name}`;
-	const fuseHits = fuse.search(query);
-	const fuseScoreById = new Map<string, number>();
-	for (const r of fuseHits) {
-		fuseScoreById.set(r.item.id, 1 - (r.score ?? 0));
-	}
+	const similarTo = similarityProfile(current);
 
 	const pool = selectRecommendCandidates(
 		allGames.filter((g) => g.id !== currentId),
@@ -614,7 +654,7 @@ export function getRecommendationsForGamePage(
 		let score = 1.8 * (catNorm[game.category] ?? 0);
 		score += 0.9 * (authNorm[game.author] ?? 0);
 		if (likedAuthors.has(game.author)) score += 0.22;
-		score += 0.55 * (fuseScoreById.get(game.id) ?? 0);
+		score += 0.55 * gameSimilarity(similarTo, game);
 
 		if (prefs.disliked.some((id) => byId.get(id)?.author === game.author)) {
 			score -= 0.25;

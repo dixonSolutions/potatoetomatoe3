@@ -38,7 +38,7 @@
 		resolveInjectable,
 		isTouchOnlyDevice
 	} from '$lib/utils/touch-input-dispatch';
-	import { isLocalAppDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
+	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 
 	let {
@@ -183,9 +183,6 @@
 			? config.mapping.directions
 			: directionsForJoystickScheme(effectiveScheme)
 	);
-
-	/** False on Tauri mobile, which ships no sidecar — so hints must not mention one. */
-	const pullerSupported = $derived(shouldProbePullerBackend());
 
 	const orientation = $derived<TouchOrientation>(isPortrait ? 'portrait' : 'landscape');
 	const layout = $derived(layoutDraft ?? config.layout);
@@ -747,7 +744,7 @@
 						return;
 					}
 				} catch {
-					/* Cross-origin puller frame: load may have already fired before this effect. */
+					/* Cross-origin game frame: load may have already fired before this effect. */
 					const src = frame.getAttribute('src') || frame.src || '';
 					if (src && src !== 'about:blank' && frame.contentWindow) markLoaded();
 				}
@@ -858,9 +855,7 @@
 				onpointerdown={keepGameFocused}
 			>
 				<span class="mb-1 block font-medium text-emerald-400">Console enabled</span>
-				{pullerSupported
-					? 'Waiting for the puller-proxied game frame (or offline mirror) so controls can inject…'
-					: 'Waiting for the game frame so controls can inject…'}
+				Waiting for the game frame so controls can inject…
 			</div>
 		{:else if showBlockedHint || unavailableHint}
 			<div
@@ -868,17 +863,9 @@
 				role="status"
 			>
 				<span class="mb-1 block font-medium text-amber-400">Console blocked</span>
-				{#if pullerSupported}
-					Online play needs the puller proxy; offline play needs a downloaded mirror. Raw
-					third-party embeds cannot receive controls.
-				{:else}
-					<!--
-						No sidecar on this platform, so there is no proxy to escalate to. Say what the user
-						can actually do instead of naming a process they cannot start.
-					-->
-					This game runs on a third-party site, which will not accept injected controls. Touch the game
-					directly, or download it for offline play to use the console.
-				{/if}
+				<!-- Say what the user can do; there is no process to start or proxy to retry. -->
+				This game runs on a third-party site, which will not accept injected controls. Touch the game
+				directly, or download it for offline play to use the console.
 			</div>
 		{/if}
 

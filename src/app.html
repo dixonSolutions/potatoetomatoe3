@@ -2,10 +2,19 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, viewport-fit=cover"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<!--
+			Game covers come from the portals' own image CDNs, and the first tile cannot start
+			downloading until the catalog shard has arrived and rendered. Opening the
+			connections now overlaps their DNS + TCP + TLS (three-plus round trips) with that
+			wait. These three hosts serve ~70% of covers (see `thumbnail-size.ts`); the next
+			two only get a DNS lookup, since an unused preconnect is a wasted socket.
+		-->
+		<link rel="preconnect" href="https://play.unity.com" />
+		<link rel="preconnect" href="https://imgs.crazygames.com" />
+		<link rel="preconnect" href="https://avatars.mds.yandex.net" />
+		<link rel="dns-prefetch" href="https://prod.addictinggames.com" />
+		<link rel="dns-prefetch" href="https://fnf-games.io" />
 		<!--
 			Paint the system light/dark before anything else. `mode-watcher` injects this same
 			step into the SvelteKit head, but only on prerendered routes: adapter-static writes

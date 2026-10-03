@@ -27,13 +27,24 @@ function assertDataPath(gameId: string, absPath: string): void {
 	}
 }
 
+/**
+ * A profile file: `fallback` when it does not exist. One that exists but cannot be read or
+ * does not parse throws — the GET then answers 500, not the 404 of "no saves", because a
+ * profile read that swallowed the error let the app's next write replace the real saves.
+ */
 async function readJsonFile<T>(filePath: string, fallback: T): Promise<T> {
+	let raw: string;
 	try {
-		const raw = await fs.readFile(filePath, 'utf-8');
-		return JSON.parse(raw) as T;
-	} catch {
-		return fallback;
+		raw = await fs.readFile(filePath, 'utf-8');
+	} catch (error) {
+		if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return fallback;
+		throw error;
 	}
+	return JSON.parse(raw) as T;
+}
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+	return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
 async function writeJsonAtomic(filePath: string, data: unknown): Promise<void> {
@@ -56,33 +67,31 @@ async function loadIndexedDbProfiles(gameId: string): Promise<IndexedDbDatabaseP
 		const dbDir = path.join(idbRoot, entry.name);
 		const metaPath = path.join(dbDir, 'meta.json');
 		const recordsPath = path.join(dbDir, 'records.json');
-		try {
-			const meta = await readJsonFile<{ name: string; version: number; objectStores: string[] }>(
-				metaPath,
-				{ name: entry.name, version: 1, objectStores: [] }
-			);
-			const records = await readJsonFile(recordsPath, []);
-			profiles.push({
-				name: meta.name ?? entry.name,
-				version: meta.version ?? 1,
-				objectStores: meta.objectStores ?? [],
-				records: Array.isArray(records) ? records : []
-			});
-		} catch {
-			/* skip corrupt db folder */
-		}
+		/* A corrupt database folder fails the read: skipping it dropped that database on the next write. */
+		const meta = await readJsonFile<{ name: string; version: number; objectStores: string[] }>(
+			metaPath,
+			{ name: entry.name, version: 1, objectStores: [] }
+		);
+		const records = await readJsonFile(recordsPath, []);
+		profiles.push({
+			name: meta.name ?? entry.name,
+			version: meta.version ?? 1,
+			objectStores: meta.objectStores ?? [],
+			records: Array.isArray(records) ? records : []
+		});
 	}
 
 	return profiles;
 }
 
-async function saveIndexedDbProfiles(gameId: string, databases: IndexedDbDatabaseProfile[]): Promise<void> {
+async function saveIndexedDbProfiles(
+	gameId: string,
+	databases: IndexedDbDatabaseProfile[]
+): Promise<void> {
 	const idbRoot = dataFilePath(gameId, PROFILE_DISK_PATHS.indexedDbDir);
 	await fs.mkdir(idbRoot, { recursive: true });
 
-	const existing = existsSync(idbRoot)
-		? await fs.readdir(idbRoot, { withFileTypes: true })
-		: [];
+	const existing = existsSync(idbRoot) ? await fs.readdir(idbRoot, { withFileTypes: true }) : [];
 	for (const entry of existing) {
 		if (entry.isDirectory()) {
 			await fs.rm(path.join(idbRoot, entry.name), { recursive: true, force: true });
@@ -103,6 +112,11 @@ async function saveIndexedDbProfiles(gameId: string, databases: IndexedDbDatabas
 	}
 }
 
+/**
+ * The game's saved profile, or `null` when it has none.
+ *
+ * @throws when any part of it is on disk but cannot be read — never reported as no saves.
+ */
 export async function readGameBrowserProfile(gameId: string): Promise<GameBrowserProfile | null> {
 	const root = browserDataDir(gameId);
 	const metaPath = dataFilePath(gameId, PROFILE_DISK_PATHS.meta);
@@ -133,6 +147,13 @@ export async function readGameBrowserProfile(gameId: string): Promise<GameBrowse
 		[]
 	);
 	profile.profile.Default.indexedDB = await loadIndexedDbProfiles(gameId);
+	if (
+		!isPlainObject(profile.profile.Default.localStorage) ||
+		!isPlainObject(profile.profile.Default.sessionStorage) ||
+		!Array.isArray(profile.profile.Default.cookies)
+	) {
+		throw new Error(`Browser data of ${gameId} holds the wrong kind of JSON`);
+	}
 
 	const hasData =
 		profile.updatedAt > 0 ||
@@ -175,7 +196,10 @@ export async function writeGameBrowserProfile(
 		dataFilePath(gameId, PROFILE_DISK_PATHS.sessionStorage),
 		profile.profile.Default.sessionStorage
 	);
-	await writeJsonAtomic(dataFilePath(gameId, PROFILE_DISK_PATHS.cookies), profile.profile.Default.cookies);
+	await writeJsonAtomic(
+		dataFilePath(gameId, PROFILE_DISK_PATHS.cookies),
+		profile.profile.Default.cookies
+	);
 	await saveIndexedDbProfiles(gameId, profile.profile.Default.indexedDB);
 }
 
