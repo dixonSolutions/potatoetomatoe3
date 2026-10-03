@@ -288,6 +288,51 @@ fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
 
 /// The games data dir and the bundled catalog, resolved once: the offline and relay schemes
 /// ask on every request, and resolving the catalog can log a warning each time.
+/// Is `url` one of the schemes that serve third-party game HTML? (`ptrelay://…` on Linux and
+/// macOS; Windows spells a custom scheme `http://ptrelay.localhost/…`.)
+#[cfg(desktop)]
+fn is_game_scheme_url(url: &tauri::Url) -> bool {
+  [relay::SCHEME, offline_games::SCHEME].iter().any(|scheme| {
+    url.scheme() == *scheme
+      || url
+        .host_str()
+        .is_some_and(|host| host.strip_prefix(*scheme).is_some_and(|rest| rest.starts_with('.')))
+  })
+}
+
+/// The last page the main frame showed that was the app itself, where a refused game page
+/// sends it back to.
+#[cfg(desktop)]
+static LAST_APP_PAGE: Mutex<Option<tauri::Url>> = Mutex::new(None);
+
+/// Keep game pages out of the main frame. Tauri counts every registered scheme as the app's
+/// own origin, so a relayed or offline game page that became the top document — a game frame
+/// setting `top.location` to one — would get the app's IPC and every capability. Game frames
+/// load those schemes legitimately, and a navigation hook cannot tell a frame from the top
+/// document, but a page load is only ever the top document's: one that starts on a game
+/// scheme is replaced by the app before the game's document is committed.
+#[cfg(desktop)]
+fn guard_main_frame(webview: &tauri::Webview, payload: &tauri::webview::PageLoadPayload<'_>) {
+  let url = payload.url();
+  let mut last = LAST_APP_PAGE.lock().unwrap_or_else(|e| e.into_inner());
+  if !is_game_scheme_url(url) {
+    if matches!(payload.event(), tauri::webview::PageLoadEvent::Finished) {
+      *last = Some(url.clone());
+    }
+    return;
+  }
+  log::warn!("refused a game page as the top document: {url}");
+  let back = last.clone().or_else(|| {
+    tauri::Url::parse(if cfg!(windows) { "http://tauri.localhost/" } else { "tauri://localhost/" }).ok()
+  });
+  drop(last);
+  if let Some(back) = back {
+    if let Err(why) = webview.navigate(back) {
+      log::error!("could not leave the refused game page: {why}");
+    }
+  }
+}
+
 pub(crate) fn game_roots(app: &tauri::AppHandle) -> offline_games::GameRoots {
   static ROOTS: OnceLock<offline_games::GameRoots> = OnceLock::new();
   ROOTS
@@ -717,6 +762,7 @@ pub fn run() {
   #[cfg(desktop)]
   {
     builder = builder
+      .on_page_load(guard_main_frame)
       .register_asynchronous_uri_scheme_protocol(relay::SCHEME, |ctx, request, responder| {
         let catalog = game_roots(ctx.app_handle()).catalog;
         let path = request.uri().path().to_string();
@@ -894,4 +940,24 @@ pub fn run() {
     })
     .run(context(generated, &desktop_scheme))
     .expect("error while running tauri application");
+}
+
+#[cfg(all(test, desktop))]
+mod main_frame_guard_tests {
+  use super::is_game_scheme_url;
+
+  #[test]
+  fn game_schemes_are_recognised_in_both_spellings() {
+    for raw in [
+      "ptrelay://localhost/game/abc",
+      "ptoffline://localhost/abc/index.html",
+      "http://ptrelay.localhost/game/abc",
+      "http://ptoffline.localhost/abc",
+    ] {
+      assert!(is_game_scheme_url(&raw.parse().unwrap()), "{raw}");
+    }
+    for raw in ["tauri://localhost/games/abc", "http://localhost:5173/", "https://ptrelayx.com/"] {
+      assert!(!is_game_scheme_url(&raw.parse().unwrap()), "{raw}");
+    }
+  }
 }

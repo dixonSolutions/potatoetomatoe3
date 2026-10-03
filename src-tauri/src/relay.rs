@@ -30,9 +30,9 @@
 // Registered as a scheme on desktop only.
 #![cfg_attr(mobile, allow(dead_code))]
 
-use std::net::IpAddr;
+use std::net::{IpAddr, SocketAddr};
 use std::path::{Path, PathBuf};
-use std::sync::OnceLock;
+use std::sync::{Arc, OnceLock};
 use std::time::Duration;
 
 use tauri::http::{header, Response, StatusCode};
@@ -60,9 +60,32 @@ fn client() -> &'static reqwest::Client {
       .timeout(Duration::from_secs(90))
       // Followed by hand in `fetch`, where each hop is checked (`check_redirect`).
       .redirect(reqwest::redirect::Policy::none())
+      // Every connection resolves through this, so a name cannot answer public for
+      // `check_redirect` and private when reqwest connects.
+      .dns_resolver(Arc::new(PublicOnlyResolver))
       .build()
       .expect("relay HTTP client")
   })
+}
+
+/// Resolves names for the relay's connections and keeps only public addresses: one that
+/// resolves solely into this machine or the local network fails to connect at all.
+struct PublicOnlyResolver;
+
+impl reqwest::dns::Resolve for PublicOnlyResolver {
+  fn resolve(&self, name: reqwest::dns::Name) -> reqwest::dns::Resolving {
+    Box::pin(async move {
+      let host = name.as_str().to_string();
+      let addrs: Vec<SocketAddr> = tokio::net::lookup_host((host.as_str(), 0))
+        .await?
+        .filter(|addr| is_public_ip(addr.ip()))
+        .collect();
+      if addrs.is_empty() {
+        return Err(format!("{host} resolves to no public address").into());
+      }
+      Ok(Box::new(addrs.into_iter()) as reqwest::dns::Addrs)
+    })
+  }
 }
 
 /// No `Access-Control-Allow-Origin`: what the relay fetched is for the relay's own pages
@@ -172,8 +195,8 @@ pub(crate) fn refuse_resolved(host: &str, addrs: &[IpAddr]) -> Option<String> {
 
 /// A redirect the relay may follow. Beyond the URL, the host's name is resolved and every
 /// address it has must be public: a name pointing into the local network is refused as the
-/// address itself would be. (The connection resolves the name again, so this narrows the
-/// window for a name that changes its answer rather than closing it.)
+/// address itself would be. (The connection resolves the name again, through
+/// `PublicOnlyResolver`, which refuses a name that has since changed its answer.)
 async fn check_redirect(url: &reqwest::Url) -> Result<(), String> {
   if let Some(why) = refuse_redirect_target(url) {
     return Err(why);
@@ -330,6 +353,16 @@ pub fn ruffle_page(id: &str, swf_url: &reqwest::Url) -> String {
 
 /// Fetch `url`, following its redirects only where `check_redirect` allows.
 async fn fetch(url: reqwest::Url) -> Result<(reqwest::Url, String, Vec<u8>), String> {
+  // The catalog's own URL is held to the same rule as a redirect; `PublicOnlyResolver`
+  // covers what its name resolves to.
+  if let Some(why) = refuse_redirect_target(&url) {
+    return Err(why);
+  }
+  follow(url).await
+}
+
+/// `fetch` past its check of the starting URL.
+async fn follow(url: reqwest::Url) -> Result<(reqwest::Url, String, Vec<u8>), String> {
   let mut current = url.clone();
   let mut hops = 0;
   let response = loop {
@@ -662,10 +695,25 @@ mod tests {
       "file:///etc/passwd",
     ] {
       let start = redirecting_host(location);
-      let result = tauri::async_runtime::block_on(fetch(start));
+      let result = tauri::async_runtime::block_on(follow(start));
       let err = result.expect_err(location);
       assert!(err.contains("refused"), "{location}: {err}");
     }
+  }
+
+  #[test]
+  fn a_catalog_url_into_the_local_network_is_not_fetched() {
+    let start = redirecting_host("https://example.com/");
+    let err = tauri::async_runtime::block_on(fetch(start)).expect_err("loopback start");
+    assert!(err.contains("not public"), "{err}");
+  }
+
+  #[test]
+  fn connections_resolve_only_to_public_addresses() {
+    use reqwest::dns::Resolve;
+    let name: reqwest::dns::Name = "localhost".parse().unwrap();
+    let result = tauri::async_runtime::block_on(PublicOnlyResolver.resolve(name));
+    assert!(result.is_err(), "localhost resolved through the relay");
   }
 
   #[test]
