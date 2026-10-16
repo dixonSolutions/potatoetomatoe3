@@ -11,6 +11,8 @@
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
+/* WebKitGTK, where backdrop filters are off (see the rule at the end of this file). */
+@custom-variant no-backdrop (html[data-no-backdrop-filter] &);
 
 :root {
 	/*
@@ -278,4 +280,18 @@
 
 html[data-game-immersive] body {
 	overflow: hidden;
+}
+
+/*
+ * WebKitGTK gets no backdrop filter at all (issue #59, src/lib/utils/webkitgtk-backdrop.ts).
+ * Its renderer leaks without end once two scrolling rows hold blurred elements — Home's
+ * favourite buttons took the Flatpak's web process to 10 GB in 2.5 minutes. `app.html`
+ * sets the attribute before the first paint. Covers scoped component styles too, which
+ * is why this is `!important` rather than a variant on each utility.
+ */
+html[data-no-backdrop-filter] *,
+html[data-no-backdrop-filter] *::before,
+html[data-no-backdrop-filter] *::after {
+	-webkit-backdrop-filter: none !important;
+	backdrop-filter: none !important;
 }
