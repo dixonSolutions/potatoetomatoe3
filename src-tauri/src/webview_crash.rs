@@ -25,6 +25,7 @@
 
 use serde::Serialize;
 use std::collections::VecDeque;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Mutex;
 use std::time::{Duration, Instant};
 
@@ -49,6 +50,13 @@ pub struct WebviewCrash {
 }
 
 static LAST_CRASH: Mutex<Option<WebviewCrash>> = Mutex::new(None);
+/// Set by `memory_watchdog.rs` right before it terminates the web process.
+static EXCEEDED_MEMORY_LIMIT: AtomicBool = AtomicBool::new(false);
+
+/// The next termination by API is the memory watchdog's, not the debug trigger's.
+pub fn mark_exceeded_memory_limit() {
+  EXCEEDED_MEMORY_LIMIT.store(true, Ordering::SeqCst);
+}
 static RELOADS: Mutex<Reloads> = Mutex::new(Reloads {
   recent: VecDeque::new(),
   last: None,
@@ -242,6 +250,11 @@ mod linux {
     match reason {
       WebProcessTerminationReason::Crashed => "crashed",
       WebProcessTerminationReason::ExceededMemoryLimit => "exceeded-memory-limit",
+      WebProcessTerminationReason::TerminatedByApi
+        if super::EXCEEDED_MEMORY_LIMIT.swap(false, std::sync::atomic::Ordering::SeqCst) =>
+      {
+        "exceeded-memory-limit"
+      }
       WebProcessTerminationReason::TerminatedByApi => "terminated",
       _ => "unknown",
     }

@@ -447,18 +447,17 @@
 			void fetchOfflineStatusesForIds(missing).then((map) => {
 				if (cancelled) return;
 				const next = { ...offlineStatusMap };
-				for (const [id, status] of Object.entries(map)) {
-					if (status.offline || status.downloading || status.partialCache) {
-						next[id] = status;
-					} else {
-						delete next[id];
-					}
-				}
-				/* Mark probed ids so we do not refetch forever for online-only games. */
+				/*
+				 * Mark every probed id, whatever the backend answered. The desktop backend returns
+				 * a status for each id, so keying this on `id in map` left online-only games
+				 * unmarked and re-probed every 80 ms for as long as the page was open (#61).
+				 */
 				for (const id of missing) {
-					if (!(id in map) && !(id in next)) {
-						next[id] = { offline: false };
-					}
+					const status = map[id];
+					next[id] =
+						status && (status.offline || status.downloading || status.partialCache)
+							? status
+							: { offline: false };
 				}
 				offlineStatusMap = next;
 			});
