@@ -4,6 +4,7 @@ mod display_scale;
 mod frame_first_input;
 mod game_frame_tuning;
 mod game_frames;
+mod memory_watchdog;
 mod offline_games;
 mod power_profile;
 mod relay;
@@ -860,6 +861,9 @@ pub fn run() {
         // where the user was, without walking straight back into the same game.
         if let Some(window) = app.get_webview_window("main") {
           webview_crash::watch(&window);
+          // Past its memory limit the web process is ended, so a leak cannot take the
+          // desktop down with it (#59, #62); the crash handler above recovers the page.
+          memory_watchdog::watch(&window);
         }
         // A second look once the window has been mapped and painted: this is where a
         // second toplevel, or a window that ended up a different size than configured,

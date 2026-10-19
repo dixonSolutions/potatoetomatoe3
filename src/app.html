@@ -41,6 +41,24 @@
 				root.style.colorScheme = light ? 'light' : 'dark';
 			})();
 		</script>
+		<!--
+			No backdrop-filter on WebKitGTK: its renderer leaks ~0.5 GB/s once two scrolling
+			rows hold blurred elements, until the OOM killer stops it (issue #59). It must be
+			off from the first frame, since removing it later does not stop the leak. Same test
+			as `src/lib/utils/webkitgtk-backdrop.ts`; a spec keeps the two equal.
+		-->
+		<script>
+			(function () {
+				var ua = navigator.userAgent;
+				if (
+					/AppleWebKit\//.test(ua) &&
+					/\bLinux\b/.test(ua) &&
+					!/Android|Chrome\/|Chromium\/|CriOS\/|HeadlessChrome|Edg\/|OPR\//.test(ua)
+				) {
+					document.documentElement.setAttribute('data-no-backdrop-filter', '');
+				}
+			})();
+		</script>
 		<!-- Favicon from +layout.svelte; early script below may swap to a privacy disguise before paint. -->
 		%sveltekit.head%
 		<!--

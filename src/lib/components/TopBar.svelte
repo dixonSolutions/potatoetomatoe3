@@ -129,7 +129,7 @@
 
 {#if !hidden}
 	<nav
-		class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+		class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 no-backdrop:bg-background/95"
 	>
 		<div class="mx-auto flex h-16 w-full max-w-[1920px] items-center px-3 sm:px-5">
 			<!-- Logo -->

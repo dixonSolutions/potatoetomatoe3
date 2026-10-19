@@ -10,6 +10,10 @@
 //! (`take_webview_crash`) and shows "This game crashed the player" with an "Open in
 //! browser" action instead of starting the game. Reloads are capped as well, at
 //! `MAX_RELOADS` a minute; past that a static page says what happened and offers a way back.
+//! The same page is not reloaded twice within `REPEAT_WINDOW` either: a leak that takes a
+//! few minutes to get the web process killed (issue #59: 10 GB in 2.5 minutes, on Home)
+//! never reaches the per-minute cap, so it reloaded into the same leak forever and dragged
+//! the desktop through memory pressure each time.
 //!
 //! Debug builds can crash the web process on purpose: the `debug_crash_webview` command,
 //! or `POTATO_TOMATO_DEBUG_CRASH_ON_GAME=<ms>`, which terminates it once a game page has
@@ -21,12 +25,15 @@
 
 use serde::Serialize;
 use std::collections::VecDeque;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Mutex;
 use std::time::{Duration, Instant};
 
 /// Automatic reloads allowed within `RELOAD_WINDOW` before the app stops reloading.
 pub const MAX_RELOADS: usize = 3;
 pub const RELOAD_WINDOW: Duration = Duration::from_secs(60);
+/// A page that crashes again this soon after being reloaded from a crash stays down.
+pub const REPEAT_WINDOW: Duration = Duration::from_secs(10 * 60);
 
 /// What the reloaded page learns about the crash.
 #[derive(Debug, Clone, PartialEq, Serialize)]
@@ -43,7 +50,36 @@ pub struct WebviewCrash {
 }
 
 static LAST_CRASH: Mutex<Option<WebviewCrash>> = Mutex::new(None);
-static RELOADS: Mutex<VecDeque<Instant>> = Mutex::new(VecDeque::new());
+/// Set by `memory_watchdog.rs` right before it terminates the web process.
+static EXCEEDED_MEMORY_LIMIT: AtomicBool = AtomicBool::new(false);
+
+/// The next termination by API is the memory watchdog's, not the debug trigger's.
+pub fn mark_exceeded_memory_limit() {
+  EXCEEDED_MEMORY_LIMIT.store(true, Ordering::SeqCst);
+}
+static RELOADS: Mutex<Reloads> = Mutex::new(Reloads {
+  recent: VecDeque::new(),
+  last: None,
+});
+
+/// The automatic reloads so far.
+#[derive(Default)]
+pub struct Reloads {
+  /// Within the last `RELOAD_WINDOW`.
+  recent: VecDeque<Instant>,
+  /// The page last reloaded, without query or hash, and when.
+  last: Option<(String, Instant)>,
+}
+
+/// What to do about a crash.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum Recovery {
+  Reload,
+  /// `MAX_RELOADS` within `RELOAD_WINDOW` already.
+  TooMany,
+  /// This page was reloaded from a crash less than `REPEAT_WINDOW` ago.
+  CrashedAgain,
+}
 
 fn percent_decode(s: &str) -> Option<String> {
   let bytes = s.as_bytes();
@@ -76,8 +112,17 @@ pub fn game_id_of_url(url: &str) -> Option<String> {
   crate::game_frames::is_catalog_id(&id).then_some(id)
 }
 
-/// Whether another automatic reload fits in the budget; counts it when it does.
-pub fn allow_reload(recent: &mut VecDeque<Instant>, now: Instant) -> bool {
+/// Whether `url` may be reloaded after a crash now; counts the reload when it may.
+pub fn decide_reload(reloads: &mut Reloads, url: &str, now: Instant) -> Recovery {
+  let page = crate::game_frame_tuning::page_path(url);
+  if reloads
+    .last
+    .as_ref()
+    .is_some_and(|(last, at)| *last == page && now.duration_since(*at) < REPEAT_WINDOW)
+  {
+    return Recovery::CrashedAgain;
+  }
+  let recent = &mut reloads.recent;
   while let Some(first) = recent.front() {
     if now.duration_since(*first) >= RELOAD_WINDOW {
       recent.pop_front();
@@ -86,10 +131,11 @@ pub fn allow_reload(recent: &mut VecDeque<Instant>, now: Instant) -> bool {
     }
   }
   if recent.len() >= MAX_RELOADS {
-    return false;
+    return Recovery::TooMany;
   }
   recent.push_back(now);
-  true
+  reloads.last = Some((page, now));
+  Recovery::Reload
 }
 
 fn now_ms() -> u64 {
@@ -99,8 +145,8 @@ fn now_ms() -> u64 {
     .unwrap_or(0)
 }
 
-/// Keep the crash for the reloaded page. Returns whether the page may be reloaded.
-fn note_crash(url: &str, reason: &str) -> (WebviewCrash, bool) {
+/// Keep the crash for the reloaded page, and decide whether to reload it.
+fn note_crash(url: &str, reason: &str) -> (WebviewCrash, Recovery) {
   let crash = WebviewCrash {
     game_id: game_id_of_url(url),
     reason: reason.to_string(),
@@ -110,11 +156,11 @@ fn note_crash(url: &str, reason: &str) -> (WebviewCrash, bool) {
   if let Ok(mut last) = LAST_CRASH.lock() {
     *last = Some(crash.clone());
   }
-  let reload = RELOADS
+  let recovery = RELOADS
     .lock()
-    .map(|mut recent| allow_reload(&mut recent, Instant::now()))
-    .unwrap_or(false);
-  (crash, reload)
+    .map(|mut reloads| decide_reload(&mut reloads, url, Instant::now()))
+    .unwrap_or(Recovery::TooMany);
+  (crash, recovery)
 }
 
 /// `scheme://host[:port]` of `url`, or empty.
@@ -125,8 +171,22 @@ fn origin_of(url: &str) -> String {
     .unwrap_or_default()
 }
 
-/// What the page shows once the reload budget is spent.
-fn stopped_page(crash: &WebviewCrash) -> String {
+/// Why the page was not reloaded, for the log and the stopped page.
+fn stopped_because(recovery: Recovery) -> String {
+  match recovery {
+    Recovery::CrashedAgain => format!(
+      "it crashed again within {} minutes of being reloaded",
+      REPEAT_WINDOW.as_secs() / 60
+    ),
+    _ => format!(
+      "it crashed {MAX_RELOADS} times within {}s",
+      RELOAD_WINDOW.as_secs()
+    ),
+  }
+}
+
+/// What the page shows once it is no longer reloaded.
+fn stopped_page(crash: &WebviewCrash, recovery: Recovery) -> String {
   let origin = origin_of(&crash.url);
   let game = match &crash.game_id {
     Some(id) => format!("<p>It happened on the page of <code>{}</code>.</p>", html_escape(id)),
@@ -139,8 +199,9 @@ fn stopped_page(crash: &WebviewCrash) -> String {
      a{{color:#8ab4f8}}code{{background:#333;padding:0 4px;border-radius:3px}}\
      @media (prefers-color-scheme: light){{body{{background:#fafafa;color:#222}}code{{background:#e8e8e8}}}}</style>\
      <main><h1>The player keeps crashing</h1>\
-     <p>The page crashed {MAX_RELOADS} times within a minute, so it was not reloaded again.</p>{game}\
-     <p><a href=\"{origin}/home\">Back to the games</a></p></main>"
+     <p>The page was not reloaded: {}.</p>{game}\
+     <p><a href=\"{origin}/home\">Back to the games</a></p></main>",
+    stopped_because(recovery)
   )
 }
 
@@ -182,13 +243,18 @@ pub fn debug_crash_webview(webview: tauri::Webview) -> Result<(), String> {
 
 #[cfg(target_os = "linux")]
 mod linux {
-  use super::{note_crash, stopped_page, MAX_RELOADS, RELOAD_WINDOW};
+  use super::{note_crash, stopped_because, stopped_page, Recovery};
   use webkit2gtk::{WebProcessTerminationReason, WebViewExt};
 
   fn reason_name(reason: WebProcessTerminationReason) -> &'static str {
     match reason {
       WebProcessTerminationReason::Crashed => "crashed",
       WebProcessTerminationReason::ExceededMemoryLimit => "exceeded-memory-limit",
+      WebProcessTerminationReason::TerminatedByApi
+        if super::EXCEEDED_MEMORY_LIMIT.swap(false, std::sync::atomic::Ordering::SeqCst) =>
+      {
+        "exceeded-memory-limit"
+      }
       WebProcessTerminationReason::TerminatedByApi => "terminated",
       _ => "unknown",
     }
@@ -198,8 +264,8 @@ mod linux {
     view.connect_web_process_terminated(|view, reason| {
       crate::power_profile::web_process_terminated(reason_name(reason));
       let url = view.uri().map(|u| u.to_string()).unwrap_or_default();
-      let (crash, reload) = note_crash(&url, reason_name(reason));
-      if reload {
+      let (crash, recovery) = note_crash(&url, reason_name(reason));
+      if recovery == Recovery::Reload {
         let message = format!(
           "web process {} on {url}{}; reloading the page",
           crash.reason,
@@ -218,15 +284,15 @@ mod linux {
         gtk::glib::idle_add_local_once(move || view.reload());
       } else {
         let message = format!(
-          "web process {} on {url}: {MAX_RELOADS} reloads within {}s already — not reloading",
+          "web process {} on {url}: {} — not reloading",
           crash.reason,
-          RELOAD_WINDOW.as_secs()
+          stopped_because(recovery)
         );
         log::error!("{message}");
         if !cfg!(debug_assertions) {
           eprintln!("potato-tomato: {message}");
         }
-        let page = stopped_page(&crash);
+        let page = stopped_page(&crash, recovery);
         /* Based on the app's origin, not the game page: it is no longer that page. */
         let base = format!("{}/", super::origin_of(&url));
         let view = view.clone();
@@ -319,18 +385,66 @@ mod tests {
     }
   }
 
+  fn at(start: Instant, secs: u64) -> Instant {
+    start + Duration::from_secs(secs)
+  }
+
   #[test]
   fn reloads_at_most_three_times_a_minute() {
     let start = Instant::now();
-    let mut recent = VecDeque::new();
-    for i in 0..MAX_RELOADS {
-      assert!(allow_reload(&mut recent, start + Duration::from_secs(i as u64)));
+    let mut reloads = Reloads::default();
+    /* Different pages, so only the per-minute cap applies. */
+    let page = |i: u64| format!("tauri://localhost/games/g{i}");
+    for i in 0..MAX_RELOADS as u64 {
+      assert_eq!(
+        decide_reload(&mut reloads, &page(i), at(start, i)),
+        Recovery::Reload
+      );
     }
-    assert!(!allow_reload(&mut recent, start + Duration::from_secs(10)));
-    assert!(!allow_reload(&mut recent, start + Duration::from_secs(59)));
+    assert_eq!(
+      decide_reload(&mut reloads, &page(10), at(start, 10)),
+      Recovery::TooMany
+    );
+    assert_eq!(
+      decide_reload(&mut reloads, &page(11), at(start, 59)),
+      Recovery::TooMany
+    );
     /* The first reload has left the window: one more fits. */
-    assert!(allow_reload(&mut recent, start + Duration::from_secs(60)));
-    assert!(!allow_reload(&mut recent, start + Duration::from_secs(60)));
+    assert_eq!(
+      decide_reload(&mut reloads, &page(12), at(start, 60)),
+      Recovery::Reload
+    );
+    assert_eq!(
+      decide_reload(&mut reloads, &page(13), at(start, 60)),
+      Recovery::TooMany
+    );
+  }
+
+  #[test]
+  fn a_page_that_crashes_every_few_minutes_is_reloaded_once() {
+    /* Issue #59: Home leaked until the OOM killer stopped it, about every 2.5 minutes. */
+    let start = Instant::now();
+    let mut reloads = Reloads::default();
+    let home = "tauri://localhost/home";
+    assert_eq!(decide_reload(&mut reloads, home, start), Recovery::Reload);
+    assert_eq!(
+      decide_reload(
+        &mut reloads,
+        "tauri://localhost/home?from=crash#top",
+        at(start, 150)
+      ),
+      Recovery::CrashedAgain
+    );
+    /* Another page still recovers. */
+    assert_eq!(
+      decide_reload(&mut reloads, "tauri://localhost/games", at(start, 160)),
+      Recovery::Reload
+    );
+    /* And Home does again, long after. */
+    assert_eq!(
+      decide_reload(&mut reloads, home, at(start, 160 + REPEAT_WINDOW.as_secs())),
+      Recovery::Reload
+    );
   }
 
   #[test]
@@ -343,13 +457,18 @@ mod tests {
 
   #[test]
   fn the_stopped_page_escapes_the_game_and_links_home() {
-    let page = stopped_page(&WebviewCrash {
+    let crash = WebviewCrash {
       game_id: Some("a<b".into()),
       reason: "crashed".into(),
       url: "tauri://localhost/games/a%3Cb".into(),
       at: 0,
-    });
+    };
+    let page = stopped_page(&crash, Recovery::TooMany);
     assert!(page.contains("a&lt;b"));
     assert!(page.contains("href=\"tauri://localhost/home\""));
+    assert!(page.contains("crashed 3 times within 60s"));
+    assert!(
+      stopped_page(&crash, Recovery::CrashedAgain).contains("crashed again within 10 minutes")
+    );
   }
 }

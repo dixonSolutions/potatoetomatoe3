@@ -126,7 +126,10 @@ again. The crash is kept on the native side; the reloaded game page takes it onc
 was this game, holds the frame back behind "This game crashed the player" with **Open in
 browser** and **Play here anyway**. Coming back to the game later starts it as usual.
 Automatic reloads are capped at three a minute; the fourth crash in a minute gets a static
-page with a link back to the games instead.
+page with a link back to the games instead. The same page is also reloaded at most once in
+ten minutes: a leak that takes minutes to get the web process OOM-killed never reached the
+per-minute cap, so Home reloaded into the same 10 GB leak every 2.5 minutes (issue #59,
+[field test](field-tests/webkitgtk-backdrop-leak-2026-10-16/REPORT.md)).
 
 Debug builds can crash the web process on purpose: the `debug_crash_webview` command, or
 `POTATO_TOMATO_DEBUG_CRASH_ON_GAME=<ms>` (once a game page has been open that long; every
