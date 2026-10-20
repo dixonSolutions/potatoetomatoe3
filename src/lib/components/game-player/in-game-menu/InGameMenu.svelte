@@ -127,8 +127,14 @@
 		action();
 	}
 
-	/* A press on game chrome must not pull focus out of the game frame. */
-	function keepFocus(e: PointerEvent) {
+	/*
+	 * A press on game chrome must not pull focus out of the game frame. Cancel the
+	 * `mousedown`, which is what moves focus, never the `pointerdown` of anything that acts
+	 * on `click`: WebKitGTK makes a tap's click from the mouse events it emulates after the
+	 * touch, and a cancelled pointerdown suppresses them, so on a touchscreen the menu
+	 * button and every row did nothing.
+	 */
+	function keepFocus(e: MouseEvent) {
 		e.preventDefault();
 	}
 
@@ -200,7 +206,7 @@
 			aria-haspopup="menu"
 			aria-expanded={open}
 			data-testid="in-game-menu-button"
-			onpointerdown={keepFocus}
+			onmousedown={keepFocus}
 			onclick={toggleFromButton}
 		>
 			<span
@@ -224,7 +230,7 @@
 			tabindex="-1"
 			aria-label="In-game menu"
 			data-testid="in-game-menu-panel"
-			onpointerdown={keepFocus}
+			onmousedown={keepFocus}
 			onpointerenter={cancelHide}
 			onpointerleave={scheduleHide}
 			onkeydown={onPanelKeydown}
