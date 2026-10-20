@@ -110,8 +110,10 @@ jobs:
           keyAlias=$KEY_ALIAS
           keyPassword=$KEY_PASSWORD
           EOF
+      # `--apk` is a bare switch since tauri-cli 2.11; `--apk true` makes clap reject `true`
+      # as a stray argument, which failed every APK publish from 0.0.90 on.
       - name: Build Android APK
-        run: pnpm tauri android build --target aarch64 --apk true
+        run: pnpm tauri android build --target aarch64 --apk
       - name: Collect versioned APK
         run: |
           mkdir -p dist
