@@ -74,6 +74,13 @@ controls were detected), Exit fullscreen, Back to games.
 - **Focus:** the button is out of the tab order and presses on the menu do not move
   focus, so the game keeps the keyboard; closing the menu hands focus back to the frame.
   Opening it does not pause the game.
+- **Fullscreen button:** a larger button right of the menu button (setting "Fullscreen
+  button", on by default). It enters or leaves fullscreen and its label says which. Off
+  hides it; Exit fullscreen then stays in the panel while the game is fullscreen.
+- **Previewing without a device:** `/dev/menu-preview` (dev builds only) draws the menu
+  in a 412 × 915 phone frame with touch on. Query options: `fullscreen=0|1`, `touch=0|1`,
+  `size=auto|small|medium|large`, `corner=top-left|top-right|bottom-left|bottom-right`,
+  `fsButton=0|1`, `open=1`. The Android APK itself is not built in this environment.
 
 ## The toolbar (windowed)
 
