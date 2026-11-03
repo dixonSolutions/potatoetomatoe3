@@ -128,6 +128,12 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 				keywords: 'in-game menu button hover edge touch overlay exit fullscreen back show'
 			},
 			{
+				id: 'sub-games-menu-fullscreen',
+				label: 'Fullscreen button',
+				scrollTargetId: 'settings-section-games-menu-fullscreen',
+				keywords: 'fullscreen button menu enter exit full screen toggle beside corner'
+			},
+			{
 				id: 'sub-games-default-mode',
 				label: 'Play source',
 				scrollTargetId: 'settings-section-games-default-mode',

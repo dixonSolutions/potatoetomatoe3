@@ -1056,9 +1056,9 @@
 	}
 
 	/** Must run inside the click that asked for it: browsers need the gesture. */
-	async function enterFullscreen() {
+	async function enterFullscreen(automatic = false) {
 		if (!gameSurfaceEl) return;
-		const done = enterGameFullscreen(gameSurfaceEl);
+		const done = enterGameFullscreen(gameSurfaceEl, { automatic });
 		/* The surface fills the window synchronously; the browser chrome follows. */
 		syncGameFullscreenState();
 		await done;
@@ -1079,7 +1079,7 @@
 	}
 
 	/*
-	 * Open fullscreen as soon as the player appears ("Open games in fullscreen", on by
+	 * Open fullscreen as soon as the player appears ("Open games in fullscreen", off by
 	 * default) — with the cover and spinner while the game starts, so the click that
 	 * opened the game is still fresh enough for the browser to allow real fullscreen.
 	 * Once per visit: a player who leaves fullscreen stays out of it for this game,
@@ -1093,7 +1093,7 @@
 		if (!playerSettings.autoFullscreen || autoFullscreenFor === gameId) return;
 		autoFullscreenFor = gameId;
 		untrack(() => {
-			if (!isGameFullscreen) void enterFullscreen();
+			if (!isGameFullscreen) void enterFullscreen(true);
 		});
 	});
 
@@ -1431,13 +1431,15 @@
 					setTouchConsoleVisible(true, 'auto-show');
 				}}
 			/>
-			{#if isGameFullscreen}
+			{#if gameSurfaceStarted}
 				<InGameMenu
 					bind:open={inGameMenuOpen}
 					corner={playerSettings.menuCorner}
 					access={playerSettings.menuAccess}
 					buttonSize={playerSettings.menuButtonSize}
 					touch={touchDevice}
+					fullscreen={isGameFullscreen}
+					fullscreenButton={playerSettings.menuFullscreenButton}
 					paused={gamePaused}
 					consoleAvailable={showConsoleButton}
 					consoleOn={touchConsoleVisible}
@@ -1447,7 +1449,7 @@
 					onRestart={() => void relaunchGameCompletely()}
 					onToggleConsole={toggleTouchConsole}
 					onOpenControls={() => (controlsMenuOpen = true)}
-					onExitFullscreen={() => void leaveFullscreen()}
+					onToggleFullscreen={() => void toggleFullscreen()}
 					onBack={() => void backToGames()}
 					onClosed={focusGameFrame}
 				/>

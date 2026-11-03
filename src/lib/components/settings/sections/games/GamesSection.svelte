@@ -258,6 +258,19 @@
 			/>
 		</SettingsRow>
 		<SettingsRow
+			id="settings-section-games-menu-fullscreen"
+			label="Fullscreen button"
+			labelFor="games-menu-fullscreen"
+			hint="A larger button beside the menu button that enters or leaves fullscreen."
+			inline
+		>
+			<Switch
+				id="games-menu-fullscreen"
+				checked={player.menuFullscreenButton}
+				onCheckedChange={(v) => savePlayer({ menuFullscreenButton: Boolean(v) })}
+			/>
+		</SettingsRow>
+		<SettingsRow
 			id="settings-section-games-default-mode"
 			label="Play source"
 			hint={PLAY_SOURCE_OPTIONS.find((o) => o.value === playSource)?.hint}

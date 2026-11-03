@@ -1,10 +1,11 @@
 <script lang="ts">
 	/**
-	 * The in-game menu: the only chrome over a fullscreen game.
+	 * The in-game menu: the chrome over a game, windowed or fullscreen.
 	 *
 	 * Reached by a small, faint button in one corner (the default), by moving the mouse
 	 * into a thin hot zone along that corner's edge, or both — see Settings → Playing. Touch
-	 * cannot hover, so a touch device always gets the button.
+	 * cannot hover, so a touch device always gets the button. Beside the button sits a larger
+	 * enter/exit fullscreen button, when that is switched on.
 	 *
 	 * It is game chrome, so it never takes the keyboard from the game: presses on it are
 	 * kept from moving focus, the button is out of the tab order, and closing it hands focus
@@ -14,6 +15,7 @@
 		ArrowLeft,
 		Gamepad2,
 		Keyboard,
+		Maximize2,
 		Menu,
 		Minimize2,
 		Pause,
@@ -35,6 +37,8 @@
 		buttonSize = 'auto',
 		touch = false,
 		open = $bindable(false),
+		fullscreen = false,
+		fullscreenButton = true,
 		paused = false,
 		consoleAvailable = false,
 		consoleOn = false,
@@ -44,7 +48,7 @@
 		onRestart,
 		onToggleConsole,
 		onOpenControls,
-		onExitFullscreen,
+		onToggleFullscreen,
 		onBack,
 		onClosed
 	}: {
@@ -54,6 +58,10 @@
 		/** A touch device: the button is always shown, and rows get touch-sized. */
 		touch?: boolean;
 		open?: boolean;
+		/** The game currently fills the window. */
+		fullscreen?: boolean;
+		/** Show the enter/exit fullscreen button beside the menu button. */
+		fullscreenButton?: boolean;
 		paused?: boolean;
 		consoleAvailable?: boolean;
 		consoleOn?: boolean;
@@ -64,7 +72,7 @@
 		onRestart: () => void;
 		onToggleConsole: () => void;
 		onOpenControls: () => void;
-		onExitFullscreen: () => void;
+		onToggleFullscreen: () => void;
 		onBack: () => void;
 		/** The menu closed; give the keyboard back to the game. */
 		onClosed?: () => void;
@@ -80,6 +88,12 @@
 	const hoverZone = $derived(usesHoverZone(access) && !open);
 	const top = $derived(corner.startsWith('top'));
 	const left = $derived(corner.endsWith('left'));
+	const fullscreenVisual = $derived(metrics.visual + 14);
+	const fullscreenHit = $derived(touch ? Math.max(44, fullscreenVisual) : fullscreenVisual);
+	const groupHeight = $derived(
+		Math.max(buttonShown ? metrics.hit : 0, fullscreenButton ? fullscreenHit : 0)
+	);
+	const fullscreenLabel = $derived(fullscreen ? 'Exit fullscreen' : 'Enter fullscreen');
 
 	/** Opened from the hot zone rather than the button: it hides by itself again. */
 	let revealedByHover = $state(false);
@@ -158,7 +172,7 @@
 		return v + h;
 	}
 
-	const panelOffset = $derived(buttonShown ? EDGE + metrics.hit + 6 : EDGE);
+	const panelOffset = $derived(groupHeight ? EDGE + groupHeight + 6 : EDGE);
 	const rowClass = $derived(
 		`flex w-full items-center gap-2.5 rounded-lg px-2.5 text-left text-sm font-medium outline-none hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring ${
 			touch ? 'h-11' : 'h-9'
@@ -196,30 +210,69 @@
 		></div>
 	{/if}
 
-	{#if buttonShown}
-		<button
-			type="button"
-			tabindex="-1"
-			class="group pointer-events-auto absolute flex items-center justify-center rounded-full outline-none"
-			style={`${cornerStyle(EDGE)}width:${metrics.hit}px;height:${metrics.hit}px;`}
-			aria-label="In-game menu"
-			aria-haspopup="menu"
-			aria-expanded={open}
-			data-testid="in-game-menu-button"
-			onmousedown={keepFocus}
-			onclick={toggleFromButton}
-		>
-			<span
-				class="flex items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 {open
-					? 'opacity-100'
-					: touch
-						? 'opacity-70'
-						: 'opacity-45'}"
-				style={`width:${metrics.visual}px;height:${metrics.visual}px;`}
-			>
-				<Menu style={`width:${metrics.icon}px;height:${metrics.icon}px;`} aria-hidden="true" />
-			</span>
-		</button>
+	{#if buttonShown || fullscreenButton}
+		<!-- One row in the corner, menu button first: the fullscreen button sits to its right. -->
+		<div class="pointer-events-none absolute flex items-center gap-2" style={cornerStyle(EDGE)}>
+			{#if buttonShown}
+				<button
+					type="button"
+					tabindex="-1"
+					class="group pointer-events-auto flex items-center justify-center rounded-full outline-none"
+					style={`width:${metrics.hit}px;height:${metrics.hit}px;`}
+					aria-label="In-game menu"
+					aria-haspopup="menu"
+					aria-expanded={open}
+					data-testid="in-game-menu-button"
+					onmousedown={keepFocus}
+					onclick={toggleFromButton}
+				>
+					<span
+						class="flex items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 {open
+							? 'opacity-100'
+							: touch
+								? 'opacity-70'
+								: 'opacity-45'}"
+						style={`width:${metrics.visual}px;height:${metrics.visual}px;`}
+					>
+						<Menu style={`width:${metrics.icon}px;height:${metrics.icon}px;`} aria-hidden="true" />
+					</span>
+				</button>
+			{/if}
+			{#if fullscreenButton}
+				<button
+					type="button"
+					tabindex="-1"
+					class="group pointer-events-auto flex items-center justify-center rounded-full outline-none"
+					style={`width:${fullscreenHit}px;height:${fullscreenHit}px;`}
+					aria-label={fullscreenLabel}
+					title={fullscreenLabel}
+					data-testid="in-game-menu-fullscreen"
+					onmousedown={keepFocus}
+					onclick={() => run(onToggleFullscreen)}
+				>
+					<span
+						class="flex items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 {open
+							? 'opacity-100'
+							: touch
+								? 'opacity-70'
+								: 'opacity-45'}"
+						style={`width:${fullscreenVisual}px;height:${fullscreenVisual}px;`}
+					>
+						{#if fullscreen}
+							<Minimize2
+								style={`width:${metrics.icon + 6}px;height:${metrics.icon + 6}px;`}
+								aria-hidden="true"
+							/>
+						{:else}
+							<Maximize2
+								style={`width:${metrics.icon + 6}px;height:${metrics.icon + 6}px;`}
+								aria-hidden="true"
+							/>
+						{/if}
+					</span>
+				</button>
+			{/if}
+		</div>
 	{/if}
 
 	{#if open}
@@ -278,17 +331,19 @@
 					Controls
 				</button>
 			{/if}
-			<div class="mx-1 my-1 h-px bg-border" role="separator"></div>
-			<button
-				type="button"
-				role="menuitem"
-				class={rowClass}
-				data-testid="in-game-menu-exit-fullscreen"
-				onclick={() => run(onExitFullscreen, false)}
-			>
-				<Minimize2 class="size-4 shrink-0" aria-hidden="true" />
-				Exit fullscreen
-			</button>
+			{#if fullscreen && !fullscreenButton}
+				<div class="mx-1 my-1 h-px bg-border" role="separator"></div>
+				<button
+					type="button"
+					role="menuitem"
+					class={rowClass}
+					data-testid="in-game-menu-exit-fullscreen"
+					onclick={() => run(onToggleFullscreen, false)}
+				>
+					<Minimize2 class="size-4 shrink-0" aria-hidden="true" />
+					Exit fullscreen
+				</button>
+			{/if}
 			<button type="button" role="menuitem" class={rowClass} onclick={() => run(onBack, false)}>
 				<ArrowLeft class="size-4 shrink-0" aria-hidden="true" />
 				Back to games

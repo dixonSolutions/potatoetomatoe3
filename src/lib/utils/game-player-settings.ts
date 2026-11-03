@@ -29,6 +29,8 @@ export type GamePlayerSettings = {
 	menuAccess: InGameMenuAccess;
 	menuButtonSize: InGameMenuButtonSize;
 	menuCorner: InGameMenuCorner;
+	/** A larger enter/exit fullscreen button beside the in-game menu button. */
+	menuFullscreenButton: boolean;
 	/** A key that toggles fullscreen. Off by default: the in-game menu is the way in and out. */
 	fullscreenShortcutEnabled: boolean;
 	/**
@@ -46,10 +48,11 @@ export type GamePlayerSettings = {
 export const GAME_PLAYER_SETTINGS_CHANGED = 'potato-tomato-game-player-settings-changed';
 
 export const DEFAULT_GAME_PLAYER_SETTINGS: GamePlayerSettings = {
-	autoFullscreen: true,
+	autoFullscreen: false,
 	menuAccess: 'button',
 	menuButtonSize: 'auto',
 	menuCorner: 'top-left',
+	menuFullscreenButton: true,
 	fullscreenShortcutEnabled: false,
 	fullSpeedInPowerSaver: true,
 	renderAtDisplayScale: true
@@ -93,6 +96,8 @@ export function normalizeGamePlayerSettings(
 		menuAccess: pick(r.menuAccess, ACCESS, d.menuAccess),
 		menuButtonSize: pick(r.menuButtonSize, SIZES, d.menuButtonSize),
 		menuCorner: pick(r.menuCorner, CORNERS, d.menuCorner),
+		menuFullscreenButton:
+			typeof r.menuFullscreenButton === 'boolean' ? r.menuFullscreenButton : d.menuFullscreenButton,
 		fullscreenShortcutEnabled:
 			typeof r.fullscreenShortcutEnabled === 'boolean'
 				? r.fullscreenShortcutEnabled

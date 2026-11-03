@@ -148,8 +148,14 @@ async function hideChrome(): Promise<boolean> {
 /**
  * Make `surface` immersive. Always fills the viewport; hides the chrome when allowed.
  * Call from inside a user gesture whenever there is one.
+ *
+ * @param options.automatic The game opened fullscreen by itself ("Open games in
+ *   fullscreen"). Only then may a later menu press hide the chrome it could not hide.
  */
-export async function enterGameFullscreen(surface: Element): Promise<void> {
+export async function enterGameFullscreen(
+	surface: Element,
+	options: { automatic?: boolean } = {}
+): Promise<void> {
 	const call = ++generation;
 	latest = 'enter';
 	enterPseudoFullscreen(surface);
@@ -162,13 +168,14 @@ export async function enterGameFullscreen(surface: Element): Promise<void> {
 		if (newestCallWasExit() && chromeOwned !== 'none') await releaseChrome();
 		return;
 	}
-	upgradePending = !hidden;
+	upgradePending = !hidden && options.automatic === true;
 }
 
 /**
  * A press on the in-game menu is a user gesture: if the automatic fullscreen could only
  * fill the window, hide the chrome now. Once per automatic start — after the user leaves
- * browser fullscreen on purpose this never pulls them back in.
+ * browser fullscreen on purpose this never pulls them back in. Menu presses never enter
+ * fullscreen on their own otherwise.
  */
 export function upgradeGameFullscreenOnGesture(surface: Element | null | undefined): void {
 	if (!upgradePending || !surface || !isPseudoFullscreen(surface)) return;

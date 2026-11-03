@@ -11,13 +11,14 @@ import {
 const F = { code: 'KeyF', ctrlKey: false, shiftKey: false, altKey: false, metaKey: false };
 
 describe('game player settings', () => {
-	it('defaults: auto fullscreen on, menu button top-left, no fullscreen key', () => {
+	it('defaults: games open windowed, menu button top-left with a fullscreen button, no fullscreen key', () => {
 		expect(normalizeGamePlayerSettings(undefined)).toEqual(DEFAULT_GAME_PLAYER_SETTINGS);
 		expect(DEFAULT_GAME_PLAYER_SETTINGS).toMatchObject({
-			autoFullscreen: true,
+			autoFullscreen: false,
 			menuAccess: 'button',
 			menuButtonSize: 'auto',
 			menuCorner: 'top-left',
+			menuFullscreenButton: true,
 			fullscreenShortcutEnabled: false,
 			fullSpeedInPowerSaver: true,
 			renderAtDisplayScale: true
@@ -31,6 +32,7 @@ describe('game player settings', () => {
 				menuAccess: 'hover',
 				menuButtonSize: 'large',
 				menuCorner: 'bottom-right',
+				menuFullscreenButton: false,
 				fullscreenShortcutEnabled: true,
 				fullSpeedInPowerSaver: false,
 				renderAtDisplayScale: false
@@ -40,6 +42,7 @@ describe('game player settings', () => {
 			menuAccess: 'hover',
 			menuButtonSize: 'large',
 			menuCorner: 'bottom-right',
+			menuFullscreenButton: false,
 			fullscreenShortcutEnabled: true,
 			fullSpeedInPowerSaver: false,
 			renderAtDisplayScale: false
@@ -50,6 +53,7 @@ describe('game player settings', () => {
 				menuAccess: 'swipe',
 				menuButtonSize: 3,
 				menuCorner: 'middle',
+				menuFullscreenButton: 'yes',
 				fullSpeedInPowerSaver: 'on',
 				renderAtDisplayScale: 1
 			})
