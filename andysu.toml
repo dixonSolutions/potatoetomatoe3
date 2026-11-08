@@ -1,0 +1,16 @@
+app = "com.potatotomato.games"
+host_api = 3
+public_key = "keys/potatoetomatoe3-public.pem"
+
+[remote]
+type = "github"
+repo = "dixonSolutions/potatoetomatoe3"
+channel = "live-arm64"
+
+[policy]
+mode = "auto"
+apply = "next_start"
+watchdog_ms = 120000
+# Not "host": this app already aborts on exit (a Rust mutex torn down while held, seen on plain
+# builds too), and with the host first that abort could roll back a good update opened and
+# closed before it reported healthy.

@@ -1,0 +1,39 @@
+name: Renew AndySU channel
+on:
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: andysu-live-arm64
+  cancel-in-progress: false
+jobs:
+  renew:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Renew signed manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SIGNING_KEY: ${{ secrets.ANDYSU_SIGNING_KEY }}
+          SIGNING_CERT: ${{ secrets.ANDYSU_SIGNING_CERT }}
+        run: |
+          set -euo pipefail
+          if [ -z "$SIGNING_KEY" ]; then echo 'AndySU signing key absent; skipping'; exit 0; fi
+          if ! gh release view channel-live-arm64 >/dev/null 2>&1; then echo 'Channel not yet published; skipping'; exit 0; fi
+          curl -fsSL https://github.com/dixonSolutions/AndySU/releases/download/v0.1.130/andysu-x86_64-unknown-linux-musl -o "$RUNNER_TEMP/andysu"
+          chmod +x "$RUNNER_TEMP/andysu"
+          mkdir -p "$RUNNER_TEMP/site/live-arm64"
+          gh release download channel-live-arm64 -p update.json -p update.json.sig -D "$RUNNER_TEMP/site/live-arm64"
+          umask 077
+          printf '%s\n' "$SIGNING_KEY" > "$RUNNER_TEMP/signing.key"
+          trap 'rm -f "$RUNNER_TEMP/signing.key" "$RUNNER_TEMP/signing.cert"' EXIT
+          args=(--key "$RUNNER_TEMP/signing.key")
+          if [ -n "$SIGNING_CERT" ]; then
+            printf '%s\n' "$SIGNING_CERT" > "$RUNNER_TEMP/signing.cert"
+            args+=(--cert "$RUNNER_TEMP/signing.cert")
+          fi
+          "$RUNNER_TEMP/andysu" sign --site "$RUNNER_TEMP/site" --channel live-arm64 "${args[@]}"
+          "$RUNNER_TEMP/andysu" verify --pub keys/potatoetomatoe3-public.pem "$RUNNER_TEMP/site/live-arm64/update.json"
+          gh release upload channel-live-arm64 --clobber "$RUNNER_TEMP/site/live-arm64/update.json" "$RUNNER_TEMP/site/live-arm64/update.json.sig"

@@ -40,6 +40,20 @@ describe('app-update', () => {
 		});
 	});
 
+	it('selects the live APK only on API 30 and later', () => {
+		const release = {
+			tag_name: 'release-55',
+			html_url: 'https://github.com/dixonSolutions/potatoetomatoe3/releases/tag/release-55',
+			assets: ['PT3-live-0.0.55-arm64.apk', 'potato-tomato-0.0.55.apk'].map((name) => ({
+				name,
+				browser_download_url: `https://github.com/dixonSolutions/potatoetomatoe3/releases/download/release-55/${name}`
+			}))
+		};
+		expect(selectLatestApkAsset(release, 30)?.apkName).toBe('PT3-live-0.0.55-arm64.apk');
+		expect(selectLatestApkAsset(release, 29)?.apkName).toBe('potato-tomato-0.0.55.apk');
+		expect(selectLatestApkAsset({ ...release, assets: release.assets.slice(0, 1) }, 29)).toBeNull();
+	});
+
 	it('rejects releases without a trusted APK asset', () => {
 		expect(
 			selectLatestApkAsset({
