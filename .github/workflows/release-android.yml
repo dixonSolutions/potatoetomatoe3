@@ -213,9 +213,9 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$ANDROID_KEYSTORE_BASE64" && test -n "$ANDROID_KEYSTORE_PASSWORD" && test -n "$ANDROID_KEY_ALIAS"
-          base=https://github.com/dixonSolutions/AndySU/releases/download/v0.1.130
+          base=https://github.com/dixonSolutions/AndySU/releases/download/v0.1.135
           curl -fsSL "$base/andysu-x86_64-unknown-linux-musl" -o "$RUNNER_TEMP/andysu"
-          curl -fsSL "$base/andysu-host-template-0.1.130.zip" -o "$RUNNER_TEMP/host-template.zip"
+          curl -fsSL "$base/andysu-host-template-0.1.135.zip" -o "$RUNNER_TEMP/host-template.zip"
           chmod +x "$RUNNER_TEMP/andysu"
           "$RUNNER_TEMP/andysu" host-config --toml andysu.toml --config-out "$RUNNER_TEMP/config.json" --host-out "$RUNNER_TEMP/host.json"
           umask 077
@@ -236,17 +236,9 @@ jobs:
         run: |
           newest=$(gh api --paginate "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq '.[].tag_name' | sed -n 's/^release-\([0-9][0-9]*\)$/\1/p' | sort -n | tail -n1)
           test "release-$newest" = "$TAG"
-      - name: Check whether payload is published
-        if: steps.enabled.outputs.value == 'true'
-        id: published
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ steps.release.outputs.version }}
-        run: |
-          if gh release view "andysu-live-arm64-$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then echo 'exists=true' >> "$GITHUB_OUTPUT"; fi
       - name: Publish signed channel
-        if: steps.enabled.outputs.value == 'true' && steps.published.outputs.exists != 'true'
-        uses: dixonSolutions/AndySU/actions/publish@v0.1.130
+        if: steps.enabled.outputs.value == 'true'
+        uses: dixonSolutions/AndySU/actions/publish@v0.1.135
         with:
           payload: split/payload
           config: andysu.toml
@@ -254,7 +246,7 @@ jobs:
           signing-cert: ${{ secrets.ANDYSU_SIGNING_CERT }}
           version: ${{ steps.release.outputs.version }}
           pack-args: --no-rename
-          andysu-version: 0.1.130
+          andysu-version: 0.1.135
       - name: Attach live APK
         if: steps.enabled.outputs.value == 'true'
         env:
