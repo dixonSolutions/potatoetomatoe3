@@ -1,0 +1,14 @@
+app = "com.potatotomato.games"
+host_api = 3
+public_key = "keys/potatoetomatoe3-public.pem"
+
+[remote]
+type = "github"
+repo = "dixonSolutions/potatoetomatoe3"
+channel = "live-arm64"
+
+[policy]
+mode = "auto"
+apply = "next_start"
+watchdog_ms = 120000
+crash_signals = "host"

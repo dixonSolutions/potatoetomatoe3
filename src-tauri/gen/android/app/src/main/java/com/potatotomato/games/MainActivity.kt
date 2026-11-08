@@ -8,7 +8,10 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Base64
 import android.webkit.WebView
+import org.json.JSONObject
+import java.lang.reflect.Proxy
 import androidx.activity.enableEdgeToEdge
+import androidx.webkit.JavaScriptReplyProxy
 import androidx.webkit.WebViewCompat
 import androidx.webkit.WebViewFeature
 
@@ -158,7 +161,69 @@ class MainActivity : TauriActivity() {
     }
   }
 
+  inner class AndyBridge(private val webView: WebView) {
+    private fun host(): Any? = try {
+      Class.forName("com.andysu.api.Host").getMethod("current").invoke(null)
+    } catch (_: Throwable) { null }
+    private fun api() = Class.forName("com.andysu.api.HostApi")
+    private fun updates(): Any? = host()?.let { api().getMethod("updates").invoke(it) }
+    private fun updateApi() = Class.forName("com.andysu.api.UpdateClient")
+    private fun call(name: String): Any? = updates()?.let { updateApi().getMethod(name).invoke(it) }
+
+    fun available(): Boolean = host() != null
+    fun status(): String {
+      return try {
+        val h = host() ?: return "{}"
+        JSONObject(call("status") as String).put("runningVersion", api().getMethod("version").invoke(h)).toString()
+      } catch (_: Throwable) { "{}" }
+    }
+    fun mode(): String = try { call("mode") as? String ?: "auto" } catch (_: Throwable) { "auto" }
+    fun setMode(mode: String) {
+      if (mode != "auto" && mode != "off") return
+      try { updates()?.let { updateApi().getMethod("setMode", String::class.java).invoke(it, mode) } } catch (_: Throwable) { }
+    }
+    fun checkNow() { try { call("checkNow") } catch (_: Throwable) { } }
+    fun applyNow() {
+      try {
+        if (JSONObject(status()).optString("state") == "shell_update" && !canInstallPackages()) {
+          runOnUiThread { openInstallPermissionSettings() }
+        } else { call("applyNow") }
+      } catch (_: Throwable) { }
+    }
+    fun listen(reply: JavaScriptReplyProxy) {
+      try {
+        val listener = Class.forName("com.andysu.api.UpdateClient\$Listener")
+        val proxy = Proxy.newProxyInstance(listener.classLoader, arrayOf(listener)) { _, method, _ ->
+          if (method.name == "onStatus") {
+            val json = status()
+            webView.post { reply.postMessage(JSONObject().put("type", "status").put("status", JSONObject(json)).toString()) }
+          }
+          null
+        }
+        updates()?.let { updateApi().getMethod("setListener", listener).invoke(it, proxy) }
+      } catch (_: Throwable) { }
+    }
+  }
+
   override fun onWebViewCreate(webView: WebView) {
+    val bridge = AndyBridge(webView)
+    if (bridge.available() && WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
+      WebViewCompat.addWebMessageListener(webView, "AndySU", setOf("http://tauri.localhost")) { _, message, sourceOrigin, isMainFrame, reply ->
+        if (!isMainFrame || sourceOrigin.toString() != "http://tauri.localhost") return@addWebMessageListener
+        val request = try { JSONObject(message.data ?: return@addWebMessageListener) } catch (_: Exception) { return@addWebMessageListener }
+        when (request.optString("action")) {
+          "init" -> {
+            bridge.listen(reply)
+            reply.postMessage(JSONObject().put("type", "init").put("sdk", android.os.Build.VERSION.SDK_INT)
+              .put("mode", bridge.mode()).put("status", JSONObject(bridge.status())).toString())
+          }
+          "status" -> reply.postMessage(JSONObject().put("type", "status").put("status", JSONObject(bridge.status())).toString())
+          "setMode" -> bridge.setMode(request.optString("mode"))
+          "checkNow" -> bridge.checkNow()
+          "applyNow" -> bridge.applyNow()
+        }
+      }
+    }
     if (!WebViewFeature.isFeatureSupported(WebViewFeature.DOCUMENT_START_SCRIPT)) {
       /* Needs Android WebView 89+; older devices fall back to same-origin-only console. */
       return

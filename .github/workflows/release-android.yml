@@ -145,3 +145,112 @@ jobs:
       # could only ever duplicate it — while burning 4-28 min of runner time per release
       # sleeping in a 30s poll loop (27.7 min on run 34927486726, where the APK had
       # already failed). The release still goes public exactly when Flatpak succeeds.
+
+  andysu-live:
+    concurrency:
+      group: andysu-live-arm64
+      cancel-in-progress: false
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Check signing availability
+        id: enabled
+        env:
+          SIGNING_KEY: ${{ secrets.ANDYSU_SIGNING_KEY }}
+        run: |
+          if [ -n "$SIGNING_KEY" ]; then echo "value=true" >> "$GITHUB_OUTPUT"; else echo 'AndySU signing key absent; skipping live release'; fi
+      - uses: actions/setup-java@v4
+        if: steps.enabled.outputs.value == 'true'
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        if: steps.enabled.outputs.value == 'true'
+        with:
+          packages: platform-tools
+      - uses: actions/download-artifact@v4
+        if: steps.enabled.outputs.value == 'true'
+        with:
+          name: release-inputs
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: release-inputs
+      - name: Read release identity
+        if: steps.enabled.outputs.value == 'true'
+        id: release
+        run: |
+          echo "version=$(jq -r .version release-inputs/release-context.json)" >> "$GITHUB_OUTPUT"
+          echo "tag=$(jq -r .tag release-inputs/release-context.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        if: steps.enabled.outputs.value == 'true'
+        with:
+          name: android-apk-${{ steps.release.outputs.version }}
+          path: apk
+      - name: Split signed APK with pinned AndySU
+        if: steps.enabled.outputs.value == 'true'
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          test -n "$ANDROID_KEYSTORE_BASE64" && test -n "$ANDROID_KEYSTORE_PASSWORD" && test -n "$ANDROID_KEY_ALIAS"
+          base=https://github.com/dixonSolutions/AndySU/releases/download/v0.1.130
+          curl -fsSL "$base/andysu-x86_64-unknown-linux-musl" -o "$RUNNER_TEMP/andysu"
+          curl -fsSL "$base/andysu-host-template-0.1.130.zip" -o "$RUNNER_TEMP/host-template.zip"
+          chmod +x "$RUNNER_TEMP/andysu"
+          "$RUNNER_TEMP/andysu" host-config --toml andysu.toml --config-out "$RUNNER_TEMP/config.json" --host-out "$RUNNER_TEMP/host.json"
+          umask 077
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.keystore"
+          trap 'rm -f "$RUNNER_TEMP/release.keystore"' EXIT
+          "$RUNNER_TEMP/andysu" split "apk/potato-tomato-$VERSION.apk" --out split --transparent --abi arm64-v8a --version "$VERSION" --host-api 3 \
+            --host-template "$RUNNER_TEMP/host-template.zip" --config "$RUNNER_TEMP/config.json" \
+            --keystore "$RUNNER_TEMP/release.keystore" --ks-pass env:ANDROID_KEYSTORE_PASSWORD --key-alias "$ANDROID_KEY_ALIAS"
+          aapt="$(find "$ANDROID_HOME/build-tools" -name aapt | sort -V | tail -n1)"
+          plain_code=$("$aapt" dump badging "apk/potato-tomato-$VERSION.apk" | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p" | head -n1)
+          host_code=$("$aapt" dump badging split/host.apk | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p" | head -n1)
+          test -n "$plain_code" && test -n "$host_code" && test "$host_code" -ge "$plain_code"
+      - name: Refuse to republish an older app release
+        if: steps.enabled.outputs.value == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          newest=$(gh api --paginate "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq '.[].tag_name' | sed -n 's/^release-\([0-9][0-9]*\)$/\1/p' | sort -n | tail -n1)
+          test "release-$newest" = "$TAG"
+      - name: Check whether payload is published
+        if: steps.enabled.outputs.value == 'true'
+        id: published
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          if gh release view "andysu-live-arm64-$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then echo 'exists=true' >> "$GITHUB_OUTPUT"; fi
+      - name: Publish signed channel
+        if: steps.enabled.outputs.value == 'true' && steps.published.outputs.exists != 'true'
+        uses: dixonSolutions/AndySU/actions/publish@v0.1.130
+        with:
+          payload: split/payload
+          config: andysu.toml
+          signing-key: ${{ secrets.ANDYSU_SIGNING_KEY }}
+          signing-cert: ${{ secrets.ANDYSU_SIGNING_CERT }}
+          version: ${{ steps.release.outputs.version }}
+          pack-args: --no-rename
+          andysu-version: 0.1.130
+      - name: Attach live APK
+        if: steps.enabled.outputs.value == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          cp split/host.apk "PT3-live-$VERSION-arm64.apk"
+          gh release upload "$TAG" "PT3-live-$VERSION-arm64.apk" --clobber

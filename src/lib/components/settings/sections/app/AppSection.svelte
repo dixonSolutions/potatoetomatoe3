@@ -1,4 +1,14 @@
 <script lang="ts">
+	import {
+		andysuAvailable,
+		andysuStatus,
+		statusText,
+		initAndySU,
+		andysuMode,
+		setAndySUMode,
+		checkAndySU,
+		applyAndySU
+	} from '$lib/utils/andysu';
 	import { onMount } from 'svelte';
 	import { CheckCircle2, Download, Loader2, RefreshCw } from 'lucide-svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -35,6 +45,8 @@
 	 * APK can install itself); the desktop app gets what closing its window does.
 	 */
 	const android = isTauriAndroidBuild();
+	const live = andysuAvailable();
+	let liveAuto = $state(true);
 	const desktop = isTauriApp() && !isTauriMobileBuild();
 
 	let trayLife = $state<TrayLifecycleState | null>(null);
@@ -113,6 +125,12 @@
 	}
 
 	onMount(() => {
+		if (live) {
+			liveAuto = andysuMode() !== 'off';
+			return initAndySU((mode) => {
+				liveAuto = mode !== 'off';
+			});
+		}
 		if (android) void refresh();
 		if (desktop) {
 			void getInstalledVersion().then((v) => (installed = v));
@@ -140,7 +158,31 @@
 </script>
 
 <div class="space-y-6">
-	{#if android}
+	{#if live}
+		<SettingsGroup title="Updates" id="settings-section-updates-android">
+			<div class="flex flex-wrap items-center gap-2 px-4 py-3">
+				<span class="text-sm">{statusText($andysuStatus)}</span>
+				{#if $andysuStatus.state === 'shell_update' || ($andysuStatus.state === 'staged' && $andysuStatus.release !== $andysuStatus.runningVersion)}
+					<Button size="sm" onclick={applyAndySU}
+						>{$andysuStatus.state === 'shell_update' ? 'Install' : 'Apply now'}</Button
+					>
+				{/if}
+			</div>
+			<SettingsRow label="Update automatically" labelFor="andysu-auto" inline>
+				<Switch
+					id="andysu-auto"
+					checked={liveAuto}
+					onCheckedChange={(v) => {
+						liveAuto = Boolean(v);
+						setAndySUMode(liveAuto ? 'auto' : 'off');
+					}}
+				/>
+			</SettingsRow>
+			<div class="px-4 py-3">
+				<Button size="sm" variant="outline" onclick={checkAndySU}>Check now</Button>
+			</div>
+		</SettingsGroup>
+	{:else if android}
 		<SettingsGroup id="settings-section-updates-android">
 			<SettingsRow label="This version" inline>
 				<span class="font-mono text-sm">{installed ?? '—'}</span>

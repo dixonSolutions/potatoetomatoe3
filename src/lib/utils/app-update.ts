@@ -4,6 +4,7 @@
  */
 
 import { isTauriApp, isTauriAndroidBuild } from '$lib/utils/offline-deployment';
+import { androidSdk, andysuAvailable } from '$lib/utils/andysu';
 import { openExternalUrl } from '$lib/utils/open-external';
 
 export const APP_UPDATE_REPO = 'dixonSolutions/potatoetomatoe3';
@@ -52,15 +53,18 @@ function versionFromTag(tag: string): string {
 }
 
 /** Pick the preferred APK asset from a GitHub release payload. */
-export function selectLatestApkAsset(release: GithubRelease): LatestApkRelease | null {
+export function selectLatestApkAsset(release: GithubRelease, sdk = 0): LatestApkRelease | null {
 	const tag = (release.tag_name ?? '').trim();
 	const releaseUrl = (release.html_url ?? '').trim();
 	if (!tag || !releaseUrl.includes(APP_UPDATE_REPO)) return null;
 
 	const assets = Array.isArray(release.assets) ? release.assets : [];
 	const apk =
+		(sdk >= 30
+			? assets.find((a) => /^PT3-live-.*-arm64\.apk$/i.test(a.name ?? '') && isApkAsset(a))
+			: undefined) ??
 		assets.find((a) => isApkAsset(a) && (a.name ?? '').toLowerCase().includes('potato')) ??
-		assets.find((a) => isApkAsset(a));
+		assets.find((a) => isApkAsset(a) && !/^PT3-live-/i.test(a.name ?? ''));
 	const apkUrl = (apk?.browser_download_url ?? '').trim();
 	const apkName = (apk?.name ?? '').trim();
 	if (!apkUrl || !apkName || !apkUrl.includes(APP_UPDATE_REPO) || !apkUrl.endsWith('.apk')) {
@@ -90,7 +94,7 @@ export async function fetchLatestApkRelease(signal?: AbortSignal): Promise<Lates
 		throw new Error(`GitHub Releases returned ${res.status}`);
 	}
 	const body = (await res.json()) as GithubRelease;
-	const selected = selectLatestApkAsset(body);
+	const selected = selectLatestApkAsset(body, androidSdk());
 	if (!selected) {
 		throw new Error('Latest GitHub Release has no Potato Tomato APK asset');
 	}
@@ -194,7 +198,7 @@ export async function downloadAndInstallApk(
  * a browser build, no readable version, or an unreachable API.
  */
 export async function findPendingUpdate(signal?: AbortSignal): Promise<LatestApkRelease | null> {
-	if (!isTauriApp()) return null;
+	if (!isTauriApp() || andysuAvailable()) return null;
 	const installed = await getInstalledVersion();
 	if (!installed) return null;
 	const latest = await fetchLatestApkRelease(signal);

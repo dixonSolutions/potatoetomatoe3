@@ -9,6 +9,7 @@
 	 * itself from inside its own sandbox. Renders nothing on the public site, which has no
 	 * version to report.
 	 */
+	import { andysuAvailable } from '$lib/utils/andysu';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Download, Loader2 } from 'lucide-svelte';
 	import { onMount } from 'svelte';
@@ -33,7 +34,7 @@
 	let show = $derived(isTauriApp() && Boolean(installed));
 
 	onMount(() => {
-		if (!isTauriApp()) return;
+		if (!isTauriApp() || andysuAvailable()) return;
 		void getInstalledVersion().then((v) => (installed = v));
 		/*
 		 * Best-effort: a filtered network or a rate-limited GitHub API just means no badge.
