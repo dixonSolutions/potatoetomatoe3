@@ -22,7 +22,7 @@ jobs:
           set -euo pipefail
           if [ -z "$SIGNING_KEY" ]; then echo 'AndySU signing key absent; skipping'; exit 0; fi
           if ! gh release view channel-live-arm64 >/dev/null 2>&1; then echo 'Channel not yet published; skipping'; exit 0; fi
-          curl -fsSL https://github.com/dixonSolutions/AndySU/releases/download/v0.1.130/andysu-x86_64-unknown-linux-musl -o "$RUNNER_TEMP/andysu"
+          curl -fsSL https://github.com/dixonSolutions/AndySU/releases/download/v0.1.135/andysu-x86_64-unknown-linux-musl -o "$RUNNER_TEMP/andysu"
           chmod +x "$RUNNER_TEMP/andysu"
           mkdir -p "$RUNNER_TEMP/site/live-arm64"
           gh release download channel-live-arm64 -p update.json -p update.json.sig -D "$RUNNER_TEMP/site/live-arm64"
