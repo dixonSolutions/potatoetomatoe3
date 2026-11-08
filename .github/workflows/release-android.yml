@@ -20,6 +20,16 @@ jobs:
     if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
+      # The 0.0.93 publish failed with "No space left on device" while linking the
+      # aarch64 Rust library, so that release has no APK and the in-app updater finds
+      # nothing. Remove toolchains this job never uses; the Android SDK stays.
+      - name: Free runner disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/.ghcup /usr/local/share/boost \
+            /opt/hostedtoolcache/CodeQL /usr/share/swift
+          sudo docker image prune --all --force >/dev/null || true
+          df -h /
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
