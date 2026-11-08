@@ -11,4 +11,6 @@ channel = "live-arm64"
 mode = "auto"
 apply = "next_start"
 watchdog_ms = 120000
-crash_signals = "host"
+# Not "host": this app already aborts on exit (a Rust mutex torn down while held, seen on plain
+# builds too), and with the host first that abort could roll back a good update opened and
+# closed before it reported healthy.
