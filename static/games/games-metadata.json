@@ -124234,6 +124234,20 @@
     "unityPlayUrl": "https://play.unity.com/en/games/5c065f57-c1f1-43c7-ac28-4e933326e2f8/god-tone-serving-hot-pot"
   },
   {
+    "id": "gogh-shoot",
+    "name": "Gogh Shoot",
+    "author": "dixonSolutions",
+    "description": "A first-person browser shooter in a Van Gogh painted style, with multiplayer through the LiveEngine library. Derived from Gogh Strike by petergpt.",
+    "thumbnail": "/games/gogh-shoot/online/assets/thumbnail.jpg",
+    "thumbnailStored": "local",
+    "category": "action",
+    "engine": "html5",
+    "onlineEmbedUrl": "https://gogh-shoot.vercel.app/",
+    "sourcePortal": "github",
+    "sourceSiteUrl": "https://gogh-shoot.vercel.app/",
+    "license": "MIT"
+  },
+  {
     "id": "gogh-strike",
     "name": "Gogh Strike",
     "author": "petergpt",
