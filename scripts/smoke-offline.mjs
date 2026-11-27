@@ -9,7 +9,7 @@
  *  A2  turn the Offline filter off: the page just says "Offline" plus a Downloads button.
  *
  * Usage: node scripts/smoke-offline.mjs [--url http://127.0.0.1:5173] [--out dir]
- *          [--cancel <gameId>] [--keep <gameId>]
+ *          [--cancel <gameId>] [--keep <id1,id2,id3>]
  */
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
@@ -24,7 +24,9 @@ const arg = (name) => {
 };
 const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-offline');
 const CANCEL_ID = arg('--cancel') ?? 'coolmath-1-push';
-const KEEP_ID = arg('--keep') ?? 'slope';
+const KEEP_IDS = (arg('--keep') ?? 'slope,fnf-games-2v2-io,coolmath-1-push')
+	.split(',')
+	.filter(Boolean);
 let BASE = arg('--url');
 let server;
 
@@ -157,29 +159,36 @@ try {
 		});
 	}
 
-	/* A3 b: a second download completes with one toast. */
-	await openGame(page, KEEP_ID);
-	const keepBtn = controls(page).getByRole('button', { name: /^(Resume download|Download)$/ });
-	if (await keepBtn.isEnabled().catch(() => false)) {
-		const t0 = Date.now();
-		await keepBtn.click();
-		const toast = toasts(page).filter({ hasText: 'ready offline' });
-		const done = await toast
-			.first()
-			.waitFor({ timeout: 300000 })
-			.then(() => true)
-			.catch(() => false);
-		await page.screenshot({ path: path.join(OUT, 'download-done-toast.png') });
-		check('download completes with toast', done, {
-			id: KEEP_ID,
-			ms: Date.now() - t0,
-			toasts: await toast.count()
-		});
-	} else {
-		check('download completes with toast', await page.getByText('Downloaded').isVisible(), {
-			id: KEEP_ID,
-			already: true
-		});
+	/* A3 b: the kept games download; the first must finish with exactly one toast. */
+	for (const [i, keepId] of KEEP_IDS.entries()) {
+		await openGame(page, keepId);
+		const keepBtn = controls(page).getByRole('button', { name: /^(Resume download|Download)$/ });
+		if (await keepBtn.isEnabled().catch(() => false)) {
+			const t0 = Date.now();
+			await keepBtn.click();
+			const toast = toasts(page).filter({ hasText: 'ready offline' });
+			const done = await toast
+				.first()
+				.waitFor({ timeout: 300000 })
+				.then(() => true)
+				.catch(() => false);
+			if (i === 0) await page.screenshot({ path: path.join(OUT, 'download-done-toast.png') });
+			check(i === 0 ? 'download completes with toast' : `download ${keepId}`, done, {
+				id: keepId,
+				ms: Date.now() - t0,
+				toasts: await toast.count()
+			});
+			await toast
+				.first()
+				.waitFor({ state: 'detached', timeout: 15000 })
+				.catch(() => {});
+		} else {
+			check(
+				i === 0 ? 'download completes with toast' : `download ${keepId}`,
+				await page.getByText('Downloaded').isVisible(),
+				{ id: keepId, already: true }
+			);
+		}
 	}
 
 	/* A1: Home, network flaps then drops. */
@@ -211,14 +220,18 @@ try {
 		flips,
 		toasts: toastCount,
 		games: ids,
-		onlyDownloaded: ids.every((id) => id === KEEP_ID)
+		onlyDownloaded: ids.every((id) => KEEP_IDS.includes(id))
 	});
 
-	/* A4: launch the downloaded game offline from Home (in-app navigation). */
-	const tile = page.locator(`a[href$="/games/${KEEP_ID}"]`).first();
-	if (await tile.isVisible().catch(() => false)) {
+	/* A4: launch each downloaded game offline from Home (in-app navigation). */
+	for (const keepId of KEEP_IDS) {
+		const tile = page.locator(`a[href$="/games/${keepId}"]`).first();
+		if (!(await tile.isVisible().catch(() => false))) {
+			check(`offline launch ${keepId}`, false, { reason: 'no tile on offline Home' });
+			continue;
+		}
 		await tile.click();
-		await page.waitForURL(new RegExp(`/games/${KEEP_ID}`), { timeout: 15000 });
+		await page.waitForURL(new RegExp(`/games/${keepId}`), { timeout: 15000 });
 		const title = await page
 			.locator('h1')
 			.first()
@@ -229,26 +242,55 @@ try {
 			.first()
 			.getAttribute('src', { timeout: 30000 })
 			.catch(() => null);
-		await page.waitForTimeout(4000);
+		await page.waitForTimeout(6000);
 		const crashed = await page.getByTestId('game-crashed-notice').isVisible();
 		const description = await page
 			.locator('p.text-muted-foreground')
 			.first()
 			.textContent()
 			.catch(() => '');
-		await page.screenshot({ path: path.join(OUT, `offline-launch-${KEEP_ID}.png`) });
-		check('offline launch', Boolean(title?.trim() && frame && !crashed), {
-			id: KEEP_ID,
-			title: title?.trim(),
-			description: (description ?? '').trim().slice(0, 60),
-			frame: frame?.slice(0, 80),
-			crashed
-		});
+		const banners = await page
+			.locator('main img')
+			.evaluateAll((imgs) => imgs.filter((i) => i.complete && i.naturalWidth > 0).length)
+			.catch(() => 0);
+		/* What the game frame itself shows (Playwright can read any frame). */
+		let rendered = null;
+		for (const fr of page.frames()) {
+			if (fr === page.mainFrame()) continue;
+			const r = await fr
+				.evaluate(() => ({
+					canvas: document.querySelectorAll('canvas').length,
+					nodes: document.body ? document.body.querySelectorAll('*').length : 0,
+					text: (document.body?.innerText ?? '').trim().slice(0, 40)
+				}))
+				.catch(() => null);
+			if (r && (!rendered || r.nodes > rendered.nodes))
+				rendered = { url: fr.url().slice(0, 80), ...r };
+		}
+		await page.screenshot({ path: path.join(OUT, `offline-launch-${keepId}.png`) });
+		check(
+			`offline launch ${keepId}`,
+			Boolean(
+				title?.trim() &&
+					(description ?? '').trim() &&
+					banners > 0 &&
+					frame &&
+					!crashed &&
+					rendered &&
+					(rendered.canvas > 0 || rendered.nodes > 3)
+			),
+			{
+				title: title?.trim(),
+				description: (description ?? '').trim().slice(0, 60),
+				banners,
+				frame: frame?.slice(0, 80),
+				rendered,
+				crashed
+			}
+		);
 		await page.locator('a[href$="/home"]').first().click();
 		await page.waitForURL(/\/home/);
 		await page.waitForTimeout(500);
-	} else {
-		check('offline launch', false, { id: KEEP_ID, reason: 'no tile on offline Home' });
 	}
 
 	/* A2: filter off: "Offline" + Downloads button, everything listed. */
