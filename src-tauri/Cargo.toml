@@ -70,3 +70,12 @@ webkit2gtk = { version = "=2.0.2", features = ["v2_38"] }
 [target.'cfg(target_os = "android")'.dependencies]
 jni = "0.21"
 ndk-context = "0.1"
+
+# A lighter, faster-starting app: one codegen unit with fat LTO, size-leaning optimisation
+# (the hot paths are the webview's, not ours) and stripped symbols. Not `panic = "abort"`:
+# `lib.rs` catches a panic while building the tray so a broken tray never takes the app down.
+[profile.release]
+codegen-units = 1
+lto = "fat"
+opt-level = "s"
+strip = true
