@@ -81,7 +81,7 @@
 	/** Primary destinations, shared by the slide-out menu. `match` is a pathname suffix. */
 	const mobileLinks = $derived([
 		{ title: 'Home', href: resolve('/home'), match: '/home' },
-		{ title: 'All Games', href: resolve('/games'), match: '/games' },
+		{ title: 'Games', href: resolve('/games'), match: '/games' },
 		{ title: 'Playtime & algorithm', href: resolve('/play-analytics'), match: 'play-analytics' },
 		...(showDownloadApp
 			? [{ title: 'Download app', href: resolve('/download'), match: '/download' }]
@@ -198,7 +198,7 @@
 									? 'text-primary'
 									: ''}"
 							>
-								All Games
+								Games
 							</NavigationMenu.Link>
 						</NavigationMenu.Item>
 						{#if showDownloadApp}

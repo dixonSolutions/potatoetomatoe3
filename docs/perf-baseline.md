@@ -46,3 +46,19 @@ time /tmp/ptb-target2/release/potato-tomato      # or `cluster eva` for the GUI 
 ```
 
 The webview-side equivalent (paint and card-image times inside the app) is `/dev/perf-bench` driven by `scripts/perf-bench-collector.mjs` (`pnpm puller-test` / the perf-bench Tauri config `tauri.perf-bench.conf.json`). Fill the start-to-home number here once measured on a display.
+
+## M4: catalog packaging (2026-11-27, commit `fb89aa6db`)
+
+The client loads `static/games/games-index/` (manifest + shards). M4 replaced the v1 row
+shards with v2 columnar shards (`scripts/catalog-quality/index-format.mjs`, decoder
+`src/lib/utils/catalog-index-format.ts`) and moved `games-metadata.json` out of `static/`.
+
+| What | M1 | M4 |
+|---|---|---|
+| `games-index/` total | 3,276,990 (gzip 631,392), 28 shards of 500 | 1,509,497 (gzip 560,648, brotli 449,459), 8 shards |
+| First request to paint Home (manifest + shard 0) | manifest + 500-row shard | 13,105 + 23,610 (gzip 7,187 + 8,858) |
+| Shipped `games-metadata.json` (web build and app bundle) | 12,440,146 | 0 (now `scripts/data/`, build tooling only) |
+| Decode of the full catalog (13,646 games, Node) | n/a (rows) | ~17 ms |
+
+Sizes: `du -cb static/games/games-index/*.json | tail -1`, `gzip -9c <file> | wc -c` per file.
+Every decoded entry matched the v1 index (0 differences).

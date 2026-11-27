@@ -343,7 +343,7 @@ async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => 
 
 /**
  * Progressive catalog index: shard 0 first (callback), then remaining shards.
- * Pass `{ eager: false }` for All Games (first page only; use {@link loadMoreCatalogShards} on scroll).
+ * Pass `{ eager: false }` for the Games tab (first page only; use {@link loadMoreCatalogShards} on scroll).
  * Default `eager: true` loads the full index (Home / recommendations).
  */
 export async function loadCatalogIndex(
