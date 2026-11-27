@@ -517,8 +517,64 @@ self.addEventListener('activate', function (event) {
 	);
 });
 
+/* Ad and tracker hosts: mirrors src/lib/utils/ad-hosts.ts (ad-hosts.spec.ts checks it). */
+const AD_HOSTS = [
+	'doubleclick.net',
+	'googlesyndication.com',
+	'googletagservices.com',
+	'googletagmanager.com',
+	'google-analytics.com',
+	'googleadservices.com',
+	'adservice.google.com',
+	'imasdk.googleapis.com',
+	'amazon-adsystem.com',
+	'criteo.com',
+	'criteo.net',
+	'pubmatic.com',
+	'adnxs.com',
+	'moatads.com',
+	'rubiconproject.com',
+	'openx.net',
+	'casalemedia.com',
+	'smartadserver.com',
+	'taboola.com',
+	'outbrain.com',
+	'scorecardresearch.com',
+	'quantserve.com',
+	'hotjar.com',
+	'clarity.ms',
+	'mc.yandex.ru',
+	'adsafeprotected.com',
+	'33across.com',
+	'sharethrough.com',
+	'teads.tv',
+	'yieldmo.com',
+	'lijit.com',
+	'indexww.com',
+	'adform.net',
+	'cpmstar.com',
+	'adinplay.com',
+	'venatusmedia.com',
+	'playwire.com',
+	'aniview.com',
+	'springserve.com',
+	'lkqd.net'
+];
+
+function isAdHost(host) {
+	host = String(host || '').toLowerCase();
+	return AD_HOSTS.some(function (d) {
+		return host === d || host.endsWith('.' + d);
+	});
+}
+
 self.addEventListener('fetch', function (event) {
 	const url = new URL(event.request.url);
+	/* Game frames under this worker never reach an ad or tracker host. */
+	if (url.origin !== self.location.origin && isAdHost(url.hostname)) {
+		event.respondWith(Response.error());
+		return;
+	}
 	const pathname = url.pathname;
 
 	const unityPlayMatch = pathname.match(/\/api\/unity-play\/([^/]+)\/?$/);

@@ -23,6 +23,216 @@
  * values — what Unity's IDBFS stores — survive the round trip, and saved records are
  * restored with add-if-absent so a stale profile can never overwrite newer real data.
  */
+/* ==========================================================================
+ * Ad and tracker blocker — a self-contained block (own scope, own state); nothing
+ * below depends on it. Runs first, in frames only.
+ *
+ * Ad SDKs, analytics and pixels are refused before they load: fetch rejects, XHR fires
+ * error, sendBeacon is dropped, and a script / iframe / img pointed at an ad host never
+ * gets its src (scripts fire error, like an ad blocker, so games take their no-ads path).
+ * Parser-inserted tags are caught by a MutationObserver. Counts go to the app as
+ * {type:'potato-tomato-ads-blocked', blocked} and to window.__ptAdBlock for tests.
+ *
+ * AD_HOSTS mirrors src/lib/utils/ad-hosts.ts; ad-hosts.spec.ts checks the copies and runs
+ * this block against fakes.
+ * ========================================================================== */
+(function () {
+	if (window.top === window || window.__ptAdBlock) return;
+	var AD_HOSTS = [
+		'doubleclick.net',
+		'googlesyndication.com',
+		'googletagservices.com',
+		'googletagmanager.com',
+		'google-analytics.com',
+		'googleadservices.com',
+		'adservice.google.com',
+		'imasdk.googleapis.com',
+		'amazon-adsystem.com',
+		'criteo.com',
+		'criteo.net',
+		'pubmatic.com',
+		'adnxs.com',
+		'moatads.com',
+		'rubiconproject.com',
+		'openx.net',
+		'casalemedia.com',
+		'smartadserver.com',
+		'taboola.com',
+		'outbrain.com',
+		'scorecardresearch.com',
+		'quantserve.com',
+		'hotjar.com',
+		'clarity.ms',
+		'mc.yandex.ru',
+		'adsafeprotected.com',
+		'33across.com',
+		'sharethrough.com',
+		'teads.tv',
+		'yieldmo.com',
+		'lijit.com',
+		'indexww.com',
+		'adform.net',
+		'cpmstar.com',
+		'adinplay.com',
+		'venatusmedia.com',
+		'playwire.com',
+		'aniview.com',
+		'springserve.com',
+		'lkqd.net'
+	];
+	var state = { blocked: 0, hosts: {} };
+	window.__ptAdBlock = state;
+	var timer = 0;
+
+	function hostOf(url) {
+		try {
+			return new URL(String(url), location.href).hostname.toLowerCase();
+		} catch {
+			return '';
+		}
+	}
+	function isAd(url) {
+		if (!url) return false;
+		var h = hostOf(url);
+		if (!h) return false;
+		for (var i = 0; i < AD_HOSTS.length; i++) {
+			var d = AD_HOSTS[i];
+			if (h === d || h.slice(-d.length - 1) === '.' + d) return true;
+		}
+		return false;
+	}
+	function report() {
+		timer = 0;
+		try {
+			window.parent.postMessage({ type: 'potato-tomato-ads-blocked', blocked: state.blocked }, '*');
+		} catch {
+			/* parent gone */
+		}
+	}
+	function note(url) {
+		state.blocked++;
+		var h = hostOf(url);
+		state.hosts[h] = (state.hosts[h] || 0) + 1;
+		if (!timer) timer = setTimeout(report, 1000);
+	}
+	function fail(target) {
+		setTimeout(function () {
+			try {
+				target.dispatchEvent(new Event('error'));
+			} catch {
+				/* detached */
+			}
+		}, 0);
+	}
+
+	var origFetch = window.fetch;
+	if (origFetch) {
+		window.fetch = function (input) {
+			var url = input && typeof input === 'object' && 'url' in input ? input.url : input;
+			if (isAd(url)) {
+				note(url);
+				return Promise.reject(new TypeError('Failed to fetch'));
+			}
+			return origFetch.apply(this, arguments);
+		};
+	}
+
+	var XHR = window.XMLHttpRequest;
+	if (XHR && XHR.prototype) {
+		var xOpen = XHR.prototype.open;
+		var xSend = XHR.prototype.send;
+		XHR.prototype.open = function (method, url) {
+			this.__ptAd = isAd(url) ? String(url) : '';
+			return xOpen.apply(this, arguments);
+		};
+		XHR.prototype.send = function () {
+			if (this.__ptAd) {
+				note(this.__ptAd);
+				fail(this);
+				return;
+			}
+			return xSend.apply(this, arguments);
+		};
+	}
+
+	if (window.navigator && navigator.sendBeacon) {
+		var beacon = navigator.sendBeacon.bind(navigator);
+		navigator.sendBeacon = function (url, data) {
+			if (isAd(url)) {
+				note(url);
+				return true;
+			}
+			return beacon(url, data);
+		};
+	}
+
+	function refuse(el) {
+		try {
+			if (el.tagName === 'SCRIPT') el.type = 'javascript/blocked';
+		} catch {
+			/* read-only */
+		}
+		fail(el);
+	}
+	function guardSrc(ctor) {
+		var proto = ctor && ctor.prototype;
+		var desc = proto && Object.getOwnPropertyDescriptor(proto, 'src');
+		if (!desc || !desc.set || !desc.configurable) return;
+		Object.defineProperty(proto, 'src', {
+			configurable: true,
+			enumerable: desc.enumerable,
+			get: desc.get,
+			set: function (v) {
+				if (isAd(v)) {
+					note(v);
+					refuse(this);
+					return;
+				}
+				desc.set.call(this, v);
+			}
+		});
+	}
+	guardSrc(window.HTMLScriptElement);
+	guardSrc(window.HTMLIFrameElement);
+	guardSrc(window.HTMLImageElement);
+
+	var TAGS = { SCRIPT: 1, IFRAME: 1, IMG: 1 };
+	if (window.Element && Element.prototype.setAttribute) {
+		var setAttr = Element.prototype.setAttribute;
+		Element.prototype.setAttribute = function (name, value) {
+			if (
+				TAGS[this.tagName] &&
+				typeof name === 'string' &&
+				name.toLowerCase() === 'src' &&
+				isAd(value)
+			) {
+				note(value);
+				refuse(this);
+				return;
+			}
+			return setAttr.apply(this, arguments);
+		};
+	}
+
+	/* Tags straight from the HTML parser (or innerHTML) never pass the setters above. */
+	if (window.MutationObserver && typeof document !== 'undefined') {
+		new MutationObserver(function (records) {
+			for (var r = 0; r < records.length; r++) {
+				var added = records[r].addedNodes;
+				for (var n = 0; n < added.length; n++) {
+					var el = added[n];
+					if (!el || el.nodeType !== 1 || !TAGS[el.tagName]) continue;
+					var src = el.getAttribute('src');
+					if (!isAd(src)) continue;
+					note(src);
+					if (el.tagName === 'SCRIPT') el.type = 'javascript/blocked';
+					if (el.parentNode) el.parentNode.removeChild(el);
+				}
+			}
+		}).observe(document, { childList: true, subtree: true });
+	}
+})();
+
 (function () {
 	var TYPE = 'potato-tomato-game-storage';
 	var SCHEMA_VERSION = 1;

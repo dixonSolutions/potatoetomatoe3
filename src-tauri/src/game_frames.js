@@ -18,7 +18,7 @@
  *           storage of its own — plus console input relayed down from the game frame.
  *           Only one frame per game may own the saved profile: the bridge restores the
  *           freshest bucket it finds, so two owners would trade each other's saves.
- *   ad      a known ad or measurement host. Left alone.
+ *   ad      a known ad or measurement host. Stopped.
  *
  * Everything else — the app's own top document, its same-origin shells and blob
  * documents, a puller relay page — is not touched here: those documents bring their own
@@ -58,7 +58,15 @@ function ptGameFramePreamble(CTX) {
 			? 'game'
 			: 'nested';
 	window.__ptNativeGameFrame = { role: role, gameId: role === 'game' ? CTX.gameId : '' };
-	if (role === 'ad') return null;
+	if (role === 'ad') {
+		/* An ad frame that slipped past the bridge's blocker: stop it loading anything more. */
+		try {
+			window.stop();
+		} catch (e) {
+			/* ignore */
+		}
+		return null;
+	}
 
 	if (role === 'game') {
 		/*
