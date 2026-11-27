@@ -3,7 +3,9 @@
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
 	import { SvelteSet } from 'svelte/reactivity';
-	import { WifiOff } from 'lucide-svelte';
+	import { HardDrive, WifiOff, X } from 'lucide-svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { offlineFilterOn, setOfflineFilter } from '$lib/utils/offline-filter.svelte';
 	import { loadCatalogIndex, type GameIndexEntry } from '$lib/utils/games';
 	import GameRow from '$lib/components/game-card/GameRow.svelte';
 	import {
@@ -22,8 +24,8 @@
 	/**
 	 * Home: rows like the Roblox home (Continue, Favourites, Recommended for you, Today's
 	 * picks, Top rated, the categories you play). Rows paint from the first catalog shard;
-	 * Recommended fills in when the ranker is done. Offline, every row is limited to
-	 * downloaded games and a small icon says so.
+	 * Recommended fills in when the ranker is done. Offline, the Offline filter (on by default)
+	 * limits every row to downloaded games; turned off, Home just says "Offline".
 	 */
 
 	let catalog: GameIndexEntry[] = $state([]);
@@ -52,8 +54,10 @@
 		) as Record<string, string | undefined>
 	);
 
+	let filtering = $derived(!networkOnline && offlineFilterOn());
+
 	function availableOnly(games: GameIndexEntry[]): GameIndexEntry[] {
-		return networkOnline ? games : filterDownloadedGames(games, offlineStatusMap);
+		return filtering ? filterDownloadedGames(games, offlineStatusMap) : games;
 	}
 
 	let rows = $derived.by((): FeedRow<GameIndexEntry>[] => {
@@ -78,13 +82,16 @@
 			favourites: availableOnly(favourites),
 			recommended: availableOnly(recommended)
 		});
-		if (networkOnline) return built;
+		if (!filtering) return built;
 		/* Offline: the downloads themselves come first, then whatever rows still have games. */
 		const downloads = filterDownloadedGames(catalog, offlineStatusMap);
 		const shown = new Set(built.flatMap((r) => r.games.map((g) => g.id)));
 		const rest = downloads.filter((g) => !shown.has(g.id));
 		return rest.length > 0
-			? [{ key: 'downloads', title: 'Downloads', games: rest }, ...built]
+			? [
+					{ key: 'downloads', title: 'Downloads', games: rest, seeAll: '/games?downloaded=1' },
+					...built
+				]
 			: built;
 	});
 
@@ -159,15 +166,41 @@
 	<div class="mx-auto w-full max-w-[1920px] px-3 py-4 sm:px-5 md:py-6">
 		<header class="mb-4 flex items-center gap-2 md:mb-6">
 			<h1 class="text-xl font-bold tracking-tight md:text-2xl">Home</h1>
-			{#if !networkOnline}
+			{#if filtering}
 				<span
-					class="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+					class="inline-flex items-center text-muted-foreground"
 					role="status"
-					title="No internet: showing downloaded games"
+					title="No internet"
+					aria-label="No internet"
+					data-testid="offline-icon"
 				>
-					<WifiOff class="h-3.5 w-3.5" aria-hidden="true" />
-					Offline
+					<WifiOff class="h-4 w-4" aria-hidden="true" />
 				</span>
+				<Button
+					size="sm"
+					variant="secondary"
+					class="ml-auto h-7 rounded-full px-3 text-xs"
+					aria-pressed="true"
+					data-testid="offline-filter"
+					onclick={() => setOfflineFilter(false)}
+				>
+					<HardDrive class="h-3.5 w-3.5" aria-hidden="true" />
+					Downloads
+					<X class="h-3.5 w-3.5" aria-label="Show all games" />
+				</Button>
+			{:else if !networkOnline}
+				<span class="text-sm text-muted-foreground" role="status">Offline</span>
+				<Button
+					size="sm"
+					variant="outline"
+					class="ml-auto h-7 rounded-full px-3 text-xs"
+					aria-pressed="false"
+					data-testid="offline-filter"
+					onclick={() => setOfflineFilter(true)}
+				>
+					<HardDrive class="h-3.5 w-3.5" aria-hidden="true" />
+					Downloads
+				</Button>
 			{/if}
 		</header>
 
@@ -189,9 +222,7 @@
 			</div>
 		{:else if rows.length === 0}
 			<p class="py-16 text-center text-sm text-muted-foreground">
-				{networkOnline
-					? 'No games yet.'
-					: 'No downloaded games. Download a game to play it offline.'}
+				{filtering ? 'No downloaded games yet.' : 'No games yet.'}
 			</p>
 		{:else}
 			{#each rows as row, i (row.key)}

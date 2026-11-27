@@ -42,6 +42,7 @@
 	} from '$lib/utils/offline-downloader';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
+	import { offlineFilterOn, setOfflineFilter } from '$lib/utils/offline-filter.svelte';
 	import { WifiOff } from 'lucide-svelte';
 	import { createWindowVirtualizer } from '@tanstack/svelte-virtual';
 
@@ -238,6 +239,7 @@
 			selectedCategory = params.get('category') || 'all';
 			const urlShow = params.get('show') as ShowMode | null;
 			show = urlShow && SHOW_MODES.includes(urlShow) ? urlShow : 'any';
+			showDownloadedOnly = params.get('downloaded') === '1';
 			const urlSort = params.get('sort') as SortKey | null;
 			const fromLs = canUseLocalStorage()
 				? (localStorage.getItem(BROWSE_SORT_LS) as SortKey | null)
@@ -318,7 +320,7 @@
 		void loadCatalogIndex(applyCatalogUpdate, { eager: true });
 	});
 
-	let restrictToDownloaded = $derived(!networkOnline || showDownloadedOnly);
+	let restrictToDownloaded = $derived(showDownloadedOnly || (!networkOnline && offlineFilterOn()));
 
 	/* The Recommended filter ranks the whole catalog, so it loads the rest first. */
 	let recommendedRequested = false;
@@ -640,8 +642,13 @@
 						<Switch
 							id="filter-downloaded"
 							checked={restrictToDownloaded}
-							disabled={!networkOnline}
-							onCheckedChange={(v) => (showDownloadedOnly = v)}
+							onCheckedChange={(v) => {
+								if (networkOnline) showDownloadedOnly = v;
+								else {
+									showDownloadedOnly = false;
+									setOfflineFilter(v);
+								}
+							}}
 						/>
 					</div>
 					<div class="flex items-center justify-between gap-3">
