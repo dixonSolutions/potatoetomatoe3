@@ -234,8 +234,9 @@ export async function cancelGameDownload(gameId: string, discardCache: boolean):
 /** Resolve play URL for an offline copy based on the active backend. */
 export async function getOfflinePlayUrl(gameId: string): Promise<string | null> {
 	const { base } = await import('$app/paths');
-	const { resolveStaticOfflineEntry, resolveStaticOfflinePlayUrl, staticOfflineFileExists } =
-		await import('./offline-play-url');
+	const { resolveStaticOfflinePlayUrl, staticOfflineFileExists } = await import(
+		'./offline-play-url'
+	);
 
 	if (isBundledOfflineGame(gameId)) {
 		return resolveStaticOfflinePlayUrl(gameId, base);
