@@ -31,6 +31,8 @@
 		isTodayPlayLimitReached,
 		isGlobalDailyLimitExceeded
 	} from '$lib/utils/play-recommendations';
+	import { recordPlayEvent } from '$lib/utils/play-events';
+	import { EARLY_LEAVE_MS } from '$lib/utils/recommendation-model';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { ArrowLeft, ThumbsUp, ThumbsDown, Play, Download } from 'lucide-svelte';
@@ -1207,6 +1209,22 @@
 			heldForRefresh = false;
 		});
 	}
+
+	/* Recommender signals: a launch error, or leaving within seconds of the game starting. */
+	$effect(() => {
+		const id = gameId;
+		if (error && id) untrack(() => recordPlayEvent(id, 'error'));
+	});
+	$effect(() => {
+		if (!gameSurfaceStarted || !gameId) return;
+		const id = gameId;
+		const started = Date.now();
+		return () => {
+			if (Date.now() - started < EARLY_LEAVE_MS && !untrack(() => error)) {
+				recordPlayEvent(id, 'leave');
+			}
+		};
+	});
 
 	$effect(() => {
 		if (!gameSurfaceStarted || !gameId) return;

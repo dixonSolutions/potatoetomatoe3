@@ -4,13 +4,13 @@ All data lives in the browser (`localStorage` key `potato-tomato-play-analytics`
 
 ## Algorithm
 
-- **Signals:** category and author weights (EMA from opens), per-game sessions and total play time, recent category queue, explicit category affinity sliders (-1…+1), favourites and dislikes from `potato-tomato-preferences`.
-- **Scoring:** An 8-dimensional feature vector per game is multiplied by a **fixed** weight vector (hand-tuned linear model, not gradient-trained in the browser). **TensorFlow.js** runs this batch `matMul` on **WebGPU** when the browser supports it, then WebGL, then CPU (`recommendation-tf.ts`). Weights do not change from user data automatically; analytics only adjust the **features** fed into that product.
-- **Cold start:** If learning signal is very low, the home feed uses a deterministic shuffle instead.
+See [recommendations.md](recommendations.md): hashed game features, a user vector trained
+with BPR on this device, the catalog scored on WebGPU (CPU fallback), the last six months of
+activity only.
 
 ## Routes
 
-- **`/home`** — “Continue”, **“Recommended”**, and “More to explore” rows; feed reloads on each client navigation to `/home`.
+- **`/home`** — rows like the Roblox home: Continue, Favourites, Recommended for you, Today's picks, Top rated, and the categories you play (`home-feed.ts`).
 - **`/play-analytics`** — Playtime totals, backend label, category sliders, global daily limit, and a preview list of top-ranked titles.
 
 ## Playtime

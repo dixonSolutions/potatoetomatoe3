@@ -102,8 +102,6 @@
   },
   "dependencies": {
     "@tanstack/svelte-virtual": "^3.13.32",
-    "@tensorflow/tfjs": "^4.22.0",
-    "@tensorflow/tfjs-backend-webgpu": "^4.22.0",
     "fuse.js": "^7.0.0",
     "lucide-svelte": "^0.548.0"
   }
