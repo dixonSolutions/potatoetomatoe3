@@ -3857,3 +3857,86 @@
 		}
 	});
 })();
+
+/* ==========================================================================
+ * Game ready — a self-contained block. Tells the app once the game is on screen, so
+ * the touch controls never sit over a blank startup screen or a loader.
+ *
+ * Posts {type:'potato-tomato-game-ready', gameId, reason} to the app once, when:
+ *   - a canvas or video covering a good part of the frame is up ('surface'), or
+ *   - the page has no canvas, video or frame at all a moment after load ('document':
+ *     a plain HTML game), or
+ *   - an engine that said it is loading (`window.__ptEngineLoading`, set by
+ *     static/unity/inject.js) calls `window.__ptGameReady()` ('engine'), or
+ *   - nothing of that after MAX_MS ('timeout'), so the controls are never lost.
+ * Runs in frames only.
+ * ========================================================================== */
+(function () {
+	if (window.top === window || window.__ptReadyWatch) return;
+	window.__ptReadyWatch = true;
+
+	var MSG = 'potato-tomato-game-ready';
+	var MAX_MS = 20000;
+	var DOCUMENT_SETTLE_MS = 1500;
+	var startedAt = Date.now();
+	var loadedAt = 0;
+	var sent = false;
+
+	function post(reason) {
+		if (sent) return;
+		sent = true;
+		var msg = {
+			type: MSG,
+			gameId: typeof window.__ptGameId === 'string' ? window.__ptGameId : '',
+			reason: reason
+		};
+		try {
+			(window.top || window.parent).postMessage(msg, '*');
+		} catch {
+			try {
+				window.parent.postMessage(msg, '*');
+			} catch {
+				/* detached */
+			}
+		}
+	}
+	window.__ptGameReady = function (reason) {
+		window.__ptEngineLoading = false;
+		post(reason || 'engine');
+	};
+
+	function surfaceUp() {
+		var vw = window.innerWidth || 0;
+		var vh = window.innerHeight || 0;
+		if (!vw || !vh) return false;
+		var els = document.querySelectorAll('canvas, video');
+		for (var i = 0; i < els.length; i++) {
+			var r = els[i].getBoundingClientRect();
+			if (r.width >= 160 && r.height >= 120 && r.width * r.height >= vw * vh * 0.3) return true;
+		}
+		return false;
+	}
+
+	function check() {
+		if (sent) return;
+		var now = Date.now();
+		if (now - startedAt >= MAX_MS) return post('timeout');
+		if (!window.__ptEngineLoading) {
+			if (surfaceUp()) return post('surface');
+			if (
+				now - loadedAt >= DOCUMENT_SETTLE_MS &&
+				!document.querySelector('canvas, video, iframe, embed, object')
+			) {
+				return post('document');
+			}
+		}
+		setTimeout(check, 250);
+	}
+
+	function begin() {
+		loadedAt = Date.now();
+		setTimeout(check, 300);
+	}
+	if (document.readyState === 'complete') begin();
+	else window.addEventListener('load', begin);
+})();

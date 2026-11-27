@@ -276,6 +276,17 @@
 	}
 
 	/* Wrap createUnityInstance once the loader defines it */
+	/* Until the instance resolves the canvas shows Unity's loader: hold the game-ready signal. */
+	window.__ptEngineLoading = true;
+	function ptUnityReady(reason) {
+		window.__ptEngineLoading = false;
+		if (typeof window.__ptGameReady === 'function') return window.__ptGameReady(reason);
+		try {
+			(window.top || window.parent).postMessage({ type: 'potato-tomato-game-ready', reason: reason }, '*');
+		} catch {
+			/* detached */
+		}
+	}
 	var _cui = window.createUnityInstance;
 	Object.defineProperty(window, 'createUnityInstance', {
 		configurable: true,
@@ -297,6 +308,7 @@
 					if (typeof onProgress === 'function') onProgress(progress);
 				}).then(function (instance) {
 					hideLoadingDom();
+					ptUnityReady('unity');
 					return instance;
 				});
 			};
@@ -321,13 +333,17 @@
 				forceUnityCompressionSupported(UL);
 				opts = opts || {};
 				opts.Module = ensureUnityModuleHooks(opts.Module || {});
-				if (opts.onProgress) {
-					var origProgress = opts.onProgress;
-					opts.onProgress = function (gameInstance, progress) {
-						hideLoadingDom();
-						return origProgress(gameInstance, progress);
-					};
-				}
+				var origProgress = opts.onProgress;
+				opts.onProgress = function (gameInstance, progress) {
+					hideLoadingDom();
+					/* Fully downloaded: give the engine a moment to start, then it is ready. */
+					if (progress >= 1) {
+						setTimeout(function () {
+							ptUnityReady('unity-legacy');
+						}, 500);
+					}
+					if (typeof origProgress === 'function') return origProgress(gameInstance, progress);
+				};
 				var instance = origInstantiate(container, url, opts);
 				try {
 					if (instance) {
